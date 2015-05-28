@@ -7,10 +7,7 @@
 */
 #include "makros.hpp"
 
-
-private ["_rad","_pos"];
-_pos = _this select 0;
-_rad = _this select 1;
+PARAMS_2(_pos,_rad);
 
 d_log("Aufräumen groß start")
 

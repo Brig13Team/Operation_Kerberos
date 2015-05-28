@@ -10,9 +10,8 @@
 */
 #include "makros.hpp"
 
-private ["_aufgabe","_rand"];
-
-_aufgabe = _this select 0;
+PARAMS_1(_aufgabe);
+private ["_rand"];
 
 [] call FM(create_unitlists);
 

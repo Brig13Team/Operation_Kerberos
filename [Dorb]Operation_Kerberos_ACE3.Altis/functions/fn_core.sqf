@@ -27,7 +27,7 @@ Anzahl_Aufgaben=1;
 
 _aufgabennummer=0;
 
-_return = [] FCALL(get_cfglocations);
+_return = [] call FM(get_cfglocations);
 
 SETMVAR(DORB_STADT,(_return select 0));
 SETMVAR(DORB_INDUSTRIE,(_return select 1));
@@ -38,7 +38,7 @@ SETMVAR(DORB_SONSTIGES,(_return select 4));
 [] spawn {
 	while {true} do {
 	sleep 1200;
-	[] FSPAWN(cleanup_small);
+	[] spawn FM(cleanup_small);
 	false
 	};
 
