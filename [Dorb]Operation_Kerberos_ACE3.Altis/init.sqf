@@ -43,5 +43,5 @@ tf_no_auto_long_range_radio = true;
 //TF_give_microdagr_to_soldier = false;
 
 ["Initialize"] call BIS_fnc_dynamicGroups;  
-//CHECK(!hasInterface)
+CHECK(!hasInterface)
 ["init"] FSPAWN(grouptracker);
