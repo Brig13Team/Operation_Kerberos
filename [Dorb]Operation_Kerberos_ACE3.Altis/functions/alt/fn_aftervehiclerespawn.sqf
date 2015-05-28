@@ -6,9 +6,8 @@
 */
 #include "makros.hpp"
 
-private ["_return","_unit"];
-_return = _this select 0;
-_unit = _return select 0;
+PARAMS_1(_parameter);
+EXPLODE_1_PVT(_unit);
 
 [west,_unit] call BIS_fnc_addRespawnPosition;
 _unit setVariable ["DORB_ISRESPAWN",true];
