@@ -2,21 +2,12 @@
 	Author: Dorbedo
 	
 	Description:
-	
-	Requirements:
-	
-	Parameter(s):
-		0 : ARRAY	- Example
-		1 : ARRAY	- Example
-		2 : STRIN	- Example
-	
-	Return
-	BOOL
+		Gebäude um Position auflisten
 */
 #include "makros.hpp"
 
-private ["_gebauede","_rad","_pos","_i","_fertig","_gebauedepos","_temp"];
-_pos = _this select 0;
+private ["_gebauede","_pos","_i","_fertig","_gebauedepos","_temp"];
+PARAMS_1(_pos);
 CHECK((count _pos)<2)
 _rad = [_this,1,250,[0]] call BIS_fnc_param;
 _gebauede = [];
