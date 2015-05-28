@@ -1,0 +1,866 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project name="dorb">
+	<Package name="Briefing">
+		<Key ID="STR_DORB_CLAN">
+			<Original>Brigade 13</Original>
+            <German>Brigade 13</German>
+			<English>Brigade 13</English>
+		</Key>
+		<Key ID="STR_DORB_AUTHOR">
+			<Original>Dorbedo</Original>
+			<English>Dorbedo</English>
+			<Czech>Dorbedo</Czech>
+			<French>Dorbedo</French>
+			<German>Dorbedo</German>
+			<Italian>Dorbedo</Italian>
+			<Polish>Dorbedo</Polish>
+			<Portuguese>Dorbedo</Portuguese>
+			<Russian>Dorbedo</Russian>
+			<Spanish>Dorbedo</Spanish>
+		</Key>
+		<Key ID="STR_DORB_BRIEF_SETTING">
+			<Original>Settings</Original>
+			<German>Einstellungen</German>
+			<English>Settings</English>
+		</Key>
+		<Key ID="STR_DORB_BRIEF_SETTING_DESC">
+            <Original>Set your view distance via the scroll menu.</Original>
+			<German>Deine Sichtweite kannst du über CVHD im Mausradmenu einstellen.</German>
+            <English>Set your view distance via the scroll menu.</English>
+		</Key>
+		<Key ID="STR_DORB_BRIEF_VEHICLES">
+			<Original>Vehicles</Original>
+			<German>Fahrzeuge</German>
+            <English>Vehicles</English>
+		</Key>
+		<Key ID="STR_DORB_BRIEF_VEHICLES_DESC">
+			<Original>Get your vehicles over the spawnpads at base</Original>
+            <German>Fahrzeuge bekommst du über die Spawnpads in der Basis.</German>
+            <English>Get your vehicles over the spawnpads at base</English>
+		</Key>
+		<Key ID="STR_DORB_BRIEF_RESPAWN">
+			<Original>Respawn</Original>
+            <German>Respawn</German>
+            <English>Respawn</English>
+		</Key>
+		<Key ID="STR_DORB_BRIEF_RESPAWN_DESC">
+			<Original>If you die you will respawn at base. Your earlier equipped gear will be kept.</Original>
+            <German>Wenn du stirbst, kannst du von der Basis aus neu beginnen. Deine Ausrüstung von vor deinem Tod wird wieder hergestellt.</German>
+            <English>If you die you will respawn at base. Your earlier equipped gear will be kept.</English>
+		</Key>
+		<Key ID="STR_DORB_BRIEF_HALO">
+			<Original>Halo</Original>
+            <German>Halo</German>
+            <English>Halo</English>
+		</Key>
+		<Key ID="STR_DORB_BRIEF_HALO_DESC">
+			<Original>Use the 'Halojump' to quickly get to your target. Use it by selecting your destination on the Halomap with the left mouse button. Your parachute will automatically deploy 75m above ground. After your landing your backpack will be restored.</Original>
+            <German>Du kannst schnell per Fallschirm abspringen, indem du den 'Halojump' nutzt. Den Halojump nutzt du, indem du auf der Halokarte auf den Zielort mit der linken Maustaste klickst. Der Fallschrim öffnet sich automatisch 75m über dem Boden. Nach der Landung erhälst du deinen Rucksack zurück.</German>
+            <English>Use the 'Halojump' to quickly get to your target. Use it by selecting your destination on the Halomap with the left mouse button. Your parachute will automatically deploy 75m above ground. After your landing your backpack will be restored.</English>
+		</Key>
+		<Key ID="STR_DORB_BRIEF_SQUAD">
+			<Original>Squadmanagement</Original>
+            <German>Squadmanagement</German>
+            <English>Squadmanagement</English>
+		</Key>
+		<Key ID="STR_DORB_BRIEF_SQUAD_DESC">
+			<Original>To open up the squad management press 'U'.</Original>
+            <German>Um deine Gruppe zu wechseln nutze bitte das Squadmanagement von Bohemia. Die Tastatur Standartbelegung dafür ist 'U'.</German>
+            <English>To open up the squad management press 'U'.</English>
+		</Key>
+		<Key ID="STR_DORB_BRIEF_TFR">
+			<Original>Frequencies</Original>
+            <German>Funkfrequenzen</German>
+            <English>Frequencies</English>
+		</Key>
+		<Key ID="STR_DORB_BRIEF_TFR_DESC">
+			<Original>To ensure communication between the squads please enter your frequencies via the 'Frequencies' option under your mouse wheel menu. The Team Lead is able to define frequencies whereas members are able to adopt them easily.</Original>
+            <German>Um die Kommunikation zwischen den Squads zu gewährleisten, tragt bitte eure Funkfrequenzen über das TFR-Frequenzübersicht Tool ein. Dieses findet ihr auch über das Mausradmenu. Der Teamleader kann in dem Tool die Frequenzen des Squads mit 'Festlegen' festlegen und die Teammiglieder können schnell ihr Funkgerät mit 'Übernehmen' auf die Squadfrequenzen einstellen.</German>
+            <English>To ensure communication between the squads please enter your frequencies via the 'Frequencies' option under your mouse wheel menu. The Team Lead is able to define frequencies whereas members are able to adopt them easily.</English>
+		</Key>
+		
+	</Package>
+	<Package name="Basis">
+		<Key ID="STR_DORB_WELCOME1">
+			<Original>Welcome to Brigade 13.</Original>
+            <German>Willkommen bei der Brigade 13.</German>
+            <English>Welcome to Brigade 13</English>
+		</Key>
+		<Key ID="STR_DORB_WELCOME2">
+			<Original>We wish you a good time</Original>
+            <German>Wir wünschen euch viel Spaß</German>
+            <English>We wish you a good time</English>
+		</Key>
+		<Key ID="STR_DORB_WELCOME3">
+			<Original>on our public server</Original>
+            <German>auf unserem Public-Server.</German>
+            <English>on our public server.</English>
+		</Key>
+		<Key ID="STR_DORB_WELCOME4">
+			<Original>Teamspeak: 144.76.34.199</Original>
+            <German>Teamspeak: 144.76.34.199</German>
+            <English>Teamspeak: 144.76.34.199</English> 
+		</Key>
+		<Key ID="STR_DORB_WELCOME5">
+			<Original>Website: www.brigade13.de</Original>
+            <German>Webseite: www.brigade13.de</German>
+            <English>Website: www.brigade13.de</English>
+		</Key>
+		<Key ID="STR_DORB_WELCOME6">
+			<Original>your 13th Brigade</Original>
+            <German>Eure Brigade 13</German>
+            <English>your 13th Brigade</English>
+		</Key>
+		<Key ID="STR_DORB_REP_POINT">
+			<Original>Reparation</Original>
+            <German>Reperatur</German>
+            <English>Reparation</English>
+		</Key>
+		<Key ID="STR_DORB_REP_CANCELED">
+			<Original>Canceled</Original>
+            <German>Abgebrochen</German>
+            <English>Canceled</English>
+		</Key>
+		<Key ID="STR_DORB_REP_EXECUTED">
+			<Original>In progress</Original>
+            <German>Wird durchgeführt</German>
+            <English>In progress</English>
+		</Key>
+		<Key ID="STR_DORB_REP_WAIT">
+			<Original>Please wait...</Original>
+            <German>Bitte warten...</German>
+            <English>Please wait...</English>
+		</Key>
+		<Key ID="STR_DORB_REP_FINISHED">
+			<Original>Finished</Original>
+            <German>Abgeschlossen</German>
+            <English>Finished</English>
+		</Key>
+		<Key ID="STR_DORB_TELEPORT">
+			<Original>Teleport</Original>
+            <German>Teleport</German>
+            <English>Teleport</English>
+		</Key>
+		<Key ID="STR_DORB_TELEPORT_BASE">
+			<Original>Base</Original>
+            <German>Basis</German>
+            <English>Base</English>
+		</Key>
+		<Key ID="STR_DORB_TELEPORT_VEHICLES">
+			<Original>Vehicles</Original>
+            <German>Fahrzeuge</German>
+            <English>Vehicles</English>
+		</Key>
+		<Key ID="STR_DORB_TELEPORT_AIR">
+			<Original>Aircraft</Original>
+            <German>Luftwaffe</German>
+            <English>Aircraft</English>
+		</Key>
+		<Key ID="STR_DORB_TELEPORT_DRONES">
+			<Original>Vehicles</Original>
+            <German>Fahrzeuge</German>
+            <English>Vehicles</English>
+		</Key>
+		<Key ID="STR_DORB_TELEPORT_LOGISTIC">
+			<Original>Logistics</Original>
+            <German>Logistik</German>
+            <English>Logistics</English>
+		</Key>
+		<Key ID="STR_DORB_TELEPORT_MARINE">
+			<Original>Harbour</Original>
+            <German>Hafen</German>
+            <English>Harbour</English>
+		</Key>
+		<Key ID="STR_DORB_TELEPORT_LEAD">
+			<Original>Teleport to Teamleader</Original>
+            <German>Teleport zum Teamleader</German>
+            <English>Teleport to Teamleader</English>
+		</Key>
+		<Key ID="STR_DORB_TELEPORT_LEAD_FAIL">
+			<Original>Teleport failed</Original>
+            <German>Teleport fehlgeschlagen</German>
+            <English>Teleport failed</English>
+		</Key>
+		<Key ID="STR_DORB_TELEPORT_LEAD_ISLEADER">
+			<Original>You are the Teamleader yourself.</Original>
+            <German>Du bist selbst der Teamleader.</German>
+            <English>You are the Teamleader yourself.</English>
+		</Key>
+		<Key ID="STR_DORB_TELEPORT_LEAD_NEARENEMY">
+			<Original>Enemies nearby.</Original>
+            <German>Gegner in der Nähe</German>
+            <English>Enemies nearby.</English>
+		</Key>
+		<Key ID="STR_DORB_TELEPORT_LEAD_NOPLACE">
+			<Original>No seat left in the vehicle</Original>
+            <German>Kein Passagier-Platz im Fahrzeug</German>
+            <English>No seat left in the vehicle</English>
+		</Key>
+		<Key ID="STR_DORB_HALO">
+			<Original>Halo</Original>
+            <German>Halo</German>
+            <English>Halo</English>
+		</Key>
+		<Key ID="STR_DORB_HALO_OPEN_CHUTE">
+			<Original>open parachute</Original>
+            <German>Fallschirm öffnen</German>
+            <English>open parachute</English>
+		</Key>
+		<Key ID="STR_DORB_HALO_DISABLED">
+			<Original>Halo deactivated</Original>
+            <German>Halo deaktiviert</German>
+            <English>Halo deactivated</English>
+		</Key>
+		<Key ID="STR_DORB_HALO_KlICK">
+			<Original>Left-click your destination</Original>
+            <German>Klicke mit deiner linken Maustaste auf dein Wunschziel.</German>
+            <English>Left-click your destination</English>
+		</Key>
+		<Key ID="STR_DORB_HALO_ABORT">
+			<Original>Canceled</Original>
+            <German>Abgebrochen</German>
+            <English>Canceled</English>
+		</Key>
+		<Key ID="STR_DORB_TFR_SHORT">
+			<Original>Frequencies</Original>
+            <German>TFR - Frequenzübersicht</German>
+            <English>Frequencies</English>
+		</Key>
+		<Key ID="STR_DORB_TFR_HEADER">
+			<Original>Task Force Radio - Frequencies</Original>
+            <German>Task Force Radio - Frequenzübersicht</German>
+            <English>Task Force Radio - Frequencies</English>
+		</Key>
+		<Key ID="STR_DORB_TFR_TAKE">
+			<Original>Take</Original>
+            <German>Übernehmen</German>
+            <English>Take</English>
+		</Key>
+		<Key ID="STR_DORB_TFR_TAKE_TOOLTIP">
+			<Original>Take frequency of your squad</Original>
+            <German>Übernimm die Frequenzen der Gruppe in dein eigenes Funkgerät.</German>
+            <English>Take frequency of your squad</English>
+		</Key>
+		<Key ID="STR_DORB_TFR_SET">
+			<Original>Set</Original>
+            <German>Festlegen</German>
+            <English>Set</English>
+		</Key>
+		<Key ID="STR_DORB_TFR_SET_TOOLTIP">
+			<Original>Set frequency as teamleader of your squad</Original>
+            <German>Setze als Teamleader die Frequenzen der Gruppe fest.</German>
+            <English>Set frequency as teamleader of your squad</English>
+		</Key>
+		<Key ID="STR_DORB_TFR_GROUP">
+			<Original>Squad</Original>
+            <German>Gruppe</German>
+            <English>Squad</English>
+		</Key>
+		<Key ID="STR_DORB_TFR_FREQ_SQUAD">
+			<Original>Current Squad-Frequencies</Original>
+            <German>Aktuelle Squadfrequenzen</German>
+            <English>Current Squad-Frequencies</English>
+		</Key>
+		<Key ID="STR_DORB_TFR_FREQ_NEW">
+			<Original>New Squad-Frequencies</Original>
+            <German>Neue Squadfrequenzen</German>
+            <English>New Squad-Frequencies</English>
+		</Key>
+		<Key ID="STR_DORB_TFR_NOLEADER">
+			<Original>No Teamleader</Original>
+            <German>Kein Truppfuehrer</German>
+            <English>No Teamleader</English>
+		</Key>
+		<Key ID="STR_DORB_BASE">
+			<Original>Base</Original>
+            <German>Basis</German>
+            <English>Base</English>
+		</Key>
+		<Key ID="STR_DORB_BASE_FIRE">
+			<Original>Firing at base is prohibited</Original>
+            <German>Das Feuern in der Basis ist nicht erlaubt!</German>
+            <English>Firing at base is prohibited</English>
+		</Key>
+		<Key ID="STR_DORB_SPAWN_WD">
+			<Original>Woodland</Original>
+            <German>Wald</German>
+            <English>Woodland</English>
+		</Key>
+		<Key ID="STR_DORB_SPAWN_D">
+			<Original>Desert</Original>
+            <German>Wüste</German>
+            <English>Desert</English>
+		</Key>
+		<Key ID="STR_DORB_SPAWN_NOTEMPTY">
+			<Original>Spawn is not empty</Original>
+            <German>Spawnfläche ist nicht leer</German>
+            <English>Spawn is not empty</English>
+		</Key>
+		<Key ID="STR_DORB_SPAWN_VEHICLE">
+			<Original>Vehicle Spawn</Original>
+            <German>Fahrzeugspawn</German>
+            <English>Vehicle Spawn</English>
+		</Key>
+		<Key ID="STR_DORB_SPAWN_AIR">
+			<Original>Air Spawn</Original>
+            <German>Luftwaffenspawn</German>
+            <English>Air Spawn</English>
+		</Key>
+		<Key ID="STR_DORB_SPAWN_WATER">
+			<Original>Naval Spawn</Original>
+            <German>Marinespawn</German>
+            <English>Naval Spawn</English>
+		</Key>
+		<Key ID="STR_DORB_SPAWN_DRONES">
+			<Original>Autonomous Spawn</Original>
+            <German>Drohnenspawn</German>
+            <English>Autonomous Spawn</English>
+		</Key>
+		<Key ID="STR_DORB_SPAWN_LOGISTIC">
+			<Original>Supply Depot</Original>
+            <German>Versorgungsdepot</German>
+            <English>Supply Depot</English>
+		</Key>
+		<Key ID="STR_DORB_SPAWN_EMPTY">
+			<Original>Spawn empty</Original>
+            <German>Leer erschaffen</German>
+            <English>Spawn empty</English>
+		</Key>
+		<Key ID="STR_DORB_SPAWN_DRIVER">
+			<Original>Spawn as driver</Original>
+            <German>Als Fahrer erschaffen</German>
+            <English>Spawn as driver</English>
+		</Key>
+		<Key ID="STR_DORB_SPAWN_VEHICLE_DESC">
+			<Original>Order Vehicle</Original>
+            <German>Fahrzeug bestellen</German>
+            <English>Order Vehicle</English>
+		</Key>
+		<Key ID="STR_DORB_SPAWN_AIR_DESC">
+			<Original>Order Aircraft</Original>
+            <German>Fluggeraete bestellen</German>
+            <English>Order Aircraft</English>
+		</Key>
+		<Key ID="STR_DORB_SPAWN_WATER_DESC">
+			<Original>Order Ship</Original>
+            <German>Schiffe bestellen</German>
+            <English>Order Ship</English>
+		</Key>
+		<Key ID="STR_DORB_SPAWN_DRONES_DESC">
+			<Original>Order Drone</Original>
+            <German>Drohnen bestellen</German>
+            <English>Order Drone</English>
+		</Key>
+		<Key ID="STR_DORB_SPAWN_LOGISTIC_DESC">
+			<Original>Order Supplies</Original>
+            <German>Versorgung bestellen</German>
+            <English>Order Supplies</English>
+		</Key>
+		<Key ID="STR_DORB_ARSENAL_OPEN_DESC">
+			<Original>Open Virtual Arsenal</Original>
+            <German>Virtuelles Arsenal öffnen</German>
+            <English>Open Virtual Arsenal</English>
+		</Key>
+		<Key ID="STR_DORB_NURPILOTEN">
+			<Original>%1: you don't have the right qualifications to move this vehicle.</Original>
+            <German>%1, du besitzt keine ausreichende Qualifizierung um das Fahrzeug zu bewegen.</German>
+            <English>%1: you don't have the right qualifications to move this vehicle.</English>
+		</Key>
+		<Key ID="STR_DORB_RESCUE_MARKER">
+			<Original>Rescue-Point</Original>
+            <German>Sicherheitszone</German>
+            <English>Rescue-Point</English>
+		</Key>
+	</Package>
+	<Package name="CRATE">
+		<Key ID="STR_DORB_CRATE_HEADER">
+			<Original>Crate Filler BETA</Original>
+            <German>Kistenfüller BETA</German>
+            <English>Crate Filler BETA</English>
+		</Key>
+		<Key ID="STR_DORB_CRATE_SPAWN">
+			<Original>Spawn</Original>
+            <German>Erschaffen</German>
+            <English>Spawn</English>
+		</Key>
+		<Key ID="STR_DORB_CRATE_CLEAR">
+			<Original>Clear</Original>
+            <German>Löschen</German>
+            <English>Clear</English>
+		</Key>
+		<Key ID="STR_DORB_CRATE_SIZE1">
+			<Original>Small Box</Original>
+            <German>Kleine Kiste</German>
+            <English>Small Box</English>
+		</Key>
+		<Key ID="STR_DORB_CRATE_SIZE2">
+			<Original>Medium Box</Original>
+            <German>Mittlere Kiste</German>
+            <English>Medium Box</English>
+		</Key>
+		<Key ID="STR_DORB_CRATE_SIZE3">
+			<Original>Big Box</Original>
+            <German>Große Kiste</German>
+            <English>Big Box</English>
+		</Key>
+		<Key ID="STR_DORB_CRATE_SIZE4">
+			<Original>Supply Crate</Original>
+            <German>Nachschubkiste</German>
+            <English>Supply Crate</English>
+		</Key>
+		<Key ID="STR_DORB_CRATE_SIZE5">
+			<Original>Fright Net</Original>
+            <German>Frachtnetz</German>
+            <English>Fright Net</English>
+		</Key>
+		<Key ID="STR_DORB_CRATE_SIZE6">
+			<Original>Container</Original>
+            <German>Frachtcontainer</German>
+            <English>Container</English>
+		</Key>
+		<Key ID="STR_DORB_CRATE_BTTN_1">
+			<Original>Current</Original>
+            <German>Aktuell</German>
+            <English>Current</English>
+		</Key>
+		<Key ID="STR_DORB_CRATE_BTTN_2">
+			<Original>Rifles</Original>
+            <German>Sturmgewehre</German>
+            <English>Rifles</English>
+		</Key>
+		<Key ID="STR_DORB_CRATE_BTTN_3">
+			<Original>Automatic Rifles</Original>
+            <German>Maschinengewehre</German>
+            <English>Automatic Rifles</English>
+		</Key>
+		<Key ID="STR_DORB_CRATE_BTTN_4">
+			<Original>Sniper Rifles</Original>
+            <German>Scharfschützengewehre</German>
+            <English>Sniper Rifles</English>
+		</Key>
+		<Key ID="STR_DORB_CRATE_BTTN_5">
+			<Original>Other Weapons</Original>
+            <German>Andere Waffen</German>
+            <English>Other Weapons</English>
+		</Key>
+		<Key ID="STR_DORB_CRATE_BTTN_6">
+			<Original>Launcher</Original>
+            <German>Raktenwerfer</German>
+            <English>Launcher</English>
+		</Key>
+		<Key ID="STR_DORB_CRATE_BTTN_7">
+			<Original>Pistole</Original>
+            <German>Pistolen</German>
+            <English>Pistole</English>
+		</Key>
+		<Key ID="STR_DORB_CRATE_BTTN_8">
+			<Original>Attachments</Original>
+            <German>Anbauteile</German>
+            <English>Attachments</English>
+		</Key>
+		<Key ID="STR_DORB_CRATE_BTTN_9">
+			<Original>Grenades</Original>
+            <German>Granaten</German>
+            <English>Grenades</English>
+		</Key>
+		<Key ID="STR_DORB_CRATE_BTTN_10">
+			<Original>Explosives</Original>
+            <German>Sprengmittel</German>
+            <English>Explosives</English>
+		</Key>
+		<Key ID="STR_DORB_CRATE_BTTN_11">
+			<Original>Backpacks</Original>
+            <German>Rucksäcke</German>
+            <English>Backpacks</English>
+		</Key>
+		<Key ID="STR_DORB_CRATE_BTTN_12">
+			<Original>Vests</Original>
+            <German>Westen</German>
+            <English>Vests</English>
+		</Key>
+		<Key ID="STR_DORB_CRATE_BTTN_13">
+			<Original>Uniforms</Original>
+            <German>Uniformen</German>
+            <English>Uniforms</English>
+		</Key>
+		<Key ID="STR_DORB_CRATE_BTTN_14">
+			<Original>Head</Original>
+            <German>Kopf</German>
+            <English>Head</English>
+		</Key>
+		<Key ID="STR_DORB_CRATE_BTTN_15">
+			<Original>Radio</Original>
+            <German>Funkgeräte</German>
+            <English>Radio</English>
+		</Key>
+		<Key ID="STR_DORB_CRATE_BTTN_16">
+			<Original>Orienttation Guidiance</Original>
+            <German>Orientierungshilfen</German>
+            <English>Orienttation Guidiance</English>
+		</Key>
+		<Key ID="STR_DORB_CRATE_BTTN_17">
+			<Original>Medical Equipment</Original>
+            <German>Sanitätsmaterial</German>
+            <English>Medical Equipment</English>
+		</Key>
+		<Key ID="STR_DORB_CRATE_BTTN_18">
+			<Original>Items</Original>
+            <German>Gegenstände</German>
+            <English>Items</English>
+		</Key>
+		<Key ID="STR_DORB_CRATE_BTTN_19">
+			<Original>Other</Original>
+            <German>Sonstiges</German>
+            <English>Other</English>
+		</Key>
+		<Key ID="STR_DORB_CRATE_BTTN_20">
+			<Original>Other</Original>
+            <German>Sonstiges</German>
+            <English>Other</English>
+		</Key>
+	</Package>
+	<Package name="missions">
+		<Container name="Allg">
+			<Key ID="STR_DORB_FINISHED">
+				<Original>Finished</Original>
+                <German>Abgeschlossen</German>
+                <English>Finished</English>
+			</Key>
+			<Key ID="STR_DORB_FAILED">
+				<Original>Failed</Original>
+                <German>Gescheitert</German>
+                <English>Failed</English>
+			</Key>
+			<Key ID="STR_DORB_EXAMINE">
+				<Original>Interrogate</Original>
+                <German>Verhör</German>
+                <English>Interrogate</English>
+			</Key>
+			<Key ID="STR_DORB_EXAMINE_DESC">
+				<Original>The enemy has been interrogated.</Original>
+                <German>Der Gegner wurde verhört.</German>
+                <English>The enemy has been interrogated.</English>
+			</Key>
+			<Key ID="STR_DORB_RTB">
+				<Original>RTB</Original>
+                <German>RTB</German>
+                <English>RTB</English>
+			</Key>
+			<Key ID="STR_DORB_RTB_START_1">
+				<Original>Return to base.</Original>
+                <German>Kehren sie zur Basis zurück.</German>
+                <English>Return to base.</English>
+			</Key>
+			<Key ID="STR_DORB_RTB_START_2">
+				<Original></Original>
+                <German></German>
+                <English></English>
+			</Key>
+			<Key ID="STR_DORB_RTB_FINISHED">
+				<Original>All units have returned.</Original>
+                <German>Alle Soldaten sind zurückgekehrt.</German>
+                <English>All units have returned.</English>
+			</Key>
+			<Key ID="STR_DORB_RTB_FINISHED2">
+				<Original>Prepare for new orders.</Original>
+                <German>Bereiten Sie sich auf neue Befehle vor.</German>
+                <English>Prepare for new orders.</English>
+			</Key>
+			<Key ID="STR_DORB_DESTROY">
+				<Original>Destroy</Original>
+                <German>Zerstören</German>
+                <English>Destroy</English>
+			</Key>
+			<Key ID="STR_DORB_DEFEND">
+				<Original>Defend</Original>
+                <German>Verteidigen</German>
+                <English>Defend</English>
+			</Key>
+			<Key ID="STR_DORB_CLEAR">
+				<Original>Capture</Original>
+                <German>Erobern</German>
+                <English>Capture</English>
+			</Key>
+			<Key ID="STR_DORB_CAPTURE">
+				<Original>Capture</Original>
+                <German>Erobern</German>
+                <English>Capture</English>
+			</Key>
+			<Key ID="STR_DORB_FIND">
+				<Original>Search</Original>
+                <German>Suchen</German>
+                <English>Search</English>
+			</Key>
+			<Key ID="STR_DORB_RESCUE">
+				<Original>Rescue</Original>
+                <German>Retten</German>
+                <English>Rescue</English>
+			</Key>
+			<Key ID="STR_DORB_KILL">
+				<Original>Neutralize</Original>
+                <German>Neutralisieren</German>
+                <English>Neutralize</English>
+			</Key>
+		</Container>
+		<Container name="Defend">
+			<Key ID="STR_DORB_DEF">
+				<Original>Defend</Original>
+                <German>Verteidigen</German>
+                <English>Defend</English>
+                                 
+			</Key>
+			<Key ID="STR_DORB_DEF_TASK">
+				<Original>Defend %1</Original>
+                <German>Verteidigen Sie %1</German>
+                <English>Defend %1</English>
+			</Key>
+			<Key ID="STR_DORB_DEF_TASK_DESC">
+				<Original>The enemy is trying to capture a key position. Move to %1 and prepare for the assault.</Original>
+                <German>Der Feind versucht die strategisch wichtige Positionen zu erobern. Begeben sie sich nach %1 und bereiten Sie sich auf einen Angriff vor.</German>
+                <English>The enemy is trying to capture a key position. Move to %1 and prepare for the assault.</English>
+			</Key>
+			<Key ID="STR_DORB_DEF_ATT1">
+				<Original>The enemy is preparing his attack.</Original>
+                <German>Der Feind bereitet den Angriff vor.</German>
+                <English>The enemy is preparing his attack.</English>
+			</Key>
+			<Key ID="STR_DORB_DEF_ATT2">
+				<Original>Get prepared</Original>
+                <German>Machen Sie sich bereit.</German>
+                <English>Get prepared</English>
+			</Key>
+			<Key ID="STR_DORB_DEF_ATT_IN">
+				<Original>The enemy will attack in %1 minutes.</Original>
+                <German>Der Feind greift in %1 Minuten an</German>
+                <English>The enemy will attack in %1 minutes.</English>
+			</Key>
+			<Key ID="STR_DORB_DEF_ATT_INB">
+				<Original>The enemy will attack in one minute.</Original>
+                <German>Der Feind greift in einer Minute an.</German>
+                <English>The enemy will attack in one minute.</English>
+			</Key>
+			<Key ID="STR_DORB_DEF_WAVE_DEFENDED">
+				<Original>The wave has been fought back.</Original>
+                <German>Die Welle wurde zurückgeschlagen.</German>
+                <English>The wave has been fought back.</English>
+			</Key>
+			<Key ID="STR_DORB_DEF_WAVE_NEW">
+				<Original>The enemy is preparing for a new attack. They will arrive soon.</Original>
+                <German>Der Feind bereitet einen neuen Angriff vor. Er wird bald hier sein.</German>
+                <English>The enemy is preparing for a new attack. They will arrive soon.</English>
+			</Key>
+		</Container>
+		<Container name="Clear">
+			<Key ID="STR_DORB_CLEAR_TASK">
+				<Original>Capture %1</Original>
+                <German>Erobern sie %1</German>
+                <English>Capture %1</English>
+                            
+			</Key>
+			<Key ID="STR_DORB_CLEAR_TASK_DESC">
+				<Original>The enemy has captured the area surrounding %1. Recapture it and clear out all hostile forces in the area.</Original>
+                <German>Der Feind hat die Position um %1 eingenommen. Erobern Sie diese zurück und befreien sie das Umland von Feindkräften.</German>
+                <English>The enemy has captured the area surrounding %1. Recapture it and clear out all hostile forces in the area.</English>
+			</Key>
+		</Container>
+		<Container name="PROTOTYP">
+			<Key ID="STR_DORB_PROTO_TASK">
+				<Original>Return our prototype</Original>
+                <German>Bringen Sie unseren Prototyp zurück</German>
+                <English>Return our prototype</English>
+			</Key>
+			<Key ID="STR_DORB_PROTO_TASK_DESC">
+				<Original>Hostile forces have seized one of our prototypes. It is at %1. Bring it back.</Original>
+                <German>Die Gegner haben einen Prototyp von uns entwendet. Er befindet sich in %1. Bringen Sie ihn zurück.</German>
+                <English>Hostile forces have seized one of our prototypes. It is at %1. Bring it back.</English>
+			</Key>
+		</Container>
+		<Container name="DESTROY_DEVICE">
+			<Key ID="STR_DORB_DEST_DEV_TASK">
+				<Original>Destroy the device</Original>
+                <German>Zerstören sie das Gerät</German>
+                <English>Destroy the device</English>
+			</Key>
+			<Key ID="STR_DORB_DEST_DEV_TASK_DESC">
+				<Original>The enemy got his hands on a novel device that might be a threat to us. Destroy it.</Original>
+                <German>Die Feinde haben ein neuartiges Geraet, welches uns gefaehrlich werden kann. Zerstoeren Sie es.</German>
+                <English>The enemy got his hands on a novel device that might be a threat to us. Destroy it.</English>
+			</Key>
+		</Container>
+		<Container name="DESTROY_KOMMUNIKATION">
+			<Key ID="STR_DORB_DEST_KOM_TASK">
+				<Original>Destroy communication's device</Original>
+                <German>Kommunikation zerstören</German>
+                <English>Destroy communication's device</English>
+			</Key>
+			<Key ID="STR_DORB_DEST_KOM_TASK_DESC">
+				<Original>A communication's device has been erected at %1. Destroy it.</Original>
+                <German>Bei %1 wurde eine Kommunikationsstation eingerichtet. Vernichten Sie diese.</German>
+                <English>A communication's device has been erected at %1. Destroy it.</English>
+			</Key>
+		</Container>
+		<Container name="DESTROY_WEAPONCACHE">
+			<Key ID="STR_DORB_DEST_WPN_TASK">
+				<Original>Destroy weapons hideout</Original>
+                <German>Waffenverstecke vernichten</German>
+                <English>Destroy weapons hideout</English>
+			</Key>
+			<Key ID="STR_DORB_DEST_WPN_TASK_DESC">
+				<Original>The enemy has placed over half a dozend of weapon depots at %1. Search and destroy the majority.</Original>
+                <German>Die Feinde haben in %1 über ein halbes Duzend Waffenverstecke angelegt. Suchen und zerstoeren sie den Großteil dieser Verstecke.</German>
+                <English>The enemy has placed over half a dozend of weapon depots at %1. Search and destroy the majority.</English>
+			</Key>
+		</Container>
+		<Container name="Intel">
+			<Key ID="STR_DORB_INTEL_TASK">
+				<Original>Find Intel</Original>
+                <German>Informationen finden</German>
+                <English>Find Intel</English>
+			</Key>
+			<Key ID="STR_DORB_INTEL_TASK_DESC">
+				<Original>Our agents at the secret service have briefed us on the location of secret documents. Find them at %1 since they will give major advantages over the enemy.</Original>
+                <German>Unsere Freunde vom Geheimdienst haben uns mitgeteilt, dass sich in %1 geheime Informationen befinden. Diese koennten uns moeglicherweise einen Vorteil verschaffen. Finden sie die Informationen.</German>
+                <English>Our agents at the secret service have briefed us on the location of secret documents. Find them at %1 since they will give major advantages over the enemy.</English>
+			</Key>
+			<Key ID="STR_DORB_INTEL_GRAB">
+				<Original>Secure Intel</Original>
+                <German>Informationen sichern</German>
+                <English>Secure Intel</English>
+			</Key>
+			<Key ID="STR_DORB_INTEL_FOUND">
+				<Original>I secured the intel</Original>
+                <German>Ich habe die Inforamtionen sichergestellt</German>
+                <English>I secured the intel</English>
+			</Key>
+		</Container>
+		<Container name="KILL">
+			<Key ID="STR_DORB_KILL_TASK">
+				<Original>Eliminate Leader</Original>
+                <German>Führung ausschalten</German>
+                <English>Eliminate Leader</English>
+			</Key>
+			<Key ID="STR_DORB_KILL_TASK_DESC">
+				<Original>Kill %1. Hostile operations will be slowed down immensely. Last known location is %2.</Original>
+                <German>Töten Sie %1. Wir können dadurch die feindlichen Operationen erheblich verlangsamen. Der letzte bekannte Aufenthaltsort ist %2.</German>
+                <English>Kill %1. Hostile operations will be slowed down immensely. Last known location is %2.</English>
+			</Key>
+		</Container>
+		<Container name="CONV_KILL">
+			<Key ID="STR_DORB_KILL_CONV_TASK">
+				<Original>Stop the enemy convoy</Original>
+                <German>Stoppen Sie den feindlichen Konvoi</German>
+                <English>Stop the enemy convoy</English>
+			</Key>
+			<Key ID="STR_DORB_KILL_CONV_TASK_DESC">
+				<Original>The enemy is transferring armored vehicles from %1 to %2. Avoid the arrival of any vehicle.</Original>
+                <German>Der Gegner verlegt gepanzerte Fahrzeuge von %1 nach %2. Verhindern sie, dass auch nur ein Fahrzeug ankommt.</German>
+                <English>The enemy is transferring armored vehicles from %1 to %2. Avoid the arrival of any vehicle.</English>
+			</Key>
+		</Container>
+		<Container name="CONV_RESCUE">
+			<Key ID="STR_DORB_RESC_CONV_TASK">
+				<Original>Stop prisoner's convoy</Original>
+                <German>Stoppen Sie den Gefangenentransport</German>
+                <English>Stop prisoner's convoy</English>
+			</Key>
+			<Key ID="STR_DORB_RESC_CONV_TASK_DESC">
+				<Original>The enemy is transferring %1 prisoners from %2 to %3. Free them and bring them back to base.</Original>
+                <German>Der Gegner transportiert %1 Gefangene von %2 nach %3. Befreien Sie die Gefangenen und bringen Sie diese in Sicherheit.</German>
+                <English>The enemy is transferring %1 prisoners from %2 to %3. Free them and bring them back to base.</English>
+			</Key>
+		</Container>
+		<Container name="RESCUE">
+			<Key ID="STR_DORB_RESC_TASK">
+				<Original>Free Hostages</Original>
+                <German>Befreien sie die Gefangenen.</German>
+                <English>Free Hostages</English>
+			</Key>
+			<Key ID="STR_DORB_RESC_TASK_DESC">
+				<Original>%1 hostages have been taken in %2 by the enemy. Free them and bring them back to base.</Original>
+                <German>Es wurden von den Gegnern %1 Gefangene in %2 gemacht. Befreien sie die Gefangenen und bringen sie diese in die Sicherheitszone.</German>
+                <English>%1 hostages have been taken in %2 by the enemy. Free them and bring them back to base.</English>
+			</Key>
+		</Container>
+		<Container name="SCARAB">
+			<Key ID="STR_DORB_DEST_SCARAB_TASK">
+				<Original>Prevent launch of nuclear missiles within %1 minutes.</Original>
+                <German>Verhindern Sie den Abschuss der Atomraketen innerhalb von %1 Minuten.</German>
+                <English>Prevent launch of nuclear missiles within %1 minutes.</English>
+			</Key>
+			<Key ID="STR_DORB_DEST_SCARAB_TASK_DESC">
+				<Original>Mobile nuclear missiles have been in-placed at %1. Prevent the launch of the %2 missiles on our fleet. We known that the enemy has a limited amount of rocket specialists. Kill the Crew to prevent the launch.</Original>
+                <German>Es wurden von den Gegnern mobile Atomraketen in %1 in Stellung gebracht. Verhindern Sie, dass der Gegner die %2 Raketen auf unsere Flotte abschießt. Wir wissen aus zuverlässiger Quelle, dass der Gegner nur Begrenzt Fachpersonal zum Raketenabschuss in der Region stationiert hat. Schalten Sie die Besatzungen aus um den Abschuss zu verhindern.</German>
+                <English>Mobile nuclear missiles have been in-placed at %1. Prevent the launch of the %2 missiles on our fleet. We known that the enemy has a limited amount of rocket specialists. Kill the Crew to prevent the launch.</English>
+			</Key>
+		</Container>
+	</Package>
+</Project>
+<Project name="CH View Distance">
+	<Package name="Main">
+		<Key ID="STR_chvd_title">
+			<Original>View Distance Settings</Original>
+			<German>Sichtweiteneinstellung</German>
+			<Russian>Настройки Дальности Обзора</Russian>
+		</Key>
+		<Key ID="STR_chvd_foot">
+			<Original>ON FOOT</Original>
+			<German>ZU FUSS</German>
+			<Russian>ПЕШКОМ</Russian>
+		</Key>
+		<Key ID="STR_chvd_car">
+			<Original>IN CAR</Original>
+			<German>IM FAHRZEUG</German>
+			<Russian>В МАШИНЕ</Russian>
+		</Key>
+		<Key ID="STR_chvd_air">
+			<Original>IN AIR</Original>
+			<German>IN DER LUFT</German>
+			<Russian>В ВОЗДУХЕ</Russian>
+		</Key>
+		<Key ID="STR_chvd_view">
+			<Original>VIEW:</Original>
+			<German>GESAMT:</German>
+			<Russian>ОБЩЕЕ:</Russian>
+		</Key>
+		<Key ID="STR_chvd_object">
+			<Original>OBJECT:</Original>
+			<German>OBJEKTE:</German>
+			<Russian>ОБЪЕКТЫ:</Russian>
+		</Key>
+		<Key ID="STR_chvd_terrain">
+			<Original>TERRAIN:</Original>
+			<German>GRAS:</German>
+			<Russian>ЛАНДШАФТ:</Russian>
+		</Key>
+		<Key ID="STR_chvd_sync">
+			<Original>Sync object with view</Original>
+			<German>Synchronisieren</German>
+			<Russian>Синхронизировать</Russian>
+		</Key>
+		<Key ID="STR_chvd_close">
+			<Original>Close</Original>
+			<German>Schliessen</German>
+			<Russian>Закрыть</Russian>
+		</Key>		
+		<Key ID="STR_chvd_low">
+			<Original>Low</Original>
+			<German>Niedrig</German>
+			<Russian>Низкое</Russian>
+		</Key>
+		<Key ID="STR_chvd_standard">
+			<Original>Standard</Original>
+			<German>Standard</German>
+			<Russian>Стандартное</Russian>
+		</Key>
+		<Key ID="STR_chvd_high">
+			<Original>High</Original>
+			<German>Hoch</German>
+			<Russian>Высокое</Russian>
+		</Key>
+		<Key ID="STR_chvd_veryHigh">
+			<Original>Very High</Original>
+			<German>Sehr hoch</German>
+			<Russian>Очень высокое</Russian>
+		</Key>
+	</package>
+</Project>

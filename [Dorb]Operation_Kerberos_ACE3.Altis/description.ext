@@ -1,0 +1,83 @@
+
+author = "Dorbedo";
+onLoadName = "Operation Kerberos";
+
+class Header
+{
+  gameType = Coop;
+  minPlayers = 1;
+  maxPlayers = 64;
+};
+
+///// ALLGEMEIN
+ShowGPS = 1;
+disabledAI=1;
+saving = 0;
+scriptedPlayer = 1;
+enableDebugConsole = 1;
+
+///// RESPAWN
+respawnButton = 1;
+respawn = 3;
+respawnDelay = 5;
+respawnVehicleDelay = 60;
+respawnDialog = 0;
+respawnTemplates[] = {"MenuPosition"};
+respawnOnStart = 0;
+aikills = 1;
+
+
+///// BOHEMA-SACHEN deaktivieren
+wreckManagerMode = 0;
+corpseManagerMode = 0;
+
+///// Rootdir
+__EXEC (D_ROOTDIR = __FILE__ select [0, count __FILE__ - 15])
+
+
+///// ADDONS
+// Viedistance
+#include "CHVD\dialog.hpp"
+// Logistik
+#include "R3F_LOG\desc_include.h"
+
+
+// Interface
+#include "ui\define.h"
+#include "ui\menu.h"
+#include "ui\rscTitles.h"
+
+
+//	class Params {
+//		#include "dorb_param.h"
+//	};
+
+class cfgFunctions {
+	#include "CHVD\CfgFunctions.hpp"
+	#include "CfgFunctions.h"
+};
+
+
+//Debrief
+class CfgDebriefing
+{  
+	class End1
+	{
+		title = "Mission Abgeschlossen";
+		subtitle = "";
+		description = "Mission abgeschlossen. Gute Arbeit.";
+		pictureBackground = "";
+		picture = "b_inf";
+		pictureColor[] = {0.0,0.3,0.6,1};
+	};
+	class Fail
+	{
+		title = "Mission gescheitert";
+		subtitle = "";
+		description = "Ihr seid alle gestorben.";
+		pictureBackground = "";
+		picture = "b_inf";
+		pictureColor[] = {0.0,0.3,0.6,1};
+	};
+};
+
