@@ -14,8 +14,9 @@
 	BOOL
 */
 #include "makros.hpp"
-
-CHECK((getposatl (_this select 0) distance getposatl base) >51)
-
-deleteVehicle (_this select 6);
-[localize "STR_DORB_BASE_FIRE",localize "STR_DORB_BASE",true] call BIS_fnc_guiMessage;
+CHECK(!hasinterface)
+_this spawn {
+	CHECK((getposatl (_this select 0) distance getposatl base) >51)
+	deleteVehicle (_this select 6);
+	[localize "STR_DORB_BASE_FIRE",localize "STR_DORB_BASE",true] call BIS_fnc_guiMessage;
+};
