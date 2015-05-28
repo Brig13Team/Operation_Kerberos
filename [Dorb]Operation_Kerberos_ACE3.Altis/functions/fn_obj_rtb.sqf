@@ -4,30 +4,23 @@
 	Description:
 	Creates Mission "Return to Base".
 	
-	Requirements:
-		SHK_Taskmaster
-
 	Parameter(s):
-		0 :	ARRAY - Position
-		1 :	ARRAY - Ziele
-		2 : STRING - Aufgabenname für Taskmaster
+		0 :	ARRAY - Position der letzten AO
 		
 	Returns:
 	BOOL
 */
 #include "makros.hpp"
 CHECK(!isServer)
-
-private["_position","_task","_ort","_position_rescue","_pow"];
-_position=_this select 0;
-_task=_this select 1;
+PARAMS_1(_position);
+private["_ort","_position_rescue","_pow"];
 _position_home = getMarkerPos "respawn_west";
 
 //////////////////////////////////////////////////
 ////// Nachricht anzeigen 					 /////
 //////////////////////////////////////////////////
-[-1,{_this FSPAWN(disp_info)},[localize "STR_DORB_RTB",[localize "STR_DORB_RTB_START_1"],"data\icon\icon_base.paa",false]] FMP;
-//[[localize "STR_DORB_RTB",[localize "STR_DORB_RTB_START_1"],"data\icon\icon_base.paa",false],"dorb_fnc_disp_info",true] spawn BIS_fnc_MP ;
+
+[-1,{["rtb",1] call FM(disp_localization)}] FMP;
 
 //////////////////////////////////////////////////
 ////// Überprüfung + Ende 					 /////
@@ -42,12 +35,8 @@ while {aufgabenstatus} do {
 	
 	If (_a == (count playableUnits)) then {aufgabenstatus=false};
 };
-[-1,{_this FSPAWN(disp_info)},[localize "STR_DORB_RTB",[localize "STR_DORB_RTB_FINISHED",localize "STR_DORB_RTB_FINISHED2"],"data\icon\icon_base.paa",false]] FMP;
-//[[localize "STR_DORB_RTB",[localize "STR_DORB_RTB_FINISHED",localize "STR_DORB_RTB_FINISHED2"],"data\icon\icon_base.paa",false],"dorb_fnc_disp_info",true] spawn BIS_fnc_MP ;
 
+[-1,{["rtb",2] call FM(disp_localization)}] FMP;
 d_log("Alle zurückgekehrt")
-
-
-[_position, 2000] spawn dorb_fnc_cleanup_big;
-
+[_position, 2000] spawn FM(cleanup_big);
 d_log("Exit RTB")
