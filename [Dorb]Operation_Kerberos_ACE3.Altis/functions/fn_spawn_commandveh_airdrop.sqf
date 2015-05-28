@@ -26,7 +26,7 @@ _spawnposition=[];
 
 _einheit = "rhs_gaz66_r142_vdv";
 
-_spawnposition = [_position,200,0] call dorb_fnc_random_pos;
+_spawnposition = [_position,200,0] call FM(random_pos);
 _spawnposition = _spawnposition findEmptyPosition [1,100,_einheit];				//// to do: isFlatEmpty
 if (count _spawnposition < 1) exitWith {d_error(FORMAT_1("Keine Spawnposition Commandveh | ",_spawnposition))};
 
@@ -45,10 +45,10 @@ _veh lock 3;
 while {alive _veh} do {
 	d_log("COMMANDVEH-CHECK | Airdrop")
 	_attack_pos=[];
-	_attack_pos=[getPos _veh,0] FCALL(spawn_commandveh_check);
+	_attack_pos=[getPos _veh,0] call FN(spawn_commandveh_check);
 	if ((count _attack_pos)>1) then {
 		d_log_o("COMMANDVEH | Call Airdrop")
-		[_attack_pos,0,40] FCALL(spawn_attack_airdrop);
+		[_attack_pos,0,40] call FM(spawn_attack_airdrop);
 		sleep (200 + (random 300));
 	};
 	sleep 240;

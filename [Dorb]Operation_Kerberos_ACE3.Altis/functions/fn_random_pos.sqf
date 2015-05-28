@@ -14,11 +14,9 @@
 	Position
 */
 #include "makros.hpp"
-private ["_pos","_start","_rad","_typ","_dir","_radx","_rady"];
+private ["_pos","_dir","_radx","_rady"];
 
-_start = _this select 0;
-_rad = _this select 1;
-_typ = _this select 2;
+PARAMS_3(_start,_rad,_typ)
 
 switch _typ do {
 	case 0 : {

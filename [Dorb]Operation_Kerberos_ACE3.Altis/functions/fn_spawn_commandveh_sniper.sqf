@@ -26,7 +26,7 @@ _spawnposition=[];
 
 _einheit = "rhs_gaz66_r142_vdv";
 
-_spawnposition = [_position,200,0] call dorb_fnc_random_pos;
+_spawnposition = [_position,200,0] call FM(random_pos);
 _spawnposition = _spawnposition findEmptyPosition [1,100,_einheit];				//// to do: isFlatEmpty
 if (count _spawnposition < 1) exitWith {d_error(FORMAT_1("Keine Spawnposition Commandveh | ",_spawnpos))};
 
@@ -48,7 +48,7 @@ _veh lock 3;
 while {alive _veh} do {
 	d_log("COMMANDVEH-CHECK | Sniper")
 	_attack_pos=[];
-	_attack_pos=[getPos _veh,0] call dorb_fnc_spawn_commandveh_check;
+	_attack_pos=[getPos _veh,0] call FM(spawn_commandveh_check);
 	if ((count _attack_pos)>1) then {
 			d_log_o("COMMANDVEH | Call Sniper")
 			[_position,_attack_pos] spawn {
@@ -56,10 +56,10 @@ while {alive _veh} do {
 				_position = _this select 0;
 				_attack_pos = _this select 1;
 				_rand=[];
-				_pos = [_position,2000,2] call dorb_fnc_random_pos;
+				_pos = [_position,2000,2] call FM(random_pos);
 				_einheit = dorb_veh_car SELRND;
 				_spawnpos = _pos findEmptyPosition [1,200,_einheit];
-				_rand = dorb_grouplist_mech select floor random count dorb_grouplist_mech;
+				_rand = dorb_grouplist_mech SELRND;
 				if (count _spawnpos < 1) then {
 					d_error_o(FORMAT_1("Keine Spawnposition | ",_spawnpos))
 				}else{

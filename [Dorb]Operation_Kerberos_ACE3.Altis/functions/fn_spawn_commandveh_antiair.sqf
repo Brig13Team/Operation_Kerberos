@@ -3,15 +3,6 @@
 	
 	Description:
 	
-	Requirements:
-	
-	Parameter(s):
-		0 : ARRAY	- Example
-		1 : ARRAY	- Example
-		2 : STRIN	- Example
-	
-	Return
-	BOOL
 */
 #include "makros.hpp"
 
@@ -26,7 +17,7 @@ _spawnposition=[];
 
 _einheit = ["rhs_p37","rhs_prv13"] SELRND;
 
-_spawnposition = [_position,200,0] FCALL(random_pos);
+_spawnposition = [_position,200,0] call FM(random_pos);
 _spawnposition = _spawnposition findEmptyPosition [1,100,_einheit];				//// to do: isFlatEmpty
 if (count _spawnposition < 1) exitWith {d_error(FORMAT_1("Keine Spawnposition Commandveh | ",_spawnposition))};
 
@@ -40,7 +31,7 @@ SETVAR(_veh,DORB_HASAI,false);
 while {alive _veh} do {
 	d_log("COMMANDVEH-CHECK | AI")
 	_attack_pos = [];
-	_attack_pos = [getPos _veh,1,_veh] FCALL(spawn_commandveh_check);
+	_attack_pos = [getPos _veh,1,_veh] call FM(spawn_commandveh_check);
 	if ((count _attack_pos)>0) then {
 		d_log_o("COMMANDVEH | Call AI")
 		_radar=true;
@@ -53,7 +44,7 @@ while {alive _veh} do {
 			//d_log(FORMAT_1("HAS_Plane=%1",GETVAR(_veh,DORB_HASAI,true)))
 			If (!(GETVAR(_veh,DORB_HASAI,true))) then {			
 				_rand=[];
-				_spawnpos = [_position,4000,2] FCALL(random_pos);
+				_spawnpos = [_position,4000,2] call FM(random_pos);
 				_rand = dorb_patrol_air_list SELRND;
 				if (count _spawnpos < 1) then {
 					d_error(FORMAT_1("Keine Spawnposition | ",_spawnpos))

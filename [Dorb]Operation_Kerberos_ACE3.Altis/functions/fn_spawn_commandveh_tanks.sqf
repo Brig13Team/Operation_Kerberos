@@ -24,7 +24,7 @@ _spawnposition=[];
 
 _einheit = "rhs_gaz66_r142_vv";
 
-_spawnposition = [_position,200,0] call dorb_fnc_random_pos;
+_spawnposition = [_position,200,0] call FM(random_pos);
 _spawnposition = _spawnposition findEmptyPosition [1,100,_einheit];				//// to do: isFlatEmpty
 if (count _spawnposition < 1) exitWith {d_error(FORMAT_1("Keine Spawnposition Commandveh | ",_spawnpos))};
 
@@ -44,11 +44,11 @@ _panzer=[];
 while {alive _veh} do {
 	d_log("COMMANDVEH-CHECK | Tanks")
 	_attack_pos=[];
-	_attack_pos=[getPos _veh,0] FCALL(spawn_commandveh_check);
+	_attack_pos=[getPos _veh,0] call FM(spawn_commandveh_check);
 	if (((count _attack_pos)>1)&&((GETVAR(_veh,DORB_HASTANK,false))<6)) then {
 			d_log_o("COMMANDVEH | Tanks Attack")
 			_rand=[];
-			_pos = [_attack_pos,2000,2] FCALL(random_pos);
+			_pos = [_attack_pos,2000,2] call FM(random_pos);
 			_anzahl = floor(random 3);
 			INC(_anzahl);
 			for "_i" from 0 to _anzahl do {
@@ -66,7 +66,7 @@ while {alive _veh} do {
 					d_log(FORMAT_3("Spawnpos=%1 / Einheit=%2 / Gruppe=%3",_spawnpos,_einheit,_gruppe))
 					_return = [_spawnpos,(random(360)),_einheit,_gruppe] call BIS_fnc_spawnVehicle;
 					_panzer pushBack (_return select 0);
-					[_return select 2] FCALL(moveToHC);
+					[_return select 2] call FM(moveToHC);
 					/*
 					_mrkr = createMarker [format["infp-%1",_return],_spawnpos];
 					_mrkr setMarkerShape "ICON";

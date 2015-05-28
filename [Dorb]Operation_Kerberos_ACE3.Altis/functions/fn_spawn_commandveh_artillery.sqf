@@ -26,7 +26,7 @@ _spawnposition=[];
 
 _einheit = "rhs_prp3_tv";
 
-_spawnposition = [_position,200,0] call dorb_fnc_random_pos;
+_spawnposition = [_position,200,0] call FM(random_pos);
 _spawnposition = _spawnposition findEmptyPosition [1,100,_einheit];				//// to do: isFlatEmpty
 if (count _spawnposition < 1) exitWith {d_error(FORMAT_1("Keine Spawnposition Commandveh | ",_spawnposition))};
 
@@ -44,9 +44,9 @@ DORB_COMMANDVEH_ARTY=[];
 
 for "_i" from 0 to 2 do {
 	_rand_pos=[];
-	_rand_pos = [_position,1800,1] call dorb_fnc_random_pos;
+	_rand_pos = [_position,1800,1] call FM(random_pos);
 	if ((count _rand_pos)>1) then {
-		_unit = [_rand_pos,100] call dorb_fnc_spawn_artypos;
+		_unit = [_rand_pos,100] call FM(spawn_artypos);
 		if (alive _unit) then {DORB_COMMANDVEH_ARTY pushBack _unit};
 	}else{d_error("Keine Spawnposition | ")};
 };
@@ -55,7 +55,7 @@ for "_i" from 0 to 2 do {
 while {alive _veh} do {
 	d_log("COMMANDVEH-CHECK | Arty")
 	_attack_pos=[];
-	_attack_pos=[getPos _veh,0] call dorb_fnc_spawn_commandveh_check;
+	_attack_pos=[getPos _veh,0] call FM(spawn_commandveh_check);
 	if ((count _attack_pos)>1) then {
 		d_log_o("COMMANDVEH | Fire Arty")
 		{

@@ -15,13 +15,13 @@
 */
 #include "makros.hpp"
 
-
-_position = _this select 0;
+PARAMS_1(_position);
+private["_rad","_spawnposition","_einheit","_dir","_arty","_return"];
 _rad = [_this,1,200,[0]] call BIS_fnc_param;
 _spawnposition=[];
 
 
-_einheit = dorb_veh_arty select floor random count dorb_veh_arty;
+_einheit = dorb_veh_arty SELRND;
 
 _spawnposition = [_position,_rad,0] FCALL(random_pos);
 _spawnposition = _spawnposition findEmptyPosition [1,(_rad/2),_einheit];				//// to do: isFlatEmpty
