@@ -14,7 +14,6 @@ _alleGruppen = allGroups;
 _gruppen = [];
 
 //		Gruppen filtern und auflisten Kriterien: WEST, Einheiten vorhanden, keine "nur-KI" Gruppen
-
 //		KI-Gruppen: (isPlayer(leader _x ))
 {
 	If (((isPlayer(leader _x ))) and (side(leader _x ) == (side player))and((count (units _x)) >0)) then {

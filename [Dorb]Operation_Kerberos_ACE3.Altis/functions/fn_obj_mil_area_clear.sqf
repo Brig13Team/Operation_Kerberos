@@ -45,7 +45,7 @@ _difficulty = FCALL(difficulty);
 
 _aufgabenname = format [localize "STR_DORB_CLEAR_TASK",_ort];
 _beschreibung = format [localize "STR_DORB_CLEAR_TASK_DESC",_ort];
-[-1,{_this FSPAWN(disp_info)},[localize "STR_DORB_CLEAR",[_aufgabenname],"data\icon\icon_file.paa",true]] FMP;
+[-1,{_this spawm FM(disp_info)},[localize "STR_DORB_CLEAR",[_aufgabenname],"data\icon\icon_file.paa",true]] FMP;
 [_task,_aufgabenname,_beschreibung,true,[],"created",_position] call SHK_Taskmaster_add;
 
 //////////////////////////////////////////////////

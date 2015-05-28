@@ -30,7 +30,7 @@ If (!(_aufgabentyp in _aufgabentypen)) then {
 d_log(FORMAT_1("Aufgabentyp=%1",_aufgabentyp))
 
 
-[] FCALL(create_unitlists);
+[] call FM(create_unitlists);
 
 
 /// Militär
@@ -38,16 +38,16 @@ d_log(FORMAT_1("Aufgabentyp=%1",_aufgabentyp))
 If (_aufgabentyp isEqualTo "area_clear") exitWith {
 		_locarr=(GETMVAR(DORB_MILITAER,[]));
 		_loc = _locarr SELRND;
-		[(_loc select 0),(_loc select 1),_aufgabe] FCALL(TRIPLES(obj,mil,area_clear));
+		[(_loc select 0),(_loc select 1),_aufgabe] call FM(TRIPLES(obj,mil,area_clear));
 		d_log("Aufgabe Militär abgeschlossen")
-		[(_loc select 1),format["%1_rtb",_aufgabe]] FCALL(obj_rtb);
+		[(_loc select 1),format["%1_rtb",_aufgabe]] call FM(obj_rtb);
 	};
 If (_aufgabentyp isEqualTo "area_defend") exitWith {
 		_locarr=(GETMVAR(DORB_MILITAER,[]));
 		_loc = _locarr SELRND;
-		[(_loc select 0),(_loc select 1),_aufgabe] FCALL(TRIPLES(obj,mil,area_defend));
+		[(_loc select 0),(_loc select 1),_aufgabe] call FM(TRIPLES(obj,mil,area_defend));
 		d_log("Aufgabe Militär abgeschlossen")
-		[(_loc select 1),format["%1_rtb",_aufgabe]] FCALL(obj_rtb);
+		[(_loc select 1),format["%1_rtb",_aufgabe]] call FM(obj_rtb);
 	};
 
 /// SONSTIGES
@@ -55,30 +55,30 @@ If (_aufgabentyp isEqualTo "area_defend") exitWith {
 If (_aufgabentyp isEqualTo "destroy_tower") exitWith {
 		_locarr=(GETMVAR(DORB_SONSTIGES,[]));
 		_loc = _locarr SELRND;
-		[(_loc select 0),(_loc select 1),_aufgabe] FCALL(TRIPLES(obj,sonst,destroy_tower));
+		[(_loc select 0),(_loc select 1),_aufgabe] call FM(TRIPLES(obj,sonst,destroy_tower));
 		d_log("Aufgabe Sonstiges abgeschlossen")
-		[(_loc select 1),format["%1_rtb",_aufgabe]] FCALL(obj_rtb);
+		[(_loc select 1),format["%1_rtb",_aufgabe]] call FM(obj_rtb);
 	};
 If (_aufgabentyp isEqualTo "destroy_device") exitWith {
 		_locarr=(GETMVAR(DORB_SONSTIGES,[]));
 		_loc = _locarr SELRND;
-		[(_loc select 0),(_loc select 1),_aufgabe] FCALL(TRIPLES(obj,sonst,destroy_device));
+		[(_loc select 0),(_loc select 1),_aufgabe] call FM(TRIPLES(obj,sonst,destroy_device));
 		d_log("Aufgabe Sonstiges abgeschlossen")
-		[(_loc select 1),format["%1_rtb",_aufgabe]] FCALL(obj_rtb);
+		[(_loc select 1),format["%1_rtb",_aufgabe]] call FM(obj_rtb);
 	};
 If (_aufgabentyp isEqualTo "capture_prototype") exitWith {
 		_locarr=(GETMVAR(DORB_SONSTIGES,[]));
 		_loc = _locarr SELRND;
-		[(_loc select 0),(_loc select 1),_aufgabe] FCALL(TRIPLES(obj,sonst,capture_prototype));
+		[(_loc select 0),(_loc select 1),_aufgabe] call FM(TRIPLES(obj,sonst,capture_prototype));
 		d_log("Aufgabe Sonstiges abgeschlossen")
-		[(_loc select 1),format["%1_rtb",_aufgabe]] FCALL(obj_rtb);
+		[(_loc select 1),format["%1_rtb",_aufgabe]] call FM(obj_rtb);
 	};
 If (_aufgabentyp isEqualTo "Scarab") exitWith {
 		_locarr=(GETMVAR(DORB_SONSTIGES,[]));
 		_loc = _locarr SELRND;
-		[(_loc select 0),(_loc select 1),_aufgabe] FCALL(TRIPLES(obj,sonst,Scarab));
+		[(_loc select 0),(_loc select 1),_aufgabe] call FM(TRIPLES(obj,sonst,Scarab));
 		d_log("Aufgabe Sonstiges abgeschlossen")
-		[(_loc select 1),format["%1_rtb",_aufgabe]] FCALL(obj_rtb);
+		[(_loc select 1),format["%1_rtb",_aufgabe]] call FM(obj_rtb);
 	};
 
 /// STADT
@@ -86,44 +86,44 @@ If (_aufgabentyp isEqualTo "Scarab") exitWith {
 If (_aufgabentyp isEqualTo "rescue_pow") exitWith {
 		_locarr=(GETMVAR(DORB_STADT,[]));
 		_loc = _locarr SELRND;
-		[(_loc select 0),(_loc select 1),_aufgabe] FCALL(TRIPLES(obj,stadt,rescue_pow));
+		[(_loc select 0),(_loc select 1),_aufgabe] call FM(TRIPLES(obj,stadt,rescue_pow));
 		d_log("Aufgabe Stadt abgeschlossen")
-		[(_loc select 1),format["%1_rtb",_aufgabe]] FCALL(obj_rtb);
+		[(_loc select 1),format["%1_rtb",_aufgabe]] call FM(obj_rtb);
 	};
 If (_aufgabentyp isEqualTo "kill_person") exitWith {
 		_locarr=(GETMVAR(DORB_STADT,[]));
 		_loc = _locarr SELRND;
-		[(_loc select 0),(_loc select 1),_aufgabe] FCALL(TRIPLES(obj,stadt,kill_person));
+		[(_loc select 0),(_loc select 1),_aufgabe] call FM(TRIPLES(obj,stadt,kill_person));
 		d_log("Aufgabe Stadt abgeschlossen")
-		[(_loc select 1),format["%1_rtb",_aufgabe]] FCALL(obj_rtb);
+		[(_loc select 1),format["%1_rtb",_aufgabe]] call FM(obj_rtb);
 	};
 If (_aufgabentyp isEqualTo "find_intel") exitWith {
 		_locarr=(GETMVAR(DORB_STADT,[]));
 		_loc = _locarr SELRND;
-		[(_loc select 0),(_loc select 1),_aufgabe] FCALL(TRIPLES(obj,stadt,find_intel));
+		[(_loc select 0),(_loc select 1),_aufgabe] call FM(TRIPLES(obj,stadt,find_intel));
 		d_log("Aufgabe Stadt abgeschlossen")
-		[(_loc select 1),format["%1_rtb",_aufgabe]] FCALL(obj_rtb);
+		[(_loc select 1),format["%1_rtb",_aufgabe]] call FM(obj_rtb);
 	};
 If (_aufgabentyp isEqualTo "destroy_wpncache") exitWith {
 		_locarr=(GETMVAR(DORB_STADT,[]));
 		_loc = _locarr SELRND;
-		[(_loc select 0),(_loc select 1),_aufgabe] FCALL(TRIPLES(obj,stadt,destroy_wpncache));
+		[(_loc select 0),(_loc select 1),_aufgabe] call FM(TRIPLES(obj,stadt,destroy_wpncache));
 		d_log("Aufgabe Stadt abgeschlossen")
-		[(_loc select 1),format["%1_rtb",_aufgabe]] FCALL(obj_rtb);
+		[(_loc select 1),format["%1_rtb",_aufgabe]] call FM(obj_rtb);
 	};
 If (_aufgabentyp isEqualTo "konvoi_destroy") exitWith {
 		_locarr=(GETMVAR(DORB_STADT,[]));
 		_loc = _locarr SELRND;
-		[(_loc select 0),(_loc select 1),_aufgabe] FCALL(TRIPLES(obj,stadt,konvoi_destroy));
+		[(_loc select 0),(_loc select 1),_aufgabe] call FM(TRIPLES(obj,stadt,konvoi_destroy));
 		d_log("Aufgabe Stadt abgeschlossen")
-		[(_loc select 1),format["%1_rtb",_aufgabe]] FCALL(obj_rtb);
+		[(_loc select 1),format["%1_rtb",_aufgabe]] call FM(obj_rtb);
 	};
 If (_aufgabentyp isEqualTo "konvoi_rescue") exitWith {
 		_locarr=(GETMVAR(DORB_STADT,[]));
 		_loc = _locarr SELRND;
-		[(_loc select 0),(_loc select 1),_aufgabe] FCALL(TRIPLES(obj,stadt,konvoi_rescue));
+		[(_loc select 0),(_loc select 1),_aufgabe] call FM(TRIPLES(obj,stadt,konvoi_rescue));
 		d_log("Aufgabe Stadt abgeschlossen")
-		[(_loc select 1),format["%1_rtb",_aufgabe]] FCALL(obj_rtb);
+		[(_loc select 1),format["%1_rtb",_aufgabe]] call FM(obj_rtb);
 	};
 	
 	
@@ -149,7 +149,7 @@ If (_aufgabentyp isEqualTo "konvoi_rescue") exitWith {
 
 /*
 
-[] FCALL(create_unitlists);
+[] call FM(create_unitlists);
 
 _rand = floor(random 100);
 d_log(FORMAT_1("Aufgabenrandom=%1",_rand))
@@ -157,23 +157,23 @@ d_log(FORMAT_1("Aufgabenrandom=%1",_rand))
 If (_rand < 60) then {
 		If (_rand < 40) then {
 			d_log("Location = Stadt")
-			[_aufgabe] FCALL(obj_stadt_create);
+			[_aufgabe] call FM(obj_stadt_create);
 		}else{
 			d_log("Location = Sonstiges")
-			[_aufgabe] FCALL(obj_sonst_create);
+			[_aufgabe] call FM(obj_sonst_create);
 		};
 }else{
 	If (_rand < 90) then {
 		If (_rand < 75) then {
 			d_log("Location = Militaer")
-			[_aufgabe] FCALL(obj_mil_create);
+			[_aufgabe] call FM(obj_mil_create);
 		}else{
 			d_log("Location = Industrie")
-			//[_aufgabe] FCALL(obj_ind_create);
+			//[_aufgabe] call FM(obj_ind_create);
 		};	
 	}else{
 			d_log("Location = Wasser")
-			//[_aufgabe] FCALL(obj_tauch_create);
+			//[_aufgabe] call FM(obj_tauch_create);
 	};
 };
 
@@ -197,10 +197,10 @@ for "_i" from 1 to (Anzahl_Aufgaben) do {
 	d_log(FORMAT_1("Aufgabentyp=%1",_aufgabentyp))
 	
 	switch _aufgabentyp do {
-		case 0: {[(_loc select 0),(_loc select 1),_taskn] FCALL(obj_sonst_destroy_tower);};
-		case 1: {[(_loc select 0),(_loc select 1),_taskn] FCALL(obj_sonst_destroy_device);};
-		case 2: {[(_loc select 0),(_loc select 1),_taskn] FCALL(obj_sonst_capture_prototype);};
-		case 3: {[(_loc select 0),(_loc select 1),_taskn] FCALL(obj_sonst_Scarab);};
+		case 0: {[(_loc select 0),(_loc select 1),_taskn] call FM(obj_sonst_destroy_tower);};
+		case 1: {[(_loc select 0),(_loc select 1),_taskn] call FM(obj_sonst_destroy_device);};
+		case 2: {[(_loc select 0),(_loc select 1),_taskn] call FM(obj_sonst_capture_prototype);};
+		case 3: {[(_loc select 0),(_loc select 1),_taskn] call FM(obj_sonst_Scarab);};
 		case 4: {};
 		case 5: {};
 	};
@@ -209,7 +209,7 @@ for "_i" from 1 to (Anzahl_Aufgaben) do {
 
 d_log("Aufgabe sonstiges abgeschlossen")
 
-[(_loc select 1),format["%1_rtb",_aufgabe]] FCALL(obj_rtb);
+[(_loc select 1),format["%1_rtb",_aufgabe]] call FM(obj_rtb);
 
 //----------------STADT
 
