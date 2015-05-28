@@ -8,7 +8,7 @@ class dorb
 		
 		class grouptracker {};
 		
-		class get_loadout {};
+		
 		class get_loadout_halo {};
 		
 		class nurpiloten {};
@@ -17,7 +17,7 @@ class dorb
 		class rep {};
 		class reservedslots {};
 		
-		class set_loadout {};
+		
 		class set_loadout_halo {};
 		
 		class setRespawnVeh {};
@@ -38,6 +38,7 @@ class dorb
 		class disp_info {};
 		class disp_message {};
 		class disp_progressbar {};
+		class disp_localization {};
 		
 		class get_buildings {};
 		class get_cfglocations {};
@@ -60,8 +61,7 @@ class dorb
 		class firedbase {};
 		class handledamage_C4 {};
 		class hittk {};
-		class aftervehiclerespawn {};
-		class onVehicleKilled {};
+		
 		
 	};
 	/*
@@ -116,7 +116,7 @@ class dorb
 	class spawn {
 		
 		
-		class spawn_attack_air {};
+		
 		class spawn_attack_airdrop {};
 		class spawn_attack_inf {};
 		class spawn_attack_veh {};
