@@ -1,4 +1,5 @@
-
+#include "makros.hpp"
+d_log("Alte Funktion")
 if (!(isServer)) exitWith {true};
 private ["_scriptName","_log","_input","_level"];
 _input = [_this, 0, "ERROR - LOGAUFRUF"] call BIS_fnc_Param;
