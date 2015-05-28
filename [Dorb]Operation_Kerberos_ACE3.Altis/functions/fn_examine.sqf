@@ -2,19 +2,8 @@
 	Author: Dorbedo
 	
 	Description:
-	
-	Requirements:
-	
-	Parameter(s):
-		0 : ARRAY	- Example
-		1 : ARRAY	- Example
-		2 : STRIN	- Example
-	
-	Return
-	BOOL
-	
-	ace_captives_isHandcuffed
-	captive
+		Gefangene verhören
+
 */
 #include "makros.hpp"
 
@@ -22,10 +11,7 @@
 
 
 ISNILS(DORB_EXAMINE,false);
-
 ISNILS(DORB_EXAMINE_MARK,[]);
-
-
 
 _target = [_this, 0, [],[[]]] call BIS_fnc_Param;
 _option = [_this, 1, "",[""]] call BIS_fnc_Param;
