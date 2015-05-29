@@ -19,16 +19,13 @@
 #include "makros.hpp"
 CHECK(!isServer)
 
-private["_position","_task","_ort","_position_rescue","_pow"];
+private["_position_rescue","_pow","_aufgabenname","_beschreibung"];
 d_log("Task_Create Clear Military")
-
-_ort=_this select 0;
-_position=_this select 1;
-_task=_this select 2;
+PARAMS_3(_ort,_position,_task);
 
 _radius = 1000;
 _list=[];
-_difficulty = FCALL(difficulty);
+_difficulty = call FM(difficulty);
 
 
 
