@@ -20,7 +20,7 @@ if ((isnil "currentHC")&&(!(isnil "HC1"))) then {
 ///  Ist ein HC-Object plaziert?
 //If (isNull currentHC) exitWith {d_error(FORMAT_1("Kein HC - Abfrage = %1",currentHC))};
 
-If (isNil "currentHC") exitWith {d_error(FORMAT_1("Kein HC - Abfrage = %1",currentHC))};
+If (isNil "currentHC") exitWith {d_error("Kein HC - isNil")};
 
 /// gehört das HC-Object dem Server (kein client connected)
 If ((owner currentHC) == 0) exitWith {d_error(FORMAT_1("Kein HC: %1",(owner currentHC)))};
