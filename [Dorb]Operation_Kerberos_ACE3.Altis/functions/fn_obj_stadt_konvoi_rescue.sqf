@@ -59,7 +59,7 @@ _gruppe setFormation "COLUMN";
 for "_i" from 0 to 2 do {
 	
 	_spawn_rad = ((random 100) + 50);
-	_spawn_pos = [(_startort select 1), _spawn_rad,0] FCALL(random_pos);
+	_spawn_pos = [(_startort select 1), _spawn_rad,0] call FM(random_pos);
 	_road=[_spawn_pos,500,[]] call BIS_fnc_nearestRoad;
 	_roadConnectedTo = roadsConnectedTo _road;
 	_connectedRoad = _roadConnectedTo select 0;
@@ -84,7 +84,7 @@ for "_i" from 0 to 2 do {
 //////////////////////////////////////////////////
 
 _spawn_rad = ((random 100) + 50);
-_spawn_pos = [(_startort select 1), _spawn_rad,0] FCALL(random_pos);
+_spawn_pos = [(_startort select 1), _spawn_rad,0] call FM(random_pos);
 _road=[_spawn_pos,500,[]] call BIS_fnc_nearestRoad;
 _roadConnectedTo = roadsConnectedTo _road;
 _connectedRoad = _roadConnectedTo select 0;
@@ -134,7 +134,7 @@ for "_i" from 1 to 3 do{
 
 _aufgabenname = localize "STR_DORB_RESC_CONV_TASK";
 _beschreibung = format [localize "STR_DORB_RESC_CONV_TASK_DESC",count _pow,(_startort select 0),_ort];
-[-1,{_this FSPAWN(disp_info)},[localize "STR_DORB_RESCUE",[_aufgabenname],"data\icon\icon_rescue.paa",true]] FMP;
+[-1,{["stadtconvcapt",1] call FM(disp_localization)}] FMP;
 [_task,_aufgabenname,_beschreibung,true,[],"created",_position] call SHK_Taskmaster_add;
 
 //////////////////////////////////////////////////
@@ -165,12 +165,12 @@ _anzahlgerettete={alive _x}count _pow;
 
 If (_anzahlgerettete>((count _pow)*0.2)) then {
 	[_task,"succeeded"] call SHK_Taskmaster_upd;
-	[-1,{_this FSPAWN(disp_info)},[localize "STR_DORB_RESCUE",[localize "STR_DORB_FINISHED"],"data\icon\icon_rescue.paa",true]] FMP;
+	[-1,{["stadtconvcapt",2] call FM(disp_localization)}] FMP;
 }else{
 	[_task,"failed"] call SHK_Taskmaster_upd;
-	[-1,{_this FSPAWN(disp_info)},[localize "STR_DORB_RESCUE",[localize "STR_DORB_FAILED"],"data\icon\icon_rescue.paa",true]] FMP;
+	[-1,{["stadtconvcapt",3] call FM(disp_localization)}] FMP;
 };
 
-{moveOut _x;deleteVehicle _x}forEach _pow;
+{moveOut _x; deleteVehicle _x}forEach _pow;
 {_x TILGE;}forEach _vehicles;
 deleteMarker _start_mrkr;

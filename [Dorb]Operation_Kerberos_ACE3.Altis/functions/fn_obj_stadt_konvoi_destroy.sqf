@@ -107,8 +107,7 @@ _start_mrkr setMarkerType "hd_start";
 
 _aufgabenname = localize "STR_DORB_KILL_CONV_TASK";
 _beschreibung = format [localize "STR_DORB_KILL_CONV_TASK_DESC",(_startort select 0),_ort];
-[-1,{_this FSPAWN(disp_info)},[localize "STR_DORB_DESTROY",[_aufgabenname],"data\icon\icon_destroy.paa",true]] FMP;
-//[[localize "STR_DORB_DESTROY",[_aufgabenname],"data\icon\icon_destroy.paa",true],"dorb_fnc_disp_info",true] spawn BIS_fnc_MP ;
+[-1,{["stadtconvkill",1] call FM(disp_localization)}] FMP;
 [_task,_aufgabenname,_beschreibung,true,[],"created",_position] call SHK_Taskmaster_add;
 
 //////////////////////////////////////////////////
@@ -134,10 +133,10 @@ while {aufgabenstatus} do {
 
 If (_geschafft) then {
 	[_task,"succeeded"] call SHK_Taskmaster_upd;
-	[-1,{_this FSPAWN(disp_info)},[localize "STR_DORB_DESTROY",[localize "STR_DORB_FINISHED"],"data\icon\icon_destroy.paa",true]] FMP;
+	[-1,{["stadtconvkill",2] call FM(disp_localization)}] FMP;
 }else{
 	[_task,"failed"] call SHK_Taskmaster_upd;
-	[-1,{_this FSPAWN(disp_info)},[localize "STR_DORB_DESTROY",[localize "STR_DORB_FAILED"],"data\icon\icon_destroy.paa",true]] FMP;
+	[-1,{["stadtconvkill",3] call FM(disp_localization)}] FMP;
 };
 
 {deleteVehicle _x}forEach _vehicles;

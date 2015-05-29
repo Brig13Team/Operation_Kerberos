@@ -33,7 +33,7 @@ _pow=[];
 
 _rad = 260;
 _gebaeudepos_arr = [];
-_gebaeudepos_arr = [_position,_rad] FCALL(get_buildings);
+_gebaeudepos_arr = [_position,_rad] call FM(get_buildings);
 
 //////////////////////////////////////////////////
 ////// Geiseln erstellen 					 /////
@@ -63,8 +63,8 @@ for "_i" from 1 to _rand do{
 
 _aufgabenname = localize "STR_DORB_RESC_TASK";
 _beschreibung = format [localize "STR_DORB_RESC_TASK_DESC",count _pow,_ort];
-[-1,{_this FSPAWN(disp_info)},[localize "STR_DORB_RESCUE",[_aufgabenname],"data\icon\icon_rescue.paa",true]] FMP;
-//[[localize "STR_DORB_RESCUE",[_aufgabenname],"data\icon\icon_rescue.paa",true],"dorb_fnc_disp_info",true] spawn BIS_fnc_MP ;
+
+[-1,{["stadtpow",1] call FM(disp_localization)}] FMP;
 [_task,_aufgabenname,_beschreibung,true,[],"created",_position] call SHK_Taskmaster_add;
 
 
@@ -123,12 +123,10 @@ _anzahlgerettete={alive _x}count _pow;
 
 If (_anzahlgerettete>0) then {
 	[_task,"succeeded"] call SHK_Taskmaster_upd;
-	[-1,{_this FSPAWN(disp_info)},[localize "STR_DORB_RESCUE",[localize "STR_DORB_FINISHED"],"data\icon\icon_rescue.paa",true]] FMP;
-	//[[localize "STR_DORB_RESCUE",[localize "STR_DORB_FINISHED"],"data\icon\icon_rescue.paa",true],"dorb_fnc_disp_info",true] spawn BIS_fnc_MP ;
+	[-1,{["stadtpow",2] call FM(disp_localization)}] FMP;
 }else{
 	[_task,"failed"] call SHK_Taskmaster_upd;
-	[-1,{_this FSPAWN(disp_info)},[localize "STR_DORB_RESCUE",[localize "STR_DORB_FAILED"],"data\icon\icon_defend.paa",true]] FMP;
-	//[[localize "STR_DORB_RESCUE",[localize "STR_DORB_FAILED"],"data\icon\icon_defend.paa",true],"dorb_fnc_disp_info",true] spawn BIS_fnc_MP ;
+	[-1,{["stadtpow",3] call FM(disp_localization)}] FMP;
 };
 
 {moveOut _x;sleep 0.2; deleteVehicle _x}forEach _pow;

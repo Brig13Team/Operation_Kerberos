@@ -37,8 +37,8 @@ _changeposition=[];
 _rand = ((floor(random 2)) + 1);
 
 for "_i" from 1 to _rand do{
-	_einheit = dorb_tower select floor random count dorb_tower;
-	_spawnposition = [_position,200,0] FCALL(random_pos);
+	_einheit = dorb_tower SELRND;
+	_spawnposition = [_position,200,0] call FM(random_pos);
 	_spawnposition = _spawnposition findEmptyPosition [1,100,_einheit];				//// to do: isFlatEmpty
 	
 	if (count _spawnposition < 1) then {
@@ -90,8 +90,7 @@ sleep 2;
 
 _aufgabenname = localize "STR_DORB_DEST_KOM_TASK";
 _beschreibung = format [localize "STR_DORB_DEST_KOM_TASK_DESC",_ort];
-[-1,{_this FSPAWN(disp_info)},[localize "STR_DORB_DESTROY",[_aufgabenname],"data\icon\icon_destroy.paa",true]] FMP;
-//[[localize "STR_DORB_DESTROY",[_aufgabenname],"data\icon\icon_destroy.paa",true],"dorb_fnc_disp_info",true] spawn BIS_fnc_MP ;
+[-1,{["sonsttower",1] call FM(disp_localization)}] FMP;
 [_task,_aufgabenname,_beschreibung,true,[],"created",_position] call SHK_Taskmaster_add;
 
 //////////////////////////////////////////////////
@@ -118,5 +117,4 @@ while {aufgabenstatus} do {
 [_task,"succeeded"] call SHK_Taskmaster_upd;
 
 {deleteVehicle _x}forEach _target;
-[-1,{_this FSPAWN(disp_info)},[localize "STR_DORB_DESTROY",[localize "STR_DORB_FINISHED"],"data\icon\icon_destroy.paa",true]] FMP;
-//[[localize "STR_DORB_DESTROY",[localize "STR_DORB_FINISHED"],"data\icon\icon_destroy.paa",true],"dorb_fnc_disp_info",true] spawn BIS_fnc_MP ;
+[-1,{["sonsttower",2] call FM(disp_localization)}] FMP;

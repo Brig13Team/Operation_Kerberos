@@ -92,7 +92,8 @@ sleep 5;
 
 _aufgabenname = localize "STR_DORB_DEST_DEV_TASK";
 _beschreibung = localize "STR_DORB_DEST_DEV_TASK_DESC";
-[-1,{_this FSPAWN(disp_info)},[localize "STR_DORB_DESTROY",[_aufgabenname],"data\icon\icon_destroy.paa",true]] FMP;
+[-1,{["sonstdevice",1] call FM(disp_localization)}] FMP;
+
 [_task,_aufgabenname,_beschreibung,true,[],"created",_position] call SHK_Taskmaster_add;
 
 //////////////////////////////////////////////////
@@ -112,7 +113,7 @@ while {aufgabenstatus} do {
 		};
 	}forEach _target;
 	
-	If (_a == (count _target)) then {aufgabenstatus=false};
+	If (_a == (count _target)) then {aufgabenstatus=false;};
 	
 	INC(_b);
 	If (_b>10) then {
@@ -124,4 +125,5 @@ while {aufgabenstatus} do {
 [_task,"succeeded"] call SHK_Taskmaster_upd;
 
 {deleteVehicle _x}forEach _target;
-[-1,{_this FSPAWN(disp_info)},[localize "STR_DORB_DESTROY",[localize "STR_DORB_FINISHED"],"data\icon\icon_destroy.paa",true]] FMP;
+
+[-1,{["sonstdevice",2] call FM(disp_localization)}] FMP;

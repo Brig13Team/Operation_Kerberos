@@ -85,7 +85,8 @@ sleep 2;
 
 _aufgabenname = localize "STR_DORB_PROTO_TASK";
 _beschreibung = format [localize "STR_DORB_PROTO_TASK_DESC",_ort];
-[-1,{_this FSPAWN(disp_info)},[localize "STR_DORB_CAPTURE",[_aufgabenname],"data\icon\icon_capture.paa",true]] FMP;
+[-1,{["sonstproto",1] call FM(disp_localization)}] FMP;
+
 [_task,_aufgabenname,_beschreibung,true,[],"created",_position] call SHK_Taskmaster_add;
 
 ///////////////////////////////////////////////
@@ -110,9 +111,9 @@ _anzahlgerettete={alive _x}count _target;
 
 If (_anzahlgerettete>0) then {
 	[_task,"succeeded"] call SHK_Taskmaster_upd;
-	[-1,{_this FSPAWN(disp_info)},[localize "STR_DORB_CAPTURE",[localize "STR_DORB_FINISHED"],"data\icon\icon_capture.paa",true]] FMP;
+	[-1,{["sonstproto",2] call FM(disp_localization)}] FMP;
 }else{
 	[_task,"failed"] call SHK_Taskmaster_upd;
-	[-1,{_this FSPAWN(disp_info)},[localize "STR_DORB_CAPTURE",[localize "STR_DORB_FAILED"],"data\icon\icon_capture.paa",true]] FMP;
+	[-1,{["sonstproto",3] call FM(disp_localization)}] FMP;
 };
 {deleteVehicle _x}forEach _target;

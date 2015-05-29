@@ -33,7 +33,7 @@ _target=[];
 
 _rad = 260;
 _gebaeudepos_arr = [];
-_gebaeudepos_arr = [_position,_rad] FCALL(get_buildings);
+_gebaeudepos_arr = [_position,_rad] call FM(get_buildings);
 
 //////////////////////////////////////////////////
 ////// Ziel erstellen						 /////
@@ -44,9 +44,9 @@ d_log("Find Intel")
 _rand=1;
 
 for "_i" from 1 to _rand do{
-	_einheit = dorb_intel select floor random count dorb_intel;
-	_spawngebaeude = _gebaeudepos_arr select floor random count _gebaeudepos_arr;
-	_spawnposition = _spawngebaeude select floor random count _spawngebaeude;
+	_einheit = dorb_intel SELRND;
+	_spawngebaeude = _gebaeudepos_arr SELRND;
+	_spawnposition = _spawngebaeude SELRND;
 	_unit = createVehicle [_einheit,_spawnposition, [], 0, "NONE"];
 	_target pushBack _unit;
 };
@@ -82,8 +82,7 @@ if (dorb_debug) then {
 
 _aufgabenname = localize "STR_DORB_INTEL_TASK";
 _beschreibung = format [localize "STR_DORB_INTEL_TASK_DESC",_ort];
-[-1,{_this FSPAWN(disp_info)},[localize "STR_DORB_FIND",[_aufgabenname],"data\icon\icon_search.paa",true]] FMP;
-//[[localize "STR_DORB_FIND",[_aufgabenname],"data\icon\icon_search.paa",true],"dorb_fnc_disp_info",true] spawn BIS_fnc_MP ;
+[-1,{["stadtintel",1] call FM(disp_localization)}] FMP;
 [_task,_aufgabenname,_beschreibung,true,[],"created",_position] call SHK_Taskmaster_add;
 
 
@@ -110,5 +109,4 @@ while {aufgabenstatus} do {
 [_task,"succeeded"] call SHK_Taskmaster_upd;
 
 {deleteVehicle _x}forEach _target;
-[-1,{_this FSPAWN(disp_info)},[localize "STR_DORB_FIND",[localize "STR_DORB_FINISHED"],"data\icon\icon_search.paa",true]] FMP;
-//[[localize "STR_DORB_FIND",[localize "STR_DORB_FINISHED"],"data\icon\icon_search.paa",true],"dorb_fnc_disp_info",true] spawn BIS_fnc_MP ;
+[-1,{["stadtintel",2] call FM(disp_localization)}] FMP;

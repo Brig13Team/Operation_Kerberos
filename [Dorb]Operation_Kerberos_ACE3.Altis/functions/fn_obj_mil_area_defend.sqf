@@ -36,8 +36,8 @@ aufgabenstatus=true;
 
 _aufgabenname = format [localize "STR_DORB_DEF_TASK",_ort];
 _beschreibung = format [localize "STR_DORB_DEF_TASK_DESC",_ort];
-[-1,{_this FSPAWN(disp_info)},[localize "STR_DORB_DEFEND",[_aufgabenname],"data\icon\icon_defend.paa",true]] FMP;
-//[[localize "STR_DORB_DEFEND",[_aufgabenname],"data\icon\icon_defend.paa",true],"dorb_fnc_disp_info",true] spawn BIS_fnc_MP ;
+[-1,{["mildef",1,[_ort]] call FM(disp_localization)}] FMP;
+
 [_task,_aufgabenname,_beschreibung,true,[],"created",_position] call SHK_Taskmaster_add;
 
 
@@ -58,8 +58,8 @@ while {_missionsstatus} do {
 If(!aufgabenstatus) exitWith {[_task,"failed"] call SHK_Taskmaster_upd;};
 
 d_log("Defend - Spieler im Bereich")
-[-1,{_this FSPAWN(disp_info)},[localize "STR_DORB_DEF",[localize "STR_DORB_DEF_ATT1",localize "STR_DORB_DEF_ATT2"]]] FMP;
-//[[localize "STR_DORB_DEF",[localize "STR_DORB_DEF_ATT1",localize "STR_DORB_DEF_ATT2"]],"dorb_fnc_disp_info",true] spawn BIS_fnc_MP ;
+
+[-1,{["mildef",2] call FM(disp_localization)}] FMP;
 sleep 15;
 //////////////////////////////////////////////////
 ////// Vorbereitungszeit					 /////
@@ -67,8 +67,7 @@ sleep 15;
 
 for "_i" from 0 to 11 do {
 	_minuten = (13-_i);
-	[-1,{_this FSPAWN(disp_message)},[localize "STR_DORB_DEF",format[localize "STR_DORB_DEF_ATT_IN",_minuten]]] FMP;
-	//[[localize "STR_DORB_DEF",format[localize "STR_DORB_DEF_ATT_IN",_minuten]],"dorb_fnc_disp_message",true] spawn BIS_fnc_MP ;
+	[-1,{["mildef",3,[_minuten]] call FM(disp_localization)}] FMP;
 	sleep 60;
 }; 
 
@@ -79,7 +78,7 @@ for "_i" from 0 to 11 do {
 DORB_WAVES_REMAINING=3;
 aufgabenstatus=true;
 
-[_position] FSPAWN(spawn_attack_waves);
+[_position] spawn FM(spawn_attack_waves);
 
 //////////////////////////////////////////////////
 ////// Überprüfung + Ende 					 /////
@@ -106,11 +105,9 @@ while {aufgabenstatus} do {
 
 if (_gescheitert) then {
 	[_task,"failed"] call SHK_Taskmaster_upd;
-	[-1,{_this FSPAWN(disp_info)},[localize "STR_DORB_DEFEND",[localize "STR_DORB_FAILED"],"data\icon\icon_defend.paa",true]] FMP;
-	//[[localize "STR_DORB_DEFEND",[localize "STR_DORB_FAILED"],"data\icon\icon_defend.paa",true],"dorb_fnc_disp_info",true] spawn BIS_fnc_MP ;
+	[-1,{["mildef",4] call FM(disp_localization)}] FMP;
 }else{
 	[_task,"succeeded"] call SHK_Taskmaster_upd;
-	[-1,{_this FSPAWN(disp_info)},[localize "STR_DORB_DEFEND",[localize "STR_DORB_FINISHED"],"data\icon\icon_defend.paa",true]] FMP;
-	//[[localize "STR_DORB_DEFEND",[localize "STR_DORB_FINISHED"],"data\icon\icon_defend.paa",true],"dorb_fnc_disp_info",true] spawn BIS_fnc_MP ;
+	[-1,{["mildef",5] call FM(disp_localization)}] FMP;
 };
 d_log("Defend beendet");

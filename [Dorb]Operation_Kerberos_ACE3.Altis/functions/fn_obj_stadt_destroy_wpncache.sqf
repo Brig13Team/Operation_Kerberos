@@ -32,7 +32,7 @@ _target=[];
 
 _rad = 260;
 _gebaeudepos_arr = [];
-_gebaeudepos_arr = [_position,_rad] FCALL(get_buildings);
+_gebaeudepos_arr = [_position,_rad] call FM(get_buildings);
 
 //////////////////////////////////////////////////
 ////// Ziel erstellen						 /////
@@ -41,9 +41,9 @@ _gebaeudepos_arr = [_position,_rad] FCALL(get_buildings);
 _rand = ((floor(random 5)) + 8);
 
 for "_i" from 1 to _rand do{
-	_einheit = dorb_wpncache_list select floor random count dorb_wpncache_list;
-	_spawngebaeude = _gebaeudepos_arr select floor random count _gebaeudepos_arr;
-	_spawnposition = _spawngebaeude select floor random count _spawngebaeude;
+	_einheit = dorb_wpncache_list SELRND;
+	_spawngebaeude = _gebaeudepos_arr SELRND;
+	_spawnposition = _spawngebaeude SELRND;
 	_unit = createVehicle [_einheit,_spawnposition, [], 0, "NONE"];
 	_target pushBack _unit;
 };
@@ -69,7 +69,7 @@ if (dorb_debug) then {
 ////// Gegner erstellen 					 /////
 //////////////////////////////////////////////////
 
-[_position,_gebaeudepos_arr] FCALL(spawn_obj_stadt);
+[_position,_gebaeudepos_arr] call FM(spawn_obj_stadt);
 
 //////////////////////////////////////////////////
 ////// Aufgabe erstellen 					 /////
@@ -77,7 +77,8 @@ if (dorb_debug) then {
 
 _aufgabenname = localize "STR_DORB_DEST_WPN_TASK";
 _beschreibung = format [localize "STR_DORB_DEST_WPN_TASK_DESC",_ort];
-[-1,{_this FSPAWN(disp_info)},[localize "STR_DORB_DESTROY",[_aufgabenname],"data\icon\icon_search.paa",true]] FMP;
+[-1,{["stadtwpn",1] call FM(disp_localization)}] FMP;
+
 [_task,_aufgabenname,_beschreibung,true,[],"created",_position] call SHK_Taskmaster_add;
 
 //////////////////////////////////////////////////
@@ -107,4 +108,4 @@ while {aufgabenstatus} do {
 
 {deleteVehicle _x}forEach _target;
 
-[-1,{_this FSPAWN(disp_info)},[localize "STR_DORB_DESTROY",[localize "STR_DORB_FINISHED"],"data\icon\icon_search.paa",true]] FMP;
+[-1,{["stadtwpn",2] call FM(disp_localization)}] FMP;

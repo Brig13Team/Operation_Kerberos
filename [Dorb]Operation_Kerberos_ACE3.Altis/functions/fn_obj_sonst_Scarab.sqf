@@ -147,8 +147,7 @@ _deploy=false;
 
 _aufgabenname = format [localize "STR_DORB_DEST_SCARAB_TASK",_ZeitInMinuten];
 _beschreibung = format [localize "STR_DORB_DEST_SCARAB_TASK_DESC",_ort,(count _target)];
-[-1,{_this FSPAWN(disp_info)},[localize "STR_DORB_DESTROY",[_aufgabenname],"data\icon\icon_destroy.paa",true]] FMP;
-//[[localize "STR_DORB_DESTROY",[_aufgabenname],"data\icon\icon_destroy.paa",true],"dorb_fnc_disp_info",true] spawn BIS_fnc_MP ;
+[-1,{["sonstscarab",1,[_ZeitInMinuten]] call FM(disp_localization)}] FMP;
 [_task,_aufgabenname,_beschreibung,true,[],"created",_position] call SHK_Taskmaster_add;
 
 //////////////////////////////////////////////////
@@ -191,8 +190,8 @@ while {aufgabenstatus} do {
 };
 If (_geschafft) then {
 	[_task,"succeeded"] call SHK_Taskmaster_upd;
-	[-1,{_this FSPAWN(disp_info)},[localize "STR_DORB_DESTROY",[localize "STR_DORB_FINISHED"],"data\icon\icon_destroy.paa",true]] FMP;
+	[-1,{["sonstscarab",2] call FM(disp_localization)}] FMP;
 }else{
 	[_task,"failed"] call SHK_Taskmaster_upd;
-	[-1,{_this FSPAWN(disp_info)},[localize "STR_DORB_DESTROY",[localize "STR_DORB_FAILED"],"data\icon\icon_destroy.paa",true]] FMP;
+	[-1,{["sonstscarab",3] call FM(disp_localization)}] FMP;
 };

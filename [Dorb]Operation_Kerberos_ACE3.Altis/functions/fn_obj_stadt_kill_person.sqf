@@ -64,7 +64,7 @@ for "_i" from 1 to _rand do{
 		_x addWeapon "LMG_Zafir_F";
 		_x selectWeapon "LMG_Zafir_F";
 	};
-	_x addEventHandler ["Killed", {[-1,{_this FSPAWN(disp_message)},[localize "STR_DORB_KILL",format[localize "STR_DORB_KILL_KILLED",(name(_this select 0))]]] FMP;}];	
+	_x addEventHandler ["Killed", {[-1,{_this spawn FM(disp_message)},[localize "STR_DORB_KILL",format[localize "STR_DORB_KILL_KILLED",(name(_this select 0))]]] FMP;}];	
 }forEach _target;
 
 _name = name(_target select 0);
@@ -95,8 +95,7 @@ if (dorb_debug) then {
 
 _aufgabenname = localize "STR_DORB_KILL_TASK";
 _beschreibung = format [localize "STR_DORB_KILL_TASK_DESC",_name,_ort];
-[-1,{_this spawn FM(disp_info)},[localize "STR_DORB_KILL",[_aufgabenname],"data\icon\icon_target.paa",true]] FMP;
-//[[localize "STR_DORB_KILL",[_aufgabenname],"data\icon\icon_target.paa",true],"dorb_fnc_disp_info",true] spawn BIS_fnc_MP ;
+[-1,{["stadtcommander",1] call FM(disp_localization)}] FMP;
 [_task,_aufgabenname,_beschreibung,true,[],"created",_position] call SHK_Taskmaster_add;
 
 //////////////////////////////////////////////////
@@ -125,5 +124,4 @@ while {aufgabenstatus} do {
 [_task,"succeeded"] call SHK_Taskmaster_upd;
 
 {deleteVehicle _x}forEach _target;
-[-1,{_this spawn FM(disp_info)},[localize "STR_DORB_KILL",[localize "STR_DORB_FINISHED"],"data\icon\icon_target.paa",true]] FMP;
-//[[localize "STR_DORB_KILL",[localize "STR_DORB_FINISHED"],"data\icon\icon_target.paa",true],"dorb_fnc_disp_info",true] spawn BIS_fnc_MP ;
+[-1,{["stadtcommander",2] call FM(disp_localization)}] FMP;
