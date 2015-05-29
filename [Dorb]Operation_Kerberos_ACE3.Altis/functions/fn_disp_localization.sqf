@@ -20,7 +20,7 @@ _this spawn {
 		case "mildef": {
 						switch(_messageid) do {
 							case 1 : {[localize "STR_DORB_DEFEND",[format [localize "STR_DORB_DEF_TASK",_paramarray select 0]],"data\icon\icon_defend.paa",true] call FM(disp_info);};
-							case 2 : {[localize "STR_DORB_DEF",[localize "STR_DORB_DEF_ATT1",localize "STR_DORB_DEF_ATT2"] call FM(disp_info);};
+							case 2 : {[localize "STR_DORB_DEF",[localize "STR_DORB_DEF_ATT1",localize "STR_DORB_DEF_ATT2"]] call FM(disp_info);};
 							case 3 : {[localize "STR_DORB_DEF",format[localize "STR_DORB_DEF_ATT_IN",[_paramarray select 0]]] call FM(disp_info);};
 							case 4 : {[localize "STR_DORB_DEFEND",[localize "STR_DORB_FAILED"],"data\icon\icon_defend.paa",true] call FM(disp_info);};
 							case 5 : {[localize "STR_DORB_DEFEND",[localize "STR_DORB_FINISHED"],"data\icon\icon_defend.paa",true] call FM(disp_info);};

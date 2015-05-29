@@ -45,7 +45,7 @@ _veh lock 3;
 while {alive _veh} do {
 	d_log("COMMANDVEH-CHECK | Airdrop")
 	_attack_pos=[];
-	_attack_pos=[getPos _veh,0] call FN(spawn_commandveh_check);
+	_attack_pos=[getPos _veh,0] call FM(spawn_commandveh_check);
 	if ((count _attack_pos)>1) then {
 		d_log_o("COMMANDVEH | Call Airdrop")
 		[_attack_pos,0,40] call FM(spawn_attack_airdrop);
