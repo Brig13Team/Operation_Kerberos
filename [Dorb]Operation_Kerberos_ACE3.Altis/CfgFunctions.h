@@ -10,9 +10,7 @@ class dorb
 		class rep {};
 		class reservedslots {};
 		class set_loadout_halo {};
-		class setRespawnVeh {};
 		class teleporter_lead {};
-		class vehicleaddaction {};
 	};
 	class core {
 		class cleanup_big {};
