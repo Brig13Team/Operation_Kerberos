@@ -6,9 +6,6 @@
 */
 #include "makros.hpp"
 
-MAKROS = (parsingNamespace getVariable "D_ROOTDIR")+"makros.hpp";
-ICONS_DIR = (parsingNamespace getVariable "D_ROOTDIR")+"data\icons\";
-
 execVM "shk_taskmaster.sqf";
 
 enableSaving [false, false];
@@ -44,4 +41,4 @@ tf_no_auto_long_range_radio = true;
 
 ["Initialize"] call BIS_fnc_dynamicGroups;  
 CHECK(!hasInterface)
-["init"] FSPAWN(grouptracker);
+["init"] spawn FM(grouptracker);

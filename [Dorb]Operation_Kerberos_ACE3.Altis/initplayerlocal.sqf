@@ -10,10 +10,10 @@ CHECK(!hasInterface)
 
 waituntil {! isnull player};
 
-player addEventHandler ["Killed", {[_this] call FM(onKilled);}];	
-player addEventHandler ["Respawn", {[_this] call FM(afterplayerrespawn);}];
-player addEventHandler ["Fired", {_this call FM(firedbase);}];		
-player addEventHandler ["Hit", {_this call FM(hittk);}];			
+//player addEventHandler ["Killed", {[_this] call FM(onKilled);}];	
+//player addEventHandler ["Respawn", {[_this] call FM(afterplayerrespawn);}];
+//player addEventHandler ["Fired", {_this call FM(firedbase);}];		
+//player addEventHandler ["Hit", {_this call FM(hittk);}];			
 
 /// BIS - Groupmanagement
 ["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;  

@@ -11,6 +11,7 @@ class dorb
 		class reservedslots {};
 		class set_loadout_halo {};
 		class teleporter_lead {};
+		class addNVG {};
 	};
 	class core {
 		class cleanup_big {};

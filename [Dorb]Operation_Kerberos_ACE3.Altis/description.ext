@@ -47,6 +47,8 @@ __EXEC (D_ROOTDIR = __FILE__ select [0, count __FILE__ - 15])
 #include "ui\menu.h"
 #include "ui\rscTitles.h"
 
+// Eventhandlers
+#include "CfgEventHandlers.hpp"
 
 //	class Params {
 //		#include "dorb_param.h"
