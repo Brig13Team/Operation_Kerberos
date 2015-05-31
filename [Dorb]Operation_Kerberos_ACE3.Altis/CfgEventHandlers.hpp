@@ -1,11 +1,11 @@
 
-/*
+
 class Extended_PreInit_EventHandlers {
-    class dorb {
-        init = QUOTE(call COMPILE_FILE(XEH_preInit));
+    class Dorb_Preinit {
+        init = "call compile preProcessFileLineNumbers 'XEH_PreInit.sqf'";
     };
 };
-*/
+
 class Extended_Init_Eventhandlers {
 	class rhs_infantry_msv_base {
 		class Dorb_init {
