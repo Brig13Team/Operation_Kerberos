@@ -744,6 +744,11 @@
                 <German>Töten Sie %1. Wir können dadurch die feindlichen Operationen erheblich verlangsamen. Der letzte bekannte Aufenthaltsort ist %2.</German>
                 <English>Kill %1. Hostile operations will be slowed down immensely. Last known location is %2.</English>
 			</Key>
+			<Key ID="STR_DORB_KILL_KILLED">
+				<Original>%1 was killed.</Original>
+                <Original>%1 wurde getötet.</Original>
+                <Original>%1 was killed.</Original>
+			</Key>
 		</Container>
 		<Container name="CONV_KILL">
 			<Key ID="STR_DORB_KILL_CONV_TASK">
