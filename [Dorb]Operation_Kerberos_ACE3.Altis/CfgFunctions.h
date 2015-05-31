@@ -34,7 +34,7 @@ class dorb
 		class random_pos {};
 	};
 	class eventhandler {
-		class afterplayerrespawn {};
+
 		class onKilled {};
 		class firedbase {};
 		class handledamage_C4 {};
