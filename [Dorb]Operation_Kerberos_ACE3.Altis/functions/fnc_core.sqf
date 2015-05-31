@@ -51,7 +51,7 @@ for "_u" from 0 to 120 do {
 	sleep 5;
 	INC(_aufgabennummer);
 	_aktuelle_aufgabe = FORMAT_1("task_%1",_aufgabennummer);
-	d_log(FORMAT_2("Aufgabe=%1 Aufgabename=%2",_aufgabennummer,_aktuelle_aufgabe))
+	LOG_2(_aufgabennummer,_aktuelle_aufgabe);
 	[_aktuelle_aufgabe] FCALL(obj_choose);
 	//[_aktuelle_aufgabe] FCALL(choose_obj);	
 };

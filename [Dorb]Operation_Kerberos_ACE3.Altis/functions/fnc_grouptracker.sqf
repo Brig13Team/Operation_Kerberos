@@ -105,7 +105,7 @@ case "init" : {
 		DORB_GPTR_MARKERNAME = DORB_GPTR_MARKERNAME - [-1];
 		
 		DORB_GPTR_MARKER=_marker; //für debug
-		if ((count _marker >0)&&((count _marker)!=(count DORB_GPTR_MARKERNAME))) then {sleep REFRESHTIME;["restart"] spawn SELF; d_log("Anzahl Marker != Anzahl Markernamen") };
+		if ((count _marker >0)&&((count _marker)!=(count DORB_GPTR_MARKERNAME))) then {sleep REFRESHTIME;["restart"] spawn SELF; ERROR("Anzahl Marker != Anzahl Markernamen"); };
 		
 		/// Updates the position
 		{

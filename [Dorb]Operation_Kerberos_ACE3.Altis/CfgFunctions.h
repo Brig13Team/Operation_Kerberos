@@ -3,7 +3,6 @@ class dorb
 	tag = "dorb";
 	file = "functions";
 	class basis {
-		class grouptracker {};
 		class get_loadout_halo {};
 		class nurpiloten {};
 		class playeraddaction {};
@@ -11,7 +10,6 @@ class dorb
 		class reservedslots {};
 		class set_loadout_halo {};
 		class teleporter_lead {};
-		class addNVG {};
 	};
 	class core {
 		class cleanup_big {};
@@ -28,21 +26,18 @@ class dorb
 		class makro_log {};
 		class makro_selrandom {};
 		class makro_delete {};
-		class moveToHC {};
-		class determineHC {};
 		class random_pos {};
 	};
 	class eventhandler {
 
-		class onKilled {};
-		class firedbase {};
+		
+		
 		class handledamage_C4 {};
-		class hittk {};
+		
 	};
 	class missionen {
 		class core {};
 		class create_unitlists {};
-		class choose_obj {};
 		class difficulty {};
 		class obj_rtb {};
 		class examine {};

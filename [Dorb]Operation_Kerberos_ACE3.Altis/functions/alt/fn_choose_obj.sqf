@@ -16,27 +16,27 @@ private ["_rand"];
 [] call FM(create_unitlists);
 
 _rand = floor(random 100);
-d_log(FORMAT_1("Aufgabenrandom=%1",_rand))
+
 
 If (_rand < 60) then {
 		If (_rand < 40) then {
-			d_log("Location = Stadt")
+			LOG("Location = Stadt");
 			[_aufgabe] call FM(obj_stadt_create);
 		}else{
-			d_log("Location = Sonstiges")
+			LOG("Location = Sonstiges");
 			[_aufgabe] call FM(obj_sonst_create);
 		};
 }else{
 	If (_rand < 90) then {
 		If (_rand < 75) then {
-			d_log("Location = Militaer")
+			LOG("Location = Militaer");
 			[_aufgabe] call FM(obj_mil_create);
 		}else{
-			d_log("Location = Industrie")
+			LOG("Location = Industrie");
 			//[_aufgabe] call FM(obj_ind_create);
 		};	
 	}else{
-			d_log("Location = Wasser")
+			LOG("Location = Wasser");
 			//[_aufgabe] call FM(obj_tauch_create);
 	};
 };

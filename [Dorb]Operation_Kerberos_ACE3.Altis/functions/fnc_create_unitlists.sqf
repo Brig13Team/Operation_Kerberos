@@ -672,5 +672,4 @@ switch (_rand) do {
 
 	};
 };
-
-[["Einheitenliste für Nr: ",_rand,"//Seite=",dorb_side],0] call dorb_fnc_debug_format;
+LOG_2(_rand,dorb_side);

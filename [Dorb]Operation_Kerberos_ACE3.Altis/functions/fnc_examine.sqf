@@ -23,7 +23,7 @@ switch (_option) do {
 						DORB_EXAMINE=false;
 						{deleteMarker _x}forEach DORB_EXAMINE_MARK;
 						DORB_EXAMINE_MARK=[];
-						d_log("Examine Init")
+						LOG("Examine Init");
 					};
 
 	case "check": 	{
@@ -38,7 +38,7 @@ switch (_option) do {
 								deleteVehicle _x;
 								[-1,{_this FSPAWN(disp_message)},[localize "STR_DORB_EXAMINE",localize "STR_DORB_EXAMINE_DESC"]] FMP;
 								DORB_EXAMINE=true;
-								d_log(FORMAT_1("EXAMINE WIRD DURCHGEFÜHRT - TARGETS=%1",_target))
+								LOG(FORMAT_1("EXAMINE WIRD DURCHGEFÜHRT\nTARGETS=%1",_target));
 								for "_i" from 0 to ((count _target)-1) do {
 									_pos = [getPos(_target select _i), 40,0] FCALL(random_pos);
 									_marker = createMarker [format["EXAMINE_Mark_%1",_i],_pos];
@@ -49,13 +49,13 @@ switch (_option) do {
 									//DORB_EXAMINE_MARK pushBack format["EXAMINE_Mark_%1",_i];
 									DORB_EXAMINE_MARK pushBack _marker;
 								};
-								d_log(FORMAT_3("Gegner=%1 / Anzahl=%2 / Ziele=%3",_x,count _target,_target))
+								LOG(FORMAT_3("Gegner=%1 \n Anzahl=%2 \n Ziele=%3",_x,count _target,_target));
 							};
 						}forEach _list;
 					};
 	case "destroy": {
 						{deleteMarker _x} forEach DORB_EXAMINE_MARK;
 						DORB_EXAMINE_MARK=[];
-						d_log("Examine Destroy")
+						LOG("Examine Destroy");
 					};
 };
