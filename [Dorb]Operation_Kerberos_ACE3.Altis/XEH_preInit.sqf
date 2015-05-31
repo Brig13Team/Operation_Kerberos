@@ -7,6 +7,7 @@ TRIPLES(PREFIX,fnc,putinlog) = compileFinal "Private['_file','_line','_message',
 
 PREPMAIN(taskhandler);
 
+PREPMAIN(spawn_crew);
 
 
 

@@ -34,7 +34,9 @@ for "_i" from 0 to 3 do {
 	};
 	_unit = createVehicle [_einheit,_spawnpos, [], 0, "NONE"];
 	_unit setDir _dir;
-	[_unit,_group] call BIS_fnc_spawnCrew;
+	
+	[_unit,_group] call FM(spawn_crew);
+	//[_unit,_group] call BIS_fnc_spawnCrew;
 	
 
 	/*

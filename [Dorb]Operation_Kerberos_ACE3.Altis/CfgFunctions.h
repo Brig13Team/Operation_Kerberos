@@ -89,7 +89,6 @@ class dorb
 		class spawn_in_building {};
 		class spawn_rooftop {};
 		class spawn_unit {};
-		class spawn_crew {};
 		class spawn_mortarpos {};
 		class spawn_artypos {};
 		class spawn_tower {};
