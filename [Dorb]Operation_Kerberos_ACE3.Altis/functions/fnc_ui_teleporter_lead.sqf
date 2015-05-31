@@ -15,19 +15,19 @@ _position = [];
 
 //if (not alive _host) exitWith {_host removeaction (_this select 2);};
 
-if (leader _caller == _caller) exitWith {[localize "STR_DORB_TELEPORT",[localize "STR_DORB_TELEPORT_LEAD_FAIL",localize "STR_DORB_TELEPORT_LEAD_ISLEADER"]] FCALL(disp_info);};
+if (leader _caller == _caller) exitWith {[localize "STR_DORB_TELEPORT",[localize "STR_DORB_TELEPORT_LEAD_FAIL",localize "STR_DORB_TELEPORT_LEAD_ISLEADER"]] call FM(disp_info);};
 
 
 if ((vehicle _caller) == _caller) then {
 	_nearestEnemy = _caller findNearestEnemy (leader _caller);
 	if (((leader _caller) distance _nearestEnemy)<350) then {
-		[localize "STR_DORB_TELEPORT",[localize "STR_DORB_TELEPORT_LEAD_FAIL",localize "STR_DORB_TELEPORT_LEAD_NEARENEMY"]] FCALL(disp_info);
+		[localize "STR_DORB_TELEPORT",[localize "STR_DORB_TELEPORT_LEAD_FAIL",localize "STR_DORB_TELEPORT_LEAD_NEARENEMY"]] call FM(disp_info);
 	}else{
 		/// In Fahrzeug
 		If ((vehicle (leader _caller)) != (leader _caller)) then {
 			_platzanzahl = (vehicle (leader _caller)) emptyPositions "cargo";
 			If (_platzanzahl<1) then {
-				[localize "STR_DORB_TELEPORT",[localize "STR_DORB_TELEPORT_LEAD_FAIL",localize "STR_DORB_TELEPORT_LEAD_NOPLACE"]] FCALL(disp_info);
+				[localize "STR_DORB_TELEPORT",[localize "STR_DORB_TELEPORT_LEAD_FAIL",localize "STR_DORB_TELEPORT_LEAD_NOPLACE"]] call FM(disp_info);
 			}else{
 				_caller moveInCargo (vehicle (leader _caller));
 			};

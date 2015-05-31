@@ -10,6 +10,12 @@ PREPMAIN(taskhandler);
 
 
 
+PREPMAIN(ui_teleport_addAction);
+PREPMAIN(ui_teleport_draw3D);
+PREPMAIN(ui_teleport_onLoad);
+PREPMAIN(ui_teleporter_lead);
+
+
 PREPMAIN(list_groups);
 PREPMAIN(ui_tfr_onOpen);
 PREPMAIN(ui_tfr_OpenMenu);
