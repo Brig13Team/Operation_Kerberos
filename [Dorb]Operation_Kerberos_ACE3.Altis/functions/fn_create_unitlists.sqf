@@ -121,7 +121,7 @@ switch (_rand) do {
 						"rhs_vdv_RShG2"
 						];
 		dorb_diverlist = ["O_diver_f","O_diver_exp_f","O_diver_TL_f","O_diver_f","O_diver_exp_f","O_diver_f"];
-		dorb_crewmenlist = ["rhs_vdv_officer_armored","rhs_vdv_driver_armored","rhs_vdv_driver","rhs_vdv_crew","rhs_vdv_crew_commander","rhs_vdv_armoredcrew","rhs_vdv_combatcrew"];
+		dorb_crewmenlist = ["rhs_vdv_officer_armored","rhs_vdv_driver_armored","rhs_vdv_armoredcrew","rhs_vdv_driver","rhs_vdv_crew","rhs_vdv_crew_commander","rhs_vdv_combatcrew"];
 	
 		dorb_grouplist_inf = [
 								configfile >> "CfgGroups" >> "East" >> "rhs_faction_vdv" >> "rhs_group_rus_vdv_infantry" >> "rhs_group_rus_vdv_infantry_fireteam",
