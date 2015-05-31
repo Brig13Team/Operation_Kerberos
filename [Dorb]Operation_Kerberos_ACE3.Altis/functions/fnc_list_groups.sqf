@@ -20,4 +20,4 @@ _gruppen = [];
 		PUSH(_gruppen,_x);
 	};
 }forEach _alleGruppen;
-_gruppen
+_gruppen;

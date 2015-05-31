@@ -14,7 +14,7 @@ private["_sel","_gruppen","_var"];
 SETMVAR(TFR_UPDATE,true);
 _sel = [];
 _gruppen=[];
-_gruppen = [] FCALL(list_groups);
+_gruppen = [] call FM(list_groups);
 
 _sel pushBack [[localize "STR_DORB_TFR_GROUP","SR","LR"],[],[]];
 
