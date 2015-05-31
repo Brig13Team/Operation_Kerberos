@@ -5,7 +5,7 @@
 	small cleanup
 	
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 {if ((!(alive _x))and(!(GETVAR(_x,DORB_ISTARGET,false)))and(!(GETVAR(_x,DORB_ISRESPAWN,false)))) then {_x TILGE;};} foreach vehicles;
 {_x TILGE;} forEach allDead;

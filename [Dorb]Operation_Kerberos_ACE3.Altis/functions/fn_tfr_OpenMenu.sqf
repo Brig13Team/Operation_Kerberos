@@ -6,7 +6,7 @@
 	
 
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 private["_sr","_lr"];
 SETMVAR(TFR_UPDATE,false);

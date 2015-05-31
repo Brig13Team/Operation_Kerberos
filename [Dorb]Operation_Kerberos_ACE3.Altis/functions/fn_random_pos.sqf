@@ -13,10 +13,10 @@
 	Returns:
 	Position
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 private ["_pos","_dir","_radx","_rady"];
 
-PARAMS_3(_start,_rad,_typ)
+PARAMS_3(_start,_rad,_typ);
 
 switch _typ do {
 	case 0 : {

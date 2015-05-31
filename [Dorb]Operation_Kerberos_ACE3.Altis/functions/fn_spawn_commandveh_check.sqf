@@ -15,7 +15,7 @@
 	Return
 	BOOL
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 _pos = _this select 0;
 _type = [_this,1,0,[0]] call BIS_fnc_param;

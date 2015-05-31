@@ -9,7 +9,7 @@
 		1 : ARRAY- Position in Vehicle
 		2 : Obj	- player
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 _this addEventHandler ["GetIn",
 {

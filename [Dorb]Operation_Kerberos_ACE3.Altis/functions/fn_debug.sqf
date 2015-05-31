@@ -1,4 +1,4 @@
-#include "makros.hpp"
+#include "script_component.hpp"
 d_log("Alte Funktion")
 if (!(isServer)) exitWith {true};
 private ["_scriptName","_log","_input","_level"];

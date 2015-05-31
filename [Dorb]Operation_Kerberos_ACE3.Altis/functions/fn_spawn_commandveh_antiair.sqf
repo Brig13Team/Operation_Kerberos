@@ -4,7 +4,7 @@
 	Description:
 	
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 private["_position","_spawnpos","_spawnposition","_return","_veh","_attack_pos","_radar","_radarpos","_rand","_dir","_wp"];
 

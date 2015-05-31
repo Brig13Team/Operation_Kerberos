@@ -12,7 +12,7 @@
 	Returns:
 	Something (eventually)
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 private ["_gebaeudearr","_min","_max","_spawnpos_arr","_anz","_d","_gruppe","_position","_einheit","_unit"];
 
 _gebaeudepos_arr = _this select 0;

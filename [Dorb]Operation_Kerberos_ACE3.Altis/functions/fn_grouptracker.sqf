@@ -4,7 +4,7 @@
 	Description:
 		Grouptracker
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 CHECK(!hasInterface)
 

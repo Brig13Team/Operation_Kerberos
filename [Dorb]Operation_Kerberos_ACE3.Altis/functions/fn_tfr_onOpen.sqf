@@ -8,7 +8,7 @@
 		called as stacked EH
 	
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 if (GETMVAR(TFR_UPDATE,false)) exitWith {};
 private["_sel","_gruppen","_var"];
 SETMVAR(TFR_UPDATE,true);

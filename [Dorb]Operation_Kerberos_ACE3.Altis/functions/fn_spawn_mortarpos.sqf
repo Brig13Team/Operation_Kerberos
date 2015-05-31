@@ -4,7 +4,7 @@
 	Description:
 		Creates a Motarpos
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 private["_pos","_position","_spawnposition","_einheit","_dir","_return"];
 

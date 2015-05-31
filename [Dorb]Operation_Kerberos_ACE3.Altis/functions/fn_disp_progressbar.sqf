@@ -13,7 +13,7 @@
 	Return
 	BOOL
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 CHECK(isDedicated)
 
@@ -24,7 +24,6 @@ _onSuccess = [_this, 2, {}, [{}]] call BIS_fnc_Param;
 _onfailure = [_this, 3, {}, [{}]] call BIS_fnc_Param;
 _args = [_this, 4, [], [[]]] call BIS_fnc_Param;
 
-hint "test";
 if (_timeToWait > 0) then {
 	disableSerialization;
 	700705 cutRsc ["DORB_DISP_PROGRESSBAR","plain"];

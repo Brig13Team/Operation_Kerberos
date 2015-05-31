@@ -10,7 +10,7 @@
 	Returns:
 	BOOL
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 CHECK(!isServer)
 PARAMS_1(_position);
 private["_ort","_position_rescue","_pow"];

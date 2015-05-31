@@ -5,7 +5,7 @@
 		Gefangene verhören
 
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 /// TODO: ACE - captured unit = civillian??
 

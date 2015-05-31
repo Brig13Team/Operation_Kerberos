@@ -13,7 +13,7 @@
 	Return
 	BOOL
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 	
 If (!(aufgabenstatus)) exitWith {d_log("Wellengenerierung abgebrochen")};
 If (DORB_WAVES_REMAINING < 1) exitWith {d_log("Keine Wellen übrig")};

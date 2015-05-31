@@ -5,7 +5,7 @@
 	Sets the Frequencies of the Squad to your radio
 	
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 private["_sr","_lr"];
 _sr = parseNumber (ctrlText 700202);
 _lr = parseNumber (ctrlText 700203);

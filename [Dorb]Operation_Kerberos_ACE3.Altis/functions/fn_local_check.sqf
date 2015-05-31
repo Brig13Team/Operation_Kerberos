@@ -4,7 +4,7 @@
 	Description:
 		Do not call, never ever directly
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 CHECK(!(local (_this select 0)))
 

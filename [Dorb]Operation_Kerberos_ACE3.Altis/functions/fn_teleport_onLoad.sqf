@@ -5,7 +5,7 @@
 		Sets teleport buttons
 	
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 CHECK(!hasInterface)
 

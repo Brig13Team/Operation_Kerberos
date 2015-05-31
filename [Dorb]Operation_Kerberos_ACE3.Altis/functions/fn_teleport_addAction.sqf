@@ -5,7 +5,7 @@
 		Adds Action to Teleporter
 	
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 CHECK(!hasInterface)
 

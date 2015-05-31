@@ -9,6 +9,6 @@
 	Returns:
 	Random array pos
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 If(count _this < 1) exitwith {[]};
 (_this) select floor random count (_this)

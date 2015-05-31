@@ -9,7 +9,7 @@
 		TO DO
 
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 #define dlg_spawn_idd				471470
 #define dlg_spawn_hintergrund_idd 	471471

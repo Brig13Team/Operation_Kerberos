@@ -8,7 +8,7 @@
 		0 : SCALAR (opt)	- Number
 	
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 private ["_rand"];
 

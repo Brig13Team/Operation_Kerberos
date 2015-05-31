@@ -4,7 +4,7 @@
 	Description:
 
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 
 PARAMS_1(_config);

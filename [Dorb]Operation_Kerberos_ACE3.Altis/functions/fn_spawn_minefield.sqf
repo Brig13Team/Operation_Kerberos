@@ -13,7 +13,7 @@
 	Return
 	BOOL
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 
 _centerpos = _this select 0;

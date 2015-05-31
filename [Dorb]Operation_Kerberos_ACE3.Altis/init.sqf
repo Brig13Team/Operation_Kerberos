@@ -4,7 +4,7 @@
 	Description:
 		init
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 execVM "shk_taskmaster.sqf";
 
@@ -40,5 +40,3 @@ tf_no_auto_long_range_radio = true;
 //TF_give_microdagr_to_soldier = false;
 
 ["Initialize"] call BIS_fnc_dynamicGroups;  
-CHECK(!hasInterface)
-["init"] spawn FM(grouptracker);

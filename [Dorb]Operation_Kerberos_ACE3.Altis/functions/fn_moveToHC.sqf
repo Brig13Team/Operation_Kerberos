@@ -9,7 +9,7 @@
 		0 : Group
 
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 /// CurrentHC erstellen, falls nicht vorhanden - Nur am Anfang interessant
 if ((isnil "currentHC")&&(!(isnil "HC1"))) then {

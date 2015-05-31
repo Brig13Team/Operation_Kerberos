@@ -13,7 +13,7 @@
 	Return
 	BOOL
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 _target = [_this,0,objNull,[objNull]];
 
 

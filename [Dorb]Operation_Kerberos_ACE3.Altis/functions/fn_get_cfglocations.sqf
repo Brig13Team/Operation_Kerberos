@@ -5,7 +5,7 @@
 		AO orte + Sortierung
 	
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 private ["_loc_civ","_loc_ind","_loc_mil","_loc_water","_loc_sonst","_cfgOrte","_mil","_ind","_i","_pow","_quar"];
 

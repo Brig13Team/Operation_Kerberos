@@ -15,7 +15,7 @@
 	Returns:
 	BOOL
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 CHECK(!isServer)
 
 private["_position","_task","_ort","_position_rescue","_a"];

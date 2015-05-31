@@ -4,7 +4,7 @@
 	Description:
 		3DIcons
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 CHECK(!hasInterface)
 private["_id"];

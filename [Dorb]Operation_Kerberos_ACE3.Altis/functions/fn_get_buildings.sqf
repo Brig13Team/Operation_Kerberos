@@ -4,7 +4,7 @@
 	Description:
 		Gebäude um Position auflisten
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 private ["_gebauede","_pos","_i","_fertig","_gebauedepos","_temp"];
 PARAMS_1(_pos);

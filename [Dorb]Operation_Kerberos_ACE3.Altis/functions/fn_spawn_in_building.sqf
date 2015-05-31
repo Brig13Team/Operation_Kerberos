@@ -13,7 +13,7 @@
 	Return
 	BOOL
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 private ["_gebaeudearr","_min","_max","_spawnpos","_anz","_d","_gruppe","_position","_einheit","_unit"];
 

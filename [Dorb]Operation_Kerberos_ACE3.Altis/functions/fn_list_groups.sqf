@@ -7,7 +7,7 @@
 	Returns:
 	ARRAY: includes the filtered groups
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 private ["_alleGruppen","_gruppen"];
 
 _alleGruppen = allGroups;

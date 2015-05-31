@@ -5,7 +5,7 @@
 	
 
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 private ["_players"];
 

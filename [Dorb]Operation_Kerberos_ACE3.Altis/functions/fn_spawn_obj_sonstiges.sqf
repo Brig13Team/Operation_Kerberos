@@ -13,7 +13,7 @@
 	Return
 	BOOL
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 private["_position","_difficulty","_spawnposition","_rand"];
 

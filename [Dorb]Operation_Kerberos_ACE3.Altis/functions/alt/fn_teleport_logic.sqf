@@ -5,7 +5,7 @@
 		Teleports player to Destination choosen by dialog
 	
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 private ["_aktion", "_control","_num_schalter","_teleport_idd","_teleport_idc_btn1"];
 _teleport_idd = 470470;

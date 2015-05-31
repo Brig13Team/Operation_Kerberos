@@ -15,7 +15,7 @@
 	Returns:
 	BOOL
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 CHECK(!isServer)
 
 d_log(FORMAT_1("Get Prototyp // %1",_this))

@@ -9,7 +9,7 @@
 		TO DO
 
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 private["_selection"];
 #define dlg_veh_spawn_list_idc 600102
 #define dlg_veh_spawn_vehname_idc 600103

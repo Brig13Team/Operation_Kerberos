@@ -7,7 +7,7 @@
 	Call via:
 		[target,function,[parameters]] call FM(local)
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 PARAMS_2(_target,_function);
 _parameters = [_this,2,[],[[]]] call BIS_fnc_param;
 

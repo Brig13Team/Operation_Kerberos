@@ -5,7 +5,7 @@
 		Creates the configlists of the Items for cratespawner
 	
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 _daten = GETMVAR(DORB_CRATE_ITEMS,[]);
 
@@ -212,7 +212,7 @@ _progressStep = 1 / count _configArray;
 
 SETMVAR(DORB_CRATE_ITEMS,_daten);
 ["DORB_CRATE"] call bis_fnc_endLoadingScreen;
-
+/*
 d_log(FORMAT_1("Rifles=%1",((DORB_CRATE_ITEMS select ID_RIFLES)select 0)))
 d_log(FORMAT_1("Rifles Mag=%1",((DORB_CRATE_ITEMS select ID_RIFLES)select 1)))
 d_log(FORMAT_1("MG=%1",((DORB_CRATE_ITEMS select ID_MG)select 0)))
@@ -238,7 +238,7 @@ d_log(FORMAT_1("Navigation=%1",((DORB_CRATE_ITEMS select ID_NAVIGATION)select 0)
 d_log(FORMAT_1("Medical=%1",((DORB_CRATE_ITEMS select ID_MEDICAL)select 0)))
 d_log(FORMAT_1("Item=%1",((DORB_CRATE_ITEMS select ID_ITEMS)select 0)))
 d_log(FORMAT_1("Sonstiges=%1",((DORB_CRATE_ITEMS select ID_SONSTIGES)select 0)))
-
+*/
 
 
 true

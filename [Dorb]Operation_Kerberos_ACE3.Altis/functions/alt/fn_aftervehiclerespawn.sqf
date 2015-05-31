@@ -4,7 +4,7 @@
 	Description:
 
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 PARAMS_1(_parameter);
 EXPLODE_1_PVT(_unit);

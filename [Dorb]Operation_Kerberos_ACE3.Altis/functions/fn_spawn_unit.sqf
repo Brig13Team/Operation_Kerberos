@@ -12,7 +12,7 @@
 	Returns:
 	Object
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 private ["_position","_gruppe","_typ","_unit"];
 

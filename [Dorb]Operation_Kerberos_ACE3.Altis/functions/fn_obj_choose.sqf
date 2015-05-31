@@ -8,7 +8,7 @@
 		0 : STRING	- TASKNAME
 	
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 private ["_aufgabe","_rand"];
 

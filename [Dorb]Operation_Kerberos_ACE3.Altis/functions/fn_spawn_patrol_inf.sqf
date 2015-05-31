@@ -13,7 +13,7 @@
 	Something (eventually)
 
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 private ["_radius","_position","_anzahl_inf","_anzahl_spec","_gruppe","_units","_rand"];
 _position = _this select 0;

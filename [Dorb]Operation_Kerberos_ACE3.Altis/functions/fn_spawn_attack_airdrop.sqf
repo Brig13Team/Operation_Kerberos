@@ -13,7 +13,7 @@
 	Return
 	BOOL
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 CHECK(!isServer)
 
 private ["_position","_type","_dropradius","_spawnpos","_spawnradius","_dir","_flughoehe","_einheit","_transporter","_jaeger_gruppe","_jaeger","_platzanzahl"];

@@ -5,7 +5,7 @@
 		Teleports Caller to his Squadleader
 	
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 d_log("leadport")
 PARAMS_2(_host,_caller);
 

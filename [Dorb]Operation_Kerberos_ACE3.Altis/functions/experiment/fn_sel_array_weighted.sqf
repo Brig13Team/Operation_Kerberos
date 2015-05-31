@@ -9,7 +9,7 @@
 		1 : ARRAY	- Array with the Weights
 	
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 
 _array = [_this,0,[],[[]]] call BIS_fnc_param;

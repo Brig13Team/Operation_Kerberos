@@ -5,7 +5,7 @@
 	Big Cleanup
 	
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 PARAMS_2(_pos,_rad);
 

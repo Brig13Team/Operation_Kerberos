@@ -15,7 +15,7 @@
 	Returns:
 	BOOL
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 CHECK(!isServer)
 
 //PARAMS_4(_ort,_position,_task,_gebaeudearr);

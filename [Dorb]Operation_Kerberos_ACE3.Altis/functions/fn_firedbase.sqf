@@ -13,7 +13,7 @@
 	Return
 	BOOL
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 CHECK(!hasinterface)
 _this spawn {
 	CHECK((getposatl (_this select 0) distance getposatl base) >51)

@@ -9,7 +9,7 @@
 		1 :	GROUP - Gruppe
 
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 CHECK(!isServer)
 
 

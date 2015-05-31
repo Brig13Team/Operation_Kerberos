@@ -9,7 +9,7 @@
 		TO DO
 
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 #define dlg_veh_spawn_idd 600100
 #define dlg_veh_spawn_list_idc 600102

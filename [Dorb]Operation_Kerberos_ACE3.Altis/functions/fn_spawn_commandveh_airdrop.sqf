@@ -13,7 +13,7 @@
 	Return
 	BOOL
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 private["_position","_spawnposition","_einheit","_veh","_dir","_attack_pos"];
 

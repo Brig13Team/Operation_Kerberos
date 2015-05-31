@@ -13,7 +13,7 @@
 	Return
 	BOOL
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 PARAMS_1(_position);
 private["_rad","_spawnposition","_einheit","_dir","_arty","_return"];

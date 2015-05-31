@@ -8,7 +8,7 @@
 		0 :	ARRAY - Position
 		
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 PARAMS_1(_position);
 

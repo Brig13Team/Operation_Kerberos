@@ -13,7 +13,7 @@
 	Return
 	BOOL
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 CHECK(!isServer)
 
 private ["_radius","_position","_anzahl_leicht","_anzahl_schwer","_gruppe","_units","_rand"];

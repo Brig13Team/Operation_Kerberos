@@ -17,7 +17,7 @@
 	Returns:
 	Trigger - Serverside with Rescue
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 CHECK(!isServer)
 
 

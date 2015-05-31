@@ -5,7 +5,7 @@
 	Removes the localization Issues
 
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 CHECK(!hasinterface)
 _this spawn {
 	PARAMS_3(_categorie,_messageid,_paramarray);

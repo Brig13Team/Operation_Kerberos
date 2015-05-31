@@ -5,7 +5,7 @@
 		changes the HC
 	
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 CHECK(!isServer)
 

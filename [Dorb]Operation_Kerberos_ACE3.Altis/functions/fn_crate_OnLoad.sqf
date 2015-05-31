@@ -6,7 +6,7 @@
 
 	
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 disableSerialization;
 

@@ -16,7 +16,7 @@
 	
 	
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 CHECK(!isServer)
 
 private ["_radius","_position","_anzahl_inf","_anzahl_spec","_gruppe","_units","_rand"];

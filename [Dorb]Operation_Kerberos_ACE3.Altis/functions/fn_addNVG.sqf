@@ -7,7 +7,7 @@
 */
 
 _this spawn {
-	#include "makros.hpp"
+	#include "script_component.hpp"
 	PARAMS_1(_unit);
 	CHECK("NVGoggles_OPFOR" in (items _unit))
 	_unit additem "NVGoggles_OPFOR";

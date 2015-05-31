@@ -13,7 +13,7 @@
 	Return
 	BOOL
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 //Automatically adds various actions to specified vehicles
 
 vehicleaddaction_AmmoBoxes_Array = [];

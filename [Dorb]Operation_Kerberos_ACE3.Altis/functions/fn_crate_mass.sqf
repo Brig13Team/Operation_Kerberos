@@ -8,7 +8,7 @@
 		called as stacked EH
 	
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 PARAMS_2(_mode,_param);
 

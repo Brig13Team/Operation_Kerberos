@@ -4,7 +4,7 @@
 	Description:
 		initServer
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 [] spawn FM(core);
 [] spawn FM(spawn_ui_createlist);

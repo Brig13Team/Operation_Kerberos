@@ -9,7 +9,7 @@
 	Returns:
 	Random array pos
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 
 //CHECK(isNull _this)
 

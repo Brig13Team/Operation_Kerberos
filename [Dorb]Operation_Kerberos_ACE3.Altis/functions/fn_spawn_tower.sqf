@@ -5,7 +5,7 @@
 		Spawns a Mil-Tower with units
 	
 */
-#include "makros.hpp"
+#include "script_component.hpp"
 private["_pos","_position","_spawnposition","_einheit","_dir","_unit","_fertig","_geb_pos","_gebauedepos","_i","_return"];
 
 d_log("Spawn Mil-Tower")
