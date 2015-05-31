@@ -11,10 +11,10 @@ PREPMAIN(taskhandler);
 
 
 PREPMAIN(list_groups);
-PREPMAIN(tfr_onOpen);
-PREPMAIN(tfr_OpenMenu);
-PREPMAIN(tfr_setFreq);
-PREPMAIN(tfr_setGroup);
+PREPMAIN(ui_tfr_onOpen);
+PREPMAIN(ui_tfr_OpenMenu);
+PREPMAIN(ui_tfr_setFreq);
+PREPMAIN(ui_tfr_setGroup);
 
 
 ADDON = true;

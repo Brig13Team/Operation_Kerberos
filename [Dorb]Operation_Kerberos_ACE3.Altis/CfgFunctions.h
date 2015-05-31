@@ -25,7 +25,6 @@ class dorb
 		class disp_localization {};
 		class get_buildings {};
 		class get_cfglocations {};
-		class list_groups {};
 		class makro_log {};
 		class makro_selrandom {};
 		class makro_delete {};
@@ -96,10 +95,7 @@ class dorb
 		class spawn_tower {};
 	};
 	class ui {
-		class tfr_setGroup {};
-		class tfr_OpenMenu {};
-		class tfr_onOpen {};
-		class tfr_setFreq {};
+
 		class teleport_onLoad {};
 		class teleport_addaction {};
 		class teleport_draw3D {};
