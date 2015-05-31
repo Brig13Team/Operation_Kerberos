@@ -2,7 +2,7 @@
 	Author: Dorbedo
 
 	Description:
-	
+		spawns the cosen box with including items
 	
 */
 #include "script_component.hpp"

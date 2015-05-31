@@ -2,10 +2,7 @@
 	Author: Dorbedo
 
 	Description:
-	Displays the Groups and their Frequencies
-	
-	Requirements:
-		called as stacked EH
+	boxes - mass handling
 	
 */
 #include "script_component.hpp"
@@ -60,7 +57,6 @@ switch (_mode) do {
 			If (count(DORB_CRATE_CURRENT select 2)>0) then {
 				_values = DORB_CRATE_CURRENT select 3;
 				_values set [((count _values)-1),((_values select((count _values)-1))-1)];
-				d_log(FORMAT_1("Value=%1",(_values select((count _values)-1))))
 				If ((_values select((count _values)-1))<1) then {
 					["cleanupcurrent"] call FM(crate_mass);
 				};
@@ -81,7 +77,6 @@ switch (_mode) do {
 		["displaymass"] call FM(crate_mass);
 	};
 	case "cleanupcurrent" : {
-		d_log("CLEANUP")
 		{
 			private["_selection","_selection_value"];
 			_selection = DORB_CRATE_CURRENT select _x;
@@ -96,6 +91,4 @@ switch (_mode) do {
 			DORB_CRATE_CURRENT set [(_x+1),_selection_value];
 		}forEach [0,2];
 	};
-	
-	
 };

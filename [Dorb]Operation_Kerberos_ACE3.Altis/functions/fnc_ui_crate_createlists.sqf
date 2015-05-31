@@ -124,62 +124,6 @@ _progressStep = 1 / count _configArray;
 				If (!((configfile >> "cfgmagazines" >> _x) in _items)) then {_items set [count _items,(configfile >> "cfgmagazines" >> _x)];};
 			}foreach _magazines;
 		};
-		
-		
-		
-		/*
-		
-		if (_weaponTypeCategory == "Weapon") then {
-			_weaponTypeSpecific = _weaponType select 1;
-			_weaponTypeID = switch (true) do {
-				case (_weaponTypeSpecific in (_types select ID_RIFLES))  : {ID_RIFLES};
-				case (_weaponTypeSpecific in (_types select ID_MG))  : {ID_MG};
-				case (_weaponTypeSpecific in (_types select ID_SNIPER))  : {ID_SNIPER};
-				case (_weaponTypeSpecific in (_types select ID_WERFER))  : {ID_WERFER};
-				case (_weaponTypeSpecific in (_types select ID_PISTOLE))  : {ID_PISTOLE};
-				case (_weaponTypeSpecific in (_types select ID_SHOTGUN))  : {ID_SHOTGUN};
-				case ((configname _class) in (_types select ID_MEDICAL))  : {ID_MEDICAL};
-				default {ID_SONSTIGES};
-			};
-			_items = (_daten select _weaponTypeID) select 0;
-			_items set [count _items, _class];
-			/// passende Magazin + vergleich ob schon gelistet
-			_items = (_daten select _weaponTypeID) select 1;
-			_magazines = getarray(_class >> "magazines");
-			{
-				If (!((configfile >> "cfgmagazines" >> _x) in _items)) then {_items set [count _items,(configfile >> "cfgmagazines" >> _x)];};
-			}foreach _magazines;
-		};
-		
-		
-		
-		if ((_weaponTypeCategory != "VehicleWeapon")&&(_weaponTypeCategory != "Weapon")) then {
-				
-			_weaponTypeSpecific = _weaponType select 1;
-			_weaponTypeID = switch (true) do {
-				case (_weaponTypeSpecific in (_types select ID_ANBAUTEILE))  : {ID_ANBAUTEILE};
-				
-				case (_weaponTypeSpecific in (_types select ID_FUNKGERAETE))  : {ID_FUNKGERAETE};
-				case ((getnumber(_class >> "tf_hasLRradio"))==1)  : {ID_FUNKGERAETE};
-				
-				case (_weaponTypeSpecific in (_types select ID_RUCKSACK))  : {ID_RUCKSACK};
-				case (_weaponTypeSpecific in (_types select ID_WESTE))  : {ID_WESTE};
-				case (_weaponTypeSpecific in (_types select ID_UNIFORM))  : {ID_UNIFORM};
-				case (_weaponTypeSpecific in (_types select ID_KOPF))  : {ID_KOPF};
-				
-				case (_weaponTypeSpecific in (_types select ID_NAVIGATION))  : {ID_NAVIGATION};
-				case (_weaponTypeSpecific in (_types select ID_MEDICAL))  : {ID_MEDICAL};
-				case (call(_isAceMedical)) :  {ID_MEDICAL};
-				case (_weaponTypeSpecific in (_types select ID_ITEMS))  : {ID_ITEMS};
-				default {ID_SONSTIGES};
-			};
-			//d_log(FORMAT_1("ID=%1",_weaponTypeID))
-			_items = (_daten select _weaponTypeID) select 0;
-			_items set [count _items, _class];
-
-
-		};
-		*/
 	};
 	progressloadingscreen (_foreachindex * _progressStep);
 } foreach _configArray;
@@ -213,31 +157,31 @@ _progressStep = 1 / count _configArray;
 SETMVAR(DORB_CRATE_ITEMS,_daten);
 ["DORB_CRATE"] call bis_fnc_endLoadingScreen;
 /*
-d_log(FORMAT_1("Rifles=%1",((DORB_CRATE_ITEMS select ID_RIFLES)select 0)))
-d_log(FORMAT_1("Rifles Mag=%1",((DORB_CRATE_ITEMS select ID_RIFLES)select 1)))
-d_log(FORMAT_1("MG=%1",((DORB_CRATE_ITEMS select ID_MG)select 0)))
-d_log(FORMAT_1("MG Mag=%1",((DORB_CRATE_ITEMS select ID_MG)select 1)))
-d_log(FORMAT_1("Sniper=%1",((DORB_CRATE_ITEMS select ID_SNIPER)select 0)))
-d_log(FORMAT_1("Sniper Mag=%1",((DORB_CRATE_ITEMS select ID_SNIPER)select 1)))
-d_log(FORMAT_1("Werfer=%1",((DORB_CRATE_ITEMS select ID_WERFER)select 0)))
-d_log(FORMAT_1("Werfer Mag=%1",((DORB_CRATE_ITEMS select ID_WERFER)select 1)))
-d_log(FORMAT_1("Pistole =%1",((DORB_CRATE_ITEMS select ID_PISTOLE)select 0)))
-d_log(FORMAT_1("Pistole Mag=%1",((DORB_CRATE_ITEMS select ID_PISTOLE)select 1)))
-d_log(FORMAT_1("Shotgun=%1",((DORB_CRATE_ITEMS select ID_SHOTGUN)select 0)))
-d_log(FORMAT_1("Shotgun Mag=%1",((DORB_CRATE_ITEMS select ID_SHOTGUN)select 1)))
+LOG(FORMAT_1("Rifles=%1",((DORB_CRATE_ITEMS select ID_RIFLES)select 0)));
+LOG(FORMAT_1("Rifles Mag=%1",((DORB_CRATE_ITEMS select ID_RIFLES)select 1)));
+LOG(FORMAT_1("MG=%1",((DORB_CRATE_ITEMS select ID_MG)select 0)));
+LOG(FORMAT_1("MG Mag=%1",((DORB_CRATE_ITEMS select ID_MG)select 1)));
+LOG(FORMAT_1("Sniper=%1",((DORB_CRATE_ITEMS select ID_SNIPER)select 0)));
+LOG(FORMAT_1("Sniper Mag=%1",((DORB_CRATE_ITEMS select ID_SNIPER)select 1)));
+LOG(FORMAT_1("Werfer=%1",((DORB_CRATE_ITEMS select ID_WERFER)select 0)));
+LOG(FORMAT_1("Werfer Mag=%1",((DORB_CRATE_ITEMS select ID_WERFER)select 1)));
+LOG(FORMAT_1("Pistole =%1",((DORB_CRATE_ITEMS select ID_PISTOLE)select 0)));
+LOG(FORMAT_1("Pistole Mag=%1",((DORB_CRATE_ITEMS select ID_PISTOLE)select 1)));
+LOG(FORMAT_1("Shotgun=%1",((DORB_CRATE_ITEMS select ID_SHOTGUN)select 0)));
+LOG(FORMAT_1("Shotgun Mag=%1",((DORB_CRATE_ITEMS select ID_SHOTGUN)select 1)));
 
-d_log(FORMAT_1("Anbauteile=%1",((DORB_CRATE_ITEMS select ID_ANBAUTEILE)select 0)))
-d_log(FORMAT_1("Granaten=%1",((DORB_CRATE_ITEMS select ID_GRANATEN)select 0)))
-d_log(FORMAT_1("Sprengstoff=%1",((DORB_CRATE_ITEMS select ID_SPRENGSTOFF)select 0)))
-d_log(FORMAT_1("Rucksack=%1",((DORB_CRATE_ITEMS select ID_RUCKSACK)select 0)))
-d_log(FORMAT_1("Weste=%1",((DORB_CRATE_ITEMS select ID_WESTE)select 0)))
-d_log(FORMAT_1("Uniform=%1",((DORB_CRATE_ITEMS select ID_UNIFORM)select 0)))
-d_log(FORMAT_1("Kopf=%1",((DORB_CRATE_ITEMS select ID_KOPF)select 0)))
-d_log(FORMAT_1("Funkgeräte=%1",((DORB_CRATE_ITEMS select ID_FUNKGERAETE)select 0)))
-d_log(FORMAT_1("Navigation=%1",((DORB_CRATE_ITEMS select ID_NAVIGATION)select 0)))
-d_log(FORMAT_1("Medical=%1",((DORB_CRATE_ITEMS select ID_MEDICAL)select 0)))
-d_log(FORMAT_1("Item=%1",((DORB_CRATE_ITEMS select ID_ITEMS)select 0)))
-d_log(FORMAT_1("Sonstiges=%1",((DORB_CRATE_ITEMS select ID_SONSTIGES)select 0)))
+LOG(FORMAT_1("Anbauteile=%1",((DORB_CRATE_ITEMS select ID_ANBAUTEILE)select 0)));
+LOG(FORMAT_1("Granaten=%1",((DORB_CRATE_ITEMS select ID_GRANATEN)select 0)));
+LOG(FORMAT_1("Sprengstoff=%1",((DORB_CRATE_ITEMS select ID_SPRENGSTOFF)select 0)));
+LOG(FORMAT_1("Rucksack=%1",((DORB_CRATE_ITEMS select ID_RUCKSACK)select 0)));
+LOG(FORMAT_1("Weste=%1",((DORB_CRATE_ITEMS select ID_WESTE)select 0)));
+LOG(FORMAT_1("Uniform=%1",((DORB_CRATE_ITEMS select ID_UNIFORM)select 0)));
+LOG(FORMAT_1("Kopf=%1",((DORB_CRATE_ITEMS select ID_KOPF)select 0)));
+LOG(FORMAT_1("Funkgeräte=%1",((DORB_CRATE_ITEMS select ID_FUNKGERAETE)select 0)));
+LOG(FORMAT_1("Navigation=%1",((DORB_CRATE_ITEMS select ID_NAVIGATION)select 0)));
+LOG(FORMAT_1("Medical=%1",((DORB_CRATE_ITEMS select ID_MEDICAL)select 0)));
+LOG(FORMAT_1("Item=%1",((DORB_CRATE_ITEMS select ID_ITEMS)select 0)));
+LOG(FORMAT_1("Sonstiges=%1",((DORB_CRATE_ITEMS select ID_SONSTIGES)select 0)));
 */
 
 

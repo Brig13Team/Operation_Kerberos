@@ -16,9 +16,9 @@ waituntil {! isnull player};
 
 
 [] call FM(playeraddaction);
-[] call FM(teleport_draw3D);
-[] call FM(spawn_ui_draw3D);
-[] call FM(crate_draw3D);
+[] call FM(ui_teleport_draw3D);
+[] call FM(ui_spawn_draw3D);
+[] call FM(ui_crate_draw3D);
 [] call FM(rescue_draw3D);
 [] call FM(addbriefing);
 

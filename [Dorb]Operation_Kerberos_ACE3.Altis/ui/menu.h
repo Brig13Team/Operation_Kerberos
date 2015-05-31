@@ -141,7 +141,7 @@ class dorb_teleporter {
 	fadeout = 0;
 	duration = 1000000;
 	objects[] = {};
-	onLoad = "uiNamespace setVariable ['dorb_teleportMenu', _this select 0]; ['dorb_teleportMenu', true] call dorb_fnc_disp_blur; [] spawn dorb_fnc_teleport_onLoad";
+	onLoad = "uiNamespace setVariable ['dorb_teleportMenu', _this select 0]; ['dorb_teleportMenu', true] call dorb_fnc_disp_blur; [] spawn dorb_fnc_ui_teleport_onLoad";
 	onUnload = " ['dorb_teleportMenu', false] call dorb_fnc_disp_blur;";
 	
 	controlsBackground[] = {
@@ -430,7 +430,7 @@ class dorb_crate {
 	fadeout = 0;
 	duration = 1000000;
 	objects[] = {};
-	onLoad = "uiNamespace setVariable ['dorb_crateMenu', _this select 0]; ['dorb_crateMenu', true] call dorb_fnc_disp_blur; [] spawn dorb_fnc_crate_OnLoad;";
+	onLoad = "uiNamespace setVariable ['dorb_crateMenu', _this select 0]; ['dorb_crateMenu', true] call dorb_fnc_disp_blur; [] spawn dorb_fnc_ui_crate_OnLoad;";
 	onUnload = " ['dorb_crateMenu', false] call dorb_fnc_disp_blur;";
 	
 	controlsBackground[] = 	{
@@ -574,7 +574,7 @@ class dorb_crate {
 		idc = 600207;
 		x = _get_screen_x(0)+_get_screen_w(0.725);
 		text = "$STR_DORB_CRATE_CLEAR";
-		action = "DORB_CRATE_CURRENT=[[],[],[],[],[],[]];DORB_CRATE_CURRENT_BOXID=0;[]call dorb_fnc_crate_OnLoad;false";
+		action = "DORB_CRATE_CURRENT=[[],[],[],[],[],[]];DORB_CRATE_CURRENT_BOXID=0;[]call dorb_fnc_ui_crate_OnLoad;false";
 	};
 	
 	
@@ -653,7 +653,7 @@ class dorb_crate {
 		sizeEx = _get_screen_h(0.025);
 		rowHeight = _get_screen_h(0.025);
 		wholeHeight = _get_screen_h(0.2);
-		onLBSelChanged = "DORB_CRATE_CURRENT_BOXID=(_this select 1);['changebox',_config] call dorb_fnc_crate_mass;;false";
+		onLBSelChanged = "DORB_CRATE_CURRENT_BOXID=(_this select 1);['changebox',_config] call dorb_fnc_ui_crate_mass;;false";
 	};
 
 	class crate_progessbar : dorb_gui_loadingbarBase {
@@ -1291,13 +1291,13 @@ class dorb_tfr {
 		colorBackground[] = UI_CL_CTRL_WEINROT1;
 		colorBackgroundActive[] = UI_CL_CTRL_WEINROT2;
 		colorFocused[] = UI_CL_CTRL_WEINROT1;
-		action = "[]call dorb_fnc_tfr_setFreq;";
+		action = "[]call dorb_fnc_ui_tfr_setFreq;";
 	};
 	class dorb_tfr_set : dorb_tfr_take {
 		idc = 700209;
 		y = _get_screen_x(0)+_get_screen_h(0.58375);	
 		text = "$STR_DORB_TFR_SET";
 		toolTip = "$STR_DORB_TFR_SET_TOOLTIP";
-		action = "[]call dorb_fnc_tfr_setGroup;";
+		action = "[]call dorb_fnc_ui_tfr_setGroup;";
 	};
 };

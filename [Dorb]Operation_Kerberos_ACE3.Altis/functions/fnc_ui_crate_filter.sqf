@@ -2,7 +2,7 @@
 	Author: Dorbedo
 
 	Description:
-
+		Lists the filtered Items
 	
 */
 #include "script_component.hpp"
@@ -91,11 +91,3 @@ for "_i" from 0 to ((lnbSize _ctrlList) select 0) do {
 	_ctrlList lnbSetPicture [ [_i, 1],gettext(configfile>>(_ctrlList lnbData [_i,1])>>(_ctrlList lnbData [_i,2])>>"picture")];
 	_ctrlList lnbSetPictureColor [[_i, 1],[1, 1, 1, 1] ];
 };
-
-
-
-
-
-
-
-

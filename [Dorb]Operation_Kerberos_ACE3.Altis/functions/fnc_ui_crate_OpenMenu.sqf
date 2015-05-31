@@ -2,7 +2,7 @@
 	Author: Dorbedo
 
 	Description:
-
+		Opens the crate-interface
 	
 */
 #include "script_component.hpp"

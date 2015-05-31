@@ -2,6 +2,7 @@
 	Author: Dorbedo
 
 	Description:
+		gets the Mod description
 
 */
 #include "script_component.hpp"
