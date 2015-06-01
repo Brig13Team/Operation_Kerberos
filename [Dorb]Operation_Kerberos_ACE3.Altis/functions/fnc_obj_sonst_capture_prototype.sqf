@@ -92,6 +92,35 @@ _beschreibung = format [localize "STR_DORB_PROTO_TASK_DESC",_ort];
 ////// Überprüfung + Ende 				 /////
 ///////////////////////////////////////////////
 
+[
+	10,
+	{
+		_a=0;
+		{
+			If (((_x distance (_this select 1) < 20)and(alive _x))or !(alive _x)) then 
+			{
+				INC(_a);
+			};
+		}forEach (_this select 0);
+		If (_a == count (_this select 0)) then {true}else{false};
+	},
+	[_target,_position_rescue],
+	{true},
+	{
+		[_task,"succeeded"] call SHK_Taskmaster_upd;
+		[-1,{["sonstproto",2] call FM(disp_localization)}] FMP;
+		{{moveout _x}forEach (crew _x);sleep 0.2;deleteVehicle _x}forEach (_this select 1);
+	},
+	{
+		[_task,"failed"] call SHK_Taskmaster_upd;
+		[-1,{["sonstproto",3] call FM(disp_localization)}] FMP;
+		{{moveout _x}forEach (crew _x);sleep 0.2;deleteVehicle _x}forEach (_this select 1);
+	},
+	[_task,_target]
+] call FM(taskhandler);
+
+/*
+
 aufgabenstatus=true;
 while {aufgabenstatus} do {
 	_a=0;
@@ -115,4 +144,6 @@ If (_anzahlgerettete>0) then {
 	[_task,"failed"] call SHK_Taskmaster_upd;
 	[-1,{["sonstproto",3] call FM(disp_localization)}] FMP;
 };
+
 {deleteVehicle _x}forEach _target;
+*/

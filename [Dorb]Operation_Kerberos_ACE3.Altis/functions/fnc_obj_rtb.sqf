@@ -30,7 +30,7 @@ _position_home = getMarkerPos "respawn_west";
 	15,
 	{
 		_a=0;
-		{If (_x distance _position_home < 300) then {_a=_a+1;};} forEach playableUnits;
+		{If (_x distance (_this select 0) < 300) then {_a=_a+1;};} forEach playableUnits;
 		If (_a == (count playableUnits)) then {true}else{false};
 	},
 	[_position_home],

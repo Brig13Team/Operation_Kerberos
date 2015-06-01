@@ -50,6 +50,32 @@ _beschreibung = format [localize "STR_DORB_CLEAR_TASK_DESC",_ort];
 //////////////////////////////////////////////////
 ////// Überprüfung + Ende 					 /////
 //////////////////////////////////////////////////
+
+[
+	30,
+	{
+		_a=0;
+		{
+			If ((alive _x)&&((side _x)==dorb_side )) then 
+			{
+				INC(_a);
+			};
+		}forEach ((_this select 0) nearEntities (_this select 1));
+		If (_a < 8) then {true}else{false};
+	},
+	[_position],
+	{true},
+	{
+		[(_this select 0),"succeeded"] call SHK_Taskmaster_upd;
+		[-1,{["milclear",2] call FM(disp_localization)}] FMP;
+	},
+	{},
+	[_task]
+] call FM(taskhandler);
+
+
+
+/*
 aufgabenstatus=true;
 sleep 120;
 while {aufgabenstatus} do {
@@ -67,4 +93,5 @@ while {aufgabenstatus} do {
 
 [_task,"succeeded"] call SHK_Taskmaster_upd;
 [-1,{["milclear",2] call FM(disp_localization)}] FMP;
+*/
 LOG("Task clear beendet");
