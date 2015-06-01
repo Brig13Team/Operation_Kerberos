@@ -147,7 +147,7 @@ _deploy=false;
 
 _aufgabenname = format [localize "STR_DORB_DEST_SCARAB_TASK",_ZeitInMinuten];
 _beschreibung = format [localize "STR_DORB_DEST_SCARAB_TASK_DESC",_ort,(count _target)];
-[-1,{["sonstscarab",1,[_ZeitInMinuten]] call FM(disp_localization)}] FMP;
+[-1,{["sonstscarab",1,_this] call FM(disp_localization)},[_ZeitInMinuten]] FMP;
 [_task,_aufgabenname,_beschreibung,true,[],"created",_position] call SHK_Taskmaster_add;
 
 //////////////////////////////////////////////////

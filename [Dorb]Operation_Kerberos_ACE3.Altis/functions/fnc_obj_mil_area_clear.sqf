@@ -43,7 +43,7 @@ _difficulty = call FM(dyn_difficulty);
 _aufgabenname = format [localize "STR_DORB_CLEAR_TASK",_ort];
 _beschreibung = format [localize "STR_DORB_CLEAR_TASK_DESC",_ort];
 
-[-1,{["milclear",1,[_ort]] call FM(disp_localization)}] FMP;
+[-1,{["milclear",1,_this] call FM(disp_localization)},[_ort]] FMP;
 
 [_task,_aufgabenname,_beschreibung,true,[],"created",_position] call SHK_Taskmaster_add;
 

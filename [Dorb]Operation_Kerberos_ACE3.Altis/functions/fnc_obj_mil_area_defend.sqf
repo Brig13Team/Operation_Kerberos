@@ -36,7 +36,7 @@ aufgabenstatus=true;
 
 _aufgabenname = format [localize "STR_DORB_DEF_TASK",_ort];
 _beschreibung = format [localize "STR_DORB_DEF_TASK_DESC",_ort];
-[-1,{["mildef",1,[_ort]] call FM(disp_localization)}] FMP;
+[-1,{["mildef",1,_this] call FM(disp_localization)},[_ort]] FMP;
 
 [_task,_aufgabenname,_beschreibung,true,[],"created",_position] call SHK_Taskmaster_add;
 
@@ -67,7 +67,7 @@ sleep 15;
 
 for "_i" from 0 to 11 do {
 	_minuten = (13-_i);
-	[-1,{["mildef",3,[_minuten]] call FM(disp_localization)}] FMP;
+	[-1,{["mildef",3,_this] call FM(disp_localization)},[_minuten]] FMP;
 	sleep 60;
 }; 
 
