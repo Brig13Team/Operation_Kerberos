@@ -18,6 +18,6 @@ private ["_unit"];
 if (count _position < 3) exitWith {LOG("Keine Spawnpos uebergeben")};
 LOG_3(_position,_gruppe,_typ);
 _unit = _gruppe createUnit [_typ,_position, [], 0, "NONE"];
-[_gruppe] FM(moveToHC);
+//[_gruppe] call FM(moveToHC);
 _unit
 
