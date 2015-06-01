@@ -7,7 +7,7 @@
 #include "script_component.hpp"
 
 [] spawn FM(core);
-[] spawn FM(spawn_ui_createlist);
+[] spawn FM(ui_spawn_createlist);
 
 _Krankenhaus = "Land_Medevac_HQ_V1_F" createVehicle (getMarkerPos "krankenhaus");
 _Krankenhaus setDir (MarkerDir "Krankenhaus");
