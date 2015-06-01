@@ -71,7 +71,7 @@ _name = name(_target select 0);
 for "_i" from 1 to ((count _target) - 2) do {
 	_name = FORMAT_2("%1, %2",_name,name (_target select _i));
 };
-_name = FORMAT_2("%1 und %2",_name,name(_target select ((count _target)-1)));
+_name = FORMAT_2("%1 and %2",_name,name(_target select ((count _target)-1)));
 
 if (dorb_debug) then {
 	{
