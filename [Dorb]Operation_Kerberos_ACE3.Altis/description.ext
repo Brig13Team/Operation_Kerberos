@@ -56,7 +56,6 @@ __EXEC (D_ROOTDIR = __FILE__ select [0, count __FILE__ - 15])
 
 class cfgFunctions {
 	#include "CHVD\CfgFunctions.hpp"
-	#include "CfgFunctions.h"
 };
 
 

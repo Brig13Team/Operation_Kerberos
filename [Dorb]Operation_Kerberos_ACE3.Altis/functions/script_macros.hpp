@@ -2,41 +2,9 @@
 
 #define FM(VAR) TRIPLES(PREFIX,fnc,VAR)
 #define FMP spawn CBA_fnc_globalExecute
-
-#define CHECK(CONDITION) if (CONDITION) exitWith {};	
-#define FCALL(var1) \
-	call TRIPLES(PREFIX,fnc,var1)
-#define FSPAWN(var1) \
-	spawn TRIPLES(PREFIX,fnc,var1)
-#define FCMAKRO(VAR) FCALL(DOUBLES(makro,VAR))		//falls ich irgendwann mal Lust habe die makros in eine Datei zu packen
-
-#define SELRND FCMAKRO(selrandom)
-#define TILGE FCMAKRO(delete)
-	
-//// LOG Funktionen
-#define CHECK_STR(var1) \
-	__EVAL (If (IS_STRING(var1)) then {var1} else {FORMAT_1("NO_STRING",__LINE__)})	
-#define d_error(eintrag) \
-	[eintrag,_fnc_scriptName] FCALL(makro_log);
-#define d_error_p(eintrag) \
-	[eintrag,_fnc_scriptName,_fnc_scriptNameParent] FCALL(makro_log);
-#define d_error_o(eintrag) \
-	[eintrag] FCALL(makro_log); 
-#ifdef DEBUGMODUS
-	#define d_log(eintrag) \
-		[eintrag,_fnc_scriptName] FCALL(makro_log);
-	#define d_log_p(eintrag) \
-		[eintrag,_fnc_scriptName,_fnc_scriptNameParent] FCALL(makro_log);
-	#define d_log_o(eintrag) \
-		[eintrag] FCALL(makro_log);
-#else
-    #define d_log(eintrag) /*disabled*/;
-	#define d_log_p(eintrag) /*disabled*/;
-	#define d_log_o(eintrag) /*disabled*/;
-#endif
-
-
-
+#define CHECK(CONDITION) if (CONDITION) exitWith {};
+#define SELRND call TRIPLES(PREFIX,makro,selectrandom)
+#define TILGE call TRIPLES(PREFIX,makro,delete)
 
 
 

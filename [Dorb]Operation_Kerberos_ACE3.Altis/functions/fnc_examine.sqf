@@ -36,11 +36,11 @@ switch (_option) do {
 								//if ((vehicle _x)!=_x) then {moveOut _x;}; //
 								If ((captive _x)&&(!(_x isKindOf "rhs_infantry_msv_base"))) exitWith {};
 								deleteVehicle _x;
-								[-1,{_this FSPAWN(disp_message)},[localize "STR_DORB_EXAMINE",localize "STR_DORB_EXAMINE_DESC"]] FMP;
+								[-1,{_this spawn FM(disp_message)},[localize "STR_DORB_EXAMINE",localize "STR_DORB_EXAMINE_DESC"]] FMP;
 								DORB_EXAMINE=true;
 								LOG(FORMAT_1("EXAMINE WIRD DURCHGEFÜHRT\nTARGETS=%1",_target));
 								for "_i" from 0 to ((count _target)-1) do {
-									_pos = [getPos(_target select _i), 40,0] FCALL(random_pos);
+									_pos = [getPos(_target select _i), 40,0] call FM(random_pos);
 									_marker = createMarker [format["EXAMINE_Mark_%1",_i],_pos];
 									_marker setMarkerShape "Ellipse";
 									_marker setMarkerColor "ColorRed";

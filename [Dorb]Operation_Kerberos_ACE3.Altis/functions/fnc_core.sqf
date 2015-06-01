@@ -52,7 +52,7 @@ for "_u" from 0 to 120 do {
 	INC(_aufgabennummer);
 	_aktuelle_aufgabe = FORMAT_1("task_%1",_aufgabennummer);
 	LOG_2(_aufgabennummer,_aktuelle_aufgabe);
-	[_aktuelle_aufgabe] FCALL(obj_choose);
-	//[_aktuelle_aufgabe] FCALL(choose_obj);	
+	[_aktuelle_aufgabe] call FM(obj_choose);
+	//[_aktuelle_aufgabe] call FM(choose_obj);	
 };
 endMission "End1";

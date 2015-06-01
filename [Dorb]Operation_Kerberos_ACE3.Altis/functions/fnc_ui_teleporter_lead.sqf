@@ -6,7 +6,6 @@
 	
 */
 #include "script_component.hpp"
-d_log("leadport")
 PARAMS_2(_host,_caller);
 
 private["_position","_platzanzahl","_nearestEnemy"];
