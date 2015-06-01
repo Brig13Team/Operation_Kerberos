@@ -12,7 +12,7 @@ waituntil {! isnull player};
 
 /// BIS - Groupmanagement
 ["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;  
-["init"] call FM(grouptracker);
+["init"] spawn FM(grouptracker);
 
 
 [] call FM(playeraddaction);
