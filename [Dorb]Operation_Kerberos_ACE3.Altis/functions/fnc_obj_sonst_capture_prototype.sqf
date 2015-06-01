@@ -43,7 +43,7 @@ for "_i" from 1 to _rand do{
 	_spawnposition = [_position,200,0] call FM(random_pos);
 	_spawnposition = _spawnposition findEmptyPosition [1,100,_einheit];				//// to do: isFlatEmpty
 	if (count _spawnposition < 1) then {
-		d_error(FORMAT_1("Keine Spawnposition | %1",_spawnposition));
+		ERROR(FORMAT_1("Keine Spawnposition | %1",_spawnposition));
 	}else{
 		_unit = createVehicle [_einheit,_spawnposition, [], 0, "NONE"];
 		_unit setVariable ["DORB_ISTARGET",true,false];
