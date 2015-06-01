@@ -3,8 +3,8 @@
 #define FM(VAR) TRIPLES(PREFIX,fnc,VAR)
 #define FMP spawn CBA_fnc_globalExecute
 #define CHECK(CONDITION) if (CONDITION) exitWith {};
-#define SELRND call TRIPLES(PREFIX,makro,selectrandom)
-#define TILGE call TRIPLES(PREFIX,makro,delete)
+#define SELRND call TRIPLES(dorb,makro,selectrandom)
+#define TILGE call TRIPLES(dorb,makro,delete)
 
 
 

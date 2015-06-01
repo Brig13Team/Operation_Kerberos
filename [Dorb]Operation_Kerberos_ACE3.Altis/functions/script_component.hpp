@@ -4,7 +4,7 @@
 
 #define DEBUGMODUS
 #define DEBUG_MODE_FULL
-#define DORB_DEBUG
+#define DORB_ERROR
 #define DORB_LOG
 
 #include "\x\cba\addons\main\script_macros_mission.hpp"

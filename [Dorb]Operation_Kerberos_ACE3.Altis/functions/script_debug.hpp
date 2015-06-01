@@ -7,12 +7,12 @@ Author:
 	Dorbedo
 ------------------------------------------- */
 
-#ifdef DORB_DEBUG
-	#define ERROR(VAR) [__FILE__,__LINE__,VAR] call TRIPLES(PREFIX,fnc,errorlog)
+#ifdef DORB_ERROR
+	#define ERROR(VAR) [__FILE__,__LINE__,VAR] call TRIPLES(dorb,fnc,errorlog)
 #endif
 
 #ifdef DORB_LOG
-	#define LOG(VAR) [__FILE__,__LINE__,VAR] call TRIPLES(PREFIX,fnc,putinlog)
+	#define LOG(VAR) [__FILE__,__LINE__,VAR] call TRIPLES(dorb,fnc,putinlog)
 	
 	#define FORMAT_10(STR,ARG1,ARG2,ARG3,ARG4,ARG5,ARG6,ARG7,ARG8,ARG9,ARG10) format[STR, ARG1, ARG2, ARG3, ARG4, ARG5, ARG6, ARG7, ARG8, ARG9, ARG10]
 	#define FORMAT_12(STR,ARG1,ARG2,ARG3,ARG4,ARG5,ARG6,ARG7,ARG8,ARG9,ARG10,ARG11,ARG12) format[STR, ARG1, ARG2, ARG3, ARG4, ARG5, ARG6, ARG7, ARG8, ARG9, ARG10, ARG11, ARG12]
