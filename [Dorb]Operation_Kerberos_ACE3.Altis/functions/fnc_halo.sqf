@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 
 _host = _this select 0;
 _caller = _this select 1;
