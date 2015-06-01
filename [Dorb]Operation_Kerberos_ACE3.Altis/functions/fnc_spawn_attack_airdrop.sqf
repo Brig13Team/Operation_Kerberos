@@ -33,7 +33,8 @@ _spawnpos_inf = _spawnpos;
 _spawnpos set [2,_flughoehe];
 _dir = [_spawnpos, _position] call BIS_fnc_dirTo;
 _einheit = dorb_transport_heli_list call BIS_fnc_selectRandom;
-LOG(_spawnpos,_dir,_einheit,dorb_side);
+
+LOG_4(_spawnpos,_dir,_einheit,dorb_side);
 
 _spawn_array = [_spawnpos, _dir, _einheit, dorb_side] call BIS_fnc_spawnVehicle;
 _transporter = _spawn_array select 0;

@@ -23,19 +23,19 @@ _createUnit = {
 	_unit;
 };
 
-from 1 to (_vehicle emptyPositions "Driver") do {
+for "_i" from 1 to (_vehicle emptyPositions "Driver") do {
 	_unit = call _createUnit;
 	_unit assignAsDriver;
 	_unit moveinDriver;
 };
 
-from 1 to (_vehicle emptyPositions "Gunner") do {
+for "_i" from 1 to (_vehicle emptyPositions "Gunner") do {
 	_unit = call _createUnit;
 	_unit assignAsGunner;
 	_unit moveinGunner;
 };
 
-from 1 to (_vehicle emptyPositions "Commander") do {
+for "_i" from 1 to (_vehicle emptyPositions "Commander") do {
 	_unit = call _createUnit;
 	_unit assignAsCommander;
 	_unit moveinCommander;
