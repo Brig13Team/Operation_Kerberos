@@ -37,7 +37,7 @@ _changeposition=[];
 _rand=1;
 
 for "_i" from 1 to _rand do{
-	_einheit = dorb_prototyp select floor random count dorb_prototyp;
+	_einheit = dorb_prototyp SELRND;
 	LOG_2(_einheit,_position);
 	
 	_spawnposition = [_position,200,0] call FM(random_pos);
@@ -61,7 +61,7 @@ for "_i" from 1 to _rand do{
 if (dorb_debug) then {
 	_a=1;
 	{
-		_a=_a+1;
+		INC(_a);
 		_mrkr = createMarker [format ["Box %2-%1",_a,_task],getPos _x];
 		_mrkr setMarkerShape "ICON";
 		_mrkr setMarkerColor "ColorBlack";
@@ -84,66 +84,17 @@ sleep 2;
 
 _aufgabenname = localize "STR_DORB_PROTO_TASK";
 _beschreibung = format [localize "STR_DORB_PROTO_TASK_DESC",_ort];
-[-1,{["sonstproto",1] call FM(disp_localization)}] FMP;
-
 [_task,_aufgabenname,_beschreibung,true,[],"created",_position] call SHK_Taskmaster_add;
+[-1,{["sonstproto",1] call FM(disp_localization)}] FMP;
 
 ///////////////////////////////////////////////
 ////// Überprüfung + Ende 				 /////
 ///////////////////////////////////////////////
-
-[
-	10,
-	{
-		_a=0;
-		{
-			If (((_x distance (_this select 1) < 20)and(alive _x))or !(alive _x)) then 
-			{
-				INC(_a);
-			};
-		}forEach (_this select 0);
-		If (_a == count (_this select 0)) then {true}else{false};
-	},
-	[_target,_position_rescue],
-	{true},
-	{
-		[_task,"succeeded"] call SHK_Taskmaster_upd;
-		[-1,{["sonstproto",2] call FM(disp_localization)}] FMP;
-		{{moveout _x}forEach (crew _x);sleep 0.2;deleteVehicle _x}forEach (_this select 1);
-	},
-	{
-		[_task,"failed"] call SHK_Taskmaster_upd;
-		[-1,{["sonstproto",3] call FM(disp_localization)}] FMP;
-		{{moveout _x}forEach (crew _x);sleep 0.2;deleteVehicle _x}forEach (_this select 1);
-	},
-	[_task,_target]
-] call FM(taskhandler);
-
-/*
-
-aufgabenstatus=true;
-while {aufgabenstatus} do {
-	_a=0;
-	sleep 5;
-	{
-		If (((_x distance _position_rescue < 20)and(alive _x))or !(alive _x)) then 
-		{
-			INC(_a);
-		};
-	}forEach _target;
-
-	If (_a == count _target) then {aufgabenstatus=false};
-};
-
-_anzahlgerettete={alive _x}count _target;
-
-If (_anzahlgerettete>0) then {
-	[_task,"succeeded"] call SHK_Taskmaster_upd;
-	[-1,{["sonstproto",2] call FM(disp_localization)}] FMP;
-}else{
-	[_task,"failed"] call SHK_Taskmaster_upd;
-	[-1,{["sonstproto",3] call FM(disp_localization)}] FMP;
-};
-
-{deleteVehicle _x}forEach _target;
-*/
+#define INTERVALL 10
+#define CONDITION {_a=0;{If (((_x distance (_this select 1) < 20)and(alive _x))or !(alive _x)) then {	INC(_a);};}forEach (_this select 0);If (_a == count (_this select 0)) then {true}else{false};}
+#define CONDITIONARGS [_target,_position_rescue]
+#define SUCESSCONDITION {If (({alive _x}count(_this select 1))>1) then {true}else{false};}
+#define ONSUCESS {[_this select 0,'succeeded'] call SHK_Taskmaster_upd;[-1,{['sonstproto',2] call FM(disp_localization);}] FMP;{{moveout _x}forEach (crew _x);sleep 0.2;deleteVehicle _x}forEach (_this select 1);}
+#define ONFAILURE {[_this select 0,'failed'] call SHK_Taskmaster_upd;[-1,{['sonstproto',3] call FM(disp_localization);}] FMP;{{moveout _x}forEach (crew _x);sleep 0.2;deleteVehicle _x}forEach (_this select 1);}
+#define SUCESSARG [_task,_target]
+[INTERVALL,CONDITION,CONDITIONARGS,SUCESSCONDITION,ONSUCESS,ONFAILURE,SUCESSARG] call FM(taskhandler);

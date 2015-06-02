@@ -56,7 +56,7 @@ for "_i" from 1 to _rand do{
 //////////////////////////////////////////////////
 
 {
-	[[_x],"dorb_fnc_obj_stadt_found_intel",nil,true,true ] call BIS_fnc_MP;
+	[-1,{_this call FM(obj_stadt_found_intel)},[_x]] FMP;
 }forEach _target;
 
 
@@ -90,23 +90,14 @@ _beschreibung = format [localize "STR_DORB_INTEL_TASK_DESC",_ort];
 ////// Überprüfung + Ende 					 /////
 //////////////////////////////////////////////////
 [_target,"init"] spawn FM(examine);
-aufgabenstatus=true;
-while {aufgabenstatus} do {
-	_a=0;
-	sleep 5;
-	
-	{
-		If (!(alive _x)) then 
-		{
-			INC(_a);
-		};
-	}forEach _target;
-	
-	[_target,"check"] spawn FM(examine);
-	If (_a == (count _target)) then {aufgabenstatus=false};
-};
-[_target,"destroy"] spawn FM(examine);
-[_task,"succeeded"] call SHK_Taskmaster_upd;
 
-{deleteVehicle _x}forEach _target;
-[-1,{["stadtintel",2] call FM(disp_localization)}] FMP;
+#define INTERVALL 30
+#define CONDITION {_a ={!(alive _x)}count (_this select 0);If (_a == (count _target)) then {true}else{false};}
+#define CONDITIONARGS [_target]
+#define SUCESSCONDITION {true}
+#define ONSUCESS {[_this select 0,'succeeded'] call SHK_Taskmaster_upd;[-1,{['stadtintel',2] call FM(disp_localization);}] spawn CBA_fnc_globalExecute;[_this select 1,'destroy'] spawn FM(examine);{deleteVehicle _x}forEach (_this select 1);}
+#define ONFAILURE {}
+#define SUCESSARG [_task,_target]
+#define ONLOOP {[_this select 0,'check'] spawn FM(examine);}
+#define ONLOOPARGS [_target]
+[INTERVALL,CONDITION,CONDITIONARGS,SUCESSCONDITION,ONSUCESS,ONFAILURE,SUCESSARG,ONLOOP,ONLOOPARGS] call FM(taskhandler);

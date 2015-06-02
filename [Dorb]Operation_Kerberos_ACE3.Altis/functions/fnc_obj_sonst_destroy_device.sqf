@@ -96,31 +96,11 @@ _beschreibung = localize "STR_DORB_DEST_DEV_TASK_DESC";
 //////////////////////////////////////////////////
 ////// Überprüfung + Ende 					 /////
 //////////////////////////////////////////////////
-
-aufgabenstatus=true;
-_b=0;
-while {aufgabenstatus} do {
-	_a=0;
-	sleep 30;
-	
-	{
-		If (GETVAR(_x,DORB_TARGET_DEAD,false)) then 
-		{
-			INC(_a);
-		};
-	}forEach _target;
-	
-	If (_a == (count _target)) then {aufgabenstatus=false;};
-	
-	INC(_b);
-	If (_b>10) then {
-		[-1, {_rand=(floor(random 4)+1);[_rand]spawn BIS_fnc_earthquake;}] FMP;
-		_b=0;
-	};
-};
-
-[_task,"succeeded"] call SHK_Taskmaster_upd;
-
-{deleteVehicle _x}forEach _target;
-
-[-1,{["sonstdevice",2] call FM(disp_localization)}] FMP;
+#define INTERVALL 30
+#define CONDITION {_a ={GETVAR(_x,DORB_TARGET_DEAD,false);}count (_this select 0);If (_a == (count _target)) then {true}else{false};}
+#define CONDITIONARGS []
+#define SUCESSCONDITION {true}
+#define ONSUCESS {[_this select 0,'succeeded'] call SHK_Taskmaster_upd;[-1,{['sonstdevice',2] call FM(disp_localization);}] FMP;}
+#define ONFAILURE {}
+#define SUCESSARG [_task]
+[INTERVALL,CONDITION,CONDITIONARGS,SUCESSCONDITION,ONSUCESS,ONFAILURE,SUCESSARG] call FM(taskhandler);

@@ -15,14 +15,10 @@
 */
 #include "script_component.hpp"
 CHECK(!isServer)
-
-private["_position","_task","_ort","_position_rescue","_pow"];
+PARAMS_3(_ort,_position,_task);
+private["_position_rescue","_pow"];
 
 LOG("Generiere Stadt-POW");
-
-_ort=_this select 0;
-_position=_this select 1;
-_task=_this select 2;
 
 _position_rescue = getMarkerPos "rescue_marker";
 _pow=[];
@@ -42,10 +38,10 @@ _rand = floor(random 4) + 3;
 
 for "_i" from 1 to _rand do{
 	_gruppe = createGroup civilian;
-	_einheit = dorb_pow select floor random count dorb_pow;
-	_spawngebaeude = _gebaeudepos_arr select floor random count _gebaeudepos_arr;
-	_spawnposition = _spawngebaeude select floor random count _spawngebaeude;
-	_unit = [_spawnposition,_gruppe,_einheit] call dorb_fnc_spawn_unit;
+	_einheit = dorb_pow SELRND;
+	_spawngebaeude = _gebaeudepos_arr SELRND;
+	_spawnposition = _spawngebaeude SELRND;
+	_unit = [_spawnposition,_gruppe,_einheit] call FM(spawn_unit);
 	SETPVAR(_unit,DORB_ISTARGET,true);
 	_pow pushBack _unit;
 };
@@ -101,33 +97,15 @@ _beschreibung = format [localize "STR_DORB_RESC_TASK_DESC",count _pow,_ort];
 //////////////////////////////////////////////////
 
 [_pow,"init"] spawn FM(examine);
-aufgabenstatus=true;
-while {aufgabenstatus} do {
-	_a=0;
-	sleep 5;
-	
-	{
-		If (((_x distance _position_rescue < 20)and(alive _x))or !(alive _x)) then 
-		{
-			INC(_a);
-		};
-	}forEach _pow;
-	
-	[_pow,"check"] spawn FM(examine);
-	If (_a == count _pow) then {aufgabenstatus=false};
-};
-[_pow,"destroy"] spawn FM(examine);
 
-_anzahlgerettete={alive _x}count _pow;
-
-
-If (_anzahlgerettete>0) then {
-	[_task,"succeeded"] call SHK_Taskmaster_upd;
-	[-1,{["stadtpow",2] call FM(disp_localization)}] FMP;
-}else{
-	[_task,"failed"] call SHK_Taskmaster_upd;
-	[-1,{["stadtpow",3] call FM(disp_localization)}] FMP;
-};
-
-{moveOut _x;sleep 0.2; deleteVehicle _x}forEach _pow;
+#define INTERVALL 30
+#define CONDITION {_a ={!(alive _x)}count (_this select 0);If (_a == (count (_this select 0))) then {true}else{false};}
+#define CONDITIONARGS [_pow]
+#define SUCESSCONDITION {_anzahlgerettete={alive _x}count (_this select 1);If (_anzahlgerettete >0) then {true}else{false};}
+#define ONSUCESS {[_this select 0,'succeeded'] call SHK_Taskmaster_upd;[-1,{['stadtpow',2] call FM(disp_localization);}] FMP;[_this select 1,'destroy'] spawn FM(examine);{moveOut _x;sleep 0.2; deleteVehicle _x}forEach (_this select 1);}
+#define ONFAILURE {[_task,'failed'] call SHK_Taskmaster_upd;[-1,{['stadtpow',3] call FM(disp_localization);}] FMP;[_this select 1,'destroy'] spawn FM(examine);{moveOut _x;sleep 0.2; deleteVehicle _x}forEach (_this select 1);}
+#define SUCESSARG [_task,_pow]
+#define ONLOOP {[_this select 0,'check'] spawn FM(examine);}
+#define ONLOOPARGS [_pow]
+[INTERVALL,CONDITION,CONDITIONARGS,SUCESSCONDITION,ONSUCESS,ONFAILURE,SUCESSARG,ONLOOP,ONLOOPARGS] call FM(taskhandler);
 

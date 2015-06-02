@@ -19,7 +19,7 @@ _task = _this select 0;
 _tasklist = [];
 
 _sonst = GETMVAR(DORB_SONSTIGES,[]);
-_loc = _sonst call BIS_fnc_selectRandom;
+_loc = _sonst SELRND;
 
 LOG("Erstelle Aufgabe Sonstiges");
 

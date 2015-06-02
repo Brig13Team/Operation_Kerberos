@@ -18,14 +18,10 @@
 #include "script_component.hpp"
 CHECK(!isServer)
 
-//PARAMS_4(_ort,_position,_task,_gebaeudearr);
+PARAMS_4(_ort,_position,_task,_gebaeudearr);
 
-private["_position","_task","_ort","_position_rescue","_target","_gruppe"];
+private["_position_rescue","_target","_gruppe"];
 
-_ort=_this select 0;
-_position=_this select 1;
-_task=_this select 2;
-_gebaeudearr = _this select 3;
 _target=[];
 
 LOG("Kill Commander");
@@ -64,7 +60,16 @@ for "_i" from 1 to _rand do{
 		_x addWeapon "LMG_Zafir_F";
 		_x selectWeapon "LMG_Zafir_F";
 	};
-	_x addEventHandler ["Killed", {[-1,{_this spawn FM(disp_message)},[localize "STR_DORB_KILL",format[localize "STR_DORB_KILL_KILLED",(name(_this select 0))]]] FMP;}];	
+	_x addEventHandler 	["Killed", 
+							{
+								[-1,
+									{
+										["stadtcommander",1,_this] call FM(disp_localization)
+									},
+									[name(_this select 0)]
+								] FMP;
+							}
+						];	
 }forEach _target;
 
 _name = name(_target select 0);
@@ -103,25 +108,15 @@ _beschreibung = format [localize "STR_DORB_KILL_TASK_DESC",_name,_ort];
 //////////////////////////////////////////////////
 
 [_target,"init"] spawn FM(examine);
-aufgabenstatus=true;
-while {aufgabenstatus} do {
-	_a=0;
-	sleep 5;
-	
-	{
-		If (!(alive _x)) then 
-		{
-			INC(_a);
-		};
-	}forEach _target;
-	
-	[_target,"check"] spawn FM(examine);
-	If (_a == count _target) then {aufgabenstatus=false};
-};
 
-[_target,"destroy"] spawn FM(examine);
 
-[_task,"succeeded"] call SHK_Taskmaster_upd;
-
-{deleteVehicle _x}forEach _target;
-[-1,{["stadtcommander",2] call FM(disp_localization)}] FMP;
+#define INTERVALL 30
+#define CONDITION {_a ={!(alive _x)}count (_this select 0);If (_a == (count _target)) then {true}else{false};}
+#define CONDITIONARGS [_target]
+#define SUCESSCONDITION {true}
+#define ONSUCESS {[_this select 0,'succeeded'] call SHK_Taskmaster_upd;[-1,{['stadtcommander',2] call FM(disp_localization);}] spawn CBA_fnc_globalExecute;[_this select 1,'destroy'] spawn FM(examine);{deleteVehicle _x}forEach (_this select 0);}
+#define ONFAILURE {}
+#define SUCESSARG [_task,_target]
+#define ONLOOP {[_this select 0,'check'] spawn FM(examine);}
+#define ONLOOPARGS [_target]
+[INTERVALL,CONDITION,CONDITIONARGS,SUCESSCONDITION,ONSUCESS,ONFAILURE,SUCESSARG,ONLOOP,ONLOOPARGS] call FM(taskhandler);

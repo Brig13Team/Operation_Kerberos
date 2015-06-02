@@ -93,25 +93,11 @@ _beschreibung = format [localize "STR_DORB_DEST_KOM_TASK_DESC",_ort];
 //////////////////////////////////////////////////
 ////// Überprüfung + Ende 					 /////
 //////////////////////////////////////////////////
-
-aufgabenstatus=true;
-while {aufgabenstatus} do {
-	_a=0;
-	sleep 15;
-	
-	{
-		If (GETVAR(_x,DORB_TARGET_DEAD,false)) then 
-		{
-			INC(_a);
-		};
-	}forEach _target;
-	
-	LOG(FORMAT_2("Tower dead - %1 \n Targetarray = %2",_a,_target));
-	
-	If (_a == (count _target)) then {aufgabenstatus=false};
-};
-
-[_task,"succeeded"] call SHK_Taskmaster_upd;
-
-{deleteVehicle _x}forEach _target;
-[-1,{["sonsttower",2] call FM(disp_localization)}] FMP;
+#define INTERVALL 30
+#define CONDITION {_a = {GETVAR(_x,DORB_TARGET_DEAD,false);}count (_this select 0);If (_a == (count _target)) then {true}else{false};}
+#define CONDITIONARGS [_target]
+#define SUCESSCONDITION {true}
+#define ONSUCESS {[_this select 0,'succeeded'] call SHK_Taskmaster_upd;[-1,{['sonsttower',2] call FM(disp_localization);}] FMP;}
+#define ONFAILURE {}
+#define SUCESSARG [_task]
+[INTERVALL,CONDITION,CONDITIONARGS,SUCESSCONDITION,ONSUCESS,ONFAILURE,SUCESSARG] call FM(taskhandler);

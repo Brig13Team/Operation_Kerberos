@@ -15,7 +15,11 @@
 */
 #include "script_component.hpp"
 
-_obj=_this select 0;
+PARAMS_1(_obj);
 
 
-_obj addAction [localize "STR_DORB_INTEL_GRAB", {deleteVehicle (_this select 0);(_this select 1) sideChat localize "STR_DORB_INTEL_FOUND";},[], 2, true, true, "",""]
+_obj addAction [localize "STR_DORB_INTEL_GRAB", 
+	{
+		deleteVehicle (_this select 0);
+		[-1,{["stadtintel",3] call FM(disp_localization)},[name player]] FMP;
+	},[], 2, true, true, "",""]

@@ -81,31 +81,25 @@ _beschreibung = format [localize "STR_DORB_DEST_WPN_TASK_DESC",_ort];
 
 [_task,_aufgabenname,_beschreibung,true,[],"created",_position] call SHK_Taskmaster_add;
 
+
+sleep 10;
+{
+	_x addEventHandler ["killed",{"Bo_Mk82" createVehicle (getpos (_this select 0));}];
+}forEach _target;
+
+
+
 //////////////////////////////////////////////////
 ////// Überprüfung + Ende 					 /////
 //////////////////////////////////////////////////
 [_target,"init"] spawn FM(examine);
-aufgabenstatus=true;
-while {aufgabenstatus} do {
-	_a=0;
-	sleep 5;
-	
-	{
-		If (!(alive _x)) then 
-		{
-			INC(_a);
-			"Bo_Mk82" createVehicle (getpos _x);
-			deletevehicle _x;
-		};
-	}forEach _target;
-	
-	[_target,"check"] spawn FM(examine);
-	If (_a > ((count _target)-4)) then {aufgabenstatus=false};
-};
-[_target,"destroy"] spawn FM(examine);
-
-[_task,"succeeded"] call SHK_Taskmaster_upd;
-
-{deleteVehicle _x}forEach _target;
-
-[-1,{["stadtwpn",2] call FM(disp_localization)}] FMP;
+#define INTERVALL 30
+#define CONDITION {_a ={!(alive _x)}count (_this select 0);If (_a > ((count _target)-4)) then {true}else{false};}
+#define CONDITIONARGS [_target]
+#define SUCESSCONDITION {true}
+#define ONSUCESS {[_this select 0,'succeeded'] call SHK_Taskmaster_upd;[-1,{['stadtwpn',2] call FM(disp_localization);}] FMP;[_this select 1,'destroy'] spawn FM(examine);{deleteVehicle _x}forEach (_this select 1);}
+#define ONFAILURE {}
+#define SUCESSARG [_task,_target]
+#define ONLOOP {[_this select 0,'check'] spawn FM(examine);}
+#define ONLOOPARGS [_target]
+[INTERVALL,CONDITION,CONDITIONARGS,SUCESSCONDITION,ONSUCESS,ONFAILURE,SUCESSARG,ONLOOP,ONLOOPARGS] call FM(taskhandler);

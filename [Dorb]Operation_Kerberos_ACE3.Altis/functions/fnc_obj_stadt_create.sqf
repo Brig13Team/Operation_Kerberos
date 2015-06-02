@@ -17,7 +17,7 @@
 PARAMS_1(_task);
 
 _stadt = GETMVAR(DORB_STADT,[]);
-_loc = _stadt call BIS_fnc_selectRandom;
+_loc = _stadt SELRND;
 
 LOG(FORMAT_1("STADT=%1",_loc));
 

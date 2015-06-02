@@ -71,12 +71,14 @@ _this spawn {
 						switch(_messageid) do {
 							case 1 : {[localize "STR_DORB_FIND",[localize "STR_DORB_INTEL_TASK"],"data\icon\icon_search.paa",true] call FM(disp_info);};
 							case 2 : {[localize "STR_DORB_FIND",[localize "STR_DORB_FINISHED"],"data\icon\icon_search.paa",true] call FM(disp_info);};
+							case 3 : {[localize "STR_DORB_INTEL_TASK",format[localize "STR_DORB_INTEL_FOUND",_paramarray select 0]] call FM(disp_message);};
 						};
 					};
 		case "stadtcommander": {
 						switch(_messageid) do {
 							case 1 : {[localize "STR_DORB_KILL",[localize "STR_DORB_KILL_TASK"],"data\icon\icon_target.paa",true] call FM(disp_info);};
 							case 2 : {[localize "STR_DORB_KILL",[localize "STR_DORB_FINISHED"],"data\icon\icon_target.paa",true] call FM(disp_info);};
+							case 3 : {[localize "STR_DORB_KILL",format[localize "STR_DORB_KILL_KILLED",_paramarray select 0]] call FM(disp_message);};
 						};
 					};
 		case "stadtconvkill": {

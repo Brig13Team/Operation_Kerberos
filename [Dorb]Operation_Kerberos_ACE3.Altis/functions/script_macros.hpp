@@ -6,8 +6,6 @@
 #define SELRND call TRIPLES(dorb,makro,selectrandom)
 #define TILGE call TRIPLES(dorb,makro,delete)
 
-
-
 //// Variablen
 
 #define GETVAR_SYS(var1,var2) getVariable [ARR_2(QUOTE(var1),var2)]

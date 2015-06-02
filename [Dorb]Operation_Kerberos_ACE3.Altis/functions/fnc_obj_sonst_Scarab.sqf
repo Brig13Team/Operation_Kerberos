@@ -153,6 +153,26 @@ _beschreibung = format [localize "STR_DORB_DEST_SCARAB_TASK_DESC",_ort,(count _t
 //////////////////////////////////////////////////
 ////// Überprüfung + Ende 					 /////
 //////////////////////////////////////////////////
+
+/*
+[
+	15,
+	{
+		_a ={GETVAR(_x,DORB_TARGET_DEAD,false);}count (_this select 0);
+		If (_a == (count _target)) then {true}else{false};
+	},
+	[_target],
+	{true},
+	{
+		[_this select 0,"succeeded"] call SHK_Taskmaster_upd;
+		[-1,{["sonsttower",2] call FM(disp_localization)}] FMP;
+	},
+	{},
+	[_task]
+] call FM(taskhandler);
+
+*/
+
 aufgabenstatus=true;
 _geschafft=true;
 

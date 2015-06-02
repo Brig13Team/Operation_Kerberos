@@ -728,9 +728,9 @@
                 <English>Secure Intel</English>
 			</Key>
 			<Key ID="STR_DORB_INTEL_FOUND">
-				<Original>I secured the intel</Original>
-                <German>Ich habe die Inforamtionen sichergestellt</German>
-                <English>I secured the intel</English>
+				<Original>%1 secured the intel.</Original>
+                <German>%1 hat die Inforamtionen sichergestellt.</German>
+                <English>%1 secured the intel.</English>
 			</Key>
 		</Container>
 		<Container name="KILL">
