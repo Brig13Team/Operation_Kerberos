@@ -79,8 +79,14 @@ _configArray = (
 				("isclass _x && (getText(_x >> 'vehicleClass')=='Backpacks')" configclasses (configfile >> "cfgvehicles")) +
 				("isclass _x" configclasses (configfile >> "cfgglasses"))
 			);
-
-_progressStep = 1 / count _configArray;
+_cfgPatches = "( 
+				(!((getArray (_x >> 'magazines'))isEqualTo [])) || 
+				(!((getArray (_x >> 'units'))isEqualTo [])) ||
+				(!((getArray (_x >> 'weapons'))isEqualTo []))
+			)" configClasses (configFile >> "CfgPatches");
+			
+_progressStep = 1 / (count _configArray + count _cfgPatches);
+_step1 = (count _configArray);
 
 {
 	_class = _x;
@@ -150,10 +156,17 @@ _progressStep = 1 / count _configArray;
 	} foreach ("isclass _x" configclasses (configfile >> "cfgweapons" >> _weapon));
 } foreach [ID_GRANATEN,ID_SPRENGSTOFF];
 
+_patches=[];
+{
+	_configname = configname _x;
+	_namearr = [_configname,"_"] call BIS_fnc_splitString;
+	If (!((_namearr select 0) in ["A3","A3Data","a3"])) then {_patches pushback _x;};
+	progressloadingscreen ((_foreachindex + _step1) * _progressStep);
+}foreach _cfgPatches;
 
 
 
-
+SETMVAR(DORB_CRATE_PATCHES,_patches);
 SETMVAR(DORB_CRATE_ITEMS,_daten);
 ["DORB_CRATE"] call bis_fnc_endLoadingScreen;
 /*

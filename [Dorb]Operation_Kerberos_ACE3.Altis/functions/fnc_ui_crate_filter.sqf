@@ -73,13 +73,13 @@ _getConfig = {
 };
 
 for "_i" from 0 to ((count _items) -1) do {	
-	_sel pushBack [[[(_items select _i)]call FM(crate_getMod),"",gettext ((_items select _i)>>"displayName"),""],[[_items select _i]call(_getAnzahl)],([(_items select _i),[]]call BIS_fnc_configPath)],
+	_sel pushBack [[[(_items select _i)]call FM(ui_crate_getMod),"",gettext ((_items select _i)>>"displayName"),""],[[_items select _i]call(_getAnzahl)],([(_items select _i),[]]call BIS_fnc_configPath)],
 };
 
 for "_i" from 0 to ((count _mag) -1) do {	
-	_sel pushBack [[[(_mag select _i)]call FM(crate_getMod),"",gettext ((_mag select _i)>>"displayName"),""]	,[[_mag select _i]call(_getAnzahl)]	,([(_mag select _i),[]]call BIS_fnc_configPath)	],
+	_sel pushBack [[[(_mag select _i)]call FM(ui_crate_getMod),"",gettext ((_mag select _i)>>"displayName"),""]	,[[_mag select _i]call(_getAnzahl)]	,([(_mag select _i),[]]call BIS_fnc_configPath)	],
 };
-
+LOG_1(_sel);
 lnbClear 600201;
 lnbAddArray [600201,_sel];
 

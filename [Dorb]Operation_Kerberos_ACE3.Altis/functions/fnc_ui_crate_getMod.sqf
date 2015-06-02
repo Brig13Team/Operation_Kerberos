@@ -2,20 +2,77 @@
 	Author: Dorbedo
 
 	Description:
-		gets the Mod description
+		returns the Mod
 
 */
 #include "script_component.hpp"
+PARAMS_1(_config);
+_mod="";
+_namearray=[configname _config,"_"] call BIS_fnc_splitString;
+If ("ACE" in _namearray) then {_mod="ACE";};
+If ("BWA3" in _namearray) then {_mod="BWA3";};
+If ("tf" in _namearray) then {_mod="TFR";};
+If (("rhs" in _namearray)||("rhsusf" in _namearray)) then {_mod="RHS";};
+_mod
 
+
+
+//// Zu träge
+/*
 
 PARAMS_1(_config);
 
-_namearray=[configname _config,"_"] call BIS_fnc_splitString;
-
-If ("ACE" in _namearray) exitwith {"ACE"};
-If ("BWA3" in _namearray) exitwith {"BWA3"};
-If ("tf" in _namearray) exitwith {"TFR"};
-If (("rhs" in _namearray)||("rhsusf" in _namearray)) exitwith {"RHS"};
+_mod = "";
 
 
-""
+_configname = configname _config;
+
+_configarray = [_config] call BIS_fnc_configPath;
+
+_weapons=("CfgWeapons" in _configarray);
+_blubb=("CfgVehicles" in _configarray);
+_magazines=("CfgMagazines" in _configarray);
+
+LOG_4(_configarray,_weapons,_blubb,_magazines);
+
+
+_suchkriterium = "NichtsGefunden";
+If ("CfgVehicles" in _configarray) then {_suchkriterium = "units";};
+If ("CfgWeapons" in _configarray) then {_suchkriterium = "weapons";};
+If ("CfgMagazines" in _configarray) then {_suchkriterium = "magazines";};
+If ("CfgAmmo" in _configarray) then {_suchkriterium = "ammo";};
+
+LOG_1(_suchkriterium);
+
+//// Versuch mit der alten Überprüfung
+If (_suchkriterium isEqualTo "NichtsGefunden") exitwith {
+	_namearray=[configname _config,"_"] call BIS_fnc_splitString;
+	If ("ACE" in _namearray) then {_mod="ACE";};
+	If ("BWA3" in _namearray) then {_mod="BWA3";};
+	If ("tf" in _namearray) then {_mod="TFR";};
+	If (("rhs" in _namearray)||("rhsusf" in _namearray)) then {_mod="RHS";};
+	_mod
+};
+/////
+
+_addon = "";
+_cfgPatches = GETMVAR(DORB_CRATE_PATCHES,[]);
+
+{
+	_array=getarray(_x >> _suchkriterium);
+	if({_configname == _x}count _array > 0) exitwith {_addon = configname _x;};
+}foreach _cfgPatches;
+
+LOG_1(_addon);
+If (_addon == "") exitwith {""};
+
+_namearray=[_addon,"_"] call BIS_fnc_splitString;
+_mod = _namearray select 0;
+
+if (_mod in ["A3","A3Data"])exitwith {""};
+
+_mod = toUpper _mod;
+LOG_1(_mod);
+_mod;
+
+*/

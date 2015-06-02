@@ -8,7 +8,7 @@
 #include "script_component.hpp"
 
 
-[] call FM(crate_createlists);
+[] call FM(ui_crate_createlists);
 
 if (isnil "DORB_CRATE_CURRENT") then {
 	DORB_CRATE_CURRENT = [[],[],[],[],[],[]];

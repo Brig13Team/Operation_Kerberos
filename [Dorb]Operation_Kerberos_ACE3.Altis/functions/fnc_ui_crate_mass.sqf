@@ -12,8 +12,8 @@ PARAMS_2(_mode,_param);
 switch (_mode) do {
 	case "check" : {
 		_config = _param;
-		_mass_new = ["getmass",_config] call FM(crate_mass);
-		_mass_current = ["currentmass"] call FM(crate_mass);
+		_mass_new = ["getmass",_config] call FM(ui_crate_mass);
+		_mass_current = ["currentmass"] call FM(ui_crate_mass);
 		_mass_max = (DORB_CRATE_BOXES select 2) select DORB_CRATE_CURRENT_BOXID;
 		_return=!((_mass_current+_mass_new)<_mass_max);
 		_return
@@ -21,12 +21,12 @@ switch (_mode) do {
 	case "currentmass" : {
 		_mass_current = 0;
 		for "_i" from 0 to ((count (DORB_CRATE_CURRENT select 0))-1) do {
-			_mass = ["getmass",((DORB_CRATE_CURRENT select 0)select _i)] call FM(crate_mass);
+			_mass = ["getmass",((DORB_CRATE_CURRENT select 0)select _i)] call FM(ui_crate_mass);
 			_mass = _mass * ((DORB_CRATE_CURRENT select 1)select _i);
 			_mass_current = _mass_current + _mass;
 		};
 		for "_i" from 0 to ((count (DORB_CRATE_CURRENT select 2))-1) do {
-			_mass = ["getmass",((DORB_CRATE_CURRENT select 2)select _i)] call FM(crate_mass);
+			_mass = ["getmass",((DORB_CRATE_CURRENT select 2)select _i)] call FM(ui_crate_mass);
 			_mass = _mass * ((DORB_CRATE_CURRENT select 3)select _i);
 			_mass_current = _mass_current + _mass;
 		};
@@ -44,13 +44,13 @@ switch (_mode) do {
 	};
 	case "displaymass" : {
 		_ctrl = findDisplay 600200 displayCtrl 600204;
-		_mass_current = ["currentmass"] call FM(crate_mass);
+		_mass_current = ["currentmass"] call FM(ui_crate_mass);
 		_mass_max = (DORB_CRATE_BOXES select 2) select DORB_CRATE_CURRENT_BOXID;		
 		_status=(_mass_current / _mass_max) min 1;
 		_ctrl progressSetPosition _status;
 	};
 	case "changebox" : {
-		_mass_current = ["currentmass"] call FM(crate_mass);
+		_mass_current = ["currentmass"] call FM(ui_crate_mass);
 		_mass_max = (DORB_CRATE_BOXES select 2) select DORB_CRATE_CURRENT_BOXID;
 		_values=[];
 		If (_mass_current > _mass_max) then {
@@ -58,23 +58,23 @@ switch (_mode) do {
 				_values = DORB_CRATE_CURRENT select 3;
 				_values set [((count _values)-1),((_values select((count _values)-1))-1)];
 				If ((_values select((count _values)-1))<1) then {
-					["cleanupcurrent"] call FM(crate_mass);
+					["cleanupcurrent"] call FM(ui_crate_mass);
 				};
 			}else{
 				_values=DORB_CRATE_CURRENT select 1;
 				_values set [((count _values)-1),((_values select((count _values)-1))-1)];
 				If ((_values select((count _values)-1))<1) then {
-					["cleanupcurrent"] call FM(crate_mass);
+					["cleanupcurrent"] call FM(ui_crate_mass);
 				};
 			};
-			_mass_current = ["currentmass"] call FM(crate_mass);
+			_mass_current = ["currentmass"] call FM(ui_crate_mass);
 			_mass_max = (DORB_CRATE_BOXES select 2) select DORB_CRATE_CURRENT_BOXID;
 			If (_mass_current > _mass_max) then {
-				["changebox"] call FM(crate_mass);
+				["changebox"] call FM(ui_crate_mass);
 			};
-			[1]call FM(crate_filter);
+			[1]call FM(ui_crate_filter);
 		};
-		["displaymass"] call FM(crate_mass);
+		["displaymass"] call FM(ui_crate_mass);
 	};
 	case "cleanupcurrent" : {
 		{

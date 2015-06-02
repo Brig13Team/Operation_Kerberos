@@ -168,7 +168,7 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
 					_spawnliste_heli_rhs pushBack [_class,_pic ,"RHS", (call(_DNameRHS)), _DName, _icon];
 				};
 				*/
-				
+
 			};
 			if ((_vClass=="rhs_vehclass_apc_d")or(_vClass=="rhs_vehclass_tank_d") or (_vClass=="rhs_vehclass_artillery_d") or (_vClass=="rhs_vehclass_ifv_d") or (_vClass=="rhs_vehclass_artillery")) then {
 				_spawnliste_panzer_rhs pushBack [_class,_pic ,"RHS", (call(_DNameRHS)), _DName, _icon];
@@ -176,7 +176,7 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
 			if ((_vClass=="rhs_vehclass_apc_wd")or(_vClass=="rhs_vehclass_tank_wd") or (_vClass=="rhs_vehclass_artillery_wd") or (_vClass=="rhs_vehclass_ifv_wd")) then {
 				_spawnliste_panzer_rhs pushBack [_class,_pic ,"RHS", (call(_DNameRHS)), _DName, _icon];
 			};
-			if ((_vClass=="rhs_vehclass_MRAP_d") or (_vClass=="rhs_vehclass_car_d") or (_vClass=="rhs_vehclass_truck_d") or (_vClass=="rhs_vehclass_car_wd")) then {
+			if ((_vClass=="rhs_vehclass_MRAP_d") or (_vClass=="rhs_vehclass_car_d") or (_vClass=="rhs_vehclass_truck_d") or (_vClass=="rhs_vehclass_car_wd") or (_vClass=="rhs_vehclass_truck")) then {
 				_spawnliste_fahrzeug_rhs pushBack [_class,_pic ,"RHS", (call(_DNameRHS)), _DName, _icon];
 			};
 			if (_vClass=="Static") then {

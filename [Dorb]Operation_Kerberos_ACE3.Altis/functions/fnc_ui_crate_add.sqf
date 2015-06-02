@@ -25,7 +25,7 @@ _config = (configfile>>(_ctrlList lnbData [_row,1])>>(_ctrlList lnbData [_row,2]
 _istMagazin = ((_ctrlList lnbData [_row,1]) isEqualTo "CfgMagazines");
 
 //Masscheck
-If (_mode && (["check",_config]call FM(crate_mass))) exitwith {};
+If (_mode && (["check",_config]call FM(ui_crate_mass))) exitwith {};
 
 _id=0;
 If (_istMagazin) then {_id = 2;};
@@ -61,4 +61,4 @@ If (_config in (DORB_CRATE_CURRENT select _id)) then {
 };
 
 _ctrlList lnbSetText [ [_row, 3],format["%1",(_ctrlList lnbValue [_row,0])]];
-["displaymass",_config] call FM(crate_mass);
+["displaymass",_config] call FM(ui_crate_mass);
