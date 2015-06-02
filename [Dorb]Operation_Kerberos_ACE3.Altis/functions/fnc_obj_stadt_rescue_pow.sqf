@@ -99,8 +99,8 @@ _beschreibung = format [localize "STR_DORB_RESC_TASK_DESC",count _pow,_ort];
 [_pow,"init"] spawn FM(examine);
 
 #define INTERVALL 30
-#define CONDITION {_a ={!(alive _x)}count (_this select 0);If (_a == (count (_this select 0))) then {true}else{false};}
-#define CONDITIONARGS [_pow]
+#define CONDITION {_a=0;_a ={(!(alive _x))||((_x distance (_this select 1))<15)}count (_this select 0);If (_a == (count (_this select 0))) then {true}else{false};}
+#define CONDITIONARGS [_pow,_position_rescue]
 #define SUCESSCONDITION {_anzahlgerettete={alive _x}count (_this select 1);If (_anzahlgerettete >0) then {true}else{false};}
 #define ONSUCESS {[_this select 0,'succeeded'] call SHK_Taskmaster_upd;[-1,{['stadtpow',2] call FM(disp_localization);}] FMP;[_this select 1,'destroy'] spawn FM(examine);{moveOut _x;sleep 0.2; deleteVehicle _x}forEach (_this select 1);}
 #define ONFAILURE {[_task,'failed'] call SHK_Taskmaster_upd;[-1,{['stadtpow',3] call FM(disp_localization);}] FMP;[_this select 1,'destroy'] spawn FM(examine);{moveOut _x;sleep 0.2; deleteVehicle _x}forEach (_this select 1);}

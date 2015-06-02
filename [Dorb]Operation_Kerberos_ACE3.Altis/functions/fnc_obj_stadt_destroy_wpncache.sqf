@@ -94,7 +94,7 @@ sleep 10;
 //////////////////////////////////////////////////
 [_target,"init"] spawn FM(examine);
 #define INTERVALL 30
-#define CONDITION {_a ={!(alive _x)}count (_this select 0);If (_a > ((count _target)-4)) then {true}else{false};}
+#define CONDITION {_a=0;_a = {(!(alive _x))}count (_this select 0);If (_a > ((count _target)-4)) then {true}else{false};}
 #define CONDITIONARGS [_target]
 #define SUCESSCONDITION {true}
 #define ONSUCESS {[_this select 0,'succeeded'] call SHK_Taskmaster_upd;[-1,{['stadtwpn',2] call FM(disp_localization);}] FMP;[_this select 1,'destroy'] spawn FM(examine);{deleteVehicle _x}forEach (_this select 1);}
