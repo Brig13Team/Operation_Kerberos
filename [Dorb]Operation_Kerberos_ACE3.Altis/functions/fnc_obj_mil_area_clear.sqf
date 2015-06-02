@@ -50,7 +50,7 @@ _beschreibung = format [localize "STR_DORB_CLEAR_TASK_DESC",_ort];
 //////////////////////////////////////////////////
 ////// Überprüfung + Ende 					 /////
 //////////////////////////////////////////////////
-
+sleep 120;
 
 #define INTERVALL 30
 #define CONDITION {_a=0;{If ((alive _x)&&((side _x)==dorb_side )) then {INC(_a);};}forEach ((_this select 0) nearEntities (_this select 1));If (_a < 8) then {true}else{false};}
