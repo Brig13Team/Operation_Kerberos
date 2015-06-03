@@ -1,5 +1,26 @@
 Changelog
 
+Version 0.14.4
+
+Nun mit Github: https://github.com/Dorbedo/Operation_Kerberos
+
+Added: Erlaubter Mod: 9LinerandNotepad
+Added: Neue Debugfunktion
+Added: Gegner hat nun NVG
+Added: Taskhandler
+Changed: Code Cleanup
+Changed: Spieleranzahl
+Changed: Benutzung von XEH anstatt BIS-EH
+Changed: Neue Debugfunktion
+Fixed: Fehlender String
+Fixed: Localization (Taskdescription noch ausstehend)
+Fixed: Defend-Mission: Vehicle-Attack
+Removed: Alte Funktionen
+Removed: Alte Makros
+Removed: Medevac-Spieler bei Basic-Medical
+
+
+
 Version 0.14.3
 
 Added: Englische Sprache (Übersetzungen von Cypherstalker) Hinweis: Einfach das eigene Profil auf deutsch umstellen, wenn ihr kein Deutsch mehr habt.
