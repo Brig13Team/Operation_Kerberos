@@ -54,7 +54,7 @@ sleep 120;
 
 #define INTERVALL 30
 #define CONDITION {_a=0;{If ((alive _x)&&((side _x)==dorb_side )) then {INC(_a);};}forEach ((_this select 0) nearEntities (_this select 1));If (_a < 8) then {true}else{false};}
-#define CONDITIONARGS [[_position,_radius]]
+#define CONDITIONARGS [_position,_radius]
 #define SUCESSCONDITION {true}
 #define ONSUCESS {[(_this select 0),'succeeded'] call SHK_Taskmaster_upd;[-1,{['milclear',2] call FM(disp_localization);}] FMP;}
 #define ONFAILURE {}
