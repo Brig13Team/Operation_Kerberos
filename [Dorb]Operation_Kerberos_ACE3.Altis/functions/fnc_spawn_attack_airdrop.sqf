@@ -20,8 +20,8 @@ private ["_spawnpos","_dir","_einheit","_transporter","_jaeger_gruppe","_jaeger"
 PARAMS_1(_position);
 DEFAULT_PARAM(1,_type,400);
 DEFAULT_PARAM(2,_dropradius,0);
-DEFAULT_PARAM(3,_spawnradius,0);
-DEFAULT_PARAM(4,_flughoehe,1700);
+DEFAULT_PARAM(3,_spawnradius,1700);
+DEFAULT_PARAM(4,_flughoehe,400);
 LOG_5(_position,_type,_dropradius,_spawnradius,_flughoehe);
 
 
