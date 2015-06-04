@@ -3,7 +3,7 @@
 #define CUSTOM_FOLDER functions
 
 #define DEBUGMODUS
-#define DEBUG_MODE_FULL
+#define DEBUG_MODE_NORMAL
 #define DORB_ERROR
 #define DORB_LOG
 

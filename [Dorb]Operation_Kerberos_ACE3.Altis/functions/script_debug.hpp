@@ -8,7 +8,7 @@ Author:
 ------------------------------------------- */
 
 #ifdef DORB_ERROR
-	#define ERROR(VAR) [__FILE__,__LINE__,VAR] call TRIPLES(dorb,marko,errorlog)
+	#define ERROR(VAR) [__FILE__,__LINE__,VAR] call TRIPLES(dorb,makro,errorlog)
 #endif
 
 #ifdef DORB_LOG
