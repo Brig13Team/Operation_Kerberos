@@ -5,7 +5,6 @@ Version 0.14.4
 Nun mit Github: https://github.com/Dorbedo/Operation_Kerberos
 
 Added: Erlaubter Mod: 9LinerandNotepad
-Added: Neue Debugfunktion
 Added: Gegner hat nun NVG
 Added: Taskhandler
 Changed: Code Cleanup

@@ -81,6 +81,27 @@ player createDiaryRecord ["Diary", ["Informationen",format["
 player createDiaryRecord ["Diary", ["Changelog","
 <br/>Achtung Sprache vom Changelog nur Denglisch
 <br/>SChreibFehler köennt ihr behalltEn
+<br/>
+<br/>Nun mit Github: https://github.com/Dorbedo/Operation_Kerberos
+<br/>
+<br/>
+<br/>===================
+<br/>Version 0.14.4
+<br/>-------------------
+<br/>Added: Erlaubter Mod: 9LinerandNotepad
+<br/>Added: Gegner hat nun NVG
+<br/>Added: Taskhandler
+<br/>Changed: Code Cleanup
+<br/>Changed: Spieleranzahl
+<br/>Changed: Benutzung von XEH anstatt BIS-EH
+<br/>Changed: Neue Debugfunktion
+<br/>Fixed: Fehlender String
+<br/>Fixed: Localization (Taskdescription noch ausstehend)
+<br/>Fixed: Defend-Mission: Vehicle-Attack
+<br/>Removed: Alte Funktionen
+<br/>Removed: Alte Makros
+<br/>Removed: Medevac-Spieler bei Basic-Medical
+<br/>
 <br/>===================
 <br/>Version 0.14.3
 <br/>-------------------
