@@ -51,7 +51,7 @@ for "_i" from 0 to (_anzahl_leicht) do {
 	};
 };
 
-for "_i" from 0 to (_anzahl_leicht) do {
+for "_i" from 0 to (_anzahl_schwer) do {
 	_rad = ((random 500) + 500);
 	_pos = [_position, _radius,0] call FM(random_pos);
 	
