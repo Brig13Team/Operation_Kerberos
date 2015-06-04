@@ -18,7 +18,7 @@ _teleporter = [
 	[localize "STR_DORB_TELEPORT_DRONES"	,"closeDialog 600300;player setposatl (getMarkerPos 'teleport_drohnen')"],
 	[localize "STR_DORB_TELEPORT_MARINE"	,"closeDialog 600300;player setposatl (getMarkerPos 'teleport_hafen')"],
 	[localize "STR_DORB_TELEPORT_LOGISTIC"	,"closeDialog 600300;player setposatl (getMarkerPos 'teleport_logistik')"],
-	[localize "STR_DORB_TELEPORT_LEAD"		,"closeDialog 600300;[ObjNull,player] call dorb_fnc_teleporter_lead"]
+	[localize "STR_DORB_TELEPORT_LEAD"		,"closeDialog 600300;[ObjNull,player] call dorb_fnc_ui_teleporter_lead"]
 ];
 
 for "_i" from 0 to 6 do {

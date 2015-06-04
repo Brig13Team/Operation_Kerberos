@@ -27,5 +27,5 @@ if (call TFAR_fnc_haveLRRadio) then {
 };
 
 ["DORB_TFR_onOpenEH", "onEachFrame", {
-		[] call FM(tfr_onOpen);
+		[] call FM(ui_tfr_onOpen);
 	 }, []] call BIS_fnc_addStackedEventHandler;
