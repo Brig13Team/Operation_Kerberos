@@ -1,4 +1,5 @@
 If (!hasinterface) exitwith {};
+If (!local (_this select 0)) exitwith {};
 _this spawn {
 	if((getposatl (_this select 0) distance getposatl base) >51) exitwith {};
 	deleteVehicle (_this select 5);
