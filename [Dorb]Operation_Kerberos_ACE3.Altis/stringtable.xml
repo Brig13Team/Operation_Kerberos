@@ -157,9 +157,9 @@
             <English>Aircraft</English>
 		</Key>
 		<Key ID="STR_DORB_TELEPORT_DRONES">
-			<Original>Vehicles</Original>
-            <German>Fahrzeuge</German>
-            <English>Vehicles</English>
+			<Original>Drones</Original>
+            <German>Drohen</German>
+            <English>Drones</English>
 		</Key>
 		<Key ID="STR_DORB_TELEPORT_LOGISTIC">
 			<Original>Logistics</Original>
