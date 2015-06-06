@@ -59,7 +59,7 @@ for "_i" from 1 to _rand do{
 
 
 
-[_task,true,[["STR_DORB_RESC_TASK_DESC",count _pow,_ort],"STR_DORB_RESCUE"],"STR_DORB_RESC_TASK",_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
+[_task,true,[["STR_DORB_RESC_TASK_DESC",count _pow,_ort],"STR_DORB_RESC_TASK","STR_DORB_RESCUE"],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
 
 [-1,{_this spawn FM(disp_info)},["STR_DORB_RESCUE",["STR_DORB_RESC_TASK"],"data\icon\icon_rescue.paa",true]] FMP;
 
