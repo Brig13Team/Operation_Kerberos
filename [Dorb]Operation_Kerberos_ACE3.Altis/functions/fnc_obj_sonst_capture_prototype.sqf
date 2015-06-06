@@ -91,7 +91,7 @@ sleep 2;
 #define INTERVALL 10
 #define CONDITION {_a=0;{If (((_x distance (_this select 1) < 20)and(alive _x))or !(alive _x)) then {	INC(_a);};}forEach (_this select 0);If (_a == count (_this select 0)) then {true}else{false};}
 #define CONDITIONARGS [_target,_position_rescue]
-#define SUCESSCONDITION {If (({alive _x}count(_this select 1))>1) then {true}else{false};}
+#define SUCESSCONDITION {If (({alive _x}count(_this select 1))>0) then {true}else{false};}
 #define ONSUCESS {[(_this select 0),'SUCCEEDED',false] spawn BIS_fnc_taskSetState;[-1,{_this spawn FM(disp_info)},["STR_DORB_CAPTURE",["STR_DORB_FINISHED"],"data\icon\icon_capture.paa",true]] FMP;{{moveout _x}forEach (crew _x);sleep 0.2;deleteVehicle _x}forEach (_this select 1);}
 #define ONFAILURE {[(_this select 0),'FAILED',false] spawn BIS_fnc_taskSetState;[-1,{_this spawn FM(disp_info)},["STR_DORB_CAPTURE",["STR_DORB_FAILED"],"data\icon\icon_capture.paa",true]] FMP;{{moveout _x}forEach (crew _x);sleep 0.2;deleteVehicle _x}forEach (_this select 1);}
 #define SUCESSARG [_task,_target]
