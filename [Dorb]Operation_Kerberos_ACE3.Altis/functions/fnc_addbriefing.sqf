@@ -83,6 +83,14 @@ player createDiaryRecord ["Diary", ["Changelog","
 <br/>
 <br/>
 <br/>===================
+<br/>Version 0.14.5
+<br/>-------------------
+<br/>Removed: SHK_Taskmaster
+<br/>Fixed: Mission Intel
+<br/>Fixed: Mission Device
+<br/>Fixed: Localization (Sprache)
+<br/>
+<br/>===================
 <br/>Version 0.14.4
 <br/>-------------------
 <br/>Added: Erlaubter Mod: 9LinerandNotepad

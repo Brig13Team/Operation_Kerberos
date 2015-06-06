@@ -1,8 +1,17 @@
 Changelog
 
-Version 0.14.4
+Github: https://github.com/Dorbedo/Operation_Kerberos
 
-Nun mit Github: https://github.com/Dorbedo/Operation_Kerberos
+
+Version 0.14.5
+
+Removed: SHK_Taskmaster
+Fixed: Mission Intel
+Fixed: Mission Device
+Fixed: Localization (Sprache)
+
+
+Version 0.14.4
 
 Added: Erlaubter Mod: 9LinerandNotepad
 Added: Gegner hat nun NVG
