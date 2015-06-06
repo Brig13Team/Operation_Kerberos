@@ -10,11 +10,11 @@ _players = [];
 
 _players = call CBA_fnc_players;
 
-if ((count _players)>5) exitWith {[localize "STR_DORB_HALO",localize "STR_DORB_HALO_DISABLED"] call FM(disp_message);};
+if ((count _players)>5) exitWith {["STR_DORB_HALO","STR_DORB_HALO_DISABLED"] call FM(disp_message);};
 
 
 if (not alive _host) exitwith {
-	[localize "STR_DORB_HALO",localize "STR_DORB_HALO_DISABLED"] call FM(disp_message);
+	["STR_DORB_HALO","STR_DORB_HALO_DISABLED"] call FM(disp_message);
 	_host removeaction _id;
 };
 
@@ -22,7 +22,7 @@ if (vehicle _caller == _caller) then {
 
 	private ["_pos"];
 	
-	[localize "STR_DORB_HALO",localize "STR_DORB_HALO_KlICK"] call FM(disp_message);
+	["STR_DORB_HALO","STR_DORB_HALO_KlICK"] call FM(disp_message);
 	
 
 	openMap true;
@@ -34,7 +34,7 @@ if (vehicle _caller == _caller) then {
 	waituntil {mapclick or !(visiblemap)};
 	
 	if !(visibleMap) exitwith {
-		[localize "STR_DORB_HALO",localize "STR_DORB_HALO_ABORT"] call FM(disp_message);
+		["STR_DORB_HALO","STR_DORB_HALO_ABORT"] call FM(disp_message);
 	};
 	_pos = clickpos;
 

@@ -19,7 +19,8 @@ If (!(aufgabenstatus)) exitWith {LOG("Wellengenerierung abgebrochen");};
 If (DORB_WAVES_REMAINING < 1) exitWith {LOG("Keine Wellen übrig");};
 PARAMS_1(_position);
 private["_rand","_difficulty","_missionsstatus","_gegner_lebend","_z"];
-[-1,{["mildef",6] call FM(disp_localization)}] FMP;
+[-1,{_this spawn FM(disp_message)},[localize "STR_DORB_DEF",localize "STR_DORB_DEF_ATT_INB"]] FMP;
+
 
 sleep 60;
 
@@ -109,15 +110,14 @@ while {_missionsstatus} do {
 	if (_z<15) exitWith {_missionsstatus=false;};
 	
 };
-
-[-1,{["mildef",7] call FM(disp_localization)}] FMP;
+[-1,{_this spawn FM(disp_message)},[localize "STR_DORB_DEF",localize "STR_DORB_DEF_WAVE_DEFENDED"]] FMP;
 
 LOG("Welle abgeschlossen");
 DORB_WAVES_REMAINING = DORB_WAVES_REMAINING - 1;
 
 If (DORB_WAVES_REMAINING > 1) then {
 	sleep 60;
-	[-1,{["mildef",8] call FM(disp_localization)}] FMP;
+	[-1,{_this spawn FM(disp_message)},[localize "STR_DORB_DEF",localize "STR_DORB_DEF_WAVE_NEW"]] FMP;
 	sleep 60;
 	[_position] spawn FM(spawn_attack_waves);
 }else {

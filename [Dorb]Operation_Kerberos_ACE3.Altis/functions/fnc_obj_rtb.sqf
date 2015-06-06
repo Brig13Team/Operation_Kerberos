@@ -20,7 +20,7 @@ _position_home = getMarkerPos "respawn_west";
 ////// Nachricht anzeigen 					 /////
 //////////////////////////////////////////////////
 
-[-1,{["rtb",1] call FM(disp_localization)}] FMP;
+[-1,{_this spawn FM(disp_info)},["STR_DORB_RTB",["STR_DORB_RTB_START_1"],"data\icon\icon_base.paa",false]] FMP;
 
 //////////////////////////////////////////////////
 ////// Überprüfung + Ende 					 /////
@@ -30,7 +30,7 @@ _position_home = getMarkerPos "respawn_west";
 #define CONDITION {_a=0;{If (_x distance (_this select 0) < 300) then {_a=_a+1;};} forEach playableUnits;If (_a == (count playableUnits)) then {true}else{false};}
 #define CONDITIONARGS [_position_home]
 #define SUCESSCONDITION {true}
-#define ONSUCESS {LOG('Alle zurückgekehrt');[-1,{['rtb',2] call FM(disp_localization);}] FMP;[_position, 2000] spawn FM(cleanup_big);}
+#define ONSUCESS {LOG('Alle zurückgekehrt');[-1,{_this spawn FM(disp_info)},["STR_DORB_RTB",["STR_DORB_RTB_FINISHED","STR_DORB_RTB_FINISHED2"],"data\icon\icon_base.paa",false]] FMP;[_position, 2000] spawn FM(cleanup_big);}
 [INTERVALL,CONDITION,CONDITIONARGS,SUCESSCONDITION,ONSUCESS] call FM(taskhandler);
 
 LOG("Exit RTB");

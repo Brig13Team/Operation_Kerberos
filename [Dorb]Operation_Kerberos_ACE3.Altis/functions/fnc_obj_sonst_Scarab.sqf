@@ -143,35 +143,14 @@ _ZeitInMinuten = 62;
 DORB_ENDZEIT = _startzeit + (60*_ZeitInMinuten);
 publicVariable "DORB_ENDZEIT";
 _deploy=false;
+[-1,{[_this select 0,[format [localize (_this select 1),_this select 2]],_this select 3,_this select 4] spawn FM(disp_info);},["STR_DORB_DESTROY","STR_DORB_DEST_SCARAB_TASK",_ZeitInMinuten,"data\icon\icon_destroy.paa",true]] FMP;
 
-
-_aufgabenname = format [localize "STR_DORB_DEST_SCARAB_TASK",_ZeitInMinuten];
-_beschreibung = format [localize "STR_DORB_DEST_SCARAB_TASK_DESC",_ort,(count _target)];
-[-1,{["sonstscarab",1,_this] call FM(disp_localization)},[_ZeitInMinuten]] FMP;
-[_task,_aufgabenname,_beschreibung,true,[],"created",_position] call SHK_Taskmaster_add;
+[_task,true,[["STR_DORB_DEST_SCARAB_TASK_DESC",_ort,(count _target)],["STR_DORB_DEST_SCARAB_TASK",_ZeitInMinuten],"STR_DORB_DESTROY"],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
 
 //////////////////////////////////////////////////
 ////// Überprüfung + Ende 					 /////
 //////////////////////////////////////////////////
 
-/*
-[
-	15,
-	{
-		_a ={GETVAR(_x,DORB_TARGET_DEAD,false);}count (_this select 0);
-		If (_a == (count _target)) then {true}else{false};
-	},
-	[_target],
-	{true},
-	{
-		[_this select 0,"succeeded"] call SHK_Taskmaster_upd;
-		[-1,{["sonsttower",2] call FM(disp_localization)}] FMP;
-	},
-	{},
-	[_task]
-] call FM(taskhandler);
-
-*/
 
 aufgabenstatus=true;
 _geschafft=true;
@@ -209,9 +188,9 @@ while {aufgabenstatus} do {
 	
 };
 If (_geschafft) then {
-	[_task,"succeeded"] call SHK_Taskmaster_upd;
-	[-1,{["sonstscarab",2] call FM(disp_localization)}] FMP;
+	[_task,'SUCCEEDED',false] spawn BIS_fnc_taskSetState;
+	[-1,{_this spawn FM(disp_info)},["STR_DORB_DESTROY",["STR_DORB_FINISHED"],"data\icon\icon_destroy.paa",true]] FMP;
 }else{
-	[_task,"failed"] call SHK_Taskmaster_upd;
-	[-1,{["sonstscarab",3] call FM(disp_localization)}] FMP;
+	[_task,'FAILED',false] spawn BIS_fnc_taskSetState;
+	[-1,{_this spawn FM(disp_info)},["STR_DORB_DESTROY",["STR_DORB_FAILED"],"data\icon\icon_destroy.paa",true]] FMP;
 };

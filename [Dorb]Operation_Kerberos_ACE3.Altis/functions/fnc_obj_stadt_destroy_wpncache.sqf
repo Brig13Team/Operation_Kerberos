@@ -75,13 +75,8 @@ if (dorb_debug) then {
 ////// Aufgabe erstellen 					 /////
 //////////////////////////////////////////////////
 
-_aufgabenname = localize "STR_DORB_DEST_WPN_TASK";
-_beschreibung = format [localize "STR_DORB_DEST_WPN_TASK_DESC",_ort];
-[-1,{["stadtwpn",1] call FM(disp_localization)}] FMP;
-
-[_task,_aufgabenname,_beschreibung,true,[],"created",_position] call SHK_Taskmaster_add;
-
-
+[_task,true,[["STR_DORB_DEST_WPN_TASK_DESC",_ort],"STR_DORB_DEST_WPN_TASK","STR_DORB_DESTROY"],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
+[-1,{_this spawn FM(disp_info)},["STR_DORB_DESTROY",["STR_DORB_DEST_WPN_TASK"],"data\icon\icon_destroy.paa",true]] FMP;
 sleep 10;
 {
 	_x addEventHandler ["killed",{"Bo_Mk82" createVehicle (getpos (_this select 0));}];
@@ -97,7 +92,7 @@ sleep 10;
 #define CONDITION {_a=0;_a = {(!(alive _x))}count (_this select 0);If (_a > ((count _target)-4)) then {true}else{false};}
 #define CONDITIONARGS [_target]
 #define SUCESSCONDITION {true}
-#define ONSUCESS {[_this select 0,'succeeded'] call SHK_Taskmaster_upd;[-1,{['stadtwpn',2] call FM(disp_localization);}] FMP;[_this select 1,'destroy'] spawn FM(examine);{deleteVehicle _x}forEach (_this select 1);}
+#define ONSUCESS {[(_this select 0),'SUCCEEDED',false] spawn BIS_fnc_taskSetState;[-1,{_this spawn FM(disp_info)},["STR_DORB_DESTROY",["STR_DORB_FINISHED"],"data\icon\icon_destroy.paa",true]] FMP;[_this select 1,'destroy'] spawn FM(examine);{deleteVehicle _x}forEach (_this select 1);}
 #define ONFAILURE {}
 #define SUCESSARG [_task,_target]
 #define ONLOOP {[_this select 0,'check'] spawn FM(examine);}

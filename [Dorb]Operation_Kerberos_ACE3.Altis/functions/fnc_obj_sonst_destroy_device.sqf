@@ -87,20 +87,20 @@ sleep 5;
 ////// Aufgabe erstellen 					 /////
 //////////////////////////////////////////////////
 
-_aufgabenname = localize "STR_DORB_DEST_DEV_TASK";
-_beschreibung = localize "STR_DORB_DEST_DEV_TASK_DESC";
-[-1,{["sonstdevice",1] call FM(disp_localization)}] FMP;
+[_task,true,["STR_DORB_DEST_DEV_TASK_DESC","STR_DORB_DEST_DEV_TASK","STR_DORB_DESTROY"],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
+[-1,{_this spawn FM(disp_info)},["STR_DORB_DESTROY",["STR_DORB_DEST_DEV_TASK"],"data\icon\icon_destroy.paa",true]] FMP;
 
-[_task,_aufgabenname,_beschreibung,true,[],"created",_position] call SHK_Taskmaster_add;
 
 //////////////////////////////////////////////////
 ////// Überprüfung + Ende 					 /////
 //////////////////////////////////////////////////
 #define INTERVALL 30
-#define CONDITION {_a ={GETVAR(_x,DORB_TARGET_DEAD,false);}count (_this select 0);If (_a == (count _target)) then {true}else{false};}
-#define CONDITIONARGS []
+#define CONDITION {_a = {GETVAR(_x,DORB_TARGET_DEAD,false);}count (_this select 0);If (_a == (count (_this select 0))) then {true}else{false};}
+#define CONDITIONARGS [_target]
 #define SUCESSCONDITION {true}
-#define ONSUCESS {[_this select 0,'succeeded'] call SHK_Taskmaster_upd;[-1,{['sonstdevice',2] call FM(disp_localization);}] FMP;}
+#define ONSUCESS {[(_this select 0),'SUCCEEDED',false] spawn BIS_fnc_taskSetState;[-1,{_this spawn FM(disp_info)},["STR_DORB_DESTROY",["STR_DORB_FINISHED"],"data\icon\icon_destroy.paa",true]] FMP;}
 #define ONFAILURE {}
 #define SUCESSARG [_task]
-[INTERVALL,CONDITION,CONDITIONARGS,SUCESSCONDITION,ONSUCESS,ONFAILURE,SUCESSARG] call FM(taskhandler);
+#define ONLOOP {If (isnil "DORB_EARTHQUAKE_COUNTER") then {DORB_EARTHQUAKE_COUNTER=5;};DORB_EARTHQUAKE_COUNTER = DORB_EARTHQUAKE_COUNTER - 1;If (DORB_EARTHQUAKE_COUNTER<0) then {[-1, {_rand=(floor(random 4)+1);[_rand]spawn BIS_fnc_earthquake;}] FMP;DORB_EARTHQUAKE_COUNTER = 5+(floor(random 4));};}
+#define ONLOOPARGS []
+[INTERVALL,CONDITION,CONDITIONARGS,SUCESSCONDITION,ONSUCESS,ONFAILURE,SUCESSARG,ONLOOP,ONLOOPARGS] call FM(taskhandler);

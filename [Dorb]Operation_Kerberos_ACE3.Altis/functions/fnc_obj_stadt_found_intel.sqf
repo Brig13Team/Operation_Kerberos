@@ -21,5 +21,5 @@ PARAMS_1(_obj);
 _obj addAction [localize "STR_DORB_INTEL_GRAB", 
 	{
 		deleteVehicle (_this select 0);
-		[-1,{["stadtintel",3] call FM(disp_localization)},[name player]] FMP;
-	},[], 2, true, true, "",""]
+		[-1,{[_this select 0,format[localize (_this select 1),_this select 2]] spawn dorb_fnc_disp_message;},["STR_DORB_INTEL_TASK","STR_DORB_INTEL_FOUND",name player]] FMP;
+	},[], 2, true, true, "",""];

@@ -32,7 +32,7 @@ sleep 3;
 if(!(_vehicle in list _reppunkt)) exitWith {
 		//_vehicle vehiclechat "Service abgebrochen"
 		
-		[[localize "STR_DORB_REP_POINT",localize "STR_DORB_REP_CANCELED"],"dorb_fnc_disp_message",_driver] call BIS_fnc_MP;
+		[["STR_DORB_REP_POINT","STR_DORB_REP_CANCELED"],"dorb_fnc_disp_message",_driver] call BIS_fnc_MP;
 	};
 
 _reparry=[];
@@ -71,7 +71,7 @@ for "_i" from 0 to ((count _vehicle_TR) -1) do {
 if !(alive _vehicle) exitWith {};
 _treibstoffanzeige = fuel _vehicle;
 _vehicle setFuel 0;
-[[localize "STR_DORB_REP_POINT",[localize "STR_DORB_REP_EXECUTED",localize "STR_DORB_REP_WAIT"]],"dorb_fnc_disp_info",_driver] call BIS_fnc_MP;
+[["STR_DORB_REP_POINT",["STR_DORB_REP_EXECUTED","STR_DORB_REP_WAIT"]],"dorb_fnc_disp_info",_driver] call BIS_fnc_MP;
 //_vehicle vehicleChat (format ["Der Service wird durchgeführt. Bitte warten...."]);
 
 
@@ -95,7 +95,7 @@ While {alive _vehicle} do {
 if (true) exitWith {};
 };
 
-[[localize "STR_DORB_REP_POINT",localize "STR_DORB_REP_FINISHED"],"dorb_fnc_disp_message",_driver] call BIS_fnc_MP;
+[["STR_DORB_REP_POINT","STR_DORB_REP_FINISHED"],"dorb_fnc_disp_message",_driver] call BIS_fnc_MP;
 /*
 
 

@@ -26,7 +26,7 @@ DEFAULT_PARAM(3,_body,true);
 
 if (_title != "") then {
 	DISP_LAYER cutRsc ["DORB_DISP_INFO","PLAIN"];
-
+	If (islocalized _title) then {_title = localize _title;};
 	disableSerialization;
 	_display = uiNamespace getvariable "DORB_DISP_INFO";
 	if (!isnil "_display") then {
@@ -52,6 +52,7 @@ if (_title != "") then {
 		_idc = 700110;
 		{
 			_text = _x;
+			If (islocalized _text) then {_text = localize _text;};
 			if (_text != "") then {
 				_contentCtrl = _display displayCtrl _idc;
 				_contentCtrl ctrlSetText _text;

@@ -22,7 +22,6 @@ PREPMAIN(random_pos);
 PREPMAIN(addbriefing);
 PREPMAIN(disp_blur);
 PREPMAIN(disp_info);
-PREPMAIN(disp_localization);
 PREPMAIN(disp_message);
 PREPMAIN(disp_progressbar);
 PREPMAIN(grouptracker);

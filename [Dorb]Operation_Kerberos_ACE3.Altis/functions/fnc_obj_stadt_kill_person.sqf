@@ -62,12 +62,7 @@ for "_i" from 1 to _rand do{
 	};
 	_x addEventHandler 	["Killed", 
 							{
-								[-1,
-									{
-										["stadtcommander",1,_this] call FM(disp_localization)
-									},
-									[name(_this select 0)]
-								] FMP;
+								[-1,{[_this select 0,[format [localize (_this select 1),_this select 2]],_this select 3,_this select 4] spawn FM(disp_info);},["STR_DORB_KILL","STR_DORB_KILL_KILLED",(name(_this select 0)),"data\icon\icon_target.paa",true]] FMP;
 							}
 						];	
 }forEach _target;
@@ -98,11 +93,9 @@ if (dorb_debug) then {
 ////// Aufgabe erstellen 					 /////
 //////////////////////////////////////////////////
 
-_aufgabenname = localize "STR_DORB_KILL_TASK";
-_beschreibung = format [localize "STR_DORB_KILL_TASK_DESC",_name,_ort];
-[-1,{["stadtcommander",1] call FM(disp_localization)}] FMP;
-[_task,_aufgabenname,_beschreibung,true,[],"created",_position] call SHK_Taskmaster_add;
+[_task,true,[["STR_DORB_KILL_TASK_DESC",_name,_ort],"STR_DORB_KILL_TASK","STR_DORB_KILL"],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
 
+[-1,{_this spawn FM(disp_info)},["STR_DORB_KILL",["STR_DORB_KILL_TASK"],"data\icon\icon_target.paa",true]] FMP;
 //////////////////////////////////////////////////
 ////// Überprüfung + Ende 					 /////
 //////////////////////////////////////////////////
@@ -114,7 +107,7 @@ _beschreibung = format [localize "STR_DORB_KILL_TASK_DESC",_name,_ort];
 #define CONDITION {_a ={!(alive _x)}count (_this select 0);If (_a == (count _target)) then {true}else{false};}
 #define CONDITIONARGS [_target]
 #define SUCESSCONDITION {true}
-#define ONSUCESS {[_this select 0,'succeeded'] call SHK_Taskmaster_upd;[-1,{['stadtcommander',2] call FM(disp_localization);}] spawn CBA_fnc_globalExecute;[_this select 1,'destroy'] spawn FM(examine);{deleteVehicle _x}forEach (_this select 0);}
+#define ONSUCESS {[(_this select 0),'SUCCEEDED',false] spawn BIS_fnc_taskSetState;[-1,{_this spawn FM(disp_info)},["STR_DORB_KILL",["STR_DORB_FINISHED"],"data\icon\icon_target.paa",true]] FMP;[_this select 1,'destroy'] spawn FM(examine);{deleteVehicle _x}forEach (_this select 0);}
 #define ONFAILURE {}
 #define SUCESSARG [_task,_target]
 #define ONLOOP {[_this select 0,'check'] spawn FM(examine);}

@@ -57,12 +57,11 @@ for "_i" from 1 to _rand do{
 ////// Aufgabe erstellen 					 /////
 //////////////////////////////////////////////////
 
-_aufgabenname = localize "STR_DORB_RESC_TASK";
-_beschreibung = format [localize "STR_DORB_RESC_TASK_DESC",count _pow,_ort];
 
-[-1,{["stadtpow",1] call FM(disp_localization)}] FMP;
-[_task,_aufgabenname,_beschreibung,true,[],"created",_position] call SHK_Taskmaster_add;
 
+[_task,true,[["STR_DORB_RESC_TASK_DESC",count _pow,_ort],"STR_DORB_RESCUE"],"STR_DORB_RESC_TASK",_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
+
+[-1,{_this spawn FM(disp_info)},["STR_DORB_RESCUE",["STR_DORB_RESC_TASK"],"data\icon\icon_rescue.paa",true]] FMP;
 
 //////////////////////////////////////////////////
 ////// Geiseln bearbeiten					 /////
@@ -102,8 +101,8 @@ _beschreibung = format [localize "STR_DORB_RESC_TASK_DESC",count _pow,_ort];
 #define CONDITION {_a=0;_a ={(!(alive _x))||((_x distance (_this select 1))<15)}count (_this select 0);If (_a == (count (_this select 0))) then {true}else{false};}
 #define CONDITIONARGS [_pow,_position_rescue]
 #define SUCESSCONDITION {_anzahlgerettete={alive _x}count (_this select 1);If (_anzahlgerettete >0) then {true}else{false};}
-#define ONSUCESS {[_this select 0,'succeeded'] call SHK_Taskmaster_upd;[-1,{['stadtpow',2] call FM(disp_localization);}] FMP;[_this select 1,'destroy'] spawn FM(examine);{moveOut _x;sleep 0.2; deleteVehicle _x}forEach (_this select 1);}
-#define ONFAILURE {[_task,'failed'] call SHK_Taskmaster_upd;[-1,{['stadtpow',3] call FM(disp_localization);}] FMP;[_this select 1,'destroy'] spawn FM(examine);{moveOut _x;sleep 0.2; deleteVehicle _x}forEach (_this select 1);}
+#define ONSUCESS {[(_this select 0),'SUCCEEDED',false] spawn BIS_fnc_taskSetState;[-1,{_this spawn FM(disp_info)},["STR_DORB_RESCUE",["STR_DORB_FINISHED"],"data\icon\icon_rescue.paa",true]] FMP;[_this select 1,'destroy'] spawn FM(examine);{moveOut _x;sleep 0.2; deleteVehicle _x}forEach (_this select 1);}
+#define ONFAILURE {[(_this select 0),'FAILED',false] spawn BIS_fnc_taskSetState;[-1,{_this spawn FM(disp_info)},["STR_DORB_RESCUE",["STR_DORB_FAILED"],"data\icon\icon_rescue.paa",true]] FMP;[_this select 1,'destroy'] spawn FM(examine);{moveOut _x;sleep 0.2; deleteVehicle _x}forEach (_this select 1);}
 #define SUCESSARG [_task,_pow]
 #define ONLOOP {[_this select 0,'check'] spawn FM(examine);}
 #define ONLOOPARGS [_pow]

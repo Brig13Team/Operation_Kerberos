@@ -85,11 +85,9 @@ sleep 2;
 ////// Aufgabe erstellen 					 /////
 //////////////////////////////////////////////////
 
-_aufgabenname = localize "STR_DORB_DEST_KOM_TASK";
-_beschreibung = format [localize "STR_DORB_DEST_KOM_TASK_DESC",_ort];
-[-1,{["sonsttower",1] call FM(disp_localization)}] FMP;
-[_task,_aufgabenname,_beschreibung,true,[],"created",_position] call SHK_Taskmaster_add;
+[_task,true,[["STR_DORB_DEST_KOM_TASK_DESC",_ort],"STR_DORB_DEST_KOM_TASK","STR_DORB_DESTROY"],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
 
+[-1,{_this spawn FM(disp_info)},["STR_DORB_DESTROY",["STR_DORB_DEST_KOM_TASK"],"data\icon\icon_destroy.paa",true]] FMP;
 //////////////////////////////////////////////////
 ////// Überprüfung + Ende 					 /////
 //////////////////////////////////////////////////
@@ -97,7 +95,7 @@ _beschreibung = format [localize "STR_DORB_DEST_KOM_TASK_DESC",_ort];
 #define CONDITION {_a = {GETVAR(_x,DORB_TARGET_DEAD,false);}count (_this select 0);If (_a == (count _target)) then {true}else{false};}
 #define CONDITIONARGS [_target]
 #define SUCESSCONDITION {true}
-#define ONSUCESS {[_this select 0,'succeeded'] call SHK_Taskmaster_upd;[-1,{['sonsttower',2] call FM(disp_localization);}] FMP;}
+#define ONSUCESS {[(_this select 0),'SUCCEEDED',false] spawn BIS_fnc_taskSetState;[-1,{_this spawn FM(disp_info)},["STR_DORB_DESTROY",["STR_DORB_FINISHED"],"data\icon\icon_destroy.paa",true]] FMP;}
 #define ONFAILURE {}
 #define SUCESSARG [_task]
 [INTERVALL,CONDITION,CONDITIONARGS,SUCESSCONDITION,ONSUCESS,ONFAILURE,SUCESSARG] call FM(taskhandler);

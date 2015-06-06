@@ -12,9 +12,6 @@ player createDiaryRecord ["Diary", ["Credits",format["
 	----------------
 	Used Scripts:
 	----------------
-	<br/>SHK- Taskmaster V0.39
-	<br/>http://forums.bistudio.com/showthread.php?160974-SHK_Taskmaster
-	<br/>
 	<br/>R3F - Logistics
 	<br/>http://forums.bistudio.com/showthread.php?180049-R3F-Logistics
 	<br/>

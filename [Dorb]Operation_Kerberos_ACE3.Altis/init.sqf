@@ -6,8 +6,6 @@
 */
 #include "script_component.hpp"
 
-execVM "shk_taskmaster.sqf";
-
 enableSaving [false, false];
 enableRadio false;
 
