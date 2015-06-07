@@ -24,6 +24,12 @@ _gewichtung = 	[	1,					1,					1,						1,
 					1,					1,					0.8,					1,					1,					0.8,
 					0.8,				0.8
 				];
+If (worldName == "pja305") then {
+_gewichtung = 	[	1,					1,					1,						1,
+					1,					1,					0.8,					1,					0,					0,
+					0.8,				0.8
+				];
+};
 If (!(_aufgabentyp in _aufgabentypen)) then {
 	_aufgabentyp = [_aufgabentypen,_gewichtung] call BIS_fnc_selectRandomWeighted;
 };

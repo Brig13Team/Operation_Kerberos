@@ -20,5 +20,7 @@ If ((_rand >= 6)&&(_rand < 9)) then {[_position] spawn FM(spawn_commandveh_artil
 If ((_rand >= 9)&&(_rand < 12)) then {[_position] spawn FM(spawn_commandveh_mech);};
 If ((_rand >= 12)&&(_rand < 15)) then {[_position] spawn FM(spawn_commandveh_tanks);};		//etwas geringere Wahrscheinlichkeit, da sehr stark
 
-_rand = floor (random 4);
-If (_rand < 2) then {[_position] spawn FM(spawn_commandveh_antiair);};
+If (!(worldName == "pja305")) then {
+	_rand = floor (random 4);
+	If (_rand < 2) then {[_position] spawn FM(spawn_commandveh_antiair);};
+};

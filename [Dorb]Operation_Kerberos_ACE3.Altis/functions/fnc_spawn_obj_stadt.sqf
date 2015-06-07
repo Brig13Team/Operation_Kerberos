@@ -22,6 +22,35 @@ LOG(FORMAT_2("Spawn Stadt \n Pos=%1 \n Gebauedearr=%2",_position,_gebaeudepos_ar
 
 _difficulty = [] call FM(dyn_difficulty);
 
+If (worldName == "pja305") exitWith {
+
+	[_position,1200,7,1] spawn FM(spawn_patrol_inf);	sleep 10;
+	[_position,1000,2,0] spawn FM(spawn_patrol_veh);	sleep 10;
+
+	If (_difficulty > 1) then {
+		[_position,1200,4,0] spawn FM(spawn_patrol_inf);	sleep 10;
+		[_position,1000,1,2] spawn FM(spawn_patrol_veh);	sleep 10;
+	};
+	If (_difficulty > 2) then {
+		[_position,1200,2,2] spawn FM(spawn_patrol_inf);	sleep 10;
+		[_position,1000,0,3] spawn FM(spawn_patrol_veh);	sleep 10;
+	};
+
+	[_position] spawn FM(spawn_commandveh);
+
+	for "_i" from 0 to 8 do {
+		_spawnposition = [_position,800,0] call FM(random_pos);
+		[_spawnposition] spawn FM(spawn_aapos);
+		sleep 5;
+	};
+
+	_gebaeudepos_arr = [_gebaeudepos_arr,8,(8+_difficulty)] call FM(spawn_rooftop);
+
+	_gebaeudepos_arr = [_gebaeudepos_arr,15,(40 + (_difficulty*2))] call FM(spawn_in_building);
+
+};
+
+
 [_position,800,5,1] spawn FM(spawn_patrol_inf);	sleep 10;
 [_position,1000,2,0] spawn FM(spawn_patrol_veh);	sleep 10;
 

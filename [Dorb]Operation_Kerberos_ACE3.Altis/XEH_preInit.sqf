@@ -38,6 +38,7 @@ PREPMAIN(rescue_draw3D);
 PREPMAIN(addNVG);
 PREPMAIN(cleanup_big);
 PREPMAIN(cleanup_small);
+PREPMAIN(spawn_aapos);
 PREPMAIN(spawn_artypos);
 PREPMAIN(spawn_attack_airdrop);
 PREPMAIN(spawn_attack_inf);

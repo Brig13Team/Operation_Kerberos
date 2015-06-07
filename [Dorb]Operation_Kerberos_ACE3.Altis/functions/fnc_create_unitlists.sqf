@@ -18,6 +18,8 @@ _rand = [_this,0,0,[0]] call BIS_fnc_param;
 If (_rand < 1) then {_rand = ((floor(random 5))+ 3);};
 
 //_rand = 2;
+If (worldName == "pja305") then {_rand = 8;};
+
 dorb_side_nr = _rand;
 dorb_pow = ["C_scientist_F","C_journalist_F"];
 dorb_intel = ["Land_Suitcase_F","Land_SatellitePhone_F","Land_Laptop_device_F"];
@@ -670,6 +672,88 @@ switch (_rand) do {
 	
 		dorb_wpncache_list = ["Box_IND_Wps_F","Box_IND_WpsSpecial_F","Box_IND_WpsLaunch_F","Box_IND_Ammo_F","Box_IND_Grenades_F","Box_IND_Support_F"];
 
+	};
+	case 8: {
+	
+		dorb_side = resistance;
+		
+		dorb_radar = ["rhs_p37","rhs_prv13"];
+		dorb_device = ["Land_Device_assembled_F"];
+		dorb_commanderlist = ["rhs_msv_officer_armored","rhs_msv_officer"];
+		
+		dorb_menlist = ["LOP_AFR_Infantry",
+						"LOP_AFR_Infantry_AR",
+						"LOP_AFR_Infantry_AT",
+						"LOP_AFR_Infantry_Corpsman",
+						"LOP_AFR_Infantry_GL",
+						"LOP_AFR_Infantry_IED",
+						"LOP_AFR_Infantry_Marksman",
+						"LOP_AFR_Infantry_SL",
+						"LOP_AFR_Infantry_TL"];
+		dorb_diverlist = ["O_diver_f","O_diver_exp_f","O_diver_TL_f","O_diver_f","O_diver_exp_f","O_diver_f"];
+		dorb_crewmenlist = ["LOP_AFR_Driver"];
+	
+		dorb_grouplist_inf = [																									
+								configfile >> "CfgGroups" >> "Indep" >> "LOP_AFR" >> "Infantry" >> "LOP_AFR_AT_section",
+								configfile >> "CfgGroups" >> "Indep" >> "LOP_AFR" >> "Infantry" >> "LOP_AFR_Patrol_section",
+								configfile >> "CfgGroups" >> "Indep" >> "LOP_AFR" >> "Infantry" >> "LOP_AFR_Rifle_squad",
+								configfile >> "CfgGroups" >> "Indep" >> "LOP_AFR" >> "Infantry" >> "LOP_AFR_Support_section"
+								];
+			
+		dorb_grouplist_sf = [
+								configfile >> "CfgGroups" >> "Indep" >> "LOP_AFR" >> "Infantry" >> "LOP_AFR_AT_section",
+								configfile >> "CfgGroups" >> "Indep" >> "LOP_AFR" >> "Infantry" >> "LOP_AFR_Patrol_section",
+								configfile >> "CfgGroups" >> "Indep" >> "LOP_AFR" >> "Infantry" >> "LOP_AFR_Rifle_squad",
+								configfile >> "CfgGroups" >> "Indep" >> "LOP_AFR" >> "Infantry" >> "LOP_AFR_Support_section"
+								];
+		
+		dorb_grouplist_mech = [	
+								configfile >> "CfgGroups" >> "Indep" >> "LOP_AFR" >> "Mechanized" >> "LOP_AFR_Mech_squad_LR"
+								];
+		
+		dorb_grouplist_panz = [	
+								configfile >> "CfgGroups" >> "Indep" >> "LOP_AFR" >> "Armored" >> "LOP_AFR_T72_Platoon"
+								];
+	
+		dorb_veh_armored 	= [	"LOP_AFR_T72BA"];
+		dorb_veh_unarmored	= [	"LOP_AFR_BTR60","LOP_AFR_Offroad_M2","LOP_AFR_Landrover_M2"];
+		dorb_veh_aa			= [	"rhs_zsu234_aa"];
+		
+		dorb_veh_truck		= ["LOP_AFR_Civ_Ural","LOP_AFR_Civ_Ural_open"];
+		dorb_veh_car		= ["LOP_AFR_Landrover","LOP_AFR_Offroad"];
+		dorb_veh_arty		= ["RDS_D30_AAF","RDS_M119_AAF"];
+		dorb_veh_mortar		= ["RDS_2b14_82mm_AAF","RDS_M252_AAF"];
+		
+		dorb_staticlist 	= [
+								"RDS_AGS_AAF",
+								"RDS_DSHKM_AAF",
+								//"RDS_DSHkM_Mini_TriPod",
+								"RDS_KORD_AAF",
+								"RDS_KORD_high_AAF",
+								"RDS_AGS_AAF",
+								"RDS_M2StaticMG_AAF",
+								//"RDS_M2StaticMG_MiniTripod_AAF",
+								"RDS_Metis_AAF",
+								"RDS_MK19_TriPod_AAF",
+								"RDS_SPG9_AAF",
+								"RDS_TOW_TriPod_AAF"
+								];
+	
+		dorb_staticlist_aa	= [
+								"RDS_Igla_AA_pod_AAF",
+								"RDS_ZU23_AAF"
+								];
+	
+		dorb_patrolboatlist = ["O_Boat_Armed_01_hmg_F"];
+	
+		dorb_transport_heli_list = ["rhs_Mi8mt_vdv","rhs_Mi8mt_Cargo_vdv","rhs_Mi8MTV3_vdv","rhs_Mi8MTV3_UPK23_vdv","rhs_Mi8MTV3_FAB_vdv","rhs_Mi8AMT_vdv"];
+		dorb_attack_heli_list = ["rhs_Ka52_vvsc","rhs_Ka52_vvs","rhs_Ka52_UPK23_vvs","rhs_Ka52_UPK23_vvsc"];
+		dorb_patrol_air_list = ["rhs_Su25SM_vvs","rhs_Su25SM_vvsc"];
+		dorb_attack_air_list = ["rhs_Su25SM_KH29_vvs","rhs_Su25SM_KH29_vvsc"];
+
+	
+		dorb_wpncache_list = ["Box_IND_Wps_F","Box_IND_WpsSpecial_F","Box_IND_WpsLaunch_F","Box_IND_Ammo_F","Box_IND_Grenades_F","Box_IND_Support_F"];
+		dorb_prototyp = ["B_APC_Wheeled_01_cannon_F"];
 	};
 };
 LOG_2(_rand,dorb_side);
