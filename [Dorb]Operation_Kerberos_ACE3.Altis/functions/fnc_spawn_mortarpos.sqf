@@ -14,10 +14,10 @@ _einheit = dorb_veh_mortar SELRND;
 
 _spawnposition = [_position,200,0] call FM(random_pos);
 _spawnposition = _spawnposition findEmptyPosition [1,15,_einheit];				//// to do: isFlatEmpty
-
+CHECK(_spawnposition isEqualTo [])
 _dir = floor(random 360);
 
-_return = [_spawnposition,_dir,_einheit,EAST] call BIS_fnc_spawnVehicle;
+_return = [_spawnposition,_dir,_einheit,dorb_side] call BIS_fnc_spawnVehicle;
 
 for "_i" from 0 to 3 do {
 	_pos = [_spawnposition,3,(_dir + 90*_i)]call BIS_fnc_relPos;

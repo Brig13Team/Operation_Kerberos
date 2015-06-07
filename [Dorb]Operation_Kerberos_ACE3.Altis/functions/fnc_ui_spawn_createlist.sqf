@@ -277,7 +277,7 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
 			
 		};
 		
-		if ((_class=="ACE_medicalSupplyCrate")or(_class=="ACE_medicalSupplyCrate_advanced")or(_class=="ACE_Box_Misc")or(_class=="ACE_Box_Ammo")) then {
+		if ((_class=="ACE_medicalSupplyCrate")or(_class=="ACE_medicalSupplyCrate_advanced")or(_class=="ACE_Box_Misc")or(_class=="ACE_Box_Ammo")or(_class=="B_Truck_01_medical_F")) then {
 			
 				_spawnliste_ace  pushBack 		[_class,_pic ,"ACE",_DName, _DName, _icon];
 			

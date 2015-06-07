@@ -15,13 +15,15 @@ _this addEventHandler ["GetIn",
 {
 	PARAMS_3(_veh,_pos,_unit);
 	
-	_type = typeOf _unit;
-	//_crew = [""];
-	_pilot = ["B_Pilot_F","B_Helipilot_F"];
 	_kick = false;
+	_canNotFly = {
+		_return = true;
+		If ((typeOf _unit) in ["B_Pilot_F","B_Helipilot_F"]) then {_return = false;};
+		If (GETVAR(_unit,DORB_ISPILOT,false)) then {_return = false;};
+		_return
+	};
 	
-	//if (_veh iskindOf "LandVehicle" AND !(_type in _crew)) then {_kick = true};
-	if (_veh iskindOf "Air" AND ((!(_type in _pilot))or(GETVAR(_unit,DORB_ISPILOT,false)))) then {_kick = true;};
+	if (_veh iskindOf "Air" AND (call(_canNotFly))) then {_kick = true;};
 		
 	if (_pos == "driver" or _unit == _veh turretunit [0]) then {
 			if (_kick) then {
