@@ -20,6 +20,8 @@ _position_home = getMarkerPos "respawn_west";
 ////// Nachricht anzeigen 					 /////
 //////////////////////////////////////////////////
 
+sleep 30;
+
 [-1,{_this spawn FM(disp_info)},["STR_DORB_RTB",["STR_DORB_RTB_START_1"],"data\icon\icon_base.paa",false]] FMP;
 
 //////////////////////////////////////////////////
