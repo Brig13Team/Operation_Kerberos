@@ -24,7 +24,7 @@ PARAMS_1(_position);
 DEFAULT_PARAM(1,_suchradius,400);
 DEFAULT_PARAM(2,_anzahl_inf,0);
 DEFAULT_PARAM(3,_anzahl_spec,0);
-DEFAULT_PARAM(4,_radius,1700);
+DEFAULT_PARAM(4,_radius,1500);
 LOG_5(_position,_suchradius,_anzahl_inf,_anzahl_spec,_radius);
 
 _units=[];
