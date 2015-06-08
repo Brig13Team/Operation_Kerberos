@@ -17,7 +17,7 @@
 #include "script_component.hpp"
 PARAMS_1(_pos);
 DEFAULT_PARAM(1,_type,0);
-
+Private["_player_pos","_players","_targets","_return","_level"];
 _players = [];
 _targets = [];
 _return = [];

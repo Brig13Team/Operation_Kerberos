@@ -56,6 +56,7 @@ switch _typ do {
 	};
 	case 2 : {
 		_generiere=true;
+		private "_players";
 		_players=[];
 		while {_generiere} do {
 	

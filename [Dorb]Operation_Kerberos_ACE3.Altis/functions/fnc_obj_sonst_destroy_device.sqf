@@ -4,8 +4,6 @@
 	Description:
 	Creates Mission "Destroy Weaponcache".
 	
-	Requirements:
-		SHK_Taskmaster
 
 	Parameter(s):
 		0 :	ARRAY - Position

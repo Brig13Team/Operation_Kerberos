@@ -16,7 +16,7 @@
 */
 #include "script_component.hpp"
 
-private ["_gruppe","_units","_vehicles"];
+private ["_gruppe","_units","_vehicles","_rad","_pos","_spawnpos","_einheit","_return"];
 PARAMS_1(_position);
 DEFAULT_PARAM(1,_radius,1200);
 DEFAULT_PARAM(2,_anzahl_heli,0);
@@ -51,6 +51,7 @@ for "_i" from 0 to _anzahl_plane do {
 LOG(FORMAT_1("Spawned Vehicles: \n %1 ",_vehicles));
 
 if (dorb_debug) then {
+	private "_mrkr";
 	{
 		_mrkr = createMarker [format["infp-%1",_x],getPos (leader _x)];
 		_mrkr setMarkerShape "ICON";

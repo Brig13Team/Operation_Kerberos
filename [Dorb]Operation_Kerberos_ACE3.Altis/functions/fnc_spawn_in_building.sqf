@@ -2,20 +2,19 @@
 	Author: Dorbedo
 	
 	Description:
-	
-	Requirements:
+		
 	
 	Parameter(s):
-		0 : ARRAY	- Example
-		1 : ARRAY	- Example
-		2 : STRIN	- Example
+		0 : ARRAY	- Gebäudearray
+		1 : SCALAR	- Minumum
+		2 : SCALAR	- Maximum
 	
 	Return
-	BOOL
+		ARRAY - Gebäudearray
 */
 #include "script_component.hpp"
 
-private ["_gebaeudearr","_min","_max","_spawnpos","_anz","_d","_gruppe","_position","_einheit","_unit"];
+private ["_spawnpos","_spawnpos_del","_anz","_d","_gruppe","_position","_einheit","_unit"];
 DEFAULT_PARAM(0,_gebaeudearr,[]);
 DEFAULT_PARAM(1,_min,5);
 DEFAULT_PARAM(2,_max,10);
@@ -31,6 +30,7 @@ _spawnpos_del=[];
 
 
 If (dorb_debug_log) then {
+	private "_test1";
 	_test1=0;
 	{_test1=_test1 + (count _x)}foreach _gebaeudearr;
 	LOG(FORMAT_1("Spawn in BUILDING| Count Gebaudepos=%1",_test1));
@@ -85,6 +85,7 @@ for "_i" from 0 to (_anz) do {
 
 	
 	if (dorb_debug) then {
+		private "_mrkr";
 		_mrkr = createMarker [format ["%1-%2",name _unit,_i],getPos _unit];
 		_mrkr setMarkerShape "ICON";
 		_mrkr setMarkerColor "ColorGreen";
@@ -105,6 +106,7 @@ _gebaeudearr = _gebaeudearr - [-1];
 LOG(FORMAT_1("Spawn in BUILDING| Return Gebaeudearr=%1",_gebaeudearr));
 
 If (dorb_debug_log) then {
+	private "_test2";
 	_test2=0;
 	{_test2=_test2 + (count _x);} forEach _gebaeudearr;
 	LOG(FORMAT_1("Count Gebaudepos=%1",_test2));

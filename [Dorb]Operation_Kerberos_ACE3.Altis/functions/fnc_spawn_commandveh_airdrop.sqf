@@ -8,7 +8,7 @@
 
 LOG("Commandveh Airdrop");
 PARAMS_1(_position);
-private["_spawnposition","_einheit","_veh","_dir","_attack_pos"];
+private["_spawnposition","_einheit","_veh","_dir","_attack_pos","_return"];
 _spawnposition=[];
 _einheit = "rhs_gaz66_r142_vdv";
 _spawnposition = [_position,200,0] call FM(random_pos);

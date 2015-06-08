@@ -2,20 +2,11 @@
 	Author: Dorbedo
 	
 	Description:
-	
-	Requirements:
-	
-	Parameter(s):
-		0 : ARRAY	- Example
-		1 : ARRAY	- Example
-		2 : STRIN	- Example
-	
-	Return
-	BOOL
+		Spawns defence around position
 */
 #include "script_component.hpp"
 
-
+Private["_pos","_group","_spawnpos","_dir","_einheit","_unit"];
 //_pos = _this select 0;
 _pos = _this;
 _group = createGroup dorb_side;

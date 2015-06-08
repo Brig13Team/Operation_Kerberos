@@ -4,8 +4,6 @@
 	Description:
 	Creates Mission "Clear Area".
 	
-	Requirements:
-		SHK_Taskmaster
 
 	Parameter(s):
 		0 :	ARRAY - Position

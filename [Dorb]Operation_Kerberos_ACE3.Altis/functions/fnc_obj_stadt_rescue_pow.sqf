@@ -4,8 +4,7 @@
 	Description:
 	Creates Mission "Rescue".
 	
-	Requirements:
-		SHK_Taskmaster
+
 
 	Parameter(s):
 		0 :	ARRAY - Position

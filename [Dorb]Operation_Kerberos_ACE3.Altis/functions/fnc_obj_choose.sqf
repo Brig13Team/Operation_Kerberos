@@ -38,7 +38,7 @@ LOG(FORMAT_1("Aufgabentyp=%1",_aufgabentyp));
 
 
 [] call FM(create_unitlists);
-
+//_aufgabentyp="Scarab";
 
 /// Militär
 Private["_loc","_locarr"];

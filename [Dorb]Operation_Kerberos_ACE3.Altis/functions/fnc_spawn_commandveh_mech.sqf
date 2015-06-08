@@ -16,7 +16,7 @@
 #include "script_component.hpp"
 LOG("Commandveh Mech");
 PARAMS_1(_position);
-
+Private["_spawn_array","_spawnpos","_spawnposition","_einheit","_dir","_return","_veh","_attack_pos","_rand","_pos","_transporter","_jaeger","_jaeger_gruppe","_platzanzahl"];
 _spawnposition=[];
 _einheit = "rhs_gaz66_r142_vdv";
 

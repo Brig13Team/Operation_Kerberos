@@ -2,7 +2,7 @@
 	Author: Dorbedo
 	
 	Description:
-	
+		Spawns Commandveh Tanks
 	Requirements:
 	
 	Parameter(s):
@@ -16,6 +16,7 @@
 #include "script_component.hpp"
 LOG("Commandveh Tanks");
 PARAMS_1(_position);
+private["_spawnpos","_spawnposition","_einheit","_dir","_return","_veh","_panzer","_attack_pos","_rand","_pos","_einheit","_gruppe","_a"];
 _spawnposition=[];
 _einheit = "rhs_gaz66_r142_vv";
 _spawnposition = [_position,200,0] call FM(random_pos);

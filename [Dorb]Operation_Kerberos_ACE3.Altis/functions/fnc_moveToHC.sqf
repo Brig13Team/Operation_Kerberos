@@ -25,7 +25,7 @@ If ((owner currentHC) == 0) exitWith {ERROR("HC disconnected");};
 
 
 [] call FM(determineHC);
-
+Private["_group","_HCid","_geklappt"];
 _group = [_this,0,grpNull,[grpNull]] call BIS_fnc_Param;
 _HCid = owner currentHC;
 /// Leere Gruppe irgnorieren

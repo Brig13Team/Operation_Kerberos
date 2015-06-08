@@ -17,6 +17,7 @@
 
 LOG("Commandveh Sniper");
 PARAMS_1(_position);
+Private["_spawn_array","_einheit","_spawnpos","_spawnposition","_dir","_return","_veh","_attack_pos","_pos","_attack_pos","_rand","_transporter","_jaeger","_jaeger_gruppe"];
 _spawnposition=[];
 _einheit = "rhs_gaz66_r142_vdv";
 _spawnposition = [_position,200,0] call FM(random_pos);

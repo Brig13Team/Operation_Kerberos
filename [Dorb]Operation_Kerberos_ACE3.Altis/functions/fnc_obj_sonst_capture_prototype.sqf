@@ -4,8 +4,7 @@
 	Description:
 	Creates Mission "Capture Prototyp".
 	
-	Requirements:
-		SHK_Taskmaster
+
 
 	Parameter(s):
 		0 :	ARRAY - Position

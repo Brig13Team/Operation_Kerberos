@@ -4,8 +4,7 @@
 	Description:
 	Creates Mission "Kill".
 	
-	Requirements:
-		SHK_Taskmaster
+
 
 	Parameter(s):
 		0 :	ARRAY - Position

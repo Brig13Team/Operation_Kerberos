@@ -7,7 +7,7 @@
 #include "script_component.hpp"
 LOG("Commandveh Airinterception");
 PARAMS_1(_position);
-private["_spawnpos","_spawnposition","_return","_veh","_attack_pos","_radar","_radarpos","_rand","_dir","_wp"];
+private["_spawnpos","_spawnposition","_return","_veh","_attack_pos","_radar","_radarpos","_rand","_dir","_wp","_einheit","_plane","_commando"];
 _spawnposition=[];
 _einheit = ["rhs_p37","rhs_prv13"] SELRND;
 _spawnposition = [_position,200,0] call FM(random_pos);

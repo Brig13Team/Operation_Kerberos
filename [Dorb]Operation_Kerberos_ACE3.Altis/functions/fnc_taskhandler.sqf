@@ -43,7 +43,7 @@ DEFAULT_PARAM(6,_onFailure,{});
 DEFAULT_PARAM(7,_args,[]);
 DEFAULT_PARAM(8,_afterCheck,{});
 DEFAULT_PARAM(9,_afterCheckArgs,[]);
-private["isTask","_cancel","_taskhandling","_state"];
+private["_isTask","_cancel","_taskhandling","_state"];
 _cancel=false;
 /// Optional: Taskname/taskID
 If (IS_SCALAR(_this select 1)) then {
@@ -51,7 +51,7 @@ If (IS_SCALAR(_this select 1)) then {
 	DEFAULT_PARAM(1,_task,0);
 }else{
 	DEFAULT_PARAM(1,_task,"");
-	If (_task=="") then {_isTask=false;}else{_isTask=true};
+	If (_task=="") then {_isTask=false;}else{_isTask=true;};
 };
 ISNILS(taskcancel,false);
 

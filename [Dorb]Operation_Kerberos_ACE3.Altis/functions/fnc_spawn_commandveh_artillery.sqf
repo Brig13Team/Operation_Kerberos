@@ -16,7 +16,7 @@
 #include "script_component.hpp"
 LOG("Commandveh Artillery");
 PARAMS_1(_position);
-private["_position","_spawnposition","_einheit"];
+private["_dir","_spawnposition","_einheit","_return","_veh","_rand_pos","_attack_pos"];
 _spawnposition=[];
 _einheit = "rhs_prp3_tv";
 _spawnposition = [_position,200,0] call FM(random_pos);

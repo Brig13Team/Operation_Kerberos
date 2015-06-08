@@ -4,8 +4,7 @@
 	Description:
 	Creates Mission "SCARAB".
 	
-	Requirements:
-		SHK_Taskmaster
+
 
 	Parameter(s):
 		0 :	ARRAY - Position
@@ -145,6 +144,6 @@ _deploy=false;
 #define ONSUCESS {[-1,{_this spawn FM(disp_info)},["STR_DORB_DESTROY",["STR_DORB_FINISHED"],"data\icon\icon_destroy.paa",true]] FMP;}
 #define ONFAILURE {[-1,{_this spawn FM(disp_info)},["STR_DORB_DESTROY",["STR_DORB_FAILED"],"data\icon\icon_destroy.paa",true]] FMP;}
 #define SUCESSARG [_target]
-#define ONLOOP If (DORB_ENDZEIT < (diag_tickTime + 300)) then {{If ((alive _x)&&(GETVAR(DORB_SCARAB_WAITING,true))) then {	SETVAR(_x,DORB_SCARAB_WAITING,false);[_x,1] spawn rhs_fnc_ss21_AI_prepare;};}forEach (_this select 0);};
+#define ONLOOP {If (DORB_ENDZEIT < (diag_tickTime + 300)) then {{If ( (alive _x)	&&	( GETVAR(_x,DORB_SCARAB_WAITING,true) )) then {	SETVAR(_x,DORB_SCARAB_WAITING,false);[_x,1] spawn rhs_fnc_ss21_AI_prepare;};}forEach (_this select 0);};}
 #define ONLOOPARGS [_target]
 [INTERVALL,TASK,CONDITION,CONDITIONARGS,SUCESSCONDITION,ONSUCESS,ONFAILURE,SUCESSARG,ONLOOP,ONLOOPARGS] call FM(taskhandler);
