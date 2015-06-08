@@ -95,12 +95,13 @@ sleep 5;
 ////// Überprüfung + Ende 					 /////
 //////////////////////////////////////////////////
 #define INTERVALL 30
+#define TASK _task
 #define CONDITION {_a = {GETVAR(_x,DORB_TARGET_DEAD,false);}count (_this select 0);If (_a == (count (_this select 0))) then {true}else{false};}
 #define CONDITIONARGS [_target]
 #define SUCESSCONDITION {true}
-#define ONSUCESS {[(_this select 0),'SUCCEEDED',false] spawn BIS_fnc_taskSetState;[-1,{_this spawn FM(disp_info)},["STR_DORB_DESTROY",["STR_DORB_FINISHED"],"data\icon\icon_destroy.paa",true]] FMP;}
+#define ONSUCESS {[-1,{_this spawn FM(disp_info)},["STR_DORB_DESTROY",["STR_DORB_FINISHED"],"data\icon\icon_destroy.paa",true]] FMP;}
 #define ONFAILURE {}
-#define SUCESSARG [_task]
-#define ONLOOP {If (isnil "DORB_EARTHQUAKE_COUNTER") then {DORB_EARTHQUAKE_COUNTER=5;};DORB_EARTHQUAKE_COUNTER = DORB_EARTHQUAKE_COUNTER - 1;If (DORB_EARTHQUAKE_COUNTER<0) then {[-1, {_rand=(floor(random 4)+1);[_rand]spawn BIS_fnc_earthquake;}] FMP;DORB_EARTHQUAKE_COUNTER = 5+(floor(random 4));};}
+#define SUCESSARG []
+#define ONLOOP {If (isnil "DORB_EARTHQUAKE_COUNTER") then {DORB_EARTHQUAKE_COUNTER=8;};DORB_EARTHQUAKE_COUNTER = DORB_EARTHQUAKE_COUNTER - 1;If (DORB_EARTHQUAKE_COUNTER<0) then {[-1, {_rand=(floor(random 4)+1);[_rand]spawn BIS_fnc_earthquake;}] FMP;DORB_EARTHQUAKE_COUNTER = 8+(floor(random 6));};}
 #define ONLOOPARGS []
-[INTERVALL,CONDITION,CONDITIONARGS,SUCESSCONDITION,ONSUCESS,ONFAILURE,SUCESSARG,ONLOOP,ONLOOPARGS] call FM(taskhandler);
+[INTERVALL,TASK,CONDITION,CONDITIONARGS,SUCESSCONDITION,ONSUCESS,ONFAILURE,SUCESSARG,ONLOOP,ONLOOPARGS] call FM(taskhandler);

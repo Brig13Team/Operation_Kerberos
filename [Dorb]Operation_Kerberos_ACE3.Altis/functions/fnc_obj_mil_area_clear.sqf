@@ -51,12 +51,11 @@ _difficulty = call FM(dyn_difficulty);
 sleep 120;
 
 #define INTERVALL 30
+#define TASK _task
 #define CONDITION {_a=0;{If ((alive _x)&&((side _x)==dorb_side )) then {INC(_a);};}forEach ((_this select 0) nearEntities (_this select 1));If (_a < 8) then {true}else{false};}
 #define CONDITIONARGS [_position,_radius]
 #define SUCESSCONDITION {true}
-#define ONSUCESS {[(_this select 0),'succeeded',false] spawn BIS_fnc_taskSetState;[-1,{_this spawn FM(disp_info)},["STR_DORB_CLEAR",["STR_DORB_FINISHED"],"data\icon\icon_file.paa",true]] FMP;}
-#define ONFAILURE {}
-#define SUCESSARG [_task]
-[INTERVALL,CONDITION,CONDITIONARGS,SUCESSCONDITION,ONSUCESS,ONFAILURE,SUCESSARG] call FM(taskhandler);
+#define ONSUCESS {[-1,{_this spawn FM(disp_info)},["STR_DORB_CLEAR",["STR_DORB_FINISHED"],"data\icon\icon_file.paa",true]] FMP;}
+[INTERVALL,TASK,CONDITION,CONDITIONARGS,SUCESSCONDITION,ONSUCESS] call FM(taskhandler);
 
 LOG("Task clear beendet");
