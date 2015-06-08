@@ -18,16 +18,11 @@
 #include "script_component.hpp"
 CHECK(!isServer)
 
-private["_position","_task","_ort","_position_rescue","_a"];
-
 LOG(FORMAT_1("SCARAB \n this=%1",_this));
-
-_ort=_this select 0;
-_position=_this select 1;
-_task=_this select 2;
+PARAMS_3(_ort,_position,_task);
+Private["_target","_einheit","_spawnposition","_unit","_mapSize","_dir","_crew"];
 _target=[];
 _spawnposition=[];
-_changeposition=[];
 
 
 //////////////////////////////////////////////////
@@ -97,6 +92,7 @@ LOG(FORMAT_2("Scarab created - %1 \n Targetarray = %2",count _target,_target));
 {(getpos _x) spawn FM(spawn_defence);} forEach _target;
 
 if (dorb_debug) then {
+	Private["_a","_mrkr"];
 	_a=1;
 	{
 		INC(_a);
@@ -120,13 +116,14 @@ sleep 2;
 ////// Aufgabe erstellen 					 /////
 //////////////////////////////////////////////////
 sleep 30;
+private "_temp";
 _temp=[];
 {
 	if (alive _x) then {_temp pushBack _x;};
 }forEach _target;
 _target=_temp;
 {_x addEventHandler ["Killed", {[(getPos (_this select 0))] call dorb_fnc_obj_sonst_Scarab_explode;}]}forEach _target;
-
+private ["_ZeitInMinuten","_deploy"];
 _ZeitInMinuten = 62;
 DORB_ENDZEIT = diag_tickTime + (60*_ZeitInMinuten);
 publicVariable "DORB_ENDZEIT";
@@ -148,4 +145,6 @@ _deploy=false;
 #define ONSUCESS {[-1,{_this spawn FM(disp_info)},["STR_DORB_DESTROY",["STR_DORB_FINISHED"],"data\icon\icon_destroy.paa",true]] FMP;}
 #define ONFAILURE {[-1,{_this spawn FM(disp_info)},["STR_DORB_DESTROY",["STR_DORB_FAILED"],"data\icon\icon_destroy.paa",true]] FMP;}
 #define SUCESSARG [_target]
-[INTERVALL,TASK,CONDITION,CONDITIONARGS,SUCESSCONDITION,ONSUCESS,ONFAILURE,SUCESSARG] call FM(taskhandler);
+#define ONLOOP If (DORB_ENDZEIT < (diag_tickTime + 300)) then {{If ((alive _x)&&(GETVAR(DORB_SCARAB_WAITING,true))) then {	SETVAR(_x,DORB_SCARAB_WAITING,false);[_x,1] spawn rhs_fnc_ss21_AI_prepare;};}forEach (_this select 0);};
+#define ONLOOPARGS [_target]
+[INTERVALL,TASK,CONDITION,CONDITIONARGS,SUCESSCONDITION,ONSUCESS,ONFAILURE,SUCESSARG,ONLOOP,ONLOOPARGS] call FM(taskhandler);

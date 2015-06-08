@@ -7,7 +7,7 @@
 */
 #include "script_component.hpp"
 
-
+private["_check_radius","_spawnpos","_padempty","_box","_boxtyp","_items","_anzahl","_name"];
 /// Clear Pad
 
 

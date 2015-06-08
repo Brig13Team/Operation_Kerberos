@@ -6,11 +6,12 @@
 	
 	Parameter(s):
 		0 : STRING	- TASKNAME
+		0 : STRING	- TASK TYP (Optional)
 	
 */
 #include "script_component.hpp"
 
-private ["_aufgabe","_rand"];
+private ["_aufgabe","_rand","_aufgabentyp","_gewichtung"];
 
 _aufgabe = [_this,0,format["NOTNUMMER%1",random 1000000],[""]] call BIS_fnc_param;
 _aufgabentyp = [_this,1,"leer",[""]] call BIS_fnc_param;
@@ -40,7 +41,7 @@ LOG(FORMAT_1("Aufgabentyp=%1",_aufgabentyp));
 
 
 /// Militär
-
+Private["_loc","_locarr"];
 If (_aufgabentyp isEqualTo "area_clear") exitWith {
 		_locarr=(GETMVAR(DORB_MILITAER,[]));
 		_loc = _locarr SELRND;

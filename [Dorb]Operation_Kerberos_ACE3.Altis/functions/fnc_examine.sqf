@@ -29,7 +29,7 @@
 ISNILS(DORB_EXAMINE,0);
 ISNILS(DORB_EXAMINE_TARGETARRAY,[]);
 ISNILS(DORB_EXAMINE_MARK,[]);
-
+private["_option","_paramter"];
 _option = [_this, 0, "",[""]] call BIS_fnc_Param;
 _paramter = [_this, 1, [],[[]]] call BIS_fnc_Param;
 
@@ -44,6 +44,7 @@ switch (_option) do {
 						
 					};
 	case "check": 	{
+						Private["_position_rescue","_list"];
 						_position_rescue = getMarkerPos "rescue_marker";
 						_list = _position_rescue nearEntities ["Man", 10];
 						{					
@@ -58,7 +59,7 @@ switch (_option) do {
 						}forEach _list;
 					};
 	case "reveal" : {
-						
+						Private["_modus","_genauigkeit","_pos","_marker"];
 						_modus = [_paramter,0,"All",[""]] call BIS_fnc_Param;
 						_genauigkeit = [_paramter,1,50,[0]] call BIS_fnc_Param;
 						

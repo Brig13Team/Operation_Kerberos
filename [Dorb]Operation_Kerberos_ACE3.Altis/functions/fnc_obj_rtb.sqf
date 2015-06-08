@@ -13,7 +13,7 @@
 #include "script_component.hpp"
 CHECK(!isServer)
 PARAMS_1(_position);
-private["_ort","_position_rescue","_pow"];
+private["_position_home"];
 _position_home = getMarkerPos "respawn_west";
 
 //////////////////////////////////////////////////

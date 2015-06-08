@@ -1,5 +1,5 @@
 
-
+private["_pos","_yield","_radius"];
 _pos = _this select 0;
 
 _yield = getNumber(configFile >> "cfgAmmo" >> "RHS_9M79B" >> "yield");

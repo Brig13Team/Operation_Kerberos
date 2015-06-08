@@ -2,16 +2,17 @@
 	Author: Dorbedo
 
 	Description:
-	Displays the Groups and their Frequencies
+		Increases or decreases the number of items
+		called by listbutton (+/-)
 	
-	Requirements:
-		called as stacked EH
+	Parameter
+		0:BOOL	- Modus
 	
 */
 #include "script_component.hpp"
 
 PARAMS_1(_mode);
-
+private["_ctrlList","_row","_config","_istMagazin","_id"];
 disableSerialization;
 
 _ctrlList = findDisplay 600200 displayCtrl 600201;
@@ -29,7 +30,7 @@ If (_mode && (["check",_config]call FM(ui_crate_mass))) exitwith {};
 
 _id=0;
 If (_istMagazin) then {_id = 2;};
-
+Private["_anzahl","_items"];
 If (_config in (DORB_CRATE_CURRENT select _id)) then {
 	//Anzahl modifizieren
 	

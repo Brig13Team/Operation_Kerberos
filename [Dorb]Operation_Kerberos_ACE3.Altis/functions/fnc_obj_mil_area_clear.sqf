@@ -13,13 +13,13 @@
 		2 : STRING - Aufgabenname für Taskmaster
 		
 	Returns:
-	BOOL
+		None
 */
 
 #include "script_component.hpp"
 CHECK(!isServer)
 
-private["_position_rescue","_pow","_aufgabenname","_beschreibung"];
+private["_radius","_list","_difficulty"];
 LOG("Task_Create Clear Military");
 PARAMS_3(_ort,_position,_task);
 

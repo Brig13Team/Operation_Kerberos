@@ -18,14 +18,12 @@
 #include "script_component.hpp"
 CHECK(!isServer)
 
-private["_position_rescue","_a"];
-
 LOG(FORMAT_1("Destroy Device \n this=%1",_this));
 PARAMS_3(_ort,_position,_task);
 
+private["_rand","_target","_spawnposition","_target","_einheit","_unit"];
 _target=[];
 _spawnposition=[];
-_changeposition=[];
 
 //////////////////////////////////////////////////
 ////// Ziel erstellen						 /////
@@ -70,6 +68,7 @@ for "_i" from 1 to _rand do{
 
 
 if (dorb_debug) then {
+	private["_a","_mrkr"];
 	_a=1;
 	{
 		INC(_a);

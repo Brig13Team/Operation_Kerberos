@@ -22,12 +22,11 @@ LOG(FORMAT_1("Get Prototyp \n this=%1",_this));
 
 PARAMS_3(_ort,_position,_task);
 
-private["_position_rescue","_a","_spawnposition","_changeposition"];
+private["_position_rescue","_target","_spawnposition","_unit","_einheit","_rand"];
 
 _position_rescue = getMarkerPos "rescue_marker";
 _target=[];
 _spawnposition=[];
-_changeposition=[];
 
 ///////////////////////////////////////////////
 ////// Ziel erstellen					 /////
@@ -59,6 +58,7 @@ for "_i" from 1 to _rand do{
 
 
 if (dorb_debug) then {
+	private "_a";
 	_a=1;
 	{
 		INC(_a);

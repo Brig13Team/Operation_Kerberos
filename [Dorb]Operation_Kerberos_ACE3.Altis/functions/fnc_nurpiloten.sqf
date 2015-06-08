@@ -5,16 +5,15 @@
 		Only Pilots can fly
 	
 	Parameter(s):
-		0 : OBJ	- unit
-		1 : ARRAY- Position in Vehicle
-		2 : Obj	- player
+		0 : OBJ	- Airunit, wich is monitored
+		
 */
 #include "script_component.hpp"
 
 _this addEventHandler ["GetIn",
 {
 	PARAMS_3(_veh,_pos,_unit);
-	
+	Private["_kick","_canNotFly"];
 	_kick = false;
 	_canNotFly = {
 		_return = true;

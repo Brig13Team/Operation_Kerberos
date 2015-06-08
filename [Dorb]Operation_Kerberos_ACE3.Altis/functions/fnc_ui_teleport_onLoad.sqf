@@ -8,7 +8,7 @@
 #include "script_component.hpp"
 
 CHECK(!hasInterface)
-
+Private["_teleporter","_ctrl"];
 disableSerialization;
 _teleporter = [
 	/// ["",""],      /// Beispiel zum Ausschalten von einem Teleport

@@ -7,7 +7,7 @@
 	
 */
 #include "script_component.hpp"
-
+private["_ctrl"];
 disableSerialization;
 
 for "_i" from 1 to 20 do {

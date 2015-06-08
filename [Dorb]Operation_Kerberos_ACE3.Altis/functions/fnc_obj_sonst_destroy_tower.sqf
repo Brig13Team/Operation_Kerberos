@@ -13,19 +13,16 @@
 		2 : STRING - Aufgabenname für Taskmaster
 		
 	Returns:
-	BOOL
+		None
 */
 #include "script_component.hpp"
 CHECK(!isServer)
 
-private["_position","_task","_ort","_position_rescue","_a"];
-
 LOG(FORMAT_1("Destroy Tower \n this=%1",_this));
 PARAMS_3(_ort,_position,_task);
+Private ["_target","_spawnposition","_einheit","_unit"];
 _target=[];
 _spawnposition=[];
-_changeposition=[];
-
 
 //////////////////////////////////////////////////
 ////// Ziel erstellen						 /////
@@ -62,6 +59,7 @@ LOG(FORMAT_2("Tower created - %1 \n Targetarray = %2",count _target,_target));
 {(getpos _x) spawn FM(spawn_defence)} forEach _target;
 
 if (dorb_debug) then {
+	private["_a","_mrkr"];
 	_a=1;
 	{
 		INC(_a);

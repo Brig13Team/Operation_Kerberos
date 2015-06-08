@@ -2,11 +2,10 @@
 	Author: Dorbedo
 
 	Description:
-	spawns vehicles.
+		spawns vehicles.
 
 	Parameter(s):
-		
-		TO DO
+		0:STRING - Spawnmodus
 
 */
 #include "script_component.hpp"
@@ -14,6 +13,7 @@
 #define dlg_veh_spawn_idd 600100
 #define dlg_veh_spawn_list_idc 600102
 DEFAULT_PARAM(0,_mode,"");
+Private["_check_radius","_selection","_vehiclewahl","_vehicle","_spawn","_spawnpoint","_spawndir","_spawnpos","_padempty"];
 _check_radius = 10;
 disableSerialization;
 _selection = lnbCurSelRow dlg_veh_spawn_list_idc;

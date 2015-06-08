@@ -2,16 +2,7 @@
 	Author: Dorbedo
 	
 	Description:
-	
-	Requirements:
-	
-	Parameter(s):
-		0 : ARRAY	- Example
-		1 : ARRAY	- Example
-		2 : STRIN	- Example
-	
-	Return
-	BOOL
+		adds Action to spawn
 */
 #include "script_component.hpp"
 

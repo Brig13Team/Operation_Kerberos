@@ -4,11 +4,14 @@
 	Description:
 		Lists the filtered Items
 	
+	Parameter:
+		0 : SCALAR	- ButtonID
+	
 */
 #include "script_component.hpp"
 
 PARAMS_1(_buttonid);
-
+private["_sel","_items","_mag","_daten","_cleanupCurrent","_getAnzahl","_getConfig","_ctrlList"];
 CHECK(_buttonid<1 || _buttonid>20)
 
 _sel = [];
@@ -51,6 +54,7 @@ CHECK(_daten isEqualTo [])
 
 _getAnzahl = {
 	PARAMS_1(_ziel);
+	private["_return"];
 	_return=0;
 	if (_ziel in (DORB_CRATE_CURRENT select 0)) then {
 		private["_id"];
@@ -66,7 +70,8 @@ _getAnzahl = {
 };
 
 _getConfig = {
-	_cfg = _this select 0;
+	PARAMS_1(_cfg);
+	private["_return"];
 	_return = [];
 	_return=[_cfg,[]]call BIS_fnc_configPath;
 	_return select 1

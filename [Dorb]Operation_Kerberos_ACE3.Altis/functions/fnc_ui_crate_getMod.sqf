@@ -3,10 +3,14 @@
 
 	Description:
 		returns the Mod
+		
+	Parameter:
+		0:CONFIG	- Item
 
 */
 #include "script_component.hpp"
 PARAMS_1(_config);
+private["_mod","_namearray"];
 _mod="";
 _namearray=[configname _config,"_"] call BIS_fnc_splitString;
 If ("ACE" in _namearray) then {_mod="ACE";};

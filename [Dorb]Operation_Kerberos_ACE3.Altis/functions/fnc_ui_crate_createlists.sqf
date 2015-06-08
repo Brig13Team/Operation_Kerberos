@@ -6,7 +6,7 @@
 	
 */
 #include "script_component.hpp"
-
+private ["_daten","_types","_isAceMedical","_configArray","_cfgPatches","_progressStep","_step1"];
 _daten = GETMVAR(DORB_CRATE_ITEMS,[]);
 
 If (!(_daten isEqualTo [])) exitwith {false};
@@ -38,8 +38,6 @@ If (!(_daten isEqualTo [])) exitwith {false};
 
 //// _daten = [		[	[Items]	,	[Munition, nur bei Waffen]	]	,	ID_MG	,	...		,	[	[Funken],	[]	]	,	...		];
 
-private["_daten"];
-
 _types = [];
 _types set [ID_RIFLES,["AssaultRifle","Rifle","SubmachineGun"]];
 _types set [ID_MG,["MachineGun"]];
@@ -62,6 +60,7 @@ _types set [ID_SONSTIGES,[]];
 
 _isAceMedical = 
 	{
+		Private["_namearr"];
 		_namearr = [gettext(_class >> "picture"),"\"] call BIS_fnc_splitString;
 		If ("medical" in _namearr) then {true} else {false};
 	};
@@ -71,7 +70,7 @@ for "_i" from 0 to 17 do {
 	_daten pushback [[],[]];
 };
 
-DATEN=_daten;
+
 ["DORB_CRATE"] call bis_fnc_startloadingscreen;
 
 _configArray = (
@@ -89,12 +88,13 @@ _progressStep = 1 / (count _configArray + count _cfgPatches);
 _step1 = (count _configArray);
 
 {
+	private["_class","_className","_scope","_isBase"];
 	_class = _x;
 	_className = configname _x;
 	_scope = if (isnumber (_class >> "scopeArsenal")) then {getnumber (_class >> "scopeArsenal")} else {getnumber (_class >> "scope")};
 	_isBase = if (isarray (_x >> "muzzles")) then {(_className call bis_fnc_baseWeapon == _className)} else {true}; //-- Check if base weapon (true for all entity types)
 	if (_scope == 2 && {gettext (_class >> "model") != ""} && _isBase && {gettext (_class >> "displayName") != ""}) then {
-		private ["_weaponType","_weaponTypeCategory"];
+		private ["_weaponType","_weaponTypeCategory","_weaponTypeID","_weaponTypeSpecific","_items","_magazines"];
 		
 		_weaponType = (_className call bis_fnc_itemType);
 		_weaponTypeCategory = _weaponType select 0;
@@ -136,6 +136,7 @@ _step1 = (count _configArray);
 
 
 {
+	private["_weapon","_items","_magazines"];
 	_weapon = (_types select _x)select 0;
 	_items = (_daten select _x) select 0;
 	_magazines = [];
@@ -155,9 +156,10 @@ _step1 = (count _configArray);
 		} foreach getarray (_x >> "magazines");
 	} foreach ("isclass _x" configclasses (configfile >> "cfgweapons" >> _weapon));
 } foreach [ID_GRANATEN,ID_SPRENGSTOFF];
-
+private "_patches";
 _patches=[];
 {
+	private["_configname","_namearr"];
 	_configname = configname _x;
 	_namearr = [_configname,"_"] call BIS_fnc_splitString;
 	If (!((_namearr select 0) in ["A3","A3Data","a3"])) then {_patches pushback _x;};

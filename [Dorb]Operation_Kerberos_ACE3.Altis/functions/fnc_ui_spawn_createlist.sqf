@@ -10,8 +10,8 @@ private["_spawnliste_ace","_spawnliste_ammo","_spawnliste_bwmat","_spawnliste_dr
 		"_spawnliste_marine","_spawnliste_material","_spawnliste_panzer","_spawnliste_statisch","_spawnliste_submarine","_spawnliste_support",
 		"_spawnliste_fahrzeug_rhs","_spawnliste_heli_rhs","_spawnliste_jet_rhs","_spawnliste_panzer_rhs","_spawnliste_statisch_rhs",
 		"_class","_genMac","_vClass","_DName","_roles","_weapons","_magazines","_type","_faction","_side","_pic","_icon","_Desc","_autor",
-		"_isBase","_isRHS","_DNameRHS","_namearr","_DNameBIS","_DNameBW"
-		
+		"_isBase","_isRHS","_DNameRHS","_namearr","_DNameBIS","_DNameBW",
+		"_cfgvehicles"
 		];
 
 _namearr = [];

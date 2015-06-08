@@ -2,11 +2,14 @@
 	Author: Dorbedo
 
 	Description:
-	gets vehiclelist, creates dialog
+		gets vehiclelist, creates dialog
+		called Via dialog
 
 	Parameter(s):
-		
-		TO DO
+		0:OBJECT	- Caller
+		3:ARRAy		- Paramter
+			0:STRING	- Spawnname
+			1:OBJECT	- Object where the Data is stored
 
 */
 #include "script_component.hpp"
@@ -16,10 +19,10 @@
 #define dlg_veh_spawn_list_idc 600102
 
 PARAMS_1(_caller);
-
+Private["_paramarray"];
 _paramarray = _this select 3;
 EXPLODE_2_PVT(_paramarray,_spawnname,_host);
-
+Private["_check_radius","_spawnmarker","_vehiclelist","_spawnpos","_sel","_vehicle","_ctrlList","_pic"];
 _check_radius = 10;//radius for vehicle spawn pad check and delete
 
 _spawnmarker = GETVAR(_host,DORB_SPAWNPOINT,"");

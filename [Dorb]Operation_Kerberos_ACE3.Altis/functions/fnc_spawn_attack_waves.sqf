@@ -2,24 +2,24 @@
 	Author: Dorbedo
 	
 	Description:
+		spawns attackwaves
 	
 	Requirements:
-	
+		DORB_WAVES_REMAINING
 	Parameter(s):
-		0 : ARRAY	- Example
-		1 : ARRAY	- Example
-		2 : STRIN	- Example
+		0 : ARRAY	- Targetposition
+		1 : STRING OR SCALAR	- TaskID/Taskname
 	
 	Return
-	BOOL
+		None
 */
 #include "script_component.hpp"
 	
 If (!(aufgabenstatus)) exitWith {LOG("Wellengenerierung abgebrochen");};
 If (DORB_WAVES_REMAINING < 1) exitWith {LOG("Keine Wellen übrig");};
-PARAMS_1(_position);
+PARAMS_2(_position,_task);
 private["_rand","_difficulty","_missionsstatus","_gegner_lebend","_z"];
-[-1,{_this spawn FM(disp_message)},[localize "STR_DORB_DEF",localize "STR_DORB_DEF_ATT_INB"]] FMP;
+[-1,{_this spawn FM(disp_message)},["STR_DORB_DEF","STR_DORB_DEF_ATT_INB"]] FMP;
 
 
 sleep 60;
@@ -94,32 +94,28 @@ switch (_rand) do {
 sleep 400;
 LOG("Erfüllungsprüfung beginnt");
 
-_missionsstatus=true;
-while {_missionsstatus} do {
-	_z=0;
-	sleep 30;
-	_gegner_lebend = [];
-	_gegner_lebend = (_position) nearEntities 1200;
-	{
-		If ((alive _x)&&((side _x)!=west)&&(_x isKindOf "Man")) then {
-			_z=_z+1;
-		};
-	}forEach _gegner_lebend;
-	LOG(FORMAT_1("Anzahl Gegner=%1",_z));
-	
-	if (_z<15) exitWith {_missionsstatus=false;};
-	
-};
-[-1,{_this spawn FM(disp_message)},[localize "STR_DORB_DEF",localize "STR_DORB_DEF_WAVE_DEFENDED"]] FMP;
+#define INTERVALL 15
+#define TASK ""
+#define CONDITION {_a=0;_a = {If (((side _x)==dorb_side)&&(alive _x))}count ((_this select 0) nearEntities 1200);If (_a<15) then {true}else{false};}
+#define CONDITIONARGS [_position]
+[INTERVALL,TASK,CONDITION,CONDITIONARGS] call FM(taskhandler);
 
-LOG("Welle abgeschlossen");
+CHECK(taskcancel)
+private "_state";
+_state = [_task] call BIS_fnc_taskState;
+CHECK(_state in ["CANCELED","SUCCEEDED","FAILED"])
+
+
+
+[-1,{_this spawn FM(disp_message)},["STR_DORB_DEF","STR_DORB_DEF_WAVE_DEFENDED"]] FMP;
+
 DORB_WAVES_REMAINING = DORB_WAVES_REMAINING - 1;
 
 If (DORB_WAVES_REMAINING > 1) then {
 	sleep 60;
-	[-1,{_this spawn FM(disp_message)},[localize "STR_DORB_DEF",localize "STR_DORB_DEF_WAVE_NEW"]] FMP;
+	[-1,{_this spawn FM(disp_message)},["STR_DORB_DEF","STR_DORB_DEF_WAVE_NEW"]] FMP;
 	sleep 60;
-	[_position] spawn FM(spawn_attack_waves);
+	[_position,_task] spawn FM(spawn_attack_waves);
 }else {
 	DORB_WAVES_REMAINING = 0;
 ;}

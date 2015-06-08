@@ -11,6 +11,7 @@ PARAMS_2(_mode,_param);
 
 switch (_mode) do {
 	case "check" : {
+		private["_config","_mass_new","_mass_current","_mass_max"];
 		_config = _param;
 		_mass_new = ["getmass",_config] call FM(ui_crate_mass);
 		_mass_current = ["currentmass"] call FM(ui_crate_mass);
@@ -19,6 +20,7 @@ switch (_mode) do {
 		_return
 	};
 	case "currentmass" : {
+		private["_mass_current","_mass"];
 		_mass_current = 0;
 		for "_i" from 0 to ((count (DORB_CRATE_CURRENT select 0))-1) do {
 			_mass = ["getmass",((DORB_CRATE_CURRENT select 0)select _i)] call FM(ui_crate_mass);
@@ -33,6 +35,7 @@ switch (_mode) do {
 		_mass_current
 	};
 	case "getmass" : {
+		private["_mass"];
 		_mass = getnumber (_param>>"mass");
 		If (_mass == 0) then {
 			_mass = getnumber (_param>>"ItemInfo">>"mass");
@@ -43,6 +46,7 @@ switch (_mode) do {
 		_mass
 	};
 	case "displaymass" : {
+		private["_ctrl","_mass_current","_mass_max","_status"];
 		_ctrl = findDisplay 600200 displayCtrl 600204;
 		_mass_current = ["currentmass"] call FM(ui_crate_mass);
 		_mass_max = (DORB_CRATE_BOXES select 2) select DORB_CRATE_CURRENT_BOXID;		
@@ -50,6 +54,7 @@ switch (_mode) do {
 		_ctrl progressSetPosition _status;
 	};
 	case "changebox" : {
+		private["_mass_current","_mass_max","_values"];
 		_mass_current = ["currentmass"] call FM(ui_crate_mass);
 		_mass_max = (DORB_CRATE_BOXES select 2) select DORB_CRATE_CURRENT_BOXID;
 		_values=[];

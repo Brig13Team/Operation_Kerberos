@@ -1,6 +1,6 @@
 
 
-
+private["_abschussrampe","_dir","_zielpos"];
 
 _abschussrampe = _this select 0;
 
