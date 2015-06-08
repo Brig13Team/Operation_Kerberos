@@ -34,8 +34,8 @@ _changeposition=[];
 ////// Ziel erstellen						 /////
 //////////////////////////////////////////////////
 
-//_rand = ((floor(random 2)) + 1);
-_rand=4;
+_rand = ((floor(random 2)) + 2);
+
 for "_i" from 1 to _rand do{
 	_einheit = "rhs_9k79";
 	_spawnposition = [_position,200,0] call FM(random_pos);
@@ -94,16 +94,6 @@ LOG(FORMAT_2("Scarab created - %1 \n Targetarray = %2",count _target,_target));
 ////// Ziel bearbeiten						 /////
 //////////////////////////////////////////////////
 
-
-
-
-/*
-{
-	_x setdamage 0;
-	SETVAR(_x,DORB_TARGET_DEAD,false);
-	_x addEventHandler ["HandleDamage", {_this call dorb_fnc_handledamage_C4;}];	
-} forEach _target;
-*/
 {(getpos _x) spawn FM(spawn_defence);} forEach _target;
 
 if (dorb_debug) then {
@@ -135,12 +125,10 @@ _temp=[];
 	if (alive _x) then {_temp pushBack _x;};
 }forEach _target;
 _target=_temp;
+{_x addEventHandler ["Killed", {[(getPos (_this select 0))] call dorb_fnc_obj_sonst_Scarab_explode;}]}forEach _target;
 
-
-//_startzeit = serverTime;
-_startzeit = time;
 _ZeitInMinuten = 62;
-DORB_ENDZEIT = _startzeit + (60*_ZeitInMinuten);
+DORB_ENDZEIT = diag_tickTime + (60*_ZeitInMinuten);
 publicVariable "DORB_ENDZEIT";
 _deploy=false;
 [-1,{[_this select 0,[format [localize (_this select 1),_this select 2]],_this select 3,_this select 4] spawn FM(disp_info);},["STR_DORB_DESTROY","STR_DORB_DEST_SCARAB_TASK",_ZeitInMinuten,"data\icon\icon_destroy.paa",true]] FMP;
@@ -152,45 +140,12 @@ _deploy=false;
 //////////////////////////////////////////////////
 
 
-aufgabenstatus=true;
-_geschafft=true;
-
-
-LOG(FORMAT_1("Werfer=%1",_target));
-while {aufgabenstatus} do {
-	_a=0;
-	sleep 15;
-	{
-		If (!(alive gunner _x)) then 
-		{
-			INC(_a);
-		};
-		If (!(alive _x)) exitWith {[getPos _x] spawn FM(obj_sonst_Scarab_explode);sleep 30;_geschafft=false;aufgabenstatus=false;};
-	}forEach _target;
-	
-	LOG(FORMAT_2("Scarab disabled - %1 \n Targetarray = %2",_a,_target));
-	
-	If (_a == (count _target)) then {aufgabenstatus=false};
-	
-	LOG(FORMAT_1("Restzeit=%1",DORB_ENDZEIT-time));
-	
-	if (((DORB_ENDZEIT-time)<300)&&(!_deploy)) then {
-		{
-			if (alive _x) then {[_x,1] spawn rhs_fnc_ss21_AI_prepare;};
-		}forEach _target;
-	
-	};
-	If (time > DORB_ENDZEIT) then {
-		{
-			if (alive _x) then {[_x] spawn FM(obj_sonst_Scarab_launch);_geschafft=false;sleep 30;aufgabenstatus=false;};
-		}forEach _target;
-	};
-	
-};
-If (_geschafft) then {
-	[_task,'SUCCEEDED',false] spawn BIS_fnc_taskSetState;
-	[-1,{_this spawn FM(disp_info)},["STR_DORB_DESTROY",["STR_DORB_FINISHED"],"data\icon\icon_destroy.paa",true]] FMP;
-}else{
-	[_task,'FAILED',false] spawn BIS_fnc_taskSetState;
-	[-1,{_this spawn FM(disp_info)},["STR_DORB_DESTROY",["STR_DORB_FAILED"],"data\icon\icon_destroy.paa",true]] FMP;
-};
+#define INTERVALL 20
+#define TASK _task
+#define CONDITION {_a=0;_b=0;_a = {(!(alive gunner _x))} count (_this select 0);_b = {(!(alive _x))} count (_this select 0);If (diag_tickTime>DORB_ENDZEIT)exitWith {{if (alive _x) then {[_x] spawn FM(obj_sonst_Scarab_launch);sleep 3;};}forEach (_this select 0);sleep 30;true};If ((_a == (count (_this select 0)))||(_b>0)) then {true}else{false};}
+#define CONDITIONARGS [_target]
+#define SUCESSCONDITION {_a=0;_a = {(alive _x)}count (_this select 0);If ((_a == (count (_this select 0)))&&(diag_tickTime<DORB_ENDZEIT)) then {true}else{false};}
+#define ONSUCESS {[-1,{_this spawn FM(disp_info)},["STR_DORB_DESTROY",["STR_DORB_FINISHED"],"data\icon\icon_destroy.paa",true]] FMP;}
+#define ONFAILURE {[-1,{_this spawn FM(disp_info)},["STR_DORB_DESTROY",["STR_DORB_FAILED"],"data\icon\icon_destroy.paa",true]] FMP;}
+#define SUCESSARG [_target]
+[INTERVALL,TASK,CONDITION,CONDITIONARGS,SUCESSCONDITION,ONSUCESS,ONFAILURE,SUCESSARG] call FM(taskhandler);
