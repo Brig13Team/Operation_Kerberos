@@ -100,7 +100,7 @@ for "_i" from 1 to _rand do{
 #define TASK _task
 #define CONDITION {_a=0;_a ={(!(alive _x))||((_x distance (_this select 1))<15)}count (_this select 0);If (_a == (count (_this select 0))) then {true}else{false};}
 #define CONDITIONARGS [_pow,_position_rescue]
-#define SUCESSCONDITION {_anzahlgerettete={alive _x}count (_this select 1);If (_anzahlgerettete >0) then {true}else{false};}
+#define SUCESSCONDITION {_a=0;_a={alive _x}count (_this select 0);If (_a >0) then {true}else{false};}
 #define ONSUCESS {[-1,{_this spawn FM(disp_info)},["STR_DORB_RESCUE",["STR_DORB_FINISHED"],"data\icon\icon_rescue.paa",true]] FMP;['destroy'] spawn FM(examine);{moveOut _x;sleep 0.2; deleteVehicle _x}forEach (_this select 0);}
 #define ONFAILURE {[-1,{_this spawn FM(disp_info)},["STR_DORB_RESCUE",["STR_DORB_FAILED"],"data\icon\icon_rescue.paa",true]] FMP;['destroy'] spawn FM(examine);{moveOut _x;sleep 0.2; deleteVehicle _x}forEach (_this select 0);}
 #define SUCESSARG [_pow]
