@@ -13,7 +13,7 @@
 	Something (eventually)
 */
 #include "script_component.hpp"
-private ["_gebaeudearr","_min","_max","_spawnpos_arr","_anz","_d","_gruppe","_position","_einheit","_unit"];
+private ["_wpnrad","_spawnpos_arr","_spawnpos_arr_del","_spawnposition","_anz"];
 PARAMS_3(_gebaeudepos_arr,_min,_max);
 _wpnrad = 1.5;
 _spawnpos_arr = [];
@@ -21,6 +21,7 @@ _spawnpos_arr_del = [];
 LOG_3(_min,_max,_gebaeudepos_arr);
 
 if ((count _gebaeudepos_arr)>0) then {
+	private["_temppos","_buildPosASL","_isObstructedZ","_hasSurfaceBelowXa","_hasSurfaceBelowXb","_hasSurfaceBelowYa","_hasSurfaceBelowYb","_Rooftopsel"];
 	for "_i" from 0 to (count _gebaeudepos_arr) do {
 		_temppos = [];
 	
@@ -55,7 +56,7 @@ If (!(_anz<_min)) then {
 	_anz = (floor(random (_anz - _min)) + _min);
 };
 
-
+Private["_d","_gruppe","_unit"];
 for "_i" from 0 to (_anz) do {
 	_d = floor(random count _spawnpos_arr);
 	
@@ -70,10 +71,11 @@ for "_i" from 0 to (_anz) do {
 	
 
 	_unit = createVehicle [_einheit,_spawnposition, [], 0, "NONE"];
-	[_unit,_gruppe] call BIS_fnc_spawnCrew;
+	[_unit,_gruppe] call FM(spawn_crew);
 	[_gruppe] call FM(moveToHC);
 	
 	if (dorb_debug) then {
+		private "_mrkr";
 		_mrkr = createMarker [format ["%1-%2s",name _unit,_i],getPos _unit];
 		_mrkr setMarkerShape "ICON";
 		_mrkr setMarkerColor "ColorOrange";

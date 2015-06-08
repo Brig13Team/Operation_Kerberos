@@ -6,7 +6,7 @@
 	
 */
 #include "script_component.hpp"
-private["_pos","_position","_spawnposition","_einheit","_dir","_unit","_fertig","_geb_pos","_gebauedepos","_i","_return"];
+private["_pos","_i","_spawnposition","_einheit","_dir","_unit","_fertig","_geb_pos","_gebauedepos","_i","_return"];
 
 LOG("Spawn Mil-Tower");
 _i=0;
