@@ -14,12 +14,11 @@
 		None
 */
 #include "script_component.hpp"
-	
-If (!(aufgabenstatus)) exitWith {LOG("Wellengenerierung abgebrochen");};
+
 If (DORB_WAVES_REMAINING < 1) exitWith {LOG("Keine Wellen übrig");};
 PARAMS_2(_position,_task);
 private["_rand","_difficulty","_missionsstatus","_gegner_lebend","_z"];
-[-1,{_this spawn FM(disp_message)},["STR_DORB_DEF","STR_DORB_DEF_ATT_INB"]] FMP;
+[-1,{_this spawn FM(disp_message);},["STR_DORB_DEF","STR_DORB_DEF_ATT_INB"]] FMP;
 
 
 sleep 60;
@@ -91,29 +90,30 @@ switch (_rand) do {
 ////// Wellenprüfung						 /////
 //////////////////////////////////////////////////
 
-sleep 400;
+sleep 200;
 LOG("Erfüllungsprüfung beginnt");
 
 #define INTERVALL 15
 #define TASK ""
-#define CONDITION {_a=0;_a = {If (((side _x)==dorb_side)&&(alive _x))}count ((_this select 0) nearEntities 1200);If (_a<15) then {true}else{false};}
+#define CONDITION {_a=0;_a = {(((side _x)==dorb_side)&&(alive _x))}count ((_this select 0) nearEntities 1200);If (_a<15) then {true}else{false};}
 #define CONDITIONARGS [_position]
 [INTERVALL,TASK,CONDITION,CONDITIONARGS] call FM(taskhandler);
 
-CHECK(taskcancel)
+
 private "_state";
 _state = [_task] call BIS_fnc_taskState;
-CHECK(_state in ["CANCELED","SUCCEEDED","FAILED"])
+If ((taskcancel)||(_state in ["CANCELED","SUCCEEDED","FAILED"])) exitWith {DORB_WAVES_REMAINING=0;};
 
 
 
-[-1,{_this spawn FM(disp_message)},["STR_DORB_DEF","STR_DORB_DEF_WAVE_DEFENDED"]] FMP;
+
+[-1,{_this spawn FM(disp_message);},["STR_DORB_DEF","STR_DORB_DEF_WAVE_DEFENDED"]] FMP;
 
 DORB_WAVES_REMAINING = DORB_WAVES_REMAINING - 1;
 
 If (DORB_WAVES_REMAINING > 1) then {
 	sleep 60;
-	[-1,{_this spawn FM(disp_message)},["STR_DORB_DEF","STR_DORB_DEF_WAVE_NEW"]] FMP;
+	[-1,{_this spawn FM(disp_message);},["STR_DORB_DEF","STR_DORB_DEF_WAVE_NEW"]] FMP;
 	sleep 60;
 	[_position,_task] spawn FM(spawn_attack_waves);
 }else {

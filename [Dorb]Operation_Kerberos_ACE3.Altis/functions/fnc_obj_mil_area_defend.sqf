@@ -4,8 +4,7 @@
 	Description:
 	Creates Mission "Clear Area".
 	
-	Requirements:
-		SHK_Taskmaster
+
 
 	Parameter(s):
 		0 :	ARRAY - Position
@@ -17,18 +16,11 @@
 */
 #include "script_component.hpp"
 CHECK(!isServer)
-
-private["_position","_task","_ort","_pow"];
-
 LOG("Task Defend");
-
-_ort=_this select 0;
-_position=_this select 1;
-_task=_this select 2;
+PARAMS_3(_ort,_position,_task);
+private["_rad","_list","_minuten"];
 _rad=1200;
-
 _list=[];
-aufgabenstatus=true;
 
 //////////////////////////////////////////////////
 ////// Aufgabe erstellen 					 /////
@@ -42,17 +34,13 @@ aufgabenstatus=true;
 ////// Warten, bis Spieler in Bereich		 /////
 //////////////////////////////////////////////////
 
-_missionsstatus=true;
-//_missionsstatus=false;
-while {_missionsstatus} do {
-	_a=0;
-	sleep 15;
-	{If ((_x distance _position) < 1000) then {_a=_a+1;};} forEach playableUnits;
-	If (_a > 0) then {_missionsstatus=false};
-	CHECK(!aufgabenstatus)
-};
+#define INTERVALL 15
+#define TASK ""
+#define CONDITION {_a=0;_players=(switchableUnits + playableUnits);_a = {((_x distance (_this select 0))<1000)}count _players;If (_a > 0) then {true}else{false};}
+#define CONDITIONARGS [_position]
+[INTERVALL,TASK,CONDITION,CONDITIONARGS] call FM(taskhandler);
 
-If(!aufgabenstatus) exitWith {[_task,"failed"] call SHK_Taskmaster_upd;};
+If(taskcancel) exitWith {[_task,'CANCELED',false] spawn BIS_fnc_taskSetState;};
 
 LOG("Defend - Spieler im Bereich");
 
@@ -74,9 +62,8 @@ for "_i" from 0 to 11 do {
 //////////////////////////////////////////////////
 
 DORB_WAVES_REMAINING=3;
-aufgabenstatus=true;
 
-[_position] spawn FM(spawn_attack_waves);
+[_position,_task] spawn FM(spawn_attack_waves);
 
 //////////////////////////////////////////////////
 ////// Überprüfung + Ende 					 /////
@@ -84,28 +71,14 @@ aufgabenstatus=true;
 
 sleep 300;
 
-_gescheitert=false;
-while {aufgabenstatus} do {
+#define INTERVALL 30
+#define TASK _task
+#define CONDITION {_a=0;_a = {((alive _x)&&((_x distance (_this select 0))<1500))}count (switchableUnits + playableUnits);If ((_a<1)||(DORB_WAVES_REMAINING<1)) then {true}else{false};}
+#define CONDITIONARGS [_position]
+#define SUCESSCONDITION {_a=0;_a = {((alive _x)&&((_x distance (_this select 0))<1500))}count (switchableUnits + playableUnits);If (_a>0) then {true}else{false};}
+#define ONSUCESS {[-1,{_this spawn FM(disp_info)},["STR_DORB_DEFEND",["STR_DORB_FINISHED"],"data\icon\icon_defend.paa",true]] FMP;}
+#define ONFAILURE {[-1,{_this spawn FM(disp_info)},["STR_DORB_DEFEND",["STR_DORB_FAILED"],"data\icon\icon_defend.paa",true]] FMP;}
+#define SUCESSARG [_position]
+[INTERVALL,TASK,CONDITION,CONDITIONARGS,SUCESSCONDITION,ONSUCESS,ONFAILURE,SUCESSARG] call FM(taskhandler);
 
-	_b=0;
-	sleep 25;
-
-	
-	{If (_x distance _position < 1500) then {_b=_b+1;};} forEach playableUnits;
-	
-	LOG(FORMAT_1("Spieler im Berreich = %1",_b));
-		
-	If (_b < 1) then {_gescheitert=true;aufgabenstatus=false};
-	
-	If (DORB_WAVES_REMAINING < 1) then {_gescheitert=false;aufgabenstatus=false};
-	
-};
-
-if (_gescheitert) then {
-	[_task,'FAILED',false] spawn BIS_fnc_taskSetState;
-	[-1,{_this spawn FM(disp_info)},[ "STR_DORB_DEFEND",["STR_DORB_FAILED"],"data\icon\icon_defend.paa",true]] FMP;
-}else{
-	[_task,'SUCCEEDED',false] spawn BIS_fnc_taskSetState;
-	[-1,{_this spawn FM(disp_info)},["STR_DORB_DEFEND",["STR_DORB_FINISHED"],"data\icon\icon_defend.paa",true]] FMP;
-};
 LOG("Defend beendet");
