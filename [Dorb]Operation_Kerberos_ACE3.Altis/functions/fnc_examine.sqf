@@ -94,7 +94,7 @@ switch (_option) do {
 								//// Random Target including revealed ones
 								_a = floor(random(count(DORB_EXAMINE_TARGETARRAY)));
 								DORB_EXAMINE_REVEALEDID pushBack _a;
-								_pos = [getPos(DORB_EXAMINE_TARGETARRAY _a), (_genauigkeit - 2)max 5,0] call FM(random_pos);
+								_pos = [getPos(DORB_EXAMINE_TARGETARRAY select _a), (_genauigkeit - 2)max 5,0] call FM(random_pos);
 								_marker = createMarker [format["EXAMINE_Mark_%1",((count DORB_EXAMINE_MARK)+1)],_pos];
 								_marker setMarkerShape "Ellipse";
 								_marker setMarkerColor "ColorRed";
