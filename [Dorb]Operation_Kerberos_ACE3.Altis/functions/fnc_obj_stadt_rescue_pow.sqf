@@ -96,7 +96,7 @@ for "_i" from 1 to _rand do{
 
 ["init",_pow] spawn FM(examine);
 
-#define INTERVALL 30
+#define INTERVALL 10
 #define TASK _task
 #define CONDITION {_a=0;_a ={(!(alive _x))||((_x distance (_this select 1))<15)}count (_this select 0);If (_a == (count (_this select 0))) then {true}else{false};}
 #define CONDITIONARGS [_pow,_position_rescue]

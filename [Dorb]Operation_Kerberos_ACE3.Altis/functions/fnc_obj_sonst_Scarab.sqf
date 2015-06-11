@@ -1,4 +1,4 @@
-/*
+	/*
 	Author: Dorbedo
 
 	Description:
@@ -136,7 +136,7 @@ _deploy=false;
 //////////////////////////////////////////////////
 
 
-#define INTERVALL 20
+#define INTERVALL 10
 #define TASK _task
 #define CONDITION {_a=0;_b=0;_a = {(!(alive gunner _x))} count (_this select 0);_b = {(!(alive _x))} count (_this select 0);If (diag_tickTime>DORB_ENDZEIT)exitWith {{if (alive _x) then {[_x] spawn FM(obj_sonst_Scarab_launch);sleep 3;};}forEach (_this select 0);sleep 30;true};If ((_a == (count (_this select 0)))||(_b>0)) then {true}else{false};}
 #define CONDITIONARGS [_target]

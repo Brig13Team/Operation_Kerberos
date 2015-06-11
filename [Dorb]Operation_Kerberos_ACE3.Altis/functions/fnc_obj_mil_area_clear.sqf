@@ -48,7 +48,7 @@ _difficulty = call FM(dyn_difficulty);
 //////////////////////////////////////////////////
 sleep 120;
 
-#define INTERVALL 30
+#define INTERVALL 10
 #define TASK _task
 #define CONDITION {_a=0;{If ((alive _x)&&((side _x)==dorb_side )) then {INC(_a);};}forEach ((_this select 0) nearEntities (_this select 1));If (_a < 8) then {true}else{false};}
 #define CONDITIONARGS [_position,_radius]

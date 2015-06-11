@@ -88,7 +88,7 @@ sleep 2;
 //////////////////////////////////////////////////
 ////// Überprüfung + Ende 					 /////
 //////////////////////////////////////////////////
-#define INTERVALL 30
+#define INTERVALL 10
 #define TASK _task
 #define CONDITION {_a = {GETVAR(_x,DORB_TARGET_DEAD,false);}count (_this select 0);If (_a == (count _target)) then {true}else{false};}
 #define CONDITIONARGS [_target]

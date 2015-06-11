@@ -71,7 +71,7 @@ DORB_WAVES_REMAINING=3;
 
 sleep 300;
 
-#define INTERVALL 30
+#define INTERVALL 10
 #define TASK _task
 #define CONDITION {_a=0;_a = {((alive _x)&&((_x distance (_this select 0))<1500))}count (switchableUnits + playableUnits);If ((_a<1)||(DORB_WAVES_REMAINING<1)) then {true}else{false};}
 #define CONDITIONARGS [_position]
