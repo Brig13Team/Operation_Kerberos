@@ -37,13 +37,15 @@ If (worldName == "pja305") exitWith {
 	};
 
 	[_position] spawn FM(spawn_commandveh);
-
-	for "_i" from 0 to 8 do {
-		_spawnposition = [_position,800,0] call FM(random_pos);
-		[_spawnposition] spawn FM(spawn_aapos);
-		sleep 5;
+	
+	If (DORB_MODS_RDS) then {
+		for "_i" from 0 to 8 do {
+			_spawnposition = [_position,800,0] call FM(random_pos);
+			[_spawnposition] spawn FM(spawn_aapos);
+			sleep 5;
+		};
 	};
-
+	
 	_gebaeudepos_arr = [_gebaeudepos_arr,8,(8+_difficulty)] call FM(spawn_rooftop);
 
 	_gebaeudepos_arr = [_gebaeudepos_arr,15,(40 + (_difficulty*2))] call FM(spawn_in_building);

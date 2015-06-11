@@ -1,9 +1,95 @@
 
 
+
+/* -------------------------------------------
+Macro: FM()
+	Function Name
+	
+Parameters:
+	VARIABLE - Partial name of the function
+
+Example:
+	(begin example)
+		this call FM(test)
+	(end)
+
+Author:
+	Dorbedo
+------------------------------------------- */
 #define FM(VAR) TRIPLES(PREFIX,fnc,VAR)
+
+/* -------------------------------------------
+Macro: FMP
+	Spawns CBA_fnc_globalExecute
+
+Parameters:
+	none
+
+Example:
+	(begin example)
+		{-1,{hint _this},["Makro Test"]} FMP;
+	(end)
+
+Author:
+	Dorbedo
+------------------------------------------- */
 #define FMP spawn CBA_fnc_globalExecute
+/* -------------------------------------------
+Macro: CHECK()
+	Checks Condition - Exit if true
+	
+	Hint: no ';' after CHECK()
+
+Parameters:
+	CODE - Condition to Check
+
+Example:
+	(begin example)
+		// if is server exit
+		CHECK(isServer)
+	(end)
+
+Author:
+	Dorbedo
+------------------------------------------- */
 #define CHECK(CONDITION) if (CONDITION) exitWith {};
+/* -------------------------------------------
+Macro: SELRND()
+	Selects a random element of an array
+
+Parameters:
+	ARRAY - array to select from
+
+Example:
+	(begin example)
+		winner = ["Klaus","Dieter","Thorsten"] SELRND;
+	(end)
+
+Author:
+	Dorbedo
+------------------------------------------- */
 #define SELRND call TRIPLES(dorb,makro,selectrandom)
+/* -------------------------------------------
+Macro: TILGE
+	deletes:
+		- Marker
+		- Objects (vehicles incl Crew)
+		- Groups
+		- Arrays including these
+
+Parameters:
+	none
+
+Example:
+	(begin example)
+		[veh1  ,  group1  ,  [ "Marker1" , "marker2" ]  ,  [ [ Veh2 ] , soldier1 ] , [ group2 ] ]     TILGE;
+		[soldier3,soldier4] TILGE;
+		"marker3" TILGE;
+	(end)
+
+Author:
+	Dorbedo
+------------------------------------------- */
 #define TILGE call TRIPLES(dorb,makro,delete)
 
 //// Variablen

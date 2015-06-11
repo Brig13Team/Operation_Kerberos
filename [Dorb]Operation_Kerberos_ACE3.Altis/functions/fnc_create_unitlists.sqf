@@ -721,27 +721,11 @@ switch (_rand) do {
 		
 		dorb_veh_truck		= ["LOP_AFR_Civ_Ural","LOP_AFR_Civ_Ural_open"];
 		dorb_veh_car		= ["LOP_AFR_Landrover","LOP_AFR_Offroad"];
-		dorb_veh_arty		= ["RDS_D30_AAF","RDS_M119_AAF"];
-		dorb_veh_mortar		= ["RDS_2b14_82mm_AAF","RDS_M252_AAF"];
+		dorb_veh_arty		= ["rhs_2s3_tv"];
+		dorb_veh_mortar		= ["O_Mortar_01_F"];
 		
 		dorb_staticlist 	= [
-								"RDS_AGS_AAF",
-								"RDS_DSHKM_AAF",
-								//"RDS_DSHkM_Mini_TriPod",
-								"RDS_KORD_AAF",
-								"RDS_KORD_high_AAF",
-								"RDS_AGS_AAF",
-								"RDS_M2StaticMG_AAF",
-								//"RDS_M2StaticMG_MiniTripod_AAF",
-								"RDS_Metis_AAF",
-								"RDS_MK19_TriPod_AAF",
-								"RDS_SPG9_AAF",
-								"RDS_TOW_TriPod_AAF"
-								];
-	
-		dorb_staticlist_aa	= [
-								"RDS_Igla_AA_pod_AAF",
-								"RDS_ZU23_AAF"
+								"rhs_NSV_TriPod_MSV"
 								];
 	
 		dorb_patrolboatlist = ["O_Boat_Armed_01_hmg_F"];
@@ -756,4 +740,28 @@ switch (_rand) do {
 		dorb_prototyp = ["B_APC_Wheeled_01_cannon_F"];
 	};
 };
+
+If (DORB_MODS_RDS) then {
+	dorb_staticlist_aa	= [
+								"RDS_Igla_AA_pod_AAF",
+								"RDS_ZU23_AAF"
+							];
+	dorb_staticlist pushBack [
+								"RDS_AGS_AAF",
+								"RDS_DSHKM_AAF",
+								//"RDS_DSHkM_Mini_TriPod",
+								"RDS_KORD_AAF",
+								"RDS_KORD_high_AAF",
+								"RDS_AGS_AAF",
+								"RDS_M2StaticMG_AAF",
+								//"RDS_M2StaticMG_MiniTripod_AAF",
+								"RDS_Metis_AAF",
+								"RDS_MK19_TriPod_AAF",
+								"RDS_SPG9_AAF",
+								"RDS_TOW_TriPod_AAF"
+							];
+	dorb_veh_arty		= 	["RDS_D30_AAF","RDS_M119_AAF"];
+	dorb_veh_mortar		= 	["RDS_2b14_82mm_AAF","RDS_M252_AAF"];
+};
+
 LOG_2(_rand,dorb_side);

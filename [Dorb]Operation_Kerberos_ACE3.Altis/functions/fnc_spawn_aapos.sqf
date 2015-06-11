@@ -5,7 +5,6 @@
 		Creates a Motarpos
 */
 #include "script_component.hpp"
-CHECK(!(isClass(configFile/"CfgPatches"/"RDS_StaticWeapons_Core")))
 private["_pos","_position","_spawnposition","_einheit","_dir","_return"];
 PARAMS_1(_position);
 

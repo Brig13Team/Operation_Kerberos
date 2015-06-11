@@ -34,12 +34,13 @@ If (worldName == "pja305") exitWith {
 		[_spawnposition] spawn FM(spawn_mortarpos);
 		sleep 5;
 	};
-	for "_i" from 0 to 8 do {
-		_spawnposition = [_position,400,0] call FM(random_pos);
-		[_spawnposition] spawn FM(spawn_aapos);
-		sleep 5;
+	If (DORB_MODS_RDS) then {
+		for "_i" from 0 to 8 do {
+			_spawnposition = [_position,400,0] call FM(random_pos);
+			[_spawnposition] spawn FM(spawn_aapos);
+			sleep 5;
+		};
 	};
-	
 	[_position] spawn FM(spawn_commandveh);
 	If (_difficulty>2) then {
 		[_position] spawn FM(spawn_commandveh);

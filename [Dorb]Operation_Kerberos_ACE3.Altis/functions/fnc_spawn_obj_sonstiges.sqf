@@ -35,10 +35,12 @@ If (worldName == "pja305") exitWith {
 		[_position,1200,2,4] spawn FM(spawn_patrol_veh);	sleep 10;
 		//[_position,1500,1,0] spawn FM(spawn_patrol_air);	sleep 10;
 	};
-	for "_i" from 0 to 8 do {
-		_spawnposition = [_position,1200,0] call FM(random_pos);
-		[_spawnposition] spawn FM(spawn_aapos);
-		sleep 5;
+	If (DORB_MODS_RDS) then {
+		for "_i" from 0 to 8 do {
+			_spawnposition = [_position,1200,0] call FM(random_pos);
+			[_spawnposition] spawn FM(spawn_aapos);
+			sleep 5;
+		};
 	};
 	LOG("Spawn Sonstiges Macros");
 

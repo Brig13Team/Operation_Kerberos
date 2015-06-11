@@ -6,6 +6,13 @@
 */
 #include "script_component.hpp"
 
+////// Autodetection of Mods
+/// RDS
+DORB_MODS_RDS = (isClass(configFile >> "CfgPatches" >> "RDS_StaticWeapons_Core"));
+
+
+
+
 enableSaving [false, false];
 enableRadio false;
 
@@ -22,7 +29,6 @@ EAST setFriend [INDEPENDENT, 1];
 INDEPENDENT setFriend [CIVILIAN, 1];
 INDEPENDENT setFriend [WEST, 0];
 INDEPENDENT setFriend [EAST, 1];
-
 
 
 // Logistik
