@@ -88,42 +88,22 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
 		
 		_isRHS		=
 		{
-			_faction in [	"rhs_faction_usarmy_10","rhs_faction_usarmy_14",
-							"rhs_faction_usmc_10","rhs_faction_usmc_14",
-							"rhs_faction_usaf",
-							"rhs_faction_usarmy_wd","rhs_faction_usarmy_d",
-							"rhs_faction_usmc_wd","rhs_faction_usmc_d"
+			_faction in [	"rhs_faction_usmc_d","rhs_faction_usmc_wd",
+							"rhs_faction_usarmy_d","rhs_faction_usarmy_wd",
+							"rhs_faction_usaf"
 							];
 		};
 		
 		_DNameRHS = 
 		{
 			_result = _DName;
-			/*
-			_namearr = [_Class,"_"] call BIS_fnc_splitString;
-			if ("usarmy" in _namearr) then {
-				_result = "RHS |Army|" + _result;
-			};
-			if ("usmc" in _namearr) then {
-				_result = "RHS |USMC|" + _result;
-			};
-			if ("usaf" in _namearr) then {
-				_result = "RHS |USAF|" + _result;
-			};
-			*/
-			_namearr = [_vClass,"_"] call BIS_fnc_splitString;
-			if ((_namearr select ((count _namearr) -1))=="wd") then {
+			_namearr = [_class,"_"] call BIS_fnc_splitString;
+			//LOG_1(_namearr);
+			if (("wd" in _namearr)or("w" in _namearr)) then {
 				_result = _result + " Woodland";
 			};
-			if ((_namearr select ((count _namearr) -1))=="d") then {
+			if ("d" in _namearr) then {
 				_result = _result + " Desert";
-			};
-			_namearr = [_faction,"_"] call BIS_fnc_splitString;
-			if ((_namearr select ((count _namearr) -1))=="10") then {
-				_result = _result + " (2010)";
-			};
-			if ((_namearr select ((count _namearr) -1))=="14") then {
-				_result = _result + " (2014)";
 			};
 			_result;
 		};
@@ -158,25 +138,16 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
 		if (_genMac !="" && (_type != "") && (_DName != "") && (_DName != _type) && (!(call(_isBase)))&& (!(call(_isRHSBase))) && (call(_isRHS))) then {
 			if (_Class isKindOf "Air") then {
 				
-				if (_vClass in ["rhs_vehclass_helicopter","rhs_vehclass_helicopter_d","rhs_vehclass_helicopter_wd"]) then {
+				if (_vClass in ["rhs_vehclass_helicopter"]) then {
 					_spawnliste_heli_rhs pushBack [_class,_pic ,"RHS", (call(_DNameRHS)), _DName, _icon];
 				} else {
 					_spawnliste_jet_rhs pushBack [_class,_pic ,"RHS", (call(_DNameRHS)), _DName, _icon];
 				};
-				/*
-				if ((_vClass in ["rhs_vehclass_helicopter","rhs_vehclass_helicopter_d","rhs_vehclass_helicopter_wd"])and(!(_Class isKindOf "Heli_Attack_01_base_F"))) then {
-					_spawnliste_heli_rhs pushBack [_class,_pic ,"RHS", (call(_DNameRHS)), _DName, _icon];
-				};
-				*/
-
 			};
-			if ((_vClass=="rhs_vehclass_apc_d")or(_vClass=="rhs_vehclass_tank_d") or (_vClass=="rhs_vehclass_artillery_d") or (_vClass=="rhs_vehclass_ifv_d") or (_vClass=="rhs_vehclass_artillery")) then {
+			if (_vClass in ["rhs_vehclass_ifv","rhs_vehclass_tank","rhs_vehclass_artillery"])then {
 				_spawnliste_panzer_rhs pushBack [_class,_pic ,"RHS", (call(_DNameRHS)), _DName, _icon];
 			};
-			if ((_vClass=="rhs_vehclass_apc_wd")or(_vClass=="rhs_vehclass_tank_wd") or (_vClass=="rhs_vehclass_artillery_wd") or (_vClass=="rhs_vehclass_ifv_wd")) then {
-				_spawnliste_panzer_rhs pushBack [_class,_pic ,"RHS", (call(_DNameRHS)), _DName, _icon];
-			};
-			if ((_vClass=="rhs_vehclass_MRAP_d") or (_vClass=="rhs_vehclass_car_d") or (_vClass=="rhs_vehclass_truck_d") or (_vClass=="rhs_vehclass_car_wd") or (_vClass=="rhs_vehclass_truck")) then {
+			if (_vClass in ["rhs_vehclass_car","rhs_vehclass_truck","rhs_vehclass_MRAP"]) then {
 				_spawnliste_fahrzeug_rhs pushBack [_class,_pic ,"RHS", (call(_DNameRHS)), _DName, _icon];
 			};
 			if (_vClass=="Static") then {
