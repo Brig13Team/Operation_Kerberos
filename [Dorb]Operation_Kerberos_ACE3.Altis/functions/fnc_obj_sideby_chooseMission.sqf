@@ -16,6 +16,8 @@ private ["_aufgabe", "_aufgaben", "_zeit", "_wichtung", "_position", "_positione
 _hauptaufgabePosition = _this select 0;
 _hauptaufgabeName = _this select 1;
 
+_task = nil;
+
 _keinUeberlaeufer = ["destroy_tower", "destroy_device", "capture_prototype", "Scarab", "area_clear", "area_defend"];
 if (!(_hauptaufgabeName in _keinUeberlaeufer)) then {
 	// Missionsstart zwischen 20min (1200 Sekunden) und 60min (3600 Sekunden) festlegen
@@ -41,15 +43,15 @@ if (!(_hauptaufgabeName in _keinUeberlaeufer)) then {
 	{
 		case "ueberlaeufer":
 		{
-			[_position + [0]] call FM(TRIPLES(obj,sideby,ueberlaeufer));
+			[_position + [0], _task] call FM(TRIPLES(obj,sideby,ueberlaeufer));
 		};
 		case "sdv":
 		{
-			[_position + [0]] call FM(TRIPLES(obj,sideby,sdv));
+			[_position + [0], _task] call FM(TRIPLES(obj,sideby,sdv));
 		};
 		case "aircraft":
 		{
-			[_position + [0]] call FM(TRIPLES(obj,sideby,aircraft));
+			[_position + [0], _task] call FM(TRIPLES(obj,sideby,aircraft));
 		};
 	};
 };
