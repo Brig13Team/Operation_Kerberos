@@ -99,7 +99,7 @@ switch (_rand) do {
 	};
 	
 	case 3: {
-	
+		///VDV
 		dorb_side = east;
 		
 		dorb_radar = ["rhs_p37","rhs_prv13"];
@@ -109,6 +109,7 @@ switch (_rand) do {
 		dorb_menlist = ["rhs_vdv_rifleman",
 						"rhs_vdv_efreitor",
 						"rhs_vdv_grenadier",
+						"rhs_vdv_grenadier_rpg",
 						"rhs_vdv_machinegunner",
 						"rhs_vdv_machinegunner_assistant",
 						"rhs_vdv_at",
@@ -187,16 +188,33 @@ switch (_rand) do {
 								configfile >> "CfgGroups" >> "East" >> "rhs_faction_tv" >> "rhs_group_rus_tv_80" >> "RHS_T80USection"
 								];
 		
-		dorb_veh_armored 	= [	"rhs_bmp1_vdv","rhs_bmp1p_vdv","rhs_bmp1k_vdv","rhs_bmp1d_vdv",
-								"rhs_bmp2e_vdv","rhs_bmp2_vdv","rhs_bmp2k_vdv","rhs_bmp2d_vdv",
-								"rhs_prp3_vdv","rhs_brm1k_vdv","rhs_btr70_vdv","rhs_btr80_vdv","rhs_btr80a_vdv","rhs_sprut_vdv","rhs_bmd4_vdv","rhs_bmd4m_vdv","rhs_bmd4ma_vdv",
-								"rhs_t72ba_tv","rhs_t72bb_tv","rhs_t72bc_tv","rhs_t72bd_tv","rhs_t72ba_tv","rhs_t72bb_tv","rhs_t72bc_tv","rhs_t72bd_tv",
-								"rhs_t80b","rhs_t80bk","rhs_t80bv","rhs_t80bvk","rhs_t80","rhs_t80a","rhs_t80u","rhs_t80u45m","rhs_t80ue1","rhs_t80um"];
-		dorb_veh_unarmored	= [	"rhs_btr70_vdv","rhs_btr80_vdv","rhs_btr80a_vdv"];
+		dorb_veh_armored 	= [	"rhs_bmd1","rhs_bmd1k","rhs_bmd1p","rhs_bmd1pk","rhs_bmd1r",
+								"rhs_bmd2","rhs_bmd2m","rhs_bmd2k",
+								"rhs_bmp1_vdv","rhs_bmp1p_vdv","rhs_bmp1k_vdv","rhs_bmp1d_vdv",
+								"rhs_bmp2e_vdv","rhs_bmp2_vdv","rhs_bmp2k_vdv","rhs_bmp2d_vdv","rhs_brm1k_vdv",
+								"rhs_bmd4_vdv","rhs_bmd4m_vdv","rhs_bmd4ma_vdv","rhs_sprut_vdv"
+								];
+		dorb_veh_unarmored	= [	"rhs_btr60_vdv",
+								"rhs_btr70_vdv",
+								"rhs_btr80_vdv",
+								"rhs_btr80a_vdv"
+								];
 		dorb_veh_aa			= ["rhs_zsu234_aa"];
 		
-		dorb_veh_truck		= ["rhs_Ural_VDV_01","rhs_Ural_Open_VDV_01"];
-		dorb_veh_car		= ["rhs_tigr_VDV"];
+		dorb_veh_truck		= [	"RHS_Ural_VDV_01",
+								"RHS_Ural_Flat_VDV_01",
+								"RHS_Ural_Open_VDV_01",
+								"RHS_Ural_Open_Flat_VDV_01",
+								"rhs_gaz66_vdv",
+								"rhs_gaz66o_vdv",
+								"rhs_gaz66_flat_vdv",
+								"rhs_gaz66o_flat_vdv"
+								];
+		dorb_veh_car		= [	"rhs_tigr_VDV",
+								"rhs_tigr_ffv_vdv",
+								"rhs_tigr_3camo_vdv",
+								"rhs_tigr_ffv_3camo_vdv"
+								];
 		dorb_veh_arty		= ["rhs_2s3_tv"];
 		dorb_veh_mortar		= ["O_Mortar_01_F"];
 		
@@ -205,16 +223,16 @@ switch (_rand) do {
 		dorb_patrolboatlist = ["O_Boat_Armed_01_hmg_F"];
 	
 		dorb_transport_heli_list = ["rhs_Mi8mt_vdv","rhs_Mi8mt_Cargo_vdv","rhs_Mi8MTV3_vdv","rhs_Mi8MTV3_UPK23_vdv","rhs_Mi8MTV3_FAB_vdv","rhs_Mi8AMT_vdv"];
-		dorb_attack_heli_list = ["rhs_Ka52_vvsc","rhs_Ka52_vvs","rhs_Ka52_UPK23_vvs","rhs_Ka52_UPK23_vvsc"];
-		dorb_patrol_air_list = ["rhs_Su25SM_vvs","rhs_Su25SM_vvsc"];
-		dorb_attack_air_list = ["rhs_Su25SM_KH29_vvs","rhs_Su25SM_KH29_vvsc"];
+		dorb_attack_heli_list = ["RHS_Ka52_UPK23_vvsc","rhs_ka60_c"];
+		dorb_patrol_air_list = ["rhs_Su25SM_vvsc"];
+		dorb_attack_air_list = ["rhs_Su25SM_KH29_vvsc"];
 		
 	
 		dorb_wpncache_list = ["Box_IND_Wps_F","Box_IND_WpsSpecial_F","Box_IND_WpsLaunch_F","Box_IND_Ammo_F","Box_IND_Grenades_F","Box_IND_Support_F"];
 
 	};
 	case 4: {
-	
+		//VDV_FLORA
 		dorb_side = east;
 		
 		dorb_radar = ["rhs_p37","rhs_prv13"];
@@ -225,6 +243,7 @@ switch (_rand) do {
 						"rhs_vdv_flora_rifleman",
 						"rhs_vdv_flora_efreitor",
 						"rhs_vdv_flora_grenadier",
+						"rhs_vdv_flora_grenadier_rpg",
 						"rhs_vdv_flora_machinegunner",
 						"rhs_vdv_flora_machinegunner_assistant",
 						"rhs_vdv_flora_at",
@@ -303,14 +322,33 @@ switch (_rand) do {
 								];
 	
 	
-		dorb_veh_armored 	= [	"rhs_bmp1_vdv","rhs_bmp1p_vdv","rhs_bmp1k_vdv","rhs_bmp1d_vdv","rhs_bmp2e_vdv","rhs_bmp2_vdv","rhs_bmp2k_vdv","rhs_bmp2d_vdv",
-								"rhs_prp3_vdv","rhs_brm1k_vdv","rhs_btr70_vdv","rhs_btr80_vdv","rhs_btr80a_vdv","rhs_sprut_vdv","rhs_bmd4_vdv","rhs_bmd4m_vdv","rhs_bmd4ma_vdv",
-								"rhs_t72ba_tv","rhs_t72bb_tv","rhs_t72bc_tv","rhs_t72bd_tv","rhs_t72ba_tv","rhs_t72bb_tv","rhs_t72bc_tv","rhs_t72bd_tv","rhs_t80b","rhs_t80bk","rhs_t80bv","rhs_t80bvk","rhs_t80","rhs_t80a","rhs_t80u","rhs_t80u45m","rhs_t80ue1","rhs_t80um"];
-		dorb_veh_unarmored	= [	"rhs_btr70_vdv","rhs_btr80_vdv","rhs_btr80a_vdv"];
+		dorb_veh_armored 	= [	"rhs_bmd1","rhs_bmd1k","rhs_bmd1p","rhs_bmd1pk","rhs_bmd1r",
+								"rhs_bmd2","rhs_bmd2m","rhs_bmd2k",
+								"rhs_bmp1_vdv","rhs_bmp1p_vdv","rhs_bmp1k_vdv","rhs_bmp1d_vdv",
+								"rhs_bmp2e_vdv","rhs_bmp2_vdv","rhs_bmp2k_vdv","rhs_bmp2d_vdv","rhs_brm1k_vdv",
+								"rhs_bmd4_vdv","rhs_bmd4m_vdv","rhs_bmd4ma_vdv","rhs_sprut_vdv"
+								];
+		dorb_veh_unarmored	= [	"rhs_btr60_vdv",
+								"rhs_btr70_vdv",
+								"rhs_btr80_vdv",
+								"rhs_btr80a_vdv"
+								];
 		dorb_veh_aa			= ["rhs_zsu234_aa"];
 		
-		dorb_veh_truck		= ["rhs_Ural_VDV_01","rhs_Ural_Open_VDV_01"];
-		dorb_veh_car		= ["rhs_tigr_VDV"];
+		dorb_veh_truck		= [	"RHS_Ural_VDV_01",
+								"RHS_Ural_Flat_VDV_01",
+								"RHS_Ural_Open_VDV_01",
+								"RHS_Ural_Open_Flat_VDV_01",
+								"rhs_gaz66_vdv",
+								"rhs_gaz66o_vdv",
+								"rhs_gaz66_flat_vdv",
+								"rhs_gaz66o_flat_vdv"
+								];
+		dorb_veh_car		= [	"rhs_tigr_VDV",
+								"rhs_tigr_ffv_vdv",
+								"rhs_tigr_3camo_vdv",
+								"rhs_tigr_ffv_3camo_vdv"
+								];
 		dorb_veh_arty		= ["rhs_2s3_tv"];
 		dorb_veh_mortar		= ["O_Mortar_01_F"];
 		
@@ -319,9 +357,9 @@ switch (_rand) do {
 		dorb_patrolboatlist = ["O_Boat_Armed_01_hmg_F"];
 	
 		dorb_transport_heli_list = ["rhs_Mi8mt_vdv","rhs_Mi8mt_Cargo_vdv","rhs_Mi8MTV3_vdv","rhs_Mi8MTV3_UPK23_vdv","rhs_Mi8MTV3_FAB_vdv","rhs_Mi8AMT_vdv"];
-		dorb_attack_heli_list = ["rhs_Ka52_vvsc","rhs_Ka52_vvs","rhs_Ka52_UPK23_vvs","rhs_Ka52_UPK23_vvsc"];
-		dorb_patrol_air_list = ["rhs_Su25SM_vvs","rhs_Su25SM_vvsc"];
-		dorb_attack_air_list = ["rhs_Su25SM_KH29_vvs","rhs_Su25SM_KH29_vvsc"];
+		dorb_attack_heli_list = ["RHS_Ka52_UPK23_vvsc","rhs_ka60_c"];
+		dorb_patrol_air_list = ["rhs_Su25SM_vvsc"];
+		dorb_attack_air_list = ["rhs_Su25SM_KH29_vvsc"];
 		
 		
 	
@@ -329,7 +367,7 @@ switch (_rand) do {
 
 	};
 	case 5: {
-	
+		//VDV_MFLORA
 		dorb_side = east;
 		
 		dorb_radar = ["rhs_p37","rhs_prv13"];
@@ -340,6 +378,7 @@ switch (_rand) do {
 						"rhs_vdv_mflora_rifleman",
 						"rhs_vdv_mflora_efreitor",
 						"rhs_vdv_mflora_grenadier",
+						"rhs_vdv_mflora_grenadier_rpg",
 						"rhs_vdv_mflora_machinegunner",
 						"rhs_vdv_mflora_machinegunner_assistant",
 						"rhs_vdv_mflora_at",
@@ -419,14 +458,33 @@ switch (_rand) do {
 								];
 		
 		
-		dorb_veh_armored 	= [	"rhs_bmp1_vdv","rhs_bmp1p_vdv","rhs_bmp1k_vdv","rhs_bmp1d_vdv","rhs_bmp2e_vdv","rhs_bmp2_vdv","rhs_bmp2k_vdv","rhs_bmp2d_vdv",
-								"rhs_prp3_vdv","rhs_brm1k_vdv","rhs_btr70_vdv","rhs_btr80_vdv","rhs_btr80a_vdv","rhs_sprut_vdv","rhs_bmd4_vdv","rhs_bmd4m_vdv","rhs_bmd4ma_vdv",
-								"rhs_t72ba_tv","rhs_t72bb_tv","rhs_t72bc_tv","rhs_t72bd_tv","rhs_t72ba_tv","rhs_t72bb_tv","rhs_t72bc_tv","rhs_t72bd_tv","rhs_t80b","rhs_t80bk","rhs_t80bv","rhs_t80bvk","rhs_t80","rhs_t80a","rhs_t80u","rhs_t80u45m","rhs_t80ue1","rhs_t80um"];
-		dorb_veh_unarmored	= [	"rhs_btr70_vdv","rhs_btr80_vdv","rhs_btr80a_vdv"];
+		dorb_veh_armored 	= [	"rhs_bmd1","rhs_bmd1k","rhs_bmd1p","rhs_bmd1pk","rhs_bmd1r",
+								"rhs_bmd2","rhs_bmd2m","rhs_bmd2k",
+								"rhs_bmp1_vdv","rhs_bmp1p_vdv","rhs_bmp1k_vdv","rhs_bmp1d_vdv",
+								"rhs_bmp2e_vdv","rhs_bmp2_vdv","rhs_bmp2k_vdv","rhs_bmp2d_vdv","rhs_brm1k_vdv",
+								"rhs_bmd4_vdv","rhs_bmd4m_vdv","rhs_bmd4ma_vdv","rhs_sprut_vdv"
+								];
+		dorb_veh_unarmored	= [	"rhs_btr60_vdv",
+								"rhs_btr70_vdv",
+								"rhs_btr80_vdv",
+								"rhs_btr80a_vdv"
+								];
 		dorb_veh_aa			= ["rhs_zsu234_aa"];
 		
-		dorb_veh_truck		= ["rhs_Ural_VDV_01","rhs_Ural_Open_VDV_01"];
-		dorb_veh_car		= ["rhs_tigr_VDV"];
+		dorb_veh_truck		= [	"RHS_Ural_VDV_01",
+								"RHS_Ural_Flat_VDV_01",
+								"RHS_Ural_Open_VDV_01",
+								"RHS_Ural_Open_Flat_VDV_01",
+								"rhs_gaz66_vdv",
+								"rhs_gaz66o_vdv",
+								"rhs_gaz66_flat_vdv",
+								"rhs_gaz66o_flat_vdv"
+								];
+		dorb_veh_car		= [	"rhs_tigr_VDV",
+								"rhs_tigr_ffv_vdv",
+								"rhs_tigr_3camo_vdv",
+								"rhs_tigr_ffv_3camo_vdv"
+								];
 		dorb_veh_arty		= ["rhs_2s3_tv"];
 		dorb_veh_mortar		= ["O_Mortar_01_F"];
 		
@@ -435,9 +493,9 @@ switch (_rand) do {
 		dorb_patrolboatlist = ["O_Boat_Armed_01_hmg_F"];
 	
 		dorb_transport_heli_list = ["rhs_Mi8mt_vdv","rhs_Mi8mt_Cargo_vdv","rhs_Mi8MTV3_vdv","rhs_Mi8MTV3_UPK23_vdv","rhs_Mi8MTV3_FAB_vdv","rhs_Mi8AMT_vdv"];
-		dorb_attack_heli_list = ["rhs_Ka52_vvsc","rhs_Ka52_vvs","rhs_Ka52_UPK23_vvs","rhs_Ka52_UPK23_vvsc"];
-		dorb_patrol_air_list = ["rhs_Su25SM_vvs","rhs_Su25SM_vvsc"];
-		dorb_attack_air_list = ["rhs_Su25SM_KH29_vvs","rhs_Su25SM_KH29_vvsc"];
+		dorb_attack_heli_list = ["RHS_Ka52_UPK23_vvsc","rhs_ka60_c"];
+		dorb_patrol_air_list = ["rhs_Su25SM_vvsc"];
+		dorb_attack_air_list = ["rhs_Su25SM_KH29_vvsc"];
 		
 		
 	
@@ -445,7 +503,7 @@ switch (_rand) do {
 
 	};
 	case 6: {
-	
+		//MSV
 		dorb_side = east;
 		
 		dorb_radar = ["rhs_p37","rhs_prv13"];
@@ -455,6 +513,7 @@ switch (_rand) do {
 		dorb_menlist = ["rhs_msv_rifleman",
 						"rhs_msv_efreitor",
 						"rhs_msv_grenadier",
+						"rhs_msv_grenadier_rpg",
 						"rhs_msv_machinegunner",
 						"rhs_msv_machinegunner_assistant",
 						"rhs_msv_at",
@@ -533,16 +592,36 @@ switch (_rand) do {
 								];
 	
 	
-		dorb_veh_armored 	= [	"rhs_bmp3_msv","rhs_bmp3_late_msv","rhs_bmp3m_msv","rhs_bmp3mera_msv","rhs_prp3_msv",
-								"rhs_bmp1_msv","rhs_bmp1p_msv","rhs_bmp1k_msv","rhs_bmp1d_msv",
+		dorb_veh_armored 	= [	"rhs_bmp1_msv","rhs_bmp1p_msv","rhs_bmp1k_msv","rhs_bmp1d_msv",
 								"rhs_bmp2e_msv","rhs_bmp2_msv","rhs_bmp2k_msv","rhs_bmp2d_msv",
-								"rhs_brm1k_msv","rhs_btr70_msv","rhs_btr80_msv","rhs_btr80a_msv",
-								"rhs_t72ba_tv","rhs_t72bb_tv","rhs_t72bc_tv","rhs_t72bd_tv","rhs_t72ba_tv","rhs_t72bb_tv","rhs_t72bc_tv","rhs_t72bd_tv","rhs_t80b","rhs_t80bk","rhs_t80bv","rhs_t80bvk","rhs_t80","rhs_t80a","rhs_t80u","rhs_t80u45m","rhs_t80ue1","rhs_t80um"];
-		dorb_veh_unarmored	= [	"rhs_btr70_msv","rhs_btr80_msv","rhs_btr80a_msv"];
+								"rhs_brm1k_msv",
+								"rhs_bmp3m_msv","rhs_bmp3mera_msv","rhs_bmp3_msv","rhs_bmp3_late_msv",
+								"rhs_t72ba_tv","rhs_t72bb_tv","rhs_t72bc_tv","rhs_t72bd_tv",
+								"rhs_t80b","rhs_t80bk","rhs_t80bv","rhs_t80bvk","rhs_t80","rhs_t80a","rhs_t80u","rhs_t80u45m","rhs_t80ue1","rhs_t80um",
+								"rhs_t90_tv"
+								];
+								
+		dorb_veh_unarmored	= [	"rhs_btr60_msv",
+								"rhs_btr70_msv",
+								"rhs_btr80_msv",
+								"rhs_btr80a_msv"
+								];
 		dorb_veh_aa			= [	"rhs_zsu234_aa"];
 		
-		dorb_veh_truck		= ["rhs_Ural_MSV_01","rhs_Ural_Open_MSV_01"];
-		dorb_veh_car		= ["rhs_tigr_msv"];
+		dorb_veh_truck		= [	"RHS_Ural_MSV_01",
+								"RHS_Ural_Flat_MSV_01",
+								"RHS_Ural_Open_MSV_01",
+								"RHS_Ural_Open_Flat_MSV_01",
+								"rhs_gaz66_msv",
+								"rhs_gaz66_flat_msv",
+								"rhs_gaz66o_msv",
+								"rhs_gaz66o_flat_msv"
+								];
+		dorb_veh_car		= [	"rhs_tigr_msv",
+								"rhs_tigr_ffv_msv",
+								"rhs_tigr_3camo_msv",
+								"rhs_tigr_ffv_3camo_msv"
+								];
 		dorb_veh_arty		= ["rhs_2s3_tv"];
 		dorb_veh_mortar		= ["O_Mortar_01_F"];
 		
@@ -551,9 +630,9 @@ switch (_rand) do {
 		dorb_patrolboatlist = ["O_Boat_Armed_01_hmg_F"];
 	
 		dorb_transport_heli_list = ["rhs_Mi8mt_vdv","rhs_Mi8mt_Cargo_vdv","rhs_Mi8MTV3_vdv","rhs_Mi8MTV3_UPK23_vdv","rhs_Mi8MTV3_FAB_vdv","rhs_Mi8AMT_vdv"];
-		dorb_attack_heli_list = ["rhs_Ka52_vvsc","rhs_Ka52_vvs","rhs_Ka52_UPK23_vvs","rhs_Ka52_UPK23_vvsc"];
-		dorb_patrol_air_list = ["rhs_Su25SM_vvs","rhs_Su25SM_vvsc"];
-		dorb_attack_air_list = ["rhs_Su25SM_KH29_vvs","rhs_Su25SM_KH29_vvsc"];
+		dorb_attack_heli_list = ["RHS_Ka52_UPK23_vvs","rhs_ka60_grey"];
+		dorb_patrol_air_list = ["rhs_Su25SM_vvs"];
+		dorb_attack_air_list = ["rhs_Su25SM_KH29_vvs"];
 		
 		
 	
@@ -561,7 +640,7 @@ switch (_rand) do {
 
 	};
 	case 7: {
-	
+		///MSV_EMR
 		dorb_side = east;
 		
 		dorb_radar = ["rhs_p37","rhs_prv13"];
@@ -571,6 +650,7 @@ switch (_rand) do {
 		dorb_menlist = ["rhs_msv_emr_rifleman",
 						"rhs_msv_emr_efreitor",
 						"rhs_msv_emr_grenadier",
+						"rhs_msv_emr_grenadier_rpg",
 						"rhs_msv_emr_machinegunner",
 						"rhs_msv_emr_machinegunner_assistant",
 						"rhs_msv_emr_at",
@@ -648,15 +728,35 @@ switch (_rand) do {
 								configfile >> "CfgGroups" >> "East" >> "rhs_faction_tv" >> "rhs_group_rus_tv_80" >> "RHS_T80USection"
 								];
 	
-		dorb_veh_armored 	= [	"rhs_bmp3_msv","rhs_bmp3_late_msv","rhs_bmp3m_msv","rhs_bmp3mera_msv","rhs_prp3_msv",
-								"rhs_bmp1_msv","rhs_bmp1p_msv","rhs_bmp1k_msv","rhs_bmp1d_msv","rhs_bmp2e_msv","rhs_bmp2_msv","rhs_bmp2k_msv","rhs_bmp2d_msv",
-								"rhs_brm1k_msv","rhs_btr70_msv","rhs_btr80_msv","rhs_btr80a_msv",
-								"rhs_t72ba_tv","rhs_t72bb_tv","rhs_t72bc_tv","rhs_t72bd_tv","rhs_t72ba_tv","rhs_t72bb_tv","rhs_t72bc_tv","rhs_t72bd_tv","rhs_t80b","rhs_t80bk","rhs_t80bv","rhs_t80bvk","rhs_t80","rhs_t80a","rhs_t80u","rhs_t80u45m","rhs_t80ue1","rhs_t80um"];
-		dorb_veh_unarmored	= [	"rhs_btr70_msv","rhs_btr80_msv","rhs_btr80a_msv"];
+		dorb_veh_armored 	= [	"rhs_bmp1_msv","rhs_bmp1p_msv","rhs_bmp1k_msv","rhs_bmp1d_msv",
+								"rhs_bmp2e_msv","rhs_bmp2_msv","rhs_bmp2k_msv","rhs_bmp2d_msv",
+								"rhs_brm1k_msv",
+								"rhs_bmp3m_msv","rhs_bmp3mera_msv","rhs_bmp3_msv","rhs_bmp3_late_msv",
+								"rhs_t72ba_tv","rhs_t72bb_tv","rhs_t72bc_tv","rhs_t72bd_tv",
+								"rhs_t80b","rhs_t80bk","rhs_t80bv","rhs_t80bvk","rhs_t80","rhs_t80a","rhs_t80u","rhs_t80u45m","rhs_t80ue1","rhs_t80um",
+								"rhs_t90_tv"
+								];
+		dorb_veh_unarmored	= [	"rhs_btr60_msv",
+								"rhs_btr70_msv",
+								"rhs_btr80_msv",
+								"rhs_btr80a_msv"
+								];
 		dorb_veh_aa			= [	"rhs_zsu234_aa"];
 		
-		dorb_veh_truck		= ["rhs_Ural_MSV_01","rhs_Ural_Open_MSV_01"];
-		dorb_veh_car		= ["rhs_tigr_msv"];
+		dorb_veh_truck		= [	"RHS_Ural_MSV_01",
+								"RHS_Ural_Flat_MSV_01",
+								"RHS_Ural_Open_MSV_01",
+								"RHS_Ural_Open_Flat_MSV_01",
+								"rhs_gaz66_msv",
+								"rhs_gaz66_flat_msv",
+								"rhs_gaz66o_msv",
+								"rhs_gaz66o_flat_msv"
+								];
+		dorb_veh_car		= [	"rhs_tigr_msv",
+								"rhs_tigr_ffv_msv",
+								"rhs_tigr_3camo_msv",
+								"rhs_tigr_ffv_3camo_msv"
+								];
 		dorb_veh_arty		= ["rhs_2s3_tv"];
 		dorb_veh_mortar		= ["O_Mortar_01_F"];
 		
@@ -664,10 +764,10 @@ switch (_rand) do {
 
 		dorb_patrolboatlist = ["O_Boat_Armed_01_hmg_F"];
 	
-		dorb_transport_heli_list = ["rhs_Mi8mt_vdv","rhs_Mi8mt_Cargo_vdv","rhs_Mi8MTV3_vdv","rhs_Mi8MTV3_UPK23_vdv","rhs_Mi8MTV3_FAB_vdv","rhs_Mi8AMT_vdv"];
-		dorb_attack_heli_list = ["rhs_Ka52_vvsc","rhs_Ka52_vvs","rhs_Ka52_UPK23_vvs","rhs_Ka52_UPK23_vvsc"];
-		dorb_patrol_air_list = ["rhs_Su25SM_vvs","rhs_Su25SM_vvsc"];
-		dorb_attack_air_list = ["rhs_Su25SM_KH29_vvs","rhs_Su25SM_KH29_vvsc"];
+		dorb_transport_heli_list = ["RHS_Mi8mt_vvs","RHS_Mi8mt_Cargo_vvs","RHS_Mi8MTV3_vvs","RHS_Mi8MTV3_UPK23_vvs","RHS_Mi8MTV3_FAB_vvs","RHS_Mi8AMT_vvs"];
+		dorb_attack_heli_list = ["RHS_Ka52_UPK23_vvs","rhs_ka60_grey"];
+		dorb_patrol_air_list = ["rhs_Su25SM_vvs"];
+		dorb_attack_air_list = ["rhs_Su25SM_KH29_vvs"];
 
 	
 		dorb_wpncache_list = ["Box_IND_Wps_F","Box_IND_WpsSpecial_F","Box_IND_WpsLaunch_F","Box_IND_Ammo_F","Box_IND_Grenades_F","Box_IND_Support_F"];
@@ -730,7 +830,7 @@ switch (_rand) do {
 	
 		dorb_patrolboatlist = ["O_Boat_Armed_01_hmg_F"];
 	
-		dorb_transport_heli_list = ["rhs_Mi8mt_vdv","rhs_Mi8mt_Cargo_vdv","rhs_Mi8MTV3_vdv","rhs_Mi8MTV3_UPK23_vdv","rhs_Mi8MTV3_FAB_vdv","rhs_Mi8AMT_vdv"];
+		dorb_transport_heli_list = ["RHS_Mi8mt_vvs","RHS_Mi8mt_Cargo_vvs","RHS_Mi8MTV3_vvs","RHS_Mi8MTV3_UPK23_vvs","RHS_Mi8MTV3_FAB_vvs","RHS_Mi8AMT_vvs"];
 		dorb_attack_heli_list = ["rhs_Ka52_vvsc","rhs_Ka52_vvs","rhs_Ka52_UPK23_vvs","rhs_Ka52_UPK23_vvsc"];
 		dorb_patrol_air_list = ["rhs_Su25SM_vvs","rhs_Su25SM_vvsc"];
 		dorb_attack_air_list = ["rhs_Su25SM_KH29_vvs","rhs_Su25SM_KH29_vvsc"];
