@@ -14,12 +14,12 @@ class Extended_Init_Eventhandlers {
 	};
 	class rhsusf_M1083A1P2_B_M2_d_Medical_fmtv_usarmy {
 		class Dorb_init {
-			init = "_this call dorb_fnc_addACEMedicalItems;"
+			init = "_this call dorb_fnc_addACEMedicalItems;";
 		};
 	};
 	class rhsusf_M1083A1P2_B_M2_d_MHQ_fmtv_usarmy {
 		class Dorb_init {
-			init = "(_this select 0) setVariable ['tf_hasRadio',true,true];"
+			init = "(_this select 0) setVariable ['tf_hasRadio',true,true];";
 		};
 	};
 };
