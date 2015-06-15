@@ -131,7 +131,7 @@ for "_i" from 1 to 3 do{
 ////// Aufgabe erstellen 					 /////
 //////////////////////////////////////////////////
 
-[-1,{_this spawn FM(disp_info)},["STR_DORB_DESTROY",["STR_DORB_RESC_CONV_TASK"],"data\icon\icon_rescue.paa",true]] FMP;
+[-1,{_this spawn FM(disp_info)},["STR_DORB_RESCUE",["STR_DORB_RESC_CONV_TASK"],"data\icon\icon_rescue.paa",true]] FMP;
 [_task,true,[["STR_DORB_RESC_CONV_TASK_DESC",count _pow,(_startort select 0),_ort],"STR_DORB_RESC_CONV_TASK","STR_DORB_RESCUE"],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
 
 //////////////////////////////////////////////////
@@ -162,10 +162,10 @@ _anzahlgerettete={alive _x}count _pow;
 
 If (_anzahlgerettete>((count _pow)*0.2)) then {
 	[_task,'SUCCEEDED',false] spawn BIS_fnc_taskSetState;
-	[-1,{_this spawn FM(disp_info)},["STR_DORB_DESTROY",["STR_DORB_FINISHED"],"data\icon\icon_rescue.paa",true]] FMP;
+	[-1,{_this spawn FM(disp_info)},["STR_DORB_RESCUE",["STR_DORB_FINISHED"],"data\icon\icon_rescue.paa",true]] FMP;
 }else{
 	[_task,'FAILED',false] spawn BIS_fnc_taskSetState;
-	[-1,{_this spawn FM(disp_info)},["STR_DORB_DESTROY",["STR_DORB_FAILED"],"data\icon\icon_rescue.paa",true]] FMP;
+	[-1,{_this spawn FM(disp_info)},["STR_DORB_RESCUE",["STR_DORB_FAILED"],"data\icon\icon_rescue.paa",true]] FMP;
 };
 
 {moveOut _x; deleteVehicle _x}forEach _pow;
