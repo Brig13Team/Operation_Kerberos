@@ -21,7 +21,7 @@ b=true;
  for [{_i = 0},{_i < 150 && b},{_i = _i + 1}] do {
 	_multiplyVector = _rotateVector vectorMultiply ((0.1*_i));
 	_checkpos=[((_multiplyVector select 0)+((getPos _road select 0))),((_multiplyVector select 1)+((getPos _road select 1))),0];
-	if ((surfaceType _checkpos)!="#GdtSoil") then {_mrkr setMarkerText format["%1",(0.1*_i)];b=false;c=_i;};
+	if ((isOnRoad _checkpos)) then {_mrkr setMarkerText format["%1",(0.1*_i)];b=false;c=_i;};
 };
 
 if (((c*0.1)) > 5) exitWith {_mrkr setMarkerColor "ColorRed";};
