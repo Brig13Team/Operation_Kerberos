@@ -7,7 +7,7 @@ class Extended_PreInit_EventHandlers {
 };
 
 class Extended_Init_Eventhandlers {
-	class rhs_infantry_msv_base {
+	class Man {
 		class Dorb_init {
 			init = "_this call dorb_fnc_addNVG;";
 		};
