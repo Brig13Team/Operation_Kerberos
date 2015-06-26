@@ -204,7 +204,7 @@ switch (_rand) do {
 		dorb_veh_truck		= [	"RHS_Ural_VDV_01",
 								"RHS_Ural_Open_VDV_01",
 								"rhs_gaz66_vdv",
-								"rhs_gaz66o_vdv",
+								"rhs_gaz66o_vdv"
 								];
 		dorb_veh_car		= [	"rhs_tigr_VDV",
 								"rhs_tigr_ffv_vdv",
@@ -334,7 +334,7 @@ switch (_rand) do {
 		dorb_veh_truck		= [	"RHS_Ural_VDV_01",
 								"RHS_Ural_Open_VDV_01",
 								"rhs_gaz66_vdv",
-								"rhs_gaz66o_vdv",
+								"rhs_gaz66o_vdv"
 								];
 		dorb_veh_car		= [	"rhs_tigr_VDV",
 								"rhs_tigr_ffv_vdv",
@@ -466,7 +466,7 @@ switch (_rand) do {
 		dorb_veh_truck		= [	"RHS_Ural_VDV_01",
 								"RHS_Ural_Open_VDV_01",
 								"rhs_gaz66_vdv",
-								"rhs_gaz66o_vdv",
+								"rhs_gaz66o_vdv"
 								];
 		dorb_veh_car		= [	"rhs_tigr_VDV",
 								"rhs_tigr_ffv_vdv",

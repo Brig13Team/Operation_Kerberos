@@ -195,18 +195,6 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
 			
 			};
 			
-			if(_vClass=="BWA3_VehClass_Wheeled_Tropen") then {
-			
-				_spawnliste_fahrzeug_unbewaffnet pushBack [_class,_pic ,"BW", (call(_DNameBW)), _DName, _icon];
-			
-			};
-			
-			if(_vClass=="BWA3_VehClass_Wheeled_Fleck") then {
-			
-				_spawnliste_fahrzeug_unbewaffnet pushBack [_class,_pic ,"BW", (call(_DNameBW)), _DName, _icon];
-			
-			};
-			
 			if((_vClass=="Support")and(_side==1)) then {
 			
 				_spawnliste_support pushBack [_class,_pic ,"BIS", (call(_DNameBIS)), _DName, _icon];
@@ -253,29 +241,41 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
 			
 		};
 	
+		if(_vClass=="BWA3_VehClass_Wheeled_Tropen") then {
+		
+			_spawnliste_fahrzeug_bewaffnet pushBack [_class,_pic ,"BW", (call(_DNameBW)), _DName, _icon];
+		
+		};
+			
+		if(_vClass=="BWA3_VehClass_Wheeled_Fleck") then {
+		
+			_spawnliste_fahrzeug_bewaffnet pushBack [_class,_pic ,"BW", (call(_DNameBW)), _DName, _icon];
+			
+		};
+		
 		
 		if (((_vClass=="Ammo")and(_autor=="BWMod"))) then {
 			
-				_spawnliste_bwmat pushBack [_class,_pic ,"BIS", (call(_DNameBIS)), _DName, _icon];
-			
+			_spawnliste_bwmat pushBack [_class,_pic ,"BIS", (call(_DNameBIS)), _DName, _icon];
+		
 		};
 		
 		if ((_class=="ACE_medicalSupplyCrate")or(_class=="ACE_medicalSupplyCrate_advanced")or(_class=="ACE_Box_Misc")or(_class=="ACE_Box_Ammo")or(_class=="B_Truck_01_medical_F")) then {
 			
-				_spawnliste_ace  pushBack 		[_class,_pic ,"ACE",_DName, _DName, _icon];
+			_spawnliste_ace  pushBack 		[_class,_pic ,"ACE",_DName, _DName, _icon];
 			
 		};
-				
+		
 		if((_vClass=="Submarine")and(!(call(_isBase)))and(_side==1)) then {
 			
-				_spawnliste_submarine pushBack	[_class,_pic ,"BIS", (call(_DNameBIS)), _DName, _icon];
+			_spawnliste_submarine pushBack	[_class,_pic ,"BIS", (call(_DNameBIS)), _DName, _icon];
 			
 		};
 		
 		if((_genMac !="") and (_genMac !=_class)  and (_vClass=="Car")and(!(call(_isBase)))and(_side==1)and(_pic!="")and(_type != "")and(_type != _class)and(_DName != _class)and(_DName != "")and(_DName != _type)) then {
-			
-				_spawnliste_fia pushBack [_class,_pic ,"BIS", (call(_DNameBIS)), _DName, _icon];
-			
+	
+		_spawnliste_fia pushBack [_class,_pic ,"BIS", (call(_DNameBIS)), _DName, _icon];
+	
 		};
 		
 	};

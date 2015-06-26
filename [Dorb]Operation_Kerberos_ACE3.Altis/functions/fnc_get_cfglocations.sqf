@@ -127,7 +127,7 @@ If (worldName == "Panthera3") then {
 		_position	= getArray(_ort >> "position");
 		_typ		= getText(_ort >> "type");	
 		If (_position distance (getmarkerpos "Respawn_West") > 2000) then {
-			If ((_typ in ["NameCityCapital","NameCity","NameVillage","FlatAreaCitySmall","CityCenter"])and(!((configName _ort) in ["dino2","dino13","dino3","dino6","vatra"]))||((configName _ort) in ["TaffGrove","klavze","kneza","cavepredil",
+			If (((_typ in ["NameCityCapital","NameCity","NameVillage","FlatAreaCitySmall","CityCenter"])and(!((configName _ort) in ["dino2","dino13","dino3","dino6","vatra"])))||((configName _ort) in ["TaffGrove","klavze","kneza","cavepredil",
 																																							"bovec","Tolmin","kranjskagora","dovje",
 																																							"mojstrana","lesce","begunje","Studor",
 																																							"zuma","Rockburn","Foxhill","skooma","Belley",
