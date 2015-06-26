@@ -202,13 +202,9 @@ switch (_rand) do {
 		dorb_veh_aa			= ["rhs_zsu234_aa"];
 		
 		dorb_veh_truck		= [	"RHS_Ural_VDV_01",
-								"RHS_Ural_Flat_VDV_01",
 								"RHS_Ural_Open_VDV_01",
-								"RHS_Ural_Open_Flat_VDV_01",
 								"rhs_gaz66_vdv",
 								"rhs_gaz66o_vdv",
-								"rhs_gaz66_flat_vdv",
-								"rhs_gaz66o_flat_vdv"
 								];
 		dorb_veh_car		= [	"rhs_tigr_VDV",
 								"rhs_tigr_ffv_vdv",
@@ -336,13 +332,9 @@ switch (_rand) do {
 		dorb_veh_aa			= ["rhs_zsu234_aa"];
 		
 		dorb_veh_truck		= [	"RHS_Ural_VDV_01",
-								"RHS_Ural_Flat_VDV_01",
 								"RHS_Ural_Open_VDV_01",
-								"RHS_Ural_Open_Flat_VDV_01",
 								"rhs_gaz66_vdv",
 								"rhs_gaz66o_vdv",
-								"rhs_gaz66_flat_vdv",
-								"rhs_gaz66o_flat_vdv"
 								];
 		dorb_veh_car		= [	"rhs_tigr_VDV",
 								"rhs_tigr_ffv_vdv",
@@ -472,13 +464,9 @@ switch (_rand) do {
 		dorb_veh_aa			= ["rhs_zsu234_aa"];
 		
 		dorb_veh_truck		= [	"RHS_Ural_VDV_01",
-								"RHS_Ural_Flat_VDV_01",
 								"RHS_Ural_Open_VDV_01",
-								"RHS_Ural_Open_Flat_VDV_01",
 								"rhs_gaz66_vdv",
 								"rhs_gaz66o_vdv",
-								"rhs_gaz66_flat_vdv",
-								"rhs_gaz66o_flat_vdv"
 								];
 		dorb_veh_car		= [	"rhs_tigr_VDV",
 								"rhs_tigr_ffv_vdv",
@@ -609,13 +597,9 @@ switch (_rand) do {
 		dorb_veh_aa			= [	"rhs_zsu234_aa"];
 		
 		dorb_veh_truck		= [	"RHS_Ural_MSV_01",
-								"RHS_Ural_Flat_MSV_01",
 								"RHS_Ural_Open_MSV_01",
-								"RHS_Ural_Open_Flat_MSV_01",
 								"rhs_gaz66_msv",
-								"rhs_gaz66_flat_msv",
-								"rhs_gaz66o_msv",
-								"rhs_gaz66o_flat_msv"
+								"rhs_gaz66o_msv"
 								];
 		dorb_veh_car		= [	"rhs_tigr_msv",
 								"rhs_tigr_ffv_msv",
@@ -744,13 +728,9 @@ switch (_rand) do {
 		dorb_veh_aa			= [	"rhs_zsu234_aa"];
 		
 		dorb_veh_truck		= [	"RHS_Ural_MSV_01",
-								"RHS_Ural_Flat_MSV_01",
 								"RHS_Ural_Open_MSV_01",
-								"RHS_Ural_Open_Flat_MSV_01",
 								"rhs_gaz66_msv",
-								"rhs_gaz66_flat_msv",
-								"rhs_gaz66o_msv",
-								"rhs_gaz66o_flat_msv"
+								"rhs_gaz66o_msv"
 								];
 		dorb_veh_car		= [	"rhs_tigr_msv",
 								"rhs_tigr_ffv_msv",

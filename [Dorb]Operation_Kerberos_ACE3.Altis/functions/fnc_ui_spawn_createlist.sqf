@@ -195,6 +195,18 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
 			
 			};
 			
+			if(_vClass=="BWA3_VehClass_Wheeled_Tropen") then {
+			
+				_spawnliste_fahrzeug_unbewaffnet pushBack [_class,_pic ,"BW", (call(_DNameBW)), _DName, _icon];
+			
+			};
+			
+			if(_vClass=="BWA3_VehClass_Wheeled_Fleck") then {
+			
+				_spawnliste_fahrzeug_unbewaffnet pushBack [_class,_pic ,"BW", (call(_DNameBW)), _DName, _icon];
+			
+			};
+			
 			if((_vClass=="Support")and(_side==1)) then {
 			
 				_spawnliste_support pushBack [_class,_pic ,"BIS", (call(_DNameBIS)), _DName, _icon];
