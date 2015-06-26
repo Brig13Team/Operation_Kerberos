@@ -70,6 +70,20 @@ If (_difficulty > 2) then {
 	//[_position,1500,1,0] spawn FM(spawn_patrol_air);	sleep 7;
 };
 
+If (worldName == "Panthera3") then {
+	If (DORB_MODS_RDS) then {
+		[_position] spawn {
+			_position = _this select 0;
+			for "_i" from 0 to 4 do {
+				_spawnposition = [_position,300,0] call FM(random_pos);
+				[_spawnposition] spawn FM(spawn_aapos);
+				sleep 5;
+			};
+		};
+	};
+};
+
+
 for "_i" from 0 to 1 do {
 	_spawnposition = [_position,200,0] call FM(random_pos);
 	[_spawnposition] spawn FM(spawn_tower);

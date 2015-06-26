@@ -97,6 +97,24 @@ If (_difficulty > 4) then {
 */
 LOG("Spawn Sonstiges Macros");
 
+
+If (worldName == "Panthera3") then {
+	If (DORB_MODS_RDS) then {
+		[_position] spawn {
+			_position = _this select 0;
+			for "_i" from 0 to 5 do {
+				_spawnposition = [_position,800,0] call FM(random_pos);
+				[_spawnposition] spawn FM(spawn_aapos);
+				sleep 5;
+			};
+		};
+	};
+};
+
+
+
+
+
 _spawnposition=[];
 for "_i" from 0 to (2) do {
 	_rand = (floor(random 3));

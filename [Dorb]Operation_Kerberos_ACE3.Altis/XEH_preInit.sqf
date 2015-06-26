@@ -7,7 +7,6 @@ TRIPLES(dorb,makro,putinlog) = compileFinal "Private['_file','_line','_message',
 TRIPLES(dorb,makro,selectrandom) = compileFinal "If(count _this < 1) exitwith {[]};(_this) select floor random count (_this);";
 TRIPLES(dorb,makro,delete) = compileFinal "If(if (isNil {_this}) then { false } else { (typeName _this) == 'ARRAY' })exitWith{{_x call dorb_makro_delete;}forEach _this;};If(if (isNil {_this}) then { false } else { (typeName _this) == 'GROUP' })exitWith{deletegroup _this;};If(if (isNil {_this}) then { false } else { (typeName _this) == 'OBJECT' })exitWith{{_this deleteVehicleCrew _x} forEach crew _this; deleteVehicle _this;};If(if (isNil {_this}) then { false } else { (typeName _this) == 'STRING' })exitWith{deleteMarker _this};diag_log text format['TILGE: Nicht unterstuetzt | %1',_this];";
 
-
 //Allgemeines
 PREPMAIN(determineHC);
 PREPMAIN(get_buildings);
@@ -17,6 +16,7 @@ PREPMAIN(local);
 PREPMAIN(local_check);
 PREPMAIN(moveToHC);
 PREPMAIN(random_pos);
+
 
 //Spielerbezogen
 PREPMAIN(addbriefing);

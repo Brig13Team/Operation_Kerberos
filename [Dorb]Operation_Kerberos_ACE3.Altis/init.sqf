@@ -10,9 +10,6 @@
 /// RDS
 DORB_MODS_RDS = (isClass(configFile >> "CfgPatches" >> "RDS_StaticWeapons_Core"));
 
-
-
-
 enableSaving [false, false];
 enableRadio false;
 

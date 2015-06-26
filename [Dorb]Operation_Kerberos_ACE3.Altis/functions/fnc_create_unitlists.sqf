@@ -846,7 +846,7 @@ If (DORB_MODS_RDS) then {
 								"RDS_Igla_AA_pod_AAF",
 								"RDS_ZU23_AAF"
 							];
-	dorb_staticlist pushBack [
+	dorb_staticlist append [
 								"RDS_AGS_AAF",
 								"RDS_DSHKM_AAF",
 								//"RDS_DSHkM_Mini_TriPod",
