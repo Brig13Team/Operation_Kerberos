@@ -18,13 +18,13 @@ LOG("Commandveh Tanks");
 PARAMS_1(_position);
 private["_spawnpos","_spawnposition","_einheit","_dir","_return","_veh","_panzer","_attack_pos","_rand","_pos","_einheit","_gruppe","_a"];
 _spawnposition=[];
-_einheit = "rhs_gaz66_r142_vv";
+_einheit = dorb_commandveh_radio SELRND;
 _spawnposition = [_position,200,0] call FM(random_pos);
 _spawnposition = _spawnposition findEmptyPosition [1,100,_einheit];				//// to do: isFlatEmpty
 if (count _spawnposition < 1) exitWith {ERROR("Keine Spawnposition | Commandveh Tanks");};
 
 _dir = floor(random 360);
-_return = [_spawnposition,_dir,_einheit,EAST] call BIS_fnc_spawnVehicle;
+_return = [_spawnposition,_dir,_einheit,dorb_commandveh_side] call BIS_fnc_spawnVehicle;
 _veh = (_return select 0);
 _veh setFuel 0;
 _veh lock 3;

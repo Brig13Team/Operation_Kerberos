@@ -28,7 +28,7 @@ if (count _spawnposition < 1) exitWith {
 };
 
 _dir = floor(random 360);
-_return = [_spawnposition,_dir,_einheit,EAST] call BIS_fnc_spawnVehicle;
+_return = [_spawnposition,_dir,_einheit,dorb_commandveh_side] call BIS_fnc_spawnVehicle;
 _arty = (_return select 0);
 _arty setFuel 0;
 for "_i" from 0 to 4 do {

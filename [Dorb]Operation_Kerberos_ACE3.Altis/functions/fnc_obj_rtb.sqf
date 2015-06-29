@@ -14,7 +14,7 @@
 CHECK(!isServer)
 PARAMS_1(_position);
 private["_position_home"];
-_position_home = getMarkerPos "respawn_west";
+_position_home = getMarkerPos DORB_RESPAWNMARKER;
 
 //////////////////////////////////////////////////
 ////// Nachricht anzeigen 					 /////

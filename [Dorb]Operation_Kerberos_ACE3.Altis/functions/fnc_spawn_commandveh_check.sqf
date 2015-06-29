@@ -38,7 +38,7 @@ switch (_type) do {
 	};
 	case 1 : {
 		{
-			If ((vehicle _x) isKindOf "Air") then {
+			If (((vehicle _x) isKindOf "Air")&&(!((vehicle _x) isKindOf "ParachuteBase"))) then {
 				_player_pos = getPosATL _x;
 				if ((_player_pos distance _pos) < 5000) then {
 					_targets pushBack (_player_pos);

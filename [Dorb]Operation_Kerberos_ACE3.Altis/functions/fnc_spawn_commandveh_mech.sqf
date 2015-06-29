@@ -18,14 +18,14 @@ LOG("Commandveh Mech");
 PARAMS_1(_position);
 Private["_spawn_array","_spawnpos","_spawnposition","_einheit","_dir","_return","_veh","_attack_pos","_rand","_pos","_transporter","_jaeger","_jaeger_gruppe","_platzanzahl"];
 _spawnposition=[];
-_einheit = "rhs_gaz66_r142_vdv";
+_einheit = dorb_commandveh_radio SELRND;
 
 _spawnposition = [_position,200,0] call FM(random_pos);
 _spawnposition = _spawnposition findEmptyPosition [1,100,_einheit];				//// to do: isFlatEmpty
 if (count _spawnposition < 1) exitWith {ERROR("Keine Spawnposition | Commandveh Mech");};
 
 _dir = floor(random 360);
-_return = [_spawnposition,_dir,_einheit,EAST] call BIS_fnc_spawnVehicle;
+_return = [_spawnposition,_dir,_einheit,dorb_commandveh_side] call BIS_fnc_spawnVehicle;
 _veh = (_return select 0);
 _veh setFuel 0;
 _veh lock 3;

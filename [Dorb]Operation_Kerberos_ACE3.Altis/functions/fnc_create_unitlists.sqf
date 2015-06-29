@@ -101,7 +101,9 @@ switch (_rand) do {
 	case 3: {
 		///VDV
 		dorb_side = east;
-		
+		dorb_commandveh_radio = ["rhs_gaz66_r142_vdv"];
+		dorb_commandveh_arty = ["rhs_prp3_tv"];
+		dorb_commandveh_side = east;
 		dorb_radar = ["rhs_p37","rhs_prv13"];
 		dorb_device = ["Land_Device_assembled_F"];
 		dorb_commanderlist = ["rhs_vdv_officer_armored","rhs_vdv_officer"];
@@ -230,7 +232,9 @@ switch (_rand) do {
 	case 4: {
 		//VDV_FLORA
 		dorb_side = east;
-		
+		dorb_commandveh_radio = ["rhs_gaz66_r142_vdv"];
+		dorb_commandveh_arty = ["rhs_prp3_tv"];
+		dorb_commandveh_side = east;
 		dorb_radar = ["rhs_p37","rhs_prv13"];
 		dorb_device = ["Land_Device_assembled_F"];
 		dorb_commanderlist = ["rhs_vdv_flora_officer_armored","rhs_vdv_flora_officer"];
@@ -361,7 +365,9 @@ switch (_rand) do {
 	case 5: {
 		//VDV_MFLORA
 		dorb_side = east;
-		
+		dorb_commandveh_radio = ["rhs_gaz66_r142_vdv"];
+		dorb_commandveh_arty = ["rhs_prp3_tv"];
+		dorb_commandveh_side = east;
 		dorb_radar = ["rhs_p37","rhs_prv13"];
 		dorb_device = ["Land_Device_assembled_F"];
 		dorb_commanderlist = ["rhs_vdv_mflora_officer_armored","rhs_vdv_mflora_officer"];
@@ -493,7 +499,9 @@ switch (_rand) do {
 	case 6: {
 		//MSV
 		dorb_side = east;
-		
+		dorb_commandveh_radio = ["rhs_gaz66_r142_vv"];
+		dorb_commandveh_arty = ["rhs_prp3_tv"];
+		dorb_commandveh_side = east;
 		dorb_radar = ["rhs_p37","rhs_prv13"];
 		dorb_device = ["Land_Device_assembled_F"];
 		dorb_commanderlist = ["rhs_msv_officer_armored","rhs_msv_officer"];
@@ -626,7 +634,9 @@ switch (_rand) do {
 	case 7: {
 		///MSV_EMR
 		dorb_side = east;
-		
+		dorb_commandveh_radio = ["rhs_gaz66_r142_vv"];
+		dorb_commandveh_arty = ["rhs_prp3_tv"];
+		dorb_commandveh_side = east;
 		dorb_radar = ["rhs_p37","rhs_prv13"];
 		dorb_device = ["Land_Device_assembled_F"];
 		dorb_commanderlist = ["rhs_msv_officer_armored","rhs_msv_officer"];
@@ -756,7 +766,9 @@ switch (_rand) do {
 	case 8: {
 	
 		dorb_side = resistance;
-		
+		dorb_commandveh_radio = ["rhs_gaz66_r142_vv"];
+		dorb_commandveh_arty = ["rhs_prp3_tv"];
+		dorb_commandveh_side = east;
 		dorb_radar = ["rhs_p37","rhs_prv13"];
 		dorb_device = ["Land_Device_assembled_F"];
 		dorb_commanderlist = ["rhs_msv_officer_armored","rhs_msv_officer"];

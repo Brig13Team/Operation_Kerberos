@@ -12,7 +12,7 @@ Private["_teleporter","_ctrl"];
 disableSerialization;
 _teleporter = [
 	/// ["",""],      /// Beispiel zum Ausschalten von einem Teleport
-	[localize "STR_DORB_TELEPORT_BASE"		,"closeDialog 600300;player setposatl (getMarkerPos 'respawn_west')"],
+	[localize "STR_DORB_TELEPORT_BASE"		,"closeDialog 600300;player setposatl (getMarkerPos DORB_RESPAWNMARKER)"],
 	[localize "STR_DORB_TELEPORT_VEHICLES"	,"closeDialog 600300;player setposatl (getMarkerPos 'teleport_fahrzeuge')"],
 	[localize "STR_DORB_TELEPORT_AIR"		,"closeDialog 600300;player setposatl (getMarkerPos 'teleport_luftwaffe')"],
 	[localize "STR_DORB_TELEPORT_DRONES"	,"closeDialog 600300;player setposatl (getMarkerPos 'teleport_drohnen')"],

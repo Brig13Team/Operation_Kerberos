@@ -18,13 +18,13 @@ LOG("Commandveh Artillery");
 PARAMS_1(_position);
 private["_dir","_spawnposition","_einheit","_return","_veh","_rand_pos","_attack_pos"];
 _spawnposition=[];
-_einheit = "rhs_prp3_tv";
+_einheit = dorb_commandveh_arty SELRND;
 _spawnposition = [_position,200,0] call FM(random_pos);
 _spawnposition = _spawnposition findEmptyPosition [1,100,_einheit];				//// to do: isFlatEmpty
 if (count _spawnposition < 1) exitWith {ERROR("Keine Spawnposition | Commandveh Artillery");};
 
 _dir = floor(random 360);
-_return = [_spawnposition,_dir,_einheit,EAST] call BIS_fnc_spawnVehicle;
+_return = [_spawnposition,_dir,_einheit,dorb_commandveh_side] call BIS_fnc_spawnVehicle;
 _veh = (_return select 0);
 [_veh, _position, 400] call CBA_fnc_taskPatrol;
 _veh lock 3;

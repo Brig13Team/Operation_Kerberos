@@ -14,7 +14,7 @@ _spawnposition = [_position,200,0] call FM(random_pos);
 _spawnposition = _spawnposition findEmptyPosition [1,100,_einheit];
 if (count _spawnposition < 1) exitWith {ERROR("Keine Spawnposition | Commandveh AI");};
 _dir = floor(random 360);
-_return = [_spawnposition,_dir,_einheit,EAST] call BIS_fnc_spawnVehicle;
+_return = [_spawnposition,_dir,_einheit,dorb_commandveh_side] call BIS_fnc_spawnVehicle;
 _veh = (_return select 0);
 
 SETVAR(_veh,DORB_HASAI,false);
