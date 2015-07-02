@@ -33,7 +33,14 @@ If (DORB_PLAYERSIDE == east) then {
 	dorb_prototyp = ["O_MBT_02_cannon_F","O_APC_Wheeled_02_rcws_F","O_APC_Tracked_02_cannon_F","O_Heli_Attack_02_black_F"];
 	dorb_sniper = ["B_ghillie_ard_F","B_ghillie_lsh_F","B_ghillie_sard_F"];
 	_rand = [_this,0,0,[0]] call BIS_fnc_param;
-	If (_rand < 1) then {_rand = ((floor(random 5))+ 21);};
+	If (_rand < 1) then {
+		ISNILS(DORB_MODS_BWA,false);
+		If (DORB_MODS_BWA) then {
+			_rand = ((floor(random 6))+ 21);
+		}else{
+			_rand = ((floor(random 4))+ 21);
+		};
+	};
 	dorb_side_nr = _rand;
 };
 
@@ -860,7 +867,7 @@ switch (_rand) do {
 						"rhsusf_army_ocp_rifleman_1stcav","rhsusf_army_ocp_rifleman_82nd","rhsusf_army_ocp_rifleman_101st","rhsusf_army_ocp_rifleman_10th",
 						"rhsusf_army_ocp_rifleman_m4", "rhsusf_army_ocp_officer", "rhsusf_army_ocp_explosives"
 						];
-		dorb_diverlist = ["O_diver_f","O_diver_exp_f","O_diver_TL_f","O_diver_f","O_diver_exp_f","O_diver_f"];
+		dorb_diverlist = ["B_diver_f","B_diver_exp_f","B_diver_TL_f","B_diver_f","B_diver_exp_f","B_diver_f"];
 		dorb_crewmenlist = ["rhsusf_army_ucp_crewman"];
 	
 		dorb_grouplist_inf = [																									
@@ -904,11 +911,11 @@ switch (_rand) do {
 		dorb_veh_truck		= ["rhsusf_M1078A1P2_B_d_fmtv_usarmy","rhsusf_M1078A1P2_B_d_open_fmtv_usarmy","rhsusf_M1078A1P2_d_fmtv_usarmy","rhsusf_M1078A1P2_d_open_fmtv_usarmy","rhsusf_M1083A1P2_B_d_fmtv_usarmy","rhsusf_M1083A1P2_B_d_open_fmtv_usarmy","rhsusf_M1083A1P2_d_fmtv_usarmy","rhsusf_M1083A1P2_d_open_fmtv_usarmy","rhsusf_M1078A1P2_B_M2_d_fmtv_usarmy","rhsusf_M1078A1P2_B_M2_d_open_fmtv_usarmy","rhsusf_M1083A1P2_B_M2_d_fmtv_usarmy","rhsusf_M1083A1P2_B_M2_d_open_fmtv_usarmy"];
 		dorb_veh_car			= ["rhsusf_rg33_d"];
 		dorb_veh_arty			= ["rhsusf_m109d_usarmy"];
-		dorb_veh_mortar		= ["O_Mortar_01_F"];
+		dorb_veh_mortar		= ["B_Mortar_01_F"];
 		
-		dorb_staticlist 		= ["RHS_M2StaticMG_D","O_static_AT_F","O_static_AA_F","RHS_M2StaticMG_MiniTripod_D","RHS_MK19_TriPod_D"];
+		dorb_staticlist 		= ["RHS_M2StaticMG_D","B_static_AT_F","B_static_AA_F","RHS_M2StaticMG_MiniTripod_D","RHS_MK19_TriPod_D"];
 	
-		dorb_patrolboatlist 	= ["O_Boat_Armed_01_hmg_F"];
+		dorb_patrolboatlist 	= ["B_Boat_Armed_01_hmg_F"];
 	
 		dorb_transport_heli_list = ["RHS_UH60M_d","RHS_UH60M_MEV_d","RHS_UH60M_MEV2_d","RHS_CH_47F_10","RHS_CH_47F_light"];
 		dorb_attack_heli_list 	= ["RHS_AH64D","RHS_AH64D_GS","RHS_AH64D_CS","RHS_AH64D_AA","RHS_AH64DGrey"];
@@ -937,7 +944,7 @@ switch (_rand) do {
 						"rhsusf_army_ocp_combatcrewman", "rhsusf_army_ocp_driver", "rhsusf_army_ocp_helipilot", "rhsusf_army_ocp_helicrew",
 						"rhsusf_army_ucp_rifleman_1stcav","rhsusf_army_ucp_rifleman_82nd", "rhsusf_army_ucp_rifleman_101st", "rhsusf_army_ucp_rifleman_10th",
 						"rhsusf_army_ucp_rifleman_m4","rhsusf_army_ucp_officer", "rhsusf_army_ucp_explosives"];
-		dorb_diverlist = ["O_diver_f","O_diver_exp_f","O_diver_TL_f","O_diver_f","O_diver_exp_f","O_diver_f"];
+		dorb_diverlist = ["B_diver_f","B_diver_exp_f","B_diver_TL_f","B_diver_f","B_diver_exp_f","B_diver_f"];
 		dorb_crewmenlist = ["rhsusf_army_ocp_crewman"];
 	
 		dorb_grouplist_inf = [																									
@@ -981,11 +988,11 @@ switch (_rand) do {
 		dorb_veh_truck		= ["rhsusf_M1078A1P2_B_wd_fmtv_usarmy","rhsusf_M1078A1P2_B_wd_open_fmtv_usarmy","rhsusf_M1078A1P2_wd_fmtv_usarmy","rhsusf_M1078A1P2_wd_open_fmtv_usarmy","rhsusf_M1083A1P2_B_wd_fmtv_usarmy","rhsusf_M1083A1P2_B_wd_open_fmtv_usarmy","rhsusf_M1083A1P2_wd_fmtv_usarmy","rhsusf_M1083A1P2_wd_open_fmtv_usarmy","rhsusf_M1078A1P2_B_M2_wd_fmtv_usarmy","rhsusf_M1078A1P2_B_M2_wd_open_fmtv_usarmy","rhsusf_M1083A1P2_B_M2_wd_fmtv_usarmy","rhsusf_M1083A1P2_B_M2_wd_open_fmtv_usarmy"];
 		dorb_veh_car			= ["rhsusf_rg33_wd"];
 		dorb_veh_arty			= ["rhsusf_m109_usarmy"];
-		dorb_veh_mortar		= ["O_Mortar_01_F"];
+		dorb_veh_mortar		= ["B_Mortar_01_F"];
 		
-		dorb_staticlist 		= ["O_static_AT_F","O_static_AA_F","RHS_MK19_TriPod_WD","RHS_M2StaticMG_WD","RHS_M2StaticMG_MiniTripod_WD"];
+		dorb_staticlist 		= ["B_static_AT_F","B_static_AA_F","RHS_MK19_TriPod_WD","RHS_M2StaticMG_WD","RHS_M2StaticMG_MiniTripod_WD"];
 	
-		dorb_patrolboatlist 	= ["O_Boat_Armed_01_hmg_F"];
+		dorb_patrolboatlist 	= ["B_Boat_Armed_01_hmg_F"];
 	
 		dorb_transport_heli_list = ["RHS_UH60M","RHS_UH60M_MEV","RHS_UH60M_MEV2","RHS_CH_47F"];
 		dorb_attack_heli_list 	= ["RHS_AH64D_wd","RHS_AH64D_wd_GS","RHS_AH64D_wd_CS","RHS_AH64D_wd_AA"];
@@ -1017,7 +1024,7 @@ switch (_rand) do {
 						"rhsusf_usmc_marpat_d_driver", "rhsusf_usmc_marpat_d_helipilot", "rhsusf_usmc_marpat_d_helicrew",
 						"rhsusf_usmc_marpat_d_rifleman_light", "rhsusf_usmc_marpat_d_fso","rhsusf_usmc_marpat_d_jfo", "rhsusf_usmc_marpat_d_explosives"
 						];
-		dorb_diverlist = ["O_diver_f","O_diver_exp_f","O_diver_TL_f","O_diver_f","O_diver_exp_f","O_diver_f"];
+		dorb_diverlist = ["B_diver_f","B_diver_exp_f","B_diver_TL_f","B_diver_f","B_diver_exp_f","B_diver_f"];
 		dorb_crewmenlist = ["rhsusf_usmc_marpat_d_crewman"];
 	
 		dorb_grouplist_inf = [																									
@@ -1061,11 +1068,11 @@ switch (_rand) do {
 		dorb_veh_truck		= ["B_Truck_01_covered_F","B_Truck_01_transport_F"];
 		dorb_veh_car			= ["rhsusf_rg33_usmc_d"];
 		dorb_veh_arty			= ["rhsusf_m109d_usarmy"];
-		dorb_veh_mortar		= ["O_Mortar_01_F"];
+		dorb_veh_mortar		= ["B_Mortar_01_F"];
 		
-		dorb_staticlist 		= ["RHS_M2StaticMG_D","O_static_AT_F","O_static_AA_F","RHS_M2StaticMG_MiniTripod_D","RHS_MK19_TriPod_D"];
+		dorb_staticlist 		= ["RHS_M2StaticMG_D","B_static_AT_F","B_static_AA_F","RHS_M2StaticMG_MiniTripod_D","RHS_MK19_TriPod_D"];
 	
-		dorb_patrolboatlist 	= ["O_Boat_Armed_01_hmg_F"];
+		dorb_patrolboatlist 	= ["B_Boat_Armed_01_hmg_F"];
 	
 		dorb_transport_heli_list = ["RHS_UH1Y_d","RHS_UH1Y_FFAR_d","RHS_UH1Y_UNARMED_d"];
 		dorb_attack_heli_list 	= ["RHS_AH1Z","RHS_AH1Z_GS","RHS_AH1Z_CS"];
@@ -1093,7 +1100,7 @@ switch (_rand) do {
 							"rhsusf_usmc_marpat_wd_marksman", "rhsusf_usmc_marpat_wd_spotter", "rhsusf_usmc_marpat_wd_sniper", "rhsusf_usmc_marpat_wd_crewman", "rhsusf_usmc_marpat_wd_combatcrewman",
 							"rhsusf_usmc_marpat_wd_driver", "rhsusf_usmc_marpat_wd_helipilot", "rhsusf_usmc_marpat_wd_helicrew",
 							"rhsusf_usmc_marpat_wd_rifleman_light", "rhsusf_usmc_marpat_wd_jfo","rhsusf_usmc_marpat_wd_fso", "rhsusf_usmc_marpat_wd_explosives"];
-		dorb_diverlist = ["O_diver_f","O_diver_exp_f","O_diver_TL_f","O_diver_f","O_diver_exp_f","O_diver_f"];
+		dorb_diverlist = ["B_diver_f","B_diver_exp_f","B_diver_TL_f","B_diver_f","B_diver_exp_f","B_diver_f"];
 		dorb_crewmenlist = ["rhsusf_usmc_marpat_wd_crewman"];
 	
 		dorb_grouplist_inf = [																									
@@ -1128,11 +1135,11 @@ switch (_rand) do {
 		dorb_veh_truck		= ["B_Truck_01_covered_F","B_Truck_01_transport_F"];
 		dorb_veh_car			= ["rhsusf_rg33_usmc_wd"];
 		dorb_veh_arty			= ["rhsusf_m109_usarmy"];
-		dorb_veh_mortar		= ["O_Mortar_01_F"];
+		dorb_veh_mortar		= ["B_Mortar_01_F"];
 		
-		dorb_staticlist 		= ["O_static_AT_F","O_static_AA_F","RHS_MK19_TriPod_WD","RHS_M2StaticMG_WD","RHS_M2StaticMG_MiniTripod_WD"];
+		dorb_staticlist 		= ["B_static_AT_F","B_static_AA_F","RHS_MK19_TriPod_WD","RHS_M2StaticMG_WD","RHS_M2StaticMG_MiniTripod_WD"];
 	
-		dorb_patrolboatlist 	= ["O_Boat_Armed_01_hmg_F"];
+		dorb_patrolboatlist 	= ["B_Boat_Armed_01_hmg_F"];
 	
 		dorb_transport_heli_list = ["RHS_UH1Y","RHS_UH1Y_FFAR","RHS_UH1Y_UNARMED"];
 		dorb_attack_heli_list 	= ["RHS_AH1Z_wd","RHS_AH1Z_wd_GS","RHS_AH1Z_wd_CS"];
@@ -1171,7 +1178,7 @@ switch (_rand) do {
 							"BWA3_TL_Tropen",
 							"BWA3_SL_Tropen",
 							"BWA3_Crew_Tropen"];
-		dorb_diverlist = ["O_diver_f","O_diver_exp_f","O_diver_TL_f","O_diver_f","O_diver_exp_f","O_diver_f"];
+		dorb_diverlist = ["B_diver_f","B_diver_exp_f","B_diver_TL_f","B_diver_f","B_diver_exp_f","B_diver_f"];
 		dorb_crewmenlist = ["BWA3_Crew_Tropen"];
 	
 		dorb_grouplist_inf = [																									
@@ -1196,11 +1203,11 @@ switch (_rand) do {
 		dorb_veh_truck		= ["B_Truck_01_covered_F","B_Truck_01_transport_F"];
 		dorb_veh_car			= ["B_MRAP_01_F"];
 		dorb_veh_arty			= ["B_MBT_01_arty_F"];
-		dorb_veh_mortar		= ["O_Mortar_01_F"];
+		dorb_veh_mortar		= ["B_Mortar_01_F"];
 		
-		dorb_staticlist 		= ["O_static_AT_F","O_static_AA_F","B_HMG_01_F","B_HMG_01_high_F","B_GMG_01_F","B_GMG_01_high_F"];
+		dorb_staticlist 		= ["B_static_AT_F","B_static_AA_F","B_HMG_01_F","B_HMG_01_high_F","B_GMG_01_F","B_GMG_01_high_F"];
 	
-		dorb_patrolboatlist 	= ["O_Boat_Armed_01_hmg_F"];
+		dorb_patrolboatlist 	= ["B_Boat_Armed_01_hmg_F"];
 	
 		dorb_transport_heli_list = ["B_Heli_Transport_01_F","B_Heli_Transport_03_F"];
 		dorb_attack_heli_list 	= ["B_Heli_Attack_01_F"];
@@ -1238,7 +1245,7 @@ switch (_rand) do {
 							"BWA3_TL_Fleck",
 							"BWA3_SL_Fleck",
 							"BWA3_Crew_Fleck"];
-		dorb_diverlist = ["O_diver_f","O_diver_exp_f","O_diver_TL_f","O_diver_f","O_diver_exp_f","O_diver_f"];
+		dorb_diverlist = ["B_diver_f","B_diver_exp_f","B_diver_TL_f","B_diver_f","B_diver_exp_f","B_diver_f"];
 		dorb_crewmenlist = ["BWA3_Crew_Fleck"];
 	
 		dorb_grouplist_inf = [																									
@@ -1263,11 +1270,11 @@ switch (_rand) do {
 		dorb_veh_truck		= ["B_Truck_01_covered_F","B_Truck_01_transport_F"];
 		dorb_veh_car			= ["B_MRAP_01_F"];
 		dorb_veh_arty			= ["B_MBT_01_arty_F"];
-		dorb_veh_mortar		= ["O_Mortar_01_F"];
+		dorb_veh_mortar		= ["B_Mortar_01_F"];
 		
-		dorb_staticlist 		= ["O_static_AT_F","O_static_AA_F","B_HMG_01_F","B_HMG_01_high_F","B_GMG_01_F","B_GMG_01_high_F"];
+		dorb_staticlist 		= ["B_static_AT_F","B_static_AA_F","B_HMG_01_F","B_HMG_01_high_F","B_GMG_01_F","B_GMG_01_high_F"];
 	
-		dorb_patrolboatlist 	= ["O_Boat_Armed_01_hmg_F"];
+		dorb_patrolboatlist 	= ["B_Boat_Armed_01_hmg_F"];
 	
 		dorb_transport_heli_list = ["B_Heli_Transport_01_F","B_Heli_Transport_03_F"];
 		dorb_attack_heli_list 	= ["B_Heli_Attack_01_F"];

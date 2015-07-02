@@ -9,7 +9,7 @@
 ////// Autodetection of Mods
 /// RDS
 DORB_MODS_RDS = (isClass(configFile >> "CfgPatches" >> "RDS_StaticWeapons_Core"));
-
+DORB_MODS_BWA = (isClass(configFile >> "CfgPatches" >> "BWA3_Tracked"));
 DORB_PLAYERSIDE = west;
 
 If (DORB_PLAYERSIDE == west) then {
