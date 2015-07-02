@@ -96,7 +96,7 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
 		_DNameRHS = 
 		{
 			_result = _DName;
-			_namearr = [_class,"_"] call BIS_fnc_splitString;
+			_namearr = [toLower(_class),"_"] call BIS_fnc_splitString;
 			//LOG_1(_namearr);
 			if (("vdv" in _namearr)) then {
 				_result = _result + " VDV";
@@ -161,7 +161,7 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
 			if (_vClass in ["rhs_vehclass_ifv","rhs_vehclass_tank","rhs_vehclass_artillery"])then {
 				_spawnliste_panzer_rhs pushBack [_class,_pic ,"RHS", (call(_DNameRHS)), _DName, _icon];
 			};
-			if (_vClass in ["rhs_vehclass_car","rhs_vehclass_truck","rhs_vehclass_MRAP"]) then {
+			if (_vClass in ["rhs_vehclass_car","rhs_vehclass_truck","rhs_vehclass_MRAP","rhs_vehclass_apc"]) then {
 				_spawnliste_fahrzeug_rhs pushBack [_class,_pic ,"RHS", (call(_DNameRHS)), _DName, _icon];
 			};
 			if (_vClass=="Static") then {

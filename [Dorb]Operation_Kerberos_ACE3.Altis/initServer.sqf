@@ -6,6 +6,8 @@
 */
 #include "script_component.hpp"
 
+waituntil{!isNil "DORB_RESPAWNMARKER"};
+
 [] spawn FM(core);
 [] spawn FM(ui_spawn_createlist);
 

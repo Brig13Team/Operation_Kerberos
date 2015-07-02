@@ -1,0 +1,1 @@
+Just copy these two files to your missiondir and override the existing files.
