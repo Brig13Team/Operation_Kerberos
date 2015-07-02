@@ -19,8 +19,11 @@ _return = [_spawnposition,_dir,_einheit,dorb_commandveh_side] call BIS_fnc_spawn
 _veh = (_return select 0);
 _veh setFuel 0;
 _veh lock 3;
-[_veh,1,true] spawn RHS_fnc_gaz66_radioDeploy;
-
+If (DORB_PLAYERSIDE == east) then {
+	[_veh,1] spawn rhs_fnc_fmtv_Deploy;
+}else{
+	[_veh,1,true] spawn RHS_fnc_gaz66_radioDeploy;
+};
 while {alive _veh} do {
 	LOG("COMMANDVEH-CHECK | Airdrop");
 	_attack_pos=[];

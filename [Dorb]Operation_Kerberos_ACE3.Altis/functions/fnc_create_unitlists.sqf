@@ -29,6 +29,15 @@ dorb_prototyp = ["B_MBT_01_TUSK_F","B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01
 
 dorb_sniper = ["O_ghillie_ard_F","O_ghillie_lsh_F","O_ghillie_sard_F"];
 
+If (DORB_PLAYERSIDE == east) then {
+	dorb_prototyp = ["O_MBT_02_cannon_F","O_APC_Wheeled_02_rcws_F","O_APC_Tracked_02_cannon_F","O_Heli_Attack_02_black_F"];
+	dorb_sniper = ["B_ghillie_ard_F","B_ghillie_lsh_F","B_ghillie_sard_F"];
+	_rand = [_this,0,0,[0]] call BIS_fnc_param;
+	If (_rand < 1) then {_rand = ((floor(random 5))+ 21);};
+	dorb_side_nr = _rand;
+};
+
+
 switch (_rand) do {
 	case 1: {
 	
@@ -830,6 +839,443 @@ switch (_rand) do {
 	
 		dorb_wpncache_list = ["Box_IND_Wps_F","Box_IND_WpsSpecial_F","Box_IND_WpsLaunch_F","Box_IND_Ammo_F","Box_IND_Grenades_F","Box_IND_Support_F"];
 		dorb_prototyp = ["B_APC_Wheeled_01_cannon_F"];
+	};
+	
+	case 21: {
+	
+		dorb_side = west;
+		dorb_commandveh_radio = ["rhsusf_M1083A1P2_B_M2_d_MHQ_fmtv_usarmy"];
+		dorb_commandveh_arty = ["rhsusf_m113d_usarmy"];
+		dorb_commandveh_side = west;
+		dorb_radar = ["rhs_p37","rhs_prv13"];
+		dorb_device = ["Land_Device_assembled_F"];
+		dorb_commanderlist = ["rhsusf_army_ocp_officer"];
+		
+		dorb_menlist = [	"rhsusf_army_ucp_rifleman","rhsusf_army_ucp_rifleman_m16","rhsusf_army_ucp_rifleman_m590","rhsusf_army_ucp_riflemanl",
+						"rhsusf_army_ucp_riflemanat","rhsusf_army_ucp_grenadier","rhsusf_army_ucp_autorifleman","rhsusf_army_ucp_autoriflemana",
+						"rhsusf_army_ucp_machinegunner","rhsusf_army_ucp_machinegunnera","rhsusf_army_ucp_squadleader","rhsusf_army_ucp_teamleader",
+						"rhsusf_army_ucp_javelin","rhsusf_army_ucp_aa","rhsusf_army_ucp_jfo","rhsusf_army_ucp_fso","rhsusf_army_ucp_engineer","rhsusf_army_ucp_marksman",
+						"rhsusf_army_ucp_medic","rhsusf_army_ucp_uav","rhsusf_army_ucp_sniper","rhsusf_army_ucp_crewman","rhsusf_army_ucp_combatcrewman",
+						"rhsusf_army_ucp_driver","rhsusf_army_ucp_helipilot","rhsusf_army_ucp_helicrew",
+						"rhsusf_army_ocp_rifleman_1stcav","rhsusf_army_ocp_rifleman_82nd","rhsusf_army_ocp_rifleman_101st","rhsusf_army_ocp_rifleman_10th",
+						"rhsusf_army_ocp_rifleman_m4", "rhsusf_army_ocp_officer", "rhsusf_army_ocp_explosives"
+						];
+		dorb_diverlist = ["O_diver_f","O_diver_exp_f","O_diver_TL_f","O_diver_f","O_diver_exp_f","O_diver_f"];
+		dorb_crewmenlist = ["rhsusf_army_ucp_crewman"];
+	
+		dorb_grouplist_inf = [																									
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_d_infantry" >> "rhs_group_nato_usarmy_d_infantry_squad",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_d_infantry" >> "rhs_group_nato_usarmy_d_infantry_squad_sniper",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_d_infantry" >> "rhs_group_nato_usarmy_d_infantry_team",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_d_infantry" >> "rhs_group_nato_usarmy_d_infantry_team_AA",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_d_infantry" >> "rhs_group_nato_usarmy_d_infantry_team_AT",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_d_infantry" >> "rhs_group_nato_usarmy_d_infantry_team_MG",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_d_infantry" >> "rhs_group_nato_usarmy_d_infantry_team_support",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_d_infantry" >> "rhs_group_nato_usarmy_d_infantry_weaponsquad"
+								];
+			
+		dorb_grouplist_sf = [
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_socom_marsoc" >> "rhs_group_nato_marsoc_infantry" >> "rhs_group_nato_marsoc_infantry_squad",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_socom_marsoc" >> "rhs_group_nato_marsoc_infantry" >> "rhs_group_nato_marsoc_infantry_squad_sniper",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_socom_marsoc" >> "rhs_group_nato_marsoc_infantry" >> "rhs_group_nato_marsoc_infantry_team"
+								];
+		
+		dorb_grouplist_mech = [];
+		
+		dorb_grouplist_panz = [	
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_d_m1a1" >> "RHS_M1A1AIM_Platoon",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_d_m1a1" >> "RHS_M1A1AIM_Platoon_AA",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_d_m1a1" >> "RHS_M1A1AIM_Section",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_d_m1a1" >> "RHS_M1A1AIM_TUSK_Platoon",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_d_m1a1" >> "RHS_M1A1AIM_TUSK_Platoon_AA",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_d_m1a1" >> "RHS_M1A1AIM_TUSK_Section",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_d_M1A2" >> "RHS_M1A2SEP_Platoon",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_d_M1A2" >> "RHS_M1A2SEP_Platoon_AA",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_d_M1A2" >> "RHS_M1A2SEP_Section",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_d_M1A2" >> "RHS_M1A2SEP_TUSK_Platoon",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_d_M1A2" >> "RHS_M1A2SEP_TUSK_Platoon_AA",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_d_M1A2" >> "RHS_M1A2SEP_TUSK_Section"
+								];
+	
+		dorb_veh_armored 		= [	"rhsusf_m1a2sep1d_usarmy","rhsusf_m1a2sep1tuskid_usarmy","rhsusf_m1a2sep1tuskiid_usarmy","rhsusf_m1a1aimd_usarmy","rhsusf_m1a1aim_tuski_d","RHS_M2A2","RHS_M2A2_BUSKI","RHS_M2A3","RHS_M2A3_BUSKI","RHS_M2A3_BUSKIII"];
+		dorb_veh_unarmored	= [	"rhsusf_m1025_d_m2","rhsusf_m1025_d_Mk19","rhsusf_rg33_m2_d","rhsusf_rg33_m2_d","rhsusf_rg33_m2_d"];
+		dorb_veh_aa			= [	"RHS_M6"];
+		
+		dorb_veh_truck		= ["rhsusf_M1078A1P2_B_d_fmtv_usarmy","rhsusf_M1078A1P2_B_d_open_fmtv_usarmy","rhsusf_M1078A1P2_d_fmtv_usarmy","rhsusf_M1078A1P2_d_open_fmtv_usarmy","rhsusf_M1083A1P2_B_d_fmtv_usarmy","rhsusf_M1083A1P2_B_d_open_fmtv_usarmy","rhsusf_M1083A1P2_d_fmtv_usarmy","rhsusf_M1083A1P2_d_open_fmtv_usarmy","rhsusf_M1078A1P2_B_M2_d_fmtv_usarmy","rhsusf_M1078A1P2_B_M2_d_open_fmtv_usarmy","rhsusf_M1083A1P2_B_M2_d_fmtv_usarmy","rhsusf_M1083A1P2_B_M2_d_open_fmtv_usarmy"];
+		dorb_veh_car			= ["rhsusf_rg33_d"];
+		dorb_veh_arty			= ["rhsusf_m109d_usarmy"];
+		dorb_veh_mortar		= ["O_Mortar_01_F"];
+		
+		dorb_staticlist 		= ["RHS_M2StaticMG_D","O_static_AT_F","O_static_AA_F","RHS_M2StaticMG_MiniTripod_D","RHS_MK19_TriPod_D"];
+	
+		dorb_patrolboatlist 	= ["O_Boat_Armed_01_hmg_F"];
+	
+		dorb_transport_heli_list = ["RHS_UH60M_d","RHS_UH60M_MEV_d","RHS_UH60M_MEV2_d","RHS_CH_47F_10","RHS_CH_47F_light"];
+		dorb_attack_heli_list 	= ["RHS_AH64D","RHS_AH64D_GS","RHS_AH64D_CS","RHS_AH64D_AA","RHS_AH64DGrey"];
+		dorb_patrol_air_list 	= ["RHS_A10"];
+		dorb_attack_air_list 	= ["RHS_A10"];
+		dorb_transport_list 	= ["RHS_C130J"];
+
+	
+		dorb_wpncache_list 	= ["Box_IND_Wps_F","Box_IND_WpsSpecial_F","Box_IND_WpsLaunch_F","Box_IND_Ammo_F","Box_IND_Grenades_F","Box_IND_Support_F"];
+	};
+	case 22: {
+	
+		dorb_side = west;
+		dorb_commandveh_radio = ["rhsusf_M1083A1P2_B_M2_d_MHQ_fmtv_usarmy"];
+		dorb_commandveh_arty = ["rhsusf_m113_usarmy"];
+		dorb_commandveh_side = west;
+		dorb_radar = ["rhs_p37","rhs_prv13"];
+		dorb_device = ["Land_Device_assembled_F"];
+		dorb_commanderlist = ["rhsusf_army_ucp_officer"];
+		
+		dorb_menlist = ["rhsusf_army_ocp_rifleman","rhsusf_army_ocp_rifleman_m16","rhsusf_army_ocp_rifleman_m590","rhsusf_army_ocp_riflemanl",
+						"rhsusf_army_ocp_riflemanat","rhsusf_army_ocp_grenadier","rhsusf_army_ocp_autorifleman","rhsusf_army_ocp_autoriflemana",
+						"rhsusf_army_ocp_machinegunner", "rhsusf_army_ocp_machinegunnera", "rhsusf_army_ocp_squadleader", "rhsusf_army_ocp_teamleader",
+						"rhsusf_army_ocp_javelin", "rhsusf_army_ocp_aa", "rhsusf_army_ocp_jfo", "rhsusf_army_ocp_fso", "rhsusf_army_ocp_engineer",
+						"rhsusf_army_ocp_marksman", "rhsusf_army_ocp_medic", "rhsusf_army_ocp_uav", "rhsusf_army_ocp_sniper", "rhsusf_army_ocp_crewman",
+						"rhsusf_army_ocp_combatcrewman", "rhsusf_army_ocp_driver", "rhsusf_army_ocp_helipilot", "rhsusf_army_ocp_helicrew",
+						"rhsusf_army_ucp_rifleman_1stcav","rhsusf_army_ucp_rifleman_82nd", "rhsusf_army_ucp_rifleman_101st", "rhsusf_army_ucp_rifleman_10th",
+						"rhsusf_army_ucp_rifleman_m4","rhsusf_army_ucp_officer", "rhsusf_army_ucp_explosives"];
+		dorb_diverlist = ["O_diver_f","O_diver_exp_f","O_diver_TL_f","O_diver_f","O_diver_exp_f","O_diver_f"];
+		dorb_crewmenlist = ["rhsusf_army_ocp_crewman"];
+	
+		dorb_grouplist_inf = [																									
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_wd_infantry" >> "rhs_group_nato_usarmy_wd_infantry_squad",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_wd_infantry" >> "rhs_group_nato_usarmy_wd_infantry_squad_sniper",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_wd_infantry" >> "rhs_group_nato_usarmy_wd_infantry_team",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_wd_infantry" >> "rhs_group_nato_usarmy_wd_infantry_team_AA",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_wd_infantry" >> "rhs_group_nato_usarmy_wd_infantry_team_AT",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_wd_infantry" >> "rhs_group_nato_usarmy_wd_infantry_team_MG",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_wd_infantry" >> "rhs_group_nato_usarmy_wd_infantry_team_support",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_wd_infantry" >> "rhs_group_nato_usarmy_wd_infantry_weaponsquad"
+								];
+			
+		dorb_grouplist_sf = [
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_socom_marsoc" >> "rhs_group_nato_marsoc_infantry" >> "rhs_group_nato_marsoc_infantry_squad",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_socom_marsoc" >> "rhs_group_nato_marsoc_infantry" >> "rhs_group_nato_marsoc_infantry_squad_sniper",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_socom_marsoc" >> "rhs_group_nato_marsoc_infantry" >> "rhs_group_nato_marsoc_infantry_team"
+								];
+		
+		dorb_grouplist_mech = [];
+		
+		dorb_grouplist_panz = [	
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_wd_m1a1" >> "RHS_M1A1AIM_wd_Platoon",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_wd_m1a1" >> "RHS_M1A1AIM_wd_Platoon_AA",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_wd_m1a1" >> "RHS_M1A1AIM_wd_Section",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_wd_m1a1" >> "RHS_M1A1AIM_wd_TUSK_Platoon",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_wd_m1a1" >> "RHS_M1A1AIM_wd_TUSK_Platoon_AA",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_wd_m1a1" >> "RHS_M1A1AIM_wd_TUSK_Section",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_wd_m1a1" >> "RHS_M1A2SEP_wd_Platoon",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_wd_m1a1" >> "RHS_M1A2SEP_wd_Platoon_AA",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_wd_m1a1" >> "RHS_M1A2SEP_wd_Section",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_wd_m1a1" >> "RHS_M1A2SEP_wd_TUSK_Platoon",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_wd_m1a1" >> "RHS_M1A2SEP_wd_TUSK_Platoon_AA",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_wd_m1a1" >> "RHS_M1A2SEP_wd_TUSK_Section"
+								];
+	
+		dorb_veh_armored 		= [	"rhsusf_m1a2sep1wd_usarmy","rhsusf_m1a2sep1tuskiwd_usarmy","rhsusf_m1a2sep1tuskiiwd_usarmy","rhsusf_m1a1aimwd_usarmy","rhsusf_m1a1aim_tuski_wd","RHS_M2A2_wd","RHS_M2A2_BUSKI_WD","RHS_M2A3_wd","RHS_M2A3_BUSKI_wd","RHS_M2A3_BUSKIII_wd"];
+		dorb_veh_unarmored	= [	"rhsusf_m1025_w_m2","rhsusf_m1025_w_mk19","rhsusf_rg33_m2_wd","rhsusf_rg33_m2_wd","rhsusf_rg33_m2_wd"];
+		dorb_veh_aa			= [	"RHS_M6_wd"];
+		
+		dorb_veh_truck		= ["rhsusf_M1078A1P2_B_wd_fmtv_usarmy","rhsusf_M1078A1P2_B_wd_open_fmtv_usarmy","rhsusf_M1078A1P2_wd_fmtv_usarmy","rhsusf_M1078A1P2_wd_open_fmtv_usarmy","rhsusf_M1083A1P2_B_wd_fmtv_usarmy","rhsusf_M1083A1P2_B_wd_open_fmtv_usarmy","rhsusf_M1083A1P2_wd_fmtv_usarmy","rhsusf_M1083A1P2_wd_open_fmtv_usarmy","rhsusf_M1078A1P2_B_M2_wd_fmtv_usarmy","rhsusf_M1078A1P2_B_M2_wd_open_fmtv_usarmy","rhsusf_M1083A1P2_B_M2_wd_fmtv_usarmy","rhsusf_M1083A1P2_B_M2_wd_open_fmtv_usarmy"];
+		dorb_veh_car			= ["rhsusf_rg33_wd"];
+		dorb_veh_arty			= ["rhsusf_m109_usarmy"];
+		dorb_veh_mortar		= ["O_Mortar_01_F"];
+		
+		dorb_staticlist 		= ["O_static_AT_F","O_static_AA_F","RHS_MK19_TriPod_WD","RHS_M2StaticMG_WD","RHS_M2StaticMG_MiniTripod_WD"];
+	
+		dorb_patrolboatlist 	= ["O_Boat_Armed_01_hmg_F"];
+	
+		dorb_transport_heli_list = ["RHS_UH60M","RHS_UH60M_MEV","RHS_UH60M_MEV2","RHS_CH_47F"];
+		dorb_attack_heli_list 	= ["RHS_AH64D_wd","RHS_AH64D_wd_GS","RHS_AH64D_wd_CS","RHS_AH64D_wd_AA"];
+		dorb_patrol_air_list 	= ["RHS_A10"];
+		dorb_attack_air_list 	= ["RHS_A10"];
+		dorb_transport_list 	= ["RHS_C130J"];
+
+	
+		dorb_wpncache_list 	= ["Box_IND_Wps_F","Box_IND_WpsSpecial_F","Box_IND_WpsLaunch_F","Box_IND_Ammo_F","Box_IND_Grenades_F","Box_IND_Support_F"];
+	};
+	
+////////////////////	
+	
+	case 23: {
+	
+		dorb_side = west;
+		dorb_commandveh_radio = ["rhsusf_M1083A1P2_B_M2_d_MHQ_fmtv_usarmy"];
+		dorb_commandveh_arty = ["rhsusf_m113d_usarmy"];
+		dorb_commandveh_side = west;
+		dorb_radar = ["rhs_p37","rhs_prv13"];
+		dorb_device = ["Land_Device_assembled_F"];
+		dorb_commanderlist = ["rhsusf_usmc_marpat_d_officer"];
+		
+		dorb_menlist = [	"rhsusf_usmc_marpat_d_rifleman", "rhsusf_usmc_marpat_d_rifleman_m4", "rhsusf_usmc_marpat_d_grenadier", "rhsusf_usmc_marpat_d_riflemanat",
+						"rhsusf_usmc_marpat_d_rifleman_m590", "rhsusf_usmc_marpat_d_autorifleman", "rhsusf_usmc_marpat_d_autorifleman_m249", "rhsusf_usmc_marpat_d_autorifleman_m249_ass",
+						"rhsusf_usmc_marpat_d_machinegunner", "rhsusf_usmc_marpat_d_machinegunner_ass", "rhsusf_usmc_marpat_d_officer", "rhsusf_usmc_marpat_d_squadleader",
+						"rhsusf_usmc_marpat_d_teamleader", "rhsusf_usmc_marpat_d_engineer", "rhsusf_usmc_marpat_d_uav", "rhsusf_usmc_marpat_d_javelin", "rhsusf_usmc_marpat_d_stinger",
+						"rhsusf_usmc_marpat_d_spotter", "rhsusf_usmc_marpat_d_marksman", "rhsusf_usmc_marpat_d_sniper", "rhsusf_usmc_marpat_d_crewman", "rhsusf_usmc_marpat_d_combatcrewman",
+						"rhsusf_usmc_marpat_d_driver", "rhsusf_usmc_marpat_d_helipilot", "rhsusf_usmc_marpat_d_helicrew",
+						"rhsusf_usmc_marpat_d_rifleman_light", "rhsusf_usmc_marpat_d_fso","rhsusf_usmc_marpat_d_jfo", "rhsusf_usmc_marpat_d_explosives"
+						];
+		dorb_diverlist = ["O_diver_f","O_diver_exp_f","O_diver_TL_f","O_diver_f","O_diver_exp_f","O_diver_f"];
+		dorb_crewmenlist = ["rhsusf_usmc_marpat_d_crewman"];
+	
+		dorb_grouplist_inf = [																									
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_infantry" >> "rhs_group_nato_usmc_d_infantry_squad",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_infantry" >> "rhs_group_nato_usmc_d_infantry_squad_sniper",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_infantry" >> "rhs_group_nato_usmc_d_infantry_team",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_infantry" >> "rhs_group_nato_usmc_d_infantry_team_AA",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_infantry" >> "rhs_group_nato_usmc_d_infantry_team_heavy_AT",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_infantry" >> "rhs_group_nato_usmc_d_infantry_team_MG",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_infantry" >> "rhs_group_nato_usmc_d_infantry_team_support",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_infantry" >> "rhs_group_nato_usmc_d_infantry_weaponsquad"
+								];
+			
+		dorb_grouplist_sf = [
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_socom_marsoc" >> "rhs_group_nato_marsoc_infantry" >> "rhs_group_nato_marsoc_infantry_squad",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_socom_marsoc" >> "rhs_group_nato_marsoc_infantry" >> "rhs_group_nato_marsoc_infantry_squad_sniper",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_socom_marsoc" >> "rhs_group_nato_marsoc_infantry" >> "rhs_group_nato_marsoc_infantry_team"
+								];
+		
+		dorb_grouplist_mech = [];
+		
+		dorb_grouplist_panz = [	
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_d_m1a1" >> "RHS_M1A1AIM_Platoon",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_d_m1a1" >> "RHS_M1A1AIM_Platoon_AA",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_d_m1a1" >> "RHS_M1A1AIM_Section",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_d_m1a1" >> "RHS_M1A1AIM_TUSK_Platoon",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_d_m1a1" >> "RHS_M1A1AIM_TUSK_Platoon_AA",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_d_m1a1" >> "RHS_M1A1AIM_TUSK_Section",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_d_M1A2" >> "RHS_M1A2SEP_Platoon",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_d_M1A2" >> "RHS_M1A2SEP_Platoon_AA",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_d_M1A2" >> "RHS_M1A2SEP_Section",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_d_M1A2" >> "RHS_M1A2SEP_TUSK_Platoon",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_d_M1A2" >> "RHS_M1A2SEP_TUSK_Platoon_AA",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d" >> "rhs_group_nato_usarmy_d_M1A2" >> "RHS_M1A2SEP_TUSK_Section"
+								];
+	
+		dorb_veh_armored 		= [	"rhsusf_m1a1fep_d"];
+		dorb_veh_unarmored	= [	"rhsusf_m1025_d_s_m2","rhsusf_m1025_d_s_Mk19","rhsusf_rg33_m2_usmc_d","rhsusf_rg33_m2_usmc_d","rhsusf_rg33_m2_usmc_d"];
+		dorb_veh_aa			= [	"RHS_M6"];
+		
+		dorb_veh_truck		= ["B_Truck_01_covered_F","B_Truck_01_transport_F"];
+		dorb_veh_car			= ["rhsusf_rg33_usmc_d"];
+		dorb_veh_arty			= ["rhsusf_m109d_usarmy"];
+		dorb_veh_mortar		= ["O_Mortar_01_F"];
+		
+		dorb_staticlist 		= ["RHS_M2StaticMG_D","O_static_AT_F","O_static_AA_F","RHS_M2StaticMG_MiniTripod_D","RHS_MK19_TriPod_D"];
+	
+		dorb_patrolboatlist 	= ["O_Boat_Armed_01_hmg_F"];
+	
+		dorb_transport_heli_list = ["RHS_UH1Y_d","RHS_UH1Y_FFAR_d","RHS_UH1Y_UNARMED_d"];
+		dorb_attack_heli_list 	= ["RHS_AH1Z","RHS_AH1Z_GS","RHS_AH1Z_CS"];
+		dorb_patrol_air_list 	= ["RHS_A10"];
+		dorb_attack_air_list 	= ["RHS_A10"];
+		dorb_transport_list 	= ["RHS_C130J"];
+
+	
+		dorb_wpncache_list 	= ["Box_IND_Wps_F","Box_IND_WpsSpecial_F","Box_IND_WpsLaunch_F","Box_IND_Ammo_F","Box_IND_Grenades_F","Box_IND_Support_F"];
+	};
+	case 24: {
+	
+		dorb_side = west;
+		dorb_commandveh_radio = ["rhsusf_M1083A1P2_B_M2_d_MHQ_fmtv_usarmy"];
+		dorb_commandveh_arty = ["rhsusf_m113_usarmy"];
+		dorb_commandveh_side = west;
+		dorb_radar = ["rhs_p37","rhs_prv13"];
+		dorb_device = ["Land_Device_assembled_F"];
+		dorb_commanderlist = ["rhsusf_usmc_marpat_wd_officer"];
+		
+		dorb_menlist = [		"rhsusf_usmc_marpat_wd_rifleman", "rhsusf_usmc_marpat_wd_rifleman_m4", "rhsusf_usmc_marpat_wd_grenadier", "rhsusf_usmc_marpat_wd_riflemanat",
+							"rhsusf_usmc_marpat_wd_rifleman_m590", "rhsusf_usmc_marpat_wd_autorifleman", "rhsusf_usmc_marpat_wd_autorifleman_m249", "rhsusf_usmc_marpat_wd_autorifleman_m249_ass",
+							"rhsusf_usmc_marpat_wd_machinegunner", "rhsusf_usmc_marpat_wd_machinegunner_ass", "rhsusf_usmc_marpat_wd_officer", "rhsusf_usmc_marpat_wd_squadleader",
+							"rhsusf_usmc_marpat_wd_teamleader", "rhsusf_usmc_marpat_wd_engineer", "rhsusf_usmc_marpat_wd_uav", "rhsusf_usmc_marpat_wd_javelin", "rhsusf_usmc_marpat_wd_stinger",
+							"rhsusf_usmc_marpat_wd_marksman", "rhsusf_usmc_marpat_wd_spotter", "rhsusf_usmc_marpat_wd_sniper", "rhsusf_usmc_marpat_wd_crewman", "rhsusf_usmc_marpat_wd_combatcrewman",
+							"rhsusf_usmc_marpat_wd_driver", "rhsusf_usmc_marpat_wd_helipilot", "rhsusf_usmc_marpat_wd_helicrew",
+							"rhsusf_usmc_marpat_wd_rifleman_light", "rhsusf_usmc_marpat_wd_jfo","rhsusf_usmc_marpat_wd_fso", "rhsusf_usmc_marpat_wd_explosives"];
+		dorb_diverlist = ["O_diver_f","O_diver_exp_f","O_diver_TL_f","O_diver_f","O_diver_exp_f","O_diver_f"];
+		dorb_crewmenlist = ["rhsusf_usmc_marpat_wd_crewman"];
+	
+		dorb_grouplist_inf = [																									
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_infantry" >> "rhs_group_nato_usmc_wd_infantry_squad",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_infantry" >> "rhs_group_nato_usmc_wd_infantry_squad_sniper",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_infantry" >> "rhs_group_nato_usmc_wd_infantry_team",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_infantry" >> "rhs_group_nato_usmc_wd_infantry_team_AA",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_infantry" >> "rhs_group_nato_usmc_wd_infantry_team_heavy_AT",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_infantry" >> "rhs_group_nato_usmc_wd_infantry_team_MG",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_infantry" >> "rhs_group_nato_usmc_wd_infantry_team_support",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_infantry" >> "rhs_group_nato_usmc_wd_infantry_weaponsquad"
+								];
+			
+		dorb_grouplist_sf = [
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_socom_marsoc" >> "rhs_group_nato_marsoc_infantry" >> "rhs_group_nato_marsoc_infantry_squad",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_socom_marsoc" >> "rhs_group_nato_marsoc_infantry" >> "rhs_group_nato_marsoc_infantry_squad_sniper",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_socom_marsoc" >> "rhs_group_nato_marsoc_infantry" >> "rhs_group_nato_marsoc_infantry_team",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_socom_marsoc" >> "rhs_group_nato_marsoc_infantry" >> "LOP_AFR_Support_section"
+								];
+		
+		dorb_grouplist_mech = [];
+		
+		dorb_grouplist_panz = [	
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_m1a1" >> "RHS_M1A1AIM_wd_Platoon",
+								configfile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_m1a1" >> "RHS_M1A1FEP_wd_Section"
+								];
+	
+		dorb_veh_armored 		= [	"rhsusf_m1a1fep_wd","rhsusf_m1a1fep_od"];
+		dorb_veh_unarmored	= [	"rhsusf_m1025_w_s_m2","rhsusf_m1025_w_s_Mk19","rhsusf_rg33_m2_usmc_wd","rhsusf_rg33_m2_usmc_wd","rhsusf_rg33_m2_usmc_wd"];
+		dorb_veh_aa			= [	"RHS_M6_wd"];
+		
+		dorb_veh_truck		= ["B_Truck_01_covered_F","B_Truck_01_transport_F"];
+		dorb_veh_car			= ["rhsusf_rg33_usmc_wd"];
+		dorb_veh_arty			= ["rhsusf_m109_usarmy"];
+		dorb_veh_mortar		= ["O_Mortar_01_F"];
+		
+		dorb_staticlist 		= ["O_static_AT_F","O_static_AA_F","RHS_MK19_TriPod_WD","RHS_M2StaticMG_WD","RHS_M2StaticMG_MiniTripod_WD"];
+	
+		dorb_patrolboatlist 	= ["O_Boat_Armed_01_hmg_F"];
+	
+		dorb_transport_heli_list = ["RHS_UH1Y","RHS_UH1Y_FFAR","RHS_UH1Y_UNARMED"];
+		dorb_attack_heli_list 	= ["RHS_AH1Z_wd","RHS_AH1Z_wd_GS","RHS_AH1Z_wd_CS"];
+		dorb_patrol_air_list 	= ["RHS_A10"];
+		dorb_attack_air_list 	= ["RHS_A10"];
+		dorb_transport_list 	= ["RHS_C130J"];
+
+	
+		dorb_wpncache_list 	= ["Box_IND_Wps_F","Box_IND_WpsSpecial_F","Box_IND_WpsLaunch_F","Box_IND_Ammo_F","Box_IND_Grenades_F","Box_IND_Support_F"];
+	};
+	case 25: {
+	
+		dorb_side = west;
+		dorb_commandveh_radio = ["rhsusf_M1083A1P2_B_M2_d_MHQ_fmtv_usarmy"];
+		dorb_commandveh_arty = ["rhsusf_m113d_usarmy"];
+		dorb_commandveh_side = west;
+		dorb_radar = ["rhs_p37","rhs_prv13"];
+		dorb_device = ["Land_Device_assembled_F"];
+		dorb_commanderlist = ["BWA3_SL_Tropen"];
+		
+		dorb_menlist = [		"BWA3_Rifleman_Tropen",
+							"BWA3_RiflemanG27_Tropen",
+							"BWA3_Grenadier_Tropen",
+							"BWA3_GrenadierG27_Tropen",
+							"BWA3_Autorifleman_Tropen",
+							"BWA3_AutoriflemanMG5_Tropen",
+							"BWA3_CombatLifeSaver_Tropen",
+							"BWA3_Marksman_Tropen",
+							"BWA3_RiflemanG28_Tropen",
+							"BWA3_SniperG82_Tropen",
+							"BWA3_Spotter_Tropen",
+							"BWA3_RiflemanAT_RGW90_Tropen",
+							"BWA3_RiflemanAT_Pzf3_Tropen",
+							"BWA3_RiflemanAA_Fliegerfaust_Tropen",
+							"BWA3_Engineer_Tropen",
+							"BWA3_TL_Tropen",
+							"BWA3_SL_Tropen",
+							"BWA3_Crew_Tropen"];
+		dorb_diverlist = ["O_diver_f","O_diver_exp_f","O_diver_TL_f","O_diver_f","O_diver_exp_f","O_diver_f"];
+		dorb_crewmenlist = ["BWA3_Crew_Tropen"];
+	
+		dorb_grouplist_inf = [																									
+								configfile >> "CfgGroups" >> "West" >> "Bundeswehr" >> "Infantry_Tropen" >> "Jaegertrupp",
+								configfile >> "CfgGroups" >> "West" >> "Bundeswehr" >> "Infantry_Tropen" >> "Panzerabwehrtrupp"
+								];
+			
+		dorb_grouplist_sf = [
+								configfile >> "CfgGroups" >> "West" >> "Bundeswehr" >> "Infantry_Tropen" >> "Jaegertrupp"
+								];
+		
+		dorb_grouplist_mech = [];
+		
+		dorb_grouplist_panz = [	
+								configfile >> "CfgGroups" >> "West" >> "Bundeswehr" >> "Mechanized_Tropen" >> "Panzerzug"
+								];
+	
+		dorb_veh_armored 		= [	"BWA3_Leopard2A6M_Tropen","BWA3_Puma_Tropen"];
+		dorb_veh_unarmored	= [	"B_MRAP_01_hmg_F","B_MRAP_01_gmg_F"];
+		dorb_veh_aa			= [	"B_APC_Tracked_01_AA_F"];
+		
+		dorb_veh_truck		= ["B_Truck_01_covered_F","B_Truck_01_transport_F"];
+		dorb_veh_car			= ["B_MRAP_01_F"];
+		dorb_veh_arty			= ["B_MBT_01_arty_F"];
+		dorb_veh_mortar		= ["O_Mortar_01_F"];
+		
+		dorb_staticlist 		= ["O_static_AT_F","O_static_AA_F","B_HMG_01_F","B_HMG_01_high_F","B_GMG_01_F","B_GMG_01_high_F"];
+	
+		dorb_patrolboatlist 	= ["O_Boat_Armed_01_hmg_F"];
+	
+		dorb_transport_heli_list = ["B_Heli_Transport_01_F","B_Heli_Transport_03_F"];
+		dorb_attack_heli_list 	= ["B_Heli_Attack_01_F"];
+		dorb_patrol_air_list 	= ["B_Plane_CAS_01_F"];
+		dorb_attack_air_list 	= ["B_Plane_CAS_01_F"];
+		dorb_transport_list = [];
+	
+		dorb_wpncache_list 	= ["Box_IND_Wps_F","Box_IND_WpsSpecial_F","Box_IND_WpsLaunch_F","Box_IND_Ammo_F","Box_IND_Grenades_F","Box_IND_Support_F"];
+	};
+	case 26: {
+	
+		dorb_side = west;
+		dorb_commandveh_radio = ["rhsusf_M1083A1P2_B_M2_d_MHQ_fmtv_usarmy"];
+		dorb_commandveh_arty = ["rhsusf_m113_usarmy"];
+		dorb_commandveh_side = west;
+		dorb_radar = ["rhs_p37","rhs_prv13"];
+		dorb_device = ["Land_Device_assembled_F"];
+		dorb_commanderlist = ["BWA3_SL_Fleck"];
+		
+		dorb_menlist = [		"BWA3_Rifleman_Fleck",
+							"BWA3_RiflemanG27_Fleck", 
+							"BWA3_Grenadier_Fleck",
+							"BWA3_GrenadierG27_Fleck", 
+							"BWA3_Autorifleman_Fleck",
+							"BWA3_AutoriflemanMG5_Fleck",
+							"BWA3_CombatLifeSaver_Fleck",
+							"BWA3_Marksman_Fleck",
+							"BWA3_RiflemanG28_Fleck",
+							"BWA3_SniperG82_Fleck",
+							"BWA3_Spotter_Fleck",
+							"BWA3_RiflemanAT_RGW90_Fleck",
+							"BWA3_RiflemanAT_Pzf3_Fleck",
+							"BWA3_RiflemanAA_Fliegerfaust_Fleck",
+							"BWA3_Engineer_Fleck",
+							"BWA3_TL_Fleck",
+							"BWA3_SL_Fleck",
+							"BWA3_Crew_Fleck"];
+		dorb_diverlist = ["O_diver_f","O_diver_exp_f","O_diver_TL_f","O_diver_f","O_diver_exp_f","O_diver_f"];
+		dorb_crewmenlist = ["BWA3_Crew_Fleck"];
+	
+		dorb_grouplist_inf = [																									
+								configfile >> "CfgGroups" >> "West" >> "Bundeswehr" >> "Infantry_Fleck" >> "Jaegertrupp",
+								configfile >> "CfgGroups" >> "West" >> "Bundeswehr" >> "Infantry_Fleck" >> "Panzerabwehrtrupp"
+								];
+			
+		dorb_grouplist_sf = [
+								configfile >> "CfgGroups" >> "West" >> "Bundeswehr" >> "Infantry_Fleck" >> "Jaegertrupp"
+								];
+		
+		dorb_grouplist_mech = [];
+		
+		dorb_grouplist_panz = [	
+								configfile >> "CfgGroups" >> "West" >> "Bundeswehr" >> "Mechanized_Fleck" >> "Panzerzug"
+								];
+	
+		dorb_veh_armored 		= [	"BWA3_Leopard2A6M_Fleck","BWA3_Puma_Fleck"];
+		dorb_veh_unarmored	= [	"B_MRAP_01_hmg_F","B_MRAP_01_gmg_F"];
+		dorb_veh_aa			= [	"B_APC_Tracked_01_AA_F"];
+		
+		dorb_veh_truck		= ["B_Truck_01_covered_F","B_Truck_01_transport_F"];
+		dorb_veh_car			= ["B_MRAP_01_F"];
+		dorb_veh_arty			= ["B_MBT_01_arty_F"];
+		dorb_veh_mortar		= ["O_Mortar_01_F"];
+		
+		dorb_staticlist 		= ["O_static_AT_F","O_static_AA_F","B_HMG_01_F","B_HMG_01_high_F","B_GMG_01_F","B_GMG_01_high_F"];
+	
+		dorb_patrolboatlist 	= ["O_Boat_Armed_01_hmg_F"];
+	
+		dorb_transport_heli_list = ["B_Heli_Transport_01_F","B_Heli_Transport_03_F"];
+		dorb_attack_heli_list 	= ["B_Heli_Attack_01_F"];
+		dorb_patrol_air_list 	= ["B_Plane_CAS_01_F"];
+		dorb_attack_air_list 	= ["B_Plane_CAS_01_F"];
+		dorb_transport_list = [];
+	
+		dorb_wpncache_list 	= ["Box_IND_Wps_F","Box_IND_WpsSpecial_F","Box_IND_WpsLaunch_F","Box_IND_Ammo_F","Box_IND_Grenades_F","Box_IND_Support_F"];
 	};
 };
 

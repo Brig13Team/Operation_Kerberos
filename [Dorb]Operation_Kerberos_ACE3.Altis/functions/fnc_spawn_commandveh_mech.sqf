@@ -32,7 +32,11 @@ _veh lock 3;
 
 //"CamoNet_OPFOR_big_F" createVehicle (getPos _veh);
 
-[_veh,1,true] spawn RHS_fnc_gaz66_radioDeploy;
+If (DORB_PLAYERSIDE == east) then {
+	[_veh,1] spawn rhs_fnc_fmtv_Deploy;
+}else{
+	[_veh,1,true] spawn RHS_fnc_gaz66_radioDeploy;
+};
 
 while {alive _veh} do {
 	LOG("COMMANDVEH-CHECK | Mech");

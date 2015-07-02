@@ -29,7 +29,11 @@ _veh = (_return select 0);
 _veh setFuel 0;
 _veh lock 3;
 
-[_veh,1,true] spawn RHS_fnc_gaz66_radioDeploy;
+If (DORB_PLAYERSIDE == east) then {
+	[_veh,1] spawn rhs_fnc_fmtv_Deploy;
+}else{
+	[_veh,1,true] spawn RHS_fnc_gaz66_radioDeploy;
+};
 
 SETVAR(_veh,DORB_HASTANK,0);
 _panzer=[];

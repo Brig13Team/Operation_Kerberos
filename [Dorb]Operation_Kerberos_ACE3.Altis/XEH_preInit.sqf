@@ -116,6 +116,7 @@ PREPMAIN(ui_crate_spawn);
 PREPMAIN(ui_spawn_addaction);
 PREPMAIN(ui_spawn_create);
 PREPMAIN(ui_spawn_createlist);
+PREPMAIN(ui_spawn_createlist_east);
 PREPMAIN(ui_spawn_draw3D);
 PREPMAIN(ui_spawn_Open);
 PREPMAIN(ui_spawn_select);
