@@ -22,27 +22,27 @@ _temp=[];
 _getroadarray = {
 	Private["_roadConnectedTo","_connectedRoad","_vector","_rotateVector","_normVector","_multiplyVector","_checkpos","_dir","_c","_i","_road"];
 	_road=_this;
-	
 	_roadConnectedTo = roadsConnectedTo _road;
 	if (_roadConnectedTo isEqualTo [])exitWith{[]};
 	
 	_connectedRoad = _roadConnectedTo select 0;
 	
 	_vector= (getPos _road) vectorFromTo (getPos _connectedRoad);
+	
 	_rotateVector = [_vector,90] call BIS_fnc_rotateVector2D;
 	_normVector = vectorNormalized _rotateVector;
 	
-	for [{_i = 1},{_i < 4},{_i = _i + 1}] do {
+	for [{_i = 1},{_i < 6},{_i = _i + 1}] do {
 		_multiplyVector = _rotateVector vectorMultiply ((2*_i));
 		_checkpos=[((_multiplyVector select 0)+((getPos _road select 0))),((_multiplyVector select 1)+((getPos _road select 1))),0.1];
-		if (!(isOnRoad _checkpos)) exitWith {_c=_i;};
+		_c=_i;
+		if (!(isOnRoad _checkpos)) exitWith {};
 	};
-	
-	_dir = [_road,_roadConnectedTo] call BIS_fnc_dirTo;
-	If (_c==1) exitWith {[];}; //No road
-	If (_c<3) exitWith {[[getPosASL _road],_dir,0];}; // tiny road
-	If (_c<4) exitWith {[[getPosASL _road],_dir,1];}; // small road
-	[[getPosASL _road],_dir,2]; // big road
+	_dir = [_road,_roadConnectedTo select 0] call BIS_fnc_dirTo;
+	If (_c<=1) exitWith {[];}; //No road
+	If (_c<3) exitWith {[getPosASL _road,_dir,0];}; // tiny road
+	If (_c<4) exitWith {[getPosASL _road,_dir,1];}; // small road
+	[getPosASL _road,_dir,2]; // big road
 };
 
 
