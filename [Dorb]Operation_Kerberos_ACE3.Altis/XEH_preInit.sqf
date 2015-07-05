@@ -57,6 +57,8 @@ PREPMAIN(spawn_patrol_veh);
 PREPMAIN(spawn_rooftop);
 PREPMAIN(spawn_tower);
 PREPMAIN(spawn_unit);
+PREPMAIN(spawn_macro_exec);
+PREPMAIN(spawn_macro);
 
 //Comandofahrzeuge
 PREPMAIN(spawn_commandveh);
