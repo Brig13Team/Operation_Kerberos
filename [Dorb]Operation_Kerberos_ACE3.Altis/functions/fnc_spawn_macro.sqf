@@ -17,6 +17,7 @@
 DEFAULT_PARAM(0,_position,[]);
 CHECK(_position isEqualTo [])
 DEFAULT_PARAM(1,_type,-1);
+DEFAULT_PARAM(2,_dir,0);
 private["_makro"];
 If (_type < 0) then {_type = floor(random 3);};
 _makro = [];
@@ -45,7 +46,7 @@ switch (_type) do {
 						["Land_BagFence_Corner_F",[2.00171,1.73975,-0.000439167],0],
 						["Land_HBarrier_Big_F",[10.0647,-0.479492,-0.00143909],270]
 					];
-				[_position,_makro] call FM(spawn_makro_exec);
+				[_position,_makro,_dir] call FM(spawn_makro_exec);
 			};
 	/// Heavy Mortarpos
 	case 2 : {_makro = [	["Land_HBarrier_5_F",[-14.2971,7.22803,-0.00143909],87],
@@ -87,7 +88,7 @@ switch (_type) do {
 						["Land_PaperBox_closed_F",[-11.5571,0.710693,-0.00143909],3.31802],
 						["Land_PaperBox_closed_F",[-10.3296,2.46655,-0.00143909],69]
 					];
-				[_position,_makro] call FM(spawn_makro_exec);
+				[_position,_makro,_dir] call FM(spawn_makro_exec);
 			};
 	/// Device-Defence
 	case 3 : {_makro = [	
@@ -123,7 +124,7 @@ switch (_type) do {
 						["Land_New_WiredFence_10m_F",[19.0978,29.5493,-0.00143623],0],
 						["Land_Cargo_Patrol_V1_F",[18.9819,25.4419,-0.00143862],177.993]
 					];
-				[_position,_makro] call FM(spawn_makro_exec);
+				[_position,_makro,_dir] call FM(spawn_makro_exec);
 			};
 
 
