@@ -17,13 +17,11 @@
 PARAMS_1(_centerpos);
 DEFAULT_PARAM(1,_spawnrad,15);
 DEFAULT_PARAM(2,_type,0);
+DEFAULT_PARAM(3,_anzahl,15);
 Private["_anzahl","_ap_mines","_at_mines","_allmines","_magazineClass","_magazineTrigger","_pos","_dir","_triggerConfig","_triggerSpecificVars","_ammo","_explosive"];
 
-_anzahl = 0;
 If (_type <1) then {
-	_anzahl = 30;
-}else{
-	_anzahl = 15;
+	_anzahl = _anzahl * 2;
 };
 
 _ap_mines = ["APERSBoundingMine_Range_Mag","APERSMine_Range_Mag"];
