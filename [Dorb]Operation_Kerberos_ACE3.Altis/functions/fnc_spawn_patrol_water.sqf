@@ -2,7 +2,7 @@
 	Author: Dorbedo
 
 	Description:
-	Spawns Air Patrols
+	Spawns Water Patrols
 
 	Parameter(s):
 		0 :	ARRAY	- Spawnposition
@@ -12,7 +12,7 @@
 		
 
 	Returns:
-	Something (eventually)
+	
 
 	
 */
@@ -31,7 +31,7 @@ _amountOfWater = 0;
 	_s = 0;
 	while {_searchrad < _radius} do {
 		_umfang = 2 * pi * _searchrad;
-		_theta = _s*_radius;
+		_theta = ((_s*360)/(2*_searchrad*pi));
 		_searchposarray pushBack ([_position, _searchrad, _theta] call BIS_fnc_relPos);
 		_s=_s+_step;
 		If (_s > _umfang) then {
@@ -40,10 +40,32 @@ _amountOfWater = 0;
 		};
 	};
 	
-	_amountOfWater = {surfaceIsWater _x}count _searchposarray;
+	_amountOfWater = {
+			/*
+			If (surfaceIsWater _x) then {
+				_mrkr = createMarker [format["infp-%1",random(999999)],_x];
+				_mrkr setMarkerShape "ICON";
+				_mrkr setMarkerColor "ColorBlue";
+				_mrkr setMarkerType "o_inf";
+			}else{
+				_mrkr = createMarker [format["infp-%1",random(999999)],_x];
+				_mrkr setMarkerShape "ICON";
+				_mrkr setMarkerColor "ColorRed";
+				_mrkr setMarkerType "o_inf";
+			};
+			*/
+		surfaceIsWater _x
+		}count _searchposarray;
 //};
 /// exit if there is only a small amount of water
-CHECK(_amountOfWater<5)
+CHECK(_amountOfWater<301)
+
+If (_anzahl_boats < 0) then {
+	_anzahl_boats = floor((_amountOfWater - 300)/100);
+};
+If (_anzahl_diver < 0) then {
+	_anzahl_diver = floor((_amountOfWater - 300)/100);
+};
 
 
 
