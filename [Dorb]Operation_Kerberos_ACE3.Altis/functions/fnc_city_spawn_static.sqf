@@ -31,6 +31,8 @@ For "_i" from 0 to ((count _spawnposarray)-1) do {
 	If (!((crew _spawnedunit)isEqualTo [])) then {
 		{_spawnedunit deleteVehicleCrew _x} forEach crew _spawnedunit;
 		[_spawnedunit,_side] call FM(spawn_crew);
+	}else{
+		[_spawnedunit,_side] call FM(spawn_crew);
 	};
 	_spawnedunits pushBack _spawnedunit;
 };
