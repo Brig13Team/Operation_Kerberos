@@ -40,7 +40,7 @@
 ISNILS(DORB_EXAMINE,0);
 ISNILS(DORB_EXAMINE_TARGETARRAY,[]);
 ISNILS(DORB_EXAMINE_REVEALEDID,[]);
-ISNILS(DORB_EXAMINE_MARK,[]);
+ISNILS(DORB_MARKERDUMP,[]);
 private["_option","_paramter"];
 _option = [_this, 0, "",[""]] call BIS_fnc_Param;
 _paramter = [_this, 1, [],[[]]] call BIS_fnc_Param;
@@ -48,8 +48,6 @@ _paramter = [_this, 1, [],[[]]] call BIS_fnc_Param;
 switch (_option) do {
 	case "init": 	{
 						DORB_EXAMINE=0;
-						{deleteMarker _x;}forEach DORB_EXAMINE_MARK;
-						DORB_EXAMINE_MARK = [];
 						DORB_EXAMINE_REVEALEDID = [];
 						DORB_EXAMINE_TARGETARRAY = _paramter;
 						
@@ -82,12 +80,12 @@ switch (_option) do {
 							case "all" : {
 								for "_i" from 0 to ((count DORB_EXAMINE_TARGETARRAY)-1) do {
 									_pos = [getPos(DORB_EXAMINE_TARGETARRAY select _i), (_genauigkeit - 2)max 5,0] call FM(random_pos);
-									_marker = createMarker [format["EXAMINE_Mark_%1",((count DORB_EXAMINE_MARK)+1)],_pos];
+									_marker = createMarker [format["EXAMINE_Mark_%1",((count DORB_MARKERDUMP)+1)],_pos];
 									_marker setMarkerShape "Ellipse";
 									_marker setMarkerColor "ColorRed";
 									_marker setMarkerBrush "Border";
 									_marker setMarkerSize [_genauigkeit,_genauigkeit];
-									DORB_EXAMINE_MARK pushBack _marker;
+									DORB_MARKERDUMP pushBack _marker;
 								};
 							};
 							case "single_rnd" : {
@@ -95,12 +93,12 @@ switch (_option) do {
 								_a = floor(random(count(DORB_EXAMINE_TARGETARRAY)));
 								DORB_EXAMINE_REVEALEDID pushBack _a;
 								_pos = [getPos(DORB_EXAMINE_TARGETARRAY select _a), (_genauigkeit - 2)max 5,0] call FM(random_pos);
-								_marker = createMarker [format["EXAMINE_Mark_%1",((count DORB_EXAMINE_MARK)+1)],_pos];
+								_marker = createMarker [format["EXAMINE_Mark_%1",((count DORB_MARKERDUMP)+1)],_pos];
 								_marker setMarkerShape "Ellipse";
 								_marker setMarkerColor "ColorRed";
 								_marker setMarkerBrush "Border";
 								_marker setMarkerSize [_genauigkeit,_genauigkeit];
-								DORB_EXAMINE_MARK pushBack _marker;
+								DORB_MARKERDUMP pushBack _marker;
 							};
 							case "single" : {
 								//// Random Target excluding revealed ones
@@ -108,7 +106,7 @@ switch (_option) do {
 									If (!(_i in DORB_EXAMINE_TARGETARRAY)) exitwith {
 										DORB_EXAMINE_REVEALEDID pushBack _i;
 										_pos = [getPos(DORB_EXAMINE_TARGETARRAY select _i), (_genauigkeit - 2)max 5,0] call FM(random_pos);
-										_marker = createMarker [format["EXAMINE_Mark_%1",((count DORB_EXAMINE_MARK)+1)],_pos];
+										_marker = createMarker [format["EXAMINE_Mark_%1",((count DORB_MARKERDUMP)+1)],_pos];
 										_marker setMarkerShape "Ellipse";
 										_marker setMarkerColor "ColorRed";
 										_marker setMarkerBrush "Border";
@@ -132,7 +130,7 @@ switch (_option) do {
 							_marker setMarkerColor "ColorRed";
 							_marker setMarkerBrush "Border";
 							_marker setMarkerSize [_genauigkeit_falsch,_genauigkeit_falsch];
-							DORB_EXAMINE_MARK pushBack _marker;
+							DORB_MARKERDUMP pushBack _marker;
 						};
 						
 						for "_i" from 0 to _info_echt do {
@@ -140,8 +138,7 @@ switch (_option) do {
 						};
 					};
 	case "destroy": {
-						{deleteMarker _x;} forEach DORB_EXAMINE_MARK;
-						DORB_EXAMINE_MARK=[];
+						/// Obsolet
 						DORB_EXAMINE_TARGETARRAY=[];
 					};
 };
