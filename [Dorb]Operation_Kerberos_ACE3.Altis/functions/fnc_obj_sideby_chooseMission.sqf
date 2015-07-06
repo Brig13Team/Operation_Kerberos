@@ -49,17 +49,24 @@ _state = [_task] call BIS_fnc_taskState;
 If (_state in ["CANCELED","SUCCEEDED","FAILED"]) exitWith {};
 
 
-_aufgaben = [ "ueberlaeufer", "sdv", "aircraft" ];
-_wichtung = [ 1, 1, 1 ];
+_aufgaben = [ "ueberlaeufer", "sdv", "aircraft", "supplies" ];
+_wichtung = [ 1, 1, 1, 1 ];
 
 
 _aufgabe = [_aufgaben, _wichtung] call BIS_fnc_selectRandomWeighted;
 _basisPosition = getMarkerPos "respawn_west";
 
-if (_aufgabe == "sdv") then {
-	_positionen = GETMVAR(DORB_WASSER,[]);	// ["Name",[x,y]]
-} else {
-	_positionen = (GETMVAR(DORB_SONSTIGES,[])) + (GETMVAR(DORB_INDUSTRIE,[]));	// ["Name",[x,y]]
+switch (_aufgabe) do
+{
+	case "sdv": {
+		_positionen = GETMVAR(DORB_WASSER,[]);	// ["Name",[x,y]]
+	};
+	case "supplies": {
+		_positionen = GETMVAR(DORB_STADT,[]);	// ["Name",[x,y]]
+	};
+	default {
+		_positionen = (GETMVAR(DORB_SONSTIGES,[])) + (GETMVAR(DORB_INDUSTRIE,[]));	// ["Name",[x,y]]
+	};
 };
 
 _position=[];
@@ -83,6 +90,10 @@ switch (_aufgabe) do {
 	};
 	case "aircraft" : {
 		[_position + [0], _task_array, _locationName] call FM(TRIPLES(obj,sideby,aircraft));
+	};
+	case "supplies":
+	{
+		[(_position select 1) + [0], _task_array, _position select 0] call FM(TRIPLES(obj,sideby,supplies));
 	};
 };
 
