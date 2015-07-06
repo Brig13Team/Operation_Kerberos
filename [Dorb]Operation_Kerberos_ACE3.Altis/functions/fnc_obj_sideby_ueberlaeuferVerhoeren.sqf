@@ -7,27 +7,24 @@
 	Parameter(s):
 		0 : Object - Überläufer
 		1 : String - Eigenschaft
-
+		3 : Array - Taskarray
 */
 #include "script_component.hpp"
 
-private ["_ueberlaeufer", "_eigenschaft", "_info", "_suizidtimer", "_ueberlaeuferPosition", "_ziel", "_liste", "_counter", "_kontakt", "_durchmesser"];
+private ["_ueberlaeufer", "_eigenschaft", "_task", "_main_task", "_info", "_suizidtimer", "_ueberlaeuferPosition", "_ziel", "_liste", "_counter", "_kontakt", "_durchmesser"];
 
 _ueberlaeufer = _this select 0;
 _eigenschaft = _this select 1;
+_task = _this select 2 select 0;
+_main_task = _this select 2 select 1;
 
 _info = 100;
-
-#ifndef TEST
-	_ziel = getMarkerPos "rescue_marker";
-#else
-	_ziel = [0,0,0];
-#endif
+_ziel = getMarkerPos "rescue_marker";
 
 _suizidtimer = 0;
 _kontakt = 0;
 
-while { (((getPos _ueberlaeufer) distance _ziel) > 20) OR (captive _ueberlaeufer) } do {
+while { ((((getPos _ueberlaeufer) distance _ziel) > 20) OR (captive _ueberlaeufer)) AND (alive _ueberlaeufer)} do {
 	uiSleep 5;
 
 	switch (_eigenschaft) do
@@ -74,14 +71,14 @@ while { (((getPos _ueberlaeufer) distance _ziel) > 20) OR (captive _ueberlaeufer
 
 _info = _info / 100;
 
-if (_info > 0) then {
+if ( (_info > 0) and (alive _ueberlaeufer) ) then {
 	_durchmesser = 50;
 	switch (_eigenschaft) do
 	{
 		case "Flugangst":
 		{
 			#ifndef TEST
-				["random", [2, 0, _durchmesser * (2 - _info), _durchmesser]] call FM(examine);
+				["random", _main_task, [2, 0, _durchmesser * (2 - _info), _durchmesser]] call FM(examine);
 			#else
 				LOG(FORMAT_3("[SIDEBY] pos: %1, fehlpos: %2, durchmesser: %3", 2, 0, _durchmesser * (2 - _info)));
 			#endif
@@ -89,7 +86,7 @@ if (_info > 0) then {
 		case "Paranoia":
 		{
 			#ifndef TEST
-				["random", [2, round (3 - (_info / 40)), _durchmesser, _durchmesser]] call FM(examine);
+				["random", _main_task, [2, round (3 - (_info / 40)), _durchmesser, _durchmesser]] call FM(examine);
 			#else
 				LOG(FORMAT_3("[SIDEBY] pos: %1, fehlpos: %2, durchmesser: %3", 2, round (3 - (_info / 40)), _durchmesser));
 			#endif
@@ -97,7 +94,7 @@ if (_info > 0) then {
 		case "suizidgefaehrdet":
 		{
 			#ifndef TEST
-				["random", [2, 0, _durchmesser, _durchmesser] call FM(examine);
+				["random", _main_task, [2, 0, _durchmesser, _durchmesser]] call FM(examine);
 			#else
 				LOG(FORMAT_3("[SIDEBY] pos: %1, fehlpos: %2, durchmesser: %3", 2, 0, _durchmesser));
 			#endif
@@ -105,15 +102,27 @@ if (_info > 0) then {
 		case "nichts":
 		{
 			#ifndef TEST
-				["random", [2, 0, _durchmesser, _durchmesser] call FM(examine);
+				["random", _main_task, [2, 0, _durchmesser, _durchmesser]] call FM(examine);
 			#else
 				LOG(FORMAT_3("[SIDEBY] pos: %1, fehlpos: %2, durchmesser: %3", 2, 0, _durchmesser));
 			#endif
 		};
 	};
 	hint "Überläufer wurde erfolgreich verhört!";
+
+	#ifdef TEST
+		LOG("[SIDEBY] Überläufer abgeschlossen!");
+	#else
+		_task setTaskState "Succeeded";
+	#endif
 } else {
-	hint "Überläufer konnte nicht erfolgreich verhört werden!";	
+	hint "Überläufer konnte nicht erfolgreich verhört werden!";
+
+	#ifdef TEST
+		LOG("[SIDEBY] Überläufer gescheitert!");
+	#else
+		_task setTaskState "Failed";
+	#endif
 };
 
 if ( (damage _ueberlaeufer) < 1 ) then { deleteVehicle _ueberlaeufer; };
