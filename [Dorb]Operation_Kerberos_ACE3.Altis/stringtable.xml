@@ -799,6 +799,15 @@
 			</Key>
 		</Container>
 	</Package>
+	<Package name="sidemissions">
+		<Container name="sideby">
+			<Key ID="STR_DORB_SIDE_PLACEHOLDER">
+				<Original>Placeholder</Original>
+                <German>Platzhalter</German>
+                <English>Placeholder</English>
+			</Key>
+		</Container>
+	</Package>
 </Project>
 <Project name="CH View Distance">
 	<Package name="Main">
