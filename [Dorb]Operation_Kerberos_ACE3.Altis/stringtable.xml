@@ -116,6 +116,11 @@
             <German>Reperatur</German>
             <English>Reparation</English>
 		</Key>
+		<Key ID="STR_DORB_REP_POINT2">
+			<Original>&lt;t size='1.5' shadow='2' color='#ff0000'&gt;Repair Vehicle&lt;/t&gt;</Original>
+            <German>&lt;t size='1.5' shadow='2' color='#ff0000'&gt;Repariere Fahrzeug&lt;/t&gt;</German>
+            <English>&lt;t size='1.5' shadow='2' color='#ff0000'&gt;Repair Vehicle&lt;/t&gt;</English>
+		</Key>
 		<Key ID="STR_DORB_REP_CANCELED">
 			<Original>Canceled</Original>
             <German>Abgebrochen</German>

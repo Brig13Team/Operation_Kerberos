@@ -10,3 +10,8 @@ call FM(ui_spawn_addaction);
 call FM(ui_crate_addaction);
 
 ["restart"] spawn FM(grouptracker);
+
+ISNILS(DORB_RESPAWN_FNC,[]);
+{
+	_this spawn compile _x;
+}forEach DORB_RESPAWN_FNC;
