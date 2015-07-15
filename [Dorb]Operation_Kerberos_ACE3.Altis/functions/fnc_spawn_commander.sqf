@@ -8,6 +8,7 @@
 		0 : ARRAY	- Position
 	
 */
+#define DEBUG_ENABLED_TEST
 #include "script_component.hpp"
 PARAMS_1(_position);
 
@@ -93,7 +94,7 @@ If ((dorb_side_nr > 2)&&(dorb_side_nr < 6)) then {
 
 //// Create Additional Units
 // Radars
-If (DORB_COMMANDER_AI) then {
+If (GETVAR(_commander,DORB_COMMANDER_AI,[])) then {
 	for [{_i= 1},{_i <= _difficulty},{_i = _i + 2}] do {
 		_einheit = ["rhs_p37","rhs_prv13"] SELRND;
 		_spawnposition = [_position,200,0] call FM(random_pos);
@@ -108,7 +109,7 @@ If (DORB_COMMANDER_AI) then {
 	};
 };
 // Artypos
-If (DORB_COMMANDER_ART) then {
+If (GETVAR(_commander,DORB_COMMANDER_ART,[])) then {
 	for "_i" from 0 to 2 do {
 		_spawnposition=[];
 		_spawnposition = [_position,1800,1] call FM(random_pos);
@@ -116,14 +117,12 @@ If (DORB_COMMANDER_ART) then {
 			_unit = [_spawnposition,100] call FM(spawn_artypos);
 			if (alive _unit) then {
 				_temp = GETVAR(_commander,DORB_COMMANDER_ARTILLERIE,[]);
-				_temp pushBack _veh;
+				_temp pushBack _unit;
 				SETVAR(_commander,DORB_COMMANDER_ARTILLERIE,_temp);
 			};
 		}else{ERROR("Keine Spawnposition");};
 	};
 };
-
-
 
 
 //// Call BRAIN

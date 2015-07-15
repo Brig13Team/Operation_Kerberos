@@ -8,6 +8,7 @@
 		0 : OBJECT	- HQ
 	
 */
+#define DEBUG_ENABLED_TEST
 #include "script_component.hpp"
 PARAMS_1(_commander);
 private ["_attackpos_air","_attackpos_tanks","_attackpos_ground"];
@@ -74,7 +75,7 @@ _attack_arty_smoke = {
 _attack_mech = {
 	///[_commander,_attack_pos] spawn (_attack_mech);
 	scriptName "dorb_fnc_spawn_commander_ar_INNEN_mech";
-	private ["_position","_attack_pos","_pos"]
+	private ["_position","_attack_pos","_pos"];
 	_position = getPos(_this select 0);
 	_attack_pos = _this select 1;
 	
@@ -131,7 +132,7 @@ _attack_mech = {
 _attack_sniper = {
 	///[_commander,_attack_pos] spawn (_attack_mech);
 	scriptName "dorb_fnc_spawn_commander_ar_INNEN_mech";
-	private ["_position","_attack_pos","_pos"]
+	private ["_position","_attack_pos","_pos"];
 	_position = getPos(_this select 0);
 	_attack_pos = _this select 1;
 	
@@ -185,18 +186,18 @@ _attack_sniper = {
 
 
 _attack_tanks = {
-	_position = getPos(_this select 0);
+	_commander = _this select 0;
+	_position = getPos _commander;
 	_attack_pos = _this select 1;
 	_panzer = GETVAR(_commander,DORB_COMMANDER_TANKLIST,[]);
 	_pos = [_attack_pos,2000,2] call FM(random_pos);
 	_anzahl = floor(random 3);
 	INC(_anzahl);
 	for "_i" from 0 to _anzahl do {
+		_einheit = dorb_veh_armored SELRND;
 		_rand = (floor(random 8));
 		if (_rand<2) then {
 			_einheit = dorb_veh_aa SELRND;
-		}else{
-			_einheit = dorb_veh_armored SELRND;
 		};
 		_spawnpos = _pos findEmptyPosition [1,100,_einheit];
 		if (count _spawnpos > 1) then {
@@ -255,17 +256,18 @@ while {alive _commander} do {
 	_attackpos_ground = [];
 	
 	//// SEARCH
-	If (DORB_COMMANDER_AI) do {
-		for "_i" from 0 to (count GETVAR(_commander,DORB_COMMANDER_RADAR,[]) do {
-			_temp = [getPos _commander,1] call FM(spawn_commander_check);
+	If (GETVAR(_commander,DORB_COMMANDER_AI,[])) then {
+		_attackunit_air = [];
+		for "_i" from 0 to (count (GETVAR(_commander,DORB_COMMANDER_RADAR,[]))) do {
+			_temp = [getPos _commander,1] call FM(spawn_commander_search);
 			_attackunit_air pushBack _temp;
 		};
+		{_attackpos_air pushBack (getPosATL _x);}forEach _attackunit_air;
 	};
-	_attackpos_air = [];
-	{_attackpos_air pushBack (getPosATL _x);}forEach _attackunit_air;
 	
-	_attackunit_ground = [getPos _commander,3] call FM(spawn_commander_check);
-	_attackunit_tanks = [getPos _commander,2] call FM(spawn_commander_check);
+	
+	_attackunit_ground = [getPos _commander,3] call FM(spawn_commander_search);
+	_attackunit_tanks = [getPos _commander,2] call FM(spawn_commander_search);
 	
 	_temp = [];
 	{If (!((vehicle _x) in _temp)) then {_temp pushBack (vehicle _x);};}forEach _attackunit_tanks;
@@ -274,14 +276,14 @@ while {alive _commander} do {
 	
 	
 	//// CHECK
-	If (DORB_COMMANDER_TANKS) then {
+	If (GETVAR(_commander,DORB_COMMANDER_TANKS,[])) then {
 		_checkunits = GETVAR(_commander,DORB_COMMANDER_TANKLIST,[]);
 		_temp = [];
 		{if (canMove _x) then {_temp pushBack _x;};} forEach _checkunits;
 		SETVAR(_commander,DORB_COMMANDER_TANKLIST,_temp);
 	};
 	
-	If (DORB_COMMANDER_AI) do {
+	If (GETVAR(_commander,DORB_COMMANDER_AI,[])) then {
 		// Radar
 		_checkunits = GETVAR(_commander,DORB_COMMANDER_RADAR,[]);
 		_temp = [];
@@ -342,8 +344,8 @@ while {alive _commander} do {
 			for "_j" from 0 to ((count _attackunit_sortet_weight)-1) do {
 				If ((_attackunit_sortet_weight select _j)<(_attackunits_weight select _i)) exitWith {
 					_notadded = false;
-					_attackunit_sortet = [_attackunit_sortet, [_attackunits_all select _i], _j] call BIS_fnc_arrayInsert
-					_attackunit_sortet_weight = [_attackunit_sortet_weight, [_attackunits_weight select _i], _j] call BIS_fnc_arrayInsert
+					_attackunit_sortet = [_attackunit_sortet, [_attackunits_all select _i], _j] call BIS_fnc_arrayInsert;
+					_attackunit_sortet_weight = [_attackunit_sortet_weight, [_attackunits_weight select _i], _j] call BIS_fnc_arrayInsert;
 				};
 			};
 			If (_notadded) then {
@@ -378,28 +380,38 @@ while {alive _commander} do {
 			_rand = floor (random 4);
 			
 			/// Artilleriestrike + Infanterie
-			If ((_rand <1)&&(DORB_COMMANDER_MECH || DORB_COMMANDER_AIRDROP)&&(DORB_COMMANDER_ART)) exitWith {
-				[(_attackpos_filtered_weight select _i)] call _Attacktype_arty_auto;
-				If ((DORB_COMMANDER_MECH)&&(DORB_COMMANDER_AIRDROP)) then {
+			If ((_rand <1)&&((GETVAR(_commander,DORB_COMMANDER_MECH,[])) || (GETVAR(_commander,DORB_COMMANDER_AIRDROP,[])))&&(GETVAR(_commander,DORB_COMMANDER_ART,[]))) exitWith {
+				[(_attackpos_filtered select _i)] call _Attacktype_arty_auto;
+				If ((GETVAR(_commander,DORB_COMMANDER_MECH,[]))&&(GETVAR(_commander,DORB_COMMANDER_AIRDROP,[]))) then {
 					_rand = floor (random 2);
 					If (_rand >0) then {
 						_rand = floor (random 2);
 						If (_rand >0) then {
-							[(_attackpos_filtered_weight select _i)] call _Attacktype_airdrop;
+							LOG(FORMAT_1("COMMANDER | AIRDROP | %1",(_attackpos_filtered select _i)));
+							[(_attackpos_filtered select _i)] call _Attacktype_airdrop;
 						}else{
-							[(_attackpos_filtered_weight select _i)] call _Attacktype_airdrop_smoke;
+							LOG(FORMAT_1("COMMANDER | AIRDROP + SMOKE | %1",(_attackpos_filtered select _i)));
+							[(_attackpos_filtered select _i)] call _Attacktype_airdrop;
+							[(_attackpos_filtered select _i)] call _Attacktype_airdrop_smoke;
 						};
 					}else{
-						[(_attackpos_filtered_weight select _i)] call _Attacktype_mechattack;
+						LOG(FORMAT_1("COMMANDER | MECH | %1",(_attackpos_filtered select _i)));
+						[(_attackpos_filtered select _i)] call _Attacktype_mechattack;
 					};
 				}else{
-					If (DORB_COMMANDER_MECH) then {[(_attackpos_filtered_weight select _i)] call _Attacktype_mechattack;};
-					If (DORB_COMMANDER_AIRDROP) then {
+					If (GETVAR(_commander,DORB_COMMANDER_MECH,[])) then {
+						LOG(FORMAT_1("COMMANDER | MECH | %1",(_attackpos_filtered select _i)));
+						[(_attackpos_filtered select _i)] call _Attacktype_mechattack;
+					};
+					If (GETVAR(_commander,DORB_COMMANDER_AIRDROP,[])) then {
 						_rand = floor (random 2);
 						If (_rand >0) then {
-							[(_attackpos_filtered_weight select _i)] call _Attacktype_airdrop;
+							LOG(FORMAT_1("COMMANDER | AIRDROP | %1",(_attackpos_filtered select _i)));
+							[(_attackpos_filtered select _i)] call _Attacktype_airdrop;
 						}else{
-							[(_attackpos_filtered_weight select _i)] call _Attacktype_airdrop_smoke;
+							LOG(FORMAT_1("COMMANDER | AIRDROP + SMOKE | %1",(_attackpos_filtered select _i)));
+							[(_attackpos_filtered select _i)] call _Attacktype_airdrop;
+							[(_attackpos_filtered select _i)] call _Attacktype_airdrop_smoke;
 						};
 					};
 				};
@@ -407,36 +419,42 @@ while {alive _commander} do {
 			};
 			
 			/// Infanterie + Tanks
-			If ((_rand <2)&&(DORB_COMMANDER_TANKS && DORB_COMMANDER_MECH)) exitWith {
-				[(_attackpos_filtered_weight select _i)] call _Attacktype_mechattack;
-				[(_attackpos_filtered_weight select _i)] call _Attacktype_tankattack;
+			If ((_rand <2)&&((GETVAR(_commander,DORB_COMMANDER_TANKS,[])) && (GETVAR(_commander,DORB_COMMANDER_MECH,[])))) exitWith {
+				LOG(FORMAT_1("COMMANDER | TANKS + MECH | %1",(_attackpos_filtered select _i)));
+				[(_attackpos_filtered select _i)] call _Attacktype_mechattack;
+				[(_attackpos_filtered select _i)] call _Attacktype_tankattack;
 				_sleep = _sleep + 5;
 			};
 			
 			/// Helicopter
-			If ((_rand <3)&&(DORB_COMMANDER_HELICOPTER)) exitWith {
-				[(_attackpos_filtered_weight select _i)] call _Attacktype_heliattack;
+			If ((_rand <3)&&(GETVAR(_commander,DORB_COMMANDER_HELICOPTER,[]))) exitWith {
+				LOG(FORMAT_1("COMMANDER | HELICOPTER | %1",(_attackpos_filtered select _i)));
+				[(_attackpos_filtered select _i)] call _Attacktype_heliattack;
 				_sleep = _sleep + 4.5;
 			};
 			
 			/// Arty
-			If (DORB_COMMANDER_ART) exitWith {	
-				[(_attackpos_filtered_weight select _i)] call _Attacktype_arty_auto;
+			If (GETVAR(_commander,DORB_COMMANDER_ART,[])) exitWith {	
+				LOG(FORMAT_1("COMMANDER | ARTY | %1",(_attackpos_filtered select _i)));
+				[(_attackpos_filtered select _i)] call _Attacktype_arty_auto;
 				_sleep = _sleep + 2;
 			};
 			/// Tanks
-			If ((DORB_COMMANDER_TANKS)) exitWith {	
-				[(_attackpos_filtered_weight select _i)] call _Attacktype_tankattack;
+			If (GETVAR(_commander,DORB_COMMANDER_TANKS,[])) exitWith {	
+				LOG(FORMAT_1("COMMANDER | TANKS | %1",(_attackpos_filtered select _i)));
+				[(_attackpos_filtered select _i)] call _Attacktype_tankattack;
 				_sleep = _sleep + 4;
 			};
 			/// Airdrop
-			If ((DORB_COMMANDER_AIRDROP)) exitWith {	
-				[(_attackpos_filtered_weight select _i)] call _Attacktype_airdrop;
+			If (GETVAR(_commander,DORB_COMMANDER_AIRDROP,[])) exitWith {	
+				LOG(FORMAT_1("COMMANDER | AIRDROP | %1",(_attackpos_filtered select _i)));
+				[(_attackpos_filtered select _i)] call _Attacktype_airdrop;
 				_sleep = _sleep + 3;
 			};
 			/// MEch
-			If ((DORB_COMMANDER_MECH)) exitWith {	
-				[(_attackpos_filtered_weight select _i)] call _Attacktype_mechattack;
+			If (GETVAR(_commander,DORB_COMMANDER_MECH,[])) exitWith {	
+				LOG(FORMAT_1("COMMANDER | MECH | %1",(_attackpos_filtered select _i)));
+				[(_attackpos_filtered select _i)] call _Attacktype_mechattack;
 				_sleep = _sleep + 3;
 			};
 			
@@ -444,74 +462,92 @@ while {alive _commander} do {
 			/// Medium Attack
 			If ((_attackpos_filtered_weight select _i) > 10) then {
 				_rand = floor (random 5);
-				If ((_rand <1)&&(DORB_COMMANDER_MECH || DORB_COMMANDER_AIRDROP)&&(DORB_COMMANDER_ART)) exitWith {
-					[(_attackpos_filtered_weight select _i)] call _Attacktype_arty_auto;
-					If ((DORB_COMMANDER_MECH)&&(DORB_COMMANDER_AIRDROP)) then {
+				If ((_rand <1)&&((GETVAR(_commander,DORB_COMMANDER_MECH,[])) || (GETVAR(_commander,DORB_COMMANDER_AIRDROP,[])))&&(GETVAR(_commander,DORB_COMMANDER_ART,[]))) exitWith {
+					[(_attackpos_filtered select _i)] call _Attacktype_arty_auto;
+					If ((GETVAR(_commander,DORB_COMMANDER_MECH,[]))&&(GETVAR(_commander,DORB_COMMANDER_AIRDROP,[]))) then {
 						_rand = floor (random 2);
 						If (_rand >0) then {
 							_rand = floor (random 2);
 							If (_rand >0) then {
-								[(_attackpos_filtered_weight select _i)] call _Attacktype_airdrop;
+								LOG(FORMAT_1("COMMANDER | AIRDROP | %1",(_attackpos_filtered select _i)));
+								[(_attackpos_filtered select _i)] call _Attacktype_airdrop;
 							}else{
-								[(_attackpos_filtered_weight select _i)] call _Attacktype_airdrop_smoke;
+								LOG(FORMAT_1("COMMANDER | AIRDROP + SMOKE | %1",(_attackpos_filtered select _i)));
+								[(_attackpos_filtered select _i)] call _Attacktype_airdrop;
+								[(_attackpos_filtered select _i)] call _Attacktype_airdrop_smoke;
 							};
 						}else{
-							[(_attackpos_filtered_weight select _i)] call _Attacktype_mechattack;
+							LOG(FORMAT_1("COMMANDER | MECH | %1",(_attackpos_filtered select _i)));
+							[(_attackpos_filtered select _i)] call _Attacktype_mechattack;
 						};
 					}else{
-						If (DORB_COMMANDER_MECH) then {[(_attackpos_filtered_weight select _i)] call _Attacktype_mechattack;};
-						If (DORB_COMMANDER_AIRDROP) then {
+						If (GETVAR(_commander,DORB_COMMANDER_MECH,[])) then {
+							LOG(FORMAT_1("COMMANDER | MECH | %1",(_attackpos_filtered select _i)));
+							[(_attackpos_filtered select _i)] call _Attacktype_mechattack;
+						};
+						If (GETVAR(_commander,DORB_COMMANDER_AIRDROP,[])) then {
 							_rand = floor (random 2);
 							If (_rand >0) then {
-								[(_attackpos_filtered_weight select _i)] call _Attacktype_airdrop;
+								LOG(FORMAT_1("COMMANDER | AIRDROP | %1",(_attackpos_filtered select _i)));
+								[(_attackpos_filtered select _i)] call _Attacktype_airdrop;
 							}else{
-								[(_attackpos_filtered_weight select _i)] call _Attacktype_airdrop_smoke;
+								LOG(FORMAT_1("COMMANDER | AIRDROP + SMOKE | %1",(_attackpos_filtered select _i)));
+								[(_attackpos_filtered select _i)] call _Attacktype_airdrop;
+								[(_attackpos_filtered select _i)] call _Attacktype_airdrop_smoke;
 							};
 						};
 					};
 					_sleep = _sleep + 5;
 				};
 				/// Tanks + Mech
-				If ((_rand <2)&&(DORB_COMMANDER_TANKS && DORB_COMMANDER_MECH)) exitWith {
-					[(_attackpos_filtered_weight select _i)] call _Attacktype_mechattack;
-					[(_attackpos_filtered_weight select _i)] call _Attacktype_tankattack;
+				If ((_rand <2)&&((GETVAR(_commander,DORB_COMMANDER_TANKS,[])) && (GETVAR(_commander,DORB_COMMANDER_MECH,[])))) exitWith {
+					LOG(FORMAT_1("COMMANDER | TANKS + MECH | %1",(_attackpos_filtered select _i)));
+					[(_attackpos_filtered select _i)] call _Attacktype_mechattack;
+					[(_attackpos_filtered select _i)] call _Attacktype_tankattack;
 					_sleep = _sleep + 5;
 				};
 				/// Tanks
-				If ((_rand <3)&&(DORB_COMMANDER_TANKS)) exitWith {
-					[(_attackpos_filtered_weight select _i)] call _Attacktype_tankattack;
+				If ((_rand <3)&&(GETVAR(_commander,DORB_COMMANDER_TANKS,[]))) exitWith {
+					LOG(FORMAT_1("COMMANDER | TANKS | %1",(_attackpos_filtered select _i)));
+					[(_attackpos_filtered select _i)] call _Attacktype_tankattack;
 					_sleep = _sleep + 4;
 				};
 				/// Arty
-				If ((_rand <4)&&(DORB_COMMANDER_ART)) exitWith {
-					[(_attackpos_filtered_weight select _i)] call _Attacktype_arty_auto;
+				If ((_rand <4)&&(GETVAR(_commander,DORB_COMMANDER_ART,[]))) exitWith {
+					LOG(FORMAT_1("COMMANDER | ARTY | %1",(_attackpos_filtered select _i)));
+					[(_attackpos_filtered select _i)] call _Attacktype_arty_auto;
 					_sleep = _sleep + 2;
 				};
 				/// Airdrop
-				If ((DORB_COMMANDER_AIRDROP)) exitWith {	
-					[(_attackpos_filtered_weight select _i)] call _Attacktype_airdrop;
+				If (GETVAR(_commander,DORB_COMMANDER_AIRDROP,[])) exitWith {	
+					LOG(FORMAT_1("COMMANDER | AIRDROP | %1",(_attackpos_filtered select _i)));
+					[(_attackpos_filtered select _i)] call _Attacktype_airdrop;
 					_sleep = _sleep + 3;
 				};
 				/// MEch
-				If ((DORB_COMMANDER_MECH)) exitWith {	
-					[(_attackpos_filtered_weight select _i)] call _Attacktype_mechattack;
+				If (GETVAR(_commander,DORB_COMMANDER_MECH,[])) exitWith {	
+					LOG(FORMAT_1("COMMANDER | MECH | %1",(_attackpos_filtered select _i)));
+					[(_attackpos_filtered select _i)] call _Attacktype_mechattack;
 					_sleep = _sleep + 3;
 				};
 			}else{
 				_rand = floor (random 2);
 				/// Sniper
-				If ((_rand <1)&&(DORB_COMMANDER_SNIPER)) exitWith {
-					[(_attackpos_filtered_weight select _i)] call _Attacktype_sniperattack;
+				If ((_rand <1)&&(GETVAR(_commander,DORB_COMMANDER_SNIPER,[]))) exitWith {
+					LOG(FORMAT_1("COMMANDER | SNIPER | %1",(_attackpos_filtered select _i)));
+					[(_attackpos_filtered select _i)] call _Attacktype_sniperattack;
 					_sleep = _sleep + 2;
 				};
 				/// Airdrop
-				If ((DORB_COMMANDER_AIRDROP)) exitWith {	
-					[(_attackpos_filtered_weight select _i)] call _Attacktype_airdrop;
+				If (GETVAR(_commander,DORB_COMMANDER_AIRDROP,[])) exitWith {	
+					LOG(FORMAT_1("COMMANDER | AIRDROP | %1",(_attackpos_filtered select _i)));
+					[(_attackpos_filtered select _i)] call _Attacktype_airdrop;
 					_sleep = _sleep + 3;
 				};
 				/// MEch
-				If ((DORB_COMMANDER_MECH)) exitWith {	
-					[(_attackpos_filtered_weight select _i)] call _Attacktype_mechattack;
+				If (GETVAR(_commander,DORB_COMMANDER_MECH,[])) exitWith {	
+					LOG(FORMAT_1("COMMANDER | MECH | %1",(_attackpos_filtered select _i)));
+					[(_attackpos_filtered select _i)] call _Attacktype_mechattack;
 					_sleep = _sleep + 3;
 				};
 			};

@@ -4,6 +4,9 @@
 
 #define DEBUGMODUS
 #define DEBUG_MODE_NORMAL
+#ifdef DEBUG_ENABLED_TEST
+    #define DEBUG_MODE_FULL
+#endif
 #define DORB_ERROR
 #define DORB_LOG
 

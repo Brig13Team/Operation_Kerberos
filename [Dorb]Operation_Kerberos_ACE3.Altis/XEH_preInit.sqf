@@ -10,11 +10,13 @@ TRIPLES(dorb,makro,delete) = compileFinal "If(if (isNil {_this}) then { false } 
 //Allgemeines
 PREPMAIN(determineHC);
 PREPMAIN(get_buildings);
+PREPMAIN(get_cfg_subclasses);
 PREPMAIN(get_cfglocations);
 PREPMAIN(list_groups);
 PREPMAIN(local);
 PREPMAIN(local_check);
 PREPMAIN(moveToHC);
+PREPMAIN(pos_surrounding);
 PREPMAIN(random_pos);
 
 
@@ -22,7 +24,9 @@ PREPMAIN(random_pos);
 PREPMAIN(addbriefing);
 PREPMAIN(disp_blur);
 PREPMAIN(disp_info);
+PREPMAIN(disp_info_global);
 PREPMAIN(disp_message);
+PREPMAIN(disp_message_global);
 PREPMAIN(disp_progressbar);
 PREPMAIN(grouptracker);
 PREPMAIN(halo);
@@ -32,6 +36,8 @@ PREPMAIN(halo_set_loadout);
 PREPMAIN(nurpiloten);
 PREPMAIN(playeraddaction);
 PREPMAIN(rep);
+PREPMAIN(repairpoint);
+PREPMAIN(repairpoint_init);
 PREPMAIN(rescue_draw3D);
 
 //Einheiten
@@ -47,6 +53,9 @@ PREPMAIN(spawn_attack_waves);
 PREPMAIN(spawn_crew);
 PREPMAIN(spawn_defence);
 PREPMAIN(spawn_in_building);
+PREPMAIN(spawn_macro);
+PREPMAIN(spawn_macro_exec);
+PREPMAIN(spawn_minefield);
 PREPMAIN(spawn_mortarpos);
 PREPMAIN(spawn_obj_mil);
 PREPMAIN(spawn_obj_sonstiges);
@@ -54,13 +63,17 @@ PREPMAIN(spawn_obj_stadt);
 PREPMAIN(spawn_patrol_air);
 PREPMAIN(spawn_patrol_inf);
 PREPMAIN(spawn_patrol_veh);
+PREPMAIN(spawn_patrol_water);
 PREPMAIN(spawn_rooftop);
 PREPMAIN(spawn_tower);
 PREPMAIN(spawn_unit);
-PREPMAIN(spawn_macro_exec);
-PREPMAIN(spawn_macro);
+
 
 //Comandofahrzeuge
+PREPMAIN(spawn_commander);
+PREPMAIN(spawn_commander_ai);
+PREPMAIN(spawn_commander_search);
+PREPMAIN(spawn_commander_callArty);
 PREPMAIN(spawn_commandveh);
 PREPMAIN(spawn_commandveh_airdrop);
 PREPMAIN(spawn_commandveh_antiair);

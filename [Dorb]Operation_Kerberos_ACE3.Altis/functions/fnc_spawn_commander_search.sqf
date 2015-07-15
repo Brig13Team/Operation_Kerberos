@@ -14,6 +14,7 @@
 	Return
 	BOOL
 */
+#define DEBUG_ENABLED_TEST
 #include "script_component.hpp"
 PARAMS_1(_pos);
 DEFAULT_PARAM(1,_type,0);
@@ -68,5 +69,5 @@ switch (_type) do {
 		}forEach _players;
 	};
 };
-
+TRACE_1("Ziele=%1",_targets);
 _targets;

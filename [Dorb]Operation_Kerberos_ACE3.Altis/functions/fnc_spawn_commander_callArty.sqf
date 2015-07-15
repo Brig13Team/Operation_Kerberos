@@ -8,6 +8,7 @@
 		0 : OBJECT	- HQ
 	
 */
+#define DEBUG_ENABLED_TEST
 #include "script_component.hpp"
 
 PARAMS_2(_commander,_attack_pos);
@@ -25,7 +26,7 @@ If (_count < 0) then {
 	
 	// Choose Ammunition
 	_enemy = ObjNull;
-	{If ((_side _x == DORB_PLAYERSIDE)&&((vehicle _x ) isKindOf "LandVehicle")) exitWith {_enemy = _x;};}forEach (_attack_pos nearEntities ["Man", 20]);
+	{If ((side _x == DORB_PLAYERSIDE)&&((vehicle _x ) isKindOf "LandVehicle")) exitWith {_enemy = _x;};}forEach (_attack_pos nearEntities ["Man", 20]);
 	If (!isNull _enemy) then {
 		/// AttackVehicle
 		_rand = floor(random 3);
