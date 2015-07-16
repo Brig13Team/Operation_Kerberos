@@ -29,7 +29,7 @@ _spawnposition=[];
 //////////////////////////////////////////////////
 
 _rand = ((floor(random 2)) + 2);
-
+_all_spawnpos = [];
 for "_i" from 1 to _rand do{
 	_einheit = "rhs_9k79";
 	_spawnposition = [_position,200,0] call FM(random_pos);
@@ -48,7 +48,43 @@ for "_i" from 1 to _rand do{
 		_unit engineOn false;
 		_target pushBack _unit;
 	};
+	
+	_spawnposition = [_position,25,200,15,0.15] call FM(pos_flatempty);
+	If (_spawnposition isEqualTo []) then {
+		_spawnposition = [_position,25,200,15,0.22] call FM(pos_flatempty);
+	};
+	If (_spawnposition isEqualTo []) then {
+		_spawnposition = [_position,200,0] call FM(random_pos);
+		_spawnposition = _spawnposition findEmptyPosition [1,100,_einheit];
+		if (_spawnposition isEqualTo []) then {
+			ERROR(FORMAT_1("Keine Spawnposition | %1",_spawnposition));
+		}else{
+			_unit = createVehicle [_einheit,_spawnposition, [], 0, "NONE"];
+			uisleep 1;
+			_unit setVectorUp [0,0,1];
+			_unit lock 3;
+			createVehicleCrew _unit;
+			_unit engineOn false;
+			_target pushBack _unit;
+			_all_spawnpos pushBack _spawnposition;
+		};
+	}else{
+		[_spawnposition,3,(random 360)] call FM(spawn_macro);
+		_unit = createVehicle [_einheit,_spawnposition, [], 0, "NONE"];
+		uisleep 1;
+		_unit setVectorUp [0,0,1];
+		_unit lock 3;
+		createVehicleCrew _unit;
+		_unit engineOn false;
+		
+		_target pushBack _unit;
+		_all_spawnpos pushBack _spawnposition;
+	};
+	
 };
+_centerpos = [_all_spawnpos] call FM(positionsMean);
+If (_centerpos isEqualTo []) then {_centerpos = _position;};
+
 _mapSize = getNumber(configFile >> "CfgWorlds" >> worldName >> "MapSize");
 _dir = [(_target select 0),[(_mapSize/2),(_mapSize/2),0]] call BIS_fnc_relativeDirTo;
 
@@ -109,7 +145,7 @@ sleep 2;
 ////// Gegner erstellen 					 /////
 //////////////////////////////////////////////////
 
-[_position] call FM(spawn_obj_sonstiges);
+[_centerpos] call FM(spawn_obj_sonstiges);
 
 //////////////////////////////////////////////////
 ////// Aufgabe erstellen 					 /////

@@ -33,27 +33,39 @@ _spawnposition=[];
 
 //_rand = ((floor(random 2)) + 1);
 _rand=1;
-
+_all_spawnpos = [];
 for "_i" from 1 to _rand do{
 	_einheit = dorb_prototyp SELRND;
-	LOG_2(_einheit,_position);
-	
-	_spawnposition = [_position,200,0] call FM(random_pos);
-	_spawnposition = _spawnposition findEmptyPosition [1,100,_einheit];				//// to do: isFlatEmpty
-	if (count _spawnposition < 1) then {
-		ERROR(FORMAT_1("Keine Spawnposition | %1",_spawnposition));
+	_spawnposition = [_position,25,200,15,0.15] call FM(pos_flatempty);
+	If (_spawnposition isEqualTo []) then {
+		_spawnposition = [_position,25,200,15,0.22] call FM(pos_flatempty);
+	};
+	If (_spawnposition isEqualTo []) then {
+		_spawnposition = [_position,200,0] call FM(random_pos);
+		_spawnposition = _spawnposition findEmptyPosition [1,100,_einheit];
+		if (_spawnposition isEqualTo []) then {
+			ERROR(FORMAT_1("Keine Spawnposition | %1",_spawnposition));
+		}else{
+			_unit = createVehicle [_einheit,_spawnposition, [], 0, "NONE"];
+			_target pushBack _unit;
+			_all_spawnpos pushBack _spawnposition;
+		};
 	}else{
+		[_spawnposition,3,(random 360)] call FM(spawn_macro);
 		_unit = createVehicle [_einheit,_spawnposition, [], 0, "NONE"];
-		_unit setVariable ["DORB_ISTARGET",true,false];
 		_target pushBack _unit;
+		_all_spawnpos pushBack _spawnposition;
 	};
 };
+
+_centerpos = [_all_spawnpos] call FM(positionsMean);
+If (_centerpos isEqualTo []) then {_centerpos = _position;};
 
 ///////////////////////////////////////////////
 ////// Ziel bearbeiten					 /////
 ///////////////////////////////////////////////
 
-{(getpos _x) spawn FM(spawn_defence)} forEach _target;
+{(getpos _x) spawn FM(spawn_defence);} forEach _target;
 
 
 if (dorb_debug) then {
@@ -75,7 +87,7 @@ sleep 2;
 ////// Gegner erstellen 				 /////
 ///////////////////////////////////////////////
 
-[_position] call FM(spawn_obj_sonstiges);
+[_centerpos] call FM(spawn_obj_sonstiges);
 
 ///////////////////////////////////////////////
 ////// Aufgabe erstellen 				 /////
