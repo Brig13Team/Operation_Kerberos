@@ -31,6 +31,7 @@ Dynamische Mission von Dorbedo
 <li>Statische Geschütze
 <li>Fahzeugpatroullien
 <li>Wasserpatroullien
+<li>ACE-Minenfelder
 <li>Mörser
 <li>Militärtürme
 <li>Kommandofahrzeuge (Greifen Posistion aufgeklärte Spieler an)<ul>
