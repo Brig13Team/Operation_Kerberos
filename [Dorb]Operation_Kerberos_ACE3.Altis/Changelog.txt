@@ -2,6 +2,28 @@ Changelog
 
 Github: https://github.com/Dorbedo/Operation_Kerberos
 
+Version 0.15
+
+Removed: Commandvehicle
+Added: Commander (Kontrolliert nun die gesamten VerstÃ¤rkungen und wÃ¤hlt passenden Konterangriff aus)
+       Bspw.: Kein Panzerangriff mehr auf Einzelne Einheiten ; Kombinierter Angriff auf grÃ¶ÃŸere SpielerverbÃ¤nde
+Added: Water Patrols
+Added: Mine-Field
+Added: ACE Medical Items im MHQ
+Added: Longrange-Funke fÃ¼r FHQ
+Added: KompatibilitÃ¤t zu N'Ziwasogo, Panthera
+Added: Mod Autodetection fÃ¼r RDS, BWA3
+Added: MÃ¶glichkeit fÃ¼r East vs West
+Added: Neue Makros fÃ¼r befestigte Stellungen
+Changed: Function-Makros
+Changed: Vanilla Crews removed
+Changed: Entferung vom Attackspawn
+Improved: Examine
+Improved: Mission SCARAB
+Fixed: diverse kleiner Bugs
+Fixed: NVG's nicht fÃ¼r Independent
+
+
 
 Version 0.14.5
 
@@ -31,7 +53,7 @@ Removed: Medevac-Spieler bei Basic-Medical
 
 Version 0.14.3
 
-Added: Englische Sprache (Übersetzungen von Cypherstalker) Hinweis: Einfach das eigene Profil auf deutsch umstellen, wenn ihr kein Deutsch mehr habt.
+Added: Englische Sprache (Ãœbersetzungen von Cypherstalker) Hinweis: Einfach das eigene Profil auf deutsch umstellen, wenn ihr kein Deutsch mehr habt.
 Added: Erste Version Kistenspawner(Arbeitstitel)
 
 Changed: *Prevent Instant Death* Eingeschaltet
@@ -39,15 +61,15 @@ Changed: VCOM Update
 
 Removed: Virtuelles Arsenal auf Fahrzeugmunition
 
-Fixed: Div kleinere Schönheitsfehler im Code
+Fixed: Div kleinere SchÃ¶nheitsfehler im Code
 
 
 
 Version 0.14.2
 
-Changed: Anzahl Einheiten in der AO reduziert (RHS mag im Moment meine HC nicht: stürzen ab, sobald eine RHS Raktet(Tow, javelin, ... abgefeuert wird))
+Changed: Anzahl Einheiten in der AO reduziert (RHS mag im Moment meine HC nicht: stÃ¼rzen ab, sobald eine RHS Raktet(Tow, javelin, ... abgefeuert wird))
 
-Changed: "Prevent Instant Death" abgeschaltet (ACE3-Bug führt sonst dazu, dass die Gegner nahezu unverwundbar werden)
+Changed: "Prevent Instant Death" abgeschaltet (ACE3-Bug fÃ¼hrt sonst dazu, dass die Gegner nahezu unverwundbar werden)
 
 
 
@@ -71,12 +93,12 @@ Added: Headless Client (bis zu 3x, Autodetection, verteilt die Last  zum Spawnze
 Changed: Gegnergruppen HC-Kompatibel gemacht
 Changed: Mission Device : Device
 Changed: Spawnpads (GUI + Scripts)
-Changed: Missionsauswahl überarbeitet -> vorbereitung von Adminkonsole
+Changed: Missionsauswahl Ã¼berarbeitet -> vorbereitung von Adminkonsole
 Changed: Einheitenmenge bei vielen Spielern
 Changed: Basis-Marker
-Changed: Nur Piloten können fliegen scharfgeschalten
+Changed: Nur Piloten kÃ¶nnen fliegen scharfgeschalten
 
-Fixed: Verhören
+Fixed: VerhÃ¶ren
 Fixed: Grouptracker - kleinere Fehler
 
 
@@ -84,38 +106,38 @@ Fixed: Grouptracker - kleinere Fehler
 Version 0.13.1
 
 Changed: Spawn von Helikoptern und Jets bei vielen Spielern deaktiviert - Kommandofahrzeug Radar davon unbeeindruckt
-Changed: Spz können per Heli transportiert werden
+Changed: Spz kÃ¶nnen per Heli transportiert werden
 
-Fixed: TFR-Übersicht
+Fixed: TFR-Ãœbersicht
 
 
 
 Version 0.13
 
 Added: Kommandofahrzeug AI (Air Interception)
-Added: Kommandofahrzeug Mech (Mechanisierte Unterstützung)
+Added: Kommandofahrzeug Mech (Mechanisierte UnterstÃ¼tzung)
 Added: Kommandofahrzeug Sniper
 
 Changed: Kommandofahrzeug Panzer (Wechsel von Gruppen zu einzelnen Einheiten)
-Changed: Kommandofahrzeug Artillerie (Schießt häufiger und mehr)
-Changed: Kommandofahrzeug Airdrop (Abstand der Springer verkürzt)
+Changed: Kommandofahrzeug Artillerie (SchieÃŸt hÃ¤ufiger und mehr)
+Changed: Kommandofahrzeug Airdrop (Abstand der Springer verkÃ¼rzt)
 Changed: Teleport zum Squadleader (Bedingungen, Spawnort)
 Changed: Missionswahrscheinlichkeiten
 Changed: Mission Verteidigung - Spawnentferung
 Changed: Mission Verteidigung - Helikopter kommen leicht versetzt
 Changed: Zusammensetzung der Gegner (mehr Infanterie)
-Changed: Grundlegende Codeveränderungen
+Changed: Grundlegende CodeverÃ¤nderungen
 Changed: Wechsel zu CBA-Funktionen
 Changed: Makros
-Changed: Funktionsbibilothek verändert
-Changed: Komplett Multilingual (Vorbereitet - Übersetzung steht aus)
+Changed: Funktionsbibilothek verÃ¤ndert
+Changed: Komplett Multilingual (Vorbereitet - Ãœbersetzung steht aus)
 
 Fixed: Spawnlisten
 Fixed: Logistiker
 Fixed: Taskforce - Bug
 Fixed: Einheitenspawn
-Fixed: TFR-Übersicht - zu kurze Anzeige
-Fixed: Admin hat abbruchsmöglichkeit der Verteidigungsmission
+Fixed: TFR-Ãœbersicht - zu kurze Anzeige
+Fixed: Admin hat abbruchsmÃ¶glichkeit der Verteidigungsmission
 
 Removed: Respawn-Vehicle
 
@@ -126,12 +148,12 @@ Version 0.12
 Added: RHS 0.3.7
 Added: Respawn-Vehicle (CH-47F,M1078A1P2)
 Added: Teleport zum Squadleader
-Added: Kommandofahrzeuge (rufen Unterstützung)
+Added: Kommandofahrzeuge (rufen UnterstÃ¼tzung)
 Added: Kommandofahrzeug Artillerie
-Added: Kommandofahrzeug Fallschirmjäger
+Added: Kommandofahrzeug FallschirmjÃ¤ger
 Added: Kommandofahrzeug Panzer
 
-Changed: Fabrik benötigt Logistiker
+Changed: Fabrik benÃ¶tigt Logistiker
 
 Fixed: Div kleinere Bugs
 
@@ -140,7 +162,7 @@ Fixed: Div kleinere Bugs
 Version 0.11
 
 Added: Airdrop
-Added: Variabler Gegnerspawn (abhängig von Spieleranzahl)
+Added: Variabler Gegnerspawn (abhÃ¤ngig von Spieleranzahl)
 
 Changed: Defend-Mission (Wellen)
 
@@ -151,21 +173,21 @@ Fixed: Mission Destroy Tower
 
 Version 0.10
 
-Added: Vorbereitungen für ACE3
+Added: Vorbereitungen fÃ¼r ACE3
 
 Added: Grouptracker
 Added: New Units (MARKSMEN)
-Added: BIS - dynamicGroups (Squadmanagement - Öffen mit Taste U)
-Added: TFR - Frequenzübersicht
+Added: BIS - dynamicGroups (Squadmanagement - Ã–ffen mit Taste U)
+Added: TFR - FrequenzÃ¼bersicht
 Added: Tarus, Comanche, Wildcat zum Airspawn
 Added: Briefing
 
 Changed: Name - "Operation Kerberos"
-Changed: Spawnlisten werden von vom Server verwaltet (schneller für langsame PC)
+Changed: Spawnlisten werden von vom Server verwaltet (schneller fÃ¼r langsame PC)
 
 Fixed: Rechtschreibfehler
 Fixed: Symbol von "Retten"
-Fixed: Schönwettergewitter
+Fixed: SchÃ¶nwettergewitter
 Fixed: GroupTracker
 
 
@@ -180,11 +202,11 @@ Version 0.06
 
 Added: R3F-Logistik
 Added: Neues Debuglog
-Added: Mörser 
+Added: MÃ¶rser 
 Added: Artillerie
 Added: Tower
 
-Changed: Vorbereitung für mehrere Sprachen
+Changed: Vorbereitung fÃ¼r mehrere Sprachen
 Changed: RTB nun keine Aufgabe mehr, Radius auf 2,5km um Respawn
 Changed: Basis rumballern nun wieder aktiv (50m Radius)
 
@@ -196,7 +218,7 @@ Version 0.05
 
 Added: Benachrichtigungen
 Added: Kovoi Startmarker
-Added: Verhören
+Added: VerhÃ¶ren
 
 Changed: GUI (diverses)
 Changed: Halo
@@ -213,11 +235,11 @@ Removed: R3F-Logistiks
 
 Version 0.04
 
-Added: Missionstyp: Gefangenentransport überfallen
-Added: Missionstyp: Militärkonvoi zerstören
+Added: Missionstyp: Gefangenentransport Ã¼berfallen
+Added: Missionstyp: MilitÃ¤rkonvoi zerstÃ¶ren
 Added: Missionstyp: Fahrzeug erobern
 Added: Missionmarker
-Added: Nach Respawn wird die Ausrüstung wiederhergestellt
+Added: Nach Respawn wird die AusrÃ¼stung wiederhergestellt
 
 Changed: Anzahl der Einheiten
 Changed: Spawnradius verringert
@@ -232,12 +254,12 @@ Fixed: Nachricht bei Verteidigung
 Version 0.03
 
 Added: Gegner: Heli Patroullie
-Added: Gegner: Statische Geschütze
+Added: Gegner: Statische GeschÃ¼tze
 Added: Gegner: IED (CSE)
-Added: Wetteränderung
+Added: WetterÃ¤nderung
 
 Fixed: Positionierung der Tower
-Fixed: Tower und Device nur durch Sprengstoff zerstörbar
+Fixed: Tower und Device nur durch Sprengstoff zerstÃ¶rbar
 
 Removed: Zivilverkehr
 Removed: CES-Overheating
@@ -248,8 +270,8 @@ Version 0.02
 
 Added: Missiontyp Sonstiges: Device
 Added: Missiontyp Sonstiges: Radiotower
-Added: Missiontyp Militär: Erobern
-Added: Missiontyp Militär: Verteidigen
+Added: Missiontyp MilitÃ¤r: Erobern
+Added: Missiontyp MilitÃ¤r: Verteidigen
 Added: Halo
 Added: Zivilverkehr
 
@@ -259,7 +281,7 @@ ein CSE-Lazarett
 
 Fixed: Version "Simple Squadmanagement" aktualisiert.
 
-Removed: "Nur Piloten können fliegen"
+Removed: "Nur Piloten kÃ¶nnen fliegen"
 
 
 
@@ -273,8 +295,8 @@ Added: Missiontyp Stadt: Commander
 Added: Missiontyp Stadt: Geiseln
 Added: Missiontyp Stadt: Waffenversteck
 
-Added: Gegner: Farzeugpatroullie, Infanteriepatroullien, Specops, Infanterie in Gebäuden
+Added: Gegner: Farzeugpatroullie, Infanteriepatroullien, Specops, Infanterie in GebÃ¤uden
 Added: Gegner: Infanterieparoullie
 Added: Gegner: Specops (Sniperteam, Dronenteam (UGV, UAV(klein))
 Added: Gegner: Farzeugpatroullie
-Added: Gegner: Infanterie in Gebäuden
+Added: Gegner: Infanterie in GebÃ¤uden
