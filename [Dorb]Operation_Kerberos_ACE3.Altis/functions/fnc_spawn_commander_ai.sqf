@@ -260,7 +260,9 @@ while {alive _commander} do {
 		_attackunit_air = [];
 		for "_i" from 0 to (count (GETVAR(_commander,DORB_COMMANDER_RADAR,[]))) do {
 			_temp = [getPos _commander,1] call FM(spawn_commander_search);
-			_attackunit_air pushBack _temp;
+			If (!(_temp isEqualTo [])) then {
+				_attackunit_air pushBack _temp;
+			};
 		};
 		{_attackpos_air pushBack (getPosATL _x);}forEach _attackunit_air;
 	};
