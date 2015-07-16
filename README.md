@@ -44,7 +44,9 @@ Dynamische Mission von Dorbedo
 <li>Radar braucht direkte Sicht zum Helikopter/Flugzeug</li>
 <li>1 Abfangjäger pro Radar</li></ul></li>
 <li>Artillerie<ul><li>Koordiniert die 3 Artilleriegeschütze im Gebiet</li>
-<li>Fordert bei Bedarf Artillerieschlag</li></ul></li>
+<li>Fordert bei Bedarf Artillerieschlag</li>
+<li>Wählt automatisch den passenden Munitionstyp</li>
+<li>Kann Rauchunterstützung geben</li></ul></li>
 </ul></ul>
 #####Basis<ul>
 <li>Fahrzeugspawns</li>
