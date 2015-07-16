@@ -2,110 +2,65 @@
 	Author: Dorbedo
 
 	Description:
-	Units Obj "Mil"
+		spawn enemys for mission "Military"
 	
 	Parameter(s):
 		0 :	ARRAY - Position
 		
 */
+
 #include "script_component.hpp"
-
+private["_position","_difficulty","_spawnposition","_rand"];
 PARAMS_1(_position);
-If (worldName == "pja305") exitWith {
-	[_position,1200,8,0] spawn FM(spawn_patrol_inf);	sleep 10;
-	[_position,1200,2,0] spawn FM(spawn_patrol_veh);	sleep 9;
+_difficulty = [] call FM(dyn_difficulty);
 
-	If (_difficulty > 1) then {
-		[_position,1200,6,0] spawn FM(spawn_patrol_inf);	sleep 10;
-		[_position,1200,2,2] spawn FM(spawn_patrol_veh);	sleep 8;
-	};
-	If (_difficulty > 2) then {
-		[_position,1200,3,0] spawn FM(spawn_patrol_inf);	sleep 10;
-		[_position,1200,0,3] spawn FM(spawn_patrol_veh);	sleep 10;
-		//[_position,1500,1,0] spawn FM(spawn_patrol_air);	sleep 7;
-	};
-	for "_i" from 0 to 1 do {
-		_spawnposition = [_position,200,0] call FM(random_pos);
-		[_spawnposition] spawn FM(spawn_tower);
-		sleep 5;
-	};
-	for "_i" from 0 to 3 do {
-		_spawnposition = [_position,200,0] call FM(random_pos);
-		[_spawnposition] spawn FM(spawn_mortarpos);
-		sleep 5;
-	};
-	If (DORB_MODS_RDS) then {
-		for "_i" from 0 to 8 do {
-			_spawnposition = [_position,400,0] call FM(random_pos);
-			[_spawnposition] spawn FM(spawn_aapos);
-			sleep 5;
-		};
-	};
-	[_position] spawn FM(spawn_commandveh);
-	If (_difficulty>2) then {
-		[_position] spawn FM(spawn_commandveh);
-	};
+LOG("Spawn Military-Area");
+LOG_1(_difficulty);
 
-	_position spawn {
-		_rad = 200;
-		_difficulty = call FM(dyn_difficulty);
-		_gebaeudepos_arr = [];
-		_gebaeudepos_arr = [_this,_rad] call FM(get_buildings);
-		
-		_gebaeudepos_arr = [_gebaeudepos_arr,5,(8+_difficulty)] call FM(spawn_rooftop);
-		_gebaeudepos_arr = [_gebaeudepos_arr,(20 + (_difficulty*5)),(30 + (_difficulty*5))] spawn FM(spawn_in_building);
-	};
+//// makros has autodetection of RDS
+[_position,1200,(6+_difficulty)] call FM(spawn_defence_macros);
+[_position] spawn FM(spawn_commander);
+
+
+_count_inf = 5;
+_count_specops = 0;
+_count_light = 3;
+_count_tanks = 0;
+
+If (_difficulty>1) then {
+	_count_inf = 9;
+	_count_specops = 0;
+	_count_light = 5;
+	_count_tanks = 2;
 };
 
-[_position,800,5,0] spawn FM(spawn_patrol_inf);	sleep 10;
-[_position,1200,3,0] spawn FM(spawn_patrol_veh);	sleep 9;
-
-If (_difficulty > 1) then {
-	[_position,800,4,0] spawn FM(spawn_patrol_inf);	sleep 10;
-	[_position,1200,2,2] spawn FM(spawn_patrol_veh);	sleep 8;
-};
-If (_difficulty > 2) then {
-	[_position,800,3,0] spawn FM(spawn_patrol_inf);	sleep 10;
-	[_position,1200,0,3] spawn FM(spawn_patrol_veh);	sleep 10;
-	//[_position,1500,1,0] spawn FM(spawn_patrol_air);	sleep 7;
-};
-
-If (worldName == "Panthera3") then {
-	If (DORB_MODS_RDS) then {
-		[_position] spawn {
-			_position = _this select 0;
-			for "_i" from 0 to 4 do {
-				_spawnposition = [_position,300,0] call FM(random_pos);
-				[_spawnposition] spawn FM(spawn_aapos);
-				sleep 5;
-			};
-		};
-	};
-};
-
-
-for "_i" from 0 to 1 do {
-	_spawnposition = [_position,200,0] call FM(random_pos);
-	[_spawnposition] spawn FM(spawn_tower);
-	sleep 5;
-};
-for "_i" from 0 to 1 do {
-	_spawnposition = [_position,200,0] call FM(random_pos);
-	[_spawnposition] spawn FM(spawn_mortarpos);
-	sleep 5;
-};
-
-[_position] spawn FM(spawn_commandveh);
 If (_difficulty>2) then {
-	[_position] spawn FM(spawn_commandveh);
+	_count_inf = 12;
+	_count_specops = 0;
+	_count_light = 5;
+	_count_tanks = 5;
 };
 
-_position spawn {
-	_rad = 200;
-	_difficulty = call FM(dyn_difficulty);
-	_gebaeudepos_arr = [];
-	_gebaeudepos_arr = [_this,_rad] call FM(get_buildings);
-	
-	_gebaeudepos_arr = [_gebaeudepos_arr,5,(8+_difficulty)] call FM(spawn_rooftop);
-	_gebaeudepos_arr = [_gebaeudepos_arr,(20 + (_difficulty*5)),(30 + (_difficulty*5))] spawn FM(spawn_in_building);
+If (worldName == "pja305") then {
+	_count_specops = 0;
+	_count_inf = _count_inf + 3;
+	_count_light = (_count_light - 2) max 0;
+	_count_tanks = (_count_tanks - 2) max 0;
 };
+
+LOG_5(_position,_count_inf,_count_specops,_count_light,_count_tanks);
+
+[_position,800,_count_inf,_count_specops] call FM(spawn_patrol_inf);
+[_position,1200,_count_light,_count_tanks] call FM(spawn_patrol_veh);
+[_position,1200,-1,-1] call FM(spawn_patrol_water);
+[_position,1300,8] call FM(spawn_minefields);
+[_position,_difficulty] spawn {
+	_gebaeudepos_arr = [];
+	_gebaeudepos_arr = [(_this select 0),200] call FM(get_buildings);
+	
+	_gebaeudepos_arr = [_gebaeudepos_arr,5,(8+(_this select 1))] call FM(spawn_rooftop);
+	_gebaeudepos_arr = [_gebaeudepos_arr,(20 + ((_this select 1)*5)),(30 + ((_this select 1)*5))] spawn FM(spawn_in_building);
+};
+
+
+true

@@ -2,142 +2,56 @@
 	Author: Dorbedo
 	
 	Description:
-	
-	Requirements:
+		spawn enemys for mission "Sonstiges"
 	
 	Parameter(s):
-		0 : ARRAY	- Example
-		1 : ARRAY	- Example
-		2 : STRIN	- Example
+		0 : ARRAY	- Posistion
 	
-	Return
-	BOOL
 */
 #include "script_component.hpp"
-
 private["_position","_difficulty","_spawnposition","_rand"];
 PARAMS_1(_position);
 _difficulty = [] call FM(dyn_difficulty);
 
-LOG(FORMAT_1("Spawn Sonstiges \n Pos=%1",_position));
+LOG("Spawn Sonstiges");
+LOG_1(_difficulty);
 
-If (worldName == "pja305") exitWith {
-	
-	[_position,1200,6,0] spawn FM(spawn_patrol_inf);	sleep 10;
-	[_position,1200,6,0] spawn FM(spawn_patrol_veh);	sleep 10;
-
-	If (_difficulty > 1) then {
-		[_position,1200,3,0] spawn FM(spawn_patrol_inf);	sleep 10;
-		[_position,1200,4,2] spawn FM(spawn_patrol_veh);	sleep 10;
-	};
-	If (_difficulty > 2) then {
-		[_position,1200,4,0] spawn FM(spawn_patrol_inf);	sleep 10;
-		[_position,1200,2,4] spawn FM(spawn_patrol_veh);	sleep 10;
-		//[_position,1500,1,0] spawn FM(spawn_patrol_air);	sleep 10;
-	};
-	If (DORB_MODS_RDS) then {
-		for "_i" from 0 to 8 do {
-			_spawnposition = [_position,1200,0] call FM(random_pos);
-			[_spawnposition] spawn FM(spawn_aapos);
-			sleep 5;
-		};
-	};
-	LOG("Spawn Sonstiges Macros");
-
-	_spawnposition=[];
-	for "_i" from 0 to (2) do {
-		_rand = (floor(random 3));
-		sleep 15;
-		
-		switch (_rand) do {
-			case 0;
-			case 1 : {
-				_spawnposition = [_position,200,0] call FM(random_pos);
-				[_spawnposition] spawn FM(spawn_tower);
-				};
-			case 2 : {
-				_spawnposition = [_position,800,1] call FM(random_pos);
-				[_spawnposition] spawn FM(spawn_mortarpos);
-			};
-		};
-	};
-
-	[_position] spawn FM(spawn_commandveh);
-	sleep 5;
-	If (_difficulty>2) then {
-		[_position] spawn FM(spawn_commandveh);
-	};
-
-	LOG("Spawn sonstiges fertig");
-	true
-};
-[_position,800,6,1] spawn FM(spawn_patrol_inf);	sleep 10;
-[_position,1200,3,0] spawn FM(spawn_patrol_veh);	sleep 10;
-
-If (_difficulty > 1) then {
-	[_position,800,3,2] spawn FM(spawn_patrol_inf);	sleep 10;
-	[_position,1200,2,2] spawn FM(spawn_patrol_veh);	sleep 10;
-};
-If (_difficulty > 2) then {
-	[_position,800,2,2] spawn FM(spawn_patrol_inf);	sleep 10;
-	[_position,1200,0,4] spawn FM(spawn_patrol_veh);	sleep 10;
-	//[_position,1500,1,0] spawn FM(spawn_patrol_air);	sleep 10;
-};
-/*
-If (_difficulty > 3) then {
-	[_position,800,0,1] spawn FM(spawn_patrol_inf);	sleep 10;
-	[_position,1200,0,3] spawn FM(spawn_patrol_veh);	sleep 10;
-//	[_position,1500,1,2] spawn FM(spawn_patrol_air);	sleep 10;
-};
-If (_difficulty > 4) then {
-	[_position,800,0,1] spawn FM(spawn_patrol_inf);	sleep 10;
-	[_position,1200,0,3] spawn FM(spawn_patrol_veh);	sleep 10;
-	//[_position,1500,1,1] spawn FM(spawn_patrol_air);	sleep 10;
-};
-*/
-LOG("Spawn Sonstiges Macros");
+//// makros has autodetection of RDS
+[_position,1200,(10+_difficulty)] call FM(spawn_defence_macros);
+[_position] spawn FM(spawn_commander);
 
 
-If (worldName == "Panthera3") then {
-	If (DORB_MODS_RDS) then {
-		[_position] spawn {
-			_position = _this select 0;
-			for "_i" from 0 to 5 do {
-				_spawnposition = [_position,800,0] call FM(random_pos);
-				[_spawnposition] spawn FM(spawn_aapos);
-				sleep 5;
-			};
-		};
-	};
+_count_inf = 6;
+_count_specops = 1;
+_count_light = 3;
+_count_tanks = 0;
+
+If (_difficulty>1) then {
+	_count_inf = 9;
+	_count_specops = 3;
+	_count_light = 5;
+	_count_tanks = 2;
 };
 
-
-
-
-
-_spawnposition=[];
-for "_i" from 0 to (2) do {
-	_rand = (floor(random 3));
-	sleep 15;
-	
-	switch (_rand) do {
-		case 0;
-		case 1 : {
-			_spawnposition = [_position,200,0] call FM(random_pos);
-			[_spawnposition] spawn FM(spawn_tower);
-			};
-		case 2 : {
-			_spawnposition = [_position,800,1] call FM(random_pos);
-			[_spawnposition] spawn FM(spawn_mortarpos);
-		};
-	};
-};
-
-[_position] spawn FM(spawn_commandveh);
-sleep 5;
 If (_difficulty>2) then {
-	[_position] spawn FM(spawn_commandveh);
+	_count_inf = 11;
+	_count_specops = 5;
+	_count_light = 5;
+	_count_tanks = 6;
 };
 
-LOG("Spawn sonstiges fertig");
+If (worldName == "pja305") then {
+	_count_specops = 0;
+	_count_inf = _count_inf + 3;
+	_count_light = (_count_light - 2) max 0;
+	_count_tanks = (_count_tanks - 2) max 0;
+};
+
+LOG_5(_position,_count_inf,_count_specops,_count_light,_count_tanks);
+
+[_position,1200,_count_inf,_count_specops] call FM(spawn_patrol_inf);
+[_position,1200,_count_light,_count_tanks] call FM(spawn_patrol_veh);
+[_position,1200,-1,-1] call FM(spawn_patrol_water);
+[_position,1300,8] call FM(spawn_minefields);
+
 true
