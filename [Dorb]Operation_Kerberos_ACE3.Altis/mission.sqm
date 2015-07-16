@@ -363,7 +363,7 @@ class Mission
 					id=11;
 					side="WEST";
 					vehicle="B_Soldier_TL_F";
-					player="PLAYER COMMANDER";
+					player="PLAY CDG";
 					leader=1;
 					skill=0.60000002;
 					description="Teamleader";
@@ -885,7 +885,7 @@ class Mission
 					id=47;
 					side="WEST";
 					vehicle="B_Helipilot_F";
-					player="PLAY CDG";
+					player="PLAYER COMMANDER";
 					leader=1;
 					skill=0.60000002;
 					init="this setVariable [""DORB_INGENIEUR"",true,true];";
@@ -2927,7 +2927,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=27;
+		items=28;
 		class Item0
 		{
 			position[]={11587.314,23.605291,11988.901};
@@ -3141,6 +3141,15 @@ class Mission
 			text="Crate Spawn";
 			type="Empty";
 			angle=658.69397;
+		};
+		class Item27
+		{
+			position[]={87.017807,-0.16893053,87.743774};
+			name="air_spawn_flying";
+			text="Aircraft Spawn flying";
+			type="Empty";
+			colorName="ColorOrange";
+			angle=404.32001;
 		};
 	};
 	class Sensors

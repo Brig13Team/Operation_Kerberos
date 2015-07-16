@@ -283,7 +283,7 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
 };
 
 _drohnenliste 	= _spawnliste_drohne;
-_luftliste 		= _spawnliste_heli + _spawnliste_heli_rhs;
+_luftliste 		= _spawnliste_heli + _spawnliste_heli_rhs + _spawnliste_jet + _spawnliste_jet_rhs;
 _fahrzeugliste 	= _spawnliste_fia + _spawnliste_fahrzeug_bewaffnet + _spawnliste_fahrzeug_unbewaffnet + _spawnliste_support + _spawnliste_panzer + _spawnliste_fahrzeug_rhs + _spawnliste_panzer_rhs;
 _logistikliste	= _spawnliste_heli_transport + _spawnliste_support + _spawnliste_fahrzeug_unbewaffnet + _spawnliste_bwmat + _spawnliste_statisch + _spawnliste_ammo + _spawnliste_fia + _spawnliste_logistikheli + _spawnliste_ace + _spawnliste_statisch_rhs;
 _marineliste 	= _spawnliste_marine + _spawnliste_submarine;

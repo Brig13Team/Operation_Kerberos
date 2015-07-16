@@ -30,15 +30,34 @@ _spawndir = markerDir _spawnpoint;
 _padempty = nearestObjects [_spawnpos, ["LandVehicle","Air"], _check_radius];
 If (!(_padempty isEqualTo [])) exitWith {hint localize "STR_DORB_SPAWN_NOTEMPTY";};
 
+private["_flyingpos"];
+_flyingpos = getMarkerPos "air_spawn_flying";
 
-_vehicle = createVehicle [_vehiclewahl, _spawnpos, [], 0 , "NONE"];
-_vehicle setDir _spawndir;
+CHECK((_vehiclewahl isKindOf "Plane_Base_F")&&(!(_mode isEqualTo "driver"))&&(worldName == "Altis"))
+_dist = (_flyingpos distance [0,0,0])>1;
 
-if ((_vehicle isKindOf "SDV") or (_vehicle isKindOf "Ship")) then {
-	_vehicle setPosASL [getPosASL _vehicle select 0, getPosASL _vehicle select 1, 0];
-} else {
-	_vehicle setposatl [_spawnpos select 0, _spawnpos select 1, 0.2];
-	_vehicle setVectorUP (surfaceNormal [(getPosatl _vehicle) select 0,(getPosatl _vehicle) select 1]);
+_canNotFly = {
+	_return = true;
+	If ((typeOf player) in ["B_Pilot_F","B_Helipilot_F"]) then {_return = false;};
+	If (GETVAR(player,DORB_ISPILOT,false)) then {_return = false;};
+	_return
+};
+
+CHECK((_vehiclewahl isKindOf "Air")&&(!(_vehiclewahl isKindOf "UAV"))&&(call _canNotFly))
+
+If (((_flyingpos distance [0,0,0])>1)&&(_vehiclewahl isKindOf "Plane_Base_F")) then {
+	_flyingpos set [2,2000];
+	_vehiclearray = [_flyingpos, (markerDir "air_spawn_flying"), _vehiclewahl, DORB_PLAYERSIDE] call bis_fnc_spawnvehicle;
+	_vehicle = _vehiclearray select 0;
+}else{
+	_vehicle = createVehicle [_vehiclewahl, _spawnpos, [], 0 , "NONE"];
+	_vehicle setDir _spawndir;
+	if ((_vehicle isKindOf "SDV") or (_vehicle isKindOf "Ship")) then {
+		_vehicle setPosASL [getPosASL _vehicle select 0, getPosASL _vehicle select 1, 0];
+	} else {
+		_vehicle setposatl [_spawnpos select 0, _spawnpos select 1, 0.2];
+		_vehicle setVectorUP (surfaceNormal [(getPosatl _vehicle) select 0,(getPosatl _vehicle) select 1]);
+	};
 };
 
 if ((_vehicle isKindOf "UAV_01_base_F")||(_vehicle isKindOf "UAV_02_base_F")||(_vehicle isKindOf "UGV_01_base_F")) then {
@@ -54,7 +73,9 @@ if ((_vehicle isKindOf "B_Truck_01_medical_F") or (_vehicle isKindOf "B_Slingloa
 };
 
 if (_mode isEqualTo "driver") then {
-	if (_vehicle iskindOf "Air" AND !((typeOf player) in ["B_Pilot_F","B_Helipilot_F"])) exitWith {};
+	If (((_flyingpos distance [0,0,0])>1)&&(_vehiclewahl isKindOf "Plane_Base_F")&&(!(_vehiclewahl isKindOf "UAV"))) then {
+		{deleteVehicle _x;}forEach (crew _vehicle);
+	};
 	player moveInDriver _vehicle;
 };
 
