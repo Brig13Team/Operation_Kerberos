@@ -30,6 +30,7 @@ Dynamische Mission von Dorbedo
 <li>Infanterie in Gebäuden
 <li>Statische Geschütze
 <li>Fahzeugpatroullien
+<li>Wasserpatroullien
 <li>Mörser
 <li>Militärtürme
 <li>Kommandofahrzeuge (Greifen Posistion aufgeklärte Spieler an)<ul>
