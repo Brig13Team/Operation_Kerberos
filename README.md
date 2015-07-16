@@ -34,17 +34,17 @@ Dynamische Mission von Dorbedo
 <li>ACE-Minenfelder
 <li>Mörser
 <li>Militärtürme
-<li>Kommandofahrzeuge (Greifen Posistion aufgeklärte Spieler an)<ul>
+<li>Kommandant (ist im FQH stationiert) befehligt:<ul>
 <li>Motorisierte Infanterie<ul>Fahrzeug bringt Infanterie in das Einsatzgebiet, sitzt ab und greift an</ul></li>
 <li>Scharfschützen<ul>Fahrzeug bringt Schafschützen ins Einsatzgebiet, sitzen ab und greifen an</ul></li>
 <li>Panzer<ul>Panzer greifen die Posistion an</ul></li>
+<li>Helikopter<ul>Helikopter greift größere Verbände an</ul></li>
 <li>Fallschirmspringer<ul>Fallschirmjäger werden über der Posistion abgesetzt</ul></li>
-<li>AI (Air Interception)<ul><li>Radar fordert Abfangjäger an</li>
+<li>AI (Air Interception)<ul><li>fordert mit Hilfe eines Radars Abfangjäger an</li>
 <li>Reichweite 3,5 km</li>
-<li>braucht direkte Sicht zum Helikopter/Flugzeug</li>
+<li>Radar braucht direkte Sicht zum Helikopter/Flugzeug</li>
 <li>1 Abfangjäger pro Radar</li></ul></li>
-<li>Artillerie<ul><li>Kommandofahrzeug patroulliert im Einsatzgebiet</li>
-<li>Koordiniert die 3 Artilleriegeschütze im Gebiet</li>
+<li>Artillerie<ul><li>Koordiniert die 3 Artilleriegeschütze im Gebiet</li>
 <li>Fordert bei Bedarf Artillerieschlag</li></ul></li>
 </ul></ul>
 #####Basis<ul>
