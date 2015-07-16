@@ -8,6 +8,7 @@ TRIPLES(dorb,makro,selectrandom) = compileFinal "If(count _this < 1) exitwith {[
 TRIPLES(dorb,makro,delete) = compileFinal "If(if (isNil {_this}) then { false } else { (typeName _this) == 'ARRAY' })exitWith{{_x call dorb_makro_delete;}forEach _this;};If(if (isNil {_this}) then { false } else { (typeName _this) == 'GROUP' })exitWith{deletegroup _this;};If(if (isNil {_this}) then { false } else { (typeName _this) == 'OBJECT' })exitWith{{_this deleteVehicleCrew _x} forEach crew _this; deleteVehicle _this;};If(if (isNil {_this}) then { false } else { (typeName _this) == 'STRING' })exitWith{deleteMarker _this};diag_log text format['TILGE: Nicht unterstuetzt | %1',_this];";
 
 //Allgemeines
+PREPMAIN(positionsMean);
 PREPMAIN(determineHC);
 PREPMAIN(get_buildings);
 PREPMAIN(get_cfg_subclasses);
@@ -16,6 +17,7 @@ PREPMAIN(list_groups);
 PREPMAIN(local);
 PREPMAIN(local_check);
 PREPMAIN(moveToHC);
+PREPMAIN(pos_flatempty);
 PREPMAIN(pos_surrounding);
 PREPMAIN(random_pos);
 
@@ -52,10 +54,12 @@ PREPMAIN(spawn_attack_veh);
 PREPMAIN(spawn_attack_waves);
 PREPMAIN(spawn_crew);
 PREPMAIN(spawn_defence);
+PREPMAIN(spawn_defence_macros);
 PREPMAIN(spawn_in_building);
 PREPMAIN(spawn_macro);
 PREPMAIN(spawn_macro_exec);
 PREPMAIN(spawn_minefield);
+PREPMAIN(spawn_minefields);
 PREPMAIN(spawn_mortarpos);
 PREPMAIN(spawn_obj_mil);
 PREPMAIN(spawn_obj_sonstiges);

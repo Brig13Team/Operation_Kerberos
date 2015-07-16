@@ -14,7 +14,7 @@
 	Position
 */
 #include "script_component.hpp"
-private ["_pos","_dir","_radx","_rady"];
+private ["_pos","_dir","_radx","_rady","_generiere"];
 
 PARAMS_3(_start,_rad,_typ);
 
@@ -81,7 +81,9 @@ switch _typ do {
 	//Water
 	case 3 : {
 		_generiere=true;
-		while {_generiere} do {
+		private["_max_run"];
+		_max_run = 3000;
+		while {(_generiere && (_max_run>0))} do {
 			_rad = floor(random _rad);
 			_dir = random 360;
 			_radx = (cos _dir) * _rad;
@@ -93,8 +95,9 @@ switch _typ do {
 			_pos=[_radx,_rady,0];
 			
 			If ((surfaceIsWater [_radx,_rady])) then {_generiere=false};
-	
+			DEC(_max_run);
 		};
+		If (_max_run<1) then {_pos=[];};
 	};
 };
 _pos
