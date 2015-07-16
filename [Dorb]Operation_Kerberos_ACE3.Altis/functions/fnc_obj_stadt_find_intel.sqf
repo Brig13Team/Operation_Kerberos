@@ -57,7 +57,8 @@ for "_i" from 1 to _rand do{
 {
 	[-1,{_this call dorb_fnc_obj_stadt_found_intel},[_x]] FMP;
 }forEach _target;
-
+DORB_INTEL_OBJ = _target;
+publicVariable "DORB_INTEL_OBJ";
 
 if (dorb_debug) then {
 	{
@@ -92,7 +93,7 @@ if (dorb_debug) then {
 #define CONDITION {_a ={!(alive _x)}count (_this select 0);If (_a == (count _target)) then {true}else{false};}
 #define CONDITIONARGS [_target]
 #define SUCESSCONDITION {true}
-#define ONSUCESS {[-1,{_this spawn FM(disp_info)},["STR_DORB_FIND",["STR_DORB_FINISHED"],"data\icon\icon_search.paa",true]] FMP;['destroy'] spawn FM(examine);{deleteVehicle _x}forEach (_this select 1);}
+#define ONSUCESS {[-1,{_this spawn FM(disp_info)},["STR_DORB_FIND",["STR_DORB_FINISHED"],"data\icon\icon_search.paa",true]] FMP;['destroy'] spawn FM(examine);{deleteVehicle _x}forEach (_this select 1);DORB_INTEL_OBJ=[];publicVariable "DORB_INTEL_OBJ";}
 #define ONFAILURE {}
 #define SUCESSARG [_task,_target]
 #define ONLOOP {['check'] spawn FM(examine);}
