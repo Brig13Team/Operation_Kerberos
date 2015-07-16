@@ -8,6 +8,7 @@
 		0 : ARRAY	- Centerposition of Minefield
 		1 : SCALAR	- Radius
 		2 : SCALAR	- Type (0=AT&AP 1=AT 2=AP)
+		3 : SCALAR	- Count of Mines
 	
 	Return
 	BOOL
@@ -15,7 +16,7 @@
 #include "script_component.hpp"
 
 PARAMS_1(_centerpos);
-DEFAULT_PARAM(1,_spawnrad,15);
+DEFAULT_PARAM(1,_spawnrad,25);
 DEFAULT_PARAM(2,_type,0);
 DEFAULT_PARAM(3,_anzahl,15);
 Private["_anzahl","_ap_mines","_at_mines","_allmines","_magazineClass","_magazineTrigger","_pos","_dir","_triggerConfig","_triggerSpecificVars","_ammo","_explosive"];
