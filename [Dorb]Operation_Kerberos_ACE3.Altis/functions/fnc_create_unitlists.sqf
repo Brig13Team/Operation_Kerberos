@@ -26,6 +26,7 @@ dorb_intel = ["Land_Suitcase_F","Land_SatellitePhone_F","Land_Laptop_device_F"];
 dorb_tower = ["Land_TTowerBig_1_F","Land_TTowerBig_2_F"]; //"Land_TTowerSmall_1_F"
 
 dorb_prototyp = ["B_MBT_01_TUSK_F","B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F","B_Heli_Attack_01_F"];
+dorb_civ_cars = ["C_Offroad_01_F","C_Quadbike_01_F","C_Hatchback_01_F","C_SUV_01_F","C_Van_01_transport_F","C_Van_01_box_F"];
 
 dorb_sniper = ["O_ghillie_ard_F","O_ghillie_lsh_F","O_ghillie_sard_F"];
 
