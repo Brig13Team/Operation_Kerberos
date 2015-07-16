@@ -67,34 +67,116 @@ If (_anzahl_diver < 0) then {
 	_anzahl_diver = floor((_amountOfWater - 300)/200);
 };
 
+LOG_2(_anzahl_boats,_anzahl_diver);
 
+
+_patrol = {
+	Private["_wp_behavior","_wp_competionradius","_wp_formation","_wp_speed","_wp_type"];
+	_wp_behavior = "RED";
+	_wp_competionradius = 40;
+	_wp_formation = "STAG COLUMN";
+	_wp_speed = "LIMITED";
+	_wp_type = "MOVE";
+
+	private ["_prevPos"];
+	PARAMS_3(_grp,_pos,_maxDist);
+	DEFAULT_PARAM(3,_depth,0);
+	_grp setBehaviour _wp_behavior;
+	
+	_prevPos = _pos;
+	for "_i" from 0 to (2 + (floor (random 3))) do
+	{
+		private ["_wp", "_newPos"];
+		//_newPos = [_prevPos, 50, _maxDist, 1, 0, 60 * (pi / 180), 0, _blacklist] call BIS_fnc_findSafePos;
+		_newPos = [_prevPos,_maxDist,3] call FM(random_pos);
+		
+		_bestpos = (selectBestPlaces [_newPos, 15, "waterdepth", 2, 5]);
+		_newPos = (_bestpos select 0) select 0;
+		_newPos set [2,_depth];
+		
+		
+		if (dorb_debug) then {
+			_mrkr = createMarker [format["veh-%1-%2",_i,_newPos],_newPos];
+			_mrkr setMarkerShape "ICON";
+			_mrkr setMarkerColor "ColorBlue";
+			_mrkr setMarkerType "hd_dot";
+		};
+		
+		
+		
+		//_newPos = _newPos isFlatEmpty [7.5,10,0.7,14,2,true];
+		
+		_prevPos = _newPos;
+
+		_wp = _grp addWaypoint [_newPos, 0];
+		_wp setWaypointType _wp_type;
+		_wp setWaypointCompletionRadius _wp_competionradius;
+
+		if (_i == 0) then
+		{
+			_wp setWaypointSpeed _wp_speed;
+			_wp setWaypointFormation _wp_formation;
+		};
+	};
+	
+	private ["_wp"];
+	_wp = _grp addWaypoint [_pos, 0];
+	_wp setWaypointType "CYCLE";
+	_wp setWaypointCompletionRadius 20;
+
+	true
+
+};
 
 _vehicles=[];
 
 for "_i" from 0 to _anzahl_boats do {
-	_rad = ((random 200) + 100);
+	_rad = ((random 200) + 500);
 	_spawnpos = [_position,_radius,3] call FM(random_pos);
+	_einheit = dorb_patrolboatlist SELRND;
 	If (!(_spawnpos isEqualTo [])) then {
-		_einheit = dorb_patrolboatlist SELRND;
+		_bestpos = (selectBestPlaces [_spawnpos, 15, "waterdepth", 2, 5]);
+		CHECK(_bestpos isEqualTo [])
+		_spawnpos = (_bestpos select 0) select 0;
+		if (dorb_debug) then {
+			_mrkr = createMarker [format["naval-%1",_spawnpos],_spawnpos];
+			_mrkr setMarkerShape "ICON";
+			_mrkr setMarkerColor "ColorRed";
+			_mrkr setMarkerType "n_naval";
+		};
+		_spawnpos set[2,0];
 		_return = [_spawnpos,(random(360)),_einheit,dorb_side] call BIS_fnc_spawnVehicle;
 		_vehicles pushBack (_return select 0);
-		[(_return select 2), (getPos (_return select 0)), _rad, 7, "MOVE", "AWARE", "RED", "NORMAL", "STAG COLUMN", "", [10,30,100]] call CBA_fnc_taskPatrol;
+		[(_return select 2), _spawnpos, _rad] spawn _patrol;
 		[(_return select 2)] call FM(moveToHC);	
 	};
 };
-
+LOG("diver");
 for "_i" from 0 to _anzahl_diver do {
 	_rad = ((random 200) + 100);
 	_spawnpos = [_position,_radius,3] call FM(random_pos);
+	LOG_1(_spawnpos);
 	If (!(_spawnpos isEqualTo [])) then {
 		_einheiten = [];
 		for "_j" from 0 to 3 do {
 			_einheiten pushBack (dorb_diverlist SELRND)
 		};
+		_bestpos = (selectBestPlaces [_spawnpos, 15, "waterdepth", 2, 5]);
+		LOG_1(_bestpos);
+		CHECK(_bestpos isEqualTo [])
+		_spawnpos = (_bestpos select 0) select 0;
+		_spawnpos set[2,0];
+		LOG_1(_spawnpos);
+		if (dorb_debug) then {
+			_mrkr = createMarker [format["navald-%1",_spawnpos],_spawnpos];
+			_mrkr setMarkerShape "ICON";
+			_mrkr setMarkerColor "ColorRed";
+			_mrkr setMarkerType "n_inf";
+		};
 		_return = [_spawnpos,dorb_side,_einheiten] call BIS_fnc_spawnGroup;
-		_vehicles pushBack (units _return);
-		[_return, (getPos (leader _return)), _rad, 7, "MOVE", "AWARE", "RED", "NORMAL", "STAG COLUMN", "", [3,9,15]] call CBA_fnc_taskPatrol;
-		{_x swimInDepth 10} forEach (units _return);
+		_vehicles pushBack (units _return);		
+		[_return, _spawnpos, _rad,-10] spawn _patrol;
+		{_x swimInDepth -10} forEach (units _return);
 		[_return] call FM(moveToHC);
 	};
 };
