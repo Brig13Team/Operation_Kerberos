@@ -49,8 +49,8 @@ if (!(_GetVehicleVelocity isEqualTo [0,0,0])) then
       
       if (!(_x isKindOf "Man") && {!(_x isKindOf "Helper_Base_F") && !(_x isKindOf "Logic")}) then
       {
-      _BridgeCheck = ["bridge",_x] call BIS_fnc_inString;
-      _GateCheck = ["gate",_x] call BIS_fnc_inString;
+      _BridgeCheck = ["bridge",(str _x)] call BIS_fnc_inString;
+      _GateCheck = ["gate",(str _x)] call BIS_fnc_inString;
       if (!_BridgeCheck && {!_GateCheck}) then
       {
       _GetVelocity = velocityModelSpace _x;
@@ -63,7 +63,7 @@ if (!(_GetVehicleVelocity isEqualTo [0,0,0])) then
         {
           _x setVariable ["VCOM_DRIVERAVOID",1,false];
           
-          [_x] spawn {_Object = _This select 0;sleep 9;_Object setVariable ["VCOM_DRIVERAVOID",0,false];};
+          _x spawn {sleep 9;_This setVariable ["VCOM_DRIVERAVOID",0,false];};
           
           _BoundingBox = boundingBoxReal _x;
           _p2 = _BoundingBox select 1;
