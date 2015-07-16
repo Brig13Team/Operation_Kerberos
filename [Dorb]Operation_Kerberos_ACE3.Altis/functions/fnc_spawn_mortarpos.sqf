@@ -13,6 +13,7 @@ _spawnposition=[];
 _einheit = dorb_veh_mortar SELRND;
 
 _spawnposition = [_position,200,0] call FM(random_pos);
+CHECK(_spawnposition isEqualTo [])
 _spawnposition = _spawnposition findEmptyPosition [1,15,_einheit];				//// to do: isFlatEmpty
 CHECK(_spawnposition isEqualTo [])
 _dir = floor(random 360);
