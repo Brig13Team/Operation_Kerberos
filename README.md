@@ -32,8 +32,7 @@ Dynamische Mission von Dorbedo
 <li>Fahzeugpatroullien
 <li>Wasserpatroullien
 <li>ACE-Minenfelder
-<li>Mörser
-<li>Militärtürme
+<li>Diverse Befestigte Stellungen (Mörser, Militärtürme, Bunker, AA)
 <li>Kommandant (ist im FQH stationiert) befehligt:<ul>
 <li>Motorisierte Infanterie<ul>Fahrzeug bringt Infanterie in das Einsatzgebiet, sitzt ab und greift an</ul></li>
 <li>Scharfschützen<ul>Fahrzeug bringt Schafschützen ins Einsatzgebiet, sitzen ab und greifen an</ul></li>
