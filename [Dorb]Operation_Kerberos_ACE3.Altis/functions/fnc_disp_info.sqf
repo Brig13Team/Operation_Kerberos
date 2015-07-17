@@ -23,6 +23,7 @@ DEFAULT_PARAM(1,_content,"");
 DEFAULT_PARAM(2,_icon,"");
 DEFAULT_PARAM(3,_body,true);
 
+If(IS_STRING(_content)) then {_content = [_content];};
 
 if (_title != "") then {
 	DISP_LAYER cutRsc ["DORB_DISP_INFO","PLAIN"];
