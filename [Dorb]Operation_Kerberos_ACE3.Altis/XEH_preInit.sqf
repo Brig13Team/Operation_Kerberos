@@ -21,6 +21,12 @@ PREPMAIN(pos_flatempty);
 PREPMAIN(pos_surrounding);
 PREPMAIN(random_pos);
 
+//City 2.0
+PREPMAIN(city_patrol_building);
+PREPMAIN(city_roads);
+PREPMAIN(city_spawn_explosives);
+PREPMAIN(city_spawn_static);
+PREPMAIN(city_spawn_unit);
 
 //Spielerbezogen
 PREPMAIN(addbriefing);
