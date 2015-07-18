@@ -17,6 +17,8 @@ PARAMS_2(_vehicle,_gruppe);
 DEFAULT_PARAM(2,_withCargo,false);
 Private ["_crewmen","_unit"];
 
+If (IS_SIDE(_gruppe)) then {_gruppe = createGroup _gruppe;};
+
 for "_i" from 1 to (_vehicle emptyPositions "Driver") do {
 	_crewmen = dorb_crewmenlist SELRND;
 	_unit = _gruppe createUnit [_crewmen, [0,0,500], [], 0, "NONE"];

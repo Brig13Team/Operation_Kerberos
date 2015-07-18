@@ -97,7 +97,7 @@ If ((dorb_side_nr > 2)&&(dorb_side_nr < 6)) then {
 If (GETVAR(_commander,DORB_COMMANDER_AI,[])) then {
 	for [{_i= 1},{_i <= _difficulty},{_i = _i + 2}] do {
 		_einheit = ["rhs_p37","rhs_prv13"] SELRND;
-		_spawnposition = [_position,250,0] call FM(random_pos);
+		_spawnposition = [_position,(150+(random 150)),1] call FM(random_pos);
 		_spawnpos = _spawnposition findEmptyPosition [1,50,_einheit];
 		if (!((_spawnpos isEqualTo []))) then {_spawnposition = _spawnpos;};
 		_dir = floor(random 360);
@@ -115,7 +115,7 @@ If (GETVAR(_commander,DORB_COMMANDER_ART,[])) then {
 		_spawnposition = [_position,1800,1] call FM(random_pos);
 		if ((count _spawnposition)>1) then {
 			_unit = [_spawnposition,100] call FM(spawn_artypos);
-			if (alive _unit) then {
+			if (IS_OBJECT(_unit)&&{alive _unit}) then {
 				_temp = GETVAR(_commander,DORB_COMMANDER_ARTILLERIE,[]);
 				_temp pushBack _unit;
 				SETVAR(_commander,DORB_COMMANDER_ARTILLERIE,_temp);
