@@ -201,6 +201,11 @@
             <German>Kein Passagier-Platz im Fahrzeug</German>
             <English>No seat left in the vehicle</English>
 		</Key>
+		<Key ID="STR_DORB_TELEPORT_LEAD_INAIR">
+			<Original>Teamlead is not touching ground.</Original>
+            <German>Teamleader befindet sich nicht am Boden</German>
+            <English>Teamlead is not touching ground.</English>
+		</Key>
 		<Key ID="STR_DORB_HALO">
 			<Original>Halo</Original>
             <German>Halo</German>
