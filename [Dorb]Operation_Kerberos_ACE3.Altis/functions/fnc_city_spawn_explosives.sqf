@@ -6,7 +6,7 @@
 	
 	
 	Parameter(s):
-		0 : ARRAY	- Spawnpositions
+		0 : ARRAY	- Spawnpositions [x,y,z,dir]
 		(Optional)
 		1 : ARRAY	- Type of Mines/IEDs (0=AP,1=AT,2=Tripwire,3=IED)
 	
@@ -24,29 +24,24 @@ _trip_mines = ["APERSTripMine_Wire_Mag"];
 _IED_land = ["IEDLandBig_Remote_Mag","IEDLandSmall_Remote_Mag"];
 _IED_urban = ["IEDUrbanBig_Remote_Mag","IEDUrbanSmall_Remote_Mag"];
 
-
 For "_i" from 0 to ((count _spawnposarray)-1) do {
 	_dir = (_spawnposarray select _i)select 3;
 	_pos = [(_spawnposarray select _i)select 0,(_spawnposarray select _i)select 1,(_spawnposarray select _i)select 2];
 	_triggerConfig = "PressurePlate";
 	_triggerSpecificVars = [];
-	switch(_type) do {
-		case 1: {
-				_magazineClass = _at_mines SELRND;
-			};
-		case 2: {
-				_magazineClass = _trip_mines SELRND;
-				_triggerConfig = "Tripwire";
-			};
-		case 3: {
-				/// TO DO - choose land or urban mine depending on surrounding area
-				_magazineClass = _IED_urban SELRND;
-			};
-		default {
-				_magazineClass = _ap_mines SELRND;
-			};
+	
+	_magazineClass = _ap_mines SELRND;
+	If (_type > 2) then {
+		_magazineClass = _IED_urban SELRND;
+	}else{
+		If (_type > 1) then {
+			_magazineClass = _trip_mines SELRND;
+			_triggerConfig = "Tripwire";
+		}else{
+			_magazineClass = _at_mines SELRND;
+		};
 	};
-
+	
 	_magazineTrigger = ConfigFile >> "CfgMagazines" >> _magazineClass >> "ACE_Triggers" >> _triggerConfig;
 	_triggerConfig = ConfigFile >> "ACE_Triggers" >> _triggerConfig;
 
@@ -60,5 +55,13 @@ For "_i" from 0 to ((count _spawnposarray)-1) do {
 	_explosive setPosATL _pos;
 	dorb_side revealMine _explosive;
 
+	If (dorb_debug) then {
+		_mrkr = createMarker [format["minepos-%1",_pos],_pos];
+		_mrkr setMarkerShape "ICON";
+		_mrkr setMarkerColor "ColorBLUFOR";
+		_mrkr setMarkerType "MinefieldAP";
+	};
+	
+	
 	[objNull,_explosive,_magazineClass,_triggerSpecificVars] call compile (getText (_triggerConfig >> "onPlace"));
 };
