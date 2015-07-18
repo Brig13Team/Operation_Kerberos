@@ -79,10 +79,10 @@ for "_i" from 1 to _rand do{
 	_x disableAI "MOVE";
 
 	if (dorb_debug) then {
-	_mrkr = createMarker [format ["%1-POW:%2",_aufgabenname,_x],(getPos _x)];
-	_mrkr setMarkerShape "ICON";
-	_mrkr setMarkerColor "ColorBlack";
-	_mrkr setMarkerType "hd_destroy";
+		_mrkr = createMarker [format ["%1-POW:%2",_task,_x],(getPos _x)];
+		_mrkr setMarkerShape "ICON";
+		_mrkr setMarkerColor "ColorBlack";
+		_mrkr setMarkerType "hd_destroy";
 	};
 	
 	
