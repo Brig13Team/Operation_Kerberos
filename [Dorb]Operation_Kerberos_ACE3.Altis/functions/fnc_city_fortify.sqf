@@ -58,15 +58,23 @@ _buildings_formatted = [];
 
 for "_i" from 0 to ((count _buildings_unformatted)-1) do {
 	/// [typename,pos]
-	_buildings_formatted pushBack [typename (_buildings_unformatted select _i),getPosASL(_buildings_unformatted select _i)];
+	_buildings_formatted pushBack [typename (_buildings_unformatted select _i),getPosASL(_buildings_unformatted select _i),getDir(_buildings_unformatted select _i)];
 };
 
 /// Roadarray
 _roads_formatted = [_position,_radius] call FM(city_roads);
 
+
+
+
+//// Generate + spawn
+
+// Roads (fortifications, IED, Inf Patrols, roadside-civ veh)
 [_roads_formatted,true,_fortifications,_ieds,_civvehicles,_ieds] call FM(city_fortify_roads);
 
+// Buildings 
 
+_buildings_formatted call FM(city_fortify_buildings);
 
 /*
 _extensionOutput = "dorb_city" callExtension format["Citydefence,%1,%2",_buildings_formatted,_roads_formatted,_optionarray];

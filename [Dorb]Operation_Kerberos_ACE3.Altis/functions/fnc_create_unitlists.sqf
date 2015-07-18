@@ -26,7 +26,10 @@ dorb_intel = ["Land_Suitcase_F","Land_SatellitePhone_F","Land_Laptop_device_F"];
 dorb_tower = ["Land_TTowerBig_1_F","Land_TTowerBig_2_F"]; //"Land_TTowerSmall_1_F"
 
 dorb_prototyp = ["B_MBT_01_TUSK_F","B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F","B_Heli_Attack_01_F"];
-dorb_civ_cars = ["C_Offroad_01_F","C_Quadbike_01_F","C_Hatchback_01_F","C_SUV_01_F","C_Van_01_transport_F","C_Van_01_box_F"];
+/// city defence
+dorb_civ_cars = ["C_Offroad_01_F","C_Quadbike_01_F","C_Hatchback_01_F","C_Hatchback_01_sport_F","C_SUV_01_F","C_Van_01_transport_F","C_Van_01_box_F"];
+dorb_civ_cars_garage = ["C_Offroad_01_F","C_Quadbike_01_F","C_Hatchback_01_F","C_Hatchback_01_sport_F","C_SUV_01_F"];
+dorb_staticlist_high = ["B_HMG_01_high_F"];
 
 dorb_sniper = ["O_ghillie_ard_F","O_ghillie_lsh_F","O_ghillie_sard_F"];
 
@@ -124,7 +127,7 @@ switch (_rand) do {
 		dorb_radar = ["rhs_p37","rhs_prv13"];
 		dorb_device = ["Land_Device_assembled_F"];
 		dorb_commanderlist = ["rhs_vdv_officer_armored","rhs_vdv_officer"];
-		
+		dorb_civ_cars = dorb_civ_cars + dorb_civ_cars + ["RHS_Civ_Truck_02_covered_F","RHS_Civ_Truck_02_transport_F","RHS_Ural_Civ_01","RHS_Ural_Open_Civ_01","RHS_Ural_Civ_02","RHS_Ural_Open_Civ_02","RHS_Ural_Civ_03","RHS_Ural_Open_Civ_03"];
 		dorb_menlist = ["rhs_vdv_rifleman",
 						"rhs_vdv_efreitor",
 						"rhs_vdv_grenadier",
@@ -255,7 +258,7 @@ switch (_rand) do {
 		dorb_radar = ["rhs_p37","rhs_prv13"];
 		dorb_device = ["Land_Device_assembled_F"];
 		dorb_commanderlist = ["rhs_vdv_flora_officer_armored","rhs_vdv_flora_officer"];
-		
+		dorb_civ_cars = dorb_civ_cars + dorb_civ_cars + ["RHS_Civ_Truck_02_covered_F","RHS_Civ_Truck_02_transport_F","RHS_Ural_Civ_01","RHS_Ural_Open_Civ_01","RHS_Ural_Civ_02","RHS_Ural_Open_Civ_02","RHS_Ural_Civ_03","RHS_Ural_Open_Civ_03"];
 		dorb_menlist = [						
 						"rhs_vdv_flora_rifleman",
 						"rhs_vdv_flora_efreitor",
@@ -388,7 +391,7 @@ switch (_rand) do {
 		dorb_radar = ["rhs_p37","rhs_prv13"];
 		dorb_device = ["Land_Device_assembled_F"];
 		dorb_commanderlist = ["rhs_vdv_mflora_officer_armored","rhs_vdv_mflora_officer"];
-		
+		dorb_civ_cars = dorb_civ_cars + dorb_civ_cars + ["RHS_Civ_Truck_02_covered_F","RHS_Civ_Truck_02_transport_F","RHS_Ural_Civ_01","RHS_Ural_Open_Civ_01","RHS_Ural_Civ_02","RHS_Ural_Open_Civ_02","RHS_Ural_Civ_03","RHS_Ural_Open_Civ_03"];
 		dorb_menlist = [						
 						"rhs_vdv_mflora_rifleman",
 						"rhs_vdv_mflora_efreitor",
@@ -522,7 +525,7 @@ switch (_rand) do {
 		dorb_radar = ["rhs_p37","rhs_prv13"];
 		dorb_device = ["Land_Device_assembled_F"];
 		dorb_commanderlist = ["rhs_msv_officer_armored","rhs_msv_officer"];
-		
+		dorb_civ_cars = dorb_civ_cars + dorb_civ_cars + ["RHS_Civ_Truck_02_covered_F","RHS_Civ_Truck_02_transport_F","RHS_Ural_Civ_01","RHS_Ural_Open_Civ_01","RHS_Ural_Civ_02","RHS_Ural_Open_Civ_02","RHS_Ural_Civ_03","RHS_Ural_Open_Civ_03"];
 		dorb_menlist = ["rhs_msv_rifleman",
 						"rhs_msv_efreitor",
 						"rhs_msv_grenadier",
@@ -657,7 +660,7 @@ switch (_rand) do {
 		dorb_radar = ["rhs_p37","rhs_prv13"];
 		dorb_device = ["Land_Device_assembled_F"];
 		dorb_commanderlist = ["rhs_msv_officer_armored","rhs_msv_officer"];
-		
+		dorb_civ_cars = dorb_civ_cars + dorb_civ_cars + ["RHS_Civ_Truck_02_covered_F","RHS_Civ_Truck_02_transport_F","RHS_Ural_Civ_01","RHS_Ural_Open_Civ_01","RHS_Ural_Civ_02","RHS_Ural_Open_Civ_02","RHS_Ural_Civ_03","RHS_Ural_Open_Civ_03"];
 		dorb_menlist = ["rhs_msv_emr_rifleman",
 						"rhs_msv_emr_efreitor",
 						"rhs_msv_emr_grenadier",
@@ -789,7 +792,7 @@ switch (_rand) do {
 		dorb_radar = ["rhs_p37","rhs_prv13"];
 		dorb_device = ["Land_Device_assembled_F"];
 		dorb_commanderlist = ["rhs_msv_officer_armored","rhs_msv_officer"];
-		
+		dorb_civ_cars = dorb_civ_cars + dorb_civ_cars + ["RHS_Civ_Truck_02_covered_F","RHS_Civ_Truck_02_transport_F","RHS_Ural_Civ_01","RHS_Ural_Open_Civ_01","RHS_Ural_Civ_02","RHS_Ural_Open_Civ_02","RHS_Ural_Civ_03","RHS_Ural_Open_Civ_03"];
 		dorb_menlist = ["LOP_AFR_Infantry",
 						"LOP_AFR_Infantry_AR",
 						"LOP_AFR_Infantry_AT",
@@ -858,7 +861,7 @@ switch (_rand) do {
 		dorb_radar = ["rhs_p37","rhs_prv13"];
 		dorb_device = ["Land_Device_assembled_F"];
 		dorb_commanderlist = ["rhsusf_army_ocp_officer"];
-		
+		dorb_civ_cars = dorb_civ_cars + dorb_civ_cars + ["RHS_Civ_Truck_02_covered_F","RHS_Civ_Truck_02_transport_F","RHS_Ural_Civ_01","RHS_Ural_Open_Civ_01","RHS_Ural_Civ_02","RHS_Ural_Open_Civ_02","RHS_Ural_Civ_03","RHS_Ural_Open_Civ_03"];
 		dorb_menlist = [	"rhsusf_army_ucp_rifleman","rhsusf_army_ucp_rifleman_m16","rhsusf_army_ucp_rifleman_m590","rhsusf_army_ucp_riflemanl",
 						"rhsusf_army_ucp_riflemanat","rhsusf_army_ucp_grenadier","rhsusf_army_ucp_autorifleman","rhsusf_army_ucp_autoriflemana",
 						"rhsusf_army_ucp_machinegunner","rhsusf_army_ucp_machinegunnera","rhsusf_army_ucp_squadleader","rhsusf_army_ucp_teamleader",
@@ -936,7 +939,7 @@ switch (_rand) do {
 		dorb_radar = ["rhs_p37","rhs_prv13"];
 		dorb_device = ["Land_Device_assembled_F"];
 		dorb_commanderlist = ["rhsusf_army_ucp_officer"];
-		
+		dorb_civ_cars = dorb_civ_cars + dorb_civ_cars + ["RHS_Civ_Truck_02_covered_F","RHS_Civ_Truck_02_transport_F","RHS_Ural_Civ_01","RHS_Ural_Open_Civ_01","RHS_Ural_Civ_02","RHS_Ural_Open_Civ_02","RHS_Ural_Civ_03","RHS_Ural_Open_Civ_03"];
 		dorb_menlist = ["rhsusf_army_ocp_rifleman","rhsusf_army_ocp_rifleman_m16","rhsusf_army_ocp_rifleman_m590","rhsusf_army_ocp_riflemanl",
 						"rhsusf_army_ocp_riflemanat","rhsusf_army_ocp_grenadier","rhsusf_army_ocp_autorifleman","rhsusf_army_ocp_autoriflemana",
 						"rhsusf_army_ocp_machinegunner", "rhsusf_army_ocp_machinegunnera", "rhsusf_army_ocp_squadleader", "rhsusf_army_ocp_teamleader",
@@ -1016,7 +1019,7 @@ switch (_rand) do {
 		dorb_radar = ["rhs_p37","rhs_prv13"];
 		dorb_device = ["Land_Device_assembled_F"];
 		dorb_commanderlist = ["rhsusf_usmc_marpat_d_officer"];
-		
+		dorb_civ_cars = dorb_civ_cars + dorb_civ_cars + ["RHS_Civ_Truck_02_covered_F","RHS_Civ_Truck_02_transport_F","RHS_Ural_Civ_01","RHS_Ural_Open_Civ_01","RHS_Ural_Civ_02","RHS_Ural_Open_Civ_02","RHS_Ural_Civ_03","RHS_Ural_Open_Civ_03"];
 		dorb_menlist = [	"rhsusf_usmc_marpat_d_rifleman", "rhsusf_usmc_marpat_d_rifleman_m4", "rhsusf_usmc_marpat_d_grenadier", "rhsusf_usmc_marpat_d_riflemanat",
 						"rhsusf_usmc_marpat_d_rifleman_m590", "rhsusf_usmc_marpat_d_autorifleman", "rhsusf_usmc_marpat_d_autorifleman_m249", "rhsusf_usmc_marpat_d_autorifleman_m249_ass",
 						"rhsusf_usmc_marpat_d_machinegunner", "rhsusf_usmc_marpat_d_machinegunner_ass", "rhsusf_usmc_marpat_d_officer", "rhsusf_usmc_marpat_d_squadleader",
@@ -1093,7 +1096,7 @@ switch (_rand) do {
 		dorb_radar = ["rhs_p37","rhs_prv13"];
 		dorb_device = ["Land_Device_assembled_F"];
 		dorb_commanderlist = ["rhsusf_usmc_marpat_wd_officer"];
-		
+		dorb_civ_cars = dorb_civ_cars + dorb_civ_cars + ["RHS_Civ_Truck_02_covered_F","RHS_Civ_Truck_02_transport_F","RHS_Ural_Civ_01","RHS_Ural_Open_Civ_01","RHS_Ural_Civ_02","RHS_Ural_Open_Civ_02","RHS_Ural_Civ_03","RHS_Ural_Open_Civ_03"];
 		dorb_menlist = [		"rhsusf_usmc_marpat_wd_rifleman", "rhsusf_usmc_marpat_wd_rifleman_m4", "rhsusf_usmc_marpat_wd_grenadier", "rhsusf_usmc_marpat_wd_riflemanat",
 							"rhsusf_usmc_marpat_wd_rifleman_m590", "rhsusf_usmc_marpat_wd_autorifleman", "rhsusf_usmc_marpat_wd_autorifleman_m249", "rhsusf_usmc_marpat_wd_autorifleman_m249_ass",
 							"rhsusf_usmc_marpat_wd_machinegunner", "rhsusf_usmc_marpat_wd_machinegunner_ass", "rhsusf_usmc_marpat_wd_officer", "rhsusf_usmc_marpat_wd_squadleader",
@@ -1160,7 +1163,7 @@ switch (_rand) do {
 		dorb_radar = ["rhs_p37","rhs_prv13"];
 		dorb_device = ["Land_Device_assembled_F"];
 		dorb_commanderlist = ["BWA3_SL_Tropen"];
-		
+		dorb_civ_cars = dorb_civ_cars + dorb_civ_cars + ["RHS_Civ_Truck_02_covered_F","RHS_Civ_Truck_02_transport_F","RHS_Ural_Civ_01","RHS_Ural_Open_Civ_01","RHS_Ural_Civ_02","RHS_Ural_Open_Civ_02","RHS_Ural_Civ_03","RHS_Ural_Open_Civ_03"];
 		dorb_menlist = [		"BWA3_Rifleman_Tropen",
 							"BWA3_RiflemanG27_Tropen",
 							"BWA3_Grenadier_Tropen",
@@ -1227,7 +1230,7 @@ switch (_rand) do {
 		dorb_radar = ["rhs_p37","rhs_prv13"];
 		dorb_device = ["Land_Device_assembled_F"];
 		dorb_commanderlist = ["BWA3_SL_Fleck"];
-		
+		dorb_civ_cars = dorb_civ_cars + dorb_civ_cars + ["RHS_Civ_Truck_02_covered_F","RHS_Civ_Truck_02_transport_F","RHS_Ural_Civ_01","RHS_Ural_Open_Civ_01","RHS_Ural_Civ_02","RHS_Ural_Open_Civ_02","RHS_Ural_Civ_03","RHS_Ural_Open_Civ_03"];
 		dorb_menlist = [		"BWA3_Rifleman_Fleck",
 							"BWA3_RiflemanG27_Fleck", 
 							"BWA3_Grenadier_Fleck",

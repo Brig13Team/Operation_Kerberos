@@ -87,7 +87,9 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
 			If (!("dam" in _namearr)) then {
 				_temp = [];
 				_house = createVehicle [_class, _nullposition, [], 0, "CAN_COLLIDE"];
-				
+				_house setPosATL _nullposition;
+				_house setVectorUp [0,0,1];
+				_house setDir 0;
 				
 				/// Boundingbox 
 				_centerpos = _house modeltoworld (boundingCenter _house);
@@ -128,7 +130,7 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
 					_hasSurfaceBelowYb = lineIntersects [[(_buildPosASL select 0), (_buildPosASL select 1) + _wpnrad, (_buildPosASL select 2)], [(_buildPosASL select 0), (_buildPosASL select 1) + _wpnrad, (_buildPosASL select 2) - 0.5]];
 					
 					_level = 0;
-					If (! _isObstructedZ) then {_level = _level + 2;};
+					If (!_isObstructedZ) then {_level = _level + 2;};
 					If (_hasSurfaceBelowXa and _hasSurfaceBelowXb and _hasSurfaceBelowYa and _hasSurfaceBelowYb) then {_level = _level + 1;};
 					_dir1 = -1;
 					_dir2 = -1;
@@ -145,7 +147,7 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
 						_dir2 = _dir + _atan;
 						
 					}else{
-						_dir1 = [(_allbuildingpos select _j),[0,0,0]] call BIS_fnc_dirTo;
+						_dir1 = [[0,0,0],(_allbuildingpos select _j)] call BIS_fnc_dirTo;
 						_dir2 = -1;
 					};
 					_soldierpos_temp = (_allbuildingpos select _j);
@@ -166,16 +168,49 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
 	};
 };
 
+////// Output for description.ext
+Private["_br","_output","_i","_tab","_tab2","_tab3"];
+_br = toString [0x0D, 0x0A];
+_tab = "    "; // changed into spaces - toString[0x09];
+_tab2 = _tab + _tab;
+_tab3 = _tab2 + _tab;
+_output = "class city_defence {" + _br + _tab + "class buildings_vanilla {";
+
+{
+	_output = _output + _br
+	+ _tab2 + format["class %1 {",_x select 0] + _br
+	+ _tab3 + format["centerpos[] = {%1,%2,%3};",(_x select 1) select 0,(_x select 1) select 1,(_x select 1) select 2] + _br
+	+ _tab3 + format["boundingBox[] = {{%1,%2,%3},{%4,%5,%6}};",((_x select 2)select 0)select 0,((_x select 2)select 0)select 1,((_x select 2)select 0)select 2,((_x select 2)select 1)select 0,((_x select 2)select 1)select 1,((_x select 2)select 1)select 2] + _br
+	+ _tab3 + "soldierpos[] = {";
+	If ((count(_x select 3))>0) then {
+		_i=0;
+		_output = _output + format["{%1,%2,%3,%4,%5,%6}",(((_x select 3)select _i)select 0),(((_x select 3)select _i)select 1),(((_x select 3)select _i)select 2),(((_x select 3)select _i)select 3),(((_x select 3)select _i)select 4),(((_x select 3)select _i)select 5)];
+		For "_i" from 1 to (count(_x select 3)-1) do {
+			_output = _output + format[",{%1,%2,%3,%4,%5,%6}",(((_x select 3)select _i)select 0),(((_x select 3)select _i)select 1),(((_x select 3)select _i)select 2),(((_x select 3)select _i)select 3),(((_x select 3)select _i)select 4),(((_x select 3)select _i)select 5)];
+		};
+	};
+	_output = _output + "};" + _br
+	+ _tab3 + "doorpos[] = {";
+	If ((count(_x select 4))>0) then {
+		_i=0;
+		_output = _output + format["{%1,%2,%3,%4}",(((_x select 4)select _i)select 0),(((_x select 4)select _i)select 1),(((_x select 4)select _i)select 2),(((_x select 4)select _i)select 3)];
+		For "_i" from 1 to (count(_x select 4)-1) do {
+			_output = _output + format[",{%1,%2,%3,%4}",(((_x select 4)select _i)select 0),(((_x select 4)select _i)select 1),(((_x select 4)select _i)select 2),(((_x select 4)select _i)select 3)];
+		};
+	};
+	_output = _output + "};" + _br + _tab2 + "};"; 
+
+
+
+}forEach _buildingsarray;
+
+_output = _output + _br + _tab + "};" + _br + "};" + _br;
 
 
 
 
 
-
-
-
-
-
+/*
 
 ///// Output for Cpp
 Private["_br","_output","_i"];
@@ -206,6 +241,10 @@ _output = "";
 	};
 	_output = _output + "};" + _br;
 }forEach _buildingsarray;
+
+*/
+
+
 
 copyToClipboard _output;
 uisleep 3;

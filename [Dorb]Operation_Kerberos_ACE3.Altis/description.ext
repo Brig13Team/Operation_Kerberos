@@ -58,6 +58,10 @@ class cfgFunctions {
 	#include "CHVD\CfgFunctions.hpp"
 };
 
+// City Defence
+#include "city_defence.hpp"
+
+
 
 //Debrief
 class CfgDebriefing

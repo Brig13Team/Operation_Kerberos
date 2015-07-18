@@ -8,8 +8,8 @@
 	Parameter(s):
 		0 : ARRAY	- Spawnpositions
 		(Optional)
-		1 : ARRAY	- Example
-		2 : STRIN	- Example
+		1 : STRING	- side
+		2 : ARRAY	- array with possible men, who can be spawned
 	
 	Return
 	ARRAY - spawned Units
@@ -18,7 +18,7 @@
 
 PARAMS_1(_spawnposarray);
 DEFAULT_PARAM(1,_side,dorb_side);
-DEFAULT_PARAM(2,_unitarray,dorb_menlist);
+DEFAULT_PARAM(2,_unitarray,dorb_staticlist);
 CHECK(!IS_ARRAY(_spawnposarray))
 Private["_spawnedunit","_spawnedunits","_typ","_gruppe","_dir","_position"];
 

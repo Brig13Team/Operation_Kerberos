@@ -138,60 +138,61 @@ for "_i" from 0 to (_amounts select 0) do {
 
 ///// spawn everything
 /// fortifications
-{
-	_x call FM(city_fortify_roads_defence);
-}forEach _fortifications_positions;
-
-
-/// IEDs
-//create IED-Array		[_pos,3];
-_IED_array = [];
-
-{
-	_rand = floor(random 2);
-	_spawndir = (_x select 4);
-	If (_rand>0) then {_spawndir = _spawndir + 90;}else{_spawndir = _spawndir - 90;};
-	_spawndistance = switch ((_x select 5)) do {
-		case 1 : {((random 4)+1.5)};
-		case 2 : {((random 5)+1.5)};
-		default {((random 3)+1.5)};
-	};
-	_spawnpos = [[(_x select 1),(_x select 2),(_x select 3)], _spawndistance, _spawndir] call BIS_fnc_relPos;
-	_spawnpos set[3,(random 360)];
-	_spawnpos set[2,0];
-	_IED_array pushBack _spawnpos;
-}forEach _IEDs_positions;
-[_IED_array,3] call FM(city_spawn_explosives);
-
-/// Civ-Vehicles
-
-for "_i" from 0 to (floor(((_amounts select 0))/3)) do {
-	_einheit = dorb_civ_cars SELRND;
-	_rand = floor(random 2);
-	_spawndir = ((_roadArray_weighted select _i)select 4);
-	If (_rand>0) then {_spawndir = _spawndir + 90;}else{_spawndir = _spawndir - 90;};
-	
-	_spawnpos = [((_roadArray_weighted select _i)select 1),((_roadArray_weighted select _i)select 2),((_roadArray_weighted select _i)select 3)];
-	_veh = createVehicle [_einheit,_spawnpos, [], 0, "CAN_COLLIDE"];
-	_distance = switch (((_roadArray_weighted select _i)select 5)) do {
-		case 1 : {4.5};
-		case 2 : {5.5};
-		default {3.5};
-	};
-	_newpos = [_spawnpos, _distance, _spawndir] call BIS_fnc_relPos;
-	_dir = ((_roadArray_weighted select _i)select 4);
-	_veh setDir _dir;
-	_newpos set[2,0.2];
-	_veh setPosATL _newpos;
-	
-	If (dorb_debug) then {
-		_mrkr = createMarker [format["CivVehiclesRoadside-%1",_newpos],_newpos];
-		_mrkr setMarkerShape "ICON";
-		_mrkr setMarkerColor "ColorCivilian";
-		_mrkr setMarkerType "b_motor_inf";
-	};
+If (_fortifications) then {
+	{
+		_x call FM(city_fortify_roads_defence);
+	}forEach _fortifications_positions;
 };
 
+/// IEDs
+If (_IEDs) then {
+	//create IED-Array
+	_IED_array = [];
+	{
+		_rand = floor(random 2);
+		_spawndir = (_x select 4);
+		If (_rand>0) then {_spawndir = _spawndir + 90;}else{_spawndir = _spawndir - 90;};
+		_spawndistance = switch ((_x select 5)) do {
+			case 1 : {((random 4)+1.5)};
+			case 2 : {((random 5)+1.5)};
+			default {((random 3)+1.5)};
+		};
+		_spawnpos = [[(_x select 1),(_x select 2),(_x select 3)], _spawndistance, _spawndir] call BIS_fnc_relPos;
+		_spawnpos set[3,(random 360)];
+		_spawnpos set[2,0];
+		_IED_array pushBack _spawnpos;
+	}forEach _IEDs_positions;
+	[_IED_array,3] call FM(city_spawn_explosives);
+};
+/// Civ-Vehicles
+if (_civVehicles) then {
+	for "_i" from 0 to (floor(((_amounts select 0))/3)) do {
+		_einheit = dorb_civ_cars SELRND;
+		_rand = floor(random 2);
+		_spawndir = ((_roadArray_weighted select _i)select 4);
+		If (_rand>0) then {_spawndir = _spawndir + 90;}else{_spawndir = _spawndir - 90;};
+		
+		_spawnpos = [((_roadArray_weighted select _i)select 1),((_roadArray_weighted select _i)select 2),((_roadArray_weighted select _i)select 3)];
+		_veh = createVehicle [_einheit,_spawnpos, [], 0, "CAN_COLLIDE"];
+		_distance = switch (((_roadArray_weighted select _i)select 5)) do {
+			case 1 : {4.5};
+			case 2 : {5.5};
+			default {3.5};
+		};
+		_newpos = [_spawnpos, _distance, _spawndir] call BIS_fnc_relPos;
+		_dir = ((_roadArray_weighted select _i)select 4);
+		_veh setDir _dir;
+		_newpos set[2,0.2];
+		_veh setPosATL _newpos;
+		
+		If (dorb_debug) then {
+			_mrkr = createMarker [format["CivVehiclesRoadside-%1",_newpos],_newpos];
+			_mrkr setMarkerShape "ICON";
+			_mrkr setMarkerColor "ColorCivilian";
+			_mrkr setMarkerType "b_motor_inf";
+		};
+	};
+};
 /// Patrols
 
 _roadArray_weighted = _roadArray_weighted call BIS_fnc_arrayShuffle;
@@ -231,5 +232,34 @@ for "_i" from 0 to (floor(((_amounts select 0))/3)) do {
 	};
 };
 
-
-
+/// spawn trash
+If (_trash) then {
+	_trash_array = ["Land_Garbage_line_F","Land_Garbage_square3_F","Land_Garbage_square5_F","Land_GarbageBags_F","Land_GarbagePallet_F","Land_GarbageWashingMachine_F","Land_JunkPile_F","Land_Tyres_F"];
+	_roadArray_weighted = _roadArray_weighted call BIS_fnc_arrayShuffle;
+	for "_i" from 0 to (floor(((_amounts select 0))/4)) do {
+		_einheit = _trash_array SELRND;
+		_rand = floor(random 2);
+		_spawndir = ((_roadArray_weighted select _i)select 4);
+		If (_rand>0) then {_spawndir = _spawndir + 90;}else{_spawndir = _spawndir - 90;};
+		
+		_spawnpos = [((_roadArray_weighted select _i)select 1),((_roadArray_weighted select _i)select 2),((_roadArray_weighted select _i)select 3)];
+		_veh = createVehicle [_einheit,_spawnpos, [], 0, "CAN_COLLIDE"];
+		_distance = switch (((_roadArray_weighted select _i)select 5)) do {
+			case 1 : {((random 4)+1.5)};
+			case 2 : {((random 5)+1.5)};
+			default {((random 3)+1.5)};
+		};
+		_newpos = [_spawnpos, _distance, _spawndir] call BIS_fnc_relPos;
+		_dir = ((_roadArray_weighted select _i)select 4);
+		_veh setDir _dir;
+		_newpos set[2,0];
+		_veh setPosATL _newpos;
+		
+		If (dorb_debug) then {
+			_mrkr = createMarker [format["Civtrash-%1",_newpos],_newpos];
+			_mrkr setMarkerShape "ICON";
+			_mrkr setMarkerColor "ColorCivilian";
+			_mrkr setMarkerType "b_art";
+		};
+	};
+};
