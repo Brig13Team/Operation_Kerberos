@@ -14,94 +14,75 @@
 	BOOL
 */
 #include "script_component.hpp"
-
-
-PARAMS_2(_position,_gebaeudepos_arr);
-private["_difficulty"];
-LOG(FORMAT_2("Spawn Stadt \n Pos=%1 \n Gebauedearr=%2",_position,_gebaeudepos_arr));
-
+private["_position","_difficulty","_spawnposition","_rand"];
+PARAMS_1(_position);
 _difficulty = [] call FM(dyn_difficulty);
 
-If (worldName == "pja305") exitWith {
+LOG("Spawn Stadt");
 
-	[_position,1200,7,1] spawn FM(spawn_patrol_inf);	sleep 10;
-	[_position,1000,2,0] spawn FM(spawn_patrol_veh);	sleep 10;
+//// makros has autodetection of RDS
+[_position,1200,(10+_difficulty)] call FM(spawn_defence_macros);
+[_position] spawn FM(spawn_commander);
 
-	If (_difficulty > 1) then {
-		[_position,1200,4,0] spawn FM(spawn_patrol_inf);	sleep 10;
-		[_position,1000,1,2] spawn FM(spawn_patrol_veh);	sleep 10;
-	};
-	If (_difficulty > 2) then {
-		[_position,1200,2,2] spawn FM(spawn_patrol_inf);	sleep 10;
-		[_position,1000,0,3] spawn FM(spawn_patrol_veh);	sleep 10;
-	};
 
-	[_position] spawn FM(spawn_commandveh);
-	
-	If (DORB_MODS_RDS) then {
-		[_position] spawn {
-			_position = _this select 0;
-			for "_i" from 0 to 8 do {
-				_spawnposition = [_position,800,0] call FM(random_pos);
-				[_spawnposition] spawn FM(spawn_aapos);
-				sleep 5;
-			};
-		};
-	};
-	[_gebaeudepos_arr,_difficulty] spawn {
-		private["_difficulty","_gebaeudepos_arr"];
-		_gebaeudepos_arr = _this select 0;
-		_difficulty = _this select 1;
-		_gebaeudepos_arr = [_gebaeudepos_arr,8,(8+_difficulty)] call FM(spawn_rooftop);
-		[_gebaeudepos_arr,15,(40 + (_difficulty*2))] spawn FM(spawn_in_building);
-	};
+_count_inf = 4;
+_count_specops = 1;
+_count_light = 3;
+_count_tanks = 0;
+
+If (_difficulty>1) then {
+	_count_inf = 5;
+	_count_specops = 2;
+	_count_light = 5;
+	_count_tanks = 2;
 };
 
-If (worldName == "Panthera3") then {
-	If (DORB_MODS_RDS) then {
-		[_position] spawn {
-			_position = _this select 0;
-			for "_i" from 0 to 5 do {
-				_spawnposition = [_position,800,0] call FM(random_pos);
-				[_spawnposition] spawn FM(spawn_aapos);
-				sleep 5;
-			};
-		};
-	};
+If (_difficulty>2) then {
+	_count_inf = 6;
+	_count_specops = 3;
+	_count_light = 5;
+	_count_tanks = 6;
 };
 
-
-
-
-
-
-[_position,800,5,1] spawn FM(spawn_patrol_inf);	sleep 10;
-[_position,1000,2,0] spawn FM(spawn_patrol_veh);	sleep 10;
-
-If (_difficulty > 1) then {
-	[_position,800,3,2] spawn FM(spawn_patrol_inf);	sleep 10;
-	[_position,1000,1,1] spawn FM(spawn_patrol_veh);	sleep 10;
-};
-If (_difficulty > 2) then {
-	[_position,800,2,2] spawn FM(spawn_patrol_inf);	sleep 10;
-	[_position,1000,0,3] spawn FM(spawn_patrol_veh);	sleep 10;
+If (worldName == "pja305") then {
+	_count_specops = 0;
+	_count_inf = _count_inf + 3;
+	_count_light = (_count_light - 2) max 0;
+	_count_tanks = (_count_tanks - 2) max 0;
 };
 
-/*
-[_position,1000,4,2] spawn FM(spawn_patrol_veh);
-sleep 10;
-[_position,800,10,4] spawn FM(spawn_patrol_inf);
-sleep 10;
-*/
-[_position] spawn FM(spawn_commandveh);
+LOG_5(_position,_count_inf,_count_specops,_count_light,_count_tanks);
 
-[_gebaeudepos_arr,_difficulty] spawn {
-	private["_difficulty","_gebaeudepos_arr"];
-	_gebaeudepos_arr = _this select 0;
-	_difficulty = _this select 1;
-	
-	_gebaeudepos_arr = [_gebaeudepos_arr,5,(8+_difficulty)] call FM(spawn_rooftop);
-	[_gebaeudepos_arr,15,(40 + (_difficulty*2))] call FM(spawn_in_building);
+
+
+_radius = 300;
+_buildscount = count(_position nearObjects ["House", _radius]);
+
+_units = 30;
+_static = 10;
+_multi = 1.8;
+
+If (_buildscount > 75) then {
+	_units = 40;
+	_static = 15;
+	_multi = 1;
 };
 
+If (_buildscount > 200) then {
+	_units = 90;
+	_static = 30;
+	_multi = 0.6;
+};
 
+_count_specops = floor(_count_specops * _multi);
+_count_inf = floor(_count_inf * _multi);
+_count_light = floor(_count_light * _multi);
+_count_tanks = floor(_count_tanks * _multi);
+
+
+[_position,_radius,dorb_side,_units,_static,true,true,false,true] call dorb_fnc_city_fortify;
+[_position,1500,_count_inf,_count_specops] call FM(spawn_patrol_inf);
+[_position,1500,_count_light,_count_tanks] call FM(spawn_patrol_veh);
+[_position,1500,-1,-1] call FM(spawn_patrol_water);
+
+true

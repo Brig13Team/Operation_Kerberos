@@ -84,7 +84,7 @@ if (_vehicles) then {
 */
 
 _buildings = _buildings call BIS_fnc_arrayShuffle;
-_mines_count = 0;
+_mines_count = -1;
 If (_mines) then {
 	_mines_count = (floor((count(_buildings))/2) min 30);
 };

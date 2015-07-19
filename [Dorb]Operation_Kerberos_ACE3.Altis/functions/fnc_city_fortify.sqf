@@ -20,6 +20,9 @@
 		7 : BOOL			- Mines
 		8 : BOOL			- Civ Vehicles
 		
+		
+		[_position,300,dorb_side,40,15,true,true,true,true] spawn dorb_fnc_city_fortify
+		
 */
 #include "script_component.hpp"
 
@@ -49,10 +52,10 @@ If (IS_SCALAR(_staticcount)) then {*/
 	_static_min=_staticcount select 0;
 	_static_max=_staticcount select 1;
 };*/
-LOG_2(_unitcount,_staticcount);
-LOG_8(_unit_min,_unit_max,_static_min,_static_max,_fortifications,_ieds,_mines,_civvehicles);
+//LOG_2(_unitcount,_staticcount);
+//LOG_8(_unit_min,_unit_max,_static_min,_static_max,_fortifications,_ieds,_mines,_civvehicles);
 _optionarray = [_unit_min,_unit_max,_static_min,_static_max,_fortifications,_ieds,_mines,_civvehicles];
-LOG_1(_optionarray);
+//LOG_1(_optionarray);
 _buildings_unformatted = _position nearObjects ["House", _radius];
 //// Format Buildingsarray
 _buildings_formatted = [];
@@ -82,3 +85,6 @@ _extensionOutput = "dorb_city" callExtension format["Citydefence,%1,%2",_buildin
 
 call compile _extensionOutput;
 */
+_return = [(count _buildings_formatted),(count _roads_formatted)];
+_return
+
