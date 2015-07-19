@@ -60,7 +60,7 @@ class cfgFunctions {
 
 // City Defence
 #include "city_defence.hpp"
-
+#include "unitlists.hpp"
 
 
 //Debrief
