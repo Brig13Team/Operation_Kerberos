@@ -17,12 +17,12 @@ LOG("Spawn Sonstiges");
 LOG_1(_difficulty);
 
 //// makros has autodetection of RDS
-[_position,1200,(10+_difficulty)] call FM(spawn_defence_macros);
+[_position,1200,(8+_difficulty)] call FM(spawn_defence_macros);
 [_position] spawn FM(spawn_commander);
 
 
-_count_inf = 5;
-_count_specops = 1;
+_count_inf = 6;
+_count_specops = 2;
 _count_light = 3;
 _count_tanks = 0;
 
