@@ -23,6 +23,7 @@ PREPMAIN(random_pos);
 
 //City 2.0
 PREPMAIN(city_fortify);
+PREPMAIN(city_fortify_buildings);
 PREPMAIN(city_fortify_roads);
 PREPMAIN(city_fortify_roads_defence);
 PREPMAIN(city_patrol_building);

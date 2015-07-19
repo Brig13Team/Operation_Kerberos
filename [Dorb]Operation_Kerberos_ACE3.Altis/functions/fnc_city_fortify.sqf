@@ -35,30 +35,31 @@ params[
 	["_civvehicles",false,[true]]
 	];
 If ((_position isEqualTo [])||(_side==sideUnknown)) exitWith {false};
-If (IS_SCALAR(_unitcount)) then {
+//If (IS_SCALAR(_unitcount)) then {
 	_unit_min=_unitcount;
 	_unit_max=_unitcount;
-}else{
+/*}else{
 	_unit_min=_unitcount select 0;
 	_unit_max=_unitcount select 1;
 };
-If (IS_SCALAR(_staticcount)) then {
+If (IS_SCALAR(_staticcount)) then {*/
 	_static_min=_staticcount;
-	_static_max=_staticcount;
+	_static_max=_staticcount;/*
 }else{
 	_static_min=_staticcount select 0;
 	_static_max=_staticcount select 1;
-};
-
-_optionarray = [_unit_min,_unit_max,_static_min,_static_max,_fortifications,_ieds,_mines,_vehicles];
-
+};*/
+LOG_2(_unitcount,_staticcount);
+LOG_8(_unit_min,_unit_max,_static_min,_static_max,_fortifications,_ieds,_mines,_civvehicles);
+_optionarray = [_unit_min,_unit_max,_static_min,_static_max,_fortifications,_ieds,_mines,_civvehicles];
+LOG_1(_optionarray);
 _buildings_unformatted = _position nearObjects ["House", _radius];
 //// Format Buildingsarray
 _buildings_formatted = [];
 
 for "_i" from 0 to ((count _buildings_unformatted)-1) do {
 	/// [typename,pos]
-	_buildings_formatted pushBack [typename (_buildings_unformatted select _i),getPosASL(_buildings_unformatted select _i),getDir(_buildings_unformatted select _i)];
+	_buildings_formatted pushBack [typeOf  (_buildings_unformatted select _i),getPosASL(_buildings_unformatted select _i),getDir(_buildings_unformatted select _i)];
 };
 
 /// Roadarray
@@ -74,7 +75,7 @@ _roads_formatted = [_position,_radius] call FM(city_roads);
 
 // Buildings 
 
-_buildings_formatted call FM(city_fortify_buildings);
+[_buildings_formatted,_optionarray]call FM(city_fortify_buildings);
 
 /*
 _extensionOutput = "dorb_city" callExtension format["Citydefence,%1,%2",_buildings_formatted,_roads_formatted,_optionarray];
