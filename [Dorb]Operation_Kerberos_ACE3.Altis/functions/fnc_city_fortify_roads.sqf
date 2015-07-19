@@ -218,6 +218,7 @@ for "_i" from 0 to (floor(((_amounts select 0))/3)) do {
 		if (_j == 0) then	{
 			_wp setWaypointSpeed "LIMITED";
 			_wp setWaypointFormation "STAG COLUMN";
+			_wp setWaypointCombatMode "WHITE";
 		};
 	};
 	private "_wp";

@@ -40,6 +40,7 @@ for "_i" from 0 to (_wp_count -1) do {
 	_wp setWaypointHousePosition _pos_id;
 	_wp setWaypointSpeed "LIMITED";
 	_wp setWaypointTimeout [10,15,20];
+	_wp setWaypointCombatMode "WHITE";
 };
 
 private ["_wp"];
