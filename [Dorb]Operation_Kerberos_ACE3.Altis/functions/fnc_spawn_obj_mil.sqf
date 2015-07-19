@@ -28,14 +28,14 @@ _count_light = 3;
 _count_tanks = 0;
 
 If (_difficulty>1) then {
-	_count_inf = 9;
+	_count_inf = 7;
 	_count_specops = 0;
 	_count_light = 5;
 	_count_tanks = 2;
 };
 
 If (_difficulty>2) then {
-	_count_inf = 12;
+	_count_inf = 10;
 	_count_specops = 0;
 	_count_light = 5;
 	_count_tanks = 5;

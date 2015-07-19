@@ -21,7 +21,7 @@ _difficulty = [] call FM(dyn_difficulty);
 LOG("Spawn Stadt");
 
 //// makros has autodetection of RDS
-[_position,1200,(10+_difficulty)] call FM(spawn_defence_macros);
+[_position,1200,(2+_difficulty),true] call FM(spawn_defence_macros);
 [_position] spawn FM(spawn_commander);
 
 

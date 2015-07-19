@@ -21,21 +21,21 @@ LOG_1(_difficulty);
 [_position] spawn FM(spawn_commander);
 
 
-_count_inf = 6;
+_count_inf = 5;
 _count_specops = 1;
 _count_light = 3;
 _count_tanks = 0;
 
 If (_difficulty>1) then {
-	_count_inf = 9;
-	_count_specops = 3;
+	_count_inf = 7;
+	_count_specops = 5;
 	_count_light = 5;
 	_count_tanks = 2;
 };
 
 If (_difficulty>2) then {
-	_count_inf = 11;
-	_count_specops = 5;
+	_count_inf = 9;
+	_count_specops = 3;
 	_count_light = 5;
 	_count_tanks = 6;
 };

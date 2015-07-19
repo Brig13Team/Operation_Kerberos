@@ -25,6 +25,9 @@
 PARAMS_1(_position);
 DEFAULT_PARAM(1,_radius,1000);
 DEFAULT_PARAM(2,_anzahl_spawnpos,3);
+DEFAULT_PARAM(3,_isTown,false);
+_town=0;
+If(_isTown)then{_town=1;};
 _all_spawnpos = [];
 _searchrad = 150 min (_radius / 4);
 _errorcounter = 0; // prevents infinitive loop
@@ -38,7 +41,7 @@ _errorcounter = 0; // prevents infinitive loop
 //// If not enaugh positions are found, the amount of spawned macros is reduced
 
 For "_i" from 0 to _anzahl_spawnpos do {
-	_temp = [_position,_radius,0] call FM(random_pos);
+	_temp = [_position,_radius,_town] call FM(random_pos);
 	_spawnpos = [_temp,15,_searchrad,15,0.18] call FM(pos_flatempty);
 	If (_spawnpos isEqualTo []) then {
 		_spawnpos = [_temp,15,_searchrad,15,0.3] call FM(pos_flatempty);

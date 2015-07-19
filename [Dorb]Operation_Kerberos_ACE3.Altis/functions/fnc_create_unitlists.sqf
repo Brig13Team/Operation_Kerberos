@@ -63,28 +63,28 @@ _dorb_grouplist_panz = getArray(_path >> "group_tanks");
 If (!(_dorb_grouplist_inf isEqualTo [])) then {
 	_temp = [];
 	{
-		_temp pushBack [([_x,configFile] call BIS_fnc_configPath) ];
+		_temp pushBack ([_x,configFile] call BIS_fnc_configPath) ;
 	}forEach _dorb_grouplist_inf;
 	dorb_grouplist_inf = _temp;
 };
 If (!(_dorb_grouplist_mech isEqualTo [])) then {
 	_temp = [];
 	{
-		_temp pushBack [ ([_x,configFile] call BIS_fnc_configPath) ];
+		_temp pushBack  ([_x,configFile] call BIS_fnc_configPath) ;
 	}forEach _dorb_grouplist_mech;
 	dorb_grouplist_mech = _temp;
 };
 If (!(_dorb_grouplist_sf isEqualTo [])) then {
 	_temp = [];
 	{
-		_temp pushBack [ ([_x,configFile] call BIS_fnc_configPath) ];
+		_temp pushBack  ([_x,configFile] call BIS_fnc_configPath) ;
 	}forEach _dorb_grouplist_sf;
 	dorb_grouplist_sf = _temp;
 };
 If (!(_dorb_grouplist_panz isEqualTo [])) then {
 	_temp = [];
 	{
-		_temp pushBack [ ([_x,configFile] call BIS_fnc_configPath) ];
+		_temp pushBack  ([_x,configFile] call BIS_fnc_configPath) ;
 	}forEach _dorb_grouplist_panz;
 	dorb_grouplist_panz = _temp;
 };
