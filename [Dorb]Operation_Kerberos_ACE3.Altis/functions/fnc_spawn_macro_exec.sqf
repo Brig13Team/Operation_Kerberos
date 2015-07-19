@@ -8,7 +8,7 @@
 		0 :	ARRAY	- Startpos
 		1 : ARRAY 	- Array with objects
 
-
+	TO DO: spawn position correction for stacked objeckts
 */
 #include "script_component.hpp"
 
