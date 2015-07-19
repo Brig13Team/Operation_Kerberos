@@ -39,8 +39,8 @@ class unitlists {
 		weaponcache[] = {};
 	};
 	
-	class east : base {
-		class east_basic {
+	class east {
+		class east_basic : base {
 			prototyp[] = {"B_MBT_01_TUSK_F","B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F","B_Heli_Attack_01_F"};
 			
 			commandoveh[] = {"rhs_gaz66_r142_vdv"};
@@ -115,9 +115,9 @@ class unitlists {
 		
 	};
 	
-	class resistance : base {
+	class resistance {
 		
-		class resistance_basic {
+		class resistance_basic : base {
 			prototyp[] = {"B_MBT_01_TUSK_F","B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F","B_Heli_Attack_01_F"};
 			
 			commandoveh[] = {"rhs_gaz66_r142_vdv"};
@@ -134,7 +134,7 @@ class unitlists {
 			veh_mortar[] = {"I_Mortar_01_F"};
 		};
 		
-		class Leights_AFR : resistance_basic {
+		class LOP_AFR : resistance_basic {
 			commander[] = {"rhs_msv_officer_armored","rhs_msv_officer"};
 			menlist[] = {"LOP_AFR_Infantry","LOP_AFR_Infantry_AR","LOP_AFR_Infantry_AT","LOP_AFR_Infantry_Corpsman","LOP_AFR_Infantry_GL","LOP_AFR_Infantry_IED","LOP_AFR_Infantry_Marksman","LOP_AFR_Infantry_SL","LOP_AFR_Infantry_TL"};
 			crewmen[] = {"LOP_AFR_Driver"};
@@ -153,8 +153,8 @@ class unitlists {
 		};
 	};
 	
-	class west : base {
-		class west_basic {
+	class west {
+		class west_basic : base {
 			boat[] = {"B_Boat_Armed_01_hmg_F"};
 			commandoveh[] = {"rhsusf_M1083A1P2_B_M2_d_MHQ_fmtv_usarmy"};
 			commandoveh_arty[] = {"rhsusf_m113d_usarmy"};
