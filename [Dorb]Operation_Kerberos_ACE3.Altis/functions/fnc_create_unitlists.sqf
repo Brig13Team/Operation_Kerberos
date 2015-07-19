@@ -22,7 +22,7 @@ If (_rand < 1) then {
 			_rand = ((floor(random 4))+ 100);
 		};
 	};
-	_rand = floor(random 6);
+	_rand = floor(random 5) +1 ;
 };
 private "_path";
 switch (_rand) do {
@@ -52,14 +52,42 @@ dorb_civ_cars = getArray(_path >> "civ_cars");
 dorb_civ_cars_garage = getArray(_path >> "civ_smallcars");
 dorb_staticlist_high = getArray(_path >> "static_high");
 dorb_sniper = getArray(_path >> "sniper");
-dorb_device = getArray(_path >> "pow");
+dorb_device = getArray(_path >> "device");
 dorb_menlist = getArray(_path >> "menlist");
 dorb_diverlist = getArray(_path >> "diver");
 dorb_crewmenlist = getArray(_path >> "crewmen");
-dorb_grouplist_inf = getArray(_path >> "group_inf");
-dorb_grouplist_mech = getArray(_path >> "group_mech");
-dorb_grouplist_sf = getArray(_path >> "group_sf");
-dorb_grouplist_panz = getArray(_path >> "group_tanks");
+_dorb_grouplist_inf = getArray(_path >> "group_inf");
+_dorb_grouplist_mech = getArray(_path >> "group_mech");
+_dorb_grouplist_sf = getArray(_path >> "group_sf");
+_dorb_grouplist_panz = getArray(_path >> "group_tanks");
+If (!(_dorb_grouplist_inf isEqualTo [])) then {
+	_temp = [];
+	{
+		_temp pushBack [([_x,configFile] call BIS_fnc_configPath) ];
+	}forEach _dorb_grouplist_inf;
+	dorb_grouplist_inf = _temp;
+};
+If (!(_dorb_grouplist_mech isEqualTo [])) then {
+	_temp = [];
+	{
+		_temp pushBack [ ([_x,configFile] call BIS_fnc_configPath) ];
+	}forEach _dorb_grouplist_mech;
+	dorb_grouplist_mech = _temp;
+};
+If (!(_dorb_grouplist_sf isEqualTo [])) then {
+	_temp = [];
+	{
+		_temp pushBack [ ([_x,configFile] call BIS_fnc_configPath) ];
+	}forEach _dorb_grouplist_sf;
+	dorb_grouplist_sf = _temp;
+};
+If (!(_dorb_grouplist_panz isEqualTo [])) then {
+	_temp = [];
+	{
+		_temp pushBack [ ([_x,configFile] call BIS_fnc_configPath) ];
+	}forEach _dorb_grouplist_panz;
+	dorb_grouplist_panz = _temp;
+};
 dorb_veh_armored = getArray(_path >> "veh_armored");
 dorb_veh_unarmored = getArray(_path >> "veh_unarmored");
 dorb_veh_aa = getArray(_path >> "veh_aa");
@@ -77,7 +105,7 @@ dorb_attack_air_list = getArray(_path >> "plane_attack");
 dorb_commanderlist = getArray(_path >> "commander");
 dorb_wpncache_list = getArray(_path >> "weaponcache");
 dorb_commandveh_radio = getArray(_path >> "commandoveh");
-dorb_commandveh_arty = getArray(_path >> "pow");
+dorb_commandveh_arty = getArray(_path >> "commandoveh_arty");
 private["_dorb_commandveh_side_nr"];
 _dorb_commandveh_side_nr = getNumber(_path >> "commandoveh_side");If (_dorb_commandveh_side_nr < 1) then {dorb_commandveh_side=east;}else{dorb_commandveh_side=west;};
 dorb_radar = getArray(_path >> "commandoveh_radar");
