@@ -2,8 +2,7 @@
 author = "Dorbedo";
 onLoadName = "Operation Kerberos";
 
-class Header
-{
+class Header {
   gameType = Coop;
   minPlayers = 1;
   maxPlayers = 38;
@@ -61,13 +60,12 @@ class cfgFunctions {
 // City Defence
 #include "city_defence.hpp"
 #include "unitlists.hpp"
+#include "defence_positions.hpp"
 
 
 //Debrief
-class CfgDebriefing
-{  
-	class End1
-	{
+class CfgDebriefing {  
+	class End1 {
 		title = "Mission Abgeschlossen";
 		subtitle = "";
 		description = "Mission abgeschlossen. Gute Arbeit.";
@@ -75,8 +73,7 @@ class CfgDebriefing
 		picture = "b_inf";
 		pictureColor[] = {0.0,0.3,0.6,1};
 	};
-	class Fail
-	{
+	class Fail {
 		title = "Mission gescheitert";
 		subtitle = "";
 		description = "Ihr seid alle gestorben.";

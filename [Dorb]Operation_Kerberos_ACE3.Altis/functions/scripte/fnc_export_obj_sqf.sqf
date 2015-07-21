@@ -68,14 +68,13 @@ _centerposASL = ATLtoASL _centerpos;
 		private["_temp","_nextObject"];
 		_temp = [];
 		_nextObject = [_x] call _fnc_getObjbelow;
-		
-		If (_nextObject isEqualTo []) then {
+		If (isNull _nextObject) then {
 			/// obj has nothing below -> offset = [0,0,0]
 			private["_objDir","_objVectorUp","_objPosASL","_terrainNormal","_temptype","_temppos","_tempdir","_tempoffset","_tempvector"];
 			_objDir = getDir _x;
 			_objVectorUp = vectorUp _x;
 			_objPosASL = getPosASL _x;
-			_terrainNormal = surfaceNormal (getPosATL _object);
+			_terrainNormal = surfaceNormal (getPosATL _x);
 			_temptype = typeOf _x;
 			_temppos = _centerposASL VectorDiff _objPosASL;
 			_tempdir = _centerdir + _objDir;
