@@ -99,11 +99,28 @@ class RscTitles {
 	  
     };
   };
-  /*
+  
   class DORB_DISP_MISSIONTIMER {
-	  
+	duration = 61;
+	idd = 700103;
+	movingenable = 0;
+	onLoad = "uiNamespace setVariable ['DORB_DISP_MISSIONTIMER', _this select 0];";
+	class controlsBackground {
+      class dorb_disp_header : dorb_gui_backgroundBase {
+        text = "";
+        idc = 700104;
+		sizeEx = _get_screen_h(0.03);
+		style = ST_CENTER;
+        x = safeZoneX + safeZoneW - (safeZoneW * 0.032)
+        y = safeZoneY + safezoneH * 0.19;
+        w = _get_screen_w(0.03);
+        h = _get_screen_h(0.035);
+		colorText[] = UI_CL_BODY_TEXT;
+		colorBackground[] = UI_CL_BODY;
+      };
+    };
   };
-  */
+  
   class DORB_DISP_PROGRESSBAR {
     duration = 1e+011;
     idd = 700105;

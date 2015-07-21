@@ -40,6 +40,7 @@ PREPMAIN(disp_info_global);
 PREPMAIN(disp_message);
 PREPMAIN(disp_message_global);
 PREPMAIN(disp_progressbar);
+PREPMAIN(disp_timer);
 PREPMAIN(grouptracker);
 PREPMAIN(halo);
 PREPMAIN(halo_addaction);
