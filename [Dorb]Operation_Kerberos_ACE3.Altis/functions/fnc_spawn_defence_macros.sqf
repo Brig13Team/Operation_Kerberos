@@ -65,14 +65,14 @@ For "_i" from 0 to _anzahl_spawnpos do {
 
 
 ///// spawns makros in the best direction
-_makros = 		[1,  2,  4,	5,  6,  7,	8,  9,  10,	11, 12, 13,	14,	15		];
-_markos_weight = 	[0.4,0.15,1,	0.9,0.8,0.5,	0.3,0.3,0.5,	0.4,0.5,0.3,	0.5,0.3		];
-
+_makros = 		["small_veh_tank_high","small_veh_tank_low","small_veh_zsu","big_static_AA","big_veh_zsu","big_tower_mg","big_bunker","big_mortar_3","big_mortar_1"];
+_markos_weight =[		0.4,				0.15,					1,			0.9,			0.8,			0.5,		0.3,			0.3,		0.5];
+/*
 If (DORB_MODS_RDS) then {
 	_makros append [100];
 	_markos_weight append [100];
 };
-
+*/
 {
 	/// Get gooddirs -> good sight from the defined pos
 	_gooddirs = [];
@@ -127,8 +127,10 @@ If (DORB_MODS_RDS) then {
 	///// spawn defence
 	_currentmakro = -1;
 	_currentmakro = [_makros,_markos_weight] call BIS_fnc_selectRandomWeighted;
-	[_x,_currentmakro,_bestdir] call FM(spawn_macro);
+	_configarray = ["missionConfigFile","defence_positions","terrain"];
+	_configarray pushBack _currentmakro;
 	
+	[_x,_configarray,_bestdir] call FM(spawn_macro_exec3d);
 	
 }forEach  _all_spawnpos;
 

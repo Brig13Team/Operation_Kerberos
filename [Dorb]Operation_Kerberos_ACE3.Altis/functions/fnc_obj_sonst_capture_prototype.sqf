@@ -51,7 +51,7 @@ for "_i" from 1 to _rand do{
 			_all_spawnpos pushBack _spawnposition;
 		};
 	}else{
-		[_spawnposition,3,(random 360)] call FM(spawn_macro);
+		[_spawnposition,["missionConfigFile","defence_positions","missions","device"],(random 360)] call FM(spawn_macro_exec3d);
 		_unit = createVehicle [_einheit,_spawnposition, [], 0, "NONE"];
 		_target pushBack _unit;
 		_all_spawnpos pushBack _spawnposition;
@@ -65,7 +65,7 @@ If (_centerpos isEqualTo []) then {_centerpos = _position;};
 ////// Ziel bearbeiten					 /////
 ///////////////////////////////////////////////
 
-{(getpos _x) spawn FM(spawn_defence);} forEach _target;
+//{(getpos _x) spawn FM(spawn_defence);} forEach _target;
 
 
 if (dorb_debug) then {

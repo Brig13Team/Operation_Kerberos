@@ -67,8 +67,6 @@ PREPMAIN(spawn_crew);
 PREPMAIN(spawn_defence);
 PREPMAIN(spawn_defence_macros);
 PREPMAIN(spawn_in_building);
-PREPMAIN(spawn_macro);
-PREPMAIN(spawn_macro_exec);
 PREPMAIN(spawn_macro_exec3d);
 PREPMAIN(spawn_minefield);
 PREPMAIN(spawn_minefields);

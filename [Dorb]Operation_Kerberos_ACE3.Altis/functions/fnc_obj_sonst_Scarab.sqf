@@ -69,7 +69,7 @@ for "_i" from 1 to _rand do{
 			_all_spawnpos pushBack _spawnposition;
 		};
 	}else{
-		[_spawnposition,3,(random 360)] call FM(spawn_macro);
+		
 		_unit = createVehicle [_einheit,_spawnposition, [], 0, "NONE"];
 		uisleep 1;
 		_unit setVectorUp [0,0,1];
