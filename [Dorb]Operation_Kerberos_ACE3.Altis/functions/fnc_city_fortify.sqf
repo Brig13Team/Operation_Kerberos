@@ -38,6 +38,7 @@ params[
 	["_civvehicles",false,[true]]
 	];
 If ((_position isEqualTo [])||(_side==sideUnknown)) exitWith {false};
+private["_unit_max","_unit_min","_static_max","_static_min","_buildings_formatted","_buildings_unformatted","_roads_formatted","_return"];
 //If (IS_SCALAR(_unitcount)) then {
 	_unit_min=_unitcount;
 	_unit_max=_unitcount;
@@ -87,4 +88,3 @@ call compile _extensionOutput;
 */
 _return = [(count _buildings_formatted),(count _roads_formatted)];
 _return
-

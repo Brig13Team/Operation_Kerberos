@@ -101,12 +101,14 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
 				_temppos = [];
 				_temppos_helper = [];
 				for "_i" from 0 to _doorscount do {
-					_temppos = _house modeltoworld (_house selectionPosition format["door_%1_axis",_i+1]);
 					_temppos_helper = _house modeltoworld (_house selectionPosition format["door_%1_trigger",_i+1]);
+					_temppos = _house modeltoworld (_house selectionPosition format["door_%1_axis",_i+1]);
 					_temppos_dir = [_temppos,_temppos_helper]call BIS_fnc_dirTo;
-					If (((_temppos distance [0,0,0])>0)) then {
-						_temppos append [_temppos_dir];
-						_doorpos pushback _temppos;					
+					If (((_temppos select 0)!=0)&&((_temppos select 1)!=0)) then {
+						private "_temppos2";
+						_temppos2 = [(_temppos_helper select 0),(_temppos_helper select 1),((_temppos_helper select 2)-1)];
+						_temppos2 append [_temppos_dir];
+						_doorpos pushback _temppos2;					
 					};
 				};
 				

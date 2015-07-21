@@ -32,7 +32,8 @@ for "_i" from 0 to ((count _spawnarray)-1) do {
 	_vehicle setPosATL [(_position select 0),(_position select 1),0];
 	_vehicle setDir _dir;
 	_vehicle setVectorUP (surfaceNormal _position);
-
+	SETPVAR(_vehicle,R3F_LOG_disabled,true);
+	
 	if (dorb_debug) then {
 			_mrkr = createMarker [format["makro-%1-%2-%3",_i,_vehicle,_position],_position];
 			_mrkr setMarkerShape "ICON";
