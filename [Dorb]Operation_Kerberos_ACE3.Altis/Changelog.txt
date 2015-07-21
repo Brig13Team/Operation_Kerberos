@@ -15,7 +15,8 @@ Added: Longrange-Funke für FHQ
 Added: Kompatibilität zu N'Ziwasogo, Panthera
 Added: Mod Autodetection für RDS, BWA3
 Added: Möglichkeit für East vs West
-Added: Neue Makros für befestigte Stellungen (an günstigen Stellen platziert
+Added: Neue Makros für befestigte Stellungen (an günstigen Stellen platziert)
+Added: Mission SCARAB: Missiontimer
 Changed: Function-Makros
 Changed: Vanilla Crews removed
 Changed: Entferung vom Attackspawn
