@@ -6,7 +6,8 @@
 	
 	Parameter(s):
 		none
-		
+	
+	[] execVM "fnc_lib_buildings.sqf";
 */
 
 
