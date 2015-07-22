@@ -155,6 +155,12 @@ _centerposASL = ATLtoASL _centerpos;
 	
 	};
 	private "_unit";
+	/*
+		TO DO: 
+			- generate a new soldiert, if side of soldier is not matching
+			- solder should have similar equipment
+	*/
+	_currentType = dorb_menlist SELRND;
 	_unit = _gruppe createUnit[_currentType,_spawnPosATL, [], 0, "NONE"];
 	_unit setPosATL _spawnPosATL;
 	_unit setDir _spawndir;
