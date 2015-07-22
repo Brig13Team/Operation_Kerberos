@@ -8,10 +8,10 @@ Removed: Commandvehicle
 Added: Commander (Kontrolliert nun die gesamten Verstärkungen und wählt passenden Konterangriff aus)
        Bspw.: Kein Panzerangriff mehr auf Einzelne Einheiten ; Kombinierter Angriff auf größere Spielerverbände
 Added: Water Patrols
-Added: Mine-Field
+Added: Mine-Fields
+Added: City 2.0 (Straßensperren, MGs in Häusern, Patroullien, IED, Stolperdrahtminen)
 Added: Flugzeuge
-Added: ACE Medical Items im MHQ
-Added: Longrange-Funke für FHQ
+Added: RHS: MHQ (ACE Medical Items, autodetection für advanced/basic medical),FHQ (LongRangeFunkgerät)
 Added: Kompatibilität zu N'Ziwasogo, Panthera
 Added: Mod Autodetection für RDS, BWA3
 Added: Möglichkeit für East vs West
@@ -23,9 +23,9 @@ Changed: Entferung vom Attackspawn
 Changed: VCOM Update (1.03)
 Improved: Examine
 Improved: Mission SCARAB
-Fixed: diverse kleiner Bugs
+Fixed: diverse kleinere Bugs
 Fixed: NVG's nicht für Independent
-
+Fixed: JIP-Probleme bei Intel-Missionen
 
 
 Version 0.14.5
