@@ -61,7 +61,7 @@ class cfgFunctions {
 #include "configs\city_defence.hpp"
 #include "configs\unitlists.hpp"
 #include "configs\defence_positions.hpp"
-
+#include "confgis\sideby_config.hpp"
 
 //Debrief
 class CfgDebriefing {  
