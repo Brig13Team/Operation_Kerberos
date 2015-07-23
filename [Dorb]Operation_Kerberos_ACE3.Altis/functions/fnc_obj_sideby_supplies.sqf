@@ -11,9 +11,7 @@
 
 private ["_dest", "_task_array", "_dest_name", "_dest_radius", "_base", "_crate", "_description", "_counter", "_i", "_sol", "_civ"];
 
-_dest = _this select 0;
-_task_array = _this select 1;
-_dest_name = _this select 2;
+params ["_dest", "_task_array", "_dest_name"];
 
 // Build Barricades
 
@@ -26,6 +24,8 @@ _fnc_barricades = {
 	_road_pos = [];
 	_buffer = [];
 	_i = 1;
+
+	// fill _road_pos with positions on roads around _dest with radius _dest_radius
 	while {_i < 3600} do {
 		_i = _i / 10;
 		_temp_pos = [ (_dest select 0) + (sin (_i) * _dest_radius) , (_dest select 1) + (cos (_i) * _dest_radius) ];
@@ -87,29 +87,63 @@ _crate addItemCargo ["ACE_Banana",1];
 SETVAR(_crate,DORB_ISTARGET,true);
 
 _description = "Eine kleine abtrünnige Einheit der AAF hat eine Stadt besetzt und terrorisiert die Einwohner. Befreien Sie die Stadt bevor eine standfeste Verteidigung errichtet werden kann und liefern sie Unterstützung für die wenigen Bürger, die der Besatzung nicht zum Opfer fiehlen!";
+[-1,{_this spawn FM(disp_info)},["Nebenmission",["Vorräte"],"",true]] FMP;
 #ifdef TEST
 	LOG("[SIDEBY] Supplies erstellt!");
 #else
 	[_task_array, true, [_description, "Unterstützungslieferung", "Liefern"], _dest,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
 #endif
 
-// create civs and aaf soldiers
+// create civs and soldiers
+
+#ifdef TEST
+	private ["_marker"];
+	DORB_SIDE = east;
+#endif
+
+_inf = getArray (missionConfigFile >> "sideby_config" >> "supplies" >> "inf");
+_infw = getArray (missionConfigFile >> "sideby_config" >> "supplies" >> "infw");
+_civs = getArray (missionConfigFile >> "sideby_config" >> "supplies" >> "civs");
 
 for "_i" from 1 to 25 do {
+	_pos = [_dest+[0], _dest_radius, 0] call FM(random_pos);
+	if ((random 9) > 4) then {
+		_building = nearestBuilding _pos;
+		_pos = ( [_building] call BIS_fnc_buildingPositions ) SELRND;
+		_sol = (createGroup DORB_SIDE) createUnit [[_inf,_infw] call BIS_fnc_selectRandomWeighted, _pos, [], 0, "FORM"];
+		_sol setDir (random 360);
+	} else {
+		_sol = (createGroup DORB_SIDE) createUnit [[_inf,_infw] call BIS_fnc_selectRandomWeighted, _pos, [], 0, "FORM"];
+		_sol setDir (random 360);
+	};
 
-	/*
-		TODO:
-			. be more creative on unit selection
-			. place some of them in buildings
-			. let some civs alive
-	*/
+	#ifdef TEST
+		_marker = createMarker [FORMAT_1("marker_inf_%1", _i), _pos];
+		_marker setMarkerType "hd_dot";
+		_marker setMarkerColor "ColorIndependent";
+	#endif
 
-	_sol = "I_soldier_F" createVehicle ([_dest+[0], _dest_radius, 0] call FM(random_pos));
-	_civ = "C_man_1" createVehicle ([_dest+[0], _dest_radius, 0] call FM(random_pos));
-	_sol setDir (random 360);
-	_civ setDir (random 360);
-	SETPVAR(_civ, DORB_ISTARGET, true);
-	_civ setDamage 1;
+	_pos = [_dest+[0], _dest_radius, 0] call FM(random_pos);
+	if ((random 9) > 4) then {
+		_building = nearestBuilding _pos;
+		_pos = ( [_building] call BIS_fnc_buildingPositions ) SELRND;
+		_civ = (createGroup civilian) createUnit [_civs SELRND, _pos, [], 0, "FORM"];
+		_civ setUnitPos "MIDDLE";
+		_civ disableAI "MOVE";
+		_civ setDir (random 360);
+		SETPVAR(_civ, DORB_ISTARGET, true);
+	} else {
+		_civ = (createGroup civilian) createUnit [_civs SELRND, _pos, [], 0, "FORM"];
+		_civ setDamage 1;
+		_civ setDir (random 360);
+		SETPVAR(_civ, DORB_ISTARGET, true);
+	};
+
+	#ifdef TEST
+		_marker = createMarker [FORMAT_1("marker_civ_%1", _i), _pos];
+		_marker setMarkerType "hd_dot";
+		_marker setMarkerColor "ColorCivilian";
+	#endif
 };
 
 _counter = 0;
@@ -120,16 +154,18 @@ while {((_dest distance (position _crate)) > 25) AND ((damage _crate) < 1)} do {
 };
 
 if (((damage _crate) < 1) AND (_crate != objNull) AND (_counter < 360)) then {
+	[-1,{_this spawn FM(disp_info)},["Nebenmission",["abgeschlossen"],"",true]] FMP;
 	#ifdef TEST
 		LOG("[SIDEBY] Supplies abgeschlossen!");
 	#else
-		(_task_array select 0) setTaskState "Succeeded";
+		[(_task_array select 0), "Succeeded", true] call BIS_fnc_taskSetState;
 	#endif
 } else {
+	[-1,{_this spawn FM(disp_info)},["Nebenmission",["fehlgeschlagen"],"",true]] FMP;
 	#ifdef TEST
 		LOG("[SIDEBY] Supplies gescheitert!");
 	#else
-		(_task_array select 0) setTaskState "Failed";
+		[(_task_array select 0), "Failed", true] call BIS_fnc_taskSetState;
 	#endif
 };
 
