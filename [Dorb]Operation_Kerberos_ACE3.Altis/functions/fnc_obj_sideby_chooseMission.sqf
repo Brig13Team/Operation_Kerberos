@@ -18,7 +18,7 @@ _side_task = FORMAT_1("%1_side", _task);
 
 // Missionsstart zwischen 20min (1200 Sekunden) und 60min (3600 Sekunden) festlegen
 _zeit = 1200 + (random 2401);
-//uiSleep _zeit;
+uiSleep _zeit;
 
 _basisPosition = getMarkerPos "respawn_west";
 

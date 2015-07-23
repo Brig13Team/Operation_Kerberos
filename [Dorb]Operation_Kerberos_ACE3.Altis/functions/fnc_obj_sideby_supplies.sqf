@@ -110,10 +110,16 @@ for "_i" from 1 to 25 do {
 	if ((random 9) > 4) then {
 		_building = nearestBuilding _pos;
 		_pos = ( [_building] call BIS_fnc_buildingPositions ) SELRND;
-		_sol = (createGroup DORB_SIDE) createUnit [[_inf,_infw] call BIS_fnc_selectRandomWeighted, _pos, [], 0, "FORM"];
+		private["_gruppe","_einheit"];
+		_gruppe = (createGroup DORB_SIDE);
+		_einheit = [_inf,_infw] call BIS_fnc_selectRandomWeighted;
+		_sol = _gruppe createUnit [_einheit, _pos, [], 0, "FORM"];
 		_sol setDir (random 360);
 	} else {
-		_sol = (createGroup DORB_SIDE) createUnit [[_inf,_infw] call BIS_fnc_selectRandomWeighted, _pos, [], 0, "FORM"];
+		private["_gruppe","_einheit"];
+		_gruppe = (createGroup DORB_SIDE);
+		_einheit = [_inf,_infw] call BIS_fnc_selectRandomWeighted;
+		_sol = _gruppe createUnit [_einheit, _pos, [], 0, "FORM"];
 		_sol setDir (random 360);
 	};
 
@@ -127,13 +133,19 @@ for "_i" from 1 to 25 do {
 	if ((random 9) > 4) then {
 		_building = nearestBuilding _pos;
 		_pos = ( [_building] call BIS_fnc_buildingPositions ) SELRND;
-		_civ = (createGroup civilian) createUnit [_civs SELRND, _pos, [], 0, "FORM"];
+		private["_gruppe","_einheit"];
+		_gruppe = (createGroup civilian);
+		_einheit = _civs SELRND;
+		_civ = _gruppe createUnit [_einheit, _pos, [], 0, "FORM"];
 		_civ setUnitPos "MIDDLE";
 		_civ disableAI "MOVE";
 		_civ setDir (random 360);
 		SETPVAR(_civ, DORB_ISTARGET, true);
 	} else {
-		_civ = (createGroup civilian) createUnit [_civs SELRND, _pos, [], 0, "FORM"];
+		private["_gruppe","_einheit"];
+		_gruppe = (createGroup civilian);
+		_einheit = _civs SELRND;
+		_civ = _gruppe createUnit [_einheit, _pos, [], 0, "FORM"];
 		_civ setDamage 1;
 		_civ setDir (random 360);
 		SETPVAR(_civ, DORB_ISTARGET, true);
