@@ -14,7 +14,7 @@ waituntil {! isnull player};
 ["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;  
 ["init"] spawn FM(grouptracker);
 
-"DORB_ENDZEIT" addPublicVariableEventHandler {[] spawn FM(disp_timer);};
+"DORB_ENDZEIT" addPublicVariableEventHandler {[] spawn FM(disp_timer)};
 
 [] call FM(playeraddaction);
 [] call FM(ui_teleport_draw3D);
