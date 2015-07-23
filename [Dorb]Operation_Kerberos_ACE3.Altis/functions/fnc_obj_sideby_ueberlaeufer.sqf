@@ -17,8 +17,9 @@
 
 private ["_position", "_task_array", "_dest", "_ziel", "_zielPos", "_kleidung", "_description"];
 
-_position = _this select 0;
-_task_array = _this select 1;
+params ["_position", "_task_array"];
+
+LOG("ueberlaeufer");
 
 #ifdef TEST
 	_position = getMarkerPos "spawn_side";
@@ -28,10 +29,15 @@ _task_array = _this select 1;
 #endif
 
 _zielPos = _position;
-// TODO: place him in a near building (50 m for example)
 
 _ziel = [_zielPos, createGroup civilian, "C_man_polo_1_F"] call FM(spawn_unit);
-removeAllWeapons _ziel; removeAllItems _ziel; removeAllAssignedItems _ziel; removeUniform _ziel; removeVest _ziel; removeBackpack _ziel; removeHeadgear _ziel; removeGoggles _ziel; _ziel forceAddUniform "U_I_OfficerUniform"; for "_i" from 1 to 3 do {_ziel addItemToUniform "ACE_fieldDressing";}; _ziel addItemToUniform "ACE_EarPlugs"; for "_i" from 1 to 2 do {_ziel addItemToUniform "ACE_morphine";}; _ziel addItemToUniform "ACE_atropine"; _ziel addItemToUniform "ACE_epinephrine"; _ziel addItemToUniform "ACE_packingBandage"; _ziel addItemToUniform "ACE_elasticBandage"; _ziel addItemToUniform "ACE_Banana"; for "_i" from 1 to 2 do {_ziel addItemToUniform "30Rnd_9x21_Mag";}; _ziel addHeadgear "H_MilCap_dgtl"; _ziel addGoggles "G_Squares"; _ziel addWeapon "hgun_PDW2000_F"; _ziel addPrimaryWeaponItem "muzzle_snds_L";
+removeAllWeapons _ziel; removeAllItems _ziel; removeAllAssignedItems _ziel; removeUniform _ziel; removeVest _ziel; removeBackpack _ziel; removeHeadgear _ziel; removeGoggles _ziel;
+_ziel forceAddUniform (getText (missionConfigFile >> "sideby_config" >> "deserter" >> "uniform"));
+for "_i" from 1 to (getNumber (missionConfigFile >> "sideby_config" >> "deserter" >> "magc")) do {_ziel addItemToUniform (getText (missionConfigFile >> "sideby_config" >> "deserter" >> "mag"));};
+_ziel addHeadgear (getText (missionConfigFile >> "sideby_config" >> "deserter" >> "headgear"));
+_ziel addGoggles (getText (missionConfigFile >> "sideby_config" >> "deserter" >> "googles"));
+_ziel addWeapon (getText (missionConfigFile >> "sideby_config" >> "deserter" >> "weapon"));
+// for "_i" from 1 to 3 do {_ziel addItemToUniform "ACE_fieldDressing";}; _ziel addItemToUniform "ACE_EarPlugs"; for "_i" from 1 to 2 do {_ziel addItemToUniform "ACE_morphine";}; _ziel addItemToUniform "ACE_atropine"; _ziel addItemToUniform "ACE_epinephrine"; _ziel addItemToUniform "ACE_packingBandage"; _ziel addItemToUniform "ACE_elasticBandage"; _ziel addItemToUniform "ACE_Banana";
 _eigenschaften = ["Flugangst", "Paranoia", "suizidgefaehrdet", "nichts"];
 _wichtung = [0.125, 0.25, 0.01, 1];
 _eigenschaft = [_eigenschaften, _wichtung] call BIS_fnc_selectRandomWeighted;
@@ -59,6 +65,7 @@ switch (_eigenschaft) do
 	};
 };
 
+[-1,{_this spawn FM(disp_info)},["Nebenmission",["Überläufer"],"",true]] FMP;
 #ifdef TEST
 	LOG("[SIDEBY] Überläufer erstellt!");
 #else
@@ -79,7 +86,7 @@ fnc_conter = {
 	_veh_group = group driver _veh;
 	(units _veh_group) join _group;
 
-	_wp = [ _group addWaypoint [ [_dest, _pos, 100] call FM(pointBetween) , 0 ] ]; // _wp0
+	_wp = [ _group addWaypoint [ [_dest, position leader _group, 100] call FM(pointBetween) , 0 ] ]; // _wp0
 	(_wp select 0) setWaypointType "GETOUT";
 
 	_wp = _wp + [ _group addWaypoint [ [_dest, position leader _group, 50] call FM(pointBetween) , 0 ] ]; // _wp1
