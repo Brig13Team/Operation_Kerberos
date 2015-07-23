@@ -19,6 +19,10 @@ params["_weight","_pos_x","_pos_y","_pos_z","_dir","_size"];
 private "_position";
 _position = [_pos_x,_pos_y,_pos_z];
 
+/// Check if Road is ATL
+If (_pos_z > 1) then {_position = ASLtoATL _position;};
+
+
 
 If (dorb_debug) then {
 	_mrkr = createMarker [format["Fortification-%1",_position],_position];
@@ -30,7 +34,7 @@ If (dorb_debug) then {
 private "_rand";
 /// Direction
 _rand = floor(random 2);
-_dir = _dir - 90;
+//_dir = _dir - 90;
 if (_rand>0) then {
 	_dir = _dir + 180;
 };

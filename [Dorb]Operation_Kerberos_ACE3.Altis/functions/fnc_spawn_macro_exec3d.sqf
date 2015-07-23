@@ -37,10 +37,10 @@ _centerposASL = ATLtoASL _centerpos;
 	_currentVectorUp = (_x select 4);
 	If (!(_currentOffset isEqualTo [0,0,0])) then {
 		private["_rotateVector","_refpos","_terrainNormal","_VectorCorrection"];
-		_rotateVector = [[(_currentPos select 0),(_currentPos select 1)],_centerdir] call BIS_fnc_rotateVector2D;
+		_rotateVector = [[(_currentPos select 0),(_currentPos select 1)],(360-_centerdir)] call BIS_fnc_rotateVector2D;
 		_rotateVector set[2,(_currentPos select 2)];
 		_refpos = _centerposASL VectorAdd _rotateVector;
-		_rotateVector = [[(_currentOffset select 0),(_currentOffset select 1)],_centerdir] call BIS_fnc_rotateVector2D;
+		_rotateVector = [[(_currentOffset select 0),(_currentOffset select 1)],(360-_centerdir)] call BIS_fnc_rotateVector2D;
 		_rotateVector set[2,(_currentOffset select 2)];
 		_spawnPos = _refpos VectorAdd _rotateVector;
 		_terrainNormal = surfaceNormal _refpos;

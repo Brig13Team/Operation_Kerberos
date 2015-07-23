@@ -35,7 +35,6 @@ _roadcount = count _roadArray;
 /// only 33% of the roads should have something
 _max_amount = floor(_roadCount/3) max 1;
 CHECK(_max_amount <= 2)
-
 /// set/check the spawn-amounts
 If (IS_ARRAY(_amounts)) then {
 	_amount = 0;
@@ -91,21 +90,63 @@ for "_i" from 0 to ((count _roadArray)-1) do {
 	_current_pos params ["_cur_x","_cur_y","_cur_z"];
 	_roadArray_weighted pushBack [_current_weight,_cur_x,_cur_y,_cur_z,_current_dir,_current_size];
 };
-
+/*
 //// Sort
 
 _roadArray_weighted sort false;
 
 LOG_1(_roadArray_weighted);
+*/
 //////// Generate spawn positions
 
 
 //// get the good spots and have a minimum distance between them
 _fortifications_distance = 150;
 
-_fortifications_positions = [(_roadArray_weighted select 0)];
-_roadArray_weighted deleteAt 0;
+_errorcounter = 10;
 
+_fortifications_positions = [];
+/*
+	disabled - will be used soon
+_fortifications_positions_crossing = [];
+*/
+LOG_1(_amounts);
+for [{_i = 0},{_i <= (_amounts select 1)},{_i = _i + 1;}] do {
+	private ["_temp","_id","_add_pos"];
+	_add_pos = -1;
+	_id = [_roadArray_weighted,0,true] call FM(sel_array_weighted);
+	_temp = _roadArray_weighted select _id;
+	_add = {If (([(_temp select 1),(_temp select 2),(_temp select 3)] distance [(_x select 1),(_x select 2),(_x select 3)]) < _fortifications_distance) then {true}else{false}}count _fortifications_positions;
+	If ((_add<1)||(_fortifications_positions isEqualTo [])) then {
+		private ["_isCrossing","_nearRoads","_connectedRoads"];
+		_isCrossing = false;
+		_nearRoads = [(_temp select 1),(_temp select 2),(_temp select 3)] nearRoads 1;
+		If (!(_nearRoads isEqualTo [])) then {
+			_connectedRoads = roadsConnectedTo (_nearRoads select 0);
+			If ((count _connectedRoads)>2) then {_isCrossing = true;};
+		};
+		If (!_isCrossing) then {
+			_fortifications_positions pushBack (_roadArray_weighted deleteAt _id);
+		}else{
+			/* disabled
+			_fortifications_positions_crossing pushBack (_roadArray_weighted deleteAt _id);
+			*/
+			
+			/* Remove when crossing implemented */
+			If (_errorcounter > 0) then {
+				DEC(_errorcounter);
+				DEC(_i);
+			};
+			/* Remove when crossing implemented */
+		};
+	}else{
+		If (_errorcounter > 0) then {
+			DEC(_errorcounter);
+			DEC(_i);
+		};
+	};
+};
+/*
 for "_i" from 0 to (_amounts select 1) do {
 	_add_pos = -1;
 	for [{_j= 0},{_j < (count _roadArray_weighted)},{_j = _j + 1}] do {
@@ -118,7 +159,7 @@ for "_i" from 0 to (_amounts select 1) do {
 		_roadArray_weighted deleteAt _add_pos;
 	};
 };
-
+*/
 _roadArray_weighted = _roadArray_weighted call BIS_fnc_arrayShuffle;
 
 
