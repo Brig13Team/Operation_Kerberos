@@ -18,7 +18,7 @@ params ["_position", "_task_array"];
 	_position = getMarkerPos "spawn_side";
 	_dest = getMarkerPos "spawn_conter";
 #else
-	_dest = taskDestination (_task_array select 1);
+	_dest = [_task_array select 1] call BIS_fnc_taskDestination;
 #endif
 
 _typen = ["Land_Wreck_Plane_Transport_01_F","Land_Wreck_Heli_Attack_02_F"];
@@ -75,20 +75,20 @@ fnc_ObjAction = {
 		_suitcase = "Land_Suitcase_F" createVehicle (position _caller);
 		[-1, { _this addAction ["Nehmen", { _this call fnc_SuitcaseAttach }, nil, 1.5, true, true, "", "isNull attachedTo _target;"]; }, _suitcase] FMP;
 		DORB_MISSION_FNC = DORB_MISSION_FNC + [ _suitcase , "_this addAction ['Nehmen', { _this call fnc_SuitcaseAttach }, nil, 1.5, true, true, "", 'isNull attachedTo _target;'];" ];
-		publicVariable DORB_MISSION_FNC;
+		publicVariable "DORB_MISSION_FNC";
 
 		while { (((position _suitcase) distance _pos) > 25) OR !(isNull attachedTo _suitcase) } do {};
 		uiSleep 5;
 
 		if (_typ == "Land_Wreck_Plane_Transport_01_F") then {
 			#ifndef TEST
-				[_main_task, "useless_intel", [1, 1, 50, 50]] call FM(obj_reward));
+				[_main_task, "useless_intel", [1, 1, 50, 50]] call FM(obj_reward);
 			#else
 				LOG(FORMAT_3("[SIDEBY] pos: %1, fehlpos: %2, durchmesser: %3", 1, 1, 50));
 			#endif
 		} else {
 			#ifndef TEST
-				[_main_task, "targets", [2, 50]] call FM(obj_reward));
+				[_main_task, "targets", [2, 50]] call FM(obj_reward);
 			#else
 				LOG(FORMAT_3("[SIDEBY] pos: %1, fehlpos: %2, durchmesser: %3", 2, 0, 50));
 			#endif
@@ -138,7 +138,7 @@ switch (_typ) do
 	_obj addAction ["Informationen suchen", { _this call fnc_ObjAction; }, [_typ,_task_array select 0, _task_array select 1]];
 }, [_obj,_typ,_task_array]] FMP;
 DORB_MISSION_FNC = DORB_MISSION_FNC + [ [_obj,_task_array] , "(_this select 0) addAction ['Informationen suchen', { _this call fnc_ObjAction; }, [_typ,(_this select 1) select 0, (_this select 1) select 1]];" ];
-publicVariable DORB_MISSION_FNC;
+publicVariable "DORB_MISSION_FNC";
 
 _conter_size = if (_typ == "Land_Wreck_Plane_Transport_01_F") then { "medium" } else { "big" };
 fnc_conter = {

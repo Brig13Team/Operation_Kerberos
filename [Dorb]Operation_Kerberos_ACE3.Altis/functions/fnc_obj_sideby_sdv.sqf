@@ -82,4 +82,4 @@ _description = "Eines unserer U-Boote ist gesunken. An Bord befanden sich sensib
 }, [_sdv,_task_array]] FMP;
 
 DORB_MISSION_FNC = DORB_MISSION_FNC + [ [_sdv, _task_array], "(_this select 0) addAction ['Take Intel', {_this call fnc_SDVAction;}, _this select 1];" ];
-publicVariable DORB_MISSION_FNC;
+publicVariable "DORB_MISSION_FNC";

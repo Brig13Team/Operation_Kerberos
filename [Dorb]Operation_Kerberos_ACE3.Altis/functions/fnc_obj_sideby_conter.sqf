@@ -26,7 +26,7 @@ _vehicle = getText (missionConfigFile >> "sideby_config" >> "conter" >> _type >>
 _inf = getArray (missionConfigFile >> "sideby_config" >> "conter" >> _type >> "inf");
 _infc = getArray (missionConfigFile >> "sideby_config" >> "conter" >> _type >> "infc");
 
-_veh = _vehicle createVehicle _position;
+_veh = createVehicle [_vehicle, _position, [], 0, "NONE"];
 createVehicleCrew _veh;
 _group = createGroup DORB_SIDE;
 {

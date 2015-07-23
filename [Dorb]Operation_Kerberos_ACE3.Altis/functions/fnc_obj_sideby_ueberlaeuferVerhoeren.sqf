@@ -78,7 +78,7 @@ if ( (_info > 0) and (alive _ueberlaeufer) ) then {
 		case "Flugangst":
 		{
 			#ifndef TEST
-				[_main_task, "targets", [2,_durchmesser * (2 - _info)]] call FM(obj_reward));
+				[_main_task, "targets", [2,_durchmesser * (2 - _info)]] call FM(obj_reward);
 			#else
 				LOG(FORMAT_3("[SIDEBY] pos: %1, fehlpos: %2, durchmesser: %3", 2, 0, _durchmesser * (2 - _info)));
 			#endif
@@ -94,7 +94,7 @@ if ( (_info > 0) and (alive _ueberlaeufer) ) then {
 		case "suizidgefaehrdet":
 		{
 			#ifndef TEST
-				[_main_task, "targets", [2,_durchmesser]] call FM(obj_reward));
+				[_main_task, "targets", [2,_durchmesser]] call FM(obj_reward);
 			#else
 				LOG(FORMAT_3("[SIDEBY] pos: %1, fehlpos: %2, durchmesser: %3", 2, 0, _durchmesser));
 			#endif
@@ -102,7 +102,7 @@ if ( (_info > 0) and (alive _ueberlaeufer) ) then {
 		case "nichts":
 		{
 			#ifndef TEST
-				[_main_task, "targets", [2,_durchmesser]] call FM(obj_reward));
+				[_main_task, "targets", [2,_durchmesser]] call FM(obj_reward);
 			#else
 				LOG(FORMAT_3("[SIDEBY] pos: %1, fehlpos: %2, durchmesser: %3", 2, 0, _durchmesser));
 			#endif

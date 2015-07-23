@@ -25,7 +25,7 @@ LOG("ueberlaeufer");
 	_position = getMarkerPos "spawn_side";
 	_dest = getMarkerPos "spawn_conter";
 #else
-	_dest = taskDestination (_task_array select 1);
+	_dest = [_task_array select 1] call BIS_fnc_taskDestination;
 #endif
 
 _zielPos = _position;

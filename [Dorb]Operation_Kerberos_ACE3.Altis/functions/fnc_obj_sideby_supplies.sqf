@@ -148,8 +148,8 @@ for "_i" from 1 to 25 do {
 
 _counter = 0;
 while {((_dest distance (position _crate)) > 25) AND ((damage _crate) < 1)} do {
-	uiSleep 5;
-	_counter = _counter + 5;
+	uiSleep 30;
+	_counter = _counter + 6;
 	if (_counter > 360) exitWith {};
 };
 
