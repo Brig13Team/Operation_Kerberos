@@ -94,7 +94,7 @@ _centerposASL = ATLtoASL _centerpos;
 			_refVector = _offsetArray select 2;
 			_temptype = typeOf _x;
 			_temppos = _centerposASL VectorDiff _refpos;
-			_tempdir = _centerdir + _refdir + _objDir;
+			_tempdir = _centerdir + /*_refdir +*/ _objDir;
 			If (_tempdir >= 360) then {_tempdir = _tempdir - 360;};
 			_tempoffset = _refpos VectorDiff _objPosASL;
 			_tempvector = vectorNormalized(_refVector VectorAdd _objVectorUp);

@@ -65,8 +65,8 @@ For "_i" from 0 to _anzahl_spawnpos do {
 
 
 ///// spawns makros in the best direction
-_makros = 		["small_veh_tank_high","small_veh_tank_low","small_veh_zsu","big_static_AA","big_veh_zsu","big_tower_mg","big_bunker","big_mortar_3","big_mortar_1"];
-_markos_weight =[		0.4,				0.15,					1,			0.9,			0.8,			0.5,		0.3,			0.3,		0.5];
+_makros = 		["small_veh_tank_high","small_veh_tank_low","small_veh_zsu","big_static_AA","big_veh_zsu","big_tower_mg","big_bunker","big_mortar_3","big_mortar_1","bunker_medium","camp_medium","camp_small","AT_medium"];
+_markos_weight =[		0.4,				0.15,					1,			0.9,			0.8,			0.5,		0.3,			0.3,		0.5,			0.2,			0.6,		0.7,			0.6	];
 /*
 If (DORB_MODS_RDS) then {
 	_makros append [100];
