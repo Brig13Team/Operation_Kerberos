@@ -159,6 +159,7 @@ if (((damage _crate) < 1) AND (_crate != objNull) AND (_counter < 360)) then {
 		LOG("[SIDEBY] Supplies abgeschlossen!");
 	#else
 		[(_task_array select 0), "Succeeded", true] call BIS_fnc_taskSetState;
+		[_main_task select 1, "targets", [2,50]] call FM(obj_reward);
 	#endif
 } else {
 	[-1,{_this spawn FM(disp_info)},["Nebenmission",["fehlgeschlagen"],"",true]] FMP;
