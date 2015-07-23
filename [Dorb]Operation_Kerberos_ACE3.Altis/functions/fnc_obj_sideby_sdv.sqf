@@ -58,7 +58,7 @@ fnc_SDVAction = {
 				LOG(FORMAT_3("[SIDEBY] pos: %1, fehlpos: %2, durchmesser: %3", 3, 0, 50));
 			#else
 				[_task, "Succeeded", true] call BIS_fnc_taskSetState;
-				["random", _main_task, [3, 0, 50]] call FM(examine);
+				[_main_task, "targets", [3, 50]] call FM(obj_reward);
 			#endif
 		}, [_caller,_main_task]] FMP;
 	} else {
