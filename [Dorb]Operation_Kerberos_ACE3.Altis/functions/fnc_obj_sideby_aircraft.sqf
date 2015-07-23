@@ -82,13 +82,13 @@ fnc_ObjAction = {
 
 		if (_typ == "Land_Wreck_Plane_Transport_01_F") then {
 			#ifndef TEST
-				["random", _main_task, [1, 1, 50]] call FM(examine);
+				[_main_task, "useless_intel", [1, 1, 50, 50]] call FM(obj_reward));
 			#else
 				LOG(FORMAT_3("[SIDEBY] pos: %1, fehlpos: %2, durchmesser: %3", 1, 1, 50));
 			#endif
 		} else {
 			#ifndef TEST
-				["random", _main_task, [2, 0, 50]] call FM(examine);
+				[_main_task, "targets", [2, 50]] call FM(obj_reward));
 			#else
 				LOG(FORMAT_3("[SIDEBY] pos: %1, fehlpos: %2, durchmesser: %3", 2, 0, 50));
 			#endif
