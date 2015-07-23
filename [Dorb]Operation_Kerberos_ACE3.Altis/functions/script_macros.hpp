@@ -156,3 +156,9 @@ Author:
 
 #define GETGVAR(var1,var2) GETMVAR(GVAR(var1),var2)
 #define GETEGVAR(var1,var2,var3) GETMVAR(EGVAR(var1,var2),var3)
+
+//// DORB_fnc_map calls (see fnc_map.sqf for examples)
+
+#define MAP(CODE,ARRAY) [CODE,ARRAY] call FM(map)
+#define MAPR(CODE,ARRAY) [CODE,ARRAY,"r"] call FM(map)
+#define MAPL(CODE,ARRAY) [CODE,ARRAY,"l"] call FM(map)
