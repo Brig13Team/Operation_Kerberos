@@ -12,8 +12,7 @@
 
 private ["_position", "_task_array", "_dest", "_typen", "_wichtung", "_obj", "_description"];
 
-_position = _this select 0;
-_task_array = _this select 1;
+params ["_position", "_task_array"];
 
 #ifdef TEST
 	_position = getMarkerPos "spawn_side";
@@ -28,19 +27,19 @@ _typ = [_typen, _wichtung] call BIS_fnc_selectRandomWeighted;
 
 _obj = _typ createVehicle _position;
 SETPVAR(_obj,DORB_ISTARGET,true);
-missionNamespace setVariable [DORB_CONTER,false];
-
-// LOG(FORMAT_2("[SIDEBY] %1 an Position %2 gespawnt!", _typ, _position));
+missionNamespace setVariable ["DORB_CONTER",false];
 
 fnc_SuitcaseAttach = {
 	private ["_target", "_caller", "_id"];
 	_target = _this select 0;
 	_caller = _this select 1;
 	_id = _this select 2;
-	_target removeAction _id;
 
-	_target attachTo [_caller, [0.24,0,-0.25], "Pelvis"];
-	_target setDir 75;
+	_caller action ["SwitchWeapon", _caller, _caller, 100];
+	uiSleep 1;
+
+	_target attachTo [_caller, [0,0,0], "RightHand"];
+	_target setDir 90;
 	_caller forceWalk true;
 
 	_caller addAction ["Loslassen", { _this call fnc_SuitcaseDetach; }, _target];
@@ -57,8 +56,6 @@ fnc_SuitcaseDetach = {
 	detach _suitcase;
 	_suitcase setPosATL (position _caller);
 	_caller forceWalk false;
-
-	_suitcase addAction ["Nehmen", { _this call fnc_SuitcaseAttach; }];
 };
 
 fnc_ObjAction = {
@@ -73,11 +70,12 @@ fnc_ObjAction = {
 	_target removeAction _id;
 	_pos = getMarkerPos "respawn_west";
 
-	if (GETVAR(missionNamespace,DORB_CONTER,false)) then {
-		hint "Ein Aktenkoffer wurde im Wrack gefunden!";
+	if ( !(missionNamespace getVariable ["DORB_CONTER", false]) ) then {
 
 		_suitcase = "Land_Suitcase_F" createVehicle (position _caller);
-		_suitcase addAction ["Nehmen", { _this call fnc_SuitcaseAttach; }];
+		[-1, { _this addAction ["Nehmen", { _this call fnc_SuitcaseAttach }, nil, 1.5, true, true, "", "isNull attachedTo _target;"]; }, _suitcase] FMP;
+		DORB_MISSION_FNC = DORB_MISSION_FNC + [ _suitcase , "_this addAction ['Nehmen', { _this call fnc_SuitcaseAttach }, nil, 1.5, true, true, "", 'isNull attachedTo _target;'];" ];
+		publicVariable DORB_MISSION_FNC;
 
 		while { (((position _suitcase) distance _pos) > 25) OR !(isNull attachedTo _suitcase) } do {};
 		uiSleep 5;
@@ -95,25 +93,22 @@ fnc_ObjAction = {
 				LOG(FORMAT_3("[SIDEBY] pos: %1, fehlpos: %2, durchmesser: %3", 2, 0, 50));
 			#endif
 		};
-
-		hint "Informationen wurden erfolgreich ausgewertet!";
 		
+		[-1,{_this spawn FM(disp_info)},["Nebenmission",["abgeschlossen"],"",true]] FMP;
 		#ifdef TEST
 			LOG("[SIDEBY] Flugobjekt abgeschlossen!");
 		#else
-			_task setTaskState "Succeeded";
+			[_task, "Succeeded", true] call BIS_fnc_taskSetState;
 		#endif
 
-		missionNamespace setVariable [DORB_CONTER,true];
+		missionNamespace setVariable ["DORB_CONTER",true];
 		deleteVehicle _suitcase;
 	} else {
-		hint "Es wurden keine Informationen gefunden!";
-		
-
+		[-1,{_this spawn FM(disp_info)},["Nebenmission",["fehlgeschlagen"],"",true]] FMP;
 		#ifdef TEST
 			LOG("[SIDEBY] Flugobjekt fehlgeschlagen!");
 		#else
-			_task setTaskState "Failed";
+			[_task, "Failed", true] call BIS_fnc_taskSetState;
 		#endif
 	};
 };
@@ -130,13 +125,20 @@ switch (_typ) do
 	};
 };
 
+[-1,{_this spawn FM(disp_info)},["Nebenmission",["abgestürztes Flugobjekt"],"",true]] FMP;
 #ifdef TEST
 	LOG("[SIDEBY] Flugobjekt erstellt!");
 #else
 	[_task_array, true, [_description, "abgestürztes Flugobjekt", "Bergen"], _position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
 #endif
 
-_obj addAction ["Informationen suchen", { _this call fnc_ObjAction; }, [_typ,_task_array select 0, _task_array select 1]];
+[-1, {
+	private ["_obj", "_typ", "_task_array"];
+	params ["_obj", "_typ", "_task_array"];
+	_obj addAction ["Informationen suchen", { _this call fnc_ObjAction; }, [_typ,_task_array select 0, _task_array select 1]];
+}, [_obj,_typ,_task_array]] FMP;
+DORB_MISSION_FNC = DORB_MISSION_FNC + [ [_obj,_task_array] , "(_this select 0) addAction ['Informationen suchen', { _this call fnc_ObjAction; }, [_typ,(_this select 1) select 0, (_this select 1) select 1]];" ];
+publicVariable DORB_MISSION_FNC;
 
 _conter_size = if (_typ == "Land_Wreck_Plane_Transport_01_F") then { "medium" } else { "big" };
 fnc_conter = {
@@ -157,7 +159,7 @@ fnc_conter = {
 	_wp = _wp + [ _group addWaypoint [ [_dest, position leader _group, 5] call FM(pointBetween) , 0 ] ]; // _wp1
 	(_wp select 1) setWaypointType "MOVE";
 	(_wp select 1) setWaypointBehaviour "AWARE";
-	(_wp select 1) setWaypointStatements ["true", "missionNamespace setVariable [DORB_CONTER,true];"];
+	(_wp select 1) setWaypointStatements ["true", "missionNamespace setVariable ['DORB_CONTER',true];"];
 
 	_wp = _wp + [ _group addWaypoint [ _veh, 0 ] ]; // _wp2
 	(_wp select 2) setWaypointType "GETIN";
