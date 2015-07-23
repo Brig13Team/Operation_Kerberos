@@ -58,6 +58,14 @@ _fnc_barricades = {
 
 		// spawn mines around barricade ?
 	} forEach _road_pos;
+
+	/*
+		_road=_this select 0;
+		_roadConnectedTo = roadsConnectedTo _road;
+		_connectedRoad = _roadConnectedTo select 0;
+		_direction = [_road, _connectedRoad] call BIS_fnc_DirTo;
+		getPos _road;
+	*/
 };
 
 if (isClass(configFile >> "CfgWorlds" >> worldName >> "Names" >> _dest_name)) then {
@@ -86,12 +94,11 @@ clearMagazineCargo _crate;
 _crate addItemCargo ["ACE_Banana",1];
 SETVAR(_crate,DORB_ISTARGET,true);
 
-_description = "Eine kleine abtrünnige Einheit der AAF hat eine Stadt besetzt und terrorisiert die Einwohner. Befreien Sie die Stadt bevor eine standfeste Verteidigung errichtet werden kann und liefern sie Unterstützung für die wenigen Bürger, die der Besatzung nicht zum Opfer fiehlen!";
-[-1,{_this spawn FM(disp_info)},["Nebenmission",["Vorräte"],"",true]] FMP;
+["STR_DORB_SIDE_SIDEMISSION",["STR_DORB_SIDE_SUPPLIES_DESCRIPTION_SHORT"],"",false] call FM(disp_info_global);
 #ifdef TEST
 	LOG("[SIDEBY] Supplies erstellt!");
 #else
-	[_task_array, true, [_description, "Unterstützungslieferung", "Liefern"], _dest,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
+	[_task_array, true, [localize "STR_DORB_SIDE_SUPPLIES_DESCRIPTION", localize "STR_DORB_SIDE_SUPPLIES_DESCRIPTION_SHORT", localize "STR_DORB_SIDE_SUPPLIES_MARKER"], _dest,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
 #endif
 
 // create civs and soldiers
@@ -166,7 +173,7 @@ while {((_dest distance (position _crate)) > 25) AND ((damage _crate) < 1)} do {
 };
 
 if (((damage _crate) < 1) AND (_crate != objNull) AND (_counter < 360)) then {
-	[-1,{_this spawn FM(disp_info)},["Nebenmission",["abgeschlossen"],"",true]] FMP;
+	["STR_DORB_SIDE_SIDEMISSION",["STR_DORB_SIDE_FINISHED"],"",false] call FM(disp_info_global);
 	#ifdef TEST
 		LOG("[SIDEBY] Supplies abgeschlossen!");
 	#else
@@ -174,7 +181,7 @@ if (((damage _crate) < 1) AND (_crate != objNull) AND (_counter < 360)) then {
 		[_main_task select 1, "targets", [2,50]] call FM(obj_reward);
 	#endif
 } else {
-	[-1,{_this spawn FM(disp_info)},["Nebenmission",["fehlgeschlagen"],"",true]] FMP;
+	["STR_DORB_SIDE_SIDEMISSION",["STR_DORB_SIDE_FAILED"],"",false] call FM(disp_info_global);
 	#ifdef TEST
 		LOG("[SIDEBY] Supplies gescheitert!");
 	#else

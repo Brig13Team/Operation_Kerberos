@@ -811,10 +811,134 @@
 	</Package>
 	<Package name="sidemissions">
 		<Container name="sideby">
-			<Key ID="STR_DORB_SIDE_PLACEHOLDER">
-				<Original>Placeholder</Original>
-                <German>Platzhalter</German>
-                <English>Placeholder</English>
+			<Key ID="STR_DORB_SIDE_SIDEMISSION">
+				<Original>Sidemission</Original>
+				<German>Nebenmission</German>
+				<English>Sidemission</English>
+			</Key>
+			<Key ID="STR_DORB_SIDE_FINISHED">
+				<Original>finished</Original>
+				<German>abgeschlossen</German>
+				<English>finished</English>
+			</Key>
+			<Key ID="STR_DORB_SIDE_FAILED">
+				<Original>failed</Original>
+				<German>fehlgeschlagen</German>
+				<English>failed</English>
+			</Key>
+			<Key ID="STR_DORB_SIDE_SDV_INFORMATION_DOWNLOADED">
+				<Original>Information were successfully downloaded from the SDV!</Original>
+				<German>Informationen wurden vom Computer des SDV runtergeladen!</German>
+				<English>Information were successfully downloaded from the SDV!</English>
+			</Key>
+			<Key ID="STR_DORB_SIDE_SDV_NO_INTEL_FOUND">
+				<Original>No information was found inside the SDV.</Original>
+				<German>Es wurden keine Informationen gefunden.</German>
+				<English>No information was found inside the SDV.</English>
+			</Key>
+			<Key ID="STR_DORB_SIDE_SDV_DESCRIPTION">
+				<Original>One of our submarines carrying important information has crashed. Find it and bring the information back to base.</Original>
+				<German>Eines unserer U-Boote ist gesunken. An Bord befanden sich sensible Informationen. Bergen Sie diese und bringen Sie sie zurück zur Basis.</German>
+			</Key>
+			<Key ID="STR_DORB_SIDE_SDV_DESCRIPTION_SHORT">
+				<Original>sunken submarine</Original>
+				<German>gesunkenes U-Boot</German>
+				<English>sunken submarine</English>
+			</Key>
+			<Key ID="STR_DORB_SIDE_SDV_MARKER">
+				<Original>recover</Original>
+				<German>bergen</German>
+				<English>recover</English>
+			</Key>
+			<Key ID="STR_DORB_SIDE_SDV_TAKE_INTEL">
+				<Original>Take Intel</Original>
+				<German>Informationen aufnehmen</German>
+				<English>Take Intel</English>
+			</Key>
+			<Key ID="STR_DORB_SIDE_SUPPLIES_DESCRIPTION">
+				<Original>An disloyal AAF unit has occupied a city and is terroising it. Free the city before they can build a stable defence and bring some supplies for the citizens not beeing fallen in the occupation in town.</Original>
+				<German>Eine kleine abtrünnige Einheit der AAF hat eine Stadt besetzt und terrorisiert die Einwohner. Befreien Sie die Stadt bevor eine standfeste Verteidigung errichtet werden kann und liefern sie Unterstützung für die wenigen Bürger, die der Besatzung nicht zum Opfer fiehlen!</German>
+				<English>An disloyal AAF unit has occupied a city and is terroising it. Free the city before they can build a stable defence and bring some supplies for the citizens not beeing fallen in the occupation in town.</English>
+			</Key>
+			<Key ID="STR_DORB_SIDE_SUPPLIES_DESCRIPTION_SHORT">
+				<Original>Supplies</Original>
+				<German>Unterstützungslieferung</German>
+				<English>Supplies</English>
+			</Key>
+			<Key ID="STR_DORB_SIDE_SUPPLIES_MARKER">
+				<Original>supply</Original>
+				<German>Liefern</German>
+				<English>supply</English>
+			</Key>
+			<Key ID="STR_DORB_SIDE_AIRCRAFT_INTEL_DROP">
+				<Original>release</Original>
+				<German>Loslassen</German>
+				<English>release</English>
+			</Key>
+			<Key ID="STR_DORB_SIDE_AIRCRAFT_INTE_TAKE">
+				<Original>take</Original>
+				<German>Nehmen</German>
+				<English>take</English>
+			</Key>
+			<Key ID="STR_DORB_SIDE_AIRCRAFT_DESCRIPTION_BLUFOR">
+				<Original>One of our planes has crashed! One of our agents carrying secret information was onboard. Find the intel and bring them back to base.</Original>
+				<German>Eines unserer Flugzeuge ist abgestürzt! An Bord war einer unserer Geheimagenten mit streng geheimen Informationen. Finden Sie die Informationen und Bringen Sie diese zurück zur Basis!</German>
+				<English>One of our planes has crashed! One of our agents carrying secret information was onboard. Find the intel and bring them back to base.</English>
+			</Key>
+			<Key ID="STR_DORB_SIDE_AIRCRAFT_DESCRIPTION_OPFOR">
+				<Original>An enemy helicopter has crashed! Find its wracka and if you can find information on board bring them back to base.</Original>
+				<German>Ein feindlicher Helikopter ist abgestürzt! Suchen Sie ihn und prüfen Sie ob sich Informationen an Bord befinden. Bringen Sie diese ggf. zurück zur Basis!</German>
+				<English>An enemy helicopter has crashed! Find its wracka and if you can find information on board bring them back to base.</English>
+			</Key>
+			<Key ID="STR_DORB_SIDE_AIRCRAFT_DESCRIPTION_SHORT">
+				<Original>crashed aircraft</Original>
+				<German>abgestürztes Flugobjekt</German>
+				<English>crashed aircraft</English>
+			</Key>
+			<Key ID="STR_DORB_SIDE_AIRCRAFT_SEARCH_INTEL">
+				<Original>search information</Original>
+				<German>Informationen suchen</German>
+				<English>search information</English>
+			</Key>
+			<Key ID="STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION">
+				<Original>We have information about an enemy deserter.%1 Check the given location and if needed bring him to our base!</Original>
+				<German>Wir haben Informationen über einen feindlichen Überläufer erhalten. Gehen Sie diesen nach und leiten Sie Maßnahmen ein!%1</German>
+				<English>We have information about an enemy deserter.%1 Check the given location and if needed bring him to our base!</English>
+			</Key>
+			<Key ID="STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_2">
+				<Original> He has fear of flying according to these information.</Original>
+				<German> Unserem Informanten zu Folge leidet der Überläufer unter Flugangst!</German>
+				<English> He has fear of flying according to these information.</English>
+			</Key>
+			<Key ID="STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_3">
+				<Original> He has fear of americans according to these information so don't shyly him.</Original>
+				<German> Unserem Informanten zu Folge hat der Überläufer Angst vor Amerikanern. Schüchtern Sie ihn also nicht ein!</German>
+				<English> He has fear of americans according to these information so don't shyly him.</English>
+			</Key>
+			<Key ID="STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_4">
+				<Original> His mental condition is very unstable. Be aware of him!</Original>
+				<German> Unserem Informanten zu Folge ist der Zustand des Informanten sehr instabil. Gehen Sie vorsichtig vor!</German>
+				<English> His mental condition is very unstable. Be aware of him!</English>
+			</Key>
+			<Key ID="STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_SHORT">
+				<Original>deserter</Original>
+				<German>Überläufer</German>
+				<English>deserter</English>
+			</Key>
+			<Key ID="STR_DORB_SIDE_UEBERLAEUFER_MARKER">
+				<Original>find</Original>
+				<German>finden</German>
+				<English>find</English>
+			</Key>
+			<Key ID="STR_DORB_SIDE_UEBERLAEUFER_VERHOERT">
+				<Original>Deserter was interrogated successfully!</Original>
+				<German>Überläufer wurde erfolgreich verhört!</German>
+				<English>Deserter was interrogated successfully!</English>
+			</Key>
+			<Key ID="STR_DORB_SIDE_UEBERLAEUFER_NICHT_VERHOERT">
+				<Original>We were not able to interrogate the deserter successfully!</Original>
+				<German>Überläufer konnte nicht erfolgreich verhört werden!</German>
+				<English>We were not able to interrogate the deserter successfully!</English>
 			</Key>
 		</Container>
 	</Package>

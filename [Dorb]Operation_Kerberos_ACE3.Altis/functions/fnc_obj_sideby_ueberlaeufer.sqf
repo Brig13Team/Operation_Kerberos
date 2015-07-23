@@ -44,32 +44,32 @@ _eigenschaft = [_eigenschaften, _wichtung] call BIS_fnc_selectRandomWeighted;
 
 LOG(FORMAT_2("[SIDEBY] Ueberlaeufer an Position %1 mit Eigenschaft %2 erstellt!", position _ziel, _eigenschaft));
 
-_description = "Wir haben Informationen über einen feindlichen Überläufer erhalten. Gehen Sie diesen nach und leiten Sie Maßnahmen ein!%1";
+_description = "STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION";
 switch (_eigenschaft) do
 {
 	case "Flugangst":
 	{
-		_description = FORMAT_1(_description," Unserem Informanten zu Folge leidet der Überläufer unter Flugangst!");
+		_description = FORMAT_1(localize _description, localize "STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_2");
 	};
 	case "Paranoia":
 	{
-		_description = FORMAT_1(_description," Unserem Informanten zu Folge hat der Überläufer Angst vor Amerikanern. Schüchtern Sie ihn also nicht ein!");
+		_description = FORMAT_1(localize _description, localize "STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_3");
 	};
 	case "suizidgefaehrdet":
 	{
-		_description = FORMAT_1(_description," Unserem Informanten zu Folge ist der Zustand des Informanten sehr instabil. Gehen Sie vorsichtig vor!");
+		_description = FORMAT_1(localize _description, localize "STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_3");
 	};
 	case "nichts":
 	{
-		_description = FORMAT_1(_description,"");
+		_description = FORMAT_1(localize _description, "");
 	};
 };
 
-[-1,{_this spawn FM(disp_info)},["Nebenmission",["Überläufer"],"",true]] FMP;
+["STR_DORB_SIDE_SIDEMISSION",["STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_SHORT"],"",false] call FM(disp_info_global);
 #ifdef TEST
 	LOG("[SIDEBY] Überläufer erstellt!");
 #else
-	[_task_array, true, [_description, "Überläufer", "Finden"], _zielPos,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
+	[_task_array, true, [_description, localize "STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_SHORT", localize "STR_DORB_SIDE_UEBERLAEUFER_MARKER"], _zielPos,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
 #endif
 
 [_ziel, _eigenschaft, _task_array] spawn FM(TRIPLES(obj,sideby,ueberlaeuferVerhoeren));

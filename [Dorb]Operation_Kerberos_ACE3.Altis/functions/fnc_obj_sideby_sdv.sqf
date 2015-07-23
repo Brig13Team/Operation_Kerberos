@@ -19,8 +19,11 @@ params ["_position", "_task_array"];
 #endif
 
 _sdv = "B_SDV_01_F" createVehicle [-100,-100,0];
-// _sdv enableSimulationGlobal false; // MP
-_sdv enableSimulation false; // SP
+if (isMultiplayer) then {
+    _sdv enableSimulationGlobal false;
+} else {
+    _sdv enableSimulation false;
+};
 _sdv setDamage 1;
 uiSleep 5;
 _sdv setVariable ["DORB_HAS_INTEL",true];
@@ -44,7 +47,7 @@ fnc_SDVAction = {
 		_caller setVariable ["DORB_HAS_INTEL", true];
 		_target setVariable ["DORB_HAS_INTEL", false];
 
-		hint "Informationen wurden vom Computer des SDV runtergeladen!";
+		hint localize "STR_DORB_SIDE_SDV_INFORMATION_DOWNLOADED";
 
 		[0, {
 			private ["_pos","_caller","_main_task"];
@@ -52,7 +55,7 @@ fnc_SDVAction = {
 			_pos = getMarkerPos "respawn_west";
 			while { (_pos distance (getPos _caller)) > 25 AND (_caller != objNull) AND (alive _caller)} do  {};
 			
-			[-1,{_this spawn FM(disp_info)},["Nebenmission",["abgeschlossen"],"",true]] FMP;	
+			["STR_DORB_SIDE_SIDEMISSION",["STR_DORB_SIDE_FINISHED"],"",false] call FM(disp_info_global);	
 			#ifdef TEST
 				LOG("[SIDEBY] U-Boot abgeschlossen!");
 				LOG(FORMAT_3("[SIDEBY] pos: %1, fehlpos: %2, durchmesser: %3", 3, 0, 50));
@@ -62,24 +65,22 @@ fnc_SDVAction = {
 			#endif
 		}, [_caller,_main_task]] FMP;
 	} else {
-		hint "Es wurden keine Informationen gefunden.";
+		hint localize "STR_DORB_SIDE_SDV_NO_INTEL_FOUND";
 	};
 };
 
-_description = "Eines unserer U-Boote ist gesunken. An Bord befanden sich sensible Informationen. Bergen Sie diese und bringen Sie sie zurück zur Basis.";
-
-[-1,{_this spawn FM(disp_info)},["Nebenmission",["gesunkenes U-Boot"],"",true]] FMP;
+["STR_DORB_SIDE_SIDEMISSION",["STR_DORB_SIDE_SDV_DESCRIPTION_SHORT"],"",false] call FM(disp_info_global);
 #ifdef TEST
 	LOG("[SIDEBY] U-Boot erstellt!");
 #else
-	[_task_array, true, [_description, "gesunkenes U-Boot", "Bergen"], _position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
+	[_task_array, true, [localize "STR_DORB_SIDE_SDV_DESCRIPTION", localize "STR_DORB_SIDE_SDV_DESCRIPTION_SHORT", localize "STR_DORB_SIDE_SDV_MARKER"], _position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
 #endif
 
 [-1, {
 	private["_sdv", "_task_array"];
 	params["_sdv","_task_array"];
-	_sdv addAction ["Take Intel", {_this call fnc_SDVAction;}, _task_array];
+	_sdv addAction [localize "STR_DORB_SIDE_SDV_TAKE_INTEL", {_this call fnc_SDVAction;}, _task_array];
 }, [_sdv,_task_array]] FMP;
 
-DORB_MISSION_FNC = DORB_MISSION_FNC + [ [_sdv, _task_array], "(_this select 0) addAction ['Take Intel', {_this call fnc_SDVAction;}, _this select 1];" ];
+DORB_MISSION_FNC = DORB_MISSION_FNC + [ [_sdv, _task_array], "(_this select 0) addAction [localize 'STR_DORB_SIDE_SDV_TAKE_INTEL', {_this call fnc_SDVAction;}, _this select 1];" ];
 publicVariable "DORB_MISSION_FNC";

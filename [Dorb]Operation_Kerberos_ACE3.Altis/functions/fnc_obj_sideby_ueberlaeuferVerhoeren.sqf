@@ -108,18 +108,18 @@ if ( (_info > 0) and (alive _ueberlaeufer) ) then {
 			#endif
 		};
 	};
-	hint "Überläufer wurde erfolgreich verhört!";
-
-	[-1,{_this spawn FM(disp_info)},["Nebenmission",["abgeschlossen"],"",true]] FMP;
+	hint localize "STR_DORB_SIDE_UEBERLAEUFER_VERHOERT";
+	
+	["STR_DORB_SIDE_SIDEMISSION",["STR_DORB_SIDE_FINISHED"],"",false] call FM(disp_info_global);
 	#ifdef TEST
 		LOG("[SIDEBY] Überläufer abgeschlossen!");
 	#else
 		[_task, "Succeeded", true] call BIS_fnc_taskSetState;
 	#endif
 } else {
-	hint "Überläufer konnte nicht erfolgreich verhört werden!";
+	hint localize "STR_DORB_SIDE_UEBERLAEUFER_NICHT_VERHOERT";
 
-	[-1,{_this spawn FM(disp_info)},["Nebenmission",["fehlgeschlagen"],"",true]] FMP;
+	["STR_DORB_SIDE_SIDEMISSION",["STR_DORB_SIDE_FAILED"],"",false] call FM(disp_info_global);
 	#ifdef TEST
 		LOG("[SIDEBY] Überläufer gescheitert!");
 	#else

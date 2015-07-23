@@ -42,7 +42,7 @@ fnc_SuitcaseAttach = {
 	_target setDir 90;
 	_caller forceWalk true;
 
-	_caller addAction ["Loslassen", { _this call fnc_SuitcaseDetach; }, _target];
+	_caller addAction [localize "STR_DORB_SIDE_AIRCRAFT_INTEL_DROP", { _this call fnc_SuitcaseDetach; }, _target];
 };
 
 fnc_SuitcaseDetach = {
@@ -73,8 +73,8 @@ fnc_ObjAction = {
 	if ( !(missionNamespace getVariable ["DORB_CONTER", false]) ) then {
 
 		_suitcase = "Land_Suitcase_F" createVehicle (position _caller);
-		[-1, { _this addAction ["Nehmen", { _this call fnc_SuitcaseAttach }, nil, 1.5, true, true, "", "isNull attachedTo _target;"]; }, _suitcase] FMP;
-		DORB_MISSION_FNC = DORB_MISSION_FNC + [ _suitcase , "_this addAction ['Nehmen', { _this call fnc_SuitcaseAttach }, nil, 1.5, true, true, "", 'isNull attachedTo _target;'];" ];
+		[-1, { _this addAction [localize "STR_DORB_SIDE_AIRCRAFT_INTE_TAKE", { _this call fnc_SuitcaseAttach }, nil, 1.5, true, true, "", "isNull attachedTo _target;"]; }, _suitcase] FMP;
+		DORB_MISSION_FNC = DORB_MISSION_FNC + [ _suitcase , "_this addAction [localize 'STR_DORB_SIDE_AIRCRAFT_INTE_TAKE', { _this call fnc_SuitcaseAttach }, nil, 1.5, true, true, "", 'isNull attachedTo _target;'];" ];
 		publicVariable "DORB_MISSION_FNC";
 
 		while { (((position _suitcase) distance _pos) > 25) OR !(isNull attachedTo _suitcase) } do {};
@@ -94,7 +94,7 @@ fnc_ObjAction = {
 			#endif
 		};
 		
-		[-1,{_this spawn FM(disp_info)},["Nebenmission",["abgeschlossen"],"",true]] FMP;
+		["STR_DORB_SIDE_SIDEMISSION",["STR_DORB_SIDE_FINISHED"],"",false] call FM(disp_info_global);
 		#ifdef TEST
 			LOG("[SIDEBY] Flugobjekt abgeschlossen!");
 		#else
@@ -104,7 +104,7 @@ fnc_ObjAction = {
 		missionNamespace setVariable ["DORB_CONTER",true];
 		deleteVehicle _suitcase;
 	} else {
-		[-1,{_this spawn FM(disp_info)},["Nebenmission",["fehlgeschlagen"],"",true]] FMP;
+		["STR_DORB_SIDE_SIDEMISSION",["STR_DORB_SIDE_FAILED"],"",false] call FM(disp_info_global);
 		#ifdef TEST
 			LOG("[SIDEBY] Flugobjekt fehlgeschlagen!");
 		#else
@@ -117,11 +117,11 @@ switch (_typ) do
 {
 	case "Land_Wreck_Plane_Transport_01_F":
 	{
-		_description = "Eines unserer Flugzeuge ist abgestürzt! An Bord war einer unserer Geheimagenten mit streng geheimen Informationen. Finden Sie die Informationen und Bringen Sie diese zurück zur Basis!";
+		_description = "STR_DORB_SIDE_AIRCRAFT_DESCRIPTION_BLUFOR";
 	};
 	case "Land_Wreck_Heli_Attack_02_F":
 	{
-		_description = "Ein feindlicher Helikopter ist abgestürzt! Suchen Sie ihn und prüfen Sie ob sich Informationen an Bord befinden. Bringen Sie diese ggf. zurück zur Basis!";
+		_description = "STR_DORB_SIDE_AIRCRAFT_DESCRIPTION_OPFOR";
 	};
 };
 
@@ -129,15 +129,15 @@ switch (_typ) do
 #ifdef TEST
 	LOG("[SIDEBY] Flugobjekt erstellt!");
 #else
-	[_task_array, true, [_description, "abgestürztes Flugobjekt", "Bergen"], _position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
+	[_task_array, true, [localize _description, localize "STR_DORB_SIDE_AIRCRAFT_DESCRIPTION_SHORT", localize "STR_DORB_SIDE_SDV_MARKER"], _position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
 #endif
 
 [-1, {
 	private ["_obj", "_typ", "_task_array"];
 	params ["_obj", "_typ", "_task_array"];
-	_obj addAction ["Informationen suchen", { _this call fnc_ObjAction; }, [_typ,_task_array select 0, _task_array select 1]];
+	_obj addAction [localize "STR_DORB_SIDE_AIRCRAFT_SEARCH_INTEL", { _this call fnc_ObjAction; }, [_typ,_task_array select 0, _task_array select 1]];
 }, [_obj,_typ,_task_array]] FMP;
-DORB_MISSION_FNC = DORB_MISSION_FNC + [ [_obj,_task_array] , "(_this select 0) addAction ['Informationen suchen', { _this call fnc_ObjAction; }, [_typ,(_this select 1) select 0, (_this select 1) select 1]];" ];
+DORB_MISSION_FNC = DORB_MISSION_FNC + [ [_obj,_task_array] , "(_this select 0) addAction [localize 'STR_DORB_SIDE_AIRCRAFT_SEARCH_INTEL', { _this call fnc_ObjAction; }, [_typ,(_this select 1) select 0, (_this select 1) select 1]];" ];
 publicVariable "DORB_MISSION_FNC";
 
 _conter_size = if (_typ == "Land_Wreck_Plane_Transport_01_F") then { "medium" } else { "big" };
