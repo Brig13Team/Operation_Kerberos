@@ -110,18 +110,20 @@ if ( (_info > 0) and (alive _ueberlaeufer) ) then {
 	};
 	hint "Überläufer wurde erfolgreich verhört!";
 
+	[-1,{_this spawn FM(disp_info)},["Nebenmission",["abgeschlossen"],"",true]] FMP;
 	#ifdef TEST
 		LOG("[SIDEBY] Überläufer abgeschlossen!");
 	#else
-		_task setTaskState "Succeeded";
+		[_task, "Succeeded", true] call BIS_fnc_taskSetState;
 	#endif
 } else {
 	hint "Überläufer konnte nicht erfolgreich verhört werden!";
 
+	[-1,{_this spawn FM(disp_info)},["Nebenmission",["fehlgeschlagen"],"",true]] FMP;
 	#ifdef TEST
 		LOG("[SIDEBY] Überläufer gescheitert!");
 	#else
-		_task setTaskState "Failed";
+		[_task, "Failed", true] call BIS_fnc_taskSetState;
 	#endif
 };
 
