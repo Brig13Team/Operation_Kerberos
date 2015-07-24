@@ -5,6 +5,8 @@ Github: https://github.com/Dorbedo/Operation_Kerberos
 Version 0.15
 
 Removed: Commandvehicle
+Added: Nebenmissionen
+Added: Nebenmissionsrewards
 Added: Commander (Kontrolliert nun die gesamten Verstärkungen und wählt passenden Konterangriff aus)
        Bspw.: Kein Panzerangriff mehr auf Einzelne Einheiten ; Kombinierter Angriff auf größere Spielerverbände
 Added: Water Patrols
