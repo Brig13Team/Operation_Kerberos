@@ -53,7 +53,7 @@ fnc_SDVAction = {
 			private ["_pos","_caller","_main_task"];
 			params ["_caller","_main_task"];
 			_pos = getMarkerPos "respawn_west";
-			while { (_pos distance (getPos _caller)) > 25 AND (_caller != objNull) AND (alive _caller)} do  {};
+			while { (_pos distance (getPos _caller)) > 25 AND (_caller != objNull) AND (alive _caller)} do  { uiSleep 5; };
 			
 			["STR_DORB_SIDE_SIDEMISSION",["STR_DORB_SIDE_FINISHED"],"",false] call FM(disp_info_global);	
 			#ifdef TEST

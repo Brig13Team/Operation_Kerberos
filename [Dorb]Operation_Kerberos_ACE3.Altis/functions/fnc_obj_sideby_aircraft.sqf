@@ -77,7 +77,7 @@ fnc_ObjAction = {
 		DORB_MISSION_FNC = DORB_MISSION_FNC + [ _suitcase , "_this addAction [localize 'STR_DORB_SIDE_AIRCRAFT_INTE_TAKE', { _this call fnc_SuitcaseAttach }, nil, 1.5, true, true, "", 'isNull attachedTo _target;'];" ];
 		publicVariable "DORB_MISSION_FNC";
 
-		while { (((position _suitcase) distance _pos) > 25) OR !(isNull attachedTo _suitcase) } do {};
+		while { (((position _suitcase) distance _pos) > 25) OR !(isNull attachedTo _suitcase) } do { uiSleep 5; };
 		uiSleep 5;
 
 		if (_typ == "Land_Wreck_Plane_Transport_01_F") then {
