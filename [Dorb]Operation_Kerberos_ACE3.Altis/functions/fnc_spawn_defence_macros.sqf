@@ -42,6 +42,9 @@ _errorcounter = 0; // prevents infinitive loop
 
 For "_i" from 0 to _anzahl_spawnpos do {
 	_temp = [_position,_radius,_town] call FM(random_pos);
+	If (_isTown) then {
+		_temp = [_position,( ( floor(random( abs(_radius - 300) )) ) + 300),_town] call FM(random_pos);
+	};
 	_spawnpos = [_temp,15,_searchrad,15,0.18] call FM(pos_flatempty);
 	If (_spawnpos isEqualTo []) then {
 		_spawnpos = [_temp,15,_searchrad,15,0.3] call FM(pos_flatempty);

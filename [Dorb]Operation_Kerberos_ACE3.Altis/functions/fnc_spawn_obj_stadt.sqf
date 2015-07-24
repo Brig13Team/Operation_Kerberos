@@ -65,12 +65,12 @@ _multi = 1.2;
 If (_buildscount > 75) then {
 	_units = 40;
 	_static = 10;
-	_multi = 0.8;
+	_multi = 0.6;
 };
 
 If (_buildscount > 200) then {
-	_units = 70;
-	_static = 20;
+	_units = 60;
+	_static = 18;
 	_multi = 0.2;
 };
 
