@@ -1,6 +1,6 @@
 # Operation-Kerberos
-Dynamische Mission von Dorbedo
-
+Dynamische Mission von Dorbedo und iJesuz
+Ünterstüzt von Maverick (Stellungsdesign) und Cypherstalker (Übersetzungen)
 
 ####Momentane Features:
 
@@ -24,6 +24,13 @@ Dynamische Mission von Dorbedo
 </ul>
 #####Hilfen:<ul>
 <li>Verhören<ul>Gegner können gefangen genommen werden um die Posistion von Verstecken aufzuklären (Waffen, Geiseln, Komandanten). Die Gegner müssen zur Sicherheitszone gebracht werden</ul></li>
+<li>Aufklärung<ul>Nebenmissionen können Aufklärungsdaten über unterschiedliche Feindkräfte liefern.</ul></li>
+</ul>
+#####Nebenmissionen:<ul>
+<li>Unterseeboot<ul>Informationen aus einem gesunkenen SVD bergern</ul></li>
+<li>Überläufer<ul>Begleiten Sie einen Überläufer in Sicherheit</ul></li>
+<li>Abgestürztes Flugzeug<ul>Informationen aus einem Abgestürzten Aufklärer bergen</ul></li>
+<li>Versorungsgüter<ul>Versorgungsgüter in eine befreundete Siedlung brigen</ul></li>
 </ul>
 #####Gegner:<ul>
 <li>Infanteriepatroullien
@@ -55,6 +62,7 @@ Dynamische Mission von Dorbedo
 <li>R3F-Logistiks (Fabriken nur von Ingenieuren bedienbar)</li>
 <li>IgiLoad</li>
 <li>Medical facility (Krankenhaus in Basis, gespawnte HEMMTT, Huron Medizincontainer)</li>
+<li>Crate Spawner</li>
 </ul>
 #####Sonstiges<ul>
 <li>Task-Force Radio übersicht</li>
