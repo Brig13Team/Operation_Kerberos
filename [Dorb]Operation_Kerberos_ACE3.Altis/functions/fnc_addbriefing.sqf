@@ -8,7 +8,7 @@
 player createDiaryRecord ["Diary", ["Credits",format["
 	<br/>Author %1
 	<br/>Translations (English): Cypherstalker
-	<br/>
+	<br/>Fortification-Design: Maverick2044
 	----------------
 	Used Scripts:
 	----------------
@@ -79,8 +79,35 @@ player createDiaryRecord ["Diary", ["Changelog","
 <br/>Achtung Sprache vom Changelog nur Denglisch
 <br/>SChreibFehler köennt ihr behalltEn
 <br/>
-<br/>Nun mit Github: https://github.com/Dorbedo/Operation_Kerberos
+<br/>Github: https://github.com/Dorbedo/Operation_Kerberos
 <br/>
+<br/>===================
+<br/>Version 0.15
+<br/>-------------------
+<br/>Removed: Commandvehicle
+<br/>Added: Nebenmissionen
+<br/>Added: Nebenmissionsrewards
+<br/>Added: Commander (Kontrolliert nun die gesamten Verstärkungen und wählt passenden Konterangriff aus)
+<br/>       Bspw.: Kein Panzerangriff mehr auf Einzelne Einheiten ; Kombinierter Angriff auf größere Spielerverbände
+<br/>Added: Water Patrols
+<br/>Added: Mine-Fields
+<br/>Added: City 2.0 (Straßensperren, MGs in Häusern, Patroullien, IED, Stolperdrahtminen)
+<br/>Added: Flugzeuge
+<br/>Added: RHS: MHQ (ACE Medical Items, autodetection für advanced/basic medical),FHQ (LongRangeFunkgerät)
+<br/>Added: Kompatibilität zu N'Ziwasogo, Panthera
+<br/>Added: Mod Autodetection für RDS, BWA3
+<br/>Added: Möglichkeit für East vs West
+<br/>Added: Neue Makros für befestigte Stellungen (an günstigen Stellen platziert)
+<br/>Added: Mission SCARAB: Missiontimer
+<br/>Changed: Function-Makros
+<br/>Changed: Vanilla Crews removed
+<br/>Changed: Entferung vom Attackspawn
+<br/>Changed: VCOM Update (1.03)
+<br/>Improved: Examine
+<br/>Improved: Mission SCARAB
+<br/>Fixed: diverse kleinere Bugs
+<br/>Fixed: NVG's nicht für Independent
+<br/>Fixed: JIP-Probleme bei Intel-Missionen
 <br/>
 <br/>===================
 <br/>Version 0.14.5
