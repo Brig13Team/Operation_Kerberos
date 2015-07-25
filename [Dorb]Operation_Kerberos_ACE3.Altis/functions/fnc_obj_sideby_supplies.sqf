@@ -14,6 +14,8 @@ private ["_dest", "_task_array", "_dest_name", "_dest_radius", "_base", "_crate"
 
 params ["_dest", "_task_array", "_dest_name"];
 
+DORB_SIDEBY_OBJECTS = [];
+
 // Build Barricades
 
 _fnc_barricades = {
@@ -64,6 +66,7 @@ _fnc_barricades = {
 		_alpha = [_x, (roadsConnectedTo _x) select 0] call BIS_fnc_dirTo;
 
 		_veh = "Land_Razorwire_F" createVehicle _position;
+		DORB_SIDEBY_OBJECTS pushBack _veh;
 		_veh setDir _alpha;
 		_veh setPos _position;
 
@@ -72,17 +75,20 @@ _fnc_barricades = {
 		_beta = _alpha + 90;
 		_p1 = [(_buffer select 0) + (sin (_beta) * 3), (_buffer select 1) + (cos (_beta) * 3), 0];
 		_veh = "Land_CncBarrier_F" createVehicle _p1;
+		DORB_SIDEBY_OBJECTS pushBack _veh;
 		_veh setDir _alpha;
 		_veh setPos _p1;
 
 		_gamma = _alpha + 270;
 		_p2 = [(_buffer select 0) + (sin (_gamma) * 3), (_buffer select 1) + (cos (_gamma) * 3), 0];
 		_veh = "Land_CncBarrier_F" createVehicle _p2;
+		DORB_SIDEBY_OBJECTS pushBack _veh;
 		_veh setDir _alpha;
 		_veh setPos _p2;
 
 		#ifdef TEST
 			_marker = createMarker [FORMAT_2("marker_road_%1_%2", _dest_radius, _forEachIndex), _position];
+			DORB_SIDEBY_OBJECTS pushBack _marker;
 			_marker setMarkerType "hd_arrow";
 			_marker setMarkerColor "ColorOPFOR";
 			_marker setMarkerDir _alpha;
@@ -109,6 +115,7 @@ if (isClass(configFile >> "CfgWorlds" >> worldName >> "Names" >> _dest_name)) th
 _base = getMarkerPos "rescue_marker";
 
 _crate = "B_Slingload_01_Cargo_F" createVehicle _base;
+DORB_SIDEBY_OBJECTS pushBack _crate;
 clearWeaponCargo _crate;
 clearBackpackCargo _crate;
 clearItemCargo _crate;
@@ -171,15 +178,21 @@ for "_i" from 1 to 25 do {
 		_civ setDir (random 360);
 		SETPVAR(_civ, DORB_ISTARGET, true);
 	};
+
+	DORB_SIDEBY_OBJECTS pushBack _sol;
+	DORB_SIDEBY_OBJECTS pushBack _civ;
 };
 
 
 _counter = 0;
-while {((_dest distance (position _crate)) > 25) AND ((damage _crate) < 1)} do {
+LOG("SCHLEIFE GESTARTET");
+while { (!(DORB_SIDEBY_OBJECTS isEqualTo [])) AND {((_dest distance (position _crate)) > 25) AND ((damage _crate) < 1)} } do {
 	uiSleep 30;
 	_counter = _counter + 6;
 	if (_counter > 360) exitWith {};
 };
+LOG("SCHLEIFE ABGEBROCHEN");
+if (DORB_SIDEBY_OBJECTS isEqualTo []) exitWith {};
 
 if (((damage _crate) < 1) AND (_crate != objNull) AND (_counter < 360)) then {
 	["STR_DORB_SIDE_SIDEMISSION",["STR_DORB_SIDE_FINISHED"],"",false] call FM(disp_info_global);

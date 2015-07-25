@@ -14,6 +14,8 @@ private ["_position", "_task_array", "_dest", "_typen", "_wichtung", "_obj", "_d
 
 params ["_position", "_task_array"];
 
+DORB_SIDEBY_OBJECTS = [];
+
 #ifdef TEST
 	_position = getMarkerPos "spawn_side";
 	_dest = getMarkerPos "spawn_conter";
@@ -31,6 +33,7 @@ _wichtung = [1,1];
 _typ = [_typen, _wichtung] call BIS_fnc_selectRandomWeighted;
 
 _obj = _typ createVehicle _position;
+DORB_SIDEBY_OBJECTS pushBack _obj;
 SETPVAR(_obj,DORB_ISTARGET,true);
 missionNamespace setVariable ["DORB_CONTER",false];
 
@@ -78,11 +81,16 @@ fnc_ObjAction = {
 	if ( !(missionNamespace getVariable ["DORB_CONTER", false]) ) then {
 
 		_suitcase = "Land_Suitcase_F" createVehicle (position _caller);
+		DORB_SIDEBY_OBJECTS pushBack _suitcase;
 		[-1, { _this addAction [localize "STR_DORB_SIDE_AIRCRAFT_INTE_TAKE", { _this call fnc_SuitcaseAttach }, nil, 1.5, true, true, "", "isNull attachedTo _target;"]; }, _suitcase] FMP;
 		DORB_MISSION_FNC = DORB_MISSION_FNC + [ _suitcase , "_this addAction [localize 'STR_DORB_SIDE_AIRCRAFT_INTE_TAKE', { _this call fnc_SuitcaseAttach }, nil, 1.5, true, true, "", 'isNull attachedTo _target;'];" ];
 		publicVariable "DORB_MISSION_FNC";
 
-		while { (((position _suitcase) distance _pos) > 25) OR !(isNull attachedTo _suitcase) } do { uiSleep 5; };
+		LOG("SCHLEIFE GESTARTET");
+		while { (!(DORB_SIDEBY_OBJECTS isEqualTo [])) AND {(((position _suitcase) distance _pos) > 25) OR !(isNull attachedTo _suitcase)} } do { uiSleep 5; };
+		LOG("SCHLEIFE ABGEBROCHEN");
+		if (DORB_SIDEBY_OBJECTS isEqualTo []) exitWith {};
+
 		uiSleep 5;
 
 		if (_typ == "Land_Wreck_Plane_Transport_01_F") then {
@@ -173,4 +181,4 @@ fnc_conter = {
 	(_wp select 3) setWaypointType "MOVE";
 	(_wp select 3) setWaypointStatements ["true","[group this, position this, 400] call BIS_fnc_taskPatrol;"];
 };
-[_conter_size, _dest, fnc_conter, [_position, _obj, _typ, _dest]] call FM(TRIPLES(obj,sideby,conter));
+[_conter_size, _dest, fnc_conter, [_position, _obj, _typ, _dest]] spawn FM(TRIPLES(obj,sideby,conter));

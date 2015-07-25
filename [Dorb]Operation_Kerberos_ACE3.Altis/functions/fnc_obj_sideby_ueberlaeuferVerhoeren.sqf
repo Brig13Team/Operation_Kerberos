@@ -24,7 +24,8 @@ _ziel = getMarkerPos "rescue_marker";
 _suizidtimer = 0;
 _kontakt = 0;
 
-while { ((((getPos _ueberlaeufer) distance _ziel) > 20) OR (captive _ueberlaeufer)) AND (alive _ueberlaeufer)} do {
+LOG("SCHLEIFE GESTARTET");
+while { (!(DORB_SIDEBY_OBJECTS isEqualTo [])) AND {((((getPos _ueberlaeufer) distance _ziel) > 20) OR (captive _ueberlaeufer)) AND (alive _ueberlaeufer)} } do {
 	uiSleep 5;
 
 	switch (_eigenschaft) do
@@ -68,6 +69,8 @@ while { ((((getPos _ueberlaeufer) distance _ziel) > 20) OR (captive _ueberlaeufe
 		_ueberlaeufer setDamage 1;
 	};
 };
+LOG("SCHLEIFE ABGEBROCHEN");
+if (DORB_SIDEBY_OBJECTS isEqualTo []) exitWith {};
 
 _info = _info / 100;
 

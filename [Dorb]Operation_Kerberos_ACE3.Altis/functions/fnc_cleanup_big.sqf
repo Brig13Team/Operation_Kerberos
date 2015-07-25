@@ -22,5 +22,7 @@ PARAMS_2(_pos,_rad);
 
 ISNILS(DORB_MARKERDUMP,[]);DORB_MARKERDUMP TILGE;
 
-
 [-1,{if(hasInterface)exitWith{};{deleteGroup _x;} foreach allGroups;}] FMP;	//Headless remove Groups
+
+{_x TILGE;} forEach DORB_SIDEBY_OBJECTS;
+DORB_SIDEBY_OBJECTS = [];

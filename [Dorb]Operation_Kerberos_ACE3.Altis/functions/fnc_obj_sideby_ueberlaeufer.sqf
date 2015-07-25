@@ -17,6 +17,8 @@
 
 private ["_position", "_task_array", "_dest", "_ziel", "_zielPos", "_kleidung", "_description"];
 
+DORB_SIDEBY_OBJECTS = [];
+
 params ["_position", "_task_array"];
 
 LOG("ueberlaeufer");
@@ -36,6 +38,7 @@ LOG("ueberlaeufer");
 _zielPos = _position;
 
 _ziel = [_zielPos, createGroup civilian, "C_man_polo_1_F"] call FM(spawn_unit);
+DORB_SIDEBY_OBJECTS pushBack _ziel;
 removeAllWeapons _ziel; removeAllItems _ziel; removeAllAssignedItems _ziel; removeUniform _ziel; removeVest _ziel; removeBackpack _ziel; removeHeadgear _ziel; removeGoggles _ziel;
 _ziel forceAddUniform (getText (missionConfigFile >> "sideby_config" >> "deserter" >> "uniform"));
 for "_i" from 1 to (getNumber (missionConfigFile >> "sideby_config" >> "deserter" >> "magc")) do {_ziel addItemToUniform (getText (missionConfigFile >> "sideby_config" >> "deserter" >> "mag"));};
@@ -105,4 +108,4 @@ fnc_conter = {
 	(_wp select 3) setWaypointType "MOVE";
 	(_wp select 3) setWaypointStatements ["true","[group this, position this, 400] call BIS_fnc_taskPatrol;"];
 };
-[_conter_size, _dest, fnc_conter, [_zielPos, _ziel, _dest]] call FM(TRIPLES(obj,sideby,conter));
+[_conter_size, _dest, fnc_conter, [_zielPos, _ziel, _dest]] spawn FM(TRIPLES(obj,sideby,conter));

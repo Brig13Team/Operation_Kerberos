@@ -14,11 +14,14 @@ private ["_position", "_task_array", "_sdv", "_enemyPos", "_i", "_radius", "_dir
 
 params ["_position", "_task_array"];
 
+DORB_SIDEBY_OBJECTS = [];
+
 #ifdef TEST
 	_position = getMarkerPos "spawn_side";
 #endif
 
 _sdv = "B_SDV_01_F" createVehicle [-100,-100,0];
+DORB_SIDEBY_OBJECTS pushBack _sdv;
 if (isMultiplayer) then {
     _sdv enableSimulationGlobal false;
 } else {
@@ -53,7 +56,11 @@ fnc_SDVAction = {
 			private ["_pos","_caller","_main_task"];
 			params ["_caller","_main_task"];
 			_pos = getMarkerPos "respawn_west";
-			while { (_pos distance (getPos _caller)) > 25 AND (_caller != objNull) AND (alive _caller)} do  { uiSleep 5; };
+
+			LOG("SCHLEIFE GESTARTET");
+			while { (!(DORB_SIDEBY_OBJECTS isEqualTo [])) AND {(_pos distance (getPos _caller)) > 25 AND (_caller != objNull) AND (alive _caller)} } do  { uiSleep 5; };
+			LOG("SCHLEIFE ABGEBROCHEN");
+			if (DORB_SIDEBY_OBJECTS isEqualTo []) exitWith {};
 			
 			["STR_DORB_SIDE_SIDEMISSION",["STR_DORB_SIDE_FINISHED"],"",false] call FM(disp_info_global);	
 			#ifdef TEST

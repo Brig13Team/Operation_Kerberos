@@ -27,12 +27,15 @@ _inf = getArray (missionConfigFile >> "sideby_config" >> "conter" >> _type >> "i
 _infc = getArray (missionConfigFile >> "sideby_config" >> "conter" >> _type >> "infc");
 
 _veh = createVehicle [_vehicle, _position, [], 0, "NONE"];
+DORB_SIDEBY_OBJECTS pushBack _veh;
 createVehicleCrew _veh;
+DORB_SIDEBY_OBJECTS pushBack (crew _veh);
 _group = createGroup DORB_SIDE;
 {
 	for "_i" from 1 to (_infc select _forEachIndex) do {
 		_unit = _group createUnit [_x, _position, [], 0, "FORM"];
 		_unit moveInCargo _veh;
+		DORB_SIDEBY_OBJECTS pushBack _unit;
 	};
 } forEach _inf;
 
