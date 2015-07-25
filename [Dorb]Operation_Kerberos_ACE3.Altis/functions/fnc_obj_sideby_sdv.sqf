@@ -33,8 +33,8 @@ _sdv setVariable ["DORB_HAS_INTEL",true];
 _sdv setVariable ["DORB_IS_TARGET",true];
 _sdv setPosATL [_position select 0, _position select 1, 0];
 
-[_position, 50, 0, 5] spawn FM(spawn_patrol_water);
-[_position, 100, 1, 0] spawn FM(spawn_patrol_water);
+{ DORB_SIDEBY_OBJECTS pushBack _x; } forEach ([_position,  50, 0, 5] call FM(spawn_patrol_water));
+{ DORB_SIDEBY_OBJECTS pushBack _x; } forEach ([_position, 100, 1, 0] call FM(spawn_patrol_water));
 
 fnc_SDVAction = {
 	private ["_target", "_caller", "_id", "_task", "_main_task", "_pos"];

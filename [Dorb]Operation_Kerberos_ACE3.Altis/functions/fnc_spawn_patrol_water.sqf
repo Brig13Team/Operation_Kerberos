@@ -12,16 +12,17 @@
 
 
     Returns:
-
+        Array - Array of spawned objects
 
 */
 #include "script_component.hpp"
 
-private ["_amountOfWater","_patrol","_vehicles"];
+private ["_amountOfWater","_patrol","_vehicles", "_objects"];
 PARAMS_1(_position);
 DEFAULT_PARAM(1,_radius,1200);
 DEFAULT_PARAM(2,_anzahl_boats,0);
 DEFAULT_PARAM(3,_anzahl_diver,0);
+_objects = [];
 _amountOfWater = 0;
 //If  ((_anzahl_boats<0)||(_anzahl_diver<0)) then {
     private["_searchposarray","_searchrad","_step","_s"];
@@ -135,6 +136,8 @@ for "_i" from 0 to _anzahl_boats do {
         _spawnpos set[2,0];
         _gruppe = createGroup dorb_side;
         _boat = createVehicle[_einheit,_spawnpos,[], 0, "NONE"];
+        _objects pushBack _boat;
+        { _objects pushBack _x; } forEach (crew _boat);
         [_boat,_gruppe] call FM(spawn_crew);
         _vehicles pushBack _boat;
         [_gruppe, _spawnpos, _rad] call _patrol;
@@ -170,6 +173,7 @@ for "_i" from 0 to _anzahl_diver do {
             _mrkr setMarkerType "n_inf";
         };
         _return = [_spawnpos,dorb_side,_einheiten] call BIS_fnc_spawnGroup;
+        { _objects pushBack _x; } forEach (units _return);
         _vehicles pushBack (units _return);
         [_return, _spawnpos, _rad,-10] call _patrol;
         {_x swimInDepth -10} forEach (units _return);
@@ -177,7 +181,4 @@ for "_i" from 0 to _anzahl_diver do {
     };
 };
 
-
-
-
-
+_objects
