@@ -856,9 +856,9 @@
 				<English>Take Intel</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_SUPPLIES_DESCRIPTION">
-				<Original>An disloyal AAF unit has occupied a city and is terroising it. Free the city before they can build a stable defence and bring some supplies for the citizens not beeing fallen in the occupation in town.</Original>
+				<Original>An enemy unit has occupied a city and is terroising it. Free the city before they can build a stable defence and deliver some supplies for the citizens not beeing fallen in the occupation in town.</Original>
 				<German>Eine kleine abtrünnige Einheit der AAF hat eine Stadt besetzt und terrorisiert die Einwohner. Befreien Sie die Stadt bevor eine standfeste Verteidigung errichtet werden kann und liefern sie Unterstützung für die wenigen Bürger, die der Besatzung nicht zum Opfer fiehlen!</German>
-				<English>An disloyal AAF unit has occupied a city and is terroising it. Free the city before they can build a stable defence and bring some supplies for the citizens not beeing fallen in the occupation in town.</English>
+				<English>An enemy unit has occupied a city and is terroising it. Free the city before they can build a stable defence and deliver some supplies for the citizens not beeing fallen in the occupation in town.</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_SUPPLIES_DESCRIPTION_SHORT">
 				<Original>Supplies</Original>

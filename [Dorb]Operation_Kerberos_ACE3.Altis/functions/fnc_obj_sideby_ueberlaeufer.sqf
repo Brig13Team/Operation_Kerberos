@@ -15,17 +15,16 @@
 */
 #include "script_component.hpp"
 
-private ["_position", "_task_array", "_dest", "_ziel", "_zielPos", "_kleidung", "_description"];
+private ["_position", "_task_array", "_dest", "_ziel", "_zielPos", "_buildings", "_kleidung", "_description"];
 
 DORB_SIDEBY_OBJECTS = [];
 
 params ["_position", "_task_array"];
 
-LOG("ueberlaeufer");
-
 #ifdef TEST
 	_position = getMarkerPos "spawn_side";
 	_dest = getMarkerPos "spawn_conter";
+	DORB_SIDE = east;
 #else
 	private "buffer";
 	_buffer = GETMVAR(DORB_MILITAER,[]);
@@ -35,7 +34,11 @@ LOG("ueberlaeufer");
 	};
 #endif
 
-_zielPos = _position;
+_zielPos = [_position, 50, 0] call DORB_fnc_random_pos;
+_buildings = _position nearObjects ["House", 50];
+if (!(_buildings isEqualTo [])) then {
+	_zielPos = ([_buildings SELRND] call BIS_fnc_buildingPositions) SELRND;
+};
 
 _ziel = [_zielPos, createGroup civilian, "C_man_polo_1_F"] call FM(spawn_unit);
 DORB_SIDEBY_OBJECTS pushBack _ziel;
@@ -45,7 +48,7 @@ for "_i" from 1 to (getNumber (missionConfigFile >> "sideby_config" >> "deserter
 _ziel addHeadgear (getText (missionConfigFile >> "sideby_config" >> "deserter" >> "headgear"));
 _ziel addGoggles (getText (missionConfigFile >> "sideby_config" >> "deserter" >> "googles"));
 _ziel addWeapon (getText (missionConfigFile >> "sideby_config" >> "deserter" >> "weapon"));
-// for "_i" from 1 to 3 do {_ziel addItemToUniform "ACE_fieldDressing";}; _ziel addItemToUniform "ACE_EarPlugs"; for "_i" from 1 to 2 do {_ziel addItemToUniform "ACE_morphine";}; _ziel addItemToUniform "ACE_atropine"; _ziel addItemToUniform "ACE_epinephrine"; _ziel addItemToUniform "ACE_packingBandage"; _ziel addItemToUniform "ACE_elasticBandage"; _ziel addItemToUniform "ACE_Banana";
+for "_i" from 1 to 3 do {_ziel addItemToUniform "ACE_fieldDressing";}; _ziel addItemToUniform "ACE_EarPlugs"; for "_i" from 1 to 2 do {_ziel addItemToUniform "ACE_morphine";}; _ziel addItemToUniform "ACE_atropine"; _ziel addItemToUniform "ACE_epinephrine"; _ziel addItemToUniform "ACE_packingBandage"; _ziel addItemToUniform "ACE_elasticBandage";
 _eigenschaften = ["Flugangst", "Paranoia", "suizidgefaehrdet", "nichts"];
 _wichtung = [0.125, 0.25, 0.01, 1];
 _eigenschaft = [_eigenschaften, _wichtung] call BIS_fnc_selectRandomWeighted;
@@ -76,7 +79,7 @@ switch (_eigenschaft) do
 #ifdef TEST
 	LOG("[SIDEBY] Überläufer erstellt!");
 #else
-	[_task_array, true, [_description, "STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_SHORT", "STR_DORB_SIDE_UEBERLAEUFER_MARKER"], _zielPos,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
+	[_task_array, true, [_description, "STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_SHORT", "STR_DORB_SIDE_UEBERLAEUFER_MARKER"], _position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
 #endif
 
 [_ziel, _eigenschaft, _task_array] spawn FM(TRIPLES(obj,sideby,ueberlaeuferVerhoeren));
