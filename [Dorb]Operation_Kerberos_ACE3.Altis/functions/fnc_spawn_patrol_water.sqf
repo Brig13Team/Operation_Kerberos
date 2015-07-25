@@ -61,10 +61,10 @@ _amountOfWater = 0;
 CHECK(_amountOfWater<301)
 
 If (_anzahl_boats < 0) then {
-	_anzahl_boats = floor((_amountOfWater - 300)/100);
+	_anzahl_boats = floor((_amountOfWater - 300)/200);
 };
 If (_anzahl_diver < 0) then {
-	_anzahl_diver = floor((_amountOfWater - 300)/200);
+	_anzahl_diver = floor((_amountOfWater - 300)/350);
 };
 
 LOG_2(_anzahl_boats,_anzahl_diver);
