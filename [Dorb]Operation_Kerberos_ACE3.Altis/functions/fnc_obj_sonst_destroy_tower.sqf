@@ -70,7 +70,7 @@ If (_centerpos isEqualTo []) then {_centerpos = _position;};
 	_x addEventHandler ["HandleDamage", {_this call dorb_fnc_handledamage_C4;}];	
 } forEach _target;
 
-{(getpos _x) spawn FM(spawn_defence)} forEach _target;
+//{(getpos _x) spawn FM(spawn_defence)} forEach _target;
 
 if (dorb_debug) then {
 	private["_a","_mrkr"];
