@@ -93,18 +93,20 @@ sleep 2;
 ////// Aufgabe erstellen 				 /////
 ///////////////////////////////////////////////
 
+DORB_RESCUE_COUNTER = 0;
+{[_x,"DORB_RESCUEPOINT","DORB_RESCUE_COUNTER=DORB_RESCUE_COUNTER+1;{moveout _x}forEach(crew(_this select 0));uisleep 0.5;deleteVehicle(_this select 0);"] call BIS_fnc_addScriptedEventHandler;}forEach _target;
 
 [_task,true,[["STR_DORB_PROTO_TASK_DESC",_ort],"STR_DORB_PROTO_TASK","STR_DORB_CAPTURE"],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
-[-1,{_this spawn FM(disp_info)},["STR_DORB_CAPTURE",["STR_DORB_PROTO_TASK"],"data\icon\icon_capture.paa",true]] FMP;
+["STR_DORB_CAPTURE",["STR_DORB_PROTO_TASK"],"data\icon\icon_capture.paa",true] spawn FM(disp_info_global);
 ///////////////////////////////////////////////
 ////// Überprüfung + Ende 				 /////
 ///////////////////////////////////////////////
 #define INTERVALL 10
 #define TASK _task
-#define CONDITION {_a=0;{If (((_x distance (_this select 1) < 20)and(alive _x))or !(alive _x)) then {	INC(_a);};}forEach (_this select 0);If (_a == count (_this select 0)) then {true}else{false};}
-#define CONDITIONARGS [_target,_position_rescue]
-#define SUCESSCONDITION {If (({alive _x}count(_this select 0))>0) then {true}else{false};}
-#define ONSUCESS {[-1,{_this spawn FM(disp_info)},["STR_DORB_CAPTURE",["STR_DORB_FINISHED"],"data\icon\icon_capture.paa",true]] FMP;{{moveout _x}forEach (crew _x);sleep 0.2;deleteVehicle _x}forEach (_this select 0);}
-#define ONFAILURE {[-1,{_this spawn FM(disp_info)},["STR_DORB_CAPTURE",["STR_DORB_FAILED"],"data\icon\icon_capture.paa",true]] FMP;{{moveout _x}forEach (crew _x);sleep 0.2;deleteVehicle _x}forEach (_this select 0);}
-#define SUCESSARG [_target]
+#define CONDITION {_a={alive _x}forEach (_this select 0);If((DORB_RESCUE_COUNTER==count(_this select 0))||(_a==0)) then {true}else{false};}
+#define CONDITIONARGS [_target]
+#define SUCESSCONDITION {If (DORB_RESCUE_COUNTER>0) then {true}else{false};}
+#define ONSUCESS {["STR_DORB_CAPTURE",["STR_DORB_FINISHED"],"data\icon\icon_capture.paa",true] spawn FM(disp_info_global);}
+#define ONFAILURE {["STR_DORB_CAPTURE",["STR_DORB_FAILED"],"data\icon\icon_capture.paa",true] spawn FM(disp_info_global);}
+#define SUCESSARG []
 [INTERVALL,TASK,CONDITION,CONDITIONARGS,SUCESSCONDITION,ONSUCESS,ONFAILURE,SUCESSARG] call FM(taskhandler);

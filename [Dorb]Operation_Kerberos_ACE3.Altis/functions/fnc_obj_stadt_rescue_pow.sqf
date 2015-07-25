@@ -60,7 +60,7 @@ for "_i" from 1 to _rand do{
 
 [_task,true,[["STR_DORB_RESC_TASK_DESC",count _pow,_ort],"STR_DORB_RESC_TASK","STR_DORB_RESCUE"],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
 
-[-1,{_this spawn FM(disp_info)},["STR_DORB_RESCUE",["STR_DORB_RESC_TASK"],"data\icon\icon_rescue.paa",true]] FMP;
+["STR_DORB_RESCUE",["STR_DORB_RESC_TASK"],"data\icon\icon_rescue.paa",true] spawn FM(disp_info_global);
 
 //////////////////////////////////////////////////
 ////// Geiseln bearbeiten					 /////
@@ -84,7 +84,7 @@ for "_i" from 1 to _rand do{
 		_mrkr setMarkerColor "ColorBlack";
 		_mrkr setMarkerType "hd_destroy";
 	};
-	
+	[_x,"DORB_RESCUEPOINT","DORB_RESCUE_COUNTER=DORB_RESCUE_COUNTER+1;moveOut (_this select 0);sleep 0.2;deleteVehicle(_this select 0);"] call BIS_fnc_addScriptedEventHandler;
 	
 }forEach _pow;
 
@@ -94,16 +94,18 @@ for "_i" from 1 to _rand do{
 ////// Überprüfung + Ende 					 /////
 //////////////////////////////////////////////////
 
+DORB_RESCUE_COUNTER = 0;
+
 ["init",_pow] spawn FM(examine);
 
 #define INTERVALL 10
 #define TASK _task
-#define CONDITION {_a=0;_a ={(!(alive _x))||((_x distance (_this select 1))<15)}count (_this select 0);If (_a == (count (_this select 0))) then {true}else{false};}
-#define CONDITIONARGS [_pow,_position_rescue]
-#define SUCESSCONDITION {_a=0;_a={alive _x}count (_this select 0);If (_a >0) then {true}else{false};}
-#define ONSUCESS {[-1,{_this spawn FM(disp_info)},["STR_DORB_RESCUE",["STR_DORB_FINISHED"],"data\icon\icon_rescue.paa",true]] FMP;['destroy'] spawn FM(examine);{moveOut _x;sleep 0.2; deleteVehicle _x}forEach (_this select 0);}
-#define ONFAILURE {[-1,{_this spawn FM(disp_info)},["STR_DORB_RESCUE",["STR_DORB_FAILED"],"data\icon\icon_rescue.paa",true]] FMP;['destroy'] spawn FM(examine);{moveOut _x;sleep 0.2; deleteVehicle _x}forEach (_this select 0);}
-#define SUCESSARG [_pow]
+#define CONDITION {_a={alive _x}forEach (_this select 0);If((DORB_RESCUE_COUNTER==count(_this select 0))||(_a==0)) then {true}else{false};}
+#define CONDITIONARGS [_pow]
+#define SUCESSCONDITION {If (DORB_RESCUE_COUNTER>0) then {true}else{false};}
+#define ONSUCESS {["STR_DORB_RESCUE",["STR_DORB_FINISHED"],"data\icon\icon_rescue.paa",true] spawn FM(disp_info_global);['destroy'] spawn FM(examine);}
+#define ONFAILURE {["STR_DORB_RESCUE",["STR_DORB_FAILED"],"data\icon\icon_rescue.paa",true] spawn FM(disp_info_global);['destroy'] spawn FM(examine);}
+#define SUCESSARG []
 #define ONLOOP {['check'] spawn FM(examine);}
 [INTERVALL,TASK,CONDITION,CONDITIONARGS,SUCESSCONDITION,ONSUCESS,ONFAILURE,SUCESSARG,ONLOOP] call FM(taskhandler);
 

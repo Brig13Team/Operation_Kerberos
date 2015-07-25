@@ -131,43 +131,26 @@ for "_i" from 1 to 3 do{
 ////// Aufgabe erstellen 					 /////
 //////////////////////////////////////////////////
 
-[-1,{_this spawn FM(disp_info)},["STR_DORB_RESCUE",["STR_DORB_RESC_CONV_TASK"],"data\icon\icon_rescue.paa",true]] FMP;
+["STR_DORB_RESCUE",["STR_DORB_RESC_CONV_TASK"],"data\icon\icon_rescue.paa",true] spawn FM(disp_info_global)
 [_task,true,[["STR_DORB_RESC_CONV_TASK_DESC",count _pow,(_startort select 0),_ort],"STR_DORB_RESC_CONV_TASK","STR_DORB_RESCUE"],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
 
 //////////////////////////////////////////////////
 ////// Überprüfung + Ende 					 /////
 //////////////////////////////////////////////////
 
+DORB_RESCUE_COUNTER = 0;
+{[_x,"DORB_RESCUEPOINT","DORB_RESCUE_COUNTER=DORB_RESCUE_COUNTER+1;moveOut (_this select 0);sleep 0.2;deleteVehicle(_this select 0);"] call BIS_fnc_addScriptedEventHandler;}forEach _pow;
 
-aufgabenstatus=true;
-while {aufgabenstatus} do {
-	_a=0;
-	sleep 5;
-	
-	{
-		If ((_x distance _position < 200)and(alive _x)) then {_x setDamage 1};
-		
-		If (((_x distance _position_rescue < 20)and(alive _x))or !(alive _x)) then 
-		{
-			INC(_a);
-		};
-	}forEach _pow;
-	
-	If (_a == count _pow) then {aufgabenstatus=false};
-};
+#define INTERVALL 10
+#define TASK _task
+#define CONDITION {_a={(_x distance (_this select 1))<200}count (_this select 0);_alivecounter={alive _x}count (_this select 0);If((DORB_RESCUE_COUNTER==count(_this select 0))||(_a>0)||(_alivecounter==0)) then {true}else{false};}
+#define CONDITIONARGS [_pow,_position]
+#define SUCESSCONDITION {If (DORB_RESCUE_COUNTER>0) then {true}else{false};}
+#define ONSUCESS {["STR_DORB_RESCUE",["STR_DORB_FINISHED"],"data\icon\icon_rescue.paa",true] spawn FM(disp_info_global);}
+#define ONFAILURE {["STR_DORB_RESCUE",["STR_DORB_FAILED"],"data\icon\icon_rescue.paa",true] spawn FM(disp_info_global);}
+#define SUCESSARG []
+#define ONLOOP {['check'] spawn FM(examine);}
+[INTERVALL,TASK,CONDITION,CONDITIONARGS,SUCESSCONDITION,ONSUCESS,ONFAILURE,SUCESSARG,ONLOOP] call FM(taskhandler);
 
-
-_anzahlgerettete={alive _x}count _pow;
-
-
-If (_anzahlgerettete>((count _pow)*0.2)) then {
-	[_task,'SUCCEEDED',false] spawn BIS_fnc_taskSetState;
-	[-1,{_this spawn FM(disp_info)},["STR_DORB_RESCUE",["STR_DORB_FINISHED"],"data\icon\icon_rescue.paa",true]] FMP;
-}else{
-	[_task,'FAILED',false] spawn BIS_fnc_taskSetState;
-	[-1,{_this spawn FM(disp_info)},["STR_DORB_RESCUE",["STR_DORB_FAILED"],"data\icon\icon_rescue.paa",true]] FMP;
-};
-
-{moveOut _x; deleteVehicle _x}forEach _pow;
 {_x TILGE;}forEach _vehicles;
 deleteMarker _start_mrkr;
