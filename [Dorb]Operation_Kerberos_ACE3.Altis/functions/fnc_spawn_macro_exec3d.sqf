@@ -9,6 +9,8 @@
 		1 : ARRAY 	- ConfigArray
 		2 : SCALAR	- Centerdirection
 
+	[(getMarkerPos "testmarker"),["missionConfigFile","defence_positions","terrain","bunker_medium"],0] execVM "functions\fnc_spawn_macro_exec3d";
+	
 */
 #include "script_component.hpp"
 
@@ -40,6 +42,24 @@ _centerposASL = ATLtoASL _centerpos;
 		_rotateVector = [[(_currentPos select 0),(_currentPos select 1)],(360-_centerdir)] call BIS_fnc_rotateVector2D;
 		_rotateVector set[2,(_currentPos select 2)];
 		_refpos = _centerposASL VectorAdd _rotateVector;
+		_terrainNormal = surfaceNormal _refpos;
+		_VectorCorrection = _terrainNormal VectorDiff _currentVectorUp;
+		_spawnPos = _refpos VectorAdd _VectorCorrection;
+		_spawnPosATL = ASLtoATL _spawnPos;
+		_spawnPosATL set[2,(_currentPos select 2)];
+		LOG("SUCHE");
+		LOG_2(_spawnPosATL,_currentOffset);
+		_spawnPosATL = [
+						((_spawnPosATL select 0)+(_currentOffset select 0)),
+						((_spawnPosATL select 1)+(_currentOffset select 1)),
+						((_spawnPosATL select 2)+(abs(_currentOffset select 2)))
+						];
+		_spawnVector = _terrainNormal;
+		_spawndir = (_currentDir + _centerdir) + 180;
+		/*
+		_rotateVector = [[(_currentPos select 0),(_currentPos select 1)],(360-_centerdir)] call BIS_fnc_rotateVector2D;
+		_rotateVector set[2,(_currentPos select 2)];
+		_refpos = _centerposASL VectorAdd _rotateVector;
 		_rotateVector = [[(_currentOffset select 0),(_currentOffset select 1)],(360-_centerdir)] call BIS_fnc_rotateVector2D;
 		_rotateVector set[2,abs(_currentOffset select 2)];
 		_spawnPos = _refpos VectorAdd _rotateVector;
@@ -49,6 +69,9 @@ _centerposASL = ATLtoASL _centerpos;
 		_spawnVector = _terrainNormal;
 		_spawndir = (_currentDir + _centerdir) + 180;
 		_spawnPosATL = ASLtoATL _spawnPos;
+		
+		*/
+		
 	}else{
 		private["_rotateVector","_refpos","_terrainNormal","_VectorCorrection"];
 		_rotateVector = [[(_currentPos select 0),(_currentPos select 1)],(360-_centerdir)] call BIS_fnc_rotateVector2D;
@@ -63,6 +86,8 @@ _centerposASL = ATLtoASL _centerpos;
 		_spawnPosATL = ASLtoATL _spawnPos;
 		_spawnPosATL set[2,(_currentPos select 2)];
 	};
+	LOG_8(_centerposASL,_centerpos,_centerdir,_currentType,_currentPos,_currentDir,_currentOffset,_currentVectorUp);
+	LOG_4(_spawnPos,_spawnPosATL,_spawndir,_spawnVector);
 	_vehicle = createVehicle[format["%1",_currentType],_spawnPosATL, [], 0, "CAN_COLLIDE"];
 	_vehicle setVectorUP _spawnVector;
 	_vehicle setPosATL _spawnPosATL;
@@ -79,6 +104,25 @@ _centerposASL = ATLtoASL _centerpos;
 	_currentVectorUp = (_x select 4);
 	If (!(_currentOffset isEqualTo [0,0,0])) then {
 		private["_rotateVector","_refpos","_terrainNormal","_VectorCorrection"];
+		_rotateVector = [[(_currentPos select 0),(_currentPos select 1)],(360-_centerdir)] call BIS_fnc_rotateVector2D;
+		_rotateVector set[2,(_currentPos select 2)];
+		_refpos = _centerposASL VectorAdd _rotateVector;
+		_terrainNormal = surfaceNormal _refpos;
+		_VectorCorrection = _terrainNormal VectorDiff _currentVectorUp;
+		_spawnPos = _refpos VectorAdd _VectorCorrection;
+		_spawnPosATL = ASLtoATL _spawnPos;
+		_spawnPosATL set[2,(_currentPos select 2)];
+		LOG("SUCHE");
+		LOG_2(_spawnPosATL,_currentOffset);
+		_spawnPosATL = [
+						((_spawnPosATL select 0)+(_currentOffset select 0)),
+						((_spawnPosATL select 1)+(_currentOffset select 1)),
+						((_spawnPosATL select 2)+(abs(_currentOffset select 2))+0.1)
+						];
+		_spawnVector = _terrainNormal;
+		_spawndir = (_currentDir + _centerdir) + 180;
+		/*
+		private["_rotateVector","_refpos","_terrainNormal","_VectorCorrection"];
 		_rotateVector = [[(_currentPos select 0),(_currentPos select 1)],_centerdir] call BIS_fnc_rotateVector2D;
 		_rotateVector set[2,(_currentPos select 2)];
 		_refpos = _centerposASL VectorAdd _rotateVector;
@@ -90,7 +134,7 @@ _centerposASL = ATLtoASL _centerpos;
 		_spawnPos = _spawnPos VectorAdd _VectorCorrection;
 		_spawnVector = _terrainNormal;
 		_spawndir = (_currentDir + _centerdir) + 180;
-		_spawnPosATL = ASLtoATL _spawnPos;
+		_spawnPosATL = ASLtoATL _spawnPos;*/
 	}else{
 		private["_rotateVector","_refpos","_terrainNormal","_VectorCorrection"];
 		_rotateVector = [[(_currentPos select 0),(_currentPos select 1)],(360-_centerdir)] call BIS_fnc_rotateVector2D;
@@ -108,16 +152,23 @@ _centerposASL = ATLtoASL _centerpos;
 	};
 	private "_vehicle";
 	_vehicle = createVehicle[format["%1",_currentType],_spawnPosATL, [], 0, "CAN_COLLIDE"];
+	_vehicle enableSimulation false;
 	_vehicle setPosATL _spawnPosATL;
 	_vehicle setDir _spawndir;
-	_vehicle setVectorUP _spawnVector;
+	//_vehicle setVectorUP _spawnVector;
+	_vehicle setVectorUP [0,0,1];
+	[_vehicle,_gruppe] call FM(spawn_crew);
+	_vehicle enableSimulation true;
 	If (!(_vehicle isKindOf "StaticWeapon")) then {
 		_vehicle setFuel 0;
 		_vehicle lock 3;
 	}else{
 		_vehicle lock 0;
+		private["_watchpos"];
+		_watchpos = [_spawnPos,250,_spawndir] call BIS_fnc_relPos;
+		_watchpos set[2,0];
+		(gunner _vehicle) doWatch (_watchpos);
 	};
-	[_vehicle,_gruppe] call FM(spawn_crew);
 }forEach _vehicles;
 
 {
@@ -128,6 +179,25 @@ _centerposASL = ATLtoASL _centerpos;
 	_currentOffset = (_x select 3);
 	_currentVectorUp = (_x select 4);
 	If (!(_currentOffset isEqualTo [0,0,0])) then {
+		private["_rotateVector","_refpos","_terrainNormal","_VectorCorrection"];
+		_rotateVector = [[(_currentPos select 0),(_currentPos select 1)],(360-_centerdir)] call BIS_fnc_rotateVector2D;
+		_rotateVector set[2,(_currentPos select 2)];
+		_refpos = _centerposASL VectorAdd _rotateVector;
+		_terrainNormal = surfaceNormal _refpos;
+		_VectorCorrection = _terrainNormal VectorDiff _currentVectorUp;
+		_spawnPos = _refpos VectorAdd _VectorCorrection;
+		_spawnPosATL = ASLtoATL _spawnPos;
+		_spawnPosATL set[2,(_currentPos select 2)];
+		LOG("SUCHE");
+		LOG_2(_spawnPosATL,_currentOffset);
+		_spawnPosATL = [
+						((_spawnPosATL select 0)+(_currentOffset select 0)),
+						((_spawnPosATL select 1)+(_currentOffset select 1)),
+						((_spawnPosATL select 2)+(abs(_currentOffset select 2)))
+						];
+		_spawnVector = _terrainNormal;
+		_spawndir = (_currentDir + _centerdir) + 180;
+		/*
 		private["_rotateVector","_refpos","_terrainNormal","_VectorCorrection"];
 		_rotateVector = [[(_currentPos select 0),(_currentPos select 1)],_centerdir] call BIS_fnc_rotateVector2D;
 		_rotateVector set[2,(_currentPos select 2)];
@@ -140,7 +210,7 @@ _centerposASL = ATLtoASL _centerpos;
 		_spawnPos = _spawnPos VectorAdd _VectorCorrection;
 		_spawnVector = _terrainNormal;
 		_spawndir = (_currentDir + _centerdir) + 180;
-		_spawnPosATL = ASLtoATL _spawnPos;
+		_spawnPosATL = ASLtoATL _spawnPos;*/
 	}else{
 		private["_rotateVector","_refpos","_terrainNormal","_VectorCorrection"];
 		_rotateVector = [[(_currentPos select 0),(_currentPos select 1)],(360-_centerdir)] call BIS_fnc_rotateVector2D;
