@@ -44,6 +44,20 @@ SETMVAR(DORB_SONSTIGES,(_return select 4));
 
 };
 
+[] spawn {
+	private "_markerpos";
+	_markerpos = getMarkerPos "rescue_marker";
+	If ((_markerpos distance [0,0,0])<1) exitWith {};
+	while {true} do {
+		private "_units";
+		_units = _markerpos nearEntities ["Man", 25];
+		{
+			[_x,"DORB_RESCUEPOINT",[_x]] call BIS_fnc_callScriptedEventHandler;
+		}forEach _units;
+		uisleep 30;
+	};
+};
+
 sleep 20;
 
 for "_u" from 0 to 120 do {
