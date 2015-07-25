@@ -75,7 +75,7 @@ _roads_formatted = [_position,_radius] call FM(city_roads);
 //// Generate + spawn
 
 // Roads (fortifications, IED, Inf Patrols, roadside-civ veh)
-[_roads_formatted,true,_fortifications,_ieds,_civvehicles,_ieds] call FM(city_fortify_roads);
+[_roads_formatted,true,_fortifications,_ieds,_civvehicles,false] call FM(city_fortify_roads);
 
 // Buildings 
 
