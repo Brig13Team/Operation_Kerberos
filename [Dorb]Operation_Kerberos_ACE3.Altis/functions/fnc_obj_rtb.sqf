@@ -12,8 +12,8 @@
 */
 #include "script_component.hpp"
 CHECK(!isServer)
-PARAMS_1(_position);
-private["_position_home"];
+param["_position","_taskID"];
+private["_position_home","_taskID","_taskVar"];
 _position_home = getMarkerPos DORB_RESPAWNMARKER;
 
 //////////////////////////////////////////////////
@@ -33,14 +33,11 @@ If (taskcancel) then {
 //////////////////////////////////////////////////
 ////// Nebenmissionen beenden				 /////
 //////////////////////////////////////////////////
-(allPlayers select 0) spawn {
-	private ["_tasks"];
-	_tasks = simpleTasks _this;
-	{
-		if (!( (taskState _x) in ["Succeeded","Failed","Canceled"] )) then {
-			_x setTaskState "Canceled";
-		}
-	} forEach _tasks;
+_taskID = _taskID + "_side";
+_taskVar = _taskID call bis_fnc_taskVar;
+_data = missionnamespace getvariable _taskVar;
+if ((!isnil {_data}) && { !((_taskVar select 4) in ["Succeeded","Failed","Canceled"]) }) then {
+	[_taskID, "Chanceled", false] call BIS_fnc_taskSetState;
 };
 
 //////////////////////////////////////////////////
