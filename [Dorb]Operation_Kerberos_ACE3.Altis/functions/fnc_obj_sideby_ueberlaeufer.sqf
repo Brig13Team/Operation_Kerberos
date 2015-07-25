@@ -99,7 +99,7 @@ fnc_conter = {
 	_wp = [ _group addWaypoint [ [_dest, position leader _group, 100] call FM(pointBetween) , 0 ] ]; // _wp0
 	(_wp select 0) setWaypointType "GETOUT";
 
-	_wp = _wp + [ _group addWaypoint [ [_dest, position leader _group, 50] call FM(pointBetween) , 0 ] ]; // _wp1
+	_wp = _wp + [ _group addWaypoint [ [_dest, position leader _group, 10] call FM(pointBetween) , 0 ] ]; // _wp1
 	(_wp select 1) setWaypointType "MOVE";
 	(_wp select 1) setWaypointBehaviour "AWARE";
 	(_wp select 1) setWaypointStatements ["true", "{ if ((side _x) == civilian) then { _x setDamage 1; }; } forEach ((position this) nearEntities ['Man', 100])"];
@@ -107,8 +107,8 @@ fnc_conter = {
 	_wp = _wp + [ _group addWaypoint [ _veh, 0 ] ]; // _wp2
 	(_wp select 2) setWaypointType "GETIN";
 
-	_wp = _wp + [ _group addWaypoint [ _dest, 0 ] ]; // _wp3
+	_wp = _wp + [ _group addWaypoint [ _ret, 0 ] ]; // _wp3
 	(_wp select 3) setWaypointType "MOVE";
 	(_wp select 3) setWaypointStatements ["true","[group this, position this, 400] call BIS_fnc_taskPatrol;"];
 };
-[_conter_size, _dest, fnc_conter, [_zielPos, _ziel, _dest]] spawn FM(TRIPLES(obj,sideby,conter));
+[_conter_size, _dest, fnc_conter, [_zielPos, _ziel, [_task_array select 1] call BIS_fnc_taskDestination]] spawn FM(TRIPLES(obj,sideby,conter));
