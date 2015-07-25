@@ -111,9 +111,11 @@ _centerposASL = ATLtoASL _centerpos;
 	_vehicle setPosATL _spawnPosATL;
 	_vehicle setDir _spawndir;
 	_vehicle setVectorUP _spawnVector;
-	If (!(_vehicle isKindOf "Static")) then {
+	If (!(_vehicle isKindOf "StaticWeapon")) then {
 		_vehicle setFuel 0;
 		_vehicle lock 3;
+	}else{
+		_vehicle lock 0;
 	};
 	[_vehicle,_gruppe] call FM(spawn_crew);
 }forEach _vehicles;
