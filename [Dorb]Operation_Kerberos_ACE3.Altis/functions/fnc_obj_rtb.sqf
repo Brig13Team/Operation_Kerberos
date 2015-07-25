@@ -31,6 +31,19 @@ If (taskcancel) then {
 [-1,{_this spawn FM(disp_info)},["STR_DORB_RTB",["STR_DORB_RTB_START_1"],"data\icon\icon_base.paa",false]] FMP;
 
 //////////////////////////////////////////////////
+////// Nebenmissionen beenden				 /////
+//////////////////////////////////////////////////
+(allPlayers select 0) spawn {
+	private ["_tasks"];
+	_tasks = simpleTasks _this;
+	{
+		if (!( (taskState _x) in ["Succeeded","Failed","Canceled"] )) then {
+			_x setTaskState "Canceled";
+		}
+	} forEach _tasks;
+};
+
+//////////////////////////////////////////////////
 ////// Überprüfung + Ende 					 /////
 //////////////////////////////////////////////////
 

@@ -900,25 +900,25 @@
 				<German>Informationen suchen</German>
 				<English>search information</English>
 			</Key>
-			<Key ID="STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION">
-				<Original>We have information about an enemy deserter.%1 Check the given location and if needed bring him to our base!</Original>
-				<German>Wir haben Informationen über einen feindlichen Überläufer erhalten. Gehen Sie diesen nach und leiten Sie Maßnahmen ein!%1</German>
-				<English>We have information about an enemy deserter.%1 Check the given location and if needed bring him to our base!</English>
+			<Key ID="STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_1">
+				<Original>We have information about an enemy deserter. Check the given location and if needed bring him to our base!</Original>
+				<German>Wir haben Informationen über einen feindlichen Überläufer erhalten. Gehen Sie diesen nach und leiten Sie Maßnahmen ein!</German>
+				<English>We have information about an enemy deserter. Check the given location and if needed bring him to our base!</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_2">
-				<Original> He has fear of flying according to these information.</Original>
-				<German> Unserem Informanten zu Folge leidet der Überläufer unter Flugangst!</German>
-				<English> He has fear of flying according to these information.</English>
+				<Original>We have information about an enemy deserter. He has fear of flying according to these information. Check the given location and if needed bring him to our base!</Original>
+				<German>Wir haben Informationen über einen feindlichen Überläufer erhalten. Gehen Sie diesen nach und leiten Sie Maßnahmen ein! Unserem Informanten zu Folge leidet der Überläufer unter Flugangst!</German>
+				<English>We have information about an enemy deserter. He has fear of flying according to these information. Check the given location and if needed bring him to our base!</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_3">
-				<Original> He has fear of americans according to these information so don't shyly him.</Original>
-				<German> Unserem Informanten zu Folge hat der Überläufer Angst vor Amerikanern. Schüchtern Sie ihn also nicht ein!</German>
-				<English> He has fear of americans according to these information so don't shyly him.</English>
+				<Original>We have information about an enemy deserter. He has fear of americans according to these information so don't shyly him. Check the given location and if needed bring him to our base!</Original>
+				<German>Wir haben Informationen über einen feindlichen Überläufer erhalten. Gehen Sie diesen nach und leiten Sie Maßnahmen ein! Unserem Informanten zu Folge hat der Überläufer Angst vor Amerikanern. Schüchtern Sie ihn also nicht ein!</German>
+				<English>We have information about an enemy deserter. He has fear of americans according to these information so don't shyly him. Check the given location and if needed bring him to our base!</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_4">
-				<Original> His mental condition is very unstable. Be aware of him!</Original>
-				<German> Unserem Informanten zu Folge ist der Zustand des Informanten sehr instabil. Gehen Sie vorsichtig vor!</German>
-				<English> His mental condition is very unstable. Be aware of him!</English>
+				<Original>We have information about an enemy deserter. His mental condition is very unstable. Be aware of him! Check the given location and if needed bring him to our base!</Original>
+				<German>Wir haben Informationen über einen feindlichen Überläufer erhalten. Gehen Sie diesen nach und leiten Sie Maßnahmen ein! Unserem Informanten zu Folge ist der Zustand des Informanten sehr instabil. Gehen Sie vorsichtig vor!</German>
+				<English>We have information about an enemy deserter. His mental condition is very unstable. Be aware of him! Check the given location and if needed bring him to our base!</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_SHORT">
 				<Original>deserter</Original>

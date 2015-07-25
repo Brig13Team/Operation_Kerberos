@@ -18,7 +18,12 @@ params ["_position", "_task_array"];
 	_position = getMarkerPos "spawn_side";
 	_dest = getMarkerPos "spawn_conter";
 #else
-	_dest = [_task_array select 1] call BIS_fnc_taskDestination;
+	private "buffer";
+	_buffer = GETMVAR(DORB_MILITAER,[]);
+	for "_i" from 1 to 130 do {
+		_dest = _buffer SELRND;
+		if ((_dest distance _position) > 6000) exitWith {};
+	};
 #endif
 
 _typen = ["Land_Wreck_Plane_Transport_01_F","Land_Wreck_Heli_Attack_02_F"];
@@ -129,7 +134,7 @@ switch (_typ) do
 #ifdef TEST
 	LOG("[SIDEBY] Flugobjekt erstellt!");
 #else
-	[_task_array, true, [localize _description, localize "STR_DORB_SIDE_AIRCRAFT_DESCRIPTION_SHORT", localize "STR_DORB_SIDE_SDV_MARKER"], _position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
+	[_task_array, true, [_description, "STR_DORB_SIDE_AIRCRAFT_DESCRIPTION_SHORT", "STR_DORB_SIDE_SDV_MARKER"], _position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
 #endif
 
 [-1, {

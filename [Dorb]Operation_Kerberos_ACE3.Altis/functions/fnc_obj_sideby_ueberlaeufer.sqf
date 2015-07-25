@@ -25,7 +25,12 @@ LOG("ueberlaeufer");
 	_position = getMarkerPos "spawn_side";
 	_dest = getMarkerPos "spawn_conter";
 #else
-	_dest = [_task_array select 1] call BIS_fnc_taskDestination;
+	private "buffer";
+	_buffer = GETMVAR(DORB_MILITAER,[]);
+	for "_i" from 1 to 130 do {
+		_dest = _buffer SELRND;
+		if ((_dest distance _position) > 6000) exitWith {};
+	};
 #endif
 
 _zielPos = _position;
@@ -44,24 +49,23 @@ _eigenschaft = [_eigenschaften, _wichtung] call BIS_fnc_selectRandomWeighted;
 
 LOG(FORMAT_2("[SIDEBY] Ueberlaeufer an Position %1 mit Eigenschaft %2 erstellt!", position _ziel, _eigenschaft));
 
-_description = "STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION";
 switch (_eigenschaft) do
 {
 	case "Flugangst":
 	{
-		_description = FORMAT_1(localize _description, localize "STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_2");
+		_description = "STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_2";
 	};
 	case "Paranoia":
 	{
-		_description = FORMAT_1(localize _description, localize "STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_3");
+		_description = "STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_3";
 	};
 	case "suizidgefaehrdet":
 	{
-		_description = FORMAT_1(localize _description, localize "STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_3");
+		_description = "STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_3";
 	};
 	case "nichts":
 	{
-		_description = FORMAT_1(localize _description, "");
+		_description = "STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_1";
 	};
 };
 
@@ -69,7 +73,7 @@ switch (_eigenschaft) do
 #ifdef TEST
 	LOG("[SIDEBY] Überläufer erstellt!");
 #else
-	[_task_array, true, [_description, localize "STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_SHORT", localize "STR_DORB_SIDE_UEBERLAEUFER_MARKER"], _zielPos,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
+	[_task_array, true, [_description, "STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_SHORT", "STR_DORB_SIDE_UEBERLAEUFER_MARKER"], _zielPos,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
 #endif
 
 [_ziel, _eigenschaft, _task_array] spawn FM(TRIPLES(obj,sideby,ueberlaeuferVerhoeren));
@@ -92,11 +96,7 @@ fnc_conter = {
 	_wp = _wp + [ _group addWaypoint [ [_dest, position leader _group, 50] call FM(pointBetween) , 0 ] ]; // _wp1
 	(_wp select 1) setWaypointType "MOVE";
 	(_wp select 1) setWaypointBehaviour "AWARE";
-
-	/*
-		TODO:
-			. kill him
-	*/
+	(_wp select 1) setWaypointStatements ["true", "{ if ((side _x) == civilian) then { _x setDamage 1; }; } forEach ((position this) nearEntities ['Man', 100])"];
 
 	_wp = _wp + [ _group addWaypoint [ _veh, 0 ] ]; // _wp2
 	(_wp select 2) setWaypointType "GETIN";

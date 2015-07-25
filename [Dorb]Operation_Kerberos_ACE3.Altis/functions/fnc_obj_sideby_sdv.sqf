@@ -73,7 +73,7 @@ fnc_SDVAction = {
 #ifdef TEST
 	LOG("[SIDEBY] U-Boot erstellt!");
 #else
-	[_task_array, true, [localize "STR_DORB_SIDE_SDV_DESCRIPTION", localize "STR_DORB_SIDE_SDV_DESCRIPTION_SHORT", localize "STR_DORB_SIDE_SDV_MARKER"], _position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
+	[_task_array, true, ["STR_DORB_SIDE_SDV_DESCRIPTION", "STR_DORB_SIDE_SDV_DESCRIPTION_SHORT", "STR_DORB_SIDE_SDV_MARKER"], _position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
 #endif
 
 [-1, {
