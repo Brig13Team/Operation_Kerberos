@@ -131,7 +131,7 @@ for "_i" from 1 to 3 do{
 ////// Aufgabe erstellen 					 /////
 //////////////////////////////////////////////////
 
-["STR_DORB_RESCUE",["STR_DORB_RESC_CONV_TASK"],"data\icon\icon_rescue.paa",true] spawn FM(disp_info_global)
+["STR_DORB_RESCUE",["STR_DORB_RESC_CONV_TASK"],"data\icon\icon_rescue.paa",true] spawn FM(disp_info_global);
 [_task,true,[["STR_DORB_RESC_CONV_TASK_DESC",count _pow,(_startort select 0),_ort],"STR_DORB_RESC_CONV_TASK","STR_DORB_RESCUE"],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
 
 //////////////////////////////////////////////////
