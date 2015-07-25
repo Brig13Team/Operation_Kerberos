@@ -111,7 +111,7 @@ class RscTitles {
         idc = 700104;
 		sizeEx = _get_screen_h(0.03);
 		style = ST_CENTER;
-        x = safeZoneX + safeZoneW - (safeZoneW * 0.032)
+        x = safeZoneX + safeZoneW - (safeZoneW * 0.032);
         y = safeZoneY + safezoneH * 0.19;
         w = _get_screen_w(0.03);
         h = _get_screen_h(0.035);
