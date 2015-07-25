@@ -60,4 +60,5 @@ tf_no_auto_long_range_radio = true;
 //tf_same_sw_frequencies_for_side = true;
 //TF_give_microdagr_to_soldier = false;
 
-["Initialize"] call BIS_fnc_dynamicGroups;  
+["Preload"] call BIS_fnc_arsenal; 
+["Initialize"] call BIS_fnc_dynamicGroups;
