@@ -20,7 +20,7 @@ DORB_SIDEBY_OBJECTS = [];
 	_position = getMarkerPos "spawn_side";
 #endif
 
-_sdv = "B_SDV_01_F" createVehicle [-100,-100,0];
+_sdv = createVehicle ["B_SDV_01_F", [-100,-100,0], [], 0, "NONE"];
 DORB_SIDEBY_OBJECTS pushBack _sdv;
 if (isMultiplayer) then {
     _sdv enableSimulationGlobal false;
