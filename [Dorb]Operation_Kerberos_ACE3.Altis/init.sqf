@@ -59,6 +59,10 @@ _igiload = execVM "IgiLoad\IgiLoadInit.sqf";
 tf_no_auto_long_range_radio = true;
 //tf_same_sw_frequencies_for_side = true;
 //TF_give_microdagr_to_soldier = false;
+If ((isClass(configFile >> "CfgPatches" >> "rhsusf_c_weapons"))) then {
+	["Preload"] call RHS_fnc_arsenal;
+}else{
+	["Preload"] call BIS_fnc_arsenal;
+};
 
-["Preload"] call BIS_fnc_arsenal; 
 ["Initialize"] call BIS_fnc_dynamicGroups;
