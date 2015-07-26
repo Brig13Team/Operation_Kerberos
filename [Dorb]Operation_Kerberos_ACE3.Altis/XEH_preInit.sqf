@@ -36,6 +36,7 @@ PREPMAIN(city_spawn_static);
 PREPMAIN(city_spawn_unit);
 
 //Spielerbezogen
+PREPMAIN(addArsenal);
 PREPMAIN(addbriefing);
 PREPMAIN(disp_blur);
 PREPMAIN(disp_info);

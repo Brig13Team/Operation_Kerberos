@@ -2312,7 +2312,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=63;
+		items=70;
 		class Item0
 		{
 			position[]={11587.434,23.604136,11989.53};
@@ -2455,14 +2455,14 @@ class Mission
 		};
 		class Item14
 		{
-			position[]={11589.425,23.363041,12024.046};
-			azimut=133.59013;
+			position[]={11589.425,23.365602,12023.085};
+			azimut=133.59;
 			id=102;
 			side="EMPTY";
 			vehicle="Land_Pallet_MilBoxes_F";
 			skill=0.60000002;
 			text="ammo1_3";
-			init="this allowDamage false; [""AmmoboxInit"",[this,true]] call BIS_fnc_arsenal;this setVariable [""R3F_LOG_disabled"", true]; ";
+			init="this allowDamage false;this setVariable [""R3F_LOG_disabled"", true]; this call dorb_fnc_addArsenal;";
 		};
 		class Item15
 		{
@@ -2923,6 +2923,83 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_Flush_Light_yellow_F";
 			skill=0.60000002;
+		};
+		class Item63
+		{
+			position[]={11591.954,23.619871,11973.142};
+			azimut=208.94945;
+			id=151;
+			side="EMPTY";
+			vehicle="Land_Pallet_MilBoxes_F";
+			skill=0.60000002;
+			text="ammo1_3_1";
+			init="this allowDamage false;this setVariable [""R3F_LOG_disabled"", true]; this call dorb_fnc_addArsenal;";
+		};
+		class Item64
+		{
+			position[]={11587.074,23.620567,11976.099};
+			azimut=208.94945;
+			id=152;
+			side="EMPTY";
+			vehicle="Land_Pallet_MilBoxes_F";
+			skill=0.60000002;
+			text="ammo1_3_1_1";
+			init="this allowDamage false;this setVariable [""R3F_LOG_disabled"", true]; this call dorb_fnc_addArsenal;";
+		};
+		class Item65
+		{
+			position[]={11582.49,23.624504,11979.131};
+			azimut=208.94945;
+			id=153;
+			side="EMPTY";
+			vehicle="Land_Pallet_MilBoxes_F";
+			skill=0.60000002;
+			text="ammo1_3_1_2";
+			init="this allowDamage false;this setVariable [""R3F_LOG_disabled"", true]; this call dorb_fnc_addArsenal;";
+		};
+		class Item66
+		{
+			position[]={11577.165,23.627859,11981.938};
+			azimut=208.94945;
+			id=154;
+			side="EMPTY";
+			vehicle="Land_Pallet_MilBoxes_F";
+			skill=0.60000002;
+			text="ammo1_3_1_3";
+			init="this allowDamage false;this setVariable [""R3F_LOG_disabled"", true]; this call dorb_fnc_addArsenal;";
+		};
+		class Item67
+		{
+			position[]={11587.058,23.407642,12019.979};
+			azimut=133.59;
+			id=155;
+			side="EMPTY";
+			vehicle="Land_Pallet_MilBoxes_F";
+			skill=0.60000002;
+			text="ammo1_3_2";
+			init="this allowDamage false;this setVariable [""R3F_LOG_disabled"", true]; this call dorb_fnc_addArsenal;";
+		};
+		class Item68
+		{
+			position[]={11581.512,23.528582,12011.921};
+			azimut=133.59;
+			id=156;
+			side="EMPTY";
+			vehicle="Land_Pallet_MilBoxes_F";
+			skill=0.60000002;
+			text="ammo1_3_3";
+			init="this allowDamage false;this setVariable [""R3F_LOG_disabled"", true]; this call dorb_fnc_addArsenal;";
+		};
+		class Item69
+		{
+			position[]={11583.954,23.474009,12015.543};
+			azimut=133.59;
+			id=157;
+			side="EMPTY";
+			vehicle="Land_Pallet_MilBoxes_F";
+			skill=0.60000002;
+			text="ammo1_3_4";
+			init="this allowDamage false;this setVariable [""R3F_LOG_disabled"", true]; this call dorb_fnc_addArsenal;";
 		};
 	};
 	class Markers
