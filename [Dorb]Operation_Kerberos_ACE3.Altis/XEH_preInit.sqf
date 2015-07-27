@@ -48,8 +48,6 @@ PREPMAIN(disp_timer);
 PREPMAIN(grouptracker);
 PREPMAIN(halo);
 PREPMAIN(halo_addaction);
-PREPMAIN(halo_get_loadout);
-PREPMAIN(halo_set_loadout);
 PREPMAIN(nurpiloten);
 PREPMAIN(playeraddaction);
 PREPMAIN(rep);
