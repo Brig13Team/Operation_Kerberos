@@ -11,10 +11,10 @@
 #define DEBUG_ENABLED_TEST
 #include "script_component.hpp"
 
-PARAMS_2(_commander,_attack_pos);
-DEFAULT_PARAM(2,_count,3);
+PARAMS_1(_attack_pos);
+DEFAULT_PARAM(1,_count,3);
 private["_artilleries","_shell","_rand"];
-_artilleries = GETVAR(_commander,DORB_COMMANDER_ARTILLERIE,[]);
+_artilleries = GETVAR(DORB_COMMANDER_LOGIC,DORB_COMMANDER_ARTILLERIE,[]);
 
 If (_count < 0) then {
 	private["_nearUnits","_nearEnemy","_nearFriendly","_enemy"];
