@@ -34,7 +34,10 @@ SETMVAR(DORB_SPAWN_CURRENT,_host);
 
 _spawnpos = getMarkerPos _spawnmarker;
 // EMPTY SPAWNPAD
-{if (count crew _x == 0) then {deletevehicle _x};} foreach (nearestObjects [_spawnpos, ["AllVehicles"], _check_radius]);
+{
+	if (count crew _x == 0) then {deletevehicle _x};
+	if (( (getText(configFile >> "CfgVehicles" >> (typeOf _x) >> "vehicleClass"))isEqualTo "Autonomous")) then {_x TILGE;};
+} foreach (nearestObjects [_spawnpos, ["AllVehicles"], _check_radius]);
 {deletevehicle _x;} foreach nearestObjects [_spawnpos,["CraterLong_small","CraterLong","WeaponHolder","GroundWeaponHolder"], _check_radius];
 {deleteVehicle _x;} forEach nearestObjects [_spawnpos,["allDead"], _check_radius];
 {deleteVehicle _x;} forEach nearestObjects [_spawnpos,["Thing"], _check_radius];

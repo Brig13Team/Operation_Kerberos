@@ -60,11 +60,11 @@ If (((_flyingpos distance [0,0,0])>1)&&(_vehiclewahl isKindOf "Plane_Base_F")) t
     };
 };
 
-if ((_vehicle isKindOf "UAV_01_base_F")||(_vehicle isKindOf "UAV_02_base_F")||(_vehicle isKindOf "UGV_01_base_F")) then {
+if ( (getText(configFile >> "CfgVehicles" >> _vehiclewahl >> "vehicleClass"))isEqualTo "Autonomous") then {
     createVehicleCrew _vehicle;
 };
 
-if (_vehicle isKindOf "Air") then {
+if (_vehiclewahl isKindOf "Air") then {
     _vehicle call FM(nurpiloten);
 };
 
@@ -73,7 +73,7 @@ if ((_vehicle isKindOf "B_Truck_01_medical_F") or (_vehicle isKindOf "B_Slingloa
 };
 
 if (_mode isEqualTo "driver") then {
-    If (((_flyingpos distance [0,0,0])>1)&&(_vehiclewahl isKindOf "Plane_Base_F")&&(!(_vehiclewahl isKindOf "UAV"))) then {
+    If (((_flyingpos distance [0,0,0])>1)&&(_vehiclewahl isKindOf "Plane_Base_F")&&(!( (getText(configFile >> "CfgVehicles" >> _vehiclewahl >> "vehicleClass"))isEqualTo "Autonomous"))) then {
         {deleteVehicle _x;}forEach (crew _vehicle);
     };
     player moveInDriver _vehicle;
