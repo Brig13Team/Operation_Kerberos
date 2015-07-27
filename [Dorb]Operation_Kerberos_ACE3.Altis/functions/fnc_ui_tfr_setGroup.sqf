@@ -35,4 +35,4 @@ if ((_dd >=32)&&(_dd <=41)) then {
     _sel pushBack 0;
 };
 */
-SETPVAR(group player,DORB_TFR,_sel);
+SETPVAR(player,DORB_TFR,_sel);

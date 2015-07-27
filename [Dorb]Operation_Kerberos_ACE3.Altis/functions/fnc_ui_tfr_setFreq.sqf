@@ -18,4 +18,4 @@ if ((_lr >=30)&&(_lr <=87)&&( call TFAR_fnc_haveLRRadio)) then {
     format["%1",_lr] call TFAR_fnc_setLongRangeRadioFrequency;
 };
 
-
+SETPVAR(player,DORB_TFR,[_sr,_lr]);
