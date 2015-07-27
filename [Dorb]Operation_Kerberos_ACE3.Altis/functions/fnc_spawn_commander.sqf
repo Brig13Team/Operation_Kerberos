@@ -39,7 +39,7 @@ _allCommander=[];
 for "_i" from 0 to (_difficulty + 1) do {
 	private["_einheit","_spawnpos","_return","_commander","_temp"];
 	_einheit = dorb_commandveh_radio SELRND;
-	_spawnposition = [_position,200,0] call FM(random_pos);
+	_spawnposition = [_position,350,0] call FM(random_pos);
 	_spawnposition = _spawnposition findEmptyPosition [1,100,_einheit];
 	if (count _spawnposition < 1) exitWith {ERROR("Keine Spawnposition | Commander-HQ");};
 	_return = [_spawnposition,(floor(random 360)),_einheit,dorb_commandveh_side] call BIS_fnc_spawnVehicle;

@@ -12,7 +12,7 @@
 */
 #include "script_component.hpp"
 CHECK(!isServer)
-param["_position","_taskID"];
+params["_position","_taskID"];
 private["_position_home", "_taskVar", "_data"];
 _position_home = getMarkerPos DORB_RESPAWNMARKER;
 

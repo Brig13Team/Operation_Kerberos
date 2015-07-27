@@ -59,9 +59,13 @@ switch (_mode) do {
 					_del = DORB_GPTR_DATA deleteAt _i;
 					deleteMarkerLocal (_del select 1);
 				};
+			};
+			for "_i" from 0 to ((count DORB_GPTR_DATA)-1) do {
 				if (((DORB_GPTR_DATA select _i)select 1)isEqualTo "") then {			
 					DORB_GPTR_DATA deleteAt _i;
 				};
+			};
+			for "_i" from 0 to ((count DORB_GPTR_DATA)-1) do {
 				if (count (units ((DORB_GPTR_DATA select _i)select 0))<1) then {			
 					_del = DORB_GPTR_DATA deleteAt _i;
 					deleteMarkerLocal (_del select 1);

@@ -10,7 +10,7 @@
 */
 #define DEBUG_ENABLED_TEST
 #include "script_component.hpp"
-PARAMS_1(_commander);
+
 private ["_attackpos_air","_attackpos_tanks","_attackpos_ground"];
 
 /// functions
@@ -230,12 +230,12 @@ _Attacktype_sniperattack = {
 
 
 //// BRAIINN	DORB_COMMANDER_LOGIC
-private["_sleep","_generalsleep"];
+private["_sleep","_generalsleep","_nextintervall"];
 _sleep = 0;
 _generalsleep = 4;
+_nextintervall = diag_tickTime;
 while {_a={alive _x}count (GETVAR(DORB_COMMANDER_LOGIC,DORB_COMMANDER_CURRENT_HQs,[]));If (_a>0) then {true}else{false};} do {
-	private ["_temp","_sleep","_checkunits","_attackpos_air","_currenttime"];
-	_currenttime = diag_tickTime;
+	private ["_temp","_checkunits","_attackpos_air"];
 	
 	///// AIR-Interception
 	_attackpos_air = [];
@@ -243,7 +243,7 @@ while {_a={alive _x}count (GETVAR(DORB_COMMANDER_LOGIC,DORB_COMMANDER_CURRENT_HQ
 		//// Get the posible Attackpositions
 		_attackunit_air = [];
 		for "_i" from 0 to ((count (GETVAR(DORB_COMMANDER_LOGIC,DORB_COMMANDER_RADAR,[])))-1) do {
-			_temp = [getPos (DORB_COMMANDER_RADAR select _i),1] call FM(spawn_commander_search);
+			_temp = [getPos ((GETVAR(DORB_COMMANDER_LOGIC,DORB_COMMANDER_RADAR,[])) select _i),1] call FM(spawn_commander_search);
 			If (!(_temp isEqualTo [])) then {
 				_attackunit_air append _temp;
 			};
@@ -269,14 +269,14 @@ while {_a={alive _x}count (GETVAR(DORB_COMMANDER_LOGIC,DORB_COMMANDER_CURRENT_HQ
 	};
 	
 	///// Groundattack
-	If (_currenttime > (diag_tickTime + ((_sleep * 60)-1) )) then {
+	If (diag_tickTime > _nextintervall) then {
 		private["_attackpos_tanks","_attackpos_ground","_temp","_attackunit_tanks","_attackunit_ground","_checkunits"];
-		_sleep = 0;
+		_sleep = _generalsleep;
 		//// SEARCH
 		_attackpos_tanks = [];
 		_attackpos_ground = [];
-		_attackunit_ground = [getPos _commander,3] call FM(spawn_commander_search);
-		_attackunit_tanks = [getPos _commander,2] call FM(spawn_commander_search);
+		_attackunit_ground = [(GETVAR(DORB_COMMANDER_LOGIC,DORB_COMMANDER_CURRENT_POS,[])),3] call FM(spawn_commander_search);
+		_attackunit_tanks = [(GETVAR(DORB_COMMANDER_LOGIC,DORB_COMMANDER_CURRENT_POS,[])),2] call FM(spawn_commander_search);
 		
 		_temp = [];
 		{If (!((vehicle _x) in _temp)) then {_temp pushBack (vehicle _x);};}forEach _attackunit_tanks;
@@ -546,6 +546,7 @@ while {_a={alive _x}count (GETVAR(DORB_COMMANDER_LOGIC,DORB_COMMANDER_CURRENT_HQ
 				};
 			};
 		};
+	_nextintervall = (diag_tickTime + ((_sleep * 60)-1));
 	};
 	//// SLEEP because brainwork is hard
 	uisleep (60 * _generalsleep);
