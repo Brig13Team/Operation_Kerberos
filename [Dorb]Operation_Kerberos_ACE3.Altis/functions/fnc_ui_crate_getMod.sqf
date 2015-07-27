@@ -1,11 +1,11 @@
 /*
-	Author: Dorbedo
+    Author: Dorbedo
 
-	Description:
-		returns the Mod
-		
-	Parameter:
-		0:CONFIG	- Item
+    Description:
+        returns the Mod
+
+    Parameter:
+        0:CONFIG    - Item
 
 */
 #include "script_component.hpp"
@@ -18,8 +18,6 @@ If ("BWA3" in _namearray) then {_mod="BWA3";};
 If ("tf" in _namearray) then {_mod="TFR";};
 If (("rhs" in _namearray)||("rhsusf" in _namearray)) then {_mod="RHS";};
 _mod
-
-
 
 //// Zu träge
 /*
@@ -50,12 +48,12 @@ LOG_1(_suchkriterium);
 
 //// Versuch mit der alten Überprüfung
 If (_suchkriterium isEqualTo "NichtsGefunden") exitwith {
-	_namearray=[configname _config,"_"] call BIS_fnc_splitString;
-	If ("ACE" in _namearray) then {_mod="ACE";};
-	If ("BWA3" in _namearray) then {_mod="BWA3";};
-	If ("tf" in _namearray) then {_mod="TFR";};
-	If (("rhs" in _namearray)||("rhsusf" in _namearray)) then {_mod="RHS";};
-	_mod
+    _namearray=[configname _config,"_"] call BIS_fnc_splitString;
+    If ("ACE" in _namearray) then {_mod="ACE";};
+    If ("BWA3" in _namearray) then {_mod="BWA3";};
+    If ("tf" in _namearray) then {_mod="TFR";};
+    If (("rhs" in _namearray)||("rhsusf" in _namearray)) then {_mod="RHS";};
+    _mod
 };
 /////
 
@@ -63,8 +61,8 @@ _addon = "";
 _cfgPatches = GETMVAR(DORB_CRATE_PATCHES,[]);
 
 {
-	_array=getarray(_x >> _suchkriterium);
-	if({_configname == _x}count _array > 0) exitwith {_addon = configname _x;};
+    _array=getarray(_x >> _suchkriterium);
+    if({_configname == _x}count _array > 0) exitwith {_addon = configname _x;};
 }foreach _cfgPatches;
 
 LOG_1(_addon);

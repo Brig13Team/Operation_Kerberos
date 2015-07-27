@@ -15,6 +15,7 @@
 CHECK(!hasInterface)
 CHECK(isNil "DORB_ENDZEIT")
 #define DISP_LAYER 700103
+private["_endtime","_currenttime","_difference","_headerCtrl"];
 _endtime = DORB_ENDZEIT;
 _currenttime = if (ismultiplayer) then {servertime} else {time};
 
@@ -22,7 +23,6 @@ _difference = _endtime - _currenttime;
 LOG_1(_difference);
 If (_difference <= 0) exitWith {
 	//// disable timer
-	LOG("disable");
 	DISP_LAYER cutText ["","PLAIN"];
 	uiNamespace setvariable ["DORB_DISP_MISSIONTIMER",nil];
 };

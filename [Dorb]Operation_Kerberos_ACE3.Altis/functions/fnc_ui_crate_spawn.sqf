@@ -1,15 +1,14 @@
 /*
-	Author: Dorbedo
+    Author: Dorbedo
 
-	Description:
-		spawns the cosen box with including items
-	
+    Description:
+        spawns the cosen box with including items
+
 */
 #include "script_component.hpp"
 
 private["_check_radius","_spawnpos","_padempty","_box","_boxtyp","_items","_anzahl","_name"];
 /// Clear Pad
-
 
 _check_radius = 8;
 _spawnpos = getMarkerPos "crate_spawn";
@@ -24,7 +23,6 @@ _padempty = nearestObjects [_spawnpos, ["LandVehicle","Air"], _check_radius];
 If (!(_padempty isEqualTo [])) exitWith {hint localize "STR_DORB_SPAWN_NOTEMPTY";};
 
 _boxtyp = (DORB_CRATE_BOXES select 0) select DORB_CRATE_CURRENT_BOXID;
-
 _box = createVehicle [_boxtyp, _spawnpos, [], 0 , "NONE"];
 _box setPosATL _spawnpos;
 
@@ -37,26 +35,26 @@ _items = DORB_CRATE_CURRENT select 0;
 _anzahl = DORB_CRATE_CURRENT select 1;
 
 {
-	_name = ([_x]call BIS_fnc_configPath)select 1;
-	If (_name isEqualTo "CfgVehicles") then {
-		_box addBackpackCargoGlobal [configname (_x),(_anzahl select _foreachindex)];
-	}else{
-		If (_name isEqualTo "CfgMagazines") then {
-			_box addBackpackCargoGlobal [configname (_x),(_anzahl select _foreachindex)];
-		}else{
-			If (!((getArray(_x>>"Magazines"))isEqualTo[])) then {
-				_box addWeaponCargoGlobal [configname (_x),(_anzahl select _foreachindex)];
-			}else{
-				_box addItemCargoGlobal [configname (_x),(_anzahl select _foreachindex)];
-			};
-		};
-	};
+    _name = ([_x]call BIS_fnc_configPath)select 1;
+    If (_name isEqualTo "CfgVehicles") then {
+        _box addBackpackCargoGlobal [configname (_x),(_anzahl select _foreachindex)];
+    }else{
+        If (_name isEqualTo "CfgMagazines") then {
+            _box addBackpackCargoGlobal [configname (_x),(_anzahl select _foreachindex)];
+        }else{
+            If (!((getArray(_x>>"Magazines"))isEqualTo[])) then {
+                _box addWeaponCargoGlobal [configname (_x),(_anzahl select _foreachindex)];
+            }else{
+                _box addItemCargoGlobal [configname (_x),(_anzahl select _foreachindex)];
+            };
+        };
+    };
 }forEach _items;
 
 _items = DORB_CRATE_CURRENT select 2;
 _anzahl = DORB_CRATE_CURRENT select 3;
 {
-	_box addMagazineCargoGlobal [configname (_x),(_anzahl select _foreachindex)];
+    _box addMagazineCargoGlobal [configname (_x),(_anzahl select _foreachindex)];
 }forEach _items;
 
 disableSerialization;

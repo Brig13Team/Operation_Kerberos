@@ -42,7 +42,7 @@ switch (_rand) do {
 	case 105: {dorb_side = west;_path = (missionConfigFile >> "unitlists" >> "west" >> "BWA3_fleck");};
 };
 
-
+private["_dorb_grouplist_inf","_dorb_grouplist_mech","_dorb_grouplist_sf","_dorb_grouplist_panz"];
 dorb_side_nr = _rand;
 dorb_pow = getArray(_path >> "pow");
 dorb_intel = getArray(_path >> "intel");

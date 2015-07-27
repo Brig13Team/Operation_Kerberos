@@ -17,7 +17,7 @@
 
 CHECK(!hasInterface)
 #define DISP_LAYER 700106
-private["_type","_display","_headerCtrl","_contentCtrl","_contentAmountOfChars","_pos","_iconCtrl"];
+private["_type","_display","_headerCtrl","_contentCtrl","_contentAmountOfChars","_pos","_iconCtrl","_idc","_text"];
 DEFAULT_PARAM(0,_title,"");
 DEFAULT_PARAM(1,_content,"");
 DEFAULT_PARAM(2,_icon,"");
