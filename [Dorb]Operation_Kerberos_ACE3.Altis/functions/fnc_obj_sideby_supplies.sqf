@@ -65,7 +65,7 @@ _fnc_barricades = {
 		_position = position _x;
 		_alpha = [_x, (roadsConnectedTo _x) select 0] call BIS_fnc_dirTo;
 
-		_veh = "Land_Razorwire_F" createVehicle _position;
+		_veh = createVehicle ["Land_Razorwire_F", _position, [], 0, "NONE"];
 		DORB_SIDEBY_OBJECTS pushBack _veh;
 		_veh setDir _alpha;
 		_veh setPos _position;
@@ -74,14 +74,14 @@ _fnc_barricades = {
 
 		_beta = _alpha + 90;
 		_p1 = [(_buffer select 0) + (sin (_beta) * 3), (_buffer select 1) + (cos (_beta) * 3), 0];
-		_veh = "Land_CncBarrier_F" createVehicle _p1;
+		_veh = createVehicle ["Land_CncBarrier_F", _p1, [], 0, "NONE"];
 		DORB_SIDEBY_OBJECTS pushBack _veh;
 		_veh setDir _alpha;
 		_veh setPos _p1;
 
 		_gamma = _alpha + 270;
 		_p2 = [(_buffer select 0) + (sin (_gamma) * 3), (_buffer select 1) + (cos (_gamma) * 3), 0];
-		_veh = "Land_CncBarrier_F" createVehicle _p2;
+		_veh = createVehicle ["Land_CncBarrier_F", _p2, [], 0, "NONE"];
 		DORB_SIDEBY_OBJECTS pushBack _veh;
 		_veh setDir _alpha;
 		_veh setPos _p2;
@@ -114,7 +114,7 @@ if (isClass(configFile >> "CfgWorlds" >> worldName >> "Names" >> _dest_name)) th
 
 _base = getMarkerPos "rescue_marker";
 
-_crate = "B_Slingload_01_Cargo_F" createVehicle _base;
+_crate = createVehicle["B_Slingload_01_Cargo_F",_base,[],0,"NONE"];
 DORB_SIDEBY_OBJECTS pushBack _crate;
 clearWeaponCargo _crate;
 clearBackpackCargo _crate;

@@ -32,7 +32,7 @@ _typen = ["Land_Wreck_Plane_Transport_01_F","Land_Wreck_Heli_Attack_02_F"];
 _wichtung = [1,1];
 _typ = [_typen, _wichtung] call BIS_fnc_selectRandomWeighted;
 
-_obj = _typ createVehicle _position;
+_obj = createVehicle [_typ, _position, [], 0, "NONE"];
 DORB_SIDEBY_OBJECTS pushBack _obj;
 SETPVAR(_obj,DORB_ISTARGET,true);
 missionNamespace setVariable ["DORB_CONTER",false];
@@ -80,9 +80,10 @@ fnc_ObjAction = {
 
 	if ( !(missionNamespace getVariable ["DORB_CONTER", false]) ) then {
 
-		_suitcase = "Land_Suitcase_F" createVehicle (position _caller);
+		_suitcase = createVehicle ["Land_Suitcase_F", position _caller, [], 0, "NONE"];
 		DORB_SIDEBY_OBJECTS pushBack _suitcase;
 		[-1, { _this addAction [localize "STR_DORB_SIDE_AIRCRAFT_INTE_TAKE", { _this call fnc_SuitcaseAttach }, nil, 1.5, true, true, "", "isNull attachedTo _target;"]; }, _suitcase] FMP;
+		ISNILS(DORB_MISSION_FNC,[]);
 		DORB_MISSION_FNC = DORB_MISSION_FNC + [ _suitcase , "_this addAction [localize 'STR_DORB_SIDE_AIRCRAFT_INTE_TAKE', { _this call fnc_SuitcaseAttach }, nil, 1.5, true, true, "", 'isNull attachedTo _target;'];" ];
 		publicVariable "DORB_MISSION_FNC";
 
@@ -150,6 +151,7 @@ switch (_typ) do
 	params ["_obj", "_typ", "_task_array"];
 	_obj addAction [localize "STR_DORB_SIDE_AIRCRAFT_SEARCH_INTEL", { _this call fnc_ObjAction; }, [_typ,_task_array select 0, _task_array select 1]];
 }, [_obj,_typ,_task_array]] FMP;
+ISNILS(DORB_MISSION_FNC,[]);
 DORB_MISSION_FNC = DORB_MISSION_FNC + [ [_obj,_task_array] , "(_this select 0) addAction [localize 'STR_DORB_SIDE_AIRCRAFT_SEARCH_INTEL', { _this call fnc_ObjAction; }, [_typ,(_this select 1) select 0, (_this select 1) select 1]];" ];
 publicVariable "DORB_MISSION_FNC";
 

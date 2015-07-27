@@ -89,5 +89,6 @@ fnc_SDVAction = {
 	_sdv addAction [localize "STR_DORB_SIDE_SDV_TAKE_INTEL", {_this call fnc_SDVAction;}, _task_array];
 }, [_sdv,_task_array]] FMP;
 
+ISNILS(DORB_MISSION_FNC,[]);
 DORB_MISSION_FNC = DORB_MISSION_FNC + [ [_sdv, _task_array], "(_this select 0) addAction [localize 'STR_DORB_SIDE_SDV_TAKE_INTEL', {_this call fnc_SDVAction;}, _this select 1];" ];
 publicVariable "DORB_MISSION_FNC";
