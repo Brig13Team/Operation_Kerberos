@@ -13,6 +13,7 @@
 #include "script_component.hpp"
 CHECK(!isServer)
 params["_position","_taskID"];
+LOG_2(_position,_taskID);
 private["_position_home", "_taskVar", "_data"];
 _position_home = getMarkerPos DORB_RESPAWNMARKER;
 
@@ -33,13 +34,17 @@ If (taskcancel) then {
 //////////////////////////////////////////////////
 ////// Nebenmissionen beenden				 /////
 //////////////////////////////////////////////////
-_taskID = _taskID + "_side";
-_taskVar = _taskID call bis_fnc_taskVar;
-_data = missionnamespace getvariable _taskVar;
-if ((!isnil {_data}) && { !((_taskVar select 4) in ["Succeeded","Failed","Canceled"]) }) then {
-	[_taskID, "Canceled", false] call BIS_fnc_taskSetState;
+_taskID = format["%1_side",_taskID];
+LOG_1(_taskID);
+_exists = [_taskID] call BIS_fnc_taskExists;
+If (_exists) then {
+	LOG_1(_exists);
+	_isCompleted = [_taskID] call BIS_fnc_taskCompleted;
+	if (!(_isCompleted)) then {
+		LOG_1(_isCompleted);
+		[_taskID, "Canceled", false] call BIS_fnc_taskSetState;
+	};
 };
-
 //////////////////////////////////////////////////
 ////// Überprüfung + Ende 					 /////
 //////////////////////////////////////////////////
