@@ -100,7 +100,7 @@ DORB_RESCUE_COUNTER = 0;
 
 #define INTERVALL 10
 #define TASK _task
-#define CONDITION {_a={alive _x}forEach (_this select 0);If((DORB_RESCUE_COUNTER==count(_this select 0))||(_a==0)) then {true}else{false};}
+#define CONDITION {_a={alive _x}count (_this select 0);If((DORB_RESCUE_COUNTER==count(_this select 0))||(_a==0)) then {true}else{false};}
 #define CONDITIONARGS [_pow]
 #define SUCESSCONDITION {If (DORB_RESCUE_COUNTER>0) then {true}else{false};}
 #define ONSUCESS {["STR_DORB_RESCUE",["STR_DORB_FINISHED"],"data\icon\icon_rescue.paa",true] spawn FM(disp_info_global);['destroy'] spawn FM(examine);}
