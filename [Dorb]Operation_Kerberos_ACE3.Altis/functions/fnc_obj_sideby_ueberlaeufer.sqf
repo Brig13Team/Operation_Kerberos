@@ -26,7 +26,7 @@ params ["_position", "_task_array"];
 	_dest = getMarkerPos "spawn_conter";
 	DORB_SIDE = east;
 #else
-	private "buffer";
+	private "_buffer";
 	_buffer = GETMVAR(DORB_MILITAER,[]);
 	for "_i" from 1 to 130 do {
 		_dest = _buffer SELRND;

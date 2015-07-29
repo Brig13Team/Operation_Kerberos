@@ -12,9 +12,8 @@
 */
 #include "script_component.hpp"
 CHECK(!isServer)
-params["_position","_taskID"];
-LOG_2(_position,_taskID);
-private["_position_home", "_taskVar", "_data"];
+params["_position"];
+private["_position_home", "_player", "_tasks"];
 _position_home = getMarkerPos DORB_RESPAWNMARKER;
 
 //////////////////////////////////////////////////
@@ -34,17 +33,16 @@ If (taskcancel) then {
 //////////////////////////////////////////////////
 ////// Nebenmissionen beenden				 /////
 //////////////////////////////////////////////////
-_taskID = format["%1_side",_taskID];
-LOG_1(_taskID);
-_exists = [_taskID] call BIS_fnc_taskExists;
-If (_exists) then {
-	LOG_1(_exists);
-	_isCompleted = [_taskID] call BIS_fnc_taskCompleted;
-	if (!(_isCompleted)) then {
-		LOG_1(_isCompleted);
-		[_taskID, "Canceled", false] call BIS_fnc_taskSetState;
+_player = allPlayers select 0;
+_tasks = simpleTasks _player;
+LOG(FORMAT_1("%1", _tasks));
+{
+	LOG(FORMAT_1("%1", taskState _x));
+	if ( !(taskCompleted _x) ) then {
+		_x setTaskState "Canceled";
 	};
-};
+} forEach _tasks;
+
 //////////////////////////////////////////////////
 ////// Überprüfung + Ende 					 /////
 //////////////////////////////////////////////////
