@@ -262,8 +262,8 @@ for "_i" from (_lastbuilding+1) to ((count _buildings)-1) do {
 			
 			CHECK((_spawnpos select 0)==0)
 			_spawnpos = ASLtoATL _spawnpos;
-			_spawndir = _current_dir + (_spawnposarray select 3) + 90;
-			_spawnpos = [_spawnpos, 0.35, _spawndir] call BIS_fnc_relPos;
+			_spawndir = _current_dir + (_spawnposarray select 3);
+			_spawnpos = [_spawnpos, 0.35, (_spawndir + 90)] call BIS_fnc_relPos;
 			_spawnpos pushBack _spawndir;
 			_mines_spawnarray pushBack _spawnpos;
 			DEC(_mines_count);
