@@ -2,7 +2,7 @@
 	Author: Dorbedo
 	
 	Description:
-	
+		Core function
 	Requirements:
 	
 	Parameter(s):
@@ -35,15 +35,25 @@ SETMVAR(DORB_MILITAER,(_return select 2));
 SETMVAR(DORB_WASSER,(_return select 3));
 SETMVAR(DORB_SONSTIGES,(_return select 4));
 
+/// Cleanup script (small version)
 [] spawn {
 	while {true} do {
-	sleep 1200;
+	For "_i" from 0 to 6 do {
+		If ((count allDead)>20) then {
+			private["_allDead","_anzahl"];
+			_allDead = allDead;
+			_anzahl = floor(((count allDead)/3)*2);
+			_allDead resize _anzahl;
+			{_x TILGE;}forEach _allDead;
+		};
+		uisleep 180;
+	};
 	[] spawn FM(cleanup_small);
 	false
 	};
 
 };
-
+/// Rescue Point;
 [] spawn {
 	private "_markerpos";
 	_markerpos = getMarkerPos "rescue_marker";
@@ -68,4 +78,5 @@ for "_u" from 0 to 120 do {
 	LOG_2(_aufgabennummer,_aktuelle_aufgabe);
 	[_aktuelle_aufgabe] call FM(obj_choose);
 };
+ERROR("CORE LOOP CRASHED");
 endMission "End1";
