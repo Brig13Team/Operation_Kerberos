@@ -1,5 +1,6 @@
 
 _this spawn {
+	scriptname "dorb\kerberos\XEH_hit";
 	If(!(isPlayer (_this select 0)))exitWith{};
 	If(!(isPlayer (_this select 1)))exitWith{};
 	If((_this select 0)==(_this select 1))exitWith{};

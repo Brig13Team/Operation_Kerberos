@@ -1,3 +1,3 @@
-#include "script_component.hpp"
-PARAMS_1(_unit);
+scriptname "dorb\kerberos\XEH_killed";
+params["_unit"];
 removeAllActions _unit;

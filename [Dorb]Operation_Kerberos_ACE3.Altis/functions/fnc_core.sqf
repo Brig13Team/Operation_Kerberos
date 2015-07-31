@@ -29,7 +29,7 @@ SETMVAR(DORB_SONSTIGES,(_return select 4));
 
 /// Cleanup script (small version)
 [] spawn {
-	scriptName "CORE - CLEANUPLOOP";
+	SCRIPT(CORE_CLEANUP);
 	while {true} do {
 	For "_i" from 0 to 6 do {
 		If ((count allDead)>20) then {
@@ -48,7 +48,7 @@ SETMVAR(DORB_SONSTIGES,(_return select 4));
 };
 /// Rescue Point;
 [] spawn {
-	scriptName "CORE - RESCUE-POINT";
+	SCRIPT(CORE_RESCUEPOINT);
 	private "_markerpos";
 	_markerpos = getMarkerPos "rescue_marker";
 	If ((_markerpos distance [0,0,0])<1) exitWith {};
@@ -63,7 +63,7 @@ SETMVAR(DORB_SONSTIGES,(_return select 4));
 };
 /// Diag
 [] spawn {
-	scriptName "CORE - DIAG";
+	SCRIPT(CORE_DIAG);
 	while {true} do {
 	For "_i" from 0 to 4 do {
 		[false,false] call FM(debug_diag);

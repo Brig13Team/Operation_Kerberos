@@ -1,5 +1,5 @@
 #include "script_component.hpp"
-
+scriptname "dorb\kerberos\XEH_respawn";
 If(!hasInterface)exitWith{};
 
 player addAction ["<t color='#FFFF00'>"+localize "STR_DORB_TFR_SHORT"+"</t>",{[]call FM(ui_tfr_OpenMenu);},[],0.5,false,true,"","alive _target"];
