@@ -11,6 +11,8 @@
 */
 #include "script_component.hpp"
 
+SCRIPT(obj_sideby_ueberlaeuferVerhoeren);
+
 private ["_ueberlaeufer", "_eigenschaft", "_task", "_main_task", "_info", "_suizidtimer", "_ueberlaeuferPosition", "_ziel", "_liste", "_counter", "_kontakt", "_durchmesser"];
 
 _ueberlaeufer = _this select 0;

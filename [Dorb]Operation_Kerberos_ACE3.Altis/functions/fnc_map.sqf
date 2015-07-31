@@ -31,6 +31,8 @@
 
 private ["_codes","_array", "_mode", "_code", "_ret"];
 
+scriptname "map";
+
 // params [["_codes","",[""]],["_array",[],[[]]],["_mode","r",""]];
 
 _codes = [_this, 0, "", [""]] call BIS_fnc_param;

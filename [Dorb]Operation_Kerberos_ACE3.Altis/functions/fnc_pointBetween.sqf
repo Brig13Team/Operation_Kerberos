@@ -16,6 +16,8 @@
 */
 private["_point1", "_point2", "_left", "_right", "_distance", "_point3", "_buffer", "_y1", "_y2", "_x1", "_x2", "_m", "_n"];
 
+scriptName "pointBetween";
+
 _point1 = _this select 0;
 _point2 = _this select 1;
 

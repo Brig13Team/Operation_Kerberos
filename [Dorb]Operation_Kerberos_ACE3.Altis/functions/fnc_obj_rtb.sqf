@@ -13,8 +13,8 @@
 #include "script_component.hpp"
 SCRIPT(obj_rtb);
 CHECK(!isServer)
-params["_position"];
-private["_position_home", "_player", "_tasks"];
+params["_position", "_taskID"];
+private["_position_home", "_player", "_tasks", "_data", "_taskVar"];
 _position_home = getMarkerPos DORB_RESPAWNMARKER;
 
 //////////////////////////////////////////////////
@@ -34,15 +34,11 @@ If (taskcancel) then {
 //////////////////////////////////////////////////
 ////// Nebenmissionen beenden				 /////
 //////////////////////////////////////////////////
-_player = allPlayers select 0;
-_tasks = simpleTasks _player;
-LOG(FORMAT_1("%1", _tasks));
-{
-	LOG(FORMAT_1("%1", taskState _x));
-	if ( !(taskCompleted _x) ) then {
-		_x setTaskState "Canceled";
-	};
-} forEach _tasks;
+_taskVar = "BIS_fnc_taskVar_" + _taskID + "_side";
+_data = missionnamespace getvariable _taskVar;
+if ( ( !(isnil "_data") ) && { !((_data select 4) in ["Succeeded","Failed","Canceled"]) } ) then {
+	[_taskID, "Canceled", false] call BIS_fnc_taskSetState;
+};
 
 //////////////////////////////////////////////////
 ////// Überprüfung + Ende 					 /////

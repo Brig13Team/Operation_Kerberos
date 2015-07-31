@@ -23,6 +23,8 @@
 */
 #include "script_component.hpp"
 
+SCRIPT(obj_reward);
+
 private["_reward", "_main_task", "_parameter", "_anz", "_durchmesser", "_position", "_radius", "_reward_types", "_reward_types_per", "_function"];
 
 _main_task = [_this, 0, ""] call BIS_fnc_param;

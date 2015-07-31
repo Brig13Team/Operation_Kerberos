@@ -109,6 +109,7 @@ PREPMAIN(core);
 PREPMAIN(dyn_difficulty);
 PREPMAIN(create_unitlists);
 PREPMAIN(examine);
+PREPMAIN(obj_reward);
 PREPMAIN(obj_sideby_aircraft);
 PREPMAIN(obj_sideby_conter);
 PREPMAIN(obj_sideby_chooseMission);
