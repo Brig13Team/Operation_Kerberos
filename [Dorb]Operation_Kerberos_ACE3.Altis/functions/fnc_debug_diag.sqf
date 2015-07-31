@@ -27,6 +27,7 @@ _Ausgabe pushBack format["    SPIELERZAHL = %1  (Anzahl der Spieler)",(count all
 _Ausgabe pushBack format["    EINHEITENANZAHL = %1 | %2 | %3 | %4 (Einheitenanzahl WEST | EAST | IND | CIV)",(west countSide allUnits),(east countSide allUnits),(independent countSide allUnits),(civilian countSide allUnits)];
 _Ausgabe pushBack format["    MINEN = %1  (Anzahl der Minen)",(count allMines)];
 _Ausgabe pushBack format["    OBJEKTE = %1  (Anzahl der Missions-Objekte auf der Karte)",(count (allMissionObjects "ALL"))];
+_Ausgabe pushBack format["    CBA_perFrameEH = %1  (Anzahl der CBA-Eventhandler)",(count (cba_common_perFrameHandlerArray))];
 
 If (_Scripte) then {
     private ["_aktive_FSM","_aktive_SQF","_aktive_SQS"];

@@ -1461,10 +1461,10 @@ class Mission
 					position[]={11515.679,25.773462,11951.58};
 					class args
 					{
-						items=9;
+						items=10;
 						class Item0
 						{
-							value="1";
+							value="0";
 							parentCls="ace_advanced_ballistics_ModuleSettings";
 							typeName="enabled";
 						};
@@ -1472,45 +1472,51 @@ class Mission
 						{
 							value="1";
 							parentCls="ace_advanced_ballistics_ModuleSettings";
-							typeName="";
+							typeName="simulateForSnipers";
 						};
 						class Item2
 						{
 							value="0";
 							parentCls="ace_advanced_ballistics_ModuleSettings";
-							typeName="disabledInFullAutoMode";
+							typeName="simulateForGroupMembers";
 						};
 						class Item3
 						{
-							value="1";
+							value="0";
 							parentCls="ace_advanced_ballistics_ModuleSettings";
-							typeName="";
+							typeName="simulateForEveryone";
 						};
 						class Item4
 						{
-							value="1";
+							value="0";
 							parentCls="ace_advanced_ballistics_ModuleSettings";
-							typeName="ammoTemperatureEnabled";
+							typeName="disabledInFullAutoMode";
 						};
 						class Item5
 						{
 							value="1";
 							parentCls="ace_advanced_ballistics_ModuleSettings";
-							typeName="barrelLengthInfluenceEnabled";
+							typeName="ammoTemperatureEnabled";
 						};
 						class Item6
 						{
 							value="1";
 							parentCls="ace_advanced_ballistics_ModuleSettings";
-							typeName="bulletTraceEnabled";
+							typeName="barrelLengthInfluenceEnabled";
 						};
 						class Item7
+						{
+							value="1";
+							parentCls="ace_advanced_ballistics_ModuleSettings";
+							typeName="bulletTraceEnabled";
+						};
+						class Item8
 						{
 							value="0";
 							parentCls="ace_advanced_ballistics_ModuleSettings";
 							typeName="simulationInterval";
 						};
-						class Item8
+						class Item9
 						{
 							value="3000";
 							parentCls="ace_advanced_ballistics_ModuleSettings";

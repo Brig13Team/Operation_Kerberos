@@ -32,3 +32,14 @@ ISNILS(DORB_MISSION_FNC,[]);
 
 [localize "STR_DORB_CLAN",[localize "STR_DORB_WELCOME1",localize "STR_DORB_WELCOME2",localize "STR_DORB_WELCOME3",localize "STR_DORB_WELCOME4",localize "STR_DORB_WELCOME5",localize "STR_DORB_WELCOME6"],"data\logo_brig.paa",false] call FM(disp_info);
 [] spawn FM(disp_timer);
+
+
+[] spawn {
+	SCRIPT(PLAYER_DIAG);
+	while {true} do {
+		[false,false] call FM(debug_diag);
+		uisleep 60;
+		false
+	};
+
+};
