@@ -33,7 +33,7 @@ _parameter = [_this, 2, []] call BIS_fnc_param;
 _radius = [_this, 3, 1500] call BIS_fnc_param;
 
 if (typeName _main_task == "STRING") then {
-	_position = [_main_task] call BIS_fnc_taskDesitination;
+	_position = [_main_task] call BIS_fnc_taskDestination;
 } else {
 	_position = taskDestination _main_task;
 };
