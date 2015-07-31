@@ -32,7 +32,7 @@ if (isNull _sdv) exitWith {};
 DORB_SIDEBY_OBJECTS pushBack _sdv;
 
 _sdv setFuel 0.3;
-_sdv setDamage 0.3;
+// _sdv setDamage 0.3;
 
 _sdv setVariable ["DORB_IS_TARGET",true];
 
