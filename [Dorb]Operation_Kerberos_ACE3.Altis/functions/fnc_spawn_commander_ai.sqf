@@ -19,13 +19,13 @@ _attack_ai = {
 	PARAMS_1(_attackpos_air);
 	private ["_radars","_veh","_outOfSight","_radarpos"];
 	_radars = GETVAR(DORB_COMMANDER_LOGIC,DORB_COMMANDER_RADAR,[]);
-	_outOfSight = true;	
-	{
-		_radarpos = getPos _x;
-		_radarpos set[2,((_radarpos select 2)+1)];
-		_outOfSight = terrainIntersect[_attackpos_air,_radarpos];
-		If (!(_outOfSight)) exitWith {};
-	}forEach _radars;	
+	_outOfSight = {
+			_radarpos = getPos _x;
+			_radarpos set[2,((_radarpos select 2)+1)];
+			_outOfSight = terrainIntersect[_attackpos_air,_radarpos];
+			If (!(_outOfSight)) exitWith {false;};
+			true;
+		}forEach _radars;	
 	
 	If (!(_outOfSight)) then {
 		private "_planes";
