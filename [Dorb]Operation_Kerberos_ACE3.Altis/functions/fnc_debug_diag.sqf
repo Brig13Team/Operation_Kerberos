@@ -19,8 +19,13 @@ _Ausgabe pushBack format["DIAGNOSEPROTOKOLL ANFANG - %1 (%2)",_zeitstempel,_tick
 
 _fps = diag_fps;
 _fps_min = diag_fpsmin;
-_Ausgabe pushBack format["    FPS    =%1  (Durchschnitt über die letzten 16 Frames)",_fps];
-_Ausgabe pushBack format["    FPSMIN =%1  (Minimale Frameanzahl über die letzten 16 Frames)",_fps];
+_Ausgabe pushBack format["    FPS    = %1  (Durchschnitt über die letzten 16 Frames)",_fps];
+_Ausgabe pushBack format["    FPSMIN = %1  (Minimale Frameanzahl über die letzten 16 Frames)",_fps];
+
+_Ausgabe pushBack format["    SPIELERZAHL = %1  (Anzahl der Spieler)",(count allPlayers)];
+_Ausgabe pushBack format["    EINHEITENANZAHL = %1 | %2 | %3 | %4 (Einheitenanzahl WEST | EAST | IND | CIV)",(west countSide allUnits),(east countSide allUnits),(independent countSide allUnits),(civilian countSide allUnits)];
+_Ausgabe pushBack format["    MINEN = %1  (Anzahl der Minen)",(count allMines)];
+_Ausgabe pushBack format["    OBJEKTE = %1  (Anzahl der Missions-Objekte auf der Karte)",(count (allMissionObjects "ALL"))];
 
 If (_Scripte) then {
     private ["_aktive_FSM","_aktive_SQF","_aktive_SQS"];
