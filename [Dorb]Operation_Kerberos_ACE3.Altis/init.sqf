@@ -51,9 +51,11 @@ enableRadio false;
 // Logistik
 _r3f = execVM "R3F_LOG\init.sqf";
 _igiload = execVM "IgiLoad\IgiLoadInit.sqf";
-
+/*
 // VCOM-Driving
-[] execVM "VCOM_Driving\init.sqf";
+If (!hasInterface) then {
+	[] execVM "VCOM_Driving\init.sqf";
+};*/
 
 //Task Force Radio
 tf_no_auto_long_range_radio = true;

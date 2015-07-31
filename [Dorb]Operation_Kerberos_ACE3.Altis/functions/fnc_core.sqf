@@ -5,18 +5,11 @@
 		Core function
 	Requirements:
 	
-	Parameter(s):
-		0 : ARRAY	- Example
-		1 : ARRAY	- Example
-		2 : STRIN	- Example
-	
-	Return
-	BOOL
 */
 #include "script_component.hpp"
 
 CHECK(!isServer)
-
+SCRIPT(core);
 
 private ["_aufgabennummer","_aktuelle_aufgabe","_return"];
 
@@ -37,6 +30,7 @@ SETMVAR(DORB_SONSTIGES,(_return select 4));
 
 /// Cleanup script (small version)
 [] spawn {
+	scriptName "CORE - CLEANUPLOOP";
 	while {true} do {
 	For "_i" from 0 to 6 do {
 		If ((count allDead)>20) then {
@@ -55,6 +49,7 @@ SETMVAR(DORB_SONSTIGES,(_return select 4));
 };
 /// Rescue Point;
 [] spawn {
+	scriptName "CORE - RESCUE-POINT";
 	private "_markerpos";
 	_markerpos = getMarkerPos "rescue_marker";
 	If ((_markerpos distance [0,0,0])<1) exitWith {};
@@ -66,6 +61,19 @@ SETMVAR(DORB_SONSTIGES,(_return select 4));
 		}forEach _units;
 		uisleep 30;
 	};
+};
+/// Diag
+[] spawn {
+	scriptName "CORE - DIAG";
+	while {true} do {
+	For "_i" from 0 to 10 do {
+		[true] call FM(debug_diag);
+		uisleep 200;
+	};
+	[true,true] call FM(debug_diag);
+	false
+	};
+
 };
 
 sleep 20;
