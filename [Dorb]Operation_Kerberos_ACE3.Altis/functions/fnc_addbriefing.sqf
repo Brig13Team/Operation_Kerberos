@@ -4,7 +4,7 @@
 	Description:
 
 */
-
+scriptname "dorb\kerberos\addbriefing";
 player createDiaryRecord ["Diary", ["Credits",format["
 	<br/>Author %1
 	<br/>Translations (English): Cypherstalker

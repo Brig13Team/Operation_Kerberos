@@ -5,7 +5,7 @@
 		displays message
 */
 #include "script_component.hpp"
-
+SCRIPT(disp_message);
 CHECK(isDedicated)
 DEFAULT_PARAM(0,_title,"");
 DEFAULT_PARAM(1,_content,"");

@@ -6,7 +6,7 @@
 
 */
 #include "script_component.hpp"
-
+SCRIPT(dyn_difficulty);
 private ["_players"];
 
 _players = call CBA_fnc_players;

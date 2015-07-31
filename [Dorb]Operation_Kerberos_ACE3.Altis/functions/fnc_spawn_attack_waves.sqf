@@ -14,7 +14,7 @@
 		None
 */
 #include "script_component.hpp"
-
+SCRIPT(spawn_attack_waves);
 If (DORB_WAVES_REMAINING < 1) exitWith {LOG("Keine Wellen übrig");};
 PARAMS_2(_position,_task);
 private["_rand","_difficulty","_missionsstatus","_gegner_lebend","_z"];

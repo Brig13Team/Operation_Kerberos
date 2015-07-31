@@ -8,6 +8,7 @@
 		[target,function,[parameters]] call FM(local)
 */
 #include "script_component.hpp"
+SCRIPT(local);
 PARAMS_2(_target,_function);
 DEFAULT_PARAM(2,_parameters,[]);
 

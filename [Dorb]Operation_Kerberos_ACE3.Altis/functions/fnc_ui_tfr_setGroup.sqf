@@ -6,7 +6,7 @@
 
 */
 #include "script_component.hpp"
-
+SCRIPT(ui_tfr_setGroup);
 private["_sel","_sr","_lr","_dd"];
 
 if (leader group player != player) exitWith {hint localize "STR_DORB_TFR_NOLEADER";};
@@ -35,4 +35,6 @@ if ((_dd >=32)&&(_dd <=41)) then {
     _sel pushBack 0;
 };
 */
-SETPVAR(player,DORB_TFR,_sel);
+{
+	SETPVAR(_x,DORB_TFR,_sel);
+}forEach (units (group player));

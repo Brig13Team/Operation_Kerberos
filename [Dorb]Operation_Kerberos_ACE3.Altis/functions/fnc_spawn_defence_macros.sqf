@@ -21,7 +21,7 @@
 	
 */
 #include "script_component.hpp"
-
+SCRIPT(spawn_defence_macros);
 PARAMS_1(_position);
 DEFAULT_PARAM(1,_radius,1000);
 DEFAULT_PARAM(2,_anzahl_spawnpos,3);

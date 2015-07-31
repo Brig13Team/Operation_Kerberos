@@ -5,7 +5,7 @@
 		Gebäude um Position auflisten
 */
 #include "script_component.hpp"
-
+SCRIPT(get_buildings);
 private ["_gebauede","_pos","_anz","_i","_fertig","_gebauedepos","_temp"];
 PARAMS_1(_pos);
 CHECK((count _pos)<2)

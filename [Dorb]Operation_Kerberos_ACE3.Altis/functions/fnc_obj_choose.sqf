@@ -10,7 +10,7 @@
 	
 */
 #include "script_component.hpp"
-
+SCRIPT(obj_choose);
 private ["_aufgabe","_rand","_aufgabentyp","_gewichtung"];
 
 _aufgabe = [_this,0,format["NOTNUMMER%1",random 1000000],[""]] call BIS_fnc_param;

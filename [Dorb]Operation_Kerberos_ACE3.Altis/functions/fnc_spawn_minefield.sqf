@@ -14,7 +14,7 @@
 	BOOL
 */
 #include "script_component.hpp"
-
+SCRIPT(spawn_minefield);
 PARAMS_1(_centerpos);
 DEFAULT_PARAM(1,_spawnrad,25);
 DEFAULT_PARAM(2,_type,0);

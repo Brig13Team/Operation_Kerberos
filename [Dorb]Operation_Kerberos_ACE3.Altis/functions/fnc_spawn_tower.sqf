@@ -6,6 +6,7 @@
 	
 */
 #include "script_component.hpp"
+SCRIPT(spawn_tower);
 private["_pos","_i","_spawnposition","_einheit","_dir","_unit","_fertig","_geb_pos","_gebauedepos","_i","_return"];
 
 LOG("Spawn Mil-Tower");

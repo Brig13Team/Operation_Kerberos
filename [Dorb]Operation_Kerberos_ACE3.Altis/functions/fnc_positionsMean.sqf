@@ -14,7 +14,7 @@
 */
 
 private ["_positionsarray","_all_x","_all_y","_all_z","_x","_y","_z","_currentpos","_return"];
-
+SCRIPT(positionsMean);
 _positionsarray = [_this,0,[],[[]]] call BIS_fnc_Param;
 
 If (_positionsarray isEqualTo []) exitWith {[]};

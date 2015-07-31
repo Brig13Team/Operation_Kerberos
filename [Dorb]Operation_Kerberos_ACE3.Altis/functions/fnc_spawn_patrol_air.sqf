@@ -15,7 +15,7 @@
 	
 */
 #include "script_component.hpp"
-
+SCRIPT(spawn_patrol_air);
 private ["_gruppe","_units","_vehicles","_rad","_pos","_spawnpos","_einheit","_return"];
 PARAMS_1(_position);
 DEFAULT_PARAM(1,_radius,1200);

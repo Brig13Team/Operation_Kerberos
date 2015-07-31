@@ -12,6 +12,7 @@
 		publicVariable DORB_ENDZEIT
 */
 #include "script_component.hpp"
+SCRIPT(disp_timer);
 CHECK(!hasInterface)
 CHECK(isNil "DORB_ENDZEIT")
 #define DISP_LAYER 700103

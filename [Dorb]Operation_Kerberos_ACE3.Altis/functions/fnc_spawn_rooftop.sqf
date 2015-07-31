@@ -13,6 +13,7 @@
 	Something (eventually)
 */
 #include "script_component.hpp"
+SCRIPT(spawn_rooftop);
 private ["_wpnrad","_spawnpos_arr","_spawnpos_arr_del","_spawnposition","_anz"];
 PARAMS_3(_gebaeudepos_arr,_min,_max);
 _wpnrad = 1.5;

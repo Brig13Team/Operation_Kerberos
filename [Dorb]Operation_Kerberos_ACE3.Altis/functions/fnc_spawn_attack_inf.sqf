@@ -17,6 +17,7 @@
 	
 */
 #include "script_component.hpp"
+SCRIPT(spawn_attack_inf);
 CHECK(!isServer)
 
 private ["_gruppe","_units","_rand"];

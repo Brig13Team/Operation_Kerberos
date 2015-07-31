@@ -2,19 +2,16 @@
 	Author: Dorbedo
 	
 	Description:
+		makes something only destroyable by c4
 	
 	Requirements:
-	
-	Parameter(s):
-		0 : ARRAY	- Example
-		1 : ARRAY	- Example
-		2 : STRIN	- Example
-	
+		called via Eventhandler
+		
 	Return
-	BOOL
+	SCALAR
 */
 #include "script_component.hpp"
-
+SCRIPT(handleDamage_C4);
 
 switch (true) do {
 		default { 0 };

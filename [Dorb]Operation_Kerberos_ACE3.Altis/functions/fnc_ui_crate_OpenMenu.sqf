@@ -6,7 +6,7 @@
 
 */
 #include "script_component.hpp"
-
+SCRIPT(ui_crate_OpenMenu);
 [] call FM(ui_crate_createlists);
 
 if (isnil "DORB_CRATE_CURRENT") then {

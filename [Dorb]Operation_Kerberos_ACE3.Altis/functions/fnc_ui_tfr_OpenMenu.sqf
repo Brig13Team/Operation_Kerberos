@@ -7,7 +7,7 @@
 
 */
 #include "script_component.hpp"
-
+SCRIPT(ui_tfr_OpenMenu);
 private["_sr","_lr"];
 SETMVAR(TFR_UPDATE,false);
 

@@ -15,6 +15,7 @@
 	BOOL
 */
 #include "script_component.hpp"
+SCRIPT(obj_mil_defend);
 CHECK(!isServer)
 LOG("Task Defend");
 PARAMS_3(_ort,_position,_task);

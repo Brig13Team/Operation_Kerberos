@@ -16,7 +16,7 @@
 	
 */
 #include "script_component.hpp"
-
+SCRIPT(pos_surrounding);
 PARAMS_1(_position);
 DEFAULT_PARAM(1,_radius,600);
 DEFAULT_PARAM(2,_step,20);

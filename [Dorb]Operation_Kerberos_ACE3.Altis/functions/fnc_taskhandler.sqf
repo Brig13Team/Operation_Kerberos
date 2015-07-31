@@ -32,7 +32,7 @@
 	
 */
 #include "script_component.hpp"
-
+SCRIPT(taskhandler);
 CHECK(!isServer)
 DEFAULT_PARAM(0,_intervall,30);
 DEFAULT_PARAM(2,_condition,{true});

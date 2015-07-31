@@ -11,6 +11,7 @@
 
 */
 #include "script_component.hpp"
+SCRIPT(spawn_crew);
 CHECK(!isServer)
 
 PARAMS_2(_vehicle,_gruppe);

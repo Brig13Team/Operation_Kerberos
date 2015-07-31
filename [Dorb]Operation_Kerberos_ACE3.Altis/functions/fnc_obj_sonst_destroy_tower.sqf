@@ -15,6 +15,7 @@
 		None
 */
 #include "script_component.hpp"
+SCRIPT(obj_sonst_destroy_tower);
 CHECK(!isServer)
 
 LOG(FORMAT_1("Destroy Tower \n this=%1",_this));

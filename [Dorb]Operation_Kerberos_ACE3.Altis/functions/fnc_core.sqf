@@ -7,9 +7,8 @@
 	
 */
 #include "script_component.hpp"
-
-CHECK(!isServer)
 SCRIPT(core);
+CHECK(!isServer)
 
 private ["_aufgabennummer","_aktuelle_aufgabe","_return"];
 

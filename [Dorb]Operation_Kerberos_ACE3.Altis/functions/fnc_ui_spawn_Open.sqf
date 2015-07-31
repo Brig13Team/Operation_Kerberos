@@ -13,7 +13,7 @@
 
 */
 #include "script_component.hpp"
-
+SCRIPT(ui_spawn_Open);
 #define dlg_veh_spawn_idd 600100
 #define dlg_veh_spawn_header_idc 600101
 #define dlg_veh_spawn_list_idc 600102

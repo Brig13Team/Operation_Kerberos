@@ -33,7 +33,7 @@
 		nothing
 */
 #include "script_component.hpp"
-
+SCRIPT(examine);
 /// TODO: ACE - captured unit = civillian??
 
 

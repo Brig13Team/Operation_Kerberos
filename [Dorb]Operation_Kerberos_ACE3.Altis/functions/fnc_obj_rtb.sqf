@@ -11,6 +11,7 @@
 	BOOL
 */
 #include "script_component.hpp"
+SCRIPT(obj_rtb);
 CHECK(!isServer)
 params["_position"];
 private["_position_home", "_player", "_tasks"];

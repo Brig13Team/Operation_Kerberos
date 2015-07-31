@@ -13,7 +13,7 @@
 	
 */
 #include "script_component.hpp"
-
+SCRIPT(spawn_macro_exec3D);
 params[["_centerpos",[],[[]],[3]],["_configarray",[],[[]]],["_centerdir",9999,[0]]];
 CHECK(_centerpos isEqualTo [])
 CHECK(_configarray isEqualTo [])

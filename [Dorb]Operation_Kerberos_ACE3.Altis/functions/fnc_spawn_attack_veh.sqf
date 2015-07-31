@@ -14,6 +14,7 @@
 	BOOL
 */
 #include "script_component.hpp"
+SCRIPT(spawn_attack_veh);
 CHECK(!isServer)
 
 private ["_gruppe","_units","_rand"];

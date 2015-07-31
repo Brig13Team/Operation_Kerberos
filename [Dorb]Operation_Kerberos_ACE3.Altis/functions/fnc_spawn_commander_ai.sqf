@@ -10,7 +10,7 @@
 */
 #define DEBUG_ENABLED_TEST
 #include "script_component.hpp"
-
+SCRIPT(spawn_commander_ai);
 private ["_attackpos_air","_attackpos_tanks","_attackpos_ground"];
 
 /// functions

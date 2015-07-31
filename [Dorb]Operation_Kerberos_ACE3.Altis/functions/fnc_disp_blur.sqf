@@ -6,6 +6,7 @@
 	
 */
 #include "script_component.hpp"
+SCRIPT(disp_blur);
 CHECK(isDedicated)
 DEFAULT_PARAM(0,_id,"");
 DEFAULT_PARAM(1,_show,false);

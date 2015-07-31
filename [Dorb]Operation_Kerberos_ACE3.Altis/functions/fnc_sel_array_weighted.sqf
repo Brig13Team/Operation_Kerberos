@@ -11,7 +11,7 @@
 	
 */
 #include "script_component.hpp"
-
+SCRIPT(sel_array_weighted);
 params[["_array",[],[[]]],["_weightpos",-1,[0]],["_returnPos",false,[true]]];
 CHECK(_array isEqualTo [])
 CHECK(_weightpos<0)

@@ -6,7 +6,7 @@
 		
 	ARMA Version 1.48
 */
-scriptName "DORB_GROUPTRACKER";
+scriptName "dorb\kerberos\grouptracker";
 If(!hasInterface)exitWith{};
 
 #define SELF dorb_fnc_grouptracker

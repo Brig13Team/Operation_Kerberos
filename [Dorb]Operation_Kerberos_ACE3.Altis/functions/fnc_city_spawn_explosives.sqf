@@ -13,7 +13,7 @@
 	
 */
 #include "script_component.hpp"
-
+SCRIPT(city_spawn_explosives);
 PARAMS_1(_spawnposarray);
 DEFAULT_PARAM(1,_type,0);
 CHECK(!IS_ARRAY(_spawnposarray))

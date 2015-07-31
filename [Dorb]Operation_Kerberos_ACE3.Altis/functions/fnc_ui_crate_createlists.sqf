@@ -6,6 +6,7 @@
 
 */
 #include "script_component.hpp"
+SCRIPT(crate_createlists);
 private ["_daten","_types","_isAceMedical","_configArray","_cfgPatches","_progressStep","_step1"];
 _daten = GETMVAR(DORB_CRATE_ITEMS,[]);
 

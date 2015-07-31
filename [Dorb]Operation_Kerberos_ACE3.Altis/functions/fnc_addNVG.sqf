@@ -8,6 +8,7 @@
 
 _this spawn {
 	#include "script_component.hpp"
+	SCRIPT(addNVG);
 	PARAMS_1(_unit);
 	CHECK(!local _unit)
 	CHECK(isPlayer _unit)

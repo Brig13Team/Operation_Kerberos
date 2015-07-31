@@ -15,6 +15,7 @@
 	BOOL
 */
 #include "script_component.hpp"
+SCRIPT(obj_stadt_destoy_wpncache);
 CHECK(!isServer)
 
 

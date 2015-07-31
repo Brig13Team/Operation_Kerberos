@@ -9,6 +9,7 @@
 
 */
 #include "script_component.hpp"
+SCRIPT(ui_crate_filter);
 PARAMS_1(_buttonid);
 private["_sel","_items","_mag","_daten","_cleanupCurrent","_getAnzahl","_getConfig","_ctrlList"];
 CHECK(_buttonid<1 || _buttonid>20)

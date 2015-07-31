@@ -13,7 +13,7 @@
 		ARRAY - Gebäudearray
 */
 #include "script_component.hpp"
-
+SCRIPT(spawn_in_building);
 private ["_spawnpos","_spawnpos_del","_anz","_d","_gruppe","_position","_einheit","_unit"];
 DEFAULT_PARAM(0,_gebaeudearr,[]);
 DEFAULT_PARAM(1,_min,5);

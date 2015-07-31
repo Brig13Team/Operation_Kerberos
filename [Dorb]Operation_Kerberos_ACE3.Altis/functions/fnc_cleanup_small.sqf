@@ -6,7 +6,7 @@
 	
 */
 #include "script_component.hpp"
-
+SCRIPT(cleanup_small);
 {if ((!(alive _x))and(!(GETVAR(_x,DORB_ISTARGET,false)))) then {_x TILGE;};} foreach vehicles;
 {if (!(GETVAR(_x,DORB_ISTARGET,false))) then {_x TILGE;};} forEach allDead;
 

@@ -14,7 +14,7 @@
 	BOOL
 */
 #include "script_component.hpp"
-
+SCRIPT(obj_stadt_found_intel);
 PARAMS_1(_obj);
 
 

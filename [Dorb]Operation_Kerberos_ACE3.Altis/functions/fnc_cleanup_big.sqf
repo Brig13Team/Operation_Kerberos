@@ -6,11 +6,11 @@
 	
 */
 #include "script_component.hpp"
-
+SCRIPT(cleanup_big);
 PARAMS_2(_pos,_rad);
 
 {if (!(GETVAR(_x,DORB_ISRESPAWN,false))) then {_x TILGE;};} foreach (_pos nearObjects ["ALL", _rad]); ///hier west rausnehmen
-
+{_x TILGE} forEach allMines;
 {if ((side _x != DORB_PLAYERSIDE)and(!(GETVAR(_x,DORB_ISRESPAWN,false)))) then {_x TILGE;};} foreach allunits;
 
 {if ((!(alive _x))and(!(GETVAR(_x,DORB_ISRESPAWN,false)))) then {_x TILGE;};} foreach vehicles;

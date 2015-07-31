@@ -14,7 +14,7 @@
 	BOOL
 */
 #include "script_component.hpp"
-
+SCRIPT(spawn_artypos);
 PARAMS_1(_position);
 private["_rad","_spawnposition","_einheit","_dir","_arty","_return","_pos"];
 DEFAULT_PARAM(1,_rad,200);

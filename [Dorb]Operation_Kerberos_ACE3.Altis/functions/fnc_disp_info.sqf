@@ -14,7 +14,7 @@
 	BOOL
 */
 #include "script_component.hpp"
-
+SCRIPT(disp_info);
 CHECK(!hasInterface)
 #define DISP_LAYER 700106
 private["_type","_display","_headerCtrl","_contentCtrl","_contentAmountOfChars","_pos","_iconCtrl","_idc","_text"];

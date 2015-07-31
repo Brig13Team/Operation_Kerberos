@@ -5,6 +5,7 @@
     Creates the Spawnlists as Variables attachTo Spawnlists
 */
 #include "script_component.hpp"
+SCRIPT(ui_spawn_createlist);
 If (DORB_PLAYERSIDE == east) exitWith {[] spawn FM(ui_spawn_createlist_east);};
 private["_spawnliste_ace","_spawnliste_ammo","_spawnliste_bwmat","_spawnliste_drohne","_spawnliste_fahrzeug_bewaffnet",
         "_spawnliste_fahrzeug_unbewaffnet","_spawnliste_fia","_spawnliste_heli","_spawnliste_jet","_spawnliste_logistikheli",

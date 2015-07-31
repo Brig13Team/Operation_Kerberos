@@ -13,7 +13,7 @@
 	BOOL
 */
 #include "script_component.hpp"
-
+SCRIPT(spawn_minefields);
 PARAMS_1(_position);
 DEFAULT_PARAM(1,_radius,1300);
 DEFAULT_PARAM(2,_anzahl,8);

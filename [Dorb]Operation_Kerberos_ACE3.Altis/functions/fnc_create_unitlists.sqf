@@ -9,7 +9,7 @@
 	
 */
 #include "script_component.hpp"
-
+SCRIPT(create_unitlists);
 params[["_rand",0,[0]]];
 
 If (_rand < 1) then {

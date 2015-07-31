@@ -5,6 +5,7 @@
         Diagnosefunktion um Performance-Probleme zu analysieren
 
 */
+scriptname "dorb\kerberos\debug_diag";
 params[["_Scripte",true,[true]],["_Variablen",false,[true]]];
 private["_tickzeit","_sekunden","_stunden","_minuten","_zeitstempel","_fps","_fps_min","_Ausgabe"];
 _Ausgabe = [];

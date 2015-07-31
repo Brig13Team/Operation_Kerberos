@@ -5,7 +5,7 @@
 		Progessbar RSC
 */
 #include "script_component.hpp"
-
+SCRIPT(disp_progressbar);
 CHECK(isDedicated)
 PARAMS_1(_timeToWait);
 DEFAULT_PARAM(1,_cond,{true});

@@ -15,6 +15,7 @@
 	BOOL
 */
 #include "script_component.hpp"
+SCRIPT(obj_stadt_kill_person);
 CHECK(!isServer)
 
 PARAMS_4(_ort,_position,_task,_gebaeudearr);

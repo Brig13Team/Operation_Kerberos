@@ -10,7 +10,7 @@
 
 */
 #include "script_component.hpp"
-
+SCRIPT(movetoHC);
 /// CurrentHC erstellen, falls nicht vorhanden - Nur am Anfang interessant
 if ((isnil "currentHC")&&(!(isnil "HC1"))) then {
 	currentHC = HC1;

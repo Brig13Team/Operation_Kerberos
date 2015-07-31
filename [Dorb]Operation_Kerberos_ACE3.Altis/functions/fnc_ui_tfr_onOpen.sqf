@@ -9,6 +9,7 @@
 	
 */
 #include "script_component.hpp"
+SCRIPT(ui_tfr_onOpen);
 if (GETMVAR(TFR_UPDATE,false)) exitWith {};
 private["_sel","_gruppen","_var"];
 SETMVAR(TFR_UPDATE,true);

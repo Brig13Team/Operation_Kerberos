@@ -4,6 +4,7 @@
 	Description:
 		adds Medical Supplys to a unit
 */
+scriptname "dorb\kerberos\addAceMedical";
 If (!(isClass(configFile >> "CfgPatches" >> "ace_medical"))) exitWith {};
 Private["_vehicle"];
 params[["_vehicle",objNull,[objNull]]];

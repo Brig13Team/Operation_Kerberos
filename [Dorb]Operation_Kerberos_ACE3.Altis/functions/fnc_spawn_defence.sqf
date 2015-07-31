@@ -5,7 +5,7 @@
 		Spawns defence around position
 */
 #include "script_component.hpp"
-
+SCRIPT(spawn_defence);
 Private["_pos","_group","_spawnpos","_dir","_einheit","_unit"];
 //_pos = _this select 0;
 _pos = _this;

@@ -7,6 +7,7 @@
 
 */
 #include "script_component.hpp"
+SCRIPT(ui_crate_onLoad);
 private["_ctrl"];
 disableSerialization;
 

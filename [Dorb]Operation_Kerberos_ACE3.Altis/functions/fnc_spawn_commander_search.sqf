@@ -16,6 +16,7 @@
 */
 #define DEBUG_ENABLED_TEST
 #include "script_component.hpp"
+SCRIPT(spawn_commander_search);
 PARAMS_1(_pos);
 DEFAULT_PARAM(1,_type,0);
 Private["_player_pos","_players","_targets","_return","_level"];

@@ -15,7 +15,7 @@
 	
 */
 #include "script_component.hpp"
-
+SCRIPT(disp_info_global);
 DEFAULT_PARAM(0,_title,"");
 private "_content";
 _content = [_this,1,"",["",[]]] call BIS_fnc_Param;

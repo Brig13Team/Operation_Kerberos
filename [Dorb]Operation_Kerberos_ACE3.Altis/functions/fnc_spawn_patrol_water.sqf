@@ -16,7 +16,7 @@
 
 */
 #include "script_component.hpp"
-
+SCRIPT(spawn_patrol_water);
 private ["_amountOfWater","_patrol","_vehicles", "_objects"];
 PARAMS_1(_position);
 DEFAULT_PARAM(1,_radius,1200);

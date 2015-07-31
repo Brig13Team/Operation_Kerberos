@@ -10,7 +10,7 @@
 
 */
 #include "script_component.hpp"
-
+SCRIPT(ui_crate_add);
 PARAMS_1(_mode);
 private["_ctrlList","_row","_config","_istMagazin","_id"];
 disableSerialization;

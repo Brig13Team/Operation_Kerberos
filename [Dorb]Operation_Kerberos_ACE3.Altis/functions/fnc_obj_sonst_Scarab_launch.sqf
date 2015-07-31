@@ -1,5 +1,5 @@
 
-
+scriptname "dorb\kerberos\obj_scarab_launch";
 private["_abschussrampe","_dir","_zielpos"];
 
 _abschussrampe = _this select 0;

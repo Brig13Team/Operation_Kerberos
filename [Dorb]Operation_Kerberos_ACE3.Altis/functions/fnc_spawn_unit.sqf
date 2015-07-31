@@ -13,6 +13,7 @@
 	Object
 */
 #include "script_component.hpp"
+SCRIPT(spawn_unit);
 PARAMS_3(_position,_gruppe,_typ);
 private ["_unit"];
 if (count _position < 3) exitWith {LOG("Keine Spawnpos uebergeben")};

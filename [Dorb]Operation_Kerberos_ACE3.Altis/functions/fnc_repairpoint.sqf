@@ -11,7 +11,7 @@
 */
 #define DEBUG_ENABLED_TEST
 #include "script_component.hpp"
-
+SCRIPT(repairpoint);
 PARAMS_4(_target,_caller,_id,_arguments);
 
 

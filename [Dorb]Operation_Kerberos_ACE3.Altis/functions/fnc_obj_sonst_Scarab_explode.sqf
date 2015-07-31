@@ -1,4 +1,4 @@
-
+scriptname "dorb\kerberos\obj_sonst_Scarab_explode";
 private["_pos","_yield","_radius"];
 _pos = _this select 0;
 

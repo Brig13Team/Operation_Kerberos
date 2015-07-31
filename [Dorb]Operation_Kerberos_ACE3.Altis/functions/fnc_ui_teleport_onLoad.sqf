@@ -6,6 +6,7 @@
 
 */
 #include "script_component.hpp"
+SCRIPT(ui_teleport_onLoad);
 CHECK(!hasInterface)
 Private["_teleporter","_ctrl"];
 disableSerialization;

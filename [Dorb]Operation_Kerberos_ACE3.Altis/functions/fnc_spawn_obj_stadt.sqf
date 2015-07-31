@@ -14,6 +14,7 @@
 	BOOL
 */
 #include "script_component.hpp"
+SCRIPT(spawn_obj_stadt);
 private["_position","_difficulty","_spawnposition","_rand"];
 PARAMS_1(_position);
 _difficulty = [] call FM(dyn_difficulty);

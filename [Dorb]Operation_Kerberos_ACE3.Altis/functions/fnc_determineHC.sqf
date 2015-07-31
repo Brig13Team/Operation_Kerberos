@@ -6,7 +6,7 @@
 	
 */
 #include "script_component.hpp"
-
+SCRIPT(determineHC);
 CHECK(!isServer)
 
 If (currentHC == HC1) exitWith {

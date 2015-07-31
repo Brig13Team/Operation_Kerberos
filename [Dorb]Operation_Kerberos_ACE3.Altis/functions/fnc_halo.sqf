@@ -1,4 +1,5 @@
 #include "script_component.hpp"
+SCRIPT(halo);
 params["_host","_caller","_id","_params"];
 _params params[["_althalo",500,[0]],["_altchute",100,[0]]];
 

@@ -10,6 +10,7 @@
 */
 #define DEBUG_ENABLED_TEST
 #include "script_component.hpp"
+SCRIPT(spawn_commander);
 PARAMS_1(_position);
 private["_difficulty"];
 

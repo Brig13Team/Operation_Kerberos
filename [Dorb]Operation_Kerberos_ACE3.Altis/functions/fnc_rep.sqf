@@ -14,7 +14,7 @@
 	BOOL
 */
 #include "script_component.hpp"
-
+SCRIPT(rep);
 private ["_vehicle","_reppunkt"];
 
 _vehicle= _this select 0;

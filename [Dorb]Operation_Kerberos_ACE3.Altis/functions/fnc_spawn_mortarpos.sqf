@@ -5,7 +5,7 @@
 		Creates a Motarpos
 */
 #include "script_component.hpp"
-
+SCRIPT(spawn_mortarpos);
 private["_pos","_position","_spawnposition","_einheit","_dir","_return"];
 PARAMS_1(_position);
 

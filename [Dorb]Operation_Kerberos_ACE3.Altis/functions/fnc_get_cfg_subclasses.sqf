@@ -15,7 +15,7 @@
 		
 */
 #include "script_component.hpp"
-
+SCRIPT(get_cfg_subclasses);
 PARAMS_2(_classname,_config);
 private["_return","_subclasses","_temp"];
 _return = [];

@@ -18,7 +18,7 @@
 	
 */
 #include "script_component.hpp"
-
+SCRIPT(pos_flatempty);
 PARAMS_3(_position,_size,_searchradius);
 DEFAULT_PARAM(3,_precizePos,0);
 DEFAULT_PARAM(4,_maxGradient,0.15);

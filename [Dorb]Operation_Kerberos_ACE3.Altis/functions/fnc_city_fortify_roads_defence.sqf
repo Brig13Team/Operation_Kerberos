@@ -14,7 +14,7 @@
 	
 */
 #include "script_component.hpp"
-
+SCRIPT(city_fortify_roads_defence);
 params["_weight","_pos_x","_pos_y","_pos_z","_dir","_size"];
 private "_position";
 _position = [_pos_x,_pos_y,_pos_z];

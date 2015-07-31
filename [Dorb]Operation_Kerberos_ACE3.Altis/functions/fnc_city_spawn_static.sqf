@@ -15,7 +15,7 @@
 	ARRAY - spawned Units
 */
 #include "script_component.hpp"
-
+SCRIPT(city_spawn_static);
 PARAMS_1(_spawnposarray);
 DEFAULT_PARAM(1,_side,dorb_side);
 DEFAULT_PARAM(2,_unitarray,dorb_staticlist);

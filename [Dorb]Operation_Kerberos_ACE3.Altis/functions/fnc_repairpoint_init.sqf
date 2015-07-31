@@ -6,7 +6,7 @@
 	
 */
 #include "script_component.hpp"
-
+SCRIPT(repairpoint_init);
 ISNILS(DORB_RESPAWN_FNC,[]);
 
 private ["_reppoint"];

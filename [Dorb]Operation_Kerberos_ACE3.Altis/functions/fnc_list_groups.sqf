@@ -8,6 +8,7 @@
     ARRAY: includes the filtered groups
 */
 #include "script_component.hpp"
+SCRIPT(list_groups);
 private ["_alleGruppen","_gruppen"];
 
 _alleGruppen = allGroups;

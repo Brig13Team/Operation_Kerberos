@@ -14,7 +14,7 @@
 
 */
 #include "script_component.hpp"
-
+SCRIPT(spawn_patrol_inf);
 private ["_gruppe","_units","_rand","_spawnpos","_return","_rad","_pos"];
 PARAMS_1(_position);
 DEFAULT_PARAM(1,_radius,1200);

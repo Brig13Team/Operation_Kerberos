@@ -15,7 +15,7 @@
 	/// TO DO: make extension
 */
 #include "script_component.hpp"
-
+SCRIPT(city_fortify_buildings);
 params[["_buildingsarray_formatted",[],[[]]],["_optionsarray",[],[[]]]];
 CHECK(_buildingsarray_formatted isEqualTo [])
 

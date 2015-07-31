@@ -6,6 +6,7 @@
 
 */
 #include "script_component.hpp"
+SCRIPT(ui_tfr_setFreq);
 private["_sr","_lr"];
 _sr = parseNumber (ctrlText 700202);
 _lr = parseNumber (ctrlText 700203);
@@ -18,4 +19,5 @@ if ((_lr >=30)&&(_lr <=87)&&( call TFAR_fnc_haveLRRadio)) then {
     format["%1",_lr] call TFAR_fnc_setLongRangeRadioFrequency;
 };
 
-SETPVAR(player,DORB_TFR,[_sr,_lr]);
+SETPVAR(_x,DORB_TFR,[_sr,_lr]);
+

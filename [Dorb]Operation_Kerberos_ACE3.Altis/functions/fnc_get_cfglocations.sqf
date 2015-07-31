@@ -6,7 +6,7 @@
 	
 */
 #include "script_component.hpp"
-
+SCRIPT(get_cfg_locations);
 private ["_loc_civ","_loc_ind","_loc_mil","_loc_water","_loc_sonst","_cfgOrte","_mil","_ind","_i","_pow","_quar"];
 
 _loc_water=[];

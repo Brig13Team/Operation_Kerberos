@@ -9,6 +9,7 @@
 
 */
 #include "script_component.hpp"
+SCRIPT(ui_crate_getMod);
 PARAMS_1(_config);
 private["_mod","_namearray"];
 _mod="";
