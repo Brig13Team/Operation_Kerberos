@@ -66,11 +66,12 @@ SETMVAR(DORB_SONSTIGES,(_return select 4));
 [] spawn {
 	scriptName "CORE - DIAG";
 	while {true} do {
-	For "_i" from 0 to 10 do {
-		[true] call FM(debug_diag);
-		uisleep 200;
+	For "_i" from 0 to 4 do {
+		[false,false] call FM(debug_diag);
+		uisleep 60;
 	};
-	[true,true] call FM(debug_diag);
+	[true,false] call FM(debug_diag);
+	uisleep 60;
 	false
 	};
 

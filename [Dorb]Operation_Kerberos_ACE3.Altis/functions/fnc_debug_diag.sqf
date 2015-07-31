@@ -35,9 +35,9 @@ If (_Scripte) then {
     {
         _Ausgabe pushBack format["       %1 | %2 | %3 | %4",(_x select 0),(_x select 2),(_x select 3),(_x select 1)];
     }forEach _aktive_SQS;
-    _Ausgabe pushBack "    AKTIVE FSM-SCRIPTE - [SCRIPTNAME | ISTAKTIV | AKTUELLEZEILE | DATEINAME]";
+    _Ausgabe pushBack "    AKTIVE FSM-SCRIPTE - [NAME | STATUS | TIMEOUT]";
     {
-        _Ausgabe pushBack format["       %1 | %2 | %3 | %4",(_x select 0),(_x select 2),(_x select 3),(_x select 1)];
+        _Ausgabe pushBack format["       %1 | %2 | %3",(_x select 0),(_x select 1),(_x select 2)];
     }forEach _aktive_FSM;
 };
 
