@@ -12,7 +12,7 @@
 
 SCRIPT(obj_sideby_sdv);
 
-private ["_position", "_rescue_point", "_task_array", "_sdv", "_radius", "_description"];
+private ["_position", "_pos", "_rescue_point", "_task_array", "_sdv", "_radius", "_description", "_depth"];
 
 params ["_position", "_task_array"];
 
@@ -24,20 +24,30 @@ DORB_SIDEBY_OBJECTS = [];
 
 _rescue_point = getMarkerPos "rescue_marker";
 
-_sdv = createVehicle ["B_SDV_01_F", _position, [], 0, "NONE"];
+_pos = [_position, 50, 3] call FM(random_pos);
 
-LOG(FORMAT_2("created %1 at %2", _sdv, getPos _sdv));
+_sdv = createVehicle ["B_SDV_01_F", _position, [], 0, "NONE"];
+LOG(FORMAT_2("%1 at %2", _sdv, _pos));
+
 if (isNull _sdv) exitWith {};
 
 DORB_SIDEBY_OBJECTS pushBack _sdv;
 
+_sdv setPos _pos;
+_sdv setPosATL [(position _sdv) select 0, (position _sdv) select 1, ((position _sdv) select 2) + 0.5];
 _sdv setFuel 0.3;
-// _sdv setDamage 0.3;
-
+_sdv setDamage 0.5;
+/*
+private "_marker";
+_marker = createMarker["sdv_marker", _pos];
+_marker setMarkerType "hd_dot";
+_marker setMarkerColor "ColorOPFOR";
+*/
 _sdv setVariable ["DORB_IS_TARGET",true];
 
 { DORB_SIDEBY_OBJECTS pushBack _x; } forEach ([_position,  50, 0, 5] call FM(spawn_patrol_water));
 { DORB_SIDEBY_OBJECTS pushBack _x; } forEach ([_position, 100, 1, 0] call FM(spawn_patrol_water));
+{ DORB_SIDEBY_OBJECTS pushBack _x; } forEach ([_position, 50, 50, 3] call FM(spawn_naval_minefield));
 
 ["STR_DORB_SIDE_SIDEMISSION",["STR_DORB_SIDE_SDV_DESCRIPTION_SHORT"],"",false] call FM(disp_info_global);
 #ifdef TEST
