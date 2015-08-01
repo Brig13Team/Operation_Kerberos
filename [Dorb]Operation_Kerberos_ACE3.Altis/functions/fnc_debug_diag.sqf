@@ -28,6 +28,9 @@ _Ausgabe pushBack format["    EINHEITENANZAHL = %1 | %2 | %3 | %4 (Einheitenanza
 _Ausgabe pushBack format["    MINEN = %1  (Anzahl der Minen)",(count allMines)];
 _Ausgabe pushBack format["    OBJEKTE = %1  (Anzahl der Missions-Objekte auf der Karte)",(count (allMissionObjects "ALL"))];
 _Ausgabe pushBack format["    CBA_perFrameEH = %1  (Anzahl der CBA-Eventhandler)",(count (cba_common_perFrameHandlerArray))];
+If (hasInterface) then {
+	_Ausgabe pushBack format["    Viewdistance = %1 | %2  (Sichtweite | [Objektsichtweite , Schattensichtweite])",(viewDistance),(getObjectViewDistance)];
+};
 
 If (_Scripte) then {
     private ["_aktive_FSM","_aktive_SQF","_aktive_SQS"];
