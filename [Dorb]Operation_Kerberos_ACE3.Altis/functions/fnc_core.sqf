@@ -66,10 +66,10 @@ SETMVAR(DORB_SONSTIGES,(_return select 4));
 	SCRIPT(CORE_DIAG);
 	while {true} do {
 	For "_i" from 0 to 4 do {
-		[false,false] call FM(debug_diag);
+		[false,false] call FM(debug_performance);
 		uisleep 60;
 	};
-	[true,false] call FM(debug_diag);
+	[true,false] call FM(debug_performance);
 	uisleep 60;
 	false
 	};

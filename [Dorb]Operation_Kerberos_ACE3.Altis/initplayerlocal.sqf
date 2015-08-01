@@ -37,7 +37,7 @@ ISNILS(DORB_MISSION_FNC,[]);
 [] spawn {
 	SCRIPT(PLAYER_DIAG);
 	while {true} do {
-		[false,false] call FM(debug_diag);
+		[false,false] call FM(debug_performance);
 		uisleep 60;
 		false
 	};

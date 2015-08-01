@@ -10,7 +10,7 @@ TRIPLES(dorb,makro,delete) = compileFinal "If(if (isNil {_this}) then { false } 
 //Allgemeines
 PREPMAIN(positionsMean);
 PREPMAIN(determineHC);
-PREPMAIN(debug_diag);
+PREPMAIN(debug_performance);
 PREPMAIN(get_buildings);
 PREPMAIN(get_cfg_subclasses);
 PREPMAIN(get_cfglocations);
