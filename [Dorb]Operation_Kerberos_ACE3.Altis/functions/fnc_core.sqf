@@ -54,7 +54,7 @@ SETMVAR(DORB_SONSTIGES,(_return select 4));
 	If ((_markerpos distance [0,0,0])<1) exitWith {};
 	while {true} do {
 		private "_units";
-		_units = _markerpos nearEntities ["Man", 25];
+		_units = _markerpos nearEntities [["Man","Ship_F","LandVehicle"], 15];
 		{
 			[_x,"DORB_RESCUEPOINT",[_x]] call BIS_fnc_callScriptedEventHandler;
 		}forEach _units;
