@@ -5,17 +5,20 @@
 	Spawns Inf Patrols
 
 	Parameter(s):
-		0 :	ARRAY	- can be
-		1 : NUMBER 	- maybe
+		0 :	ARRAY	- Position
+		(Optional)
+		1 : NUMBER 	- Radius
+		2 : NUMBER 	- Anzahl Inf Patrols
+		3 : NUMBER 	- Anzahl Spec Patrols
 		
 
 	Returns:
-	Something (eventually)
+		Nothing
 
 */
 #include "script_component.hpp"
 SCRIPT(spawn_patrol_inf);
-private ["_gruppe","_units","_rand","_spawnpos","_return","_rad","_pos"];
+private ["_gruppe","_units"];
 PARAMS_1(_position);
 DEFAULT_PARAM(1,_radius,1200);
 DEFAULT_PARAM(2,_anzahl_inf,0);
@@ -26,6 +29,7 @@ _units=[];
 _rand=[];
 
 for "_i" from 0 to _anzahl_inf do {
+	private["_formation","_rad","_pos","_spawnpos","_rand","_return"];
 	_rad = ((random 500) + 200);
 	_pos = [_position,_radius,0] call FM(random_pos);
 	_spawnpos = _pos findEmptyPosition [1,40];
@@ -36,7 +40,8 @@ for "_i" from 0 to _anzahl_inf do {
 	}else{
 		_return = [_spawnpos, dorb_side , _rand] call BIS_fnc_spawnGroup;
 		_units pushBack _return;
-		[_return, _spawnpos, _rad, 7, "MOVE", "AWARE", "RED", "NORMAL", "STAG COLUMN", "", [5,10,15]] call CBA_fnc_taskPatrol;
+		_formation = ["COLUMN","STAG COLUMN","WEDGE","VEE","FILE","DIAMOND"] SELRND;
+		[_return, _spawnpos, _rad, 7, "MOVE", "AWARE", "RED", "NORMAL", _formation, "", [5,10,15]] call CBA_fnc_taskPatrol;
 		[_return] call FM(moveToHC);
 	};
 };
@@ -57,6 +62,7 @@ if (dorb_debug) then {
 _units=[];
 
 for "_i" from 0 to _anzahl_spec do {
+	private["_formation","_rad","_pos","_spawnpos","_rand","_return"];
 	_rad = ((random 500) + 200);
 	_pos = [_position,_radius,0] call FM(random_pos);
 	_spawnpos = _pos findEmptyPosition [1,50,"O_UGV_01_rcws_F"];
@@ -67,7 +73,8 @@ for "_i" from 0 to _anzahl_spec do {
 	}else{
 		_return = [_spawnpos, dorb_side , _rand] call BIS_fnc_spawnGroup;
 		_units pushBack _return;
-		[_return, _spawnpos, _rad, 7, "MOVE", "AWARE", "RED", "NORMAL", "STAG COLUMN", "", [5,10,15]] call CBA_fnc_taskPatrol;
+		_formation = ["COLUMN","STAG COLUMN","WEDGE","VEE","FILE","DIAMOND"] SELRND;
+		[_return, _spawnpos, _rad, 7, "MOVE", "AWARE", "RED", "NORMAL", _formation, "", [5,10,15]] call CBA_fnc_taskPatrol;
 		[_return] call FM(moveToHC);
 	};
 };
