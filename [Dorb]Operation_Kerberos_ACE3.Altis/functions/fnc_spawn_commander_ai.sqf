@@ -16,18 +16,19 @@ private ["_attackpos_air","_attackpos_tanks","_attackpos_ground"];
 /// functions
 
 _attack_ai = {
+	LOG(FORMAT_1("COMMANDER | AirInterception | %1",(_attackpos_filtered select _i)));
 	PARAMS_1(_attackpos_air);
 	private ["_radars","_veh","_inSight","_radarpos"];
 	_radars = GETVAR(DORB_COMMANDER_LOGIC,DORB_COMMANDER_RADAR,[]);
-	_inSight = {
-			private "_outOfSight";
-			_outOfSight = true;
-			_radarpos = getPos _x;
-			_radarpos set[2,((_radarpos select 2)+1)];
-			_outOfSight = terrainIntersect[_attackpos_air,_radarpos];
-			If ((IS_BOOL(_outOfSight))&&{(!(_outOfSight))}) exitWith {true};
-			false;
-		}forEach _radars;	
+	_inSight = false;
+	{
+		private "_outOfSight";
+		_outOfSight = true;
+		_radarpos = getPos _x;
+		_radarpos set[2,((_radarpos select 2)+1)];
+		_outOfSight = terrainIntersect[(_attackpos_air select 0),_radarpos];
+		If ((IS_BOOL(_outOfSight))&&{(!(_outOfSight))}) exitWith {_inSight=true;};
+	}forEach _radars;	
 	
 	If (_inSight) then {
 		private "_planes";
