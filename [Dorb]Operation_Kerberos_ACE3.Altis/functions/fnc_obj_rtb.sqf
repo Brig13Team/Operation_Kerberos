@@ -37,7 +37,7 @@ If (taskcancel) then {
 _taskVar = "BIS_fnc_taskVar_" + _taskID + "_side";
 _data = missionnamespace getvariable _taskVar;
 if ( ( !(isnil "_data") ) && { !((_data select 4) in ["Succeeded","Failed","Canceled"]) } ) then {
-	[_taskID, "Canceled", false] call BIS_fnc_taskSetState;
+	[_taskVar, "Canceled", false] call BIS_fnc_taskSetState;
 };
 
 //////////////////////////////////////////////////
