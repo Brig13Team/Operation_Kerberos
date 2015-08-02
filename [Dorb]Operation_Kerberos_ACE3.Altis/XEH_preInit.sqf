@@ -74,7 +74,7 @@ PREPMAIN(spawn_macro_exec3d);
 PREPMAIN(spawn_minefield);
 PREPMAIN(spawn_minefields);
 PREPMAIN(spawn_mortarpos);
-PREPMAIN(spawn_naval_minefield)
+PREPMAIN(spawn_naval_minefield);
 PREPMAIN(spawn_obj_mil);
 PREPMAIN(spawn_obj_sonstiges);
 PREPMAIN(spawn_obj_stadt);
