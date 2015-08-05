@@ -24,6 +24,7 @@ PREPMAIN(pos_flatempty);
 PREPMAIN(pos_surrounding);
 PREPMAIN(random_pos);
 PREPMAIN(sel_array_weighted);
+//PREPMAIN(userconfig);
 
 //City 2.0
 PREPMAIN(city_fortify);

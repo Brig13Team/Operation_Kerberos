@@ -5,7 +5,15 @@
 		initServer
 */
 #include "script_component.hpp"
+/*
+[] call FM(userconfig);
 
+If (DORB_RESERVED) then {
+	["Pilots", "onPlayerConnected", {
+		_this call FM(reserved_pilot);
+	}] call BIS_fnc_addStackedEventHandler;
+};
+*/
 waituntil{!isNil "DORB_RESPAWNMARKER"};
 
 [] spawn FM(core);
