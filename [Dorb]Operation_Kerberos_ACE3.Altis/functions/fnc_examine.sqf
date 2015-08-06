@@ -60,7 +60,7 @@ switch (_option) do {
 						_position_rescue = getMarkerPos "rescue_marker";
 						_list = _position_rescue nearEntities ["Man", 10];
 						{					
-							If ((side _x == dorb_side)||(captive _x)) then {
+							If ((!(GETVAR(_x,DORB_IS_TARGET,false))) && {(side _x == dorb_side)||(captive _x)}) then {
 								
 								//If ((captive _x)&&(!(_x isKindOf "rhs_infantry_msv_base"))) exitWith {};
 								If ((typeOf _x in dorb_pow)||(isPlayer _x))exitWith{};
