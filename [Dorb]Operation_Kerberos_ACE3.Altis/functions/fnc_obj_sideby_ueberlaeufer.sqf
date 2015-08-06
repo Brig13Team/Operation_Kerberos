@@ -43,6 +43,7 @@ if (!(_buildings isEqualTo [])) then {
 };
 
 _ziel = [_zielPos, createGroup civilian, "C_man_polo_1_F"] call FM(spawn_unit);
+SETVAR(_ziel,DORB_IS_TARGET,true);
 DORB_SIDEBY_OBJECTS pushBack _ziel;
 removeAllWeapons _ziel; removeAllItems _ziel; removeAllAssignedItems _ziel; removeUniform _ziel; removeVest _ziel; removeBackpack _ziel; removeHeadgear _ziel; removeGoggles _ziel;
 _ziel forceAddUniform (getText (missionConfigFile >> "sideby_config" >> "deserter" >> "uniform"));
