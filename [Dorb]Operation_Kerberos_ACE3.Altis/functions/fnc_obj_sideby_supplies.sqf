@@ -194,14 +194,16 @@ while { (!(DORB_SIDEBY_OBJECTS isEqualTo [])) AND {((_dest distance (position _c
 	if (_counter > 360) exitWith {};
 };
 LOG("SCHLEIFE ABGEBROCHEN");
-if (DORB_SIDEBY_OBJECTS isEqualTo []) exitWith {};
+if (DORB_SIDEBY_OBJECTS isEqualTo []) exitWith {
+	[_task, "Canceled", false] call BIS_fnc_taskSetState;
+};
 
 if (((damage _crate) < 1) AND (_crate != objNull) AND (_counter < 360)) then {
 	["STR_DORB_SIDE_SIDEMISSION",["STR_DORB_SIDE_FINISHED"],"",false] call FM(disp_info_global);
 	#ifdef TEST
 		LOG("[SIDEBY] Supplies abgeschlossen!");
 	#else
-		[(_task_array select 0), "Succeeded", true] call BIS_fnc_taskSetState;
+		[(_task_array select 0), "Succeeded", false] call BIS_fnc_taskSetState;
 		[_main_task select 1, "targets", [2,50]] call FM(obj_reward);
 	#endif
 } else {
@@ -209,7 +211,7 @@ if (((damage _crate) < 1) AND (_crate != objNull) AND (_counter < 360)) then {
 	#ifdef TEST
 		LOG("[SIDEBY] Supplies gescheitert!");
 	#else
-		[(_task_array select 0), "Failed", true] call BIS_fnc_taskSetState;
+		[(_task_array select 0), "Failed", false] call BIS_fnc_taskSetState;
 	#endif
 };
 

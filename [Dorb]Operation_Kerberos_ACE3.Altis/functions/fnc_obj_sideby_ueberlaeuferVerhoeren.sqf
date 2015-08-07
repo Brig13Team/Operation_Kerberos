@@ -72,7 +72,9 @@ while { (!(DORB_SIDEBY_OBJECTS isEqualTo [])) AND {((((getPos _ueberlaeufer) dis
 	};
 };
 LOG("SCHLEIFE ABGEBROCHEN");
-if (DORB_SIDEBY_OBJECTS isEqualTo []) exitWith {};
+if (DORB_SIDEBY_OBJECTS isEqualTo []) exitWith {
+	[_task, "Canceled", false] call BIS_fnc_taskSetState;
+};
 
 _info = _info / 100;
 
@@ -119,7 +121,7 @@ if ( (_info > 0) and (alive _ueberlaeufer) ) then {
 	#ifdef TEST
 		LOG("[SIDEBY] Überläufer abgeschlossen!");
 	#else
-		[_task, "Succeeded", true] call BIS_fnc_taskSetState;
+		[_task, "Succeeded", false] call BIS_fnc_taskSetState;
 	#endif
 } else {
 	hint localize "STR_DORB_SIDE_UEBERLAEUFER_NICHT_VERHOERT";
@@ -128,7 +130,7 @@ if ( (_info > 0) and (alive _ueberlaeufer) ) then {
 	#ifdef TEST
 		LOG("[SIDEBY] Überläufer gescheitert!");
 	#else
-		[_task, "Failed", true] call BIS_fnc_taskSetState;
+		[_task, "Failed", false] call BIS_fnc_taskSetState;
 	#endif
 };
 

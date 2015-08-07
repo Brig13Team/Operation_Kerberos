@@ -90,7 +90,9 @@ switch (_mode) do {
 			LOG("SCHLEIFE GESTARTET");
 			while { (!(DORB_SIDEBY_OBJECTS isEqualTo [])) AND {(((position _suitcase) distance _pos) > 25) OR !(isNull attachedTo _suitcase)} } do { uiSleep 5; };
 			LOG("SCHLEIFE ABGEBROCHEN");
-			if (DORB_SIDEBY_OBJECTS isEqualTo []) exitWith {};
+			if (DORB_SIDEBY_OBJECTS isEqualTo []) exitWith {
+				[_task, "Canceled", false] call BIS_fnc_taskSetState;
+			};
 
 			uiSleep 5;
 

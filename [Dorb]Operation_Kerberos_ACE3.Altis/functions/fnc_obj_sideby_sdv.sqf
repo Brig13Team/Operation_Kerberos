@@ -59,7 +59,9 @@ _sdv setVariable ["DORB_IS_TARGET",true];
 LOG("SCHLEIFE GESTARTET");
 while { (!(DORB_SIDEBY_OBJECTS isEqualTo [])) AND { ((position _sdv) distance _rescue_point) > 25 } AND {(damage _sdv) != 1} } do { uiSleep 5; };
 LOG("SCHLEIFE ABGEBROCHEN");
-if (DORB_SIDEBY_OBJECTS isEqualTo []) exitWith {};
+if (DORB_SIDEBY_OBJECTS isEqualTo []) exitWith {
+	[_task, "Canceled", false] call BIS_fnc_taskSetState;
+};
 
 if ((damage _sdv == 1)) then {
 	["STR_DORB_SIDE_SIDEMISSION",["STR_DORB_SIDE_FAILED"],"",false] call FM(disp_info_global);
