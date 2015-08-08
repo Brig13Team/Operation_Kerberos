@@ -1,6 +1,6 @@
 # Operation-Kerberos
 Dynamische Mission von Dorbedo und iJesuz </br>
-Unterstützt von Maverick (Stellungsdesign), Cypherstalker (Übersetzungen) und Kiwa (Spellcheck)
+Unterstützt von Maverick (Stellungsdesign), Cypherstalker (Übersetzungen) und Kiwa (Spellcheck).
 
 ####Momentane Features:
 
