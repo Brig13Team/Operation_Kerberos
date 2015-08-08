@@ -34,9 +34,9 @@
             <English>Vehicles</English>
 		</Key>
 		<Key ID="STR_DORB_BRIEF_VEHICLES_DESC">
-			<Original>Vehicles can be optimed from the spawnpads at the base.</Original>
+			<Original>Vehicles can be obtained from the spawnpads at the base.</Original>
             <German>Fahrzeuge bekommst du über die Spawnpads in der Basis.</German>
-            <English>Vehicles can be optimed from the spawnpads at the base.</English>
+            <English>Vehicles can be obtained from the spawnpads at the base.</English>
 		</Key>
 		<Key ID="STR_DORB_BRIEF_RESPAWN">
 			<Original>Respawn</Original>
