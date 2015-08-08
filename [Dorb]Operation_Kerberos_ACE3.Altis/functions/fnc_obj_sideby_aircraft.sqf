@@ -145,11 +145,11 @@ switch (_mode) do {
 		#else
 			private "_buffer";
 			_buffer = GETMVAR(DORB_MILITAER,[]);
+			CHECK(DORB_MILITAER isEqualTo [])
 			for "_i" from 1 to 130 do {
 				_dest = ((_buffer SELRND) select 1) + [0];
 				if ((_dest distance _position) > 6000) exitWith {};
 			};
-			CHECK(DORB_MILITAER isEqualTo [])
 		#endif
 
 		_typen = ["Land_Wreck_Plane_Transport_01_F","Land_Wreck_Heli_Attack_02_F"];

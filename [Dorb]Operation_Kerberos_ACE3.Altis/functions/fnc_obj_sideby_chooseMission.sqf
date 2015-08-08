@@ -67,7 +67,7 @@ switch (_aufgabe) do
 	};
 	case "aircraft":
 	{
-		[(_position select 1) + [0], _task_array] call FM(TRIPLES(obj,sideby,aircraft));
+		[[(_position select 1) + [0], _task_array]] call FM(TRIPLES(obj,sideby,aircraft));
 	};
 	case "supplies":
 	{
