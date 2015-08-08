@@ -302,9 +302,9 @@
             <English>Desert</English>
 		</Key>
 		<Key ID="STR_DORB_SPAWN_NOTEMPTY">
-			<Original>Spawn is not empty</Original>
+			<Original>Spawn point is not empty</Original>
             <German>Spawnfläche ist nicht leer</German>
-            <English>Spawn is not empty</English>
+            <English>Spawn point is not empty</English>
 		</Key>
 		<Key ID="STR_DORB_SPAWN_VEHICLE">
 			<Original>Vehicle Spawn</Original>
@@ -312,9 +312,9 @@
             <English>Vehicle Spawn</English>
 		</Key>
 		<Key ID="STR_DORB_SPAWN_AIR">
-			<Original>Air Spawn</Original>
+			<Original>Aircraft Spawn</Original>
             <German>Luftwaffenspawn</German>
-            <English>Air Spawn</English>
+            <English>Aircraft Spawn</English>
 		</Key>
 		<Key ID="STR_DORB_SPAWN_WATER">
 			<Original>Naval Spawn</Original>
@@ -322,9 +322,9 @@
             <English>Naval Spawn</English>
 		</Key>
 		<Key ID="STR_DORB_SPAWN_DRONES">
-			<Original>Autonomous Spawn</Original>
+			<Original>Drone Spawn</Original>
             <German>Drohnenspawn</German>
-            <English>Autonomous Spawn</English>
+            <English>Drone Spawn</English>
 		</Key>
 		<Key ID="STR_DORB_SPAWN_LOGISTIC">
 			<Original>Supply Depot</Original>
@@ -352,9 +352,9 @@
             <English>Order Aircraft</English>
 		</Key>
 		<Key ID="STR_DORB_SPAWN_WATER_DESC">
-			<Original>Order Ship</Original>
+			<Original>Order Boat</Original>
             <German>Schiffe bestellen</German>
-            <English>Order Ship</English>
+            <English>Order Boat</English>
 		</Key>
 		<Key ID="STR_DORB_SPAWN_DRONES_DESC">
 			<Original>Order Drone</Original>
@@ -377,9 +377,9 @@
             <English>%1: you don't have the right qualifications to move this vehicle.</English>
 		</Key>
 		<Key ID="STR_DORB_RESCUE_MARKER">
-			<Original>Rescue-Point</Original>
+			<Original>Rescue Point</Original>
             <German>Sicherheitszone</German>
-            <English>Rescue-Point</English>
+            <English>Rescue Point</English>
 		</Key>
 	</Package>
 	<Package name="CRATE">
@@ -409,9 +409,9 @@
             <English>Medium Box</English>
 		</Key>
 		<Key ID="STR_DORB_CRATE_SIZE3">
-			<Original>Big Box</Original>
+			<Original>Large Box</Original>
             <German>Große Kiste</German>
-            <English>Big Box</English>
+            <English>Large Box</English>
 		</Key>
 		<Key ID="STR_DORB_CRATE_SIZE4">
 			<Original>Supply Crate</Original>
@@ -419,14 +419,14 @@
             <English>Supply Crate</English>
 		</Key>
 		<Key ID="STR_DORB_CRATE_SIZE5">
-			<Original>Fright Net</Original>
-            <German>Frachtnetz</German>
-            <English>Fright Net</English>
+			<Original>Cargo Pallet</Original>
+            <German>Frachtpalette</German>
+            <English>Cargo Pallet</English>
 		</Key>
 		<Key ID="STR_DORB_CRATE_SIZE6">
-			<Original>Container</Original>
+			<Original>Shipping Container</Original>
             <German>Frachtcontainer</German>
-            <English>Container</English>
+            <English>Shipping Container</English>
 		</Key>
 		<Key ID="STR_DORB_CRATE_BTTN_1">
 			<Original>Current</Original>
@@ -454,14 +454,14 @@
             <English>Other Weapons</English>
 		</Key>
 		<Key ID="STR_DORB_CRATE_BTTN_6">
-			<Original>Launcher</Original>
+			<Original>Launchers</Original>
             <German>Raktenwerfer</German>
-            <English>Launcher</English>
+            <English>Launchers</English>
 		</Key>
 		<Key ID="STR_DORB_CRATE_BTTN_7">
-			<Original>Pistole</Original>
+			<Original>Pistols</Original>
             <German>Pistolen</German>
-            <English>Pistole</English>
+            <English>Pistols</English>
 		</Key>
 		<Key ID="STR_DORB_CRATE_BTTN_8">
 			<Original>Attachments</Original>
@@ -499,19 +499,19 @@
             <English>Head</English>
 		</Key>
 		<Key ID="STR_DORB_CRATE_BTTN_15">
-			<Original>Radio</Original>
+			<Original>Radios</Original>
             <German>Funkgeräte</German>
-            <English>Radio</English>
+            <English>Radios</English>
 		</Key>
 		<Key ID="STR_DORB_CRATE_BTTN_16">
-			<Original>Orienttation Guidiance</Original>
+			<Original>Nav Tools</Original>
             <German>Orientierungshilfen</German>
-            <English>Orienttation Guidiance</English>
+            <English>Nav Tools</English>
 		</Key>
 		<Key ID="STR_DORB_CRATE_BTTN_17">
-			<Original>Medical Equipment</Original>
+			<Original>Medical Supplies</Original>
             <German>Sanitätsmaterial</German>
-            <English>Medical Equipment</English>
+            <English>Medical Supplies</English>
 		</Key>
 		<Key ID="STR_DORB_CRATE_BTTN_18">
 			<Original>Items</Original>
