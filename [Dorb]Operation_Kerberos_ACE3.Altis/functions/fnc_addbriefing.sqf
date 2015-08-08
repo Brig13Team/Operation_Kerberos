@@ -7,7 +7,7 @@
 scriptname "dorb\kerberos\addbriefing";
 player createDiaryRecord ["Diary", ["Credits",format["
 	<br/>Author %1
-	<br/>Translations (English): Cypherstalker
+	<br/>Translations (English): Cypherstalker, Kiwa
 	<br/>Fortification-Design: Maverick2044
 	----------------
 	Used Scripts:
