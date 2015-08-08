@@ -16,7 +16,7 @@ private ["_attackpos_air","_attackpos_tanks","_attackpos_ground"];
 /// functions
 
 _attack_ai = {
-	LOG(FORMAT_1("COMMANDER | AirInterception | %1",(_attackpos_filtered select _i)));
+	LOG(FORMAT_1("COMMANDER | AirInterception | %1",(_this)));
 	PARAMS_1(_attackpos_air);
 	private ["_radars","_veh","_inSight","_radarpos"];
 	_radars = GETVAR(DORB_COMMANDER_LOGIC,DORB_COMMANDER_RADAR,[]);
@@ -464,7 +464,7 @@ while {_a={alive _x}count (GETVAR(DORB_COMMANDER_LOGIC,DORB_COMMANDER_CURRENT_HQ
 				
 			}else{
 				/// Medium Attack
-				If ((_attackpos_filtered_weight select _i) > 6) then {
+				If ((_attackpos_filtered_weight select _i) > 7) then {
 					_rand = floor (random 5);
 					If ((_rand <1)&&((GETVAR(DORB_COMMANDER_LOGIC,DORB_COMMANDER_MECH,[])) || (GETVAR(DORB_COMMANDER_LOGIC,DORB_COMMANDER_AIRDROP,[])))&&(GETVAR(DORB_COMMANDER_LOGIC,DORB_COMMANDER_ART,[]))) exitWith {
 						[(_attackpos_filtered select _i)] call _Attacktype_arty_auto;
