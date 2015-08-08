@@ -34,9 +34,9 @@
             <English>Vehicles</English>
 		</Key>
 		<Key ID="STR_DORB_BRIEF_VEHICLES_DESC">
-			<Original>Get your vehicles over the spawnpads at base</Original>
+			<Original>Vehicles can be obtained from the spawnpads at the base.</Original>
             <German>Fahrzeuge bekommst du über die Spawnpads in der Basis.</German>
-            <English>Get your vehicles over the spawnpads at base</English>
+            <English>Vehicles can be obtained from the spawnpads at the base.</English>
 		</Key>
 		<Key ID="STR_DORB_BRIEF_RESPAWN">
 			<Original>Respawn</Original>
@@ -44,9 +44,9 @@
             <English>Respawn</English>
 		</Key>
 		<Key ID="STR_DORB_BRIEF_RESPAWN_DESC">
-			<Original>If you die you will respawn at base. Your earlier equipped gear will be kept.</Original>
-            <German>Wenn du stirbst, kannst du von der Basis aus neu beginnen. Deine Ausrüstung von vor deinem Tod wird wieder hergestellt.</German>
-            <English>If you die you will respawn at base. Your earlier equipped gear will be kept.</English>
+			<Original>If you die you will respawn at base. Your previously equipped gear will be retained.</Original>
+            <German>Wenn du stirbst, kannst du von der Basis aus neu beginnen. Deine Ausrüstung von vor deinem Tod wird wiederhergestellt.</German>
+            <English>If you die you will respawn at base. Your previously equipped gear will be retained.</English>
 		</Key>
 		<Key ID="STR_DORB_BRIEF_HALO">
 			<Original>Halo</Original>
@@ -54,9 +54,9 @@
             <English>Halo</English>
 		</Key>
 		<Key ID="STR_DORB_BRIEF_HALO_DESC">
-			<Original>Use the 'Halojump' to quickly get to your target. Use it by selecting your destination on the Halomap with the left mouse button. Your parachute will automatically deploy 75m above ground. After your landing your backpack will be restored.</Original>
+			<Original>Use the 'Halojump' to quickly get to your target. Use it by selecting your destination on the Halomap with the left mouse button. Your parachute will automatically deploy 75m above ground. After landing your backpack will be restored.</Original>
             <German>Du kannst schnell per Fallschirm abspringen, indem du den 'Halojump' nutzt. Den Halojump nutzt du, indem du auf der Halokarte auf den Zielort mit der linken Maustaste klickst. Der Fallschrim öffnet sich automatisch 75m über dem Boden. Nach der Landung erhälst du deinen Rucksack zurück.</German>
-            <English>Use the 'Halojump' to quickly get to your target. Use it by selecting your destination on the Halomap with the left mouse button. Your parachute will automatically deploy 75m above ground. After your landing your backpack will be restored.</English>
+            <English>Use the 'Halojump' to quickly get to your target. Use it by selecting your destination on the Halomap with the left mouse button. Your parachute will automatically deploy 75m above ground. After landing your backpack will be restored.</English>
 		</Key>
 		<Key ID="STR_DORB_BRIEF_SQUAD">
 			<Original>Squadmanagement</Original>
@@ -64,9 +64,9 @@
             <English>Squadmanagement</English>
 		</Key>
 		<Key ID="STR_DORB_BRIEF_SQUAD_DESC">
-			<Original>To open up the squad management press 'U'.</Original>
+			<Original>To open the squad management dialog press 'U'.</Original>
             <German>Um deine Gruppe zu wechseln nutze bitte das Squadmanagement von Bohemia. Die Tastatur Standartbelegung dafür ist 'U'.</German>
-            <English>To open up the squad management press 'U'.</English>
+            <English>To open the squad management dialog press 'U'.</English>
 		</Key>
 		<Key ID="STR_DORB_BRIEF_TFR">
 			<Original>Frequencies</Original>
@@ -74,9 +74,9 @@
             <English>Frequencies</English>
 		</Key>
 		<Key ID="STR_DORB_BRIEF_TFR_DESC">
-			<Original>To ensure communication between the squads please enter your frequencies via the 'Frequencies' option under your mouse wheel menu. The Team Lead is able to define frequencies whereas members are able to adopt them easily.</Original>
+			<Original>To ensure communication between the squads please enter your frequencies via the 'Frequencies' option in your mouse wheel menu. Each squad leader is able to define frequencies, and squad members are able to adopt them easily.</Original>
             <German>Um die Kommunikation zwischen den Squads zu gewährleisten, tragt bitte eure Funkfrequenzen über das TFR-Frequenzübersicht Tool ein. Dieses findet ihr auch über das Mausradmenu. Der Teamleader kann in dem Tool die Frequenzen des Squads mit 'Festlegen' festlegen und die Teammiglieder können schnell ihr Funkgerät mit 'Übernehmen' auf die Squadfrequenzen einstellen.</German>
-            <English>To ensure communication between the squads please enter your frequencies via the 'Frequencies' option under your mouse wheel menu. The Team Lead is able to define frequencies whereas members are able to adopt them easily.</English>
+            <English>To ensure communication between the squads please enter your frequencies via the 'Frequencies' option in your mouse wheel menu. Each squad leader is able to define frequencies, and squad members are able to adopt them easily.</English>
 		</Key>
 		
 	</Package>
@@ -84,7 +84,7 @@
 		<Key ID="STR_DORB_WELCOME1">
 			<Original>Welcome to Brigade 13.</Original>
             <German>Willkommen bei der Brigade 13.</German>
-            <English>Welcome to Brigade 13</English>
+            <English>Welcome to Brigade 13.</English>
 		</Key>
 		<Key ID="STR_DORB_WELCOME2">
 			<Original>We wish you a good time</Original>
@@ -92,7 +92,7 @@
             <English>We wish you a good time</English>
 		</Key>
 		<Key ID="STR_DORB_WELCOME3">
-			<Original>on our public server</Original>
+			<Original>on our public server.</Original>
             <German>auf unserem Public-Server.</German>
             <English>on our public server.</English>
 		</Key>
@@ -112,9 +112,9 @@
             <English>your 13th Brigade</English>
 		</Key>
 		<Key ID="STR_DORB_REP_POINT">
-			<Original>Reparation</Original>
+			<Original>Repairs</Original>
             <German>Reperatur</German>
-            <English>Reparation</English>
+            <English>Repairs</English>
 		</Key>
 		<Key ID="STR_DORB_REP_POINT2">
 			<Original>&lt;t size='1.5' shadow='2' color='#ff0000'&gt;Repair Vehicle&lt;/t&gt;</Original>
@@ -122,9 +122,9 @@
             <English>&lt;t size='1.5' shadow='2' color='#ff0000'&gt;Repair Vehicle&lt;/t&gt;</English>
 		</Key>
 		<Key ID="STR_DORB_REP_CANCELED">
-			<Original>Canceled</Original>
+			<Original>Cancelled</Original>
             <German>Abgebrochen</German>
-            <English>Canceled</English>
+            <English>Cancelled</English>
 		</Key>
 		<Key ID="STR_DORB_REP_EXECUTED">
 			<Original>In progress</Original>
@@ -137,9 +137,9 @@
             <English>Please wait...</English>
 		</Key>
 		<Key ID="STR_DORB_REP_FINISHED">
-			<Original>Finished</Original>
+			<Original>Completed</Original>
             <German>Abgeschlossen</German>
-            <English>Finished</English>
+            <English>Completed</English>
 		</Key>
 		<Key ID="STR_DORB_TELEPORT">
 			<Original>Teleport</Original>
@@ -177,9 +177,9 @@
             <English>Harbour</English>
 		</Key>
 		<Key ID="STR_DORB_TELEPORT_LEAD">
-			<Original>Teleport to Teamleader</Original>
+			<Original>Teleport to squad leader</Original>
             <German>Teleport zum Teamleader</German>
-            <English>Teleport to Teamleader</English>
+            <English>Teleport to squad leader</English>
 		</Key>
 		<Key ID="STR_DORB_TELEPORT_LEAD_FAIL">
 			<Original>Teleport failed</Original>
@@ -187,9 +187,9 @@
             <English>Teleport failed</English>
 		</Key>
 		<Key ID="STR_DORB_TELEPORT_LEAD_ISLEADER">
-			<Original>You are the Teamleader yourself.</Original>
+			<Original>You are the squad leader yourself.</Original>
             <German>Du bist selbst der Teamleader.</German>
-            <English>You are the Teamleader yourself.</English>
+            <English>You are the squad leader yourself.</English>
 		</Key>
 		<Key ID="STR_DORB_TELEPORT_LEAD_NEARENEMY">
 			<Original>Enemies nearby.</Original>
@@ -202,9 +202,9 @@
             <English>No seat left in the vehicle</English>
 		</Key>
 		<Key ID="STR_DORB_TELEPORT_LEAD_INAIR">
-			<Original>Teamlead is not touching ground.</Original>
+			<Original>Squad leader is not touching ground.</Original>
             <German>Teamleader befindet sich nicht am Boden</German>
-            <English>Teamlead is not touching ground.</English>
+            <English>Squad leader is not touching ground.</English>
 		</Key>
 		<Key ID="STR_DORB_HALO">
 			<Original>Halo</Original>
@@ -217,9 +217,9 @@
             <English>open parachute</English>
 		</Key>
 		<Key ID="STR_DORB_HALO_DISABLED">
-			<Original>Halo deactivated</Original>
+			<Original>Halo jump deactivated</Original>
             <German>Halo deaktiviert</German>
-            <English>Halo deactivated</English>
+            <English>Halo jump deactivated</English>
 		</Key>
 		<Key ID="STR_DORB_HALO_KlICK">
 			<Original>Left-click your destination</Original>
@@ -227,14 +227,14 @@
             <English>Left-click your destination</English>
 		</Key>
 		<Key ID="STR_DORB_HALO_ABORT">
-			<Original>Canceled</Original>
+			<Original>Cancelled</Original>
             <German>Abgebrochen</German>
-            <English>Canceled</English>
+            <English>Cancelled</English>
 		</Key>
 		<Key ID="STR_DORB_TFR_SHORT">
-			<Original>Frequencies</Original>
+			<Original>TFR Frequencies</Original>
             <German>TFR - Frequenzübersicht</German>
-            <English>Frequencies</English>
+            <English>TFR Frequencies</English>
 		</Key>
 		<Key ID="STR_DORB_TFR_HEADER">
 			<Original>Task Force Radio - Frequencies</Original>
@@ -242,24 +242,24 @@
             <English>Task Force Radio - Frequencies</English>
 		</Key>
 		<Key ID="STR_DORB_TFR_TAKE">
-			<Original>Take</Original>
+			<Original>Apply</Original>
             <German>Übernehmen</German>
-            <English>Take</English>
+            <English>Apply</English>
 		</Key>
 		<Key ID="STR_DORB_TFR_TAKE_TOOLTIP">
-			<Original>Take frequency of your squad</Original>
+			<Original>Copy frequencies of your squad to your radio(s).</Original>
             <German>Übernimm die Frequenzen der Gruppe in dein eigenes Funkgerät.</German>
-            <English>Take frequency of your squad</English>
+            <English>Copy frequencies of your squad to your radio(s).</English>
 		</Key>
 		<Key ID="STR_DORB_TFR_SET">
-			<Original>Set</Original>
+			<Original>Define</Original>
             <German>Festlegen</German>
-            <English>Set</English>
+            <English>Define</English>
 		</Key>
 		<Key ID="STR_DORB_TFR_SET_TOOLTIP">
-			<Original>Set frequency as teamleader of your squad</Original>
+			<Original>As squad lead, define the radio frequency of your team.</Original>
             <German>Setze als Teamleader die Frequenzen der Gruppe fest.</German>
-            <English>Set frequency as teamleader of your squad</English>
+            <English>As squad lead, define the radio frequency of your team.</English>
 		</Key>
 		<Key ID="STR_DORB_TFR_GROUP">
 			<Original>Squad</Original>
@@ -267,19 +267,19 @@
             <English>Squad</English>
 		</Key>
 		<Key ID="STR_DORB_TFR_FREQ_SQUAD">
-			<Original>Current Squad-Frequencies</Original>
+			<Original>Current squad frequencies</Original>
             <German>Aktuelle Squadfrequenzen</German>
-            <English>Current Squad-Frequencies</English>
+            <English>Current squad frequencies</English>
 		</Key>
 		<Key ID="STR_DORB_TFR_FREQ_NEW">
-			<Original>New Squad-Frequencies</Original>
+			<Original>New Squad frequencies</Original>
             <German>Neue Squadfrequenzen</German>
-            <English>New Squad-Frequencies</English>
+            <English>New squad frequencies</English>
 		</Key>
 		<Key ID="STR_DORB_TFR_NOLEADER">
-			<Original>No Teamleader</Original>
+			<Original>Not squad leader</Original>
             <German>Kein Truppfuehrer</German>
-            <English>No Teamleader</English>
+            <English>Not squad leader</English>
 		</Key>
 		<Key ID="STR_DORB_BASE">
 			<Original>Base</Original>
@@ -287,9 +287,9 @@
             <English>Base</English>
 		</Key>
 		<Key ID="STR_DORB_BASE_FIRE">
-			<Original>Firing at base is prohibited</Original>
+			<Original>Firing inside the base is strictly prohibited!</Original>
             <German>Das Feuern in der Basis ist nicht erlaubt!</German>
-            <English>Firing at base is prohibited</English>
+            <English>Firing inside the base is strictly prohibited!</English>
 		</Key>
 		<Key ID="STR_DORB_SPAWN_WD">
 			<Original>Woodland</Original>
@@ -302,9 +302,9 @@
             <English>Desert</English>
 		</Key>
 		<Key ID="STR_DORB_SPAWN_NOTEMPTY">
-			<Original>Spawn is not empty</Original>
+			<Original>Spawn point is not empty</Original>
             <German>Spawnfläche ist nicht leer</German>
-            <English>Spawn is not empty</English>
+            <English>Spawn point is not empty</English>
 		</Key>
 		<Key ID="STR_DORB_SPAWN_VEHICLE">
 			<Original>Vehicle Spawn</Original>
@@ -312,9 +312,9 @@
             <English>Vehicle Spawn</English>
 		</Key>
 		<Key ID="STR_DORB_SPAWN_AIR">
-			<Original>Air Spawn</Original>
+			<Original>Aircraft Spawn</Original>
             <German>Luftwaffenspawn</German>
-            <English>Air Spawn</English>
+            <English>Aircraft Spawn</English>
 		</Key>
 		<Key ID="STR_DORB_SPAWN_WATER">
 			<Original>Naval Spawn</Original>
@@ -322,9 +322,9 @@
             <English>Naval Spawn</English>
 		</Key>
 		<Key ID="STR_DORB_SPAWN_DRONES">
-			<Original>Autonomous Spawn</Original>
+			<Original>Drone Spawn</Original>
             <German>Drohnenspawn</German>
-            <English>Autonomous Spawn</English>
+            <English>Drone Spawn</English>
 		</Key>
 		<Key ID="STR_DORB_SPAWN_LOGISTIC">
 			<Original>Supply Depot</Original>
@@ -352,9 +352,9 @@
             <English>Order Aircraft</English>
 		</Key>
 		<Key ID="STR_DORB_SPAWN_WATER_DESC">
-			<Original>Order Ship</Original>
+			<Original>Order Boat</Original>
             <German>Schiffe bestellen</German>
-            <English>Order Ship</English>
+            <English>Order Boat</English>
 		</Key>
 		<Key ID="STR_DORB_SPAWN_DRONES_DESC">
 			<Original>Order Drone</Original>
@@ -377,9 +377,9 @@
             <English>%1: you don't have the right qualifications to move this vehicle.</English>
 		</Key>
 		<Key ID="STR_DORB_RESCUE_MARKER">
-			<Original>Rescue-Point</Original>
+			<Original>Rescue Point</Original>
             <German>Sicherheitszone</German>
-            <English>Rescue-Point</English>
+            <English>Rescue Point</English>
 		</Key>
 	</Package>
 	<Package name="CRATE">
@@ -409,9 +409,9 @@
             <English>Medium Box</English>
 		</Key>
 		<Key ID="STR_DORB_CRATE_SIZE3">
-			<Original>Big Box</Original>
+			<Original>Large Box</Original>
             <German>Große Kiste</German>
-            <English>Big Box</English>
+            <English>Large Box</English>
 		</Key>
 		<Key ID="STR_DORB_CRATE_SIZE4">
 			<Original>Supply Crate</Original>
@@ -419,14 +419,14 @@
             <English>Supply Crate</English>
 		</Key>
 		<Key ID="STR_DORB_CRATE_SIZE5">
-			<Original>Fright Net</Original>
-            <German>Frachtnetz</German>
-            <English>Fright Net</English>
+			<Original>Cargo Pallet</Original>
+            <German>Frachtpalette</German>
+            <English>Cargo Pallet</English>
 		</Key>
 		<Key ID="STR_DORB_CRATE_SIZE6">
-			<Original>Container</Original>
+			<Original>Shipping Container</Original>
             <German>Frachtcontainer</German>
-            <English>Container</English>
+            <English>Shipping Container</English>
 		</Key>
 		<Key ID="STR_DORB_CRATE_BTTN_1">
 			<Original>Current</Original>
@@ -454,14 +454,14 @@
             <English>Other Weapons</English>
 		</Key>
 		<Key ID="STR_DORB_CRATE_BTTN_6">
-			<Original>Launcher</Original>
+			<Original>Launchers</Original>
             <German>Raktenwerfer</German>
-            <English>Launcher</English>
+            <English>Launchers</English>
 		</Key>
 		<Key ID="STR_DORB_CRATE_BTTN_7">
-			<Original>Pistole</Original>
+			<Original>Pistols</Original>
             <German>Pistolen</German>
-            <English>Pistole</English>
+            <English>Pistols</English>
 		</Key>
 		<Key ID="STR_DORB_CRATE_BTTN_8">
 			<Original>Attachments</Original>
@@ -499,19 +499,19 @@
             <English>Head</English>
 		</Key>
 		<Key ID="STR_DORB_CRATE_BTTN_15">
-			<Original>Radio</Original>
+			<Original>Radios</Original>
             <German>Funkgeräte</German>
-            <English>Radio</English>
+            <English>Radios</English>
 		</Key>
 		<Key ID="STR_DORB_CRATE_BTTN_16">
-			<Original>Orienttation Guidiance</Original>
+			<Original>Nav Tools</Original>
             <German>Orientierungshilfen</German>
-            <English>Orienttation Guidiance</English>
+            <English>Nav Tools</English>
 		</Key>
 		<Key ID="STR_DORB_CRATE_BTTN_17">
-			<Original>Medical Equipment</Original>
+			<Original>Medical Supplies</Original>
             <German>Sanitätsmaterial</German>
-            <English>Medical Equipment</English>
+            <English>Medical Supplies</English>
 		</Key>
 		<Key ID="STR_DORB_CRATE_BTTN_18">
 			<Original>Items</Original>
@@ -630,9 +630,9 @@
                 <English>The enemy is trying to capture a key position. Move to %1 and prepare for the assault.</English>
 			</Key>
 			<Key ID="STR_DORB_DEF_ATT1">
-				<Original>The enemy is preparing his attack.</Original>
+				<Original>The enemy is preparing their attack.</Original>
                 <German>Der Feind bereitet den Angriff vor.</German>
-                <English>The enemy is preparing his attack.</English>
+                <English>The enemy is preparing their attack.</English>
 			</Key>
 			<Key ID="STR_DORB_DEF_ATT2">
 				<Original>Get prepared</Original>
@@ -668,9 +668,9 @@
                             
 			</Key>
 			<Key ID="STR_DORB_CLEAR_TASK_DESC">
-				<Original>The enemy has captured the area surrounding %1. Recapture it and clear out all hostile forces in the area.</Original>
+				<Original>The enemy has captured the area surrounding %1. Recapture it and clear out all hostile forces in the vincinity.</Original>
                 <German>Der Feind hat die Position um %1 eingenommen. Erobern Sie diese zurück und befreien sie das Umland von Feindkräften.</German>
-                <English>The enemy has captured the area surrounding %1. Recapture it and clear out all hostile forces in the area.</English>
+                <English>The enemy has captured the area surrounding %1. Recapture it and clear out all hostile forces in the vincinity.</English>
 			</Key>
 		</Container>
 		<Container name="PROTOTYP">
@@ -680,9 +680,9 @@
                 <English>Return our prototype</English>
 			</Key>
 			<Key ID="STR_DORB_PROTO_TASK_DESC">
-				<Original>Hostile forces have seized one of our prototypes. It is at %1. Bring it back.</Original>
+				<Original>Hostile forces have seized one of our prototypes. The last known location was at %1. Return it immediately.</Original>
                 <German>Die Gegner haben einen Prototyp von uns entwendet. Er befindet sich in %1. Bringen Sie ihn zurück.</German>
-                <English>Hostile forces have seized one of our prototypes. It is at %1. Bring it back.</English>
+                <English>Hostile forces have seized one of our prototypes. The last known location was at %1. Return it immediately.</English>
 			</Key>
 		</Container>
 		<Container name="DESTROY_DEVICE">
@@ -699,26 +699,26 @@
 		</Container>
 		<Container name="DESTROY_KOMMUNIKATION">
 			<Key ID="STR_DORB_DEST_KOM_TASK">
-				<Original>Destroy communication's device</Original>
+				<Original>Destroy communications infrastructure</Original>
                 <German>Kommunikation zerstören</German>
-                <English>Destroy communication's device</English>
+                <English>Destroy communications infrastructure</English>
 			</Key>
 			<Key ID="STR_DORB_DEST_KOM_TASK_DESC">
-				<Original>A communication's device has been erected at %1. Destroy it.</Original>
+				<Original>A communications device has been erected at %1. Destroy it.</Original>
                 <German>Bei %1 wurde eine Kommunikationsstation eingerichtet. Vernichten Sie diese.</German>
-                <English>A communication's device has been erected at %1. Destroy it.</English>
+                <English>A communications device has been erected at %1. Destroy it.</English>
 			</Key>
 		</Container>
 		<Container name="DESTROY_WEAPONCACHE">
 			<Key ID="STR_DORB_DEST_WPN_TASK">
-				<Original>Destroy weapons hideout</Original>
+				<Original>Destroy hidden weapons</Original>
                 <German>Waffenverstecke vernichten</German>
-                <English>Destroy weapons hideout</English>
+                <English>Destroy hidden weapons</English>
 			</Key>
 			<Key ID="STR_DORB_DEST_WPN_TASK_DESC">
-				<Original>The enemy has placed over half a dozend of weapon depots at %1. Search and destroy the majority.</Original>
+				<Original>The enemy has placed more than half a dozend weapon caches at %1. Search and destroy the majority.</Original>
                 <German>Die Feinde haben in %1 über ein halbes Duzend Waffenverstecke angelegt. Suchen und zerstoeren sie den Großteil dieser Verstecke.</German>
-                <English>The enemy has placed over half a dozend of weapon depots at %1. Search and destroy the majority.</English>
+                <English>The enemy has placed more than half a dozend weapon caches at %1. Search and destroy the majority.</English>
 			</Key>
 		</Container>
 		<Container name="Intel">
@@ -728,9 +728,9 @@
                 <English>Find Intel</English>
 			</Key>
 			<Key ID="STR_DORB_INTEL_TASK_DESC">
-				<Original>Our agents at the secret service have briefed us on the location of secret documents. Find them at %1 since they will give major advantages over the enemy.</Original>
+				<Original>Our agents at the secret service have briefed us on the location of secret documents. The could provide the critical advantage we need, so go out and locate them at %1.</Original>
                 <German>Unsere Freunde vom Geheimdienst haben uns mitgeteilt, dass sich in %1 geheime Informationen befinden. Diese koennten uns moeglicherweise einen Vorteil verschaffen. Finden sie die Informationen.</German>
-                <English>Our agents at the secret service have briefed us on the location of secret documents. Find them at %1 since they will give major advantages over the enemy.</English>
+                <English>Our agents at the secret service have briefed us on the location of secret documents. The could provide the critical advantage we need, so go out and locate them at %1.</English>
 			</Key>
 			<Key ID="STR_DORB_INTEL_GRAB">
 				<Original>Secure Intel</Original>
@@ -738,16 +738,16 @@
                 <English>Secure Intel</English>
 			</Key>
 			<Key ID="STR_DORB_INTEL_FOUND">
-				<Original>%1 secured the intel.</Original>
-                <German>%1 hat die Inforamtionen sichergestellt.</German>
-                <English>%1 secured the intel.</English>
+				<Original>%1 has secured the intel.</Original>
+                <German>%1 hat die Informationen sichergestellt.</German>
+                <English>%1 has secured the intel.</English>
 			</Key>
 		</Container>
 		<Container name="KILL">
 			<Key ID="STR_DORB_KILL_TASK">
-				<Original>Eliminate Leader</Original>
+				<Original>Eliminate Leadership</Original>
                 <German>Führung ausschalten</German>
-                <English>Eliminate Leader</English>
+                <English>Eliminate Leadership</English>
 			</Key>
 			<Key ID="STR_DORB_KILL_TASK_DESC">
 				<Original>Kill %1. Hostile operations will be slowed down immensely. Last known location is %2.</Original>
@@ -774,14 +774,14 @@
 		</Container>
 		<Container name="CONV_RESCUE">
 			<Key ID="STR_DORB_RESC_CONV_TASK">
-				<Original>Stop prisoner's convoy</Original>
+				<Original>Stop prisoners convoy</Original>
                 <German>Stoppen Sie den Gefangenentransport</German>
-                <English>Stop prisoner's convoy</English>
+                <English>Stop prisoners convoy</English>
 			</Key>
 			<Key ID="STR_DORB_RESC_CONV_TASK_DESC">
-				<Original>The enemy is transferring %1 prisoners from %2 to %3. Free them and bring them back to base.</Original>
+				<Original>The enemy is transferring %1 prisoners from %2 to %3. Free them and escort them back to base.</Original>
                 <German>Der Gegner transportiert %1 Gefangene von %2 nach %3. Befreien Sie die Gefangenen und bringen Sie diese in Sicherheit.</German>
-                <English>The enemy is transferring %1 prisoners from %2 to %3. Free them and bring them back to base.</English>
+                <English>The enemy is transferring %1 prisoners from %2 to %3. Free them and escort them back to base.</English>
 			</Key>
 		</Container>
 		<Container name="RESCUE">
@@ -791,9 +791,9 @@
                 <English>Free Hostages</English>
 			</Key>
 			<Key ID="STR_DORB_RESC_TASK_DESC">
-				<Original>%1 hostages have been taken in %2 by the enemy. Free them and bring them back to base.</Original>
+				<Original>The enemy has taken %1 hostages in %2. Free them and escort them back to base.</Original>
                 <German>Es wurden von den Gegnern %1 Gefangene in %2 gemacht. Befreien sie die Gefangenen und bringen sie diese in die Sicherheitszone.</German>
-                <English>%1 hostages have been taken in %2 by the enemy. Free them and bring them back to base.</English>
+                <English>The enemy has taken %1 hostages in %2. Free them and escort them back to base.</English>
 			</Key>
 		</Container>
 		<Container name="SCARAB">
@@ -803,18 +803,18 @@
                 <English>Prevent launch of nuclear missiles within %1 minutes.</English>
 			</Key>
 			<Key ID="STR_DORB_DEST_SCARAB_TASK_DESC">
-				<Original>Mobile nuclear missiles have been in-placed at %1. Prevent the launch of the %2 missiles on our fleet. We known that the enemy has a limited amount of rocket specialists. Kill the Crew to prevent the launch.</Original>
+				<Original>Mobile nuclear missile launchers are being erected at %1. Prevent the launch of the %2 missiles on our fleet. We known that the enemy has a limited amount of rocket specialists. Killing the crew should prevent the launch.</Original>
                 <German>Es wurden von den Gegnern mobile Atomraketen in %1 in Stellung gebracht. Verhindern Sie, dass der Gegner die %2 Raketen auf unsere Flotte abschießt. Wir wissen aus zuverlässiger Quelle, dass der Gegner nur Begrenzt Fachpersonal zum Raketenabschuss in der Region stationiert hat. Schalten Sie die Besatzungen aus um den Abschuss zu verhindern.</German>
-                <English>Mobile nuclear missiles have been in-placed at %1. Prevent the launch of the %2 missiles on our fleet. We known that the enemy has a limited amount of rocket specialists. Kill the Crew to prevent the launch.</English>
+                <English>Mobile nuclear missile launchers are being erected at %1. Prevent the launch of the %2 missiles on our fleet. We known that the enemy has a limited amount of rocket specialists. Killing the crew should prevent the launch.</English>
 			</Key>
 		</Container>
 	</Package>
 	<Package name="sidemissions">
 		<Container name="sideby">
 			<Key ID="STR_DORB_SIDE_SIDEMISSION">
-				<Original>Sidemission</Original>
+				<Original>Side mission</Original>
 				<German>Nebenmission</German>
-				<English>Sidemission</English>
+				<English>Side mission</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_FINISHED">
 				<Original>finished</Original>
@@ -827,9 +827,9 @@
 				<English>failed</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_SDV_INFORMATION_DOWNLOADED">
-				<Original>Information were successfully downloaded from the SDV!</Original>
+				<Original>Information was successfully downloaded from the SDV!</Original>
 				<German>Informationen wurden vom Computer des SDV runtergeladen!</German>
-				<English>Information were successfully downloaded from the SDV!</English>
+				<English>Information was successfully downloaded from the SDV!</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_SDV_NO_INTEL_FOUND">
 				<Original>No information was found inside the SDV.</Original>
@@ -837,13 +837,14 @@
 				<English>No information was found inside the SDV.</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_SDV_DESCRIPTION">
-				<Original>One of our submarines carrying important information has crashed. Find it and bring the information back to base.</Original>
+				<Original>One of our submarines carrying confidential information has sunk. Find it, and return the data back to base.</Original>
 				<German>Eines unserer U-Boote ist gesunken. An Bord befanden sich sensible Informationen. Bergen Sie diese und bringen Sie sie zurück zur Basis.</German>
+				<English>One of our submarines carrying confidential information has sunk. Find it, and return the data back to base.</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_SDV_DESCRIPTION_SHORT">
-				<Original>sunken submarine</Original>
+				<Original>sunken sub</Original>
 				<German>gesunkenes U-Boot</German>
-				<English>sunken submarine</English>
+				<English>sunken sub</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_SDV_MARKER">
 				<Original>recover</Original>
@@ -851,14 +852,14 @@
 				<English>recover</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_SDV_TAKE_INTEL">
-				<Original>Take Intel</Original>
+				<Original>Take Data</Original>
 				<German>Informationen aufnehmen</German>
-				<English>Take Intel</English>
+				<English>Take Data</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_SUPPLIES_DESCRIPTION">
-				<Original>An enemy unit has occupied a city and is terroising it. Free the city before they can build a stable defence and deliver some supplies for the citizens not beeing fallen in the occupation in town.</Original>
+				<Original>An enemy unit has occupied a city and is terrorising it. Free the city before they can establish a stable defence and deliver some supplies for the surviving civilians in town.</Original>
 				<German>Eine kleine abtrünnige Einheit der AAF hat eine Stadt besetzt und terrorisiert die Einwohner. Befreien Sie die Stadt bevor eine standfeste Verteidigung errichtet werden kann und liefern sie Unterstützung für die wenigen Bürger, die der Besatzung nicht zum Opfer fiehlen!</German>
-				<English>An enemy unit has occupied a city and is terroising it. Free the city before they can build a stable defence and deliver some supplies for the citizens not beeing fallen in the occupation in town.</English>
+				<English>An enemy unit has occupied a city and is terrorising it. Free the city before they can establish a stable defence and deliver some supplies for the surviving civilians in town.</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_SUPPLIES_DESCRIPTION_SHORT">
 				<Original>Supplies</Original>
@@ -866,9 +867,9 @@
 				<English>Supplies</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_SUPPLIES_MARKER">
-				<Original>supply</Original>
+				<Original>deliver</Original>
 				<German>Liefern</German>
-				<English>supply</English>
+				<English>deliver</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_AIRCRAFT_INTEL_DROP">
 				<Original>release</Original>
@@ -881,14 +882,14 @@
 				<English>take</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_AIRCRAFT_DESCRIPTION_BLUFOR">
-				<Original>One of our planes has crashed! One of our agents carrying secret information was onboard. Find the intel and bring them back to base.</Original>
-				<German>Eines unserer Flugzeuge ist abgestürzt! An Bord war einer unserer Geheimagenten mit streng geheimen Informationen. Finden Sie die Informationen und Bringen Sie diese zurück zur Basis!</German>
-				<English>One of our planes has crashed! One of our agents carrying secret information was onboard. Find the intel and bring them back to base.</English>
+				<Original>One of our planes has crashed with an agent carrying secret information onboard! Find the intel and bring it back to base.</Original>
+				<German>Eines unserer Flugzeuge ist abgestürzt! An Bord war einer unserer Geheimagenten mit streng geheimen Informationen. Finden Sie die Informationen und bringen Sie diese zurück zur Basis!</German>
+				<English>One of our planes has crashed with an agent carrying secret information onboard! Find the intel and bring it back to base.</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_AIRCRAFT_DESCRIPTION_OPFOR">
-				<Original>An enemy helicopter has crashed! Find its wracka and if you can find information on board bring them back to base.</Original>
+				<Original>An enemy helicopter has crashed! Locate the wrackage, and if there is any intel onboard, bring them back to base.</Original>
 				<German>Ein feindlicher Helikopter ist abgestürzt! Suchen Sie ihn und prüfen Sie ob sich Informationen an Bord befinden. Bringen Sie diese ggf. zurück zur Basis!</German>
-				<English>An enemy helicopter has crashed! Find its wracka and if you can find information on board bring them back to base.</English>
+				<English>An enemy helicopter has crashed! Locate the wrackage, and if there is any intel onboard, bring them back to base.</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_AIRCRAFT_DESCRIPTION_SHORT">
 				<Original>crashed aircraft</Original>
@@ -896,34 +897,34 @@
 				<English>crashed aircraft</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_AIRCRAFT_SEARCH_INTEL">
-				<Original>search information</Original>
+				<Original>search intel</Original>
 				<German>Informationen suchen</German>
-				<English>search information</English>
+				<English>search intel</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_1">
-				<Original>We have information about an enemy deserter. Check the given location and if needed bring him to our base!</Original>
+				<Original>We have intel about an enemy defector. Check the given location and escort him to our base!</Original>
 				<German>Wir haben Informationen über einen feindlichen Überläufer erhalten. Gehen Sie diesen nach und leiten Sie Maßnahmen ein!</German>
-				<English>We have information about an enemy deserter. Check the given location and if needed bring him to our base!</English>
+				<English>We have intel about an enemy defector. Check the given location and escort him to our base!</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_2">
-				<Original>We have information about an enemy deserter. He has fear of flying according to these information. Check the given location and if needed bring him to our base!</Original>
+				<Original>We have intel about an enemy defector. Check the given location and escort him to our base! According to the available information, he is afraid of flying.</Original>
 				<German>Wir haben Informationen über einen feindlichen Überläufer erhalten. Gehen Sie diesen nach und leiten Sie Maßnahmen ein! Unserem Informanten zu Folge leidet der Überläufer unter Flugangst!</German>
-				<English>We have information about an enemy deserter. He has fear of flying according to these information. Check the given location and if needed bring him to our base!</English>
+				<English>We have intel about an enemy defector. Check the given location and escort him to our base! According to the available information, he is afraid of flying.</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_3">
-				<Original>We have information about an enemy deserter. He has fear of americans according to these information so don't shyly him. Check the given location and if needed bring him to our base!</Original>
+				<Original>We have intel about an enemy defector. He is afraid of Americans, so avoid intimidating him. Check the given location and escort him to our base!</Original>
 				<German>Wir haben Informationen über einen feindlichen Überläufer erhalten. Gehen Sie diesen nach und leiten Sie Maßnahmen ein! Unserem Informanten zu Folge hat der Überläufer Angst vor Amerikanern. Schüchtern Sie ihn also nicht ein!</German>
-				<English>We have information about an enemy deserter. He has fear of americans according to these information so don't shyly him. Check the given location and if needed bring him to our base!</English>
+				<English>We have intel about an enemy defector. He is afraid of Americans, so avoid intimidating him. Check the given location and escort him to our base!</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_4">
-				<Original>We have information about an enemy deserter. His mental condition is very unstable. Be aware of him! Check the given location and if needed bring him to our base!</Original>
+				<Original>We have intel about an enemy defector. His mental condition is very unstable, so be careful with him! Check the given location and escort him to our base!</Original>
 				<German>Wir haben Informationen über einen feindlichen Überläufer erhalten. Gehen Sie diesen nach und leiten Sie Maßnahmen ein! Unserem Informanten zu Folge ist der Zustand des Informanten sehr instabil. Gehen Sie vorsichtig vor!</German>
-				<English>We have information about an enemy deserter. His mental condition is very unstable. Be aware of him! Check the given location and if needed bring him to our base!</English>
+				<English>We have intel about an enemy defector. His mental condition is very unstable, so be careful with him! Check the given location and escort him to our base!</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_SHORT">
-				<Original>deserter</Original>
+				<Original>defector</Original>
 				<German>Überläufer</German>
-				<English>deserter</English>
+				<English>defector</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_UEBERLAEUFER_MARKER">
 				<Original>find</Original>
@@ -931,14 +932,14 @@
 				<English>find</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_UEBERLAEUFER_VERHOERT">
-				<Original>Deserter was interrogated successfully!</Original>
+				<Original>The defector was interrogated successfully!</Original>
 				<German>Überläufer wurde erfolgreich verhört!</German>
-				<English>Deserter was interrogated successfully!</English>
+				<English>The defector was interrogated successfully!</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_UEBERLAEUFER_NICHT_VERHOERT">
-				<Original>We were not able to interrogate the deserter successfully!</Original>
+				<Original>We were unable to interrogate the defector successfully!</Original>
 				<German>Überläufer konnte nicht erfolgreich verhört werden!</German>
-				<English>We were not able to interrogate the deserter successfully!</English>
+				<English>We were unable to interrogate the defector successfully!</English>
 			</Key>
 		</Container>
 	</Package>
