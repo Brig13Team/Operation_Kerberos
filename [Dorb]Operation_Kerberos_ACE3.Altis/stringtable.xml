@@ -897,34 +897,34 @@
 				<English>crashed aircraft</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_AIRCRAFT_SEARCH_INTEL">
-				<Original>search information</Original>
+				<Original>search intel</Original>
 				<German>Informationen suchen</German>
-				<English>search information</English>
+				<English>search intel</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_1">
-				<Original>We have information about an enemy deserter. Check the given location and if needed bring him to our base!</Original>
+				<Original>We have intel about an enemy defector. Check the given location and escort him to our base!</Original>
 				<German>Wir haben Informationen über einen feindlichen Überläufer erhalten. Gehen Sie diesen nach und leiten Sie Maßnahmen ein!</German>
-				<English>We have information about an enemy deserter. Check the given location and if needed bring him to our base!</English>
+				<English>We have intel about an enemy defector. Check the given location and escort him to our base!</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_2">
-				<Original>We have information about an enemy deserter. He has fear of flying according to these information. Check the given location and if needed bring him to our base!</Original>
+				<Original>We have intel about an enemy defector. Check the given location and escort him to our base! According to the available information, he is afraid of flying.</Original>
 				<German>Wir haben Informationen über einen feindlichen Überläufer erhalten. Gehen Sie diesen nach und leiten Sie Maßnahmen ein! Unserem Informanten zu Folge leidet der Überläufer unter Flugangst!</German>
-				<English>We have information about an enemy deserter. He has fear of flying according to these information. Check the given location and if needed bring him to our base!</English>
+				<English>We have intel about an enemy defector. Check the given location and escort him to our base! According to the available information, he is afraid of flying.</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_3">
-				<Original>We have information about an enemy deserter. He has fear of americans according to these information so don't shyly him. Check the given location and if needed bring him to our base!</Original>
+				<Original>We have intel about an enemy defector. He is afraid of Americans, so avoid intimidating him. Check the given location and escort him to our base!</Original>
 				<German>Wir haben Informationen über einen feindlichen Überläufer erhalten. Gehen Sie diesen nach und leiten Sie Maßnahmen ein! Unserem Informanten zu Folge hat der Überläufer Angst vor Amerikanern. Schüchtern Sie ihn also nicht ein!</German>
-				<English>We have information about an enemy deserter. He has fear of americans according to these information so don't shyly him. Check the given location and if needed bring him to our base!</English>
+				<English>We have intel about an enemy defector. He is afraid of Americans, so avoid intimidating him. Check the given location and escort him to our base!</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_4">
-				<Original>We have information about an enemy deserter. His mental condition is very unstable. Be aware of him! Check the given location and if needed bring him to our base!</Original>
+				<Original>We have intel about an enemy defector. His mental condition is very unstable, so be careful with him! Check the given location and escort him to our base!</Original>
 				<German>Wir haben Informationen über einen feindlichen Überläufer erhalten. Gehen Sie diesen nach und leiten Sie Maßnahmen ein! Unserem Informanten zu Folge ist der Zustand des Informanten sehr instabil. Gehen Sie vorsichtig vor!</German>
-				<English>We have information about an enemy deserter. His mental condition is very unstable. Be aware of him! Check the given location and if needed bring him to our base!</English>
+				<English>We have intel about an enemy defector. His mental condition is very unstable, so be careful with him! Check the given location and escort him to our base!</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_SHORT">
-				<Original>deserter</Original>
+				<Original>defector</Original>
 				<German>Überläufer</German>
-				<English>deserter</English>
+				<English>defector</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_UEBERLAEUFER_MARKER">
 				<Original>find</Original>
@@ -932,14 +932,14 @@
 				<English>find</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_UEBERLAEUFER_VERHOERT">
-				<Original>Deserter was interrogated successfully!</Original>
+				<Original>The defector was interrogated successfully!</Original>
 				<German>Überläufer wurde erfolgreich verhört!</German>
-				<English>Deserter was interrogated successfully!</English>
+				<English>The defector was interrogated successfully!</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_UEBERLAEUFER_NICHT_VERHOERT">
-				<Original>We were not able to interrogate the deserter successfully!</Original>
+				<Original>We were unable to interrogate the defector successfully!</Original>
 				<German>Überläufer konnte nicht erfolgreich verhört werden!</German>
-				<English>We were not able to interrogate the deserter successfully!</English>
+				<English>We were unable to interrogate the defector successfully!</English>
 			</Key>
 		</Container>
 	</Package>
