@@ -16,6 +16,9 @@ If (DORB_RESERVED) then {
 */
 waituntil{!isNil "DORB_RESPAWNMARKER"};
 
+DORB_HEADLESS_EVENTHANDLER = [{ [] call dorb_fnc_headless } , 30, [] ] call CBA_fnc_addPerFrameHandler;
+
+
 [] spawn FM(core);
 [] spawn FM(ui_spawn_createlist);
 

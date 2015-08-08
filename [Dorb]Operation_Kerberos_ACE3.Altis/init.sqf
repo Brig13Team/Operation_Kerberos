@@ -53,7 +53,7 @@ _r3f = execVM "R3F_LOG\init.sqf";
 _igiload = execVM "IgiLoad\IgiLoadInit.sqf";
 
 // VCOM-Driving
-If (!hasInterface) then {
+If ((!hasInterface) && (!isServer)) then {
 	[] execVM "VCOM_Driving\init.sqf";
 };
 

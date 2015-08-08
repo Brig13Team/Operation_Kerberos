@@ -89,6 +89,7 @@ _centerposASL = ATLtoASL _centerpos;
 	LOG_8(_centerposASL,_centerpos,_centerdir,_currentType,_currentPos,_currentDir,_currentOffset,_currentVectorUp);
 	LOG_4(_spawnPos,_spawnPosATL,_spawndir,_spawnVector);
 	_vehicle = createVehicle[format["%1",_currentType],_spawnPosATL, [], 0, "CAN_COLLIDE"];
+	_vehicle enableSimulation false;
 	_vehicle setVectorUP _spawnVector;
 	_vehicle setPosATL _spawnPosATL;
 	_vehicle setDir _spawndir;

@@ -10,7 +10,6 @@
 
 */
 #include "script_component.hpp"
-CHECK(true)
 SCRIPT(movetoHC);
 /// CurrentHC erstellen, falls nicht vorhanden - Nur am Anfang interessant
 if ((isnil "currentHC")&&(!(isnil "HC1"))) then {
@@ -25,7 +24,7 @@ If (isNil "currentHC") exitWith {ERROR("Kein HC vorhanden");};
 If ((owner currentHC) == 0) exitWith {ERROR("HC disconnected");};
 
 
-[] call FM(determineHC);
+[] call FM(headless_determine);
 Private["_group","_HCid","_geklappt"];
 _group = [_this,0,grpNull,[grpNull]] call BIS_fnc_Param;
 _HCid = owner currentHC;

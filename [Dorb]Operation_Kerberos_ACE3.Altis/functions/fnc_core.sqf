@@ -27,41 +27,37 @@ SETMVAR(DORB_MILITAER,(_return select 2));
 SETMVAR(DORB_WASSER,(_return select 3));
 SETMVAR(DORB_SONSTIGES,(_return select 4));
 
-/// Cleanup script (small version)
-[] spawn {
-	SCRIPT(CORE_CLEANUP);
-	while {true} do {
-	For "_i" from 0 to 6 do {
-		If ((count allDead)>20) then {
-			private["_allDead","_anzahl"];
-			_allDead = allDead;
-			_anzahl = floor(((count allDead)/3)*2);
-			_allDead resize _anzahl;
-			{_x TILGE;}forEach _allDead;
-		};
-		uisleep 180;
+// Delete dead Units
+[{
+	If ((count allDead)>20) then {
+		private["_allDead","_anzahl"];
+		_allDead = allDead;
+		_anzahl = floor(((count allDead)/3)*2);
+		_allDead resize _anzahl;
+		{_x TILGE;}forEach _allDead;
 	};
-	[] spawn FM(cleanup_small);
-	false
-	};
+} , 180, [] ] call CBA_fnc_addPerFrameHandler;
 
-};
+/// Cleanup script (small version)
+[{[] spawn FM(cleanup_small);} , 900, [] ] call CBA_fnc_addPerFrameHandler;
+
+
 /// Rescue Point;
-[] spawn {
-	SCRIPT(CORE_RESCUEPOINT);
-	private "_markerpos";
-	_markerpos = getMarkerPos "rescue_marker";
-	If ((_markerpos distance [0,0,0])<1) exitWith {};
-	while {true} do {
+private["_markerpos"];
+_markerpos = getMarkerPos "rescue_marker";
+If ((_markerpos distance [0,0,0])>1) then {
+	[{
 		private "_units";
-		_units = _markerpos nearEntities [["Man","Ship_F","LandVehicle"], 15];
-		{
-			[_x,"DORB_RESCUEPOINT",[_x]] call BIS_fnc_callScriptedEventHandler;
-		}forEach _units;
-		uisleep 30;
-	};
+		_units = (getMarkerPos "rescue_marker") nearEntities [["Man","Ship_F","LandVehicle"], 15];
+			{
+				[_x,"DORB_RESCUEPOINT",[_x]] call BIS_fnc_callScriptedEventHandler;
+			}forEach _units;
+	} , 30, [] ] call CBA_fnc_addPerFrameHandler;
 };
+
+
 /// Diag
+/*
 [] spawn {
 	SCRIPT(CORE_DIAG);
 	while {true} do {
@@ -75,7 +71,7 @@ SETMVAR(DORB_SONSTIGES,(_return select 4));
 	};
 
 };
-
+*/
 sleep 20;
 
 for "_u" from 0 to 120 do {
