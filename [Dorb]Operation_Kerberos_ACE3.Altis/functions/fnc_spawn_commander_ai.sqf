@@ -464,7 +464,7 @@ while {_a={alive _x}count (GETVAR(DORB_COMMANDER_LOGIC,DORB_COMMANDER_CURRENT_HQ
 				
 			}else{
 				/// Medium Attack
-				If ((_attackpos_filtered_weight select _i) > 10) then {
+				If ((_attackpos_filtered_weight select _i) > 6) then {
 					_rand = floor (random 5);
 					If ((_rand <1)&&((GETVAR(DORB_COMMANDER_LOGIC,DORB_COMMANDER_MECH,[])) || (GETVAR(DORB_COMMANDER_LOGIC,DORB_COMMANDER_AIRDROP,[])))&&(GETVAR(DORB_COMMANDER_LOGIC,DORB_COMMANDER_ART,[]))) exitWith {
 						[(_attackpos_filtered select _i)] call _Attacktype_arty_auto;
