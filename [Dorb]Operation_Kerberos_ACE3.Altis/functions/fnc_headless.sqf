@@ -25,10 +25,14 @@ _groups = DORB_HEADLESS_GROUPS;
 _groups = [];
 
 {
-	If ((side _x != DORB_PLAYERSIDE)&&{(groupOwner _x) < 3}) then {
+	If ((side _x != DORB_PLAYERSIDE)&&{(groupOwner _x) < 3}&&{!(GETVAR(_x,DORB_ISTARGET,false))}) then {
 		_groups pushBack _x;
 	};
 }forEach allGroups;
+
+If (!(DORB_HEADLESS_GROUPS isEqualTo [])) then {
+	LOG(FORMAT_2("Gewechselte Gruppen=%1 \n Neue Gruppen = %2",DORB_HEADLESS_GROUPS,_groups));
+};
 
 DORB_HEADLESS_GROUPS = _groups;
 
