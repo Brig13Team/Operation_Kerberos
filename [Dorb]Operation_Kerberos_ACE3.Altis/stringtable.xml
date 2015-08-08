@@ -630,9 +630,9 @@
                 <English>The enemy is trying to capture a key position. Move to %1 and prepare for the assault.</English>
 			</Key>
 			<Key ID="STR_DORB_DEF_ATT1">
-				<Original>The enemy is preparing his attack.</Original>
+				<Original>The enemy is preparing their attack.</Original>
                 <German>Der Feind bereitet den Angriff vor.</German>
-                <English>The enemy is preparing his attack.</English>
+                <English>The enemy is preparing their attack.</English>
 			</Key>
 			<Key ID="STR_DORB_DEF_ATT2">
 				<Original>Get prepared</Original>
@@ -668,9 +668,9 @@
                             
 			</Key>
 			<Key ID="STR_DORB_CLEAR_TASK_DESC">
-				<Original>The enemy has captured the area surrounding %1. Recapture it and clear out all hostile forces in the area.</Original>
+				<Original>The enemy has captured the area surrounding %1. Recapture it and clear out all hostile forces in the vincinity.</Original>
                 <German>Der Feind hat die Position um %1 eingenommen. Erobern Sie diese zurück und befreien sie das Umland von Feindkräften.</German>
-                <English>The enemy has captured the area surrounding %1. Recapture it and clear out all hostile forces in the area.</English>
+                <English>The enemy has captured the area surrounding %1. Recapture it and clear out all hostile forces in the vincinity.</English>
 			</Key>
 		</Container>
 		<Container name="PROTOTYP">
@@ -680,9 +680,9 @@
                 <English>Return our prototype</English>
 			</Key>
 			<Key ID="STR_DORB_PROTO_TASK_DESC">
-				<Original>Hostile forces have seized one of our prototypes. It is at %1. Bring it back.</Original>
+				<Original>Hostile forces have seized one of our prototypes. The last known location was at %1. Return it immediately.</Original>
                 <German>Die Gegner haben einen Prototyp von uns entwendet. Er befindet sich in %1. Bringen Sie ihn zurück.</German>
-                <English>Hostile forces have seized one of our prototypes. It is at %1. Bring it back.</English>
+                <English>Hostile forces have seized one of our prototypes. The last known location was at %1. Return it immediately.</English>
 			</Key>
 		</Container>
 		<Container name="DESTROY_DEVICE">
@@ -699,26 +699,26 @@
 		</Container>
 		<Container name="DESTROY_KOMMUNIKATION">
 			<Key ID="STR_DORB_DEST_KOM_TASK">
-				<Original>Destroy communication's device</Original>
+				<Original>Destroy communications infrastructure</Original>
                 <German>Kommunikation zerstören</German>
-                <English>Destroy communication's device</English>
+                <English>Destroy communications infrastructure</English>
 			</Key>
 			<Key ID="STR_DORB_DEST_KOM_TASK_DESC">
-				<Original>A communication's device has been erected at %1. Destroy it.</Original>
+				<Original>A communications device has been erected at %1. Destroy it.</Original>
                 <German>Bei %1 wurde eine Kommunikationsstation eingerichtet. Vernichten Sie diese.</German>
-                <English>A communication's device has been erected at %1. Destroy it.</English>
+                <English>A communications device has been erected at %1. Destroy it.</English>
 			</Key>
 		</Container>
 		<Container name="DESTROY_WEAPONCACHE">
 			<Key ID="STR_DORB_DEST_WPN_TASK">
-				<Original>Destroy weapons hideout</Original>
+				<Original>Destroy hidden weapons</Original>
                 <German>Waffenverstecke vernichten</German>
-                <English>Destroy weapons hideout</English>
+                <English>Destroy hidden weapons</English>
 			</Key>
 			<Key ID="STR_DORB_DEST_WPN_TASK_DESC">
-				<Original>The enemy has placed over half a dozend of weapon depots at %1. Search and destroy the majority.</Original>
+				<Original>The enemy has placed more than half a dozend weapon caches at %1. Search and destroy the majority.</Original>
                 <German>Die Feinde haben in %1 über ein halbes Duzend Waffenverstecke angelegt. Suchen und zerstoeren sie den Großteil dieser Verstecke.</German>
-                <English>The enemy has placed over half a dozend of weapon depots at %1. Search and destroy the majority.</English>
+                <English>The enemy has placed more than half a dozend weapon caches at %1. Search and destroy the majority.</English>
 			</Key>
 		</Container>
 		<Container name="Intel">
@@ -728,9 +728,9 @@
                 <English>Find Intel</English>
 			</Key>
 			<Key ID="STR_DORB_INTEL_TASK_DESC">
-				<Original>Our agents at the secret service have briefed us on the location of secret documents. Find them at %1 since they will give major advantages over the enemy.</Original>
+				<Original>Our agents at the secret service have briefed us on the location of secret documents. The could provide the critical advantage we need, so go out and locate them at %1.</Original>
                 <German>Unsere Freunde vom Geheimdienst haben uns mitgeteilt, dass sich in %1 geheime Informationen befinden. Diese koennten uns moeglicherweise einen Vorteil verschaffen. Finden sie die Informationen.</German>
-                <English>Our agents at the secret service have briefed us on the location of secret documents. Find them at %1 since they will give major advantages over the enemy.</English>
+                <English>Our agents at the secret service have briefed us on the location of secret documents. The could provide the critical advantage we need, so go out and locate them at %1.</English>
 			</Key>
 			<Key ID="STR_DORB_INTEL_GRAB">
 				<Original>Secure Intel</Original>
@@ -738,16 +738,16 @@
                 <English>Secure Intel</English>
 			</Key>
 			<Key ID="STR_DORB_INTEL_FOUND">
-				<Original>%1 secured the intel.</Original>
-                <German>%1 hat die Inforamtionen sichergestellt.</German>
-                <English>%1 secured the intel.</English>
+				<Original>%1 has secured the intel.</Original>
+                <German>%1 hat die Informationen sichergestellt.</German>
+                <English>%1 has secured the intel.</English>
 			</Key>
 		</Container>
 		<Container name="KILL">
 			<Key ID="STR_DORB_KILL_TASK">
-				<Original>Eliminate Leader</Original>
+				<Original>Eliminate Leadership</Original>
                 <German>Führung ausschalten</German>
-                <English>Eliminate Leader</English>
+                <English>Eliminate Leadership</English>
 			</Key>
 			<Key ID="STR_DORB_KILL_TASK_DESC">
 				<Original>Kill %1. Hostile operations will be slowed down immensely. Last known location is %2.</Original>
@@ -774,14 +774,14 @@
 		</Container>
 		<Container name="CONV_RESCUE">
 			<Key ID="STR_DORB_RESC_CONV_TASK">
-				<Original>Stop prisoner's convoy</Original>
+				<Original>Stop prisoners convoy</Original>
                 <German>Stoppen Sie den Gefangenentransport</German>
-                <English>Stop prisoner's convoy</English>
+                <English>Stop prisoners convoy</English>
 			</Key>
 			<Key ID="STR_DORB_RESC_CONV_TASK_DESC">
-				<Original>The enemy is transferring %1 prisoners from %2 to %3. Free them and bring them back to base.</Original>
+				<Original>The enemy is transferring %1 prisoners from %2 to %3. Free them and escort them back to base.</Original>
                 <German>Der Gegner transportiert %1 Gefangene von %2 nach %3. Befreien Sie die Gefangenen und bringen Sie diese in Sicherheit.</German>
-                <English>The enemy is transferring %1 prisoners from %2 to %3. Free them and bring them back to base.</English>
+                <English>The enemy is transferring %1 prisoners from %2 to %3. Free them and escort them back to base.</English>
 			</Key>
 		</Container>
 		<Container name="RESCUE">
@@ -791,9 +791,9 @@
                 <English>Free Hostages</English>
 			</Key>
 			<Key ID="STR_DORB_RESC_TASK_DESC">
-				<Original>%1 hostages have been taken in %2 by the enemy. Free them and bring them back to base.</Original>
+				<Original>The enemy has taken %1 hostages in %2. Free them and escort them back to base.</Original>
                 <German>Es wurden von den Gegnern %1 Gefangene in %2 gemacht. Befreien sie die Gefangenen und bringen sie diese in die Sicherheitszone.</German>
-                <English>%1 hostages have been taken in %2 by the enemy. Free them and bring them back to base.</English>
+                <English>The enemy has taken %1 hostages in %2. Free them and escort them back to base.</English>
 			</Key>
 		</Container>
 		<Container name="SCARAB">
@@ -803,18 +803,18 @@
                 <English>Prevent launch of nuclear missiles within %1 minutes.</English>
 			</Key>
 			<Key ID="STR_DORB_DEST_SCARAB_TASK_DESC">
-				<Original>Mobile nuclear missiles have been in-placed at %1. Prevent the launch of the %2 missiles on our fleet. We known that the enemy has a limited amount of rocket specialists. Kill the Crew to prevent the launch.</Original>
+				<Original>Mobile nuclear missile launchers are being erected at %1. Prevent the launch of the %2 missiles on our fleet. We known that the enemy has a limited amount of rocket specialists. Killing the crew should prevent the launch.</Original>
                 <German>Es wurden von den Gegnern mobile Atomraketen in %1 in Stellung gebracht. Verhindern Sie, dass der Gegner die %2 Raketen auf unsere Flotte abschießt. Wir wissen aus zuverlässiger Quelle, dass der Gegner nur Begrenzt Fachpersonal zum Raketenabschuss in der Region stationiert hat. Schalten Sie die Besatzungen aus um den Abschuss zu verhindern.</German>
-                <English>Mobile nuclear missiles have been in-placed at %1. Prevent the launch of the %2 missiles on our fleet. We known that the enemy has a limited amount of rocket specialists. Kill the Crew to prevent the launch.</English>
+                <English>Mobile nuclear missile launchers are being erected at %1. Prevent the launch of the %2 missiles on our fleet. We known that the enemy has a limited amount of rocket specialists. Killing the crew should prevent the launch.</English>
 			</Key>
 		</Container>
 	</Package>
 	<Package name="sidemissions">
 		<Container name="sideby">
 			<Key ID="STR_DORB_SIDE_SIDEMISSION">
-				<Original>Sidemission</Original>
+				<Original>Side mission</Original>
 				<German>Nebenmission</German>
-				<English>Sidemission</English>
+				<English>Side mission</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_FINISHED">
 				<Original>finished</Original>
@@ -827,9 +827,9 @@
 				<English>failed</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_SDV_INFORMATION_DOWNLOADED">
-				<Original>Information were successfully downloaded from the SDV!</Original>
+				<Original>Information was successfully downloaded from the SDV!</Original>
 				<German>Informationen wurden vom Computer des SDV runtergeladen!</German>
-				<English>Information were successfully downloaded from the SDV!</English>
+				<English>Information was successfully downloaded from the SDV!</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_SDV_NO_INTEL_FOUND">
 				<Original>No information was found inside the SDV.</Original>
@@ -837,13 +837,14 @@
 				<English>No information was found inside the SDV.</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_SDV_DESCRIPTION">
-				<Original>One of our submarines carrying important information has crashed. Find it and bring the information back to base.</Original>
+				<Original>One of our submarines carrying confidential information has sunk. Find it, and return the data back to base.</Original>
 				<German>Eines unserer U-Boote ist gesunken. An Bord befanden sich sensible Informationen. Bergen Sie diese und bringen Sie sie zurück zur Basis.</German>
+				<English>One of our submarines carrying confidential information has sunk. Find it, and return the data back to base.</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_SDV_DESCRIPTION_SHORT">
-				<Original>sunken submarine</Original>
+				<Original>sunken sub</Original>
 				<German>gesunkenes U-Boot</German>
-				<English>sunken submarine</English>
+				<English>sunken sub</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_SDV_MARKER">
 				<Original>recover</Original>
@@ -851,14 +852,14 @@
 				<English>recover</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_SDV_TAKE_INTEL">
-				<Original>Take Intel</Original>
+				<Original>Take Data</Original>
 				<German>Informationen aufnehmen</German>
-				<English>Take Intel</English>
+				<English>Take Data</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_SUPPLIES_DESCRIPTION">
-				<Original>An enemy unit has occupied a city and is terroising it. Free the city before they can build a stable defence and deliver some supplies for the citizens not beeing fallen in the occupation in town.</Original>
+				<Original>An enemy unit has occupied a city and is terrorising it. Free the city before they can establish a stable defence and deliver some supplies for the surviving civilians in town.</Original>
 				<German>Eine kleine abtrünnige Einheit der AAF hat eine Stadt besetzt und terrorisiert die Einwohner. Befreien Sie die Stadt bevor eine standfeste Verteidigung errichtet werden kann und liefern sie Unterstützung für die wenigen Bürger, die der Besatzung nicht zum Opfer fiehlen!</German>
-				<English>An enemy unit has occupied a city and is terroising it. Free the city before they can build a stable defence and deliver some supplies for the citizens not beeing fallen in the occupation in town.</English>
+				<English>An enemy unit has occupied a city and is terrorising it. Free the city before they can establish a stable defence and deliver some supplies for the surviving civilians in town.</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_SUPPLIES_DESCRIPTION_SHORT">
 				<Original>Supplies</Original>
@@ -866,9 +867,9 @@
 				<English>Supplies</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_SUPPLIES_MARKER">
-				<Original>supply</Original>
+				<Original>deliver</Original>
 				<German>Liefern</German>
-				<English>supply</English>
+				<English>deliver</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_AIRCRAFT_INTEL_DROP">
 				<Original>release</Original>
@@ -881,14 +882,14 @@
 				<English>take</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_AIRCRAFT_DESCRIPTION_BLUFOR">
-				<Original>One of our planes has crashed! One of our agents carrying secret information was onboard. Find the intel and bring them back to base.</Original>
-				<German>Eines unserer Flugzeuge ist abgestürzt! An Bord war einer unserer Geheimagenten mit streng geheimen Informationen. Finden Sie die Informationen und Bringen Sie diese zurück zur Basis!</German>
-				<English>One of our planes has crashed! One of our agents carrying secret information was onboard. Find the intel and bring them back to base.</English>
+				<Original>One of our planes has crashed with an agent carrying secret information onboard! Find the intel and bring it back to base.</Original>
+				<German>Eines unserer Flugzeuge ist abgestürzt! An Bord war einer unserer Geheimagenten mit streng geheimen Informationen. Finden Sie die Informationen und bringen Sie diese zurück zur Basis!</German>
+				<English>One of our planes has crashed with an agent carrying secret information onboard! Find the intel and bring it back to base.</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_AIRCRAFT_DESCRIPTION_OPFOR">
-				<Original>An enemy helicopter has crashed! Find its wracka and if you can find information on board bring them back to base.</Original>
+				<Original>An enemy helicopter has crashed! Locate the wrackage, and if there is any intel onboard, bring them back to base.</Original>
 				<German>Ein feindlicher Helikopter ist abgestürzt! Suchen Sie ihn und prüfen Sie ob sich Informationen an Bord befinden. Bringen Sie diese ggf. zurück zur Basis!</German>
-				<English>An enemy helicopter has crashed! Find its wracka and if you can find information on board bring them back to base.</English>
+				<English>An enemy helicopter has crashed! Locate the wrackage, and if there is any intel onboard, bring them back to base.</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_AIRCRAFT_DESCRIPTION_SHORT">
 				<Original>crashed aircraft</Original>
