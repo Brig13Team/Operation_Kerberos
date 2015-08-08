@@ -32,6 +32,8 @@ _reward = [_this, 1, "targets"] call BIS_fnc_param;
 _parameter = [_this, 2, []] call BIS_fnc_param;
 _radius = [_this, 3, 1500] call BIS_fnc_param;
 
+LOG(FORMAT_2("_reward = %1 | _parameter = %2",_reward,_parameter));
+
 if (typeName _main_task == "STRING") then {
 	_position = [_main_task] call BIS_fnc_taskDestination;
 } else {
@@ -81,6 +83,7 @@ if (_reward in ["patrols", "car_patrols", "apc_patrols", "tank_patrols", "air_ra
 switch (_reward) do {
 	case "targets":
 	{
+		LOG("targets");
 		private ["_anz", "_durchmesser"];
 		_anz = [_parameter, 0, 2] call BIS_fnc_param;
 		_durchmesser = [_parameter, 1, 50] call BIS_fnc_param;
@@ -179,6 +182,7 @@ switch (_reward) do {
 	};
 	default
 	{
+		LOG("default");
 		private ["_anz", "_durchmesser"];
 		_anz = [_parameter, 0, 2] call BIS_fnc_param;
 		_durchmesser = [_parameter, 1, 50] call BIS_fnc_param;
