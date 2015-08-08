@@ -92,7 +92,11 @@ for "_i" from 0 to ((count _buildings)-1) do {
 	_current_posASL = (_buildings select _i) select 1;
 	_current_dir = (_buildings select _i) select 2;
 	_buildingpos = [];
-	_buildingpos = getArray(missionConfigFile >> "city_defence" >> "buildings_vanilla" >> _current_type >> "soldierpos");
+	If (isClass (missionConfigFile >> "city_defence" >> "buildings_vanilla" >> _current_type)) then {
+		_buildingpos = getArray(missionConfigFile >> "city_defence" >> "buildings_vanilla" >> _current_type >> "soldierpos");
+	}else{
+		_buildingpos = getArray(missionConfigFile >> "city_defence" >> "buildings_mod" >> _current_type >> "soldierpos");
+	};
 	_staticpos = [];
 	_unitpos = [];
 	If (!(_buildingpos isEqualTo [])) then {
@@ -236,10 +240,18 @@ for "_i" from (_lastbuilding+1) to ((count _buildings)-1) do {
 	_buildingpos = [];
 	_doorpos = [];
 	//// igrnore buildings with doors, but no pos (e.g. Lamps)
-	_buildingpos = getArray(missionConfigFile >> "city_defence" >> "buildings_vanilla" >> _current_type >> "soldierpos");
-	If (!(_buildingpos isEqualTo [])) then {
-		_doorpos = getArray(missionConfigFile >> "city_defence" >> "buildings_vanilla" >> _current_type >> "doorpos");
+	If (isClass (missionConfigFile >> "city_defence" >> "buildings_vanilla" >> _current_type)) then {
+		_buildingpos = getArray(missionConfigFile >> "city_defence" >> "buildings_vanilla" >> _current_type >> "soldierpos");
+		If (!(_buildingpos isEqualTo [])) then {
+			_doorpos = getArray(missionConfigFile >> "city_defence" >> "buildings_vanilla" >> _current_type >> "doorpos");
+		};
+	}else{
+		_buildingpos = getArray(missionConfigFile >> "city_defence" >> "buildings_mod" >> _current_type >> "soldierpos");
+		If (!(_buildingpos isEqualTo [])) then {
+			_doorpos = getArray(missionConfigFile >> "city_defence" >> "buildings_mod" >> _current_type >> "doorpos");
+		};
 	};
+	
 	If (!(_doorpos isEqualTo [])) then {
 		_doorpos = _doorpos call BIS_fnc_arrayShuffle;
 		private "_rand";

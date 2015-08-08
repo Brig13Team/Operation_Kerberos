@@ -8,8 +8,11 @@ _building = createVehicle[_building_type,[0,0,0],[],0,"CAN_COLLIDE"];
 test3 pushBack _building;
 _building setPosATL [0,0,0];
 _building setDir 0;
-
-_buildingpos = getArray(missionConfigFile >> "city_defence" >> "buildings_vanilla" >> _building_type >> "soldierpos");
+If (isClass (missionConfigFile >> "city_defence" >> "buildings_vanilla" >> _current_type)) then {
+	_buildingpos = getArray(missionConfigFile >> "city_defence" >> "buildings_vanilla" >> _current_type >> "soldierpos");
+}else{
+	_buildingpos = getArray(missionConfigFile >> "city_defence" >> "buildings_mod" >> _current_type >> "soldierpos");
+};
 hint format["_buildingpos=%1",_buildingpos];
 {
 	private["_arrow","_arrowtype","_arrowtypedir","_pos","_dir"];
