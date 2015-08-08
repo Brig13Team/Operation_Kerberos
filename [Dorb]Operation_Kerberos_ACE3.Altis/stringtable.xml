@@ -34,9 +34,9 @@
             <English>Vehicles</English>
 		</Key>
 		<Key ID="STR_DORB_BRIEF_VEHICLES_DESC">
-			<Original>Get your vehicles over the spawnpads at base</Original>
+			<Original>Vehicles can be optimed from the spawnpads at the base.</Original>
             <German>Fahrzeuge bekommst du über die Spawnpads in der Basis.</German>
-            <English>Get your vehicles over the spawnpads at base</English>
+            <English>Vehicles can be optimed from the spawnpads at the base.</English>
 		</Key>
 		<Key ID="STR_DORB_BRIEF_RESPAWN">
 			<Original>Respawn</Original>
@@ -44,9 +44,9 @@
             <English>Respawn</English>
 		</Key>
 		<Key ID="STR_DORB_BRIEF_RESPAWN_DESC">
-			<Original>If you die you will respawn at base. Your earlier equipped gear will be kept.</Original>
-            <German>Wenn du stirbst, kannst du von der Basis aus neu beginnen. Deine Ausrüstung von vor deinem Tod wird wieder hergestellt.</German>
-            <English>If you die you will respawn at base. Your earlier equipped gear will be kept.</English>
+			<Original>If you die you will respawn at base. Your previously equipped gear will be retained.</Original>
+            <German>Wenn du stirbst, kannst du von der Basis aus neu beginnen. Deine Ausrüstung von vor deinem Tod wird wiederhergestellt.</German>
+            <English>If you die you will respawn at base. Your previously equipped gear will be retained.</English>
 		</Key>
 		<Key ID="STR_DORB_BRIEF_HALO">
 			<Original>Halo</Original>
@@ -54,9 +54,9 @@
             <English>Halo</English>
 		</Key>
 		<Key ID="STR_DORB_BRIEF_HALO_DESC">
-			<Original>Use the 'Halojump' to quickly get to your target. Use it by selecting your destination on the Halomap with the left mouse button. Your parachute will automatically deploy 75m above ground. After your landing your backpack will be restored.</Original>
+			<Original>Use the 'Halojump' to quickly get to your target. Use it by selecting your destination on the Halomap with the left mouse button. Your parachute will automatically deploy 75m above ground. After landing your backpack will be restored.</Original>
             <German>Du kannst schnell per Fallschirm abspringen, indem du den 'Halojump' nutzt. Den Halojump nutzt du, indem du auf der Halokarte auf den Zielort mit der linken Maustaste klickst. Der Fallschrim öffnet sich automatisch 75m über dem Boden. Nach der Landung erhälst du deinen Rucksack zurück.</German>
-            <English>Use the 'Halojump' to quickly get to your target. Use it by selecting your destination on the Halomap with the left mouse button. Your parachute will automatically deploy 75m above ground. After your landing your backpack will be restored.</English>
+            <English>Use the 'Halojump' to quickly get to your target. Use it by selecting your destination on the Halomap with the left mouse button. Your parachute will automatically deploy 75m above ground. After landing your backpack will be restored.</English>
 		</Key>
 		<Key ID="STR_DORB_BRIEF_SQUAD">
 			<Original>Squadmanagement</Original>
@@ -64,9 +64,9 @@
             <English>Squadmanagement</English>
 		</Key>
 		<Key ID="STR_DORB_BRIEF_SQUAD_DESC">
-			<Original>To open up the squad management press 'U'.</Original>
+			<Original>To open the squad management dialog press 'U'.</Original>
             <German>Um deine Gruppe zu wechseln nutze bitte das Squadmanagement von Bohemia. Die Tastatur Standartbelegung dafür ist 'U'.</German>
-            <English>To open up the squad management press 'U'.</English>
+            <English>To open the squad management dialog press 'U'.</English>
 		</Key>
 		<Key ID="STR_DORB_BRIEF_TFR">
 			<Original>Frequencies</Original>
@@ -74,9 +74,9 @@
             <English>Frequencies</English>
 		</Key>
 		<Key ID="STR_DORB_BRIEF_TFR_DESC">
-			<Original>To ensure communication between the squads please enter your frequencies via the 'Frequencies' option under your mouse wheel menu. The Team Lead is able to define frequencies whereas members are able to adopt them easily.</Original>
+			<Original>To ensure communication between the squads please enter your frequencies via the 'Frequencies' option in your mouse wheel menu. Each squad leader is able to define frequencies, and squad members are able to adopt them easily.</Original>
             <German>Um die Kommunikation zwischen den Squads zu gewährleisten, tragt bitte eure Funkfrequenzen über das TFR-Frequenzübersicht Tool ein. Dieses findet ihr auch über das Mausradmenu. Der Teamleader kann in dem Tool die Frequenzen des Squads mit 'Festlegen' festlegen und die Teammiglieder können schnell ihr Funkgerät mit 'Übernehmen' auf die Squadfrequenzen einstellen.</German>
-            <English>To ensure communication between the squads please enter your frequencies via the 'Frequencies' option under your mouse wheel menu. The Team Lead is able to define frequencies whereas members are able to adopt them easily.</English>
+            <English>To ensure communication between the squads please enter your frequencies via the 'Frequencies' option in your mouse wheel menu. Each squad leader is able to define frequencies, and squad members are able to adopt them easily.</English>
 		</Key>
 		
 	</Package>
@@ -84,7 +84,7 @@
 		<Key ID="STR_DORB_WELCOME1">
 			<Original>Welcome to Brigade 13.</Original>
             <German>Willkommen bei der Brigade 13.</German>
-            <English>Welcome to Brigade 13</English>
+            <English>Welcome to Brigade 13.</English>
 		</Key>
 		<Key ID="STR_DORB_WELCOME2">
 			<Original>We wish you a good time</Original>
@@ -92,7 +92,7 @@
             <English>We wish you a good time</English>
 		</Key>
 		<Key ID="STR_DORB_WELCOME3">
-			<Original>on our public server</Original>
+			<Original>on our public server.</Original>
             <German>auf unserem Public-Server.</German>
             <English>on our public server.</English>
 		</Key>
@@ -112,9 +112,9 @@
             <English>your 13th Brigade</English>
 		</Key>
 		<Key ID="STR_DORB_REP_POINT">
-			<Original>Reparation</Original>
+			<Original>Repairs</Original>
             <German>Reperatur</German>
-            <English>Reparation</English>
+            <English>Repairs</English>
 		</Key>
 		<Key ID="STR_DORB_REP_POINT2">
 			<Original>&lt;t size='1.5' shadow='2' color='#ff0000'&gt;Repair Vehicle&lt;/t&gt;</Original>
@@ -122,9 +122,9 @@
             <English>&lt;t size='1.5' shadow='2' color='#ff0000'&gt;Repair Vehicle&lt;/t&gt;</English>
 		</Key>
 		<Key ID="STR_DORB_REP_CANCELED">
-			<Original>Canceled</Original>
+			<Original>Cancelled</Original>
             <German>Abgebrochen</German>
-            <English>Canceled</English>
+            <English>Cancelled</English>
 		</Key>
 		<Key ID="STR_DORB_REP_EXECUTED">
 			<Original>In progress</Original>
@@ -137,9 +137,9 @@
             <English>Please wait...</English>
 		</Key>
 		<Key ID="STR_DORB_REP_FINISHED">
-			<Original>Finished</Original>
+			<Original>Completed</Original>
             <German>Abgeschlossen</German>
-            <English>Finished</English>
+            <English>Completed</English>
 		</Key>
 		<Key ID="STR_DORB_TELEPORT">
 			<Original>Teleport</Original>
@@ -177,9 +177,9 @@
             <English>Harbour</English>
 		</Key>
 		<Key ID="STR_DORB_TELEPORT_LEAD">
-			<Original>Teleport to Teamleader</Original>
+			<Original>Teleport to squad leader</Original>
             <German>Teleport zum Teamleader</German>
-            <English>Teleport to Teamleader</English>
+            <English>Teleport to squad leader</English>
 		</Key>
 		<Key ID="STR_DORB_TELEPORT_LEAD_FAIL">
 			<Original>Teleport failed</Original>
@@ -187,9 +187,9 @@
             <English>Teleport failed</English>
 		</Key>
 		<Key ID="STR_DORB_TELEPORT_LEAD_ISLEADER">
-			<Original>You are the Teamleader yourself.</Original>
+			<Original>You are the squad leader yourself.</Original>
             <German>Du bist selbst der Teamleader.</German>
-            <English>You are the Teamleader yourself.</English>
+            <English>You are the squad leader yourself.</English>
 		</Key>
 		<Key ID="STR_DORB_TELEPORT_LEAD_NEARENEMY">
 			<Original>Enemies nearby.</Original>
@@ -202,9 +202,9 @@
             <English>No seat left in the vehicle</English>
 		</Key>
 		<Key ID="STR_DORB_TELEPORT_LEAD_INAIR">
-			<Original>Teamlead is not touching ground.</Original>
+			<Original>Squad leader is not touching ground.</Original>
             <German>Teamleader befindet sich nicht am Boden</German>
-            <English>Teamlead is not touching ground.</English>
+            <English>Squad leader is not touching ground.</English>
 		</Key>
 		<Key ID="STR_DORB_HALO">
 			<Original>Halo</Original>
@@ -217,9 +217,9 @@
             <English>open parachute</English>
 		</Key>
 		<Key ID="STR_DORB_HALO_DISABLED">
-			<Original>Halo deactivated</Original>
+			<Original>Halo jump deactivated</Original>
             <German>Halo deaktiviert</German>
-            <English>Halo deactivated</English>
+            <English>Halo jump deactivated</English>
 		</Key>
 		<Key ID="STR_DORB_HALO_KlICK">
 			<Original>Left-click your destination</Original>
@@ -227,14 +227,14 @@
             <English>Left-click your destination</English>
 		</Key>
 		<Key ID="STR_DORB_HALO_ABORT">
-			<Original>Canceled</Original>
+			<Original>Cancelled</Original>
             <German>Abgebrochen</German>
-            <English>Canceled</English>
+            <English>Cancelled</English>
 		</Key>
 		<Key ID="STR_DORB_TFR_SHORT">
-			<Original>Frequencies</Original>
+			<Original>TFR Frequencies</Original>
             <German>TFR - Frequenzübersicht</German>
-            <English>Frequencies</English>
+            <English>TFR Frequencies</English>
 		</Key>
 		<Key ID="STR_DORB_TFR_HEADER">
 			<Original>Task Force Radio - Frequencies</Original>
@@ -242,24 +242,24 @@
             <English>Task Force Radio - Frequencies</English>
 		</Key>
 		<Key ID="STR_DORB_TFR_TAKE">
-			<Original>Take</Original>
+			<Original>Apply</Original>
             <German>Übernehmen</German>
-            <English>Take</English>
+            <English>Apply</English>
 		</Key>
 		<Key ID="STR_DORB_TFR_TAKE_TOOLTIP">
-			<Original>Take frequency of your squad</Original>
+			<Original>Copy frequencies of your squad to your radio(s).</Original>
             <German>Übernimm die Frequenzen der Gruppe in dein eigenes Funkgerät.</German>
-            <English>Take frequency of your squad</English>
+            <English>Copy frequencies of your squad to your radio(s).</English>
 		</Key>
 		<Key ID="STR_DORB_TFR_SET">
-			<Original>Set</Original>
+			<Original>Define</Original>
             <German>Festlegen</German>
-            <English>Set</English>
+            <English>Define</English>
 		</Key>
 		<Key ID="STR_DORB_TFR_SET_TOOLTIP">
-			<Original>Set frequency as teamleader of your squad</Original>
+			<Original>As squad lead, define the radio frequency of your team.</Original>
             <German>Setze als Teamleader die Frequenzen der Gruppe fest.</German>
-            <English>Set frequency as teamleader of your squad</English>
+            <English>As squad lead, define the radio frequency of your team.</English>
 		</Key>
 		<Key ID="STR_DORB_TFR_GROUP">
 			<Original>Squad</Original>
@@ -267,19 +267,19 @@
             <English>Squad</English>
 		</Key>
 		<Key ID="STR_DORB_TFR_FREQ_SQUAD">
-			<Original>Current Squad-Frequencies</Original>
+			<Original>Current squad frequencies</Original>
             <German>Aktuelle Squadfrequenzen</German>
-            <English>Current Squad-Frequencies</English>
+            <English>Current squad frequencies</English>
 		</Key>
 		<Key ID="STR_DORB_TFR_FREQ_NEW">
-			<Original>New Squad-Frequencies</Original>
+			<Original>New Squad frequencies</Original>
             <German>Neue Squadfrequenzen</German>
-            <English>New Squad-Frequencies</English>
+            <English>New squad frequencies</English>
 		</Key>
 		<Key ID="STR_DORB_TFR_NOLEADER">
-			<Original>No Teamleader</Original>
+			<Original>Not squad leader</Original>
             <German>Kein Truppfuehrer</German>
-            <English>No Teamleader</English>
+            <English>Not squad leader</English>
 		</Key>
 		<Key ID="STR_DORB_BASE">
 			<Original>Base</Original>
@@ -287,9 +287,9 @@
             <English>Base</English>
 		</Key>
 		<Key ID="STR_DORB_BASE_FIRE">
-			<Original>Firing at base is prohibited</Original>
+			<Original>Firing inside the base is strictly prohibited!</Original>
             <German>Das Feuern in der Basis ist nicht erlaubt!</German>
-            <English>Firing at base is prohibited</English>
+            <English>Firing inside the base is strictly prohibited!</English>
 		</Key>
 		<Key ID="STR_DORB_SPAWN_WD">
 			<Original>Woodland</Original>
