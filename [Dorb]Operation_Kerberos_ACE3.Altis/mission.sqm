@@ -1096,7 +1096,7 @@ class Mission
 						items=3;
 						class Item0
 						{
-							value="2";
+							value="1";
 							parentCls="ACE_moduleReviveSettings";
 							typeName="enableRevive";
 						};
@@ -1196,13 +1196,13 @@ class Mission
 						};
 						class Item10
 						{
-							value="1.4";
+							value="1";
 							parentCls="ACE_moduleMedicalSettings";
 							typeName="bleedingCoefficient";
 						};
 						class Item11
 						{
-							value="1.4";
+							value="1";
 							parentCls="ACE_moduleMedicalSettings";
 							typeName="painCoefficient";
 						};
@@ -1274,7 +1274,7 @@ class Mission
 						items=10;
 						class Item0
 						{
-							value="1";
+							value="0";
 							parentCls="ace_advanced_ballistics_ModuleSettings";
 							typeName="enabled";
 						};
@@ -2361,7 +2361,7 @@ class Mission
 						};
 						class Item2
 						{
-							value="[""cba_cache_disable"",""cba_diagnostic_disable_xeh_logging"",""Disable_XEH_Logging"",""cba_diagnostic_enable_logging"",""warfxpe"",""blastcore_maincore"",""blastcore_vep"",""BlastcoreTracers"",""BC_Skies_Stratis"",""BC_Skies_Altis"",""Blastcore_Sun"",""Blastcore_SmokeCS"",""WarFXPE"",""Blastcore_VEP"",""ststaminabar"",""st_sthud"",""stnametags"",""stgi"",""asdg_jr_rhs"",""st_sthud_usermenu"",""bwa3_comp_asdg"",""st_interact"",""st_interact_enabler"",""st_map_auto_brightness"",""asr_ai3_main"",""asr_ai3_rhs_c"",""asdg_jointrails"",""asdg_jointrails_xtra"",""asdg_jr_rhs"",""asdg_jointrails_dmr01"",""asdg_jointrails_dmr02"",""asdg_jointrails_dmr03"",""asdg_jointrails_dmr04"",""asdg_jointrails_dmr05"",""asdg_jointrails_dmr06"",""asdg_jointrails_ebr"",""asdg_jointrails_gm6"",""asdg_jointrails_lrr"",""asdg_jointrails_m200"",""asdg_jointrails_mmg01"",""asdg_jointrails_mmg02"",""asdg_jointrails_katiba"",""asdg_jointrails_mk20"",""asdg_jointrails_mx"",""asdg_jointrails_tavor"",""asdg_jointrails_pdw2k"",""asdg_jointrails_kriss"",""asdg_jointrails_evo"",""asdg_jointrails_zafir"",""cw_nineliner_and_notepad"",""jesuzpacksecondprimaryweapon"",""ace_compat_asdg"",""ace_compat_rhs_afrf3"",""ace_compat_rhs_usf3"",""asdg_jointmuzzles"",""cw_9liners_and_notepad"",""ace_bwa3_weapons_comp"",""ace_asdg_comp"",""ace_rhs_c_weapons_comp"",""ace_rhsusf_c_weapons_comp"",""ace_tracers"",""BWA3_EnablePIPOptics"",""BWA3_Comp_ACE""]";
+							value="[""cba_cache_disable"",""cba_diagnostic_disable_xeh_logging"",""Disable_XEH_Logging"",""cba_diagnostic_enable_logging"",""warfxpe"",""blastcore_maincore"",""blastcore_vep"",""BlastcoreTracers"",""BC_Skies_Stratis"",""BC_Skies_Altis"",""Blastcore_Sun"",""Blastcore_SmokeCS"",""WarFXPE"",""Blastcore_VEP"",""ststaminabar"",""st_sthud"",""stnametags"",""stgi"",""asdg_jr_rhs"",""st_sthud_usermenu"",""bwa3_comp_asdg"",""st_interact"",""st_interact_enabler"",""st_map_auto_brightness"",""asr_ai3_main"",""asr_ai3_rhs_c"",""asdg_jointrails"",""asdg_jointrails_xtra"",""asdg_jr_rhs"",""asdg_jointrails_dmr01"",""asdg_jointrails_dmr02"",""asdg_jointrails_dmr03"",""asdg_jointrails_dmr04"",""asdg_jointrails_dmr05"",""asdg_jointrails_dmr06"",""asdg_jointrails_ebr"",""asdg_jointrails_gm6"",""asdg_jointrails_lrr"",""asdg_jointrails_m200"",""asdg_jointrails_mmg01"",""asdg_jointrails_mmg02"",""asdg_jointrails_katiba"",""asdg_jointrails_mk20"",""asdg_jointrails_mx"",""asdg_jointrails_tavor"",""asdg_jointrails_pdw2k"",""asdg_jointrails_kriss"",""asdg_jointrails_evo"",""asdg_jointrails_zafir"",""cw_nineliner_and_notepad"",""jesuzpacksecondprimaryweapon"",""ace_compat_asdg"",""ace_compat_rhs_afrf3"",""ace_compat_rhs_usf3"",""asdg_jointmuzzles"",""cw_9liners_and_notepad"",""ace_bwa3_weapons_comp"",""ace_asdg_comp"",""ace_rhs_c_weapons_comp"",""ace_rhsusf_c_weapons_comp"",""ace_tracers"",""BWA3_EnablePIPOptics""]";
 							parentCls="ACE_ModuleCheckPBOs";
 							typeName="Whitelist";
 						};
