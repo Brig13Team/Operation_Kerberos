@@ -8,6 +8,9 @@ TRIPLES(dorb,makro,selectrandom) = compileFinal "If(count _this < 1) exitwith {[
 TRIPLES(dorb,makro,delete) = compileFinal "If(if (isNil {_this}) then { false } else { (typeName _this) == 'ARRAY' })exitWith{{_x call dorb_makro_delete;}forEach _this;};If(if (isNil {_this}) then { false } else { (typeName _this) == 'GROUP' })exitWith{deletegroup _this;};If(if (isNil {_this}) then { false } else { (typeName _this) == 'OBJECT' })exitWith{{_this deleteVehicleCrew _x} forEach crew _this; deleteVehicle _this;};If(if (isNil {_this}) then { false } else { (typeName _this) == 'STRING' })exitWith{deleteMarker _this};diag_log text format['TILGE: Nicht unterstuetzt | %1',_this];";
 
 //Allgemeines
+PREPMAIN(backpack_init);
+PREPMAIN(backpack_change);
+PREPMAIN(backpack_handle);
 PREPMAIN(headless);
 PREPMAIN(headless_move);
 PREPMAIN(headless_determine);

@@ -381,6 +381,16 @@
             <German>Sicherheitszone</German>
             <English>Rescue Point</English>
 		</Key>
+		<Key ID="STR_DORB_BACKPACK_CHEST">
+			<Original>Move backpack to chest</Original>
+            <German>Rucksack auf den Bauch schnallen</German>
+            <English>Move backpack to chest</English>
+		</Key>
+		<Key ID="STR_DORB_BACKPACK_BACK">
+			<Original>Move backpack to back</Original>
+            <German>Rucksack auf den Ruecken schnallen</German>
+            <English>Move backpack to back</English>
+		</Key>
 	</Package>
 	<Package name="CRATE">
 		<Key ID="STR_DORB_CRATE_HEADER">

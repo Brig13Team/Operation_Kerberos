@@ -14,7 +14,7 @@ If ((isClass(configFile >> "CfgPatches" >> "rhsusf_c_weapons"))) then {
 call FM(ui_teleport_addaction);
 call FM(ui_spawn_addaction);
 call FM(ui_crate_addaction);
-
+call FM(backpack_init);
 ["restart"] spawn FM(grouptracker);
 
 ISNILS(DORB_RESPAWN_FNC,[]);
