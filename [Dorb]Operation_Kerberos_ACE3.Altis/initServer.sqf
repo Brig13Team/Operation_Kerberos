@@ -24,4 +24,5 @@ DORB_HEADLESS_EVENTHANDLER = [{ [] call dorb_fnc_headless } , 30, [] ] call CBA_
 
 _Krankenhaus = "Land_Medevac_HQ_V1_F" createVehicle (getMarkerPos "krankenhaus");
 _Krankenhaus setDir (MarkerDir "Krankenhaus");
+_Krankenhaus enableSimulation false;
 SETPVAR(_Krankenhaus,ace_medical_isMedicalFacility, true);

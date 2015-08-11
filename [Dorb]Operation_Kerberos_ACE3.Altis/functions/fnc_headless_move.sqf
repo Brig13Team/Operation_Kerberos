@@ -33,7 +33,6 @@ CHECK((units _group)isEqualTo [])
 /// Check ob geklappt - falls nicht: Error
 _geklappt = false;
 _geklappt = _group setGroupOwner _HCid;
-sleep 2;
 
 CHECK(_geklappt)
 ERROR("Gruppenbesitzerwechsel fehlgeschlagen");

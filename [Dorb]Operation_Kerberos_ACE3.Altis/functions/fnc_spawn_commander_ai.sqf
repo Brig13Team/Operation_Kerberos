@@ -35,10 +35,10 @@ _attack_ai = {
 		_planes = GETVAR(DORB_COMMANDER_LOGIC,DORB_COMMANDER_PLANES,[]);
 		If ((count _radars)>(count _planes)) then {
 			private["_unit","_spawnpos","_dir","_return","_veh","_wp"];
-			_spawnpos = [_attackpos_air select 0,4000,2] call FM(random_pos);
+			_spawnpos = [_attackpos_air select 0,5000,2] call FM(random_pos);
 			if (!(_spawnpos isEqualTo [])) then {
 				_unit = dorb_patrol_air_list SELRND;
-				_spawnpos set [2,1500];
+				_spawnpos set [2,3000];
 				_dir = [_spawnpos, _attackpos_air select 0] call BIS_fnc_dirTo;
 				_return = [_spawnpos,_dir,_unit,dorb_side] call BIS_fnc_spawnVehicle;				
 				_veh = (_return select 0);
