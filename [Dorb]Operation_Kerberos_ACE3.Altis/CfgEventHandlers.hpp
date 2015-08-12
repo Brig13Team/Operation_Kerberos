@@ -37,14 +37,6 @@ class Extended_Respawn_EventHandlers {
 		};
 	};
 };
-class Extended_killed_EventHandlers {
-	class B_Soldier_base_F {
-		class Dorb_killed {
-			scope = 2;
-			killed = "call compile preProcessFileLineNumbers 'XEH_killed.sqf'";
-		};
-	};
-};
 
 class Extended_fired_Eventhandlers {
 	class B_Soldier_base_F {

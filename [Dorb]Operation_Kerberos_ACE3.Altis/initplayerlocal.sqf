@@ -17,6 +17,9 @@ waituntil {! isnull player};
 "DORB_ENDZEIT" addPublicVariableEventHandler {[] spawn FM(disp_timer)};
 
 [] call FM(playeraddaction);
+[] call FM(ui_teleport_addaction);
+[] call FM(ui_spawn_addaction);
+[] call FM(ui_crate_addaction);
 [] call FM(ui_teleport_draw3D);
 [] call FM(ui_spawn_draw3D);
 [] call FM(ui_crate_draw3D);
