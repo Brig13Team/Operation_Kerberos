@@ -10,16 +10,18 @@
 private ["_backpack","_isHalo"];
 player forceWalk true;
 _backpack = (GETVAR(player,DORB_BACKPACK_PACK,objNull));
-If (isNull _backpack) exitwith {LOG_1(_this);[_this select 1] call CBA_fnc_removePerFrameHandler;player forceWalk false;};
+If (isNull _backpack) exitwith {[_this select 1] call CBA_fnc_removePerFrameHandler;player forceWalk false;};
 
-_isHalo = "halofreefall" in ([(animationState player),"_"] call BIS_fnc_splitString);
-
-if ((_isHalo)) then {
-	_backpack attachTo [player,[-0.1,-0.4,-0.75],"pelvis"];
-	_backpack setVectorDirandup [[0,-1,0],[0,0,-1]];
-}else{
-	_backpack attachTo [player,[-0.1,0.75,-0.4],"pelvis"];
-	_backpack setVectorDirAndUp [[0,0,-1],[0,1,0]];
+IF (!((GETVAR(player,DORB_BACKPACK_ANIM,""))isEqualTo(animationState player))) then {
+	SETVAR(player,DORB_BACKPACK_ANIM,(animationState player));
+	_isHalo = (("halofreefall" in ([(animationState player),"_"] call BIS_fnc_splitString))||((stance player) isEqualTo "PRONE"));
+	if ((_isHalo)) then {
+		_backpack attachTo [player,[-0.1,-0.4,-0.75],"pelvis"];
+		_backpack setVectorDirandup [[0,-1,0],[0,0,-1]];
+	}else{
+		_backpack attachTo [player,[-0.1,0.75,-0.4],"pelvis"];
+		_backpack setVectorDirAndUp [[0,0,-1],[0,1,0]];
+	};
 };
 
 true

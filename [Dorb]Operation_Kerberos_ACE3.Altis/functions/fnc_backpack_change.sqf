@@ -23,8 +23,9 @@ If (_movetoChest) then {
 	_backpack attachTo [player,[-0.1,0.75,-0.4],"pelvis"];
 	_backpack setVectorDirAndUp [[0,0,-1],[0,1,0]];
 	SETVAR(player,DORB_BACKPACK_PACK,_backpack);
+	SETVAR(player,DORB_BACKPACK_ANIM,(animationState player));
 	removebackpackglobal player;
-	[{_this call dorb_fnc_backpack_handle} , 0.5, [] ] call CBA_fnc_addPerFrameHandler;
+	[{_this call dorb_fnc_backpack_handle} , 2, [] ] call CBA_fnc_addPerFrameHandler;
 }else{
 	private["_backpackarray","_backpack"];
 	_backpackarray = GETVAR(player,DORB_BACKPACK,[]);
