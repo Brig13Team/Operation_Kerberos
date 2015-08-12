@@ -31,7 +31,7 @@ params ["_position", "_task_array"];
 	private "_buffer";
 	_buffer = GETMVAR(DORB_MILITAER,[]);
 	for "_i" from 1 to 130 do {
-		_dest = _buffer SELRND;
+		_dest = ((_buffer SELRND) select 1) + [0];
 		if ((_dest distance _position) > 6000) exitWith {};
 	};
 #endif
