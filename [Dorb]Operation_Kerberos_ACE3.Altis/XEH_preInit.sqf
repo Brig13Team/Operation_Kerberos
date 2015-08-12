@@ -99,14 +99,6 @@ PREPMAIN(spawn_commander);
 PREPMAIN(spawn_commander_ai);
 PREPMAIN(spawn_commander_search);
 PREPMAIN(spawn_commander_callArty);
-PREPMAIN(spawn_commandveh);
-PREPMAIN(spawn_commandveh_airdrop);
-PREPMAIN(spawn_commandveh_antiair);
-PREPMAIN(spawn_commandveh_artillery);
-PREPMAIN(spawn_commandveh_check);
-PREPMAIN(spawn_commandveh_mech);
-PREPMAIN(spawn_commandveh_sniper);
-PREPMAIN(spawn_commandveh_tanks);
 
 //Eventhandler
 PREPMAIN(handledamage_C4);

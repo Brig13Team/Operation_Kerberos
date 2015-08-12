@@ -72,7 +72,7 @@ If ((_markerpos distance [0,0,0])>1) then {
 
 };
 */
-sleep 20;
+uisleep 20;
 
 for "_u" from 0 to 120 do {
 	
