@@ -12,6 +12,20 @@ player forceWalk true;
 _backpack = (GETVAR(player,DORB_BACKPACK_PACK,objNull));
 If (isNull _backpack) exitwith {[_this select 1] call CBA_fnc_removePerFrameHandler;player forceWalk false;};
 
+if ((player != (vehicle player))&&(!((GETVAR(player,DORB_BACKPACK_ANIM,""))isEqualTo(animationState player)))) exitwith {
+	SETVAR(player,DORB_BACKPACK_ANIM,(animationState player));
+	Hint "Para";
+	_isParachute = ((vehicle player) isKindOf "ParachuteBase");
+	if (_isParachute) then {
+		_backpack attachTo [(vehicle player),[-0.08,0.55,-0.42]];
+		_backpack setVectorDirAndUp [[0,-0.2,-1],[0,1,0]];
+	} else {
+		detach _backpack;
+		_backpack setPos [random 50,random 50,(10000 + (random 50))];
+	};
+};
+
+
 IF (!((GETVAR(player,DORB_BACKPACK_ANIM,""))isEqualTo(animationState player))) then {
 	SETVAR(player,DORB_BACKPACK_ANIM,(animationState player));
 	_isHalo = (("halofreefall" in ([(animationState player),"_"] call BIS_fnc_splitString))||((stance player) isEqualTo "PRONE"));
