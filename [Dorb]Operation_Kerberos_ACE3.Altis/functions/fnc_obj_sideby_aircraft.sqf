@@ -76,7 +76,7 @@ switch (_mode) do {
 		_task = _args select 2;
 		_typ = _args select 3;
 
-		_pos = getMarkerPos "respawn_west";
+		_pos = getMarkerPos "rescue_marker";
 
 		if ( !(missionNamespace getVariable ["DORB_CONTER", false]) ) then {
 
