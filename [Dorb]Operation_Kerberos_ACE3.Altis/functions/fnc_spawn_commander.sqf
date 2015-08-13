@@ -70,6 +70,10 @@ If (!(worldName in ["pja305"])) then {
 	If (_rand < 3) then {SETVAR(DORB_COMMANDER_LOGIC,DORB_COMMANDER_AI,true);};
 };
 
+If (worldName in ["australia"]) then {
+	SETVAR(DORB_COMMANDER_LOGIC,DORB_COMMANDER_AI,true);
+};
+
 // Arty
 _rand = floor (random 4);
 If (_rand < 3) then {SETVAR(DORB_COMMANDER_LOGIC,DORB_COMMANDER_ART,true);};

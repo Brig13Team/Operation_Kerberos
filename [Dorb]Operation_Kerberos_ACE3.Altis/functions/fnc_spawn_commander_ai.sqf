@@ -40,7 +40,11 @@ _attack_ai = {
 				_unit = dorb_patrol_air_list SELRND;
 				_spawnpos set [2,3000];
 				_dir = [_spawnpos, _attackpos_air select 0] call BIS_fnc_dirTo;
-				_return = [_spawnpos,_dir,_unit,dorb_side] call BIS_fnc_spawnVehicle;				
+				If (worldName in ["australia"]) then {
+					_return = [_spawnpos,_dir,"I_Plane_Fighter_03_AA_F",independent] call BIS_fnc_spawnVehicle;
+				}else{
+					_return = [_spawnpos,_dir,_unit,dorb_side] call BIS_fnc_spawnVehicle;
+				};
 				_veh = (_return select 0);
 				_planes pushBack _veh;
 				SETVAR(DORB_COMMANDER_LOGIC,DORB_COMMANDER_PLANES,_planes);
