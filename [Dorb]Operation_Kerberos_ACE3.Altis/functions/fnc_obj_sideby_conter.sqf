@@ -28,22 +28,20 @@ _vehicle = getText (missionConfigFile >> "sideby_config" >> "conter" >> _type >>
 _inf = getArray (missionConfigFile >> "sideby_config" >> "conter" >> _type >> "inf");
 _infc = getArray (missionConfigFile >> "sideby_config" >> "conter" >> _type >> "infc");
 
-/*
 private "_marker";
 _marker = createMarker[FORMAT_1("marker_conter_%1",_position),_position];
 _marker setMarkerColor "ColorOPFOR";
 _marker setMarkerType "hd_dot";
-*/
 
 _veh = createVehicle [_vehicle, _position, [], 0, "NONE"];
 DORB_SIDEBY_OBJECTS pushBack _veh;
 createVehicleCrew _veh;
-DORB_SIDEBY_OBJECTS pushBack (crew _veh);
+{ DORB_SIDEBY_OBJECTS pushBack _x; } forEach (crew _veh);
 ISNILS(DORB_SIDE,east);
 _group = createGroup DORB_SIDE;
 {
 	for "_i" from 1 to (_infc select _forEachIndex) do {
-		_unit = _group createUnit [_x, _position, [], 0, "FORM"];
+		_unit = _group createUnit [_x, _position, [], 0, "NONE"];
 		_unit moveInCargo _veh;
 		DORB_SIDEBY_OBJECTS pushBack _unit;
 	};

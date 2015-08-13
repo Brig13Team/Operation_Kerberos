@@ -132,7 +132,7 @@ switch (_mode) do {
 	default {
 		// executed on server
 
-		private ["_position", "_task_array", "_dest", "_typen", "_wichtung", "_typ", "_obj", "_description"];
+		private ["_position", "_task_array", "_dest", "_typen", "_wichtung", "_typ", "_obj", "_description","_fnc_conter"];
 
 		_position = _args select 0;
 		_task_array = _args select 1;
@@ -190,7 +190,7 @@ switch (_mode) do {
 		publicVariable "DORB_MISSION_FNC";
 
 		_conter_size = if (_typ == "Land_Wreck_Plane_Transport_01_F") then { "medium" } else { "big" };
-		fnc_conter = {
+		_fnc_conter = {
 			private ["_veh", "_group", "_pos", "_dest", "_target", "_veh_group", "_wp"];
 			_veh = _this select 0;
 			_group = _this select 1;
@@ -216,6 +216,6 @@ switch (_mode) do {
 			(_wp select 3) setWaypointType "MOVE";
 			(_wp select 3) setWaypointStatements ["true","[group this, position this, 400] call BIS_fnc_taskPatrol;"];
 		};
-		[_conter_size, _dest, fnc_conter, [_position, _obj, _dest]] spawn FM(TRIPLES(obj,sideby,conter));
+		[_conter_size, _dest, _fnc_conter, [_position, _obj, _dest]] spawn FM(TRIPLES(obj,sideby,conter));
 	};
 };
