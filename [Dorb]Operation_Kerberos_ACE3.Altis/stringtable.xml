@@ -391,6 +391,26 @@
             <German>Rucksack auf den Ruecken schnallen</German>
             <English>Move backpack to back</English>
 		</Key>
+		<Key ID="DORB_LOG_ACTION_LOAD">
+			<Original>Load</Original>
+            <German>Einladen</German>
+            <English>Load</English>
+		</Key>
+		<Key ID="DORB_LOG_ACTION_UNLOAD">
+			<Original>Unload</Original>
+            <German>Ausladen</German>
+            <English>Unload</English>
+		</Key>
+		<Key ID="DORB_LOG_ACTION_PARADROP">
+			<Original>Drop</Original>
+            <German>Abwerfen</German>
+            <English>Drop</English>
+		</Key>
+		<Key ID="DORB_LOG_ACTION_CHECK">
+			<Original>View Load</Original>
+            <German>Ladung</German>
+            <English>View Load</English>
+		</Key>
 	</Package>
 	<Package name="CRATE">
 		<Key ID="STR_DORB_CRATE_HEADER">
