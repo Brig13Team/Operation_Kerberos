@@ -64,7 +64,7 @@ for "_i" from 1 to _rand do{
 			uisleep 1;
 			_unit setVectorUp [0,0,1];
 			_unit lock 3;
-			SETPVAR(_unit,ACE_vehicleLock_lockpickStrength,99999);
+			SETPVAR(_unit,ACE_vehicleLock_lockpickStrength,-1);
 			createVehicleCrew _unit;
 			_unit engineOn false;
 			_target pushBack _unit;
