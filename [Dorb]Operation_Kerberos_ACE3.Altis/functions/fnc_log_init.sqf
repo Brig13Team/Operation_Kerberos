@@ -26,7 +26,7 @@ _paraAction = ["DORB_LOG_ACTION_PARADROP", localize "STR_DORB_LOG_ACTION_PARADRO
 
 for "_i" from 0 to ((count _cfgLog)-1) do {
 	_vehicle = configname(_cfgLog select _i);
-	If (isClass(configFile >> "cfgvehicles" >> _vehicle))
+	If (isClass(configFile >> "cfgvehicles" >> _vehicle)) then {
 		_canLoad = ( getnumber(missionconfigFile >> "logistics" >> _vehicle >> "canload") ) > 0;
 		_canPara = ( getnumber(missionconfigFile >> "logistics" >> _vehicle >> "canPara") ) > 0;
 		If (_canLoad) then {
@@ -37,4 +37,5 @@ for "_i" from 0 to ((count _cfgLog)-1) do {
 				[_vehicle, 0, ["ACE_MainActions"], _paraAction] call ace_interact_menu_fnc_addActionToClass;
 			};
 		};
+	};
 };
