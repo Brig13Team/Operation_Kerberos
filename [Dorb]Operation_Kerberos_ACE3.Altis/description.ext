@@ -63,6 +63,8 @@ class cfgFunctions {
 #include "configs\defence_positions.hpp"
 #include "configs\sideby_config.hpp"
 
+#include "configs\logistics.hpp"
+
 //Debrief
 class CfgDebriefing {  
 	class End1 {
