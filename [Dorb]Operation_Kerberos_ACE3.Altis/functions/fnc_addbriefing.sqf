@@ -9,6 +9,7 @@ player createDiaryRecord ["Diary", ["Credits",format["
 	<br/>Author %1
 	<br/>Translations (English): Cypherstalker, Kiwa
 	<br/>Fortification-Design: Maverick2044
+	<br/>Base-Design: Dagobert
 	----------------
 	Used Scripts:
 	----------------

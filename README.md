@@ -1,6 +1,6 @@
 # Operation-Kerberos
 Dynamische Mission von Dorbedo und iJesuz </br>
-Unterstützt von Maverick (Stellungsdesign), Cypherstalker (Übersetzungen) und Kiwa (Spellcheck).
+Unterstützt von Maverick (Stellungsdesign), Cypherstalker (Übersetzungen), Kiwa (Spellcheck), Dagobert (Design der Basis).
 
 ####Momentane Features:
 
@@ -67,4 +67,5 @@ Unterstützt von Maverick (Stellungsdesign), Cypherstalker (Übersetzungen) und 
 #####Sonstiges<ul>
 <li>Task-Force Radio übersicht</li>
 <li>Grouptracker</li>
+<li>Rucksack auf die Brust schnallen</li>
 <li>Nur Piloten dürfen Fliegen</ul></li>
