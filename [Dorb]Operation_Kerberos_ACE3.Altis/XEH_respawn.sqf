@@ -2,7 +2,7 @@
 scriptname "dorb\kerberos\XEH_respawn";
 If(!hasInterface)exitWith{};
 
-call FM(backpack_init);
+
 ["restart"] spawn FM(grouptracker);
 
 ISNILS(DORB_RESPAWN_FNC,[]);
