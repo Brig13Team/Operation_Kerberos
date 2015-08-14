@@ -2,30 +2,30 @@ class logistics
 {
 	class vehicles
 	{
-		/*
-		class B_Truck_01_transport_F
-		{
-			x_axis = 0;
-			max_with = 1;
-			max_height = -1;
-		};
-
-		class B_Truck_01_covered_F
-		{
-			x_axis = 0;
-			max_with = 1;
-			max_height = -1;
-		};
-		*/
 		class rhsusf_m1025_base
 		{
-			point[] = {0,-1.8,-0.85};
-			max_width = 1.4;
+			max_width = 1.3;
 			max_length = 1.05;
 			max_height = 0.4;
 		};
 
-		class rhsusf_m1025_w : rhsusf_m1025_base {};
+		class rhsusf_m1025_w : rhsusf_m1025_base
+		{
+
+			cargo_point[] = {-0.07,-1.8,-0.85};
+			load_point[] = {-0.07,-3.3,-1.9};
+		};
+		class rhsusf_m1025_d : rhsusf_m1025_w {};
+
+		class rhsusf_m1025_w_m2 : rhsusf_m1025_base
+		{
+			cargo_point[] = {0,-1.15,1};
+			load_point[] = {0,-2.65,0};
+		};
+		class rhsusf_m1025_d_m2 : rhsusf_m1025_w_m2 {};
+
+		class rhsusf_m1025_w_s_m2 : rhsusf_m1025_w_m2 {};
+		class rhsusf_m1025_d_s_m2 : rhsusf_m1025_w_m2 {};
 	};
 
 	class cargos
