@@ -14,7 +14,6 @@ If (isNull _backpack) exitwith {[_this select 1] call CBA_fnc_removePerFrameHand
 
 if ((player != (vehicle player))&&(!((GETVAR(player,DORB_BACKPACK_ANIM,""))isEqualTo(animationState player)))) exitwith {
 	SETVAR(player,DORB_BACKPACK_ANIM,(animationState player));
-	Hint "Para";
 	_isParachute = ((vehicle player) isKindOf "ParachuteBase");
 	if (_isParachute) then {
 		_backpack attachTo [(vehicle player),[-0.08,0.55,-0.42]];
