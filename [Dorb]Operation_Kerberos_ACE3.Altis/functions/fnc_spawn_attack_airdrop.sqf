@@ -56,6 +56,7 @@ if (dorb_debug) then {
 
 
 _jaeger_gruppe = createGroup dorb_side;
+SETVAR(_jaeger_gruppe,DORB_ISTARGET,true);
 _jaeger_gruppe setCombatMode "RED";
 _platzanzahl = _transporter emptyPositions "cargo";
 for "_i" from 0 to (_platzanzahl - 2) do {
@@ -109,6 +110,7 @@ If (_type < 1) then {
 			} forEach units _jaeger_gruppe;
 		//[_jaeger_gruppe, _position, 400, 5, "MOVE", "AWARE", "RED", "NORMAL", "STAG COLUMN", "", [5,10,15]] call CBA_fnc_taskPatrol;
 		[_jaeger_gruppe] call FM(moveToHC);
+		SETVAR(_jaeger_gruppe,DORB_ISTARGET,false);
 		_transporter domove _spawnpos;
 		waitUntil {((_transporter distance _spawnpos) < (_flughoehe + 100))};
 		if (true) exitWith {};

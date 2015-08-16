@@ -46,6 +46,7 @@ for "_i" from 1 to _rand do{
 	_spawngebaeude = _gebaeudepos_arr SELRND;
 	_spawnposition = _spawngebaeude SELRND;
 	_unit = [_spawnposition,_gruppe,_einheit] call FM(spawn_unit);
+	SETVAR(_unit,DORB_ISTARGET,true);
 	_target pushBack _unit;
 };
 
