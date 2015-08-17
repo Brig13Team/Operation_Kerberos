@@ -10,29 +10,43 @@
 */
 #include "script_component.hpp"
 
+#define ATTACH_POINT [0,0,-0.1]
+#define ANIM_TIME 1.1
+
 SCRIPT(obj_sideby_aircraft);
 
 params [["_args",[],[[]]],["_mode","", [""]]];
 
+/*
+// nur zu Debugzwecken auskommentieren (spammt extrem den Log zu)
 LOG(FORMAT_2("_mode = %1 | _args = %2",_mode,_args));
+*/
 
 switch (_mode) do {
 	case ("fnc_SuitcaseAttach"): {
 		// executed local
 
-		private ["_target", "_caller", "_id"];
+		private ["_target", "_caller", "_id","_action"];
 		_target = _args select 0;
 		_caller = _args select 1;
 		_id = _args select 2;
 
 		_caller action ["SwitchWeapon", _caller, _caller, 100];
-		uiSleep 1;
+		uiSleep ANIM_TIME;
 
-		_target attachTo [_caller, [0,0,-0.2], "RightHand"];
+		_target attachTo [_caller, ATTACH_POINT, "RightHand"];
+		_target setDir 90;
 		_caller forceWalk true;
 
-		_caller addAction [localize "STR_DORB_SIDE_AIRCRAFT_INTEL_DROP", { [_this, "fnc_SuitcaseDetach"] call FM(TRIPLES(obj,sideby,aircraft)); }, _target];
+		_action = _caller addAction [localize "STR_DORB_SIDE_AIRCRAFT_INTEL_DROP", { [_this, "fnc_SuitcaseDetach"] call FM(TRIPLES(obj,sideby,aircraft)); }, _target];
+		_target setVariable ["DORB_SUITCASE_ACTIONID",_action];
 
+		[0, {
+			private "_handle";
+			_handle = [{ [_this,"fnc_SuitcaseGetInHandler"] call FM(TRIPLES(obj,sideby,aircraft)); }, 1, _this] call CBA_fnc_addPerFrameHandler;
+			(_this select 0) setVariable ["DORB_SUITCASE_HANDLE",_handle];
+			LOG("fnc_SuitcaseGetInHandler Handler gestartet");
+		}, [_target,_caller]] FMP;
 	};
 	case ("fnc_SuitcaseDetach"): {
 		// executed local
@@ -47,7 +61,117 @@ switch (_mode) do {
 		detach _suitcase;
 		_suitcase setPosATL (position _caller);
 		_caller forceWalk false;
+	};
+	case ("fnc_SuitcaseGetInHandler"): {
+		// executed on server
 
+		private["_suitcase","_player","_action"];
+		_args = _args select 0;
+		_suitcase = _args select 0;
+		_player = _args select 1;
+		_action = _suitcase getVariable ["DORB_SUITCASE_ACTIONID",-1];
+
+		if (isNull _suitcase) exitWith {		
+			// Task beendet (durch ScriptedEventHandler übernommen)
+		};
+
+		// Disconnected Handler
+		if (isNull player) exitWith {
+			private ["_last_position","_handle"];
+			_last_position = _suitcase getVariable ["DORB_SUITCASE_LASTPOS",[0,0,0]];
+			_handle = _suitcase getVariable "DORB_SUITCASE_HANDLE";
+			_suitcase setPos _last_position;
+			if (isMultiplayer) then {
+				_suitcase enableSimulationGlobal true;
+			} else {
+				_suitcase enableSimulation true;
+			};
+			[_handle] call CBA_fnc_removePerFrameHandler;
+
+			LOG("fnc_SuitcaseGetInHandler Handler beendet (player disconnected)");
+		};
+
+		// Get In Handler
+		if ( (!(isNull attachedTo _suitcase)) && {(vehicle _player) != _player} ) then {
+			private "_handle";
+
+			detach _suitcase;
+			_suitcase setPos [0,0,0];
+			if (isMultiplayer) then {
+				_suitcase enableSimulationGlobal false;
+			} else {
+				_suitcase enableSimulation false;
+			};
+
+			_player forceWalk false;
+			if (_action != -1) then {
+				_player removeAction _action;
+				_suitcase setVariable ["DORB_SUITCASE_ACTIONID",-1];
+			};
+
+			_handle = [{ [_this,"fnc_SuitcaseGetOutHandler"] call FM(TRIPLES(obj,sideby,aircraft)); }, 1, [_suitcase,_player]] call CBA_fnc_addPerFrameHandler;
+
+			LOG("fnc_SuitcaseGetOutHandler Handler gestartet");
+
+			_suitcase setVariable ["DORB_SUITCASE_HANDLE2",_handle];
+		};
+		
+		// getting data for Disconnected Handler
+		_suitcase setVariable ["DORB_SUITCASE_LASTPOS",getPos _player];
+	};
+	case ("fnc_SuitcaseGetOutHandler"): {
+		// executed on server
+
+		private["_suitcase","_player"];
+		_args = _args select 0;
+		_suitcase = _args select 0;
+		_player = _args select 1;
+
+		if (isNull _suitcase) exitWith {		
+			// Task beendet (durch ScriptedEventHandler übernommen)
+		};
+
+		private "_handle";
+		_handle = _suitcase getVariable "DORB_SUITCASE_HANDLE2";
+
+		if (isNull _player) exitWith {
+			// Disconnected Event Handler (siehe Oben)
+			[_handle] call CBA_fnc_removePerFrameHandler;
+
+			LOG("fnc_SuitcaseGetOutHandler Handler beendet (player disconnected)");
+		};
+
+		if ((vehicle _player) == _player) then {
+			if (isMultiplayer) then {
+				_suitcase enableSimulationGlobal true;
+			} else {
+				_suitcase enableSimulation true;
+			};
+			_suitcase setPos (getPos _player);
+
+			[_suitcase,_player] spawn {
+				params ["_suitcase","_player"];
+
+				_player action ["SwitchWeapon", _player, _player, 100];
+				
+				uiSleep ANIM_TIME;
+				
+				_suitcase attachTo [_player, ATTACH_POINT, "RightHand"];
+				_suitcase setDir 90;
+				_player forceWalk true;
+
+				[ [[_player,_suitcase], {
+					params ["_player","_suitcase"];
+					private "_action";
+					_action = _player addAction [localize "STR_DORB_SIDE_AIRCRAFT_INTEL_DROP", { [_this, "fnc_SuitcaseDetach"] call FM(TRIPLES(obj,sideby,aircraft)); }, _suitcase];
+					_suitcase setVariable ["DORB_SUITCASE_ACTIONID",_action];
+				}] ,"BIS_fnc_spawn", _player, true] call BIS_fnc_MP;
+			};
+
+			[_handle] call CBA_fnc_removePerFrameHandler;
+
+			LOG("fnc_SuitcaseGetOutHandler Handler beendet (get out of vehicle)");
+		};
 	};
 	case ("fnc_ObjAction"): {
 		// executed local
@@ -65,7 +189,6 @@ switch (_mode) do {
 		[0,{
 			[_this, "fnc_watchSuitcase"] call FM(TRIPLES(obj,sideby,aircraft));
 		},[_caller, _main_task, _task, _typ]] FMP;
-
 	};
 	case ("fnc_watchSuitcase"): {
 		// executed on server
@@ -81,6 +204,21 @@ switch (_mode) do {
 		if ( !(missionNamespace getVariable ["DORB_CONTER", false]) ) then {
 
 			_suitcase = createVehicle ["Land_Suitcase_F", position _caller, [], 0, "NONE"];
+			_suitcase setVariable ["DORB_ISTARGET",true];
+			[_suitcase,"DORB_RESCUEPOINT", {
+				params["_suitcase"];
+				private ["_handle"];
+				_handle = _suitcase getVariable ["DORB_SUITCASE_HANDLE",-1];
+				if (_handle != -1) then {
+					[_handle] call CBA_fnc_removePerFrameHandler;
+					LOG("fnc_SuitcaseGetInHandler Handler beendet (task completed)");
+				};
+				_handle = _suitcase getVariable ["DORB_SUITCASE_HANDLE2",-1];
+				if (_handle != -1) then {
+					[_handle] call CBA_fnc_removePerFrameHandler;
+					LOG("fnc_SuitcaseGetOutHandler Handler beendet (task completed)");
+				};
+			}] call BIS_fnc_addScriptedEventHandler;
 			DORB_SIDEBY_OBJECTS pushBack _suitcase;
 			[-1, { _this addAction [localize "STR_DORB_SIDE_AIRCRAFT_INTE_TAKE", { [_this, "fnc_SuitcaseAttach"] call FM(TRIPLES(obj,sideby,aircraft)); }, nil, 1.5, true, true, "", "isNull attachedTo _target;"]; }, _suitcase] FMP;
 			ISNILS(DORB_MISSION_FNC,[]);
@@ -127,7 +265,6 @@ switch (_mode) do {
 				[_task, "Failed", false] call BIS_fnc_taskSetState;
 			#endif
 		};
-
 	};
 	default {
 		// executed on server
