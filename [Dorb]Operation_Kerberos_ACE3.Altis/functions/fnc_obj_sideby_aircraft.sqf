@@ -51,7 +51,7 @@ switch (_mode) do {
 	case ("fnc_SuitcaseDetach"): {
 		// executed local
 
-		private ["_target", "_caller", "_id", "_suitcase"];
+		private ["_target", "_caller", "_id", "_suitcase","_handle"];
 		_target = _args select 0;
 		_caller = _args select 1;
 		_id = _args select 2;
@@ -61,6 +61,17 @@ switch (_mode) do {
 		detach _suitcase;
 		_suitcase setPosATL (position _caller);
 		_caller forceWalk false;
+
+		_handle = _suitcase getVariable ["DORB_SUITCASE_HANDLE",-1];
+		if (_handle != -1) then {
+			[_handle] call CBA_fnc_removePerFrameHandler;
+			LOG("fnc_SuitcaseGetInHandler Handler beendet (fnc_SuitcaseDetach)");
+		};
+		_handle = _suitcase getVariable ["DORB_SUITCASE_HANDLE2",-1];
+		if (_handle != -1) then {
+			[_handle] call CBA_fnc_removePerFrameHandler;
+			LOG("fnc_SuitcaseGetOutHandler Handler beendet (fnc_SuitcaseDetach)");
+		};
 	};
 	case ("fnc_SuitcaseGetInHandler"): {
 		// executed on server
