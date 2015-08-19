@@ -15,10 +15,7 @@
 */
 #include "script_component.hpp"
 SCRIPT(spawn_minefield);
-PARAMS_1(_centerpos);
-DEFAULT_PARAM(1,_spawnrad,25);
-DEFAULT_PARAM(2,_type,0);
-DEFAULT_PARAM(3,_anzahl,15);
+params["_centerpos",["_spawnrad",25,[0]],["_type",0,[0]],["_anzahl",15,[0]]];
 Private["_anzahl","_ap_mines","_at_mines","_allmines","_magazineClass","_magazineTrigger","_pos","_dir","_triggerConfig","_triggerSpecificVars","_ammo","_explosive"];
 
 If (_type <1) then {

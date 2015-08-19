@@ -67,8 +67,7 @@ _attack_ai = {
 };
 
 _attack_arty_smoke = {
-	PARAMS_1(_attack_pos);
-	DEFAULT_PARAM(1,_count,2);
+	params["_attack_pos",["_count",2,[0]]];
 	private["_artilleries"];
 	_artilleries = GETVAR(DORB_COMMANDER_LOGIC,DORB_COMMANDER_ARTILLERIE,[]);
 	{

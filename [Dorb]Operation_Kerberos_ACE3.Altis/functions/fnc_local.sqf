@@ -9,8 +9,7 @@
 */
 #include "script_component.hpp"
 SCRIPT(local);
-PARAMS_2(_target,_function);
-DEFAULT_PARAM(2,_parameters,[]);
+params["_target","_function",["_parameters",[],[[]]]];
 
 if (local _target) exitwith {_parameters call FM(_function)};
 [-2,{_this call FM(local_check)},[_function,_parameters]] FMP;

@@ -13,9 +13,7 @@
 #include "script_component.hpp"
 SCRIPT(spawn_crew);
 CHECK(!isServer)
-
-PARAMS_2(_vehicle,_gruppe);
-DEFAULT_PARAM(2,_withCargo,false);
+params["_vehicle","_gruppe",["_withCargo",false,[true]]];
 Private ["_crewmen","_unit"];
 
 If (IS_SIDE(_gruppe)) then {_gruppe = createGroup _gruppe;};

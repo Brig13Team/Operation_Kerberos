@@ -18,10 +18,7 @@
 #include "script_component.hpp"
 SCRIPT(spawn_patrol_water);
 private ["_amountOfWater","_patrol","_vehicles", "_objects"];
-PARAMS_1(_position);
-DEFAULT_PARAM(1,_radius,1200);
-DEFAULT_PARAM(2,_anzahl_boats,0);
-DEFAULT_PARAM(3,_anzahl_diver,0);
+params["_position",["_radius",1200,[0]],["_anzahl_boats",0,[0]],["_anzahl_diver",0,[0]]];
 _objects = [];
 _amountOfWater = 0;
 //If  ((_anzahl_boats<0)||(_anzahl_diver<0)) then {
@@ -64,8 +61,7 @@ _patrol = {
     _wp_type = "MOVE";
 
     private ["_prevPos"];
-    PARAMS_3(_grp,_pos,_maxDist);
-    DEFAULT_PARAM(3,_depth,0);
+    params["_grp","_pos","_maxDist",["_depth",0,[0]]];
     _grp setBehaviour _wp_behavior;
 
     _prevPos = _pos;

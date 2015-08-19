@@ -34,27 +34,16 @@
 #include "script_component.hpp"
 SCRIPT(taskhandler);
 CHECK(!isServer)
-DEFAULT_PARAM(0,_intervall,30);
-DEFAULT_PARAM(2,_condition,{true});
-DEFAULT_PARAM(3,_conditionArgs,[]);
-DEFAULT_PARAM(4,_conditionSucess,{true});
-DEFAULT_PARAM(5,_onSucess,{});
-DEFAULT_PARAM(6,_onFailure,{});
-DEFAULT_PARAM(7,_args,[]);
-DEFAULT_PARAM(8,_afterCheck,{});
-DEFAULT_PARAM(9,_afterCheckArgs,[]);
+params[["_intervall",30,[0]],["_task","",[0,""]],["_condition",{true},[{}]],["_conditionArgs",[],[[]]],["_conditionSucess",{true},[{}]],["_onSucess",{},[{}]],["_onFailure",{},[{}]],["_args",[],[[]]],["_afterCheck",{},[{}]],["_afterCheckArgs",[],[[]]]];
 private["_isTask","_cancel","_taskhandling","_state"];
 _cancel=false;
 /// Optional: Taskname/taskID
-If (IS_SCALAR(_this select 1)) then {
+If (IS_SCALAR(_task)) then {
 	_isTask=true;
-	DEFAULT_PARAM(1,_task,0);
 }else{
-	DEFAULT_PARAM(1,_task,"");
 	If (_task=="") then {_isTask=false;}else{_isTask=true;};
 };
 ISNILS(taskcancel,false);
-
 /// set intervall
 _intervall = (_intervall max 3)min 120;
 

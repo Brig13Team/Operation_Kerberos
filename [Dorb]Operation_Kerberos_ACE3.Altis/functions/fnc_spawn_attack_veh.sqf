@@ -18,11 +18,7 @@ SCRIPT(spawn_attack_veh);
 CHECK(!isServer)
 
 private ["_gruppe","_units","_rand"];
-PARAMS_1(_position);
-DEFAULT_PARAM(1,_suchradius,400);
-DEFAULT_PARAM(2,_anzahl_leicht,0);
-DEFAULT_PARAM(3,_anzahl_schwer,0);
-DEFAULT_PARAM(4,_radius,1500);
+params["_position",["_suchradius",400,[0]],["_anzahl_leicht",0,[0]],["_anzahl_schwer",0,[0]],["_radius",1500,[0]]];
 LOG_5(_position,_suchradius,_anzahl_leicht,_anzahl_schwer,_radius);
 
 _vehicles=[];

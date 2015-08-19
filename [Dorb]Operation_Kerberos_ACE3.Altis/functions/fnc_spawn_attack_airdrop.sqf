@@ -18,11 +18,7 @@ SCRIPT(spawn_attack_airdrop);
 CHECK(!isServer)
 
 private ["_spawnpos","_dir","_einheit","_transporter","_jaeger_gruppe","_jaeger","_platzanzahl"];
-PARAMS_1(_position);
-DEFAULT_PARAM(1,_type,400);
-DEFAULT_PARAM(2,_dropradius,200);
-DEFAULT_PARAM(3,_spawnradius,1700);
-DEFAULT_PARAM(4,_flughoehe,400);
+params["_position",["_type",400,[0]],["_dropradius",200,[0]],["_spawnradius",1700,[0]],["_flughoehe",400,[0]]];
 LOG_5(_position,_type,_dropradius,_spawnradius,_flughoehe);
 
 
@@ -102,10 +98,10 @@ If (_type < 1) then {
 				unassignVehicle (_x);
 				_x allowDamage false;
 				moveOut _x;
-				sleep 0.1;
+				sleep 0.2;
 				_fallschirm = createVehicle ["NonSteerable_Parachute_F",(getPos _x), [], 0, "FLY"];
 				_x moveInDriver _fallschirm;
-				sleep 0.1;
+				sleep 0.2;
 				_x allowDamage true;		
 			} forEach units _jaeger_gruppe;
 		//[_jaeger_gruppe, _position, 400, 5, "MOVE", "AWARE", "RED", "NORMAL", "STAG COLUMN", "", [5,10,15]] call CBA_fnc_taskPatrol;

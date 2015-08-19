@@ -15,9 +15,7 @@
 #include "script_component.hpp"
 SCRIPT(spawn_in_building);
 private ["_spawnpos","_spawnpos_del","_anz","_d","_gruppe","_position","_einheit","_unit"];
-DEFAULT_PARAM(0,_gebaeudearr,[]);
-DEFAULT_PARAM(1,_min,5);
-DEFAULT_PARAM(2,_max,10);
+params[["_gebaeudearr",[],[[]]],["_min",5,[0]],["_max",10,[0]]];
 LOG_3(_min,_max,_gebaeudearr);
 
 if ((count _gebaeudearr) < 1 ) exitWith {

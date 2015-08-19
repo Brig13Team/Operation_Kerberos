@@ -12,7 +12,7 @@
 SCRIPT(ui_spawn_create);
 #define dlg_veh_spawn_idd 600100
 #define dlg_veh_spawn_list_idc 600102
-DEFAULT_PARAM(0,_mode,"");
+params[["_mode","",[""]]];
 Private["_check_radius","_selection","_vehiclewahl","_vehicle","_spawn","_spawnpoint","_spawndir","_spawnpos","_padempty"];
 _check_radius = 10;
 disableSerialization;

@@ -7,11 +7,7 @@
 #include "script_component.hpp"
 SCRIPT(disp_progressbar);
 CHECK(isDedicated)
-PARAMS_1(_timeToWait);
-DEFAULT_PARAM(1,_cond,{true});
-DEFAULT_PARAM(2,_onSuccess,{});
-DEFAULT_PARAM(3,_onfailure,{});
-DEFAULT_PARAM(4,_args,[]);
+params[["_timeToWait",1,[1]],["_cond",{true},[{}]],["_onSuccess",{},[{}]],["_onfailure",{},[{}]],["_args",[],[[]]]];
 private ["_dialog","_ctrl","_newStatus","_start","_return"];
 
 if (_timeToWait > 0) then {

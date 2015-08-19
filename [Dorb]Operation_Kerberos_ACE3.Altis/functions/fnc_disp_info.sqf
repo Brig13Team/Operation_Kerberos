@@ -18,10 +18,7 @@ SCRIPT(disp_info);
 CHECK(!hasInterface)
 #define DISP_LAYER 700106
 private["_type","_display","_headerCtrl","_contentCtrl","_contentAmountOfChars","_pos","_iconCtrl","_idc","_text"];
-DEFAULT_PARAM(0,_title,"");
-DEFAULT_PARAM(1,_content,"");
-DEFAULT_PARAM(2,_icon,"");
-DEFAULT_PARAM(3,_body,true);
+params[["_title","",[""]],["_content","",["",[]]],["_icon","",[""]],["_body",true,[false]]];
 
 If(IS_STRING(_content)) then {_content = [_content];};
 

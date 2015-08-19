@@ -16,11 +16,7 @@
 */
 #include "script_component.hpp"
 SCRIPT(disp_info_global);
-DEFAULT_PARAM(0,_title,"");
-private "_content";
-_content = [_this,1,"",["",[]]] call BIS_fnc_Param;
-DEFAULT_PARAM(2,_icon,"");
-DEFAULT_PARAM(3,_body,true);
+params[["_title","",[""]],["_content","",[""]],["_icon","",[""]],["_body",true,[true]]];
 
 If (IS_STRING(_content)) then {_content = [_content];};
 

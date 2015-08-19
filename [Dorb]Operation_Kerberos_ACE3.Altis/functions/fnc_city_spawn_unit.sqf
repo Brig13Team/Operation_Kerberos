@@ -16,9 +16,7 @@
 */
 #include "script_component.hpp"
 SCRIPT(city_spawn_unit);
-PARAMS_1(_spawnposarray);
-DEFAULT_PARAM(1,_side,dorb_side);
-DEFAULT_PARAM(2,_unitarray,dorb_menlist);
+params["_spawnposarray",["_side",dorb_side,[east]],["_unitarray",dorb_menlist,[]]];
 CHECK(!IS_ARRAY(_spawnposarray))
 Private["_spawnedunit","_spawnedunits","_typ","_gruppe","_dir","_position"];
 

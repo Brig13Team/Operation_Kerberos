@@ -18,11 +18,7 @@ SCRIPT(spawn_attack_air);
 CHECK(!isServer)
 
 private ["_gruppe","_units","_rand"];
-PARAMS_1(_position);
-DEFAULT_PARAM(1,_suchradius,400);
-DEFAULT_PARAM(2,_anzahl_heli,0);
-DEFAULT_PARAM(3,_anzahl_plane,0);
-DEFAULT_PARAM(4,_radius,2000);
+params["_position",["_suchradius",400,[0]],["_anzahl_heli",0,[0]],["_anzahl_plane",0,[0]],["_radius",2000,[0]]];
 LOG_5(_position,_suchradius,_anzahl_heli,_anzahl_plane,_radius);
 
 _vehicles=[];

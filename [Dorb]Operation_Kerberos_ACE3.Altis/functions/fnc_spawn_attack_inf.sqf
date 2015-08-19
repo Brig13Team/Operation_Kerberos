@@ -21,11 +21,7 @@ SCRIPT(spawn_attack_inf);
 CHECK(!isServer)
 
 private ["_gruppe","_units","_rand"];
-PARAMS_1(_position);
-DEFAULT_PARAM(1,_suchradius,400);
-DEFAULT_PARAM(2,_anzahl_inf,0);
-DEFAULT_PARAM(3,_anzahl_spec,0);
-DEFAULT_PARAM(4,_radius,1500);
+params["_position",["_suchradius",400,[0]],["_anzahl_inf",0,[0]],["_anzahl_spec",0,[0]],["_radius",1500,[0]]];
 LOG_5(_position,_suchradius,_anzahl_inf,_anzahl_spec,_radius);
 
 _units=[];

@@ -16,11 +16,7 @@
 #include "script_component.hpp"
 SCRIPT(spawn_patrol_veh);
 private ["_gruppe","_units","_rand"];
-PARAMS_1(_position);
-DEFAULT_PARAM(1,_radius,1200);
-DEFAULT_PARAM(2,_anzahl_leicht,0);
-DEFAULT_PARAM(3,_anzahl_schwer,0);
-LOG_4(_position,_radius,_anzahl_leicht,_anzahl_schwer);
+params["_position",["_radius",1200,[0]],["_anzahl_leicht",0,[0]],["_anzahl_schwer",0,[0]]];
 
 _vehicles=[];
 _rand=[];

@@ -17,9 +17,7 @@
 */
 #include "script_component.hpp"
 SCRIPT(pos_surrounding);
-PARAMS_1(_position);
-DEFAULT_PARAM(1,_radius,600);
-DEFAULT_PARAM(2,_step,20);
+params["_position",["_radius",600,[0]],["_step",20,[0]]];
 
 CHECK(!(IS_ARRAY(_position)))
 CHECK(_position isEqualTo [])

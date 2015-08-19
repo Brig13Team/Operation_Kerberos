@@ -7,8 +7,7 @@
 #include "script_component.hpp"
 SCRIPT(disp_message);
 CHECK(isDedicated)
-DEFAULT_PARAM(0,_title,"");
-DEFAULT_PARAM(1,_content,"");
+params[["_title","",[""]],["_content","",[""]]];
 #define DISP_LAYER 700100
 private["_type","_display","_headerCtrl","_contentCtrl","_contentAmountOfChars","_pos"];
 if (_title != "" && _content != "") then {

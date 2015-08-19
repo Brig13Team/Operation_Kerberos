@@ -19,11 +19,7 @@
 #include "script_component.hpp"
 SCRIPT(spawn_patrol_inf);
 private ["_gruppe","_units"];
-PARAMS_1(_position);
-DEFAULT_PARAM(1,_radius,1200);
-DEFAULT_PARAM(2,_anzahl_inf,0);
-DEFAULT_PARAM(3,_anzahl_spec,0);
-LOG_4(_position,_radius,_anzahl_inf,_anzahl_spec);
+params["_position",["_radius",1200,[0]],["_anzahl_inf",0,[0]],["_anzahl_spec",0,[0]]];
 
 _units=[];
 _rand=[];

@@ -14,8 +14,7 @@
 */
 #include "script_component.hpp"
 SCRIPT(city_spawn_explosives);
-PARAMS_1(_spawnposarray);
-DEFAULT_PARAM(1,_type,0);
+params["_spawnposarray",["_type",0,[0]]];
 CHECK(!IS_ARRAY(_spawnposarray))
 Private["_spawnedunit","_spawnedunits","_typ","_gruppe","_dir","_position"];
 _ap_mines = ["APERSBoundingMine_Range_Mag","APERSMine_Range_Mag"];

@@ -14,9 +14,7 @@
 */
 #include "script_component.hpp"
 SCRIPT(spawn_minefields);
-PARAMS_1(_position);
-DEFAULT_PARAM(1,_radius,1300);
-DEFAULT_PARAM(2,_anzahl,8);
+params["_position",["_radius",1300,[0]],["_anzahl",8,[0]]];
 
 CHECK(!(IS_ARRAY(_position)))
 CHECK(_position isEqualTo [])

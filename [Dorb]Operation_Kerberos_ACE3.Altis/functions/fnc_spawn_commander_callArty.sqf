@@ -11,8 +11,7 @@
 #define DEBUG_ENABLED_TEST
 #include "script_component.hpp"
 SCRIPT(spawn_commander_callArty);
-PARAMS_1(_attack_pos);
-DEFAULT_PARAM(1,_count,3);
+params["_attack_pos",["_count",3,[0]]];
 private["_artilleries","_shell","_rand"];
 _artilleries = GETVAR(DORB_COMMANDER_LOGIC,DORB_COMMANDER_ARTILLERIE,[]);
 

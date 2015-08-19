@@ -6,10 +6,9 @@
 */
 #include "script_component.hpp"
 SCRIPT(get_buildings);
-private ["_gebauede","_pos","_anz","_i","_fertig","_gebauedepos","_temp"];
-PARAMS_1(_pos);
-CHECK((count _pos)<2)
-DEFAULT_PARAM(1,_rad,250);
+private ["_gebauede","_anz","_i","_fertig","_gebauedepos","_temp"];
+params[["_pos",[],[[]]],["_rad",250,[0]]];
+CHECK(_pos isEqualTo [])
 _gebauede = [];
 _gebauedepos = [];
 

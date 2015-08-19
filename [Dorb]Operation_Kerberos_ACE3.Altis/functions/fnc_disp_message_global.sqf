@@ -14,7 +14,6 @@
 */
 #include "script_component.hpp"
 SCRIPT(disp_message_global);
-DEFAULT_PARAM(0,_title,"");
-DEFAULT_PARAM(1,_content,"");
+params[["_title","",[""]],["_content","",[""]]];
 
 [-1,{_this spawn FM(disp_message);},[_title,_content]] FMP;
