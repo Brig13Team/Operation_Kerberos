@@ -62,6 +62,9 @@ PREPMAIN(rep);
 PREPMAIN(repairpoint);
 PREPMAIN(repairpoint_init);
 PREPMAIN(rescue_draw3D);
+PREPMAIN(hud_getImpact);
+PREPMAIN(hud_init);
+PREPMAIN(hud_show);
 
 //Einheiten
 PREPMAIN(addNVG);

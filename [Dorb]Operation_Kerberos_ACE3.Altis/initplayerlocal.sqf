@@ -27,6 +27,7 @@ waituntil {! isnull player};
 [] call FM(addbriefing);
 [] call FM(halo_addaction);
 [] call FM(backpack_init);
+[] spawn FM(hud_init);
 call compile preProcessFileLineNumbers "XEH_respawn.sqf";
 
 ISNILS(DORB_MISSION_FNC,[]);
