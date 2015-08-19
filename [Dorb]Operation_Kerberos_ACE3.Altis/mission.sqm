@@ -367,7 +367,7 @@ class Mission
 						};
 						class Item2
 						{
-							value="[""cba_cache_disable"",""cba_diagnostic_disable_xeh_logging"",""Disable_XEH_Logging"",""cba_diagnostic_enable_logging"",""warfxpe"",""blastcore_maincore"",""blastcore_vep"",""BlastcoreTracers"",""BC_Skies_Stratis"",""BC_Skies_Altis"",""Blastcore_Sun"",""Blastcore_SmokeCS"",""WarFXPE"",""Blastcore_VEP"",""ststaminabar"",""st_sthud"",""stnametags"",""stgi"",""asdg_jr_rhs"",""st_sthud_usermenu"",""bwa3_comp_asdg"",""st_interact"",""st_interact_enabler"",""st_map_auto_brightness"",""asr_ai3_main"",""asr_ai3_rhs_c"",""asdg_jointrails"",""asdg_jointrails_xtra"",""asdg_jr_rhs"",""asdg_jointrails_dmr01"",""asdg_jointrails_dmr02"",""asdg_jointrails_dmr03"",""asdg_jointrails_dmr04"",""asdg_jointrails_dmr05"",""asdg_jointrails_dmr06"",""asdg_jointrails_ebr"",""asdg_jointrails_gm6"",""asdg_jointrails_lrr"",""asdg_jointrails_m200"",""asdg_jointrails_mmg01"",""asdg_jointrails_mmg02"",""asdg_jointrails_katiba"",""asdg_jointrails_mk20"",""asdg_jointrails_mx"",""asdg_jointrails_tavor"",""asdg_jointrails_pdw2k"",""asdg_jointrails_kriss"",""asdg_jointrails_evo"",""asdg_jointrails_zafir"",""cw_nineliner_and_notepad"",""jesuzpacksecondprimaryweapon"",""ace_compat_asdg"",""ace_compat_rhs_afrf3"",""ace_compat_rhs_usf3"",""asdg_jointmuzzles"",""cw_9liners_and_notepad""]";
+							value="[""cba_cache_disable"",""cba_diagnostic_disable_xeh_logging"",""Disable_XEH_Logging"",""cba_diagnostic_enable_logging"",""warfxpe"",""blastcore_maincore"",""blastcore_vep"",""BlastcoreTracers"",""BC_Skies_Stratis"",""BC_Skies_Altis"",""Blastcore_Sun"",""Blastcore_SmokeCS"",""WarFXPE"",""Blastcore_VEP"",""ststaminabar"",""st_sthud"",""stnametags"",""stgi"",""st_sthud_usermenu"",""st_interact"",""st_interact_enabler"",""st_map_auto_brightness"",""asr_ai3_main"",""asr_ai3_rhs_c"",""cw_9liners_and_notepad"",""BWA3_EnablePIPOptics"",""jesuzpacksecondprimaryweapon""]";
 							parentCls="ACE_ModuleCheckPBOs";
 							typeName="Whitelist";
 						};
@@ -916,7 +916,7 @@ class Mission
 					id=47;
 					side="WEST";
 					vehicle="B_Helipilot_F";
-					player="PLAY CDG";
+					player="PLAYER COMMANDER";
 					leader=1;
 					skill=0.60000002;
 					init="this setVariable [""DORB_INGENIEUR"",true,true];";
@@ -2254,7 +2254,7 @@ class Mission
 					id=82;
 					side="WEST";
 					vehicle="B_Soldier_TL_F";
-					player="PLAYER COMMANDER";
+					player="PLAY CDG";
 					leader=1;
 					skill=0.60000002;
 					description="Reserve";
@@ -2683,12 +2683,13 @@ class Mission
 		class Item24
 		{
 			position[]={11620.679,23.483624,11960.897};
-			azimut=305.77328;
+			azimut=305.77301;
 			offsetY=0.0023059801;
 			id=114;
 			side="EMPTY";
 			vehicle="Land_PartyTent_01_F";
 			skill=0.60000002;
+			init="this allowDamage false;this setVariable ['R3F_LOG_disabled', true]; this enableSimulation false;";
 		};
 		class Item25
 		{
@@ -2996,8 +2997,8 @@ class Mission
 		};
 		class Item53
 		{
-			position[]={11639.185,22.976606,11957.687};
-			azimut=391.13397;
+			position[]={11638.621,22.97823,11957.029};
+			azimut=395.40076;
 			id=143;
 			side="EMPTY";
 			vehicle="Land_HelipadEmpty_F";
@@ -4094,12 +4095,12 @@ class Mission
 		items=37;
 		class Item0
 		{
-			position[]={11639.064,22.973692,11957.058};
+			position[]={11637.612,22.946299,11955.397};
 			name="Respawn_West";
 			text="Base";
 			type="Empty";
 			colorName="ColorBLUFOR";
-			angle=719.92554;
+			angle=568.50775;
 		};
 		class Item1
 		{

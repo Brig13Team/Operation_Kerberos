@@ -22,7 +22,7 @@ If (_movetoChest) then {
 	_backpack addBackpackCargoGlobal [(backpack player), 1];
 	_backpack attachTo [player,[-0.1,0.75,-0.4],"pelvis"];
 	_backpack setVectorDirAndUp [[0,0,-1],[0,1,0]];
-	SETVAR(_backpack,DORB_ISTARGET,true);
+	SETPVAR(_backpack,DORB_ISTARGET,true);
 	SETVAR(player,DORB_BACKPACK_PACK,_backpack);
 	SETVAR(player,DORB_BACKPACK_ANIM,(animationState player));
 	removebackpackglobal player;
