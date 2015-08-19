@@ -16,7 +16,7 @@
 */
 #include "script_component.hpp"
 SCRIPT(disp_info_global);
-params[["_title","",[""]],["_content","",[""]],["_icon","",[""]],["_body",true,[true]]];
+params[["_title","",[""]],["_content","",["",[]]],["_icon","",[""]],["_body",true,[true]]];
 
 If (IS_STRING(_content)) then {_content = [_content];};
 
