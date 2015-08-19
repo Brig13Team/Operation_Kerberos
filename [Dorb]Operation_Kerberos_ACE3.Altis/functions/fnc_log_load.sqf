@@ -22,7 +22,9 @@ if (!isClass(missionConfigFile >> "logistics" >> "vehicles" >> _vehicle_class)) 
 if (!isClass(missionConfigFile >> "logistics" >> "cargos" >> _cargo_class)) exitWith {
 	["unsupported cargo",["unsupported cargo"],"",false] call FM(disp_info);
 };
-// check if box is attached to sth
+if (!(isNull attachedTo _cargo)) exitWith {
+	["cargo already attached",["cargo already attached"],"",false] call FM(disp_info);
+};
 
 private ["_cargo_width","_cargo_length","_cargo_height","_point","_max_width","_max_length","_max_height","_logistic_stack"];
 

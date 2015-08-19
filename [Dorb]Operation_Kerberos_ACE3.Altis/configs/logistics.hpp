@@ -11,7 +11,6 @@ class logistics
 
 		class rhsusf_m1025_w : rhsusf_m1025_base
 		{
-
 			cargo_point[] = {-0.07,-1.8,-0.85};
 			load_point[] = {-0.07,-3.3,-1.9};
 		};

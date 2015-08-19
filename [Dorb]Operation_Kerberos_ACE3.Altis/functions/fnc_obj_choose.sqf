@@ -88,7 +88,7 @@ If (_aufgabentyp isEqualTo "capture_prototype") exitWith {
 If (_aufgabentyp isEqualTo "Scarab") exitWith {
 		_locarr=(GETMVAR(DORB_SONSTIGES,[]));
 		_loc = _locarr SELRND;
-		[(_loc select 0),(_loc select 1),_aufgabe] spawn FM(obj_sideby_chooseMission);
+		// [(_loc select 0),(_loc select 1),_aufgabe] spawn FM(obj_sideby_chooseMission);
 		[(_loc select 0),(_loc select 1),_aufgabe] call FM(TRIPLES(obj,sonst,Scarab));
 		LOG("Aufgabe Sonstiges abgeschlossen");
 		[(_loc select 1),_aufgabe] call FM(obj_rtb);
