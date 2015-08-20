@@ -267,9 +267,7 @@ R3F_LOG_CFG_can_lift = R3F_LOG_CFG_can_lift +
  */
 R3F_LOG_CFG_can_be_lifted = R3F_LOG_CFG_can_be_lifted +
 [
-	"B_APC_Wheeled_01_cannon_F",
-	"BWA3_Puma_Fleck","BWA3_Puma_Tropen",
-	"RHS_M2A2_Base"
+	"B_APC_Wheeled_01_cannon_F"
 	// e.g. : "MyLiftableObjectClassName1", "MyLiftableObjectClassName2"
 ];
 

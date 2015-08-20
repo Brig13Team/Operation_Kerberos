@@ -17,7 +17,12 @@ R3F_LOG_CFG_can_be_lifted = R3F_LOG_CFG_can_be_lifted +
 	"box_east_ammoveh_f",
 	"ig_supplycrate_f",
 	"box_ind_ammoveh_f",
-	"box_nato_ammoveh_f"
+	"box_nato_ammoveh_f",
+	"B_Slingload_01_Ammo_F",
+	"B_Slingload_01_Cargo_F",
+	"B_Slingload_01_Fuel_F",
+	"B_Slingload_01_Medevac_F",
+	"B_Slingload_01_Repair_F"
 ];
 
 R3F_LOG_CFG_can_transport_cargo = R3F_LOG_CFG_can_transport_cargo +
@@ -27,6 +32,7 @@ R3F_LOG_CFG_can_transport_cargo = R3F_LOG_CFG_can_transport_cargo +
 	["box_east_ammoveh_f", 14],
 	["ig_supplycrate_f", 9],
 	["box_ind_ammoveh_f", 14],
+	["B_Slingload_01_Cargo_F", 90],
 	["box_nato_ammoveh_f", 14]
 ];
 
@@ -34,6 +40,7 @@ R3F_LOG_CFG_can_be_transported_cargo = R3F_LOG_CFG_can_be_transported_cargo +
 [
 	["reammobox_f", 4],
 	["b_supplycrate_f", 10],
+	["B_CargoNet_01_ammo_F",10],
 	["c_supplycrate_f", 10],
 	["box_east_ammoord_f", 2],
 	["box_east_ammoveh_f", 15],
@@ -57,7 +64,12 @@ R3F_LOG_CFG_can_be_transported_cargo = R3F_LOG_CFG_can_be_transported_cargo +
 	["box_nato_grenades_f", 2],
 	["box_nato_support_f", 2],
 	["box_nato_wpslaunch_f", 2],
-	["box_nato_wps_f", 3]
+	["box_nato_wps_f", 3],
+	["B_Slingload_01_Ammo_F", 130],
+	["B_Slingload_01_Cargo_F", 130],
+	["B_Slingload_01_Fuel_F", 130],
+	["B_Slingload_01_Medevac_F", 130],
+	["B_Slingload_01_Repair_F", 130]
 ];
 
 R3F_LOG_CFG_can_be_moved_by_player = R3F_LOG_CFG_can_be_moved_by_player +

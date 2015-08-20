@@ -298,9 +298,13 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
 
         if((_genMac !="") and (_genMac !=_class)  and (_vClass=="Car")and(!(call(_isBase)))and(_side==1)and(_pic!="")and(_type != "")and(_type != _class)and(_DName != _class)and(_DName != "")and(_DName != _type)) then {
 
-        _spawnliste_fia pushBack [_class,_pic ,"BIS", (call(_DNameBIS)), _DName, _icon];
+			_spawnliste_fia pushBack [_class,_pic ,"BIS", (call(_DNameBIS)), _DName, _icon];
 
         };
+		
+		If (_class == "Land_ChairPlastic_F") then {
+			_spawnliste_material pushBack [_class,_pic ,"BIS", (call(_DNameBIS)), _DName, _icon];
+		};
 
     };
 };
@@ -308,7 +312,7 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
 _drohnenliste   = _spawnliste_drohne;
 _luftliste      = _spawnliste_heli + _spawnliste_heli_rhs + _spawnliste_jet + _spawnliste_jet_rhs + _spawnliste_drone_usaf + _spawnliste_air_usaf;
 _fahrzeugliste  = _spawnliste_fia + _spawnliste_fahrzeug_bewaffnet + _spawnliste_fahrzeug_unbewaffnet + _spawnliste_support + _spawnliste_panzer + _spawnliste_fahrzeug_rhs + _spawnliste_panzer_rhs;
-_logistikliste  = _spawnliste_heli_transport + _spawnliste_support + _spawnliste_fahrzeug_unbewaffnet + _spawnliste_bwmat + _spawnliste_statisch + _spawnliste_ammo + _spawnliste_fia + _spawnliste_logistikheli + _spawnliste_ace + _spawnliste_statisch_rhs;
+_logistikliste  = _spawnliste_heli_transport + _spawnliste_support + _spawnliste_fahrzeug_unbewaffnet + _spawnliste_bwmat + _spawnliste_statisch + _spawnliste_ammo + _spawnliste_fia + _spawnliste_logistikheli + _spawnliste_ace + _spawnliste_statisch_rhs + _spawnliste_material;
 _marineliste    = _spawnliste_marine + _spawnliste_submarine;
 
 SETPVAR(fahrzeuge,DORB_SPAWNLIST,_fahrzeugliste);
