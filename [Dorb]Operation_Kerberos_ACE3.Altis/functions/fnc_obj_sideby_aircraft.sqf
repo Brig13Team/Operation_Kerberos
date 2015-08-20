@@ -238,7 +238,7 @@ switch (_mode) do {
 			DORB_SIDEBY_OBJECTS pushBack _suitcase;
 			[-1, { _this addAction [localize "STR_DORB_SIDE_AIRCRAFT_INTE_TAKE", { [_this, "fnc_SuitcaseAttach"] call FM(TRIPLES(obj,sideby,aircraft)); }, nil, 1.5, true, true, "", "isNull attachedTo _target;"]; }, _suitcase] FMP;
 			ISNILS(DORB_MISSION_FNC,[]);
-			DORB_MISSION_FNC = DORB_MISSION_FNC + [ _suitcase , "_this addAction [localize 'STR_DORB_SIDE_AIRCRAFT_INTE_TAKE', { [_this, 'fnc_SuitcaseAttach'] call DORB_fnc_obj_sideby_aircraft; }, nil, 1.5, true, true, "", 'isNull attachedTo _target;'];" ];
+			DORB_MISSION_FNC = DORB_MISSION_FNC + [[_suitcase , "_this addAction [localize 'STR_DORB_SIDE_AIRCRAFT_INTE_TAKE', { [_this, 'fnc_SuitcaseAttach'] call DORB_fnc_obj_sideby_aircraft; }, nil, 1.5, true, true, "", 'isNull attachedTo _target;'];"]];
 			publicVariable "DORB_MISSION_FNC";
 
 			LOG("SCHLEIFE GESTARTET");
@@ -285,7 +285,7 @@ switch (_mode) do {
 	default {
 		// executed on server
 
-		private ["_position", "_task_array", "_dest", "_typen", "_wichtung", "_typ", "_obj", "_description","_fnc_conter"];
+		private ["_position", "_pos", "_task_array", "_dest", "_typen", "_wichtung", "_typ", "_obj", "_description","_fnc_conter"];
 
 		_position = _args select 0;
 		_task_array = _args select 1;
@@ -305,11 +305,13 @@ switch (_mode) do {
 			};
 		#endif
 
+		_pos = [_position,250,0] call DORB_fnc_random_pos;
+
 		_typen = ["Land_Wreck_Plane_Transport_01_F","Land_Wreck_Heli_Attack_02_F"];
 		_wichtung = [1,1];
 		_typ = [_typen, _wichtung] call BIS_fnc_selectRandomWeighted;
 
-		_obj = createVehicle [_typ, _position, [], 0, "NONE"];
+		_obj = createVehicle [_typ, _pos, [], 0, "NONE"];
 		DORB_SIDEBY_OBJECTS pushBack _obj;
 		SETPVAR(_obj,DORB_ISTARGET,true);
 		missionNamespace setVariable ["DORB_CONTER",false];
@@ -369,6 +371,6 @@ switch (_mode) do {
 			(_wp select 3) setWaypointType "MOVE";
 			(_wp select 3) setWaypointStatements ["true","[group this, position this, 400] call BIS_fnc_taskPatrol;"];
 		};
-		[_conter_size, _dest, _fnc_conter, [_position, _obj, _dest]] spawn FM(TRIPLES(obj,sideby,conter));
+		[_conter_size, _dest, _fnc_conter, [_pos, _obj, _dest]] spawn FM(TRIPLES(obj,sideby,conter));
 	};
 };

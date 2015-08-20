@@ -72,18 +72,11 @@ _function = {
 	missionNamespace setVariable [FORMAT_1("DORB_REWARD_MARKER_%1", _this select 4),_marker_array];
 };
 
-if (_reward in ["patrols", "car_patrols", "apc_patrols", "tank_patrols", "air_radar", "water_patrols", "commandovehicles", "targets", "useless_intel", "inf"]) then {
-	LOG(FORMAT_1("[REWARD] %1", _reward));
-} else {
-	LOG("[REWARD] default");
-};
-
 #define APC_CLASSNAMES ["APC","APC_Tracked_01_base_F","APC_Tracked_02_base_F","APC_Tracked_03_base_F","APC_Wheeled_01_base_F","APC_Wheeled_02_base_F","APC_Wheeled_03_base_F","Wheeled_Apc_F","Wheeled_APC","Tracked_APC", "rhs_bmp_base"]
 
 switch (_reward) do {
 	case "targets":
 	{
-		LOG("targets");
 		private ["_anz", "_durchmesser"];
 		_anz = [_parameter, 0, 2] call BIS_fnc_param;
 		_durchmesser = [_parameter, 1, 50] call BIS_fnc_param;

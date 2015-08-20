@@ -887,9 +887,9 @@
 				<English>Take Data</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_SUPPLIES_DESCRIPTION">
-				<Original>An enemy unit has occupied a city and is terrorising it. Free the city before they can establish a stable defence and deliver some supplies for the surviving civilians in town.</Original>
-				<German>Eine kleine abtrünnige Einheit der AAF hat eine Stadt besetzt und terrorisiert die Einwohner. Befreien Sie die Stadt bevor eine standfeste Verteidigung errichtet werden kann und liefern sie Unterstützung für die wenigen Bürger, die der Besatzung nicht zum Opfer fiehlen!</German>
-				<English>An enemy unit has occupied a city and is terrorising it. Free the city before they can establish a stable defence and deliver some supplies for the surviving civilians in town.</English>
+				<Original>An enemy unit has occupied a city and is terrorising it. Free the city before they can establish a stable defence and deliver some supplies for the surviving civilians in town. You have about 60 minutes to fulfill the task.</Original>
+				<German>Eine kleine feindliche Einheit hat eine Stadt besetzt und terrorisiert die Einwohner. Befreien Sie die Stadt bevor eine standfeste Verteidigung errichtet werden kann und liefern sie Unterstützung für die wenigen Bürger, die der Besatzung nicht zum Opfer fiehlen!</German>
+				<English>An enemy unit has occupied a city and is terrorising it. Free the city before they can establish a stable defence and deliver some supplies for the surviving civilians in town. You have about 60 minutes to fulfill the task.</English>
 			</Key>
 			<Key ID="STR_DORB_SIDE_SUPPLIES_DESCRIPTION_SHORT">
 				<Original>Supplies</Original>
