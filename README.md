@@ -47,7 +47,7 @@ Unterstützt von Maverick (Stellungsdesign), Cypherstalker (Übersetzungen), Kiw
 <li>Helikopter<ul>Helikopter greift größere Verbände an</ul></li>
 <li>Fallschirmspringer<ul>Fallschirmjäger werden über der Posistion abgesetzt</ul></li>
 <li>AI (Air Interception)<ul><li>fordert mit Hilfe eines Radars Abfangjäger an</li>
-<li>Reichweite 3,5 km</li>
+<li>Reichweite 5 km</li>
 <li>Radar braucht direkte Sicht zum Helikopter/Flugzeug</li>
 <li>1 Abfangjäger pro Radar</li></ul></li>
 <li>Artillerie<ul><li>Koordiniert die 3 Artilleriegeschütze im Gebiet</li>
