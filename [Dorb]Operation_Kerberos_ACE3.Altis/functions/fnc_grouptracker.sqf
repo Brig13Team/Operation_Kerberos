@@ -65,8 +65,8 @@ switch (_mode) do {
 				If (_delete > 0) then {
 					_del = DORB_GPTR_DATA deleteAt _i;
 					If (_delete > 1) then {
-						deleteMarkerLocal (_del select 1);
-						deleteMarkerLocal format["%1_size",_del select 1];
+						deleteMarkerLocal (_x select 1);
+						deleteMarkerLocal ((_x select 1) + "_size");
 					};
 					_anzahl = _anzahl - 1;
 				};
@@ -101,21 +101,22 @@ switch (_mode) do {
 		/*
 			creates a local Marker
 		*/
-		private["_mark","_mark2","_group"];
+		private["_mark","_mark2","_group","_groupID"];
 		_group = param[1, grpNull,[grpNull]];
+		_groupID = groupID _group;
 		If ((isNull _group)||(!alive (leader _group))) exitWith {""};
-		_mark = createMarkerLocal [format["%1",_group],getPos (leader _group)];
+		_mark = createMarkerLocal [_groupID,getPos (leader _group)];
 		_mark setMarkerShapeLocal "ICON";
 		_mark setMarkerColorLocal DORB_GPTR_COLOR;
 		_mark setMarkerTypeLocal (["symbol",leader _group] call SELF);
-		_mark setMarkerTextLocal (groupID _group);
+		_mark setMarkerTextLocal _groupID;
 
-		_mark2 = createMarkerLocal [format["%1_size",_group],getPos (leader _group)];
+		_mark2 = createMarkerLocal [_groupID + "_size",getPos (leader _group)];
 		_mark2 setMarkerShapeLocal "ICON";
 		_mark2 setMarkerColorLocal "ColorBlack";
 		_mark2 setMarkerTypeLocal (["symbol_size",leader _group, getMarkerType _mark] call SELF);
 
-		format["%1",_group]
+		_groupID
 	};
 	case "symbol": {
 		/*
@@ -125,9 +126,9 @@ switch (_mode) do {
 		_leader = param[1, objNull,[objNull]];
 		if (!alive _leader) exitWith {"unknown"};
 		_post = switch (true) do {
+			case ((typeOf vehicle _leader) in ["rhsusf_M1083A1P2_B_M2_d_MHQ_fmtv_usarmy"]): {"hq"};
 			case (getText(configFile >> "cfgVehicles" >> typeOf _leader >> "vehicleclass") in ["MenSniper","MenRecon"]) : {"recon"};
 			case (getNumber(configFile >> "CfgVehicles" >> typeOf _leader >> "engineer") == 1): {"maint"};
-			case ((typeOf vehicle _leader) in ["rhsusf_M1083A1P2_B_M2_d_MHQ_fmtv_usarmy"]): {"hq"};
 			case ((vehicle _leader isKindOf "MBT_01_arty_base_F")or(vehicle _leader isKindOf "MBT_01_mlrs_base_F")) : {"art"};
 			case ((vehicle _leader isKindOf "Wheeled_Apc_F")or(vehicle _leader isKindOf "APC_Tracked_02_base_F")or(vehicle _leader isKindOf "APC_Tracked_03_base_F")) : {"mech_inf"};
 			case (vehicle _leader isKindOf "Tank") : {"armor"};
@@ -140,7 +141,7 @@ switch (_mode) do {
 			case (vehicle _leader isKindOf "StaticWeapon") : {"support"};
 			default {"unknown"};
 		};
-		format["%1%2",DORB_GPTR_PREFIX,_post]
+		DORB_GPTR_PREFIX + _post
 	};
 	case "symbol_size": {
 		/*
@@ -152,7 +153,7 @@ switch (_mode) do {
 		if (!alive _leader) exitWith {"Empty"};
 		_group = group _leader;
 		if ((count units _group) < 2) exitWith {"Empty"};
-		if (_marker in [ format["%1%2",DORB_GPTR_PREFIX,"art"], format["%1%2",DORB_GPTR_PREFIX,"mech_inf"], format["%1%2",DORB_GPTR_PREFIX,"armor"], format["%1%2",DORB_GPTR_PREFIX,"plane"], format["%1%2",DORB_GPTR_PREFIX,"air"] ] ) exitWith {
+		if (_marker in [ DORB_GPTR_PREFIX + "art", DORB_GPTR_PREFIX + "armor", DORB_GPTR_PREFIX + "plane", DORB_GPTR_PREFIX + "air" ]) exitWith {
 			private ["_vehicles","_ret"];
 			_vehicles = [];
 			{
@@ -164,7 +165,7 @@ switch (_mode) do {
 			if ((count _vehicles) >= 3) then { _ret = "group_3"; };
 			_ret
 		};
-		if (_marker in [ format["%1%2",DORB_GPTR_PREFIX,"inf"], format["%1%2",DORB_GPTR_PREFIX,"motor_inf"], format["%1%2",DORB_GPTR_PREFIX,"recon"], format["%1%2",DORB_GPTR_PREFIX,"maint"], format["%1%2",DORB_GPTR_PREFIX,"support"] ]) exitWith {
+		if (_marker in [ DORB_GPTR_PREFIX + "inf", DORB_GPTR_PREFIX + "mech_inf", DORB_GPTR_PREFIX + "motor_inf", DORB_GPTR_PREFIX + "recon", DORB_GPTR_PREFIX + "maint", DORB_GPTR_PREFIX + "support" ]) exitWith {
 			private "_ret";
 			_ret = "Empty";
 			if ((count units _group) >=  2) then { _ret = "group_1"; };
@@ -202,7 +203,7 @@ switch (_mode) do {
 		DORB_GPTR_AKTIV=false;
 		{
 			deleteMarkerLocal (_x select 1);
-			deleteMarkerLocal format["%1_size",_x select 1];
+			deleteMarkerLocal ((_x select 1) + "_size");
 		}forEach DORB_GPTR_DATA;
 		DORB_GPTR_DATA=[];
 	};

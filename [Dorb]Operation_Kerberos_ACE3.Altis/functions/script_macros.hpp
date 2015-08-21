@@ -122,3 +122,6 @@ Author:
 #define MAP(CODE,ARRAY) [CODE,ARRAY] call FM(map)
 #define MAPR(CODE,ARRAY) [CODE,ARRAY,"r"] call FM(map)
 #define MAPL(CODE,ARRAY) [CODE,ARRAY,"l"] call FM(map)
+
+#define IS_ATTACK_HELI(THELI) if ((isClass(configFile >> "CfgVehicles" >> THELI)) && {"CAS_Heli" in getArray(configFile >> "CfgVehicles" >> THELI >> "availableForSupportTypes")}) then { true } else { false }
+#define IS_ATTACK_PLANE(TPLANE) if ((isClass(configFile >> "CfgVehicles" >> TPLANE)) && {"CAS_Bombing" in getArray(configFile >> "CfgVehicles" >> TPLANE >> "availableForSupportTypes")}) then { true } else { false }

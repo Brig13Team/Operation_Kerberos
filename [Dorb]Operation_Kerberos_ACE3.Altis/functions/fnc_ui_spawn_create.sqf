@@ -64,10 +64,6 @@ if ( (getText(configFile >> "CfgVehicles" >> _vehiclewahl >> "vehicleClass"))isE
     createVehicleCrew _vehicle;
 };
 
-if (_vehiclewahl isKindOf "Air") then {
-    _vehicle call FM(nurpiloten);
-};
-
 if ((_vehicle isKindOf "B_Truck_01_medical_F") or (_vehicle isKindOf "B_Slingload_01_Medevac_F") or (_vehicle isKindOf "RHS_UH60M_base") or (_vehicle isKindOf "O_Heli_Transport_04_medevac_F") or (_vehicle isKindOf "rhs_gaz66_ap2_base") or (_vehicle isKindOf "Truck_02_medical_base_F") or (_vehicle isKindOf "O_Truck_03_medical_F")) then {
     SETPVAR(_vehicle,ace_medical_isMedicalFacility,true);
 };

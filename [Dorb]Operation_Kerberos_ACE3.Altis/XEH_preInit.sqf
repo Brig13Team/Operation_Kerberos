@@ -30,7 +30,7 @@ PREPMAIN(pos_flatempty);
 PREPMAIN(pos_surrounding);
 PREPMAIN(random_pos);
 PREPMAIN(sel_array_weighted);
-//PREPMAIN(userconfig);
+PREPMAIN(userconfig);
 
 //City 2.0
 PREPMAIN(city_fortify);
@@ -56,7 +56,6 @@ PREPMAIN(disp_timer);
 PREPMAIN(grouptracker);
 PREPMAIN(halo);
 PREPMAIN(halo_addaction);
-PREPMAIN(nurpiloten);
 PREPMAIN(playeraddaction);
 PREPMAIN(rep);
 PREPMAIN(repairpoint);
@@ -65,6 +64,7 @@ PREPMAIN(rescue_draw3D);
 PREPMAIN(hud_getImpact);
 PREPMAIN(hud_init);
 PREPMAIN(hud_show);
+PREPMAIN(onlyPilots);
 
 //Einheiten
 PREPMAIN(addNVG);

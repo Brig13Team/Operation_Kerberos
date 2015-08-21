@@ -55,3 +55,14 @@ class Extended_Hit_EventHandlers {
 		};
 	};
 };
+
+class Extended_GetIn_Eventhandlers
+{
+	class Air
+	{
+		class Air_GetIn
+		{
+			getin = "_this call DORB_fnc_onlyPilots";
+		};
+	};
+};

@@ -2,6 +2,8 @@
 #define COMPONENT kerberos
 #define CUSTOM_FOLDER functions
 
+#define DORB_PILOT_WHITELIST_ENABLED
+
 #define DEBUGMODUS
 #define DEBUG_MODE_NORMAL
 #ifdef DEBUG_ENABLED_TEST

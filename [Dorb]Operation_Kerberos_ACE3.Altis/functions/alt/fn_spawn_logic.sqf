@@ -128,11 +128,6 @@ dlg_spawn_ausgewaehlt = false;
 		createVehicleCrew _veh1;
 	};
 	/*
-	if (_veh1 isKindOf "Air") then {
-		_veh1 execVM "basis\fnc\fn_nurpiloten.sqf";
-	};
-	*/
-	/*
 	if ((_veh1 isKindOf "B_Truck_01_medical_F") or (_veh1 isKindOf "B_Slingload_01_Medevac_F")) then {
 		_veh1 setvariable[QGVAR(isMedicalFacility), true, true];
 	};
