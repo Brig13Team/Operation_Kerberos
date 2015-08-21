@@ -72,6 +72,7 @@ PREPMAIN(cleanup_big);
 PREPMAIN(cleanup_small);
 PREPMAIN(spawn_aapos);
 PREPMAIN(spawn_artypos);
+PREPMAIN(spawn_attack_air);
 PREPMAIN(spawn_attack_airdrop);
 PREPMAIN(spawn_attack_inf);
 PREPMAIN(spawn_attack_veh);
