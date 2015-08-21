@@ -17,6 +17,5 @@ _userconfig = compile preprocessFileLineNumbers "\userconfig\kerberos\dorb_userc
 if (!isNil "_userconfig") then {
 	[] call _userconfig; // Load the global defaults
 };
-ISNILS(DORB_RESERVED,false);
 ISNILS(DORB_RESERVED_PILOT,[]);
 ISNILS(DORB_RESERVED_ZEUS,[]);
