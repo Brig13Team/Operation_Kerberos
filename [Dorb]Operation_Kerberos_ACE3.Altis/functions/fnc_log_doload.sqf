@@ -48,7 +48,7 @@ If (!isNull _object) then {
 		DORB_LOG_ACEACTIONS set [1,true];
 		SETPVAR(_object,ACE_dragging_canCarry,false);
 	};
-	SETPVAR(_object,DORB_LOG_ACEACTIONS,false);
+	SETPVAR(_object,DORB_LOG_ACEACTIONS,DORB_LOG_ACEACTIONS);
 	[
 		LOADTIME,
 		{(((getPos player) distance DORB_ISLOADING_POS)<1)},
