@@ -48,7 +48,7 @@ _markerpos = getMarkerPos "rescue_marker";
 If ((_markerpos distance [0,0,0])>1) then {
 	[{
 		private "_units";
-		_units = (getMarkerPos "rescue_marker") nearEntities [["Man","Ship_F","LandVehicle","Land_Suitcase_F"], 15];
+		_units = (getMarkerPos "rescue_marker") nearEntities [["Man","Ship_F","LandVehicle","Land_Suitcase_F","Air"], 15];
 			{
 				[_x,"DORB_RESCUEPOINT",[_x]] call BIS_fnc_callScriptedEventHandler;
 			}forEach _units;
