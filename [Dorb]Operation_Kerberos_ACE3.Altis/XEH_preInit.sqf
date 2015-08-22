@@ -14,9 +14,8 @@ PREPMAIN(backpack_handle);
 PREPMAIN(headless);
 PREPMAIN(headless_move);
 PREPMAIN(headless_determine);
-PREPMAIN(positionsMean);
-PREPMAIN(determineHC);
 PREPMAIN(debug_performance);
+PREPMAIN(determineHC);
 PREPMAIN(get_buildings);
 PREPMAIN(get_cfg_subclasses);
 PREPMAIN(get_cfglocations);
@@ -28,6 +27,7 @@ PREPMAIN(moveToHC);
 PREPMAIN(pointBetween);
 PREPMAIN(pos_flatempty);
 PREPMAIN(pos_surrounding);
+PREPMAIN(positionsMean);
 PREPMAIN(random_pos);
 PREPMAIN(sel_array_weighted);
 PREPMAIN(userconfig);
@@ -56,15 +56,15 @@ PREPMAIN(disp_timer);
 PREPMAIN(grouptracker);
 PREPMAIN(halo);
 PREPMAIN(halo_addaction);
+PREPMAIN(hud_getImpact);
+PREPMAIN(hud_init);
+PREPMAIN(hud_show);
+PREPMAIN(onlyPilots);
 PREPMAIN(playeraddaction);
 PREPMAIN(rep);
 PREPMAIN(repairpoint);
 PREPMAIN(repairpoint_init);
 PREPMAIN(rescue_draw3D);
-PREPMAIN(hud_getImpact);
-PREPMAIN(hud_init);
-PREPMAIN(hud_show);
-PREPMAIN(onlyPilots);
 
 //Einheiten
 PREPMAIN(addNVG);
@@ -97,7 +97,6 @@ PREPMAIN(spawn_rooftop);
 PREPMAIN(spawn_tower);
 PREPMAIN(spawn_unit);
 
-
 //Comandofahrzeuge
 PREPMAIN(spawn_commander);
 PREPMAIN(spawn_commander_ai);
@@ -105,8 +104,8 @@ PREPMAIN(spawn_commander_search);
 PREPMAIN(spawn_commander_callArty);
 
 //Eventhandler
-PREPMAIN(handledamage_C4);
 PREPMAIN(addACEMedicalItems);
+PREPMAIN(handledamage_C4);
 
 //Aufgaben
 PREPMAIN(core);

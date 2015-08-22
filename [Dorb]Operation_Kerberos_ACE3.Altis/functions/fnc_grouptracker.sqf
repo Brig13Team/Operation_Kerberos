@@ -103,15 +103,16 @@ switch (_mode) do {
 		*/
 		private["_mark","_mark2","_group","_groupID"];
 		_group = param[1, grpNull,[grpNull]];
-		_groupID = groupID _group;
 		If ((isNull _group)||(!alive (leader _group))) exitWith {""};
+		_groupID = groupID _group;
 		_mark = createMarkerLocal [_groupID,getPos (leader _group)];
+		_mark2 = createMarkerLocal [_groupID + "_size",getPos (leader _group)];
+		
 		_mark setMarkerShapeLocal "ICON";
 		_mark setMarkerColorLocal DORB_GPTR_COLOR;
 		_mark setMarkerTypeLocal (["symbol",leader _group] call SELF);
 		_mark setMarkerTextLocal _groupID;
-
-		_mark2 = createMarkerLocal [_groupID + "_size",getPos (leader _group)];
+		
 		_mark2 setMarkerShapeLocal "ICON";
 		_mark2 setMarkerColorLocal "ColorBlack";
 		_mark2 setMarkerTypeLocal (["symbol_size",leader _group, getMarkerType _mark] call SELF);
