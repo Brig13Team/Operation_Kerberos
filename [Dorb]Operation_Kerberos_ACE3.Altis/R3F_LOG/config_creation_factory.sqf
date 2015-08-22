@@ -47,7 +47,6 @@ R3F_LOG_CFG_CF_sell_back_bargain_rate = 1;
 R3F_LOG_CFG_CF_whitelist_light_categories =
 [
 	"Objects",                          // Objects (1 entries)
-	"Ammo",                             // Ammo (49 entries)
 	"Static",                           // Static (28 entries)
 	"Fortifications"                   // Objects (Fortifications) (47 entries)
 ];
@@ -75,6 +74,7 @@ R3F_LOG_CFG_CF_whitelist_medium_categories = R3F_LOG_CFG_CF_whitelist_light_cate
 	"Training",                         // Training (80 entries)
 	"Cargo",                            // Objects (Construction) (43 entries)
 	"Flag"                             // Objects (Flags) (35 entries)
+	"Ammo",                             // Ammo (49 entries)
 
 ];
 

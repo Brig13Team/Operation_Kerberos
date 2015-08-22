@@ -257,7 +257,7 @@ R3F_LOG_CFG_can_be_towed = R3F_LOG_CFG_can_be_towed +
  */
 R3F_LOG_CFG_can_lift = R3F_LOG_CFG_can_lift +
 [
-	"RHS_CH_47F_base"
+	//"RHS_CH_47F_base"
 	// e.g. : "MyLifterVehicleClassName1", "MyLifterVehicleClassName2"
 ];
 
@@ -267,7 +267,7 @@ R3F_LOG_CFG_can_lift = R3F_LOG_CFG_can_lift +
  */
 R3F_LOG_CFG_can_be_lifted = R3F_LOG_CFG_can_be_lifted +
 [
-	"B_APC_Wheeled_01_cannon_F"
+	//"B_APC_Wheeled_01_cannon_F"
 	// e.g. : "MyLiftableObjectClassName1", "MyLiftableObjectClassName2"
 ];
 
