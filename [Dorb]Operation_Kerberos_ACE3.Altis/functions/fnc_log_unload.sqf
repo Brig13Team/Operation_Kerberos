@@ -37,9 +37,7 @@ _cargo_mass = getMass (_last_cargo select 0);
 _vehicle_mass = getMass _vehicle;
 (_last_cargo select 0) setPos (_vehicle modelToWorld _detach_point);
 
-_position = _vehicle modelToWorld _load_point;
-_height = _position select 2;
-if (_height > 50) then {
+if ([_vehicle] call FM(log_candrop)) then {
 	private "_para";
 	_para = createVehicle ["B_Parachute_02_F",[0,0,0],[],0,"FLY"];
 	_para setDir (getDir (_last_cargo select 0));

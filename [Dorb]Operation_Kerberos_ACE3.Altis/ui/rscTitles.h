@@ -131,8 +131,8 @@ class RscTitles {
 			idc=6;
 			type = 8;
 			style = 0;
-			colorFrame[] = UI_CL_CTRL_GRUEN1;
-			colorBar[] = UI_CL_CTRL_GRUEN2;
+			colorFrame[] = UI_CL_BODY_TEXT;
+			colorBar[] = UI_CL_BODY;
 			texture = "#(argb,8,8,3)color(1,1,1,1)";
 			x = safezoneX + safezoneW * 0.3;
 			y = safeZoneY + _get_screen_h(0.1);
