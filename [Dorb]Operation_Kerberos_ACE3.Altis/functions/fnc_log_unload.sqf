@@ -46,5 +46,5 @@ if ([_vehicle] call FM(log_candrop)) then {
 };
 
 _logistic_stack resize ((count _logistic_stack) - 1);
-_vehicle setVariable ["LOGISTIC_CARGO_STACK",_logistic_stack];
+_vehicle setVariable ["LOGISTIC_CARGO_STACK",_logistic_stack,true];
 _vehicle setMass (_vehicle_mass - _cargo_mass);

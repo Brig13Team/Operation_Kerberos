@@ -72,5 +72,5 @@ _cargo_mass = getMass _cargo;
 _vehicle_mass = getMass _vehicle;
 
 _cargo attachTo [_vehicle,_attach_point];
-_vehicle setVariable ["LOGISTIC_CARGO_STACK",_logistic_stack];
+_vehicle setVariable ["LOGISTIC_CARGO_STACK",_logistic_stack,true];
 _vehicle setMass (_vehicle_mass + _cargo_mass);

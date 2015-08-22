@@ -7,6 +7,10 @@ class logistics
 			max_width = 1.3;
 			max_length = 1.05;
 			max_height = 0.4;
+			hatch_open = "_this animate ['ani_trunk_1', 1];";
+			hatch_close = "_this animate ['ani_trunk_1', 0]";
+			hatch_isopened = "_this animationPhase 'ani_trunk_1'==1";
+			hatch_isclosed = "_this animationPhase 'ani_trunk_1'<0.5";
 		};
 
 		class rhsusf_m1025_w : rhsusf_m1025_base
