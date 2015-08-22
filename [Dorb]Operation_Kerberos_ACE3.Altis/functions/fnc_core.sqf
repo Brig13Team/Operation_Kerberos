@@ -71,6 +71,7 @@ If ((_markerpos distance [0,0,0])>1) then {
 	};
 
 };
+*/
 uisleep 20;
 
 for "_u" from 0 to 120 do {
@@ -83,4 +84,3 @@ for "_u" from 0 to 120 do {
 };
 ERROR("CORE LOOP CRASHED");
 endMission "End1";
-*/
