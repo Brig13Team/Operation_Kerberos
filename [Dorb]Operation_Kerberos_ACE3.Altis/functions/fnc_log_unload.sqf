@@ -48,3 +48,13 @@ if ([_vehicle] call FM(log_candrop)) then {
 _logistic_stack resize ((count _logistic_stack) - 1);
 _vehicle setVariable ["LOGISTIC_CARGO_STACK",_logistic_stack,true];
 _vehicle setMass (_vehicle_mass - _cargo_mass);
+
+private["_aceActions"];
+_aceActions = (_last_cargo select 0) getVariable ["DORB_LOG_ACEACTIONS",[]];
+If(_aceActions isEqualTo []) exitWith {};
+If (_aceActions select 0) then {
+	(_last_cargo select 0) setVariable ["ACE_dragging_canDrag",true,true];
+};
+If (_aceActions select 1) then {
+	(_last_cargo select 0) setVariable ["ACE_dragging_canCarry",true,true];
+};

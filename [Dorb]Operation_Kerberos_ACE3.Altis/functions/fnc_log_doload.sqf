@@ -39,6 +39,16 @@ If (!isNull _object) then {
 			waitUntil{uisleep 0.2;_target call _isopened;};
 		};
 	};
+	DORB_LOG_ACEACTIONS = [false,false];
+	If (GETVAR(_object,ACE_dragging_canDrag,false)) then {
+		DORB_LOG_ACEACTIONS set [0,true];
+		SETPVAR(_object,ACE_dragging_canDrag,false);
+	};
+	If (GETVAR(_object,ACE_dragging_canCarry,false)) then {
+		DORB_LOG_ACEACTIONS set [1,true];
+		SETPVAR(_object,ACE_dragging_canCarry,false);
+	};
+	SETPVAR(_object,DORB_LOG_ACEACTIONS,false);
 	[
 		LOADTIME,
 		{(((getPos player) distance DORB_ISLOADING_POS)<1)},

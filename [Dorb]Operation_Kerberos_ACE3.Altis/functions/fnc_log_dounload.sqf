@@ -36,3 +36,4 @@ If (!(_anim isEqualTo "")) then {
 	{SETVAR(player,DORB_ISLOADING,false);},
 	[_target]
 ] call FM(disp_progressbar);
+
