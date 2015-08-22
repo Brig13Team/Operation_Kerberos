@@ -60,7 +60,7 @@ class Extended_GetIn_Eventhandlers
 {
 	class Air
 	{
-		class Air_GetIn
+		class Dorb_Air_GetIn
 		{
 			getin = "_this call DORB_fnc_onlyPilots";
 		};
