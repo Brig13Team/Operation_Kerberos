@@ -36,11 +36,11 @@ If (_difficulty>1) then {
 };
 
 If (_difficulty>2) then {
-	_count_inf = 8;
+	_count_inf = 7;
 	_count_specops = 3;
 	_count_light = 5;
 	_count_tanks = 6;
-	_count_defence = 9;
+	_count_defence = 8;
 };
 
 If (worldName == "pja305") then {
