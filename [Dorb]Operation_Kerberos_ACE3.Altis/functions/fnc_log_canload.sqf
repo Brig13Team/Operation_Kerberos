@@ -28,18 +28,21 @@ If (!(_max_width>0)) exitWith {false};
 
 _load_point = _target modelToWorld _load_point_offset;
 _nearObjects = nearestObjects[_load_point, ["AllVehicles","ThingX"], 3];
-_object = objNull;
+private "_cargo_class";
+_cargo_class = "";
 {
-	If (isClass(missionConfigFile >> "logistics" >> "cargos" >> (typeOf _x))) exitWith {
-		_object = _x;
+	private "_temp";
+	_temp = [typeOf _x] call FM(log_getCargoCfg); 
+	If (!(_temp isEqualTo "")) exitWith {
+		_cargo_class = _temp;
 	};
 }forEach _nearObjects;
 
-CHECK(isNull _object)
+CHECK(_cargo_class isEqualTo "")
 
 
-private["_cargo_class","_cargo_width","_cargo_length","_cargo_height","_left_length"];
-_cargo_class = typeOf _object;
+private["_cargo_width","_cargo_length","_cargo_height","_left_length"];
+if (_cargo_class isEqualTo "") exitWith {};
 
 _cargo_width = getNumber(missionConfigFile >> "logistics" >> "cargos" >> _cargo_class >> "width");
 _cargo_length = getNumber(missionConfigFile >> "logistics" >> "cargos" >> _cargo_class >> "length");

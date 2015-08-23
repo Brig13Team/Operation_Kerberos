@@ -33,7 +33,7 @@ class logistics
 
 	class cargos
 	{
-		class Box_NATO_Wps_F
+		class WpnsBox_F
 		{
 			width = 1.1;
 			length = 0.64;

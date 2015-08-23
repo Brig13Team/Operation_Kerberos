@@ -21,7 +21,7 @@ _nearObjects = nearestObjects[(_target modelToWorld (getArray(missionConfigFile 
 _object = objNull;
 
 {
-	If (isClass(missionConfigFile >> "logistics" >> "cargos" >> (typeOf _x))) exitWith {
+	If (!(([typeOf _x] call FM(log_getCargoCfg))isEqualTo "")) exitWith {
 		_object = _x;
 	};
 }forEach _nearObjects;

@@ -27,6 +27,7 @@ PREPMAIN(log_canload);
 PREPMAIN(log_canunload);
 PREPMAIN(log_doload);
 PREPMAIN(log_dounload);
+PREPMAIN(log_getCargoCfg);
 PREPMAIN(log_init);
 PREPMAIN(log_load);
 PREPMAIN(log_unload);

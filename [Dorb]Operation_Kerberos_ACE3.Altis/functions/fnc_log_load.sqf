@@ -14,12 +14,12 @@ params ["_cargo","_vehicle"];
 private ["_cargo_class","_vehicle_class"];
 
 _vehicle_class = typeOf _vehicle;
-_cargo_class = typeOf _cargo;
+_cargo_class = [typeOf _cargo] call FM(log_getCargoCfg);
 
 if (!isClass(missionConfigFile >> "logistics" >> "vehicles" >> _vehicle_class)) exitWith {
 	["unsupported vehicle",["unsupported vehicle"],"",false] call FM(disp_info);
 };
-if (!isClass(missionConfigFile >> "logistics" >> "cargos" >> _cargo_class)) exitWith {
+if (_cargo_class isEqualTo "") exitWith {
 	["unsupported cargo",["unsupported cargo"],"",false] call FM(disp_info);
 };
 if (!(isNull attachedTo _cargo)) exitWith {
