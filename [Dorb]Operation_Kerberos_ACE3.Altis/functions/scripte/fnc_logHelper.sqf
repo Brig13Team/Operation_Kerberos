@@ -1,7 +1,7 @@
 /*
 	Author: Dorbedo
 	
-	[object] execVM "functions\scripte\fnc_logHelper.sqf";
+	[cursortarget] execVM "functions\scripte\fnc_logHelper.sqf";
 */
 
 params[["_vehicle",objNull,[objNull]]];
