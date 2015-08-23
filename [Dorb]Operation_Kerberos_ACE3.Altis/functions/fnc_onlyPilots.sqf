@@ -11,6 +11,7 @@
 		3: ARRAY - turret
 */
 #include "script_component.hpp"
+SCRIPT(log_load);
 
 params["_group","_position","_unit","_turret"];
 

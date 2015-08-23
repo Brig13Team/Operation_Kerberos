@@ -4,8 +4,11 @@
 	Description:
 		logistic script
 
+	Parameter(s):
+		0: OBJECT - vehicle
 */
 #include "script_component.hpp"
+SCRIPT(log_unload);
 
 #define SPACE_BETWEEN_CARGO 0.1
 
@@ -26,6 +29,14 @@ if (_logistic_stack isEqualTo []) exitWith {
 private ["_last_cargo","_cargo_mass","_vehicle_mass","_load_point","_detach_point","_cargo_width","_cargo_length","_detach_point","_position","_height"];
 
 _last_cargo = _logistic_stack select ((count _logistic_stack) - 1);
+
+if (_vehicle != attachedTo _cargo) exitWith {
+	_logistic_stack resize ((count _logistic_stack) - 1);
+	_cargo_mass = getMass (_last_cargo select 0);
+	_vehicle setVariable ["LOGISTIC_CARGO_STACK",_logistic_stack,true];
+	_vehicle setMass (_vehicle_mass - _cargo_mass);
+};
+
 _load_point = getArray(missionConfigFile >> "logistics" >> "vehicles" >> _vehicle_class >> "load_point");
 _cargo_width = _last_cargo select 1 select 0;
 _cargo_length = _last_cargo select 1 select 1;

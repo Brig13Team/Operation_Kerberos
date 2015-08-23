@@ -4,8 +4,13 @@
 	Description:
 		logistic script
 
+	Parameter(s):
+		0: OBJECT - cargo
+		1: OBJECT - vehicle
+
 */
 #include "script_component.hpp"
+SCRIPT(log_load);
 
 #define SPACE_BETWEEN_CARGO 0.1
 

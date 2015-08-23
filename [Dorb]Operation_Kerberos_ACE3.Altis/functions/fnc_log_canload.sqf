@@ -35,7 +35,7 @@ _cargo_class = "";
 {
 	private "_temp";
 	_temp = [typeOf _x] call FM(log_getCargoCfg); 
-	If (!(_temp isEqualTo "")) exitWith {
+	If (!(_temp isEqualTo "") && {isNull attachedTo _x}) exitWith {
 		_cargo_class = _temp;
 	};
 }forEach _nearObjects;
