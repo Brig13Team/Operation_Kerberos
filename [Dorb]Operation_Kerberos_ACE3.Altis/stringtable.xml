@@ -161,10 +161,10 @@
             <German>Luftwaffe</German>
             <English>Aircraft</English>
 		</Key>
-		<Key ID="STR_DORB_TELEPORT_DRONES">
-			<Original>Drones</Original>
-            <German>Drohen</German>
-            <English>Drones</English>
+		<Key ID="STR_DORB_TELEPORT_SHOOTINGRANGE">
+			<Original>Shooting Range</Original>
+            <German>Schießstand</German>
+            <English>Shooting Range</English>
 		</Key>
 		<Key ID="STR_DORB_TELEPORT_LOGISTIC">
 			<Original>Logistics</Original>
