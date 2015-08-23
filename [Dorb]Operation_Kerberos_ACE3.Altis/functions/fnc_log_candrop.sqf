@@ -12,6 +12,9 @@
 */
 #include "script_component.hpp"
 SCRIPT(log_candrop);
+
+if (player getVariable ["DORB_ISLOADING",false]) exitWith { false };
+
 PARAMS_1(_target);
 private["_logistic_stack"];
 

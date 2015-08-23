@@ -73,8 +73,8 @@ R3F_LOG_CFG_CF_whitelist_medium_categories = R3F_LOG_CFG_CF_whitelist_light_cate
 	"Structures_Military",              // Structures (Military) (12 entries)
 	"Training",                         // Training (80 entries)
 	"Cargo",                            // Objects (Construction) (43 entries)
-	"Flag"                             // Objects (Flags) (35 entries)
-	"Ammo",                             // Ammo (49 entries)
+	"Flag",                             // Objects (Flags) (35 entries)
+	"Ammo"                              // Ammo (49 entries)
 
 ];
 

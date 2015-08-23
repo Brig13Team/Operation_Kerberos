@@ -14,18 +14,27 @@
 
 params["_group","_position","_unit","_turret"];
 
-// schmeißt alle nicht Piloten aus Dreh- und Starrflüglern
-if (((_turret isEqualTo [0]) || (_position == "driver")) && !((typeOf _unit) in ["B_Pilot_F","B_Helipilot_F"])) then {
-	if ((_position == "driver") || {isNull driver (vehicle _unit)}) then { (vehicle _unit) engineOn false; };
-	_unit action ["GetOut", vehicle _unit];
-	if (isPlayer _unit) then { hint format[localize "STR_DORB_NURPILOTEN",name player]; };
-};
+if (!(((_turret isEqualTo [0]) || (_position == "driver")))) exitWith {};
 
 #ifdef DORB_PILOT_WHITELIST_ENABLED
-// entfernt Piloten, welche nicht gewhitelisted sind
-if ( (IS_ATTACK_HELI(typeOf vehicle _unit) || IS_ATTACK_PLANE(typeOf vehicle _unit)) && {!(getPlayerUID _unit in (["_SP_AI_","_SP_PLAYER_"]))} && {!isNil "DORB_RESERVED_PILOT_SLOT"} ) then {
+	private "_bool";
+	_bool = true;
+
+	if (!((typeOf _unit) in ["B_Pilot_F","B_Helipilot_F"])) then { _bool = false; };
+	LOG(FORMAT_1("%1",_bool));
+	if ( (IS_ATTACK_HELI(typeOf vehicle _unit) || IS_ATTACK_PLANE(typeOf vehicle _unit))) then {
+		if ( !((getPlayerUID _unit in (["_SP_AI_","_SP_PLAYER_"])) || (!isNil "DORB_RESERVED_PILOT_SLOT")) ) then {
+			_bool = false;
+		};
+	};
+	LOG(FORMAT_1("%1",_bool));
+
+	if (!_bool) then {
+#else
+	if (!((typeOf _unit) in ["B_Pilot_F","B_Helipilot_F"])) then {
+#endif
+
 	if ((_position == "driver") || {isNull driver (vehicle _unit)}) then { (vehicle _unit) engineOn false; };
 	_unit action ["GetOut", vehicle _unit];
 	if (isPlayer _unit) then { hint format[localize "STR_DORB_NURPILOTEN",name player]; };
 };
-#endif

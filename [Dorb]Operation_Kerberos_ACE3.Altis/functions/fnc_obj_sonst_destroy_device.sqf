@@ -114,6 +114,6 @@ sleep 5;
 #define ONSUCESS {[-1,{_this spawn FM(disp_info)},["STR_DORB_DESTROY",["STR_DORB_FINISHED"],"data\icon\icon_destroy.paa",true]] FMP;}
 #define ONFAILURE {}
 #define SUCESSARG []
-#define ONLOOP {If (isnil "DORB_EARTHQUAKE_COUNTER") then {DORB_EARTHQUAKE_COUNTER=8;};DORB_EARTHQUAKE_COUNTER = DORB_EARTHQUAKE_COUNTER - 1;If (DORB_EARTHQUAKE_COUNTER<0) then {[-1, {_rand=(floor(random 4)+1);[_rand]spawn BIS_fnc_earthquake;}] FMP;DORB_EARTHQUAKE_COUNTER = 8+(floor(random 6));};}
+#define ONLOOP {If (isnil "DORB_EARTHQUAKE_COUNTER") then {DORB_EARTHQUAKE_COUNTER=8;};DORB_EARTHQUAKE_COUNTER = DORB_EARTHQUAKE_COUNTER - 1;If (DORB_EARTHQUAKE_COUNTER<0) then {[-1, { if (!(vehicle player isKindof "Air")) then { _rand=(floor(random 4)+1);[_rand]spawn BIS_fnc_earthquake; };}] FMP;DORB_EARTHQUAKE_COUNTER = 8+(floor(random 6));};}
 #define ONLOOPARGS []
 [INTERVALL,TASK,CONDITION,CONDITIONARGS,SUCESSCONDITION,ONSUCESS,ONFAILURE,SUCESSARG,ONLOOP,ONLOOPARGS] call FM(taskhandler);

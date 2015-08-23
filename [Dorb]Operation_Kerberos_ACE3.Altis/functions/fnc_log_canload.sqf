@@ -15,6 +15,8 @@ SCRIPT(log_canload);
 
 #define SPACE_BETWEEN_CARGO 0.1
 
+if (player getVariable ["DORB_ISLOADING",false]) exitWith { false };
+
 PARAMS_1(_target);
 private["_logistic_stack"];
 private["_vehicle_class","_max_height","_max_length","_max_width","_load_point_offset","_load_point","_nearObjects","_object"];
