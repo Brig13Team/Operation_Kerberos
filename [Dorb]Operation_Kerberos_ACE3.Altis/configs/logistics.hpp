@@ -194,6 +194,197 @@ class logistics
 		class B_Heli_Transport_03_unarmed_base_F : B_Heli_Transport_03_F {};
 		class B_Heli_Transport_03_unarmed_F : B_Heli_Transport_03_F {};
 		class B_Heli_Transport_03_unarmed_green_F : B_Heli_Transport_03_F {};
+		
+		
+		class rhs_gaz66_Base {
+			max_width = 0.65;
+			max_length = 3.1;
+			max_height = 1.2;
+			cargo_point[] = {0,-1.3,0};
+			load_point[] = {0,-5.5,-1};
+		};
+		class rhs_gaz66_msv : rhs_gaz66_Base {};
+		class rhs_gaz66_vdv : rhs_gaz66_msv {};
+		class rhs_gaz66_vmf : rhs_gaz66_msv {};
+		class rhs_gaz66_vv : rhs_gaz66_msv {};
+		
+		class rhs_gaz66_flat_msv : rhs_gaz66_Base {
+			max_width = 1.9;
+		};
+		class rhs_gaz66_flat_vdv : rhs_gaz66_flat_msv {};
+		class rhs_gaz66_flat_vmf : rhs_gaz66_flat_msv {};
+		class rhs_gaz66_flat_vv : rhs_gaz66_flat_msv {};
+		
+		class rhs_gaz66o_msv : rhs_gaz66_Base {
+			cargo_point[] = {0,-1.3,-0.15};
+			max_height = 3;
+		};
+		class rhs_gaz66o_vdv : rhs_gaz66o_msv {};
+		class rhs_gaz66o_vmf : rhs_gaz66o_msv {};
+		class rhs_gaz66o_vv : rhs_gaz66o_msv {};
+		
+		
+		class rhs_gaz66o_flat_msv : rhs_gaz66o_msv {
+			max_width = 1.9;
+			max_height = 3;
+		};
+		class rhs_gaz66o_flat_vdv : rhs_gaz66o_flat_msv {};
+		class rhs_gaz66o_flat_vmf : rhs_gaz66o_flat_msv {};
+		class rhs_gaz66o_flat_vv : rhs_gaz66o_flat_msv {};
+		
+		
+		class RHS_Ural_Base {
+			max_width = 0.65;
+			max_length = 3.85;
+			max_height = 1.2;
+			cargo_point[] = {0,0.55,-0.50};
+			load_point[] = {0,-4.8,-2};
+		};
+		class RHS_Ural_MSV_01 : RHS_Ural_Base {};
+		class RHS_Ural_MSV_Base : RHS_Ural_MSV_01 {};
+		class RHS_Ural_VDV_01 : RHS_Ural_MSV_01 {};
+		class RHS_Ural_VMF_01 : RHS_Ural_MSV_01 {};
+		class RHS_Ural_VV_01 : RHS_Ural_MSV_01 {};
+		
+		class RHS_Ural_Open_MSV_01 : RHS_Ural_Base {
+			max_height = 3;
+		};
+		class RHS_Ural_Open_VDV_01 : RHS_Ural_Open_MSV_01 {};
+		class RHS_Ural_Open_VMF_01 : RHS_Ural_Open_MSV_01 {};
+		class RHS_Ural_Open_VV_01 : RHS_Ural_Open_MSV_01 {};
+
+		class RHS_Ural_Flat_MSV_01 : RHS_Ural_Base {
+			max_width = 2.2;
+		};
+		class RHS_Ural_Flat_VDV_01 : RHS_Ural_Flat_MSV_01 {};
+		class RHS_Ural_Flat_VMF_01 : RHS_Ural_Flat_MSV_01 {};
+		class RHS_Ural_Flat_VV_01 : RHS_Ural_Flat_MSV_01 {};
+		
+		class RHS_Ural_Open_Flat_MSV_01 : RHS_Ural_Flat_MSV_01 {
+			max_height = 3;
+		};
+		class RHS_Ural_Open_Flat_VDV_01 : RHS_Ural_Open_Flat_MSV_01 {};
+		class RHS_Ural_Open_Flat_VMF_01 : RHS_Ural_Open_Flat_MSV_01 {};
+		class RHS_Ural_Open_Flat_VV_01 : RHS_Ural_Open_Flat_MSV_01 {};
+		
+		
+		class RHS_Mi8mt_Cargo_vdv {
+			max_width = 0.65;
+			max_length = 4.5;
+			max_height = 1.5;
+			cargo_point[] = {0,4.5,-2.3};
+			load_point[] = {0,-4.8,-2.6};
+			hatch_open = "[_this,13,14] call rhs_fnc_mi8_checkDoor";
+			hatch_close = "[_this,13,14] call rhs_fnc_mi8_checkDoor";
+			hatch_isclosed = "_this doorPhase 'RearDoors' < 0.5 AND alive _this";
+			hatch_isopened = "_this doorPhase 'RearDoors' > 0.5 AND alive _this";
+		};
+		class RHS_Mi8mt_Cargo_vv : RHS_Mi8mt_Cargo_vdv {};
+		class RHS_Mi8mt_Cargo_vvs : RHS_Mi8mt_Cargo_vdv {};
+		class RHS_Mi8mt_Cargo_vvsc : RHS_Mi8mt_Cargo_vdv {};
+		
+		class C_Van_01_transport_F {
+			max_width = 0.65;
+			max_length = 4.5;
+			max_height = 1.5;
+			cargo_point[] = {0,4.5,-2.3};
+			load_point[] = {0,-4.8,-2.6};
+		};
+		class B_G_Van_01_transport_F : C_Van_01_transport_F {};
+		class I_G_Van_01_transport_F : C_Van_01_transport_F {};
+		class O_G_Van_01_transport_F : C_Van_01_transport_F {};
+		class C_Van_01_transport_white_F : C_Van_01_transport_F {};
+		class C_Van_01_transport_red_F : C_Van_01_transport_F {};
+			
+		class C_Offroad_01_F {
+			max_width = 1;
+			max_length = 2.1;
+			max_height = 3;
+			cargo_point[] = {0,-0.7,-0.68};
+			load_point[] = {0,-4.5,-1.5};
+		};
+		class C_Offroad_01_repair_F : C_Offroad_01_F {};
+		class B_G_Offroad_01_repair_F : C_Offroad_01_F {};
+		class O_G_Offroad_01_repair_F : C_Offroad_01_F {};
+		class I_G_Offroad_01_repair_F : C_Offroad_01_F {};
+		class I_G_Offroad_01_F : C_Offroad_01_F {};
+		class I_G_Offroad_01_armed_F : C_Offroad_01_F {};
+		class B_G_Offroad_01_F : C_Offroad_01_F {};
+		class O_G_Offroad_01_F : C_Offroad_01_F {};
+		class B_G_Offroad_01_armed_F : C_Offroad_01_F {};
+		class O_G_Offroad_01_armed_F : C_Offroad_01_F {};
+		class C_Offroad_01_red_F : C_Offroad_01_F {};
+		class C_Offroad_01_sand_F : C_Offroad_01_F {};
+		class C_Offroad_01_white_F : C_Offroad_01_F {};
+		class C_Offroad_01_blue_F : C_Offroad_01_F {};
+		class C_Offroad_01_darkred_F : C_Offroad_01_F {};
+		class C_Offroad_01_bluecustom_F : C_Offroad_01_F {};
+		class C_Offroad_luxe_F : C_Offroad_01_F {};
+		class C_Offroad_default_F : C_Offroad_01_F {};
+		class C_Offroad_stripped_F : C_Offroad_01_F {};
+		
+		class C_Quadbike_01_F {
+			max_width = 0.95;
+			max_length = 0.5;
+			max_height = 3;
+			cargo_point[] = {0,-0.60,-0.46};
+			load_point[] = {0,-2,-1.4};
+		};
+		class B_Quadbike_01_F : C_Quadbike_01_F {};
+		class O_Quadbike_01_F : C_Quadbike_01_F {};
+		class I_Quadbike_01_F : C_Quadbike_01_F {};
+		class I_G_Quadbike_01_F : C_Quadbike_01_F {};
+		class B_G_Quadbike_01_F : C_Quadbike_01_F {};
+		class O_G_Quadbike_01_F : C_Quadbike_01_F {};
+		class C_Quadbike_01_black_F : C_Quadbike_01_F {};
+		class C_Quadbike_01_blue_F : C_Quadbike_01_F {};
+		class C_Quadbike_01_red_F : C_Quadbike_01_F {};
+		class C_Quadbike_01_white_F : C_Quadbike_01_F {};
+		
+		class B_Truck_01_transport_F {
+			max_width = 0.95;
+			max_length = 5.62;
+			max_height = 3;
+			cargo_point[] = {0,0.64,-0.46};
+			load_point[] = {0,-6.5,-2};
+		};
+		class B_Truck_01_covered_F : B_Truck_01_transport_F {
+			max_height = 1.5;
+		};
+		
+		class I_Truck_02_transport_F {
+			max_width = 0.95;
+			max_length = 4.3;
+			max_height = 3;
+			cargo_point[] = {0,0.64,-0.8};
+			load_point[] = {0,-6,-2.1};
+		};
+		class O_Truck_02_transport_F : I_Truck_02_transport_F {};
+		class I_Truck_02_covered_F : I_Truck_02_transport_F {
+			max_height = 1.5;
+		};
+		class O_Truck_02_covered_F : I_Truck_02_covered_F {};
+		
+		class O_Truck_03_transport_F {
+			max_width = 0.95;
+			max_length = 4.8;
+			max_height = 3;
+			cargo_point[] = {0,-0.15,-0.4};
+			load_point[] = {0,-6.5,-2.2};
+		};
+		class O_Truck_03_covered_F : O_Truck_03_transport_F {
+			max_height = 1.5;
+		};
+		
+		class B_UGV_01_F {
+			max_width = 1.2;
+			max_length = 1.1;
+			max_height = 1;
+			cargo_point[] = {0.43,0.3,-0.7};
+			load_point[] = {0,-3,-1.8};
+		};
+		class O_UGV_01_F : B_UGV_01_F {};
+		class I_UGV_01_F : B_UGV_01_F {};
 	};
 
 	class cargos {
@@ -233,26 +424,75 @@ class logistics
 			height = 4.48;
 			offset[] = {0,0,2.24};
 		};
-		
+		class B_Slingload_01_Cargo_F {
+			width = 2.4;
+			length = 6.15;
+			height = 2.73;
+		};
+		class B_Slingload_01_Ammo_F : B_Slingload_01_Cargo_F {};
+		class B_Slingload_01_Medevac_F : B_Slingload_01_Cargo_F {
+			width = 2.4;		
+		};
+		class B_Slingload_01_Repair_F : B_Slingload_01_Medevac_F {};
+		class B_Slingload_01_Fuel_F : B_Slingload_01_Medevac_F {};
 		class AmmoVeh_F {
 			width = 1.54;
 			length = 1.54;
 			height = 1.54;
 		};
-		class Land_Cargo10_grey_F {
+		class Land_Cargo10_base {
 			width = 2.5;
 			length = 3.1;
 			height = 1.25;
 		};
-		class Land_Cargo20_grey_F {
+		Land_Cargo10_blue_F : Land_Cargo10_base {};
+		Land_Cargo10_brick_red_F : Land_Cargo10_base {};
+		Land_Cargo10_cyan_F : Land_Cargo10_base {};
+		Land_Cargo10_grey_F : Land_Cargo10_base {};
+		Land_Cargo10_light_blue_F : Land_Cargo10_base {};
+		Land_Cargo10_light_green_F : Land_Cargo10_base {};
+		Land_Cargo10_military_green_F : Land_Cargo10_base {};
+		Land_Cargo10_orange_F : Land_Cargo10_base {};
+		Land_Cargo10_red_F : Land_Cargo10_base {};
+		Land_Cargo10_sand_F : Land_Cargo10_base {};
+		Land_Cargo10_white_F : Land_Cargo10_base {};
+		Land_Cargo10_yellow_F : Land_Cargo10_base {};
+		class Land_Cargo20_base {
 			width = 6.2;
 			length = 2.46;
 			height = 2.64;
 		};
+		class Land_Cargo20_blue_F : Land_Cargo20_base {};
+		class Land_Cargo20_brick_red_F : Land_Cargo20_base {};
+		class Land_Cargo20_china_color_V1_ruins_F : Land_Cargo20_base {};
+		class Land_Cargo20_china_color_V2_ruins_F : Land_Cargo20_base {};
+		class Land_Cargo20_color_V1_ruins_F : Land_Cargo20_base {};
+		class Land_Cargo20_color_V2_ruins_F : Land_Cargo20_base {};
+		class Land_Cargo20_color_V3_ruins_F : Land_Cargo20_base {};
+		class Land_Cargo20_cyan_F : Land_Cargo20_base {};
+		class Land_Cargo20_grey_F : Land_Cargo20_base {};
+		class Land_Cargo20_light_blue_F : Land_Cargo20_base {};
+		class Land_Cargo20_light_green_F : Land_Cargo20_base {};
+		class Land_Cargo20_military_green_F : Land_Cargo20_base {};
+		class Land_Cargo20_military_ruins_F : Land_Cargo20_base {};
+		class Land_Cargo20_orange_F : Land_Cargo20_base {};
+		class Land_Cargo20_red_F : Land_Cargo20_base {};
+		class Land_Cargo20_sand_F : Land_Cargo20_base {};
+		class Land_Cargo20_vr_F : Land_Cargo20_base {};
+		class Land_Cargo20_white_F : Land_Cargo20_base {};
+		
+		
+		
+		
 		class CargoBox_V1_F {
 			width = 1.54;
 			length = 1.54;
 			height = 1.54;
+		};
+		class CargoNet_01_ammo_F {
+			width = 1.6;
+			length = 1.6;
+			height = 1.68;
 		};
 	};
 };
