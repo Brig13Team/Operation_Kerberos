@@ -36,8 +36,8 @@ class logistics
 		
 		class rhsusf_m1025_2dr_base {
 			max_width = 0.7;
-			max_length = 3.7;
-			max_height = 2.1;
+			max_length = 1.85;
+			max_height = 1.05;
 			cargo_point[] = {0,-0.9,-0.9};
 			load_point[] = {0,-3.8,-1.9};
 		};
@@ -59,8 +59,8 @@ class logistics
 
 		class rhsusf_m998_w_4dr_base {
 			max_width = 0.7;
-			max_length = 2.2;
-			max_height = 1.5;
+			max_length = 1.1;
+			max_height = 0.75;
 			cargo_point[] = {0,-1.15,0.92};
 			load_point[] = {0,-3,0};
 		};
@@ -79,8 +79,8 @@ class logistics
 		
 		class rhsusf_HEMTT_A2_base {
 			max_width = 2;
-			max_length = 10.96;
-			max_height = 10;
+			max_length = 5.48;
+			max_height = 5;
 			cargo_point[] = {0,1.48,0.26};
 			load_point[] = {0,-6,-1.4};
 		};
@@ -89,8 +89,8 @@ class logistics
 		
 		class rhsusf_M1078A1P2_Base {
 			max_width = 1.3;
-			max_length = 8;
-			max_height = 3;
+			max_length = 4;
+			max_height = 1.5;
 			cargo_point[] = {0,0.9,-0.28};
 			load_point[] = {0,-5.5,-1.8};
 		};
@@ -123,7 +123,7 @@ class logistics
 		/// offen
 		class rhsusf_M1078A1P2_B_d_flatbed_fmtv_usarmy : rhsusf_M1078A1P2_B_wd_fmtv_usarmy {
 			max_width = 2.3;
-			max_height = 5;
+			max_height = 2.5;
 		};
 		class rhsusf_M1078A1P2_d_flatbed_fmtv_usarmy : rhsusf_M1078A1P2_B_d_flatbed_fmtv_usarmy {};
 		class rhsusf_M1078A1P2_B_M2_d_flatbed_fmtv_usarmy : rhsusf_M1078A1P2_B_d_flatbed_fmtv_usarmy {};
@@ -142,8 +142,8 @@ class logistics
 		
 		class RHS_UH60M_Base {
 			max_width = 1.4;
-			max_length = 2.4;
-			max_height = 1.8;
+			max_length = 1.2;
+			max_height = 0.9;
 			cargo_point[] = {1.4,2.4,1.8};
 			load_point[] = {2.5,1.8,-2.3};
 			hatch_open = "_this animateDoor ['doorRB', 1];_this animate ['doorHandler_R',1]";
@@ -156,8 +156,8 @@ class logistics
 		
 		class RHS_CH_47_Base {
 			max_width = 0.8;
-			max_length = 15;
-			max_height = 3;
+			max_length = 7.5;
+			max_height = 1.5;
 			cargo_point[] = {0,3.7,-2.7};
 			load_point[] = {0,-9,-3.5};
 			hatch_open = "_this animateDoor ['ramp_anim', 1];";
@@ -171,26 +171,25 @@ class logistics
 		
 		class I_Heli_Transport_02_F {
 			max_width = 1;
-			max_length = 11;
-			max_height = 2.5;
+			max_length = 5.5;
+			max_height = 1.25;
 			cargo_point[] = {0,3.7,-2.2};
 			load_point[] = {0,-7,-3.5};
-			hatch_open = "_this doorPhase 'ramp_anim' > 0 and (alive _this)";
-			hatch_close = "_this doorPhase 'ramp_anim' == 0 and (alive _this)";
+			hatch_open = "this animateDoor ['CargoRamp_Open', 1]";
+			hatch_close = "this animateDoor ['CargoRamp_Open', 0]";
 			hatch_isopened = "_this doorPhase 'CargoRamp_Open' < 0.5 && alive _this &&((_this getVariable ['bis_disabled_Ramp',0]) != 1)";
 			hatch_isclosed = "_this doorPhase 'CargoRamp_Open' > 0.5 && alive _this && ((_this getVariable ['bis_disabled_Ramp',0]) != 1)";
 		};
-		
 		class B_Heli_Transport_03_F {
 			max_width = 0.9;
-			max_length = 9;
-			max_height = 3.3;
+			max_length = 4.5;
+			max_height = 1.65;
 			cargo_point[] = {0,3.2,-1.85};
 			load_point[] = {0,-7.5,-2.9};
-			hatch_open = "_this doorPhase 'ramp_anim' > 0 and (alive _this)";
-			hatch_close = "_this doorPhase 'ramp_anim' == 0 and (alive _this)";
-			hatch_isopened = "_this doorPhase 'Door_rear_source' < 0.5 AND Alive(_this) && ((_this getVariable ['bis_disabled_Ramp',0]) != 1)";
-			hatch_isclosed = "_this doorPhase 'Door_rear_source' > 0.5 AND Alive(_this) && ((_this getVariable ['bis_disabled_Ramp',0]) != 1)";
+			hatch_open = "_this animateDoor ['Door_rear_source', 1]";
+			hatch_close = "_this animateDoor ['Door_rear_source', 0]";
+			hatch_isclosed = "_this doorPhase 'Door_rear_source' < 0.5 AND Alive(_this) && ((_this getVariable ['bis_disabled_Ramp',0]) != 1)";
+			hatch_isopened = "_this doorPhase 'Door_rear_source' > 0.5 AND Alive(_this) && ((_this getVariable ['bis_disabled_Ramp',0]) != 1)";
 		};
 		class B_Heli_Transport_03_unarmed_base_F : B_Heli_Transport_03_F {};
 		class B_Heli_Transport_03_unarmed_F : B_Heli_Transport_03_F {};

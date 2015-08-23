@@ -36,9 +36,9 @@ DORB_HELPER_ID = [{
 	(DORB_HELPER_ARROW select 0) setPos _pos;
 	_pos = DORB_HELPER_VEH modelToWorld [((DORB_HELPER_POS select 0) + ((DORB_HELPER_SIZE select 0)*0.5)),(DORB_HELPER_POS select 1),(DORB_HELPER_POS select 2)];
 	(DORB_HELPER_ARROW select 1) setPos _pos;
-	_pos = DORB_HELPER_VEH modelToWorld [(DORB_HELPER_POS select 0),((DORB_HELPER_POS select 1) - ((DORB_HELPER_SIZE select 1)*0.5)),(DORB_HELPER_POS select 2)];
+	_pos = DORB_HELPER_VEH modelToWorld [(DORB_HELPER_POS select 0),((DORB_HELPER_POS select 1) - ((DORB_HELPER_SIZE select 1))),(DORB_HELPER_POS select 2)];
 	(DORB_HELPER_ARROW select 2) setPos _pos;
-	_pos = DORB_HELPER_VEH modelToWorld [(DORB_HELPER_POS select 0),(DORB_HELPER_POS select 1),((DORB_HELPER_POS select 2) + ((DORB_HELPER_SIZE select 2)*0.5))];
+	_pos = DORB_HELPER_VEH modelToWorld [(DORB_HELPER_POS select 0),(DORB_HELPER_POS select 1),((DORB_HELPER_POS select 2) + ((DORB_HELPER_SIZE select 2)))];
 	(DORB_HELPER_ARROW select 3) setPos _pos;
 	_pos = DORB_HELPER_VEH modelToWorld DORB_HELPER_LOADPOS;
 	(DORB_HELPER_ARROW select 4) setPos _pos;
