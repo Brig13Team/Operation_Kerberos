@@ -21,13 +21,11 @@ if (!(((_turret isEqualTo [0]) || (_position == "driver")))) exitWith {};
 	_bool = true;
 
 	if (!((typeOf _unit) in ["B_Pilot_F","B_Helipilot_F"])) then { _bool = false; };
-	LOG(FORMAT_1("%1",_bool));
 	if ( (IS_ATTACK_HELI(typeOf vehicle _unit) || IS_ATTACK_PLANE(typeOf vehicle _unit))) then {
 		if ( !((getPlayerUID _unit in (["_SP_AI_","_SP_PLAYER_"])) || (!isNil "DORB_RESERVED_PILOT_SLOT")) ) then {
 			_bool = false;
 		};
 	};
-	LOG(FORMAT_1("%1",_bool));
 
 	if (!_bool) then {
 #else

@@ -55,8 +55,6 @@ if (!(_logistic_stack isEqualTo [])) then {
 	private "_last_cargo";
 	_last_cargo = _logistic_stack select ((count _logistic_stack) - 1); // [_lastElement,[_width,_length,_height],_left_length]
 
-	((_last_cargo select 2) - SPACE_BETWEEN_CARGO) call BIS_fnc_log;
-
 	if (((_last_cargo select 2) - SPACE_BETWEEN_CARGO) < _cargo_length) exitWith { _attach_point = []; };
 
 	_attach_point = [_point select 0 + (_cargo_offset select 0), (_point select 1) - (_cargo_length / 2) - SPACE_BETWEEN_CARGO - _max_length + (_last_cargo select 2) + (_cargo_offset select 1), (_point select 2) + (_cargo_height / 2)  + (_cargo_offset select 2)];
