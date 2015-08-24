@@ -64,7 +64,7 @@ if ([_vehicle] call FM(log_candrop)) then {
 		_velocity = velocity _cargo;
 		detach _para;
 		_para setVelocity _velocity;
-		_cargo attachTo [_para, [0,0,0]];*/
+		_cargo attachTo [_para, [0,0,0]];
 		_time = diag_ticktime;
 		waitUntil{((((getPos _cargo)select 2)<2)||(diag_ticktime>(_time + 600)))};
 		deleteVehicle _para;
