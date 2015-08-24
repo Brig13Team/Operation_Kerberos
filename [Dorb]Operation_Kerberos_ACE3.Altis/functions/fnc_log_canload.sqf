@@ -40,7 +40,7 @@ _cargo_class = "";
 	};
 }forEach _nearObjects;
 
-CHECK(_cargo_class isEqualTo "")
+If (_cargo_class isEqualTo "") exitWith {false};
 
 
 private["_cargo_width","_cargo_length","_cargo_height","_left_length"];

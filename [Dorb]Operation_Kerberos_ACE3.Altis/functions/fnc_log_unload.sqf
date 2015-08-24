@@ -30,7 +30,7 @@ private ["_last_cargo","_cargo_mass","_vehicle_mass","_load_point","_detach_poin
 
 _last_cargo = _logistic_stack select ((count _logistic_stack) - 1);
 
-if (_vehicle != attachedTo _cargo) exitWith {
+if (_vehicle != attachedTo  (_last_cargo select 0)) exitWith {
 	_logistic_stack resize ((count _logistic_stack) - 1);
 	_cargo_mass = getMass (_last_cargo select 0);
 	_vehicle setVariable ["LOGISTIC_CARGO_STACK",_logistic_stack,true];

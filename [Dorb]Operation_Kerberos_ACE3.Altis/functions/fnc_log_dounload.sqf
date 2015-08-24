@@ -13,7 +13,7 @@
 #include "script_component.hpp"
 SCRIPT(log_dounload);
 #define LOADTIME 3
-PARAMS_1(_target);
+params["_target",["_isdrop",false,[false]]];
 
 CHECK(GETVAR(player,DORB_ISLOADING,false))
 
@@ -29,9 +29,14 @@ If (!(_anim isEqualTo "")) then {
 		waitUntil{uisleep 0.2;_target call _isopened;};
 	};
 };
+If (_isdrop) then {
+	_unloadcondition = {true}
+}else{
+	_unloadcondition = {(((getPos player) distance DORB_ISLOADING_POS)<1)};
+};
 [
 	LOADTIME,
-	{(((getPos player) distance DORB_ISLOADING_POS)<1)},
+	_unloadcondition,
 	{_this call FM(log_unload);SETVAR(player,DORB_ISLOADING,false);},
 	{SETVAR(player,DORB_ISLOADING,false);},
 	[_target]
