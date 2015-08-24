@@ -36,7 +36,7 @@ If !(_isdrop) then {
 [
 	LOADTIME,
 	_unloadcondition,
-	{_this call FM(log_unload);},
+	{_this call FM(log_unload);SETVAR(player,DORB_ISLOADING,false);},
 	{SETVAR(player,DORB_ISLOADING,false);},
 	[_target]
 ] call FM(disp_progressbar);
