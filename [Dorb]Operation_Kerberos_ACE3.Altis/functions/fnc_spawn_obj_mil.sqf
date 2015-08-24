@@ -18,7 +18,7 @@ LOG("Spawn Military-Area");
 LOG_1(_difficulty);
 
 //// makros has autodetection of RDS
-[_position,1200,(6+_difficulty)] call FM(spawn_defence_macros);
+[_position,1200,(4+_difficulty)] call FM(spawn_defence_macros);
 [_position] spawn FM(spawn_commander);
 
 
@@ -35,7 +35,7 @@ If (_difficulty>1) then {
 };
 
 If (_difficulty>2) then {
-	_count_inf = 8;
+	_count_inf = 10;
 	_count_specops = 0;
 	_count_light = 5;
 	_count_tanks = 5;
