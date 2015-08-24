@@ -29,15 +29,14 @@ If (!(_anim isEqualTo "")) then {
 		waitUntil{uisleep 0.2;_target call _isopened;};
 	};
 };
-If (_isdrop) then {
-	_unloadcondition = {true}
-}else{
+_unloadcondition = {true};
+If !(_isdrop) then {
 	_unloadcondition = {(((getPos player) distance DORB_ISLOADING_POS)<1)};
 };
 [
 	LOADTIME,
 	_unloadcondition,
-	{_this call FM(log_unload);SETVAR(player,DORB_ISLOADING,false);},
+	{_this call FM(log_unload);},
 	{SETVAR(player,DORB_ISLOADING,false);},
 	[_target]
 ] call FM(disp_progressbar);

@@ -47,13 +47,28 @@ detach (_last_cargo select 0);
 _cargo_mass = getMass (_last_cargo select 0);
 _vehicle_mass = getMass _vehicle;
 (_last_cargo select 0) setPos (_vehicle modelToWorld _detach_point);
-
+player setVariable ["DORB_ISLOADING",false];
 if ([_vehicle] call FM(log_candrop)) then {
-	private "_para";
-	_para = createVehicle ["B_Parachute_02_F",[0,0,0],[],0,"FLY"];
-	_para setDir (getDir (_last_cargo select 0));
-	_para setPos (getPos (_last_cargo select 0));
-	(_last_cargo select 0) attachTo [_para,[0,0,0]];
+	[(_last_cargo select 0),_vehicle] spawn {
+		SCRIPT(log_paradrop_INTERN);
+		params["_cargo","_vehicle"];
+		private ["_time","_para","_velocity"];
+		_time = diag_ticktime;
+		waitUntil{(((getPos _cargo)select 2)<10)||((_cargo distance _vehicle)>35)||(diag_ticktime>(_time + 20))};
+		CHECK((((getPos _cargo)select 2)<10)||(diag_ticktime>(_time + 20)))
+		private "_para";
+		_para = createVehicle ["B_Parachute_02_F",(getPos _cargo),[],0,"FLY"];
+		_para setDir (getDir _cargo);
+		_para setPos (getPos _cargo);
+		_cargo attachTo [_para,[0,0,0]];
+		_velocity = velocity _cargo;
+		detach _para;
+		_para setVelocity _velocity;
+		_cargo attachTo [_para, [0,0,0]];*/
+		_time = diag_ticktime;
+		waitUntil{((((getPos _cargo)select 2)<2)||(diag_ticktime>(_time + 600)))};
+		deleteVehicle _para;
+	};
 };
 
 _logistic_stack resize ((count _logistic_stack) - 1);

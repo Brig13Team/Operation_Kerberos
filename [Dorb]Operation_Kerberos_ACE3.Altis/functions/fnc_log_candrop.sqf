@@ -25,13 +25,13 @@ If (!((driver _target)==player)) exitWith {false};
 
 _velocity = velocity _target;
 
-If (((vectorMagnitude _velocity)<100)||((vectorMagnitude _velocity)>250)) exitWith {false};
+If (/*((vectorMagnitude _velocity)<100)||*/((vectorMagnitude _velocity)>250)) exitWith {false};
 
 private["_load_point","_position"];
 _load_point = getArray(missionConfigFile >> "logistics" >> "vehicles" >> (typeOf _target) >> "load_point");
 _position = _target modelToWorld _load_point;
 
-If ((_position select 2)<50) exitWith {false};
+If ((_position select 2)<100) exitWith {false};
 
 
 true
