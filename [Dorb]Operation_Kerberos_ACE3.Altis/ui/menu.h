@@ -1326,9 +1326,7 @@ class dorb_crate {
 		crate_ListBackground
 	};
 	
-	controls[] =
-	{
-		
+	controls[] = {
 		crate_combo_box,
 		crate_progessbar,
 		crate_listbox,
@@ -1336,6 +1334,8 @@ class dorb_crate {
 		crate_list_button_sub,
 		crate_spawn,
 		crate_clear,
+		crate_save,
+		crate_load,
 		crate_button1,
 		crate_button2,
 		crate_button3,
@@ -1355,7 +1355,6 @@ class dorb_crate {
 		crate_button17,
 		crate_button18,
 		crate_button19,
-
 	};
 	
 	class crate_CenterBackground: dorb_gui_backgroundBase {
@@ -1419,6 +1418,20 @@ class dorb_crate {
 		x = _get_screen_x(0)+_get_screen_w(0.725);
 		text = "$STR_DORB_CRATE_CLEAR";
 		action = "DORB_CRATE_CURRENT=[[],[],[],[],[],[]];DORB_CRATE_CURRENT_BOXID=0;[]call dorb_fnc_ui_crate_OnLoad;false";
+	};
+	
+	class crate_save : crate_spawn {
+		idc = 600208;
+		y = _get_screen_y(0)+_get_screen_h(0.82);
+		text = "$STR_DORB_CRATE_SAVE";
+		action = "[true] spawn dorb_fnc_ui_crate_save;false";
+	};
+	
+	class crate_load : crate_clear {
+		idc = 600209;
+		y = _get_screen_y(0)+_get_screen_h(0.82);
+		text = "$STR_DORB_CRATE_LOAD";
+		action = "[false] spawn dorb_fnc_ui_crate_save;false";
 	};
 	
 	
@@ -1726,11 +1739,113 @@ class dorb_crate {
 		text = "A3\ui_f\data\gui\cfg\Hints\actionmenu_ca.paa";
 	};
 	
-	
-	
-	
-	
-	
-	
-	
 };
+
+class dorb_save {
+	idd = 600240;
+	name = "Generic Save";
+	/// von Dorbedo - wer das Ding nutzen will: Fragen!
+	movingEnable = 0;
+	enableSimulation = 1;
+	fadein = 0;
+	fadeout = 0;
+	duration = 1000000;
+	objects[] = {};
+	onLoad = "uiNamespace setVariable ['dorb_saveMenu', _this select 0];";
+	onUnload = "";
+	
+	controlsBackground[] = 	{
+		dorb_save_CenterBackground,
+		dorb_save_BottemBackground,
+		dorb_save_ListBackground
+	};
+	
+	controls[] =	{
+		dorb_save_HeaderBackground,
+		dorb_save_list,
+		dorb_save_edit,
+		dorb_save_button1,
+		dorb_save_button2,
+		dorb_save_button3
+	};
+	
+	class dorb_save_CenterBackground: dorb_gui_backgroundBase {
+		x = _get_screen_x(0)+_get_screen_w(0.25);	
+		w = _get_screen_w(0.5);
+		y = _get_screen_y(0)+_get_screen_h(0.16);
+		h = _get_screen_h(0.535);
+		text = "";
+		colorBackground[] = UI_CL_BODY;
+		colorText[] = UI_CL_BODY_TEXT;
+	};
+	class dorb_save_BottemBackground: dorb_save_CenterBackground {
+		y = _get_screen_y(0)+_get_screen_h(0.7);	
+		h = _get_screen_h(0.2);
+	};
+	class dorb_save_HeaderBackground: dorb_save_CenterBackground {
+		idc = 600246;
+		y = _get_screen_y(0)+_get_screen_h(0.1);
+		h = _get_screen_h(0.055);
+		text = "";
+		colorText[] = UI_CL_HEADER_TEXT;
+		colorBackground[] = UI_CL_HEADER;
+	};
+	class dorb_save_ListBackground: dorb_save_CenterBackground {
+		x = _get_screen_x(0)+_get_screen_w(0.27);	
+		w = _get_screen_w(0.46);
+		y = _get_screen_y(0)+_get_screen_h(0.18);
+		h = _get_screen_h(0.495);
+		colorText[] = UI_CL_HEADER_TEXT;
+		colorBackground[] = UI_CL_CTRL_GRAU2;
+	};
+	class dorb_save_button1 : dorb_gui_button {
+		idc = 600242;
+		x = _get_screen_x(0)+_get_screen_w(0.27);
+		w = _get_screen_w(0.14);
+		y = _get_screen_y(0)+_get_screen_h(0.8);
+		h = _get_screen_h(0.08);
+		colorBackground[] = UI_CL_CTRL_WEINROT1;
+		colorBackgroundActive[] = UI_CL_CTRL_WEINROT2;
+		colorFocused[] = UI_CL_CTRL_WEINROT1;
+		text = "$STR_DORB_SAVE_CANCEL";
+		action = "DORB_SAVE_ISOPENED=false;closeDialog 600240;";
+	};
+	class dorb_save_button2 : dorb_save_button1 {
+		idc = 600243;
+		x = _get_screen_x(0)+_get_screen_w(0.43);	
+		toolTip = "";
+		text = "$STR_DORB_SAVE_DELETE";
+		action = "[] call dorb_fnc_ui_save_delete;";
+	};
+	class dorb_save_button3 : dorb_save_button1 {
+		idc = 600244;
+		x = _get_screen_x(0)+_get_screen_w(0.59);
+		toolTip = "";
+		text = "";
+		action = "";
+	};
+	class dorb_save_list : dorb_gui_listboxN {
+		idc = 600241;
+		access = 2;
+		x = _get_screen_x(0)+_get_screen_w(0.275);	
+		w = _get_screen_w(0.45);
+		y = _get_screen_y(0)+_get_screen_h(0.185);
+		h = _get_screen_h(0.485);
+		rowHeight = _get_screen_h(0.035);
+		sizeEx = _get_screen_h(0.03);
+		columns[] = {0.02};
+		onLBSelChanged = "_this call dorb_fnc_ui_save_select;false";
+	};
+	class dorb_save_edit : dorb_gui_editBase {
+		idc = 600245;
+		x = _get_screen_x(0)+_get_screen_w(0.27);	
+		y = _get_screen_x(0)+_get_screen_h(0.72);
+		w = _get_screen_w(0.46);
+		h = _get_screen_h(0.06);
+		sizeEx = _get_screen_h(0.04);
+		textcolor[] = UI_CL_BODY_TEXT;
+		text = "";
+	};
+};
+
+

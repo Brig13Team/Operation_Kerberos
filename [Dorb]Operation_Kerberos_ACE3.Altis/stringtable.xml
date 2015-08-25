@@ -206,6 +206,26 @@
             <German>Teamleader befindet sich nicht am Boden</German>
             <English>Squad leader is not touching ground.</English>
 		</Key>
+		<Key ID="STR_DORB_SAVE_SAVE">
+			<Original>Save</Original>
+            <German>Speichern</German>
+            <English>Save</English>
+		</Key>
+		<Key ID="STR_DORB_SAVE_LOAD">
+			<Original>Load</Original>
+            <German>Laden</German>
+            <English>Load</English>
+		</Key>
+		<Key ID="STR_DORB_SAVE_DELETE">
+			<Original>Delete</Original>
+            <German>Löschen</German>
+            <English>Delete</English>
+		</Key>
+		<Key ID="STR_DORB_SAVE_CANCEL">
+			<Original>Cancel</Original>
+            <German>Abbrechen</German>
+            <English>Cancel</English>
+		</Key>
 		<Key ID="STR_DORB_HALO">
 			<Original>Halo</Original>
             <German>Halo</German>
@@ -449,9 +469,9 @@
 	</Package>
 	<Package name="CRATE">
 		<Key ID="STR_DORB_CRATE_HEADER">
-			<Original>Crate Filler BETA</Original>
-            <German>Kistenfüller BETA</German>
-            <English>Crate Filler BETA</English>
+			<Original>Crate Filler</Original>
+            <German>Kistenfüller</German>
+            <English>Crate Filler</English>
 		</Key>
 		<Key ID="STR_DORB_CRATE_SPAWN">
 			<Original>Spawn</Original>
@@ -462,6 +482,16 @@
 			<Original>Clear</Original>
             <German>Löschen</German>
             <English>Clear</English>
+		</Key>
+		<Key ID="STR_DORB_CRATE_LOAD">
+			<Original>Load</Original>
+            <German>Laden</German>
+            <English>Load</English>
+		</Key>
+		<Key ID="STR_DORB_CRATE_SAVE">
+			<Original>Save</Original>
+            <German>Speichern</German>
+            <English>Save</English>
 		</Key>
 		<Key ID="STR_DORB_CRATE_SIZE1">
 			<Original>Small Box</Original>

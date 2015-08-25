@@ -159,7 +159,15 @@ PREPMAIN(ui_crate_getMod);
 PREPMAIN(ui_crate_mass);
 PREPMAIN(ui_crate_OnLoad);
 PREPMAIN(ui_crate_OpenMenu);
+PREPMAIN(ui_crate_save);
 PREPMAIN(ui_crate_spawn);
+
+PREPMAIN(ui_save_delete);
+PREPMAIN(ui_save_load);
+PREPMAIN(ui_save_OnOpen);
+PREPMAIN(ui_save_OpenMenu);
+PREPMAIN(ui_save_save);
+PREPMAIN(ui_save_select);
 
 PREPMAIN(ui_spawn_addaction);
 PREPMAIN(ui_spawn_create);
