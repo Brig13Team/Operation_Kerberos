@@ -65,8 +65,8 @@ switch (_mode) do {
 				If (_delete > 0) then {
 					_del = DORB_GPTR_DATA deleteAt _i;
 					If (_delete > 1) then {
-						deleteMarkerLocal (_x select 1);
-						deleteMarkerLocal ((_x select 1) + "_size");
+						deleteMarkerLocal (_del select 1);
+						deleteMarkerLocal ((_del select 1) + "_size");
 					};
 					_anzahl = _anzahl - 1;
 				};
