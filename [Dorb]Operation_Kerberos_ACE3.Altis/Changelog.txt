@@ -2,6 +2,14 @@
 
 Github: https://github.com/Dorbedo/Operation_Kerberos
 
+Version 0.16
+Removed: Igiload
+Added: Neues Logistiksystem - ersetzt Igiload
+Added: Save Funktion für Cratespawner
+Added: Whitelist-system
+Fixed: Prototyp-Heli kann nun abgegeben werden
+Fixed: Diverse kleinere Fehler
+
 Version 0.15.1
 Added: Rucksack auf die Brust schnallen
 Added: Basis

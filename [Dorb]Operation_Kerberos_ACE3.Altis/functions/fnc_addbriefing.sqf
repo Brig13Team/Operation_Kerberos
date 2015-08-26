@@ -16,9 +16,6 @@ player createDiaryRecord ["Diary", ["Credits",format["
 	<br/>R3F - Logistics
 	<br/>http://forums.bistudio.com/showthread.php?180049-R3F-Logistics
 	<br/>
-	<br/>IgiLoad
-	<br/>http://forums.bistudio.com/showthread.php?173109-IgiLoad-script-logistical-support
-	<br/>
 	<br/>CH View Distance
 	<br/>http://forums.bistudio.com/showthread.php?185770-CH-View-Distance-Script
 	<br/>
@@ -81,6 +78,16 @@ player createDiaryRecord ["Diary", ["Changelog","
 <br/>SChreibFehler köennt ihr behalltEn
 <br/>
 <br/>Github: https://github.com/Dorbedo/Operation_Kerberos
+<br/>
+<br/>===================
+<br/>Version 0.16
+<br/>-------------------
+<br/>Removed: Igiload
+<br/>Added: Neues Logistiksystem - ersetzt Igiload
+<br/>Added: Save Funktion für Cratespawner
+<br/>Added: Whitelist-system
+<br/>Fixed: Prototyp-Heli kann nun abgegeben werden
+<br/>Fixed: Diverse kleinere Fehler
 <br/>
 <br/>===================
 <br/>Version 0.15
