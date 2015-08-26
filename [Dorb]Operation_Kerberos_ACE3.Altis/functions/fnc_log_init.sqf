@@ -20,10 +20,10 @@ private["_cfgLog","_loadAction","_unloadAction","_checkAction","_paraAction","_v
 
 
 _cfgLog = missionconfigFile >> "logistics" >> "vehicles";
-_loadAction = ["DORB_LOG_ACTION_LOAD", localize "STR_DORB_LOG_ACTION_LOAD", "", {[_target] spawn FM(log_doload);}, {[_target] call FM(log_canload)}] call ace_interact_menu_fnc_createAction;
-_unloadAction = ["DORB_LOG_ACTION_UNLOAD", localize "STR_DORB_LOG_ACTION_UNLOAD", "", {[_target] spawn FM(log_dounload);}, {  (!((_target getVariable ["LOGISTIC_CARGO_STACK",[]]) isEqualTo [] ))  }] call ace_interact_menu_fnc_createAction;
+_loadAction = ["DORB_LOG_ACTION_LOAD", localize "STR_DORB_LOG_ACTION_LOAD", "", {[_target] spawn FM(log_doload);}, {[_target] call FM(log_canload);}] call ace_interact_menu_fnc_createAction;
+_unloadAction = ["DORB_LOG_ACTION_UNLOAD", localize "STR_DORB_LOG_ACTION_UNLOAD", "", {[_target] spawn FM(log_dounload);}, {  [_target] call FM(log_canUnload);  }] call ace_interact_menu_fnc_createAction;
 _infoAction = ["DORB_LOG_ACTION_INFO", localize "STR_DORB_LOG_ACTION_DISP_CARGO","",{[_target] spawn FM(log_disp_cargo);},{true}] call ace_interact_menu_fnc_createAction;
-_paraAction = ["DORB_LOG_ACTION_PARADROP", localize "STR_DORB_LOG_ACTION_PARADROP", "", {[_target,true] spawn FM(log_dounload);}, {[_target] call FM(log_candrop)}] call ace_interact_menu_fnc_createAction;
+_paraAction = ["DORB_LOG_ACTION_PARADROP", localize "STR_DORB_LOG_ACTION_PARADROP", "", {[_target,true] spawn FM(log_dounload);}, {[_target] call FM(log_candrop);}] call ace_interact_menu_fnc_createAction;
 
 for "_i" from 0 to ((count _cfgLog)-1) do {
 	_vehicle = configname(_cfgLog select _i);
