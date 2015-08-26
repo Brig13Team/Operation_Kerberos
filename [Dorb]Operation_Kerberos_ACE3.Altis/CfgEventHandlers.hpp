@@ -62,7 +62,7 @@ class Extended_GetIn_Eventhandlers
 	{
 		class Dorb_Air_GetIn
 		{
-			getin = "_this call DORB_fnc_onlyPilots";
+			getin = "_this remoteExec ['DORB_fnc_onlyPilots',(_this select 2)];";
 		};
 	};
 };
