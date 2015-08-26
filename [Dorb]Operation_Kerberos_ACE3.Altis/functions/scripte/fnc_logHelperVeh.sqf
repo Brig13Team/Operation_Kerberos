@@ -32,6 +32,7 @@ DORB_HELPER_ARROW = [
 
 DORB_HELPER_ID = [{
 	private["_pos"];
+	If (isNull DORB_HELPER_VEH) exitWith {[_this select 1] call CBA_fnc_removePerFrameHandler;{deleteVehicle _x} forEach DORB_HELPER_ARROW;};
 	_pos = DORB_HELPER_VEH modelToWorld DORB_HELPER_POS;
 	(DORB_HELPER_ARROW select 0) setPos _pos;
 	_pos = DORB_HELPER_VEH modelToWorld [((DORB_HELPER_POS select 0) + ((DORB_HELPER_SIZE select 0)*0.5)),(DORB_HELPER_POS select 1),(DORB_HELPER_POS select 2)];
