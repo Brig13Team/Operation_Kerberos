@@ -301,11 +301,12 @@ class logistics
 		
 		
 		class RHS_Mi8mt_Cargo_vdv {
-			max_width = 0.65;
+			max_width = 1.3;
 			max_length = 4.5;
-			max_height = 1.5;
-			cargo_point[] = {0,4.5,-2.3};
-			load_point[] = {0,-4.8,-2.6};
+			max_height = 1.7;
+			cargo_point[] = {0.04,4.5,-2.3};
+			load_point[] = {0.04,-4.2,-2.6};
+			cargo_pos[] = {0.04,-4.2,-2.6};
 			hatch_open = "[_this,13,14] call rhs_fnc_mi8_checkDoor";
 			hatch_close = "[_this,13,14] call rhs_fnc_mi8_checkDoor";
 			hatch_isclosed = "_this doorPhase 'RearDoors' < 0.5 AND alive _this";
@@ -429,55 +430,67 @@ class logistics
 	class cargos {
 		class WpnsBox_F {
 			width = 1.1;
-			length = 0.64;
-			height = 0.38;
+			length = 0.73;
+			height = 0.344;
+			offset[] = {0,0,0.023};
 		};
 		class AmmoBox_F {
-			width = 0.5;
-			length = 0.78;
-			height = 0.64;
+			width = 0.45;
+			length = 0.72;
+			height = 0.6;
+			offset[] = {0,0,0.025};
 		};
 		class WpnsBox_large_F {
 			width = 1.63;
 			length = 0.73;
-			height = 0.38;
+			height = 0.344;
+			offset[] = {0,0,0.023};
 		};
 		class WpnsBox_long_F {
 			width = 1.63;
 			length = 0.34;
-			height = 0.38;
+			height = 0.344;
+			offset[] = {0,0,0.023};
 		};
 		class Supplydrop {
-			width = 1.5;
-			length = 0.98;
-			height = 1.78;
+			width = 1.54;
+			length = 1.05;
+			height = 1.35;
+			offset[] = {0,0,-0.215};
 		};
 		class ace_medcrate {
-			width = 1.16;
-			length = 0.39;
-			height = 0.38;
+			width = 1.3;
+			length = 0.4;
+			height = 0.35;
 		};
+		class rhs_3Ya40_1 {
+			width = 1.1;
+			length = 0.5;
+			height = 0.5;
+		};
+		
 		class bwa3_democracybox {
-			width = 2.8;
+			width = 2.55;
 			length = 5.8;
-			height = 4.48;
-			offset[] = {0,0,2.24};
+			height = 2.3;
+			offset[] = {0,0,1.15};
 		};
 		class B_Slingload_01_Cargo_F {
-			width = 2.4;
-			length = 6.15;
+			width = 2.45;
+			length = 6.25;
 			height = 2.73;
 		};
-		class B_Slingload_01_Ammo_F : B_Slingload_01_Cargo_F {};
 		class B_Slingload_01_Medevac_F : B_Slingload_01_Cargo_F {
-			width = 2.4;		
+			width = 2.7;		
 		};
-		class B_Slingload_01_Repair_F : B_Slingload_01_Medevac_F {};
-		class B_Slingload_01_Fuel_F : B_Slingload_01_Medevac_F {};
+		class B_Slingload_01_Ammo_F : B_Slingload_01_Cargo_F {};
+		class B_Slingload_01_Repair_F : B_Slingload_01_Cargo_F {};
+		class B_Slingload_01_Fuel_F : B_Slingload_01_Cargo_F {};
 		class AmmoVeh_F {
 			width = 1.54;
 			length = 1.54;
 			height = 1.54;
+			offset[] = {0,0,-0.05};
 		};
 		class Land_Cargo10_base {
 			width = 2.5;
@@ -520,6 +533,10 @@ class logistics
 		class Land_Cargo20_vr_F : Land_Cargo20_base {};
 		class Land_Cargo20_white_F : Land_Cargo20_base {};
 		
+		model = "rhsafrf\addons\rhs_weapons\crates\rhs_3Ya40_1";
+		model = "rhsafrf\addons\rhs_weapons\crates\rhs_3Ya40_1";
+		model = "rhsafrf\addons\rhs_weapons\crates\rhs_7ya37_1";
+		model = "rhsafrf\addons\rhs_weapons\crates\rhs_7ya37_1";
 		
 		
 		
@@ -527,6 +544,7 @@ class logistics
 			width = 1.54;
 			length = 1.54;
 			height = 1.54;
+			offset[] = {0,0,-0.05};
 		};
 		class CargoNet_01_ammo_F {
 			width = 1.6;
