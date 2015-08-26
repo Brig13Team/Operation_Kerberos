@@ -106,7 +106,7 @@ if (!(_logistic_stack isEqualTo [])) then {
 				(_x select 1) set [3,_apoint];
 			} forEach _last_row;
 			_attach_point = [
-				(_apoint select 0) + (_cargo_offset select 0) + SPACE_BETWEEN_CARGO + ((if ((getDir (_last_cargo select 0)) == (getDir _vehicle) then { _last_cargo select 1 select 0 } else { _last_cargo select 1 select 1 }))/2),
+				(_apoint select 0) + (_cargo_offset select 0) + SPACE_BETWEEN_CARGO + ((if ((getDir (_last_cargo select 0)) == (getDir _vehicle)) then { _last_cargo select 1 select 0 } else { _last_cargo select 1 select 1 })/2),
 				(_point select 1) + (_cargo_offset select 1) - _max_length + _left_length - (_cargo_length/2),
 				(_point select 2) + (_cargo_height / 2)  + (_cargo_offset select 2)
 			];
