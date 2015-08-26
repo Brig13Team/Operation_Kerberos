@@ -53,9 +53,25 @@ _cargo_height = getNumber(missionConfigFile >> "logistics" >> "cargos" >> _cargo
 
 _logistic_stack = _target getVariable ["LOGISTIC_CARGO_STACK",[]];
 
+/// Empty Stack
 If (_logistic_stack isEqualTo []) exitWith {
-	((_cargo_height < _max_height)&&(_cargo_width < _max_width)&&(_cargo_length<_max_length))
+	((_cargo_height < _max_height)&&(((_cargo_width < _max_width)&&(_cargo_length<_max_length))||((_cargo_length < _max_width)&&(_cargo_width<_max_length))))
 };
+
+/// still space left -> simple check
+
 _left_length = ((_logistic_stack select ((count _logistic_stack)-1))select 2) - SPACE_BETWEEN_CARGO;
 
-((_cargo_height < _max_height)&&(_cargo_width < _max_width)&&(_cargo_length<_left_length))
+If ((_cargo_height < _max_height)&&(((_cargo_width < _max_width)&&(_cargo_length<_left_length))||((_cargo_length < _max_width)&&(_cargo_width<_left_length)))) exitWith {true};
+
+
+/// Check if you have to play tetris
+
+
+/// Check if cargo can be put on an other
+
+
+false
+
+
+
