@@ -20,8 +20,6 @@ PREPMAIN(get_buildings);
 PREPMAIN(get_cfg_subclasses);
 PREPMAIN(get_cfglocations);
 PREPMAIN(list_groups);
-PREPMAIN(local);
-PREPMAIN(local_check);
 PREPMAIN(log_candrop);
 PREPMAIN(log_canload);
 PREPMAIN(log_canunload);

@@ -25,11 +25,11 @@ If ((owner currentHC) == 0) exitWith {ERROR("HC disconnected");};
 
 
 [] call FM(headless_determine);
-Private["_group","_HCid","_geklappt"];
-_group = [_this,0,grpNull,[grpNull]] call BIS_fnc_Param;
+Private["_HCid","_geklappt"];
+params[["_group",grpNull,[grpNull]]];
 _HCid = owner currentHC;
 /// Leere Gruppe irgnorieren
-CHECK((units _group)isEqualTo [])
+If ((units _group)isEqualTo []) exitWith {deleteGroup _x;};
 /// Check ob geklappt - falls nicht: Error
 _geklappt = false;
 _geklappt = _group setGroupOwner _HCid;
