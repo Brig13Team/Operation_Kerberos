@@ -17,7 +17,7 @@
 
 SCRIPT(obj_sideby_ueberlaeufer);
 
-private ["_position", "_task_array", "_dest", "_ziel", "_zielPos", "_buildings", "_kleidung", "_description", "_fnc_conter"];
+private ["_position", "_task_array", "_dest", "_ziel", "_zielPos", "_buildings", "_kleidung", "_description", "_fnc_conter", "_temp"];
 
 DORB_SIDEBY_OBJECTS = [];
 
@@ -79,11 +79,9 @@ switch (_eigenschaft) do
 };
 
 ["STR_DORB_SIDE_SIDEMISSION",["STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_SHORT"],"",false] call FM(disp_info_global);
-#ifdef TEST
-	LOG("[SIDEBY] Überläufer erstellt!");
-#else
-	[_task_array, true, [_description, "STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_SHORT", "STR_DORB_SIDE_UEBERLAEUFER_MARKER"], _position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
-#endif
+
+_temp = [_task_array, true, [_description, "STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_SHORT", "STR_DORB_SIDE_UEBERLAEUFER_MARKER"], _position,"AUTOASSIGNED",0,false,true,"",true] call BIS_fnc_setTask;
+missionNamespace setVariable ["DORB_CURRENT_SIDEMISSION",_temp];
 
 [_ziel, _eigenschaft, _task_array] spawn FM(TRIPLES(obj,sideby,ueberlaeuferVerhoeren));
 

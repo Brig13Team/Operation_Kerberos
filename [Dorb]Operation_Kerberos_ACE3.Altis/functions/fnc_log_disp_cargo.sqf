@@ -19,14 +19,17 @@ _leermasse = _gesamtmasse;
 
 _logisticStack = _vehicle getVariable ["LOGISTIC_CARGO_STACK",[]];
 
-{ _leermasse = _leermasse - getMass (_x select 0); } forEach _logisticStack;
+{
+	{ _leermasse = _leermasse - getMass (_x select 0); } forEach _x;
+} forEach _logisticStack;
 
 _ladungsmasse = _gesamtmasse - _leermasse;
 
 if (count _logisticStack > 0) then {
-	_leereLadeflaeche = _logisticStack select ((count _logisticStack) - 1) select 2;
+	_leereLadeflaeche = getNumber(missionConfigFile >> "logistics" >> "vehicles" >> ([typeOf _vehicle] call FM(log_getCargoCfg)) >> "max_length");
+	{ _leereLadeflaeche = if (_leereLadeflaeche > (_x select 2)) then { _x select 2 } else { _leereLadeflaeche } } forEach (_logisticStack select (count _logisticStack - 1));
 } else {
-	_leereLadeflaeche = getNumber(missionConfigFile >> "logistics" >> "vehicles" >> typeOf _vehicle >> "max_length");
+	_leereLadeflaeche = getNumber(missionConfigFile >> "logistics" >> "vehicles" >> ([typeOf _vehicle] call FM(log_getCargoCfg)) >> "max_length");
 };
 
 

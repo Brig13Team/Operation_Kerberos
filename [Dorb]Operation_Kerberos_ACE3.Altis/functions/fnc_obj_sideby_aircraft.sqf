@@ -200,6 +200,9 @@ switch (_mode) do {
 		_task = _args select 3 select 1;
 		_main_task = _args select 3 select 2;
 
+		_temp = missionNamespace getVariable ["DORB_CURRENT_SIDEMISSION",""];
+		if (_temp isEqualTo "") exitWith {};
+
 		_target removeAction _id;
 
 		[0,{
@@ -209,13 +212,16 @@ switch (_mode) do {
 	case ("fnc_watchSuitcase"): {
 		// executed on server
 
-		private ["_caller", "_main_task", "_task", "_typ", "_pos", "_suitcase"];
+		private ["_caller", "_main_task", "_task", "_typ", "_pos", "_suitcase","_temp"];
 		_caller = _args select 0;
 		_main_task = _args select 1;
 		_task = _args select 2;
 		_typ = _args select 3;
 
 		_pos = getMarkerPos "rescue_marker";
+		
+		_temp = missionNamespace getVariable ["DORB_CURRENT_SIDEMISSION",""];
+		if (_temp isEqualTo "") exitWith {};
 
 		if ( !(missionNamespace getVariable ["DORB_CONTER", false]) ) then {
 
@@ -242,11 +248,9 @@ switch (_mode) do {
 			publicVariable "DORB_MISSION_FNC";
 
 			LOG("SCHLEIFE GESTARTET");
-			while { (!(DORB_SIDEBY_OBJECTS isEqualTo [])) AND {(((position _suitcase) distance _pos) > 25) OR !(isNull attachedTo _suitcase)} } do { uiSleep 5; };
+			while { (!(_temp isEqualTo "")) AND {(((position _suitcase) distance _pos) > 25) OR !(isNull attachedTo _suitcase)} } do { uiSleep 5; _temp = missionNamespace getVariable ["DORB_CURRENT_SIDEMISSION",""]; };
 			LOG("SCHLEIFE ABGEBROCHEN");
-			if (DORB_SIDEBY_OBJECTS isEqualTo []) exitWith {
-				[_task, "Canceled", false] call BIS_fnc_taskSetState;
-			};
+			if (_temp isEqualTo "") exitWith {};
 
 			uiSleep 5;
 
@@ -265,27 +269,23 @@ switch (_mode) do {
 			};
 			
 			["STR_DORB_SIDE_SIDEMISSION",["STR_DORB_SIDE_FINISHED"],"",false] call FM(disp_info_global);
-			#ifdef TEST
-				LOG("[SIDEBY] Flugobjekt abgeschlossen!");
-			#else
-				[_task, "Succeeded", false] call BIS_fnc_taskSetState;
-			#endif
+			
+			[_task, "Succeeded", false] call BIS_fnc_taskSetState;
+			missionNamespace setVariable ["DORB_CURRENT_SIDEMISSION",""];
 
 			missionNamespace setVariable ["DORB_CONTER",true];
 			deleteVehicle _suitcase;
 		} else {
 			["STR_DORB_SIDE_SIDEMISSION",["STR_DORB_SIDE_FAILED"],"",false] call FM(disp_info_global);
-			#ifdef TEST
-				LOG("[SIDEBY] Flugobjekt fehlgeschlagen!");
-			#else
-				[_task, "Failed", false] call BIS_fnc_taskSetState;
-			#endif
+
+			[_task, "Failed", false] call BIS_fnc_taskSetState;
+			missionNamespace setVariable ["DORB_CURRENT_SIDEMISSION",""];
 		};
 	};
 	default {
 		// executed on server
 
-		private ["_position", "_pos", "_task_array", "_dest", "_typen", "_wichtung", "_typ", "_obj", "_description","_fnc_conter"];
+		private ["_position", "_pos", "_task_array", "_dest", "_typen", "_wichtung", "_typ", "_obj", "_description","_fnc_conter","_temp"];
 
 		_position = _args select 0;
 		_task_array = _args select 1;
@@ -329,11 +329,9 @@ switch (_mode) do {
 		};
 
 		[-1,{_this spawn FM(disp_info)},["Nebenmission",["abgestürztes Flugobjekt"],"",true]] FMP;
-		#ifdef TEST
-			LOG("[SIDEBY] Flugobjekt erstellt!");
-		#else
-			[_task_array, true, [_description, "STR_DORB_SIDE_AIRCRAFT_DESCRIPTION_SHORT", "STR_DORB_SIDE_SDV_MARKER"], _position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
-		#endif
+		_temp = [_task_array, true, [_description, "STR_DORB_SIDE_AIRCRAFT_DESCRIPTION_SHORT", "STR_DORB_SIDE_SDV_MARKER"], _position,"AUTOASSIGNED",0,false,true,"",true] call BIS_fnc_setTask;
+		LOG(FORMAT_1("_temp = %1",_temp));
+		missionNamespace setVariable ["DORB_CURRENT_SIDEMISSION",_temp];
 
 		[-1, {
 			private ["_obj", "_typ", "_task_array"];

@@ -1,5 +1,5 @@
 /*
-	Author: iJesuz
+	Author: iJesuz, Dorbedo
 
 	Description:
 		logistic script
@@ -26,14 +26,17 @@ if (_logistic_stack isEqualTo []) exitWith {
 	["vehicle is empty",["vehicle is empty"],"",false] call FM(disp_info);
 };
 
-private ["_last_cargo","_cargo_mass","_vehicle_mass","_load_point","_detach_point","_cargo_width","_cargo_length","_detach_point","_position","_height"];
+private ["_last_row","_last_cargo","_cargo_mass","_vehicle_mass","_load_point","_detach_point","_cargo_width","_cargo_length","_detach_point","_position","_height"];
 
-_last_cargo = _logistic_stack select ((count _logistic_stack) - 1);
+_last_row = _logistic_stack select ((count _logistic_stack) - 1);
+_last_cargo = _last_row select ((count _last_row) - 1);
+_last_row resize (count _last_row - 1);
 
-if (_vehicle != attachedTo  (_last_cargo select 0)) exitWith {
-	_logistic_stack resize ((count _logistic_stack) - 1);
+if (_last_row isEqualTo []) then { _logistic_stack resize ((count _logistic_stack) - 1); } else { _logistic_stack set [(count _logistic_stack) - 1, _last_row]; };
+
+if (!((_last_cargo select 0) in (attachedObjects _vehicle))) exitWith {
 	_cargo_mass = getMass (_last_cargo select 0);
-	_vehicle setVariable ["LOGISTIC_CARGO_STACK",_logistic_stack,true];
+	_vehicle setVariable ["LOGISTIC_CARGO_STACK",_logistic_stack];
 	_vehicle setMass (_vehicle_mass - _cargo_mass);
 };
 
@@ -47,6 +50,8 @@ detach (_last_cargo select 0);
 _cargo_mass = getMass (_last_cargo select 0);
 _vehicle_mass = getMass _vehicle;
 (_last_cargo select 0) setPos (_vehicle modelToWorld _detach_point);
+(_last_cargo select 0) setDir (getDir _vehicle);
+
 player setVariable ["DORB_ISLOADING",false];
 if ([_vehicle] call FM(log_candrop)) then {
 	[(_last_cargo select 0),_vehicle] spawn {
@@ -71,8 +76,7 @@ if ([_vehicle] call FM(log_candrop)) then {
 	};
 };
 
-_logistic_stack resize ((count _logistic_stack) - 1);
-_vehicle setVariable ["LOGISTIC_CARGO_STACK",_logistic_stack,true];
+_vehicle setVariable ["LOGISTIC_CARGO_STACK",_logistic_stack];
 _vehicle setMass (_vehicle_mass - _cargo_mass);
 
 private["_aceActions"];

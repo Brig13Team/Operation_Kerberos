@@ -6,6 +6,7 @@
 	
 	Parameter(s):
 		0 :	ARRAY - Position der letzten AO
+		1 : STRING - Taskname
 		
 	Returns:
 	BOOL
@@ -31,16 +32,20 @@ If (taskcancel) then {
 
 [-1,{_this spawn FM(disp_info)},["STR_DORB_RTB",["STR_DORB_RTB_START_1"],"data\icon\icon_base.paa",false]] FMP;
 
+_sideMission = missionNamespace getVariable ["DORB_CURRENT_SIDEMISSION",""];
+if (!(_sideMission isEqualTo "")) then {
+	[_sideMission,"CANCELED",false] call BIS_fnc_taskSetState; 
+	missionNamespace setVariable ["DORB_CURRENT_SIDEMISSION",""];
+};
+
 //////////////////////////////////////////////////
 ////// Nebenmissionen beenden				 /////
 //////////////////////////////////////////////////
-/*
-_taskVar = "BIS_fnc_taskVar_" + _taskID + "_side";
-_data = missionnamespace getvariable _taskVar;
-if ( ( !(isnil "_data") ) && { !((_data select 4) in ["Succeeded","Failed","Canceled"]) } ) then {
-	[_taskVar, "Canceled", false] call BIS_fnc_taskSetState;
+_sideMission = missionNamespace getVariable ["DORB_CURRENT_SIDEMISSION",""];
+if (!(_sideMission isEqualTo "")) then {
+	[_sideMission,"CANCELED",false] call BIS_fnc_taskSetState; 
+	missionNamespace setVariable ["DORB_CURRENT_SIDEMISSION",""];
 };
-*/
 
 //////////////////////////////////////////////////
 ////// Überprüfung + Ende 					 /////

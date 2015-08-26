@@ -13,7 +13,7 @@
 
 SCRIPT(obj_sideby_ueberlaeuferVerhoeren);
 
-private ["_ueberlaeufer", "_eigenschaft", "_task", "_main_task", "_info", "_suizidtimer", "_ueberlaeuferPosition", "_ziel", "_liste", "_counter", "_kontakt", "_durchmesser"];
+private ["_ueberlaeufer", "_eigenschaft", "_task", "_main_task", "_info", "_suizidtimer", "_ueberlaeuferPosition", "_ziel", "_liste", "_counter", "_kontakt", "_durchmesser","_temp"];
 
 _ueberlaeufer = _this select 0;
 _eigenschaft = _this select 1;
@@ -26,8 +26,10 @@ _ziel = getMarkerPos "rescue_marker";
 _suizidtimer = 0;
 _kontakt = 0;
 
+_temp = missionNamespace getVariable ["DORB_CURRENT_SIDEMISSION",""];
+
 LOG("SCHLEIFE GESTARTET");
-while { (!(DORB_SIDEBY_OBJECTS isEqualTo [])) AND {((((getPos _ueberlaeufer) distance _ziel) > 20) OR (captive _ueberlaeufer)) AND (alive _ueberlaeufer)} } do {
+while { (!(_temp isEqualTo "")) AND {((((getPos _ueberlaeufer) distance _ziel) > 20) OR (captive _ueberlaeufer)) AND (alive _ueberlaeufer)} } do {
 	uiSleep 5;
 
 	switch (_eigenschaft) do
@@ -66,15 +68,15 @@ while { (!(DORB_SIDEBY_OBJECTS isEqualTo [])) AND {((((getPos _ueberlaeufer) dis
 		case "nichts": {};
 	};
 
+	_temp = missionNamespace getVariable ["DORB_CURRENT_SIDEMISSION",""];
+
 	if (_suizidtimer >= 2) exitWith {
 		_info = 0;
 		_ueberlaeufer setDamage 1;
 	};
 };
 LOG("SCHLEIFE ABGEBROCHEN");
-if (DORB_SIDEBY_OBJECTS isEqualTo []) exitWith {
-	[_task, "Canceled", false] call BIS_fnc_taskSetState;
-};
+if (_temp isEqualTo "") exitWith {};
 
 _info = _info / 100;
 
@@ -118,20 +120,14 @@ if ( (_info > 0) and (alive _ueberlaeufer) ) then {
 	hint localize "STR_DORB_SIDE_UEBERLAEUFER_VERHOERT";
 	
 	["STR_DORB_SIDE_SIDEMISSION",["STR_DORB_SIDE_FINISHED"],"",false] call FM(disp_info_global);
-	#ifdef TEST
-		LOG("[SIDEBY] Überläufer abgeschlossen!");
-	#else
-		[_task, "Succeeded", false] call BIS_fnc_taskSetState;
-	#endif
+	[_task, "Succeeded", false] call BIS_fnc_taskSetState;
+	missionNamespace setVariable ["DORB_CURRENT_SIDEMISSION",""];
 } else {
 	hint localize "STR_DORB_SIDE_UEBERLAEUFER_NICHT_VERHOERT";
 
 	["STR_DORB_SIDE_SIDEMISSION",["STR_DORB_SIDE_FAILED"],"",false] call FM(disp_info_global);
-	#ifdef TEST
-		LOG("[SIDEBY] Überläufer gescheitert!");
-	#else
-		[_task, "Failed", false] call BIS_fnc_taskSetState;
-	#endif
+	[_task, "Failed", false] call BIS_fnc_taskSetState;
+	missionNamespace setVariable ["DORB_CURRENT_SIDEMISSION",""];
 };
 
 if ( (damage _ueberlaeufer) < 1 ) then { deleteVehicle _ueberlaeufer; };

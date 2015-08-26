@@ -12,7 +12,7 @@
 
 SCRIPT(obj_sideby_supplies);
 
-private ["_dest", "_task_array", "_dest_name", "_dest_radius", "_base", "_crate", "_description", "_counter", "_i", "_sol", "_civ", "_inf", "_infw", "_civs", "_fnc_barricades"];
+private ["_dest", "_task_array", "_dest_name", "_dest_radius", "_base", "_crate", "_description", "_counter", "_i", "_sol", "_civ", "_inf", "_infw", "_civs", "_fnc_barricades", "_temp"];
 
 params ["_dest", "_task_array", "_dest_name"];
 
@@ -126,11 +126,9 @@ _crate addItemCargo ["ACE_Banana",1];
 SETVAR(_crate,DORB_ISTARGET,true);
 
 ["STR_DORB_SIDE_SIDEMISSION",["STR_DORB_SIDE_SUPPLIES_DESCRIPTION_SHORT"],"",false] call FM(disp_info_global);
-#ifdef TEST
-	LOG("[SIDEBY] Supplies erstellt!");
-#else
-	[_task_array, true, ["STR_DORB_SIDE_SUPPLIES_DESCRIPTION", "STR_DORB_SIDE_SUPPLIES_DESCRIPTION_SHORT", "STR_DORB_SIDE_SUPPLIES_MARKER"], _dest,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
-#endif
+
+_temp = [_task_array, true, ["STR_DORB_SIDE_SUPPLIES_DESCRIPTION", "STR_DORB_SIDE_SUPPLIES_DESCRIPTION_SHORT", "STR_DORB_SIDE_SUPPLIES_MARKER"], _dest,"AUTOASSIGNED",0,false,true,"",true] call BIS_fnc_setTask;
+missionNamespace setVariable ["DORB_CURRENT_SIDEMISSION",_temp];
 
 // create civs and soldiers
 #ifdef TEST
@@ -188,31 +186,24 @@ for "_i" from 1 to 25 do {
 
 _counter = 0;
 LOG("SCHLEIFE GESTARTET");
-while { (!(DORB_SIDEBY_OBJECTS isEqualTo [])) AND {((_dest distance (position _crate)) > 25) AND ((damage _crate) < 1)} } do {
+while { (!(_temp isEqualTo "")) AND {((_dest distance (position _crate)) > 25) AND ((damage _crate) < 1)} } do {
 	uiSleep 30;
 	_counter = _counter + 6;
+	_temp = missionNamespace getVariable ["DORB_CURRENT_SIDEMISSION",""];
 	if (_counter > 360) exitWith {};
 };
 LOG("SCHLEIFE ABGEBROCHEN");
-if (DORB_SIDEBY_OBJECTS isEqualTo []) exitWith {
-	[_task, "Canceled", false] call BIS_fnc_taskSetState;
-};
+if (_temp isEqualTo "") exitWith {};
 
 if (((damage _crate) < 1) AND (_crate != objNull) AND (_counter < 360)) then {
 	["STR_DORB_SIDE_SIDEMISSION",["STR_DORB_SIDE_FINISHED"],"",false] call FM(disp_info_global);
-	#ifdef TEST
-		LOG("[SIDEBY] Supplies abgeschlossen!");
-	#else
-		[(_task_array select 0), "Succeeded", false] call BIS_fnc_taskSetState;
-		[_main_task select 1, "targets", [2,50]] call FM(obj_reward);
-	#endif
+	[(_task_array select 0), "Succeeded", false] call BIS_fnc_taskSetState;
+	[_main_task select 1, "targets", [2,50]] call FM(obj_reward);
+	missionNamespace setVariable ["DORB_CURRENT_SIDEMISSION",""];
 } else {
 	["STR_DORB_SIDE_SIDEMISSION",["STR_DORB_SIDE_FAILED"],"",false] call FM(disp_info_global);
-	#ifdef TEST
-		LOG("[SIDEBY] Supplies gescheitert!");
-	#else
-		[(_task_array select 0), "Failed", false] call BIS_fnc_taskSetState;
-	#endif
+	[(_task_array select 0), "Failed", false] call BIS_fnc_taskSetState;
+	missionNamespace setVariable ["DORB_CURRENT_SIDEMISSION",""];
 };
 
 deleteVehicle _crate;
