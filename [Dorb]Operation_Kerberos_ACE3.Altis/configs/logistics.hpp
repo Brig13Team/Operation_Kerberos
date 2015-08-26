@@ -533,12 +533,6 @@ class logistics
 		class Land_Cargo20_vr_F : Land_Cargo20_base {};
 		class Land_Cargo20_white_F : Land_Cargo20_base {};
 		
-		model = "rhsafrf\addons\rhs_weapons\crates\rhs_3Ya40_1";
-		model = "rhsafrf\addons\rhs_weapons\crates\rhs_3Ya40_1";
-		model = "rhsafrf\addons\rhs_weapons\crates\rhs_7ya37_1";
-		model = "rhsafrf\addons\rhs_weapons\crates\rhs_7ya37_1";
-		
-		
 		
 		class CargoBox_V1_F {
 			width = 1.54;

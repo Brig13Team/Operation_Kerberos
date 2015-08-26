@@ -50,7 +50,7 @@ enableRadio false;
 
 // Logistik
 _r3f = execVM "R3F_LOG\init.sqf";
-_igiload = execVM "IgiLoad\IgiLoadInit.sqf";
+//_igiload = execVM "IgiLoad\IgiLoadInit.sqf";
 
 // VCOM-Driving
 If ((!hasInterface) && (!isServer)) then {

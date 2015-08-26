@@ -50,11 +50,13 @@ class Mission
 		"a3_map_altis",
 		"ace_sitting",
 		"ace_finger",
-		"A3_Structures_F_Heli_Ind_Cargo"
+		"A3_Structures_F_Heli_Ind_Cargo",
+		"3DEN"
 	};
 	addOnsAuto[]=
 	{
-		"A3_Modules_F_Curator_Curator",
+		"3DEN",
+		"a3_modules_f_curator_curator",
 		"cba_main",
 		"A3_Modules_F",
 		"ace_common",
@@ -106,6 +108,8 @@ class Mission
 	randomSeed=32840;
 	class Intel
 	{
+		briefingName="Operation Kerberos";
+		overviewText="Version 0.16";
 		timeOfChanges=4800;
 		startWeather=1;
 		startFog=0.0139588;
