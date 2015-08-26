@@ -1255,7 +1255,7 @@ class Mission
 						};
 						class Item2
 						{
-							value="1";
+							value="0";
 							parentCls="ACE_moduleMedicalSettings";
 							typeName="allowLitterCreation";
 						};
