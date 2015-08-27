@@ -43,13 +43,13 @@ class logistics
 			cargo_pos[] = {{1,{0.708984,-1.67847,-0.334061}},{2,{-0.75293,-0.976318,-0.329685}},{3,{0.892578,-2.48169,-0.56284}},{4,{-0.768555,-1.71436,-0.329685}},{5,{0.699463,-1.01538,-0.334057}},{6,{-0.889404,-2.43628,-0.543262}}};
 			
 		};
-		class rhsusf_m998_w_2dr_fulltop : rhsusf_m1025_base {};
-		class rhsusf_m998_d_2dr_fulltop : rhsusf_m1025_base {};
-		class rhsusf_m998_d_s_2dr_fulltop : rhsusf_m1025_base {};
-		class rhsusf_m998_w_s_2dr_fulltop : rhsusf_m1025_base {};
+		class rhsusf_m998_w_2dr_fulltop : rhsusf_m1025_2dr_base {};
+		class rhsusf_m998_d_2dr_fulltop : rhsusf_m1025_2dr_base {};
+		class rhsusf_m998_d_s_2dr_fulltop : rhsusf_m1025_2dr_base {};
+		class rhsusf_m998_w_s_2dr_fulltop : rhsusf_m1025_2dr_base {};
 		
-		class rhsusf_m998_w_2dr_halftop : rhsusf_m1025_base {
-			max_height = 1.5;
+		class rhsusf_m998_w_2dr_halftop : rhsusf_m1025_2dr_base {
+			max_height = 2;
 		};
 		class rhsusf_m998_w_2dr : rhsusf_m998_w_2dr_halftop {};
 		class rhsusf_m998_d_2dr : rhsusf_m998_w_2dr_halftop {};
