@@ -84,7 +84,7 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
 		
 		If ((_class isKindOf "House")&&(_scope > 0)) then {
 			/// exclude damaged buildings
-			_namearr = [toLower(_class),"_"] call BIS_fnc_splitString;
+			_namearr = (toLower(_class)) splitString "_";
 			If (!("dam" in _namearr)) then {
 				_temp = [];
 				_house = createVehicle [_class, _nullposition, [], 0, "CAN_COLLIDE"];

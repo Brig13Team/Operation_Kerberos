@@ -27,7 +27,7 @@ if ((player != (vehicle player))&&(!((GETVAR(player,DORB_BACKPACK_ANIM,""))isEqu
 
 IF (!((GETVAR(player,DORB_BACKPACK_ANIM,""))isEqualTo(animationState player))) then {
 	SETVAR(player,DORB_BACKPACK_ANIM,(animationState player));
-	_isHalo = (("halofreefall" in ([(animationState player),"_"] call BIS_fnc_splitString))||((stance player) isEqualTo "PRONE"));
+	_isHalo = (("halofreefall" in ((animationState player) splitString "_"))||((stance player) isEqualTo "PRONE"));
 	if ((_isHalo)) then {
 		_backpack attachTo [player,[-0.1,-0.4,-0.75],"pelvis"];
 		_backpack setVectorDirandup [[0,-1,0],[0,0,-1]];

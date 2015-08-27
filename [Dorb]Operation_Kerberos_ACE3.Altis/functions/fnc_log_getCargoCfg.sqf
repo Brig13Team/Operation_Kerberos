@@ -19,8 +19,7 @@ If (isClass(missionConfigFile >> "logistics" >> "cargos" >> _objectType)) exitWi
 private ["_model","_namearray","_modelname","_modelnamearray","_dot"];
 _model = getText(configfile >> "cfgVehicles" >> (_objectType) >> "model");
 If (_model isEqualTo "") exitWith {""};
-//// replace with "slpitstring" after V1.49
-_namearray = [_model,"\"] call CBA_fnc_split;
+_namearray = _model splitString "\";
 If (_namearray isEqualTo []) exitWith {""};
 
 _modelname = _namearray select ((count _namearray) -1);

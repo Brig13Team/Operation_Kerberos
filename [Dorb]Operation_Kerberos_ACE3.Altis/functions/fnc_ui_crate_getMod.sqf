@@ -13,7 +13,7 @@ SCRIPT(ui_crate_getMod);
 PARAMS_1(_config);
 private["_mod","_namearray"];
 _mod="";
-_namearray=[configname _config,"_"] call BIS_fnc_splitString;
+_namearray=(configname _config) splitString "_";
 If ("ACE" in _namearray) then {_mod="ACE";};
 If ("BWA3" in _namearray) then {_mod="BWA3";};
 If ("tf" in _namearray) then {_mod="TFR";};
@@ -49,7 +49,7 @@ LOG_1(_suchkriterium);
 
 //// Versuch mit der alten Überprüfung
 If (_suchkriterium isEqualTo "NichtsGefunden") exitwith {
-    _namearray=[configname _config,"_"] call BIS_fnc_splitString;
+    _namearray=(configname _config) splitString "_";
     If ("ACE" in _namearray) then {_mod="ACE";};
     If ("BWA3" in _namearray) then {_mod="BWA3";};
     If ("tf" in _namearray) then {_mod="TFR";};
@@ -69,7 +69,7 @@ _cfgPatches = GETMVAR(DORB_CRATE_PATCHES,[]);
 LOG_1(_addon);
 If (_addon == "") exitwith {""};
 
-_namearray=[_addon,"_"] call BIS_fnc_splitString;
+_namearray= _addon splitString "_";
 _mod = _namearray select 0;
 
 if (_mod in ["A3","A3Data"])exitwith {""};

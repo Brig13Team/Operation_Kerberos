@@ -108,7 +108,7 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
         _DNameRHS =
         {
             _result = _DName;
-            _namearr = [_class,"_"] call BIS_fnc_splitString;
+            _namearr = _class splitString "_";
             //LOG_1(_namearr);
             if (("wd" in _namearr)or("w" in _namearr)) then {
                 _result = _result + " Woodland";
@@ -122,7 +122,7 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
         _isRHSBase =
         {
             If (_vClass=="") then {false}else{
-                _namearr = [_vClass,"_"] call BIS_fnc_splitString;
+                _namearr = _vClass splitString "_";
                 if ((_namearr select ((count _namearr) -1))in["base","Base"]) then {true}else{false};
             };
         };
@@ -136,7 +136,7 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
         _DNameBW =
         {
             _result = _DName;
-            _namearr = [_vClass,"_"] call BIS_fnc_splitString;
+            _namearr = _vClass splitString "_";
             if ("Tropen" in _namearr) then {
                 _result = _result + " Tropen";
             };

@@ -61,7 +61,7 @@ _types set [ID_SONSTIGES,[]];
 
 _isAceMedical = {
         Private["_namearr"];
-        _namearr = [gettext(_class >> "picture"),"\"] call BIS_fnc_splitString;
+        _namearr = (gettext(_class >> "picture")) splitString "\";
         If ("medical" in _namearr) then {true} else {false};
     };
 
@@ -158,7 +158,7 @@ _patches=[];
 {
     private["_configname","_namearr"];
     _configname = configname _x;
-    _namearr = [_configname,"_"] call BIS_fnc_splitString;
+    _namearr = _configname splitString "_";
     If (!((_namearr select 0) in ["A3","A3Data","a3"])) then {_patches pushback _x;};
     progressloadingscreen ((_foreachindex + _step1) * _progressStep);
 }foreach _cfgPatches;

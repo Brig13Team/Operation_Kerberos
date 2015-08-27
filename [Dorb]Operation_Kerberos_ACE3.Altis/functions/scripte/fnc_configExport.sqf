@@ -14,7 +14,7 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
 	_vehicle	= _cfgvehicles select _i;
 	if (isClass _vehicle) then {		
 		_class 		= configName(_vehicle);
-		_namearr = [_class,"_"] call BIS_fnc_splitString;
+		_namearr = _class splitString "_";
 		_scope =  getnumber(configFile >> "cfgvehicles" >> _class >> "scope");
 		If (((_namearr select 0) in ["RHS","RHSUSF"])&&(_scope>1)) then {
 			_side	 	= getnumber(configFile >> "cfgvehicles" >> _class >> "side");
