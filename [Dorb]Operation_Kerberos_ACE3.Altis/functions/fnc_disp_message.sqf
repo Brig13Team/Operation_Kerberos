@@ -3,28 +3,45 @@
 	
 	Description:
 		displays message
+	
+	Parameter(s):
+		0 : STRING - Title
+		1 : STRING - Message
+	
 */
 #include "script_component.hpp"
 SCRIPT(disp_message);
-CHECK(isDedicated)
-params[["_title","",[""]],["_content","",[""]]];
+CHECK(!hasInterface)
 #define DISP_LAYER 700100
-private["_type","_display","_headerCtrl","_contentCtrl","_contentAmountOfChars","_pos"];
-if (_title != "" && _content != "") then {
-	DISP_LAYER cutRsc ["DORB_DISP_MSG","PLAIN"];
-	disableSerialization;
-	_display = uiNamespace getvariable "DORB_DISP_MSG";
-	If (islocalized _title) then {_title = localize _title;};
-	If (islocalized _content) then {_content = localize _content;};
-	if (!isnil "_display") then {
-		_headerCtrl = _display displayCtrl 700101;
-		_contentCtrl = _display displayCtrl 700102;
-		_headerCtrl ctrlSetText _title;
-		_contentCtrl ctrlSetText _content;
-		_contentAmountOfChars = count (toArray _content);
-		_pos = ctrlPosition _contentCtrl;
-		_pos set [2, _contentAmountOfChars * ((((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)/ 3.2) max (safeZoneW / 14)];
-		_contentCtrl ctrlSetPosition _pos;
-		_contentCtrl ctrlCommit 0;
+#define FONT_CORRECTION_CAPITAL 17
+#define FONT_CORRECTION_LOWER 5.7
+params[["_title","",[""]],["_content","",[""]]];
+CHECK((_title isEqualTo "")&&(_content isEqualTo ""))
+
+DISP_LAYER cutRsc ["DORB_DISP_MSG","PLAIN"];
+disableSerialization;
+_disp = uiNamespace getvariable "DORB_DISP_MSG";
+If (islocalized _title) then {_title = localize _title;};
+If (islocalized _content) then {_content = localize _content;};
+CHECK(isNil "_disp")
+{
+	private["_ctrl","_chars","_size","_pos"];
+	_x params ["_idc",["_text","",[""]]];
+	_ctrl = _disp displayCtrl _idc;
+	_ctrl ctrlSetText _text;
+	_chars = count(_text);
+	_size = 0;
+	If (_chars>0) then {
+		private["_chars_capital","_chars_array"];
+		_chars_array = toArray _text;
+		_chars_capital = {If ((_x>=65)&&(_x<=90)) then {true}else{false};} count _chars_array;
+		_size = ((((safeZoneW min safeZoneH)*0.9)*((ctrlTextHeight _ctrl)/FONT_CORRECTION_CAPITAL))*_chars_capital + 0.012)+((((safeZoneW min safeZoneH)*0.9)*((ctrlTextHeight _ctrl)/FONT_CORRECTION_LOWER))*_chars + 0.012);
 	};
-};
+	_pos = ctrlPosition _ctrl;
+	_pos set [2, _size];
+	_ctrl ctrlSetPosition _pos;
+	_ctrl ctrlCommit 0;
+}forEach [
+	[700101,_title],
+	[700102,_content]
+];
