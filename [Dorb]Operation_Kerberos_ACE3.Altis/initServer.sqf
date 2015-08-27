@@ -18,8 +18,8 @@ DORB_HEADLESS_EVENTHANDLER = [{ [] call dorb_fnc_headless } , 30, [] ] call CBA_
 	DORB_RESERVED_PILOT_SLOT = true;
 	[] call FM(userconfig);
 	["DORB_PILOT_WHITELIST", "onPlayerConnected", {
+		[] call FM(userconfig);
 		If (_uid in DORB_RESERVED_PILOT) then {
-			[] call FM(userconfig);
 			_owner publicVariableClient "DORB_RESERVED_PILOT_SLOT";
 		};
 	}] call BIS_fnc_addStackedEventHandler;
