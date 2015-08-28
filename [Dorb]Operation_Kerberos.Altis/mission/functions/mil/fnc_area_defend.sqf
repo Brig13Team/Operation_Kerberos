@@ -74,7 +74,7 @@ sleep 300;
 
 #define INTERVALL 10
 #define TASK _task
-#define CONDITION {_a=0;_a = {((alive _x)&&((_x distance2D (_this select 0))<1800))}count (switchableUnits + playableUnits);If ((_a<1)||(GVAR(waves_remaining)<1)) then {true}else{false};}
+#define CONDITION {_a=0;_a = {((alive _x)&&((_x distance2D (_this select 0))<1800))}count (switchableUnits + playableUnits);If ((_a<15)||(GVAR(waves_remaining)<1)) then {true}else{false};}
 #define CONDITIONARGS [_position]
 #define SUCESSCONDITION {_a=0;_a = {((alive _x)&&((_x distance2D (_this select 0))<1500))}count (switchableUnits + playableUnits);If (_a>0) then {true}else{false};}
 #define ONSUCESS {[LSTRING(DEFEND),[LSTRING(FINISHED)],"data\icon\icon_defend.paa",true] spawn EFUNC(interface,disp_info_global);}
