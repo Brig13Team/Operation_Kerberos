@@ -7,7 +7,7 @@
 */
 #include "script_component.hpp"
 SCRIPT(repairpoint_init);
-ISNILS(DORB_RESPAWN_FNC,[]);
+ISNILS(EGVAR(player,respawn_fnc),[]);
 
 private ["_reppoint"];
 _reppoint = [];
@@ -19,5 +19,5 @@ For "_i" from 0 to 20 do {
 };
 
 {
-	DORB_RESPAWN_FNC pushback format["%1 addAction [localize'STR_DORB_REP_POINT2',{_this call dorb_fnc_repairpoint;},[],6,true,true,'','(vehicle player != player)&&((driver (vehicle player)) == player)']",_x];
+	EGVAR(player,respawn_fnc) pushback format["%1 addAction [localize'STR_DORB_REP_POINT2',{_this call dorb_fnc_repairpoint;},[],6,true,true,'','(vehicle player != player)&&((driver (vehicle player)) == player)']",_x];
 }forEach _reppoint;

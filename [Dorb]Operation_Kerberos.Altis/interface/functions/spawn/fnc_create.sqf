@@ -73,7 +73,7 @@ if (_mode isEqualTo "driver") then {
         {deleteVehicle _x;}forEach (crew _vehicle);
     };
 	#ifdef DORB_PILOT_WHITELIST_ENABLED
-	If ((isNil "DORB_RESERVED_PILOT_SLOT")&&(_vehicle iskindOf "Air")) exitWith {};
+	If ((isNil QEGVAR(main,reserved_pilot_slot))&&(_vehicle iskindOf "Air")) exitWith {};
 	#endif
     player moveInDriver _vehicle;
 };

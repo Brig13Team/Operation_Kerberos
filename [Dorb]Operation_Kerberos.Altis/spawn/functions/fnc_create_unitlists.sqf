@@ -110,8 +110,8 @@ private["_dorb_commandveh_side_nr"];
 _dorb_commandveh_side_nr = getNumber(_path >> "commandoveh_side");If (_dorb_commandveh_side_nr < 1) then {dorb_commandveh_side=east;}else{dorb_commandveh_side=west;};
 dorb_radar = getArray(_path >> "commandoveh_radar");
 
-ISNILS(DORB_MODS_RDS,false);
-If (DORB_MODS_RDS) then {
+ISNILS(EGVAR(main,mods_rds),false);
+If (EGVAR(main,mods_rds)) then {
 	dorb_staticlist_aa = getArray(missionConfigFile >> "unitlists" >> "mods" >> "rds" >> format["rds_%1",dorb_side] >> "static_aa");
 	dorb_staticlist = dorb_staticlist append ( getArray(missionConfigFile >> "unitlists" >> "mods" >> "rds" >> format["rds_%1",dorb_side] >> "static") );
 	dorb_veh_arty = getArray(missionConfigFile >> "unitlists" >> "mods" >> "rds" >> format["rds_%1",dorb_side] >> "static_arty");

@@ -123,7 +123,7 @@ clearBackpackCargo _crate;
 clearItemCargo _crate;
 clearMagazineCargo _crate;
 _crate addItemCargo ["ACE_Banana",1];
-SETVAR(_crate,DORB_ISTARGET,true);
+SETVAR(_crate,GVAR(istarget),true);
 
 ["STR_DORB_SIDE_SIDEMISSION",["STR_DORB_SIDE_SUPPLIES_DESCRIPTION_SHORT"],"",false] call EFUNC(interface,disp_info_global);
 
@@ -168,7 +168,7 @@ for "_i" from 1 to 25 do {
 		_civ setUnitPos "MIDDLE";
 		_civ disableAI "MOVE";
 		_civ setDir (random 360);
-		SETPVAR(_civ, DORB_ISTARGET, true);
+		SETPVAR(_civ, GVAR(istarget), true);
 	} else {
 		private["_gruppe","_einheit"];
 		_gruppe = (createGroup civilian);
@@ -176,7 +176,7 @@ for "_i" from 1 to 25 do {
 		_civ = _gruppe createUnit [_einheit, _pos, [], 0, "FORM"];
 		_civ setDamage 1;
 		_civ setDir (random 360);
-		SETPVAR(_civ, DORB_ISTARGET, true);
+		SETPVAR(_civ, GVAR(istarget), true);
 	};
 
 	GVAR(sideby_objects) pushBack _sol;

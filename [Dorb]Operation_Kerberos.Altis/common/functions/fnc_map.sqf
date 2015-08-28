@@ -13,7 +13,7 @@
 		2 : String (Optional) - Default: "r", Other Value: "l"
 
 	Example(s):
-		["+1",[1,2,3,4,5]] call DORB_fnc_map; // with function
+		["+1",[1,2,3,4,5]] call EFUNC(common,map); // with function
 		MAP("+1",[1,2,3,4,5]); // with macro (see script_macros.hpp)
 		MAPR("+1",[1,2,3,4,5]);
 		MAPL("1+",[1,2,3,4,5]);

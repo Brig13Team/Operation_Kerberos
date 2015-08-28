@@ -14,7 +14,7 @@ waituntil {! isnull player};
 ["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;  
 ["init"] spawn EFUNC(player,grouptracker);
 
-"DORB_ENDZEIT" addPublicVariableEventHandler {[] spawn EFUNC(interface,disp_timer)};
+QEGVAR(mission,endzeit) addPublicVariableEventHandler {[] spawn EFUNC(interface,disp_timer)};
 
 [] call EFUNC(player,playeraddaction);
 [] call EFUNC(interface,teleport_addaction);

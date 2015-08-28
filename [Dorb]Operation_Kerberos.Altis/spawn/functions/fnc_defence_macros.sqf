@@ -68,7 +68,7 @@ For "_i" from 0 to _anzahl_spawnpos do {
 _makros = 		["small_veh_tank_high","small_veh_tank_low","small_veh_zsu","big_static_AA","big_veh_zsu","big_tower_mg","big_bunker","big_mortar_3","big_mortar_1","bunker_medium","camp_medium","camp_small","AT_medium"];
 _markos_weight =[		0.4,				0.4,					0.6,				0.6,			0.6,			0.5,			0.3,			0.3,				0.5,			0.2,				0.6,			0.7,			0.6	];
 /*
-If (DORB_MODS_RDS) then {
+If (EGVAR(main,mods_rds)) then {
 	_makros append [100];
 	_markos_weight append [100];
 };

@@ -121,9 +121,9 @@ If (GETVAR(GVAR(commander_logic),GVAR(commander_ai),false)) then {
 		_dir = floor(random 360);
 		_return = [_spawnposition,_dir,_einheit,dorb_commandveh_side] call BIS_fnc_spawnVehicle;
 		_veh = (_return select 0);
-		_temp = GETVAR(GVAR(commander_logic),DORB_COMMANDER_RADAR,[]);
+		_temp = GETVAR(GVAR(commander_logic),GVAR(commander_radar),[]);
 		_temp pushBack _veh;
-		SETVAR(GVAR(commander_logic),DORB_COMMANDER_RADAR,_temp);
+		SETVAR(GVAR(commander_logic),GVAR(commander_radar),_temp);
 	};
 };
 // Artypos

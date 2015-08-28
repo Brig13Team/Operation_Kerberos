@@ -8,13 +8,12 @@
 	Parameter(s):
 		None
 		
-	Requirements:
-		publicVariable DORB_ENDZEIT
+	
 */
 #include "script_component.hpp"
 SCRIPT(disp_timer);
 CHECK(!hasInterface)
-CHECK(isNil "DORB_ENDZEIT")
+CHECK(isNil QEGVAR(mission,endzeit))
 #define DISP_LAYER 700103
 private["_endtime","_currenttime","_difference","_headerCtrl","_display"];
 _endtime = EGVAR(mission,endzeit);
