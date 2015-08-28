@@ -44,10 +44,10 @@ switch (_rand) do {
 		If (_difficulty > 3) then {
 			[_position,400,3,3] spawn FUNC(attack_inf);
 			sleep 30;
-		};		
+		};/*		
 		If (_difficulty > 4) then {
 			[_position,400,3,3] spawn FUNC(attack_inf);
-		};
+		};*/
 	};
 	case 3 ;
 	case 4 ;
@@ -70,11 +70,11 @@ switch (_rand) do {
 			[_position,400,0,2] spawn FUNC(attack_inf);	
 			[_position,400,0,2] spawn FUNC(attack_veh);
 			sleep 30;
-		};		
+		};	/*	
 		If (_difficulty > 4) then {
 			[_position,400,2,1] spawn FUNC(attack_inf);	
 			[_position,400,0,3] spawn FUNC(attack_veh);	
-		};
+		};*/
 	};
 	case 7;
 	case 8;
@@ -95,7 +95,7 @@ LOG("Erfüllungsprüfung beginnt");
 
 #define INTERVALL 15
 #define TASK ""
-#define CONDITION {_a=0;_a = {(((side _x)==dorb_side)&&(alive _x))}count ((_this select 0) nearEntities 1200);If (_a<15) then {true}else{false};}
+#define CONDITION {_a=0;_a = {(((side _x)==dorb_side)&&(alive _x))}count ((_this select 0) nearEntities 1800);If (_a<15) then {true}else{false};}
 #define CONDITIONARGS [_position]
 [INTERVALL,TASK,CONDITION,CONDITIONARGS] call EFUNC(mission,taskhandler);
 

@@ -37,7 +37,7 @@ _list=[];
 
 #define INTERVALL 15
 #define TASK ""
-#define CONDITION {_a=0;_players=(switchableUnits + playableUnits);_a = {((_x distance (_this select 0))<1000)}count _players;If (_a > 0) then {true}else{false};}
+#define CONDITION {_a=0;_players=(switchableUnits + playableUnits);_a = {((_x distance2D (_this select 0))<1000)}count _players;If (_a > 0) then {true}else{false};}
 #define CONDITIONARGS [_position]
 [INTERVALL,TASK,CONDITION,CONDITIONARGS] call FUNC(taskhandler);
 
@@ -74,9 +74,9 @@ sleep 300;
 
 #define INTERVALL 10
 #define TASK _task
-#define CONDITION {_a=0;_a = {((alive _x)&&((_x distance (_this select 0))<1500))}count (switchableUnits + playableUnits);If ((_a<1)||(GVAR(waves_remaining)<1)) then {true}else{false};}
+#define CONDITION {_a=0;_a = {((alive _x)&&((_x distance2D (_this select 0))<1800))}count (switchableUnits + playableUnits);If ((_a<1)||(GVAR(waves_remaining)<1)) then {true}else{false};}
 #define CONDITIONARGS [_position]
-#define SUCESSCONDITION {_a=0;_a = {((alive _x)&&((_x distance (_this select 0))<1500))}count (switchableUnits + playableUnits);If (_a>0) then {true}else{false};}
+#define SUCESSCONDITION {_a=0;_a = {((alive _x)&&((_x distance2D (_this select 0))<1500))}count (switchableUnits + playableUnits);If (_a>0) then {true}else{false};}
 #define ONSUCESS {[LSTRING(DEFEND),[LSTRING(FINISHED)],"data\icon\icon_defend.paa",true] spawn EFUNC(interface,disp_info_global);}
 #define ONFAILURE {[LSTRING(DEFEND),[LSTRING(FAILED)],"data\icon\icon_defend.paa",true] spawn EFUNC(interface,disp_info_global);}
 #define SUCESSARG [_position]
