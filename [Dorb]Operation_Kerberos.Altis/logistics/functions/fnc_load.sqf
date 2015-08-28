@@ -66,7 +66,10 @@ if (!(_logistic_stack isEqualTo [])) then {
 
 	{
 		_row_width = _row_width + (if ((getDir (_x select 0)) == (getDir _vehicle)) then { _x select 1 select 0 } else { _x select 1 select 1 });
-		_row_length = if ((_x select 2) < _row_length) then { _x select 2 } else { _row_length };
+		if (_row_length >= (_x select 2)) then {
+			_last_cargo = _x;
+			_row_length = _last_cargo select 2;
+		};
 	} forEach _last_row;
 	_row_width = _row_width + (count _last_row - 1) * SPACE_BETWEEN_CARGO;
 

@@ -52,8 +52,8 @@ If (!isNull _object) then {
 	[
 		LOADTIME,
 		{(((getPos player) distance GVAR(isloading_pos))<1)},
-		{_this call FUNC(load);SETVAR(player,QGVAR(isloading),false);},
-		{SETVAR(player,QGVAR(isloading),false);},
+		{_this call FUNC(load);SETVAR(player,GVAR(isloading),false);},
+		{SETVAR(player,GVAR(isloading),false);},
 		[_object,_target]
 	] call EFUNC(interface,disp_progressbar);
 };

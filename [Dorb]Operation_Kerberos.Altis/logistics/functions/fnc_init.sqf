@@ -20,10 +20,10 @@ private["_cfgLog","_loadAction","_unloadAction","_checkAction","_paraAction","_v
 
 
 _cfgLog = missionconfigFile >> "logistics" >> "vehicles";
-_loadAction = [QGVAR(action_load), localize "STR_DORB_LOG_ACTION_LOAD", "", {[_target] spawn FUNC(doload);}, {[_target] call FUNC(canload);}] call ace_interact_menu_fnc_createAction;
-_unloadAction = [QGVAR(action_unload), localize "STR_DORB_LOG_ACTION_UNLOAD", "", {[_target] spawn FUNC(dounload);}, {  [_target] call FUNC(canUnload);  }] call ace_interact_menu_fnc_createAction;
-_infoAction = [QGVAR(action_info), localize "STR_DORB_LOG_ACTION_DISP_CARGO","",{[_target] spawn FUNC(disp_cargo);},{true}] call ace_interact_menu_fnc_createAction;
-_paraAction = [QGVAR(action_paradrop), localize "STR_DORB_LOG_ACTION_PARADROP", "", {[_target,true] spawn FUNC(dounload);}, {[_target] call FUNC(candrop);}] call ace_interact_menu_fnc_createAction;
+_loadAction = [QGVAR(action_load), localize LSTRING(ACTION_LOAD), "", {[_target] spawn FUNC(doload);}, {[_target] call FUNC(canload);}] call ace_interact_menu_fnc_createAction;
+_unloadAction = [QGVAR(action_unload), localize LSTRING(ACTION_UNLOAD), "", {[_target] spawn FUNC(dounload);}, {  [_target] call FUNC(canUnload);  }] call ace_interact_menu_fnc_createAction;
+_infoAction = [QGVAR(action_info), localize LSTRING(ACTION_DISP_CARGO),"",{[_target] spawn FUNC(disp_cargo);},{true}] call ace_interact_menu_fnc_createAction;
+_paraAction = [QGVAR(action_paradrop), localize LSTRING(ACTION_PARADROP), "", {[_target,true] spawn FUNC(dounload);}, {[_target] call FUNC(candrop);}] call ace_interact_menu_fnc_createAction;
 
 for "_i" from 0 to ((count _cfgLog)-1) do {
 	_vehicle = configname(_cfgLog select _i);

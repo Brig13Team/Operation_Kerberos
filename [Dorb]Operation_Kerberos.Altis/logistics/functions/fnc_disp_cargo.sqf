@@ -12,10 +12,11 @@
 SCRIPT(canload);
 
 params ["_vehicle"];
-private ["_gesamtmasse","_leermasse","_ladungsmasse","_leereLadeflaeche", "_logisticStack"];
+private ["_gesamtmasse","_leermasse","_ladungsmasse","_leereLadeflaeche", "_logisticStack", "_counter"];
 
 _gesamtmasse = getMass _vehicle;
 _leermasse = _gesamtmasse;
+_counter = 0;
 
 _logisticStack = _vehicle getVariable [QGVAR(stack),[]];
 
@@ -26,17 +27,20 @@ _logisticStack = _vehicle getVariable [QGVAR(stack),[]];
 _ladungsmasse = _gesamtmasse - _leermasse;
 
 if (count _logisticStack > 0) then {
-	_leereLadeflaeche = getNumber(missionConfigFile >> "logistics" >> "vehicles" >> ([_vehicle] call FUNC(getCargoCfg)) >> "max_length");
-	{ _leereLadeflaeche = if (_leereLadeflaeche > (_x select 2)) then { _x select 2 } else { _leereLadeflaeche } } forEach (_logisticStack select (count _logisticStack - 1));
+	_leereLadeflaeche = getNumber(missionConfigFile >> "logistics" >> "vehicles" >> typeOf _vehicle >> "max_length");
+	{
+		_leereLadeflaeche = if (_leereLadeflaeche > (_x select 2)) then { _x select 2 } else { _leereLadeflaeche };
+		INC(_counter);
+	} forEach (_logisticStack select (count _logisticStack - 1));
 } else {
-	_leereLadeflaeche = getNumber(missionConfigFile >> "logistics" >> "vehicles" >> ([_vehicle] call FUNC(getCargoCfg)) >> "max_length");
+	_leereLadeflaeche = getNumber(missionConfigFile >> "logistics" >> "vehicles" >> typeOf _vehicle >> "max_length");
 };
 
 
 ["STR_DORB_LOG_CARGO_INFO",[
-	format [localize "STR_DORB_LOG_VEHICLE_MASS",_leermasse],
-	format [localize "STR_DORB_LOG_CARGO_MASS",_ladungsmasse],
-	format [localize "STR_DORB_LOG_FULL_MASS",_gesamtmasse],
-	format [localize "STR_DORB_LOG_COUNT_CARGO",count _logisticStack],
-	format [localize "STR_DORB_LOG_FREE_SPACE",_leereLadeflaeche]
+	format [localize LSTRING(VEHICLE_MASS),_leermasse],
+	format [localize LSTRING(CARGO_MASS),_ladungsmasse],
+	format [localize LSTRING(FULL_MASS),_gesamtmasse],
+	format [localize LSTRING(COUNT_CARGO),_counter],
+	format [localize LSTRING(FREE_SPACE),_leereLadeflaeche]
 ],"",false] call EFUNC(interface,disp_info);

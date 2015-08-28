@@ -52,8 +52,8 @@ _vehicle_mass = getMass _vehicle;
 (_last_cargo select 0) setPos (_vehicle modelToWorld _detach_point);
 (_last_cargo select 0) setDir (getDir _vehicle);
 
-player setVariable ["QGVAR(isloading)",false];
-if ([_vehicle] call FUNC(candrop)) then {
+SETVAR(player,GVAR(isloading),false);
+if ([_vehicle] call FUNC(log_candrop)) then {
 	[(_last_cargo select 0),_vehicle] spawn {
 		SCRIPT(paradrop_INTERN);
 		params["_cargo","_vehicle"];
