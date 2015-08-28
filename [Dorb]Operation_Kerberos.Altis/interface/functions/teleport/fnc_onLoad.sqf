@@ -15,7 +15,7 @@ _teleporter = [
     [localize LSTRING(TELEPORT_BASE)          ,"closeDialog 600300;player setposatl (getMarkerPos DORB_RESPAWNMARKER)"],
     [localize LSTRING(TELEPORT_VEHICLES)      ,"closeDialog 600300;player setposatl (getMarkerPos 'teleport_fahrzeuge')"],
     [localize LSTRING(TELEPORT_AIR)           ,"closeDialog 600300;player setposatl (getMarkerPos 'teleport_luftwaffe')"],
-    [localize LSTRING(TELEPORT_SHOOTINGRANGE ,"closeDialog 600300;player setposatl (getMarkerPos 'teleport_schiessstand')"],
+    [localize LSTRING(TELEPORT_SHOOTINGRANGE) ,"closeDialog 600300;player setposatl (getMarkerPos 'teleport_schiessstand')"],
     [localize LSTRING(TELEPORT_MARINE)        ,"closeDialog 600300;player setposatl (getMarkerPos 'teleport_hafen')"],
     [localize LSTRING(TELEPORT_LOGISTIC)      ,"closeDialog 600300;player setposatl (getMarkerPos 'teleport_logistik')"],
     [localize LSTRING(TELEPORT_LEAD)          ,"closeDialog 600300;[ObjNull,player] call dorb_fnc_ui_teleporter_lead"]
