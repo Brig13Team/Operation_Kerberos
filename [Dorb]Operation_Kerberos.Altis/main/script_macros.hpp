@@ -1,20 +1,4 @@
 #include "\x\cba\addons\main\script_macros_mission.hpp"
-/* -------------------------------------------
-Macro: FM()
-	Function Name
-	
-Parameters:
-	VARIABLE - Partial name of the function
-
-Example:
-	(begin example)
-		this call FM(test)
-	(end)
-
-Author:
-	Dorbedo
-------------------------------------------- */
-#define FM(VAR) TRIPLES(PREFIX,fnc,VAR)
 
 /* -------------------------------------------
 Macro: FMP

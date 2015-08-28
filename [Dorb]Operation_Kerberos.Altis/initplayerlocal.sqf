@@ -42,7 +42,7 @@ ISNILS(EGVAR(mission,fnc),[]);
 [] spawn {
 	SCRIPT(PLAYER_DIAG);
 	while {true} do {
-		[false,false] call FM(debug_performance);
+		[false,false] call FUNC(debug_performance);
 		uisleep 60;
 		false
 	};

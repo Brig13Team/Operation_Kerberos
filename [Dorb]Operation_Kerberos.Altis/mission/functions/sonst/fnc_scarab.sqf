@@ -126,7 +126,7 @@ LOG(FORMAT_2("Scarab created - %1 \n Targetarray = %2",count _target,_target));
 ////// Ziel bearbeiten						 /////
 //////////////////////////////////////////////////
 
-//{(getpos _x) spawn FM(spawn_defence);} forEach _target;
+
 
 if (dorb_debug) then {
 	Private["_a","_mrkr"];

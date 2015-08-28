@@ -12,6 +12,9 @@ Author:
 #endif
 
 #ifdef DORB_LOG
+	
+	#define CHECK(CONDITION) if (CONDITION) exitWith {LOG(FORMAT_2("CHECK-FAILED - (%1)=%2",QUOTE(CONDITION),CONDITION));};
+	
 	#define LOG(VAR) [__FILE__,__LINE__,VAR] call TRIPLES(dorb,makro,putinlog)
 	
 	#define FORMAT_10(STR,ARG1,ARG2,ARG3,ARG4,ARG5,ARG6,ARG7,ARG8,ARG9,ARG10) format[STR, ARG1, ARG2, ARG3, ARG4, ARG5, ARG6, ARG7, ARG8, ARG9, ARG10]

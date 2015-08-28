@@ -62,7 +62,7 @@ If ((_markerpos distance [0,0,0])>1) then {
 	SCRIPT(CORE_DIAG);
 	while {true} do {
 	For "_i" from 0 to 4 do {
-		[false,false] call FM(debug_performance);
+		[false,false] call EFUNC(main,debug_performance);
 		uisleep 60;
 	};
 	[true,false] call FM(debug_performance);

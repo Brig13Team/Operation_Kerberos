@@ -45,7 +45,7 @@ GVAR(hud_eh) = -1;
 			
 			GVAR(hud_eh) = [
 					{
-						_this call FM(hud_show);
+						_this call FUNC(hud_show);
 					},
 					0,
 					[vehicle player] 
