@@ -916,57 +916,57 @@
 		</Key>
 	</Package>
 	<Package name="logistics">
-		<Key ID="STR_DORB_LOG_ACTION_LOAD">
+		<Key ID="STR_DORB_LOGISTICS_ACTION_LOAD">
 			<Original>Load</Original>
 			<German>Einladen</German>
 			<English>Load</English>
 		</Key>
-		<Key ID="STR_DORB_LOG_ACTION_UNLOAD">
+		<Key ID="STR_DORB_LOGISTICS_ACTION_UNLOAD">
 			<Original>Unload</Original>
 			<German>Ausladen</German>
 			<English>Unload</English>
 		</Key>
-		<Key ID="STR_DORB_LOG_ACTION_DISP_CARGO">
+		<Key ID="STR_DORB_LOGISTICS_ACTION_DISP_CARGO">
 			<Original>Display Cargo Information</Original>
 			<German>Zeige Ladungsinformationen</German>
 			<English>Display Cargo Information</English>
 		</Key>
-		<Key ID="STR_DORB_LOG_ACTION_PARADROP">
+		<Key ID="STR_DORB_LOGISTICS_ACTION_PARADROP">
 			<Original>Drop</Original>
 			<German>Abwerfen</German>
 			<English>Drop</English>
 		</Key>
-		<Key ID="STR_DORB_LOG_ACTION_CHECK">
+		<Key ID="STR_DORB_LOGISTICS_ACTION_CHECK">
 			<Original>View Load</Original>
 			<German>Ladung</German>
 			<English>View Load</English>
 		</Key>
-		<Key ID="STR_DORB_LOG_CARGO_INFO">
+		<Key ID="STR_DORB_LOGISTICS_CARGO_INFO">
 			<Original>Cargo Info</Original>
 			<German>Ladungsinformationen</German>
 			<English>Cargo Info</English>
 		</Key>
-		<Key ID="STR_DORB_LOG_VEHICLE_MASS">
+		<Key ID="STR_DORB_LOGISTICS_VEHICLE_MASS">
 			<Original>Vehicle weight: %1</Original>
 			<German>Fahrzeuggewicht: %1</German>
 			<English>Vehicle weight: %1</English>
 		</Key>
-		<Key ID="STR_DORB_LOG_FULL_MASS">
+		<Key ID="STR_DORB_LOGISTICS_FULL_MASS">
 			<Original>Total weight: %1</Original>
 			<German>Gesamtgewicht: %1</German>
 			<English>Total weight: %1</English>
 		</Key>
-		<Key ID="STR_DORB_LOG_COUNT_CARGO">
+		<Key ID="STR_DORB_LOGISTICS_COUNT_CARGO">
 			<Original>Crate number: %1</Original>
 			<German>Kistenanzahl: %1</German>
 			<English>Crate number: %1</English>
 		</Key>
-		<Key ID="STR_DORB_LOG_CARGO_MASS">
+		<Key ID="STR_DORB_LOGISTICS_CARGO_MASS">
 			<Original>Cargo weight: %1</Original>
 			<German>Ladungsgewicht: %1</German>
 			<English>Cargo weight: %1</English>
 		</Key>
-		<Key ID="STR_DORB_LOG_FREE_SPACE">
+		<Key ID="STR_DORB_LOGISTICS_FREE_SPACE">
 			<Original>Free space: %1</Original>
 			<German>freie Ladefläche: %1</German>
 			<English>Free space: %1</English>
