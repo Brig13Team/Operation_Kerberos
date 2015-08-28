@@ -29,7 +29,7 @@ _reppos = getPos _vehicle;
 _abgebrochen = true;
 While {((vehicle _caller == _vehicle)&&(alive _vehicle)&&(((getPos _vehicle)distance _reppos)<=1))} do {
 	
-	["STR_DORB_REP_POINT",["STR_DORB_REP_EXECUTED","STR_DORB_REP_WAIT"]] call FM(disp_info);
+	["STR_DORB_REP_POINT",["STR_DORB_REP_EXECUTED","STR_DORB_REP_WAIT"]] call EFUNC(interface,disp_info);
 	
 	_treibstoffmenge = fuel _vehicle;
 	_vehicle setFuel 0;
@@ -37,7 +37,7 @@ While {((vehicle _caller == _vehicle)&&(alive _vehicle)&&(((getPos _vehicle)dist
 	/// Repair
 	_vehicle_type = typeOf _vehicle;
 	_hitpoints = [];
-	_hitpoints = ["Hitpoints",(configfile >> "CfGVehicles" >> _vehicle_type)] call FM(get_cfg_subclasses);
+	_hitpoints = ["Hitpoints",(configfile >> "CfGVehicles" >> _vehicle_type)] call FUNC(get_cfg_subclasses);
 	
 	{
 		while {(_vehicle getHit (getText(_x >> "name")))>0} do {
@@ -81,7 +81,7 @@ While {((vehicle _caller == _vehicle)&&(alive _vehicle)&&(((getPos _vehicle)dist
 };
 
 If (_abgebrochen) exitWith {
-	["STR_DORB_REP_POINT","STR_DORB_REP_CANCELED"] call FM(disp_message);
+	["STR_DORB_REP_POINT","STR_DORB_REP_CANCELED"] call EFUNC(interface,disp_message);
 };
 
-["STR_DORB_REP_POINT","STR_DORB_REP_FINISHED"] call FM(disp_message);
+["STR_DORB_REP_POINT","STR_DORB_REP_FINISHED"] call EFUNC(interface,disp_message);

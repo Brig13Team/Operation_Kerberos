@@ -59,7 +59,7 @@ If ((_mortars isEqualTo [])&&(_artilleries isEqualTo [])&&(_rocket isEqualTo [])
 }forEach _rocket;
 
 {
-	_x call FM(fdc_placeOrder);
+	_x call FUNC(fdc_placeOrder);
 }forEach _newcommands;
 
 

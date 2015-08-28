@@ -36,7 +36,7 @@ SETVAR(DORB_FDC_LOGIC,DORB_FDC_HANDLE_SEARCH,-1);
 private "_handel";
 _handel = [
 	{
-		_this call FM(fdc_handle);
+		_this call FUNC(fdc_handle);
 	},
 	INTERVALL_FDC,
 	[]
@@ -45,7 +45,7 @@ SETVAR(DORB_FDC_LOGIC,DORB_FDC_HANDLE,_handel);
 
 _handel = [
 	{
-		_this call FM(fdc_defend_artypos);
+		_this call FUNC(fdc_defend_artypos);
 	},
 	INTERVALL_SEARCH,
 	[]

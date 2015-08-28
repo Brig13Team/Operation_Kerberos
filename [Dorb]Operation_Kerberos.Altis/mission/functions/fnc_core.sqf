@@ -65,7 +65,7 @@ If ((_markerpos distance [0,0,0])>1) then {
 		[false,false] call EFUNC(main,debug_performance);
 		uisleep 60;
 	};
-	[true,false] call FM(debug_performance);
+	[true,false] call EFUNC(main,debug_performance);
 	uisleep 60;
 	false
 	};

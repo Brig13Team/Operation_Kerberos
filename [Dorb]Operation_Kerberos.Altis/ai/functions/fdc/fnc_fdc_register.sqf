@@ -12,7 +12,7 @@
 SCRIPT(fdc_register);
 
 If (isNil "DORB_FDC_LOGIC") then {
-	[] call FM(fdc_init);
+	[] call FUNC(fdc_init);
 };
 
 params[["_newUnit",objNull,[objNull]]];
