@@ -39,7 +39,6 @@ LOG(FORMAT_1("Aufgabentyp=%1",_aufgabentyp));
 
 [] call EFUNC(spawn,create_unitlists);
 //_aufgabentyp="rescue_pow";
-_aufgabentyp = "Scarab";
 /// Militär
 Private["_loc","_locarr"];
 If (_aufgabentyp isEqualTo "area_clear") exitWith {
