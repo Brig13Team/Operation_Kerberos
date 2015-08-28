@@ -27,10 +27,10 @@ GVAR(save_isopened) = true;
 createDialog "dorb_save";
 
 disableSerialization;
-_text = localize "STR_DORB_SAVE_LOAD";
+_text = localize LSTRING(SAVE_LOAD);
 _action = QUOTE([] call FUNC(save_load));
 If (_isSave) then {
-	_text = localize "STR_DORB_SAVE_SAVE";
+	_text = localize LSTRING(SAVE_SAVE);
 	_action = QUOTE([] call FUNC(save_save));
 	
 };

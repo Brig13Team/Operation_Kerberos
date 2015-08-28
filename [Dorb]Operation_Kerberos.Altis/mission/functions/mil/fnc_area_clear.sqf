@@ -38,9 +38,9 @@ _difficulty = call FUNC(dyn_difficulty);
 ////// Aufgabe erstellen 					 /////
 //////////////////////////////////////////////////
 
-[_task,true,[["STR_DORB_CLEAR_TASK_DESC",_ort],["STR_DORB_CLEAR_TASK",_ort],"STR_DORB_CLEAR"],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
+[_task,true,[[LSTRING(CLEAR_TASK_DESC),_ort],[LSTRING(CLEAR_TASK),_ort],LSTRING(CLEAR)],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
 
-[-1,{[_this select 0,[format [localize (_this select 1),_this select 2]],_this select 3,_this select 4] spawn EFUNC(interface,disp_info);},["STR_DORB_CLEAR","STR_DORB_CLEAR_TASK",_ort,"data\icon\icon_file.paa",true]] FMP;
+[-1,{[_this select 0,[format [localize (_this select 1),_this select 2]],_this select 3,_this select 4] spawn EFUNC(interface,disp_info);},[LSTRING(CLEAR),LSTRING(CLEAR_TASK),_ort,"data\icon\icon_file.paa",true]] FMP;
 
 
 //////////////////////////////////////////////////
@@ -53,7 +53,7 @@ sleep 120;
 #define CONDITION {_a=0;{If ((alive _x)&&((side _x)==dorb_side )) then {INC(_a);};}forEach ((_this select 0) nearEntities (_this select 1));If (_a < 8) then {true}else{false};}
 #define CONDITIONARGS [_position,_radius]
 #define SUCESSCONDITION {true}
-#define ONSUCESS {["STR_DORB_CLEAR",["STR_DORB_FINISHED"],"data\icon\icon_file.paa",true] spawn EFUNC(interface,disp_info_global);}
+#define ONSUCESS {[LSTRING(CLEAR),[LSTRING(FINISHED)],"data\icon\icon_file.paa",true] spawn EFUNC(interface,disp_info_global);}
 [INTERVALL,TASK,CONDITION,CONDITIONARGS,SUCESSCONDITION,ONSUCESS] call FUNC(taskhandler);
 
 LOG("Task clear beendet");

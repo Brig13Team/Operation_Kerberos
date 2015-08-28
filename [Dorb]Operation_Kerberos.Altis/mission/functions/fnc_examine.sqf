@@ -61,7 +61,7 @@ switch (_option) do {
 								//If ((captive _x)&&(!(_x isKindOf "rhs_infantry_msv_base"))) exitWith {};
 								If ((typeOf _x in dorb_pow)||(isPlayer _x))exitWith{};
 								deleteVehicle _x;
-								[-1,{_this spawn EFUNC(interface,disp_message)},["STR_DORB_EXAMINE","STR_DORB_EXAMINE_DESC"]] FMP;
+								[-1,{_this spawn EFUNC(interface,disp_message)},[LSTRING(EXAMINE),LSTRING(EXAMINE_DESC)]] FMP;
 								["reveal"] call FUNC(examine);
 							};
 						}forEach _list;

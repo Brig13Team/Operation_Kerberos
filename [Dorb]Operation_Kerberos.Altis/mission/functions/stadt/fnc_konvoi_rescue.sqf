@@ -130,8 +130,8 @@ for "_i" from 1 to 3 do{
 ////// Aufgabe erstellen 					 /////
 //////////////////////////////////////////////////
 
-["STR_DORB_RESCUE",["STR_DORB_RESC_CONV_TASK"],"data\icon\icon_rescue.paa",true] spawn EFUNC(interface,disp_info_global);
-[_task,true,[["STR_DORB_RESC_CONV_TASK_DESC",count _pow,(_startort select 0),_ort],"STR_DORB_RESC_CONV_TASK","STR_DORB_RESCUE"],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
+[LSTRING(RESCUE),[LSTRING(RESC_CONV_TASK)],"data\icon\icon_rescue.paa",true] spawn EFUNC(interface,disp_info_global);
+[_task,true,[[LSTRING(RESC_CONV_TASK_DESC),count _pow,(_startort select 0),_ort],LSTRING(RESC_CONV_TASK),LSTRING(RESCUE)],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
 
 //////////////////////////////////////////////////
 ////// Überprüfung + Ende 					 /////
@@ -145,8 +145,8 @@ GVAR(rescue_counter) = 0;
 #define CONDITION {_a={(_x distance (_this select 1))<200}count (_this select 0);_alivecounter={alive _x}count (_this select 0);If((GVAR(rescue_counter)==count(_this select 0))||(_a>0)||(_alivecounter==0)) then {true}else{false};}
 #define CONDITIONARGS [_pow,_position]
 #define SUCESSCONDITION {If (GVAR(rescue_counter)>0) then {true}else{false};}
-#define ONSUCESS {["STR_DORB_RESCUE",["STR_DORB_FINISHED"],"data\icon\icon_rescue.paa",true] spawn EFUNC(interface,disp_info_global);}
-#define ONFAILURE {["STR_DORB_RESCUE",["STR_DORB_FAILED"],"data\icon\icon_rescue.paa",true] spawn EFUNC(interface,disp_info_global);}
+#define ONSUCESS {[LSTRING(RESCUE),[LSTRING(FINISHED)],"data\icon\icon_rescue.paa",true] spawn EFUNC(interface,disp_info_global);}
+#define ONFAILURE {[LSTRING(RESCUE),[LSTRING(FAILED)],"data\icon\icon_rescue.paa",true] spawn EFUNC(interface,disp_info_global);}
 #define SUCESSARG []
 #define ONLOOP {['check'] spawn FUNC(examine);}
 [INTERVALL,TASK,CONDITION,CONDITIONARGS,SUCESSCONDITION,ONSUCESS,ONFAILURE,SUCESSARG,ONLOOP] call FUNC(taskhandler);

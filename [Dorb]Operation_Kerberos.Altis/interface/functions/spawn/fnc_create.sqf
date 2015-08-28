@@ -28,7 +28,7 @@ _spawnpos = markerPos _spawnpoint;
 _spawndir = markerDir _spawnpoint;
 
 _padempty = nearestObjects [_spawnpos, ["LandVehicle","Air"], _check_radius];
-If (!(_padempty isEqualTo [])) exitWith {hint localize "STR_DORB_SPAWN_NOTEMPTY";};
+If (!(_padempty isEqualTo [])) exitWith {hint localize LSTRING(NOTEMPTY);};
 
 private["_flyingpos"];
 _flyingpos = getMarkerPos "air_spawn_flying";

@@ -64,7 +64,7 @@ for "_i" from 1 to _rand do{
 	};
 	_x addEventHandler 	["Killed", 
 							{
-								[-1,{[_this select 0,[format [localize (_this select 1),_this select 2]],_this select 3,_this select 4] spawn EFUNC(interface,disp_info);},["STR_DORB_KILL","STR_DORB_KILL_KILLED",(name(_this select 0)),"data\icon\icon_target.paa",true]] FMP;
+								[-1,{[_this select 0,[format [localize (_this select 1),_this select 2]],_this select 3,_this select 4] spawn EFUNC(interface,disp_info);},[LSTRING(KILL),LSTRING(KILL_KILLED),(name(_this select 0)),"data\icon\icon_target.paa",true]] FMP;
 							}
 						];	
 }forEach _target;
@@ -95,9 +95,9 @@ if (dorb_debug) then {
 ////// Aufgabe erstellen 					 /////
 //////////////////////////////////////////////////
 
-[_task,true,[["STR_DORB_KILL_TASK_DESC",_name,_ort],"STR_DORB_KILL_TASK","STR_DORB_KILL"],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
+[_task,true,[[LSTRING(KILL_TASK_DESC),_name,_ort],LSTRING(KILL_TASK),LSTRING(KILL)],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
 
-["STR_DORB_KILL",["STR_DORB_KILL_TASK"],"data\icon\icon_target.paa",true] spawn EFUNC(interface,disp_info_global);
+[LSTRING(KILL),[LSTRING(KILL_TASK)],"data\icon\icon_target.paa",true] spawn EFUNC(interface,disp_info_global);
 //////////////////////////////////////////////////
 ////// Überprüfung + Ende 					 /////
 //////////////////////////////////////////////////
@@ -109,7 +109,7 @@ if (dorb_debug) then {
 #define CONDITION {_a ={!(alive _x)}count (_this select 0);If (_a == (count _target)) then {true}else{false};}
 #define CONDITIONARGS [_target]
 #define SUCESSCONDITION {true}
-#define ONSUCESS {["STR_DORB_KILL",["STR_DORB_FINISHED"],"data\icon\icon_target.paa",true]spawn EFUNC(interface,disp_info_global);['destroy'] spawn FUNC(examine);{deleteVehicle _x}forEach (_this select 0);}
+#define ONSUCESS {[LSTRING(KILL),[LSTRING(FINISHED)],"data\icon\icon_target.paa",true]spawn EFUNC(interface,disp_info_global);['destroy'] spawn FUNC(examine);{deleteVehicle _x}forEach (_this select 0);}
 #define ONFAILURE {}
 #define SUCESSARG [_target]
 #define ONLOOP {['check'] spawn FUNC(examine);}

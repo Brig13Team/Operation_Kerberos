@@ -117,15 +117,15 @@ if ( (_info > 0) and (alive _ueberlaeufer) ) then {
 			#endif
 		};
 	};
-	hint localize "STR_DORB_SIDE_UEBERLAEUFER_VERHOERT";
+	hint localize LSTRING(SIDE_UEBERLAEUFER_VERHOERT);
 	
-	["STR_DORB_SIDE_SIDEMISSION",["STR_DORB_SIDE_FINISHED"],"",false] call EFUNC(interface,disp_info_global);
+	[LSTRING(SIDE_SIDEMISSION),[LSTRING(SIDE_FINISHED)],"",false] call EFUNC(interface,disp_info_global);
 	[_task, "Succeeded", false] call BIS_fnc_taskSetState;
 	missionNamespace setVariable [QGVAR(current_sidemission),""];
 } else {
-	hint localize "STR_DORB_SIDE_UEBERLAEUFER_NICHT_VERHOERT";
+	hint localize LSTRING(SIDE_UEBERLAEUFER_NICHT_VERHOERT);
 
-	["STR_DORB_SIDE_SIDEMISSION",["STR_DORB_SIDE_FAILED"],"",false] call EFUNC(interface,disp_info_global);
+	[LSTRING(SIDE_SIDEMISSION),[LSTRING(SIDE_FAILED)],"",false] call EFUNC(interface,disp_info_global);
 	[_task, "Failed", false] call BIS_fnc_taskSetState;
 	missionNamespace setVariable [QGVAR(current_sidemission),""];
 };

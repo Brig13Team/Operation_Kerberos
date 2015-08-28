@@ -125,9 +125,9 @@ clearMagazineCargo _crate;
 _crate addItemCargo ["ACE_Banana",1];
 SETVAR(_crate,GVAR(istarget),true);
 
-["STR_DORB_SIDE_SIDEMISSION",["STR_DORB_SIDE_SUPPLIES_DESCRIPTION_SHORT"],"",false] call EFUNC(interface,disp_info_global);
+[LSTRING(SIDE_SIDEMISSION),[LSTRING(SIDE_SUPPLIES_DESCRIPTION_SHORT)],"",false] call EFUNC(interface,disp_info_global);
 
-_temp = [_task_array, true, ["STR_DORB_SIDE_SUPPLIES_DESCRIPTION", "STR_DORB_SIDE_SUPPLIES_DESCRIPTION_SHORT", "STR_DORB_SIDE_SUPPLIES_MARKER"], _dest,"AUTOASSIGNED",0,false,true,"",true] call BIS_fnc_setTask;
+_temp = [_task_array, true, [LSTRING(SIDE_SUPPLIES_DESCRIPTION),LSTRING(SIDE_SUPPLIES_DESCRIPTION_SHORT),LSTRING(SIDE_SUPPLIES_MARKER)], _dest,"AUTOASSIGNED",0,false,true,"",true] call BIS_fnc_setTask;
 missionNamespace setVariable [QGVAR(current_sidemission),_temp];
 
 // create civs and soldiers
@@ -196,12 +196,12 @@ LOG("SCHLEIFE ABGEBROCHEN");
 if (_temp isEqualTo "") exitWith {};
 
 if (((damage _crate) < 1) AND (_crate != objNull) AND (_counter < 360)) then {
-	["STR_DORB_SIDE_SIDEMISSION",["STR_DORB_SIDE_FINISHED"],"",false] call EFUNC(interface,disp_info_global);
+	[LSTRING(SIDE_SIDEMISSION),[LSTRING(SIDE_FINISHED)],"",false] call EFUNC(interface,disp_info_global);
 	[(_task_array select 0), "Succeeded", false] call BIS_fnc_taskSetState;
 	[_main_task select 1, "targets", [2,50]] call FUNC(reward);
 	missionNamespace setVariable [QGVAR(current_sidemission),""];
 } else {
-	["STR_DORB_SIDE_SIDEMISSION",["STR_DORB_SIDE_FAILED"],"",false] call EFUNC(interface,disp_info_global);
+	[LSTRING(SIDE_SIDEMISSION),[LSTRING(SIDE_FAILED)],"",false] call EFUNC(interface,disp_info_global);
 	[(_task_array select 0), "Failed", false] call BIS_fnc_taskSetState;
 	missionNamespace setVariable [QGVAR(current_sidemission),""];
 };

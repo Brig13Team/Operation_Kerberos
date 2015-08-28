@@ -43,9 +43,9 @@ _sdv setVariable [QGVAR(istarget),true];
 { GVAR(sideby_objects) pushBack _x; } forEach ([_position, 100, 1, 0] call EFUNC(spawn,patrol_water));
 { GVAR(sideby_objects) pushBack _x; } forEach ([_position, 50, 50, 3] call EFUNC(spawn,naval_minefield));
 
-["STR_DORB_SIDE_SIDEMISSION",["STR_DORB_SIDE_SDV_DESCRIPTION_SHORT"],"",false] call EFUNC(interface,disp_info_global);
+[LSTRING(SIDE_SIDEMISSION),[LSTRING(SIDE_SDV_DESCRIPTION_SHORT)],"",false] call EFUNC(interface,disp_info_global);
 
-_temp = [_task_array, true, ["STR_DORB_SIDE_SDV_DESCRIPTION", "STR_DORB_SIDE_SDV_DESCRIPTION_SHORT", "STR_DORB_SIDE_SDV_MARKER"], _position,"AUTOASSIGNED",0,false,true,"",true] call BIS_fnc_setTask;
+_temp = [_task_array, true, [LSTRING(SIDE_SDV_DESCRIPTION), LSTRING(SIDE_SDV_DESCRIPTION_SHORT), LSTRING(SIDE_SDV_MARKER)], _position,"AUTOASSIGNED",0,false,true,"",true] call BIS_fnc_setTask;
 missionNamespace setVariable [QGVAR(current_sidemission),_temp];
 
 LOG("SCHLEIFE GESTARTET");
@@ -54,11 +54,11 @@ LOG("SCHLEIFE ABGEBROCHEN");
 if (_temp isEqualTo "") exitWith {};
 
 if ((damage _sdv == 1)) then {
-	["STR_DORB_SIDE_SIDEMISSION",["STR_DORB_SIDE_FAILED"],"",false] call EFUNC(interface,disp_info_global);
+	[LSTRING(SIDE_SIDEMISSION),[LSTRING(SIDE_FAILED)],"",false] call EFUNC(interface,disp_info_global);
 	[_task_array select 0, "Failed", false] call BIS_fnc_taskSetState;
 	missionNamespace setVariable [QGVAR(current_sidemission),""];
 } else {
-	["STR_DORB_SIDE_SIDEMISSION",["STR_DORB_SIDE_FINISHED"],"",false] call EFUNC(interface,disp_info_global);
+	[LSTRING(SIDE_SIDEMISSION),[LSTRING(SIDE_FINISHED)],"",false] call EFUNC(interface,disp_info_global);
 	[_task_array select 0, "Succeeded", false] call BIS_fnc_taskSetState;
 	[_task_array select 1, "targets", [3, 50]] call FUNC(reward);
 	missionNamespace setVariable [QGVAR(current_sidemission),""];

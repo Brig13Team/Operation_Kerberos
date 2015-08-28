@@ -17,7 +17,7 @@ _sel = [];
 _gruppen=[];
 _gruppen = [] call EFUNC(common,list_groups);
 
-_sel pushBack [[localize "STR_DORB_TFR_GROUP","SR","LR"],[],[]];
+_sel pushBack [[localize LSTRING(TFR_GROUP),"SR","LR"],[],[]];
 
 for "_i" from 0 to ((count _gruppen)-1) do {	
 	_var = (leader(_gruppen select _i)) getVariable [QGVAR(tfr_freq),[0,0]];

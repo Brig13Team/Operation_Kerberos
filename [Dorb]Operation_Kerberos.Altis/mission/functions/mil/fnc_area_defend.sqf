@@ -27,8 +27,8 @@ _list=[];
 ////// Aufgabe erstellen 					 /////
 //////////////////////////////////////////////////
 
-[_task,true,[["STR_DORB_DEF_TASK_DESC",_ort],["STR_DORB_DEF_TASK",_ort],"STR_DORB_DEFEND"],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
-[-1,{[_this select 0,[format [localize (_this select 1),_this select 2]],_this select 3,_this select 4] spawn EFUNC(interface,disp_info);},["STR_DORB_DEFEND","STR_DORB_DEF_TASK",_ort,"data\icon\icon_defend.paa",true]] FMP;
+[_task,true,[[LSTRING(DEF_TASK_DESC),_ort],[LSTRING(DEF_TASK),_ort],LSTRING(DEFEND)],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
+[-1,{[_this select 0,[format [localize (_this select 1),_this select 2]],_this select 3,_this select 4] spawn EFUNC(interface,disp_info);},[LSTRING(DEFEND),LSTRING(DEF_TASK),_ort,"data\icon\icon_defend.paa",true]] FMP;
 
 
 //////////////////////////////////////////////////
@@ -45,7 +45,7 @@ If(taskcancel) exitWith {[_task,'CANCELED',false] spawn BIS_fnc_taskSetState;};
 
 LOG("Defend - Spieler im Bereich");
 
-["STR_DORB_DEF",["STR_DORB_DEF_ATT1","STR_DORB_DEF_ATT2"],"data\icon\icon_defend.paa",true] spawn EFUNC(interface,disp_info_global);
+[LSTRING(DEF),[LSTRING(DEF_ATT1),LSTRING(DEF_ATT2)],"data\icon\icon_defend.paa",true] spawn EFUNC(interface,disp_info_global);
 
 sleep 15;
 //////////////////////////////////////////////////
@@ -54,7 +54,7 @@ sleep 15;
 
 for "_i" from 0 to 11 do {
 	_minuten = (13-_i);
-	[-1,{[_this select 0,[format [localize (_this select 1),_this select 2]],_this select 3,_this select 4] spawn EFUNC(interface,disp_info);},["STR_DORB_DEF","STR_DORB_DEF_ATT_IN",_minuten,"data\icon\icon_defend.paa",true]] FMP;
+	[-1,{[_this select 0,[format [localize (_this select 1),_this select 2]],_this select 3,_this select 4] spawn EFUNC(interface,disp_info);},[LSTRING(DEF),LSTRING(DEF_ATT_IN),_minuten,"data\icon\icon_defend.paa",true]] FMP;
 	sleep 60;
 }; 
 
@@ -77,8 +77,8 @@ sleep 300;
 #define CONDITION {_a=0;_a = {((alive _x)&&((_x distance (_this select 0))<1500))}count (switchableUnits + playableUnits);If ((_a<1)||(GVAR(waves_remaining)<1)) then {true}else{false};}
 #define CONDITIONARGS [_position]
 #define SUCESSCONDITION {_a=0;_a = {((alive _x)&&((_x distance (_this select 0))<1500))}count (switchableUnits + playableUnits);If (_a>0) then {true}else{false};}
-#define ONSUCESS {["STR_DORB_DEFEND",["STR_DORB_FINISHED"],"data\icon\icon_defend.paa",true] spawn EFUNC(interface,disp_info_global);}
-#define ONFAILURE {["STR_DORB_DEFEND",["STR_DORB_FAILED"],"data\icon\icon_defend.paa",true] spawn EFUNC(interface,disp_info_global);}
+#define ONSUCESS {[LSTRING(DEFEND),[LSTRING(FINISHED)],"data\icon\icon_defend.paa",true] spawn EFUNC(interface,disp_info_global);}
+#define ONFAILURE {[LSTRING(DEFEND),[LSTRING(FAILED)],"data\icon\icon_defend.paa",true] spawn EFUNC(interface,disp_info_global);}
 #define SUCESSARG [_position]
 [INTERVALL,TASK,CONDITION,CONDITIONARGS,SUCESSCONDITION,ONSUCESS,ONFAILURE,SUCESSARG] call FUNC(taskhandler);
 

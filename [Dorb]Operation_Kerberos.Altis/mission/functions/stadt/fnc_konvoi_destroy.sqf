@@ -103,9 +103,9 @@ _start_mrkr setMarkerType "hd_start";
 ////// Aufgabe erstellen 					 /////
 //////////////////////////////////////////////////
 
-[_task,true,[["STR_DORB_KILL_CONV_TASK_DESC",(_startort select 0),_ort],"STR_DORB_KILL_CONV_TASK","STR_DORB_DESTROY"],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
+[_task,true,[[LSTRING(KILL_CONV_TASK_DESC),(_startort select 0),_ort],LSTRING(KILL_CONV_TASK),LSTRING(DESTROY)],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
 
-["STR_DORB_DESTROY",["STR_DORB_KILL_CONV_TASK"],"data\icon\icon_destroy.paa",true] spawn EFUNC(interface,disp_info_global);
+[LSTRING(DESTROY),[LSTRING(KILL_CONV_TASK)],"data\icon\icon_destroy.paa",true] spawn EFUNC(interface,disp_info_global);
 
 //////////////////////////////////////////////////
 ////// Überprüfung + Ende 					 /////
@@ -130,10 +130,10 @@ while {aufgabenstatus} do {
 
 If (_geschafft) then {
 	[_task,'SUCCEEDED',false] spawn BIS_fnc_taskSetState;
-	["STR_DORB_DESTROY",["STR_DORB_FINISHED"],"data\icon\icon_destroy.paa",true] spawn EFUNC(interface,disp_info_global)
+	[LSTRING(DESTROY),[LSTRING(FINISHED)],"data\icon\icon_destroy.paa",true] spawn EFUNC(interface,disp_info_global)
 }else{
 	[_task,'FAILED',false] spawn BIS_fnc_taskSetState;
-	["STR_DORB_DESTROY",["STR_DORB_FAILED"],"data\icon\icon_destroy.paa",true] spawn EFUNC(interface,disp_info_global)
+	[LSTRING(DESTROY),[LSTRING(FAILED)],"data\icon\icon_destroy.paa",true] spawn EFUNC(interface,disp_info_global)
 };
 
 {deleteVehicle _x}forEach _vehicles;

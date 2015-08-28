@@ -75,8 +75,8 @@ if (dorb_debug) then {
 ////// Aufgabe erstellen 					 /////
 //////////////////////////////////////////////////
 
-[_task,true,[["STR_DORB_DEST_WPN_TASK_DESC",_ort],"STR_DORB_DEST_WPN_TASK","STR_DORB_DESTROY"],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
-["STR_DORB_DESTROY",["STR_DORB_DEST_WPN_TASK"],"data\icon\icon_destroy.paa",true] spawn EFUNC(interface,disp_info_global);
+[_task,true,[[LSTRING(DEST_WPN_TASK_DESC),_ort],LSTRING(DEST_WPN_TASK),LSTRING(DESTROY)],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
+[LSTRING(DESTROY),[LSTRING(DEST_WPN_TASK)],"data\icon\icon_destroy.paa",true] spawn EFUNC(interface,disp_info_global);
 sleep 10;
 {
 	_x addEventHandler ["killed",{"Bo_Mk82" createVehicle (getpos (_this select 0));}];
@@ -93,7 +93,7 @@ sleep 10;
 #define CONDITION {_a=0;_a = {(!(alive _x))}count (_this select 0);If (_a > ((count _target)-4)) then {true}else{false};}
 #define CONDITIONARGS [_target]
 #define SUCESSCONDITION {true}
-#define ONSUCESS {["STR_DORB_DESTROY",["STR_DORB_FINISHED"],"data\icon\icon_destroy.paa",true] spawn EFUNC(interface,disp_info_global);['destroy'] spawn FUNC(examine);{deleteVehicle _x}forEach (_this select 0);}
+#define ONSUCESS {[LSTRING(DESTROY),[LSTRING(FINISHED)],"data\icon\icon_destroy.paa",true] spawn EFUNC(interface,disp_info_global);['destroy'] spawn FUNC(examine);{deleteVehicle _x}forEach (_this select 0);}
 #define ONFAILURE {}
 #define SUCESSARG [_target]
 #define ONLOOP {['check'] spawn FUNC(examine);}

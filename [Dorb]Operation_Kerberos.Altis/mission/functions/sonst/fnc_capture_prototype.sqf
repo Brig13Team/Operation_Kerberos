@@ -95,8 +95,8 @@ sleep 2;
 GVAR(rescue_counter) = 0;
 {[_x,QGVAR(rescuepoint),(QUOTE(INC(GVAR(rescue_counter));)+"{moveout _x}forEach (crew (_this select 0)); uisleep 0.3; deleteVehicle (_this select 0);")] call BIS_fnc_addScriptedEventHandler;}forEach _target;
 
-[_task,true,[["STR_DORB_PROTO_TASK_DESC",_ort],"STR_DORB_PROTO_TASK","STR_DORB_CAPTURE"],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
-["STR_DORB_CAPTURE",["STR_DORB_PROTO_TASK"],"data\icon\icon_capture.paa",true] spawn EFUNC(interface,disp_info_global);
+[_task,true,[[LSTRING(PROTO_TASK_DESC),_ort],LSTRING(PROTO_TASK),LSTRING(CAPTURE)],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
+[LSTRING(CAPTURE),[LSTRING(PROTO_TASK)],"data\icon\icon_capture.paa",true] spawn EFUNC(interface,disp_info_global);
 ///////////////////////////////////////////////
 ////// Überprüfung + Ende 				 /////
 ///////////////////////////////////////////////
@@ -105,7 +105,7 @@ GVAR(rescue_counter) = 0;
 #define CONDITION {_a={alive _x}count (_this select 0);If((GVAR(rescue_counter)==count(_this select 0))||(_a==0)) then {true}else{false};}
 #define CONDITIONARGS [_target]
 #define SUCESSCONDITION {If (GVAR(rescue_counter)>0) then {true}else{false};}
-#define ONSUCESS {["STR_DORB_CAPTURE",["STR_DORB_FINISHED"],"data\icon\icon_capture.paa",true] spawn EFUNC(interface,disp_info_global);}
-#define ONFAILURE {["STR_DORB_CAPTURE",["STR_DORB_FAILED"],"data\icon\icon_capture.paa",true] spawn EFUNC(interface,disp_info_global);}
+#define ONSUCESS {[LSTRING(CAPTURE),[LSTRING(FINISHED)],"data\icon\icon_capture.paa",true] spawn EFUNC(interface,disp_info_global);}
+#define ONFAILURE {[LSTRING(CAPTURE),[LSTRING(FAILED)],"data\icon\icon_capture.paa",true] spawn EFUNC(interface,disp_info_global);}
 #define SUCESSARG []
 [INTERVALL,TASK,CONDITION,CONDITIONARGS,SUCESSCONDITION,ONSUCESS,ONFAILURE,SUCESSARG] call FUNC(taskhandler);

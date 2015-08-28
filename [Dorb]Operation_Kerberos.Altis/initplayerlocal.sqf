@@ -36,7 +36,7 @@ ISNILS(EGVAR(mission,fnc),[]);
 	(_x select 0) spawn compile (_x select 1);
 }forEach EGVAR(mission,fnc);
 
-["STR_DORB_CLAN",["STR_DORB_WELCOME1","STR_DORB_WELCOME2","STR_DORB_WELCOME3","STR_DORB_WELCOME4","STR_DORB_WELCOME5","STR_DORB_WELCOME6"],"data\logo_brig.paa",false] call EFUNC(interface,disp_info);
+[LSTRING(CLAN),[LSTRING(WELCOME1),LSTRING(WELCOME2),LSTRING(WELCOME3),LSTRING(WELCOME4),LSTRING(WELCOME5),LSTRING(WELCOME6)],"data\logo_brig.paa",false] call EFUNC(interface,disp_info);
 [] spawn EFUNC(interface,disp_timer);
 /*
 [] spawn {

@@ -9,7 +9,7 @@
 SCRIPT(tfr_setGroup);
 private["_sel","_sr","_lr","_dd"];
 
-if (leader group player != player) exitWith {hint localize "STR_DORB_TFR_NOLEADER";};
+if (leader group player != player) exitWith {hint localize LSTRING(TFR_NOLEADER);};
 
 _sel=[];
 

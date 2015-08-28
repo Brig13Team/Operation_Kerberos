@@ -38,7 +38,7 @@ switch (_mode) do {
 		_target setDir 90;
 		_caller forceWalk true;
 
-		_action = _caller addAction [localize "STR_DORB_SIDE_AIRCRAFT_INTEL_DROP", { [_this, "fnc_SuitcaseDetach"] call FUNC(DOUBLES(sideby,aircraft)); }, _target];
+		_action = _caller addAction [localize LSTRING(SIDE_AIRCRAFT_INTEL_DROP), { [_this, "fnc_SuitcaseDetach"] call FUNC(DOUBLES(sideby,aircraft)); }, _target];
 		_target setVariable ["DORB_SUITCASE_ACTIONID",_action];
 
 		[0, {
@@ -179,7 +179,7 @@ switch (_mode) do {
 				[ [[_player,_suitcase], {
 					params ["_player","_suitcase"];
 					private "_action";
-					_action = _player addAction [localize "STR_DORB_SIDE_AIRCRAFT_INTEL_DROP", { [_this, "fnc_SuitcaseDetach"] call FUNC(DOUBLES(sideby,aircraft)); }, _suitcase];
+					_action = _player addAction [localize LSTRING(SIDE_AIRCRAFT_INTEL_DROP), { [_this, "fnc_SuitcaseDetach"] call FUNC(DOUBLES(sideby,aircraft)); }, _suitcase];
 					_suitcase setVariable ["DORB_SUITCASE_ACTIONID",_action];
 				}] ,"BIS_fnc_spawn", _player, true] call BIS_fnc_MP;
 			};
@@ -242,9 +242,9 @@ switch (_mode) do {
 				};
 			}] call BIS_fnc_addScriptedEventHandler;
 			GVAR(sideby_objects) pushBack _suitcase;
-			[-1, { _this addAction [localize "STR_DORB_SIDE_AIRCRAFT_INTE_TAKE", { [_this, "fnc_SuitcaseAttach"] call FUNC(DOUBLES(sideby,aircraft)); }, nil, 1.5, true, true, "", "isNull attachedTo _target;"]; }, _suitcase] FMP;
+			[-1, { _this addAction [localize LSTRING(SIDE_AIRCRAFT_INTEL_DROP), { [_this, "fnc_SuitcaseAttach"] call FUNC(DOUBLES(sideby,aircraft)); }, nil, 1.5, true, true, "", "isNull attachedTo _target;"]; }, _suitcase] FMP;
 			ISNILS(GVAR(fnc),[]);
-			GVAR(fnc) = GVAR(fnc) + [[_suitcase , "_this addAction [localize 'STR_DORB_SIDE_AIRCRAFT_INTE_TAKE', { [_this, 'fnc_SuitcaseAttach'] call DORB_fnc_obj_sideby_aircraft; }, nil, 1.5, true, true, "", 'isNull attachedTo _target;'];"]];
+			GVAR(fnc) = GVAR(fnc) + [[_suitcase , "_this addAction [localize 'STR_DORB_MISSION_SIDE_AIRCRAFT_INTE_TAKE', { [_this, 'fnc_SuitcaseAttach'] call DORB_fnc_obj_sideby_aircraft; }, nil, 1.5, true, true, "", 'isNull attachedTo _target;'];"]];
 			publicVariable QGVAR(fnc);
 
 			LOG("SCHLEIFE GESTARTET");
@@ -268,7 +268,7 @@ switch (_mode) do {
 				#endif
 			};
 			
-			["STR_DORB_SIDE_SIDEMISSION",["STR_DORB_SIDE_FINISHED"],"",false] call EFUNC(interface,disp_info_global);
+			[LSTRING(SIDE_SIDEMISSION),[LSTRING(SIDE_FINISHED)],"",false] call EFUNC(interface,disp_info_global);
 			
 			[_task, "Succeeded", false] call BIS_fnc_taskSetState;
 			missionNamespace setVariable [QGVAR(current_sidemission),""];
@@ -276,7 +276,7 @@ switch (_mode) do {
 			missionNamespace setVariable ["DORB_CONTER",true];
 			deleteVehicle _suitcase;
 		} else {
-			["STR_DORB_SIDE_SIDEMISSION",["STR_DORB_SIDE_FAILED"],"",false] call EFUNC(interface,disp_info_global);
+			[LSTRING(SIDE_SIDEMISSION),[LSTRING(SIDE_FAILED)],"",false] call EFUNC(interface,disp_info_global);
 
 			[_task, "Failed", false] call BIS_fnc_taskSetState;
 			missionNamespace setVariable [QGVAR(current_sidemission),""];
@@ -320,26 +320,26 @@ switch (_mode) do {
 		{
 			case "Land_Wreck_Plane_Transport_01_F":
 			{
-				_description = "STR_DORB_SIDE_AIRCRAFT_DESCRIPTION_BLUFOR";
+				_description = LSTRING(SIDE_SIDE_AIRCRAFT_DESCRIPTION_BLUFOR);
 			};
 			case "Land_Wreck_Heli_Attack_02_F":
 			{
-				_description = "STR_DORB_SIDE_AIRCRAFT_DESCRIPTION_OPFOR";
+				_description = LSTRING(SIDE_SIDE_AIRCRAFT_DESCRIPTION_OPFOR);
 			};
 		};
 
 		[-1,{_this spawn EFUNC(interface,disp_info)},["Nebenmission",["abgestürztes Flugobjekt"],"",true]] FMP;
-		_temp = [_task_array, true, [_description, "STR_DORB_SIDE_AIRCRAFT_DESCRIPTION_SHORT", "STR_DORB_SIDE_SDV_MARKER"], _position,"AUTOASSIGNED",0,false,true,"",true] call BIS_fnc_setTask;
+		_temp = [_task_array, true, [_description, LSTRING(SIDE_SIDE_AIRCRAFT_DESCRIPTION_SHORT), LSTRING(SIDE_SDV_MARKER)], _position,"AUTOASSIGNED",0,false,true,"",true] call BIS_fnc_setTask;
 		LOG(FORMAT_1("_temp = %1",_temp));
 		missionNamespace setVariable [QGVAR(current_sidemission),_temp];
 
 		[-1, {
 			private ["_obj", "_typ", "_task_array"];
 			params ["_obj", "_typ", "_task_array"];
-			_obj addAction [localize "STR_DORB_SIDE_AIRCRAFT_SEARCH_INTEL", { [_this, "fnc_ObjAction"] call FUNC(DOUBLES(sideby,aircraft)); }, [_typ,_task_array select 0, _task_array select 1]];
+			_obj addAction [localize LSTRING(SIDE_AIRCRAFT_SEARCH_INTEL), { [_this, "fnc_ObjAction"] call FUNC(DOUBLES(sideby,aircraft)); }, [_typ,_task_array select 0, _task_array select 1]];
 		}, [_obj,_typ,_task_array]] FMP;
 		ISNILS(GVAR(fnc),[]);
-		GVAR(fnc) = GVAR(fnc) + [ [_obj,_task_array] , "(_this select 0) addAction [localize 'STR_DORB_SIDE_AIRCRAFT_SEARCH_INTEL', { [_this, 'fnc_ObjAction'] call DORB_fnc_obj_sideby_aircraft; }, [_typ,(_this select 1) select 0, (_this select 1) select 1]];" ];
+		GVAR(fnc) = GVAR(fnc) + [ [_obj,_task_array] , "(_this select 0) addAction [localize 'STR_DORB_MISSION_SIDE_AIRCRAFT_SEARCH_INTEL', { [_this, 'fnc_ObjAction'] call dorb_mission_fnc_obj_sideby_aircraft; }, [_typ,(_this select 1) select 0, (_this select 1) select 1]];" ];
 		publicVariable QGVAR(fnc);
 
 		_conter_size = if (_typ == "Land_Wreck_Plane_Transport_01_F") then { "medium" } else { "big" };

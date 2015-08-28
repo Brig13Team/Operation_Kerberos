@@ -78,8 +78,8 @@ if (dorb_debug) then {
 ////// Aufgabe erstellen 					 /////
 //////////////////////////////////////////////////
 
-["STR_DORB_FIND",["STR_DORB_INTEL_TASK"],"data\icon\icon_search.paa",true] spawn EFUNC(interface,disp_info_global);
-[_task,true,[["STR_DORB_INTEL_TASK_DESC",_ort],"STR_DORB_INTEL_TASK","STR_DORB_FIND"],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
+[LSTRING(FIND),[LSTRING(INTEL_TASK)],"data\icon\icon_search.paa",true] spawn EFUNC(interface,disp_info_global);
+[_task,true,[[LSTRING(INTEL_TASK_DESC),_ort],LSTRING(INTEL_TASK),LSTRING(FIND)],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
 
 //////////////////////////////////////////////////
 ////// Überprüfung + Ende 					 /////
@@ -91,7 +91,7 @@ if (dorb_debug) then {
 #define CONDITION {_a ={!(alive _x)}count (_this select 0);If (_a == (count _target)) then {true}else{false};}
 #define CONDITIONARGS [_target]
 #define SUCESSCONDITION {true}
-#define ONSUCESS {["STR_DORB_FIND",["STR_DORB_FINISHED"],"data\icon\icon_search.paa",true] spawn EFUNC(interface,disp_info_global);['destroy'] spawn FUNC(examine);{deleteVehicle _x}forEach (_this select 1);GVAR(interl_obj)=[];publicVariable QGVAR(interl_obj);}
+#define ONSUCESS {[LSTRING(FIND),[LSTRING(FINISHED)],"data\icon\icon_search.paa",true] spawn EFUNC(interface,disp_info_global);['destroy'] spawn FUNC(examine);{deleteVehicle _x}forEach (_this select 1);GVAR(interl_obj)=[];publicVariable QGVAR(interl_obj);}
 #define ONFAILURE {}
 #define SUCESSARG [_task,_target]
 #define ONLOOP {['check'] spawn FUNC(examine);}

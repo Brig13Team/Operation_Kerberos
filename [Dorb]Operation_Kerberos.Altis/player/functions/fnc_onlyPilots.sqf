@@ -37,5 +37,5 @@ if (!(((_turret isEqualTo [0]) || (_position == "driver")))) exitWith {};
 	unassignVehicle (vehicle _unit);
 	_unit action ["Eject", vehicle _unit];
 	_unit action ["GetOut", vehicle _unit];
-	if (isPlayer _unit) then { hint format[localize "STR_DORB_NURPILOTEN",name _unit]; };
+	if (isPlayer _unit) then { hint format[localize LSTRING(NURPILOTEN),name _unit]; };
 };

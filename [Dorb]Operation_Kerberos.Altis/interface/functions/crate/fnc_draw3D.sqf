@@ -18,6 +18,6 @@ _id = addMissionEventHandler ["draw3D",{
         _spawnPos = getPosATL cratespawner;
         _spawnPos set[2,1];
         _sizeicon = ((rad(2*atan(0.422793 * 30) / (player distance cratespawner)))*_zoom*6);
-        drawIcon3D [_root+"data\icon\icon_robot.paa",[1,0.4,0,1],_spawnPos,_sizeicon,_sizeicon,0,localize "STR_DORB_CRATE_HEADER",0,(_sizeicon*0.015),"PuristaMedium"];
+        drawIcon3D [_root+"data\icon\icon_robot.paa",[1,0.4,0,1],_spawnPos,_sizeicon,_sizeicon,0,localize LSTRING(HEADER),0,(_sizeicon*0.015),"PuristaMedium"];
     };
 }];

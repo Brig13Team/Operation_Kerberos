@@ -29,7 +29,7 @@ _reppos = getPos _vehicle;
 _abgebrochen = true;
 While {((vehicle _caller == _vehicle)&&(alive _vehicle)&&(((getPos _vehicle)distance _reppos)<=1))} do {
 	
-	["STR_DORB_REP_POINT",["STR_DORB_REP_EXECUTED","STR_DORB_REP_WAIT"]] call EFUNC(interface,disp_info);
+	[LSTRING(REP_POINT),[LSTRING(REP_EXECUTED),LSTRING(REP_WAIT)]] call EFUNC(interface,disp_info);
 	
 	_treibstoffmenge = fuel _vehicle;
 	_vehicle setFuel 0;
@@ -81,7 +81,7 @@ While {((vehicle _caller == _vehicle)&&(alive _vehicle)&&(((getPos _vehicle)dist
 };
 
 If (_abgebrochen) exitWith {
-	["STR_DORB_REP_POINT","STR_DORB_REP_CANCELED"] call EFUNC(interface,disp_message);
+	[LSTRING(REP_POINT),LSTRING(REP_CANCELED)] call EFUNC(interface,disp_message);
 };
 
-["STR_DORB_REP_POINT","STR_DORB_REP_FINISHED"] call EFUNC(interface,disp_message);
+[LSTRING(REP_POINT),LSTRING(REP_FINISHED)] call EFUNC(interface,disp_message);

@@ -165,9 +165,9 @@ _ZeitInMinuten = 62;
 GVAR(endzeit) = diag_tickTime + (60*_ZeitInMinuten);
 publicVariable QGVAR(endzeit);
 _deploy=false;
-[-1,{[_this select 0,[format [localize (_this select 1),_this select 2]],_this select 3,_this select 4] spawn EFUNC(interface,disp_info);},["STR_DORB_DESTROY","STR_DORB_DEST_SCARAB_TASK",_ZeitInMinuten,"data\icon\icon_destroy.paa",true]] FMP;
+[-1,{[_this select 0,[format [localize (_this select 1),_this select 2]],_this select 3,_this select 4] spawn EFUNC(interface,disp_info);},[LSTRING(DESTROY),LSTRING(DEST_SCARAB_TASK),_ZeitInMinuten,"data\icon\icon_destroy.paa",true]] FMP;
 
-[_task,true,[["STR_DORB_DEST_SCARAB_TASK_DESC",_ort,(count _target)],["STR_DORB_DEST_SCARAB_TASK",_ZeitInMinuten],"STR_DORB_DESTROY"],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
+[_task,true,[[LSTRING(DEST_SCARAB_TASK_DESC),_ort,(count _target)],[LSTRING(DEST_SCARAB_TASK),_ZeitInMinuten],LSTRING(DESTROY)],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
 
 //////////////////////////////////////////////////
 ////// Überprüfung + Ende 					 /////
@@ -179,8 +179,8 @@ _deploy=false;
 #define CONDITION {_a=0;_b=0;_a = {(!(alive gunner _x))} count (_this select 0);_b = {(!(alive _x))} count (_this select 0);If (diag_tickTime>GVAR(endzeit))exitWith {{if (alive _x) then {[_x] spawn FUNC(sonst_Scarab_launch);sleep 3;};}forEach (_this select 0);sleep 30;true};If ((_a == (count (_this select 0)))||(_b>0)) then {true}else{false};}
 #define CONDITIONARGS [_target]
 #define SUCESSCONDITION {_a=0;_a = {(alive _x)}count (_this select 0);If ((_a == (count (_this select 0)))&&(diag_tickTime<GVAR(endzeit))) then {true}else{false};}
-#define ONSUCESS {["STR_DORB_DESTROY",["STR_DORB_FINISHED"],"data\icon\icon_destroy.paa",true] spawn EFUNC(interface,disp_info_global);}
-#define ONFAILURE {["STR_DORB_DESTROY",["STR_DORB_FAILED"],"data\icon\icon_destroy.paa",true] spawn EFUNC(interface,disp_info_global);}
+#define ONSUCESS {[LSTRING(DESTROY),[LSTRING(FINISHED)],"data\icon\icon_destroy.paa",true] spawn EFUNC(interface,disp_info_global);}
+#define ONFAILURE {[LSTRING(DESTROY),[LSTRING(FAILED)],"data\icon\icon_destroy.paa",true] spawn EFUNC(interface,disp_info_global);}
 #define SUCESSARG [_target]
 #define ONLOOP {If (GVAR(endzeit) < (diag_tickTime + 300)) then {{If ( (alive _x)	&&	( GETVAR(_x,GVAR(scarab_waiting),true) )) then {	SETVAR(_x,GVAR(scarab_waiting),false);[_x,1] spawn rhs_fnc_ss21_AI_prepare;};}forEach (_this select 0);};}
 #define ONLOOPARGS [_target]

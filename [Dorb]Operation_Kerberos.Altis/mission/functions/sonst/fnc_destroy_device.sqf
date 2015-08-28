@@ -98,8 +98,8 @@ sleep 5;
 ////// Aufgabe erstellen 					 /////
 //////////////////////////////////////////////////
 
-[_task,true,["STR_DORB_DEST_DEV_TASK_DESC","STR_DORB_DEST_DEV_TASK","STR_DORB_DESTROY"],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
-["STR_DORB_DESTROY",["STR_DORB_DEST_DEV_TASK"],"data\icon\icon_destroy.paa",true] spawn EFUNC(interface,disp_info_global);
+[_task,true,[LSTRING(DEST_DEV_TASK_DESC),LSTRING(DEST_DEV_TASK),LSTRING(DESTROY)],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
+[LSTRING(DESTROY),[LSTRING(DEST_DEV_TASK)],"data\icon\icon_destroy.paa",true] spawn EFUNC(interface,disp_info_global);
 
 
 //////////////////////////////////////////////////
@@ -110,7 +110,7 @@ sleep 5;
 #define CONDITION {_a = {GETVAR(_x,GVAR(target_dead),false);}count (_this select 0);If (_a == (count (_this select 0))) then {true}else{false};}
 #define CONDITIONARGS [_target]
 #define SUCESSCONDITION {true}
-#define ONSUCESS {["STR_DORB_DESTROY",["STR_DORB_FINISHED"],"data\icon\icon_destroy.paa",true] spawn EFUNC(interface,disp_info_global);}
+#define ONSUCESS {[LSTRING(DESTROY),[LSTRING(FINISHED)],"data\icon\icon_destroy.paa",true] spawn EFUNC(interface,disp_info_global);}
 #define ONFAILURE {}
 #define SUCESSARG []
 #define ONLOOP {If (isnil QGVAR(earthquake_counter)) then {GVAR(earthquake_counter)=8;};GVAR(earthquake_counter) = GVAR(earthquake_counter) - 1;If (GVAR(earthquake_counter)<0) then {[-1, { if (!(vehicle player isKindof "Air")) then { _rand=(floor(random 4)+1);[_rand]spawn BIS_fnc_earthquake; };}] FMP;GVAR(earthquake_counter) = 15+(floor(random 6));};}

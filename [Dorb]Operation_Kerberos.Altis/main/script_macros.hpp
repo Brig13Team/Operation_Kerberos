@@ -98,7 +98,13 @@ Author:
 #define EGVAR(var1,var2) TRIPLES(PREFIX,var1,var2)
 #define QEGVAR(var1,var2) QUOTE(EGVAR(var1,var2))
 
-
+#ifndef STRING_MACROS_GUARD
+#define STRING_MACROS_GUARD
+    #define LSTRING(var1) QUOTE(TRIPLES(STR,ADDON,var1))
+    #define ELSTRING(var1,var2) QUOTE(TRIPLES(STR,DOUBLES(PREFIX,var1),var2))
+    #define CSTRING(var1) QUOTE(TRIPLES($STR,ADDON,var1))
+    #define ECSTRING(var1,var2) QUOTE(TRIPLES($STR,DOUBLES(PREFIX,var1),var2))
+#endif
 
 //// Variablen
 

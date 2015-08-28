@@ -100,9 +100,9 @@ sleep 2;
 ////// Aufgabe erstellen 					 /////
 //////////////////////////////////////////////////
 
-[_task,true,[["STR_DORB_DEST_KOM_TASK_DESC",_ort],"STR_DORB_DEST_KOM_TASK","STR_DORB_DESTROY"],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
+[_task,true,[[LSTRING(DEST_KOM_TASK_DESC),_ort],LSTRING(DEST_KOM_TASK),LSTRING(DESTROY)],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
 
-["STR_DORB_DESTROY",["STR_DORB_DEST_KOM_TASK"],"data\icon\icon_destroy.paa",true] spawn EFUNC(interface,disp_info_global);
+[LSTRING(DESTROY),[LSTRING(DEST_KOM_TASK)],"data\icon\icon_destroy.paa",true] spawn EFUNC(interface,disp_info_global);
 //////////////////////////////////////////////////
 ////// Überprüfung + Ende 					 /////
 //////////////////////////////////////////////////
@@ -111,5 +111,5 @@ sleep 2;
 #define CONDITION {_a = {GETVAR(_x,GVAR(target_dead),false);}count (_this select 0);If (_a == (count _target)) then {true}else{false};}
 #define CONDITIONARGS [_target]
 #define SUCESSCONDITION {true}
-#define ONSUCESS {["STR_DORB_DESTROY",["STR_DORB_FINISHED"],"data\icon\icon_destroy.paa",true] spawn EFUNC(interface,disp_info_global);}
+#define ONSUCESS {[LSTRING(DESTROY),[LSTRING(FINISHED)],"data\icon\icon_destroy.paa",true] spawn EFUNC(interface,disp_info_global);}
 [INTERVALL,TASK,CONDITION,CONDITIONARGS,SUCESSCONDITION,ONSUCESS] call FUNC(taskhandler);

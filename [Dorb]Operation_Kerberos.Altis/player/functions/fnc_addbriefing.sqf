@@ -22,7 +22,7 @@ player createDiaryRecord ["Diary", ["Credits",format["
 	<br/>
 	<br/>VCOM Driving
 	<br/>http://forums.bistudio.com/showthread.php?187450-VCOM-AI-Driving-Mod
-",localize "STR_DORB_AUTHOR"]]];
+",localize ELSTRING(MAIN,AUTHOR)]]];
 player createDiaryRecord ["Diary", ["Informationen",format["
 	===================
 	<br />
@@ -63,12 +63,12 @@ player createDiaryRecord ["Diary", ["Informationen",format["
 	-------------------
 	<br />
 	%10
-  ",localize "STR_DORB_BRIEF_SETTING",localize "STR_DORB_BRIEF_SETTING_DESC",
-   localize "STR_DORB_BRIEF_VEHICLES",localize "STR_DORB_BRIEF_VEHICLES_DESC",
-   localize "STR_DORB_BRIEF_RESPAWN",localize "STR_DORB_BRIEF_RESPAWN_DESC",
-   localize "STR_DORB_BRIEF_HALO",localize "STR_DORB_BRIEF_HALO_DESC",
-   localize "STR_DORB_BRIEF_SQUAD",localize "STR_DORB_BRIEF_SQUAD_DESC",
-   localize "STR_DORB_BRIEF_TFR",localize "STR_DORB_BRIEF_TFR_DESC"
+  ",localize LSTRING(BRIEF_SETTING),localize LSTRING(BRIEF_SETTING_DESC),
+   localize LSTRING(BRIEF_VEHICLES),localize LSTRING(BRIEF_VEHICLES_DESC),
+   localize LSTRING(BRIEF_RESPAWN),localize LSTRING(BRIEF_RESPAWN_DESC),
+   localize LSTRING(BRIEF_HALO),localize LSTRING(BRIEF_HALO_DESC),
+   localize LSTRING(BRIEF_SQUAD),localize LSTRING(BRIEF_SQUAD_DESC),
+   localize LSTRING(BRIEF_TFR),localize LSTRING(BRIEF_TFR_DESC)
 
   ]
   ]];

@@ -62,25 +62,25 @@ switch (_eigenschaft) do
 {
 	case "Flugangst":
 	{
-		_description = "STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_2";
+		_description = LSTRING(SIDE_UEBERLAEUFER_DESCRIPTION_2);
 	};
 	case "Paranoia":
 	{
-		_description = "STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_3";
+		_description = LSTRING(SIDE_UEBERLAEUFER_DESCRIPTION_3);
 	};
 	case "suizidgefaehrdet":
 	{
-		_description = "STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_3";
+		_description = LSTRING(SIDE_UEBERLAEUFER_DESCRIPTION_4);
 	};
 	case "nichts":
 	{
-		_description = "STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_1";
+		_description = LSTRING(SIDE_UEBERLAEUFER_DESCRIPTION_1);
 	};
 };
 
-["STR_DORB_SIDE_SIDEMISSION",["STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_SHORT"],"",false] call EFUNC(interface,disp_info_global);
+[LSTRING(SIDE_SIDEMISSION),[LSTRING(SIDE_UEBERLAEUFER_DESCRIPTION_SHORT)],"",false] call EFUNC(interface,disp_info_global);
 
-_temp = [_task_array, true, [_description, "STR_DORB_SIDE_UEBERLAEUFER_DESCRIPTION_SHORT", "STR_DORB_SIDE_UEBERLAEUFER_MARKER"], _position,"AUTOASSIGNED",0,false,true,"",true] call BIS_fnc_setTask;
+_temp = [_task_array, true, [_description, LSTRING(SIDE_UEBERLAEUFER_DESCRIPTION_SHORT), LSTRING(SIDE_UEBERLAEUFER_MARKER)], _position,"AUTOASSIGNED",0,false,true,"",true] call BIS_fnc_setTask;
 missionNamespace setVariable [QGVAR(current_sidemission),_temp];
 
 [_ziel, _eigenschaft, _task_array] spawn FUNC(DOUBLES(,sideby,ueberlaeuferVerhoeren));

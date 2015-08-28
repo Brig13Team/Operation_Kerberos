@@ -20,7 +20,7 @@ _spawnpos = getMarkerPos "crate_spawn";
 
 _padempty = nearestObjects [_spawnpos, ["LandVehicle","Air"], _check_radius];
 
-If (!(_padempty isEqualTo [])) exitWith {hint localize "STR_DORB_SPAWN_NOTEMPTY";};
+If (!(_padempty isEqualTo [])) exitWith {hint localize LSTRING(NOTEMPTY);};
 
 _boxtyp = (GVAR(crate_boxes) select 0) select GVAR(crate_current_boxid);
 _box = createVehicle [_boxtyp, _spawnpos, [], 0 , "NONE"];

@@ -18,7 +18,7 @@ SCRIPT(attack_waves);
 If (EGVAR(mission,waves_remaining) < 1) exitWith {LOG("Keine Wellen übrig");};
 PARAMS_2(_position,_task);
 private["_rand","_difficulty","_missionsstatus","_gegner_lebend","_z"];
-["STR_DORB_DEF","STR_DORB_DEF_ATT_INB"] spawn EFUNC(interface,disp_message_global);
+[ELSTRING(MISSION,DEF),ELSTRING(MISSION,DEF_ATT_ING)] spawn EFUNC(interface,disp_message_global);
 
 
 sleep 60;
@@ -107,13 +107,13 @@ If ((taskcancel)||(_state in ["CANCELED","SUCCEEDED","FAILED"])) exitWith {EGVAR
 
 
 
-["STR_DORB_DEF","STR_DORB_DEF_WAVE_DEFENDED"] spawn EFUNC(interface,disp_message_global);
+[ELSTRING(MISSION,DEF),ELSTRING(MISSION,DEF_WAVE_DEFENDED)] spawn EFUNC(interface,disp_message_global);
 
 EGVAR(mission,waves_remaining) = EGVAR(mission,waves_remaining) - 1;
 
 If (EGVAR(mission,waves_remaining) > 1) then {
 	sleep 60;
-	["STR_DORB_DEF","STR_DORB_DEF_WAVE_NEW"] spawn EFUNC(interface,disp_message_global);
+	[ELSTRING(MISSION,DEF),ELSTRING(MISSION,DEF_WAVE_NEW)] spawn EFUNC(interface,disp_message_global);
 	sleep 60;
 	[_position,_task] spawn FUNC(attack_waves);
 }else {
