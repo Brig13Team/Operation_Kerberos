@@ -244,7 +244,7 @@ switch (_mode) do {
 			GVAR(sideby_objects) pushBack _suitcase;
 			[-1, { _this addAction [localize LSTRING(SIDE_AIRCRAFT_INTEL_DROP), { [_this, "fnc_SuitcaseAttach"] call FUNC(DOUBLES(sideby,aircraft)); }, nil, 1.5, true, true, "", "isNull attachedTo _target;"]; }, _suitcase] FMP;
 			ISNILS(GVAR(fnc),[]);
-			GVAR(fnc) = GVAR(fnc) + [[_suitcase , "_this addAction [localize 'STR_DORB_MISSION_SIDE_AIRCRAFT_INTE_TAKE', { [_this, 'fnc_SuitcaseAttach'] call DORB_fnc_obj_sideby_aircraft; }, nil, 1.5, true, true, "", 'isNull attachedTo _target;'];"]];
+			GVAR(fnc) = GVAR(fnc) + [[_suitcase , "_this addAction [localize 'STR_DORB_MISSION_SIDE_AIRCRAFT_INTEL_TAKE', { [_this, 'fnc_SuitcaseAttach'] call DORB_mission_fnc_obj_sideby_aircraft; }, nil, 1.5, true, true, "", 'isNull attachedTo _target;'];"]];
 			publicVariable QGVAR(fnc);
 
 			LOG("SCHLEIFE GESTARTET");
