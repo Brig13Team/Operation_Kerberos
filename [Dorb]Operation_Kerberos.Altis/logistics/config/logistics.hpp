@@ -179,14 +179,14 @@ class logistics
 		class I_Heli_Transport_02_F {
 			max_width = 1.5;
 			max_length = 7.2;
-			max_height = 1.5;
-			cargo_point[] = {0,5.15,-2.2};
+			max_height = 1.601;
+			cargo_point[] = {0,5.15,-2.28};
 			load_point[] = {0,-7,-3.5};
 			cargo_pos[] = {{0,{1.03467,-0.620361,-1.84832}},{1,{-1.05518,-1.60986,-1.82812}},{2,{-1.09351,1.62793,-1.86387}},{3,{1.06567,4.25537,-1.89248}},{4,{-1.05249,-1.08252,-1.83032}},{5,{1.03955,1.03442,-1.84832}},{6,{1.03662,0.507324,-1.85052}},{7,{-1.05835,0.0449219,-1.82812}},{8,{1.03345,3.70508,-1.89028}},{9,{-1.0376,3.84424,-1.87839}},{10,{1.06885,4.78247,-1.89028}},{11,{1.02344,-0.0537109,-1.86718}},{12,{-1.05762,-0.521484,-1.84699}},{13,{-1.06909,1.09399,-1.86302}},{14,{-1.05151,0.570313,-1.84699}},{15,{-1.05908,3.19116,-1.8804}}};
 			hatch_open = "this animateDoor ['CargoRamp_Open', 1]";
 			hatch_close = "this animateDoor ['CargoRamp_Open', 0]";
-			hatch_isopened = "_this doorPhase 'CargoRamp_Open' < 0.5 && alive _this &&((_this getVariable ['bis_disabled_Ramp',0]) != 1)";
-			hatch_isclosed = "_this doorPhase 'CargoRamp_Open' > 0.5 && alive _this && ((_this getVariable ['bis_disabled_Ramp',0]) != 1)";
+			hatch_isopened = "_this doorPhase 'CargoRamp_Open' > 0.5 && alive _this &&((_this getVariable ['bis_disabled_Ramp',0]) != 1)";
+			hatch_isclosed = "_this doorPhase 'CargoRamp_Open' < 0.5 && alive _this && ((_this getVariable ['bis_disabled_Ramp',0]) != 1)";
 		};
 		class B_Heli_Transport_03_F {
 			max_width = 1.24;

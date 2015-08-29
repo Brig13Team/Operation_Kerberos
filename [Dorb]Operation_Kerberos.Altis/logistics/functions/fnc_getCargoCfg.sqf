@@ -11,7 +11,7 @@
 		STRING
 */
 #include "script_component.hpp"
-SCRIPT(log_getCargoCfg);
+SCRIPT(getCargoCfg);
 params[["_object",objNull,[objNull]]];
 If (isNull _object) exitWith {""};
 If (isClass(missionConfigFile >> "logistics" >> "cargos" >> (typeOf _object))) exitWith {(typeOf _object)};

@@ -17,7 +17,7 @@ PARAMS_1(_target);
 
 CHECK(GETVAR(player,GVAR(isloading),false))
 private["_nearObjects","_object"];
-_nearObjects = nearestObjects[(_target modelToWorld (getArray(missionConfigFile >> "logistics" >> "vehicles" >> (typeOf _target) >> "load_point"))), ["AllVehicles","ThingX"], 3];
+_nearObjects = nearestObjects[(_target modelToWorld (getArray(missionConfigFile >> "logistics" >> "vehicles" >> (typeOf _target) >> "load_point"))), ["AllVehicles","ThingX"], 1.5];
 _object = objNull;
 
 {
