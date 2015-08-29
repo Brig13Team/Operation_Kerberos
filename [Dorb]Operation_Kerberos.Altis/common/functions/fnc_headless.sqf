@@ -4,7 +4,7 @@
 	Description:
 		Headless perframeEH
 		
-	[{ [] call dorb_fnc_headless } , 30, [] ] call CBA_fnc_addPerFrameHandler;
+	[{ [] call EFUNC(common,headless) } , 30, [] ] call CBA_fnc_addPerFrameHandler;
 	
 	
 */

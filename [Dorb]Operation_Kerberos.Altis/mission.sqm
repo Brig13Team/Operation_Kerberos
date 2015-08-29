@@ -917,7 +917,7 @@ class Mission
 					player="PLAYER COMMANDER";
 					leader=1;
 					skill=0.60000002;
-					init="this setVariable [""DORB_INGENIEUR"",true,true];";
+					init="this setVariable ['DORB_INGENIEUR',true,true];";
 					description="Logistiker (Pilot)";
 					syncId=11;
 					synchronizations[]={14};
@@ -931,7 +931,7 @@ class Mission
 					vehicle="B_Helipilot_F";
 					player="PLAY CDG";
 					skill=0.60000002;
-					init="this setVariable [""DORB_INGENIEUR"",true,true];";
+					init="this setVariable ['DORB_INGENIEUR',true,true];";
 					description="Logistiker (Pilot)";
 				};
 				class Item2
@@ -943,7 +943,7 @@ class Mission
 					vehicle="B_engineer_F";
 					player="PLAY CDG";
 					skill=0.60000002;
-					init="this setVariable [""DORB_INGENIEUR"",true,true];";
+					init="this setVariable ['DORB_INGENIEUR',true,true];";
 					description="Logistiker (Ingenieur)";
 				};
 				class Item3
@@ -955,7 +955,7 @@ class Mission
 					vehicle="B_engineer_F";
 					player="PLAY CDG";
 					skill=0.60000002;
-					init="this setVariable [""DORB_INGENIEUR"",true,true];";
+					init="this setVariable ['DORB_INGENIEUR',true,true];";
 					description="Logistiker (Ingenieur)";
 				};
 			};
@@ -3038,7 +3038,7 @@ class Mission
 			vehicle="Land_Pallet_MilBoxes_F";
 			skill=0.60000002;
 			text="ammo1_3";
-			init="this allowDamage false;this setVariable ['R3F_LOG_disabled', true]; this call dorb_fnc_addArsenal;";
+			init="this allowDamage false;this setVariable ['R3F_LOG_disabled', true]; this call dorb_player_fnc_addArsenal;";
 		};
 		class Item56
 		{
@@ -3382,7 +3382,7 @@ class Mission
 			vehicle="Land_Pallet_MilBoxes_F";
 			skill=0.60000002;
 			text="ammo1_3_1";
-			init="this allowDamage false;this setVariable ['R3F_LOG_disabled', true]; this call dorb_fnc_addArsenal;";
+			init="this allowDamage false;this setVariable ['R3F_LOG_disabled', true]; this call dorb_player_fnc_addArsenal;";
 		};
 		class Item90
 		{
@@ -3393,7 +3393,7 @@ class Mission
 			vehicle="Land_Pallet_MilBoxes_F";
 			skill=0.60000002;
 			text="ammo1_3_1_1";
-			init="this allowDamage false;this setVariable ['R3F_LOG_disabled', true]; this call dorb_fnc_addArsenal;";
+			init="this allowDamage false;this setVariable ['R3F_LOG_disabled', true]; this call dorb_player_fnc_addArsenal;";
 		};
 		class Item91
 		{
@@ -3404,7 +3404,7 @@ class Mission
 			vehicle="Land_Pallet_MilBoxes_F";
 			skill=0.60000002;
 			text="ammo1_3_1_2";
-			init="this allowDamage false;this setVariable ['R3F_LOG_disabled', true]; this call dorb_fnc_addArsenal;";
+			init="this allowDamage false;this setVariable ['R3F_LOG_disabled', true]; this call dorb_player_fnc_addArsenal;";
 		};
 		class Item92
 		{
@@ -3415,7 +3415,7 @@ class Mission
 			vehicle="Land_Pallet_MilBoxes_F";
 			skill=0.60000002;
 			text="ammo1_3_1_3";
-			init="this allowDamage false;this setVariable ['R3F_LOG_disabled', true]; this call dorb_fnc_addArsenal;";
+			init="this allowDamage false;this setVariable ['R3F_LOG_disabled', true]; this call dorb_player_fnc_addArsenal;";
 		};
 		class Item93
 		{
@@ -3426,7 +3426,7 @@ class Mission
 			vehicle="Land_Pallet_MilBoxes_F";
 			skill=0.60000002;
 			text="ammo1_3_2";
-			init="this allowDamage false;this setVariable ['R3F_LOG_disabled', true]; this call dorb_fnc_addArsenal;";
+			init="this allowDamage false;this setVariable ['R3F_LOG_disabled', true]; this call dorb_player_fnc_addArsenal;";
 		};
 		class Item94
 		{
@@ -3437,7 +3437,7 @@ class Mission
 			vehicle="Land_Pallet_MilBoxes_F";
 			skill=0.60000002;
 			text="ammo1_3_3";
-			init="this allowDamage false;this setVariable ['R3F_LOG_disabled', true]; this call dorb_fnc_addArsenal;";
+			init="this allowDamage false;this setVariable ['R3F_LOG_disabled', true]; this call dorb_player_fnc_addArsenal;";
 		};
 		class Item95
 		{
@@ -3448,7 +3448,7 @@ class Mission
 			vehicle="Land_Pallet_MilBoxes_F";
 			skill=0.60000002;
 			text="ammo1_3_4";
-			init="this enableSimulation false;this allowDamage false;this setVariable ['R3F_LOG_disabled', true]; this call dorb_fnc_addArsenal;";
+			init="this enableSimulation false;this allowDamage false;this setVariable ['R3F_LOG_disabled', true]; this call dorb_player_fnc_addArsenal;";
 		};
 		class Item96
 		{
@@ -4698,7 +4698,7 @@ class Mission
 			age="UNKNOWN";
 			text="reload";
 			name="reparaturpunkt2";
-			expActiv="_rep = [(thislist select 0),reparaturpunkt2] spawn dorb_fnc_rep;";
+			expActiv="_rep = [(thislist select 0),reparaturpunkt2] spawn dorb_common_fnc_rep;";
 			class Effects
 			{
 			};
@@ -4717,7 +4717,7 @@ class Mission
 			text="reload";
 			name="reparaturpunkt";
 			expCond="this and ((getposatl (thislist select 0)) select 2 < 1)";
-			expActiv="_rep = [(thislist select 0),reparaturpunkt] spawn dorb_fnc_rep;";
+			expActiv="_rep = [(thislist select 0),reparaturpunkt] spawn dorb_common_fnc_rep;";
 			class Effects
 			{
 			};
@@ -4736,7 +4736,7 @@ class Mission
 			text="reload";
 			name="reparaturpunkt1";
 			expCond="this and ((getposatl (thislist select 0)) select 2 < 1)";
-			expActiv="_rep = [(thislist select 0),reparaturpunkt1] spawn dorb_fnc_rep;";
+			expActiv="_rep = [(thislist select 0),reparaturpunkt1] spawn dorb_common_fnc_rep;";
 			class Effects
 			{
 			};

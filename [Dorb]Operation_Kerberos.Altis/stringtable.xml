@@ -166,16 +166,21 @@
 			<English>Large Box</English>
 		</Key>
 		<Key ID="STR_DORB_INTERFACE_CRATE_SIZE4">
+			<Original>Very Large Box</Original>
+			<German>Sehr Große Kiste</German>
+			<English>Very Large Box</English>
+		</Key>
+		<Key ID="STR_DORB_INTERFACE_CRATE_SIZE5">
 			<Original>Supply Crate</Original>
 			<German>Nachschubkiste</German>
 			<English>Supply Crate</English>
 		</Key>
-		<Key ID="STR_DORB_INTERFACE_CRATE_SIZE5">
+		<Key ID="STR_DORB_INTERFACE_CRATE_SIZE6">
 			<Original>Cargo Pallet</Original>
 			<German>Frachtpalette</German>
 			<English>Cargo Pallet</English>
 		</Key>
-		<Key ID="STR_DORB_INTERFACE_CRATE_SIZE6">
+		<Key ID="STR_DORB_INTERFACE_CRATE_SIZE7">
 			<Original>Shipping Container</Original>
 			<German>Frachtcontainer</German>
 			<English>Shipping Container</English>

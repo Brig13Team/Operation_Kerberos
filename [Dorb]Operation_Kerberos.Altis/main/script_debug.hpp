@@ -13,7 +13,7 @@ Author:
 
 #ifdef DORB_LOG
 	
-	#define CHECK(CONDITION) if (CONDITION) exitWith {LOG(FORMAT_2("CHECK-FAILED - (%1)=%2",QUOTE(CONDITION),CONDITION));};
+	#define CHECK(CONDITION) if (CONDITION) exitWith {LOG(FORMAT_2("CHECK-FAILED - %1=%2",QUOTE(CONDITION),CONDITION));};
 	
 	#define LOG(VAR) [__FILE__,__LINE__,VAR] call TRIPLES(dorb,makro,putinlog)
 	

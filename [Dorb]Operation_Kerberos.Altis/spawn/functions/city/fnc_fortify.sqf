@@ -21,7 +21,7 @@
 		8 : BOOL			- Civ Vehicles
 		
 		
-		[_position,300,dorb_side,40,15,true,true,true,true] spawn dorb_fnc_city_fortify
+		[_position,300,dorb_side,40,15,true,true,true,true] spawn EFUNC(spawn,city_fortify);
 		
 */
 #include "script_component.hpp"
