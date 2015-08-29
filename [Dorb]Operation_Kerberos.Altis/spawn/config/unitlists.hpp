@@ -42,7 +42,7 @@ class unitlists {
 	
 	class east {
 		class east_basic : base {
-			prototyp[] = {"B_MBT_01_TUSK_F","B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F","B_Heli_Attack_01_F"};
+			prototyp[] = {"B_MBT_01_TUSK_F","B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F"};
 			
 			commandoveh[] = {"rhs_gaz66_r142_vdv"};
 			commandoveh_arty[] = {"rhs_prp3_tv"};
@@ -119,7 +119,7 @@ class unitlists {
 	class resistance {
 		
 		class resistance_basic : base {
-			prototyp[] = {"B_MBT_01_TUSK_F","B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F","B_Heli_Attack_01_F"};
+			prototyp[] = {"B_MBT_01_TUSK_F","B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F"};
 			
 			commandoveh[] = {"rhs_gaz66_r142_vdv"};
 			commandoveh_arty[] = {"rhs_prp3_tv"};
