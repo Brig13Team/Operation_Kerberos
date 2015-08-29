@@ -13,7 +13,7 @@
 	
 */
 #include "script_component.hpp"
-SCRIPT(city_spawn_explosives);
+SCRIPT(spawn_explosives);
 params["_spawnposarray",["_type",0,[0]]];
 CHECK(!IS_ARRAY(_spawnposarray))
 Private["_spawnedunit","_spawnedunits","_typ","_gruppe","_dir","_position"];

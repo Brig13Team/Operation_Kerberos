@@ -15,7 +15,7 @@
 	
 */
 #include "script_component.hpp"
-SCRIPT(patrol_air);
+SCRIPT(air);
 private ["_gruppe","_units","_vehicles","_rad","_pos","_spawnpos","_einheit","_return"];
 params["_position",["_radius",1200,[0]],["_anzahl_heli",0,[0]],["_anzahl_plane",0,[0]]];
 

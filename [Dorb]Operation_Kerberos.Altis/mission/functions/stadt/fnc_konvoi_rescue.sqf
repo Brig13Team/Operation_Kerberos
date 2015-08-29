@@ -17,7 +17,7 @@
 	Trigger - Serverside with Rescue
 */
 #include "script_component.hpp"
-SCRIPT(stadt_konvoi_rescue);
+SCRIPT(konvoi_rescue);
 CHECK(!isServer)
 
 

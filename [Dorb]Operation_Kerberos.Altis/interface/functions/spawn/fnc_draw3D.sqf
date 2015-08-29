@@ -5,7 +5,7 @@
         3DIcons
 */
 #include "script_component.hpp"
-SCRIPT(spawn_draw3D);
+SCRIPT(draw3D);
 CHECK(!hasInterface)
 private["_id"];
 

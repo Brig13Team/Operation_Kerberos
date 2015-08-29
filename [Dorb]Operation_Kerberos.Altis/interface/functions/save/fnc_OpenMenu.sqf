@@ -10,7 +10,7 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(save_OpenMenu);
+SCRIPT(OpenMenu);
 #define SAVE_OK 600244
 #define SAVE_IDD	600240
 #define SAVE_LIST 600241

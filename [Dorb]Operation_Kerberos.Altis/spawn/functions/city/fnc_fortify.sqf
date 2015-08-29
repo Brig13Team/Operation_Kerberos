@@ -25,7 +25,7 @@
 		
 */
 #include "script_component.hpp"
-SCRIPT(city_fortify);
+SCRIPT(fortify);
 params[
 	["_position",[],[[]],[2,3]],
 	["_radius",300,[0]],

@@ -20,7 +20,7 @@
 	/// TO DO: make extension
 */
 #include "script_component.hpp"
-SCRIPT(city_fortify_roads);
+SCRIPT(fortify_roads);
 /// amounts: [patrols,fortifications,ieds]
 params[["_roadArray",[],[[]]],["_amounts",[0,0,0],[[],true],[3]],["_fortifications",false,[true]],["_IEDs",false,[true]],["_civVehicles",false,[true]],["_trash",false,[true]]];
 

@@ -13,7 +13,7 @@
 	BOOL - Patrol is called
 */
 #include "script_component.hpp"
-SCRIPT(city_patrol_building);
+SCRIPT(patrol_building);
 params[["_gruppe",grpNull,[grpNull]],["_position",[],[[]],[3]]];
 if ((isNull _gruppe)||(_position isEqualTo [])) exitWith {false};
 

@@ -13,7 +13,7 @@
 		
 */
 #include "script_component.hpp"
-SCRIPT(obj_stadt_rescue_pow);
+SCRIPT(rescue_pow);
 CHECK(!isServer)
 PARAMS_3(_ort,_position,_task);
 private["_position_rescue","_pow"];

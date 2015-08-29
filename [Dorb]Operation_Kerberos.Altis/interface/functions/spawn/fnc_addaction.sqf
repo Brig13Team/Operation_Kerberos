@@ -5,7 +5,7 @@
         adds Action to spawn
 */
 #include "script_component.hpp"
-SCRIPT(spawn_addaction);
+SCRIPT(addaction);
 CHECK(!hasInterface)
 
 //////FAHRZEUGSPAWNS

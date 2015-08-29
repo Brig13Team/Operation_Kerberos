@@ -9,7 +9,7 @@
 	
 */
 #include "script_component.hpp"
-SCRIPT(fdc_register);
+SCRIPT(register);
 
 If (isNil "DORB_FDC_LOGIC") then {
 	[] call FUNC(fdc_init);

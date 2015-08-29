@@ -12,7 +12,7 @@
 		ARRAY -	[Position,Direction,Roadtyp] // Roadtyp (Mainroad=2;Road=1,small=0)
 */
 #include "script_component.hpp"
-SCRIPT(city_roads);
+SCRIPT(roads);
 Private["_position","_radius","_temp","_getroadarray","_roadlist_formatted","_roadlist_unformatted"];
 
 _position = [_this,0,[],[[]],[2,3]] call BIS_fnc_Param;

@@ -14,7 +14,7 @@
 	BOOL
 */
 #include "script_component.hpp"
-SCRIPT(attack_airdrop);
+SCRIPT(airdrop);
 CHECK(!isServer)
 
 private ["_spawnpos","_dir","_einheit","_transporter","_jaeger_gruppe","_jaeger","_platzanzahl"];

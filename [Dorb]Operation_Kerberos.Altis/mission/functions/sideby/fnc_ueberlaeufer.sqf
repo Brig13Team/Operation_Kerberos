@@ -15,7 +15,7 @@
 */
 #include "script_component.hpp"
 
-SCRIPT(obj_sideby_ueberlaeufer);
+SCRIPT(ueberlaeufer);
 
 private ["_position", "_task_array", "_dest", "_ziel", "_zielPos", "_buildings", "_kleidung", "_description", "_fnc_conter", "_temp"];
 

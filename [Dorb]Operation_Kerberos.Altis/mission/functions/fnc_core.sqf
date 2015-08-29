@@ -59,7 +59,7 @@ If ((_markerpos distance [0,0,0])>1) then {
 /// Diag
 /*
 [] spawn {
-	SCRIPT(CORE_DIAG);
+	SCRIPTIN(core,performance);
 	while {true} do {
 	For "_i" from 0 to 4 do {
 		[false,false] call EFUNC(main,debug_performance);

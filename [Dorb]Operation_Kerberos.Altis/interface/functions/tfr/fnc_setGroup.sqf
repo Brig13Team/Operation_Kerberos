@@ -6,7 +6,7 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(tfr_setGroup);
+SCRIPT(setGroup);
 private["_sel","_sr","_lr","_dd"];
 
 if (leader group player != player) exitWith {hint localize LSTRING(TFR_NOLEADER);};

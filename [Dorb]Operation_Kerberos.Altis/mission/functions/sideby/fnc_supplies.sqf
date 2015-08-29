@@ -10,7 +10,7 @@
 */
 #include "script_component.hpp"
 
-SCRIPT(obj_sideby_supplies);
+SCRIPT(supplies);
 
 private ["_dest", "_task_array", "_dest_name", "_dest_radius", "_base", "_crate", "_description", "_counter", "_i", "_sol", "_civ", "_inf", "_infw", "_civs", "_fnc_barricades", "_temp"];
 

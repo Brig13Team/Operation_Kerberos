@@ -7,7 +7,7 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(crate_onLoad);
+SCRIPT(onLoad);
 private["_ctrl"];
 disableSerialization;
 

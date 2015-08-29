@@ -7,7 +7,7 @@
 	
 */
 #include "script_component.hpp"
-SCRIPT(backpack_change);
+SCRIPT(change);
 private ["_backpack","_isHalo"];
 player forceWalk true;
 _backpack = (GETVAR(player,GVAR(backpack_pack),objNull));

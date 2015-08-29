@@ -6,7 +6,7 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(crate_mass);
+SCRIPT(mass);
 PARAMS_2(_mode,_param);
 switch (_mode) do {
     case "check" : {

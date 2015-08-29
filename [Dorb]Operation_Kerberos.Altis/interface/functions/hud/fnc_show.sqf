@@ -9,7 +9,7 @@
 	
 */
 #include "script_component.hpp"
-SCRIPT(hud_show);
+SCRIPT(show);
 (_this select 0) params["_plane"];
 /// exit if player isn't pilot or gunner
 If (!((toLower((assignedVehicleRole player)select 0)) in ["driver","turret"])) exitWith {};

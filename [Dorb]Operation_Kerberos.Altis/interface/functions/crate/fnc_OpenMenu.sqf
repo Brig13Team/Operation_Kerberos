@@ -6,7 +6,7 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(crate_OpenMenu);
+SCRIPT(OpenMenu);
 [] call FUNC(crate_createlists);
 
 if (isnil QGVAR(crate_current)) then {

@@ -6,7 +6,7 @@
 		
 */
 #include "script_component.hpp"
-SCRIPT(fdc_defend_artypos);
+SCRIPT(defend_artypos);
 
 If (isNil "DORB_FDC_LOGIC") exitwith{
 	[_this select 1] call CBA_fnc_removePerFrameHandler;

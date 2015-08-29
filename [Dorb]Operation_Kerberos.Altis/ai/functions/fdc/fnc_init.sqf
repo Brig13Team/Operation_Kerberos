@@ -10,7 +10,7 @@
 */
 #define DEBUG_ENABLED_TEST
 #include "script_component.hpp"
-SCRIPT(fdc_init);
+SCRIPT(init);
 
 #define INTERVALL_FDC 120
 #define INTERVALL_SEARCH 400

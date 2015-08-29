@@ -12,7 +12,7 @@
 #define FRAMES 15
 
 
-SCRIPT(hud_init);
+SCRIPT(init);
 CHECK(!hasInterface)
 GVAR(hud_eh) = -1;
 [

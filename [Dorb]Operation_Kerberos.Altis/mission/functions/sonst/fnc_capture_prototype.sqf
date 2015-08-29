@@ -15,7 +15,7 @@
 	BOOL
 */
 #include "script_component.hpp"
-SCRIPT(sonst_capture_prototype);
+SCRIPT(capture_prototype);
 CHECK(!isServer)
 
 LOG(FORMAT_1("Get Prototyp \n this=%1",_this));

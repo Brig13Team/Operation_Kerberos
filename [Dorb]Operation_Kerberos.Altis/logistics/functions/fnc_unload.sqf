@@ -55,7 +55,7 @@ _vehicle_mass = getMass _vehicle;
 SETVAR(player,GVAR(isloading),false);
 if ([_vehicle] call FUNC(log_candrop)) then {
 	[(_last_cargo select 0),_vehicle] spawn {
-		SCRIPT(paradrop_INTERN);
+		SCRIPTIN(unload,paradrop);
 		params["_cargo","_vehicle"];
 		private ["_time","_para","_velocity"];
 		_time = diag_ticktime;

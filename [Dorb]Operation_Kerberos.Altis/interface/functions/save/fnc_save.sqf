@@ -8,7 +8,7 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(save_save);
+SCRIPT(save);
 #define SAVE_IDD	600240
 #define SAVE_LIST 600241
 #define SAVE_EDIT 600245

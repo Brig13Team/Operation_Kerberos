@@ -40,7 +40,7 @@ ISNILS(EGVAR(mission,fnc),[]);
 [] spawn EFUNC(interface,disp_timer);
 /*
 [] spawn {
-	SCRIPT(PLAYER_DIAG);
+	SCRIPTIN(initplayerlocal,performance);
 	while {true} do {
 		[false,false] call FUNC(debug_performance);
 		uisleep 60;

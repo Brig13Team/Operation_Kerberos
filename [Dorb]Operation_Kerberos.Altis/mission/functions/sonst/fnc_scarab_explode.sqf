@@ -1,4 +1,6 @@
-scriptname "dorb\mission\sonst_Scarab_explode";
+#include "script_component.hpp"
+SCRIPT(scarab_explode);
+
 private["_yield","_radius"];
 params["_pos"];
 

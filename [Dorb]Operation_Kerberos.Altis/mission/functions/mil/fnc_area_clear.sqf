@@ -14,7 +14,7 @@
 		None
 */
 #include "script_component.hpp"
-SCRIPT(obj_mil_clear);
+SCRIPT(clear);
 CHECK(!isServer)
 
 private["_radius","_list","_difficulty"];

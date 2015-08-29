@@ -9,7 +9,7 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(spawn_select);
+SCRIPT(select);
 #define dlg_veh_spawn_idd 600100
 #define dlg_veh_spawn_list_idc 600102
 #define dlg_veh_spawn_vehname_idc 600103

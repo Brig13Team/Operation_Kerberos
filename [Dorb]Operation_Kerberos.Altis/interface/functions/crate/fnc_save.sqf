@@ -7,7 +7,7 @@
 	
 */
 #include "script_component.hpp"
-SCRIPT(crate_save);
+SCRIPT(save);
 CHECK(!hasInterface)
 params[["_isSave",true,[true]]];
 private["_return"];

@@ -15,7 +15,7 @@
 	ARRAY - spawned Units
 */
 #include "script_component.hpp"
-SCRIPT(city_spawn_static);
+SCRIPT(spawn_static);
 params["_spawnposarray",["_side",dorb_side,[east]],["_unitarray",dorb_staticlist,[]]];
 CHECK(!IS_ARRAY(_spawnposarray))
 Private["_spawnedunit","_spawnedunits","_typ","_gruppe","_dir","_position"];

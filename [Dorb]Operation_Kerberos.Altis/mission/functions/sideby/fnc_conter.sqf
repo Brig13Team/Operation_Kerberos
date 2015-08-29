@@ -15,7 +15,7 @@
 */
 #include "script_component.hpp"
 
-SCRIPT(obj_sideby_conter);
+SCRIPT(conter);
 
 private ["_type", "_position", "_task", "_args", "_vehicle", "_inf", "_infc", "_veh", "_group", "_unit", "_i"];
 

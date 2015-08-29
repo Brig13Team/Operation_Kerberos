@@ -1,5 +1,6 @@
+#include "script_component.hpp"
+SCRIPT(scarab_launch);
 
-scriptname "dorb\mission\scarab_launch";
 private["_dir","_zielpos"];
 params["_abschussrampe"];
 

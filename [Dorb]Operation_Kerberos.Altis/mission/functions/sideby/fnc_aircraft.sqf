@@ -13,7 +13,7 @@
 #define ATTACH_POINT [0,0,-0.1]
 #define ANIM_TIME 1.1
 
-SCRIPT(obj_sideby_aircraft);
+SCRIPT(aircraft);
 
 params [["_args",[],[[]]],["_mode","", [""]]];
 

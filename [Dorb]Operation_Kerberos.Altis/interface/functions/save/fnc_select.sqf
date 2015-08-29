@@ -9,7 +9,7 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(save_select);
+SCRIPT(select);
 #define SAVE_IDD	600240
 #define SAVE_LIST 600241
 #define SAVE_EDIT 600245

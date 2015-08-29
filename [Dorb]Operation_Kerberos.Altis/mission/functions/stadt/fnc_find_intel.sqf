@@ -15,7 +15,7 @@
 	BOOL
 */
 #include "script_component.hpp"
-SCRIPT(stadt_find_intel);
+SCRIPT(find_intel);
 CHECK(!isServer)
 
 

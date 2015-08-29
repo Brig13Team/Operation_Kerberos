@@ -10,7 +10,7 @@
 */
 
 #include "script_component.hpp"
-SCRIPT(fdc_register);
+SCRIPT(placeOrder);
 
 If (isNil "DORB_FDC_LOGIC") exitWith {false};
 

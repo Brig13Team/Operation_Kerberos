@@ -17,7 +17,7 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(patrol_inf);
+SCRIPT(inf);
 private ["_gruppe","_units"];
 params["_position",["_radius",1200,[0]],["_anzahl_inf",0,[0]],["_anzahl_spec",0,[0]]];
 

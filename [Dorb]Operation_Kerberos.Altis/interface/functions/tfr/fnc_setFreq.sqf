@@ -6,7 +6,7 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(tfr_setFreq);
+SCRIPT(setFreq);
 private["_sr","_lr"];
 _sr = parseNumber (ctrlText 700202);
 _lr = parseNumber (ctrlText 700203);

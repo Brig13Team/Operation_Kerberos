@@ -10,7 +10,7 @@
 	
 */
 #include "script_component.hpp"
-SCRIPT(backpack_change);
+SCRIPT(change);
 params[["_movetoChest",false,[true]]];
 CHECK((_movetoChest)&&((backpack player) isEqualTo ""))
 

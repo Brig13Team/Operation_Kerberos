@@ -14,7 +14,7 @@
 	BOOL
 */
 #include "script_component.hpp"
-SCRIPT(sonst_destroy_device);
+SCRIPT(destroy_device);
 CHECK(!isServer)
 
 LOG(FORMAT_1("Destroy Device \n this=%1",_this));

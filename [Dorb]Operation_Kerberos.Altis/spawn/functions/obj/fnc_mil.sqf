@@ -9,7 +9,7 @@
 		
 */
 #include "script_component.hpp"
-SCRIPT(obj_mil);
+SCRIPT(mil);
 private["_position","_difficulty","_spawnposition","_rand"];
 PARAMS_1(_position);
 _difficulty = [] call EFUNC(mission,dyn_difficulty);

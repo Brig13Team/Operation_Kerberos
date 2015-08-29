@@ -6,7 +6,7 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(teleport_lead);
+SCRIPT(lead);
 PARAMS_2(_host,_caller);
 private["_position","_platzanzahl","_nearestEnemy"];
 _position = [];

@@ -10,7 +10,7 @@
 */
 #define DEBUG_ENABLED_TEST
 #include "script_component.hpp"
-SCRIPT(spawn_commander_callArty);
+SCRIPT(callArty);
 params["_attack_pos",["_count",3,[0]]];
 private["_artilleries","_shell","_rand"];
 _artilleries = GETVAR(GVAR(commander_logic),GVAR(commander_artillerie),[]);

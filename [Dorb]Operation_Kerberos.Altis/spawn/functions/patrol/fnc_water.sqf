@@ -16,7 +16,7 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(patrol_water);
+SCRIPT(water);
 private ["_amountOfWater","_patrol","_vehicles", "_objects"];
 params["_position",["_radius",1200,[0]],["_anzahl_boats",0,[0]],["_anzahl_diver",0,[0]]];
 _objects = [];

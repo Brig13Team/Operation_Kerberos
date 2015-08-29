@@ -6,7 +6,7 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(crate_spawn);
+SCRIPT(spawn);
 private["_check_radius","_spawnpos","_padempty","_box","_boxtyp","_items","_anzahl","_name"];
 /// Clear Pad
 

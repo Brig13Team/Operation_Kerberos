@@ -78,8 +78,46 @@ Author:
     Dorbedo
 ------------------------------------------- */
 #define TILGE call TRIPLES(dorb,makro,delete)
+/* -------------------------------------------
+Macro: SCRIPT(VAR)
+   Sets name of script
+   Overrides CBA "SCRIPT"
+Parameters:
+    NAME - Name of script [Indentifier]
 
+Example:
+    (begin example)
+        SCRIPT(boom);
+    (end)
+	
+Author:
+    Dorbedo
+------------------------------------------- */
+#ifdef PART
+	#define SCRIPT(NAME) scriptName 'PREFIX\COMPONENT\PART\NAME'
+#else
+	#define SCRIPT(NAME) scriptName 'PREFIX\COMPONENT\NAME'
+#endif
 
+/* -------------------------------------------
+Macro: SCRIPTIN(VAR)
+   Sets name of an inner script
+Parameters:
+    NAME - Name of script [Indentifier]
+
+Example:
+    (begin example)
+        SCRIPTIN(boom);
+    (end)
+	
+Author:
+    Dorbedo
+------------------------------------------- */
+#ifdef PART
+	#define SCRIPTIN(NAME,NAME2) scriptName 'PREFIX\COMPONENT\PART\NAME_NAME2'
+#else
+	#define SCRIPTIN(NAME,NAME2) scriptName 'PREFIX\COMPONENT\NAME_NAME2'
+#endif
 
 
 #define PATHTO_SYS_LONG(var1,var2,var3,var4) ##var1\##var2\##var3\##var4.sqf

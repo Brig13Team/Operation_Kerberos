@@ -9,7 +9,7 @@
 	
 */
 #include "script_component.hpp"
-SCRIPT(hud_getimpact);
+SCRIPT(getimpact);
 
 #define ITERATIONS 400
 #define RESOLUTION 0.01

@@ -10,7 +10,7 @@
 */
 #include "script_component.hpp"
 
-SCRIPT(obj_sideby_sdv);
+SCRIPT(sdv);
 
 private ["_position", "_pos", "_rescue_point", "_task_array", "_sdv", "_radius", "_description", "_depth", "_temp"];
 

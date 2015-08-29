@@ -14,7 +14,7 @@
 	BOOL
 */
 #include "script_component.hpp"
-SCRIPT(attack_air);
+SCRIPT(air);
 CHECK(!isServer)
 
 private ["_gruppe","_units","_rand"];

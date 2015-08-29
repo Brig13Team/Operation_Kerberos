@@ -15,7 +15,7 @@
 	BOOL
 */
 #include "script_component.hpp"
-SCRIPT(sonst_Scarab);
+SCRIPT(Scarab);
 
 CHECK(!isServer)
 LOG(FORMAT_1("SCARAB \n this=%1",_this));

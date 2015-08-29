@@ -11,7 +11,7 @@
 */
 #include "script_component.hpp"
 CHECK(true)
-SCRIPT(obj_sideby_chooseMission);
+SCRIPT(chooseMission);
 
 private ["_aufgabe", "_aufgaben", "_zeit", "_wichtung", "_position", "_positionen", "_locationName", "_location", "_task", "_side_task", "_task_array", "_basisPosition"];
 

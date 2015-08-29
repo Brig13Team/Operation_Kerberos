@@ -14,7 +14,7 @@
 	
 */
 #include "script_component.hpp"
-SCRIPT(patrol_veh);
+SCRIPT(veh);
 private ["_gruppe","_units","_rand"];
 params["_position",["_radius",1200,[0]],["_anzahl_leicht",0,[0]],["_anzahl_schwer",0,[0]]];
 
