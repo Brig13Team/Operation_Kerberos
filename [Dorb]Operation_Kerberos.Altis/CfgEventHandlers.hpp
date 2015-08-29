@@ -1,7 +1,7 @@
-
+#include "script_component.hpp"
 
 class Extended_PreInit_EventHandlers {
-    class Dorb_Preinit {
+    class ADDON {
         init = "call compile preProcessFileLineNumbers 'XEH_PreInit.sqf'";
     };
 };
