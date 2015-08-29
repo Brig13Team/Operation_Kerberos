@@ -14,7 +14,7 @@
 SCRIPT(log_load);
 
 params["_group","_position","_unit","_turret"];
-
+CHECK(!isPlayer)
 if (!(((_turret isEqualTo [0]) || (_position == "driver")))) exitWith {};
 
 #ifdef DORB_PILOT_WHITELIST_ENABLED
