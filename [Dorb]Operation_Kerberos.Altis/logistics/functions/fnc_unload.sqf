@@ -53,7 +53,7 @@ _vehicle_mass = getMass _vehicle;
 (_last_cargo select 0) setDir (getDir _vehicle);
 
 SETVAR(player,GVAR(isloading),false);
-if ([_vehicle] call FUNC(candrop)) then {
+if ([_vehicle,false] call FUNC(candrop)) then {
 	[(_last_cargo select 0),_vehicle] spawn {
 		SCRIPTIN(unload,paradrop);
 		params["_cargo","_vehicle"];

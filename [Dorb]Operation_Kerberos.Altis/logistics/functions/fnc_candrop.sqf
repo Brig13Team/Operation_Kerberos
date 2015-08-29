@@ -13,15 +13,14 @@
 #include "script_component.hpp"
 SCRIPT(candrop);
 
+params["_target",["_isAceAction",true,[true]]];
 if (player getVariable [QGVAR(isloading),false]) exitWith { false };
-
-PARAMS_1(_target);
 private["_logistic_stack"];
 
 _logistic_stack = _target getVariable [QGVAR(stack),[]];
-If ((_logistic_stack isEqualTo [])||(vehicle player != _target)) exitWith {false};
+If (((_logistic_stack isEqualTo [])||(vehicle player != _target))&&(_isAceAction)) exitWith {false};
 
-If (!((driver _target)==player)) exitWith {false};
+If ((!((driver _target)==player))&&(_isAceAction)) exitWith {false};
 
 _velocity = velocity _target;
 

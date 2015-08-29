@@ -29,7 +29,7 @@ _load_point_offset = getArray(missionConfigFile >> "logistics" >> "vehicles" >> 
 If (!(_max_width>0)) exitWith {false};
 
 _load_point = _target modelToWorld _load_point_offset;
-_nearObjects = nearestObjects[_load_point, ["AllVehicles","ThingX"], 1.5];
+_nearObjects = nearestObjects[_load_point, ["AllVehicles","ThingX"], 2];
 private "_cargo_class";
 _cargo_class = "";
 {
