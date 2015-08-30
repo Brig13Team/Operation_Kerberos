@@ -18,7 +18,7 @@ _spawnposition = _spawnposition findEmptyPosition [1,15,_einheit];				//// to do
 CHECK(_spawnposition isEqualTo [])
 _dir = floor(random 360);
 
-_return = [_spawnposition,_dir,_einheit,dorb_side] call BIS_fnc_spawnVehicle;
+_return = [_spawnposition,_dir,_einheit,GVARMAIN(side)] call BIS_fnc_spawnVehicle;
 
 for "_i" from 0 to 3 do {
 	_pos = [_spawnposition,3,(_dir + 90*_i)]call BIS_fnc_relPos;

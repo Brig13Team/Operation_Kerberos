@@ -26,20 +26,20 @@ If (_rand < 1) then {
 };
 private "_path";
 switch (_rand) do {
-	case 1: {dorb_side = east;_path = (missionConfigFile >> "unitlists" >> "east" >> "vdv");};
-	case 2: {dorb_side = east;_path = (missionConfigFile >> "unitlists" >> "east" >> "vdv_flora");};
-	case 3: {dorb_side = east;_path = (missionConfigFile >> "unitlists" >> "east" >> "vdv_mflora");};
-	case 4: {dorb_side = east;_path = (missionConfigFile >> "unitlists" >> "east" >> "msv");};
-	case 5: {dorb_side = east;_path = (missionConfigFile >> "unitlists" >> "east" >> "msv_emr");};
+	case 1: {GVARMAIN(side) = east;_path = (missionConfigFile >> "unitlists" >> "east" >> "vdv");};
+	case 2: {GVARMAIN(side) = east;_path = (missionConfigFile >> "unitlists" >> "east" >> "vdv_flora");};
+	case 3: {GVARMAIN(side) = east;_path = (missionConfigFile >> "unitlists" >> "east" >> "vdv_mflora");};
+	case 4: {GVARMAIN(side) = east;_path = (missionConfigFile >> "unitlists" >> "east" >> "msv");};
+	case 5: {GVARMAIN(side) = east;_path = (missionConfigFile >> "unitlists" >> "east" >> "msv_emr");};
 	
-	case 50: {dorb_side = resistance;_path = (missionConfigFile >> "unitlists" >> "resistance" >> "LOP_AFR");};
+	case 50: {GVARMAIN(side) = resistance;_path = (missionConfigFile >> "unitlists" >> "resistance" >> "LOP_AFR");};
 	
-	case 100: {dorb_side = west;_path = (missionConfigFile >> "unitlists" >> "west" >> "US_Army_desert");};
-	case 101: {dorb_side = west;_path = (missionConfigFile >> "unitlists" >> "west" >> "US_Army_woodland");};
-	case 102: {dorb_side = west;_path = (missionConfigFile >> "unitlists" >> "west" >> "USMC_desert");};
-	case 103: {dorb_side = west;_path = (missionConfigFile >> "unitlists" >> "west" >> "USMC_woodland");};
-	case 104: {dorb_side = west;_path = (missionConfigFile >> "unitlists" >> "west" >> "BWA3_tropen");};
-	case 105: {dorb_side = west;_path = (missionConfigFile >> "unitlists" >> "west" >> "BWA3_fleck");};
+	case 100: {GVARMAIN(side) = west;_path = (missionConfigFile >> "unitlists" >> "west" >> "US_Army_desert");};
+	case 101: {GVARMAIN(side) = west;_path = (missionConfigFile >> "unitlists" >> "west" >> "US_Army_woodland");};
+	case 102: {GVARMAIN(side) = west;_path = (missionConfigFile >> "unitlists" >> "west" >> "USMC_desert");};
+	case 103: {GVARMAIN(side) = west;_path = (missionConfigFile >> "unitlists" >> "west" >> "USMC_woodland");};
+	case 104: {GVARMAIN(side) = west;_path = (missionConfigFile >> "unitlists" >> "west" >> "BWA3_tropen");};
+	case 105: {GVARMAIN(side) = west;_path = (missionConfigFile >> "unitlists" >> "west" >> "BWA3_fleck");};
 };
 
 private["_dorb_grouplist_inf","_dorb_grouplist_mech","_dorb_grouplist_sf","_dorb_grouplist_panz"];
@@ -112,10 +112,10 @@ dorb_radar = getArray(_path >> "commandoveh_radar");
 
 ISNILS(EGVAR(main,mods_rds),false);
 If (EGVAR(main,mods_rds)) then {
-	dorb_staticlist_aa = getArray(missionConfigFile >> "unitlists" >> "mods" >> "rds" >> format["rds_%1",dorb_side] >> "static_aa");
-	dorb_staticlist = dorb_staticlist append ( getArray(missionConfigFile >> "unitlists" >> "mods" >> "rds" >> format["rds_%1",dorb_side] >> "static") );
-	dorb_veh_arty = getArray(missionConfigFile >> "unitlists" >> "mods" >> "rds" >> format["rds_%1",dorb_side] >> "static_arty");
-	dorb_veh_mortar = getArray(missionConfigFile >> "unitlists" >> "mods" >> "rds" >> format["rds_%1",dorb_side] >> "veh_mortar");
+	dorb_staticlist_aa = getArray(missionConfigFile >> "unitlists" >> "mods" >> "rds" >> format["rds_%1",GVARMAIN(side)] >> "static_aa");
+	dorb_staticlist = dorb_staticlist append ( getArray(missionConfigFile >> "unitlists" >> "mods" >> "rds" >> format["rds_%1",GVARMAIN(side)] >> "static") );
+	dorb_veh_arty = getArray(missionConfigFile >> "unitlists" >> "mods" >> "rds" >> format["rds_%1",GVARMAIN(side)] >> "static_arty");
+	dorb_veh_mortar = getArray(missionConfigFile >> "unitlists" >> "mods" >> "rds" >> format["rds_%1",GVARMAIN(side)] >> "veh_mortar");
 };
 
-LOG_2(_rand,dorb_side);
+LOG_2(_rand,GVARMAIN(side));

@@ -26,8 +26,8 @@ for "_i" from 0 to _anzahl_heli do {
 	_pos = [_position,_radius,0] call EFUNC(common,random_pos);
 	_spawnpos = [(_pos select 0),(_pos select 1),400];
 	_einheit = dorb_attack_heli_list SELRND;
-	LOG_3(_spawnpos,_einheit,dorb_side);
-	_return = [_spawnpos,(random(360)),_einheit,dorb_side] call BIS_fnc_spawnVehicle;
+	LOG_3(_spawnpos,_einheit,GVARMAIN(side));
+	_return = [_spawnpos,(random(360)),_einheit,GVARMAIN(side)] call BIS_fnc_spawnVehicle;
 	_vehicles pushBack (_return select 0);
 	[(_return select 2), (getPos (_return select 0)), _rad, 7, "MOVE", "AWARE", "RED", "NORMAL", "STAG COLUMN", "", [300,400,500]] call CBA_fnc_taskPatrol;
 };
@@ -37,8 +37,8 @@ for "_i" from 0 to _anzahl_plane do {
 	_pos = [_position,_radius,0] call EFUNC(common,random_pos);
 	_spawnpos = [(_pos select 0),(_pos select 1),400];
 	_einheit = dorb_patrol_air_list SELRND;
-	LOG_3(_spawnpos,_einheit,dorb_side);
-	_return = [_spawnpos,(random(360)),_einheit,dorb_side] call BIS_fnc_spawnVehicle;
+	LOG_3(_spawnpos,_einheit,GVARMAIN(side));
+	_return = [_spawnpos,(random(360)),_einheit,GVARMAIN(side)] call BIS_fnc_spawnVehicle;
 	_vehicles pushBack (_return select 0);
 	[(_return select 2), (getPos (_return select 0)), _rad, 7, "MOVE", "AWARE", "RED", "NORMAL", "STAG COLUMN", "", [300,400,500]] call CBA_fnc_taskPatrol;
 };

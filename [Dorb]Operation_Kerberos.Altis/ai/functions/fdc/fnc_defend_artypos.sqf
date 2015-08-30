@@ -8,7 +8,7 @@
 #include "script_component.hpp"
 SCRIPT(defend_artypos);
 
-If (isNil "DORB_FDC_LOGIC") exitwith{
+If (isNil QGVAR(fdc_logic)) exitwith{
 	[_this select 1] call CBA_fnc_removePerFrameHandler;
 };
 
@@ -27,22 +27,22 @@ _searchArea = {
 	If ((_targetpos distance _unit)>_min) exitwith {
 		_newcommands pushBack [_targetpos,_type,3];
 	};
-	If (!((GETVAR(DORB_FDC_LOGIC,DORB_FDC_ROCKET,[]))isEqualTo [])) exitwith {
+	If (!((GETVAR(GVAR(fdc_logic),GVAR(fdc_rocket),[]))isEqualTo [])) exitwith {
 		_newcommands pushBack [_targetpos,_type,3];
 	};
-	If (!((GETVAR(DORB_FDC_LOGIC,DORB_FDC_ARTILLERIES,[]))isEqualTo [])) exitwith {
+	If (!((GETVAR(GVAR(fdc_logic),GVAR(fdc_artilleries),[]))isEqualTo [])) exitwith {
 		_newcommands pushBack [_targetpos,_type,3];
 	};
-	If (!((GETVAR(DORB_FDC_LOGIC,DORB_FDC_MORTARS,[]))isEqualTo [])) exitwith {
+	If (!((GETVAR(GVAR(fdc_logic),GVAR(fdc_mortars),[]))isEqualTo [])) exitwith {
 		_newcommands pushBack [_targetpos,_type,3];
 	};
 };
 
 
 private["_mortars","_artilleries","_rocket"];
-_mortars = GETVAR(DORB_FDC_LOGIC,DORB_FDC_MORTARS,[]);
-_artilleries = GETVAR(DORB_FDC_LOGIC,DORB_FDC_ARTILLERIES,[]);
-_rocket = GETVAR(DORB_FDC_LOGIC,DORB_FDC_ROCKET,[]);
+_mortars = GETVAR(GVAR(fdc_logic),GVAR(fdc_mortars),[]);
+_artilleries = GETVAR(GVAR(fdc_logic),GVAR(fdc_artilleries),[]);
+_rocket = GETVAR(GVAR(fdc_logic),GVAR(fdc_rocket),[]);
 
 If ((_mortars isEqualTo [])&&(_artilleries isEqualTo [])&&(_rocket isEqualTo [])) exitwith {
 	[_this select 1] call CBA_fnc_removePerFrameHandler;

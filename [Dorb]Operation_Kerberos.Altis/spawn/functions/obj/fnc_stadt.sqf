@@ -81,7 +81,7 @@ _count_light = floor(_count_light * _multi);
 _count_tanks = floor(_count_tanks * _multi);
 
 
-[_position,_radius,dorb_side,_units,_static,true,true,true,true] call FUNC(city_fortify);
+[_position,_radius,GVARMAIN(side),_units,_static,true,true,true,true] call FUNC(city_fortify);
 [_position,1500,_count_inf,_count_specops] call FUNC(patrol_inf);
 [_position,1500,_count_light,_count_tanks] call FUNC(patrol_veh);
 [_position,1500,-1,-1] call FUNC(patrol_water);

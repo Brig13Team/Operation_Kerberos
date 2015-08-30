@@ -130,7 +130,7 @@ for "_i" from 0 to _anzahl_boats do {
             _mrkr setMarkerType "n_naval";
         };
         _spawnpos set[2,0];
-        _gruppe = createGroup dorb_side;
+        _gruppe = createGroup GVARMAIN(side);
         _boat = createVehicle[_einheit,_spawnpos,[], 0, "NONE"];
         _objects pushBack _boat;
         { _objects pushBack _x; } forEach (crew _boat);
@@ -138,7 +138,7 @@ for "_i" from 0 to _anzahl_boats do {
         _vehicles pushBack _boat;
         [_gruppe, _spawnpos, _rad] call _patrol;
         
-        //_return = [_spawnpos,(random(360)),_einheit,dorb_side] call BIS_fnc_spawnVehicle;
+        //_return = [_spawnpos,(random(360)),_einheit,GVARMAIN(side)] call BIS_fnc_spawnVehicle;
         //_vehicles pushBack (_return select 0);
         //[(_return select 2), _spawnpos, _rad] call _patrol;
     };
@@ -167,7 +167,7 @@ for "_i" from 0 to _anzahl_diver do {
             _mrkr setMarkerColor "ColorRed";
             _mrkr setMarkerType "n_inf";
         };
-        _return = [_spawnpos,dorb_side,_einheiten] call BIS_fnc_spawnGroup;
+        _return = [_spawnpos,GVARMAIN(side),_einheiten] call BIS_fnc_spawnGroup;
         { _objects pushBack _x; } forEach (units _return);
         _vehicles pushBack (units _return);
         [_return, _spawnpos, _rad,-10] call _patrol;

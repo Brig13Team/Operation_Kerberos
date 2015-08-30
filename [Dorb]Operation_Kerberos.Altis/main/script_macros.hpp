@@ -135,6 +135,7 @@ Author:
 
 #define EGVAR(var1,var2) TRIPLES(PREFIX,var1,var2)
 #define QEGVAR(var1,var2) QUOTE(EGVAR(var1,var2))
+#define QGVARMAIN(var1) QUOTE(GVARMAIN(var1))
 
 #ifndef STRING_MACROS_GUARD
 #define STRING_MACROS_GUARD

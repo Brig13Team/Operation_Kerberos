@@ -12,7 +12,7 @@
 #include "script_component.hpp"
 SCRIPT(placeOrder);
 
-If (isNil "DORB_FDC_LOGIC") exitWith {false};
+If (isNil QGVAR(fdc_logic)) exitWith {false};
 
 params[["_attackpos",[],[[]],[2,3]],["_type",-1,[0]],["_amount",-1,[0]]];
 
@@ -29,21 +29,21 @@ _cancel = switch (_type) do {
 			};
 	case 0 : {
 				_shelltype = ((getArtilleryAmmo [_unit])select 0);
-				_artilleries = GETVAR(DORB_FDC_LOGIC,DORB_FDC_ARTILLERIES,[]);
+				_artilleries = GETVAR(GVAR(fdc_logic),GVAR(fdc_artilleries),[]);
 				If (_artilleries isEqualTo []) exitWith {false};
 				If (_amount < 0) then {_amount = 6;};
 				true
 			};
 	case 1 : {
 				_shelltype = ((getArtilleryAmmo [_unit])select 0);
-				_artilleries = GETVAR(DORB_FDC_LOGIC,DORB_FDC_MORTARS,[]);
+				_artilleries = GETVAR(GVAR(fdc_logic),GVAR(fdc_mortars),[]);
 				If (_artilleries isEqualTo []) exitWith {false};
 				If (_amount < 0) then {_amount = 3;};
 				true
 			};
 	case 2 : {
 				_shelltype = ((getArtilleryAmmo [_unit])select 0);
-				_artilleries = GETVAR(DORB_FDC_LOGIC,DORB_FDC_ROCKET,[]);
+				_artilleries = GETVAR(GVAR(fdc_logic),GVAR(fdc_rocket),[]);
 				If (_artilleries isEqualTo []) exitWith {false};
 				_ammo = getText(configFile>>"CfgMagazines">> _shelltype >> "ammo");
 				_submun = getText(configFile>>"CfgAmmo">>_ammo>>"submunitionAmmo");
@@ -54,9 +54,9 @@ _cancel = switch (_type) do {
 
 
 if(_cancel) exitWith {false};
-_temp = GETVAR(DORB_FDC_LOGIC,DORB_FDC_FIREMISSIONS,[]);
+_temp = GETVAR(GVAR(fdc_logic),GVAR(fdc_firemissions),[]);
 _temp pushBack [_position,_type,_shelltype,_amount];
-SETVAR(DORB_FDC_LOGIC,DORB_FDC_FIREMISSIONS,_temp);
+SETVAR(GVAR(fdc_logic),GVAR(fdc_firemissions),_temp);
 
 true
 

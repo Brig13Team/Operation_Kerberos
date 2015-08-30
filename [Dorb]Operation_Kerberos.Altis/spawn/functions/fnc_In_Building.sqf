@@ -64,10 +64,10 @@ for "_i" from 0 to (_anz) do {
 	_spawnpos = _spawnpos - [-1];
 	_spawnpos_del pushBack _position;
 	
-	_gruppe = createGroup dorb_side;
+	_gruppe = createGroup GVARMAIN(side);
 	_einheit = dorb_menlist SELRND;
 	sleep 0.2;
-	LOG_4(dorb_side,_gruppe,_einheit,_position);
+	LOG_4(GVARMAIN(side),_gruppe,_einheit,_position);
 		
 	_unit = [_position,_gruppe,_einheit] call FUNC(unit);
 	

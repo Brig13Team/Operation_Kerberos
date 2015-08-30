@@ -16,7 +16,7 @@
 */
 #include "script_component.hpp"
 SCRIPT(spawn_unit);
-params["_spawnposarray",["_side",dorb_side,[east]],["_unitarray",dorb_menlist,[]]];
+params["_spawnposarray",["_side",GVARMAIN(side),[east]],["_unitarray",dorb_menlist,[]]];
 CHECK(!IS_ARRAY(_spawnposarray))
 Private["_spawnedunit","_spawnedunits","_typ","_gruppe","_dir","_position"];
 

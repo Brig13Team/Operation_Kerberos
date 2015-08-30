@@ -34,7 +34,7 @@ for "_i" from 0 to _anzahl_inf do {
 	if (count _spawnpos < 1) then {
 		ERROR(FORMAT_1("Keine Spawnposition | %1",_spawnpos));
 	}else{
-		_return = [_spawnpos, dorb_side , _rand] call BIS_fnc_spawnGroup;
+		_return = [_spawnpos, GVARMAIN(side) , _rand] call BIS_fnc_spawnGroup;
 		_units pushBack _return;
 		_formation = ["COLUMN","STAG COLUMN","WEDGE","VEE","FILE","DIAMOND"] SELRND;
 		[_return, _spawnpos, _rad, 7, "MOVE", "AWARE", "RED", "NORMAL", _formation, "", [5,10,15]] call CBA_fnc_taskPatrol;
@@ -67,7 +67,7 @@ for "_i" from 0 to _anzahl_spec do {
 	if (count _spawnpos < 1) then {
 		ERROR(FORMAT_1("Keine Spawnposition | %1",_spawnpos));
 	}else{
-		_return = [_spawnpos, dorb_side , _rand] call BIS_fnc_spawnGroup;
+		_return = [_spawnpos, GVARMAIN(side) , _rand] call BIS_fnc_spawnGroup;
 		_units pushBack _return;
 		_formation = ["COLUMN","STAG COLUMN","WEDGE","VEE","FILE","DIAMOND"] SELRND;
 		[_return, _spawnpos, _rad, 7, "MOVE", "AWARE", "RED", "NORMAL", _formation, "", [5,10,15]] call CBA_fnc_taskPatrol;

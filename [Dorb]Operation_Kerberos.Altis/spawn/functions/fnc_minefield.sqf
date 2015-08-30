@@ -55,7 +55,7 @@ for "_i" from 0 to _anzahl do {
 
 	_explosive = createVehicle [_ammo, _pos, [], 0, "NONE"];
 	_explosive setPosATL _pos;
-	dorb_side revealMine _explosive;
+	GVARMAIN(side) revealMine _explosive;
 
 	[objNull,_explosive,_magazineClass,_triggerSpecificVars] call compile (getText (_triggerConfig >> "onPlace"));
 };

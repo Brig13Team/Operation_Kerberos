@@ -17,19 +17,19 @@ SCRIPT(init);
 
 //// Create the virtual FDC
 
-If (isNil "DORB_FDC_LOGIC") then {
+If (isNil QGVAR(fdc_logic)) then {
 	private ["_group"];
 	_group = createGroup sideLogic;
-	DORB_FDC_LOGIC = _group createUnit ["LOGIC", [0, 0, 0], [], 0, "NONE"];
+	GVAR(fdc_logic) = _group createUnit ["LOGIC", [0, 0, 0], [], 0, "NONE"];
 };
 
 
-SETVAR(DORB_FDC_LOGIC,DORB_FDC_MORTARS,[]);
-SETVAR(DORB_FDC_LOGIC,DORB_FDC_ARTILLERIES,[]);
-SETVAR(DORB_FDC_LOGIC,DORB_FDC_ROCKET,[]);
-SETVAR(DORB_FDC_LOGIC,DORB_FDC_FIREMISSIONS,[]);
-SETVAR(DORB_FDC_LOGIC,DORB_FDC_HANDLE,-1);
-SETVAR(DORB_FDC_LOGIC,DORB_FDC_HANDLE_SEARCH,-1);
+SETVAR(GVAR(fdc_logic),GVAR(fdc_mortars),[]);
+SETVAR(GVAR(fdc_logic),GVAR(fdc_artilleries),[]);
+SETVAR(GVAR(fdc_logic),GVAR(fdc_rocket),[]);
+SETVAR(GVAR(fdc_logic),GVAR(fdc_firemissions),[]);
+SETVAR(GVAR(fdc_logic),GVAR(fdc_handle),-1);
+SETVAR(GVAR(fdc_logic),GVAR(fdc_handle_search),-1);
 
 
 
@@ -41,7 +41,7 @@ _handel = [
 	INTERVALL_FDC,
 	[]
 	] call CBA_fnc_addPerFrameHandler;
-SETVAR(DORB_FDC_LOGIC,DORB_FDC_HANDLE,_handel);
+SETVAR(GVAR(fdc_logic),GVAR(fdc_handle),_handel);
 
 _handel = [
 	{
@@ -50,4 +50,4 @@ _handel = [
 	INTERVALL_SEARCH,
 	[]
 	] call CBA_fnc_addPerFrameHandler;
-SETVAR(DORB_FDC_LOGIC,DORB_FDC_HANDLE_SEARCH,_handel);
+SETVAR(GVAR(fdc_logic),GVAR(fdc_handle_search),_handel);

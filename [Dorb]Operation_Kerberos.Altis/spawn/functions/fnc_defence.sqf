@@ -9,7 +9,7 @@ SCRIPT(defence);
 Private["_pos","_group","_spawnpos","_dir","_einheit","_unit"];
 //_pos = _this select 0;
 _pos = _this;
-_group = createGroup dorb_side;
+_group = createGroup GVARMAIN(side);
 _spawnpos=[];
 _dir=(random 360);
 

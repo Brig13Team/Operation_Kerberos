@@ -39,8 +39,8 @@ for "_i" from 0 to (_anzahl_leicht) do {
 	if (count _spawnpos < 1) then {
 		ERROR(FORMAT_1("Keine Spawnposition | %1",_spawnpos));
 	}else{
-		LOG_3(_spawnpos,_einheit,dorb_side);
-		_return = [_spawnpos,(random(360)),_einheit,dorb_side] call BIS_fnc_spawnVehicle;
+		LOG_3(_spawnpos,_einheit,GVARMAIN(side));
+		_return = [_spawnpos,(random(360)),_einheit,GVARMAIN(side)] call BIS_fnc_spawnVehicle;
 		_vehicles pushBack (_return select 0);
 		[(_return select 2), (getPos (_return select 0)), _rad, 7, "MOVE", "AWARE", "RED", "NORMAL", "STAG COLUMN", "", [5,10,15]] call CBA_fnc_taskPatrol;
 		
@@ -61,8 +61,8 @@ for "_i" from 0 to (_anzahl_schwer) do {
 	if (count _spawnpos < 1) then {
 		ERROR(FORMAT_1("Keine Spawnposition | %1",_spawnpos));
 	}else{
-		LOG_3(_spawnpos,_einheit,dorb_side);
-		_return = [_spawnpos,(random(360)),_einheit,dorb_side] call BIS_fnc_spawnVehicle;
+		LOG_3(_spawnpos,_einheit,GVARMAIN(side));
+		_return = [_spawnpos,(random(360)),_einheit,GVARMAIN(side)] call BIS_fnc_spawnVehicle;
 		_vehicles pushBack (_return select 0);
 		[(_return select 2), (getPos (_return select 0)), _rad, 7, "MOVE", "AWARE", "RED", "NORMAL", "STAG COLUMN", "", [5,10,15]] call CBA_fnc_taskPatrol;
 		

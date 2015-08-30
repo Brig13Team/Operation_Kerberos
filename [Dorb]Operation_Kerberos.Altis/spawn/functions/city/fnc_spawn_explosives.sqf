@@ -53,7 +53,7 @@ For "_i" from 0 to ((count _spawnposarray)-1) do {
 	_explosive = createVehicle [_ammo, _pos, [], 0, "NONE"];
 	_explosive setPosATL _pos;
 	_explosive setDir _dir;
-	dorb_side revealMine _explosive;
+	GVARMAIN(side) revealMine _explosive;
 
 	If (dorb_debug) then {
 		_mrkr = createMarker [format["minepos-%1",_pos],_pos];

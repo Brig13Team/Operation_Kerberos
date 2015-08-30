@@ -31,9 +31,9 @@ _spawnpos set [2,_flughoehe];
 _dir = [_spawnpos, _position] call BIS_fnc_dirTo;
 _einheit = dorb_transport_heli_list call BIS_fnc_selectRandom;
 
-LOG_4(_spawnpos,_dir,_einheit,dorb_side);
+LOG_4(_spawnpos,_dir,_einheit,GVARMAIN(side));
 
-_spawn_array = [_spawnpos, _dir, _einheit, dorb_side] call BIS_fnc_spawnVehicle;
+_spawn_array = [_spawnpos, _dir, _einheit, GVARMAIN(side)] call BIS_fnc_spawnVehicle;
 _transporter = _spawn_array select 0;
 
 _transporter setpos [_spawnpos];
@@ -51,7 +51,7 @@ if (dorb_debug) then {
 
 
 
-_jaeger_gruppe = createGroup dorb_side;
+_jaeger_gruppe = createGroup GVARMAIN(side);
 SETVAR(_jaeger_gruppe,EGVAR(mission,istarget),true);
 _jaeger_gruppe setCombatMode "RED";
 _platzanzahl = _transporter emptyPositions "cargo";

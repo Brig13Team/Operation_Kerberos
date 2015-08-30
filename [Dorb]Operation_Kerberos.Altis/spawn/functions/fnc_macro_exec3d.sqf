@@ -27,7 +27,7 @@ _vehicles = getArray(_config >> "vehicles");
 _soldiers = getArray(_config >> "soldiers");
 _gruppe = grpNull;
 If (((count _vehicles)>0)||((count _soldiers)>0)) then {
-	_gruppe = createGroup dorb_side;
+	_gruppe = createGroup GVARMAIN(side);
 };
 _centerposASL = ATLtoASL _centerpos;
 {

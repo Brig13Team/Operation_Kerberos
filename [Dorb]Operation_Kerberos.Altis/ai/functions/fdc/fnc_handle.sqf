@@ -20,8 +20,8 @@ If (isNil "DORB_FDC_LOGIC") exitwith {
 
 
 private["_mortars","_artilleries","_rocket"];
-_mortars = GETVAR(DORB_FDC_LOGIC,DORB_FDC_MORTARS,[]);
-_artilleries = GETVAR(DORB_FDC_LOGIC,DORB_FDC_ARTILLERIES,[]);
-_rocket = GETVAR(DORB_FDC_LOGIC,DORB_FDC_ROCKET,[]);
+_mortars = GETVAR(GVAR(fdc_logic),GVAR(fdc_mortars),[]);
+_artilleries = GETVAR(GVAR(fdc_logic),GVAR(fdc_artilleries),[]);
+_rocket = GETVAR(GVAR(fdc_logic),GVAR(fdc_rocket),[]);
 
 

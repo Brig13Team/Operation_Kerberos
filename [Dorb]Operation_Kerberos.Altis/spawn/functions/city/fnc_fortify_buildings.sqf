@@ -117,7 +117,7 @@ for "_i" from 0 to ((count _buildings)-1) do {
 				_spawnamount = 1 min _static_count;
 			};
 		//};
-		_gruppe = createGroup dorb_side;
+		_gruppe = createGroup GVARMAIN(side);
 		/// spawn statics
 		for "_j" from 0 to (_spawnamount -1) do {
 			CHECK(_staticpos isEqualTo [])

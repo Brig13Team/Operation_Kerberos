@@ -37,8 +37,8 @@ for "_i" from 0 to _anzahl_inf do {
 		ERROR(FORMAT_1("Keine Spawnposition | %1",_spawnpos));
 	}else{
 		
-		LOG_3(_spawnpos,_rand,dorb_side);
-		_return = [_spawnpos, dorb_side , _rand] call BIS_fnc_spawnGroup;
+		LOG_3(_spawnpos,_rand,GVARMAIN(side));
+		_return = [_spawnpos, GVARMAIN(side) , _rand] call BIS_fnc_spawnGroup;
 		_units pushBack _return;
 		[_return, _position, _suchradius] call CBA_fnc_taskAttack;
 	};
@@ -65,7 +65,7 @@ for "_i" from 0 to _anzahl_spec do {
 	if (count _spawnpos < 1) then {
 		ERROR(FORMAT_1("Keine Spawnposition | ",_spawnpos));
 	}else{
-		_return = [_spawnpos, dorb_side , _rand] call BIS_fnc_spawnGroup;
+		_return = [_spawnpos, GVARMAIN(side) , _rand] call BIS_fnc_spawnGroup;
 		_units pushBack _return;
 		[_return, _position, _suchradius] call CBA_fnc_taskAttack;
 	};

@@ -28,7 +28,7 @@ for "_i" from 0 to (_anzahl_heli) do {
 	_spawnpos = [(_pos select 0),(_pos select 1),400];
 	_einheit = dorb_attack_heli_list SELRND;
 	if (count _spawnpos > 1) then {
-		_return = [_spawnpos,(random(360)),_einheit,dorb_side] call BIS_fnc_spawnVehicle;
+		_return = [_spawnpos,(random(360)),_einheit,GVARMAIN(side)] call BIS_fnc_spawnVehicle;
 		_vehicles pushBack (_return select 0);
 		[(_return select 2), _position, _suchradius] call CBA_fnc_taskAttack;
 	};
@@ -39,7 +39,7 @@ for "_i" from 0 to (_anzahl_plane) do {
 	_spawnpos = [(_pos select 0),(_pos select 1),800];
 	_einheit = dorb_attack_heli_list SELRND;
 	if (count _spawnpos > 1) then {
-		_return = [_spawnpos,(random(360)),_einheit,dorb_side] call BIS_fnc_spawnVehicle;
+		_return = [_spawnpos,(random(360)),_einheit,GVARMAIN(side)] call BIS_fnc_spawnVehicle;
 		_vehicles pushBack (_return select 0);
 		[(_return select 2), _position, _suchradius] call CBA_fnc_taskAttack;
 	};

@@ -67,7 +67,7 @@ for "_i" from 0 to (_anz) do {
 	_spawnpos_arr = _spawnpos_arr - [-1];
 	_spawnpos_arr_del = _spawnpos_arr_del + [_spawnposition];
 	
-	_gruppe = createGroup dorb_side;
+	_gruppe = createGroup GVARMAIN(side);
 	_einheit = dorb_staticlist SELRND;
 	
 

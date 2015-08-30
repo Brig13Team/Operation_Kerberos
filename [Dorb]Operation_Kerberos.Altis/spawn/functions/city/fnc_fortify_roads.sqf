@@ -243,7 +243,7 @@ for "_i" from 0 to (floor(((_amounts select 0))/3)) do {
 	
 	_spawnpos = [((_roadArray_weighted select _i)select 1),((_roadArray_weighted select _i)select 2),0.1];
 	
-	_gruppe = createGroup dorb_side;
+	_gruppe = createGroup GVARMAIN(side);
 	for "_j" from 0 to 3 do {
 		_typ = dorb_menlist SELRND;
 		_spawnedunit = _gruppe createUnit [_typ,_spawnpos, [], 5, "NONE"];
