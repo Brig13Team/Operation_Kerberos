@@ -2,7 +2,7 @@
 // vehiclespawn 	= 600100
 // CRATE		 	= 600200
 // Task_force	 	= 700200
-#include "macros_rsc.hpp"
+#include "script_component.hpp"
 
 class dorb_veh_spawn {
 	idd = 600100;
