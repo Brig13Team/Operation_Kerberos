@@ -1,4 +1,33 @@
-#include "\x\cba\addons\main\script_macros_mission.hpp"
+/* -------------------------------------------
+Macro: CBA_OFF
+    turns off the including of CBA because of compatibility issues during description.ext
+    If CBA_OFF is defined, some important MAKROS are copied out of CBA
+Parameters:
+    none
+
+Example:
+    (begin example)
+        CBA_OFF
+        #include "script_component.hpp"
+    (end)
+
+Author:
+    Dorbedo
+------------------------------------------- */
+#ifndef CBA_OFF
+    #include "\x\cba\addons\main\script_macros_mission.hpp"
+#else
+    #define DOUBLES(var1,var2) ##var1##_##var2
+    #define TRIPLES(var1,var2,var3) ##var1##_##var2##_##var3
+    #define QUOTE(var1) #var1
+    #define ADDON DOUBLES(PREFIX,COMPONENT)
+    #define MAIN_ADDON DOUBLES(PREFIX,main)
+    #define CSTRING(var1) QUOTE(TRIPLES($STR,ADDON,var1))
+    #define ECSTRING(var1,var2) QUOTE(TRIPLES($STR,DOUBLES(PREFIX,var1),var2))
+    #define FUNC(var1) TRIPLES(ADDON,fnc,var1)
+    #define FUNCMAIN(var1) TRIPLES(PREFIX,fnc,var1)
+    #define EFUNC(var1,var2) TRIPLES(DOUBLES(PREFIX,var1),fnc,var2)
+#endif
 
 /* -------------------------------------------
 Macro: FMP
@@ -89,14 +118,14 @@ Example:
     (begin example)
         SCRIPT(boom);
     (end)
-	
+
 Author:
     Dorbedo
 ------------------------------------------- */
 #ifdef PART
-	#define SCRIPT(NAME) scriptName 'PREFIX\COMPONENT\PART\NAME'
+    #define SCRIPT(NAME) scriptName 'PREFIX\COMPONENT\PART\NAME'
 #else
-	#define SCRIPT(NAME) scriptName 'PREFIX\COMPONENT\NAME'
+    #define SCRIPT(NAME) scriptName 'PREFIX\COMPONENT\NAME'
 #endif
 
 /* -------------------------------------------
@@ -109,14 +138,14 @@ Example:
     (begin example)
         SCRIPTIN(boom);
     (end)
-	
+
 Author:
     Dorbedo
 ------------------------------------------- */
 #ifdef PART
-	#define SCRIPTIN(NAME,NAME2) scriptName 'PREFIX\COMPONENT\PART\NAME_NAME2'
+    #define SCRIPTIN(NAME,NAME2) scriptName 'PREFIX\COMPONENT\PART\NAME_NAME2'
 #else
-	#define SCRIPTIN(NAME,NAME2) scriptName 'PREFIX\COMPONENT\NAME_NAME2'
+    #define SCRIPTIN(NAME,NAME2) scriptName 'PREFIX\COMPONENT\NAME_NAME2'
 #endif
 
 

@@ -42,7 +42,6 @@ __EXEC (D_ROOTDIR = __FILE__ select [0, count __FILE__ - 15])
 
 
 // Interface
-#include "interface\config\hud.hpp"
 #include "interface\config\define.h"
 #include "interface\config\menu.h"
 #include "interface\config\rscTitles.h"
@@ -54,12 +53,13 @@ class cfgFunctions {
 	#include "CHVD\CfgFunctions.hpp"
 };
 
-// City Defence
+// Missionconfig
 #include "spawn\config\city_defence.hpp"
 #include "spawn\config\unitlists.hpp"
 #include "spawn\config\defence_positions.hpp"
 #include "mission\config\sideby_config.hpp"
 #include "logistics\config\logistics.hpp"
+#include "interface\config\hud.hpp"
 
 //Debrief
 class CfgDebriefing {  
