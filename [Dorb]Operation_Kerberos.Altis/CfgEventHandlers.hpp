@@ -8,7 +8,7 @@ class Extended_PreInit_EventHandlers {
 };
 
 class Extended_Init_Eventhandlers {
-    #include "player\XEH_getIn.hpp"
+    #include "spawn\XEH_init.hpp"
 };
 
 class Extended_Respawn_EventHandlers {
