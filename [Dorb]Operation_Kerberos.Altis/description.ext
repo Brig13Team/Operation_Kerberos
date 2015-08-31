@@ -33,7 +33,6 @@ corpseManagerMode = 0;
 ///// Rootdir
 __EXEC (D_ROOTDIR = __FILE__ select [0, count __FILE__ - 15])
 
-
 ///// ADDONS
 // Viedistance
 #include "CHVD\dialog.hpp"

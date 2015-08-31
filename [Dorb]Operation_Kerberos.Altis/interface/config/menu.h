@@ -2,7 +2,9 @@
 // vehiclespawn 	= 600100
 // CRATE		 	= 600200
 // Task_force	 	= 700200
-#include "script_component.hpp"
+#define CBA_OFF
+	#include "script_component.hpp"
+#undef CBA_OFF
 
 class dorb_veh_spawn {
 	idd = 600100;
