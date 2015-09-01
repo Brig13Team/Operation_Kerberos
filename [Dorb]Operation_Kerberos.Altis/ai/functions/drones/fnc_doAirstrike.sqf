@@ -14,6 +14,7 @@ SCRIPT(doAirstrike);
 params [["_drone",objNull,[objNull]],"_target"];
 private ["_ret","_dir","_pos","_posBegin","_posEnd","_height","_pos"];
 
+if (isNull _drone) exitWith { false };
 if (!isText(missionConfigFile >> "drones" >> typeOf _drone >> "muzzle")) exitWith { false };
 _wp_type = getText (missionConfigFile >> "drones" >> typeOf _drone >> "attack_waypoint");
 
@@ -28,13 +29,13 @@ if ((typeName _target == "ARRAY") && {count _target == 3}) then {
 };
 if (isNil "_pos") exitWith { false };
 
-_height = getNumber (missionConfigFile >> "drones" >> typeOf _drone >> "waypoints" >> "MOVE" >> "height");
+_height = getNumber (missionConfigFile >> "drones" >> typeOf _drone >> "waypoints" >> _wp_type >> "height");
 _posBegin = [(_pos select 0) - ((sin _dir) * 5000), (_pos select 1) - ((cos _dir) * 5000), _height];
 _posEnd = [(_pos select 0) + ((sin _dir) * 5000), (_pos select 1) + ((cos _dir) * 5000), _height];
 
 _drone setPos _posBegin;
 _drone setDir (_dir + 180);
-if (!([_drone,"MOVE",_posEnd] call FUNC(drones_createWaypoint))) exitWith { false };
+if (!([_drone,_wp_type,_posEnd] call FUNC(drones_createWaypoint))) exitWith { false };
 _drone lockCameraTo [_target,[0]];
 
 // waitUntil { (_drone distance _target <= 500) || (_drone distance _posEnd <= 100) };
