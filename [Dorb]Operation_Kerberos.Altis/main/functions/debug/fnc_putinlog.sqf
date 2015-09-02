@@ -14,8 +14,8 @@
 	Return
 		nil
 */
-
-params["_addon","_part",["_message","",[""]],["_file","",[""]],"_line"];
+#include "script_component.hpp"
+params["_addon",["_part","main",[""]],["_message","",[""]],["_file","",[""]],"_line"];
 
 If (_message isEqualTo "") exitWith {
 	diag_log text format["[%1_%2_%3:%4]-%5 (%6:%7) ERROR-LOGAUFRUF",_addon,_part,_file,_line,_time,diag_tickTime,diag_frameNo];
@@ -32,14 +32,14 @@ if (!(_file isEqualTo "")) then {
 };
 
 {
-	[_x] call FUNCMAIN(logging_write);
+	[_x] call FUNC(debug_write);
 	nil
 }count _lines;
 
 If (isServer&&hasinterface) then {
-	[format["[%1_%2_%3:%4]-%5 (%6:%7) %8",_addon,_part,_file,_line,_time,diag_tickTime,diag_frameNo,(_lines deleteAt 0)]] call FUNCMAIN(logging_show);
+	[format["[%1_%2_%3:%4]-%5 (%6:%7) %8",_addon,_part,_file,_line,_time,diag_tickTime,diag_frameNo,(_lines deleteAt 0)]] call FUNC(debug_show);
 	{
-		[_x] call FUNCMAIN(logging_show);
+		[_x] call FUNC(debug_show);
 		nil
 	}count _lines;
 };

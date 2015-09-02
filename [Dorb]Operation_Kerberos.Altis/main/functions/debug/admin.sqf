@@ -11,9 +11,7 @@
 		None
 */
 #include "script_component.hpp"
-SCRIPT(show);
+SCRIPT(write);
 params["_message"];
 
-systemchat text _message;
-
-nil
+diag_log text _message;
