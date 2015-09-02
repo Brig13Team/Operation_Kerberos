@@ -7,3 +7,6 @@ TRIPLES(PREFIX,makro,delete) = compileFinal "If(if (isNil {_this}) then { false 
 
 PREP(debug_performance);
 PREP(userconfig);
+PREPS(debug,putinlog);
+PREPS(debug,show);
+PREPS(debug,write);

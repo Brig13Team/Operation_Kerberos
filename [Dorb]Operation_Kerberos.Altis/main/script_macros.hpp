@@ -27,6 +27,7 @@ Author:
     #define FUNC(var1) TRIPLES(ADDON,fnc,var1)
     #define FUNCMAIN(var1) TRIPLES(PREFIX,fnc,var1)
     #define EFUNC(var1,var2) TRIPLES(DOUBLES(PREFIX,var1),fnc,var2)
+	#undef CBA_OFF
 #endif
 
 /* -------------------------------------------
