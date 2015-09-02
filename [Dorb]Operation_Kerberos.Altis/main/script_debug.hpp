@@ -47,7 +47,6 @@ Author:
 	#define EXPLODE_8_PVT(ARRAY,A,B,C,D,E,F,G,H) ARRAY params [#A,#B,#C,#D,#E,#F,#G,#H]; TRACEV_8(A,B,C,D,E,F,G,H)
 	#define EXPLODE_9(ARRAY,A,B,C,D,E,F,G,H,I) EXPLODE_9_SYS(ARRAY,A,B,C,D,E,F,G,H,I); TRACEV_9(A,B,C,D,E,F,G,H,I)
 	#define EXPLODE_9_PVT(ARRAY,A,B,C,D,E,F,G,H,I) ARRAY params [#A,#B,#C,#D,#E,#F,#G,#H,#I]; TRACEV_9(A,B,C,D,E,F,G,H,I)
-
 #else
 	#define TRACE_1(MESSAGE,A) /* disabled */
 	#define TRACE_2(MESSAGE,A,B) /* disabled */
@@ -70,7 +69,7 @@ Author:
 #endif
 
 #ifdef DEBUG_MODE_NORMAL
-    #define LOG(VAR) [QUOTE(ADDON),QUOTE(PART),PFORMAT_1(MESSAGE,A),THIS_FILE_, __LINE__] call FUNCMAIN(debug_putinlog)
+    #define LOG(VAR) [QUOTE(ADDON),QUOTE(PART),VAR,THIS_FILE_, __LINE__] call FUNCMAIN(debug_putinlog)
 
     #define FORMAT_10(STR,ARG1,ARG2,ARG3,ARG4,ARG5,ARG6,ARG7,ARG8,ARG9,ARG10) format[STR, ARG1, ARG2, ARG3, ARG4, ARG5, ARG6, ARG7, ARG8, ARG9, ARG10]
     #define FORMAT_12(STR,ARG1,ARG2,ARG3,ARG4,ARG5,ARG6,ARG7,ARG8,ARG9,ARG10,ARG11,ARG12) format[STR, ARG1, ARG2, ARG3, ARG4, ARG5, ARG6, ARG7, ARG8, ARG9, ARG10, ARG11, ARG12]
@@ -88,7 +87,7 @@ Author:
 	#define LOG_8(VAR1,VAR2,VAR3,VAR4,VAR5,VAR6,VAR7,VAR8,VAR9) LOG(FORMAT_18("%1=%2\n%3=%4\n%5=%6\n%7=%8\n%9=%10\n%11=%12\n%13=%14\n%15=%16\n%17=%18",QUOTE(VAR1),RETNIL(VAR1),QUOTE(VAR2),RETNIL(VAR2)QUOTE(VAR3),RETNIL(VAR3),QUOTE(VAR4),RETNIL(VAR4),QUOTE(VAR5),RETNIL(VAR5),QUOTE(VAR6),RETNIL(VAR6),QUOTE(VAR7),RETNIL(VAR7),QUOTE(VAR8),RETNIL(VAR8),QUOTE(VAR9),RETNIL(VAR9)))
     #define CHECK(CONDITION) if (CONDITION) exitWith {LOG(FORMAT_2("CHECK-FAILED - %1=%2",QUOTE(CONDITION),CONDITION));};
 	
-	#define WARNING(MESSAGE) [QUOTE(ADDON),QUOTE(PART),MESSAGE,THIS_FILE_, __LINE__] call FUNCMAIN(debug_putinlog)
+	#define WARNING(VAR) [QUOTE(ADDON),QUOTE(PART),VAR,THIS_FILE_, __LINE__] call FUNCMAIN(debug_putinlog)
 #else
     #define LOG_1(VAR1) /*disabled*/
     #define LOG_2(VAR1,VAR2) /*disabled*/
@@ -98,12 +97,12 @@ Author:
     #define LOG_6(VAR1,VAR2,VAR3,VAR4,VAR5,VAR6) /*disabled*/
     #define LOG_7(VAR1,VAR2,VAR3,VAR4,VAR5,VAR6,VAR7) /*disabled*/
     #define LOG_8(VAR1,VAR2,VAR3,VAR4,VAR5,VAR6,VAR7,VAR8) /*disabled*/
-	#define WARNING(MESSAGE) /*disabled*/
+	#define WARNING(VAR) /*disabled*/
 #endif
 
 
 #ifdef DEBUG_MODE_MINIMAL
-    #define ERROR(VAR) [QUOTE(ADDON),QUOTE(PART),MESSAGE,THIS_FILE_, __LINE__] call FUNCMAIN(debug_putinlog)
+    #define ERROR(VAR) [QUOTE(ADDON),QUOTE(PART),VAR,THIS_FILE_, __LINE__] call FUNCMAIN(debug_putinlog)
 #else
 	#define ERROR(VAR) /*disabled*/
 #endif
