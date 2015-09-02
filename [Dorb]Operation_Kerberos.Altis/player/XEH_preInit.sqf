@@ -10,6 +10,7 @@ PREP(playeraddaction);
 
 PREP(XEH_fired);
 PREP(XEH_hit);
+PREP(XEH_hitPart)
 PREP(XEH_respawn);
 
 PREPS(backpack,change);

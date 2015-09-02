@@ -23,6 +23,10 @@ class Extended_Hit_EventHandlers {
     #include "player\XEH_hit.hpp"
 };
 
+class Extended_HitPart_EventHandlers {
+    #include "player\XEH_hitPart.hpp"
+};
+
 class Extended_GetIn_Eventhandlers {
     #include "player\XEH_getIn.hpp"
 };
