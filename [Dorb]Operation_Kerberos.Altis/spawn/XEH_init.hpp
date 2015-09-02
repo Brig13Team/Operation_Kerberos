@@ -1,6 +1,5 @@
 #define CBA_OFF
-    #include "script_component.hpp"
-#undef CBA_OFF
+#include "script_component.hpp"
 class Man {
     class ADDON {
         init = QUOTE(_this call FUNC(addNVG));

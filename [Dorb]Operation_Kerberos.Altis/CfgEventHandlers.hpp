@@ -1,6 +1,6 @@
 #define CBA_OFF
-	#include "script_component.hpp"
-#undef CBA_OFF
+#include "script_component.hpp"
+
 class Extended_PreInit_EventHandlers {
     class MAIN_ADDON {
         init = "call compile preProcessFileLineNumbers 'XEH_PreInit.sqf'";
