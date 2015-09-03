@@ -68,7 +68,7 @@ Author:
 	#define TRACEV_8(VAR1,VAR2,VAR3,VAR4,VAR5,VAR6,VAR7,VAR8) /* disabled */
 	#define TRACEV_9(VAR1,VAR2,VAR3,VAR4,VAR5,VAR6,VAR7,VAR8,VAR9) /* disabled */
 #endif
-#define DEBUG_MODE_NORMAL
+
 #ifdef DEBUG_MODE_NORMAL
     #define LOG(STRING) ["LOG",QUOTE(ADDON),QUOTE(PART),STRING,__FILE__, __LINE__] call EFUNC(main,debug_putinlog)
 

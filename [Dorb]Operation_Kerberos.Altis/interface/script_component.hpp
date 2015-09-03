@@ -1,4 +1,4 @@
 #define COMPONENT interface
 #include "..\script_mission.hpp"
 
-#define DEBUGMODUS
+#define DEBUG_MODE_MINIMAL

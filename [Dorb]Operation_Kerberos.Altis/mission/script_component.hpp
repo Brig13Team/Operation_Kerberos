@@ -1,4 +1,4 @@
 #define COMPONENT mission
 #include "..\script_mission.hpp"
 
-#define DEBUGMODUS
+#define DEBUG_MODE_NORMAL
