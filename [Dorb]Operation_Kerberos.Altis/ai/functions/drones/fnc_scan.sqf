@@ -5,19 +5,22 @@
 	
 	Parameter(s):
 		0 : OBJECT - drone
+		1 : ARRAY - position (optiomal)
 	
 */
 #include "script_component.hpp"
 SCRIPT(scan);
 
-params [["_drone",objNull,[objNull]]];
-private ["_position","_radius","_objects","_ret"];
+params [["_drone",objNull,[objNull]],["_position",[],[[]]]];
+private ["_radius","_objects","_ret"];
 
 if (isNull _drone) exitWith { [] };
 if (count waypoints _drone <= 0) exitWith { [] };
 if (!isNumber (missionConfigFile >> "drones" >> typeOf _drone >> "scan_radius")) exitWith { [] };
 
-_position = waypointposition (waypoints _drone select 0);
+if (_pos isEqualTo []) then {
+	_position = waypointposition (waypoints _drone select 0);
+};
 _radius = getNumber (missionConfigFile >> "drones" >> typeOf _drone >> "scan_radius");
 
 _ret = [];

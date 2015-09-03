@@ -1399,7 +1399,7 @@ class Mission
 						};
 						class Item1
 						{
-							value="0";
+							value="1";
 							parentCls="ace_weather_ModuleSettings";
 							typeName="useACEWeather";
 						};
