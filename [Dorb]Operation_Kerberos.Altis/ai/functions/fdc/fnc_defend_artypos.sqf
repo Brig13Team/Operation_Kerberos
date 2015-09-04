@@ -17,6 +17,7 @@ _newcommands = [];
 
 _searchArea = {
 	params["_unit","_min","_max","_type"];
+	TRACEV_4(_unit,_min,_max,_type);
 	private "_targetpos";
 	_targetpos = 
 	{
