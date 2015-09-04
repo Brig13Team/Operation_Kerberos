@@ -36,7 +36,7 @@ if (!(_file isEqualTo "")) then {
 	nil
 }count _lines;
 
-If (isServer&&hasinterface&&_header in ["ERROR","WARNING"]) then {
+If (isServer&&hasinterface&&_header in ["ERROR","WARNING","TRACE"]) then {
 	[format["[%1_%2_%3:%4]-%5 (%6:%7) %8",_addon,_part,_file,_line,_time,diag_tickTime,diag_frameNo,(_lines deleteAt 0)]] call FUNC(debug_show);
 	{
 		[_x] call FUNC(debug_show);
