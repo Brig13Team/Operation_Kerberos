@@ -56,6 +56,9 @@ class unitlists {
 			veh_aa[] = {"rhs_zsu234_aa"};
 			veh_arty[] = {"rhs_2s3_tv"};
 			veh_mortar[] = {"O_Mortar_01_F"};
+
+			attack_uavs[] = {"O_UAV_02_F"};
+			recon_uavs[] = {"rhs_pchela1t_vvs","O_UAV_01_F"};
 		};
 		class vdv : east_basic {	
 			commander[] = {"rhs_vdv_officer_armored","rhs_vdv_officer"};

@@ -20,6 +20,5 @@ if (damage _target == 1) exitWith { false };
 if (!isText (missionConfigFile >> "drones" >> typeOf _drone >> "muzzle")) exitWith { false };
 
 _muzzle = getText (missionConfigFile >> "drones" >> typeOf _drone >> "muzzle");
-(_muzzle) call BIS_fnc_log;
 
 _drone fireAtTarget [_target,_muzzle]
