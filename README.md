@@ -60,7 +60,6 @@ Unterstützt von Maverick (Stellungsdesign), Cypherstalker (Übersetzungen), Kiw
 <li>Halo (bei wenigen Spielern)</li>
 <li>Teleport zum Teamleader (im Falle von disconnects, geht nur wenn kein Gegner in der Nähe)</li>
 <li>R3F-Logistiks (Fabriken nur von Ingenieuren bedienbar)</li>
-<li>IgiLoad</li>
 <li>Medical facility (Krankenhaus in Basis, gespawnte HEMMTT, Huron Medizincontainer)</li>
 <li>Crate Spawner</li>
 </ul>
