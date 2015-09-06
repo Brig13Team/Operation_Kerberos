@@ -48,6 +48,7 @@ __EXEC (D_ROOTDIR = __FILE__ select [0, count __FILE__ - 15])
 // Eventhandlers
 #include "CfgEventHandlers.hpp"
 
+#include "CfgRemoteExec.hpp"
 class cfgFunctions {
 	#include "CHVD\CfgFunctions.hpp"
 };
