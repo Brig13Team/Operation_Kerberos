@@ -44,9 +44,9 @@ switch (_mode) do {
 			for "_i" from 0 to (count _requests - 1) do {
 				if ((_x select 2) <= (serverTime)) then {
 					if (count (GETVAR(missionNamespace,GVAR(availableAttackDrones),[])) > 0) then {
-						[_x select 0] spawn DORB_ai_fnc_drones_doAirstrike;
+						[_requests select 0 select 0] spawn FUNC(drones_doAirstrike);
 					} else {
-						_leftrequests pushBack _x;
+						_leftrequests pushBack _requests;
 					};
 				};
 			};
