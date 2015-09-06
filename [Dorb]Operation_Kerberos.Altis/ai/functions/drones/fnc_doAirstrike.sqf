@@ -35,8 +35,6 @@ _wp_type = getText (missionConfigFile >> "drones" >> typeOf _drone >> "attack_wa
 
 _dir = random 360;
 
-LOG(FORMAT_2("%1; %2",typeName _target, _target));
-
 if (typeName _target == "OBJECT") then { _pos = getPos _target; };
 if ((typeName _target == "ARRAY") && {count _target == 3}) then {
 	private ["_logic"];
