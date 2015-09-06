@@ -37,14 +37,15 @@ switch (_mode) do {
 		SETVAR(missionNamespace,GVAR(availableAttackDrones),_avail_adrones);
 
 		_handle = [{
+			SCRIPT(init_perFrameHandler);
 			private ["_requests","_leftrequests","_drone"];
 
 			_requests = GETVAR(missionNamespace,GVAR(requestedAirstrikes),[]);
 			_leftrequests = [];
 			for "_i" from 0 to (count _requests - 1) do {
-				if ((_x select 2) <= (serverTime)) then {
+				if ((_requests select _i select 2) <= (serverTime)) then {
 					if (count (GETVAR(missionNamespace,GVAR(availableAttackDrones),[])) > 0) then {
-						[_requests select 0 select 0] spawn FUNC(drones_doAirstrike);
+						[_requests select _i select 0] spawn FUNC(drones_doAirstrike);
 					} else {
 						_leftrequests pushBack _requests;
 					};
