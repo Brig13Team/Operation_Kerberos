@@ -8,6 +8,9 @@
 SCRIPT(initServer);
 waituntil{!isNil "DORB_RESPAWNMARKER"};
 
+/// 6h == 12h Ingame
+setTimeMultiplier 2;
+
 EGVAR(common,PFEH_headless) = [{ [] call EFUNC(common,headless) } , 30, [] ] call CBA_fnc_addPerFrameHandler;
 
 [] spawn EFUNC(mission,core);
