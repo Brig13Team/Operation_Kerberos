@@ -37,7 +37,7 @@ switch (_mode) do {
 		SETVAR(missionNamespace,GVAR(availableAttackDrones),_avail_adrones);
 
 		_handle = [{
-			SCRIPT(init_perFrameHandler);
+			SCRIPTIN(init,perFrameHandler);
 			private ["_requests","_leftrequests","_drone"];
 
 			_requests = GETVAR(missionNamespace,GVAR(requestedAirstrikes),[]);
