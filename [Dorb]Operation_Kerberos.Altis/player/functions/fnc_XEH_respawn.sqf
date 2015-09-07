@@ -2,6 +2,8 @@
 SCRIPT(XEH_respawn);
 If(!hasInterface)exitWith{};
 
+if (time > 5) then { missionNamespace setVariable [format["dorb_interface_respawn_%1",getPlayerUID player],serverTime]; };
+
 ["restart"] spawn FUNC(grouptracker);
 
 ISNILS(GVAR(respawn_fnc),[]);

@@ -37,7 +37,7 @@ if (count _logisticStack > 0) then {
 };
 
 
-["STR_DORB_LOG_CARGO_INFO",[
+[LSTRING(CARGO_INFO),[
 	format [localize LSTRING(VEHICLE_MASS),_leermasse],
 	format [localize LSTRING(CARGO_MASS),_ladungsmasse],
 	format [localize LSTRING(FULL_MASS),_gesamtmasse],
