@@ -58,7 +58,7 @@ while { (_drone distance2D _pos) >= 500 } do { uiSleep 1; };
 
 if (isNull _drone) exitWith { _drone call _onExit; false };
 
-if (_pos distance2D _target < 500) then {
+if ((_target distance2D _pos) < 500) then {
 	_ret = [_drone,_target] call FUNC(drones_attack);
 } else {
 	_ret = false;
