@@ -2,7 +2,7 @@
 SCRIPT(XEH_respawn);
 If(!hasInterface)exitWith{};
 
-if (time > 5) then { missionNamespace setVariable [format["dorb_interface_respawn_%1",getPlayerUID player],serverTime]; };
+if (time > 5) then { SETMVAR(EGVAR(interface,respawntime),diag_tickTime); };
 
 ["restart"] spawn FUNC(grouptracker);
 

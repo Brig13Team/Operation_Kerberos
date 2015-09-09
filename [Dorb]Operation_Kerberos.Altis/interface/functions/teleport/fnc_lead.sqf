@@ -13,9 +13,9 @@ _position = [];
 
 if (leader _caller == _caller) exitWith {[LSTRING(TELEPORT),[LSTRING(TELEPORT_LEAD_FAIL),LSTRING(TELEPORT_LEAD_ISLEADER)]] call FUNC(disp_info);};
 
-_time = missionNamespace getVariable [format["dorb_interface_respawn_%1",getPlayerUID player],0];
+_time = GETMVAR(GVAR(respawntime),0);
 
-if ((_time > 0) && {(_time + 300) > serverTime}) exitWith {[LSTRING(TELEPORT),[format [localize LSTRING(TELEPORT_LEAD_WAIT),_time + 300 - serverTime]]] call FUNC(disp_info);};
+if ((_time > 0) && {(_time + 300) > diag_tickTime}) exitWith {[LSTRING(TELEPORT),[format [localize LSTRING(TELEPORT_LEAD_WAIT),round (_time + 300 - diag_tickTime)]]] call FUNC(disp_info);};
 
 if ((vehicle _caller) == _caller) then {
     _nearestEnemy = _caller findNearestEnemy (leader _caller);
