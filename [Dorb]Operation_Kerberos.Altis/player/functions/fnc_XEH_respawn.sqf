@@ -2,7 +2,7 @@
 SCRIPT(XEH_respawn);
 If(!hasInterface)exitWith{};
 
-if (time > 5) then { SETMVAR(EGVAR(interface,respawntime),diag_tickTime); };
+if (GETMVAR(EGVAR(interface,respawntime),-1) > 0) then { SETMVAR(EGVAR(interface,respawntime),diag_tickTime); };
 
 ["restart"] spawn FUNC(grouptracker);
 
