@@ -3150,7 +3150,7 @@ class Mission
 			lock="LOCKED";
 			skill=0.60000002;
 			text="sanitruck";
-			init="this allowDamage false;this setVariable ['R3F_LOG_disabled', true]; this enableSimulation false; this setVariable [""ace_medical_isMedicalFacility"",true,true];";
+			init="this setVariable ['ACE_vehicleLock_lockpickStrength',-1,true];this allowDamage false;this setVariable ['R3F_LOG_disabled', true]; this enableSimulation false; this setVariable [""ace_medical_isMedicalFacility"",true,true];";
 		};
 		class Item67
 		{
