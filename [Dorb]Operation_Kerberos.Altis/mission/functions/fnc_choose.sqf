@@ -11,7 +11,7 @@
 */
 #include "script_component.hpp"
 SCRIPT(choose);
-private ["_aufgabe","_rand","_aufgabentyp","_gewichtung"];
+private ["_aufgabe","_rand","_aufgabentyp","_gewichtung","_i"];
 
 _aufgabe = [_this,0,format["NOTNUMMER%1",random 1000000],[""]] call BIS_fnc_param;
 _aufgabentyp = [_this,1,"leer",[""]] call BIS_fnc_param;
@@ -32,10 +32,14 @@ _gewichtung = 	[	1,					1,					1,						1,
 				];
 };
 If (!(_aufgabentyp in _aufgabentypen)) then {
-	_aufgabentyp = [_aufgabentypen,_gewichtung] call BIS_fnc_selectRandomWeighted;
+	for "_i" from 1 to 100 do {
+		_aufgabentyp = [_aufgabentypen,_gewichtung] call BIS_fnc_selectRandomWeighted;
+		if (_aufgabentyp != (GETMVAR(GVAR(last_mission_type),""))) exitWith {};
+	};
 };
 LOG(FORMAT_1("Aufgabentyp=%1",_aufgabentyp));
 
+SETMVAR(GVAR(last_mission_type),_aufgabentyp);
 
 [] call EFUNC(spawn,create_unitlists);
 //_aufgabentyp="rescue_pow";
