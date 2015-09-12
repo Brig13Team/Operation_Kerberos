@@ -179,7 +179,7 @@ _attack_tanks = {
 	_anzahl = floor(random 3);
 	INC(_anzahl);
 	for "_i" from 0 to _anzahl do {
-		private["_einheit","_rand","_spawnpos","_gruppe","_return","_panzer"];
+		private["_einheit","_rand","_spawnpos","_gruppe","_return"];
 		_einheit = dorb_veh_armored SELRND;
 		_rand = (floor(random 8));
 		if (_rand<2) then {
