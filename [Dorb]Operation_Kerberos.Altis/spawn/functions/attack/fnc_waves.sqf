@@ -18,7 +18,7 @@ SCRIPT(waves);
 If (EGVAR(mission,waves_remaining) < 1) exitWith {LOG("Keine Wellen übrig");};
 PARAMS_2(_position,_task);
 private["_rand","_difficulty","_missionsstatus","_gegner_lebend","_z"];
-[ELSTRING(MISSION,DEF),ELSTRING(MISSION,DEF_ATT_ING)] spawn EFUNC(interface,disp_message_global);
+[ELSTRING(MISSION,DEF),ELSTRING(MISSION,DEF_ATT_INB)] spawn EFUNC(interface,disp_message_global);
 
 
 sleep 60;
