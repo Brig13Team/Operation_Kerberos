@@ -428,6 +428,18 @@ class logistics
 	};
 
 	class cargos {
+		class ace_track {
+			width = 0.54;
+			length = 0.4;
+			height = 0.15;
+			offset[] = {0,-0.3,0};
+		};
+		class ace_wheel {
+			width = 1;
+			length = 1;
+			height = 0.32;
+			offset[] = {0,-0.5,-0.12};
+		};
 		class WpnsBox_F {
 			width = 1.1;
 			length = 0.73;
