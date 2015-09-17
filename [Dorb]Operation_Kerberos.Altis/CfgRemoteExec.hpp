@@ -4,8 +4,8 @@
 class CfgRemoteExec {
 	class Functions {
 		mode = 1;
-		class EGVAR(player,onlypilots) {
-			allowedTargets = 0;
+		class dorb_player_fnc_onlypilots {
+			allowedTargets = 1;
 		};
 	};
 };
