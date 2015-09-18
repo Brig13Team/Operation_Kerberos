@@ -6,46 +6,41 @@
 		The new point has the distance s (see arguments) from the first point.
 
 	Arguments:
-		0 - Array : Point1
-		1 - Array : Point2
-		2 - Real : distance
+		0 - ARRAY : Point1
+		1 - ARRAY : Point2
+		2 - SCALAR : distance (optimal)
 
 	Return:
-		Array : Point3
+		ARRAY : Point3
 
 */
-private["_point1", "_point2", "_left", "_right", "_distance", "_point3", "_buffer", "_y1", "_y2", "_x1", "_x2", "_m", "_n"];
+#include "script_component.hpp"
+SCRIPT(pointBetween);
 
-scriptName "pointBetween";
+params["_point1","_point2"];
 
-_point1 = _this select 0;
-_point2 = _this select 1;
+if ((count _point1 == 3) && (count _point2 == 3)) exitWith {
+	private ["_v","_l","_d","_f"];
+	_v = [(_point2 select 0) - (_point1 select 0), (_point2 select 1) - (_point1 select 1), (_point2 select 2) - (_point1 select 2)];
+	_l = sqrt((_v select 0)^2 + (_v select 1)^2 + (_v select 1)^2);
 
-if ((_point2 select 0) < (_point1 select 0)) then {
-	_left = _point2;
-	_right = _point1;
-} else {
-	_left = _point1;
-	_right = _point2;
+	_d = param[2,_l/2,[0]];
+
+	_f = _d / _l;
+
+	[(_point1 select 0) + (_v select 0) * _f, (_point1 select 1) + (_v select 1) * _f, (_point1 select 2) + (_v select 2) * _f]
 };
 
-_distance = _this select 2;
+if ((count _point1 == 2) && (count _point2 == 2)) exitWith {
+	private ["_v","_l","_d","_f"];
+	_v = [(_point2 select 0) - (_point1 select 0), (_point2 select 1) - (_point1 select 1)];
+	_l = sqrt((_v select 0)^2 + (_v select 1)^2);
 
-_x1 = _left select 0;
-_y1 = _left select 1;
-_x2 = _right select 0;
-_y2 = _right select 1;
+	_d = param[2,_l/2,[0]];
 
-_m = (_y2 - _y1)/(_x2 - _x1);
-_n = _y1 - _m*_x1;
+	_f = _d / _l;
 
-_buffer = cos ( atan _m ) * _distance;
-if ( [_point1,_right] call BIS_fnc_areEqual ) then {
-	_point3 = [ _x2 - _buffer ];
-} else {
-	_point3 = [ _x1 + _buffer ];
+	[(_point1 select 0) + (_v select 0) * _f, (_point1 select 1) + (_v select 1) * _f]
 };
-_point3 = _point3 + [_m*(_point3 select 0) + _n];
-_point3 = _point3 + [0];
 
-_point3
+[]
