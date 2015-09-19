@@ -41,7 +41,7 @@ _cancel=false;
 If (IS_SCALAR(_task)) then {
 	_isTask=true;
 }else{
-	If (_task=="") then {_isTask=false;}else{_isTask=true;};
+	If (_task isEqualTo "") then {_isTask=false;}else{_isTask=true;};
 };
 ISNILS(taskcancel,false);
 /// set intervall
@@ -62,7 +62,7 @@ while {!_taskhandling} do {
 	CHECK(_cancel)
 };
 /// resets the canceled state of the task
-If (_cancel)exitwith{
+If (_cancel) exitwith {
 	If (_isTask) then {[_task,"CANCELED",false] spawn BIS_fnc_taskSetState;};
 	false
 };

@@ -16,7 +16,8 @@
 #include "script_component.hpp"
 SCRIPT(random_pos);
 private ["_pos","_dir","_radx","_rady","_generiere"];
-PARAMS_3(_start,_rad,_typ);
+_this params [["_start",[],[[]],[2,3]],["_rad",200,[0]],["_typ",-1,[0]]];
+TRACE_3(_start,_rad,_typ);
 
 switch _typ do {
 	// in radius

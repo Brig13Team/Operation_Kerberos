@@ -28,7 +28,7 @@ _gewichtung = 	[	1,					1,					1,						1,
 If (worldName == "pja305") then {
 _gewichtung = 	[	1,					1,					1,						1,
 					1,					1,					0.8,					1,					0,					0,
-					0.8,				0.8
+					0.8,				0
 				];
 };
 If (!(_aufgabentyp in _aufgabentypen)) then {
