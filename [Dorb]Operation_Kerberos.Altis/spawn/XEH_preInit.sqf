@@ -8,6 +8,7 @@ PREP(create_unitlists);
 PREP(crew);
 PREP(defence);
 PREP(defence_macros);
+PREP(gear);
 PREP(in_building);
 PREP(macro_exec3d);
 PREP(minefield);
@@ -17,6 +18,7 @@ PREP(naval_minefield);
 PREP(rooftop);
 PREP(tower);
 PREP(unit);
+PREP(vehicle);
 
 PREPS(attack,air);
 PREPS(attack,airdrop);
