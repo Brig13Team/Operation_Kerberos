@@ -2,7 +2,13 @@
 	Author: Dorbedo
 	
 	Description:
-
+		adds a Briefing
+		
+	Parameter(s):
+		none
+		
+	Return
+		none
 */
 #include "script_component.hpp"
 SCRIPT(addbriefing);
@@ -14,9 +20,6 @@ player createDiaryRecord ["Diary", ["Credits",format["
 	----------------
 	Used Scripts:
 	----------------
-	<br/>R3F - Logistics
-	<br/>http://forums.bistudio.com/showthread.php?180049-R3F-Logistics
-	<br/>
 	<br/>CH View Distance
 	<br/>http://forums.bistudio.com/showthread.php?185770-CH-View-Distance-Script
 	<br/>

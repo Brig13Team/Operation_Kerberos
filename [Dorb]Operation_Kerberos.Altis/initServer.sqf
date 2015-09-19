@@ -40,9 +40,3 @@ EGVAR(common,PFEH_headless) = [{ [] call EFUNC(common,headless) } , 30, [] ] cal
 		};
 	}] call BIS_fnc_addStackedEventHandler;
 #endif
-
-
-_Krankenhaus = "Land_Medevac_HQ_V1_F" createVehicle (getMarkerPos "krankenhaus");
-_Krankenhaus setDir (MarkerDir "Krankenhaus");
-_Krankenhaus enableSimulation false;
-SETPVAR(_Krankenhaus,ace_medical_isMedicalFacility, true);

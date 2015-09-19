@@ -34,11 +34,8 @@ corpseManagerMode = 0;
 __EXEC (D_ROOTDIR = __FILE__ select [0, count __FILE__ - 15])
 
 ///// ADDONS
-// Viedistance
+// Viewdistance
 #include "CHVD\dialog.hpp"
-// Logistik
-#include "R3F_LOG\desc_include.h"
-
 
 // Interface
 #include "interface\config\define.h"

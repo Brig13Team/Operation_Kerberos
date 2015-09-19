@@ -2,9 +2,13 @@
 	Author: Dorbedo, iJesuz
 	
 	Description:
-		Grouptracker
+		Grouptracker for Arma Version 1.50
 		
-	ARMA Version 1.48
+	Parameter(s):
+		none
+		
+	Return
+		none
 */
 scriptName "dorb\player\grouptracker";
 If(!hasInterface)exitWith{};
