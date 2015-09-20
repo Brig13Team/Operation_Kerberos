@@ -1,5 +1,7 @@
 #include "script_component.hpp"
 
+ADDON = false;
+
 PREP(addArsenal);
 PREP(addbriefing);
 PREP(grouptracker);
@@ -16,3 +18,5 @@ PREP(EH_respawn);
 PREPS(backpack,change);
 PREPS(backpack,handle);
 PREPS(backpack,init);
+
+ADDON = true;

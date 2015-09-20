@@ -1,5 +1,7 @@
 #include "script_component.hpp"
 
+ADDON = false;
+
 PREP(cleanup_big);
 PREP(cleanup_small);
 PREP(determineHC);
@@ -24,4 +26,4 @@ PREP(rep);
 //PREP(repairpoint_init);
 PREP(sel_array_weighted);
 
-
+ADDON = true;

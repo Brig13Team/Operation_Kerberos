@@ -1,5 +1,7 @@
 #include "script_component.hpp"
 
+ADDON = false;
+
 PREP(candrop);
 PREP(canload);
 PREP(canunload);
@@ -10,3 +12,5 @@ PREP(getCargoCfg);
 PREP(init);
 PREP(load);
 PREP(unload);
+
+ADDON = true;

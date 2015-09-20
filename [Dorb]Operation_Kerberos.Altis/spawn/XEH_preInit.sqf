@@ -1,5 +1,7 @@
 #include "script_component.hpp"
 
+ADDON = false;
+
 PREP(aapos);
 PREP(addNVG);
 PREP(addACEMedicalItems);
@@ -44,3 +46,5 @@ PREPS(patrol,air);
 PREPS(patrol,inf);
 PREPS(patrol,veh);
 PREPS(patrol,water);
+
+ADDON = true;
