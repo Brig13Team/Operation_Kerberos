@@ -16,14 +16,16 @@ SCRIPT(requestAirstrike);
 private ["_task","_requestedAirstrikes","_lastRequest"];
 params [["_target",objNull,[objNull,[]]],["_caller",objNull,[objNull]]];
 
-_lastRequest = GETVAR(_caller,GVAR(lastRequest),-1);
+_lastRequest = GETVAR(_caller,GVAR(lastAttackRequest),-1);
 
 if ((_lastRequest != -1) && ((_lastRequest + 600) >= serverTime)) exitWith { false };
+SETVAR(_caller,GVAR(lastAttackRequest),serverTime);
 
-_task = [];
-_task pushBack _target;
-_task pushBack (serverTime + 600);
-_task pushBack _caller;
+_task = [
+	_target,
+	serverTime + 600,
+	_caller
+];
 
 _requestedAirstrikes = GETVAR(missionNamespace,GVAR(requestedAirstrikes),[]);
 _requestedAirstrikes pushBack _task;
