@@ -2,9 +2,18 @@
 #include "script_component.hpp"
 
 class Extended_PreInit_EventHandlers {
-    class MAIN_ADDON {
-        init = "call compile preProcessFileLineNumbers 'XEH_PreInit.sqf'";
-    };
+	INCLUDE_PREINIT(main);
+	INCLUDE_PREINIT(common);
+	INCLUDE_PREINIT(interface);
+	INCLUDE_PREINIT(player);
+	INCLUDE_PREINIT(logistics);
+	INCLUDE_PREINIT(mission);
+	INCLUDE_PREINIT(ai);
+	INCLUDE_PREINIT(spawn);
+};
+
+class Extended_PostInit_EventHandlers {
+    INCLUDE_POSTINIT(common);
 };
 
 class Extended_Init_Eventhandlers {
