@@ -30,3 +30,7 @@ class Extended_HitPart_EventHandlers {
 class Extended_GetIn_Eventhandlers {
     #include "player\XEH_getIn.hpp"
 };
+
+class Extended_Killed_EventHandlers {
+    #include "ai\XEH_killed.hpp"
+};
