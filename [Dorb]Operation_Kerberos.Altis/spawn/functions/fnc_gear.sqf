@@ -13,7 +13,7 @@
 #include "script_component.hpp"
 SCRIPT(gear);
 _this params[["_unit",objNull,[objNull]]];
-TRACE_1(_unit);
+TRACEV_1(_unit);
 CHECK(isPlayer _unit)
 If (_unit isKindOf "Man") then {
 	switch (side _unit) do {

@@ -16,7 +16,7 @@
 #include "script_component.hpp"
 SCRIPT(destroy_device);
 _this params ["_ort","_position","_task"];
-TRACE_3(_ort,_position,_task);
+TRACEV_3(_ort,_position,_task);
 
 LOG(FORMAT_1("Destroy Device \n this=%1",_this));
 

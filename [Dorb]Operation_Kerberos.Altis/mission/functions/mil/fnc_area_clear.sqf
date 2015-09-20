@@ -16,7 +16,7 @@
 #include "script_component.hpp"
 SCRIPT(clear);
 _this params["_ort","_position","_task"];
-TRACE_3(_ort,_position,_task);
+TRACEV_3(_ort,_position,_task);
 
 private["_radius","_difficulty"];
 LOG("Task_Create Clear Military");

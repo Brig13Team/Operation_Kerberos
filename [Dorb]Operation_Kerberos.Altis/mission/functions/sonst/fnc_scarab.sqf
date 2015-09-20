@@ -17,7 +17,7 @@
 #include "script_component.hpp"
 SCRIPT(Scarab);
 _this params ["_ort","_position","_task"];
-TRACE_3(_ort,_position,_task);
+TRACEV_3(_ort,_position,_task);
 
 LOG(FORMAT_1("SCARAB \n this=%1",_this));
 Private["_target","_einheit","_spawnposition","_unit","_mapSize","_dir","_crew"];

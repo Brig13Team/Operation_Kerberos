@@ -17,7 +17,7 @@
 #include "script_component.hpp"
 SCRIPT(destoy_wpncache);
 _this params ["_ort","_position","_task"];
-TRACE_3(_ort,_position,_task);
+TRACEV_3(_ort,_position,_task);
 
 private["_position","_task","_ort","_position_rescue","_a"];
 

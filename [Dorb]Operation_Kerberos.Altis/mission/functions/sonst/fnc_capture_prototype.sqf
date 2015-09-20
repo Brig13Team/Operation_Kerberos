@@ -17,7 +17,7 @@
 #include "script_component.hpp"
 SCRIPT(capture_prototype);
 _this params ["_ort","_position","_task"];
-TRACE_3(_ort,_position,_task);
+TRACEV_3(_ort,_position,_task);
 
 LOG(FORMAT_1("Get Prototyp \n this=%1",_this));
 private["_position_rescue","_target","_spawnposition","_unit","_einheit","_rand","_all_spawnpos","_centerpos"];

@@ -17,7 +17,7 @@
 #include "script_component.hpp"
 SCRIPT(destroy_tower);
 _this params ["_ort","_position","_task"];
-TRACE_3(_ort,_position,_task);
+TRACEV_3(_ort,_position,_task);
 
 LOG(FORMAT_1("Destroy Tower \n this=%1",_this));
 Private ["_target","_spawnposition","_einheit","_unit"];

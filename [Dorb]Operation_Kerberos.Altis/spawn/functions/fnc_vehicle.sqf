@@ -19,7 +19,7 @@
 */
 #include "script_component.hpp"
 params[["_position",[],[[]],[2,3]],["_unittype","",[""]],["_group",grpNull,[grpNull,east]],["_direction",(360),[0]],["_withcrew",true,[true]],["_precisePos",true,[true]],["_special","NONE",[""]]];
-TRACE_6(_position,_unittype,_group,_direction,_withcrew,_precisePos,_special);
+TRACEV_6(_position,_unittype,_group,_direction,_withcrew,_precisePos,_special);
 private["_changeleader"];
 _changeleader=false;
 If (IS_SIDE(_group)) then {
