@@ -16,6 +16,7 @@ PREP(moveToHC);
 PREP(players);
 PREP(pointBetween);
 PREP(pos_flatempty);
+PREP(pos_square);
 PREP(pos_surrounding);
 PREP(positionsMean);
 PREP(random_pos);
