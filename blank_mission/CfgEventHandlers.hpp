@@ -1,7 +1,9 @@
+#define CBA_OFF
+#include "script_component.hpp"
+
 class Extended_PreInit_EventHandlers {
-    class ADDON {
-        init = "call compile preProcessFileLineNumbers 'XEH_PreInit.sqf'";
-    };
+    INCLUDE_PREINIT(main);
+	INCLUDE_PREINIT(comp_example);
 };
 
 class Extended_Respawn_EventHandlers {

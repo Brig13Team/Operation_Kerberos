@@ -1,7 +1,7 @@
 #include "script_component.hpp"
 
-/*
-	some main functions
-	PREP(example);
+ADDON = false;
 
-*/
+PREP(example);
+
+ADDON = true;
