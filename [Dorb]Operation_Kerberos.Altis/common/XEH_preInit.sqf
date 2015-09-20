@@ -11,7 +11,6 @@ PREP(headless);
 PREP(headless_move);
 PREP(headless_determine);
 PREP(list_groups);
-PREP(map);
 PREP(moveToHC);
 PREP(players);
 PREP(pointBetween);
