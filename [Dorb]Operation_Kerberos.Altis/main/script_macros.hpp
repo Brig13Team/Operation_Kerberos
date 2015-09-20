@@ -198,34 +198,25 @@ Author:
 #define GETEGVAR(var1,var2,var3) GETMVAR(EGVAR(var1,var2),var3)
 
 /* -------------------------------------------
-Macro: MAP
-    Executes the code given by the first argument on every array element given
-    by the second argument.
-    The side (right or left) of the array element depends on second argument
-    (see examples).
+Macro(s): MAP(CODE,ARRAY)
+    executes code on every array element
+
 Parameters:
-    0 : String
-    1 : Array
-    2 : String (Optional) - Default: "r", Other Value: "l"
+    0 : STRING/CODE
+    1 : ARRAY
 
 Example:
     (begin example)
-        MAP("+1",[1,2,3,4,5]);
-        MAPR("+1",[1,2,3,4,5]);
-        MAPL("1+",[1,2,3,4,5]);
-            ==> [2,3,4,5,6]
-        MAP("setDir (random 360)",_enemys);
-            ==> applies random direction to every unit in _enemys
-        MAPL("position",_enemys);
-            ==> returns array of positions
+        MAP("_this+1",[2,3,4]);
+            ==> [3,4,5]
     (end)
 
 Author:
     iJesuz
 ------------------------------------------- */
-#define MAP(CODE,ARRAY) [CODE,ARRAY] call EFUNC(common,map)
-#define MAPR(CODE,ARRAY) [CODE,ARRAY,"r"] call EFUNC(common,map)
-#define MAPL(CODE,ARRAY) [CODE,ARRAY,"l"] call EFUNC(common,map)
+#define MAP(CODE,ARRAY) [CODE,ARRAY] call TRIPLES(dorb,makro,map)
+
+
 /* -------------------------------------------
 Macro(s):
         IS_ATTACK_HELI(VAR)

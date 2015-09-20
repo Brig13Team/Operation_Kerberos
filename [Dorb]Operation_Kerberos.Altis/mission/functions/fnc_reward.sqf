@@ -46,7 +46,7 @@ _function = {
 	_blacklist = [_this, 5, [], [[]]] call BIS_fnc_param;
 
 	_marker_array = missionNamespace getVariable [FORMAT_1("DORB_REWARD_MARKER_%1", _this select 4), []];
-	MAPL("deleteMarker", _marker_array);
+	MAP("deleteMarker _this;",_marker_array);
 	_marker_array = [];
 
 	_veh = nearestObjects[_this select 0, _this select 1, _this select 2];
@@ -96,7 +96,7 @@ switch (_reward) do {
 		private ["_marker", "_marker_array", "_dir", "_mposition"];
 
 		_marker_array = missionNamespace getVariable ["DORB_REWARD_MARKER", []];
-		MAPL("deleteMarker", _marker_array);
+		MAP("deleteMarker _this;",_marker_array);
 		_marker_array = [];
 		{
 			if ( (side _x == DORB_SIDE) && ((leader _x) == (vehicle (leader _x))) && ((count units _x) > 1) && (((leader _x) distance _position) <= _radius)) then {
@@ -145,7 +145,7 @@ switch (_reward) do {
 		private ["_commando_vehicles", "_veh", "_marker", "_marker_array"];
 		
 		_marker_array = missionNamespace getVariable ["DORB_REWARD_MARKER_8", []];
-		MAPL("deleteMarker", _marker_array);
+		MAP("deleteMarker _this;",_marker_array);
 		_marker_array = [];
 		_commando_vehicles = dorb_commandveh_radio + dorb_radar;
 		_veh = nearestObjects [_position, _commando_vehicles, _radius];
@@ -162,7 +162,7 @@ switch (_reward) do {
 		private ["_marker", "_marker_array", "_men"];
 
 		_marker_array = missionNamespace getVariable ["DORB_REWARD_MARKER_INF", []];
-		MAPL("deleteMarker", _marker_array);
+		MAP("deleteMarker _this;",_marker_array);
 		{
 			if ( (side _x == DORB_SIDE) && ((_x distance _position) <= _radius) ) then {
 				_marker = createMarker[ FORMAT_1("Reward_Marker_Unit_%1", count _marker_array), position _x];
