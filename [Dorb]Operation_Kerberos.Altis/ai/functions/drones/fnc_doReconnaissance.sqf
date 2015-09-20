@@ -8,18 +8,34 @@
 		1 : ARRAY/OBJECT - position or target object
 
 	Retruns:
-		FALSE - on fail
-		ARRAY - if scan is done
+		BOOLEAN
 	
 */
 #include "script_component.hpp"
 SCRIPT(doReconnaissance);
 
-params [["_drone",objNull,[objNull]],"_target"];
-private ["_scan_radius","_pos","_wp_type","_dir","_height","_posBegin","_radius"];
+params ["_target",["_caller",objNull,[objNull]],["_func",{},[{}]]];
+private ["_drone","_rdrones","_scan_radius","_pos","_wp_type","_dir","_height","_posBegin","_radius","_onExit"];
 
-if (isNull _drone) exitWith { false };
-if (!isNumber(missionConfigFile >> "drones" >> typeOf _drone >> "scan_radius")) exitWith { false };
+_onExit = {
+	private ["_rdrones"];
+	_rdrones = GETVAR(missionNamespace,GVAR(availableReconDrones),[]);
+	_rdrones pushback (typeOf _this);
+	SETVAR(missionNamespace,GVAR(availableReconDrones),_rdrones);
+	deleteVehicle _this;
+};
+
+_rdrones = GETVAR(missionNamespace,GVAR(availableReconDrones),[]);
+if (count _rdrones == 0) exitWith { false };
+
+_drone = _rdrones select (count _rdrones - 1);
+_rdrones resize (count _rdrones - 1);
+SETVAR(missionNamespace,GVAR(availableReconDrones),_rdrones);
+
+_drone = createVehicle [_drone,[0,0,2000],[],0,"FLY"];
+createVehicleCrew _drone;
+
+if (!isNumber(missionConfigFile >> "drones" >> typeOf _drone >> "scan_radius")) exitWith { _drone call _onExit; false };
 _scan_radius = getNumber(missionConfigFile >> "drones" >> typeOf _drone >> "scan_radius");
 _wp_type = getText (missionConfigFile >> "drones" >> typeOf _drone >> "scan_waypoint");
 if (_wp_type == "LOITER") then {
@@ -37,16 +53,29 @@ _posBegin = [(_pos select 0) - ((sin _dir) * 1000), (_pos select 1) - ((cos _dir
 
 _drone setPos _posBegin;
 _drone setDir (_dir + 180);
-if (!([_drone,_wp_type,_pos] call FUNC(drones_createWaypoint))) exitWith { false };
+if (!([_drone,_wp_type,_pos] call FUNC(drones_createWaypoint))) exitWith { _drone call _onExit; false };
 
-while { ((_drone distance2D _pos) >= (_radius + 50)) } do { 
-	uiSleep 1; 
-	( _drone distance2D _pos) call BIS_fnc_log;
+while { (((waypointPosition (waypoints _drone select 0)) distance2D _drone) >= (_radius + 50)) } do { 
+	uiSleep 1;
+	((waypointPosition (waypoints _drone select 0)) distance2D _drone) call BIS_fnc_log;
 };
 
-if (isNull _drone) exitWith { false };
+if (isNull _drone) exitWith { _drone call _onExit; false };
 uiSleep 30;
-if (isNull _drone) exitWith { false };
+if (isNull _drone) exitWith { _drone call _onExit; false };
 _ret = [_drone,_pos] call FUNC(drones_scan);
 
-_ret
+[_ret,_caller,_target] spawn _func;
+
+uiSleep 30;
+
+if(isNull _drone) exitWith { _drone call _onExit; false };
+if (!([_drone,"MOVE",_posBegin] call FUNC(drones_createWaypoint))) exitWith { _drone call _onExit; false };
+
+while { ((waypointPosition (waypoints _drone select 0)) distance2D _drone) >= 50 } do { 
+	uiSleep 1;
+};
+
+_drone call _onExit;
+
+true

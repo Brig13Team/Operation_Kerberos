@@ -33,8 +33,8 @@ switch (_mode) do {
 		
 		SETVAR(missionNamespace,GVAR(requestedAirstrikes),[]);
 		SETVAR(missionNamespace,GVAR(requestedReconnaissances),[]);
-		SETVAR(missionNamespace,GVAR(availableReconDrones),_avail_rdrones);
 		SETVAR(missionNamespace,GVAR(availableAttackDrones),_avail_adrones);
+		SETVAR(missionNamespace,GVAR(availableReconDrones),_avail_rdrones);
 
 		_handle = [{
 			SCRIPTIN(init,perFrameHandler);
@@ -43,7 +43,7 @@ switch (_mode) do {
 			_requests = GETVAR(missionNamespace,GVAR(requestedAirstrikes),[]);
 			_leftrequests = [];
 			for "_i" from 0 to (count _requests - 1) do {
-				if ((_requests select _i select 2) <= (serverTime)) then {
+				if ((_requests select _i select 1) <= serverTime) then {
 					if (count (GETVAR(missionNamespace,GVAR(availableAttackDrones),[])) > 0) then {
 						[_requests select _i select 0] spawn FUNC(drones_doAirstrike);
 					} else {
@@ -53,10 +53,19 @@ switch (_mode) do {
 			};
 			SETVAR(missionNamespace,GVAR(requestedAirstrikes),_leftrequests);
 
-			_rdrones = GETVAR(missionNamespace,GVAR(availableReconDrones),[]);
-			if (count _rdrones > 0) then {
 
+			_requests = GETVAR(missionNamespace,GVAR(requestedReconnaissances),[]);
+			_leftrequests = [];
+			for "_i" from 0 to (count _requests - 1) do {
+				if ((_requests select _i select 1) <= serverTime) then {
+					if (count (GETVAR(missionNamespace,GVAR(availableReconDrones),[])) > 0) then {
+						[_requests select _i select 0, _requests select _i select 2, _requests select _i select 3] spawn FUNC(drones_doReconnaissance);
+					} else {
+						_leftrequests pushBack _requests;
+					};
+				};
 			};
+			SETVAR(missionNamespace,GVAR(requestedReconnaissances),_leftrequests);
 		},10,[]] call CBA_fnc_addPerFrameHandler;
 
 		LOG(FORMAT_1("handle = %1",_handle));
