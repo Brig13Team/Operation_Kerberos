@@ -15,14 +15,13 @@
 */
 #include "script_component.hpp"
 SCRIPT(clear);
-CHECK(!isServer)
+_this params["_ort","_position","_task"];
+TRACE_3(_ort,_position,_task);
 
-private["_radius","_list","_difficulty"];
+private["_radius","_difficulty"];
 LOG("Task_Create Clear Military");
-PARAMS_3(_ort,_position,_task);
 
 _radius = 1000;
-_list=[];
 _difficulty = call FUNC(dyn_difficulty);
 
 

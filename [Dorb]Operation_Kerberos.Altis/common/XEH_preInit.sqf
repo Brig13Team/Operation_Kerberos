@@ -13,6 +13,7 @@ PREP(headless_determine);
 PREP(list_groups);
 PREP(map);
 PREP(moveToHC);
+PREP(players);
 PREP(pointBetween);
 PREP(pos_flatempty);
 PREP(pos_surrounding);

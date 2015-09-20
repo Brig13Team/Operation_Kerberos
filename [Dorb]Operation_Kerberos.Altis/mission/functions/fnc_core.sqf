@@ -75,11 +75,10 @@ If ((_markerpos distance [0,0,0])>1) then {
 uisleep 20;
 
 for "_u" from 0 to 120 do {
-	
-	sleep 5;
+	uisleep 5;
 	INC(_aufgabennummer);
 	_aktuelle_aufgabe = FORMAT_1("task_%1",_aufgabennummer);
-	LOG_2(_aufgabennummer,_aktuelle_aufgabe);
+	TRACE_2(_aufgabennummer,_aktuelle_aufgabe);
 	[_aktuelle_aufgabe] call FUNC(choose);
 };
 ERROR("CORE LOOP CRASHED");

@@ -16,10 +16,10 @@
 */
 #include "script_component.hpp"
 SCRIPT(destroy_tower);
-CHECK(!isServer)
+_this params ["_ort","_position","_task"];
+TRACE_3(_ort,_position,_task);
 
 LOG(FORMAT_1("Destroy Tower \n this=%1",_this));
-PARAMS_3(_ort,_position,_task);
 Private ["_target","_spawnposition","_einheit","_unit"];
 _target=[];
 _spawnposition=[];

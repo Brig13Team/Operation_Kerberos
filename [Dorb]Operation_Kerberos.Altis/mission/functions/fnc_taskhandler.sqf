@@ -33,7 +33,6 @@
 */
 #include "script_component.hpp"
 SCRIPT(taskhandler);
-CHECK(!isServer)
 params[["_intervall",30,[0]],["_task","",[0,""]],["_condition",{true},[{}]],["_conditionArgs",[],[[]]],["_conditionSucess",{true},[{}]],["_onSucess",{},[{}]],["_onFailure",{},[{}]],["_args",[],[[]]],["_afterCheck",{},[{}]],["_afterCheckArgs",[],[[]]]];
 private["_isTask","_cancel","_taskhandling","_state"];
 _cancel=false;
