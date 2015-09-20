@@ -25,5 +25,6 @@ PREP(rep);
 //PREP(repairpoint);
 //PREP(repairpoint_init);
 PREP(sel_array_weighted);
+PREP(waitAndExec);
 
 ADDON = true;
