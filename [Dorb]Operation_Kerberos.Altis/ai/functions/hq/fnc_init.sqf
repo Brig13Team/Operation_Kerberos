@@ -17,7 +17,7 @@ SCRIPT(init);
 
 GVAR(hq_aktive) = true;
 
-ISNILS(GVAR(HQ_Area_killed,[]));
+[] call FUNC(HQ_reset);
 
 
 

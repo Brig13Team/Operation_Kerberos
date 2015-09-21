@@ -16,7 +16,7 @@ CHECK(GETMVAR(GVAR(HQ_working),false))
 SETMVAR(GVAR(HQ_working,true));
 
 [] call FUNC(HQ_update_area);
-CHECK((GETMVAR(EGVAR(HQ_centerpos),[]) isEqualTo []))
+CHECK((GETMVAR(GVAR(HQ_centerpos),[]) isEqualTo []))
 
 
 SETMVAR(GVAR(HQ_working),true);

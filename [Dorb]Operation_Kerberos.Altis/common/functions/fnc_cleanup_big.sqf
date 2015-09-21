@@ -10,6 +10,8 @@ SCRIPT(cleanup_big);
 _this params ["_pos","_rad"];
 TRACEV_2(_pos,_rad);
 
+[] spawn EFUNC(ai,HQ_reset);
+
 {_x TILGE;} foreach (_pos nearObjects ["ALL", _rad]); ///hier west rausnehmen
 {_x TILGE;} forEach allMines;
 {if (side _x != EGVAR(main,playerside)) then {_x TILGE;};} foreach allunits;
@@ -30,6 +32,4 @@ ISNILS(EGVAR(mission,sideby_objects),[]);
 EGVAR(mission,sideby_objects) = [];
 EGVAR(mission,fnc) = [];
 publicVariable QEGVAR(mission,fnc);
-SETMVAR(EGVAR(ai,HQ_Centerpos),[]);
-SETMVAR(EGVAR(ai,HQ_Area),[]);
-SETMVAR(EGVAR(ai,HQ_Area_killed),[]);
+
