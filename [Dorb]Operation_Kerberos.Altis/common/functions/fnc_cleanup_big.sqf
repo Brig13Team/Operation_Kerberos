@@ -32,3 +32,4 @@ EGVAR(mission,fnc) = [];
 publicVariable QEGVAR(mission,fnc);
 SETMVAR(EGVAR(ai,HQ_Centerpos),[]);
 SETMVAR(EGVAR(ai,HQ_Area),[]);
+SETMVAR(EGVAR(ai,HQ_Area_killed),[]);
