@@ -2,7 +2,7 @@
 	Author: Dorbedo
 
 	Description:
-	returns Array with Positions from a Square
+		returns Array with Positions from a Square
 
 	Parameter(s):
 		0 :	ARRAY	- Centerpos

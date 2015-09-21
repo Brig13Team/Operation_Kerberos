@@ -12,10 +12,12 @@
 */
 #include "script_component.hpp"
 SCRIPT(handle);
+CHECK(GETMVAR(GVAR(HQ_working),false))
+SETMVAR(GVAR(HQ_working,true));
 
-_position = GETMVAR(EGVAR(mission,area),[]);
-CHECK(_position isEqualTo [])
+[] call FUNC(HQ_update_area);
+CHECK((GETMVAR(EGVAR(HQ_centerpos),[]) isEqualTo []))
 
 
-
+SETMVAR(GVAR(HQ_working),true);
 
