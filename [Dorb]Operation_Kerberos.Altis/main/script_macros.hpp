@@ -236,5 +236,5 @@ Example:
 Author:
     iJesuz
 ------------------------------------------- */
-#define IS_ATTACK_HELI(THELI) if ((isClass(configFile >> "CfgVehicles" >> THELI)) && {"CAS_Heli" in getArray(configFile >> "CfgVehicles" >> THELI >> "availableForSupportTypes")}) then { true } else { false }
+#define IS_ATTACK_HELI(THELI) if ((isClass(configFile >> "CfgVehicles" >> THELI)) && {("CAS_Heli" in getArray(configFile >> "CfgVehicles" >> THELI >> "availableForSupportTypes")) || (THELI isKindOf "RHS_UH1_Base")}) then { true } else { false }
 #define IS_ATTACK_PLANE(TPLANE) if ((isClass(configFile >> "CfgVehicles" >> TPLANE)) && {"CAS_Bombing" in getArray(configFile >> "CfgVehicles" >> TPLANE >> "availableForSupportTypes")}) then { true } else { false }
