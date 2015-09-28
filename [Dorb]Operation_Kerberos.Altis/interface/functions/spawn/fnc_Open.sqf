@@ -35,6 +35,7 @@ SETMVAR(GVAR(spawn_current),_host);
 _spawnpos = getMarkerPos _spawnmarker;
 // EMPTY SPAWNPAD
 {
+    { if(!(alive _x)) then { deleteVehicle _x; }; } forEach (crew _x);
 	if (count crew _x == 0) then {deletevehicle _x};
 	if (( (getText(configFile >> "CfgVehicles" >> (typeOf _x) >> "vehicleClass"))isEqualTo "Autonomous")) then {_x TILGE;};
 } foreach (nearestObjects [_spawnpos, ["AllVehicles"], _check_radius]);
