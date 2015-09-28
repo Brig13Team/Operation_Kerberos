@@ -1,6 +1,18 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Project name="dorb">
 	<Package name="main">
+		<Key ID="STR_DORB_MAIN_NAME">
+			<Original>Operation Kerberos</Original>
+			<English>Operation Kerberos</English>
+			<Czech>Operation Kerberos</Czech>
+			<French>Operation Kerberos</French>
+			<German>Operation Kerberos</German>
+			<Italian>Operation Kerberos</Italian>
+			<Polish>Operation Kerberos</Polish>
+			<Portuguese>Operation Kerberos</Portuguese>
+			<Russian>Operation Kerberos</Russian>
+			<Spanish>Operation Kerberos</Spanish>
+		</Key>
 		<Key ID="STR_DORB_MAIN_AUTHOR">
 			<Original>Dorbedo, iJesuz</Original>
 			<English>Dorbedo, iJesuz</English>
