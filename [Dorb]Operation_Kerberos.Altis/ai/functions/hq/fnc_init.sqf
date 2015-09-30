@@ -14,6 +14,7 @@
 SCRIPT(init);
 #define INTERVALL_HQ 30
 #define INTERVALL_HQ_GROUPS 300
+#define INTERVALL_RADARS 30
 
 GVAR(hq_aktive) = true;
 
@@ -46,6 +47,13 @@ GVAR(hq_aktive) = true;
 	[]
 ] call CBA_fnc_addPerFrameHandler;
 
+[
+	{
+		_this call FUNC(hq_check_radars);
+	},
+	INTERVALL_RADARS,
+	[]
+] call CBA_fnc_addPerFrameHandler;
 
 
 

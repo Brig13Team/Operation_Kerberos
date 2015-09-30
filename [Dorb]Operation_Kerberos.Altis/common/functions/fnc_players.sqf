@@ -12,5 +12,6 @@
 SCRIPT(players);
 
 If !(isMultiplayer) exitWith {[player]};
-
-[playableUnits, { isPlayer _x }] call BIS_fnc_conditionalSelect;
+private "_allHCs";
+_allHCs = allMissionObjects "HeadlessClient_F";
+(allPlayers - _allHCs);
