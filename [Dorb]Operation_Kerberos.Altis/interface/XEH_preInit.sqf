@@ -1,5 +1,7 @@
 #include "script_component.hpp"
 
+ADDON = false;
+
 PREP(disp_blur);
 PREP(disp_info);
 PREP(disp_info_global);
@@ -48,3 +50,5 @@ PREPS(tfr,onOpen);
 PREPS(tfr,OpenMenu);
 PREPS(tfr,setFreq);
 PREPS(tfr,setGroup);
+
+ADDON = true;

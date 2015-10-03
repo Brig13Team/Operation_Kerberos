@@ -12,10 +12,10 @@
 
 	
 */
-
+#include "script_component.hpp"
+SCRIPT(positionsMean);
 private ["_positionsarray","_all_x","_all_y","_all_z","_x","_y","_z","_currentpos","_return"];
-scriptname "dorb\kerberos\positionsMean";
-_positionsarray = [_this,0,[],[[]]] call BIS_fnc_Param;
+_this params [["_positionsarray",[],[[]]]];
 
 If (_positionsarray isEqualTo []) exitWith {[]};
 _all_x = [((_positionsarray select 0) select 0)];

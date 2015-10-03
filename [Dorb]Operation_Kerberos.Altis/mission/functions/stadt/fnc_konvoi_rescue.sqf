@@ -18,14 +18,12 @@
 */
 #include "script_component.hpp"
 SCRIPT(konvoi_rescue);
-CHECK(!isServer)
+_this params ["_ort","_position","_task"];
+TRACEV_3(_ort,_position,_task);
 
 
 private["_position","_task","_ort","_position_rescue","_pow","_einheit"];
 
-_ort=_this select 0;
-_position=_this select 1;
-_task=_this select 2;
 _stadt = GETMVAR(GVAR(stadt),[]);
 
 _position_rescue = getMarkerPos "rescue_marker";

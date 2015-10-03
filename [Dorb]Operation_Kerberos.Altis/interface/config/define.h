@@ -3,8 +3,6 @@
 #define UI_FONT "PuristaMedium"
 
 
-
-
 #define UI_CL_PROGRESS {0.486,0.988,0,1}
 //"PuristaBold"
 #define UI_CL_TEXT {0.98,0.98,0.824,1}

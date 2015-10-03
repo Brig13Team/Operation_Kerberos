@@ -14,8 +14,8 @@
 */
 #include "script_component.hpp"
 SCRIPT(rescue_pow);
-CHECK(!isServer)
-PARAMS_3(_ort,_position,_task);
+_this params ["_ort","_position","_task"];
+TRACEV_3(_ort,_position,_task);
 private["_position_rescue","_pow"];
 
 LOG("Generiere Stadt-POW");
