@@ -10,3 +10,4 @@ PREP(getCargoCfg);
 PREP(init);
 PREP(load);
 PREP(unload);
+PREP(updateSeats);

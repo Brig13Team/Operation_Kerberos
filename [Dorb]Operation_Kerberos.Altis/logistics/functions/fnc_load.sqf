@@ -198,3 +198,5 @@ _cargo attachTo [_vehicle,_attach_point];
 if(_rotate) then { _cargo setDir 90; };
 _vehicle setVariable [QGVAR(stack),_logistic_stack,true];
 _vehicle setMass (_vehicle_mass + _cargo_mass);
+
+[_vehicle] call FUNC(updateSeats);
