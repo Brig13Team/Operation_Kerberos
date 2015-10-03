@@ -280,7 +280,7 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
 
         if (((_vClass=="Ammo")and(_autor=="BWMod"))) then {
 
-            _spawnliste_bwmat pushBack [_class,_pic ,"BIS", (call(_DNameBIS)), _DName, _icon];
+            _spawnliste_bwmat pushBack [_class,_pic ,"BIS", (call(_DNameBW)), _DName, _icon];
 
         };
 
@@ -312,7 +312,7 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
 _drohnenliste   = _spawnliste_drohne;
 _luftliste      = _spawnliste_heli + _spawnliste_heli_rhs + _spawnliste_jet + _spawnliste_jet_rhs + _spawnliste_drone_usaf + _spawnliste_air_usaf;
 _fahrzeugliste  = _spawnliste_fia + _spawnliste_fahrzeug_bewaffnet + _spawnliste_fahrzeug_unbewaffnet + _spawnliste_support + _spawnliste_panzer + _spawnliste_fahrzeug_rhs + _spawnliste_panzer_rhs;
-_logistikliste  = _spawnliste_support + _spawnliste_logistikheli + _spawnliste_fia + _spawnliste_statisch_rhs + _spawnliste_statisch + _spawnliste_fahrzeug_unbewaffnet + _spawnliste_bwmat + _spawnliste_ammo+ _spawnliste_ace + _spawnliste_material;
+_logistikliste  = _spawnliste_support + _spawnliste_logistikheli + _spawnliste_fia + _spawnliste_statisch_rhs + _spawnliste_statisch + _spawnliste_fahrzeug_unbewaffnet +/* _spawnliste_bwmat + _spawnliste_ammo */+ _spawnliste_ace + _spawnliste_material;
 _marineliste    = _spawnliste_marine + _spawnliste_submarine;
 
 SETPVAR(fahrzeuge,GVAR(spawn_list),_fahrzeugliste);
