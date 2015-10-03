@@ -16,11 +16,13 @@
 */
 #include "script_component.hpp"
 SCRIPT(capture_prototype);
-_this params ["_ort","_position","_task"];
-TRACEV_3(_ort,_position,_task);
+CHECK(!isServer)
 
 LOG(FORMAT_1("Get Prototyp \n this=%1",_this));
-private["_position_rescue","_target","_spawnposition","_unit","_einheit","_rand","_all_spawnpos","_centerpos"];
+
+PARAMS_3(_ort,_position,_task);
+
+private["_position_rescue","_target","_spawnposition","_unit","_einheit","_rand"];
 
 _position_rescue = getMarkerPos "rescue_marker";
 _target=[];
@@ -74,11 +76,11 @@ if (dorb_debug) then {
 		_mrkr setMarkerShape "ICON";
 		_mrkr setMarkerColor "ColorBlack";
 		_mrkr setMarkerType "hd_destroy";
-		GVAR(markerdump) pushBack _mrkr;
+		
 	}forEach _target;
 };
 
-uisleep 2;
+sleep 2;
 
 ///////////////////////////////////////////////
 ////// Gegner erstellen 				 /////

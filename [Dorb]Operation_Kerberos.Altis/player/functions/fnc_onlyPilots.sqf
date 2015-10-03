@@ -9,8 +9,6 @@
 		1: ARRAY - position of player
 		2: UNIT - player
 		3: ARRAY - turret
-	returns:
-		true
 */
 #include "script_component.hpp"
 SCRIPT(log_load);
@@ -42,4 +40,3 @@ if (!(((_turret isEqualTo [0]) || (_position == "driver")))) exitWith {};
 	_unit action ["GetOut", vehicle _unit];
 	if (isPlayer _unit) then { hint format[localize LSTRING(NURPILOTEN),name _unit]; };
 };
-true

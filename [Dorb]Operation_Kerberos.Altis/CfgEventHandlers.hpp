@@ -2,18 +2,9 @@
 #include "script_component.hpp"
 
 class Extended_PreInit_EventHandlers {
-	INCLUDE_PREINIT(main);
-	INCLUDE_PREINIT(common);
-	INCLUDE_PREINIT(interface);
-	INCLUDE_PREINIT(player);
-	INCLUDE_PREINIT(logistics);
-	INCLUDE_PREINIT(mission);
-	INCLUDE_PREINIT(ai);
-	INCLUDE_PREINIT(spawn);
-};
-
-class Extended_PostInit_EventHandlers {
-    INCLUDE_POSTINIT(common);
+    class MAIN_ADDON {
+        init = "call compile preProcessFileLineNumbers 'XEH_PreInit.sqf'";
+    };
 };
 
 class Extended_Init_Eventhandlers {
@@ -38,8 +29,4 @@ class Extended_HitPart_EventHandlers {
 
 class Extended_GetIn_Eventhandlers {
     #include "player\XEH_getIn.hpp"
-};
-
-class Extended_Killed_EventHandlers {
-    #include "ai\XEH_killed.hpp"
 };

@@ -33,6 +33,7 @@
 */
 #include "script_component.hpp"
 SCRIPT(taskhandler);
+CHECK(!isServer)
 params[["_intervall",30,[0]],["_task","",[0,""]],["_condition",{true},[{}]],["_conditionArgs",[],[[]]],["_conditionSucess",{true},[{}]],["_onSucess",{},[{}]],["_onFailure",{},[{}]],["_args",[],[[]]],["_afterCheck",{},[{}]],["_afterCheckArgs",[],[[]]]];
 private["_isTask","_cancel","_taskhandling","_state"];
 _cancel=false;
@@ -40,7 +41,7 @@ _cancel=false;
 If (IS_SCALAR(_task)) then {
 	_isTask=true;
 }else{
-	If (_task isEqualTo "") then {_isTask=false;}else{_isTask=true;};
+	If (_task=="") then {_isTask=false;}else{_isTask=true;};
 };
 ISNILS(taskcancel,false);
 /// set intervall
@@ -61,7 +62,7 @@ while {!_taskhandling} do {
 	CHECK(_cancel)
 };
 /// resets the canceled state of the task
-If (_cancel) exitwith {
+If (_cancel)exitwith{
 	If (_isTask) then {[_task,"CANCELED",false] spawn BIS_fnc_taskSetState;};
 	false
 };

@@ -16,10 +16,10 @@
 */
 #include "script_component.hpp"
 SCRIPT(Scarab);
-_this params ["_ort","_position","_task"];
-TRACEV_3(_ort,_position,_task);
 
+CHECK(!isServer)
 LOG(FORMAT_1("SCARAB \n this=%1",_this));
+PARAMS_3(_ort,_position,_task);
 Private["_target","_einheit","_spawnposition","_unit","_mapSize","_dir","_crew"];
 _target=[];
 _spawnposition=[];

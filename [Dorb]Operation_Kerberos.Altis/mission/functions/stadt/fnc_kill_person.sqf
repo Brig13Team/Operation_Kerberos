@@ -16,8 +16,9 @@
 */
 #include "script_component.hpp"
 SCRIPT(kill_person);
-_this params ["_ort","_position","_task"];
-TRACEV_3(_ort,_position,_task);
+CHECK(!isServer)
+
+PARAMS_4(_ort,_position,_task,_gebaeudearr);
 
 private["_position_rescue","_target","_gruppe"];
 

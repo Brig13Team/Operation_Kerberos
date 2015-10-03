@@ -7,10 +7,7 @@
 */
 #include "script_component.hpp"
 SCRIPT(cleanup_big);
-_this params ["_pos","_rad"];
-TRACEV_2(_pos,_rad);
-
-[] spawn EFUNC(ai,HQ_reset);
+PARAMS_2(_pos,_rad);
 
 {_x TILGE;} foreach (_pos nearObjects ["ALL", _rad]); ///hier west rausnehmen
 {_x TILGE;} forEach allMines;
@@ -32,4 +29,3 @@ ISNILS(EGVAR(mission,sideby_objects),[]);
 EGVAR(mission,sideby_objects) = [];
 EGVAR(mission,fnc) = [];
 publicVariable QEGVAR(mission,fnc);
-
