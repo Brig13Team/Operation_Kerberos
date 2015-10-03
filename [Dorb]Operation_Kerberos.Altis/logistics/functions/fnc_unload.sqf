@@ -2,7 +2,7 @@
 	Author: iJesuz, Dorbedo
 
 	Description:
-		logistic script
+		unload cargo
 
 	Parameter(s):
 		0: OBJECT - vehicle
@@ -12,7 +12,9 @@ SCRIPT(unload);
 
 #define SPACE_BETWEEN_CARGO 0.1
 
-params ["_vehicle"];
+params [["_vehicle",objNull,[objNull]]];
+
+if (isNull _vehicle) exitWith {};
 
 private ["_vehicle_class","_logistic_stack"];
 
@@ -61,6 +63,8 @@ _cargo_mass = getMass (_last_cargo select 0);
 _vehicle_mass = getMass _vehicle;
 (_last_cargo select 0) setPos (_vehicle modelToWorld _detach_point);
 (_last_cargo select 0) setDir (getDir _vehicle);
+
+[_vehicle] call FUNC(updateSeats);
 
 SETVAR(player,GVAR(isloading),false);
 if ([_vehicle,false] call FUNC(candrop)) then {
