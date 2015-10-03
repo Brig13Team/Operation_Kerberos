@@ -12,7 +12,7 @@
 SCRIPT(canload);
 
 params ["_vehicle"];
-private ["_gesamtmasse","_leermasse","_ladungsmasse","_leereLadeflaeche", "_logisticStack", "_counter"];
+private ["_gesamtmasse","_leermasse","_ladungsmasse"/*,"_leereLadeflaeche"*/, "_logisticStack", "_counter"];
 
 _gesamtmasse = getMass _vehicle;
 _leermasse = _gesamtmasse;
@@ -22,13 +22,14 @@ _logisticStack = _vehicle getVariable [QGVAR(stack),[]];
 
 {
 	{
-		_leermasse = _leermasse - getMass (_x select 0); 
+		_leermasse = _leermasse - getMass (_x select 0);
 		INC(_counter);
 	} forEach _x;
 } forEach _logisticStack;
 
 _ladungsmasse = _gesamtmasse - _leermasse;
 
+/*
 if (count _logisticStack > 0) then {
 	_leereLadeflaeche = getNumber(missionConfigFile >> "logistics" >> "vehicles" >> typeOf _vehicle >> "max_length");
 	{
@@ -37,6 +38,7 @@ if (count _logisticStack > 0) then {
 } else {
 	_leereLadeflaeche = getNumber(missionConfigFile >> "logistics" >> "vehicles" >> typeOf _vehicle >> "max_length");
 };
+*/
 
 
 [LSTRING(CARGO_INFO),[
@@ -44,5 +46,5 @@ if (count _logisticStack > 0) then {
 	format [localize LSTRING(CARGO_MASS),_ladungsmasse],
 	format [localize LSTRING(FULL_MASS),_gesamtmasse],
 	format [localize LSTRING(COUNT_CARGO),_counter],
-	format [localize LSTRING(FREE_SPACE),_leereLadeflaeche]
+	// format [localize LSTRING(FREE_SPACE),_leereLadeflaeche]
 ],"",false] call EFUNC(interface,disp_info);
