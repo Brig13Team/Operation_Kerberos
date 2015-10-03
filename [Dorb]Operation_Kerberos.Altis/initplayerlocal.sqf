@@ -38,3 +38,12 @@ ISNILS(EGVAR(mission,fnc),[]);
 
 [LSTRING(CLAN),[LSTRING(WELCOME1),LSTRING(WELCOME2),LSTRING(WELCOME3),LSTRING(WELCOME4),LSTRING(WELCOME5),LSTRING(WELCOME6)],"data\logo_brig.paa",false] call EFUNC(interface,disp_info);
 [] spawn EFUNC(interface,disp_timer);
+/*
+[] spawn {
+	SCRIPTIN(initplayerlocal,performance);
+	while {true} do {
+		[false,false] call FUNC(debug_performance);
+		uisleep 60;
+		false
+	};
+};*/

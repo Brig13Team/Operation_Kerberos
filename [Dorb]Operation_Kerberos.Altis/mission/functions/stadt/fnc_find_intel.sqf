@@ -16,13 +16,11 @@
 */
 #include "script_component.hpp"
 SCRIPT(find_intel);
-_this params ["_ort","_position","_task"];
-TRACEV_3(_ort,_position,_task);
-
+CHECK(!isServer)
 
 
 private["_position_rescue","_pow"];
-
+params["_ort","_position","_task"];
 
 _target=[];
 

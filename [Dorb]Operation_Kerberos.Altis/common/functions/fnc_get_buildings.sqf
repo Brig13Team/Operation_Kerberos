@@ -6,10 +6,9 @@
 */
 #include "script_component.hpp"
 SCRIPT(get_buildings);
-_this params[["_pos",[],[[]]],["_rad",250,[0]]];
-TRACEV_2(_pos,_rad);
-CHECK(_pos isEqualTo [])
 private ["_gebauede","_anz","_i","_fertig","_gebauedepos","_temp"];
+params[["_pos",[],[[]]],["_rad",250,[0]]];
+CHECK(_pos isEqualTo [])
 _gebauede = [];
 _gebauedepos = [];
 _gebauede = _pos nearObjects ["HouseBase", _rad];

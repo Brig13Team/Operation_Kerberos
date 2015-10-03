@@ -7,17 +7,22 @@
 	Parameter(s):
 		0 :	ARRAY	- Centerpos
 		1 : SCALAR 	- Radius
-		2 : SCALAR	- Step		
+		2 : SCALAR	- Step
+		
 
 	Returns:
 	ARRAY : Array with Positions
 
+	
 */
 #include "script_component.hpp"
 SCRIPT(pos_surrounding);
-params[["_position",[],[[]],[2,3]],["_radius",600,[0]],["_step",20,[0]]];
+params["_position",["_radius",600,[0]],["_step",20,[0]]];
+
+CHECK(!(IS_ARRAY(_position)))
 CHECK(_position isEqualTo [])
-If ((_step < 1)||(_radius < 5)) exitWith {[_position]};
+CHECK(_step < 1)
+CHECK(_radius < 5)
 Private["_searchposarray","_searchrad","_s","_umfang","_theta"];
 _searchposarray = [_position];
 _searchrad = 1;

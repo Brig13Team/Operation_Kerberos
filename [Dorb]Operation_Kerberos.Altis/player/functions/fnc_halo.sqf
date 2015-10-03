@@ -1,16 +1,3 @@
-/*
-	Author: Dorbedo
-	
-	Description:
-		performes the Halo
-		
-	Parameter(s):
-		(optional)
-			Altitude of the startpoint
-			Altitude where the cute is opening automatically
-	Return
-		none
-*/
 #include "script_component.hpp"
 SCRIPT(halo);
 params["_host","_caller","_id","_params"];

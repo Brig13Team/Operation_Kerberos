@@ -2,7 +2,7 @@
 #include "script_component.hpp"
 class Man {
     class ADDON {
-        init = QUOTE(If(local (_this select 0)) then {_this call FUNC(gear);};);
+        init = QUOTE(_this call FUNC(addNVG));
     };
 };
 class rhsusf_M1083A1P2_B_M2_d_Medical_fmtv_usarmy {

@@ -12,7 +12,10 @@
 #include "script_component.hpp"
 SCRIPT(choose);
 private ["_aufgabe","_rand","_aufgabentyp","_gewichtung","_i"];
-params [["_aufgabe",format["NOTNUMMER%1",random 1000000],[""]],["_aufgabentyp","leer",[""]]];
+
+_aufgabe = [_this,0,format["NOTNUMMER%1",random 1000000],[""]] call BIS_fnc_param;
+_aufgabentyp = [_this,1,"leer",[""]] call BIS_fnc_param;
+
 
 _aufgabentypen =[	"destroy_tower",	"destroy_device",	"capture_prototype",	"Scarab",
 					"rescue_pow",		"kill_person",		"find_intel",			"destroy_wpncache",	"konvoi_destroy",	"konvoi_rescue",
@@ -25,7 +28,7 @@ _gewichtung = 	[	1,					1,					1,						1,
 If (worldName == "pja305") then {
 _gewichtung = 	[	1,					1,					1,						1,
 					1,					1,					0.8,					1,					0,					0,
-					0.8,				0
+					0.8,				0.8
 				];
 };
 If (!(_aufgabentyp in _aufgabentypen)) then {
@@ -34,17 +37,15 @@ If (!(_aufgabentyp in _aufgabentypen)) then {
 		if (_aufgabentyp != (GETMVAR(GVAR(last_mission_type),""))) exitWith {};
 	};
 };
-LOG_1(_aufgabentyp);
-
-if (isNil QGVARMAIN(side)) then {
-	[] call EFUNC(spawn,create_unitlists);
-};
+LOG(FORMAT_1("Aufgabentyp=%1",_aufgabentyp));
 
 SETMVAR(GVAR(last_mission_type),_aufgabentyp);
+
+[] call EFUNC(spawn,create_unitlists);
+//_aufgabentyp="rescue_pow";
 /// Militär
 Private["_loc","_locarr"];
 If (_aufgabentyp isEqualTo "area_clear") exitWith {
-		[] call EFUNC(spawn,create_unitlists);
 		_locarr=(GETMVAR(GVAR(militaer),[]));
 		_loc = _locarr SELRND;
 		//[(_loc select 0),(_loc select 1),_aufgabe] spawn FUNC(sideby_chooseMission);
@@ -53,7 +54,6 @@ If (_aufgabentyp isEqualTo "area_clear") exitWith {
 		[(_loc select 1),_aufgabe] call FUNC(rtb);
 	};
 If (_aufgabentyp isEqualTo "area_defend") exitWith {
-		[] call EFUNC(spawn,create_unitlists);
 		_locarr=(GETMVAR(GVAR(militaer),[]));
 		_loc = _locarr SELRND;
 		//[(_loc select 0),(_loc select 1),_aufgabe] spawn FUNC(sideby_chooseMission);
@@ -65,7 +65,6 @@ If (_aufgabentyp isEqualTo "area_defend") exitWith {
 /// SONSTIGES
 
 If (_aufgabentyp isEqualTo "destroy_tower") exitWith {
-		[] call EFUNC(spawn,create_unitlists);
 		_locarr=(GETMVAR(GVAR(sonstiges),[]));
 		_loc = _locarr SELRND;
 		[(_loc select 0),(_loc select 1),_aufgabe] spawn FUNC(sideby_chooseMission);
@@ -74,7 +73,6 @@ If (_aufgabentyp isEqualTo "destroy_tower") exitWith {
 		[(_loc select 1),_aufgabe] call FUNC(rtb);
 	};
 If (_aufgabentyp isEqualTo "destroy_device") exitWith {
-		[] call EFUNC(spawn,create_unitlists);
 		_locarr=(GETMVAR(GVAR(sonstiges),[]));
 		_loc = _locarr SELRND;
 		[(_loc select 0),(_loc select 1),_aufgabe] spawn FUNC(sideby_chooseMission);
@@ -83,7 +81,6 @@ If (_aufgabentyp isEqualTo "destroy_device") exitWith {
 		[(_loc select 1),_aufgabe] call FUNC(rtb);
 	};
 If (_aufgabentyp isEqualTo "capture_prototype") exitWith {
-		[] call EFUNC(spawn,create_unitlists);
 		_locarr=(GETMVAR(GVAR(sonstiges),[]));
 		_loc = _locarr SELRND;
 		[(_loc select 0),(_loc select 1),_aufgabe] spawn FUNC(sideby_chooseMission);
@@ -92,7 +89,6 @@ If (_aufgabentyp isEqualTo "capture_prototype") exitWith {
 		[(_loc select 1),_aufgabe] call FUNC(rtb);
 	};
 If (_aufgabentyp isEqualTo "Scarab") exitWith {
-		[] call EFUNC(spawn,create_unitlists);
 		_locarr=(GETMVAR(GVAR(sonstiges),[]));
 		_loc = _locarr SELRND;
 		LOG_2(_locarr,_loc);
@@ -106,7 +102,6 @@ If (_aufgabentyp isEqualTo "Scarab") exitWith {
 /// STADT
 	
 If (_aufgabentyp isEqualTo "rescue_pow") exitWith {
-		[] call EFUNC(spawn,create_unitlists);
 		_locarr=(GETMVAR(GVAR(stadt),[]));
 		_loc = _locarr SELRND;
 		[(_loc select 0),(_loc select 1),_aufgabe] spawn FUNC(sideby_chooseMission);
@@ -115,7 +110,6 @@ If (_aufgabentyp isEqualTo "rescue_pow") exitWith {
 		[(_loc select 1),_aufgabe] call FUNC(rtb);
 	};
 If (_aufgabentyp isEqualTo "kill_person") exitWith {
-		[] call EFUNC(spawn,create_unitlists);
 		_locarr=(GETMVAR(GVAR(stadt),[]));
 		_loc = _locarr SELRND;
 		[(_loc select 0),(_loc select 1),_aufgabe] spawn FUNC(sideby_chooseMission);
@@ -124,7 +118,6 @@ If (_aufgabentyp isEqualTo "kill_person") exitWith {
 		[(_loc select 1),_aufgabe] call FUNC(rtb);
 	};
 If (_aufgabentyp isEqualTo "find_intel") exitWith {
-		[] call EFUNC(spawn,create_unitlists);
 		_locarr=(GETMVAR(GVAR(stadt),[]));
 		_loc = _locarr SELRND;
 		[(_loc select 0),(_loc select 1),_aufgabe] spawn FUNC(sideby_chooseMission);
@@ -133,7 +126,6 @@ If (_aufgabentyp isEqualTo "find_intel") exitWith {
 		[(_loc select 1),_aufgabe] call FUNC(rtb);
 	};
 If (_aufgabentyp isEqualTo "destroy_wpncache") exitWith {
-		[] call EFUNC(spawn,create_unitlists);
 		_locarr=(GETMVAR(GVAR(stadt),[]));
 		_loc = _locarr SELRND;
 		[(_loc select 0),(_loc select 1),_aufgabe] spawn FUNC(sideby_chooseMission);
@@ -142,7 +134,6 @@ If (_aufgabentyp isEqualTo "destroy_wpncache") exitWith {
 		[(_loc select 1),_aufgabe] call FUNC(rtb);
 	};
 If (_aufgabentyp isEqualTo "konvoi_destroy") exitWith {
-		[] call EFUNC(spawn,create_unitlists);
 		_locarr=(GETMVAR(GVAR(stadt),[]));
 		_loc = _locarr SELRND;
 		[(_loc select 0),(_loc select 1),_aufgabe] call FUNC(DOUBLES(stadt,konvoi_destroy));
@@ -150,7 +141,6 @@ If (_aufgabentyp isEqualTo "konvoi_destroy") exitWith {
 		[(_loc select 1),_aufgabe] call FUNC(rtb);
 	};
 If (_aufgabentyp isEqualTo "konvoi_rescue") exitWith {
-		[] call EFUNC(spawn,create_unitlists);
 		_locarr=(GETMVAR(GVAR(stadt),[]));
 		_loc = _locarr SELRND;
 		[(_loc select 0),(_loc select 1),_aufgabe] call FUNC(DOUBLES(stadt,konvoi_rescue));
