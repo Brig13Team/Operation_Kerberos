@@ -2,7 +2,7 @@
 	Author: iJesuz
 	
 	Description:
-		Displays cargo information
+		displays cargo information
 		
 	Parameter(s):
 		0 : OBJECT - vehicle
@@ -11,7 +11,10 @@
 #include "script_component.hpp"
 SCRIPT(canload);
 
-params ["_vehicle"];
+params[["_vehicle",objNull,[objNull]]];
+
+if (isNull _vehicle) exitWith {};
+
 private ["_gesamtmasse","_leermasse","_ladungsmasse"/*,"_leereLadeflaeche"*/, "_logisticStack", "_counter"];
 
 _gesamtmasse = getMass _vehicle;

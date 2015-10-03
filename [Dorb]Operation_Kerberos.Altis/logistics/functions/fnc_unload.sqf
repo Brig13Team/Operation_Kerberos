@@ -2,7 +2,7 @@
 	Author: iJesuz, Dorbedo
 
 	Description:
-		logistic script
+		unload cargo
 
 	Parameter(s):
 		0: OBJECT - vehicle
@@ -12,7 +12,9 @@ SCRIPT(unload);
 
 #define SPACE_BETWEEN_CARGO 0.1
 
-params ["_vehicle"];
+params [["_vehicle",objNull,[objNull]]];
+
+if (isNull _vehicle) exitWith {};
 
 private ["_vehicle_class","_logistic_stack"];
 

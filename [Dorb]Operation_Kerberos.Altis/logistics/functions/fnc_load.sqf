@@ -2,7 +2,7 @@
 	Author: iJesuz
 
 	Description:
-		logistic script
+		load cargo
 
 	Parameter(s):
 		0: OBJECT - cargo
@@ -14,7 +14,10 @@ SCRIPT(load);
 
 #define SPACE_BETWEEN_CARGO 0.1
 
-params ["_cargo","_vehicle"];
+params [["_cargo",objNull,[objNull]],["_vehicle",objNull,[objNull]]];
+
+if (isNull _cargo) exitWith {};
+if (isNull _vehicle) exitWith {};
 
 private ["_cargo_class","_vehicle_class"];
 

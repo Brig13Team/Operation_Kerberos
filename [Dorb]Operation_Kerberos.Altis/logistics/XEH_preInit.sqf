@@ -3,7 +3,7 @@
 PREP(candrop);
 PREP(canload);
 PREP(canunload);
-PREP(disp_cargo);
+PREP(dispCargo);
 PREP(doload);
 PREP(dounload);
 PREP(getCargoCfg);

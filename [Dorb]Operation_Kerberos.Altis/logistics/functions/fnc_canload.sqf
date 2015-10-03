@@ -17,7 +17,10 @@ SCRIPT(canload);
 
 if (player getVariable [QGVAR(isloading),false]) exitWith { false };
 
-PARAMS_1(_target);
+params[["_target",objNull,[objNull]]];
+
+if (isNull _vehicle) exitWith {};
+
 private["_logistic_stack"];
 private["_vehicle_class","_max_height","_max_length","_max_width","_load_point_offset","_load_point","_nearObjects","_object"];
 _vehicle_class = typeOf _target;
