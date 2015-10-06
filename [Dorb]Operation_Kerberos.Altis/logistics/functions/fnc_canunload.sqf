@@ -15,10 +15,7 @@ SCRIPT(canunload);
 
 if (player getVariable [QGVAR(isloading),false]) exitWith { false };
 
-params[["_target",objNull,[objNull]]];
-
-if (isNull _vehicle) exitWith {};
-
+PARAMS_1(_target);
 private["_logistic_stack"];
 
 _logistic_stack = _target getVariable [QGVAR(stack),[]];

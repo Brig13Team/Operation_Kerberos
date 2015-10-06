@@ -2,7 +2,7 @@
 	Author: iJesuz, Dorbedo
 
 	Description:
-		unload cargo
+		logistic script
 
 	Parameter(s):
 		0: OBJECT - vehicle
@@ -12,9 +12,7 @@ SCRIPT(unload);
 
 #define SPACE_BETWEEN_CARGO 0.1
 
-params [["_vehicle",objNull,[objNull]]];
-
-if (isNull _vehicle) exitWith {};
+params ["_vehicle"];
 
 private ["_vehicle_class","_logistic_stack"];
 
@@ -36,16 +34,6 @@ _last_row resize (count _last_row - 1);
 
 if (_last_row isEqualTo []) then { _logistic_stack resize ((count _logistic_stack) - 1); } else { _logistic_stack set [(count _logistic_stack) - 1, _last_row]; };
 
-if (!((_last_cargo select 4) isEqualTo [])) then {
-	private ["_index","_row","_elem"];
-	_index = _last_cargo select 4;
-	_row = _logistic_stack select (_index select 0);
-	_elem = _row select (_index select 1);
-	_elem set [5,false];
-	_row set [index select 0, _elem];
-	_logistic_stack set [_index select 0, _row];
-};
-
 if (!((_last_cargo select 0) in (attachedObjects _vehicle))) exitWith {
 	_cargo_mass = getMass (_last_cargo select 0);
 	_vehicle setVariable [QGVAR(stack),_logistic_stack];
@@ -63,8 +51,6 @@ _cargo_mass = getMass (_last_cargo select 0);
 _vehicle_mass = getMass _vehicle;
 (_last_cargo select 0) setPos (_vehicle modelToWorld _detach_point);
 (_last_cargo select 0) setDir (getDir _vehicle);
-
-[_vehicle] call FUNC(updateSeats);
 
 SETVAR(player,GVAR(isloading),false);
 if ([_vehicle,false] call FUNC(candrop)) then {

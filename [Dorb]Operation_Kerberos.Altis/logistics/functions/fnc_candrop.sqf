@@ -13,10 +13,7 @@
 #include "script_component.hpp"
 SCRIPT(candrop);
 
-params[["_target",objNull,[objNull]],["_isAceAction",true,[true]]];
-
-if (isNull _target) exitWith {};
-
+params["_target",["_isAceAction",true,[true]]];
 if (player getVariable [QGVAR(isloading),false]) exitWith { false };
 private["_logistic_stack"];
 

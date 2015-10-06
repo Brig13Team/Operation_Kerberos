@@ -1,5 +1,7 @@
 #include "script_component.hpp"
 
+ADDON = false;
+
 PREP(choose);
 PREP(core);
 PREP(dyn_difficulty);
@@ -34,3 +36,5 @@ PREPS(stadt,kill_person);
 PREPS(stadt,konvoi_destroy);
 PREPS(stadt,konvoi_rescue);
 PREPS(stadt,rescue_pow);
+
+ADDON = true;

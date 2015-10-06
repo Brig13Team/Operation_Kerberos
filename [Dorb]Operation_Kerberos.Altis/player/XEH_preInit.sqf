@@ -1,5 +1,7 @@
 #include "script_component.hpp"
 
+ADDON = false;
+
 PREP(addArsenal);
 PREP(addbriefing);
 PREP(grouptracker);
@@ -8,11 +10,13 @@ PREP(halo_addaction);
 PREP(onlyPilots);
 PREP(playeraddaction);
 
-PREP(XEH_fired);
-PREP(XEH_hit);
-PREP(XEH_hitPart);
-PREP(XEH_respawn);
+PREP(EH_fired);
+PREP(EH_hit);
+PREP(EH_hitPart);
+PREP(EH_respawn);
 
 PREPS(backpack,change);
 PREPS(backpack,handle);
 PREPS(backpack,init);
+
+ADDON = true;

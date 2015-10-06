@@ -17,10 +17,7 @@ SCRIPT(canload);
 
 if (player getVariable [QGVAR(isloading),false]) exitWith { false };
 
-params[["_target",objNull,[objNull]]];
-
-if (isNull _vehicle) exitWith {};
-
+PARAMS_1(_target);
 private["_logistic_stack"];
 private["_vehicle_class","_max_height","_max_length","_max_width","_load_point_offset","_load_point","_nearObjects","_object"];
 _vehicle_class = typeOf _target;
@@ -33,14 +30,13 @@ If (!(_max_width>0)) exitWith {false};
 
 _load_point = _target modelToWorld _load_point_offset;
 _nearObjects = nearestObjects[_load_point, ["AllVehicles","ThingX"], 2];
-private ["_cargo_class","_cargo"];
+private "_cargo_class";
 _cargo_class = "";
 {
 	private "_temp";
 	_temp = [_x] call FUNC(getCargoCfg); 
 	If (!(_temp isEqualTo "") && {isNull attachedTo _x}) exitWith {
 		_cargo_class = _temp;
-		_cargo = _x;
 	};
 }forEach _nearObjects;
 
@@ -60,7 +56,7 @@ _ret = if (_logistic_stack isEqualTo []) then {
 	if (!(((_max_length < _cargo_length) || (_max_width < _cargo_width)) && ((_max_length < _cargo_width) || (_max_width < _cargo_length)))) exitWith { true };
 	false
 } else {
-	private ["_row_length","_left_length","_i","_stackable"];
+	private ["_row_length","_left_length"];
 
 	_last_row = _logistic_stack select ((count _logistic_stack) - 1);
 	_last_cargo = _last_row select ((count _last_row) - 1);
@@ -76,13 +72,6 @@ _ret = if (_logistic_stack isEqualTo []) then {
 
 	if (((_max_width - _row_width >= _cargo_width + SPACE_BETWEEN_CARGO) && (_left_length >= _cargo_length + SPACE_BETWEEN_CARGO)) || ((_max_width - _row_width >= _cargo_length + SPACE_BETWEEN_CARGO) && (_left_length >= _cargo_width + SPACE_BETWEEN_CARGO))) exitWith { true };
 	if (!(((_row_length < _cargo_length + SPACE_BETWEEN_CARGO) || (_max_width < _cargo_width)) && ((_row_length < _cargo_width + SPACE_BETWEEN_CARGO) || (_max_width < _cargo_length)))) exitWith { true };
-	
-	_stackable = false;	
-	for [{_i = 0},{_i < (count _last_row)},{_i = _i + 1}] do {
-		if (((getModelInfo (_last_row select _i select 0) select 0) == (getModelInfo _cargo select 0)) && (!(_last_row select _i select 5)) && (((_last_row select _i select 1 select 3 select 2) + _cargo_height) <= _max_height)) exitWith { _stackable = true; };
-	};
-	if (_stackable) exitWith { true };
-
 	false
 };
 

@@ -13,9 +13,7 @@
 #include "script_component.hpp"
 SCRIPT(dounload);
 #define LOADTIME 3
-params[["_target",objNull,[objNull]],["_isdrop",false,[false]]];
-
-if (isNull _target) exitWith {};
+params["_target",["_isdrop",false,[false]]];
 
 CHECK(GETVAR(player,GVAR(isloading),false))
 

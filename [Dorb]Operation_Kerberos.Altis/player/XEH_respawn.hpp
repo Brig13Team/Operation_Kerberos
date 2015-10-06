@@ -3,6 +3,6 @@
 class B_Soldier_base_F {
     class ADDON {
         scope = 2;
-        respawn = QUOTE(_this call FUNC(XEH_respawn));
+        respawn = QUOTE(_this call FUNC(EH_respawn));
     };
 };

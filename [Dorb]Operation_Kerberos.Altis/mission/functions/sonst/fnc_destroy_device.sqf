@@ -15,10 +15,10 @@
 */
 #include "script_component.hpp"
 SCRIPT(destroy_device);
-CHECK(!isServer)
+_this params ["_ort","_position","_task"];
+TRACEV_3(_ort,_position,_task);
 
 LOG(FORMAT_1("Destroy Device \n this=%1",_this));
-PARAMS_3(_ort,_position,_task);
 
 private["_rand","_target","_spawnposition","_target","_einheit","_unit"];
 _target=[];

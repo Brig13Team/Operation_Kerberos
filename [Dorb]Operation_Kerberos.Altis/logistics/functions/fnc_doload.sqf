@@ -13,9 +13,7 @@
 #include "script_component.hpp"
 SCRIPT(doload);
 #define LOADTIME 3
-params[["_target",objNull,[objNull]]];
-
-if (isNull _target) exitWith {};
+PARAMS_1(_target);
 
 CHECK(GETVAR(player,GVAR(isloading),false))
 private["_nearObjects","_object"];
