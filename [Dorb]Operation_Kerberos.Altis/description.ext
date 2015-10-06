@@ -39,6 +39,7 @@ __EXEC (D_ROOTDIR = __FILE__ select [0, count __FILE__ - 15])
 // Logistik
 #include "R3F_LOG\desc_include.h"
 
+#include "ai\config\drones.hpp"
 
 // Interface
 #include "interface\config\define.h"
