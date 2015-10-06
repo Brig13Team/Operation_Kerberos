@@ -21,16 +21,17 @@ switch (_mode) do {
 		_avail_adrones = [];
 		_avail_rdrones = [];
 
-		if (playersNumber EGVAR(main,playerside) <=  5) then { _avail_rdrones pushBack (_rdrones SELRND); };
-		if (playersNumber EGVAR(main,playerside) <= 15) then { _avail_rdrones pushBack (_rdrones SELRND); };
-		if (playersNumber EGVAR(main,playerside) <= 25) then { _avail_rdrones pushBack (_rdrones SELRND); };
-		if (playersNumber EGVAR(main,playerside) <= 35) then { _avail_rdrones pushBack (_rdrones SELRND); };
+		if (playersNumber EGVAR(main,playerside) >=  5) then { _avail_rdrones pushBack (_rdrones SELRND); };
+		if (playersNumber EGVAR(main,playerside) >= 15) then { _avail_rdrones pushBack (_rdrones SELRND); };
+		if (playersNumber EGVAR(main,playerside) >= 25) then { _avail_rdrones pushBack (_rdrones SELRND); };
+		if (playersNumber EGVAR(main,playerside) >= 35) then { _avail_rdrones pushBack (_rdrones SELRND); };
 
-		if (playersNumber EGVAR(main,playerside) <= 10) then { _avail_adrones pushBack (_adrones SELRND); };
-		if (playersNumber EGVAR(main,playerside) <= 20) then { _avail_adrones pushBack (_adrones SELRND); };
-		if (playersNumber EGVAR(main,playerside) <= 30) then { _avail_adrones pushBack (_adrones SELRND); };
-		if (playersNumber EGVAR(main,playerside) <= 40) then { _avail_adrones pushBack (_adrones SELRND); };
+		if (playersNumber EGVAR(main,playerside) >= 10) then { _avail_adrones pushBack (_adrones SELRND); };
+		if (playersNumber EGVAR(main,playerside) >= 20) then { _avail_adrones pushBack (_adrones SELRND); };
+		if (playersNumber EGVAR(main,playerside) >= 30) then { _avail_adrones pushBack (_adrones SELRND); };
+		if (playersNumber EGVAR(main,playerside) >= 40) then { _avail_adrones pushBack (_adrones SELRND); };
 		
+		SETVAR(missionNamespace,GVAR(commander),_commander);
 		SETVAR(missionNamespace,GVAR(requestedAirstrikes),[]);
 		SETVAR(missionNamespace,GVAR(requestedReconnaissances),[]);
 		SETVAR(missionNamespace,GVAR(availableAttackDrones),_avail_adrones);
@@ -38,7 +39,11 @@ switch (_mode) do {
 
 		_handle = [{
 			SCRIPTIN(init,perFrameHandler);
-			private ["_requests","_leftrequests","_drone"];
+			private ["_commander","_handle","_requests","_leftrequests","_drone"];
+
+			_commander = GETVAR(missionNamespace,GVAR(commander),objNull);
+
+			if(!(alive _commander)) exitWith { ["stop"] call FUNC(drones_init); }
 
 			_requests = GETVAR(missionNamespace,GVAR(requestedAirstrikes),[]);
 			_leftrequests = [];
@@ -75,6 +80,8 @@ switch (_mode) do {
 		private ["_handle"];
 		_handle = GETVAR(missionNamespace,GVAR(handle),-1);
 		[_handle] call CBA_fnc_removePerFrameHandler;
+
+		LOG(FORMAT_1("CBA_perFrameHandler %1 stopped",_handle));
 
 		SETVAR(missionNamespace,GVAR(requestedAirstrikes),[]);
 		SETVAR(missionNamespace,GVAR(requestedReconnaissances),[]);

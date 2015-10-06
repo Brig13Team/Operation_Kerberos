@@ -36,6 +36,7 @@ _drone = createVehicle [_drone,[0,0,2000],[],0,"FLY"];
 createVehicleCrew _drone;
 
 if (!isNumber(missionConfigFile >> "drones" >> typeOf _drone >> "scan_radius")) exitWith { _drone call _onExit; false };
+
 _scan_radius = getNumber(missionConfigFile >> "drones" >> typeOf _drone >> "scan_radius");
 _wp_type = getText (missionConfigFile >> "drones" >> typeOf _drone >> "scan_waypoint");
 if (_wp_type == "LOITER") then {

@@ -37,6 +37,9 @@ __EXEC (D_ROOTDIR = __FILE__ select [0, count __FILE__ - 15])
 // Viewdistance
 #include "CHVD\dialog.hpp"
 
+
+#include "ai\config\drones.hpp"
+
 // Interface
 #include "interface\config\define.h"
 #include "interface\config\menu.h"
