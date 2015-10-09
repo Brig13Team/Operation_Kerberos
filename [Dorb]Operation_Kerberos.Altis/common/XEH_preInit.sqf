@@ -25,6 +25,23 @@ PREP(rep);
 //PREP(repairpoint);
 //PREP(repairpoint_init);
 PREP(sel_array_weighted);
+PREP(setVarArray);
 PREP(waitAndExec);
 
 ADDON = true;
+
+
+/// Setvariables
+[
+	{
+		CHECK(GVAR(setVarSyncArray) isEqualTo [])
+		private["_temp"];
+		_temp = GVAR(setVarSyncArray);
+		GVAR(setVarSyncArray) = [];
+		{
+			(_x select 2) setVariable [(_x select 0),(_x select 1),(_x select 3)];
+		}forEach _temp;
+	},
+	1,
+	[]
+] call CBA_fnc_addPerFrameHandler;
