@@ -15,6 +15,7 @@ PREP(minefields);
 PREP(mortarpos);
 PREP(naval_minefield);
 PREP(rooftop);
+PREP(taskPatrol);
 PREP(tower);
 PREP(unit);
 

@@ -77,7 +77,7 @@ sleep 1;
 	_x moveInCargo _transporter;
 }forEach units _jaeger_gruppe;
 
-[_jaeger_gruppe, _position, 400, 5, "MOVE", "AWARE", "RED", "NORMAL", "STAG COLUMN", "", [5,10,15]] call CBA_fnc_taskPatrol;
+[_jaeger_gruppe, _position, 400, 5, "MOVE", "AWARE", "RED", "NORMAL", "STAG COLUMN", "", [5,10,15]] call EFUNC(spawn,taskPatrol);
 
 sleep 2;
 (_spawn_array select 2) addWaypoint [_position,100];
@@ -104,7 +104,7 @@ If (_type < 1) then {
 				sleep 0.2;
 				_x allowDamage true;		
 			} forEach units _jaeger_gruppe;
-		//[_jaeger_gruppe, _position, 400, 5, "MOVE", "AWARE", "RED", "NORMAL", "STAG COLUMN", "", [5,10,15]] call CBA_fnc_taskPatrol;
+		//[_jaeger_gruppe, _position, 400, 5, "MOVE", "AWARE", "RED", "NORMAL", "STAG COLUMN", "", [5,10,15]] call EFUNC(spawn,taskPatrol);
 		
 		SETVAR(_jaeger_gruppe,EGVAR(mission,istarget),false);
 		_transporter domove _spawnpos;
@@ -118,7 +118,7 @@ If (_type < 1) then {
 	waitUntil {((_transporter distance _position) < (_flughoehe + 100))};
 	_jaeger_gruppe leaveVehicle _transporter;
 	waitUntil {(_transporter emptyPositions "cargo" == _platzanzahl)};
-	[_jaeger_gruppe, _position, 400, 5, "MOVE", "AWARE", "RED", "NORMAL", "STAG COLUMN", "", [5,10,15]] call CBA_fnc_taskPatrol;
+	[_jaeger_gruppe, _position, 400, 5, "MOVE", "AWARE", "RED", "NORMAL", "STAG COLUMN", "", [5,10,15]] call EFUNC(spawn,taskPatrol);
 	_transporter domove _spawnpos;
 	waitUntil {((_transporter distance _spawnpos) < (_flughoehe + 100))};
 	{deletevehicle _x} foreach crew _transporter;

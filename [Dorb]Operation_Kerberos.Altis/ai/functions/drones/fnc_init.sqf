@@ -43,7 +43,7 @@ switch (_mode) do {
 
 			_commander = GETVAR(missionNamespace,GVAR(commander),objNull);
 
-			if(!(alive _commander)) exitWith { ["stop"] call FUNC(drones_init); }
+			if(!(alive _commander)) exitWith { ["stop"] call FUNC(drones_init); };
 
 			_requests = GETVAR(missionNamespace,GVAR(requestedAirstrikes),[]);
 			_leftrequests = [];
