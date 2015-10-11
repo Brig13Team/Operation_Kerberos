@@ -17,8 +17,6 @@ params["_group","_position","_unit","_turret"];
 
 CHECK(!isPlayer _unit)
 
-hint _position;
-
 if (!(((_turret isEqualTo [0]) || (_position == "driver")))) exitWith {};
 
 #ifdef DORB_PILOT_WHITELIST_ENABLED
