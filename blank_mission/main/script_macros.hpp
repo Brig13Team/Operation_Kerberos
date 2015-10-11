@@ -1,7 +1,7 @@
 /* -------------------------------------------
 Macro: CBA_OFF
     turns off the including of CBA because of compatibility issues during description.ext
-    If CBA_OFF is defined, some important MAKROS are copied out of CBA
+    If CBA_OFF is defined, some important MACROS are copied out of CBA
 Parameters:
     none
 
@@ -27,15 +27,15 @@ Author:
     #define FUNC(var1) TRIPLES(ADDON,fnc,var1)
     #define FUNCMAIN(var1) TRIPLES(PREFIX,fnc,var1)
     #define EFUNC(var1,var2) TRIPLES(DOUBLES(PREFIX,var1),fnc,var2)
-	#define INCLUDE_PREINIT(var1) \
-		class DOUBLES(PREFIX,var1) {\
-			init = QUOTE(call compile preProcessFileLineNumbers 'var1\XEH_PreInit.sqf'); \
-		};
-	#define INCLUDE_POSTINIT(var1) \
-		class DOUBLES(PREFIX,var1) {\
-			init = QUOTE(call compile preProcessFileLineNumbers 'var1\XEH_PreInit.sqf'); \
-		};
-	#undef CBA_OFF
+    #define INCLUDE_PREINIT(var1) \
+        class DOUBLES(PREFIX,var1) {\
+            init = QUOTE(call compile preProcessFileLineNumbers 'var1\XEH_PreInit.sqf'); \
+        };
+    #define INCLUDE_POSTINIT(var1) \
+        class DOUBLES(PREFIX,var1) {\
+            init = QUOTE(call compile preProcessFileLineNumbers 'var1\XEH_PreInit.sqf'); \
+        };
+    #undef CBA_OFF
 #endif
 /* -------------------------------------------
 Macro: SCRIPT(VAR)
