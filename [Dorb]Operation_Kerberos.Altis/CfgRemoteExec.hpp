@@ -4,7 +4,7 @@
 class CfgRemoteExec {
 	class Functions {
 		mode = 1;
-		class dorb_player_fnc_onlypilots {
+		class dorb_player_fnc_xeh_getin {
 			allowedTargets = 1;
 		};
 	};
