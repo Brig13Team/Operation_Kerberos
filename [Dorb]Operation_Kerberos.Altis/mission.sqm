@@ -113,7 +113,7 @@ class Mission
 	class Intel
 	{
 		briefingName="Operation Kerberos";
-		overviewText="Version 0.16.2";
+		overviewText="Version 0.16.3";
 		timeOfChanges=4800;
 		startWeather=1;
 		startFog=0.0139588;

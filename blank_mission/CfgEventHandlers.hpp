@@ -4,6 +4,7 @@
 class Extended_PreInit_EventHandlers {
     INCLUDE_PREINIT(main);
 	INCLUDE_PREINIT(comp_example);
+	INCLUDE_PREINIT(comp_somefunctions);
 };
 
 class Extended_Respawn_EventHandlers {

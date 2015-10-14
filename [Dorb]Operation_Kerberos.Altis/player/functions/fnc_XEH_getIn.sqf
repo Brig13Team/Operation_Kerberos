@@ -2,7 +2,7 @@
 	author: iJesuz, Dorbedo
 
 	description:
-		only pilots are allowed to fly (new extended eventhandler based version)
+		part of only pilots
 
 	parameter:
 		0: GROUP - group of player
@@ -13,7 +13,7 @@
 		true
 */
 #include "script_component.hpp"
-SCRIPT(log_load);
+SCRIPT(XEH_getIn);
 
 params["_group","_position","_unit","_turret"];
 
