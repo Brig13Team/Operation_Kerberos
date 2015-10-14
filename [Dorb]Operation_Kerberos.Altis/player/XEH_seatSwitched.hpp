@@ -2,6 +2,6 @@
 #include "script_component.hpp"
 class Air {
     class ADDON {
-        seatSwitched = "_this call dorb_player_fnc_xeh_seatswitched;";
+        seatSwitched = QUOTE(_this call FUNC(EH_seatswitched););
     };
 };

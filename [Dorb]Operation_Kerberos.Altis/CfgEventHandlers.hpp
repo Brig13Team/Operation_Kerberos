@@ -43,3 +43,7 @@ class Extended_GetIn_Eventhandlers {
 class Extended_Killed_EventHandlers {
     #include "ai\XEH_killed.hpp"
 };
+
+class Extended_SeatSwitched_EventHandlers {
+    #include "player\XEH_SeatSwitched.hpp"
+};
