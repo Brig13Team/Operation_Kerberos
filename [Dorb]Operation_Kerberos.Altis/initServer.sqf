@@ -15,6 +15,7 @@ EGVAR(common,PFEH_headless) = [{ [] call EFUNC(common,headless) } , 30, [] ] cal
 
 [] spawn EFUNC(mission,core);
 [] spawn EFUNC(interface,spawn_createlist);
+[] spawn EFUNC(logistics,initServer);
 
 #ifdef DORB_PILOT_WHITELIST_ENABLED
 	GVAR(reserved_pilot)=[];

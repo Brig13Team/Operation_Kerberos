@@ -64,7 +64,12 @@ _vehicle_mass = getMass _vehicle;
 (_last_cargo select 0) setPos (_vehicle modelToWorld _detach_point);
 (_last_cargo select 0) setDir (getDir _vehicle);
 
-[_vehicle] call FUNC(updateSeats);
+if (isMultiplayer && {!local _vehicle}) then {
+	missionNamespace setVariable [QGVAR(updateSeats_Vehicle),_vehicle];
+	publicVariable QGVAR(updateSeats_Vehicle);
+} else {
+	[_vehicle] call FUNC(updateSeats);
+};
 
 SETVAR(player,GVAR(isloading),false);
 if ([_vehicle,false] call FUNC(candrop)) then {

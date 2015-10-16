@@ -8,6 +8,7 @@ PREP(doload);
 PREP(dounload);
 PREP(getCargoCfg);
 PREP(init);
+PREP(initServer);
 PREP(load);
 PREP(unload);
 PREP(updateSeats);
