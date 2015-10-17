@@ -26,14 +26,16 @@ PREP(rep);
 //PREP(repairpoint_init);
 PREP(sel_array_weighted);
 
+GVARMAIN(EVENTLOCAL)=[];
+GVARMAIN(EVENTEXEC)=[];
 
 if (!hasInterface) then {
-	GVARMAIN(EVENTLOCAL) addpublicVariableEventHandler {(_this select 1) call FUNC(EventLocal);};
-	GVARMAIN(EVENTEXEC) addpublicVariableEventHandler {(_this select 1) call FUNC(EventExec);};
+	QGVARMAIN(EVENTLOCAL) addpublicVariableEventHandler {(_this select 1) call FUNC(EventLocal);};
+	QGVARMAIN(EVENTEXEC) addpublicVariableEventHandler {(_this select 1) call FUNC(EventExec);};
 }else{
 	[] spawn {
 		waitUntil {alive player};
-		GVARMAIN(EVENTLOCAL) addpublicVariableEventHandler {(_this select 1) call FUNC(EventLocal);};
-		GVARMAIN(EVENTEXEC) addpublicVariableEventHandler {(_this select 1) call FUNC(EventExec);};
+		QGVARMAIN(EVENTLOCAL) addpublicVariableEventHandler {(_this select 1) call FUNC(EventLocal);};
+		QGVARMAIN(EVENTEXEC) addpublicVariableEventHandler {(_this select 1) call FUNC(EventExec);};
 	};
 };
