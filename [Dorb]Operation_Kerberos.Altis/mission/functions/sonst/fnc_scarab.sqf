@@ -161,7 +161,7 @@ _temp=[];
 _target=_temp;
 {_x addEventHandler ["Killed", {[(getPos (_this select 0))] call FUNC(sonst_Scarab_explode);}]}forEach _target;
 private ["_ZeitInMinuten","_deploy"];
-_ZeitInMinuten = 62;
+_ZeitInMinuten = 80;
 GVAR(endzeit) = diag_tickTime + (60*_ZeitInMinuten);
 publicVariable QGVAR(endzeit);
 _deploy=false;
