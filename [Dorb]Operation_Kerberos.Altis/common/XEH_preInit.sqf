@@ -3,6 +3,10 @@
 PREP(cleanup_big);
 PREP(cleanup_small);
 PREP(determineHC);
+PREP(EventExec);
+PREP(EventGlobal);
+PREP(EventLocal);
+PREP(EventExecLocal);
 PREP(get_buildings);
 PREP(get_cfg_subclasses);
 PREP(get_cfglocations);
@@ -23,3 +27,13 @@ PREP(rep);
 PREP(sel_array_weighted);
 
 
+if (!hasInterface) then {
+	GVARMAIN(EVENTLOCAL) addpublicVariableEventHandler {(_this select 1) call FUNC(EventLocal);};
+	GVARMAIN(EVENTEXEC) addpublicVariableEventHandler {(_this select 1) call FUNC(EventExec);};
+}else{
+	[] spawn {
+		waitUntil {alive player};
+		GVARMAIN(EVENTLOCAL) addpublicVariableEventHandler {(_this select 1) call FUNC(EventLocal);};
+		GVARMAIN(EVENTEXEC) addpublicVariableEventHandler {(_this select 1) call FUNC(EventExec);};
+	};
+};
