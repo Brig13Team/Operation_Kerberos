@@ -363,9 +363,9 @@
 			<English>Squad leader is not touching ground.</English>
 		</Key>
 		<Key ID="STR_DORB_INTERFACE_TELEPORT_LEAD_WAIT">
-			<Original>You have to wait %1 seconds!</Original>
-			<German>Du musst noch %1 Sekunden warten!</German>
-			<English>You have to wait %1 seconds!</English>
+			<Original>You have to wait %1 minute(s) and %2 second(s)!</Original>
+			<German>Du musst noch %1 Minute(n) und %2 Sekunde(n) warten!</German>
+			<English>You have to wait %1 minute(s) and %2 second(s)!</English>
 		</Key>
 		<Key ID="STR_DORB_INTERFACE_SAVE_SAVE">
 			<Original>Save</Original>
