@@ -170,3 +170,10 @@ _cargo attachTo [_vehicle,_attach_point];
 if(_rotate) then { _cargo setDir 90; };
 _vehicle setVariable [QGVAR(stack),_logistic_stack,true];
 _vehicle setMass (_vehicle_mass + _cargo_mass);
+
+if (isMultiplayer && {!local _vehicle}) then {
+	missionNamespace setVariable [QGVAR(updateSeats_Vehicle),_vehicle];
+	publicVariable QGVAR(updateSeats_Vehicle);
+} else {
+	[_vehicle] call FUNC(updateSeats);
+};

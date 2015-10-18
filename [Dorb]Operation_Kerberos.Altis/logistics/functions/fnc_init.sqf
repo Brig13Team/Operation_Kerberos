@@ -46,3 +46,9 @@ for "_i" from 0 to ((count _cfgLog)-1) do {
 		};
 	};
 };
+
+QGVAR(updateSeats_Vehicle) addPublicVariableEventHandler {
+	if (!local (_this select 1)) exitWith {};
+
+	[_this select 1] call FUNC(updateSeats);
+};

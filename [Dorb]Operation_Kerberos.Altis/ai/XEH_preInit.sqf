@@ -15,7 +15,6 @@ PREPS(drones,doAirstrike);
 PREPS(drones,doReconnaissance);
 PREPS(drones,init);
 PREPS(drones,requestAirstrike);
-PREPS(drones,requestAirstrike);
 PREPS(drones,requestReconnaissance);
 PREPS(drones,scan);
 

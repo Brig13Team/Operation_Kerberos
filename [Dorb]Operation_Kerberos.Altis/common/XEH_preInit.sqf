@@ -5,6 +5,10 @@ ADDON = false;
 PREP(cleanup_big);
 PREP(cleanup_small);
 PREP(determineHC);
+PREP(EventExec);
+PREP(EventGlobal);
+PREP(EventLocal);
+PREP(EventExecLocal);
 PREP(get_buildings);
 PREP(get_cfg_subclasses);
 PREP(get_cfglocations);
@@ -29,7 +33,6 @@ PREP(setVarArray);
 PREP(waitAndExec);
 
 ADDON = true;
-
 
 /// Setvariables
 [
@@ -61,5 +64,19 @@ If (!isServer) then {
 		[]
 	] call CBA_fnc_addPerFrameHandler;
 }else{
-	GVAR(setVarSyncServerArray) addPublicVariableEventHandler "_this call"
+	GVAR(setVarSyncServerArray) addPublicVariableEventHandler "_this call";
+};
+
+GVARMAIN(EVENTLOCAL)=[];
+GVARMAIN(EVENTEXEC)=[];
+
+if (!hasInterface) then {
+	QGVARMAIN(EVENTLOCAL) addpublicVariableEventHandler {(_this select 1) call FUNC(EventLocal);};
+	QGVARMAIN(EVENTEXEC) addpublicVariableEventHandler {(_this select 1) call FUNC(EventExec);};
+}else{
+	[] spawn {
+		waitUntil {alive player};
+		QGVARMAIN(EVENTLOCAL) addpublicVariableEventHandler {(_this select 1) call FUNC(EventLocal);};
+		QGVARMAIN(EVENTEXEC) addpublicVariableEventHandler {(_this select 1) call FUNC(EventExec);};
+	};
 };

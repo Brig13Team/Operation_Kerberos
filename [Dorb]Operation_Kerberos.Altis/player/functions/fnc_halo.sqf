@@ -16,7 +16,7 @@ SCRIPT(halo);
 params["_host","_caller","_id","_params"];
 _params params[["_althalo",500,[0]],["_altchute",100,[0]]];
 
-if ((count allPlayers)>5) exitWith {[LSTRING(HALO),LSTRING(HALO_DISABLED)] call EFUNC(interface,disp_message);};
+if ((count allPlayers)>7) exitWith {[LSTRING(HALO),LSTRING(HALO_DISABLED)] call EFUNC(interface,disp_message);};
 
 if !(alive _host) exitwith {
 	[LSTRING(HALO),LSTRING(HALO_DISABLED)] call EFUNC(interface,disp_message);
