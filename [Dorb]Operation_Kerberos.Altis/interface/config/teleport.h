@@ -15,8 +15,8 @@ class GVAR(teleporter) {
     fadeout = 0;
     duration = 1000000;
     objects[] = {};
-    onLoad = QUOTE(uiNamespace setVariable ['GVAR(teleportMenu)', _this select 0]; ['GVAR(teleportMenu)',true] call FUNC(disp_blur); [] spawn FUNC(teleport_onLoad));
-    onUnload = QUOTE(['GVAR(teleportMenu)',false] call FUNC(disp_blur););
+    onLoad = QUOTE(uiNamespace setVariable [ARR_2('GVAR(teleportMenu)', _this select 0)]; [ARR_2('GVAR(teleportMenu)',true)] call FUNC(disp_blur); [] spawn FUNC(teleport_onLoad););
+    onUnload = QUOTE([ARR_2('GVAR(teleportMenu)',false)] call FUNC(disp_blur););
 
     controlsBackground[] = {
         teleport_CenterBackground,

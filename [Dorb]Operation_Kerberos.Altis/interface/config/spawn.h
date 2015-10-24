@@ -14,8 +14,8 @@ class GVAR(veh_spawn) {
 	fadeout = 0;
 	duration = 1000000;
 	objects[] = {};
-	onLoad = QUOTE(uiNamespace setVariable ['GVAR(spawnMenu)', _this select 0]; ['GVAR(spawnMenu)', true] call FUNC(disp_blur););
-	onUnload = QUOTE(['GVAR(spawnMenu)', false] call FUNC(disp_blur));
+	onLoad = QUOTE(uiNamespace setVariable [ARR_2('GVAR(spawnMenu)', _this select 0)]; [ARR_2('GVAR(spawnMenu)', true)] call FUNC(disp_blur););
+	onUnload = QUOTE([ARR_2('GVAR(spawnMenu)',false)] call FUNC(disp_blur););
 	
 	controlsBackground[] =	{
 		spawn_CenterBackground,

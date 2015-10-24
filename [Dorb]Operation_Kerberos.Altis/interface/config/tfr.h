@@ -14,8 +14,8 @@ class GVAR(tfr) {
     fadeout = 0;
     duration = 1000000;
     objects[] = {};
-    onLoad = QUOTE(uiNamespace setVariable ['GVAR(tfrMenu)', _this select 0]; ['GVAR(tfrMenu)', true] call FUNC(disp_blut););
-    onUnload = QUOTE(['GVAR(tfrMenu)', false] call FUNC(disp_blut); ['GVAR(tfr_onOpenEH)', 'onEachFrame'] call BIS_fnc_removeStackedEventHandler;);
+    onLoad = QUOTE(uiNamespace setVariable [ARR_2('GVAR(tfrMenu)', _this select 0)]; [ARR_2('GVAR(tfrMenu)', true)] call FUNC(disp_blur););
+    onUnload = QUOTE([ARR_2('GVAR(tfrMenu)',false)] call FUNC(disp_blur); [ARR_2('GVAR(tfr_onOpenEH)', 'onEachFrame')] call BIS_fnc_removeStackedEventHandler;);
 
     controlsBackground[] = {
         dorb_tfr_body,

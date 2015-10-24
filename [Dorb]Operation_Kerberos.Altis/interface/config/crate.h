@@ -14,8 +14,8 @@ class GVAR(crate) {
     fadeout = 0;
     duration = 1000000;
     objects[] = {};
-    onLoad = QUOTE(uiNamespace setVariable ['GVAR(crateMenu)',(_this select 0)]; ['GVAR(crateMenu)',true] call FUNC(disp_blur); [] spawn FUNC(crate_OnLoad););
-    onUnload = QUOTE([GVAR(crateMenu),true] call FUNC(disp_blur););
+    onLoad = QUOTE( uiNamespace setVariable [ARR_2('GVAR(crateMenu)',_this select 0)]; [ARR_2('GVAR(crateMenu)',true)] call FUNC(disp_blur); [] spawn FUNC(crate_OnLoad););
+    onUnload = QUOTE([ARR_2('GVAR(crateMenu)',false)] call FUNC(disp_blur););
 
     controlsBackground[] =  {
         crate_CenterBackground,
@@ -185,7 +185,7 @@ class GVAR(crate) {
         sizeEx = GUI_H(0.025);
         rowHeight = GUI_H(0.025);
         wholeHeight = GUI_H(0.2);
-        onLBSelChanged = QUOTE(GVAR(crate_current_boxid) = (_this select 1); ['changebox',_config] call FUNC(crate_mass);false);
+        onLBSelChanged = QUOTE(GVAR(crate_current_boxid) = (_this select 1); [ARR_2('changebox',_config)] call FUNC(crate_mass);false);
     };
 
     class crate_progessbar : dorb_gui_loadingbarBase {
