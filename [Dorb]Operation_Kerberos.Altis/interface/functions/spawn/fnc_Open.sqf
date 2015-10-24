@@ -44,7 +44,7 @@ _spawnpos = getMarkerPos _spawnmarker;
 {deleteVehicle _x;} forEach nearestObjects [_spawnpos,["Thing"], _check_radius];
 
 disableSerialization;
-createDialog "dorb_veh_spawn";
+createDialog QGVAR(veh_spawn);
 ctrlSetText[dlg_veh_spawn_header_idc,_spawnname];
 _sel = [];
 for "_i" from 0 to ((count _vehiclelist)-1) do {

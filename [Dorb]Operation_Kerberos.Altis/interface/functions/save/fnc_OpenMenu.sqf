@@ -24,7 +24,7 @@ CHECK((_arraytoSave isEqualTo [])&&(_isSave));
 GVAR(save_current) =  _arraytoSave;
 GVAR(save_list) = format["DORB_SAVE_%1",_namespaceVariable];
 GVAR(save_isopened) = true;
-createDialog "dorb_save";
+createDialog QGVAR(save);
 
 disableSerialization;
 _text = localize LSTRING(SAVE_LOAD);

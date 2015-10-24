@@ -1,28 +1,27 @@
+/*
+    Author: Dorbedo
+*/
 
 #define CBA_OFF
 #include "script_component.hpp"
 
-class dorb_veh_spawn {
+class GVAR(veh_spawn) {
 	idd = 600100;
-	
 	name = "spawndialog";
-	
 	movingEnable = 0;
 	enableSimulation = 1;
 	fadein = 0;
 	fadeout = 0;
 	duration = 1000000;
 	objects[] = {};
-	onLoad = "uiNamespace setVariable ['dorb_spawnMenu', _this select 0]; ['dorb_spawnMenu', true] call dorb_interface_fnc_disp_blur;";
-	onUnload = " ['dorb_spawnMenu', false] call dorb_interface_fnc_disp_blur;";
+	onLoad = QUOTE(uiNamespace setVariable ['GVAR(spawnMenu)', _this select 0]; ['GVAR(spawnMenu)', true] call FUNC(disp_blur););
+	onUnload = QUOTE(['GVAR(spawnMenu)', false] call FUNC(disp_blur));
 	
-	controlsBackground[] =
-	{
+	controlsBackground[] =	{
 		spawn_CenterBackground,
 		spawn_RightBackground
 	};
-	controls[] = 
-	{
+	controls[] = 	{
 		spawn_HeaderBackground,
 		spawn_Fahrzeug,
 		spawn_bttn_moveIn,
@@ -30,8 +29,6 @@ class dorb_veh_spawn {
 		spawn_bttn_spawn,
 		spawn_listbox
 	};
-	
-	
 	class spawn_CenterBackground: dorb_gui_backgroundBase {
 		x = _get_screen_x(0)+_get_screen_w(0.1);	
 		y = _get_screen_x(0)+_get_screen_h(0.2);
@@ -83,7 +80,7 @@ class dorb_veh_spawn {
 		rowHeight = _get_screen_h(0.035);
 		sizeEx = _get_screen_h(0.025);
 		columns[] = {0.0,_get_screen_w(0.08),_get_screen_w(0.14),0.0};
-		onLBSelChanged = "_this spawn dorb_interface_fnc_spawn_select;";
+		onLBSelChanged = QUOTE(_this spawn FUNC(spawn_select););
 		default = true;
 		
 	};
@@ -104,7 +101,7 @@ class dorb_veh_spawn {
 		shadow = 1;
 		onMouseEnter = "";
 		onMouseExit = "";
-		action = "[""driver""]call dorb_interface_fnc_spawn_create;";
+		action = QUOTE(['driver'] call FUNC(spawn_create););
 	};
 	class spawn_bttn_spawn : spawn_bttn_moveIn {
 		idc = 600106;
@@ -115,8 +112,6 @@ class dorb_veh_spawn {
 		colorShadow[] = UI_CL_BTN2;
 		colorFocused[] = UI_CL_BTN2_foc;
 		onSetFocus = "";
-		action = "[]call dorb_interface_fnc_spawn_create;";
+		action = QUOTE([] call FUNC(spawn_create););
 	};
 };
-
-
