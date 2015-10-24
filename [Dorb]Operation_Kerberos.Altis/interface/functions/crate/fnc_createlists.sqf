@@ -70,7 +70,7 @@ for "_i" from 0 to 17 do {
     _daten pushback [[],[]];
 };
 
-["DORB_CRATE"] call bis_fnc_startloadingscreen;
+[QGVAR(crate_loading)] call bis_fnc_startloadingscreen;
 
 _configArray = (
                 ("isclass _x" configclasses (configfile >> "cfgweapons")) +
@@ -165,5 +165,5 @@ _patches=[];
 
 SETMVAR(GVAR(crate_patches),_patches);
 SETMVAR(GVAR(crate_items),_daten);
-["DORB_CRATE"] call bis_fnc_endLoadingScreen;
+[QGVAR(crate_loading)] call bis_fnc_endLoadingScreen;
 true
