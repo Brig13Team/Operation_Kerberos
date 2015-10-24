@@ -3,24 +3,17 @@
 	
 	Description:
 		Core function
-	Requirements:
 	
 */
 #include "script_component.hpp"
 SCRIPT(core);
 CHECK(!isServer)
 
+GVARMAIN(debug)=false;
+
 private ["_aufgabennummer","_aktuelle_aufgabe","_return"];
-
-dorb_debug=false; //Marker für Missionen
-dorb_debug_log=true;
-dorb_debug_loc=false; //Marker für Orte
-Anzahl_Aufgaben=1;
-
 _aufgabennummer=0;
-
 _return = [] call EFUNC(common,get_cfglocations);
-
 SETMVAR(GVAR(stadt),(_return select 0));
 SETMVAR(GVAR(industrie),(_return select 1));
 SETMVAR(GVAR(militaer),(_return select 2));
