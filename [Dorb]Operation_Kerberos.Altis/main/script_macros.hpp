@@ -27,17 +27,64 @@ Author:
     #define FUNC(var1) TRIPLES(ADDON,fnc,var1)
     #define FUNCMAIN(var1) TRIPLES(PREFIX,fnc,var1)
     #define EFUNC(var1,var2) TRIPLES(DOUBLES(PREFIX,var1),fnc,var2)
-	#define INCLUDE_PREINIT(var1) \
-		class DOUBLES(PREFIX,var1) {\
-			init = QUOTE(call compile preProcessFileLineNumbers 'var1\XEH_PreInit.sqf'); \
-		};
-	#define INCLUDE_POSTINIT(var1) \
-		class DOUBLES(PREFIX,var1) {\
-			init = QUOTE(call compile preProcessFileLineNumbers 'var1\XEH_PreInit.sqf'); \
-		};
-	#undef CBA_OFF
-#endif
+    #define INCLUDE_PREINIT(var1) \
+         class DOUBLES(PREFIX,var1) {\
+            init = QUOTE(call compile preProcessFileLineNumbers 'var1\XEH_PreInit.sqf'); \
+        };
+    #define INCLUDE_POSTINIT(var1) \
+        class DOUBLES(PREFIX,var1) {\
+            init = QUOTE(call compile preProcessFileLineNumbers 'var1\XEH_PreInit.sqf'); \
+        };
 
+    #define GVAR(var1) DOUBLES(ADDON,var1)
+    #define EGVAR(var1,var2) TRIPLES(PREFIX,var1,var2)
+
+    #define ARR_1(ARG1) ARG1
+    #define ARR_2(ARG1,ARG2) ARG1, ARG2
+    #define ARR_3(ARG1,ARG2,ARG3) ARG1, ARG2, ARG3
+    #define ARR_4(ARG1,ARG2,ARG3,ARG4) ARG1, ARG2, ARG3, ARG4
+    #define ARR_5(ARG1,ARG2,ARG3,ARG4,ARG5) ARG1, ARG2, ARG3, ARG4, ARG5
+    #define ARR_6(ARG1,ARG2,ARG3,ARG4,ARG5,ARG6) ARG1, ARG2, ARG3, ARG4, ARG5, ARG6
+    #define ARR_7(ARG1,ARG2,ARG3,ARG4,ARG5,ARG6,ARG7) ARG1, ARG2, ARG3, ARG4, ARG5, ARG6, ARG7
+    #define ARR_8(ARG1,ARG2,ARG3,ARG4,ARG5,ARG6,ARG7,ARG8) ARG1, ARG2, ARG3, ARG4, ARG5, ARG6, ARG7, ARG8
+
+    #define GUI_DIM(Var1) (Var1*0.9*(safeZoneW min safeZoneH))
+    #define GUI_DIM2(Var1) (0.5-(safeZoneW min safeZoneH)*(0.45+0.09*Var1))
+    #define GUI_W(Var1) GUI_DIM(Var1)
+    #define GUI_H(Var1) GUI_DIM(Var1)
+    #define GUI_X(Var1) GUI_DIM2(Var1)
+    #define GUI_Y(Var1) GUI_DIM2(Var1)
+    #define GUI_XW(Var1,Var2) ( GUI_DIM2(Var1) + GUI_DIM(Var2) )
+    #define GUI_YH(Var1,Var2) ( GUI_DIM2(Var1) + GUI_DIM(Var2) )
+
+    #undef CBA_OFF
+#endif
+/* -------------------------------------------
+Macro: GUI_*
+    Macros for definining the right size of the gui
+
+Parameters:
+    GUI_W,GUI_H - 0...1 Size of the Interface
+    GUI_X,GUI_H - 0...1 Position of the Interface
+    GUI_XW,GUI_YW - (0...1,0...1) Position and Size
+Example:
+    x = GUI_XW(0,0.1);
+    y = GUI_YH(0,0.2);
+    w = GUI_W(0.118);
+    h = GUI_H(0.53);
+
+Author:
+    Dorbedo
+------------------------------------------- */
+#define GUI_DIM(Var1) (Var1*0.9*(safeZoneW min safeZoneH))
+#define GUI_DIM2(Var1) (0.5-(safeZoneW min safeZoneH)*(0.45+0.09*Var1))
+
+#define GUI_W(Var1) GUI_DIM(Var1)
+#define GUI_H(Var1) GUI_DIM(Var1)
+#define GUI_X(Var1) GUI_DIM2(Var1)
+#define GUI_Y(Var1) GUI_DIM2(Var1)
+#define GUI_XW(Var1,Var2) GUI_DIM2(Var1)+GUI_DIM(Var2)
+#define GUI_YH(Var1,Var2) GUI_DIM2(Var1)+GUI_DIM(Var2)
 /* -------------------------------------------
 Macro: FMP
     Spawns CBA_fnc_globalExecute

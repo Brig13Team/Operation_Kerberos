@@ -11,7 +11,7 @@ SCRIPT(OpenMenu);
 private["_sr","_lr"];
 SETMVAR(TFR_UPDATE,false);
 
-createDialog "dorb_tfr";
+createDialog QGVAR(tfr);
 If (call TFAR_fnc_haveSWRadio) then {
     _sr = (call TFAR_fnc_ActiveSwRadio) call TFAR_fnc_getSwFrequency;
     ctrlSetText [700205, _sr];
@@ -26,6 +26,6 @@ if (call TFAR_fnc_haveLRRadio) then {
     ctrlSetText [700206, ""];
 };
 
-["DORB_TFR_onOpenEH", "onEachFrame", {
+[QGVAR(tfr_onOpenEH), "onEachFrame", {
         [] call FUNC(tfr_onOpen);
      }, []] call BIS_fnc_addStackedEventHandler;

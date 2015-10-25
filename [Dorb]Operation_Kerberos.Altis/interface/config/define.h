@@ -1,7 +1,13 @@
+﻿/*
+    Author: Dorbedo
+*/
+
+#define CBA_OFF
+#include "script_component.hpp"
+
 #define UI_PFAD_ICON #\data\icon\
 //#define UI_FONT "EtelkaNarrowMediumPro"
 #define UI_FONT "PuristaMedium"
-
 
 #define UI_CL_PROGRESS {0.486,0.988,0,1}
 //"PuristaBold"
@@ -12,28 +18,27 @@
 #define UI_CL_HEADER2 {0.722,0.525,0.043,1}
 #define UI_CL_HEADER_TEXT {0.98,0.98,0.824,1}
 
-
 //Gruen
-#define UI_CL_BTN1		{0.678,1,0.184,1}
-#define UI_CL_BTN1_foc	{0.486,0.988,0,1}
+#define UI_CL_BTN1      {0.678,1,0.184,1}
+#define UI_CL_BTN1_foc  {0.486,0.988,0,1}
 //Blau
-#define UI_CL_BTN2		{0,0,0.545,1}
-#define UI_CL_BTN2_foc	{0,0,1,1}
+#define UI_CL_BTN2      {0,0,0.545,1}
+#define UI_CL_BTN2_foc  {0,0,1,1}
 //ORange
-#define UI_CL_BTN3		{1,0.843,0,1}
-#define UI_CL_BTN3_foc	{1,1,0,1}
+#define UI_CL_BTN3      {1,0.843,0,1}
+#define UI_CL_BTN3_foc  {1,1,0,1}
 //Violett
-#define UI_CL_BTN4		{0.78,0.082,0.522,1}
-#define UI_CL_BTN4_foc	{1,0,1,1}
+#define UI_CL_BTN4      {0.78,0.082,0.522,1}
+#define UI_CL_BTN4_foc  {1,0,1,1}
 //Tuerkis
-#define UI_CL_BTN5		{0,0.749,1,1}
-#define UI_CL_BTN5_foc	{0.529,0.808,0.98,1}
+#define UI_CL_BTN5      {0,0.749,1,1}
+#define UI_CL_BTN5_foc  {0.529,0.808,0.98,1}
 //Rot
-#define UI_CL_BTN6		{1,0.549,0,1}
-#define UI_CL_BTN6_foc	{1,0.271,0,1}
+#define UI_CL_BTN6      {1,0.549,0,1}
+#define UI_CL_BTN6_foc  {1,0.271,0,1}
 //Weinrot
-#define UI_CL_BTN7		{0,0.467,0,1}
-#define UI_CL_BTN7_foc	{0,0.6,0,1}
+#define UI_CL_BTN7      {0,0.467,0,1}
+#define UI_CL_BTN7_foc  {0,0.6,0,1}
 
 // { 0,0.392,0,1}
 
@@ -87,31 +92,6 @@
 
 //#define UI_TEXT UI_WHITE_LINEN
 
-
-// ArmA interface coordinates of the largest 4/3-format GUI area possible
-#define _gui_max_dim (safeZoneW min safeZoneH)
-#define _gui_start_x (0.5 - 0.5*_gui_max_dim)
-#define _gui_start_y (0.5 - 0.5*_gui_max_dim)
-#define _gui_w _gui_max_dim
-#define _gui_h _gui_max_dim
-
-// Macros to convert the GUI coordinates to arma interface coordinates
-#define _get_gui_x(X) (_gui_start_x + (X)*_gui_w)
-#define _get_gui_y(Y) (_gui_start_y + (Y)*_gui_h)
-#define _get_gui_w(W) ((W)*_gui_w)
-#define _get_gui_h(H) ((H)*_gui_h)
-
-// ArmA interface coordinates of the virtual screen taking into account the GUI area
-#define _screen_x _get_gui_x(0.05)
-#define _screen_y _get_gui_y(0.05)
-#define _screen_w _get_gui_w(0.9)
-#define _screen_h _get_gui_h(0.9)
-
-// Macros to convert virtual screen coordinates to arma interface coordinates
-#define _get_screen_x(X) (_screen_x + (X)*_screen_w)
-#define _get_screen_y(Y) (_screen_y + (Y)*_screen_h)
-#define _get_screen_w(W) ((W)*_screen_w)
-#define _get_screen_h(H) ((H)*_screen_h)
 
 //////////////////////////////
 // Control types
@@ -186,11 +166,11 @@
 // Slider styles
 #define SL_DIR            0x400
 #define SL_VERT           0
-#define SL_HORZ           0x400 
+#define SL_HORZ           0x400
 
 #define SL_TEXTURES       0x10
 
-// progress bar 
+// progress bar
 #define ST_VERTICAL       0x01
 #define ST_HORIZONTAL     0
 
@@ -209,438 +189,422 @@
 
 
 class dorb_gui_backgroundBase {
-	type = CT_STATIC;
-	idc = -1;
-	style = ST_CENTER;
-	colorText[] = UI_CL_TEXT;
-	colorBackground[] = UI_CL_HEADER;
-	font = UI_FONT;
-	text = "";
-	sizeEx = _get_screen_h(0.04);
+    type = CT_STATIC;
+    idc = -1;
+    style = ST_CENTER;
+    colorText[] = UI_CL_TEXT;
+    colorBackground[] = UI_CL_HEADER;
+    font = UI_FONT;
+    text = "";
+    sizeEx = GUI_H(0.04);
 };
 
 class dorb_gui_loadingbarBase {
-	type = CT_PROGRESS;
-	style = 0;
-	colorFrame[] = UI_CL_CTRL_GRAU4;
-	colorBar[] = UI_CL_CTRL_GRAU2;
-	texture = "#(argb,8,8,3)color(1,1,1,1)";
-	w = 1;
-	h = 0.03;
+    type = CT_PROGRESS;
+    style = 0;
+    colorFrame[] = UI_CL_CTRL_GRAU4;
+    colorBar[] = UI_CL_CTRL_GRAU2;
+    texture = "#(argb,8,8,3)color(1,1,1,1)";
+    w = 1;
+    h = 0.03;
 };
 
+class dorb_gui_comboX {
+    access = 0; // Control access (0 - ReadAndWrite, 1 - ReadAndCreate, 2 - ReadOnly, 3 - ReadOnlyVerified)
+    idc = CT_COMBO; // Control identification (without it, the control won't be displayed)
+    type = CT_COMBO; // Type is 4
+    style = ST_LEFT + LB_TEXTURES; // Style
+    default = 0; // Control selected by default (only one within a display can be used)
+    blinkingPeriod = 0; // Time in which control will fade out and back in. Use 0 to disable the effect.
 
- class dorb_gui_comboX {
-	access = 0; // Control access (0 - ReadAndWrite, 1 - ReadAndCreate, 2 - ReadOnly, 3 - ReadOnlyVerified)
-	idc = CT_COMBO; // Control identification (without it, the control won't be displayed)
-	type = CT_COMBO; // Type is 4
-	style = ST_LEFT + LB_TEXTURES; // Style
-	default = 0; // Control selected by default (only one within a display can be used)
-	blinkingPeriod = 0; // Time in which control will fade out and back in. Use 0 to disable the effect.
-	
-	colorBackground[] = UI_CL_CTRL_WEINROT1; // Fill color
-	colorSelectBackground[] = UI_CL_CTRL_WEINROT1; // Selected item fill color
+    colorBackground[] = UI_CL_CTRL_WEINROT1; // Fill color
+    colorSelectBackground[] = UI_CL_CTRL_WEINROT1; // Selected item fill color
 
-			sizeEx = _get_screen_h(0.04); // Text size
-			font = UI_FONT; // Font from CfgFontFamilies
-			shadow = 0; // Shadow (0 - none, 1 - N/A, 2 - black outline)
-			colorText[] = UI_CL_TEXT; // Text and frame color
-			colorDisabled[] = UI_CL_TEXT; // Disabled text color
-			colorSelect[] = UI_CL_TEXT; // Text selection color
-			
-			pictureColor[] = {1,0.5,0,1}; // Picture color
-			pictureColorSelect[] = {1,1,1,1}; // Selected picture color
-			pictureColorDisabled[] = {1,1,1,0.5}; // Disabled picture color
+    sizeEx = GUI_H(0.04); // Text size
+    font = UI_FONT; // Font from CfgFontFamilies
+    shadow = 0; // Shadow (0 - none, 1 - N/A, 2 - black outline)
+    colorText[] = UI_CL_TEXT; // Text and frame color
+    colorDisabled[] = UI_CL_TEXT; // Disabled text color
+    colorSelect[] = UI_CL_TEXT; // Text selection color
 
-			tooltip = ""; // Tooltip text
-			tooltipColorShade[] = {0,0,0,1}; // Tooltip background color
-			tooltipColorText[] = {1,1,1,1}; // Tooltip text color
-			tooltipColorBox[] = {1,1,1,1}; // Tooltip frame color
+    pictureColor[] = {1,0.5,0,1}; // Picture color
+    pictureColorSelect[] = {1,1,1,1}; // Selected picture color
+    pictureColorDisabled[] = {1,1,1,0.5}; // Disabled picture color
 
-			arrowEmpty = "\A3\ui_f\data\GUI\RscCommon\rsccombo\arrow_combo_ca.paa"; // Expand arrow
-			arrowFull = "\A3\ui_f\data\GUI\RscCommon\rsccombo\arrow_combo_active_ca.paa"; // Collapse arrow
+    tooltip = ""; // Tooltip text
+    tooltipColorShade[] = {0,0,0,1}; // Tooltip background color
+    tooltipColorText[] = {1,1,1,1}; // Tooltip text color
+    tooltipColorBox[] = {1,1,1,1}; // Tooltip frame color
 
-			wholeHeight = h = _get_screen_h(0.1); // Maximum height of expanded box (including the control height)
-			maxHistoryDelay = 1; // Time since last keyboard type search to reset it
+    arrowEmpty = "\A3\ui_f\data\GUI\RscCommon\rsccombo\arrow_combo_ca.paa"; // Expand arrow
+    arrowFull = "\A3\ui_f\data\GUI\RscCommon\rsccombo\arrow_combo_active_ca.paa"; // Collapse arrow
 
-			soundExpand[] = {"\A3\ui_f\data\sound\RscCombo\soundExpand",0.1,1}; // Sound played when the list is expanded
-			soundCollapse[] = {"\A3\ui_f\data\sound\RscCombo\soundCollapse",0.1,1}; // Sound played when the list is collapsed
-			soundSelect[] = {"\A3\ui_f\data\sound\RscCombo\soundSelect",0.1,1}; // Sound played when an item is selected
+    wholeHeight = h = GUI_H(0.1); // Maximum height of expanded box (including the control height)
+    maxHistoryDelay = 1; // Time since last keyboard type search to reset it
 
-			// Scrollbar configuration (applied only when LB_TEXTURES style is used)
-			class ComboScrollBar
-			{
-				width = 0; // width of ComboScrollBar
-				height = 0; // height of ComboScrollBar
-				scrollSpeed = 0.01; // scrollSpeed of ComboScrollBar
+    soundExpand[] = {"\A3\ui_f\data\sound\RscCombo\soundExpand",0.1,1}; // Sound played when the list is expanded
+    soundCollapse[] = {"\A3\ui_f\data\sound\RscCombo\soundCollapse",0.1,1}; // Sound played when the list is collapsed
+    soundSelect[] = {"\A3\ui_f\data\sound\RscCombo\soundSelect",0.1,1}; // Sound played when an item is selected
 
-				arrowEmpty = "\A3\ui_f\data\gui\cfg\scrollbar\arrowEmpty_ca.paa"; // Arrow
-				arrowFull = "\A3\ui_f\data\gui\cfg\scrollbar\arrowFull_ca.paa"; // Arrow when clicked on
-				border = "\A3\ui_f\data\gui\cfg\scrollbar\border_ca.paa"; // Slider background (stretched vertically)
-				thumb = "\A3\ui_f\data\gui\cfg\scrollbar\thumb_ca.paa"; // Dragging element (stretched vertically)
+    class ComboScrollBar {
+        width = 0; // width of ComboScrollBar
+        height = 0; // height of ComboScrollBar
+        scrollSpeed = 0.01; // scrollSpeed of ComboScrollBar
 
-				color[] = {1,1,1,1}; // Scrollbar color
-			};
+        arrowEmpty = "\A3\ui_f\data\gui\cfg\scrollbar\arrowEmpty_ca.paa"; // Arrow
+        arrowFull = "\A3\ui_f\data\gui\cfg\scrollbar\arrowFull_ca.paa"; // Arrow when clicked on
+        border = "\A3\ui_f\data\gui\cfg\scrollbar\border_ca.paa"; // Slider background (stretched vertically)
+        thumb = "\A3\ui_f\data\gui\cfg\scrollbar\thumb_ca.paa"; // Dragging element (stretched vertically)
 
-			onCanDestroy = "systemChat str ['onCanDestroy',_this]; true";
-			onDestroy = "systemChat str ['onDestroy',_this]; false";
-			onSetFocus = "systemChat str ['onSetFocus',_this]; false";
-			onKillFocus = "systemChat str ['onKillFocus',_this]; false";
-			onKeyDown = "systemChat str ['onKeyDown',_this]; false";
-			onKeyUp = "systemChat str ['onKeyUp',_this]; false";
-			onMouseButtonDown = "systemChat str ['onMouseButtonDown',_this]; false";
-			onMouseButtonUp = "systemChat str ['onMouseButtonUp',_this]; false";
-			onMouseButtonClick = "systemChat str ['onMouseButtonClick',_this]; false";
-			onMouseButtonDblClick = "systemChat str ['onMouseButtonDblClick',_this]; false";
-			onMouseZChanged = "systemChat str ['onMouseZChanged',_this]; false";
-			onMouseMoving = "";
-			onMouseHolding = "";
+        color[] = {1,1,1,1}; // Scrollbar color
+    };
 
-			onLBSelChanged = "systemChat str ['onLBSelChanged',_this]; false";
+    onCanDestroy = "systemChat str ['onCanDestroy',_this]; true";
+    onDestroy = "systemChat str ['onDestroy',_this]; false";
+    onSetFocus = "systemChat str ['onSetFocus',_this]; false";
+    onKillFocus = "systemChat str ['onKillFocus',_this]; false";
+    onKeyDown = "systemChat str ['onKeyDown',_this]; false";
+    onKeyUp = "systemChat str ['onKeyUp',_this]; false";
+    onMouseButtonDown = "systemChat str ['onMouseButtonDown',_this]; false";
+    onMouseButtonUp = "systemChat str ['onMouseButtonUp',_this]; false";
+    onMouseButtonClick = "systemChat str ['onMouseButtonClick',_this]; false";
+    onMouseButtonDblClick = "systemChat str ['onMouseButtonDblClick',_this]; false";
+    onMouseZChanged = "systemChat str ['onMouseZChanged',_this]; false";
+    onMouseMoving = "";
+    onMouseHolding = "";
+    onLBSelChanged = "systemChat str ['onLBSelChanged',_this]; false";
 };
 class dorb_gui_Button {
-	access = 0;
-	type = CT_BUTTON;
-	style = ST_CENTER;
-	text = "";
-	font = UI_FONT;
-	sizeEx = _get_screen_h(0.04);
-	colorText[] = UI_CL_TEXT;
-	colorDisabled[] = {0.3,0.3,0.3,1};
-	colorBackground[] = UI_CL_CTRL_GRUEN2;
-	colorBackgroundActive[] = UI_CL_CTRL_GRUEN1;
-	colorFocused[] = UI_CL_CTRL_GRUEN2;
-	colorBackgroundDisabled[] = {0.6,0.6,0.6,1};
-	offsetX = 0.004;
-	offsetY = 0.004;
-	offsetPressedX = 0.002;
-	offsetPressedY = 0.002;
-	colorShadow[] = {0,0,0,1};
-	shadow = 0;
-	colorBorder[] = {0,0,0,1};
-	borderSize = 0;
-	soundEnter[] = {"",0.1,1};
-	soundPush[] = {"",0.1,1};
-	soundClick[] = {"",0.1,1};
-	soundEscape[] = {"",0.1,1};
-	onButtonClick = "";
+    access = 0;
+    type = CT_BUTTON;
+    style = ST_CENTER;
+    text = "";
+    font = UI_FONT;
+    sizeEx = GUI_H(0.04);
+    colorText[] = UI_CL_TEXT;
+    colorDisabled[] = {0.3,0.3,0.3,1};
+    colorBackground[] = UI_CL_CTRL_GRUEN2;
+    colorBackgroundActive[] = UI_CL_CTRL_GRUEN1;
+    colorFocused[] = UI_CL_CTRL_GRUEN2;
+    colorBackgroundDisabled[] = {0.6,0.6,0.6,1};
+    offsetX = 0.004;
+    offsetY = 0.004;
+    offsetPressedX = 0.002;
+    offsetPressedY = 0.002;
+    colorShadow[] = {0,0,0,1};
+    shadow = 0;
+    colorBorder[] = {0,0,0,1};
+    borderSize = 0;
+    soundEnter[] = {"",0.1,1};
+    soundPush[] = {"",0.1,1};
+    soundClick[] = {"",0.1,1};
+    soundEscape[] = {"",0.1,1};
+    onButtonClick = "";
 };
 class dorb_gui_shctButton : dorb_gui_Button {
-	type = 16;
-	style = 48;
-	class HitZone {
-		left = 0.0;
-		top = 0.0;
-		right = 1.0;
-		bottom = 1.0;
-	};
-	class ShortcutPos {
-		left = 0;
-		top = 0;
-		w = 0.3;
-		h = 0.7;
-	};
-	class TextPos {
-		left = 0.001;
-		top = 0.0001;
-		right = 0.0001;
-		bottom = 0.0001;
-	};
-	animTextureNormal = "#(argb,8,8,3)color(1,1,1,1)";
-	animTextureDisabled = "#(argb,8,8,3)color(0.3,0.3,0.3,1)";
-	animTextureOver = "#(argb,8,8,3)color(0.8,0.3,0,1)";
-	animTextureFocused = "#(argb,8,8,3)color(1,0.5,0,1)";
-	animTexturePressed = "#(argb,8,8,3)color(1,0,0,1)";
-	animTextureDefault = "#(argb,8,8,3)color(0,1,0,1)";
-	period = 0.1;
-	periodFocus = 0.4;
-	periodOver = 0.4;
-	shortcuts[] = {};
-	textureNoShortcut = "#(argb,8,8,3)color(0,0,0,0)";
-	color[] = UI_CL_CTRL_GRUEN2;
-	color2[] = UI_CL_TEXT;
-	colorDisabled[] = {0,0,0,0.3};
-	colorBackground[] = UI_CL_CTRL_GRUEN1;
-	colorBackground2[] = UI_CL_CTRL_GRUEN2;
-	colorBackgroundfocused[] = UI_CL_CTRL_GRUEN1;
-	text = "";
-	shadow = 1;
-	size = _get_screen_h(0.04);
-	class Attributes {
-		font = "TahomaB";
-		color = UI_TEXT;
-		align = "left";
-		shadow = 1;
-	};
-	class AttributesImages {
-		font = UI_FONT;
-		color = UI_TEXT;
-		align = "left";
-	};
+    type = 16;
+    style = 48;
+    class HitZone {
+        left = 0.0;
+        top = 0.0;
+        right = 1.0;
+        bottom = 1.0;
+    };
+    class ShortcutPos {
+        left = 0;
+        top = 0;
+        w = 0.3;
+        h = 0.7;
+    };
+    class TextPos {
+        left = 0.001;
+        top = 0.0001;
+        right = 0.0001;
+        bottom = 0.0001;
+    };
+    animTextureNormal = "#(argb,8,8,3)color(1,1,1,1)";
+    animTextureDisabled = "#(argb,8,8,3)color(0.3,0.3,0.3,1)";
+    animTextureOver = "#(argb,8,8,3)color(0.8,0.3,0,1)";
+    animTextureFocused = "#(argb,8,8,3)color(1,0.5,0,1)";
+    animTexturePressed = "#(argb,8,8,3)color(1,0,0,1)";
+    animTextureDefault = "#(argb,8,8,3)color(0,1,0,1)";
+    period = 0.1;
+    periodFocus = 0.4;
+    periodOver = 0.4;
+    shortcuts[] = {};
+    textureNoShortcut = "#(argb,8,8,3)color(0,0,0,0)";
+    color[] = UI_CL_CTRL_GRUEN2;
+    color2[] = UI_CL_TEXT;
+    colorDisabled[] = {0,0,0,0.3};
+    colorBackground[] = UI_CL_CTRL_GRUEN1;
+    colorBackground2[] = UI_CL_CTRL_GRUEN2;
+    colorBackgroundfocused[] = UI_CL_CTRL_GRUEN1;
+    text = "";
+    shadow = 1;
+    size = GUI_H(0.04);
+    class Attributes {
+        font = "TahomaB";
+        color = UI_TEXT;
+        align = "left";
+        shadow = 1;
+    };
+    class AttributesImages {
+        font = UI_FONT;
+        color = UI_TEXT;
+        align = "left";
+    };
 };
- class dorb_gui_listbox {
-	access = 0; // Control access (0 - ReadAndWrite, 1 - ReadAndCreate, 2 - ReadOnly, 3 - ReadOnlyVerified)
-	idc = CT_LISTBOX; // Control identification (without it, the control won't be displayed)
-	type = CT_LISTBOX; // Type is 5
-	style = ST_LEFT + LB_TEXTURES; // Style
-	default = 0; // Control selected by default (only one within a display can be used)
-	blinkingPeriod = 0; // Time in which control will fade out and back in. Use 0 to disable the effect.
-		
-	colorBackground[] = UI_CL_CTRL_GRAU3; // Fill color
-	colorSelectBackground[] = UI_CL_CTRL_GRAU2; // Selected item fill color
-	colorSelectBackground2[] = UI_CL_CTRL_GRAU2; // Selected item fill color (oscillates between this and colorSelectBackground)
+class dorb_gui_listbox {
+    access = 0; // Control access (0 - ReadAndWrite, 1 - ReadAndCreate, 2 - ReadOnly, 3 - ReadOnlyVerified)
+    idc = CT_LISTBOX; // Control identification (without it, the control won't be displayed)
+    type = CT_LISTBOX; // Type is 5
+    style = ST_LEFT + LB_TEXTURES; // Style
+    default = 0; // Control selected by default (only one within a display can be used)
+    blinkingPeriod = 0; // Time in which control will fade out and back in. Use 0 to disable the effect.
 
-	sizeEx = _get_screen_h(0.04); // Text size
-	font = UI_FONT; // Font from CfgFontFamilies
-	shadow = 0; // Shadow (0 - none, 1 - directional, color affected by colorShadow, 2 - black outline)
-	colorText[] = UI_CL_TEXT; // Text and frame color
-	colorDisabled[] = {1,1,1,0.5}; // Disabled text color
-	colorSelect[] = UI_CL_TEXT; // Text selection color
-	colorSelect2[] = UI_CL_TEXT; // Text selection color (oscillates between this and colorSelect)
-	colorShadow[] = {0,0,0,0.5}; // Text shadow color (used only when shadow is 1)
+    colorBackground[] = UI_CL_CTRL_GRAU3; // Fill color
+    colorSelectBackground[] = UI_CL_CTRL_GRAU2; // Selected item fill color
+    colorSelectBackground2[] = UI_CL_CTRL_GRAU2; // Selected item fill color (oscillates between this and colorSelectBackground)
 
-			pictureColor[] = {1,0.5,0,1}; // Picture color
-			pictureColorSelect[] = {1,1,1,1}; // Selected picture color
-			pictureColorDisabled[] = {1,1,1,0.5}; // Disabled picture color
+    sizeEx = GUI_H(0.04); // Text size
+    font = UI_FONT; // Font from CfgFontFamilies
+    shadow = 0; // Shadow (0 - none, 1 - directional, color affected by colorShadow, 2 - black outline)
+    colorText[] = UI_CL_TEXT; // Text and frame color
+    colorDisabled[] = {1,1,1,0.5}; // Disabled text color
+    colorSelect[] = UI_CL_TEXT; // Text selection color
+    colorSelect2[] = UI_CL_TEXT; // Text selection color (oscillates between this and colorSelect)
+    colorShadow[] = {0,0,0,0.5}; // Text shadow color (used only when shadow is 1)
 
-			tooltip = ""; // Tooltip text
-			tooltipColorShade[] = {0,0,0,1}; // Tooltip background color
-			tooltipColorText[] = {1,1,1,1}; // Tooltip text color
-			tooltipColorBox[] = {1,1,1,1}; // Tooltip frame color
+    pictureColor[] = {1,0.5,0,1}; // Picture color
+    pictureColorSelect[] = {1,1,1,1}; // Selected picture color
+    pictureColorDisabled[] = {1,1,1,0.5}; // Disabled picture color
 
-			period = 1; // Oscillation time between colorSelect/colorSelectBackground2 and colorSelect2/colorSelectBackground when selected
+    tooltip = ""; // Tooltip text
+    tooltipColorShade[] = {0,0,0,1}; // Tooltip background color
+    tooltipColorText[] = {1,1,1,1}; // Tooltip text color
+    tooltipColorBox[] = {1,1,1,1}; // Tooltip frame color
 
-			rowHeight = _get_screen_h(0.07); // Row height
-			itemSpacing = 0; // Height of empty space between items
-			maxHistoryDelay = 1; // Time since last keyboard type search to reset it
-			canDrag = 0; // 1 (true) to allow item dragging
+    period = 1; // Oscillation time between colorSelect/colorSelectBackground2 and colorSelect2/colorSelectBackground when selected
 
-			soundSelect[] = {"\A3\ui_f\data\sound\RscListbox\soundSelect",0.09,1}; // Sound played when an item is selected
+    rowHeight = GUI_H(0.07); // Row height
+    itemSpacing = 0; // Height of empty space between items
+    maxHistoryDelay = 1; // Time since last keyboard type search to reset it
+    canDrag = 0; // 1 (true) to allow item dragging
 
-			// Scrollbar configuration (applied only when LB_TEXTURES style is used)
-			class ListScrollBar //In older games this class is "ScrollBar"
-			{
-				width = 0; // width of ListScrollBar
-				height = 0; // height of ListScrollBar
-				scrollSpeed = 0.01; // scroll speed of ListScrollBar
+    soundSelect[] = {"\A3\ui_f\data\sound\RscListbox\soundSelect",0.09,1}; // Sound played when an item is selected
 
-				arrowEmpty = "\A3\ui_f\data\gui\cfg\scrollbar\arrowEmpty_ca.paa"; // Arrow
-				arrowFull = "\A3\ui_f\data\gui\cfg\scrollbar\arrowFull_ca.paa"; // Arrow when clicked on
-				border = "\A3\ui_f\data\gui\cfg\scrollbar\border_ca.paa"; // Slider background (stretched vertically)
-				thumb = "\A3\ui_f\data\gui\cfg\scrollbar\thumb_ca.paa"; // Dragging element (stretched vertically)
+    class ListScrollBar {
+        width = 0; // width of ListScrollBar
+        height = 0; // height of ListScrollBar
+        scrollSpeed = 0.01; // scroll speed of ListScrollBar
 
-				color[] = UI_CL_CTRL_GRAU3; // Scrollbar color
-			};
+        arrowEmpty = "\A3\ui_f\data\gui\cfg\scrollbar\arrowEmpty_ca.paa"; // Arrow
+        arrowFull = "\A3\ui_f\data\gui\cfg\scrollbar\arrowFull_ca.paa"; // Arrow when clicked on
+        border = "\A3\ui_f\data\gui\cfg\scrollbar\border_ca.paa"; // Slider background (stretched vertically)
+        thumb = "\A3\ui_f\data\gui\cfg\scrollbar\thumb_ca.paa"; // Dragging element (stretched vertically)
 
-			onCanDestroy = "systemChat str ['onCanDestroy',_this]; true";
-			onDestroy = "systemChat str ['onDestroy',_this]; false";
-			onSetFocus = "systemChat str ['onSetFocus',_this]; false";
-			onKillFocus = "systemChat str ['onKillFocus',_this]; false";
-			onKeyDown = "systemChat str ['onKeyDown',_this]; false";
-			onKeyUp = "systemChat str ['onKeyUp',_this]; false";
-			onMouseButtonDown = "systemChat str ['onMouseButtonDown',_this]; false";
-			onMouseButtonUp = "systemChat str ['onMouseButtonUp',_this]; false";
-			onMouseButtonClick = "systemChat str ['onMouseButtonClick',_this]; false";
-			onMouseButtonDblClick = "systemChat str ['onMouseButtonDblClick',_this]; false";
-			onMouseZChanged = "systemChat str ['onMouseZChanged',_this]; false";
-			onMouseMoving = "";
-			onMouseHolding = "";
+        color[] = UI_CL_CTRL_GRAU3; // Scrollbar color
+    };
 
-			onLBSelChanged = "systemChat str ['onLBSelChanged',_this]; false";
-			onLBDblClick = "systemChat str ['onLBDblClick',_this]; false";
-			onLBDrag = "systemChat str ['onLBDrag',_this]; false";
-			onLBDragging = "systemChat str ['onLBDragging',_this]; false";
-			onLBDrop = "systemChat str ['onLBDrop',_this]; false";
+    onCanDestroy = "systemChat str ['onCanDestroy',_this]; true";
+    onDestroy = "systemChat str ['onDestroy',_this]; false";
+    onSetFocus = "systemChat str ['onSetFocus',_this]; false";
+    onKillFocus = "systemChat str ['onKillFocus',_this]; false";
+    onKeyDown = "systemChat str ['onKeyDown',_this]; false";
+    onKeyUp = "systemChat str ['onKeyUp',_this]; false";
+    onMouseButtonDown = "systemChat str ['onMouseButtonDown',_this]; false";
+    onMouseButtonUp = "systemChat str ['onMouseButtonUp',_this]; false";
+    onMouseButtonClick = "systemChat str ['onMouseButtonClick',_this]; false";
+    onMouseButtonDblClick = "systemChat str ['onMouseButtonDblClick',_this]; false";
+    onMouseZChanged = "systemChat str ['onMouseZChanged',_this]; false";
+    onMouseMoving = "";
+    onMouseHolding = "";
+
+    onLBSelChanged = "systemChat str ['onLBSelChanged',_this]; false";
+    onLBDblClick = "systemChat str ['onLBDblClick',_this]; false";
+    onLBDrag = "systemChat str ['onLBDrag',_this]; false";
+    onLBDragging = "systemChat str ['onLBDragging',_this]; false";
+    onLBDrop = "systemChat str ['onLBDrop',_this]; false";
 };
 class dorb_gui_pictureBase : dorb_gui_backgroundBase {
-	style = ST_PICTURE;
+    style = ST_PICTURE;
 };
 class dorb_gui_treeBase {
-		access = 0;
-		idc = -1;
-		type = CT_TREE; // 12
-		style = ST_MULTI;
-		default = 0;
-		blinkingPeriod = 0; // Time in which control will fade out and back in. Use 0 to disable the effect.
+    access = 0;
+    idc = -1;
+    type = CT_TREE; // 12
+    style = ST_MULTI;
+    default = 0;
+    blinkingPeriod = 0; // Time in which control will fade out and back in. Use 0 to disable the effect.
 
-			colorBorder[] = {0,0,0,1}; // Frame color
+    colorBorder[] = {0,0,0,1}; // Frame color
+    colorBackground[] = {0, 0, 0, 1};
+    colorSelect[] = {1,0.5,0,1}; // Selected item fill color (when multiselectEnabled is 0)
+    colorMarked[] = {0.95,0.95,0.95,1}; // Marked item fill color (when multiselectEnabled is 1)
+    colorMarkedSelected[] = {1,0.5,0,1}; // Selected item fill color (when multiselectEnabled is 1)
 
-		colorBackground[] = {0, 0, 0, 1};
-			colorSelect[] = {1,0.5,0,1}; // Selected item fill color (when multiselectEnabled is 0)
-			colorMarked[] = {0.95,0.95,0.95,1}; // Marked item fill color (when multiselectEnabled is 1)
-			colorMarkedSelected[] = {1,0.5,0,1}; // Selected item fill color (when multiselectEnabled is 1)
+    sizeEx = 0.031;
+    font = FontCSE;
+    shadow = 2;
+    colorText[] = {0.543, 0.5742, 0.4102, 1.0}; // Text color
+    colorSelectText[] = {0.95,0.95,0.95,1}; // Selected text color (when multiselectEnabled is 0)
+    colorMarkedText[] = {0.95,0.95,0.95,1}; // Selected text color (when multiselectEnabled is 1)
 
-		sizeEx = 0.031;
-		font = FontCSE;
-		shadow = 2;
-		colorText[] = {0.543, 0.5742, 0.4102, 1.0}; // Text color
-		colorSelectText[] = {0.95,0.95,0.95,1}; // Selected text color (when multiselectEnabled is 0)
-		colorMarkedText[] = {0.95,0.95,0.95,1}; // Selected text color (when multiselectEnabled is 1)
+    tooltip = "";
+    tooltipColorShade[] = {0,0,0,1};
+    tooltipColorText[] = {1,1,1,1};
+    tooltipColorBox[] = {1,1,1,1};
 
-			tooltip = "";
-			tooltipColorShade[] = {0,0,0,1};
-			tooltipColorText[] = {1,1,1,1};
-			tooltipColorBox[] = {1,1,1,1};
+    multiselectEnabled = 0;
+    expandOnDoubleclick = 1;
+    hiddenTexture = "A3\ui_f\data\gui\rsccommon\rsctree\hiddenTexture_ca.paa";
+    expandedTexture = "A3\ui_f\data\gui\rsccommon\rsctree\expandedTexture_ca.paa";
+    maxHistoryDelay = 1;
 
-		multiselectEnabled = 0;
-		expandOnDoubleclick = 1;
-		hiddenTexture = "A3\ui_f\data\gui\rsccommon\rsctree\hiddenTexture_ca.paa";
-		expandedTexture = "A3\ui_f\data\gui\rsccommon\rsctree\expandedTexture_ca.paa";
-		maxHistoryDelay = 1;
+    class ScrollBar {
+        arrowEmpty = "\A3\ui_f\data\gui\cfg\scrollbar\arrowEmpty_ca.paa";
+        arrowFull = "\A3\ui_f\data\gui\cfg\scrollbar\arrowFull_ca.paa";
+        autoScrollDelay = 5;
+        autoScrollEnabled = 0;
+        autoScrollRewind = 0;
+        autoScrollSpeed = -1;
+        border = "\A3\ui_f\data\gui\cfg\scrollbar\border_ca.paa";
+        color[] = {1,1,1,0.6};
+        colorActive[] = {1,1,1,1};
+        colorDisabled[] = {1,1,1,0.3};
+        height = 0;
+        scrollSpeed = 0.06;
+        shadow = 0;
+        thumb = "\A3\ui_f\data\gui\cfg\scrollbar\thumb_ca.paa";
+        width = 0;
+    };
 
-			
-			class ScrollBar
-			{
-				arrowEmpty = "\A3\ui_f\data\gui\cfg\scrollbar\arrowEmpty_ca.paa";
-				arrowFull = "\A3\ui_f\data\gui\cfg\scrollbar\arrowFull_ca.paa";
-				autoScrollDelay = 5;
-				autoScrollEnabled = 0;
-				autoScrollRewind = 0;
-				autoScrollSpeed = -1;
-				border = "\A3\ui_f\data\gui\cfg\scrollbar\border_ca.paa";
-				color[] = {1,1,1,0.6};
-				colorActive[] = {1,1,1,1};
-				colorDisabled[] = {1,1,1,0.3};
-				height = 0;
-				scrollSpeed = 0.06;
-				shadow = 0;
-				thumb = "\A3\ui_f\data\gui\cfg\scrollbar\thumb_ca.paa";
-				width = 0;
-			};
+    colorDisabled[] = {0,0,0,0}; // Does nothing, but must be present, otherwise an error is shown
+    colorArrow[] = {0,0,0,0}; // Does nothing, but must be present, otherwise an error is shown
+};
 
-			colorDisabled[] = {0,0,0,0}; // Does nothing, but must be present, otherwise an error is shown
-			colorArrow[] = {0,0,0,0}; // Does nothing, but must be present, otherwise an error is shown
-
-			
-	};
-	
 class dorb_gui_editBase {
-	access = 0;
-	type = CT_EDIT;
-	style = ST_LEFT+ST_FRAME;
-	colorBackground[] = UI_CL_CTRL_GRAU1;
-	colorText[] = UI_CL_BODY_TEXT;
-	colorSelection[] = UI_CL_CTRL_GRAU2;
-	colorDisabled[] = UI_CL_CTRL_GRAU3;
-	font = UI_FONT;
-	sizeEx = _get_screen_h(0.04);
-	autocomplete = "";
-	text = "";
-	size = _get_screen_h(0.02);
-	shadow = 0;
+    access = 0;
+    type = CT_EDIT;
+    style = ST_LEFT+ST_FRAME;
+    colorBackground[] = UI_CL_CTRL_GRAU1;
+    colorText[] = UI_CL_BODY_TEXT;
+    colorSelection[] = UI_CL_CTRL_GRAU2;
+    colorDisabled[] = UI_CL_CTRL_GRAU3;
+    font = UI_FONT;
+    sizeEx = GUI_H(0.04);
+    autocomplete = "";
+    text = "";
+    size = GUI_H(0.02);
+    shadow = 0;
 };
 class dorb_gui_listboxN {
-	access = 0; // allow alterations / additions to, but not erasure of, tokennames in this class.
-             // this equally affects child classes. they cannot be removed, nor can their tokenNames be erased, only altered
-             // to completely remove or alter a child class (in this case scrollbar), this parent class must be inherited
-             // then again, perhaps irrelevant, perhaps it's simply being a root class that causes all this
-	type = CT_LISTNBOX;// 102; 
-	style = ST_MULTI;
-	font = UI_FONT; 
-	sizeEx = _get_screen_h(0.04);
-	colorText[] = UI_CL_BODY_TEXT; 
-	colorBackground[] = UI_CL_CTRL_GRAU3; 
-	canDrag = false;
-	
-	autoScrollSpeed = -1; 
-	autoScrollDelay = 5; 
-	autoScrollRewind = 0; 
-	arrowEmpty = "#(argb,8,8,3)color(1,1,1,1)"; 
-	arrowFull = "#(argb,8,8,3)color(1,1,1,1)"; 
-	columns[] = {0.3, 0.6, 0.7}; 
-	color[] = UI_CL_CTRL_GRAU3; 
-	colorScrollbar[] = UI_CL_CTRL_GRAU2; 
-	colorSelect[] = UI_CL_CTRL_GRAU3; 
-	colorSelect2[] = UI_CL_CTRL_GRAU3; 
-	colorDisabled[] = UI_CL_CTRL_GRAU3;
-	colorSelectBackground[] = UI_CL_CTRL_GRAU1; 
-	colorSelectBackground2[] = UI_CL_CTRL_GRAU1; 
-	
-	
-	pictureColor[] = UI_CL_CTRL_GRAU3; // Picture color
-	pictureColorSelect[] = UI_CL_CTRL_GRAU4; // Selected picture color
-	pictureColorDisabled[] = UI_CL_CTRL_GRAU1; // Disabled picture color
-	
-	drawSideArrows = 0; 
-	idcLeft = -1; 
-	idcRight = -1; 
-	maxHistoryDelay = 1; 
-	rowHeight = 0; 
-	soundSelect[] = {"", 0.1, 1}; 
-	period = 1; 
-	lineSpacing = 1;
-	shadow = 0; 
-	class ScrollBar {
-		arrowEmpty = "#(argb,8,8,3)color(1,1,1,1)";
-		arrowFull = "#(argb,8,8,3)color(1,1,1,1)";
-		border = "#(argb,8,8,3)color(1,1,1,1)";
-		color[] = UI_CL_CTRL_GRAU3;
-		colorActive[] = UI_CL_CTRL_GRAU1;
-		colorDisabled[] = UI_CL_CTRL_GRAU1;
-		thumb = "#(argb,8,8,3)color(1,1,1,1)";
-	};
-	class ListScrollBar {
-		arrowEmpty = "\A3\ui_f\data\gui\cfg\scrollbar\arrowEmpty_ca.paa";
-		arrowFull = "\A3\ui_f\data\gui\cfg\scrollbar\arrowFull_ca.paa";
-		autoScrollDelay = 5;
-		autoScrollEnabled = 0;
-		autoScrollRewind = 0;
-		autoScrollSpeed = -1;
-		border = "\A3\ui_f\data\gui\cfg\scrollbar\border_ca.paa";
-		color[] = UI_CL_CTRL_GRAU3;
-		colorActive[] = UI_CL_CTRL_GRAU1;
-		colorDisabled[] = UI_CL_CTRL_GRAU1;
-		height = 0;
-		scrollSpeed = 0.06;
-		shadow = 0;
-		thumb = "\A3\ui_f\data\gui\cfg\scrollbar\thumb_ca.paa";
-		width = 0;
-	};
+    access = 0;
+    type = CT_LISTNBOX;// 102;
+    style = ST_MULTI;
+    font = UI_FONT;
+    sizeEx = GUI_H(0.04);
+    colorText[] = UI_CL_BODY_TEXT;
+    colorBackground[] = UI_CL_CTRL_GRAU3;
+    canDrag = false;
 
+    autoScrollSpeed = -1;
+    autoScrollDelay = 5;
+    autoScrollRewind = 0;
+    arrowEmpty = "#(argb,8,8,3)color(1,1,1,1)";
+    arrowFull = "#(argb,8,8,3)color(1,1,1,1)";
+    columns[] = {0.3, 0.6, 0.7};
+    color[] = UI_CL_CTRL_GRAU3;
+    colorScrollbar[] = UI_CL_CTRL_GRAU2;
+    colorSelect[] = UI_CL_CTRL_GRAU3;
+    colorSelect2[] = UI_CL_CTRL_GRAU3;
+    colorDisabled[] = UI_CL_CTRL_GRAU3;
+    colorSelectBackground[] = UI_CL_CTRL_GRAU1;
+    colorSelectBackground2[] = UI_CL_CTRL_GRAU1;
+
+    pictureColor[] = UI_CL_CTRL_GRAU3; // Picture color
+    pictureColorSelect[] = UI_CL_CTRL_GRAU4; // Selected picture color
+    pictureColorDisabled[] = UI_CL_CTRL_GRAU1; // Disabled picture color
+
+    drawSideArrows = 0;
+    idcLeft = -1;
+    idcRight = -1;
+    maxHistoryDelay = 1;
+    rowHeight = 0;
+    soundSelect[] = {"", 0.1, 1};
+    period = 1;
+    lineSpacing = 1;
+    shadow = 0;
+    class ScrollBar {
+        arrowEmpty = "#(argb,8,8,3)color(1,1,1,1)";
+        arrowFull = "#(argb,8,8,3)color(1,1,1,1)";
+        border = "#(argb,8,8,3)color(1,1,1,1)";
+        color[] = UI_CL_CTRL_GRAU3;
+        colorActive[] = UI_CL_CTRL_GRAU1;
+        colorDisabled[] = UI_CL_CTRL_GRAU1;
+        thumb = "#(argb,8,8,3)color(1,1,1,1)";
+    };
+    class ListScrollBar {
+        arrowEmpty = "\A3\ui_f\data\gui\cfg\scrollbar\arrowEmpty_ca.paa";
+        arrowFull = "\A3\ui_f\data\gui\cfg\scrollbar\arrowFull_ca.paa";
+        autoScrollDelay = 5;
+        autoScrollEnabled = 0;
+        autoScrollRewind = 0;
+        autoScrollSpeed = -1;
+        border = "\A3\ui_f\data\gui\cfg\scrollbar\border_ca.paa";
+        color[] = UI_CL_CTRL_GRAU3;
+        colorActive[] = UI_CL_CTRL_GRAU1;
+        colorDisabled[] = UI_CL_CTRL_GRAU1;
+        height = 0;
+        scrollSpeed = 0.06;
+        shadow = 0;
+        thumb = "\A3\ui_f\data\gui\cfg\scrollbar\thumb_ca.paa";
+        width = 0;
+    };
 };
 class dorb_gui_combo {
-	access = 0;
-	type = CT_COMBO;
-	style = ST_LEFT;
-	h = 0.05;
-	wholeHeight = 0.25;
-	colorSelect[] = {0.6,0.6,0.6,1};
-	colorText[] = {1,1,1,1};
-	colorBackground[] = {0.2,0.2,0.2,1};
-	colorScrollbar[] = {1,1,1,1};
-	colorDisabled[] = {1,1,1,0.5};
-	font = "TahomaB";
-	sizeEx = 0.04;
-	soundSelect[] = {"",0.1,1};
-	soundExpand[] = {"",0.1,1};
-	soundCollapse[] = {"",0.1,1};
-	maxHistoryDelay = 1.0;
-	shadow = 0;
-	arrowEmpty = "\A3\ui_f\data\GUI\RscCommon\rsccombo\arrow_combo_ca.paa"; // Expand arrow
-	arrowFull = "\A3\ui_f\data\GUI\RscCommon\rsccombo\arrow_combo_active_ca.paa"; // Collapse arrow
-	class ComboScrollBar {
-		color[] = {1,1,1,0.6};
-		colorActive[] = {1,1,1,1};
-		colorDisabled[] = {1,1,1,0.3};
-		thumb = "#(argb,8,8,3)color(1,1,1,1)";
-		arrowEmpty = "#(argb,8,8,3)color(1,1,1,1)";
-		arrowFull = "#(argb,8,8,3)color(1,1,1,1)";
-		border = "#(argb,8,8,3)color(1,1,1,1)";
-		shadow = 0;
-	};
+    access = 0;
+    type = CT_COMBO;
+    style = ST_LEFT;
+    h = 0.05;
+    wholeHeight = 0.25;
+    colorSelect[] = {0.6,0.6,0.6,1};
+    colorText[] = {1,1,1,1};
+    colorBackground[] = {0.2,0.2,0.2,1};
+    colorScrollbar[] = {1,1,1,1};
+    colorDisabled[] = {1,1,1,0.5};
+    font = "TahomaB";
+    sizeEx = 0.04;
+    soundSelect[] = {"",0.1,1};
+    soundExpand[] = {"",0.1,1};
+    soundCollapse[] = {"",0.1,1};
+    maxHistoryDelay = 1.0;
+    shadow = 0;
+    arrowEmpty = "\A3\ui_f\data\GUI\RscCommon\rsccombo\arrow_combo_ca.paa"; // Expand arrow
+    arrowFull = "\A3\ui_f\data\GUI\RscCommon\rsccombo\arrow_combo_active_ca.paa"; // Collapse arrow
+    class ComboScrollBar {
+        color[] = {1,1,1,0.6};
+        colorActive[] = {1,1,1,1};
+        colorDisabled[] = {1,1,1,0.3};
+        thumb = "#(argb,8,8,3)color(1,1,1,1)";
+        arrowEmpty = "#(argb,8,8,3)color(1,1,1,1)";
+        arrowFull = "#(argb,8,8,3)color(1,1,1,1)";
+        border = "#(argb,8,8,3)color(1,1,1,1)";
+        shadow = 0;
+    };
 };
 class dorb_gui_StructuredText {
-  idc = -1; 
-  type = CT_STRUCTURED_TEXT;  // defined constant
-  style = ST_LEFT;            // defined constant
-  colorBackground[] = UI_CL_CTRL_GRAU2; 
-  x = 0.1; 
-  y = 0.1; 
-  w = 0.3; 
-  h = 0.1; 
-  size = 0.018;
-  text = "";
-/*  class Attributes {
+    idc = -1;
+    type = CT_STRUCTURED_TEXT;  // defined constant
+    style = ST_LEFT;            // defined constant
+    colorBackground[] = UI_CL_CTRL_GRAU2;
+    x = 0.1;
+    y = 0.1;
+    w = 0.3;
+    h = 0.1;
+    size = 0.018;
+    text = "";
+/*class Attributes {
     font = "TahomaB";
     color = "#000000";
     align = "center";
@@ -648,5 +612,5 @@ class dorb_gui_StructuredText {
     shadow = false;
     shadowColor = "#ff0000";
     size = "1";
- };*/
+};*/
 };

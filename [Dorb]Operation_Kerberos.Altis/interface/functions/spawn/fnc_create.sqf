@@ -39,7 +39,7 @@ _dist = (_flyingpos distance [0,0,0])>1;
 _canNotFly = {
     _return = true;
     If ((typeOf player) in ["B_Pilot_F","B_Helipilot_F"]) then {_return = false;};
-    If (GETVAR(player,DORB_ISPILOT,false)) then {_return = false;};
+    If (GETVAR(player,GVARMAIN(ISPILOT),false)) then {_return = false;};
     _return
 };
 

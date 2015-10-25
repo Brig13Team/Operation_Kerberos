@@ -17,4 +17,4 @@ if (isnil QGVAR(crate_current_boxid)) then {
     GVAR(crate_current_boxid) = 0;
 };
 
-createDialog "dorb_crate";
+createDialog QGVAR(crate);
