@@ -69,7 +69,7 @@ _patrol = {
     {
         private ["_wp", "_newPos"];
         //_newPos = [_prevPos, 50, _maxDist, 1, 0, 60 * (pi / 180), 0, _blacklist] call BIS_fnc_findSafePos;
-        _newPos = [_prevPos,_maxDist,3] call EFUNC(common,random_pos);
+        _newPos = [_prevPos,_maxDist,3] call EFUNC(common,pos_random);
 
         _bestpos = (selectBestPlaces [_newPos, 15, "waterdepth", 2, 5]);
         _newPos = (_bestpos select 0) select 0;
@@ -115,7 +115,7 @@ _vehicles=[];
 for "_i" from 0 to _anzahl_boats do {
     private["_rad","_spawnpos","_einheit"];
     _rad = ((random 200) + 500);
-    _spawnpos = [_position,_radius,3] call EFUNC(common,random_pos);
+    _spawnpos = [_position,_radius,3] call EFUNC(common,pos_random);
     _einheit = dorb_patrolboatlist SELRND;
     If (!(_spawnpos isEqualTo [])) then {
         private["_gruppe","_bestpos","_boat"];
@@ -146,7 +146,7 @@ for "_i" from 0 to _anzahl_boats do {
 for "_i" from 0 to _anzahl_diver do {
     Private["_rad","_spawnpos"];
     _rad = ((random 200) + 100);
-    _spawnpos = [_position,_radius,3] call EFUNC(common,random_pos);
+    _spawnpos = [_position,_radius,3] call EFUNC(common,pos_random);
     LOG_1(_spawnpos);
     If (!(_spawnpos isEqualTo [])) then {
         private["_einheiten","_bestpos","_return"];

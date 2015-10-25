@@ -30,7 +30,7 @@ _rand=[];
 
 for "_i" from 0 to _anzahl_inf do {
 	_rad = ((random 500) + 200);
-	_pos = [_position,_radius,1] call EFUNC(common,random_pos);
+	_pos = [_position,_radius,1] call EFUNC(common,pos_random);
 	_spawnpos = _pos findEmptyPosition [1,40];
 	_rand = dorb_grouplist_inf SELRND;
 	if (count _spawnpos < 1) then {
@@ -59,7 +59,7 @@ _units=[];
 
 for "_i" from 0 to _anzahl_spec do {
 	_rad = ((random 500) + 200);
-	_pos = [_position,_radius,1] call EFUNC(common,random_pos);
+	_pos = [_position,_radius,1] call EFUNC(common,pos_random);
 	_spawnpos = _pos findEmptyPosition [1,50,"O_UGV_01_rcws_F"];
 	_rand = dorb_grouplist_sf SELRND;
 	if (count _spawnpos < 1) then {

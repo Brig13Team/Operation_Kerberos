@@ -40,7 +40,7 @@ for "_i" from 1 to _rand do{
 		_spawnposition = [_position,25,200,15,0.22] call EFUNC(common,pos_flatempty);
 	};
 	If (_spawnposition isEqualTo []) then {
-		_spawnposition = [_position,200,0] call EFUNC(common,random_pos);
+		_spawnposition = [_position,200,0] call EFUNC(common,pos_random);
 		_spawnposition = _spawnposition findEmptyPosition [1,100,_einheit];
 		if (_spawnposition isEqualTo []) then {
 			ERROR(FORMAT_1("Keine Spawnposition | %1",_spawnposition));

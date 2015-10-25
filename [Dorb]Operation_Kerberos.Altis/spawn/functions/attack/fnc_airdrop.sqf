@@ -22,10 +22,10 @@ params["_position",["_type",400,[0]],["_dropradius",200,[0]],["_spawnradius",170
 LOG_5(_position,_type,_dropradius,_spawnradius,_flughoehe);
 
 
-_position = [_position,100,0] call EFUNC(common,random_pos);
+_position = [_position,100,0] call EFUNC(common,pos_random);
 
 sleep (random 9);
-_spawnpos = [_position,_spawnradius,1] call EFUNC(common,random_pos);
+_spawnpos = [_position,_spawnradius,1] call EFUNC(common,pos_random);
 _spawnpos_inf = _spawnpos;
 _spawnpos set [2,_flughoehe];
 _dir = [_spawnpos, _position] call BIS_fnc_dirTo;

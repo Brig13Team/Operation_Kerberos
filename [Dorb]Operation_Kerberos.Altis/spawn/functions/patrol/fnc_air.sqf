@@ -12,7 +12,6 @@
 	Returns:
 	Something (eventually)
 
-	
 */
 #include "script_component.hpp"
 SCRIPT(air);
@@ -23,7 +22,7 @@ _vehicles=[];
 
 for "_i" from 0 to _anzahl_heli do {
 	_rad = ((random 500) + 200);
-	_pos = [_position,_radius,0] call EFUNC(common,random_pos);
+	_pos = [_position,_radius,0] call EFUNC(common,pos_random);
 	_spawnpos = [(_pos select 0),(_pos select 1),400];
 	_einheit = dorb_attack_heli_list SELRND;
 	LOG_3(_spawnpos,_einheit,GVARMAIN(side));
@@ -34,7 +33,7 @@ for "_i" from 0 to _anzahl_heli do {
 
 for "_i" from 0 to _anzahl_plane do {
 	_rad = ((random 500) + 200);
-	_pos = [_position,_radius,0] call EFUNC(common,random_pos);
+	_pos = [_position,_radius,0] call EFUNC(common,pos_random);
 	_spawnpos = [(_pos select 0),(_pos select 1),400];
 	_einheit = dorb_patrol_air_list SELRND;
 	LOG_3(_spawnpos,_einheit,GVARMAIN(side));

@@ -36,7 +36,7 @@ params ["_position", "_task_array"];
 	};
 #endif
 
-_zielPos = [_position, 50, 0] call EFUNC(common,random_pos);
+_zielPos = [_position, 50, 0] call EFUNC(common,pos_random);
 _buildings = _position nearObjects ["House", 50];
 if (!(_buildings isEqualTo [])) then {
 	_zielPos = ([_buildings SELRND] call BIS_fnc_buildingPositions) SELRND;

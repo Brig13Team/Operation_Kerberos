@@ -57,7 +57,7 @@ _gruppe setFormation "COLUMN";
 for "_i" from 0 to 2 do {
 	
 	_spawn_rad = ((random 100) + 50);
-	_spawn_pos = [(_startort select 1), _spawn_rad,0] call EFUNC(common,random_pos);
+	_spawn_pos = [(_startort select 1), _spawn_rad,0] call EFUNC(common,pos_random);
 	_road=[_spawn_pos,500,[]] call BIS_fnc_nearestRoad;
 	_roadConnectedTo = roadsConnectedTo _road;
 	_connectedRoad = _roadConnectedTo select 0;
@@ -82,7 +82,7 @@ for "_i" from 0 to 2 do {
 //////////////////////////////////////////////////
 
 _spawn_rad = ((random 100) + 50);
-_spawn_pos = [(_startort select 1), _spawn_rad,0] call EFUNC(common,random_pos);
+_spawn_pos = [(_startort select 1), _spawn_rad,0] call EFUNC(common,pos_random);
 _road=[_spawn_pos,500,[]] call BIS_fnc_nearestRoad;
 _roadConnectedTo = roadsConnectedTo _road;
 _connectedRoad = _roadConnectedTo select 0;

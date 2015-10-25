@@ -17,7 +17,7 @@ _geb_pos=[];
 _spawnposition=[];
 _einheit = "Land_Cargo_Tower_V1_F";
 
-_spawnposition = [(_this select 0),200,0] call EFUNC(common,random_pos);
+_spawnposition = [(_this select 0),200,0] call EFUNC(common,pos_random);
 _spawnposition = _spawnposition findEmptyPosition [1,60,_einheit];				//// to do: isFlatEmpty
 
 _dir = floor(random 360);

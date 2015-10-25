@@ -26,7 +26,7 @@ _rand=[];
 _einheit="";
 for "_i" from 0 to (_anzahl_leicht) do {
 	_rad = ((random 500) + 500);
-	_pos = [_position, _radius,1] call EFUNC(common,random_pos);
+	_pos = [_position, _radius,1] call EFUNC(common,pos_random);
 	
 	_rand = (floor(random 8));
 	if (_rand < 2) then {
@@ -49,7 +49,7 @@ for "_i" from 0 to (_anzahl_leicht) do {
 
 for "_i" from 0 to (_anzahl_leicht) do {
 	_rad = ((random 500) + 500);
-	_pos = [_position, _radius,1] call EFUNC(common,random_pos);
+	_pos = [_position, _radius,1] call EFUNC(common,pos_random);
 	
 	_rand = (floor(random 8));
 	if (_rand<2) then {

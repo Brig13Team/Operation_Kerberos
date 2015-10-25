@@ -21,7 +21,7 @@ params [["_position",[0,0,0],[[]],[3]], ["_radius",100,[0]], ["_count",25,[0]], 
 _ret = [];
 
 for "_i" from 1 to _count do {
-	_pos = [_position, _radius, 3] call EFUNC(common,random_pos);
+	_pos = [_position, _radius, 3] call EFUNC(common,pos_random);
 
 	if (_pos isEqualTo []) exitWith {};
 

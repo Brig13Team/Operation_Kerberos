@@ -24,7 +24,7 @@ GVAR(sideby_objects) = [];
 
 _rescue_point = getMarkerPos "rescue_marker";
 
-_pos = [_position, 50, 3] call EFUNC(common,random_pos);
+_pos = [_position, 50, 3] call EFUNC(common,pos_random);
 
 _sdv = createVehicle ["B_SDV_01_F", _position, [], 0, "NONE"];
 LOG(FORMAT_2("%1 at %2", _sdv, _pos));

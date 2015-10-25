@@ -27,7 +27,7 @@ _rand=[];
 for "_i" from 0 to _anzahl_inf do {
 	private["_formation","_rad","_pos","_spawnpos","_rand","_return"];
 	_rad = ((random 500) + 200);
-	_pos = [_position,_radius,0] call EFUNC(common,random_pos);
+	_pos = [_position,_radius,0] call EFUNC(common,pos_random);
 	_spawnpos = _pos findEmptyPosition [1,40];
 	_rand = dorb_grouplist_inf SELRND;
 
@@ -60,7 +60,7 @@ _units=[];
 for "_i" from 0 to _anzahl_spec do {
 	private["_formation","_rad","_pos","_spawnpos","_rand","_return"];
 	_rad = ((random 500) + 200);
-	_pos = [_position,_radius,0] call EFUNC(common,random_pos);
+	_pos = [_position,_radius,0] call EFUNC(common,pos_random);
 	_spawnpos = _pos findEmptyPosition [1,50,"O_UGV_01_rcws_F"];
 	_rand = dorb_grouplist_sf SELRND;
 

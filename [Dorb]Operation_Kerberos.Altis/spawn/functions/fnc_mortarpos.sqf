@@ -12,7 +12,7 @@ PARAMS_1(_position);
 _spawnposition=[];
 _einheit = dorb_veh_mortar SELRND;
 
-_spawnposition = [_position,200,0] call EFUNC(common,random_pos);
+_spawnposition = [_position,200,0] call EFUNC(common,pos_random);
 CHECK(_spawnposition isEqualTo [])
 _spawnposition = _spawnposition findEmptyPosition [1,15,_einheit];				//// to do: isFlatEmpty
 CHECK(_spawnposition isEqualTo [])

@@ -140,7 +140,7 @@ _infw = getArray (missionConfigFile >> "sideby_config" >> "supplies" >> "infw");
 _civs = getArray (missionConfigFile >> "sideby_config" >> "supplies" >> "civs");
 
 for "_i" from 1 to 25 do {
-	_pos = [_dest+[0], _dest_radius, 0] call EFUNC(common,random_pos);
+	_pos = [_dest+[0], _dest_radius, 0] call EFUNC(common,pos_random);
 	if ((random 9) > 4) then {
 		_building = nearestBuilding _pos;
 		_pos = ( [_building] call BIS_fnc_buildingPositions ) SELRND;
@@ -157,7 +157,7 @@ for "_i" from 1 to 25 do {
 		_sol setDir (random 360);
 	};
 
-	_pos = [_dest+[0], _dest_radius, 0] call EFUNC(common,random_pos);
+	_pos = [_dest+[0], _dest_radius, 0] call EFUNC(common,pos_random);
 	if ((random 9) > 4) then {
 		_building = nearestBuilding _pos;
 		_pos = ( [_building] call BIS_fnc_buildingPositions ) SELRND;

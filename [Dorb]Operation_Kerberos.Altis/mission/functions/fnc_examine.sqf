@@ -75,7 +75,7 @@ switch (_option) do {
 						switch (_modus) do {
 							case "all" : {
 								for "_i" from 0 to ((count GVAR(examine_targetarray))-1) do {
-									_pos = [getPos(GVAR(examine_targetarray) select _i), (_genauigkeit - 2)max 5,0] call EFUNC(common,random_pos);
+									_pos = [getPos(GVAR(examine_targetarray) select _i), (_genauigkeit - 2)max 5,0] call EFUNC(common,pos_random);
 									_marker = createMarker [format["EXAMINE_Mark_%1",((count GVAR(markerdump))+1)],_pos];
 									_marker setMarkerShape "Ellipse";
 									_marker setMarkerColor "ColorRed";
@@ -88,7 +88,7 @@ switch (_option) do {
 								//// Random Target including revealed ones
 								_a = floor(random(count(GVAR(examine_targetarray))));
 								GVAR(examine_revealed) pushBack _a;
-								_pos = [getPos(GVAR(examine_targetarray) select _a), (_genauigkeit - 2)max 5,0] call EFUNC(common,random_pos);
+								_pos = [getPos(GVAR(examine_targetarray) select _a), (_genauigkeit - 2)max 5,0] call EFUNC(common,pos_random);
 								_marker = createMarker [format["EXAMINE_Mark_%1",((count GVAR(markerdump))+1)],_pos];
 								_marker setMarkerShape "Ellipse";
 								_marker setMarkerColor "ColorRed";
@@ -101,7 +101,7 @@ switch (_option) do {
 								for "_i" from 0 to ((count GVAR(examine_targetarray))-1) do {
 									If (!(_i in GVAR(examine_targetarray))) exitwith {
 										GVAR(examine_revealed) pushBack _i;
-										_pos = [getPos(GVAR(examine_targetarray) select _i), (_genauigkeit - 2)max 5,0] call EFUNC(common,random_pos);
+										_pos = [getPos(GVAR(examine_targetarray) select _i), (_genauigkeit - 2)max 5,0] call EFUNC(common,pos_random);
 										_marker = createMarker [format["EXAMINE_Mark_%1",((count GVAR(markerdump))+1)],_pos];
 										_marker setMarkerShape "Ellipse";
 										_marker setMarkerColor "ColorRed";
@@ -120,7 +120,7 @@ switch (_option) do {
 						_genauigkeit_falsch = [_paramter,3,50,[0]] call BIS_fnc_Param;
 						
 						for "_i" from 0 to ((count GVAR(examine_targetarray))-1) do {
-							_pos = [getPos(GVAR(examine_targetarray) SELRND), 300,0] call EFUNC(common,random_pos);
+							_pos = [getPos(GVAR(examine_targetarray) SELRND), 300,0] call EFUNC(common,pos_random);
 							_marker = createMarker [format["EXAMINE_Mark_%1",((count GVAR(markerdump))+1)],_pos];
 							_marker setMarkerShape "Ellipse";
 							_marker setMarkerColor "ColorRed";

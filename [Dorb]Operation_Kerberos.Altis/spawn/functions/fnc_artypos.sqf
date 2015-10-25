@@ -20,7 +20,7 @@ params["_position",["_rad",200,[0]]];
 _spawnposition=[];
 _einheit = dorb_veh_arty SELRND;
 
-_spawnposition = [_position,_rad,0] call EFUNC(common,random_pos);
+_spawnposition = [_position,_rad,0] call EFUNC(common,pos_random);
 _spawnposition = _spawnposition findEmptyPosition [1,(_rad/2),_einheit];				//// to do: isFlatEmpty
 if (count _spawnposition < 1) exitWith {
 	ERROR(FORMAT_1("Keine Artillerie Spawnposition | %1",_spawnposition));

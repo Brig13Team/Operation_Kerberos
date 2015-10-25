@@ -28,7 +28,7 @@ _allmines = _ap_mines + _at_mines;
 
 _magazineClass="";
 for "_i" from 0 to _anzahl do {
-	_pos = [_centerpos,_spawnrad,0] call EFUNC(common,random_pos);
+	_pos = [_centerpos,_spawnrad,0] call EFUNC(common,pos_random);
 	
 	If (_type <1) then {
 		_magazineClass = _allmines SELRND;

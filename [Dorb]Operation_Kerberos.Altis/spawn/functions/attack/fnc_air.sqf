@@ -24,7 +24,7 @@ LOG_5(_position,_suchradius,_anzahl_heli,_anzahl_plane,_radius);
 _vehicles=[];
 _einheit="";
 for "_i" from 0 to (_anzahl_heli) do {
-	_pos = [_position, _radius,1] call EFUNC(common,random_pos);
+	_pos = [_position, _radius,1] call EFUNC(common,pos_random);
 	_spawnpos = [(_pos select 0),(_pos select 1),400];
 	_einheit = dorb_attack_heli_list SELRND;
 	if (count _spawnpos > 1) then {
@@ -35,7 +35,7 @@ for "_i" from 0 to (_anzahl_heli) do {
 };
 
 for "_i" from 0 to (_anzahl_plane) do {
-	_pos = [_position, _radius,1] call EFUNC(common,random_pos);
+	_pos = [_position, _radius,1] call EFUNC(common,pos_random);
 	_spawnpos = [(_pos select 0),(_pos select 1),800];
 	_einheit = dorb_attack_heli_list SELRND;
 	if (count _spawnpos > 1) then {

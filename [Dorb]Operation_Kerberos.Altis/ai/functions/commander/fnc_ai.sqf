@@ -35,7 +35,7 @@ _attack_ai = {
 		_planes = GETVAR(GVAR(commander_logic),GVAR(commander_planes),[]);
 		If ((count _radars)>(count _planes)) then {
 			private["_unit","_spawnpos","_dir","_return","_veh","_wp"];
-			_spawnpos = [_attackpos_air select 0,5000,2] call EFUNC(common,random_pos);
+			_spawnpos = [_attackpos_air select 0,5000,2] call EFUNC(common,pos_random);
 			if (!(_spawnpos isEqualTo [])) then {
 				_unit = dorb_patrol_air_list SELRND;
 				_spawnpos set [2,3000];
@@ -78,7 +78,7 @@ _attack_mech = {
 	private ["_position","_pos","_einheit","_spawnpos"];
 	PARAMS_1(_attack_pos);
 	_position =  GETVAR(GVAR(commander_logic),GVAR(commander_current_pos),[]);
-	_pos = [_position,2000,2] call EFUNC(common,random_pos);
+	_pos = [_position,2000,2] call EFUNC(common,pos_random);
 	_einheit = dorb_veh_truck SELRND;
 	_spawnpos = _pos findEmptyPosition [1,200,_einheit];
 	if (!(_spawnpos isEqualTo [])) then {
@@ -124,7 +124,7 @@ _attack_sniper = {
 	private ["_position","_pos","_einheit","_spawnpos"];
 	PARAMS_1(_attack_pos);
 	_position =  GETVAR(GVAR(commander_logic),GVAR(commander_current_pos),[]);
-	_pos = [_position,2000,2] call EFUNC(common,random_pos);
+	_pos = [_position,2000,2] call EFUNC(common,pos_random);
 	_einheit = dorb_veh_car SELRND;
 	_spawnpos = _pos findEmptyPosition [1,200,_einheit];
 	if (count _spawnpos > 1) then {
@@ -175,7 +175,7 @@ _attack_tanks = {
 	_position =  GETVAR(GVAR(commander_logic),GVAR(commander_current_pos),[]);
 	PARAMS_1(_attack_pos);
 	_panzer = GETVAR(GVAR(commander_logic),GVAR(commander_tanklist),[]);
-	_pos = [_attack_pos,2000,2] call EFUNC(common,random_pos);
+	_pos = [_attack_pos,2000,2] call EFUNC(common,pos_random);
 	_anzahl = floor(random 3);
 	INC(_anzahl);
 	for "_i" from 0 to _anzahl do {

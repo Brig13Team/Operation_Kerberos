@@ -59,7 +59,7 @@ for "_j" from 0 to _difficulty do {
 		
 		
 		_spawn_rad = ((random 200) + 50);
-		_spawn_pos = [(_startort select 1), _spawn_rad,0] call EFUNC(common,random_pos);
+		_spawn_pos = [(_startort select 1), _spawn_rad,0] call EFUNC(common,pos_random);
 		_road=[_spawn_pos,500,[]] call BIS_fnc_nearestRoad;
 		_roadConnectedTo = roadsConnectedTo _road;
 		_connectedRoad = _roadConnectedTo select 0;

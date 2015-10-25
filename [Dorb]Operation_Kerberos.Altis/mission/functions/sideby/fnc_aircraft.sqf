@@ -305,7 +305,7 @@ switch (_mode) do {
 			};
 		#endif
 
-		_pos = [_position,250,0] call EFUNC(common,random_pos);
+		_pos = [_position,250,0] call EFUNC(common,pos_random);
 
 		_typen = ["Land_Wreck_Plane_Transport_01_F","Land_Wreck_Heli_Attack_02_F"];
 		_wichtung = [1,1];

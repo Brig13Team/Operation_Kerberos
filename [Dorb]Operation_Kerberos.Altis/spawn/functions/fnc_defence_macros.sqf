@@ -38,9 +38,9 @@ _errorcounter = 0; // prevents infinitive loop
 //// If not enaugh positions are found, the amount of spawned macros is reduced
 
 For "_i" from 0 to _anzahl_spawnpos do {
-	_temp = [_position,_radius,_town] call EFUNC(common,random_pos);
+	_temp = [_position,_radius,_town] call EFUNC(common,pos_random);
 	If (_isTown) then {
-		_temp = [_position,( ( floor(random( abs(_radius - 300) )) ) + 300),_town] call EFUNC(common,random_pos);
+		_temp = [_position,( ( floor(random( abs(_radius - 300) )) ) + 300),_town] call EFUNC(common,pos_random);
 	};
 	_spawnpos = [_temp,15,_searchrad,15,0.18] call EFUNC(common,pos_flatempty);
 	If (_spawnpos isEqualTo []) then {
