@@ -7,13 +7,13 @@
     Parameter(s):
         0 : SCALAR              - Checkintervall in seconds (minimum 3 seconds, maximum 120 seconds)
         1 : SCALAR or STRING    - (Optional) - Taskname or TaskID (used for cancel, sucess, fail)
-        1 : CODE                - Checkcondition
+        1 : CODE/STRING         - Checkcondition
         2 : ARRAY               - Arguments passed to Checkcondition
-        4 : CODE                - Condition for Sucess
-        5 : CODE                - Code on Sucess
-        6 : CODE                - Code on Failure
+        4 : CODE/STRING         - Condition for Sucess
+        5 : CODE/STRING         - Code on Sucess
+        6 : CODE/STRING         - Code on Failure
         7 : ARRAY               - Arguments passed to Sucess/Failure
-        8 : CODE                - Code executed in each Loop
+        8 : CODE/STRING         - Code executed in each Loop
         9 : ARRAY               - Arguments passed into LoopCode
 
     Please Note:
@@ -36,13 +36,13 @@ SCRIPT(taskhandler);
 params[
         ["_intervall",30,[0]],
         ["_task","",[0,""]],
-        ["_condition",{true},[{}]],
+        ["_condition",{true},[{},""]],
         ["_conditionArgs",[],[[]]],
-        ["_conditionSucess",{true},[{}]],
-        ["_onSucess",{},[{}]],
-        ["_onFailure",{},[{}]],
+        ["_conditionSucess",{true},[{},""]],
+        ["_onSucess",{},[{},""]],
+        ["_onFailure",{},[{},""]],
         ["_args",[],[[]]],
-        ["_afterCheck",{},[{}]],
+        ["_afterCheck",{},[{},""]],
         ["_afterCheckArgs",[],[[]]]
     ];
 private["_isTask","_cancel","_taskhandling","_state"];
@@ -52,6 +52,21 @@ If (IS_SCALAR(_task)) then {
     _isTask=true;
 }else{
     If (_task isEqualTo "") then {_isTask=false;}else{_isTask=true;};
+};
+if (IS_STRING(_condition)) then {
+    _condition = compile _condition;
+};
+if (IS_STRING(_conditionSucess)) then {
+    _conditionSucess = compile _conditionSucess;
+};
+if (IS_STRING(_onSucess)) then {
+    _onSucess = compile _onSucess;
+};
+if (IS_STRING(_onFailure)) then {
+    _onFailure = compile _onFailure;
+};
+if (IS_STRING(_afterCheck)) then {
+    _afterCheck = compile _afterCheck;
 };
 ISNILS(taskcancel,false);
 /// set intervall
