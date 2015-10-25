@@ -2,24 +2,17 @@
 
 ADDON = false;
 
-PREP(aapos);
 PREP(addNVG);
 PREP(addACEMedicalItems);
-PREP(artypos);
 PREP(create_unitlists);
 PREP(crew);
-PREP(defence);
 PREP(defence_macros);
 PREP(gear);
-PREP(in_building);
 PREP(macro_exec3d);
 PREP(minefield);
 PREP(minefields);
-PREP(mortarpos);
 PREP(naval_minefield);
-PREP(rooftop);
 PREP(taskPatrol);
-PREP(tower);
 PREP(unit);
 PREP(vehicle);
 
