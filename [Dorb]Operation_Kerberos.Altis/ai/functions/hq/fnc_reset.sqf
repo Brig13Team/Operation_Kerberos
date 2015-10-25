@@ -31,6 +31,6 @@ SETMVAR(GVAR(HQ_Air_other),[]);
 SETMVAR(GVAR(HQ_Area_killed),[]);
 SETMVAR(GVAR(HQ_centerpos),[]);
 SETMVAR(GVAR(HQ_Area_positions),[]);
-
+SETMVAR(GVAR(HQ_Area_weight),[]);
 
 GVAR(hq_aktive) = true;

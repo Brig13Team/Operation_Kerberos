@@ -17,6 +17,14 @@ private "_area";
 _area = GETMVAR(GVAR(HQ_Area_killed),[]);
 /// [  [_position,_step,_sideX,_sideY]   ,   [    ]  ]
 
+If ((count (GETMVAR(GVAR(HQ_Area_killed),[])))!=(count (GETMVAR(GVAR(HQ_Area_positions),[])))) then {
+	private "_temp";
+	_temp = [];
+	{
+		_temp pushBack [0];
+	}forEach (GETMVAR(GVAR(HQ_Area_killed),[]));
+	SETMVAR(GVAR(HQ_Area_killed),_temp);
+};
 private "_temp";
 _temp = GETMVAR(GVAR(HQ_Area_killed),[]);
 (_area select 0) params ["_position","_step","_sideX","_sideY"];
