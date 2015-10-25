@@ -95,5 +95,14 @@ switch _typ do {
         };
         If (_max_run<1) then {_pos=[];};
     };
+	//Random pos including water
+	case 4 : {
+		_dir = random 360;
+		_radx = (cos _dir) * _rad;
+		_rady = (sin _dir) * _rad;
+		_radx = _radx + (_start select 0);
+		_rady = _rady + (_start select 1);
+		_pos=[_radx,_rady,0];	
+    };
 };
 _pos

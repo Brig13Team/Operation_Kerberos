@@ -49,8 +49,13 @@ if (_centerpos isEqualTo []) then {
 }else{
     SETPVAR(_group,GVAR(taskPatrol),_args);
 };
-
-_pos = [_centerpos,1000,0] call EFUNC(common,pos_random);
+private "_temp";
+_pos = switch (true) do {
+	case ((typeOf (leader _group))isKindOf "Plane"): {_temp = [_centerpos,1000,4] call EFUNC(common,pos_random);_temp set [2,800];_temp};
+	case ((typeOf (leader _group))isKindOf "Air"): {_temp = [_centerpos,1000,4] call EFUNC(common,pos_random);_temp set [2,500];_temp};
+	case ((typeOf (leader _group))isKindOf "Ship"): {_temp = [_centerpos,1000,3] call EFUNC(common,pos_random);_temp};
+	default {_temp = [_centerpos,1000,0] call EFUNC(common,pos_random);_temp};
+};
 
 CHECK((_pos isEqualTo []))
 
