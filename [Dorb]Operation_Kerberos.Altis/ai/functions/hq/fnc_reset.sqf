@@ -30,7 +30,7 @@ SETMVAR(GVAR(HQ_Air_other),[]);
 
 SETMVAR(GVAR(HQ_Area_killed),[]);
 SETMVAR(GVAR(HQ_centerpos),[]);
-SETMVAR(GVAR(HQ_Area),[]);
+SETMVAR(GVAR(HQ_Area_positions),[]);
 
 
 GVAR(hq_aktive) = true;

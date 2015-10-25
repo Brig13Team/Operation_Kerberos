@@ -22,7 +22,7 @@ If ((_step < 10)||(_sideX < 21)) exitWith {[_position]};
 If (_sideY < 0) then {_sideY=_sideX;};
 private ["_startpos","_return"];
 _startpos = [((_position select 0)-(_sideX*0.5)),((_position select 1)-(_sideY*0.5)),0];
-_return = [[_position,_step,_sideX,_sideY]];
+_return = [];
 
 for "_i" from 0 to (floor(_sideX/_step)) do {
 	for "_j" from 0 to (floor(_sideY/_step)) do {
@@ -30,7 +30,7 @@ for "_i" from 0 to (floor(_sideX/_step)) do {
 	};
 };
 
-_return;
+[[_position,_step,_sideX,_sideY],_return];
 
 
 
