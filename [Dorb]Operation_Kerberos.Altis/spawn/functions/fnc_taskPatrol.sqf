@@ -1,84 +1,77 @@
-/* ----------------------------------------------------------------------------
-Function: EFUNC(spawn,taskPatrol)
-Description:
-    A function for a group to randomly patrol a parsed radius and location.
-Parameters:
-    - Group (Group or Object)
-Optional:
-    - Position (XYZ, Object, Location or Group)
-    - Radius (Scalar)
-    - Waypoint Count (Scalar)
-    - Waypoint Type (String)
-    - Behaviour (String)
-    - Combat Mode (String)
-    - Speed Mode (String)
-    - Formation (String)
-    - Code To Execute at Each Waypoint (String)
-    - TimeOut at each Waypoint (Array [Min, Med, Max])
-Example:
-    (begin example)
-    [this, getmarkerpos "objective1"] call EFUNC(spawn,taskPatrol)
-    [this, this, 300, 7, "MOVE", "AWARE", "YELLOW", "FULL", "STAG COLUMN", "this spawn CBA_fnc_searchNearby", [3,6,9]] call EFUNC(spawn,taskPatrol);
-    (end)
-Returns:
-    Nil
-Author:
-    Rommel
----------------------------------------------------------------------------- 
-#include "script_component.hpp"
-
-#define NULL    "$null$"
-
-params ["_group", ["_position",[]], ["_radius",100], ["_count",3]];
-
-_group = [_group] call CBA_fnc_getGroup;
-if !(local _group) exitWith {}; // Don't create waypoints on each machine
-
-_position = [_position,_group] select (_position isEqualTo []);
-_position = _position call CBA_fnc_getPos;
-
-_this =+ _this;
-if (count _this > 3) then {
-    _this deleteAt 3;
-};
-for "_x" from 1 to _count do {
-    _this call CBA_fnc_addWaypoint;
-};
-_this2 =+ _this;
-_this2 set [3, "CYCLE"];
-_this2 call CBA_fnc_addWaypoint;
-
-deleteWaypoint ((waypoints _group) select 0);
-*/
-
-
 /*
-	Author: Dorbedo
+    Derivate of CBA_fnc_taskSearchArea
+    Original Author: SilentSpike 2015-08-17
 
-	Description:
-	Edited the function EFUNC(spawn,taskPatrol), since there were some typos
+    Author: Dorbedo
+
+    Description:
+    Spawns Air Patrols
+
+    Parameter(s):
+        0 : GROUP/OBJECT - groupleader or group
+        1 : ARRAY - centerposition
+        2 : STRING - behavior
+        3 : STRING - combatmode
+        4 : STRING - speed
+        5 : STRING - formation
+        6 : STRING - code on completion
+        7 : ARRAY - timeout
+
+    Returns:
+        None
 
 */
 #include "script_component.hpp"
 SCRIPT(taskPatrol);
 
-params ["_group", ["_position",[]], ["_radius",100], ["_count",3]];
+params [
+    ["_group",grpNull,[grpNull,objNull]],
+    ["_centerpos",[],[[]],[2,3]],
+    ["_behavior","UNCHANGED",[""]],
+    ["_combatmode","NO CHANGE",[""]],
+    ["_speed","UNCHANGED",[""]],
+    ["_formation","NO CHANGE",[""]],
+    ["_onComplete","",[""]],
+    ["_timeout",[0,0,0],[[]],[3]]
+];
 
 _group = _group call CBA_fnc_getGroup;
 if !(local _group) exitWith {};
+CHECK((isNull _group))
 
-_position = [_position,_group] select (_position isEqualTo []);
-_position = _position call CBA_fnc_getPos;
+private["_args","_pos","_statement","_onComplete"];
 
-_this =+ _this;
-if (count _this > 3) then {
-    _this deleteAt 3;
+_args = [_centerpos,_behavior,_combatmode,_speed,_formation,_onComplete,_timeout];
+
+if (_centerpos isEqualTo []) then {
+    _args = GETVAR(_group,GVAR(taskPatrol),_args);
+    _args params [_centerpos,_behavior,_combatmode,_speed,_formation,_onComplete,_timeout];
+}else{
+    SETPVAR(_group,GVAR(taskPatrol),_args);
 };
-for "_x" from 1 to _count do {
-    _this call CBA_fnc_addWaypoint;
-};
-_this2 =+ _this;
-_this2 set [3, "CYCLE"];
-_this2 call CBA_fnc_addWaypoint;
 
-deleteWaypoint ((waypoints _group) select 0);
+_pos = [_centerpos,1000,0] call EFUNC(common,pos_random);
+
+CHECK((_pos isEqualTo []))
+
+_statement = QUOTE([this] call FUNC(taskPatrol););
+
+_onComplete = _onComplete + _statement;
+
+[
+    _group,
+    _pos,
+    0,
+    "MOVE",
+    _behavior,
+    _combatmode,
+    _speed,
+    _formation,
+    _onComplete,
+    _timeout,
+    5
+] call CBA_fnc_addWaypoint;
+
+If (count(waypoints _group)>1) then {
+    deleteWaypoint [_group,0];
+};
