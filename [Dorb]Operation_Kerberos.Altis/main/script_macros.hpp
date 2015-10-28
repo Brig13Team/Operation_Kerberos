@@ -265,8 +265,7 @@ Author:
 
 /* -------------------------------------------
 Macro(s):
-        IS_ATTACK_HELI(VAR)
-        IS_ATTACK_PLANE(VAR)
+    ISCASVEHICLE(VAR)
 
     check if air-vehicle is a CAS vehicle
 
@@ -275,12 +274,13 @@ Parameters:
 
 Example:
     (begin example)
-        IS_ATTACK_HELI('B_Heli_Attack_01_F')
-        IS_ATTACK_PLANE('B_Plane_CAS_01_F')
+        ISCASVEHICLE('B_Heli_Attack_01_F')
+        ISCASVEHICLE_C('B_Plane_CAS_01_F')
     (end)
 
 Author:
     iJesuz
 ------------------------------------------- */
-#define IS_ATTACK_HELI(THELI) if ((isClass(configFile >> "CfgVehicles" >> THELI)) && {("CAS_Heli" in getArray(configFile >> "CfgVehicles" >> THELI >> "availableForSupportTypes")) || (THELI isKindOf "RHS_UH1_Base")}) then { true } else { false }
-#define IS_ATTACK_PLANE(TPLANE) if ((isClass(configFile >> "CfgVehicles" >> TPLANE)) && {"CAS_Bombing" in getArray(configFile >> "CfgVehicles" >> TPLANE >> "availableForSupportTypes")}) then { true } else { false }
+
+#define ISCASVEHICLE(ARG) [ARG, ["RHS_UH1Y_UNARMED"], ["RHS_UH1Y"]] call TRIPLES(PREFIX,makro,iscasvehicle)
+#define ISCASVEHICLE_C(ARG) (ISCASVEHICLE(ARG))
