@@ -13,10 +13,11 @@
 #include "script_component.hpp"
 SCRIPT(create_area);
 
-ISNILS(GVAR(HQ_Centerpos),[])
+CHECK(GVAR(HQ_Centerpos))
 
 _StartX=(GVAR(HQ_Centerpos) select 0)-2000;
 _StartY=(GVAR(HQ_Centerpos) select 1)-2000;
+
 GVAR(HQ_Startpos)=[_StartX,_StartY,0];
 
 _buchstaben = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U"];
