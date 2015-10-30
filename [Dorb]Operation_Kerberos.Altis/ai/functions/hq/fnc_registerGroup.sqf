@@ -13,6 +13,7 @@
 #include "script_component.hpp"
 SCRIPT(registerGroup);
 _this params[["_group",grpnull,[grpnull]]];
+TRACEV_1(_group);
 CHECK(isNull _group)
 CHECK(GETVAR(_group,GVAR(HQ_registered),false))
 

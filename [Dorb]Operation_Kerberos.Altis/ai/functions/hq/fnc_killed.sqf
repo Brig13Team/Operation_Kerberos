@@ -12,9 +12,10 @@
 */
 #include "script_component.hpp"
 SCRIPT(killed);
-
+private ["_killerpos","_x_pos","_y_pos","_value"];
 
 _this params ["_killer","_caller"];
+TRACEV_2(_killer,_caller);
 
 _killerpos = _caller gethidefrom _killer
 
@@ -33,6 +34,4 @@ _value = switch (true) do {
 	default : {4}
 };
 
-GVAR(hq_buffer) pushBack [_x_pos,_y_pos,_value]
-
-
+GVAR(hq_buffer) pushBack [_x_pos,_y_pos,_value];

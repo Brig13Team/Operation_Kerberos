@@ -12,7 +12,7 @@
 */
 #include "script_component.hpp"
 SCRIPT(init_mission);
-
+private ["_radarpos","_radars"]
 _radarpos = [];
 _radars = GETVAR(GVAR(hq_radars),[]);
 CHECK(_radars isEqualTo [])
