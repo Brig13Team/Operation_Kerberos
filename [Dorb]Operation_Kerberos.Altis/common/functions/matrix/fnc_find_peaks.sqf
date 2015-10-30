@@ -67,4 +67,7 @@ for "_y" from 0 to (_y_size-1) do {
 	};
 };
 
+_maxima sort false;
+_maxima resize MAXIMACOUNT;
+	
 _maxima

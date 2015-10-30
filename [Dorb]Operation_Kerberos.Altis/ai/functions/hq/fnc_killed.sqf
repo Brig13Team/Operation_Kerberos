@@ -21,8 +21,8 @@ _killerpos = _caller gethidefrom _killer
 
 If ((_killerpos distance [0,0,0])<1) exitWith {};
 
-_x_pos = floor(_killerpos - (GVAR(HQ_centerpos) select 0 - 2000));
-_y_pos = floor((GVAR(HQ_centerpos) select 0 + 2000) - _killerpos);
+_x_pos = floor(_killerpos - (GVAR(HQ_centerpos) select 0 - (GVAR(hq_definitions) select 0)));
+_y_pos = floor((GVAR(HQ_centerpos) select 0 + (GVAR(hq_definitions) select 0)) - _killerpos);
 
 CHECK((_x_pos<0)||(_y_pos<0))
 

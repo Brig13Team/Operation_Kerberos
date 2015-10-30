@@ -13,12 +13,14 @@
 #include "script_component.hpp"
 SCRIPT(init);
 #define INTERVALL_HQ 30
-#define INTERVALL_HQ_GROUPS 300
 #define INTERVALL_RADARS 30
+#define INTERVALL_BUFFER 2
 
 GVAR(hq_aktive) = true;
+GVAR(hq_definitions) = [2000,125];
+GVAR(hq_definitions) pushBack ((GVAR(hq_definitions) select 0)/(GVAR(hq_definitions) select 1));
 
-GVAR(dangerzones) = [20] call EFUNC(common,matrix_create);
+GVAR(hq_dangerzones) = [(GVAR(hq_definitions) select 2)] call EFUNC(common,matrix_create);
 
 [] call FUNC(HQ_reset);
 
@@ -34,24 +36,7 @@ GVAR(dangerzones) = [20] call EFUNC(common,matrix_create);
 	{
 		_this call FUNC(hq_dangerzone_buffer);
 	},
-	INTERVALL_HQ,
-	[]
-] call CBA_fnc_addPerFrameHandler;
-
-[
-	{
-		{
-			private "_temp";
-			_temp = GETMVAR(_x,[]);
-			_temp = _temp - grpNull;
-			SETMVAR(_x,_temp);
-		} forEach [GVAR(HQ_Other),GVAR(HQ_marine),GVAR(HQ_Car),
-			GVAR(HQ_Drone),GVAR(HQ_Tank),GVAR(HQ_Infanterie),
-			GVAR(HQ_Attack_Helicopter),GVAR(HQ_Transport_Helicopter),
-			GVAR(HQ_CAS_Plane),GVAR(HQ_Air_other)];
-		[] call FUNC(hq_registerAllGroups);
-	},
-	INTERVALL_HQ_GROUPS,
+	INTERVALL_BUFFER,
 	[]
 ] call CBA_fnc_addPerFrameHandler;
 
