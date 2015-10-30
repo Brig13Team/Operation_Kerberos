@@ -33,4 +33,8 @@ SETMVAR(GVAR(HQ_centerpos),[]);
 SETMVAR(GVAR(HQ_Area_positions),[]);
 SETMVAR(GVAR(HQ_Area_weight),[]);
 
+SETMVAR(GVAR(hq_buffer),[]);
+
+[QGVAR(dangerzones)] call EFUNC(common,matrix_clear);
+
 GVAR(hq_aktive) = true;

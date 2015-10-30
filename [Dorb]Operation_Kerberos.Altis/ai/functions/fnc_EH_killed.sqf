@@ -21,9 +21,6 @@ _this spawn {
 	CHECK(isPlayer _unit)
 	CHECK((side _unit)==civilian)
 
-	// register the dead unit into the raster
-	[(getPosAGL _unit)] call FUNC(HQ_registerDead);
-
 	// check if other teammember know who killed the Unit
 
 	_otherUnits = (getPosAGL _unit) nearEntities ["Man",30];
@@ -44,8 +41,10 @@ _this spawn {
 		If ((!isNull _x)&&{alive _x}) exitWith {
 			If ((_x knowsAbout _killer)>2) then {
 				/// call support
+				[_killer,_x] call FUNC(hq_killed);
 			}else{
 				/// call recon
+				[_killer,_x] call FUNC(hq_recon);
 			};
 		};
 	}forEach _messagingUnits;

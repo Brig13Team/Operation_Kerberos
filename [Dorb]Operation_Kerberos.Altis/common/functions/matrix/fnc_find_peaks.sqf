@@ -17,12 +17,19 @@
 SCRIPT(find_peaks);
 #define MAXIMACOUNT
 
-_this params [["_variablename","",[""]],["_namespace",missionnamespace,[missionnamespace,profilenamespace,uinamespace]]];
+_this params [["_variablename","",["",[]]],["_namespace",missionnamespace,[missionnamespace,profilenamespace,uinamespace]]];
 
 Private ["_matrix"];
 
-If ((_variablename isEqualTo "")) exitWith {false};
-_matrix = _namespace getVariable [_variablename,[]];
+if (IS_STRING(_variablename)) then {
+	If !(_variablename isEqualTo "") then {
+		_matrix = _namespace getVariable [_variablename,[]];
+	}else{
+		_matrix = [];
+	};
+}else{
+	_matrix = _variablename;
+};
 
 If ((_matrix isEqualTo [])) exitWith {false};
 private ["_x_size","_y_size","_maxima","_last_maxima","_temp"];

@@ -18,13 +18,21 @@ SCRIPT(init);
 
 GVAR(hq_aktive) = true;
 
+GVAR(dangerzones) = [20] call EFUNC(common,matrix_create);
+
 [] call FUNC(HQ_reset);
-
-
 
 [
 	{
 		_this call FUNC(hq_handle);
+	},
+	INTERVALL_HQ,
+	[]
+] call CBA_fnc_addPerFrameHandler;
+
+[
+	{
+		_this call FUNC(hq_dangerzone_buffer);
 	},
 	INTERVALL_HQ,
 	[]
@@ -54,6 +62,3 @@ GVAR(hq_aktive) = true;
 	INTERVALL_RADARS,
 	[]
 ] call CBA_fnc_addPerFrameHandler;
-
-
-

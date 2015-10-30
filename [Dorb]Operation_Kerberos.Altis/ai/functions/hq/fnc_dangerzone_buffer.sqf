@@ -23,7 +23,7 @@ CHECK(_temp isEqualTo [])
 _temp params [["_X_pos",0,[0]],["_Y_pos",0,[0]],["_value",0,[0]]];
 
 {
-	([QGVAR(dangerzones)] append _x) call EFUNC(common,matrix_write);
+	([QGVAR(dangerzones)] append _x) call EFUNC(common,matrix_add);
 } forEach [
 	[_X_pos,_Y_pos,_value],
 	[_X_pos-1,_Y_pos,_value*VALUEMODIFICATOR],

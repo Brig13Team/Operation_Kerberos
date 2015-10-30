@@ -29,7 +29,7 @@ _multiplikator = 1; /// TODO
 GVAR(hq_callInArray) = MAP(format["_this * %1",_multiplikator],GVAR(hq_callInArray));
 
 
-call FUNC(reset);
+[] call FUNC(reset);
 
 
 
