@@ -2,7 +2,7 @@
 	Author: Dorbedo
 	
 	Description:
-		killed
+		ads a vakue to the Dangeraray when a unit git killed
 	
 	Parameter(s):
 		none
