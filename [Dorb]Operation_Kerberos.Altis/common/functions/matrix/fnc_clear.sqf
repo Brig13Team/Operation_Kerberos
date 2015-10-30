@@ -20,7 +20,7 @@ _this params [["_variablename","",[""]],["_value",0,[0]],["_namespace",missionna
 private ["_variable"];
 
 If ((_variablename isEqualTo "")) exitWith {false};
-_variable = _namespace getVariable ["_variablename",[]];
+_variable = _namespace getVariable [_variablename,[]];
 
 If ((_variable isEqualTo [])) exitWith {false};
 private ["_x_size","_y_size"];
@@ -31,5 +31,5 @@ If (_y_size == 0) exitWith {false};
 
 _variable = [_x_size,_y_size,_value] call FUNC(matrix_create);
 
-missionnamespace setVariable ["_variablename",_variable];
+missionnamespace setVariable [_variablename,_variable];
 true

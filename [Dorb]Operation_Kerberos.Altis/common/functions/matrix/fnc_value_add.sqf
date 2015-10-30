@@ -22,7 +22,7 @@ _this params [["_variablename","",[""]],["_x_pos",0,[0]],["_y_pos",0,[0]],["_val
 private ["_variable"];
 
 If ((_variablename isEqualTo "")||(_value == 0)) exitWith {false};
-_variable = _namespace getVariable ["_variablename",[]];
+_variable = _namespace getVariable [_variablename,[]];
 
 If ((_variable isEqualTo [])||(_x_pos >= count _variable)||(_y_pos >= count(_variable select 0))) exitWith {false};
 
@@ -30,5 +30,5 @@ _temp = _variable select _x_pos;
 _temp set [_y_pos,(_value + (_temp select _y_pos))];
 _variable set [_x_pos,_temp];
 
-missionnamespace setVariable ["_variablename",_variable];
+missionnamespace setVariable [_variablename,_variable];
 true
