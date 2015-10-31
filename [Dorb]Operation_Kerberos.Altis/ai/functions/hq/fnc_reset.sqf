@@ -28,11 +28,9 @@ SETMVAR(GVAR(HQ_Transport_Helicopter),[]);
 SETMVAR(GVAR(HQ_CAS_Plane),[]);
 SETMVAR(GVAR(HQ_Air_other),[]);
 
-SETMVAR(GVAR(HQ_Area_killed),[]);
 SETMVAR(GVAR(HQ_centerpos),[]);
-SETMVAR(GVAR(HQ_Area_positions),[]);
-SETMVAR(GVAR(HQ_Area_weight),[]);
 
+SETMVAR(GVAR(hq_support_requests),[]);
 SETMVAR(GVAR(hq_buffer),[]);
 
 [QGVAR(hq_dangerzones)] call EFUNC(common,matrix_clear);

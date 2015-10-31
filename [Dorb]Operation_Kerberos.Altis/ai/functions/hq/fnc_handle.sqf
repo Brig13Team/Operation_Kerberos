@@ -44,17 +44,13 @@ _attackpositions = [];
 							];
 }forEach _attackarray;
 
-
-
 // Check Radars
+_aircontacts = [] call FUNC(hq_check_radars);
 // Check Spotters
+_spotter_requests = [] call FUNC(hq_check_spotter);
 // Check Requests
-// Areas where many Soldiers where lost.
-
-//// Calculate the dangerzones
-
-
-
+_support_requests = GETMVAR(GVAR(hq_support_requests),[]);
+SETMVAR(GVAR(hq_support_requests),[]);
 
 
 //// Check for availlaible Squads in Range
@@ -63,13 +59,6 @@ _attackpositions = [];
 
 
 ///// Make decisions
-
-
-
-
-//// Update ideling Patrols
-
-
 
 
 
