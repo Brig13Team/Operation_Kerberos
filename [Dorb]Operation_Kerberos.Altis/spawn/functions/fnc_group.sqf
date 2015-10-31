@@ -40,7 +40,7 @@ If (IS_CONFIG(_type)) then {
 	};
 }else{
 	private "_path";
-	_path = (missionConfigFile >> "unitlists" >> GVARMAIN(side) >> GVARMAIN(side_string));
+	_path = (missionConfigFile >> "unitlists" >> GVARMAIN(side) >> "groups");
 	if (isClass (_path >> _type)) then {
 		_types = getArray(_path>>_type>>"vehicles");
 		_ranks = getArray(_path>>_type>>"ranks");
