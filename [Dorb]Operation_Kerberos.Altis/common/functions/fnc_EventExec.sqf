@@ -28,14 +28,14 @@ TRACEV_3(_function,_params,_target);
 
 If (IS_SCALAR(_target)) exitWith {
 	private "_exec";
-	If ( switch _target do {
+	If ({ switch _target do {
 			case -1 : {If (!isServer) then {true}else{false};};
 			case 0 : {If (isServer) then {true}else{false};};
 			case 1 : {If (!isServer&&!hasInterface) then {true}else{false};};
 			case 2 : {If (!hasInterface) then {true}else{false};};
 			case 3 : {If (hasInterface) then {true}else{false};};
 			default {true};
-		}) then {
+		}}) then {
 		if (IS_STRING(_function)) then {
 			_params spawn compile _function;
 		}else{
