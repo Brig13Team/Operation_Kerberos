@@ -4707,7 +4707,7 @@ class Mission
 		{
 			position[]={11941.594,9.4472518e-005,11482.82};
 			name="TS_IP";
-			text="TS3-IP: 144.76.34.199";
+			text="TS3-IP: 5.9.83.17";
 			type="mil_unknown";
 			colorName="ColorRed";
 		};
