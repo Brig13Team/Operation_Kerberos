@@ -10,7 +10,7 @@
 		
 
 	Returns:
-	Object
+	group
 */
 #include "script_component.hpp"
 SCRIPT(group);

@@ -80,7 +80,7 @@ switch _typ do {
     //Water
     case 3 : {
         _generiere=true;
-        private["_max_run"];
+        private["_max_run","_temp"];
         _max_run = 3000;
         while {(_generiere && (_max_run>0))} do {
             _rad = floor(random _rad);
@@ -90,10 +90,22 @@ switch _typ do {
             _radx = _radx + (_start select 0);
             _rady = _rady + (_start select 1);
             _pos=[_radx,_rady,0];
-            If ((surfaceIsWater [_radx,_rady])) then {_generiere=false};
+            If ((surfaceIsWater [_radx,_rady])) then {
+				If ((getTerrainHeightASL _pos)<(-15)) then {
+					_generiere=false;
+				}else{
+					_temp=_pos;
+				};
+			};
             DEC(_max_run);
         };
-        If (_max_run<1) then {_pos=[];};
+        If (_max_run<1) then {
+			If (surfaceIsWater _temp) then {
+				_pos = _temp;
+			}else{
+				_pos=[];
+			};
+		};
     };
 	//Random pos including water
 	case 4 : {

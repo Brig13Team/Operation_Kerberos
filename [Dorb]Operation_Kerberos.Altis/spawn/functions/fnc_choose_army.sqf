@@ -9,7 +9,7 @@
 	
 */
 #include "script_component.hpp"
-SCRIPT(create_unitlists);
+SCRIPT(choose_army);
 params[["_rand",-1,[0]]];
 TRACEV_1(_rand);
 
@@ -59,7 +59,7 @@ GVAR(list_art_rocket) = getArray(_path >> "art_rocket");
 
 GVAR(list_airtransport) = getArray(_path >> "airtransport");
 GVAR(list_airborne) = getArray(_path >> "airborne");
-GVAR(list_aa) = getArray(_path >> "aa");
+GVAR(list_aa_plane) = getArray(_path >> "aa_plane");
 GVAR(list_cas_heli) = getArray(_path >> "cas_heli");
 
 EGVAR(ai,hq_callIn_airinterception) = getNumber(_path >> "callIn" >> "airinterception");
@@ -78,6 +78,7 @@ GVAR(list_prototype) = getArray(_path >> "prototyp");
 GVAR(list_weaponcache) = getArray(_path >> "weaponcache");
 GVAR(list_commander) = getArray(_path >> "commander");
 GVAR(list_radar) = getArray(_path >> "radar");
+GVAR(list_device) = getArray(_path >> "device");
 
 GVAR(group_patrol) = getArray(_path >> "group_patrol");
 GVAR(group_armored) = getArray(_path >> "group_armored");

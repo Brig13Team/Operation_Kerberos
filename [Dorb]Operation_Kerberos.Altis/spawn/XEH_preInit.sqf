@@ -4,7 +4,7 @@ ADDON = false;
 
 PREP(addNVG);
 PREP(addACEMedicalItems);
-PREP(create_unitlists);
+
 PREP(crew);
 PREP(defence_macros);
 PREP(gear);
@@ -12,7 +12,8 @@ PREP(macro_exec3d);
 PREP(minefield);
 PREP(minefields);
 PREP(naval_minefield);
-PREP(taskPatrol);
+PREP(patrol)
+PREP(Patrol_task);
 PREP(unit);
 PREP(vehicle);
 
@@ -35,10 +36,5 @@ PREPS(city,spawn_unit);
 PREPS(obj,mil);
 PREPS(obj,sonstiges);
 PREPS(obj,stadt);
-
-PREPS(patrol,air);
-PREPS(patrol,inf);
-PREPS(patrol,veh);
-PREPS(patrol,water);
 
 ADDON = true;

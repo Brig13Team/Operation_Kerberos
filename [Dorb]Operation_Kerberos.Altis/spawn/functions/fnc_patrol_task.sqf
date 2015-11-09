@@ -22,7 +22,7 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(taskPatrol);
+SCRIPT(patrol_task);
 
 params [
     ["_group",grpNull,[grpNull,objNull]],
@@ -40,26 +40,26 @@ if !(local _group) exitWith {};
 CHECK((isNull _group))
 
 private["_args","_pos","_statement","_onComplete"];
-
 _args = [_centerpos,_behavior,_combatmode,_speed,_formation,_onComplete,_timeout];
 
 if (_centerpos isEqualTo []) then {
-    _args = GETVAR(_group,GVAR(taskPatrol),_args);
+    _args = GETVAR(_group,GVAR(patrol_task),_args);
     _args params [_centerpos,_behavior,_combatmode,_speed,_formation,_onComplete,_timeout];
 }else{
-    SETPVAR(_group,GVAR(taskPatrol),_args);
+    SETPVAR(_group,GVAR(patrol_task),_args);
 };
 private "_temp";
 _pos = switch (true) do {
 	case ((typeOf (leader _group))isKindOf "Plane"): {_temp = [_centerpos,1000,4] call EFUNC(common,pos_random);_temp set [2,800];_temp};
 	case ((typeOf (leader _group))isKindOf "Air"): {_temp = [_centerpos,1000,4] call EFUNC(common,pos_random);_temp set [2,500];_temp};
 	case ((typeOf (leader _group))isKindOf "Ship"): {_temp = [_centerpos,1000,3] call EFUNC(common,pos_random);_temp};
+	case ((typeOf (leader _group))in GVAR(list_diver)): {_temp = [_centerpos,1000,3] call EFUNC(common,pos_random);{_x swimInDepth -10;} forEach (units _group);_temp set [2,-10];_temp};
 	default {_temp = [_centerpos,1000,0] call EFUNC(common,pos_random);_temp};
 };
 
 CHECK((_pos isEqualTo []))
 
-_statement = QUOTE([this] call FUNC(taskPatrol););
+_statement = QUOTE([this] call FUNC(patrol_task););
 
 _onComplete = _onComplete + _statement;
 
