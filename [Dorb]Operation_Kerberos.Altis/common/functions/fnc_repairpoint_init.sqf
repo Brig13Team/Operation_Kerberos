@@ -19,5 +19,5 @@ For "_i" from 0 to 20 do {
 };
 
 {
-	EGVAR(player,respawn_fnc) pushback format["%1 addAction [localize'STR_DORB_COMMON_REP_POINT2',{_this call dorb_common_fnc_repairpoint;},[],6,true,true,'','(vehicle player != player)&&((driver (vehicle player)) == player)']",_x];
+	EGVAR(player,respawn_fnc) pushback format[QUOTE(%1 addAction [localize 'STR_DORB_COMMON_REP_POINT2',{_this call FUNC(repairpoint);},[],6,true,true,'','(vehicle player != player)&&((driver (vehicle player)) == player)&&((player distance %1)<15)']),_x];
 }forEach _reppoint;
