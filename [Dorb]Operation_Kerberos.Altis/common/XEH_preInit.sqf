@@ -64,7 +64,7 @@ If (!isServer) then {
 		[]
 	] call CBA_fnc_addPerFrameHandler;
 }else{
-	GVAR(setVarSyncServerArray) addPublicVariableEventHandler "_this call";
+	//QGVAR(setVarSyncServerArray) addPublicVariableEventHandler {_this };
 };
 
 GVARMAIN(EVENTLOCAL)=[];
