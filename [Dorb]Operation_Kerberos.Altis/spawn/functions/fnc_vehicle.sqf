@@ -6,8 +6,8 @@
 
 	Parameter(s):
 		0 : ARRAY 	- Position AGL (3D)
-		1 : STRING 	- Unittyp
-		2 : GROUP/SIDE 	- Group
+		1 : GROUP/SIDE 	- Group
+		2 : STRING 	- Unittyp
 		(optional)
 		3 : SCALAR	- Direction
 		4 : BOOL		- with Crew
@@ -18,7 +18,7 @@
 	[_vehicle,_crew,_group]
 */
 #include "script_component.hpp"
-params[["_position",[],[[]],[2,3]],["_unittype","",[""]],["_group",grpNull,[grpNull,east]],["_direction",(360),[0]],["_withcrew",true,[true]],["_precisePos",true,[true]],["_special","NONE",[""]]];
+params[["_position",[],[[]],[2,3]],["_group",grpNull,[grpNull,east]],["_unittype","",[""]],["_direction",(360),[0]],["_withcrew",true,[true]],["_precisePos",true,[true]],["_special","NONE",[""]]];
 TRACEV_6(_position,_unittype,_group,_direction,_withcrew,_precisePos,_special);
 private["_changeleader"];
 _changeleader=false;
@@ -63,4 +63,3 @@ if (_changeleader) then {
 	_group selectLeader (commander _vehicle);
 };
 [_group,_vehicle,_crew]
-	

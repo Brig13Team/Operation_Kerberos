@@ -1,66 +1,112 @@
 class unitlists {
-	
 	class base {
+		
+		crewmen[] = {};
+		divers[] = {};
+		soldiers[] = {};
+		
+		veh_transport[] = {};
+		veh_mechanized[] = {};
+		veh_armored[] = {};
+		
+		boat_patrol[] = {};
+		
+		hq_mobile[] = {};
+		
+		static[] = {};
+		static_high[] = {};
+		static_aa[] = {};
+		
+		art_mortar[] = {};
+		art_shells[] = {};
+		art_rocket[] = {};
+		
+		airtransport[] = {};
+		airborne[] = {};
+		aa_plane[] = {};
+		cas_heli[] = {};
+		
+		class callIn {
+			class airinterception {
+				amount = 0;
+				units[] = {};
+			};
+			class cas {
+				amount = 0;
+				units[] = {};
+			};
+			class motorized {
+				amount = 0;
+				units[] = {};
+			};
+			class armored {
+				amount = 0;
+				units[] = {};
+			};
+			class airborne {
+				amount = 0;
+				units[] = {};
+			};
+		};
+		
+		class groups {
+			class patrol_1 {
+				class soldier_1 {
+					vehicle = "C_scientist_F"
+					rank = "LIEUTENANT"
+					position[] = {0,0,0}
+				};
+				class soldier_2 {
+					vehicle = "C_scientist_F"
+					rank = "PRIVATE"
+					position[] = {1,-1,0}
+				};
+			};
+		};
+		
+		
 		civ_cars[] = {"C_Offroad_01_F","C_Quadbike_01_F","C_Hatchback_01_F","C_Hatchback_01_sport_F","C_SUV_01_F","C_Van_01_transport_F","C_Van_01_box_F","C_Offroad_01_F","C_Quadbike_01_F","C_Hatchback_01_F","C_Hatchback_01_sport_F","C_SUV_01_F","C_Van_01_transport_F","C_Van_01_box_F","RHS_Civ_Truck_02_covered_F","RHS_Civ_Truck_02_transport_F","RHS_Ural_Civ_01","RHS_Ural_Open_Civ_01","RHS_Ural_Civ_02","RHS_Ural_Open_Civ_02","RHS_Ural_Civ_03","RHS_Ural_Open_Civ_03"};
 		civ_smallcars[] = {"C_Offroad_01_F","C_Quadbike_01_F","C_Hatchback_01_F","C_Hatchback_01_sport_F","C_SUV_01_F"};
-		static_high[] = {"B_HMG_01_high_F"};
 		
-		device[] = {"Land_Device_assembled_F"};
-		commandoveh_radar[] = {"rhs_p37","rhs_prv13"};
-		intel[] = {"Land_Suitcase_F","Land_SatellitePhone_F","Land_Laptop_device_F"};
 		pow[] = {"C_scientist_F","C_journalist_F"};
+		intel[] = {"Land_Suitcase_F","Land_SatellitePhone_F","Land_Laptop_device_F"};
 		tower[] = {"Land_TTowerBig_1_F","Land_TTowerBig_2_F"};
-		
-		boat[] = {};
-		commander[] = {};
-		commandoveh[] = {};
-		commandoveh_arty[] = {};
-		commandoveh_side = 0;
-		crewmen[] = {};
-		diver[] = {};
-		group_inf[] = {};
-		group_mech[] = {};
-		group_sf[] = {};
-		group_tanks[] = {};
-		heli_attack[] = {};
-		heli_transport[] = {};
-		menlist[] = {};
-		plane_patrol[] = {};
-		plane_attack[] = {};
 		prototyp[] = {};
-		sniper[] = {};
-		static[] = {};
-		veh_aa[] = {};
-		veh_armored[] = {};
-		veh_arty[] = {};
-		veh_car[] = {};
-		veh_mortar[] = {};
-		veh_truck[] = {};
-		veh_unarmored[] = {};
 		weaponcache[] = {};
+		commander[] = {};
+		radar[] = {"rhs_p37","rhs_prv13"};
+		device[] = {"Land_Device_assembled_F"};
+		
+		group_patrol[] = {};
+		group_armored[] = {};
+		group_infaterie[] = {};
 	};
 	
 	class east {
-		class east_basic : base {
+		
+		/// Base class
+		class infanterie : base {
 			prototyp[] = {"B_MBT_01_TUSK_F","B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F"};
-			
-			commandoveh[] = {"rhs_gaz66_r142_vdv"};
-			commandoveh_arty[] = {"rhs_prp3_tv"};
-			commandoveh_side = 0;
+			hq_mobile[] = {"rhs_gaz66_r142_vdv"};
 			weaponcache[] = {"Box_IND_Wps_F","Box_IND_WpsSpecial_F","Box_IND_WpsLaunch_F","Box_IND_Ammo_F","Box_IND_Grenades_F","Box_IND_Support_F"};
 			
-			sniper[] = {"O_ghillie_ard_F","O_ghillie_lsh_F","O_ghillie_sard_F"};
-			diver[] = {"O_diver_f","O_diver_exp_f","O_diver_TL_f","O_diver_f","O_diver_exp_f","O_diver_f"};
-			static[] = {"rhs_NSV_TriPod_MSV","O_static_AT_F","O_static_AA_F"};
-			boat[] = {"O_Boat_Armed_01_hmg_F"};
-			veh_aa[] = {"rhs_zsu234_aa"};
-			veh_arty[] = {"rhs_2s3_tv"};
-			veh_mortar[] = {"O_Mortar_01_F"};
-
 			attack_uavs[] = {"O_UAV_02_F"};
 			recon_uavs[] = {"rhs_pchela1t_vvs","O_UAV_01_F"};
+		
+			class group_patrol[] = {
+				{"missionconfigfile","East","infanterie","groups","patrol_1"}
+			};
+		
 		};
 		class vdv : east_basic {	
+			
+			
+			
+			
+			
+			
+			
+			
 			commander[] = {"rhs_vdv_officer_armored","rhs_vdv_officer"};
 			menlist[] = {"rhs_vdv_rifleman","rhs_vdv_efreitor","rhs_vdv_grenadier","rhs_vdv_grenadier_rpg","rhs_vdv_machinegunner","rhs_vdv_machinegunner_assistant","rhs_vdv_at","rhs_vdv_aa","rhs_vdv_strelok_rpg_assist","rhs_vdv_marksman","rhs_vdv_sergeant","rhs_vdv_junior_sergeant","rhs_vdv_engineer","rhs_vdv_medic","rhs_vdv_LAT","rhs_vdv_RShG2"};
 			crewmen[] = {"rhs_vdv_officer_armored","rhs_vdv_driver_armored","rhs_vdv_armoredcrew","rhs_vdv_driver","rhs_vdv_crew","rhs_vdv_crew_commander","rhs_vdv_combatcrew"};
