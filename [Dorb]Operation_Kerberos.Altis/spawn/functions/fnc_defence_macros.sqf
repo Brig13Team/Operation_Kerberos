@@ -22,7 +22,7 @@
 */
 #include "script_component.hpp"
 SCRIPT(defence_macros);
-params["_position",["_radius",1000,[0]],["_anzahl_spawnpos",3,[0]],["_isTown",false,[true]]];
+_this params[["_position",[],[[]],[2,3]],["_radius",1000,[0]],["_anzahl_spawnpos",3,[0]],["_isTown",false,[true]]];
 _town=0;
 If(_isTown)then{_town=1;};
 _all_spawnpos = [];

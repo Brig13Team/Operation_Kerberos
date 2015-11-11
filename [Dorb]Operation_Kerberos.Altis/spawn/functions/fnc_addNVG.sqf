@@ -9,7 +9,8 @@
 _this spawn {
 	#include "script_component.hpp"
 	SCRIPT(addNVG);
-	PARAMS_1(_unit);
+	_this params ["_unit"];
+	TRACEV_1(_unit);
 	CHECK(!local _unit)
 	CHECK(isPlayer _unit)
 	If (side _unit == east) exitWith {

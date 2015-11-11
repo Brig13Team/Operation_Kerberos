@@ -14,8 +14,8 @@
 */
 #include "script_component.hpp"
 SCRIPT(spawn_explosives);
-params["_spawnposarray",["_type",0,[0]]];
-CHECK(!IS_ARRAY(_spawnposarray))
+params[["_spawnposarray",[],[[]],[2,3]],["_type",0,[0]]];
+CHECK(_spawnposarray isEqualTo [])
 Private["_spawnedunit","_spawnedunits","_typ","_gruppe","_dir","_position"];
 _ap_mines = ["APERSBoundingMine_Range_Mag","APERSMine_Range_Mag"];
 _at_mines = ["ATMine_Range_Mag","SLAMDirectionalMine_Wire_Mag"];

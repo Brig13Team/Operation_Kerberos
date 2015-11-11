@@ -16,8 +16,8 @@
 */
 #include "script_component.hpp"
 SCRIPT(spawn_static);
-params["_spawnposarray",["_side",GVARMAIN(side),[east]],["_unitarray",dorb_staticlist,[]]];
-CHECK(!IS_ARRAY(_spawnposarray))
+params[["_spawnposarray",[],[[]],[2,3]],["_side",GVARMAIN(side),[east]],["_unitarray",dorb_staticlist,[]]];
+CHECK(_spawnposarray isEqualTo [])
 Private["_spawnedunit","_spawnedunits","_typ","_gruppe","_dir","_position"];
 
 For "_i" from 0 to ((count _spawnposarray)-1) do {

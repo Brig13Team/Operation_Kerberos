@@ -15,8 +15,7 @@
 #include "script_component.hpp"
 SCRIPT(macro_exec3D);
 params[["_centerpos",[],[[]],[3]],["_configarray",[],[[]]],["_centerdir",9999,[0]]];
-CHECK(_centerpos isEqualTo [])
-CHECK(_configarray isEqualTo [])
+CHECK((_centerpos isEqualTo [])||(_configarray isEqualTo []))
 private["_config","_material","_vehicles","_soldiers","_gruppe","_centerposASL"];
 
 If (_centerdir > 9000) then {_centerdir = random 360;};
@@ -31,12 +30,8 @@ If (((count _vehicles)>0)||((count _soldiers)>0)) then {
 };
 _centerposASL = ATLtoASL _centerpos;
 {
-	private["_currentDir","_currentOffset","_currentPos","_currentType","_currentVectorUp","_spawnPos","_spawnPosATL","_spawnVector","_spawndir"];
-	_currentType = (_x select 0);
-	_currentPos = (_x select 1);
-	_currentDir = (_x select 2);
-	_currentOffset = (_x select 3);
-	_currentVectorUp = (_x select 4);
+	_x params ["_currentType","_currentPos","_currentDir","_currentOffset","_currentVectorUp"];
+	private["_spawnPos","_spawnPosATL","_spawnVector","_spawndir"];
 	If (!(_currentOffset isEqualTo [0,0,0])) then {
 		private["_rotateVector","_refpos","_terrainNormal","_VectorCorrection"];
 		_rotateVector = [[(_currentPos select 0),(_currentPos select 1)],(360-_centerdir)] call BIS_fnc_rotateVector2D;
@@ -89,16 +84,11 @@ _centerposASL = ATLtoASL _centerpos;
 	_vehicle setVectorUP _spawnVector;
 	_vehicle setPosATL _spawnPosATL;
 	_vehicle setDir _spawndir;
-	SETPVAR(_vehicle,R3F_LOG_disabled,true);
 }forEach _material;
 
 {
-	private["_currentDir","_currentOffset","_currentPos","_currentType","_currentVectorUp","_spawnPos","_spawnPosATL","_spawnVector","_spawndir"];
-	_currentType = (_x select 0);
-	_currentPos = (_x select 1);
-	_currentDir = (_x select 2);
-	_currentOffset = (_x select 3);
-	_currentVectorUp = (_x select 4);
+	private["_spawnPos","_spawnPosATL","_spawnVector","_spawndir"];
+	_x params ["_currentType","_currentPos","_currentDir","_currentOffset","_currentVectorUp"];
 	If (!(_currentOffset isEqualTo [0,0,0])) then {
 		private["_rotateVector","_refpos","_terrainNormal","_VectorCorrection"];
 		_rotateVector = [[(_currentPos select 0),(_currentPos select 1)],(360-_centerdir)] call BIS_fnc_rotateVector2D;
@@ -167,12 +157,8 @@ _centerposASL = ATLtoASL _centerpos;
 }forEach _vehicles;
 
 {
-	private["_currentDir","_currentOffset","_currentPos","_currentType","_currentVectorUp","_spawnPos","_spawnPosATL","_spawnVector","_spawndir"];
-	_currentType = (_x select 0);
-	_currentPos = (_x select 1);
-	_currentDir = (_x select 2);
-	_currentOffset = (_x select 3);
-	_currentVectorUp = (_x select 4);
+	private["_spawnPos","_spawnPosATL","_spawnVector","_spawndir"];
+	_x params ["_currentType","_currentPos","_currentDir","_currentOffset","_currentVectorUp"];
 	If (!(_currentOffset isEqualTo [0,0,0])) then {
 		private["_rotateVector","_refpos","_terrainNormal","_VectorCorrection"];
 		_rotateVector = [[(_currentPos select 0),(_currentPos select 1)],(360-_centerdir)] call BIS_fnc_rotateVector2D;
@@ -225,7 +211,7 @@ _centerposASL = ATLtoASL _centerpos;
 			- generate a new soldiert, if side of soldier is not matching
 			- solder should have similar equipment
 	*/
-	_currentType = dorb_menlist SELRND;
+	_currentType = GVAR(list_soldiers) SELRND;
 	_unit = _gruppe createUnit[_currentType,_spawnPosATL, [], 0, "NONE"];
 	_unit setPosATL _spawnPosATL;
 	_unit setDir _spawndir;

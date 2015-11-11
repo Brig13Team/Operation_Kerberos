@@ -7,8 +7,7 @@
 #include "script_component.hpp"
 SCRIPT(addAceMedical);
 If (!(isClass(configFile >> "CfgPatches" >> "ace_medical"))) exitWith {};
-Private["_vehicle"];
-params[["_vehicle",objNull,[objNull]]];
+_this params[["_vehicle",objNull,[objNull]]];
 If ((isNull _vehicle)||(isNil "ace_medical_level")) exitWith {};
 
 If (ace_medical_level<2) then {

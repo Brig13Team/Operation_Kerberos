@@ -14,9 +14,8 @@
 */
 #include "script_component.hpp"
 SCRIPT(minefields);
-params["_position",["_radius",1300,[0]],["_anzahl",8,[0]]];
+params[["_position",[],[[]],[2,3]],["_radius",1300,[0]],["_anzahl",8,[0]]];
 
-CHECK(!(IS_ARRAY(_position)))
 CHECK(_position isEqualTo [])
 
 
