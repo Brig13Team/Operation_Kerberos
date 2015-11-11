@@ -568,7 +568,7 @@ while {_a={alive _x}count (GETVAR(GVAR(commander_logic),GVAR(commander_current_h
 				};
 			};
 		};
-	_nextintervall = (diag_tickTime + ((_sleep * 60)-1));
+	_nextintervall = (diag_tickTime + ((_sleep * 60 * 2)-1));
 	};
 	//// SLEEP because brainwork is hard
 	uisleep (60 * _generalsleep);
