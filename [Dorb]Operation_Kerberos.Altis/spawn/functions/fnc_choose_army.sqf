@@ -57,15 +57,22 @@ GVAR(list_art_mortar) = getArray(_path >> "art_mortar");
 GVAR(list_art_shells) = getArray(_path >> "art_shells");
 GVAR(list_art_rocket) = getArray(_path >> "art_rocket");
 
-GVAR(list_airtransport) = getArray(_path >> "airtransport");
-GVAR(list_airborne) = getArray(_path >> "airborne");
-GVAR(list_aa_plane) = getArray(_path >> "aa_plane");
-GVAR(list_cas_heli) = getArray(_path >> "cas_heli");
 
-EGVAR(ai,hq_callIn_airinterception) = getNumber(_path >> "callIn" >> "airinterception");
-EGVAR(ai,hq_callIn_cas) = getNumber(_path >> "callIn" >> "cas");
-EGVAR(ai,hq_callIn_motorized) = getNumber(_path >> "callIn" >> "motorized");
-EGVAR(ai,hq_callIn_armored) = getNumber(_path >> "callIn" >> "armored");
+EGVAR(ai,hq_callIn_airinterception) = getNumber(_path >> "callIn" >> "airinterception" >> "amount");
+GVAR(callIn_airinterception) = getArray(_path >> "callIn" >> "airinterception" >> "units");
+
+EGVAR(ai,hq_callIn_cas) = getNumber(_path >> "callIn" >> "cas" >> "amount");
+GVAR(callIn_cas) = getArray(_path >> "callIn" >> "cas" >> "units");
+
+EGVAR(ai,hq_callIn_motorized) = getNumber(_path >> "callIn" >> "motorized" >> "amount");
+GVAR(callIn_motorized) = getArray(_path >> "callIn" >> "motorized" >> "units");
+
+EGVAR(ai,hq_callIn_armored) = getNumber(_path >> "callIn" >> "armored" >> "amount");
+GVAR(callIn_armored) = getArray(_path >> "callIn" >> "armored" >> "units");
+
+EGVAR(ai,hq_callIn_airborne) = getNumber(_path >> "callIn" >> "airborne" >> "amount");
+GVAR(callIn_airborne) = getArray(_path >> "callIn" >> "airborne" >> "units");
+GVAR(callIn_transport) = getArray(_path >> "callIn" >> "transport" >> "units");
 
 GVAR(list_civ_cars) = getArray(_path >> "civ_cars");
 GVAR(list_civ_cars_garage) = getArray(_path >> "civ_smallcars");
