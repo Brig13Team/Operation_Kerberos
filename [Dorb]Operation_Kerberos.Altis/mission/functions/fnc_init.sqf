@@ -6,7 +6,7 @@
 	
 */
 #include "script_component.hpp"
-SCRIPT(core);
+SCRIPT(init);
 CHECK(!isServer)
 
 GVARMAIN(debug)=false;
@@ -14,11 +14,11 @@ GVARMAIN(debug)=false;
 private ["_aufgabennummer","_aktuelle_aufgabe","_return"];
 _aufgabennummer=0;
 _return = [] call EFUNC(common,get_cfglocations);
-SETMVAR(GVAR(stadt),(_return select 0));
+SETMVAR(GVAR(town),(_return select 0));
 SETMVAR(GVAR(industrie),(_return select 1));
-SETMVAR(GVAR(militaer),(_return select 2));
-SETMVAR(GVAR(wasser),(_return select 3));
-SETMVAR(GVAR(sonstiges),(_return select 4));
+SETMVAR(GVAR(military),(_return select 2));
+SETMVAR(GVAR(water),(_return select 3));
+SETMVAR(GVAR(other),(_return select 4));
 
 // Delete dead Units
 [{
@@ -70,9 +70,8 @@ uisleep 20;
 for "_u" from 0 to 120 do {
 	uisleep 5;
 	INC(_aufgabennummer);
-	_aktuelle_aufgabe = FORMAT_1("task_%1",_aufgabennummer);
-	TRACEV_2(_aufgabennummer,_aktuelle_aufgabe);
-	[_aktuelle_aufgabe] call FUNC(choose);
+	TRACEV_1(_aufgabennummer);
+	[FORMAT_1("MAINTASK_%1",_aufgabennummer)] call FUNC(choose_main);
 };
 ERROR("CORE LOOP CRASHED");
 endMission "End1";

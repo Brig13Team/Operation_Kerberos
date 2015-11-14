@@ -1,3 +1,10 @@
+/*
+    Author: Dorbedo
+*/
+
+#define CBA_OFF
+#include "script_component.hpp"
+
 class sideby_config {
 	class conter {
 		class small {

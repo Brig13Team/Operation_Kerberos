@@ -45,20 +45,26 @@ class cfgFunctions {
 };
 
 ///// MISSION
+// tasks
+#include "mission\config\CfgTaskTypes.hpp"
+#include "mission\config\CfgTaskEnhancements.hpp"
+#include "mission\config\missions_config.hpp"
+#include "mission\config\sideby_config.hpp"
+
 // Interface
 #include "interface\config\define.h"
 #include "interface\config\menu.h"
 #include "interface\config\rscTitles.h"
+
 // Eventhandlers
 #include "CfgEventHandlers.hpp"
 #include "CfgRemoteExec.hpp"
 
-// Missionconfig
+// other
 #include "ai\config\drones.hpp"
 #include "spawn\config\city_defence.hpp"
 #include "spawn\config\unitlists.hpp"
 #include "spawn\config\defence_positions.hpp"
-#include "mission\config\sideby_config.hpp"
 #include "logistics\config\logistics.hpp"
 
 //Debrief
