@@ -1,6 +1,6 @@
 #define CBA_OFF
 #include "script_component.hpp"
-class Man {
+class CAManBase {
     class ADDON {
         init = QUOTE(If(local (_this select 0)) then {_this call FUNC(gear);};);
     };
