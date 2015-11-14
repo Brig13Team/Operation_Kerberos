@@ -44,6 +44,7 @@ GVAR(list_soldiers) = getArray(_path >> "soldiers");
 GVAR(list_veh_transport) = getArray(_path >> "veh_transport");
 GVAR(list_veh_mechanized) = getArray(_path >> "veh_mechanized");
 GVAR(list_veh_armored) = getArray(_path >> "veh_armored");
+GVAR(list_veh_antiair) = getArray(_path >> "veh_antiair");
 
 GVAR(list_boat_patrol) = getArray(_path >> "boat_patrol");
 
