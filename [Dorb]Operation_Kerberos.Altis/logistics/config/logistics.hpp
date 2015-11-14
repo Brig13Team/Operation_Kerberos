@@ -160,6 +160,8 @@ class logistics
 		};
 		class RHS_UH60M_MEV2_d : RHS_UH60M_Base {};
 		class RHS_UH60M_MEV2 : RHS_UH60M_Base {};
+		class RHS_UH60M_MEV : RHS_UH60M_Base {};
+		class RHS_UH60M_MEV_d : RHS_UH60M_Base {};
 		
 		class RHS_CH_47_Base {
 			max_width = 1.14;
