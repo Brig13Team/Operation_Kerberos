@@ -22,10 +22,6 @@ PREPS(crate,OpenMenu);
 PREPS(crate,save);
 PREPS(crate,spawn);
 
-PREPS(hud,getImpact);
-PREPS(hud,init);
-PREPS(hud,show);
-
 PREPS(save,delete);
 PREPS(save,load);
 PREPS(save,OnOpen);
