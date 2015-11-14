@@ -10,30 +10,27 @@
 */
 #include "script_component.hpp"
 SCRIPT(choose_army);
-params[["_rand",-1,[0]]];
-TRACEV_1(_rand);
-
-If (_rand < 0) then {
-	_rand = floor(random 5);
+params[["_Army","",[""]]];
+TRACEV_1(_Army);
+If (_Army isEqualTo "") then {
+	private "_ArmyArray";
+	_ArmyArray = [
+		["regular",1], //mixed
+		//fighting troups
+		["armored",1],
+		["infanterie",1],
+		// special troups
+		["airborne",1],
+		["specops",1],	// special trained soldiers
+		["specialoperations",1], // droneoperations
+		//other
+		["guards",1]
+	];
+	GVARMAIN(side_type) = [_ArmyArray,1] call EFUNC(common,sel_array_weighted)
+}else{
+	GVARMAIN(side_type) = _Army;
 };
-
-private ["_ArmyArray","_path"];
-
-_ArmyArray = [
-	["regular",1], //mixed
-	//fighting troups
-	["armored",1],
-	["infanterie",1],
-	// special troups
-	["airborne",1],
-	["specops",1],	// special trained soldiers
-	["specialoperations",1], // droneoperations
-	//other
-	["guards",1]
-];
-
-GVARMAIN(side_type) = [_ArmyArray,1] call EFUNC(common,sel_array_weighted);
-
+private "_path";
 _path = (missionConfigFile >> "unitlists" >> QGVARMAIN(side) >> QGVAR(side_type));
 
 
