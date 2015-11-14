@@ -1,11 +1,15 @@
+/*
 
+    Author: Dorbedo, iJesuz
+
+*/
 author = "Dorbedo && iJesuz";
 onLoadName = "Operation Kerberos";
 
 class Header {
-  gameType = Coop;
-  minPlayers = 1;
-  maxPlayers = 38;
+    gameType = Coop;
+    minPlayers = 1;
+    maxPlayers = 38;
 };
 
 ///// ALLGEMEIN
@@ -36,48 +40,43 @@ __EXEC (D_ROOTDIR = __FILE__ select [0, count __FILE__ - 15])
 ///// ADDONS
 // Viewdistance
 #include "CHVD\dialog.hpp"
+class cfgFunctions {
+    #include "CHVD\CfgFunctions.hpp"
+};
 
-
-#include "ai\config\drones.hpp"
-
+///// MISSION
 // Interface
 #include "interface\config\define.h"
 #include "interface\config\menu.h"
 #include "interface\config\rscTitles.h"
-
 // Eventhandlers
 #include "CfgEventHandlers.hpp"
-
 #include "CfgRemoteExec.hpp"
-class cfgFunctions {
-	#include "CHVD\CfgFunctions.hpp"
-};
 
 // Missionconfig
+#include "ai\config\drones.hpp"
 #include "spawn\config\city_defence.hpp"
 #include "spawn\config\unitlists.hpp"
 #include "spawn\config\defence_positions.hpp"
 #include "mission\config\sideby_config.hpp"
 #include "logistics\config\logistics.hpp"
-#include "interface\config\hud.hpp"
 
 //Debrief
-class CfgDebriefing {  
-	class End1 {
-		title = "Mission Abgeschlossen";
-		subtitle = "";
-		description = "Mission abgeschlossen. Gute Arbeit.";
-		pictureBackground = "";
-		picture = "b_inf";
-		pictureColor[] = {0.0,0.3,0.6,1};
-	};
-	class Fail {
-		title = "Mission gescheitert";
-		subtitle = "";
-		description = "Ihr seid alle gestorben.";
-		pictureBackground = "";
-		picture = "b_inf";
-		pictureColor[] = {0.0,0.3,0.6,1};
-	};
+class CfgDebriefing {
+    class End1 {
+        title = "Mission Abgeschlossen";
+        subtitle = "";
+        description = "Mission abgeschlossen. Gute Arbeit.";
+        pictureBackground = "";
+        picture = "b_inf";
+        pictureColor[] = {0.0,0.3,0.6,1};
+    };
+    class Fail {
+        title = "Mission gescheitert";
+        subtitle = "";
+        description = "Ihr seid alle gestorben.";
+        pictureBackground = "";
+        picture = "b_inf";
+        pictureColor[] = {0.0,0.3,0.6,1};
+    };
 };
-

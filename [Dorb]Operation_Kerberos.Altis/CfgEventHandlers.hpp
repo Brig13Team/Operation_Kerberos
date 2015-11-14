@@ -1,15 +1,21 @@
+/*
+
+    Author: Dorbedo, iJesuz
+
+*/
+
 #define CBA_OFF
 #include "script_component.hpp"
 
 class Extended_PreInit_EventHandlers {
-	INCLUDE_PREINIT(main);
-	INCLUDE_PREINIT(common);
-	INCLUDE_PREINIT(interface);
-	INCLUDE_PREINIT(player);
-	INCLUDE_PREINIT(logistics);
-	INCLUDE_PREINIT(mission);
-	INCLUDE_PREINIT(ai);
-	INCLUDE_PREINIT(spawn);
+    INCLUDE_PREINIT(main);
+    INCLUDE_PREINIT(common);
+    INCLUDE_PREINIT(interface);
+    INCLUDE_PREINIT(player);
+    INCLUDE_PREINIT(logistics);
+    INCLUDE_PREINIT(mission);
+    INCLUDE_PREINIT(ai);
+    INCLUDE_PREINIT(spawn);
 };
 
 class Extended_PostInit_EventHandlers {
