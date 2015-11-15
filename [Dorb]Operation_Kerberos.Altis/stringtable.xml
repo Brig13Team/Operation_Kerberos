@@ -439,6 +439,12 @@
 		</Key>
 	</Package>
 	<Package name="MISSIONS">
+		<Key ID="STR_DORB_MISSION_TASKNAME_BLANK">
+			<Original>STR_DORB_MISSION_%1_NAME</Original>
+		</Key>
+		<Key ID="STR_DORB_MISSION_TASKDESC_BLANK">
+			<Original>STR_DORB_MISSION_%1_DESC</Original>
+		</Key>
 		<Key ID="STR_DORB_MISSION_EXAMINE">
 			<Original>Interrogate</Original>
 			<German>Verhör</German>
