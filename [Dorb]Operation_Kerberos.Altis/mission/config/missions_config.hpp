@@ -10,6 +10,7 @@ class missions_config {
 		};
 		delay_spawn = 600;
 		delay_reveal = 300;
+		probability = 1;
 	};
 	class main_base {
 		class task {

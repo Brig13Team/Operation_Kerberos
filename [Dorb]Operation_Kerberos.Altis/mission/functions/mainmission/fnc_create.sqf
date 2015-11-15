@@ -8,15 +8,16 @@
 #include "script_component.hpp"
 SCRIPT(create);
 params[["_tasktype","",[[]]],["_centerposition",[],[[]]],["_distance",1000,[0]],["_taskID","",[""]]];
-private["_position"];
 
+private "_position";
 _position = [_centerposition,_distance,0] call EFUNC(common,pos_random);
 
+private ["_taskname","_taskdesc","_tasktype","_taskpic"];
 _taskname = getText(missionconfigfile>>"missions_config">>"main">>_task>>"task">>"name");
 _taskdesc = getText(missionconfigfile>>"missions_config">>"main">>_task>>"task">>"description");
 _tasktype = getText(missionconfigfile>>"missions_config">>"main">>_task>>"task">>"tasktype");
 _taskpic = getText(missionconfigfile>>"CfgTaskTypes">>_tasktype>>"icon");
-
+private ["_temp","_taskarray"];
 _temp = switch (_task) do {
 	case "scarab" : 		{[_position] call FUNC(main_scarab);};
 	case "prototype" : 		{[_position] call FUNC(main_prototype);};
@@ -28,10 +29,10 @@ _temp = switch (_task) do {
 	case "kill" : 			{[_position] call FUNC(main_kill);};
 	case "intel" : 			{[_position] call FUNC(main_intel);};
 	case "weaponcaches" : 	{[_position] call FUNC(main_weaponcaches);};
-	case "dronecommando" : 	{};
-	case "specops" : 		{};
-	case "outpost" : 		{};
-	case "radarsetup" : 	{};
+	case "dronecommando" : 	{[_position] call FUNC(main_dronecommando);};
+	case "specops" : 		{[_position] call FUNC(main_specops);};
+	case "outpost" : 		{[_position] call FUNC(main_outpost);};
+	case "radarsetup" : 	{[_position] call FUNC(main_radarsetup);};
 };
 _taskarray = [10,_taskID];
 _taskarray append _temp;
@@ -40,7 +41,7 @@ _taskarray append _temp;
 ///// spawn units
 
 /// TODO
-
+private ["_amount"];
 _amount = 12
 
 [_centerposition,_amount] call EFUNC(spawn,patrol_create);
@@ -71,6 +72,7 @@ _task_desc = localize(format[LSTRING(TASKDESC_BLANK),toUpper(_task));
 [_task_name,[_task_desc],_taskpic,true] spawn EFUNC(interface,disp_info_global);
 
 /// taskhandler
+private "_sucess";
 _sucess = _taskarray call FUNC(taskhandler);
 
 /// display finished message
