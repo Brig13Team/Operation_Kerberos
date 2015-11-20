@@ -21,4 +21,11 @@ PREPS(backpack,change);
 PREPS(backpack,handle);
 PREPS(backpack,init);
 
+PREPS(supression,EH_fired);
+PREPS(handle_effect);
+PREPS(handle_fired);
+PREPS(init);
+
+
+
 ADDON = true;

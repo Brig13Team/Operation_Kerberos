@@ -3,6 +3,6 @@
 class B_Soldier_base_F {
     class ADDON {
         scope = 2;
-        fired = QUOTE(If (hasinterface) then {If (!local (_this select 0)) exitwith {};_this call FUNC(EH_fired)};);
+        fired = QUOTE(If (hasinterface) then {If (GVAR(supression_active)) then {_this spawn FUNC(supression_EH_fired);};If (local (_this select 0)) then {_this spawn FUNC(EH_fired);};};);
     };
 };
