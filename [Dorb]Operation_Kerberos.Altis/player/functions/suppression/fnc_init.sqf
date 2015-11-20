@@ -18,6 +18,7 @@ CHECK(!hasInterface)
 GVAR(suppression_threshold) = 0;
 GVAR(suppression_lastShotAt) = 0;
 GVAR(suppression_isSuppressed) = true;
+GVAR(suppression_active) = true;
 
 GVAR(suppression_color) = ppEffectCreate ["colorCorrections", 1501];
 GVAR(suppression_color) ppEffectAdjust [1, 1, 0, [0,0,0,0], [1,1,1,1],[1,1,1,0]];

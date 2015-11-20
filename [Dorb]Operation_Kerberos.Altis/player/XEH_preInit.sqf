@@ -21,10 +21,10 @@ PREPS(backpack,change);
 PREPS(backpack,handle);
 PREPS(backpack,init);
 
-PREPS(supression,EH_fired);
-PREPS(handle_effect);
-PREPS(handle_fired);
-PREPS(init);
+PREPS(suppression,EH_fired);
+PREPS(suppression,handle_effect);
+PREPS(suppression,handle_fired);
+PREPS(suppression,init);
 
 
 
