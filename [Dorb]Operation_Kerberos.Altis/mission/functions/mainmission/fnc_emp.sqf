@@ -33,10 +33,14 @@ for "_i" from 1 to _rand do{
 		_spawnposition = _spawnposition findEmptyPosition [1,100,_einheit];
 		if !(_spawnposition isEqualTo []) then {
 			_unit = createVehicle [_einheit,_spawnposition, [], 0, "NONE"];
+			_unit lock 3;
+			SETPVAR(_unit,ACE_vehicleLock_lockpickStrength,-1);
 			_targets pushBack _unit;
 		};
 	}else{
 		_unit = createVehicle [_einheit,_spawnposition, [], 0, "NONE"];
+		_unit lock 3;
+		SETPVAR(_unit,ACE_vehicleLock_lockpickStrength,-1);
 		_targets pushBack _unit;
 	};	
 };
