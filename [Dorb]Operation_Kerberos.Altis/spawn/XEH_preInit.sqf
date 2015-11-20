@@ -12,7 +12,7 @@ PREP(macro_exec3d);
 PREP(minefield);
 PREP(minefields);
 PREP(naval_minefield);
-PREP(patrol)
+PREP(patrol_create);
 PREP(Patrol_task);
 PREP(unit);
 PREP(vehicle);

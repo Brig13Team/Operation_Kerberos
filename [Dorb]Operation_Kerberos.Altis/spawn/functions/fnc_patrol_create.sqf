@@ -26,7 +26,7 @@ for "_i" from 0 to _amount do {
 	_spawnpos = _pos findEmptyPosition [1,40];
 	_grouptype = GVAR(group_patrol) SELRND;
 
-	if (_spawnpos isEqualTo) then {
+	if (_spawnpos isEqualTo []) then {
 		ERROR("Keine Spawnposition");
 	}else{
 		_group = [_spawnpos, _grouptype] call FUNC(group);

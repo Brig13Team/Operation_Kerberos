@@ -51,5 +51,5 @@ If((isNil "_unit")||{(!(IS_OBJECT(_unit)))}) exitwith {
 SETVAR(_unit,GVAR(fdc_ready),false);
 TRACE_5("ArtilleryOrder = %1 - [%2,%3,%4]",_unit,_position,_shelltype,_amount);
 ///// Add fired Eventhandler -> removes status
-_unit addEventHandler ["Fired",QUOTE(SETVAR(_this select 0,GVAR(fdc_ready),true);(_this select 0) removeAllEventHandlers "Fired";)];
+_unit addEventHandler ["Fired",{SETVAR(_this select 0,GVAR(fdc_ready),true);(_this select 0) removeAllEventHandlers "Fired";}];
 _unit commandArtilleryFire[_position,_shelltype,_amount];

@@ -34,7 +34,7 @@ if !(_uniform isEqualTo "") then {
 	{_unit addItemToUniform _x;}forEach _uniformitems;
 }else{
 	If (_uniformitems isEqualTo []) then {
-		{_unit removeItemFromUniform _x;}forEach (uniformitems _unit;);
+		{_unit removeItemFromUniform _x;}forEach (uniformitems _unit);
 		{_unit addItemToUniform _x;}forEach _uniformitems;
 	};
 };
@@ -45,12 +45,12 @@ if !(_uniform isEqualTo "") then {
 	if (_vestitems isEqualTo []) then {
 		_vestitems = vestitems _unit;
 	};
-	_unit removeVest;
+	removeVest _unit;
 	_unit addVest _vest;
 	{_unit addItemToUniform _x;}forEach _vestitems;
 }else{
 	If (_vestitems isEqualTo []) then {
-		{_unit removeItemFromVest _x;}forEach (vestitems _unit;);
+		{_unit removeItemFromVest _x;}forEach (vestitems _unit);
 		{_unit addItemToVest _x;}forEach _vestitems;
 	};
 };
@@ -61,12 +61,12 @@ if !(_uniform isEqualTo "") then {
 	if (_backpackitems isEqualTo []) then {
 		_backpackitems = backpackitems _unit;
 	};
-	_unit removeBackpack;
+	removeBackpack _unit;
 	_unit addBackpack _backpack;
 	{_unit addItemToBackpack _x;}forEach _backpackitems;
 }else{
 	If (_backpackitems isEqualTo []) then {
-		{_unit removeItemFromBackpack _x;}forEach (backpackitems _unit;);
+		{_unit removeItemFromBackpack _x;}forEach (backpackitems _unit);
 		{_unit addItemToBackpack _x;}forEach _backpackitems;
 	};
 };

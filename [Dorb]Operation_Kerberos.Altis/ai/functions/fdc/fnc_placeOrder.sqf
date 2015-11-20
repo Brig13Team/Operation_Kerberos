@@ -37,18 +37,22 @@ If (!(_modearray isEqualTo [])) then {
 		case "creeping" : {
 			CHECK(_direction < 0)
 			private ["_side_shots","_direction_shots","_temp_center","_positions_array"];
-			_side_shots = (floor((size/2)/CREEPING_DISTANCE))min 2;
-			_direction_shots = (floor((_range)/CREEPING_DISTANCE))min 6;
+			_side_shots = (floor((_size/2)/ CREEPING_DISTANCE)) min 2;
+			_direction_shots = (floor((_range)/ CREEPING_DISTANCE)) min 6;
 			_positions_array = [];
 			_temp_center = _attackpos;
+			
 			for "_i" from 0 to _direction_shots do {
 				_positions_array pushBack _temp_center;
+				
 				for "_j" from 1 to _side_shots do {
 					_positions_array pushBack [_temp_center,CREEPING_DISTANCE*_j,(_direction+90)] call BIS_fnc_relPos;
 					_positions_array pushBack [_temp_center,CREEPING_DISTANCE*_j,(_direction+270)] call BIS_fnc_relPos;
 				};
+				
 				_temp_center = [_attackpos,CREEPING_DISTANCE*(_i+1),_direction] call BIS_fnc_relPos;
 			};
+			
 			{
 				[_x,0,1] call FUNC(fdc_placeOrder);
 			}forEach _positions_array;
@@ -56,19 +60,21 @@ If (!(_modearray isEqualTo [])) then {
 		case "smoke" : {
 			_temp = GETVAR(GVAR(fdc_logic),GVAR(fdc_firemissions),[]);
 			_temp pushBack [_position,_type,"Smoke_120mm_AMOS_White",_amount];
-			TRACEV_4(_position,_type,"Smoke_120mm_AMOS_White",_amount);
+			TRACEV_3(_position,_type,_amount);
 			SETVAR(GVAR(fdc_logic),GVAR(fdc_firemissions),_temp);
 		};
 		case "flare" : {
 			_temp = GETVAR(GVAR(fdc_logic),GVAR(fdc_firemissions),[]);
 			_temp pushBack [_position,1,"Flare_82mm_AMOS_White",_amount];
-			TRACEV_4(_position,1,"Flare_82mm_AMOS_White",_amount);
+			TRACEV_3(_position,1,_amount);
 			SETVAR(GVAR(fdc_logic),GVAR(fdc_firemissions),_temp);
 		};
 	};
 };
 
-if(_cancel) exitWith {false};
+
+
+if(_cancel) exitWith {false;};
 _cancel = switch (_type) do {
 	case -1 : {
 				true
@@ -80,7 +86,7 @@ _cancel = switch (_type) do {
 				_unit = _artilleries SELRND;
 				_shelltype = ((getArtilleryAmmo [_unit])select 0);
 				If (_amount < 0) then {_amount = 6;};
-				false
+				false;
 			};
 	case 1 : {
 				_artilleries = GETVAR(GVAR(fdc_logic),GVAR(fdc_mortars),[]);
@@ -98,7 +104,7 @@ _cancel = switch (_type) do {
 				_ammo = getText(configFile>>"CfgMagazines">> _shelltype >> "ammo");
 				_submun = getText(configFile>>"CfgAmmo">>_ammo>>"submunitionAmmo");
 				_strength = getNumber(configFile>>"CfgAmmo">>_submun>>"hit");
-				_ammo = floor(3000/(_strength)) min 1
+				_ammo = floor(3000/(_strength)) min 1;
 				false
 			};
 };

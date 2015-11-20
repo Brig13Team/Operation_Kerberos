@@ -23,7 +23,7 @@ _this spawn {
 
 	// check if other teammember know who killed the Unit
 
-	_otherUnits = (getPosAGL _unit) nearEntities ["Man",30];
+	_otherUnits = (getPos _unit) nearEntities ["Man",30];
 
 	_messagingUnits = [];
 	{

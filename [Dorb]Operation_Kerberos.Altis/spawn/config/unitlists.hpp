@@ -1,4 +1,17 @@
 class unitlists {
+	class armies {
+		class regular {
+		
+		};
+		class armored {};
+		class infanterie {};
+		class airborne {};
+		class specops {};
+		class specialoperations {};
+		class guards {};
+	
+	
+	};
 	class base {
 		
 		crewmen[] = {};
@@ -59,164 +72,164 @@ class unitlists {
 		device[] = {"Land_Device_assembled_F"};
 		
 		group_patrol[] = {};
-		group_armored[] = {};
-		group_infaterie[] = {};
+		group_strikeforce[] = {};
+		group_defence[] = {};
 		
 		class groups {
 			class patrol_E4_01 {
 				class soldier_1 {
-					vehicle = "rhs_vdv_sergeant"
-					rank = "SERGEANT"
-					position[] = {0,0,0}
+					vehicle = "rhs_vdv_sergeant";
+					rank = "SERGEANT";
+					position[] = {0,0,0};
 				};
 				class soldier_2 {
-					vehicle = "rhs_vdv_junior_sergeant"
-					rank = "CORPORAL"
-					position[] = {1,-1,0}
+					vehicle = "rhs_vdv_junior_sergeant";
+					rank = "CORPORAL";
+					position[] = {1,-1,0};
 				};
 				class soldier_3 {
-					vehicle = "rhs_vdv_rifleman"
-					rank = "PRIVATE"
-					position[] = {-1,-1,0}
+					vehicle = "rhs_vdv_rifleman";
+					rank = "PRIVATE";
+					position[] = {-1,-1,0};
 				};
 				class soldier_4 {
-					vehicle = "rhs_vdv_grenadier"
-					rank = "PRIVATE"
-					position[] = {1,-2,0}
+					vehicle = "rhs_vdv_grenadier";
+					rank = "PRIVATE";
+					position[] = {1,-2,0};
 				};
 			};
 			class patrol_E3_01 {
 				class soldier_1 {
-					vehicle = "rhs_vdv_marksman"
-					rank = "CORPORAL"
-					position[] = {0,0,0}
+					vehicle = "rhs_vdv_marksman";
+					rank = "CORPORAL";
+					position[] = {0,0,0};
 				};
 				class soldier_2 {
-					vehicle = "rhs_vdv_marksman"
-					rank = "PRIVATE"
-					position[] = {1,-1,0}
+					vehicle = "rhs_vdv_marksman";
+					rank = "PRIVATE";
+					position[] = {1,-1,0};
 				};
 				class soldier_3 {
-					vehicle = "rhs_vdv_marksman"
-					rank = "PRIVATE"
-					position[] = {-1,-1,0}
+					vehicle = "rhs_vdv_marksman";
+					rank = "PRIVATE";
+					position[] = {-1,-1,0};
 				};
 			};
 			class patrol_E4_02 {
 				class soldier_1 {
-					vehicle = "rhs_vdv_junior_sergeant"
-					rank = "CORPORAL"
-					position[] = {0,0,0}
+					vehicle = "rhs_vdv_junior_sergeant";
+					rank = "CORPORAL";
+					position[] = {0,0,0};
 				};
 				class soldier_2 {
-					vehicle = "rhs_vdv_grenadier"
-					rank = "PRIVATE"
-					position[] = {1,-1,0}
+					vehicle = "rhs_vdv_grenadier";
+					rank = "PRIVATE";
+					position[] = {1,-1,0};
 				};
 				class soldier_3 {
-					vehicle = "rhs_vdv_grenadier_rpg"
-					rank = "PRIVATE"
-					position[] = {-1,-1,0}
+					vehicle = "rhs_vdv_grenadier_rpg";
+					rank = "PRIVATE";
+					position[] = {-1,-1,0};
 				};
 				class soldier_4 {
-					vehicle = "rhs_vdv_LAT"
-					rank = "PRIVATE"
-					position[] = {1,-2,0}
+					vehicle = "rhs_vdv_LAT";
+					rank = "PRIVATE";
+					position[] = {1,-2,0};
 				};
 			};
 			class patrol_E4_03 {
 				class soldier_1 {
-					vehicle = "rhs_vdv_junior_sergeant"
-					rank = "CORPORAL"
-					position[] = {0,0,0}
+					vehicle = "rhs_vdv_junior_sergeant";
+					rank = "CORPORAL";
+					position[] = {0,0,0};
 				};
 				class soldier_2 {
-					vehicle = "rhs_vdv_aa"
-					rank = "PRIVATE"
-					position[] = {1,-1,0}
+					vehicle = "rhs_vdv_aa";
+					rank = "PRIVATE";
+					position[] = {1,-1,0};
 				};
 				class soldier_3 {
-					vehicle = "rhs_vdv_aa"
-					rank = "PRIVATE"
-					position[] = {-1,-1,0}
+					vehicle = "rhs_vdv_aa";
+					rank = "PRIVATE";
+					position[] = {-1,-1,0};
 				};
 				class soldier_4 {
-					vehicle = "rhs_vdv_strelok_rpg_assist"
-					rank = "PRIVATE"
-					position[] = {1,-2,0}
+					vehicle = "rhs_vdv_strelok_rpg_assist";
+					rank = "PRIVATE";
+					position[] = {1,-2,0};
 				};
 			};
 			class patrol_E4_04 {
 				class soldier_1 {
-					vehicle = "rhs_vdv_junior_sergeant"
-					rank = "CORPORAL"
-					position[] = {0,0,0}
+					vehicle = "rhs_vdv_junior_sergeant";
+					rank = "CORPORAL";
+					position[] = {0,0,0};
 				};
 				class soldier_2 {
-					vehicle = "rhs_vdv_rifleman"
-					rank = "PRIVATE"
-					position[] = {1,-1,0}
+					vehicle = "rhs_vdv_rifleman";
+					rank = "PRIVATE";
+					position[] = {1,-1,0};
 				};
 				class soldier_3 {
-					vehicle = "rhs_vdv_rifleman"
-					rank = "PRIVATE"
-					position[] = {-1,-1,0}
+					vehicle = "rhs_vdv_rifleman";
+					rank = "PRIVATE";
+					position[] = {-1,-1,0};
 				};
 				class soldier_4 {
-					vehicle = "rhs_vdv_rifleman"
-					rank = "PRIVATE"
-					position[] = {1,-2,0}
+					vehicle = "rhs_vdv_rifleman";
+					rank = "PRIVATE";
+					position[] = {1,-2,0};
 				};
 			};
 			class patrol_E4_05 {
 				class soldier_1 {
-					vehicle = "rhs_vdv_junior_sergeant"
-					rank = "CORPORAL"
-					position[] = {0,0,0}
+					vehicle = "rhs_vdv_junior_sergeant";
+					rank = "CORPORAL";
+					position[] = {0,0,0};
 				};
 				class soldier_2 {
-					vehicle = "rhs_vdv_machinegunner"
-					rank = "PRIVATE"
-					position[] = {1,-1,0}
+					vehicle = "rhs_vdv_machinegunner";
+					rank = "PRIVATE";
+					position[] = {1,-1,0};
 				};
 				class soldier_3 {
-					vehicle = "rhs_vdv_machinegunner"
-					rank = "PRIVATE"
-					position[] = {-1,-1,0}
+					vehicle = "rhs_vdv_machinegunner";
+					rank = "PRIVATE";
+					position[] = {-1,-1,0};
 				};
 				class soldier_4 {
-					vehicle = "rhs_vdv_machinegunner_assistant"
-					rank = "PRIVATE"
-					position[] = {1,-2,0}
+					vehicle = "rhs_vdv_machinegunner_assistant";
+					rank = "PRIVATE";
+					position[] = {1,-2,0};
 				};
 			};
 			class patrol_E4_06 {
 				class soldier_1 {
-					vehicle = "rhs_vdv_junior_sergeant"
-					rank = "CORPORAL"
-					position[] = {0,0,0}
+					vehicle = "rhs_vdv_junior_sergeant";
+					rank = "CORPORAL";
+					position[] = {0,0,0};
 				};
 				class soldier_2 {
-					vehicle = "rhs_vdv_rifleman"
-					rank = "PRIVATE"
-					position[] = {1,-1,0}
+					vehicle = "rhs_vdv_rifleman";
+					rank = "PRIVATE";
+					position[] = {1,-1,0};
 				};
 				class soldier_3 {
-					vehicle = "rhs_vdv_rifleman"
-					rank = "PRIVATE"
-					position[] = {-1,-1,0}
+					vehicle = "rhs_vdv_rifleman";
+					rank = "PRIVATE";
+					position[] = {-1,-1,0};
 				};
 				class soldier_4 {
-					vehicle = "rhs_vdv_medic"
-					rank = "PRIVATE"
-					position[] = {1,-2,0}
+					vehicle = "rhs_vdv_medic";
+					rank = "PRIVATE";
+					position[] = {1,-2,0};
 				};
 			};
 		};
 	};
 	
 	class east {
-		class infanterie : base {
+		class regular : base {
 			prototyp[] = {"B_MBT_01_TUSK_F","B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F"};
 			hq_mobile[] = {"rhs_gaz66_r142_vdv"};
 			weaponcache[] = {"Box_IND_Wps_F","Box_IND_WpsSpecial_F","Box_IND_WpsLaunch_F","Box_IND_Ammo_F","Box_IND_Grenades_F","Box_IND_Support_F"};
@@ -259,6 +272,18 @@ class unitlists {
 				{"missionconfigfile","East","infanterie","groups","patrol_E4_06"},
 				{"missionconfigfile","East","infanterie","groups","patrol_E3_01"}
 			};
+		};
+		class armored : regular {
+		};
+		class infanterie : regular {
+		};
+		class airborne : regular {
+		};
+		class specops : regular {
+		};
+		class specialoperations : regular {
+		};
+		class guards  : regular {
 		};
 	};
 	

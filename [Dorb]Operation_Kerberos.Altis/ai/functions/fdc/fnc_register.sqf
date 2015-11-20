@@ -24,7 +24,7 @@ If ((vehicle _newUnit) isKindOf "StaticMortar") exitWith {
 };
 private ["_mags","_ammo","_isRocket"];
 
-_mags = getArtilleryAmmo [cursorTarget]
+_mags = getArtilleryAmmo [cursorTarget];
 _ammo = getText(configFile>>"CfgMagazines">> _mags >> "ammo");
 _isRocket = (_ammo isKindOf "R_230mm_HE");
 

@@ -28,8 +28,7 @@ QEGVAR(mission,endzeit) addPublicVariableEventHandler {[] spawn EFUNC(interface,
 [] call EFUNC(player,halo_addaction);
 [] call EFUNC(player,backpack_init);
 [] call EFUNC(logistics,init);
-[] call EFUNC(interface,hud_init);
-[] call EFUNC(player,XEH_respawn);
+[] call EFUNC(player,EH_respawn);
 
 ISNILS(EGVAR(mission,fnc),[]);
 {

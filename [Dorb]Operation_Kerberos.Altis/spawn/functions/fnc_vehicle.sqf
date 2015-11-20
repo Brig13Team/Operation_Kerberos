@@ -39,7 +39,7 @@ switch (tolower _simulation) do {
 	case "airplanex";
 	case "helicopterrtd";
 	case "helicopterx": {
-		If (((_position select 2)>30)&&(_special="NONE")) then {
+		If (((_position select 2)>30)&&(_special=="NONE")) then {
 			_special = "FLY";
 		};
 		_vehicle = createVehicle [_unittype,_position,[],0,_special];
