@@ -84,6 +84,7 @@ GVAR(list_weaponcache) = getArray(_path >> "weaponcache");
 GVAR(list_commander) = getArray(_path >> "commander");
 GVAR(list_radar) = getArray(_path >> "radar");
 GVAR(list_device) = getArray(_path >> "device");
+GVAR(list_emp) = getArray(_path >> "emp");
 
 GVAR(group_patrol) = getArray(_path >> "group_patrol");
 GVAR(group_strikeforce) = getArray(_path >> "group_strikeforce");

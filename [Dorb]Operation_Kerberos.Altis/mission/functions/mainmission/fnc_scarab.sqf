@@ -99,7 +99,7 @@ private ["_crew"];
 uisleep 30;
 {
 	if (alive _x) then {
-		_x addEventHandler ["Killed", {[(getPos (_this select 0))] call FUNC(sonst_Scarab_explode);}]
+		_x addEventHandler ["Killed", {[(getPos (_this select 0))] call FUNC(mainmission_Scarab_explode);}]
 	}else{
 		_x = objNull;
 	};

@@ -70,6 +70,7 @@ class unitlists {
 		commander[] = {};
 		radar[] = {"rhs_p37","rhs_prv13"};
 		device[] = {"Land_Device_assembled_F"};
+		emp[] = {"rhs_typhoon_vdv"};
 		
 		group_patrol[] = {};
 		group_strikeforce[] = {};
