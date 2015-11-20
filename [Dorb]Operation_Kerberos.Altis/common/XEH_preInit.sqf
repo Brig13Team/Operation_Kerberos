@@ -4,20 +4,27 @@ ADDON = false;
 
 PREP(cleanup_big);
 PREP(cleanup_small);
+
 PREP(determineHC);
+
 PREP(EventExec);
+PREP(EventExecLocal);
 PREP(EventGlobal);
 PREP(EventLocal);
-PREP(EventExecLocal);
+
 PREP(get_buildings);
 PREP(get_cfg_subclasses);
 PREP(get_cfglocations);
+
 PREP(handledamage_C4);
 PREP(headless);
-PREP(headless_move);
 PREP(headless_determine);
+PREP(headless_move);
+
 PREP(list_groups);
+
 PREP(moveToHC);
+
 PREP(players);
 PREP(pointBetween);
 PREP(pos_flatempty);
@@ -25,11 +32,14 @@ PREP(pos_random);
 PREP(pos_square);
 PREP(pos_surrounding);
 PREP(positionsMean);
+
 PREP(rep);
 //PREP(repairpoint);
 //PREP(repairpoint_init);
+
 PREP(sel_array_weighted);
 PREP(setVarArray);
+
 PREP(waitAndExec);
 
 ADDON = true;

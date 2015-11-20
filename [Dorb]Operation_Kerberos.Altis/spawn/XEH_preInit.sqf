@@ -2,26 +2,26 @@
 
 ADDON = false;
 
-PREP(addNVG);
 PREP(addACEMedicalItems);
+PREP(army_set);
 
 PREP(crew);
+
 PREP(defence_macros);
+
 PREP(gear);
+PREP(group);
+
 PREP(macro_exec3d);
 PREP(minefield);
 PREP(minefields);
 PREP(naval_minefield);
+
 PREP(patrol_create);
 PREP(Patrol_task);
+
 PREP(unit);
 PREP(vehicle);
-
-PREPS(attack,air);
-PREPS(attack,airdrop);
-PREPS(attack,inf);
-PREPS(attack,veh);
-PREPS(attack,waves);
 
 PREPS(city,fortify);
 PREPS(city,fortify_buildings);
@@ -32,9 +32,5 @@ PREPS(city,roads);
 PREPS(city,spawn_explosives);
 PREPS(city,spawn_static);
 PREPS(city,spawn_unit);
-
-PREPS(obj,mil);
-PREPS(obj,sonstiges);
-PREPS(obj,stadt);
 
 ADDON = true;

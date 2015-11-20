@@ -4,11 +4,6 @@ ADDON = false;
 
 PREP(EH_killed);
 
-PREPS(commander,init);
-PREPS(commander,ai);
-PREPS(commander,search);
-PREPS(commander,callArty);
-
 PREPS(drones,attack);
 PREPS(drones,createWaypoint);
 PREPS(drones,doAirstrike);
@@ -24,5 +19,8 @@ PREPS(fdc,init);
 PREPS(fdc,observer);
 PREPS(fdc,placeOrder);
 PREPS(fdc,register);
+
+
+
 
 ADDON = true;
