@@ -7,6 +7,7 @@ PREP(army_set);
 
 PREP(crew);
 
+PREP(defence_create);
 PREP(defence_macros);
 
 PREP(gear);
@@ -20,8 +21,12 @@ PREP(naval_minefield);
 PREP(patrol_create);
 PREP(Patrol_task);
 
+PREP(strikeforce_create);
+
 PREP(unit);
+
 PREP(vehicle);
+
 
 PREPS(city,fortify);
 PREPS(city,fortify_buildings);
