@@ -12,9 +12,9 @@
 */
 #include "script_component.hpp"
 SCRIPT(Scarab);
-_this params ["_position"];
+_this params [["_position",[],[[]],[2,3]]];
 TRACEV_1(_position)
-
+CHECK(_position isEqualTo [])
 /********************
 	create Target
 ********************/
@@ -104,7 +104,7 @@ uisleep 30;
 		_x = objNull;
 	};
 }forEach _targets;
-_targets = _targets - objNull;
+_targets = _targets - [objNull];
 
 /********************
 	timer
@@ -114,39 +114,12 @@ publicVariable QGVAR(endzeit);
 GVAR(scarab_waiting) = true;
 
 [
-	"
-		params['_targets'];
-		If (diag_tickTime>GVAR(endzeit)) exitWith {
-			{
-				If (alive _x) then ([_x] spawn FUNC(mainmission_scarab_launch);)
-			}forEach _targets;
-			uisleep 30;
-			true
-		};
-		if ((({!(alive _x)} count _targets) > 0)||((({(alive gunner _x)} count _targets)) <= 0))then{true}else{false};
-	",
-	_targets,
-	"
-		If (diag_tickTime>GETVAR(endzeit)) exitWith {false};
-		If !((({(alive gunner _x)} count (_this select 0))) > 0) exitWith {false};
-		true
-	",
-	'
-		GVAR(endzeit) = 0;
-		publicVariable 'GVAR(endzeit)';
-	',
-	'
-		GVAR(endzeit) = 0;
-		publicVariable 'GVAR(endzeit)';
-	',
-	_targets,
-	'
-		If ((GVAR(endzeit) < (diag_tickTime + 300))&&(GVAR(scarab_waiting))) then {
-			GVAR(scarab_waiting)=false;
-			{
-				[_x,1] spawn rhs_fnc_ss21_AI_prepare;
-			}forEach (_this select 0);
-		};
-	',
-	_targets
+	QUOTE(params['_targets'];If (diag_tickTime>GVAR(endzeit)) exitWith {{If (alive _x) then {[_x] spawn FUNC(mainmission_scarab_launch);};}forEach _targets;uisleep 30;true};if ((({!(alive _x)} count _targets) > 0)||((({(alive gunner _x)} count _targets)) <= 0))then{true}else{false};),
+	[_targets],
+	QUOTE(If (diag_tickTime>GVAR(endzeit)) exitWith {false};	If !((({(alive gunner _x)} count (_this select 0))) > 0) exitWith {false};true),
+	QUOTE(GVAR(endzeit) = 0;publicVariable 'GVAR(endzeit)';),
+	QUOTE(GVAR(endzeit) = 0;publicVariable 'GVAR(endzeit)';),
+	[_targets],
+	QUOTE(If ((GVAR(endzeit) < (diag_tickTime + 300))&&(GVAR(scarab_waiting))) then {GVAR(scarab_waiting)=false;{[ARR_2(_x,1)] spawn rhs_fnc_ss21_AI_prepare;}forEach (_this select 0);};),
+	[_targets]
 ]

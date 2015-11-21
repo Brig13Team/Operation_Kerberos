@@ -25,6 +25,7 @@ IF (isNil QGVAR(playerside)) then {
 
 If (GVAR(playerside) == west) then {
 	GVARMAIN(respawnmarker) = "respawn_west";
+	GVARMAIN(side) = "east";
 	CIVILIAN setFriend [WEST, 1];
 
 	WEST setFriend [CIVILIAN, 1];
@@ -41,6 +42,7 @@ If (GVAR(playerside) == west) then {
 };
 If (GVAR(playerside) == east) then {
 	GVARMAIN(respawnmarker) = "respawn_east";
+	GVARMAIN(side) = "west";
 	CIVILIAN setFriend [EAST, 1];
 
 	WEST setFriend [CIVILIAN, 1];

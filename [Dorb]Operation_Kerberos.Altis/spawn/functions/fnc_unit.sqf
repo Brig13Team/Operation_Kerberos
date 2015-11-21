@@ -21,7 +21,7 @@ params[["_position",[],[[]],[2,3]],["_group",grpNull,[grpNull]],["_type","",[""]
 TRACEV_4(_position,_group,_type,_direction);
 private "_unit";
 CHECK((_position isEqualTo [])||(isNull _group)||(_type isEqualTo ""))
-_unit = _gruppe createUnit [_type,_position, [], 0, _special];
+_unit = _group createUnit [_type,_position, [], 0, _special];
 _unit setDir _direction;
 _unit
 

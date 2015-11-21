@@ -206,8 +206,8 @@ If (worldName == "Panthera3") then {
 };
 
 
-
-If (dorb_debug_loc) then {
+ISNILS(GVARMAIN(loc_debug),false);
+If (GVARMAIN(loc_debug)) then {
 	private "_mrkr";
 	{
 		_mrkr = createMarker [_x select 0, _x select 1];

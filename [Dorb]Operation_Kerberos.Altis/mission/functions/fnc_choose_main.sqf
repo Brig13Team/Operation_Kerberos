@@ -17,32 +17,32 @@ private ["_taskarray","_armys","_army","_config","_task"];
 _taskarray = [];
 _armys = [];
 _config = missionconfigfile>>"missions_config">>"main";
-{
-	_taskarray pushBack [configname _x,getNumber(_x>>"probability")];
-}forEach _config;
+for "_i" from 0 to (count _config)-1 do {
+	_taskarray pushBack [configname (_config select _i),getNumber((_config select _i)>>"probability")];
+};
 
 _task = ([_taskarray,1] call EFUNC(common,sel_array_weighted))select 0;
 
 /// choose the army
 _armys = getArray(missionconfigfile>>"missions_config">>"main">>_task>>"armys");
 _army = ([_armys,1] call EFUNC(common,sel_array_weighted))select 0;
-[_army] call EFUNC(spawn,army_set);
+//[_army] call EFUNC(spawn,army_set);
+["regular"] call EFUNC(spawn,army_set);
 
 /// choose the position
 private ["_positions","_positiontypes","_position"];
 _positiontypes = getArray(missionconfigfile>>"missions_config">>"main">>_task>>"location">>"areas");
+LOG_1(_positiontypes);
 _positions = [];
 {
-	_positions pushBack (missionnamespace getVariable [_x,[]]);
+	_positions append (missionnamespace getVariable [_x,[]]);
 }forEach _positiontypes;
 CHECK(_positions isEqualTo [])
-_position = _position SELRND;
-
+_position = (_positions SELRND);
+LOG_2(_position,_positions);
 _distance = getnumber(missionconfigfile>>"missions_config">>"main">>_task>>"location">>"distance");
 
-[_task,_position] spawn FUNC(choose_side);
 
-
-[_task,_position,_distance,_taskID] call FUNC(main_create);
-
-[_position,_task] call FUNC(rtb);
+[_task,((_position)select 1),_distance,_taskID] call FUNC(mainmission_create);
+LOG("RTB");
+//[((_position)select 1),_task] call FUNC(rtb);

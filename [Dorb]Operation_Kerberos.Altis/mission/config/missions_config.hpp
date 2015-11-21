@@ -1,3 +1,5 @@
+#define CBA_OFF
+#include "script_component.hpp"
 class missions_config {
 	class side_base {
 		class task {
@@ -64,7 +66,7 @@ class missions_config {
 				description = CSTRING(device_desc);
 			};
 			class location : location {
-				areas[] = {QGVAR(industrie),QGVAR(military)QGVAR(other)};
+				areas[] = {QGVAR(industrie),QGVAR(military),QGVAR(other)};
 			};
 		};
 		class emp : main_base {
@@ -73,7 +75,7 @@ class missions_config {
 				description = CSTRING(emp_desc);
 			};
 			class location : location {
-				areas[] = {QGVAR(industrie),QGVAR(military)QGVAR(other)};
+				areas[] = {QGVAR(industrie),QGVAR(military),QGVAR(other)};
 			};
 		};
 		class prototype : main_base {
@@ -88,7 +90,7 @@ class missions_config {
 				description = CSTRING(clear_desc);
 			};
 			class location : location {
-				areas[] = {QGVAR(industrie),QGVAR(military)QGVAR(other)};
+				areas[] = {QGVAR(industrie),QGVAR(military),QGVAR(other)};
 			};
 		};
 		
@@ -157,7 +159,7 @@ class missions_config {
 				description = CSTRING(radarsetup_desc);
 			};
 			class location : location {
-				areas[] = {QGVAR(industrie),QGVAR(military)QGVAR(other)};
+				areas[] = {QGVAR(industrie),QGVAR(military),QGVAR(other)};
 			};
 		};
 	};

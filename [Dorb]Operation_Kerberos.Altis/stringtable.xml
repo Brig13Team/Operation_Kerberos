@@ -445,6 +445,16 @@
 		<Key ID="STR_DORB_MISSION_TASKDESC_BLANK">
 			<Original>STR_DORB_MISSION_%1_DESC</Original>
 		</Key>
+		<Key ID="STR_DORB_MISSION_SCARAB_TASK">
+			<Original>Prevent launch of nuclear missiles within %1 minutes.</Original>
+			<German>Verhindern Sie den Abschuss der Atomraketen innerhalb von %1 Minuten.</German>
+			<English>Prevent launch of nuclear missiles within %1 minutes.</English>
+		</Key>
+		<Key ID="STR_DORB_MISSION_SCARAB_DESC">
+			<Original>Mobile nuclear missile launchers are being erected at %1. Prevent the launch of the %2 missiles on our fleet. We known that the enemy has a limited amount of rocket specialists. Killing the crew should prevent the launch.</Original>
+			<German>Es wurden von den Gegnern mobile Atomraketen in %1 in Stellung gebracht. Verhindern Sie, dass der Gegner die %2 Raketen auf unsere Flotte abschießt. Wir wissen aus zuverlässiger Quelle, dass der Gegner nur Begrenzt Fachpersonal zum Raketenabschuss in der Region stationiert hat. Schalten Sie die Besatzungen aus um den Abschuss zu verhindern.</German>
+			<English>Mobile nuclear missile launchers are being erected at %1. Prevent the launch of the %2 missiles on our fleet. We known that the enemy has a limited amount of rocket specialists. Killing the crew should prevent the launch.</English>
+		</Key>
 		<Key ID="STR_DORB_MISSION_EXAMINE">
 			<Original>Interrogate</Original>
 			<German>Verhör</German>
@@ -815,16 +825,7 @@
 			<German>Es wurden von den Gegnern %1 Gefangene in %2 gemacht. Befreien sie die Gefangenen und bringen sie diese in die Sicherheitszone.</German>
 			<English>The enemy has taken %1 hostages in %2. Free them and escort them back to base.</English>
 		</Key>
-		<Key ID="STR_DORB_MISSION_DEST_SCARAB_TASK">
-			<Original>Prevent launch of nuclear missiles within %1 minutes.</Original>
-			<German>Verhindern Sie den Abschuss der Atomraketen innerhalb von %1 Minuten.</German>
-			<English>Prevent launch of nuclear missiles within %1 minutes.</English>
-		</Key>
-		<Key ID="STR_DORB_MISSION_DEST_SCARAB_TASK_DESC">
-			<Original>Mobile nuclear missile launchers are being erected at %1. Prevent the launch of the %2 missiles on our fleet. We known that the enemy has a limited amount of rocket specialists. Killing the crew should prevent the launch.</Original>
-			<German>Es wurden von den Gegnern mobile Atomraketen in %1 in Stellung gebracht. Verhindern Sie, dass der Gegner die %2 Raketen auf unsere Flotte abschießt. Wir wissen aus zuverlässiger Quelle, dass der Gegner nur Begrenzt Fachpersonal zum Raketenabschuss in der Region stationiert hat. Schalten Sie die Besatzungen aus um den Abschuss zu verhindern.</German>
-			<English>Mobile nuclear missile launchers are being erected at %1. Prevent the launch of the %2 missiles on our fleet. We known that the enemy has a limited amount of rocket specialists. Killing the crew should prevent the launch.</English>
-		</Key>
+		
 	</Package>
 	<Package name="player">
 		<Key ID="STR_DORB_PLAYER_BRIEF_SETTING">

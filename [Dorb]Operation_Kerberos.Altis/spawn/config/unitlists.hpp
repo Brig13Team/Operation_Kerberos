@@ -265,13 +265,13 @@ class unitlists {
 			veh_antiair[] = {"rhs_zsu234_aa"};
 			
 			group_patrol[] = {
-				{"missionconfigfile","East","infanterie","groups","patrol_E4_01"},
-				{"missionconfigfile","East","infanterie","groups","patrol_E4_02"},
-				{"missionconfigfile","East","infanterie","groups","patrol_E4_03"},
-				{"missionconfigfile","East","infanterie","groups","patrol_E4_04"},
-				{"missionconfigfile","East","infanterie","groups","patrol_E4_05"},
-				{"missionconfigfile","East","infanterie","groups","patrol_E4_06"},
-				{"missionconfigfile","East","infanterie","groups","patrol_E3_01"}
+				{"missionconfigfile","unitlists","east","regular","groups","patrol_E4_01"},
+				{"missionconfigfile","unitlists","east","regular","groups","patrol_E4_02"},
+				{"missionconfigfile","unitlists","east","regular","groups","patrol_E4_03"},
+				{"missionconfigfile","unitlists","east","regular","groups","patrol_E4_04"},
+				{"missionconfigfile","unitlists","east","regular","groups","patrol_E4_05"},
+				{"missionconfigfile","unitlists","east","regular","groups","patrol_E4_06"},
+				{"missionconfigfile","unitlists","east","regular","groups","patrol_E3_01"}
 			};
 		};
 		class armored : regular {

@@ -30,8 +30,15 @@ If (_Army isEqualTo "") then {
 }else{
 	GVARMAIN(side_type) = _Army;
 };
+if (isNil QGVARMAIN(side)) then {
+	GVARMAIN(side) = switch (GVARMAIN(playerside)) do {
+		case "east" : {"west"};
+		default {"east"};
+	};
+};
+
 private "_path";
-_path = (missionConfigFile >> "unitlists" >> QGVARMAIN(side) >> QGVAR(side_type));
+_path = (missionConfigFile >> "unitlists" >> GVARMAIN(side) >> GVARMAIN(side_type));
 
 
 GVAR(list_crewmen) = getArray(_path >> "crewmen");
