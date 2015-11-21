@@ -45,7 +45,6 @@ _group = switch (getNumber(configFile >> "CfgVehicles" >> (_types select 0) >> "
 	default {createGroup GVARMAIN(side)};
 };
 
-LOG_4(_positions,_ranks,_types,_group);
 If (_types isEqualTo []) exitWith {grpNull};
 
 {
@@ -71,7 +70,10 @@ If (_types isEqualTo []) exitWith {grpNull};
 	}else{
 		[_unit,0] call bis_fnc_setRank;
 	};
-	LOG_3(_isMan,_spawnpos,_unit);
+	
 }forEach _types;
-LOG_1(_group);
+
+#ifdef DEBUG_MODE_FULL
+	[_group] call EFUNC(common,debug_marker_create);
+#endif
 _group;

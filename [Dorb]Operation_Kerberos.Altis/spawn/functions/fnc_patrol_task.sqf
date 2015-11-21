@@ -21,6 +21,7 @@
         None
 
 */
+
 #include "script_component.hpp"
 SCRIPT(patrol_task);
 
@@ -34,20 +35,20 @@ params [
     ["_onComplete","",[""]],
     ["_timeout",[0,0,0],[[]],[3]]
 ];
-
 _group = _group call CBA_fnc_getGroup;
 if !(local _group) exitWith {};
 CHECK((isNull _group))
 
-private["_args","_pos","_statement","_onComplete"];
+private["_args","_pos","_statement"];
 _args = [_centerpos,_behavior,_combatmode,_speed,_formation,_onComplete,_timeout];
 
-if (_centerpos isEqualTo []) then {
-    _args = GETVAR(_group,GVAR(patrol_task),_args);
-    _args params [_centerpos,_behavior,_combatmode,_speed,_formation,_onComplete,_timeout];
-}else{
+if !(_centerpos isEqualTo []) then {
     SETPVAR(_group,GVAR(patrol_task),_args);
 };
+
+_args = GETVAR(_group,GVAR(patrol_task),_args);
+_args params ["_centerpos","_behavior","_combatmode","_speed","_formation","_onComplete","_timeout"];
+
 private "_temp";
 _pos = switch (true) do {
 	case ((typeOf (leader _group))isKindOf "Plane"): {_temp = [_centerpos,1000,4] call EFUNC(common,pos_random);_temp set [2,800];_temp};
@@ -80,3 +81,7 @@ _onComplete = _onComplete + _statement;
 If (count(waypoints _group)>1) then {
     deleteWaypoint [_group,0];
 };
+
+#ifdef DEBUG_MODE_FULL
+	[_pos] call EFUNC(common,debug_marker_create);
+#endif

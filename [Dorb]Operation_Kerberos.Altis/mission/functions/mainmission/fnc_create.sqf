@@ -52,7 +52,7 @@ _taskarray append _temp;
 private ["_amount"];
 _amount = 12;
 
-[_centerposition,_amount] call EFUNC(spawn,patrol_create);
+[_centerposition,1200,_amount] call EFUNC(spawn,patrol_create);
 //[_centerposition,_amount] call EFUNC(spawn,strikeforce_create);
 //[_centerposition,_amount] call EFUNC(spawn,defence_create);
 
