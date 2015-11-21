@@ -5,6 +5,8 @@ ADDON = false;
 PREP(cleanup_big);
 PREP(cleanup_small);
 
+PREP(debug_marker_clean);
+PREP(debug_marker_create);
 PREP(determineHC);
 
 PREP(EventExec);
