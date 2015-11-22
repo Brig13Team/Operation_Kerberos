@@ -25,10 +25,10 @@ TRACEV_5(_position,_taskname,_taskdesc,_tasktype,_taskpic);
 private ["_temp","_taskarray"];
 _temp = [];
 _temp = switch (_task) do {
-	case "scarab" : 		{[_position] call FUNC(mainmission_scarab);};
+	case "scarab" : 			{[_position] call FUNC(mainmission_scarab);};
 	case "prototype" : 		{[_position] call FUNC(mainmission_prototype);};
 	case "tower" : 			{[_position] call FUNC(mainmission_tower);};
-	case "device" : 		{[_position] call FUNC(mainmission_device);};
+	case "device" : 			{[_position] call FUNC(mainmission_device);};
 	case "emp" : 			{[_position] call FUNC(mainmission_emp);};
 	//case "clear" : 			{[_position] call FUNC(mainmission_clear);};
 	//case "hostage" : 		{[_position] call FUNC(mainmission_hostage);};
@@ -48,15 +48,9 @@ _taskarray append _temp;
 
 ///// spawn units
 
-/// TODO
-private ["_amount"];
-_amount = 12;
-
-[_centerposition,1200,_amount] call EFUNC(spawn,patrol_create);
-//[_centerposition,_amount] call EFUNC(spawn,strikeforce_create);
-//[_centerposition,_amount] call EFUNC(spawn,defence_create);
-
 //[] call EFUNC(ai,hq_init_mission);
+
+[_centerposition,["strikeforce","patrols"]] call EFUNC(spawn,mission);
 
 
 

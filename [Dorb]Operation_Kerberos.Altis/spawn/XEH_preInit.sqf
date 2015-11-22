@@ -16,6 +16,8 @@ PREP(group);
 PREP(macro_exec3d);
 PREP(minefield);
 PREP(minefields);
+PREP(mission);
+
 PREP(naval_minefield);
 
 PREP(patrol_create);

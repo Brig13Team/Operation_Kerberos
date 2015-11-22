@@ -17,7 +17,7 @@
 */
 #include "script_component.hpp"
 SCRIPT(strikeforce_create);
-params["_centerposition",["_radius",600,[0]],["_amount",0,[0]]];
+params["_centerposition",["_amount",0,[0]],["_radius",600,[0]]];
 
 for "_i" from 0 to _amount do {
 	private["_rad","_pos","_spawnpos","_grouptype","_group","_formation"];

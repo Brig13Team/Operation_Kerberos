@@ -5,8 +5,6 @@ ADDON = false;
 PREP(choose_main);
 PREP(choose_side);
 
-PREP(dyn_difficulty);
-
 PREP(examine);
 
 PREP(init);

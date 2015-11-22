@@ -32,17 +32,15 @@ _army = ([_armys,1] call EFUNC(common,sel_array_weighted))select 0;
 /// choose the position
 private ["_positions","_positiontypes","_position"];
 _positiontypes = getArray(missionconfigfile>>"missions_config">>"main">>_task>>"location">>"areas");
-LOG_1(_positiontypes);
 _positions = [];
 {
 	_positions append (missionnamespace getVariable [_x,[]]);
 }forEach _positiontypes;
 CHECK(_positions isEqualTo [])
 _position = (_positions SELRND);
-LOG_2(_position,_positions);
 _distance = getnumber(missionconfigfile>>"missions_config">>"main">>_task>>"location">>"distance");
 
 
-[_task,((_position)select 1),_distance,_taskID] call FUNC(mainmission_create);
+[_task,((_position)select 1),_distance,_taskID,(_position select 0)] call FUNC(mainmission_create);
 LOG("RTB");
 //[((_position)select 1),_task] call FUNC(rtb);

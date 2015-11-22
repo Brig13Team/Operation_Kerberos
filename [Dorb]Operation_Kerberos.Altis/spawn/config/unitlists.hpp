@@ -14,6 +14,10 @@ class unitlists {
 	};
 	class base {
 		
+		amount_patrols = 0.4;
+		amount_strikeforce = 0.4;
+		amount_defence = 0.2;
+		
 		crewmen[] = {};
 		divers[] = {};
 		soldiers[] = {};

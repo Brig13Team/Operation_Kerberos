@@ -13,5 +13,5 @@ SCRIPT(players);
 
 If !(isMultiplayer) exitWith {[player]};
 private "_allHCs";
-_allHCs = allMissionObjects "HeadlessClient_F";
+_allHCs = entities "HeadlessClient_F";
 (allPlayers - _allHCs);
