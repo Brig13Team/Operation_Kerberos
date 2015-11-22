@@ -445,6 +445,11 @@
 		<Key ID="STR_DORB_MISSION_TASKDESC_BLANK">
 			<Original>STR_DORB_MISSION_%1_DESC</Original>
 		</Key>
+		<Key ID="STR_DORB_MISSION_RESCUE_MARKER">
+			<Original>Rescue Point</Original>
+			<German>Sicherheitszone</German>
+			<English>Rescue Point</English>
+		</Key>		
 		<Key ID="STR_DORB_MISSION_SCARAB_TASK">
 			<Original>Prevent launch of nuclear missiles within %1 minutes.</Original>
 			<German>Verhindern Sie den Abschuss der Atomraketen innerhalb von %1 Minuten.</German>
@@ -455,25 +460,88 @@
 			<German>Es wurden von den Gegnern mobile Atomraketen in %1 in Stellung gebracht. Verhindern Sie, dass der Gegner die %2 Raketen auf unsere Flotte abschießt. Wir wissen aus zuverlässiger Quelle, dass der Gegner nur Begrenzt Fachpersonal zum Raketenabschuss in der Region stationiert hat. Schalten Sie die Besatzungen aus um den Abschuss zu verhindern.</German>
 			<English>Mobile nuclear missile launchers are being erected at %1. Prevent the launch of the %2 missiles on our fleet. We known that the enemy has a limited amount of rocket specialists. Killing the crew should prevent the launch.</English>
 		</Key>
-		<Key ID="STR_DORB_MISSION_EXAMINE">
-			<Original>Interrogate</Original>
-			<German>Verhör</German>
-			<English>Interrogate</English>
+		<Key ID="STR_DORB_MISSION_TOWER_TASK">
+			<Original>task tower</Original>
 		</Key>
-		<Key ID="STR_DORB_MISSION_EXAMINE_DESC">
-			<Original>The enemy has been interrogated.</Original>
-			<German>Der Gegner wurde verhört.</German>
-			<English>The enemy has been interrogated.</English>
+		<Key ID="STR_DORB_MISSION_TOWER_DESC">
+			<Original>desc tower</Original>
 		</Key>
-		<Key ID="STR_DORB_MISSION_RESCUE_MARKER">
-			<Original>Rescue Point</Original>
-			<German>Sicherheitszone</German>
-			<English>Rescue Point</English>
+		<Key ID="STR_DORB_MISSION_DEVICE_TASK">
+			<Original>device task</Original>
 		</Key>
-		<Key ID="STR_DORB_MISSION_RTB">
-			<Original>RTB</Original>
-			<German>RTB</German>
-			<English>RTB</English>
+		<Key ID="STR_DORB_MISSION_DEVICE_DESC">
+			<Original>device desc</Original>
+		</Key>
+		<Key ID="STR_DORB_MISSION_EMP_TASK">
+			<Original>emp</Original>
+		</Key>
+		<Key ID="STR_DORB_MISSION_EMP_DESC">
+			<Original>emp</Original>
+		</Key>
+		<Key ID="STR_DORB_MISSION_PROTOTYPE_TASK">
+			<Original>proto</Original>
+		</Key>
+		<Key ID="STR_DORB_MISSION_PROTOTYPE_DESC">
+			<Original>proto</Original>
+		</Key>
+		<Key ID="STR_DORB_MISSION_CLEAR_TASK">
+			<Original>clear</Original>
+		</Key>
+		<Key ID="STR_DORB_MISSION_CLEAR_DESC">
+			<Original>clear</Original>
+		</Key>
+		<Key ID="STR_DORB_MISSION_HOSTAGE_TASK">
+			<Original>hostage</Original>
+		</Key>
+		<Key ID="STR_DORB_MISSION_HOSTAGE_DESC">
+			<Original>hostages</Original>
+		</Key>
+		<Key ID="STR_DORB_MISSION_KILL_TASK">
+			<Original>kill</Original>
+		</Key>
+		<Key ID="STR_DORB_MISSION_KILL_DESC">
+			<Original>kill</Original>
+		</Key>
+		<Key ID="STR_DORB_MISSION_INTEL_TASK">
+			<Original>intel</Original>
+		</Key>
+		<Key ID="STR_DORB_MISSION_INTEL_DESC">
+			<Original>intel</Original>
+		</Key>
+		<Key ID="STR_DORB_MISSION_KILL_KILLED">
+			<Original>%1 was killed.</Original>
+			<Original>%1 wurde getötet.</Original>
+			<Original>%1 was killed.</Original>
+		</Key>
+		<Key ID="STR_DORB_MISSION_WEAPONCACHES_TASK">
+			<Original>weaponcahce</Original>
+		</Key>
+		<Key ID="STR_DORB_MISSION_WEAPONCACHES_DESC">
+			<Original>wpncahce</Original>
+		</Key>
+		<Key ID="STR_DORB_MISSION_DRONECOMMANDO_TASK">
+			<Original>drone</Original>
+		</Key>
+		<Key ID="STR_DORB_MISSION_DRONECOMMANDO_DESC">
+			<Original>drone</Original>
+		</Key>
+		<Key ID="STR_DORB_MISSION_SPECOPS_TASK">
+			<Original>specops</Original>
+		</Key>
+		<Key ID="STR_DORB_MISSION_SPECOPS_DESC">
+			<Original>specosp</Original>
+		</Key>
+		<Key ID="STR_DORB_MISSION_OUTPOST_TASK">
+			<Original>outpost</Original>
+		</Key>
+		<Key ID="STR_DORB_MISSION_OUTPOST_DESC">
+			<Original>outpost</Original>
+		</Key>
+		<Key ID="STR_DORB_MISSION_RADARSETUP_TASK">
+			<Original>radar</Original>
+		</Key>
+		<Key ID="STR_DORB_MISSION_RADARSETUP_DESC">
+			<Original>radar</Original>
 		</Key>
 		<Key ID="STR_DORB_MISSION_RTB_START_1">
 			<Original>Return to base.</Original>
@@ -489,7 +557,29 @@
 			<Original>Prepare for new orders.</Original>
 			<German>Bereiten Sie sich auf neue Befehle vor.</German>
 			<English>Prepare for new orders.</English>
+		</Key>	
+
+		
+		
+		
+		
+		<Key ID="STR_DORB_MISSION_EXAMINE">
+			<Original>Interrogate</Original>
+			<German>Verhör</German>
+			<English>Interrogate</English>
 		</Key>
+		<Key ID="STR_DORB_MISSION_EXAMINE_DESC">
+			<Original>The enemy has been interrogated.</Original>
+			<German>Der Gegner wurde verhört.</German>
+			<English>The enemy has been interrogated.</English>
+		</Key>
+
+		<Key ID="STR_DORB_MISSION_RTB">
+			<Original>RTB</Original>
+			<German>RTB</German>
+			<English>RTB</English>
+		</Key>
+	
 		<Key ID="STR_DORB_MISSION_CLEAR_TASK">
 			<Original>Capture %1</Original>
 			<German>Erobern sie %1</German>
@@ -790,11 +880,7 @@
 			<German>Töten Sie %1. Wir können dadurch die feindlichen Operationen erheblich verlangsamen. Der letzte bekannte Aufenthaltsort ist %2.</German>
 			<English>Kill %1. Hostile operations will be slowed down immensely. Last known location is %2.</English>
 		</Key>
-		<Key ID="STR_DORB_MISSION_KILL_KILLED">
-			<Original>%1 was killed.</Original>
-			<Original>%1 wurde getötet.</Original>
-			<Original>%1 was killed.</Original>
-		</Key>
+
 		<Key ID="STR_DORB_MISSION_KILL_CONV_TASK">
 			<Original>Stop the enemy convoy</Original>
 			<German>Stoppen Sie den feindlichen Konvoi</German>
