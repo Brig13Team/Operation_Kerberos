@@ -24,7 +24,7 @@ class missions_config {
 			distance = 1500;
 		};
 		probability = 1;
-		armys[] = {{"regular",1},{"armored",1},{"infanterie",1},{"airborne",1},{"specops",1},{"specialoperations",1},{"guards",1}};
+		armys[] = {{"regular",1},{"armored",1},{"infanterie",1},{"airborne",1},{"specops",1},{"droneoperations",1},{"guards",1}};
 	};
 	class side_arty : side_base {
 		class location : location {
@@ -135,7 +135,7 @@ class missions_config {
 				name = CSTRING(dronecommando_task);
 				description = CSTRING(dronecommando_desc);
 			};
-			armys[] = {{"specops",1},{"specialoperations",1},{"guards",1}};
+			armys[] = {{"specops",1},{"droneoperations",1},{"guards",1}};
 		};
 		class specops : main_base {
 			class task {

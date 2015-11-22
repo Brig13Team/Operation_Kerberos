@@ -22,7 +22,7 @@ If (_Army isEqualTo "") then {
 		// special troups
 		["airborne",1],
 		["specops",1],	// special trained soldiers
-		["specialoperations",1], // droneoperations
+		["droneoperations",1], // droneoperations
 		//other
 		["guards",1]
 	];

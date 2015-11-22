@@ -40,7 +40,7 @@ CHECK(_positions isEqualTo [])
 _position = (_positions SELRND);
 _distance = getnumber(missionconfigfile>>"missions_config">>"main">>_task>>"location">>"distance");
 
-
+[_task,((_position)select 1)] call FUNC(choose_side);
 [_task,((_position)select 1),_distance,_taskID,(_position select 0)] call FUNC(mainmission_create);
 LOG("RTB");
 //[((_position)select 1),_task] call FUNC(rtb);

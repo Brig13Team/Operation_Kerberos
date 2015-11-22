@@ -7,7 +7,7 @@ class unitlists {
 		class infanterie {};
 		class airborne {};
 		class specops {};
-		class specialoperations {};
+		class droneoperations {};
 		class guards {};
 	
 	
@@ -296,7 +296,7 @@ class unitlists {
 		};
 		class specops : regular {
 		};
-		class specialoperations : regular {
+		class droneoperations : regular {
 		};
 		class guards  : regular {
 		};

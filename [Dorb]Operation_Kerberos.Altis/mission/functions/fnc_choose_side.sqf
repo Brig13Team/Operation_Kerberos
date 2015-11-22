@@ -15,21 +15,20 @@ TRACEV_1(_taskID);
 
 CHECK(_positionMain isEqualTo [])
 
-
 private ["_taskarray","_armys","_army","_config","_task"];
 _taskarray = [];
-_config = missionconfigfile>>"missions_config">>"main">>"sidemissions";
-{
-	_taskarray pushBack [_x,getNumber(_x>>"probability")];
-}forEach _config;
+_config = missionconfigfile>>"missions_config">>"main">>_taskMAIN>>"sidemissions";
+for "_i" from 0 to (count _config)-1 do {
+	_taskarray pushBack [(_config select _i),getNumber((_config select _i)>>"probability")];
+};
 
 {
 	_x params ["_type","_probability"];
 	If (_probability>=(random 1)) then {
 		/// choose the position
 		private ["_positiontypes","_position","_distance"];
-		_positiontypes = getArray(missionconfigfile>>"missions_config">>"main">>(_x select 0)>>"location">>"areas");
-		_distance = getnumber(missionconfigfile>>"missions_config">>"main">>_task>>"location">>"distance");
+		_positiontypes = getArray(missionconfigfile>>"missions_config">>"main">>_taskMAIN>>"sidemissions">>(_x select 0)>>"location">>"areas");
+		_distance = getnumber(missionconfigfile>>"missions_config">>"main">>_taskMAIN>>"sidemissions">>(_x select 0)>>"location">>"distance");
 		if (_positiontypes isEqualTo []) then {
 			_position = [_positionMain,_distance,0] call EFUNC(common,pos_random);
 		}else{
@@ -48,8 +47,8 @@ _config = missionconfigfile>>"missions_config">>"main">>"sidemissions";
 				_position = [_position,_distance,0] call EFUNC(common,pos_random);
 			};
 		};
-		
-		[_taskMAIN,_type,_position,format["%1_%2",_taskID,(_forEachIndex)]] spawn FUNC(side_create);
-
+		_delay_spawn = (getnumber(missionconfigfile>>"missions_config">>"main">>_taskMAIN>>"sidemissions">>(_x select 0)>>"delay_spawn")) max 1;
+		_delay_reveal = getnumber(missionconfigfile>>"missions_config">>"main">>_taskMAIN>>"sidemissions">>(_x select 0)>>"delay_reveal");
+		[QUOTE(_this spawn FUNC(side_create)),[_taskMAIN,_type,_position,format["%1_%2",_taskID,(_forEachIndex)],_delay_reveal],_delay_spawn] call EFUNC(common,waitandexec);
 	};
 }forEach _taskarray;
