@@ -14,9 +14,12 @@ class unitlists {
 	};
 	class base {
 		
+		//// parts of max unitamount
 		amount_patrols = 0.4;
 		amount_strikeforce = 0.4;
 		amount_defence = 0.2;
+		
+		skill_compensation = 1; /// reduce the amount of units - higher skill => less units
 		
 		crewmen[] = {};
 		divers[] = {};

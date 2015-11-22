@@ -64,6 +64,7 @@ class cfgFunctions {
 #include "ai\config\drones.hpp"
 #include "spawn\config\city_defence.hpp"
 #include "spawn\config\unitlists.hpp"
+#include "spawn\config\gear.hpp"
 #include "spawn\config\defence_positions.hpp"
 #include "logistics\config\logistics.hpp"
 
