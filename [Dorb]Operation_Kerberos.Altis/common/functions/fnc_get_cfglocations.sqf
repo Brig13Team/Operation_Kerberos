@@ -210,39 +210,19 @@ ISNILS(GVARMAIN(loc_debug),false);
 If (GVARMAIN(loc_debug)) then {
 	private "_mrkr";
 	{
-		_mrkr = createMarker [_x select 0, _x select 1];
-		_mrkr setMarkerShape "ICON";
-		_mrkr setMarkerColor "ColorCIV";
-		_mrkr setMarkerType "mil_flag";
-		_mrkr setMarkerText (_x select 0);
+		[_x select 1,_x select 0,"ColorCIV","mil_flag"] call FUNC(debug_marker_create);
 	}forEach _loc_civ;
 	{
-		_mrkr = createMarker [_x select 0, _x select 1];
-		_mrkr setMarkerShape "ICON";
-		_mrkr setMarkerColor "ColorBlue";
-		_mrkr setMarkerType "mil_flag";
-		_mrkr setMarkerText (_x select 0);
+		[_x select 1,_x select 0,"ColorBlue","mil_flag"] call FUNC(debug_marker_create);
 	}forEach _loc_water;
 	{
-		_mrkr = createMarker [_x select 0, _x select 1];
-		_mrkr setMarkerShape "ICON";
-		_mrkr setMarkerColor "ColorYellow";
-		_mrkr setMarkerType "mil_flag";
-		_mrkr setMarkerText (_x select 0);
+		[_x select 1,_x select 0,"ColorYellow","mil_flag"] call FUNC(debug_marker_create);
 	}forEach _loc_ind;
 	{
-		_mrkr = createMarker [_x select 0, _x select 1];
-		_mrkr setMarkerShape "ICON";
-		_mrkr setMarkerColor "ColorOrange";
-		_mrkr setMarkerType "mil_flag";
-		_mrkr setMarkerText (_x select 0);
+		[_x select 1,_x select 0,"ColorOrange","mil_flag"] call FUNC(debug_marker_create);
 	}forEach _loc_mil;
 	{
-		_mrkr = createMarker [_x select 0, _x select 1];
-		_mrkr setMarkerShape "ICON";
-		_mrkr setMarkerColor "ColorRed";
-		_mrkr setMarkerType "mil_flag";
-		_mrkr setMarkerText (_x select 0);
+		[_x select 1,_x select 0,"ColorRed","mil_flag"] call FUNC(debug_marker_create);
 	}forEach _loc_sonst;
 };
 
