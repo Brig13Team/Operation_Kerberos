@@ -5,6 +5,8 @@ class missions_config {
 		class task {
 			name = "";
 			description = "";
+			tasktype = "";
+			taskmarker = "";
 		};
 		class location {
 			areas[] = {QGVAR(town),QGVAR(industrie),QGVAR(military),QGVAR(other)};
@@ -18,6 +20,8 @@ class missions_config {
 		class task {
 			name = "";
 			description = "";
+			tasktype = "";
+			taskmarker = "";
 		};
 		class location {
 			areas[] = {QGVAR(town),QGVAR(industrie),QGVAR(military),QGVAR(other)};

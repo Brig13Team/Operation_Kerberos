@@ -77,7 +77,7 @@ _task_desc = localize(format[LSTRING(TASKDESC_BLANK),toUpper(_task)]);
 [_task_name,[_task_desc],_taskpic,true] spawn EFUNC(interface,disp_info_global);
 
 #ifdef DEBUG_MODE_FULL
-	[_position,"CENTERPOS"] call EFUNC(common,debug_marker_create);
+	[_centerposition,"CENTERPOS"] call EFUNC(common,debug_marker_create);
 #endif
 /// taskhandler
 private "_sucess";
