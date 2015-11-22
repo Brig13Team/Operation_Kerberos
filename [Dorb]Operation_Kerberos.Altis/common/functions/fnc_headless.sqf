@@ -25,7 +25,7 @@ _groups = GVAR(headless_groups);
 _groups = [];
 
 {
-	If (side _x != EGVAR(main,playerside)) then {
+	If (side _x != GVARMAIN(playerside) ) then {
 		If (((groupOwner _x) < 3)&&(!(GETVAR(_x,EGVAR(mission,istarget),false)))) then {
 			_groups pushBack _x;
 		};

@@ -11,3 +11,4 @@ SCRIPT(debug_marker_create);
 ISNILS(GVARMAIN(debug_marker),[]);
 
 GVARMAIN(debug_marker) TILGE;
+GVARMAIN(debug_marker) = [];

@@ -27,6 +27,7 @@ SETMVAR(GVAR(HQ_Attack_Helicopter),[]);
 SETMVAR(GVAR(HQ_Transport_Helicopter),[]);
 SETMVAR(GVAR(HQ_CAS_Plane),[]);
 SETMVAR(GVAR(HQ_Air_other),[]);
+SETMVAR(GVAR(HQ_Other),[]);
 
 SETMVAR(GVAR(HQ_centerpos),[]);
 

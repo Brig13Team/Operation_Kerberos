@@ -45,6 +45,8 @@ params[
         ["_afterCheck",{},[{},""]],
         ["_afterCheckArgs",[],[[]]]
     ];
+TRACEV_7(_intervall,_task,_condition,_conditionArgs,_conditionSucess,_onSucess,_onFailure);
+TRACEV_3(_args,_afterCheck,_afterCheckArgs);
 private["_isTask","_cancel","_taskhandling","_state"];
 _cancel=false;
 /// Optional: Taskname/taskID

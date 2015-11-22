@@ -12,9 +12,9 @@
 */
 #include "script_component.hpp"
 SCRIPT(init_mission);
-private ["_radarpos","_radars"]
+private ["_radarpos","_radars"];
 _radarpos = [];
-_radars = GETVAR(GVAR(hq_radars),[]);
+_radars = GETMVAR(GVAR(hq_radars),[]);
 CHECK(_radars isEqualTo [])
 {if !(alive _x) then {_x = objNull;}else{_radarpos pushBack (getPos _x);};} forEach _radars;
 _radars = _radars - objNull;

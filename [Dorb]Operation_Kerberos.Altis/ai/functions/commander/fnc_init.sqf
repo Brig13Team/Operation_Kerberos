@@ -47,7 +47,7 @@ for "_i" from 0 to (_difficulty + 1) do {
 	_commander = (_return select 0);
 	_commander setFuel 0;
 	_commander lock 3;
-	If (EGVAR(main,playerside) == east) then {
+	If (GVARMAIN(playerside)  == east) then {
 		[_commander,1] spawn rhs_fnc_fmtv_Deploy;
 	}else{
 		[_commander,1,true] spawn RHS_fnc_gaz66_radioDeploy;

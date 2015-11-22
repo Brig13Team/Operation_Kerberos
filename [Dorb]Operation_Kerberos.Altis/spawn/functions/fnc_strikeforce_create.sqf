@@ -20,7 +20,7 @@ SCRIPT(strikeforce_create);
 params["_centerposition",["_amount",0,[0]],["_radius",600,[0]]];
 
 for "_i" from 0 to _amount do {
-	private["_rad","_pos","_spawnpos","_grouptype","_group","_formation"];
+	private["_rad","_pos","_spawnpos","_grouptype","_formation"];
 	_rad = ((random 600) + 200);
 	_pos = [_position,_radius,0] call EFUNC(common,pos_random);
 	_spawnpos = _pos findEmptyPosition [1,40];
@@ -29,7 +29,9 @@ for "_i" from 0 to _amount do {
 	if (_spawnpos isEqualTo []) then {
 		ERROR("Keine Spawnposition");
 	}else{
+		private["_group"];
 		_group = [_spawnpos, _grouptype] call FUNC(group);
+		LOG_3(_group,_spawnpos,_grouptype);
 		[_group] call EFUNC(ai,hq_registerGroup);
 	};
 };

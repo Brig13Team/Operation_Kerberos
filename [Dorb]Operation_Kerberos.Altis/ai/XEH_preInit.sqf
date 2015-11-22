@@ -20,7 +20,14 @@ PREPS(fdc,observer);
 PREPS(fdc,placeOrder);
 PREPS(fdc,register);
 
-
-
-
+PREPS(hq,check_radars);
+PREPS(hq,dangerzone_buffer);
+PREPS(hq,handle);
+PREPS(hq,init);
+PREPS(hq,init_mission);
+PREPS(hq,killed);
+PREPS(hq,recon);
+PREPS(hq,registerALLGroups);
+PREPS(hq,registerGroup);
+PREPS(hq,reset);
 ADDON = true;

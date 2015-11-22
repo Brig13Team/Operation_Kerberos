@@ -22,7 +22,7 @@ for "_i" from 0 to (count _config)-1 do {
 };
 
 _task = ([_taskarray,1] call EFUNC(common,sel_array_weighted))select 0;
-
+TRACEV_2(_taskarray,_task);
 /// choose the army
 _armys = getArray(missionconfigfile>>"missions_config">>"main">>_task>>"armys");
 _army = ([_armys,1] call EFUNC(common,sel_array_weighted))select 0;

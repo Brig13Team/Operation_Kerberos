@@ -18,7 +18,7 @@ private["_allGroups"];
 _allGroups = allGroups;
 
 {
-	if ((!(GETVAR(_x,GVAR(HQ_registered),false)))&&{side _x!= EGVAR(main,playerside)}) then {
+	if ((!(GETVAR(_x,GVAR(HQ_registered),false)))&&{side _x!= GVARMAIN(playerside) }) then {
 		[_x] call FUNC(registerGroup);
 	};
 }forEach _allGroups;

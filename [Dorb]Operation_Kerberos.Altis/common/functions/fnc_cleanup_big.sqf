@@ -14,7 +14,7 @@ TRACEV_2(_pos,_rad);
 
 {_x TILGE;} foreach (_pos nearObjects ["ALL", _rad]); ///hier west rausnehmen
 {_x TILGE;} forEach allMines;
-{if (side _x != EGVAR(main,playerside)) then {_x TILGE;};} foreach allunits;
+{if (side _x != GVARMAIN(playerside) ) then {_x TILGE;};} foreach allunits;
 
 {if (!(alive _x)) then {_x TILGE;};} foreach vehicles;
 {_x TILGE;} forEach allDead;

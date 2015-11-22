@@ -6,7 +6,7 @@
 */
 #include "script_component.hpp"
 SCRIPT(createlist);
-If (EGVAR(main,playerside) == east) exitWith {[] spawn FUNC(spawn_createlist_east);};
+If (GVARMAIN(playerside)  == east) exitWith {[] spawn FUNC(spawn_createlist_east);};
 private["_spawnliste_ace","_spawnliste_ammo","_spawnliste_bwmat","_spawnliste_drohne","_spawnliste_fahrzeug_bewaffnet",
         "_spawnliste_fahrzeug_unbewaffnet","_spawnliste_fia","_spawnliste_heli","_spawnliste_jet","_spawnliste_logistikheli",
         "_spawnliste_marine","_spawnliste_material","_spawnliste_panzer","_spawnliste_statisch","_spawnliste_submarine","_spawnliste_support",

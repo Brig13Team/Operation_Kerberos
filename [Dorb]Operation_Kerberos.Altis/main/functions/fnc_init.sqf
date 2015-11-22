@@ -20,12 +20,12 @@ GVAR(mods_bwa) = (isClass(configFile >> "CfgPatches" >> "BWA3_Tracked"));
 
 /// initialize SIDES
 IF (isNil QGVAR(playerside)) then {
-	GVAR(playerside) = west;
+	GVARMAIN(playerside) = west;
 };
 
-If (GVAR(playerside) == west) then {
+If (GVARMAIN(playerside) == west) then {
 	GVARMAIN(respawnmarker) = "respawn_west";
-	GVARMAIN(side) = "east";
+	GVARMAIN(side) = east;
 	CIVILIAN setFriend [WEST, 1];
 
 	WEST setFriend [CIVILIAN, 1];
@@ -40,9 +40,9 @@ If (GVAR(playerside) == west) then {
 	INDEPENDENT setFriend [WEST, 0];
 	INDEPENDENT setFriend [EAST, 1];
 };
-If (GVAR(playerside) == east) then {
+If (GVARMAIN(playerside) == east) then {
 	GVARMAIN(respawnmarker) = "respawn_east";
-	GVARMAIN(side) = "west";
+	GVARMAIN(side) = west;
 	CIVILIAN setFriend [EAST, 1];
 
 	WEST setFriend [CIVILIAN, 1];

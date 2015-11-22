@@ -20,12 +20,12 @@ If (_count < 0) then {
 	_shell = "";
 	// Get Units near Target
 	_nearUnits = _attack_pos nearEntities ["Man", 70];   //// artillery is placed around AO -> scatter around 100m
-	_nearEnemy = {((side _x == EGVAR(main,playerside))&&(!(vehicle _x isKindOf "Air")))} count _nearUnits;
+	_nearEnemy = {((side _x == GVARMAIN(playerside) )&&(!(vehicle _x isKindOf "Air")))} count _nearUnits;
 	_nearFriendly = {((side _x == dorb_side)&&(!(vehicle _x isKindOf "Air")))} count _nearUnits;
 	
 	// Choose Ammunition
 	_enemy = ObjNull;
-	{If ((side _x == EGVAR(main,playerside))&&((vehicle _x ) isKindOf "LandVehicle")) exitWith {_enemy = _x;};}forEach (_attack_pos nearEntities ["Man", 20]);
+	{If ((side _x == GVARMAIN(playerside) )&&((vehicle _x ) isKindOf "LandVehicle")) exitWith {_enemy = _x;};}forEach (_attack_pos nearEntities ["Man", 20]);
 	If (!isNull _enemy) then {
 		/// AttackVehicle
 		_rand = floor(random 3);

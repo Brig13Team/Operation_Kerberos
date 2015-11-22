@@ -17,7 +17,7 @@
 */
 #include "script_component.hpp"
 SCRIPT(patrol_create);
-params["_position",["_radius",1200,[0]],["_amount",0,[0]]];
+params["_position",["_amount",0,[0]],["_radius",1200,[0]]];
 
 for "_i" from 0 to _amount do {
 	private["_rad","_pos","_spawnpos","_grouptype","_group","_formation"];

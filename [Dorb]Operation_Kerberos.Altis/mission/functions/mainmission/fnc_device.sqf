@@ -13,7 +13,7 @@
 #include "script_component.hpp"
 SCRIPT(device);
 _this params [["_position",[],[[]],[2,3]]];
-TRACEV_1(_position)
+TRACEV_1(_position);
 CHECK(_position isEqualTo [])
 /********************
 	create Target
@@ -46,7 +46,10 @@ for "_i" from 1 to _rand do{
 {
 	_x setdamage 0;
 	SETVAR(_x,GVAR(target_dead),false);
-	_x addEventHandler ["HandleDamage", {_this call EFUNC(common,handledamage_C4);}];	
+	_x addEventHandler ["HandleDamage", {_this call EFUNC(common,handledamage_C4);}];
+	#ifdef DEBUG_MODE_FULL
+		[getPos _x,"DEVICE","ColorBlack","hd_destroy"] call EFUNC(common,debug_marker_create);
+	#endif
 } forEach _targets;
 
 /********************

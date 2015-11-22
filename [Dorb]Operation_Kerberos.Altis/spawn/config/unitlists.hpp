@@ -236,6 +236,7 @@ class unitlists {
 	class east {
 		class regular : base {
 			prototyp[] = {"B_MBT_01_TUSK_F","B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F"};
+			commander[] = {"rhs_vdv_officer"};
 			hq_mobile[] = {"rhs_gaz66_r142_vdv"};
 			weaponcache[] = {"Box_IND_Wps_F","Box_IND_WpsSpecial_F","Box_IND_WpsLaunch_F","Box_IND_Ammo_F","Box_IND_Grenades_F","Box_IND_Support_F"};
 			
@@ -276,6 +277,12 @@ class unitlists {
 				{"missionconfigfile","unitlists","east","regular","groups","patrol_E4_05"},
 				{"missionconfigfile","unitlists","east","regular","groups","patrol_E4_06"},
 				{"missionconfigfile","unitlists","east","regular","groups","patrol_E3_01"}
+			};
+			group_strikeforce[] = {
+				{"missionconfigfile","unitlists","east","regular","groups","patrol_E4_01"}
+			};
+			group_defence[] = {
+				{"missionconfigfile","unitlists","east","regular","groups","patrol_E4_01"}
 			};
 		};
 		class armored : regular {

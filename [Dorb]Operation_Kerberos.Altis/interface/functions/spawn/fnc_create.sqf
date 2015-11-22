@@ -50,7 +50,7 @@ if((_vclass in ["rhs_vehclass_ifv","rhs_vehclass_tank","rhs_vehclass_artillery",
 
 If (((_flyingpos distance [0,0,0])>1)&&(_vehiclewahl isKindOf "Plane_Base_F")) then {
     _flyingpos set [2,2000];
-    _vehiclearray = [_flyingpos, (markerDir "air_spawn_flying"), _vehiclewahl, EGVAR(main,playerside)] call bis_fnc_spawnvehicle;
+    _vehiclearray = [_flyingpos, (markerDir "air_spawn_flying"), _vehiclewahl, GVARMAIN(playerside) ] call bis_fnc_spawnvehicle;
     _vehicle = _vehiclearray select 0;
 }else{
     _vehicle = createVehicle [_vehiclewahl, _spawnpos, [], 0 , "NONE"];

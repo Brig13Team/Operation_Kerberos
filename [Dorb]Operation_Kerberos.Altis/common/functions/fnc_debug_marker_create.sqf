@@ -20,7 +20,7 @@ if (IS_ARRAY(_target)) then {
 }else{
 	private["_pre","_post"];
 	If (IS_GROUP(_target)) then {_target = (leader _target);};
-	
+
 	_position = getPos _target;
 	_color = switch (side _target) do {
 		case (west) : 		{"ColorBLUFOR"};

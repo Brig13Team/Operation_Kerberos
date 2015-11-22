@@ -1,4 +1,5 @@
 #define COMPONENT ai
-#include "..\script_mission.hpp"
+#define DEBUG_MODE_FULL
 
-#define DEBUG_MODE_NORMAL
+
+#include "..\script_mission.hpp"

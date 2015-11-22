@@ -27,7 +27,7 @@ _ret = [];
 _objects = nearestObjects [_position, ["Car","Tank","Man"], _radius];
 
 {
-	if ((side _x != EGVAR(main,playerside)) && (side _x != civilian) && !(_x in _ret)) then {
+	if ((side _x != GVARMAIN(playerside) ) && (side _x != civilian) && !(_x in _ret)) then {
 		_ret pushBack _x;
 	};
 } forEach _objects;

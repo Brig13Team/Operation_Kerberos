@@ -13,7 +13,7 @@
 #include "script_component.hpp"
 SCRIPT(Scarab);
 _this params [["_position",[],[[]],[2,3]]];
-TRACEV_1(_position)
+TRACEV_1(_position);
 CHECK(_position isEqualTo [])
 /********************
 	create Target
@@ -88,6 +88,9 @@ private ["_crew"];
 		_x disableAI "AIMINGERROR";
 		_x disableAI "SUPPRESSION";
 	}forEach _crew;
+	#ifdef DEBUG_MODE_FULL
+		[getPos _x,"SCARAB","ColorBlack","hd_destroy"] call EFUNC(common,debug_marker_create);
+	#endif
 } forEach _targets;
 
 /********************

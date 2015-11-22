@@ -13,7 +13,7 @@
 #include "script_component.hpp"
 SCRIPT(prototype);
 _this params [["_position",[],[[]],[2,3]]];
-TRACEV_1(_position)
+TRACEV_1(_position);
 CHECK(_position isEqualTo [])
 /********************
 	create Target
@@ -44,7 +44,12 @@ for "_i" from 1 to _rand do{
 	add scriped EH
 ********************/
 GVAR(rescue_counter) = 0;
-{[_x,QGVAR(rescuepoint),(QUOTE(INC(GVAR(rescue_counter));)+"{moveout _x}forEach (crew (_this select 0)); uisleep 0.3; deleteVehicle (_this select 0);")] call BIS_fnc_addScriptedEventHandler;}forEach _targets;
+{
+	#ifdef DEBUG_MODE_FULL
+		[getPos _x,"PROTOTYPE","ColorBlack","hd_destroy"] call EFUNC(common,debug_marker_create);
+	#endif
+	[_x,QGVAR(rescuepoint),(QUOTE(INC(GVAR(rescue_counter));)+"{moveout _x}forEach (crew (_this select 0)); uisleep 0.3; deleteVehicle (_this select 0);")] call BIS_fnc_addScriptedEventHandler;	
+}forEach _targets;
 
 /********************
 	taskhandler

@@ -38,7 +38,7 @@ if (isNil QGVARMAIN(side)) then {
 };
 
 private "_path";
-_path = (missionConfigFile >> "unitlists" >> GVARMAIN(side) >> GVARMAIN(side_type));
+_path = (missionConfigFile >> "unitlists" >> str GVARMAIN(side) >> GVARMAIN(side_type));
 
 
 GVAR(list_crewmen) = getArray(_path >> "crewmen");
