@@ -26,30 +26,22 @@ Unterstützt von Maverick (Stellungsdesign), Cypherstalker (Übersetzungen), Kiw
 <li>Drohnenkommando
 </ul>
 #####Gegner:<ul>
-<li>Infanteriepatroullien
-<li>Infanterie in Gebäuden
-<li>Statische Geschütze
-<li>Fahzeugpatroullien
-<li>Wasserpatroullien
-<li>ACE-Minenfelder
-<li>Diverse Befestigte Stellungen (Mörser, Militärtürme, Bunker, AA)
+<li>Infanteriepatroullien</li>
+<li>Infanterie in Gebäuden</li>
+<li>Statische Geschütze</li>
+<li>Fahzeugpatroullien</li>
+<li>Wasserpatroullien</li>
+<li>ACE-Minenfelder</li>
+<li>Diverse Befestigte Stellungen (Mörser, Militärtürme, Bunker, AA)</li>
 </ul>
-#####Gegnerischer Kommandant:<ul>
-<li>Kommandant (ist im FQH stationiert) befehligt:<ul>
-<li>Motorisierte Infanterie<ul>Fahrzeug bringt Infanterie in das Einsatzgebiet, sitzt ab und greift an</ul></li>
-<li>Scharfschützen<ul>Fahrzeug bringt Schafschützen ins Einsatzgebiet, sitzen ab und greifen an</ul></li>
-<li>Panzer<ul>Panzer greifen die Posistion an</ul></li>
-<li>Helikopter<ul>Helikopter greift größere Verbände an</ul></li>
-<li>Fallschirmspringer<ul>Fallschirmjäger werden über der Posistion abgesetzt</ul></li>
-<li>AI (Air Interception)<ul><li>fordert mit Hilfe eines Radars Abfangjäger an</li>
-<li>Reichweite 5 km</li>
-<li>Radar braucht direkte Sicht zum Helikopter/Flugzeug</li>
-<li>1 Abfangjäger pro Radar</li></ul></li>
-<li>Artillerie<ul><li>Koordiniert die 3 Artilleriegeschütze im Gebiet</li>
-<li>Fordert bei Bedarf Artillerieschlag</li>
-<li>Wählt automatisch den passenden Munitionstyp</li>
-<li>Kann Rauchunterstützung geben</li></ul></li>
-</ul></ul>
+#####Gegnerischer Kommandant[virtuell]:
+Gegnerischer Kommandant hat Befehl über Angriffsstreitkräte und setzt diese zur Verteidigung ein. Zusätzlich hat er die Kontrolle über:<ul>
+<li>FDC(fire direction center)</li>
+<li>Dronensteuerung</li>
+<li>Air Interception</li>
+<li>"Call In" Einheiten</li>
+<li>CAS</li>
+</ul>
 #####Basis<ul>
 <li>Fahrzeugspawns</li>
 <li>Halo (bei wenigen Spielern)</li>
