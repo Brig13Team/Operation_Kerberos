@@ -18,7 +18,7 @@
 	[_vehicle,_crew,_group]
 */
 #include "script_component.hpp"
-params[["_position",[],[[]],[2,3]],["_group",grpNull,[grpNull,east]],["_unittype","",[""]],["_direction",(360),[0]],["_withcrew",true,[true]],["_precisePos",true,[true]],["_special","NONE",[""]]];
+params[["_position",[],[[]],[2,3]],["_group",grpNull,[grpNull,east]],["_unittype","",[""]],["_direction",(random 360),[0]],["_withcrew",true,[true]],["_precisePos",true,[true]],["_special","NONE",[""]]];
 TRACEV_6(_position,_unittype,_group,_direction,_withcrew,_precisePos,_special);
 private["_changeleader"];
 _changeleader=false;
@@ -57,9 +57,9 @@ if (_simulation == "airplanex") then {
 	_vehicle setVelocity [100 * (sin _direction), 100 * (cos _direction), 0];
 };
 
-_crew = [_vehicle] call FUNC(crew);
+_group = [_vehicle,_group] call FUNC(crew);
 
 if (_changeleader) then {
 	_group selectLeader (commander _vehicle);
 };
-[_group,_vehicle,_crew]
+[_group,_vehicle]

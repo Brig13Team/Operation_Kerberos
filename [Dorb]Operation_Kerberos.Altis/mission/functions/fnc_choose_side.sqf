@@ -49,6 +49,6 @@ for "_i" from 0 to (count _config)-1 do {
 		};
 		_delay_spawn = (getnumber(missionconfigfile>>"missions_config">>"main">>_taskMAIN>>"sidemissions">>(_x select 0)>>"delay_spawn")) max 1;
 		_delay_reveal = getnumber(missionconfigfile>>"missions_config">>"main">>_taskMAIN>>"sidemissions">>(_x select 0)>>"delay_reveal");
-		[QUOTE(_this spawn FUNC(side_create)),[_taskMAIN,_type,_position,format["%1_%2",_taskID,(_forEachIndex)],_delay_reveal],_delay_spawn] call EFUNC(common,waitandexec);
+		[QUOTE(_this spawn FUNC(side_create)),[_taskMAIN,_positionMain,_type,_position,format["%1_%2",_taskID,(_forEachIndex)],_delay_reveal],_delay_spawn] call EFUNC(common,waitandexec);
 	};
 }forEach _taskarray;

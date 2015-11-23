@@ -29,6 +29,8 @@ PREPS(mainmission,scarab_launch);
 PREPS(mainmission,tower);
 PREPS(mainmission,weaponcaches);
 
+PREPS(sidemission,convoi);
 PREPS(sidemission,create);
+
 
 ADDON = true;

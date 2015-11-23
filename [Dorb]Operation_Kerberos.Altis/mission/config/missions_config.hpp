@@ -31,6 +31,7 @@ class missions_config {
 		armys[] = {{"regular",1},{"armored",1},{"infanterie",1},{"airborne",1},{"specops",1},{"droneoperations",1},{"guards",1}};
 	};
 	class side_arty : side_base {
+		type = "artillery";
 		class location : location {
 			areas[] = {QGVAR(industrie),QGVAR(military),QGVAR(other)};
 			distance = 2000;
@@ -39,11 +40,22 @@ class missions_config {
 		delay_reveal = 900; // delay until the mission is revealed
 	};
 	class side_ugv : side_base {
+		type = "ugv";
 		class location : location {
 			areas[] = {QGVAR(water),QGVAR(military),QGVAR(other)};
 			distance = 500;
 		};
 	};
+	class side_convoi : side_base {
+		type = "convoi";
+		class location : location {
+			areas[] = {QGVAR(water),QGVAR(military),QGVAR(other)};
+			distance = 200;
+		};
+		delay_spawn = 600;
+		delay_reveal = 60;
+	};
+	
 	class main {
 		class scarab : main_base {
 			class task {
@@ -53,6 +65,8 @@ class missions_config {
 			class sidemissions : side_base {
 				class artillery : side_arty {};
 				class ugv : side_ugv{};
+				class convoi1 : side_convoi {};
+				class convoi2 : side_convoi {delay_spawn = 1200;};
 			};
 		};
 		class tower : main_base {

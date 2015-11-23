@@ -42,15 +42,17 @@ for "_i" from 1 to (_vehicle emptyPositions "Commander") do {
 	_crew pushBack _unit;
 };
 
-If (_withCargo) then {
+If (_withCargo) exitWith {
 	private ["_platzanzahl"];
 	_platzanzahl = _vehicle emptyPositions "cargo";
+	_group2 = createGroup GVARMAIN(side);
 	for "_i" from 0 to (_platzanzahl - 1) do {
 		_crewmen = GVAR(list_soldiers) SELRND;
-		_unit = _gruppe createUnit [_crewmen, [0,0,500], [], 0, "NONE"];
+		_unit = _group2 createUnit [_crewmen, [0,0,500], [], 0, "NONE"];
 		_unit assignAsCargo _vehicle;
 		_unit moveInCargo _vehicle;
 		_crew pushBack _unit;
 	};
+	[_crew,_group2]
 };
-_crew
+[_crew]
