@@ -60,6 +60,7 @@ class missions_config {
 		delay_reveal = 60;
 	};
 	class side_radar : side_base {
+		type = "radar";
 		class location {
 			areas[] = {}; /// empty array leads to position of Main Target
 			distance = 600;
