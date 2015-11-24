@@ -12,26 +12,30 @@
 */
 #include "script_component.hpp"
 SCRIPT(init_mission);
-_this params[["_type","standard",[""]]];
+_this params[["_centerposition",[],[[]],[2,3]]];
 TRACEV_1(_type);
 
 GVAR(hq_aktive) = false;
 
-
-GVAR(hq_callInArray) = switch (_type) do {
-					//	infanterie	tanks	mech.	airdrop	attheli	plane	boat		fortifications	
-	case "_test" : 	{[]};
-	default 			{[	50,			10,		7,		7,		2,		10,		5,		8	];};
-
-};
-_multiplikator = 1; /// TODO
-
-GVAR(hq_callInArray) = MAP(format["_this * %1",_multiplikator],GVAR(hq_callInArray));
-
-
 [] call FUNC(reset);
 
+uisleep 15;
 
+SETMVAR(GVAR(HQ_centerpos),_centerposition);
+
+private["_armored","_cas","_motorized","_airborne","_airinterception","_fortifications"];
+_airborne = getNumber(missionconfigfile>>"unitlists">>str GVARMAIN(side)>>GVARMAIN(side_type)>>"callIn">>"airborne");
+_airinterception = getNumber(missionconfigfile>>"unitlists">>str GVARMAIN(side)>>GVARMAIN(side_type)>>"callIn">>"airinterception");
+_armored = getNumber(missionconfigfile>>"unitlists">>str GVARMAIN(side)>>GVARMAIN(side_type)>>"callIn">>"armored");
+_cas = getNumber(missionconfigfile>>"unitlists">>str GVARMAIN(side)>>GVARMAIN(side_type)>>"callIn">>"cas");
+_fortifications = getNumber(missionconfigfile>>"unitlists">>str GVARMAIN(side)>>GVARMAIN(side_type)>>"callIn">>"fortifications");
+_motorized = getNumber(missionconfigfile>>"unitlists">>str GVARMAIN(side)>>GVARMAIN(side_type)>>"callIn">>"motorized");
+
+GVAR(hq_callInArray) = [_airborne,_airinterception,_armored,_cas,_fortifications,_motorized];
+
+
+
+GVAR(hq_aktive) = true;
 
 
 

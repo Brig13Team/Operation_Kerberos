@@ -22,13 +22,13 @@ CHECK((GETMVAR(GVAR(HQ_centerpos),[]) isEqualTo []))
 //// remove dead groups
 {
 	private "_temp";
-	_temp = GETMVAR(_x,[]);
+	_temp = missionnamespace getVariable [_x,[]];
 	_temp = _temp - grpNull;
-	SETMVAR(_x,_temp);
-} forEach [GVAR(HQ_Other),GVAR(HQ_marine),GVAR(HQ_Car),
-			GVAR(HQ_Drone),GVAR(HQ_Tank),GVAR(HQ_Infanterie),
-			GVAR(HQ_Attack_Helicopter),GVAR(HQ_Transport_Helicopter),
-			GVAR(HQ_CAS_Plane),GVAR(HQ_Air_other)];
+	missionnamespace setVariable [_x,_temp];
+} forEach [QGVAR(HQ_Other),QGVAR(HQ_marine),QGVAR(HQ_Car),
+			QGVAR(HQ_Drone),QGVAR(HQ_Tank),QGVAR(HQ_Infanterie),
+			QGVAR(HQ_Attack_Helicopter),QGVAR(HQ_Transport_Helicopter),
+			QGVAR(HQ_CAS_Plane),QGVAR(HQ_Air_other)];
 
 
 
