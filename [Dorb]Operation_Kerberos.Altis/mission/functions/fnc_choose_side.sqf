@@ -32,9 +32,19 @@ for "_i" from 0 to (count _config)-1 do {
 		if (_positiontypes isEqualTo []) then {
 			_position = [_positionMain,_distance,0] call EFUNC(common,pos_random);
 		}else{
+			private ["_positionsArray","_minDistance","_maxDistance"];
+			_positionsArray = [];
+			_minDistance = getnumber(missionconfigfile>>"missions_config">>"main">>_taskMAIN>>"sidemissions">>(_x select 0)>>"location">>"areas_minDistance");
+			_maxDistance = getnumber(missionconfigfile>>"missions_config">>"main">>_taskMAIN>>"sidemissions">>(_x select 0)>>"location">>"areas_maxDistance");
 			if ("water" in _positiontypes) then {
 				_positions pushBack (missionnamespace getVariable ["_water",[]]);
 				CHECK(_positions isEqualTo [])
+				{
+					if (((_x select 1) distance _positionMain)>_minDistance)&&(((_x select 1) distance _positionMain)<_maxDistance) then {
+						_positionsArray pushBack _x;
+					};
+				} forEach _positions;
+				_position = (_positionsArray SELRND)select 1;
 				_position = [_position,_distance,3] call EFUNC(common,pos_random);
 			}else{
 				private "_positions";
@@ -43,7 +53,12 @@ for "_i" from 0 to (count _config)-1 do {
 					_positions pushBack (missionnamespace getVariable [_x,[]]);
 				}forEach _positiontypes;
 				CHECK(_positions isEqualTo [])
-				_position = (_positions SELRND)select 0;
+				{
+					if (((_x select 1) distance _positionMain)>_minDistance)&&(((_x select 1) distance _positionMain)<_maxDistance) then {
+						_positionsArray pushBack _x;
+					};
+				} forEach _positions;
+				_position = (_positionsArray SELRND)select 1;
 				_position = [_position,_distance,0] call EFUNC(common,pos_random);
 			};
 		};

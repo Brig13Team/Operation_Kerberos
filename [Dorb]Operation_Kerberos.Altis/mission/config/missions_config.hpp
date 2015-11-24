@@ -11,6 +11,8 @@ class missions_config {
 		class location {
 			areas[] = {QGVAR(town),QGVAR(industrie),QGVAR(military),QGVAR(other)};
 			distance = 500;
+			areas_minDistance = 500;
+			areas_maxDistance = 2500;
 		};
 		delay_spawn = 600;
 		delay_reveal = 300;
@@ -34,10 +36,12 @@ class missions_config {
 		type = "artillery";
 		class location : location {
 			areas[] = {QGVAR(industrie),QGVAR(military),QGVAR(other)};
-			distance = 2000;
+			distance = 500;
+			areas_minDistance = 3000;
+			areas_maxDistance = 25000;
 		};
 		delay_spawn = 0;
-		delay_reveal = 900; // delay until the mission is revealed
+		delay_reveal = 1800; // delay until the mission is revealed
 	};
 	class side_ugv : side_base {
 		type = "ugv";
@@ -55,7 +59,15 @@ class missions_config {
 		delay_spawn = 600;
 		delay_reveal = 60;
 	};
-	
+	class side_radar : side_base {
+		class location {
+			areas[] = {}; /// empty array leads to position of Main Target
+			distance = 600;
+		};
+		delay_spawn = 1;
+		delay_reveal = 1;
+		probability = 1;
+	};
 	class main {
 		class scarab : main_base {
 			class task {
