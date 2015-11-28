@@ -47,7 +47,7 @@ _taskarray append _temp;
 
 ///// spawn units
 
-//[] call EFUNC(ai,hq_init_mission);
+//[] call EFUNC(ai,init_mission);
 
 _isTown = {((_x select 0)==_location)} count GVAR(town);
 if (_isTown>0) then{

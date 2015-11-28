@@ -14,11 +14,11 @@
 SCRIPT(init_mission);
 private ["_radarpos","_radars"];
 _radarpos = [];
-_radars = GETMVAR(GVAR(hq_radars),[]);
+_radars = GETMVAR(GVAR(radars),[]);
 CHECK(_radars isEqualTo [])
 {if !(alive _x) then {_x = objNull;}else{_radarpos pushBack (getPos _x);};} forEach _radars;
 _radars = _radars - objNull;
-SETVAR(GVAR(hq_radars),_radars);
+SETVAR(GVAR(radars),_radars);
 
 
 private ["_players","_targets"];
@@ -40,5 +40,5 @@ _players = [] call EFUNC(common,players);
 	
 } forEach _radars;
 
-GVAR(hq_airtargets)=_targets;
+GVAR(airtargets)=_targets;
 

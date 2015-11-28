@@ -66,7 +66,7 @@ If ((_markerpos distance [0,0,0])>1) then {
 };
 */
 
-[] call EFUNC(ai,hq_init);
+[] call EFUNC(ai,init);
 
 uisleep 20;
 

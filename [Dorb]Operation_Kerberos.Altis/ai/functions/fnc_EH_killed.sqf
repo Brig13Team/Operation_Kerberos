@@ -41,10 +41,10 @@ _this spawn {
 		If ((!isNull _x)&&{alive _x}) exitWith {
 			If ((_x knowsAbout _killer)>2) then {
 				/// call support
-				[_killer,_x] call FUNC(hq_killed);
+				[_killer,_x] call FUNC(killed);
 			}else{
 				/// call recon
-				[_killer,_x] call FUNC(hq_recon);
+				[_killer,_x] call FUNC(recon);
 			};
 		};
 	}forEach _messagingUnits;

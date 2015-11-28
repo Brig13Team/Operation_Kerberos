@@ -16,17 +16,17 @@ SCRIPT(init);
 #define INTERVALL_RADARS 20
 #define INTERVALL_BUFFER 2
 
-GVAR(hq_aktive) = true;
-GVAR(hq_definitions) = [2000,125];
-GVAR(hq_definitions) pushBack ((GVAR(hq_definitions) select 0)/(GVAR(hq_definitions) select 1));
+GVAR(aktive) = true;
+GVAR(definitions) = [2000,125];
+GVAR(definitions) pushBack ((GVAR(definitions) select 0)/(GVAR(definitions) select 1));
 
-GVAR(hq_dangerzones) = [(GVAR(hq_definitions) select 2)] call EFUNC(common,matrix_create);
+GVAR(dangerzones) = [(GVAR(definitions) select 2)] call EFUNC(common,matrix_create);
 
-[] call FUNC(HQ_reset);
+[] call FUNC(reset);
 
 [
 	{
-		_this call FUNC(hq_handle);
+		_this call FUNC(handle);
 	},
 	INTERVALL_HQ,
 	[]
@@ -34,7 +34,7 @@ GVAR(hq_dangerzones) = [(GVAR(hq_definitions) select 2)] call EFUNC(common,matri
 
 [
 	{
-		_this call FUNC(hq_dangerzone_buffer);
+		_this call FUNC(dangerzone_buffer);
 	},
 	INTERVALL_BUFFER,
 	[]
@@ -42,7 +42,7 @@ GVAR(hq_dangerzones) = [(GVAR(hq_definitions) select 2)] call EFUNC(common,matri
 
 [
 	{
-		_this call FUNC(hq_check_radars);
+		_this call FUNC(check_radars);
 	},
 	INTERVALL_RADARS,
 	[]

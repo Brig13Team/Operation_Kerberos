@@ -21,8 +21,8 @@ _killerpos = _caller gethidefrom _killer;
 
 If ((_killerpos distance [0,0,0])<1) exitWith {};
 
-_x_pos = floor(_killerpos - (GVAR(HQ_centerpos) select 0 - (GVAR(hq_definitions) select 0)));
-_y_pos = floor((GVAR(HQ_centerpos) select 0 + (GVAR(hq_definitions) select 0)) - _killerpos);
+_x_pos = floor(_killerpos - (GVAR(centerpos) select 0 - (GVAR(definitions) select 0)));
+_y_pos = floor((GVAR(centerpos) select 0 + (GVAR(definitions) select 0)) - _killerpos);
 
 CHECK((_x_pos<0)||(_y_pos<0))
 
@@ -34,4 +34,4 @@ _value = switch (true) do {
 	default {4};
 };
 
-GVAR(hq_buffer) pushBack [_x_pos,_y_pos,_value];
+GVAR(buffer) pushBack [_x_pos,_y_pos,_value];

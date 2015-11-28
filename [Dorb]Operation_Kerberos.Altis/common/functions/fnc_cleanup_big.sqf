@@ -10,7 +10,7 @@ SCRIPT(cleanup_big);
 _this params ["_pos","_rad"];
 TRACEV_2(_pos,_rad);
 
-[] spawn EFUNC(ai,HQ_reset);
+[] spawn EFUNC(ai,reset);
 
 {_x TILGE;} foreach (_pos nearObjects ["ALL", _rad]); ///hier west rausnehmen
 {_x TILGE;} forEach allMines;

@@ -32,7 +32,7 @@ for "_i" from 0 to _amount do {
 		private["_group"];
 		_group = [_spawnpos, _grouptype] call FUNC(group);
 		LOG_3(_group,_spawnpos,_grouptype);
-		[_group] call EFUNC(ai,hq_registerGroup);
+		[_group] call EFUNC(ai,registerGroup);
 	};
 };
 

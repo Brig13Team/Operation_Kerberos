@@ -30,6 +30,7 @@ for "_i" from 0 to _amount do {
 	}else{
 		_group = [_spawnpos, _grouptype] call FUNC(group);
 		_formation = ["COLUMN","STAG COLUMN","WEDGE","VEE","FILE","DIAMOND"] SELRND;
+		SETPVAR(_group,EGVAR(ai,behavior),'patrol');
 		[_group, _spawnpos, "AWARE", "WHITE", "NORMAL", _formation, "", [5,10,15]] call EFUNC(spawn,patrol_task);
 	};
 };

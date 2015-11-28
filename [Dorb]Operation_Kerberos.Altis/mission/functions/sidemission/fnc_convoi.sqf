@@ -44,6 +44,6 @@ _transportervehicle doMove _positionMain;
 	[_transportervehicle,_positionMain],
 	QUOTE(canMove (_this select 0)),
 	{},
-	QUOTE({unassignVehicle (_x);_x allowDamage false;moveOut _x;uisleep 0.3;_x allowDamage true;}forEach (units (_this select 2));[_this select 1] call EFUNC(ai,hq_registerGroup);[_this select 2] call EFUNC(ai,hq_registerGroup);),
+	QUOTE({unassignVehicle (_x);_x allowDamage false;moveOut _x;uisleep 0.3;_x allowDamage true;}forEach (units (_this select 2));[_this select 1] call EFUNC(ai,registerGroup);[_this select 2] call EFUNC(ai,registerGroup);),
 	[_transportervehicle,_transportergroup,_attackgroup]	
 ]

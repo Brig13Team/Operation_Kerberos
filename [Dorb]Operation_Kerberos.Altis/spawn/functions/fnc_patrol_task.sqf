@@ -55,12 +55,13 @@ _pos = switch (true) do {
 	case ((typeOf (leader _group))isKindOf "Air"): {_temp = [_centerpos,1000,4] call EFUNC(common,pos_random);_temp set [2,500];_temp};
 	case ((typeOf (leader _group))isKindOf "Ship"): {_temp = [_centerpos,1000,3] call EFUNC(common,pos_random);_temp};
 	case ((typeOf (leader _group))in GVAR(list_divers)): {_temp = [_centerpos,1000,3] call EFUNC(common,pos_random);{_x swimInDepth -10;} forEach (units _group);_temp set [2,-10];_temp};
+	case ((vehicle (leader _group))isKindOf "LandVehicle"): {_temp = [_centerpos,1000,0] call EFUNC(common,pos_random);_temp};
 	default {_temp = [_centerpos,1000,0] call EFUNC(common,pos_random);_temp};
 };
 
 CHECK((_pos isEqualTo []))
 
-_statement = QUOTE([this] call FUNC(patrol_task););
+_statement = QUOTE(if (((group _this) getVariable ['EGVAR(ai,behavior)','patrol'])isEqualTo 'patrol') then {[this] call FUNC(patrol_task);}else{[this] call EFUNC(behavior_change);};);
 
 _onComplete = _onComplete + _statement;
 
