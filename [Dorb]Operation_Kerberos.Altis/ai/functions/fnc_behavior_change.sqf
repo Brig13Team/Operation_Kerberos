@@ -22,6 +22,7 @@ switch (_behavior) do {
 	case "attack" : {[_group] call FUNC(behavior_attack);};
 	case "evade" : {[_group] call FUNC(behavior_evade);};
 	case "idle" : {[_group] call FUNC(behavior_idle);};
+	case "retreat" : {[_group] call FUNC(behavior_retreat);};
 };
 
 

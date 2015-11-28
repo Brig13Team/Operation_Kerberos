@@ -2,10 +2,10 @@
 	Author: Dorbedo
 	
 	Description:
-		attacks Position
+		defends Position
 	
 	Parameter(s):
-		0 : GROUP -Group
+		0 : GROUP - Group
 
 	Returns:
 		none
@@ -45,5 +45,5 @@ deleteWaypoint[_group,all];
 
 _statement = QUOTE((group this) setVariable ['GVAR(behavior)','idle'];[this] call FUNC(behavior_change););
 
-[_group, _lastWaypoint, 0, "SAD", "COMBAT", "RED", "FULL", "NO CHANGE", _statement, [3,6,9], 30] call CBA_fnc_addWaypoint;
+[_group, _lastWaypoint, 0, "SENTRY", "COMBAT", "RED", "FULL", "NO CHANGE", _statement, [3,6,9], 30] call CBA_fnc_addWaypoint;
 
