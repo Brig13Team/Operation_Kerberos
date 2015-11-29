@@ -7,7 +7,7 @@
 */
 #include "script_component.hpp"
 SCRIPT(debug_marker_clean);
-_this params [["_target",[],[[],objNull,grpNull],[2,3]],["_text","",[""]],["_color2","",[""]],["_type2","",[""]]];
+_this params [["_target",[],[[],objNull,grpNull],[2,3]],["_text","",[""]],["_color2","",[""]],["_type2","",[""]],["_dir",0,[0]]];
 ISNILS(GVARMAIN(debug_marker),[]);
 
 private["_color","_type","_mark","_position"];
@@ -63,4 +63,5 @@ _mark setMarkerTypeLocal _type;
 If !(_text isEqualTo "") then {
 	_mark setMarkerTextLocal _text;
 };
+_mark setMarkerDir _dir;
 true

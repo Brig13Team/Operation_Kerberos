@@ -41,7 +41,7 @@ class Extended_Hit_EventHandlers {
 
 class Extended_HitPart_EventHandlers {
     #include "player\XEH_hitPart.hpp"
-	#include "bwpatch\XEH_hitPart.hpp"
+    #include "bwpatch\XEH_hitPart.hpp"
 };
 
 class Extended_GetIn_Eventhandlers {

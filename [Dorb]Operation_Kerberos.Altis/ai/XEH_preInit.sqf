@@ -40,4 +40,6 @@ PREP(state_wait);
 PREP(waypoints_add);
 PREP(waypoints_create);
 PREP(waypoints_generate);
+PREP(waypoints_movementcost);
+
 ADDON = true;

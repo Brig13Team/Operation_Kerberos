@@ -128,25 +128,76 @@ for "_i" from _startX to _endX step RASTER do {
 
 _waypoints = _waypoints - [objNull];
 
+
+
+
+{
+	private ["_temp","_value"];
+	_temp = _x getVariable [QGVAR(WP_XP),[objNull,0]];
+	if !(isNull (_temp select 0)) then {
+		_value = [getPos _x,getPos (_temp select 0)] call FUNC(waypoints_movementcost);
+		_x setVariable [QGVAR(WP_XP),_value];
+		(_temp select 0) setVariable [QGVAR(WP_XM),_value];
+		
+		
+		private ["_position","_dir"];
+		//_position = [[getPos _x,getPos (_temp select 0)]] call EFUNC(common,positionsMean);
+		_position = [[(getPos _x)select 0,(getPos (_temp select 0))select 0] call BIS_fnc_arithmeticMean,[(getPos _x)select 1,(getPos (_temp select 0))select 1] call BIS_fnc_arithmeticMean,0];
+		_dir = [_x,(_temp select 0)] call BIS_fnc_relativeDirTo;
+		[_position,format["%1",_value],"ColorGreen","mil_arrow2",_dir] call EFUNC(common,debug_marker_create);
+		
+	};
+	_temp = _x getVariable [QGVAR(WP_YP),[objNull,0]];
+	if !(isNull (_temp select 0)) then {
+		_value = [getPos _x,getPos (_temp select 0)] call FUNC(waypoints_movementcost);
+		_x setVariable [QGVAR(WP_YP),_value];
+		(_temp select 0) setVariable [QGVAR(WP_YM),_value];
+		
+		
+		private ["_position","_dir"];
+		//_position = [[getPos _x,getPos (_temp select 0)]] call EFUNC(common,positionsMean);
+		_position = [[(getPos _x)select 0,(getPos (_temp select 0))select 0] call BIS_fnc_arithmeticMean,[(getPos _x)select 1,(getPos (_temp select 0))select 1] call BIS_fnc_arithmeticMean,0];
+		_dir = [_x,(_temp select 0)] call BIS_fnc_relativeDirTo;
+		[_position,format["%1",_value],"ColorBlue","mil_arrow2",_dir] call EFUNC(common,debug_marker_create);
+	};
+	_temp = _x getVariable [QGVAR(WP_XPYP),[objNull,0]];
+	if !(isNull (_temp select 0)) then {
+		_value = [getPos _x,getPos (_temp select 0)] call FUNC(waypoints_movementcost);
+		_x setVariable [QGVAR(WP_XPYP),_value];
+		(_temp select 0) setVariable [QGVAR(WP_XMYM),_value];
+		
+		private ["_position","_dir"];
+		//_position = [[getPos _x,getPos (_temp select 0)]] call EFUNC(common,positionsMean);
+		_position = [[(getPos _x)select 0,(getPos (_temp select 0))select 0] call BIS_fnc_arithmeticMean,[(getPos _x)select 1,(getPos (_temp select 0))select 1] call BIS_fnc_arithmeticMean,0];
+		_dir = [_x,(_temp select 0)] call BIS_fnc_relativeDirTo;
+		[_position,format["%1",_value],"ColorOrange","mil_arrow2",_dir] call EFUNC(common,debug_marker_create);
+		
+	};
+	_temp = _x getVariable [QGVAR(WP_XMYP),[objNull,0]];
+	if !(isNull (_temp select 0)) then {
+		_value = [getPos _x,getPos (_temp select 0)] call FUNC(waypoints_movementcost);
+		_x setVariable [QGVAR(WP_XMYP),_value];
+		(_temp select 0) setVariable [QGVAR(WP_XPYM),_value];
+		
+		
+		private ["_position","_dir"];
+		//_position = [[getPos _x,getPos (_temp select 0)]] call EFUNC(common,positionsMean);
+		_position = [[(getPos _x)select 0,(getPos (_temp select 0))select 0] call BIS_fnc_arithmeticMean,[(getPos _x)select 1,(getPos (_temp select 0))select 1] call BIS_fnc_arithmeticMean,0];
+		_dir = [_x,(_temp select 0)] call BIS_fnc_relativeDirTo;
+		[_position,format["%1",_value],"ColorPink","mil_arrow2",_dir] call EFUNC(common,debug_marker_create);
+		
+	};
+}forEach _waypoints;
+
 {
 	private ["_position","_value"];
 	_position = getPos _x;
-	_value = count (allVariables _x);
-	TRACEV_3(_x,_position,_value);
+	_value = _x getVariable [QGVAR(WP_DANGER),0];
 	[_position,format["%1",_value]] call EFUNC(common,debug_marker_create);
+	
 } forEach _waypoints;
 
-/*
-{
-	private ["_temp"];
-	_temp = _x getVariable [QGVAR(WP_XP),[objNull,0]];
-	if !(isNull (_temp select 0)) then {
-		
-	};
 
-
-}forEach _waypoints;
-*/
 
 
 GVAR(waypoints) = _waypoints;

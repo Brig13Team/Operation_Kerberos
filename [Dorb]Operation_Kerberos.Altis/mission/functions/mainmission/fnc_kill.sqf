@@ -64,6 +64,6 @@ GVAR(rescue_counter) = 0;
 ********************/
 
 [
-	QUOTE(params['_targets'];private '_a';_a={alive _x}count _targets;If(_a == (count _targets)) then {true}else{false};),
+	QUOTE(params['_targets'];If(({alive _x} count _targets) == 0 ) then {true}else{false};),
 	[_targets]
 ]
