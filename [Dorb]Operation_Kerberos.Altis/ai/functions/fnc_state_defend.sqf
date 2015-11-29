@@ -38,7 +38,9 @@ if (IS_OBJECT(_target)) then {
 
 _lastWaypoint = _waypoints deleteAt ((count _waypoints)-1);
 
-deleteWaypoint[_group,all];
+while {(count (waypoints _group)) > 0} do {
+	deleteWaypoint ((waypoints _group) select 0);
+};
 
 [_group,_waypoints,0,"MOVE","COMBAT","YELLOW","FULL","NO CHANGE",_statement,[1,3,5],30] call FUNC(waypoints_add);
 

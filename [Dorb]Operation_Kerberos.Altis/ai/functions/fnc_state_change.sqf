@@ -21,7 +21,7 @@ switch (_state) do {
 	case "patrol" : {
 			private ["_formation","_position"];
 			_formation = ["COLUMN","STAG COLUMN","WEDGE","VEE","FILE","DIAMOND"] SELRND;
-			_position = GETVAR(_group,GVAR(target),getPos (leader group));
+			_position = GETVAR(_group,GVAR(target),getPos (leader _group));
 			[_group, _position, "AWARE", "WHITE", "NORMAL", "NO CHANGE", "", [5,10,15]] call EFUNC(spawn,patrol_task);
 		};
 	case "attack" : {[_group] call FUNC(state_attack);};

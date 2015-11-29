@@ -24,8 +24,9 @@ _this params[
     ["_onComplete", "", [""]],
     ["_timeout", [0,0,0], [[]], 3],
     ["_compRadius", 0, [0]]
-	
 	];
+TRACEV_1(_positions);
+if ((IS_ARRAY(_positions))&&{!(IS_ARRAY(_positions select 0))}) then {_positions = [_positions];};
 if !(IS_ARRAY(_positions)) then {_positions = [_positions];};
 if ((isNull _group)||(_positions isEqualTo [])) exitWith {[]};
 

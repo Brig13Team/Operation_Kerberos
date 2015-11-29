@@ -23,7 +23,9 @@ _waypoints = [getPos (leader _group),_target] call FUNC(waypoints_generate);
 
 _lastWaypoint = _waypoints deleteAt ((count _waypoints)-1);
 
-deleteWaypoint[_group,all];
+while {(count (waypoints _group)) > 0} do {
+	deleteWaypoint ((waypoints _group) select 0);
+};
 
 _statement = "";
 

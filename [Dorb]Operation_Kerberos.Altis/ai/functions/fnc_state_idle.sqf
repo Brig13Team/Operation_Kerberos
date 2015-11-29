@@ -18,6 +18,8 @@ _group = _group call CBA_fnc_getGroup;
 
 SETVAR(_group,GVAR(target),objNull);
 
-deleteWaypoint[_group,all];
+while {(count (waypoints _group)) > 0} do {
+	deleteWaypoint ((waypoints _group) select 0);
+};
 
 [_group,(getPos (leader _group)),20,"HOLD","SAFE","YELLOW","NORMAL","NO CHANGE",_statement,[1,3,5],30] call FUNC(waypoints_add);

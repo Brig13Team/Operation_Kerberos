@@ -29,12 +29,14 @@ if (IS_OBJECT(_target)) then {
 
 _lastWaypoint = _waypoints deleteAt ((count _waypoints)-1);
 
-deleteWaypoint[_group,all];
+while {(count (waypoints _group)) > 0} do {
+	deleteWaypoint ((waypoints _group) select 0);
+};
 
 [_group,_waypoints,0,"MOVE","AWARE","YELLOW","NORMAL","NO CHANGE",_statement,[1,3,5],30] call FUNC(waypoints_add);
 
 
-_statement = QUOTE((group this) setVariable ['GVAR(state)','retreat'];[this] call FUNC(state_change););
+_statement = QUOTE((group this) setVariable [ARR_2('GVAR(state)','retreat')];[this] call FUNC(state_change););
 
 [_group, _lastWaypoint, 0, "DISMISS", "SAFE", "GREEN", "LIMITED", "NO CHANGE", _statement, [3,6,9], 30] call FUNC(waypoints_add);
 
