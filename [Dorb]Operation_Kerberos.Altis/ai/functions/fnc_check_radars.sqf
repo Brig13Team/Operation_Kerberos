@@ -21,18 +21,19 @@ _radars = _radars - objNull;
 SETVAR(GVAR(radars),_radars);
 
 
-private ["_players","_targets"];
+private ["_units","_targets"];
 _targets = [];
-_players = [] call EFUNC(common,players);
+_units = [] call EFUNC(common,players);
+{If ((side _x == GVARMAIN(playerside))&&{_x isKindOf "Plane";}) then {_units pushBack _x;};} forEach allUnitsUAV;
 {
-	for "_i" from 0 to (count _players) do {
-		private ["_cur_player","_cur_radarpos"];
-		_cur_player = _players select _i;
+	for "_i" from 0 to (count _units) do {
+		private ["_cur_unit","_cur_radarpos"];
+		_cur_unit = _units select _i;
 		_cur_radarpos = getPosASL _x;
 		_cur_radarpos set [2,(_cur_radarpos + 2)];
-		If (((vehicle _cur_player) isKindOf "Air")&&(!((vehicle _cur_player) isKindOf "ParachuteBase"))) then {
-			if ((((getPos _cur_player) distance _pos) < 5000)&&{(!(lineintersects[getPosASL _cur_player,_cur_radarpos,_cur_player,_x]))}) then {
-				_targets pushBack (_cur_player);
+		If (((vehicle _cur_unit) isKindOf "Air")&&(!((vehicle _cur_unit) isKindOf "ParachuteBase"))) then {
+			if ((((getPos _cur_unit) distance _pos) < 5000)&&{(!(lineintersects[getPosASL _cur_unit,_cur_radarpos,_cur_unit,_x]))}) then {
+				_targets pushBack (_cur_unit);
 			};
 		};
 	

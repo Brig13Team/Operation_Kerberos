@@ -11,7 +11,7 @@
 		none
 */
 #include "script_component.hpp"
-SCRIPT(behavior_idle);
+SCRIPT(state_idle);
 _this params[["_group",grpNull,[grpNull,objNull]]];
 private["_statement","_target","_waypoints","_lastWaypoint"];
 _group = _group call CBA_fnc_getGroup;
