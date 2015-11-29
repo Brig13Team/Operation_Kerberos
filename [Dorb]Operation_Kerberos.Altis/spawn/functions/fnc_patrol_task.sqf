@@ -61,7 +61,7 @@ _pos = switch (true) do {
 
 CHECK((_pos isEqualTo []))
 
-_statement = QUOTE(if (((group _this) getVariable ['EGVAR(ai,behavior)','patrol'])isEqualTo 'patrol') then {[this] call FUNC(patrol_task);}else{[this] call EFUNC(behavior_change);};);
+_statement = QUOTE(if (((group _this) getVariable ['EGVAR(ai,state)','patrol'])isEqualTo 'patrol') then {[this] call FUNC(patrol_task);}else{[this] call EFUNC(state_change);};);
 
 _onComplete = _onComplete + _statement;
 

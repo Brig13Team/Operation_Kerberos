@@ -30,8 +30,10 @@ for "_i" from 0 to _amount do {
 		ERROR("Keine Spawnposition");
 	}else{
 		_group = [_spawnpos, _grouptype] call FUNC(group);
-		_formation = ["COLUMN","STAG COLUMN","WEDGE","VEE","FILE","DIAMOND"] SELRND;
-		[_group, _spawnpos, "SAFE", "YELLOW", "LIMITED", _formation, "", [5,10,15]] call EFUNC(spawn,patrol_task);
+		SETPVAR(_group,EGVAR(ai,state),'defend');
+		SETPVAR(_group,EGVAR(ai,target),_spawnpos);
+		[_group] call EFUNC(ai,registerGroup);
+		[_group] call EFUNC(ai,state_change);
 	};
 };
 

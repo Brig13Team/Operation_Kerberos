@@ -31,8 +31,10 @@ for "_i" from 0 to _amount do {
 	}else{
 		private["_group"];
 		_group = [_spawnpos, _grouptype] call FUNC(group);
-		LOG_3(_group,_spawnpos,_grouptype);
+		SETPVAR(_group,EGVAR(ai,state),'wait');
+		SETPVAR(_group,EGVAR(ai,target),_spawnpos);
 		[_group] call EFUNC(ai,registerGroup);
+		[_group] call EFUNC(ai,state_change);
 	};
 };
 

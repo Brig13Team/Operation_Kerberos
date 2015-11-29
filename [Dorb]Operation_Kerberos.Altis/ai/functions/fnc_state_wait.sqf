@@ -2,10 +2,10 @@
 	Author: Dorbedo
 	
 	Description:
-		defends Position
+		attacks Position
 	
 	Parameter(s):
-		0 : GROUP - Group
+		0 : GROUP -Group
 
 	Returns:
 		none
@@ -17,15 +17,6 @@ private["_statement","_target","_waypoints","_lastWaypoint"];
 _group = _group call CBA_fnc_getGroup;
 
 _target = GETVAR(_group,GVAR(target),objNull);
-
-If ((IS_OBJECT(_target))&&{!(Alive _target)}) exitWith {
-	SETVAR(_group,GVAR(state),'idle');
-	[_group] call FUNC(state_change);
-};
-If ((IS_ARRAY(_target))&&{_target isEqualTo []}) exitWith {
-	SETVAR(_group,GVAR(state),'idle');
-	[_group] call FUNC(state_change);
-};
 
 if (IS_OBJECT(_target)) then {
 	_waypoints = [getPos (leader _group),getPos _target] call FUNC(waypoints_generate);
@@ -40,10 +31,10 @@ _lastWaypoint = _waypoints deleteAt ((count _waypoints)-1);
 
 deleteWaypoint[_group,all];
 
-[_group,_waypoints,0,"MOVE","COMBAT","YELLOW","FULL","NO CHANGE",_statement,[1,3,5],30] call FUNC(waypoints_add);
+[_group,_waypoints,0,"MOVE","AWARE","YELLOW","NORMAL","NO CHANGE",_statement,[1,3,5],30] call FUNC(waypoints_add);
 
 
-_statement = QUOTE((group this) setVariable ['GVAR(state)','idle'];[this] call FUNC(state_change););
+_statement = QUOTE((group this) setVariable ['GVAR(state)','retreat'];[this] call FUNC(state_change););
 
-[_group, _lastWaypoint, 0, "SENTRY", "COMBAT", "RED", "FULL", "NO CHANGE", _statement, [3,6,9], 30] call FUNC(waypoints_add);
+[_group, _lastWaypoint, 0, "DISMISS", "SAFE", "GREEN", "LIMITED", "NO CHANGE", _statement, [3,6,9], 30] call FUNC(waypoints_add);
 

@@ -29,7 +29,7 @@ If ((IS_ARRAY(_target))&&{_target isEqualTo []}) exitWith {
 
 if (IS_OBJECT(_target)) then {
 	_waypoints = [getPos (leader _group),getPos _target] call FUNC(waypoints_generate);
-	_statement = QUOTE(If !(alive ((leader this) getVariable ['GVAR(target)',objNull])) then {_group setVariable ['GVAR(state)','idle'];[this] call FUNC(state_change);};);
+	_statement = QUOTE(If !(alive ((group this) getVariable ['GVAR(target)',objNull])) then {_group setVariable ['GVAR(state)','idle'];[this] call FUNC(state_change);};);
 
 }else{
 	_waypoints = [getPos (leader _group),_target] call FUNC(waypoints_generate);
