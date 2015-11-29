@@ -53,6 +53,9 @@ PREPS(matrix,value_set);
 ADDON = true;
 
 /// Setvariables
+
+GVAR(waitAndExecArray) = [];
+
 [
 	{
 		CHECK(GVAR(setVarSyncArray) isEqualTo [])

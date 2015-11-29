@@ -38,5 +38,6 @@ PREP(state_idle);
 PREP(state_retreat);
 PREP(state_wait);
 PREP(waypoints_add);
+PREP(waypoints_create);
 PREP(waypoints_generate);
 ADDON = true;

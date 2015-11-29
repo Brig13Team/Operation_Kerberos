@@ -49,7 +49,7 @@ for "_i" from 1 to _rand do{
 ********************/
 
 [
-	QUOTE(_this params['_targets'];private '_a';_a = {alive _x}count _targets;If (_a > ((count _targets)-4)) then {true}else{false};),
+	QUOTE(_this params['_targets'];private '_a';_a = {alive _x}count _targets;If (_a < (((count _targets)*0.5)-4)) then {true}else{false};),
 	[_targets],
 	"true",
 	{},

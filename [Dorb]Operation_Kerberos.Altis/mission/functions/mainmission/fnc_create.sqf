@@ -10,7 +10,7 @@ SCRIPT(create);
 params[["_task","",[""]],["_centerposition",[],[[]]],["_distance",1000,[0]],["_taskID","",[""]],["_location","",[""]]];
 TRACEV_4(_task,_centerposition,_distance,_taskID);
 private "_position";
-
+EGVAR(ai,centerpos) = _centerposition;
 _position = [_centerposition,_distance,0] call EFUNC(common,pos_random);
 TRACEV_1(_position);
 private ["_taskname","_taskdesc","_tasktype","_taskpic"];
@@ -78,6 +78,7 @@ _task_desc = localize(format[LSTRING(TASKDESC_BLANK),toUpper(_task)]);
 
 #ifdef DEBUG_MODE_FULL
 	[_centerposition,"CENTERPOS"] call EFUNC(common,debug_marker_create);
+	[_position,"MISSIONPOS"] call EFUNC(common,debug_marker_create);
 #endif
 /// taskhandler
 private "_sucess";

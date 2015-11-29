@@ -1,8 +1,6 @@
 
 #include "script_component.hpp"
 
-GVAR(waitAndExecArray)
-
 [{
     private ["_entry"];
     while {((count GVAR(waitAndExecArray)) > 0) && {((GVAR(waitAndExecArray) select 0) select 0) <= diag_tickTime}} do {

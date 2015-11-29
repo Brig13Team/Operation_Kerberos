@@ -17,14 +17,16 @@ SETMVAR(GVAR(working,true));
 
 CHECK((GETMVAR(GVAR(centerpos),[]) isEqualTo []))
 
-
+CHECK(true)
 
 //// remove dead groups
 {
 	private "_temp";
 	_temp = missionnamespace getVariable [_x,[]];
-	_temp = _temp - grpNull;
-	missionnamespace setVariable [_x,_temp];
+	If !(_temp isEqualTo []) then {
+		_temp = _temp - [grpNull];
+		missionnamespace setVariable [_x,_temp];
+	};
 } forEach [QGVAR(Other),QGVAR(marine),QGVAR(Car),
 			QGVAR(Drone),QGVAR(Tank),QGVAR(Infanterie),
 			QGVAR(Attack_Helicopter),QGVAR(Transport_Helicopter),

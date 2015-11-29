@@ -27,7 +27,7 @@ class missions_config {
 		};
 		class location {
 			areas[] = {QGVAR(town),QGVAR(industrie),QGVAR(military),QGVAR(other)};
-			distance = 1500;
+			distance = 800;
 		};
 		probability = 1;
 		armys[] = {{"regular",1},{"armored",1},{"infanterie",1},{"airborne",1},{"specops",1},{"droneoperations",1},{"guards",1}};
@@ -132,6 +132,7 @@ class missions_config {
 			};
 			class location : location {
 				areas[] = {QGVAR(town)};
+				distance = 200;
 			};
 		};
 		class kill : main_base {
@@ -141,6 +142,7 @@ class missions_config {
 			};
 			class location : location {
 				areas[] = {QGVAR(town)};
+				distance = 200;
 			};
 		};
 		class intel : main_base {
@@ -150,6 +152,7 @@ class missions_config {
 			};
 			class location : location {
 				areas[] = {QGVAR(town)};
+				distance = 200;
 			};
 		};
 		class weaponcaches : main_base {
@@ -159,6 +162,7 @@ class missions_config {
 			};
 			class location : location {
 				areas[] = {QGVAR(town)};
+				distance = 200;
 			};
 		};
 		class dronecommando : main_base {
