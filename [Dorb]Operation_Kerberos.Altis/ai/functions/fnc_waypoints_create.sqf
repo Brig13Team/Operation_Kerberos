@@ -21,7 +21,12 @@ ISNILS(GVAR(waypoints),[]);
 {deleteVehicle _x;}forEach GVAR(waypoints);
 
 #define RASTER 500
+#define DIAGONALMULTI 1
 
+#ifdef DEBUG_MODE_FULL
+	//#define MARKER_WAYPOINT
+	//#define MARKER_MOVEMENTCOST
+#endif
 //GVAR(definitions)
 //GVAR(centerpos)
 private ["_startX","_startY","_waypoints","_endX","_endY"];
@@ -62,7 +67,7 @@ for "_i" from _startX to _endX step RASTER do {
 			_unit setVariable [QGVAR(WP_YM),[_temp,0]];
 		};
 		
-		_temp = [(_i + RASTER),(_j - RASTER),0] nearestObject "Logic";
+		_temp = [(_i - RASTER),(_j + RASTER),0] nearestObject "Logic";
 		If !(isNull _temp) then {
 			_temp setVariable [QGVAR(WP_XMYP),[_unit,0]];
 			_unit setVariable [QGVAR(WP_XPYM),[_temp,0]];
@@ -79,12 +84,12 @@ for "_i" from _startX to _endX step RASTER do {
 {
 	private ["_nearestRoad","_currentWP"];
 	_currentWP = _x;
-	_nearestRoad = [getPos _currentWP,200,[]] call BIS_fnc_nearestRoad;
+	_nearestRoad = [getPos _currentWP,150,[]] call BIS_fnc_nearestRoad;
 	
 	if !(isNull _nearestRoad) then {
 		_currentWP setPos (getPos _nearestRoad);
 	}else{
-		_nearestPos = selectBestPlaces [getPos _x,200,"meadow",50,1];
+		_nearestPos = selectBestPlaces [getPos _x,150,"meadow",30,1];
 		If ((!IS_ARRAY(_nearestPos select 0))||{((((_nearestPos select 0)select 0) isEqualTo [])||(surfaceIsWater ((_nearestPos select 0)select 0)))}) then {
 			_temp = _currentWP getVariable [QGVAR(WP_XP),[]];
 			if !(isNull (_temp select 0)) then {
@@ -136,59 +141,62 @@ _waypoints = _waypoints - [objNull];
 	_temp = _x getVariable [QGVAR(WP_XP),[objNull,0]];
 	if !(isNull (_temp select 0)) then {
 		_value = [getPos _x,getPos (_temp select 0)] call FUNC(waypoints_movementcost);
-		_x setVariable [QGVAR(WP_XP),_value];
-		(_temp select 0) setVariable [QGVAR(WP_XM),_value];
+		_x setVariable [QGVAR(WP_XP),[_temp select 0,_value]];
+		(_temp select 0) setVariable [QGVAR(WP_XM),[_x,_value]];
 		
-		
+#ifdef MARKER_MOVEMENTCOST		
 		private ["_position","_dir"];
 		//_position = [[getPos _x,getPos (_temp select 0)]] call EFUNC(common,positionsMean);
 		_position = [[(getPos _x)select 0,(getPos (_temp select 0))select 0] call BIS_fnc_arithmeticMean,[(getPos _x)select 1,(getPos (_temp select 0))select 1] call BIS_fnc_arithmeticMean,0];
 		_dir = [_x,(_temp select 0)] call BIS_fnc_relativeDirTo;
 		[_position,format["%1",_value],"ColorGreen","mil_arrow2",_dir] call EFUNC(common,debug_marker_create);
-		
+#endif		
 	};
 	_temp = _x getVariable [QGVAR(WP_YP),[objNull,0]];
 	if !(isNull (_temp select 0)) then {
 		_value = [getPos _x,getPos (_temp select 0)] call FUNC(waypoints_movementcost);
-		_x setVariable [QGVAR(WP_YP),_value];
-		(_temp select 0) setVariable [QGVAR(WP_YM),_value];
-		
-		
+		_x setVariable [QGVAR(WP_YP),[_temp select 0,_value]];
+		(_temp select 0) setVariable [QGVAR(WP_YM),[_x,_value]];
+#ifdef MARKER_MOVEMENTCOST
 		private ["_position","_dir"];
 		//_position = [[getPos _x,getPos (_temp select 0)]] call EFUNC(common,positionsMean);
 		_position = [[(getPos _x)select 0,(getPos (_temp select 0))select 0] call BIS_fnc_arithmeticMean,[(getPos _x)select 1,(getPos (_temp select 0))select 1] call BIS_fnc_arithmeticMean,0];
 		_dir = [_x,(_temp select 0)] call BIS_fnc_relativeDirTo;
 		[_position,format["%1",_value],"ColorBlue","mil_arrow2",_dir] call EFUNC(common,debug_marker_create);
+#endif
 	};
 	_temp = _x getVariable [QGVAR(WP_XPYP),[objNull,0]];
 	if !(isNull (_temp select 0)) then {
 		_value = [getPos _x,getPos (_temp select 0)] call FUNC(waypoints_movementcost);
-		_x setVariable [QGVAR(WP_XPYP),_value];
-		(_temp select 0) setVariable [QGVAR(WP_XMYM),_value];
-		
+		_value = _value * DIAGONALMULTI;
+		_x setVariable [QGVAR(WP_XPYP),[_temp select 0,_value]];
+		(_temp select 0) setVariable [QGVAR(WP_XMYM),[_x,_value]];
+#ifdef MARKER_MOVEMENTCOST		
 		private ["_position","_dir"];
 		//_position = [[getPos _x,getPos (_temp select 0)]] call EFUNC(common,positionsMean);
 		_position = [[(getPos _x)select 0,(getPos (_temp select 0))select 0] call BIS_fnc_arithmeticMean,[(getPos _x)select 1,(getPos (_temp select 0))select 1] call BIS_fnc_arithmeticMean,0];
 		_dir = [_x,(_temp select 0)] call BIS_fnc_relativeDirTo;
 		[_position,format["%1",_value],"ColorOrange","mil_arrow2",_dir] call EFUNC(common,debug_marker_create);
-		
+#endif		
 	};
 	_temp = _x getVariable [QGVAR(WP_XMYP),[objNull,0]];
 	if !(isNull (_temp select 0)) then {
 		_value = [getPos _x,getPos (_temp select 0)] call FUNC(waypoints_movementcost);
-		_x setVariable [QGVAR(WP_XMYP),_value];
-		(_temp select 0) setVariable [QGVAR(WP_XPYM),_value];
-		
+		_value = _value * DIAGONALMULTI;
+		_x setVariable [QGVAR(WP_XMYP),[_temp select 0,_value]];
+		(_temp select 0) setVariable [QGVAR(WP_XPYM),[_x,_value]];
+#ifdef MARKER_MOVEMENTCOST		
 		
 		private ["_position","_dir"];
 		//_position = [[getPos _x,getPos (_temp select 0)]] call EFUNC(common,positionsMean);
 		_position = [[(getPos _x)select 0,(getPos (_temp select 0))select 0] call BIS_fnc_arithmeticMean,[(getPos _x)select 1,(getPos (_temp select 0))select 1] call BIS_fnc_arithmeticMean,0];
 		_dir = [_x,(_temp select 0)] call BIS_fnc_relativeDirTo;
 		[_position,format["%1",_value],"ColorPink","mil_arrow2",_dir] call EFUNC(common,debug_marker_create);
-		
+#endif		
 	};
 }forEach _waypoints;
 
+#ifdef MARKER_WAYPOINT
 {
 	private ["_position","_value"];
 	_position = getPos _x;
@@ -196,7 +204,7 @@ _waypoints = _waypoints - [objNull];
 	[_position,format["%1",_value]] call EFUNC(common,debug_marker_create);
 	
 } forEach _waypoints;
-
+#endif
 
 
 

@@ -42,4 +42,6 @@ PREP(waypoints_create);
 PREP(waypoints_generate);
 PREP(waypoints_movementcost);
 
+PREP(waypoints_test);
+
 ADDON = true;

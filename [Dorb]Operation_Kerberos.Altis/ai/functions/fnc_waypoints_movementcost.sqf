@@ -13,8 +13,7 @@
 #include "script_component.hpp"
 SCRIPT(waypoints_generate);
 
-#define ROADMULTI 5
-#define HIGHTMULTI 10
+#define ROADDECRESE 50
 #define DISTANCE_BETWEEN 50
 
 _this params[
@@ -28,12 +27,6 @@ _distance = _start distance2D _target;
 
 _start = ATLtoASL [_start select 0,_start select 1,0];
 _target = ATLtoASL [_target select 0,_target select 1,0];
-
-If ((isOnRoad _start)&&(isOnRoad _target)) exitWith {
-	_value = abs((_start select 2)-(_target select 2));
-	LOG_1(_value);
-	(_distance + ROADMULTI * _value)
-};
 
 _anzahl = floor((_start distance2D _target)/DISTANCE_BETWEEN) max 1;
 
@@ -52,9 +45,12 @@ _lastHight = _start select 2;
 		_lastHight = (_x select 2);
 	};
 } forEach _points;
-LOG_3(_lastHight,_distance,_value);
-LOG_1(_points);
-(_distance + HIGHTMULTI * _value)
+
+If ((isOnRoad _start)&&(isOnRoad _target)) exitWith {
+	(floor(_distance/10) +  floor(_value/10) - ROADDECRESE)
+};
+
+(floor(_distance/10) + floor(_value/10))
 
 
 
