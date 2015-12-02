@@ -37,7 +37,6 @@ If (!(_aufgabentyp in _aufgabentypen)) then {
 		if (_aufgabentyp != (GETMVAR(GVAR(last_mission_type),""))) exitWith {};
 	};
 };
-_aufgabentyp = "rescue_pow";
 LOG(FORMAT_1("Aufgabentyp=%1",_aufgabentyp));
 
 SETMVAR(GVAR(last_mission_type),_aufgabentyp);
