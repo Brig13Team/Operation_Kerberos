@@ -131,7 +131,13 @@ for "_i" from 1 to 3 do{
 //////////////////////////////////////////////////
 
 [LSTRING(RESCUE),[LSTRING(RESC_CONV_TASK)],"data\icon\icon_rescue.paa",true] spawn EFUNC(interface,disp_info_global);
-[_task,true,[[LSTRING(RESC_CONV_TASK_DESC),count _pow,(_startort select 0),_ort],LSTRING(RESC_CONV_TASK),LSTRING(RESCUE)],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
+
+missionMarker = createMarker ["mission_marker", _position];
+missionMarker setMarkerText (localize LSTRING(RESC_CONV_TASK));
+missionMarker setMarkerType "hd_objective";
+missionMarker setMarkerColor "ColorBLUFOR";
+
+// [_task,true,[[LSTRING(RESC_CONV_TASK_DESC),count _pow,(_startort select 0),_ort],LSTRING(RESC_CONV_TASK),LSTRING(RESCUE)],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
 
 //////////////////////////////////////////////////
 ////// Überprüfung + Ende 					 /////

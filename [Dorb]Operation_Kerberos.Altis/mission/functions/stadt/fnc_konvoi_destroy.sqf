@@ -103,7 +103,12 @@ _start_mrkr setMarkerType "hd_start";
 ////// Aufgabe erstellen 					 /////
 //////////////////////////////////////////////////
 
-[_task,true,[[LSTRING(KILL_CONV_TASK_DESC),(_startort select 0),_ort],LSTRING(KILL_CONV_TASK),LSTRING(DESTROY)],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
+// [_task,true,[[LSTRING(KILL_CONV_TASK_DESC),(_startort select 0),_ort],LSTRING(KILL_CONV_TASK),LSTRING(DESTROY)],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
+
+missionMarker = createMarker ["mission_marker", _position];
+missionMarker setMarkerText (localize LSTRING(KILL_CONV_TASK));
+missionMarker setMarkerType "hd_objective";
+missionMarker setMarkerColor "ColorBLUFOR";
 
 [LSTRING(DESTROY),[LSTRING(KILL_CONV_TASK)],"data\icon\icon_destroy.paa",true] spawn EFUNC(interface,disp_info_global);
 

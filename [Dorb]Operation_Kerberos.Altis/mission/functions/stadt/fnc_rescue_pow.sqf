@@ -46,7 +46,6 @@ for "_i" from 1 to _rand do{
 	_pow pushBack _unit;
 };
 
-
 //////////////////////////////////////////////////
 ////// Gegner erstellen 					 /////
 //////////////////////////////////////////////////
@@ -58,8 +57,12 @@ for "_i" from 1 to _rand do{
 //////////////////////////////////////////////////
 
 
+// [_task,true,[[LSTRING(RESC_TASK_DESC),count _pow,_ort],LSTRING(RESC_TASK),LSTRING(RESCUE)],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
 
-[_task,true,[[LSTRING(RESC_TASK_DESC),count _pow,_ort],LSTRING(RESC_TASK),LSTRING(RESCUE)],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
+missionMarker = createMarker ["mission_marker", _position];
+missionMarker setMarkerText (localize LSTRING(RESC_TASK));
+missionMarker setMarkerType "hd_objective";
+missionMarker setMarkerColor "ColorBLUFOR";
 
 [LSTRING(RESCUE),[LSTRING(RESC_TASK)],"data\icon\icon_rescue.paa",true] spawn EFUNC(interface,disp_info_global);
 

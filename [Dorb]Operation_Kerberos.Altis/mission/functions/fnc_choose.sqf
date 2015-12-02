@@ -37,6 +37,7 @@ If (!(_aufgabentyp in _aufgabentypen)) then {
 		if (_aufgabentyp != (GETMVAR(GVAR(last_mission_type),""))) exitWith {};
 	};
 };
+_aufgabentyp = "rescue_pow";
 LOG(FORMAT_1("Aufgabentyp=%1",_aufgabentyp));
 
 SETMVAR(GVAR(last_mission_type),_aufgabentyp);
@@ -44,6 +45,7 @@ SETMVAR(GVAR(last_mission_type),_aufgabentyp);
 [] call EFUNC(spawn,create_unitlists);
 //_aufgabentyp="rescue_pow";
 /// Militär
+
 Private["_loc","_locarr"];
 If (_aufgabentyp isEqualTo "area_clear") exitWith {
 		_locarr=(GETMVAR(GVAR(militaer),[]));
@@ -51,6 +53,7 @@ If (_aufgabentyp isEqualTo "area_clear") exitWith {
 		//[(_loc select 0),(_loc select 1),_aufgabe] spawn FUNC(sideby_chooseMission);
 		[(_loc select 0),(_loc select 1),_aufgabe] call FUNC(DOUBLES(mil,area_clear));
 		LOG("Aufgabe Militär abgeschlossen");
+		deleteMarker missionMarker;
 		[(_loc select 1),_aufgabe] call FUNC(rtb);
 	};
 If (_aufgabentyp isEqualTo "area_defend") exitWith {
@@ -59,9 +62,9 @@ If (_aufgabentyp isEqualTo "area_defend") exitWith {
 		//[(_loc select 0),(_loc select 1),_aufgabe] spawn FUNC(sideby_chooseMission);
 		[(_loc select 0),(_loc select 1),_aufgabe] call FUNC(DOUBLES(mil,area_defend));
 		LOG("Aufgabe Militär abgeschlossen");
+		deleteMarker missionMarker;
 		[(_loc select 1),_aufgabe] call FUNC(rtb);
 	};
-
 /// SONSTIGES
 
 If (_aufgabentyp isEqualTo "destroy_tower") exitWith {
@@ -70,6 +73,7 @@ If (_aufgabentyp isEqualTo "destroy_tower") exitWith {
 		[(_loc select 0),(_loc select 1),_aufgabe] spawn FUNC(sideby_chooseMission);
 		[(_loc select 0),(_loc select 1),_aufgabe] call FUNC(DOUBLES(sonst,destroy_tower));
 		LOG("Aufgabe Sonstiges abgeschlossen");
+		deleteMarker missionMarker;
 		[(_loc select 1),_aufgabe] call FUNC(rtb);
 	};
 If (_aufgabentyp isEqualTo "destroy_device") exitWith {
@@ -78,6 +82,7 @@ If (_aufgabentyp isEqualTo "destroy_device") exitWith {
 		[(_loc select 0),(_loc select 1),_aufgabe] spawn FUNC(sideby_chooseMission);
 		[(_loc select 0),(_loc select 1),_aufgabe] call FUNC(DOUBLES(sonst,destroy_device));
 		LOG("Aufgabe Sonstiges abgeschlossen");
+		deleteMarker missionMarker;
 		[(_loc select 1),_aufgabe] call FUNC(rtb);
 	};
 If (_aufgabentyp isEqualTo "capture_prototype") exitWith {
@@ -86,6 +91,7 @@ If (_aufgabentyp isEqualTo "capture_prototype") exitWith {
 		[(_loc select 0),(_loc select 1),_aufgabe] spawn FUNC(sideby_chooseMission);
 		[(_loc select 0),(_loc select 1),_aufgabe] call FUNC(DOUBLES(sonst,capture_prototype));
 		LOG("Aufgabe Sonstiges abgeschlossen");
+		deleteMarker missionMarker;
 		[(_loc select 1),_aufgabe] call FUNC(rtb);
 	};
 If (_aufgabentyp isEqualTo "Scarab") exitWith {
@@ -96,17 +102,19 @@ If (_aufgabentyp isEqualTo "Scarab") exitWith {
 		
 		[(_loc select 0),(_loc select 1),_aufgabe] call FUNC(DOUBLES(sonst,scarab));
 		LOG("Aufgabe Sonstiges abgeschlossen");
+		deleteMarker missionMarker;
 		[(_loc select 1),_aufgabe] call FUNC(rtb);
 	};
 
 /// STADT
-	
+
 If (_aufgabentyp isEqualTo "rescue_pow") exitWith {
 		_locarr=(GETMVAR(GVAR(stadt),[]));
 		_loc = _locarr SELRND;
-		[(_loc select 0),(_loc select 1),_aufgabe] spawn FUNC(sideby_chooseMission);
+	//	[(_loc select 0),(_loc select 1),_aufgabe] spawn FUNC(sideby_chooseMission);
 		[(_loc select 0),(_loc select 1),_aufgabe] call FUNC(DOUBLES(stadt,rescue_pow));
 		LOG("Aufgabe Stadt abgeschlossen");
+		deleteMarker missionMarker;
 		[(_loc select 1),_aufgabe] call FUNC(rtb);
 	};
 If (_aufgabentyp isEqualTo "kill_person") exitWith {
@@ -115,6 +123,7 @@ If (_aufgabentyp isEqualTo "kill_person") exitWith {
 		[(_loc select 0),(_loc select 1),_aufgabe] spawn FUNC(sideby_chooseMission);
 		[(_loc select 0),(_loc select 1),_aufgabe] call FUNC(DOUBLES(stadt,kill_person));
 		LOG("Aufgabe Stadt abgeschlossen");
+		deleteMarker missionMarker;
 		[(_loc select 1),_aufgabe] call FUNC(rtb);
 	};
 If (_aufgabentyp isEqualTo "find_intel") exitWith {
@@ -123,6 +132,7 @@ If (_aufgabentyp isEqualTo "find_intel") exitWith {
 		[(_loc select 0),(_loc select 1),_aufgabe] spawn FUNC(sideby_chooseMission);
 		[(_loc select 0),(_loc select 1),_aufgabe] call FUNC(DOUBLES(stadt,find_intel));
 		LOG("Aufgabe Stadt abgeschlossen");
+		deleteMarker missionMarker;
 		[(_loc select 1),_aufgabe] call FUNC(rtb);
 	};
 If (_aufgabentyp isEqualTo "destroy_wpncache") exitWith {
@@ -131,6 +141,7 @@ If (_aufgabentyp isEqualTo "destroy_wpncache") exitWith {
 		[(_loc select 0),(_loc select 1),_aufgabe] spawn FUNC(sideby_chooseMission);
 		[(_loc select 0),(_loc select 1),_aufgabe] call FUNC(DOUBLES(stadt,destroy_wpncache));
 		LOG("Aufgabe Stadt abgeschlossen");
+		deleteMarker missionMarker;
 		[(_loc select 1),_aufgabe] call FUNC(rtb);
 	};
 If (_aufgabentyp isEqualTo "konvoi_destroy") exitWith {
@@ -138,6 +149,7 @@ If (_aufgabentyp isEqualTo "konvoi_destroy") exitWith {
 		_loc = _locarr SELRND;
 		[(_loc select 0),(_loc select 1),_aufgabe] call FUNC(DOUBLES(stadt,konvoi_destroy));
 		LOG("Aufgabe Stadt abgeschlossen");
+		deleteMarker missionMarker;
 		[(_loc select 1),_aufgabe] call FUNC(rtb);
 	};
 If (_aufgabentyp isEqualTo "konvoi_rescue") exitWith {
@@ -145,5 +157,6 @@ If (_aufgabentyp isEqualTo "konvoi_rescue") exitWith {
 		_loc = _locarr SELRND;
 		[(_loc select 0),(_loc select 1),_aufgabe] call FUNC(DOUBLES(stadt,konvoi_rescue));
 		LOG("Aufgabe Stadt abgeschlossen");
+		deleteMarker missionMarker;
 		[(_loc select 1),_aufgabe] call FUNC(rtb);
 	};

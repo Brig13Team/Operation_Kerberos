@@ -27,9 +27,13 @@ _list=[];
 ////// Aufgabe erstellen 					 /////
 //////////////////////////////////////////////////
 
-[_task,true,[[LSTRING(DEF_TASK_DESC),_ort],[LSTRING(DEF_TASK),_ort],LSTRING(DEFEND)],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
+// [_task,true,[[LSTRING(DEF_TASK_DESC),_ort],[LSTRING(DEF_TASK),_ort],LSTRING(DEFEND)],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
 [-1,{[_this select 0,[format [localize (_this select 1),_this select 2]],_this select 3,_this select 4] spawn EFUNC(interface,disp_info);},[LSTRING(DEFEND),LSTRING(DEF_TASK),_ort,"data\icon\icon_defend.paa",true]] FMP;
 
+missionMarker = createMarker ["mission_marker", _position];
+missionMarker setMarkerText (localize LSTRING(DEF_TASK));
+missionMarker setMarkerType "hd_objective";
+missionMarker setMarkerColor "ColorBLUFOR";
 
 //////////////////////////////////////////////////
 ////// Warten, bis Spieler in Bereich		 /////
