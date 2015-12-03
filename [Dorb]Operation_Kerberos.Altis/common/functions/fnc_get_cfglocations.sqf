@@ -29,7 +29,7 @@ If (worldName == "Altis") then {
 		_name 		= getText(_ort >> "name");
 		_position	= getArray(_ort >> "position");
 		_typ		= getText(_ort >> "type");	
-		If (_position distance (getmarkerpos DORB_RESPAWNMARKER) > 2500) then {
+		If (_position distance (getmarkerpos GVARMAIN(RESPAWNMARKER)) > 2500) then {
 			If ((_typ in ["NameCityCapital","NameCity","NameVillage"])and(_name != "Sagonisi")) exitWith {
 				_loc_civ pushBack [_name,_position];
 			};
@@ -65,7 +65,7 @@ If (worldName == "australia") then {
 		_name 		= getText(_ort >> "name");
 		_position	= getArray(_ort >> "position");
 		_typ		= getText(_ort >> "type");	
-		If (_position distance (getmarkerpos DORB_RESPAWNMARKER) > 2500) then {
+		If (_position distance (getmarkerpos GVARMAIN(RESPAWNMARKER)) > 2500) then {
 			If ((_typ in ["NameCityCapital","NameCity","NameVillage"])and(_name != "Sagonisi")) exitWith {
 				_loc_civ pushBack [_name,_position];
 			};
@@ -102,7 +102,7 @@ If (worldName == "pja305") then {
 		_name 		= getText(_ort >> "name");
 		_position	= getArray(_ort >> "position");
 		_typ		= getText(_ort >> "type");	
-		If (_position distance (getmarkerpos DORB_RESPAWNMARKER) > 2500) then {
+		If (_position distance (getmarkerpos GVARMAIN(RESPAWNMARKER)) > 2500) then {
 			If ((_typ in ["NameCityCapital","NameCity","NameVillage"])and(!(_name in ["Bafata","Waku Kungo"]))) exitWith {
 				_loc_civ pushBack [_name,_position];
 			};
@@ -163,7 +163,7 @@ If (worldName == "Panthera3") then {
 		_name 		= getText(_ort >> "name");
 		_position	= getArray(_ort >> "position");
 		_typ		= getText(_ort >> "type");	
-		If (_position distance (getmarkerpos DORB_RESPAWNMARKER) > 2000) then {
+		If (_position distance (getmarkerpos GVARMAIN(RESPAWNMARKER)) > 2000) then {
 			If (((_typ in ["NameCityCapital","NameCity","NameVillage","FlatAreaCitySmall","CityCenter"])and(!((configName _ort) in ["dino2","dino13","dino3","dino6","vatra"])))||((configName _ort) in ["TaffGrove","klavze","kneza","cavepredil",
 																																							"bovec","Tolmin","kranjskagora","dovje",
 																																							"mojstrana","lesce","begunje","Studor",

@@ -19,7 +19,7 @@ TRACEV_2(_pos,_rad);
 {if (!(alive _x)) then {_x TILGE;};} foreach vehicles;
 {_x TILGE;} forEach allDead;
 
-{_x TILGE;} foreach nearestObjects [(getmarkerpos DORB_RESPAWNMARKER),["CraterLong_small","CraterLong","WeaponHolder","GroundWeaponHolder"], 2000];
+{_x TILGE;} foreach nearestObjects [(getmarkerpos GVARMAIN(RESPAWNMARKER)),["CraterLong_small","CraterLong","WeaponHolder","GroundWeaponHolder"], 2000];
 
 {_x TILGE;} foreach allGroups;
 

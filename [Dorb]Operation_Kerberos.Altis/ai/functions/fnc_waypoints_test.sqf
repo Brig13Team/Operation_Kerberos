@@ -26,6 +26,12 @@ GVAR(waypoints) TILGE;
 
 hint "wegpunkte geloescht";
 
-[] call FUNC(waypoints_create);
+_script = [] execVM "ai\functions\waypoints_create.sqf"; //FUNC(waypoints_create);
 
+Waituntil {scriptDone _script};
 hint "wegpunkte fertig"
+
+_script = [] execVM "ai\functions\waypoints_generate.sqf";
+
+Waituntil {scriptDone _script};
+hint "Weight fertig"

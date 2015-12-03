@@ -15,7 +15,7 @@
 SCRIPT(rtb);
 params["_position", "_taskID"];
 private["_position_home", "_player", "_tasks", "_data", "_taskVar"];
-_position_home = getMarkerPos DORB_RESPAWNMARKER;
+_position_home = getMarkerPos GVARMAIN(RESPAWNMARKER);
 
 //////////////////////////////////////////////////
 ////// Nachricht anzeigen 					 /////

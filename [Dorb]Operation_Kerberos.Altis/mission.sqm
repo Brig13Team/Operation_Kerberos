@@ -4512,7 +4512,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=39;
+		items=41;
 		class Item0
 		{
 			position[]={11637.612,22.946299,11955.397};
@@ -4837,6 +4837,18 @@ class Mission
 			name="marker_teleport4";
 			type="b_installation";
 			colorName="ColorCIV";
+		};
+		class Item39
+		{
+			position[]={13850.237,8.8348494,15417.686};
+			name="startmarker";
+			type="mil_start";
+		};
+		class Item40
+		{
+			position[]={15667.044,35.831894,18633.127};
+			name="zielmarker";
+			type="mil_objective";
 		};
 	};
 	class Sensors

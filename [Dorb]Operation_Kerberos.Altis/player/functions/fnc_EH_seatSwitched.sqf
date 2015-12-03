@@ -20,7 +20,7 @@ if (isPlayer _unit1) then {
 	_parameter = [group _unit1,_assignedVehicleRole select 0,_unit1];
 	if (count _assignedVehicleRole > 1) then { _parameter pushBack (_assignedVehicleRole select 1); } else { _parameter pushBack []; };
 
-	_parameter remoteExec ["dorb_player_fnc_xeh_getin",_unit1];
+	_parameter remoteExec [QUOTE(FUNC(xeh_getin)),_unit1];
 };
 
 if (isPlayer _unit2) then {
@@ -28,5 +28,5 @@ if (isPlayer _unit2) then {
 	_parameter = [group _unit2,_assignedVehicleRole select 0,_unit2];
 	if (count _assignedVehicleRole > 1) then { _parameter pushBack (_assignedVehicleRole select 1); } else { _parameter pushBack []; };
 
-	_parameter remoteExec ["dorb_player_fnc_xeh_getin",_unit2];
+	_parameter remoteExec [QUOTE(FUNC(xeh_getin)),_unit2];
 };

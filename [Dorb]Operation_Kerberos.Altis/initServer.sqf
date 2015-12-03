@@ -6,7 +6,7 @@
 */
 #include "script_component.hpp"
 SCRIPT(initServer);
-waituntil{!isNil "DORB_RESPAWNMARKER"};
+waituntil{!isNil QGVAR(RESPAWNMARKER)};
 
 /// 6h == 12h Ingame
 setTimeMultiplier 2;
