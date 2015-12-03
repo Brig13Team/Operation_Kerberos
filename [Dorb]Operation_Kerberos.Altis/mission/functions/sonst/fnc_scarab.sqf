@@ -165,14 +165,9 @@ _ZeitInMinuten = 80;
 GVAR(endzeit) = diag_tickTime + (60*_ZeitInMinuten);
 publicVariable QGVAR(endzeit);
 _deploy=false;
+
+[_task,true,[[LSTRING(DEST_SCARAB_TASK_DESC),_ort,(count _target)],[LSTRING(DEST_SCARAB_TASK),_ZeitInMinuten],LSTRING(DESTROY)],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
 [-1,{[_this select 0,[format [localize (_this select 1),_this select 2]],_this select 3,_this select 4] spawn EFUNC(interface,disp_info);},[LSTRING(DESTROY),LSTRING(DEST_SCARAB_TASK),_ZeitInMinuten,"data\icon\icon_destroy.paa",true]] FMP;
-
-// [_task,true,[[LSTRING(DEST_SCARAB_TASK_DESC),_ort,(count _target)],[LSTRING(DEST_SCARAB_TASK),_ZeitInMinuten],LSTRING(DESTROY)],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
-
-missionMarker = createMarker ["mission_marker", _position];
-missionMarker setMarkerText (localize LSTRING(DEST_SCARAB_TASK));
-missionMarker setMarkerType "hd_objective";
-missionMarker setMarkerColor "ColorBLUFOR";
 
 //////////////////////////////////////////////////
 ////// Überprüfung + Ende 					 /////

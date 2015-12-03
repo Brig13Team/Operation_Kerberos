@@ -95,14 +95,8 @@ if (dorb_debug) then {
 ////// Aufgabe erstellen 					 /////
 //////////////////////////////////////////////////
 
-// [_task,true,[[LSTRING(KILL_TASK_DESC),_name,_ort],LSTRING(KILL_TASK),LSTRING(KILL)],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
-
+[_task,true,[[LSTRING(KILL_TASK_DESC),_name,_ort],LSTRING(KILL_TASK),LSTRING(KILL)],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
 [LSTRING(KILL),[LSTRING(KILL_TASK)],"data\icon\icon_target.paa",true] spawn EFUNC(interface,disp_info_global);
-
-missionMarker = createMarker ["mission_marker", _position];
-missionMarker setMarkerText (localize LSTRING(KILL_TASK));
-missionMarker setMarkerType "hd_objective";
-missionMarker setMarkerColor "ColorBLUFOR";
 
 //////////////////////////////////////////////////
 ////// Überprüfung + Ende 					 /////

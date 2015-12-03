@@ -38,13 +38,7 @@ _difficulty = call FUNC(dyn_difficulty);
 ////// Aufgabe erstellen 					 /////
 //////////////////////////////////////////////////
 
-// [_task,true,[[LSTRING(CLEAR_TASK_DESC),_ort],[LSTRING(CLEAR_TASK),_ort],LSTRING(CLEAR)],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
-
-missionMarker = createMarker ["mission_marker", _position];
-missionMarker setMarkerText (localize LSTRING(CLEAR_TASK));
-missionMarker setMarkerType "hd_objective";
-missionMarker setMarkerColor "ColorBLUFOR";
-
+[_task,true,[[LSTRING(CLEAR_TASK_DESC),_ort],[LSTRING(CLEAR_TASK),_ort],LSTRING(CLEAR)],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
 [-1,{[_this select 0,[format [localize (_this select 1),_this select 2]],_this select 3,_this select 4] spawn EFUNC(interface,disp_info);},[LSTRING(CLEAR),LSTRING(CLEAR_TASK),_ort,"data\icon\icon_file.paa",true]] FMP;
 
 

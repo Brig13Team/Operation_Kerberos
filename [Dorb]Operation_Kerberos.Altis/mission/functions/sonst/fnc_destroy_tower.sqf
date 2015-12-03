@@ -100,15 +100,9 @@ sleep 2;
 ////// Aufgabe erstellen 					 /////
 //////////////////////////////////////////////////
 
-// [_task,true,[[LSTRING(DEST_KOM_TASK_DESC),_ort],LSTRING(DEST_KOM_TASK),LSTRING(DESTROY)],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
-
-missionMarker = createMarker ["mission_marker", _position];
-missionMarker setMarkerText (localize LSTRING(DEST_KOM_TASK));
-missionMarker setMarkerType "hd_objective";
-missionMarker setMarkerColor "ColorBLUFOR";
-
-
+[_task,true,[[LSTRING(DEST_KOM_TASK_DESC),_ort],LSTRING(DEST_KOM_TASK),LSTRING(DESTROY)],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
 [LSTRING(DESTROY),[LSTRING(DEST_KOM_TASK)],"data\icon\icon_destroy.paa",true] spawn EFUNC(interface,disp_info_global);
+
 //////////////////////////////////////////////////
 ////// Überprüfung + Ende 					 /////
 //////////////////////////////////////////////////

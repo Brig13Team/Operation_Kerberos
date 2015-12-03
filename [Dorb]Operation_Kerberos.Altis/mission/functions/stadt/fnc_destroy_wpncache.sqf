@@ -75,14 +75,9 @@ if (dorb_debug) then {
 ////// Aufgabe erstellen 					 /////
 //////////////////////////////////////////////////
 
-// [_task,true,[[LSTRING(DEST_WPN_TASK_DESC),_ort],LSTRING(DEST_WPN_TASK),LSTRING(DESTROY)],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
-
-missionMarker = createMarker ["mission_marker", _position];
-missionMarker setMarkerText (localize LSTRING(DEST_WPN_TASK));
-missionMarker setMarkerType "hd_objective";
-missionMarker setMarkerColor "ColorBLUFOR";
-
+[_task,true,[[LSTRING(DEST_WPN_TASK_DESC),_ort],LSTRING(DEST_WPN_TASK),LSTRING(DESTROY)],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
 [LSTRING(DESTROY),[LSTRING(DEST_WPN_TASK)],"data\icon\icon_destroy.paa",true] spawn EFUNC(interface,disp_info_global);
+
 sleep 10;
 {
 	_x addEventHandler ["killed",{"Bo_Mk82" createVehicle (getpos (_this select 0));}];

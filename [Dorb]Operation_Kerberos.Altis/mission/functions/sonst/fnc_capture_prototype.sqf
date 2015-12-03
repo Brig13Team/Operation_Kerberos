@@ -95,14 +95,9 @@ sleep 2;
 GVAR(rescue_counter) = 0;
 {[_x,QGVAR(rescuepoint),(QUOTE(INC(GVAR(rescue_counter));)+"{moveout _x}forEach (crew (_this select 0)); uisleep 0.3; deleteVehicle (_this select 0);")] call BIS_fnc_addScriptedEventHandler;}forEach _target;
 
-// [_task,true,[[LSTRING(PROTO_TASK_DESC),_ort],LSTRING(PROTO_TASK),LSTRING(CAPTURE)],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
-
-missionMarker = createMarker ["mission_marker", _position];
-missionMarker setMarkerText (localize LSTRING(PROTO_TASK));
-missionMarker setMarkerType "hd_objective";
-missionMarker setMarkerColor "ColorBLUFOR";
-
+[_task,true,[[LSTRING(PROTO_TASK_DESC),_ort],LSTRING(PROTO_TASK),LSTRING(CAPTURE)],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
 [LSTRING(CAPTURE),[LSTRING(PROTO_TASK)],"data\icon\icon_capture.paa",true] spawn EFUNC(interface,disp_info_global);
+
 ///////////////////////////////////////////////
 ////// Überprüfung + Ende 				 /////
 ///////////////////////////////////////////////

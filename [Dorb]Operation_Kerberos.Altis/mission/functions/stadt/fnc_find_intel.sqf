@@ -78,13 +78,7 @@ if (dorb_debug) then {
 ////// Aufgabe erstellen 					 /////
 //////////////////////////////////////////////////
 
-// [LSTRING(FIND),[LSTRING(INTEL_TASK)],"data\icon\icon_search.paa",true] spawn EFUNC(interface,disp_info_global);
-
-missionMarker = createMarker ["mission_marker", _position];
-missionMarker setMarkerText (localize LSTRING(INTEL_TASK));
-missionMarker setMarkerType "hd_objective";
-missionMarker setMarkerColor "ColorBLUFOR";
-
+[LSTRING(FIND),[LSTRING(INTEL_TASK)],"data\icon\icon_search.paa",true] spawn EFUNC(interface,disp_info_global);
 [_task,true,[[LSTRING(INTEL_TASK_DESC),_ort],LSTRING(INTEL_TASK),LSTRING(FIND)],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
 
 //////////////////////////////////////////////////

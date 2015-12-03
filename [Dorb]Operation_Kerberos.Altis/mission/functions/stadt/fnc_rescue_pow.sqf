@@ -45,6 +45,7 @@ for "_i" from 1 to _rand do{
 	SETPVAR(_unit,GVAR(istarget),true);
 	_pow pushBack _unit;
 };
+/*
 
 //////////////////////////////////////////////////
 ////// Gegner erstellen 					 /////
@@ -52,18 +53,13 @@ for "_i" from 1 to _rand do{
 
 [_position,_gebaeudepos_arr] call EFUNC(spawn,obj_stadt);
 
+*/
+
 //////////////////////////////////////////////////
 ////// Aufgabe erstellen 					 /////
 //////////////////////////////////////////////////
 
-
-// [_task,true,[[LSTRING(RESC_TASK_DESC),count _pow,_ort],LSTRING(RESC_TASK),LSTRING(RESCUE)],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
-
-missionMarker = createMarker ["mission_marker", _position];
-missionMarker setMarkerText (localize LSTRING(RESC_TASK));
-missionMarker setMarkerType "hd_objective";
-missionMarker setMarkerColor "ColorBLUFOR";
-
+[_task,true,[[LSTRING(RESC_TASK_DESC),count _pow,_ort],LSTRING(RESC_TASK),LSTRING(RESCUE)],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
 [LSTRING(RESCUE),[LSTRING(RESC_TASK)],"data\icon\icon_rescue.paa",true] spawn EFUNC(interface,disp_info_global);
 
 //////////////////////////////////////////////////
