@@ -23,7 +23,7 @@ _this params[
     ["_formation", "NO CHANGE", [""]],
     ["_onComplete", "", [""]],
     ["_timeout", [0,0,0], [[]], 3],
-    ["_compRadius", 0, [0]]
+    ["_compRadius", 5, [0]]
 	];
 TRACEV_1(_positions);
 if ((IS_ARRAY(_positions))&&{!(IS_ARRAY(_positions select 0))}) then {_positions = [_positions];};

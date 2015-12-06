@@ -20,15 +20,16 @@ PREPS(fdc,observer);
 PREPS(fdc,placeOrder);
 PREPS(fdc,register);
 
-PREP(check_radars);
+
 PREP(dangerzone_buffer);
 PREP(handle);
 PREP(init);
 PREP(init_mission);
 PREP(killed);
 PREP(recon);
-PREP(registerALLGroups);
-PREP(registerGroup);
+PREP(recon_radars);
+PREP(register_Group);
+PREP(register_POI);
 PREP(reset);
 PREP(state_attack);
 PREP(state_change);
@@ -37,10 +38,14 @@ PREP(state_evade);
 PREP(state_idle);
 PREP(state_retreat);
 PREP(state_wait);
+PREP(strength);
 PREP(waypoints_add);
 PREP(waypoints_create);
+PREP(waypoints_deaktivate);
+PREP(waypoints_evade);
 PREP(waypoints_generate);
 PREP(waypoints_movementcost);
+PREP(waypoints_next);
 
 PREP(waypoints_test);
 

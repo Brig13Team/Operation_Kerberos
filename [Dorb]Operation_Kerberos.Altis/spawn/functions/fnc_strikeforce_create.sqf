@@ -33,7 +33,7 @@ for "_i" from 0 to _amount do {
 		_group = [_spawnpos, _grouptype] call FUNC(group);
 		SETPVAR(_group,EGVAR(ai,state),'wait');
 		SETPVAR(_group,EGVAR(ai,target),_spawnpos);
-		[_group] call EFUNC(ai,registerGroup);
+		[_group] call EFUNC(ai,register_Group);
 		[_group] call EFUNC(ai,state_change);
 	};
 };

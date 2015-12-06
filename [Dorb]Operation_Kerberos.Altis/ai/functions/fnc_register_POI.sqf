@@ -11,14 +11,13 @@
 		BOOL
 */
 #include "script_component.hpp"
-SCRIPT(registerGroup);
+SCRIPT(register_POI);
 _this params[["_POI",[],[[],objNull],[2,3]]];
 If (_POI isEqualTo []) exitWith {false};
 
 If (IS_OBJECT(_POI)) then {
 	_POI = getPos _POI;
 };
-
 
 GVAR(POI) pushBack _POI;
 true
