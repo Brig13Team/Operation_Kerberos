@@ -52,6 +52,7 @@ _taskarray append _temp;
 _isTown = {((_x select 0)==_location)} count GVAR(town);
 if (_isTown>0) then{
 	ERROR("town");
+	[_centerposition,["strikeforce"]] call EFUNC(spawn,mission);
 }else{
 	[_centerposition,["strikeforce","patrols"]] call EFUNC(spawn,mission);
 };

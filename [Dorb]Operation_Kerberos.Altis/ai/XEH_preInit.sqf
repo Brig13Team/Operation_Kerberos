@@ -21,6 +21,8 @@ PREPS(fdc,placeOrder);
 PREPS(fdc,register);
 
 
+PREP(attackpos_create);
+PREP(attackpos_getAll);
 PREP(dangerzone_buffer);
 PREP(handle);
 PREP(init);

@@ -12,7 +12,7 @@
 */
 #include "script_component.hpp"
 SCRIPT(state_attack);
-_this params[["_group",grpNull,[grpNull,objNull]]];
+_this params[["_group",grpNull,[grpNull,objNull]],["_statementFinish","",[""]]];
 private["_statement","_target","_waypoints","_lastWaypoint"];
 _group = _group call CBA_fnc_getGroup;
 
@@ -29,13 +29,13 @@ If ((IS_ARRAY(_target))&&{_target isEqualTo []}) exitWith {
 
 if (IS_OBJECT(_target)) then {
 	_waypoints = [getPos (leader _group),getPos _target] call FUNC(waypoints_generate);
-	_statement = QUOTE(If !(alive ((group this) getVariable ['GVAR(target)',objNull])) then {_group setVariable ['GVAR(state)','idle'];[this] call FUNC(state_change);};);
+	_statement = QUOTE(If !(alive ((group this) getVariable [ARR_2('GVAR(target)',objNull)])) then {_group setVariable [ARR_2('GVAR(state)','idle')];[this] call FUNC(state_change);};);
 
 }else{
 	_waypoints = [getPos (leader _group),_target] call FUNC(waypoints_generate);
 	_statement = "";
 };
-
+TRACEV_1(_waypoints);
 _lastWaypoint = _waypoints deleteAt ((count _waypoints)-1);
 
 while {(count (waypoints _group)) > 0} do {
@@ -45,7 +45,7 @@ while {(count (waypoints _group)) > 0} do {
 [_group,_waypoints,0,"MOVE","COMBAT","YELLOW","FULL","NO CHANGE",_statement,[1,3,5],30] call FUNC(waypoints_add);
 
 
-_statement = QUOTE((group this) setVariable ['GVAR(state)','idle'];[this] call FUNC(state_change););
+_statement = QUOTE((group this) setVariable [ARR_2('GVAR(state)','idle')];[this] call FUNC(state_change);) + _statementFinish;
 
 [_group, _lastWaypoint, 0, "SAD", "COMBAT", "RED", "FULL", "NO CHANGE", _statement, [3,6,9], 30] call FUNC(waypoints_add);
 

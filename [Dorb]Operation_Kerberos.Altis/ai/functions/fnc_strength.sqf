@@ -14,7 +14,7 @@
 #include "script_component.hpp"
 SCRIPT(update_strength);
 _this params[["_group",grpNull,[grpNull]]];
-if (isNull _group) exitWith {"",0};
+if (isNull _group) exitWith {["",0]};
 
 _value = 0;
 _all_Vehicles = [];
@@ -28,7 +28,7 @@ _all_Vehicles = [];
 }forEach (units _group);
 _type = "Infanterie";
 {
-	_value = _value + switch (true) do {
+	_value = _value + (switch (true) do {
 		case (_x isKindOf "Air") : {
 			If ((toLower(getText(configFile >> "CfgVehicles" >> (typeOf _x) >> "simulation")))in ["helicopterrtd","helicopterx"]) then {_type = "Helicopter";15}else{_type = "Plane";20};
 		};
@@ -37,7 +37,7 @@ _type = "Infanterie";
 		case (_x isKindOf "Car") : {_type = "Car";15};
 		case (_x isKindOf "Ship") : {_type = "Ship";15};
 		default {1};
-	};
+	});
 } forEach _all_Vehicles;
 
 [_type,_value]

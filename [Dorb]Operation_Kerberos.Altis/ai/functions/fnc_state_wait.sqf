@@ -12,7 +12,7 @@
 */
 #include "script_component.hpp"
 SCRIPT(state_attack);
-_this params[["_group",grpNull,[grpNull,objNull]]];
+_this params[["_group",grpNull,[grpNull,objNull]],["_statementFinish","",[""]]];
 private["_statement","_target","_waypoints","_lastWaypoint"];
 _group = _group call CBA_fnc_getGroup;
 
@@ -36,7 +36,7 @@ while {(count (waypoints _group)) > 0} do {
 [_group,_waypoints,0,"MOVE","AWARE","YELLOW","NORMAL","NO CHANGE",_statement,[1,3,5],30] call FUNC(waypoints_add);
 
 
-_statement = QUOTE((group this) setVariable [ARR_2('GVAR(state)','retreat')];[this] call FUNC(state_change););
+_statement = QUOTE((group this) setVariable [ARR_2('GVAR(state)','retreat')];[this] call FUNC(state_change);) + _statementFinish;
 
 [_group, _lastWaypoint, 0, "DISMISS", "SAFE", "GREEN", "LIMITED", "NO CHANGE", _statement, [3,6,9], 30] call FUNC(waypoints_add);
 

@@ -30,6 +30,13 @@ _targetKeypos = getArray(missionconfigFile >> "maps" >> worldname >> _targetKey 
 _distance = _startKeypos distance2D _targetKeypos;
 _Keydifferenz = 50;
 
+/*
+#ifdef DEBUG_MODE_FULL
+	#define DEBUG_MARKER
+#endif
+*/
+
+
 //#undef DEBUG_MODE_FULL
 /// waypoint = [value,distance to target, distance to start, key]
 _active = true;
@@ -286,7 +293,7 @@ while {_active} do {
 };
 
 
-#ifdef DEBUG_MODE_FULL
+#ifdef DEBUG_MARKER
 {
 	[getArray(missionconfigFile >> "maps" >> worldname >> (_x select 3) >> "position"),format["%1_%2_%3",_x select 0,_x select 1,_x select 2]] call EFUNC(common,debug_marker_create);
 }forEach _waypointsActivated;
@@ -339,7 +346,7 @@ while {_active} do {
 		];
 	If !(_nextWP isEqualTo "") then {
 		_waypoints append [_nextWP];
-		#ifdef DEBUG_MODE_FULL
+		#ifdef DEBUG_MARKER
 			[getArray(missionconfigFile >> "maps" >> worldname >> _nextWP >> "position"),"","ColorBlack","hd_objective"] call EFUNC(common,debug_marker_create);
 		#endif
 	};
@@ -349,9 +356,13 @@ private ["_return"];
 reverse _waypoints;
 _return = [_start];
 {
-	_return pushBack (getArray(missionconfigFile >> "maps" >> worldname >> _x >> "position"));
+	private ["_temp"];
+	_temp = (getArray(missionconfigFile >> "maps" >> worldname >> _x >> "position"));
+	TRACEV_1(_temp);
+	_return pushBack _temp;
 } forEach _waypoints;
-_return = _return pushBack _target;
+_return pushBack [_target];
+TRACEV_4(_return,_waypoints,_target,_start);
 _return
 
 

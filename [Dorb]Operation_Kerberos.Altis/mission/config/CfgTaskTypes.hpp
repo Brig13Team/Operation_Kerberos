@@ -1,5 +1,6 @@
 #define CBA_OFF
 #include "script_component.hpp"
+/*
 class CfgTaskTypes {
    class Attack {
        icon     = \data\tasks\Attack_ca.paa;
@@ -29,4 +30,4 @@ class CfgTaskTypes {
        icon     = \data\tasks\Support_ca.paa;
        icon3D   = \data\tasks\Support3D_ca.paa;
    };
-};
+};*/
