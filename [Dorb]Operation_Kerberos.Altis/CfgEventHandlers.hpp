@@ -19,7 +19,8 @@ class Extended_PreInit_EventHandlers {
 };
 
 class Extended_PostInit_EventHandlers {
-    INCLUDE_POSTINIT(common);
+    INCLUDE_POSTINIT(ai);
+	INCLUDE_POSTINIT(common);
 	INCLUDE_POSTINIT(mission);
 };
 

@@ -4725,7 +4725,7 @@ class Mission
 		};
 		class Item40
 		{
-			position[]={14622.443,46.435726,19347.676};
+			position[]={17399.453,21.046148,16041.808};
 			name="zielmarker";
 			type="mil_objective";
 		};

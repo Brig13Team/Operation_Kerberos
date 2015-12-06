@@ -7,7 +7,7 @@
 */
 #include "script_component.hpp"
 SCRIPT(init);
-CHECK(!isServer)
+CHECK(true)
 
 GVARMAIN(debug)=false;
 

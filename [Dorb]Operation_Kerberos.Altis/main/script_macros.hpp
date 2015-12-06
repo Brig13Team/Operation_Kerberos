@@ -33,7 +33,7 @@ Author:
         };
     #define INCLUDE_POSTINIT(var1) \
         class DOUBLES(PREFIX,var1) {\
-            init = QUOTE(call compile preProcessFileLineNumbers 'var1\XEH_PreInit.sqf'); \
+            init = QUOTE(call compile preProcessFileLineNumbers 'var1\XEH_PostInit.sqf'); \
         };
 
     #define GVAR(var1) DOUBLES(ADDON,var1)
