@@ -29,7 +29,7 @@ while {(count (waypoints _group)) > 0} do {
 
 _statement = "";
 
-[_group,_waypoints,0,"MOVE","COMBAT","GREEN","FULL","NO CHANGE",_statement,[1,3,5],30] call FUNC(waypoints_add);
+[_group,_waypoints,0,"MOVE","COMBAT","GREEN","FULL","NO CHANGE",_statement,[1,3,5],150] call FUNC(waypoints_add);
 
 
 _statement = QUOTE((group this) setVariable ['GVAR(state)','idle'];[this] call FUNC(state_change);) + _statementFinish;

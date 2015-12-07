@@ -42,7 +42,7 @@ while {(count (waypoints _group)) > 0} do {
 	deleteWaypoint ((waypoints _group) select 0);
 };
 
-[_group,_waypoints,0,"MOVE","COMBAT","YELLOW","FULL","NO CHANGE",_statement,[1,3,5],30] call FUNC(waypoints_add);
+[_group,_waypoints,0,"MOVE","COMBAT","YELLOW","FULL","NO CHANGE",_statement,[1,3,5],150] call FUNC(waypoints_add);
 
 
 _statement = QUOTE((group this) setVariable [ARR_2('GVAR(state)','idle')];[this] call FUNC(state_change);) + _statementFinish;

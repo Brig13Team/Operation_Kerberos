@@ -33,7 +33,9 @@ params [
     ["_speed","UNCHANGED",[""]],
     ["_formation","NO CHANGE",[""]],
     ["_onComplete","",[""]],
-    ["_timeout",[0,0,0],[[]],[3]]
+    ["_timeout",[0,0,0],[[]],[3]],
+	["_compRadius", 5, [0]]
+	
 ];
 _group = _group call CBA_fnc_getGroup;
 if !(local _group) exitWith {};
@@ -47,7 +49,7 @@ if !(_centerpos isEqualTo []) then {
 };
 
 _args = GETVAR(_group,GVAR(patrol_task),_args);
-_args params ["_centerpos","_behavior","_combatmode","_speed","_formation","_onComplete","_timeout"];
+_args params ["_centerpos","_behavior","_combatmode","_speed","_formation","_onComplete","_timeout","_compRadius"];
 
 private "_temp";
 _pos = switch (true) do {
@@ -76,7 +78,7 @@ _onComplete = _onComplete + _statement;
     _formation,
     _onComplete,
     _timeout,
-    5
+    _compRadius
 ] call CBA_fnc_addWaypoint;
 
 If (count(waypoints _group)>1) then {
