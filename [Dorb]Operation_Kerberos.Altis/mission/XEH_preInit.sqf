@@ -15,6 +15,11 @@ PREP(rtb);
 
 PREP(taskhandler);
 
+PREPS(suitcase,init);
+PREPS(suitcase,carry);
+PREPS(suitcase,drop);
+PREPS(suitcase,handler);
+
 PREPS(mainmission,create);
 PREPS(mainmission,clear);
 PREPS(mainmission,device);

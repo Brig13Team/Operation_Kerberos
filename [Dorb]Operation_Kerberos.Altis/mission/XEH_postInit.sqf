@@ -7,6 +7,17 @@
 */
 #include "script_component.hpp"
 SCRIPT(init);
+
+
+/// suitcase
+If (hasInterface) then {
+	[] call FUNC(suitcase_init);
+};
+
+
+
+
+
 CHECK(true)
 
 GVARMAIN(debug)=false;
