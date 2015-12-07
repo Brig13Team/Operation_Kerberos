@@ -52,9 +52,9 @@ class cfgFunctions {
 #include "mission\config\sideby_config.hpp"
 
 // Interface
-#include "interface\config\define.h"
-#include "interface\config\menu.h"
-#include "interface\config\rscTitles.h"
+#include "interface\config\define.hpp"
+#include "interface\config\menu.hpp"
+#include "interface\config\rscTitles.hpp"
 
 // Eventhandlers
 #include "CfgEventHandlers.hpp"
