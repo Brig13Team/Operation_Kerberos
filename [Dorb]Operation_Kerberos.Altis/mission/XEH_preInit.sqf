@@ -7,8 +7,6 @@ PREP(choose_side);
 
 PREP(examine);
 
-PREP(init);
-
 PREP(rescue_draw3D);
 PREP(reward);
 PREP(rtb);

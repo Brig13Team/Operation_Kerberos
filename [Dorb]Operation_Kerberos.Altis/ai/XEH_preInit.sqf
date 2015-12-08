@@ -15,8 +15,6 @@ PREPS(drones,scan);
 
 PREPS(fdc,defend_artypos);
 PREPS(fdc,handle);
-PREPS(fdc,init);
-PREPS(fdc,observer);
 PREPS(fdc,placeOrder);
 PREPS(fdc,register);
 
