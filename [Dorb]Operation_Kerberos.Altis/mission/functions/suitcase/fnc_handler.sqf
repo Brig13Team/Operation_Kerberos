@@ -8,11 +8,7 @@
 #include "script_component.hpp"
 SCRIPT(init);
 
-CHECK(!hasinterface)
-
-
-#define ATTACH_POINT [0,0,-0.1]
-
+CHECK(!isServer)
 
 
 params["_params","_handle"];
@@ -32,13 +28,13 @@ if (isNull _carrier) exitWith {
 
 If ( (!(isNull attachedTo _suitcase)) && {(vehicle _carrier) != _carrier} ) exitWith {
 	detach _suitcase;
-	_suitcase setPos [0,0,0];
 	if (isMultiplayer) then {
 		_suitcase enableSimulationGlobal false;
 	} else {
 		_suitcase enableSimulation false;
 	};
-	_player forceWalk false;
+	_carrier forceWalk false;
+	_suitcase setPosASL [0,0,1000];
 };
 
 If ( ((isNull attachedTo _suitcase)) && {(vehicle _carrier) == _carrier} ) exitWith {
@@ -47,10 +43,16 @@ If ( ((isNull attachedTo _suitcase)) && {(vehicle _carrier) == _carrier} ) exitW
 	} else {
 		_suitcase enableSimulation true;
 	};
-	_suitcase attachTo [_carrier, ATTACH_POINT, "RightHand"];
-	_suitcase setDir 90;
-	_carrier forceWalk true;
-	};	
+	[_suitcase,_carrier] spawn {
+		params ["_suitcase","_carrier"];
+
+		_carrier action ["SwitchWeapon", _carrier, _carrier, 100];
+
+		uiSleep ANIM_TIME;
+		_suitcase attachTo [_carrier, ATTACH_POINT, "RightHand"];
+		_suitcase setDir 90;
+		_carrier forceWalk true;	
+	};
 };
 
 

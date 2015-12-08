@@ -16,7 +16,7 @@ CHECK(!hasinterface)
 
 ///// suitcase action
 private ["_carry","_ACE_Action"];
-_carry = [QGVAR(case_carry), localize LSTRING(CASE_CARRY), "", {[_target,player] spawn FUNC(suitcase_carry);}, {(isNull (_target getVariable [QGVAR(suitcase_carrier),objNull])}] call ace_interact_menu_fnc_createAction;
+_carry = [QGVAR(case_carry), localize LSTRING(CASE_CARRY), "", {[_target,player] spawn FUNC(suitcase_carry);}, {(isNull (_target getVariable [QGVAR(suitcase_carrier),objNull]))}] call ace_interact_menu_fnc_createAction;
 ["Land_Suitcase_F", 0, ["ACE_MainActions"], _carry] call ace_interact_menu_fnc_addActionToClass;
 
 

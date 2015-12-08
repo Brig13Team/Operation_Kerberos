@@ -22,7 +22,7 @@ detach _suitcase;
 _suitcase setPos (position _carrier);
 _carrier forceWalk false;
 
-_suitcase setVariable [QGVAR(suitcase_pos),getPos (position _suitcase),true];
+_suitcase setVariable [QGVAR(suitcase_pos),getPos _suitcase,true];
 _suitcase setVariable [QGVAR(suitcase_carrier),objNull,true];
 
 

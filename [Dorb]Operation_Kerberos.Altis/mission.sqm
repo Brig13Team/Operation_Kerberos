@@ -53,7 +53,9 @@ class Mission
 		"A3_Structures_F_Heli_Ind_Cargo",
 		"3DEN",
 		"ace_cargo",
-		"ace_repair"
+		"ace_repair",
+		"A3_Structures_F_Items_Luggage",
+		"A3_Soft_F_Truck"
 	};
 	addOnsAuto[]=
 	{
@@ -106,6 +108,8 @@ class Mission
 		"A3_Structures_F_Mil_Flags",
 		"A3_Structures_F_EPB_Civ_Camping",
 		"A3_Structures_F_EPC_Civ_InfoBoards",
+		"A3_Structures_F_Items_Luggage",
+		"A3_Soft_F_Truck",
 		"a3_map_altis"
 	};
 	randomSeed=32840;
@@ -2609,7 +2613,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=171;
+		items=173;
 		class Item0
 		{
 			position[]={11644.7,-0.521698,11973.6};
@@ -4406,6 +4410,23 @@ class Mission
 			vehicle="Land_PortableLight_double_F";
 			skill=0.60000002;
 			init="this allowDamage false;this setVariable ['R3F_LOG_disabled', true];";
+		};
+		class Item171
+		{
+			position[]={11633.94,22.736712,11946.108};
+			id=266;
+			side="EMPTY";
+			vehicle="Land_Suitcase_F";
+			skill=0.60000002;
+		};
+		class Item172
+		{
+			position[]={11624.915,22.749268,11938.409};
+			azimut=133.92679;
+			id=267;
+			side="EMPTY";
+			vehicle="C_Van_01_transport_F";
+			skill=0.60000002;
 		};
 	};
 	class Markers
