@@ -16,6 +16,8 @@ If (hasInterface) then {
 
 GVARMAIN(debug)=false;
 
+CHECK(!isServer)
+
 // Delete dead Units
 [{
 	If ((count allDead)>20) then {

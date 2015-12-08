@@ -30,7 +30,7 @@ If (_current_artillerys_array isEqualTo []) exitwith {
 	TRACE_1("No artilleryunit found for Mission: \n %1",_current_artillerys_array);
 };
 
-_current_artillerys_array = [_current_artillerys_array] call BIS_fnc_arrayShuffle
+_current_artillerys_array = [_current_artillerys_array] call BIS_fnc_arrayShuffle;
 
 
 private "_unit";
