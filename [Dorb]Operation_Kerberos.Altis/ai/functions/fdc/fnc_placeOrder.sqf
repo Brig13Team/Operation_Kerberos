@@ -18,7 +18,7 @@
 #include "script_component.hpp"
 SCRIPT(placeOrder);
 #define CREEPING_DISTANCE 80
-If (isNil QGVAR(fdc_logic)) exitWith {false};
+
 
 params[["_attackpos",[],[[]],[2,3]],["_type",-1,[0]],["_amount",-1,[0]],["_modearray",[],[[]]]];
 TRACEV_4(_attackpos,_type,_amount,_modearray);
@@ -58,16 +58,12 @@ If (!(_modearray isEqualTo [])) then {
 			}forEach _positions_array;
 		};
 		case "smoke" : {
-			_temp = GETVAR(GVAR(fdc_logic),GVAR(fdc_firemissions),[]);
-			_temp pushBack [_position,_type,"Smoke_120mm_AMOS_White",_amount];
+			GVAR(fdc_firemissions) pushBack [_position,_type,"Smoke_120mm_AMOS_White",_amount];
 			TRACEV_3(_position,_type,_amount);
-			SETVAR(GVAR(fdc_logic),GVAR(fdc_firemissions),_temp);
 		};
 		case "flare" : {
-			_temp = GETVAR(GVAR(fdc_logic),GVAR(fdc_firemissions),[]);
-			_temp pushBack [_position,1,"Flare_82mm_AMOS_White",_amount];
+			GVAR(fdc_firemissions) pushBack [_position,1,"Flare_82mm_AMOS_White",_amount];
 			TRACEV_3(_position,1,_amount);
-			SETVAR(GVAR(fdc_logic),GVAR(fdc_firemissions),_temp);
 		};
 	};
 };
@@ -81,25 +77,22 @@ _cancel = switch (_type) do {
 	
 			};
 	case 0 : {
-				_artilleries = GETVAR(GVAR(fdc_logic),GVAR(fdc_artilleries),[]);
-				If (_artilleries isEqualTo []) exitWith {true};
-				_unit = _artilleries SELRND;
+				If (GVAR(fdc_artilleries) isEqualTo []) exitWith {true};
+				_unit = GVAR(fdc_artilleries) SELRND;
 				_shelltype = ((getArtilleryAmmo [_unit])select 0);
 				If (_amount < 0) then {_amount = 6;};
 				false;
 			};
 	case 1 : {
-				_artilleries = GETVAR(GVAR(fdc_logic),GVAR(fdc_mortars),[]);
-				If (_artilleries isEqualTo []) exitWith {true};
-				_unit = _artilleries SELRND;
+				If (GVAR(fdc_mortars) isEqualTo []) exitWith {true};
+				_unit = GVAR(fdc_mortars) SELRND;
 				_shelltype = ((getArtilleryAmmo [_unit])select 0);
 				If (_amount < 0) then {_amount = 3;};
 				false
 			};
 	case 2 : {
-				_artilleries = GETVAR(GVAR(fdc_logic),GVAR(fdc_rocket),[]);
-				If (_artilleries isEqualTo []) exitWith {true};
-				_unit = _artilleries SELRND;
+				If (GVAR(fdc_rocket) isEqualTo []) exitWith {true};
+				_unit = GVAR(fdc_rocket) SELRND;
 				_shelltype = ((getArtilleryAmmo [_unit])select 0);
 				_ammo = getText(configFile>>"CfgMagazines">> _shelltype >> "ammo");
 				_submun = getText(configFile>>"CfgAmmo">>_ammo>>"submunitionAmmo");
@@ -111,10 +104,7 @@ _cancel = switch (_type) do {
 
 
 if(_cancel) exitWith {false};
-_temp = GETVAR(GVAR(fdc_logic),GVAR(fdc_firemissions),[]);
-_temp pushBack [_position,_type,_shelltype,_amount];
-TRACEV_4(_position,_type,_shelltype,_amount);
-SETVAR(GVAR(fdc_logic),GVAR(fdc_firemissions),_temp);
+GVAR(fdc_firemissions) pushBack [_position,_type,_shelltype,_amount];
 
 true
 

@@ -14,38 +14,32 @@
 #include "script_component.hpp"
 SCRIPT(register);
 
-If (isNil "DORB_FDC_LOGIC") exitwith {
-	[_this select 1] call CBA_fnc_removePerFrameHandler;
-	ERROR("Missing FDC-Logic");
-};
-
-private["_firemissions","_current_firemission"];
-_firemissions = GETVAR(GVAR(fdc_logic),GVAR(fdc_firemissions),[]);
-
-CHECK(_firemissions isEqualTo [])
-_current_firemission = _firemissions deleteAt 0;
-SETVAR(GVAR(fdc_logic),GVAR(fdc_firemissions));
+CHECK(GVAR(fdc_firemissions) isEqualTo [])
+private ["_current_firemission"];
+_current_firemission = GVAR(fdc_firemissions) deleteAt 0;
 private ["_current_artillerys_array"];
 _current_firemission params ["_position","_type","_shelltype","_amount"];
 _current_artillerys_array = switch(_type) do {
-	case 0 : {[GETVAR(GVAR(fdc_logic),GVAR(fdc_artilleries),[])] call BIS_fnc_arrayShuffle};
-	case 1 : {[GETVAR(GVAR(fdc_logic),GVAR(fdc_mortars),[])] call BIS_fnc_arrayShuffle};
-	case 2 : {[GETVAR(GVAR(fdc_logic),GVAR(fdc_rocket),[])] call BIS_fnc_arrayShuffle};
+	case 0 : {GVAR(fdc_artilleries)};
+	case 1 : {GVAR(fdc_mortars)};
+	case 2 : {GVAR(fdc_rocket)};
 	default {[]};
 };
 
 If (_current_artillerys_array isEqualTo []) exitwith {
 	TRACE_1("No artilleryunit found for Mission: \n %1",_current_artillerys_array);
 };
+
+_current_artillerys_array = [_current_artillerys_array] call BIS_fnc_arrayShuffle
+
+
 private "_unit";
 _unit = {
 	If ((_position inRangeOfArtillery [[_x],_shelltype])&&(_shelltype in getArtilleryAmmo[_x])&&(GETVAR(_x,GVAR(fdc_ready),false))) exitwith {_x};
 }forEach _current_artillerys_array;
 
 If((isNil "_unit")||{(!(IS_OBJECT(_unit)))}) exitwith {
-	_temp = GETVAR(GVAR(fdc_logic),GVAR(fdc_firemissions),[]);
-	_temp pushBack _current_firemission;
-	SETVAR(GVAR(fdc_logic),GVAR(fdc_firemissions),_temp);
+	GVAR(fdc_firemissions) pushBack _current_firemission;
 };
 
 SETVAR(_unit,GVAR(fdc_ready),false);
