@@ -15,7 +15,7 @@
 SCRIPT(waitAndExec);
 _this params [["_code","",[{},""]],["_parameter",[],[[]]],["_delay",1,[0]]];
 TRACEV_3(_code,_parameter,_delay);
-CHECK(_code isEqualTo "")
+CHECKRET((_code isEqualTo ""),false);
 
 If (IS_STRING(_code)) then {
 	_code = compile _code;
@@ -23,3 +23,4 @@ If (IS_STRING(_code)) then {
 
 GVAR(waitAndExecArray) pushBack [(diag_ticktime + _delay), _code, _parameter];
 GVAR(waitAndExecArray) sort true;
+true;

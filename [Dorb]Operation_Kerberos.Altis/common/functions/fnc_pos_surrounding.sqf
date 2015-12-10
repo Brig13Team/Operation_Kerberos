@@ -16,8 +16,8 @@
 #include "script_component.hpp"
 SCRIPT(pos_surrounding);
 params[["_position",[],[[]],[2,3]],["_radius",600,[0]],["_step",20,[0]]];
-CHECK(_position isEqualTo [])
-If ((_step < 1)||(_radius < 5)) exitWith {[_position]};
+CHECKRET((_position isEqualTo []),[]);
+CHECKRET(((_step < 1)||(_radius < 5)),[_position]);
 Private["_searchposarray","_searchrad","_s","_umfang","_theta"];
 _searchposarray = [_position];
 _searchrad = 1;

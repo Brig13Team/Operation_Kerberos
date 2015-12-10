@@ -18,7 +18,8 @@ SCRIPT(EventLocal);
 _this params[["_function","",["",{}]],["_params",[]],["_target",0,[0]]];
 TRACEV_2(_function,_params,_target);
 
-if (_function isEqualTo "") exitWith {};
+CHECKRET((_function isEqualTo ""),false);
 
 GVARMAIN(EVENTEXEC) = [_function,_params,_target];
 publicVariableServer QGVARMAIN(EVENTLOCAL);
+true;

@@ -17,7 +17,7 @@ SCRIPT(positionsMean);
 private ["_positionsarray","_all_x","_all_y","_all_z","_x","_y","_z","_currentpos","_return"];
 _this params [["_positionsarray",[],[[]]]];
 
-If (_positionsarray isEqualTo []) exitWith {[]};
+CHECKRET((_positionsarray isEqualTo []),[]);
 _all_x = [((_positionsarray select 0) select 0)];
 _all_y = [((_positionsarray select 0) select 1)];
 If ((count(_positionsarray select 0))>2) then {

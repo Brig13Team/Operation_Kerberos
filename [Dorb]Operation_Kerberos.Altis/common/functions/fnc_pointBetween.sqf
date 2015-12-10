@@ -17,7 +17,7 @@
 #include "script_component.hpp"
 SCRIPT(pointBetween);
 
-params["_point1","_point2"];
+_this params["_point1","_point2"];
 
 if ((count _point1 == 3) && (count _point2 == 3)) exitWith {
 	private ["_v","_l","_d","_f"];

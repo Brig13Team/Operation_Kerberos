@@ -16,7 +16,7 @@
 #include "script_component.hpp"
 SCRIPT(minefield);
 params[["_centerpos",[],[[]],[2,3]],["_spawnrad",25,[0]],["_type",0,[0]],["_anzahl",15,[0]]];
-CHECK(_centerpos isEqualTo [])
+CHECKRET((_centerpos isEqualTo []),false);
 Private["_anzahl","_ap_mines","_at_mines","_allmines","_magazineClass","_magazineTrigger","_pos","_dir","_triggerConfig","_triggerSpecificVars","_ammo","_explosive"];
 
 If (_type <1) then {

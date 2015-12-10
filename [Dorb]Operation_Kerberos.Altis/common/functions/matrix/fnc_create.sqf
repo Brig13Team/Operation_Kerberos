@@ -19,16 +19,15 @@ SCRIPT(create);
 
 _this params [["_Xsize",0,[0]],["_Ysize",-1,[0]],["_value",0,[0]]];
 
-If (_Xsize<=0) exitWith {[]};
+CHECKRET((_Xsize<=0),[]);
 If (_Ysize<=0) then {_Ysize=_Xsize;};
-private["_matrix","_array"];
-_matrix=[];
+private _matrix=[];
 For "_i" from 0 to _Xsize do {
-	_array = [];
+	private _array = [];
 	For "_i" from 0 to _Ysize do {
 		_array pushBack _value;
 	};
 	_matrix pushBack _array;
 };
 
-_matrix
+_matrix;

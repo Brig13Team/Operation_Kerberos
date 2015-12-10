@@ -18,10 +18,10 @@
 SCRIPT(get_cfg_subclasses);
 _this params [["_classname","",[""]],["_config",(configfile>>"CfGVehicles"),[configfile]]];
 TRACEV_2(_classname,_config);
-private["_return","_subclasses","_temp"];
-_return = [];
-_subclasses = (_config) call BIS_fnc_getCfgSubClasses;
-_temp = [];
+
+private _return = [];
+private _subclasses = (_config) call BIS_fnc_getCfgSubClasses;
+private _temp = [];
 _temp = ((_config >> _classname) call BIS_fnc_getCfgSubClasses);
 If (!(_temp isEqualTo [])) then {
 	{

@@ -16,7 +16,7 @@
 SCRIPT(minefields);
 params[["_position",[],[[]],[2,3]],["_radius",1300,[0]],["_anzahl",8,[0]]];
 
-CHECK(_position isEqualTo [])
+CHECKRET((_position isEqualTo []),false);
 
 
 _spawnpos = [];
@@ -57,3 +57,4 @@ for "_i" from 0 to _spawnanzahl do {
 	};
 };
 
+true;

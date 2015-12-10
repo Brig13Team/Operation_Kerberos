@@ -20,18 +20,17 @@
 #include "script_component.hpp"
 params[["_position",[],[[]],[2,3]],["_group",grpNull,[grpNull,east]],["_unittype","",[""]],["_direction",(floor(random 360)),[0]],["_withcrew",true,[true]],["_precisePos",true,[true]],["_special","NONE",[""]]];
 TRACEV_6(_position,_unittype,_group,_direction,_withcrew,_precisePos,_special);
-private["_changeleader"];
-_changeleader=false;
+private _changeleader = false;
 If (IS_SIDE(_group)) then {
 	_group = createGroup _group;
 	_changeleader=true;
 };
 
-CHECK((_position isEqualTo [])||(_unittype isEqualTo "")||(isNull _group))
+CHECKRET(((_position isEqualTo [])||(_unittype isEqualTo "")||(isNull _group)),[]);
 
-private ["_simulation"];
-_simulation = getText(configFile >> "CfgVehicles" >> _unittype >> "simulation");
 
+private _simulation = getText(configFile >> "CfgVehicles" >> _unittype >> "simulation");
+private "_vehicle";
 switch (tolower _simulation) do {
 	case "soldier": {
 		_vehicle = _group createunit [_unittype,_position,[],0,_special];

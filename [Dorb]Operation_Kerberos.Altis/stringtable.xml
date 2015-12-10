@@ -449,7 +449,18 @@
 			<Original>Rescue Point</Original>
 			<German>Sicherheitszone</German>
 			<English>Rescue Point</English>
-		</Key>		
+		</Key>
+		<Key ID="STR_DORB_MISSION_CASE_CARRY">
+			<Original>Carry</Original>
+			<German>Tragen</German>
+			<English>Carry</English>
+		</Key>
+		<Key ID="STR_DORB_MISSION_CASE_DROP">
+			<Original>Drop</Original>
+			<German>Abstellen</German>
+			<English>Drop</English>
+		</Key>
+		
 		<Key ID="STR_DORB_MISSION_SCARAB_TASK">
 			<Original>Prevent launch of nuclear missiles within %1 minutes.</Original>
 			<German>Verhindern Sie den Abschuss der Atomraketen innerhalb von %1 Minuten.</German>

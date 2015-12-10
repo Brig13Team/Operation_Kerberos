@@ -16,14 +16,14 @@
 SCRIPT(group);
 params[["_position",[],[[]],[2,3]],["_type",[],[[],configfile]]];
 LOG_2(_position,_type);
-if (_position isEqualTo []) exitWith {grpNull};
-if ((IS_STRING(_type))&&{_type isEqualTo ""}) exitWith {grpNull};
+CHECKRET((_position isEqualTo []),grpNull);
+CHECKRET(((IS_STRING(_type))&&{_type isEqualTo ""}),grpNull);
 private["_types","_ranks","_positions","_group"];
-_types = [];
-_ranks = [];
-_positions = [];
+private _types = [];
+private _ranks = [];
+private _positions = [];
 If ((count _position) <3) then {_position set [2,0];};
-If ((IS_ARRAY(_type))&&(_type isEqualTo [])) exitWith {};
+CHECKRET(((IS_ARRAY(_type))&&(_type isEqualTo [])),grpNull);
 
 If (IS_ARRAY(_type)) then {
 	_type = [_type,missionconfigfile] call BIS_fnc_configPath;
@@ -45,7 +45,7 @@ _group = switch (getNumber(configFile >> "CfgVehicles" >> (_types select 0) >> "
 	default {createGroup GVARMAIN(side)};
 };
 
-If (_types isEqualTo []) exitWith {grpNull};
+CHECKRET((_types isEqualTo []),grpNull);
 
 {
 	private ["_isMan","_spawnpos","_unit"];

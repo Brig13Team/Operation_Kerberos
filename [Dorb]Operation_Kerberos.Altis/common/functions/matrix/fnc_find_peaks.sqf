@@ -31,18 +31,19 @@ if (IS_STRING(_variablename)) then {
 	_matrix = _variablename;
 };
 
-If ((_matrix isEqualTo [])) exitWith {false};
-private ["_x_size","_y_size","_maxima","_last_maxima","_temp"];
-_x_size = count (_variable);
-If (_x_size == 0) exitWith {false};
-_y_size = count (_variable select 0);
-If (_y_size == 0) exitWith {false};
+CHECKRET((_matrix isEqualTo []),false);
 
-_maxima=[];
+private _x_size = count (_variable);
+CHECKRET((_x_size == 0),false);
+private _y_size = count (_variable select 0);
+CHECKRET((_y_size == 0),false);
+
+private _maxima=[];
 for "_i" from 0 to MAXIMACOUNT do {
 	_maxima pushBack [0,0,0];
 };
 
+private ["_last_maxima","_temp"];
 for "_x" from 0 to (_x_size-1) do {
 	_maxima sort false;
 	_maxima resize MAXIMACOUNT;

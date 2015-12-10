@@ -9,16 +9,14 @@
 */
 #include "script_component.hpp"
 SCRIPT(list_groups);
-private ["_alleGruppen","_gruppen"];
 
-_alleGruppen = allGroups;
-_gruppen = [];
+private _groups = [];
 
 //      Gruppen filtern und auflisten Kriterien: WEST, Einheiten vorhanden, keine "nur-KI" Gruppen
 //      KI-Gruppen: (isPlayer(leader _x ))
 {
     If (((isPlayer(leader _x ))) and (side(leader _x ) == (side player))and((count (units _x)) >0)) then {
-        _gruppen pushBack _x;
+        _groups pushBack _x;
     };
-}forEach _alleGruppen;
-_gruppen;
+}forEach allGroups;
+_groups;

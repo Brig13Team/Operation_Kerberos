@@ -18,7 +18,7 @@ SCRIPT(EventExecLocal);
 _this params[["_target",objNull,[objNull,grpNull]],["_function","",["",{}]],["_params",[]]];
 TRACEV_3(_target,_function,_params);
 
-if (isNull _target || _function isEqualTo "") exitWith {};
+CHECKRET((isNull _target || _function isEqualTo ""),false);
 
 
 if (Local _target) exitWith {
@@ -32,3 +32,4 @@ if (Local _target) exitWith {
 GVARMAIN(EVENTEXEC) = [_function,_params,_target];
 publicVariableServer QGVARMAIN(EVENTEXEC);
 [_function,_params,_target] spawn FUNC(EventExec);
+true

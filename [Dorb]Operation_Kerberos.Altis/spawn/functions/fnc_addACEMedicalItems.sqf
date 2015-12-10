@@ -6,9 +6,9 @@
 */
 #include "script_component.hpp"
 SCRIPT(addAceMedical);
-If (!(isClass(configFile >> "CfgPatches" >> "ace_medical"))) exitWith {};
+CHECKRET((!(isClass(configFile >> "CfgPatches" >> "ace_medical"))),true);
 _this params[["_vehicle",objNull,[objNull]]];
-If ((isNull _vehicle)||(isNil "ace_medical_level")) exitWith {};
+CHECKRET(((isNull _vehicle)||(isNil "ace_medical_level")),true);
 
 If (ace_medical_level<2) then {
 	_vehicle addItemCargoGlobal ["ACE_fieldDressing"	, 150];

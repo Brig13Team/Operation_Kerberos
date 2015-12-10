@@ -8,12 +8,12 @@
 SCRIPT(get_buildings);
 _this params[["_pos",[],[[]]],["_rad",250,[0]]];
 TRACEV_2(_pos,_rad);
-CHECK(_pos isEqualTo [])
-private ["_gebauede","_anz","_i","_fertig","_gebauedepos","_temp"];
-_gebauede = [];
-_gebauedepos = [];
+CHECKRET((_pos isEqualTo []),[]);
+private ["_i","_fertig","_temp"];
+private _gebauede = [];
+private _gebauedepos = [];
 _gebauede = _pos nearObjects ["HouseBase", _rad];
-_anz = ((count _gebauede)-1) min 150;
+private _anz = ((count _gebauede)-1) min 150;
 for "_j" from 0 to _anz do {
 	_i=0;
 	_fertig=false;

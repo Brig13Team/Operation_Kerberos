@@ -19,12 +19,11 @@
 SCRIPT(value_add);
 
 _this params [["_variablename","",[""]],["_x_pos",0,[0]],["_y_pos",0,[0]],["_value",0,[0]],["_namespace",missionnamespace,[missionnamespace,profilenamespace,uinamespace]]];
-private ["_variable"];
 
-If ((_variablename isEqualTo "")||(_value == 0)) exitWith {false};
-_variable = _namespace getVariable [_variablename,[]];
+CHECKRET(((_variablename isEqualTo "")||(_value == 0)),false);
+private _variable = _namespace getVariable [_variablename,[]];
 
-If ((_variable isEqualTo [])||(_x_pos >= count _variable)||(_y_pos >= count(_variable select 0))) exitWith {false};
+CHECKRET(((_variable isEqualTo [])||(_x_pos >= count _variable)||(_y_pos >= count(_variable select 0))),false);
 
 _temp = _variable select _x_pos;
 _temp set [_y_pos,(_value + (_temp select _y_pos))];

@@ -10,11 +10,9 @@
 */
 #include "script_component.hpp"
 SCRIPT(choose_army);
-params[["_Army","",[""]]];
-TRACEV_1(_Army);
-If (_Army isEqualTo "") then {
-	private "_ArmyArray";
-	_ArmyArray = [
+
+If !(_this params[["_Army","",[""]]]) then {
+	private _ArmyArray = [
 		["regular",1], //mixed
 		//fighting troups
 		["armored",1],
@@ -37,8 +35,7 @@ if (isNil QGVARMAIN(side)) then {
 	};
 };
 
-private "_path";
-_path = (missionConfigFile >> "unitlists" >> str GVARMAIN(side) >> GVARMAIN(side_type));
+private _path = (missionConfigFile >> "unitlists" >> str GVARMAIN(side) >> GVARMAIN(side_type));
 
 
 GVAR(list_crewmen) = getArray(_path >> "crewmen");

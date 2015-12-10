@@ -17,7 +17,7 @@
 #include "script_component.hpp"
 SCRIPT(pos_square);
 params[["_position",[],[[]],[2,3]],["_step",30,[0]],["_sideX",600,[0]],["_sideY",-1,[0]]];
-CHECK(_position isEqualTo [])
+CHECKRET((_position isEqualTo []),[]);
 If ((_step < 10)||(_sideX < 21)) exitWith {[_position]};
 If (_sideY < 0) then {_sideY=_sideX;};
 private ["_startpos","_return"];

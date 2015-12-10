@@ -2,6 +2,9 @@
 
 ADDON = false;
 
+PREP(cleanup_base);
+PREP(cleanup_full);
+
 PREP(addACEMedicalItems);
 PREP(army_set);
 

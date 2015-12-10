@@ -13,20 +13,21 @@
 #include "script_component.hpp"
 SCRIPT(sel_array_weighted);
 params[["_array",[],[[]]],["_weightpos",-1,[0]],["_returnPos",false,[true]]];
-CHECK(_array isEqualTo [])
-CHECK(_weightpos<0)
-private["_weightsum","_i","_choosenWeight"];
-_weightsum = 0;
+If ((_array isEqualTo [])||(_weightpos<0)) exitWith {
+	If (_returnPos) then {-1}else{[]};
+};
+
+private _weightsum = 0;
 
 {
 	_weightsum = _weightsum + abs(_x select _weightpos);
 }forEach _array;
 
 _weightsum = _weightsum * 1000;
-_choosenWeight = floor(random _weightsum);
+private _choosenWeight = floor(random _weightsum);
 If (_choosenWeight != 0) then {_choosenWeight = _choosenWeight / 1000;};
 
-_i = 0;
+private _i = 0;
 _weightsum = 0;
 {
 	_weightsum = _weightsum + abs(_x select _weightpos);

@@ -17,18 +17,17 @@
 */
 #include "script_component.hpp"
 SCRIPT(patrol_create);
-params["_position",["_amount",0,[0]],["_radius",1200,[0]]];
+_this params["_position",["_amount",0,[0]],["_radius",1200,[0]]];
 
 for "_i" from 0 to _amount do {
-	private["_rad","_pos","_spawnpos","_grouptype","_group","_formation"];
-	_rad = ((random 800) + 800);
-	_pos = [_position,_radius,0] call EFUNC(common,pos_random);
-	_spawnpos = _pos findEmptyPosition [1,40];
-	_grouptype = GVAR(group_patrol) SELRND;
+	private _rad = ((random 800) + 800);
+	private _pos = [_position,_radius,0] call EFUNC(common,pos_random);
+	private _spawnpos = _pos findEmptyPosition [1,40];
+	private _grouptype = GVAR(group_patrol) SELRND;
 	if (_spawnpos isEqualTo []) then {
 		ERROR("Keine Spawnposition");
 	}else{
-		_group = [_spawnpos, _grouptype] call FUNC(group);
+		private _group = [_spawnpos, _grouptype] call FUNC(group);
 		SETPVAR(_group,EGVAR(ai,state),'patrol');
 		SETPVAR(_group,EGVAR(ai,target),_spawnpos);
 		[_group] call EFUNC(ai,register_Group);

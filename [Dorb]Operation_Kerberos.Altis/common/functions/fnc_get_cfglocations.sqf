@@ -7,21 +7,20 @@
 */
 #include "script_component.hpp"
 SCRIPT(get_cfg_locations);
-private ["_loc_civ","_loc_ind","_loc_mil","_loc_water","_loc_sonst","_cfgOrte","_mil","_ind","_i","_pow","_quar"];
 
-_loc_water=[];
-_loc_civ=[];
-_loc_ind=[];
-_loc_mil=[];
-_loc_sonst=[];
-_cfgOrte=[];
+private _loc_water=[];
+private _loc_civ=[];
+private _loc_ind=[];
+private _loc_mil=[];
+private _loc_sonst=[];
+private _cfgOrte=[];
 
-_mil=0;
-_ind=0;
-_pow=0;
-_quar=0;
+private _mil=0;
+private _ind=0;
+private _pow=0;
+private _quar=0;
 
-_cfgOrte = configFile >> "CfgWorlds" >> worldName >> "Names";
+private _cfgOrte = configFile >> "CfgWorlds" >> worldName >> "Names";
 
 If (worldName == "Altis") then {
 	for "_i" from 0 to ((count _cfgOrte)-1) do {

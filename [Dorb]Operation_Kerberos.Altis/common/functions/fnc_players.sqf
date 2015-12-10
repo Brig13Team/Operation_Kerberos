@@ -12,6 +12,6 @@
 SCRIPT(players);
 
 If !(isMultiplayer) exitWith {[player]};
-private "_allHCs";
-_allHCs = entities "HeadlessClient_F";
+
+private _allHCs = entities "HeadlessClient_F";
 (allPlayers - _allHCs);

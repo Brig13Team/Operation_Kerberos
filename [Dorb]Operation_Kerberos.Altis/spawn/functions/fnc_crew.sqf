@@ -13,11 +13,11 @@
 #include "script_component.hpp"
 SCRIPT(crew);
 _this params[["_vehicle",objNull,[objNull]],["_gruppe",grpNull,[grpNull]],["_withCargo",false,[true]]];
-Private ["_crewmen","_unit","_crew"];
-CHECK((isNull _vehicle)||(isNull _gruppe))
-_crew = [];
-If (IS_SIDE(_gruppe)) then {_gruppe = createGroup _gruppe;};
 
+CHECKRET(((isNull _vehicle)||(isNull _gruppe)),[]);
+private _crew = [];
+If (IS_SIDE(_gruppe)) then {_gruppe = createGroup _gruppe;};
+Private ["_crewmen","_unit"];
 for "_i" from 1 to (_vehicle emptyPositions "Driver") do {
 	_crewmen = GVAR(list_crewmen) SELRND;
 	_unit = _gruppe createUnit [_crewmen, [0,0,500], [], 0, "NONE"];

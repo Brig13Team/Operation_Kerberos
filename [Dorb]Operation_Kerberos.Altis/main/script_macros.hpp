@@ -122,6 +122,7 @@ Author:
     Dorbedo
 ------------------------------------------- */
 #define CHECK(CONDITION) if (CONDITION) exitWith {};
+#define CHECKRET(CONDITION,RETURN) if (CONDITION) exitWith {RETURN;};
 /* -------------------------------------------
 Macro: SELRND()
     Selects a random element of an array
@@ -295,3 +296,20 @@ Author:
 
 #define ISCASVEHICLE(ARG) [ARG, ["RHS_UH1Y_UNARMED"], ["RHS_UH1Y"]] call TRIPLES(PREFIX,makro,iscasvehicle)
 #define ISCASVEHICLE_C(ARG) (ISCASVEHICLE(ARG))
+
+/* -------------------------------------------
+Macro: isHeadless
+    Checks if function is called by HeadlessClient
+
+Parameters:
+    none
+
+Example:
+    (begin example)
+        CHECK(isHC)
+    (end)
+
+Author:
+    Dorbedo
+------------------------------------------- */
+#define isHeadless (!IsDedicated && !hasInterface)
