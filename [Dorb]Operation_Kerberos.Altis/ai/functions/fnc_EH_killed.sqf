@@ -1,6 +1,3 @@
-
-////// WIP //////////
-
 /*
 	Author: Dorbedo
 	
@@ -32,6 +29,7 @@ _this spawn {
 		};
 	}count (_otherUnits);
 
+	CHECK(_messagingUnits isEqualTo [])
 	// spawn a send_msg with the enemypos to the HQ
 	_messagingUnits sort false;
 

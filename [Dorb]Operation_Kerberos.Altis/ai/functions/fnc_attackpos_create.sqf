@@ -16,18 +16,11 @@ SCRIPT(attackpos_create);
 _this params[["_group",grpNull,[grpNull]]];
 private ["_strenght","_position","_logic"];
 
-_strenght = [_group] call FUNC(_strenght);
+_strenght = [_group] call FUNC(strenght);
 
 _position = getPos leader _group;
 
-_logic = "Logic" createVehicle _position;
-
-ISNILS(GVAR(attackpos),[]);
-
-GVAR(attackpos) pushback _logic;
-
-SETVAR(_logic,GVAR(isAttackpos),true);
-SETVAR(_logic,GVAR(enemy),_strenght);
+[_position,_strenght] call FUNC(attackpos_create_logic);
 
 true
 

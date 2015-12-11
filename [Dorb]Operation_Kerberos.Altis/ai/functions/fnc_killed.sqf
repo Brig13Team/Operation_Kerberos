@@ -19,12 +19,11 @@ TRACEV_2(_killer,_caller);
 
 _killerpos = _caller gethidefrom _killer;
 
-If ((_killerpos distance [0,0,0])<1) exitWith {};
+CHECK((_killerpos distance [0,0,0])<10);
 
-_x_pos = floor(_killerpos - (GVAR(centerpos) select 0 - (GVAR(definitions) select 0)));
-_y_pos = floor((GVAR(centerpos) select 0 + (GVAR(definitions) select 0)) - _killerpos);
+([_killerpos] call FUNC(dangerzone_convert)) params ["_x_coordinate","_y_coordinate"];
 
-CHECK((_x_pos<0)||(_y_pos<0))
+CHECK(_x<0)
 
 _value = switch (true) do {
 	case ((vehicle _killer)isKindOf "Armored") : {10};
@@ -34,4 +33,4 @@ _value = switch (true) do {
 	default {4};
 };
 
-GVAR(buffer) pushBack [_x_pos,_y_pos,_value];
+GVAR(buffer) pushBack [_x_coordinate,_y_coordinate,_value];

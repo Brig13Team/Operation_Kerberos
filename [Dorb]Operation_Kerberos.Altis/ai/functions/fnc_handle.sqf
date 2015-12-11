@@ -13,99 +13,194 @@
 #include "script_component.hpp"
 SCRIPT(handle);
 CHECK(GETMVAR(GVAR(working),false))
+CHECK((GETMVAR(GVAR(centerpos),[]) isEqualTo []))
 SETMVAR(GVAR(working,true));
 
-CHECK((GETMVAR(GVAR(centerpos),[]) isEqualTo []))
-
-//// remove dead groups
-{
-	private "_temp";
-	_temp = missionnamespace getVariable [_x,[]];
-	If !(_temp isEqualTo []) then {
-		_temp = _temp - [grpNull];
-		missionnamespace setVariable [_x,_temp];
-	};
-} forEach [QGVAR(Other),QGVAR(marine),QGVAR(Car),
-			QGVAR(Drone),QGVAR(Tank),QGVAR(Infanterie),
-			QGVAR(Attack_Helicopter),QGVAR(Transport_Helicopter),
-			QGVAR(CAS_Plane),QGVAR(Air_other)];
-
-
-_attackLogics = [] call FUNC(attackpos_getAll);
-
-_waitingGroups = [];
-
-{
-	If (side _x == GVARMAIN(side)) then {
-		if ((_x getVariable [QGVAR(state),""]) isEqualTo "wait") then {
-			_waitingGroups pushBack _x;
-		};
-	};
-}forEach allGroups;
-
-TRACEV_2(_attackLogics,_waitingGroups);
-
-{
-	private ["_enemy","_troops"];
-	_enemy = _x getVariable[QGVAR(enemy),0];
-	_troops = _x getVariable[QGVAR(troops),0];
+[] spawn {
 	
-	If (_troops < _enemy) then {
-		for "_i" from _troops to _enemy do {
-			private["_curGroup","_strength"];
-			_curGroup = _waitingGroups deleteAt 0;
-			_strength = [_curGroup] call FUNC(strength);
-			_curGroup setVariable [QGVAR(target),_x];
-			_curGroup setVariable [QGVAR(state),"attack"];
-			[_curGroup] spawn FUNC(state_change);
+	//// remove dead groups
+	{
+		private "_temp";
+		_temp = missionnamespace getVariable [_x,[]];
+		If !(_temp isEqualTo []) then {
+			_temp = _temp - [grpNull];
+			missionnamespace setVariable [_x,_temp];
+		};
+	} forEach [QGVAR(Other),QGVAR(marine),QGVAR(Car),
+				QGVAR(Drone),QGVAR(Tank),QGVAR(Infanterie),
+				QGVAR(Attack_Helicopter),QGVAR(Transport_Helicopter),
+				QGVAR(CAS_Plane),QGVAR(Air_other)];
+
+
+	/// gather Informations
+
+
+	private["_attackpositions","_attackarray"];
+	_attackarray = [QGVAR(dangerzones)] call EFUNC(common,matrix_find_peaks);
+	_attackpositions = [];
+	{
+		_attackpositions pushBack [
+								((GVAR(centerpos) select 0)-(GVAR(definitions) select 0) + ((_x select 1)*(GVAR(definitions) select 1))),
+								((GVAR(centerpos) select 1)+(GVAR(definitions) select 1) - ((_x select 2)*(GVAR(definitions) select 1))),
+								0
+								];
+	}forEach _attackarray;
+
+
+	//// create new Attacklogics
+	private _attackLogics = [] call FUNC(attackpos_getAll);
+
+	{
+		private _curentAttackPos = _x;
+		{
+			if ((_x distance _curentAttackPos)<400) exitWith {
+				[_curentAttackPos,0] call FUNC(attackpos_create_logic);
+			};
+		}forEach _attackLogics;
+	}forEach _attackpositions;
+
+
+
+	/// Update the enemyamount on each Attackpos
+	_attackLogics = [] call FUNC(attackpos_getAll);
+
+	{
+		([getPos _x] call FUNC(dangerzones_convert)) params ["_x_coord","_y_coord"];
+		private _enemy = 0;
+		{
+			_temp = _temp + _x call EFUNC(common,matrix_value_get);
+		}forEach [
+			[_x_coord,_y_coord],
 			
-			_troops = _troops + (_strength select 1);
-			_i = _i + (_strength select 1);
-		};
-	};
-	
-	_x setVariable[QGVAR(troops),_troops];
-}forEach _attackLogics;
-
-
+			[_x_coord+1,_y_coord],
+			[_x_coord-1,_y_coord],
+			[_x_coord,_y_coord+1],
+			[_x_coord,_y_coord-1],
+			
+			[_x_coord+1,_y_coord+1],
+			[_x_coord-1,_y_coord-1],
+			[_x_coord-1,_y_coord+1],
+			[_x_coord+1,_y_coord-1],
+			
+			[_x_coord+2,_y_coord-2],
+			[_x_coord+2,_y_coord+2],
+			[_x_coord-2,_y_coord-2],
+			[_x_coord-2,_y_coord+2],
+			
+			[_x_coord-1,_y_coord-2],
+			[_x_coord-2,_y_coord-1],
+			[_x_coord+1,_y_coord-2],
+			[_x_coord+2,_y_coord-1],
+			[_x_coord+1,_y_coord+2],
+			[_x_coord+2,_y_coord+1],
+			[_x_coord-1,_y_coord+2],
+			[_x_coord-2,_y_coord+1],
+			
+			[_x_coord+2,_y_coord],
+			[_x_coord-2,_y_coord],
+			[_x_coord,_y_coord+2],
+			[_x_coord,_y_coord-2]
+		];
+		_x setVariable[QGVAR(enemy),_enemy];
+	} forEach _attackLogics;
 
 
 /*
-//// Gather Informations -> where does the enemy attack
-private["_attackpositions","_attackarray"];
-_attackarray = [QGVAR(dangerzones)] call EFUNC(common,matrix_find_peaks);
-_attackpositions = [];
-{
-	_attackpositions pushBack [
-							((GVAR(centerpos) select 0)-(GVAR(definitions) select 0) + ((_x select 1)*(GVAR(definitions) select 1))),
-							((GVAR(centerpos) select 1)+(GVAR(definitions) select 1) - ((_x select 2)*(GVAR(definitions) select 1))),
-							0
-							];
-}forEach _attackarray;
-
-// Check Radars
-_aircontacts = [] call FUNC(check_radars);
-// Check Spotters
-_spotter_requests = [] call FUNC(check_spotter);
-// Check Requests
-_support_requests = GETMVAR(GVAR(support_requests),[]);
-SETMVAR(GVAR(support_requests),[]);
+	// Check Radars
+	_aircontacts = [] call FUNC(check_radars);
+	// Check Spotters
+	_spotter_requests = [] call FUNC(check_spotter);
+	// Check Requests
+	_support_requests = GETMVAR(GVAR(support_requests),[]);
+	SETMVAR(GVAR(support_requests),[]);
 */
 
-//// Check for availlaible Squads in Range
 
 
 
+	/// get the availlible groups
+	private _waitingGroups = [];
+	/// the bored groups
+	{
+		If (side _x != GVARMAIN(playerside)) then {
+			if ((_x getVariable [QGVAR(state),""]) isEqualTo "wait") then {
+				_waitingGroups pushBack _x;
+			};
+		};
+	}forEach allGroups;
+	/// the veterans
+	{
+		If (side _x != GVARMAIN(playerside)) then {
+			if ((_x getVariable [QGVAR(state),""]) isEqualTo "idle") then {
+				_waitingGroups pushBack _x;
+			};
+		};
+	}forEach allGroups;
+	
+	
+	private _missingstrenght = 0;
+	/// move into battle
+	{
+		private _enemy = _x getVariable[QGVAR(enemy),0];
+		private _troops = _x getVariable[QGVAR(troops),0];
+		
+		If (_troops < _enemy) then {
+			for "_i" from _troops to _enemy do {
+				private["_curGroup","_strength"];
+				_curGroup = _waitingGroups deleteAt 0;
+				_strength = [_curGroup] call FUNC(strength);
+				_curGroup setVariable [QGVAR(target),_x];
+				_curGroup setVariable [QGVAR(state),"attack"];
+				[_curGroup] spawn FUNC(state_change);
+				
+				_troops = _troops + (_strength select 1);
+				_i = _i + (_strength select 1);
+			};
+		};
+		_missingstrenght = _missingstrenght + ((_enemy - _troops) max 0);
+		_x setVariable[QGVAR(troops),_troops];
+	}forEach _attackLogics;
+	
+	
+	//// Let the rest do something too.
+	{
+		if ((_x getVariable [QGVAR(state),""]) isEqualTo "idle") then {
+			private _curPOI = GVAR(POI) SELRND;
+			private _curPos = [_curPOI,800,0] call EFUNC(common,pos_random);
+			_x setVariable [QGVAR(target),_curPos];
+			_x setVariable [QGVAR(state),"wait"];
+			[_x] spawn FUNC(state_change);
+		};
+	} forEach _waitingGroups;
+	
+	
+	// remove groups from patroling when the shit hits the fan
+	If (_missingstrenght > 0) then {
+		_waitingGroups = [];
+		{
+			If (side _x != GVARMAIN(playerside)) then {
+				if ((_x getVariable [QGVAR(state),""]) isEqualTo "idle") then {
+					_waitingGroups pushBack _x;
+				};
+			};
+		}forEach allGroups;
 
-///// Make decisions
+		{
+			if (_missingstrenght <= 0) exitWith {};
+			private _strength = [_x] call FUNC(strength);
+			private _curPOI = GVAR(POI) SELRND;
+			private _curPos = [_curPOI,200,0] call EFUNC(common,pos_random);
+			_x setVariable [QGVAR(target),_curPos];
+			_x setVariable [QGVAR(state),"retreat"];
+			[_x] spawn FUNC(state_change);
+			_missingstrenght = _missingstrenght - _strength;
+		} forEach _waitingGroups;
+	};
+	
+	
+	
 
 
+	SETMVAR(GVAR(working),false);
 
-
-//// Call Support (Call-In Units or Off-Map Support)
-
-
-
-
-SETMVAR(GVAR(working),false);
-
+};

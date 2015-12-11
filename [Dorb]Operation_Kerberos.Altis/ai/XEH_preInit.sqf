@@ -20,8 +20,11 @@ PREPS(fdc,register);
 
 
 PREP(attackpos_create);
+PREP(attackpos_create_logic);
 PREP(attackpos_getAll);
+PREP(attackpos_remove);
 PREP(dangerzone_buffer);
+PREP(dangerzone_convert);
 PREP(handle);
 PREP(init);
 PREP(init_mission);
