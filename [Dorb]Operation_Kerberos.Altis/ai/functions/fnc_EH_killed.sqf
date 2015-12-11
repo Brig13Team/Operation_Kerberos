@@ -18,8 +18,19 @@ _this spawn {
 	CHECK(isPlayer _unit)
 	CHECK((side _unit)==civilian)
 
-	// check if other teammember know who killed the Unit
-
+	
+	// if unit is the last one, 
+	if (count (units group _unit))<2 then {
+		private _group = group _unit;
+		[_group] call FUNC(attackpos_reduce);
+		private _curPOI = GVAR(POI) SELRND;
+		private _curPos = [_curPOI,800,0] call EFUNC(common,pos_random);
+		_group setVariable [QGVAR(target),_curPos];
+		_group setVariable [QGVAR(state),"defend"];
+		[_group] spawn FUNC(state_change);
+	};
+	
+	// check if other units know who killed the Unit
 	_otherUnits = (getPos _unit) nearEntities ["Man",30];
 
 	_messagingUnits = [];

@@ -20,8 +20,7 @@ SETMVAR(GVAR(working,true));
 	
 	//// remove dead groups
 	{
-		private "_temp";
-		_temp = missionnamespace getVariable [_x,[]];
+		private _temp = missionnamespace getVariable [_x,[]];
 		If !(_temp isEqualTo []) then {
 			_temp = _temp - [grpNull];
 			missionnamespace setVariable [_x,_temp];
@@ -35,9 +34,8 @@ SETMVAR(GVAR(working,true));
 	/// gather Informations
 
 
-	private["_attackpositions","_attackarray"];
-	_attackarray = [QGVAR(dangerzones)] call EFUNC(common,matrix_find_peaks);
-	_attackpositions = [];
+	private _attackarray = [QGVAR(dangerzones)] call EFUNC(common,matrix_find_peaks);
+	private _attackpositions = [];
 	{
 		_attackpositions pushBack [
 								((GVAR(centerpos) select 0)-(GVAR(definitions) select 0) + ((_x select 1)*(GVAR(definitions) select 1))),
@@ -146,10 +144,10 @@ SETMVAR(GVAR(working,true));
 		
 		If (_troops < _enemy) then {
 			for "_i" from _troops to _enemy do {
-				private["_curGroup","_strength"];
-				_curGroup = _waitingGroups deleteAt 0;
-				_strength = [_curGroup] call FUNC(strength);
+				private _curGroup = _waitingGroups deleteAt 0;
+				private _strength = [_curGroup] call FUNC(strength);
 				_curGroup setVariable [QGVAR(target),_x];
+				_curGroup setVariable [QGVAR(strength),_x];
 				_curGroup setVariable [QGVAR(state),"attack"];
 				[_curGroup] spawn FUNC(state_change);
 				
