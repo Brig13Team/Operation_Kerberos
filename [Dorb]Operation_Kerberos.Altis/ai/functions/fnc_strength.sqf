@@ -30,7 +30,11 @@ _type = "Infanterie";
 {
 	_value = _value + (switch (true) do {
 		case (_x isKindOf "Air") : {
-			If ((toLower(getText(configFile >> "CfgVehicles" >> (typeOf _x) >> "simulation")))in ["helicopterrtd","helicopterx"]) then {_type = "Helicopter";15}else{_type = "Plane";20};
+			If ((toLower(getText(configFile >> "CfgVehicles" >> (typeOf _x) >> "simulation")))in ["helicopterrtd","helicopterx"]) then {
+				_type = "Helicopter";15
+			}else{
+				_type = "Plane";20
+			};
 		};
 		case (_x isKindOf "Armored") : {_type = "Armored";15};
 		case (_x isKindOf "Autonomous") : {_type = "Autonomous";15};

@@ -12,13 +12,15 @@
 */
 #include "script_component.hpp"
 SCRIPT(handle);
+CHECK(GETMVAR(GVAR(active),false))
 CHECK(GETMVAR(GVAR(working),false))
 CHECK((GETMVAR(GVAR(centerpos),[]) isEqualTo []))
 SETMVAR(GVAR(working,true));
 
+/// spawn to move it in the ingame sheduler
 [] spawn {
 	
-	//// remove dead groups
+	//// remove dead groups ***OBSOLET?
 	{
 		private _temp = missionnamespace getVariable [_x,[]];
 		If !(_temp isEqualTo []) then {
@@ -138,12 +140,14 @@ SETMVAR(GVAR(working,true));
 	
 	private _missingstrenght = 0;
 	/// move into battle
+	[_attackLogics,_waitingGroups] call FUNC(strategy);
+	/*
 	{
 		private _enemy = _x getVariable[QGVAR(enemy),0];
-		private _troops = _x getVariable[QGVAR(troops),0];
+		private _troops = _x getVariable[QGVAR(troopsNeeded),0];
 		
-		If (_troops < _enemy) then {
-			for "_i" from _troops to _enemy do {
+		If ((_enemy - _troops)>0) then {
+			for "_i" from 0 to _troops do {
 				private _curGroup = _waitingGroups deleteAt 0;
 				private _strength = [_curGroup] call FUNC(strength);
 				_curGroup setVariable [QGVAR(target),_x];
@@ -156,9 +160,9 @@ SETMVAR(GVAR(working,true));
 			};
 		};
 		_missingstrenght = _missingstrenght + ((_enemy - _troops) max 0);
-		_x setVariable[QGVAR(troops),_troops];
+		_x setVariable[QGVAR(troopsNeeded),_troops];
 	}forEach _attackLogics;
-	
+	*/
 	
 	//// Let the rest do something too.
 	{
@@ -173,6 +177,7 @@ SETMVAR(GVAR(working,true));
 	
 	
 	// remove groups from patroling when the shit hits the fan
+	/*
 	If (_missingstrenght > 0) then {
 		_waitingGroups = [];
 		{
@@ -194,7 +199,7 @@ SETMVAR(GVAR(working,true));
 			_missingstrenght = _missingstrenght - _strength;
 		} forEach _waitingGroups;
 	};
-	
+	*/
 	
 	
 

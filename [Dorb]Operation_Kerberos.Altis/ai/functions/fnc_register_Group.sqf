@@ -22,9 +22,8 @@ If (GETVAR(_group,GVAR(registered),false)) exitWith {false};
 ([_group] call FUNC(strength)) params ["_type","_strenght"];
 
 If (_type isEqualTo "") exitWith {false};
-private "_temp";
 
-_temp = missionNameSpace getVariable [QGVAR("")+_type,[]];
+private _temp = missionNameSpace getVariable [QGVAR("")+_type,[]];
 
 _temp append [[_group,_strenght]];
 

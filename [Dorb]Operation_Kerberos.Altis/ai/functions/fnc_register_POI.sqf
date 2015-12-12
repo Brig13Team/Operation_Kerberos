@@ -19,5 +19,9 @@ If (IS_OBJECT(_POI)) then {
 	_POI = getPos _POI;
 };
 
+If (((abs((_POI select 0)-(GVAR(centerpos) select 0)))>(GVAR(definitions) select 0))||
+	((abs((_POI select 1)-(GVAR(centerpos) select 1)))>(GVAR(definitions) select 0))) exitWith {false};
+
+
 GVAR(POI) pushBack _POI;
 true

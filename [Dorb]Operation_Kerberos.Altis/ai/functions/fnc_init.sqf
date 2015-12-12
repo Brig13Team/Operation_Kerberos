@@ -16,7 +16,7 @@ SCRIPT(init);
 #define INTERVALL_RADARS 20
 #define INTERVALL_BUFFER 2
 
-GVAR(aktive) = true;
+GVAR(aktive) = false;
 GVAR(definitions) = [2000,125];
 GVAR(definitions) pushBack ((GVAR(definitions) select 0)/(GVAR(definitions) select 1));
 

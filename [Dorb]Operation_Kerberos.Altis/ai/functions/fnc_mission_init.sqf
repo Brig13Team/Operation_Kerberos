@@ -13,14 +13,6 @@
 #include "script_component.hpp"
 SCRIPT(init_mission);
 _this params[["_centerposition",[],[[]],[2,3]]];
-TRACEV_1(_type);
-
-GVAR(aktive) = false;
-
-
-[] call FUNC(reset);
-
-uisleep 15;
 
 SETMVAR(GVAR(centerpos),_centerposition);
 
