@@ -16,19 +16,23 @@
 SCRIPT(macro_exec3D);
 params[["_centerpos",[],[[]],[3]],["_configarray",[],[[]]],["_centerdir",9999,[0]]];
 CHECK((_centerpos isEqualTo [])||(_configarray isEqualTo []))
-private["_config","_material","_vehicles","_soldiers","_gruppe","_centerposASL"];
 
 If (_centerdir > 9000) then {_centerdir = random 360;};
-_config = [_configarray,missionconfigfile] call BIS_fnc_configPath;
+private _config = [_configarray,missionconfigfile] call BIS_fnc_configPath;
 
-_material = getArray(_config >> "material");
-_vehicles = getArray(_config >> "vehicles");
-_soldiers = getArray(_config >> "soldiers");
-_gruppe = grpNull;
+private _material = getArray(_config >> "material");
+private _vehicles = getArray(_config >> "vehicles");
+private _soldiers = getArray(_config >> "soldiers");
+private _gruppe = grpNull;
+
 If (((count _vehicles)>0)||((count _soldiers)>0)) then {
 	_gruppe = createGroup GVARMAIN(side);
+	SETVAR(_gruppe,EGVAR(ai,state),"defence");
+	SETVAR(_gruppe,EGVAR(ai,target),"_centerpos");
 };
-_centerposASL = ATLtoASL _centerpos;
+private _centerposASL = ATLtoASL _centerpos;
+
+////// Defence Material
 {
 	_x params ["_currentType","_currentPos","_currentDir","_currentOffset","_currentVectorUp"];
 	private["_spawnPos","_spawnPosATL","_spawnVector","_spawndir"];
@@ -86,6 +90,7 @@ _centerposASL = ATLtoASL _centerpos;
 	_vehicle setDir _spawndir;
 }forEach _material;
 
+//// Vehicles
 {
 	private["_spawnPos","_spawnPosATL","_spawnVector","_spawndir"];
 	_x params ["_currentType","_currentPos","_currentDir","_currentOffset","_currentVectorUp"];
@@ -142,8 +147,8 @@ _centerposASL = ATLtoASL _centerpos;
 	_vehicle setDir _spawndir;
 	//_vehicle setVectorUP _spawnVector;
 	_vehicle setVectorUP [0,0,1];
-	[_vehicle,_gruppe] call FUNC(crew);
 	_vehicle enableSimulation true;
+	[_vehicle,_gruppe] call FUNC(crew);
 	If (!(_vehicle isKindOf "StaticWeapon")) then {
 		_vehicle setFuel 0;
 		_vehicle lock 3;
@@ -215,5 +220,4 @@ _centerposASL = ATLtoASL _centerpos;
 	_unit = _gruppe createUnit[_currentType,_spawnPosATL, [], 0, "NONE"];
 	_unit setPosATL _spawnPosATL;
 	_unit setDir _spawndir;
-	doStop _unit;
 }forEach _soldiers;

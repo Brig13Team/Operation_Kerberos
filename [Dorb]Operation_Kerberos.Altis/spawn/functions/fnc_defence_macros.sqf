@@ -23,82 +23,80 @@
 #include "script_component.hpp"
 SCRIPT(defence_macros);
 _this params[["_position",[],[[]],[2,3]],["_radius",1000,[0]],["_anzahl_spawnpos",3,[0]],["_isTown",false,[true]]];
-_town=0;
-If(_isTown)then{_town=1;};
-_all_spawnpos = [];
-_searchrad = 150 min (_radius / 4);
-_errorcounter = 0; // prevents infinitive loop
 
 
-
-
+private _searchrad = 150 min (_radius/4);
 
 
 //// Random Positions -> moved to open Area
 //// If not enaugh positions are found, the amount of spawned macros is reduced
+private _all_spawnpos = [];
+private _errorcounter;
 
-For "_i" from 0 to _anzahl_spawnpos do {
-	_temp = [_position,_radius,_town] call EFUNC(common,pos_random);
+while {(count _all_spawnpos)<_anzahl_spawnpos} do {
+	private ["_currentPosition"];
 	If (_isTown) then {
-		_temp = [_position,( ( floor(random( abs(_radius - 300) )) ) + 300),_town] call EFUNC(common,pos_random);
+		_currentPosition = [_position,( ( floor(random( abs(_radius - 300) )) ) + 300),parseNumber _isTown] call EFUNC(common,pos_random);
+	}else{
+		_currentPosition = [_position,_radius,parseNumber _isTown] call EFUNC(common,pos_random);
 	};
-	_spawnpos = [_temp,15,_searchrad,15,0.18] call EFUNC(common,pos_flatempty);
+	
+	private _spawnpos = [_currentPosition,15,_searchrad,15,0.18] call EFUNC(common,pos_flatempty);
+	
 	If (_spawnpos isEqualTo []) then {
-		_spawnpos = [_temp,15,_searchrad,15,0.3] call EFUNC(common,pos_flatempty);
+		_spawnpos = [_currentPosition,15,_searchrad,15,0.3] call EFUNC(common,pos_flatempty);
 	};
+	
 	If (!(_spawnpos isEqualTo [])) then {
-		_addpos = true;
+		private _addpos = true;
 		for "_j" from 0 to ((count _all_spawnpos)-1) do {
-			if (((_all_spawnpos select _j)distance _spawnpos)<25) then {
+			if (((_all_spawnpos select _j)distance2D _spawnpos)<30) then {
 				_addpos = false;
 			};
 		};
 		if (_addpos) then {
 			_all_spawnpos pushBack _spawnpos;
-		}else{
-			DEC(_i);
-			INC(_errorcounter);
 		};
 	};
-	CHECK(_errorcounter>100)
+	INC(_errorcounter);
+	CHECK(_errorcounter>(100 + _anzahl_spawnpos))
 };
 
+
+//// Get the macros
+private _config = missionconfigfile>>"missions_config">>"defence_positions">>"terrain";
+private _makros = [];
+for "_i" from 0 to (count _config)-1 do {
+	_makros pushBack [configname (_config select _i),getNumber((_config select _i)>>"probability")];
+};
 
 ///// spawns makros in the best direction
-_makros = 		["small_veh_tank_high","small_veh_tank_low","small_veh_zsu","big_static_AA","big_veh_zsu","big_tower_mg","big_bunker","big_mortar_3","big_mortar_1","bunker_medium","camp_medium","camp_small","AT_medium"];
-_markos_weight =[		0.4,				0.4,					0.6,				0.6,			0.6,			0.5,			0.3,			0.3,				0.5,			0.2,				0.6,			0.7,			0.6	];
-/*
-If (EGVAR(main,mods_rds)) then {
-	_makros append [100];
-	_markos_weight append [100];
-};
-*/
 {
 	/// Get gooddirs -> good sight from the defined pos
-	_gooddirs = [];
+	private _gooddirs = [];
 	private "_i";
 	for [{_i= 1},{_i <= 360},{_i = _i + 10}] do {
-		_defencepos = _x;
+		private _defencepos = _x;
 		_defencepos set [2,((_defencepos select 2)+0.9)];
-		_aimpos = [_x, 450, 50] call BIS_fnc_relPos;
+		private _aimpos = [_x, 450, 50] call BIS_fnc_relPos;
 		//_aimpos set[2,(_defencepos select 2)];
-		_gooddir = terrainIntersect[_defencepos,_aimpos];
-		If (!_gooddir) then {
+		private _isgooddir = terrainIntersect[_defencepos,_aimpos];
+		If (!_isgooddir) then {
 			_gooddirs pushBack _i;
 		};
 	};
 	
 	/// choose the best dir
 	
-	_bestdir = 0;
-	_bestdir_level = 0;
-	_defencepos = ATLtoASL _x;
+	private _bestdir = -1;
+	private _bestdir_level = 0;
+	private _defencepos = ATLtoASL _x;
 	for "_j" from 0 to ((count _gooddirs)-1) do {
-		_templevel = 0;
+		private _templevel = 0;
 		for [{_k= 1},{_k <= 450},{_k = _k + 20}] do {
 			_aimpos = [_x, _k, (_gooddirs select _j)] call BIS_fnc_relPos;
 			_aimpos = ATLtoASL _aimpos;
-			_differenz = ((_defencepos select 2)-(_aimpos select 2));
+			private _differenz = ((_defencepos select 2)-(_aimpos select 2));
 			_currentlevel = _differenz * ((floor((23-(_k/20))/3))max 0.2);
 			_templevel = _templevel + _currentlevel;
 		};
@@ -111,45 +109,21 @@ If (EGVAR(main,mods_rds)) then {
 	
 	// If there is no bestdir (because of terrain) -> randomize
 	
-	If (_bestdir == 0) then {_bestdir = random 360;};
+	If (_bestdir < 0) then {_bestdir = random 360;};
 	
 	
 	/// debug
-	
-	if (dorb_debug) then {
-		_mrkr = createMarker [format["defencepos-%1",_x],_x];
-		_mrkr setMarkerShape "ICON";
-		_mrkr setMarkerColor "ColorBlue";
-		_mrkr setMarkerType "mil_arrow2";
-		_mrkr setMarkerDir _bestdir;
-	};
-	
+	#ifdef DEBUG_MODE_FULL
+		[_x,format["defencepos-%1",_x],"ColorBlue","mil_arrow2",_bestdir] call EFUNC(common,debug_marker_create);
+	#endif
+
 	///// spawn defence
-	_currentmakro = -1;
-	_currentmakro = [_makros,_markos_weight] call BIS_fnc_selectRandomWeighted;
-	_configarray = ["missionConfigFile","defence_positions","terrain"];
-	_configarray pushBack _currentmakro;
+	private _currentmakro = ([_makros,1] call EFUNC(common,sel_array_weighted))select 0;
+	private _configarray = ["missionConfigFile","defence_positions","terrain"];
+	private _configarray pushBack _currentmakro;
 	
 	[_x,_configarray,_bestdir] call FUNC(macro_exec3d);
 	
 }forEach  _all_spawnpos;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+true
