@@ -13,11 +13,8 @@
 #include "script_component.hpp"
 SCRIPT(strategy_airborne);
 _this params ["_currentLogic"];
+
 private _currentPos = getPos _currentLogic;
-
-
-private ["_spawnpos","_dir","_einheit","_transporter","_jaeger_gruppe","_jaeger","_platzanzahl"];
-params["_position",["_type",400,[0]],["_dropradius",200,[0]],["_spawnradius",1700,[0]],["_flughoehe",400,[0]]];
 
 private _position = [_currentPos,200,1] call EFUNC(common,random_pos);
 private _spawnpos = [GVAR(centerpos),(GVAR(definitions) select 0)+500,1] call EFUNC(common,random_pos);
@@ -28,9 +25,6 @@ private _dir = [_spawnpos, _position] call BIS_fnc_dirTo;
 private _einheit = _transporthelicopter SELRND;
 
 ([_spawnpos,GVARMAIN(side),_einheit,_dir,true,true,"FLY"] call EFUNC(spawn,vehicle)) params ["_transporterGroup","_transporter"];
-
-
-private _transporter = _spawn_array select 0;
 
 _transporter setpos [_spawnpos];
 _transporter flyInHeight 400;
@@ -62,35 +56,38 @@ uisleep 1;
 SETVAR(_jaeger_gruppe,GVAR(target),_currentPos);
 SETVAR(_jaeger_gruppe,GVAR(state),'attack');
 [_jaeger_gruppe] call FUNC(state_change);
-[_jaeger_gruppe, _currentPos, 400, 5, "MOVE", "AWARE", "RED", "NORMAL", "STAG COLUMN", "", [5,10,15]] call EFUNC(spawn,taskPatrol);
 
 uisleep 2;
 (_spawn_array select 2) addWaypoint [_position,100];
 (_spawn_array select 2) addWaypoint [_spawnpos,100];
-
-while {(alive _transporter) and (canMove _transporter)} do {
-	_transporter doMove _position;
-	[_jaeger_gruppe] call FUNC(state_change);
-	waitUntil {((_transporter distance _position) < (_flughoehe + 110))};
-	
+[_position,_spawnpos,_jaeger_gruppe,_transporter] spawn {
+	params["_position","_spawnpos","_jaeger_gruppe","_transporter"];
+	while {(alive _transporter) and (canMove _transporter)} do {
+		_transporter doMove _position;
+		[_jaeger_gruppe] call FUNC(state_change);
+		waitUntil {((_transporter distance _position) < (_flughoehe + 110))};
+		
+		SETVAR(_jaeger_gruppe,EGVAR(mission,istarget),false);
+		
+		{
+			_x enableAI "Move";
+			unassignVehicle (_x);
+			_x allowDamage false;
+			moveOut _x;
+			sleep 0.2;
+			private _fallschirm = createVehicle ["NonSteerable_Parachute_F",(getPos _x), [], 0, "FLY"];
+			_x moveInDriver _fallschirm;
+			sleep 0.2;
+			_x allowDamage true;		
+		} forEach units _jaeger_gruppe;
+		
+		_transporter domove _spawnpos;
+		waitUntil {((_transporter distance _spawnpos) < (_flughoehe + 100))};
+		if (true) exitWith {};
+	};
 	SETVAR(_jaeger_gruppe,EGVAR(mission,istarget),false);
-	
-	{
-		_x enableAI "Move";
-		unassignVehicle (_x);
-		_x allowDamage false;
-		moveOut _x;
-		sleep 0.2;
-		private _fallschirm = createVehicle ["NonSteerable_Parachute_F",(getPos _x), [], 0, "FLY"];
-		_x moveInDriver _fallschirm;
-		sleep 0.2;
-		_x allowDamage true;		
-	} forEach units _jaeger_gruppe;
-	
-	_transporter domove _spawnpos;
-	waitUntil {((_transporter distance _spawnpos) < (_flughoehe + 100))};
-	if (true) exitWith {};
+	{deletevehicle _x} foreach crew _transporter;
+	deletevehicle _transporter;
 };
-SETVAR(_jaeger_gruppe,EGVAR(mission,istarget),false);
-{deletevehicle _x} foreach crew _transporter;
-deletevehicle _transporter;
+([_jaeger_gruppe] call FUNC(strength)) params ["_type","_strength"];
+_strength;

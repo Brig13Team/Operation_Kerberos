@@ -24,12 +24,16 @@ class strategy {
 		condition = "_airborne > 0";
 		parameter = "[_currentLogic,_currenttroopsNeeded]";
 	};
-	class cas : airborne {
-		condition = "_cas > 0";
-	};
 	class airinterception : airborne {
 		condition = "_airinterception > 0";
 	};
+	class armored : airborne {
+		condition = "_armored > 0";
+	};
+	class cas : airborne {
+		condition = "_cas > 0";
+	};
+	
 	class motorized : airborne {
 		condition = "_motorized > 0";
 	};
