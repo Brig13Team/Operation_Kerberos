@@ -16,7 +16,7 @@ _this params [
 	["_attacklogics",[],[[]]],
 	["_groups",[],[[]]]
 	];
-GVAR(callInArray) params ["_airborne","_airinterception","_armored","_cas","_fortifications","_motorized"];
+
 
 private _attackarray = [];
 {
@@ -38,12 +38,10 @@ for "_i" from 0 to (count _attackarray - 1) do {
 		// if the strategy failed
 		If (_currentEnemy*0.2>_currenttroopsNeeded) then {
 			[_currentLogic] call FUNC(strategy_failed);
-			(_attackarray select _i) call FUNC(strategy_choose);
+			[(_attackarray select _i),_groups] call FUNC(strategy_choose);
 		};
 	}else{
 		(_attackarray select _i) call FUNC(strategy_choose);
 	};
 };
 
-
-GVAR(callInArray) = [_airborne,_airinterception,_armored,_cas,_fortifications,_motorized];

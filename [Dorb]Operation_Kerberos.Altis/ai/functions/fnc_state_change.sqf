@@ -24,10 +24,13 @@ switch (_state) do {
 			_position = GETVAR(_group,GVAR(target),getPos (leader _group));
 			[_group, _position, "AWARE", "WHITE", "NORMAL", "NO CHANGE", "", [5,10,15],50] call EFUNC(spawn,patrol_task);
 		};
+	default {[_group] call (missionnamespace getVariable [format["%1_%2",QGVAR(fnc_state),_state],{}]);};
+	/*
 	case "attack" : {[_group] call FUNC(state_attack);};
 	case "evade" : {[_group] call FUNC(state_evade);};
 	case "idle" : {[_group] call FUNC(state_idle);};
 	case "retreat" : {[_group] call FUNC(state_retreat);};
 	case "wait" : {[_group] call FUNC(state_wait);};
 	case "defend" : {[_group] call FUNC(state_defend);};
+	*/
 };

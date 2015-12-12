@@ -5,7 +5,7 @@
 		waits and executes code
 	Parameter(s):
 		0: CODE/STRING	- the code to be execued
-		1: ARRAY			- parameters
+		1: ARRAY		- parameters
 		2: SCALAR		- delay
 		
 	Return:
