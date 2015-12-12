@@ -1,9 +1,9 @@
 /*
-	Author: Dorbedo
+    Author: Dorbedo
 
-	Description:
-		deletes the debug_markers
-	
+    Description:
+        deletes the debug_markers
+    
 */
 #include "script_component.hpp"
 SCRIPT(debug_marker_create);

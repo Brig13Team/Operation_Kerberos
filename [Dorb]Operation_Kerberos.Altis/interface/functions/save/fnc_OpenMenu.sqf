@@ -3,16 +3,16 @@
 
     Description:
     Opens the Save dialog
-	
-	Parameter(s):
-		0 : STRING	- Name of Var in Profilenamespace
-		1 : BOOL		- Is Save - else is Load
+    
+    Parameter(s):
+        0 : STRING    - Name of Var in Profilenamespace
+        1 : BOOL        - Is Save - else is Load
 
 */
 #include "script_component.hpp"
 SCRIPT(OpenMenu);
 #define SAVE_OK 600244
-#define SAVE_IDD	600240
+#define SAVE_IDD    600240
 #define SAVE_LIST 600241
 #define SAVE_HEADER 600246
 CHECK(!hasInterface)
@@ -30,9 +30,9 @@ disableSerialization;
 _text = localize LSTRING(SAVE_LOAD);
 _action = QUOTE([] call FUNC(save_load));
 If (_isSave) then {
-	_text = localize LSTRING(SAVE_SAVE);
-	_action = QUOTE([] call FUNC(save_save));
-	
+    _text = localize LSTRING(SAVE_SAVE);
+    _action = QUOTE([] call FUNC(save_save));
+    
 };
 
 _ctrl = (findDisplay SAVE_IDD displayCtrl SAVE_OK);
@@ -44,9 +44,9 @@ _ctrl ctrlSetText _text;
 
 
 GVAR(save_handle) = [
-	{
-		_this call FUNC(save_OnOpen);
-	},
-	0,
-	[]
-	] call CBA_fnc_addPerFrameHandler;
+    {
+        _this call FUNC(save_OnOpen);
+    },
+    0,
+    []
+    ] call CBA_fnc_addPerFrameHandler;

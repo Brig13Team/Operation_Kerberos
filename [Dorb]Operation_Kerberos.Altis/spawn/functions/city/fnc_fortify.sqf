@@ -1,57 +1,57 @@
 /*
-	Author: Dorbedo
-	
-	Description:
-		Puts Units into City
-		Sets up Fortifications
-	
-	Parameter(s):
-		0 : ARRAY			- Position(2D/3D)
-		1 : SCALAR			- Radius
-		2 : SIDE			- Side of Units
-		3 : ARRAY/SCALAR	- Unitcount
-			0 : SCALAR		- Min
-			1 : SCALAR		- Max
-		4 : ARRAY/SCALAR	- Staticcount
-			0 : SCALAR		- Min
-			1 : SCALAR		- Max
-		5 : BOOL			- Fortifications
-		6 : BOOL			- IEDs
-		7 : BOOL			- Mines
-		8 : BOOL			- Civ Vehicles
-		
-		
-		[_position,300,GVARMAIN(side),40,15,true,true,true,true] spawn EFUNC(spawn,city_fortify);
-		
+    Author: Dorbedo
+    
+    Description:
+        Puts Units into City
+        Sets up Fortifications
+    
+    Parameter(s):
+        0 : ARRAY            - Position(2D/3D)
+        1 : SCALAR            - Radius
+        2 : SIDE            - Side of Units
+        3 : ARRAY/SCALAR    - Unitcount
+            0 : SCALAR        - Min
+            1 : SCALAR        - Max
+        4 : ARRAY/SCALAR    - Staticcount
+            0 : SCALAR        - Min
+            1 : SCALAR        - Max
+        5 : BOOL            - Fortifications
+        6 : BOOL            - IEDs
+        7 : BOOL            - Mines
+        8 : BOOL            - Civ Vehicles
+        
+        
+        [_position,300,GVARMAIN(side),40,15,true,true,true,true] spawn EFUNC(spawn,city_fortify);
+        
 */
 #include "script_component.hpp"
 SCRIPT(fortify);
 params[
-	["_position",[],[[]],[2,3]],
-	["_radius",300,[0]],
-	["_side",sideUnknown,[west]],
-	["_unitcount",0,[[],0],[2]],
-	["_staticcount",0,[[],0],[2]],
-	["_fortifications",false,[true]],
-	["_ieds",false,[true]],
-	["_mines",false,[true]],
-	["_civvehicles",false,[true]]
-	];
+    ["_position",[],[[]],[2,3]],
+    ["_radius",300,[0]],
+    ["_side",sideUnknown,[west]],
+    ["_unitcount",0,[[],0],[2]],
+    ["_staticcount",0,[[],0],[2]],
+    ["_fortifications",false,[true]],
+    ["_ieds",false,[true]],
+    ["_mines",false,[true]],
+    ["_civvehicles",false,[true]]
+    ];
 If ((_position isEqualTo [])||(_side==sideUnknown)) exitWith {false};
 private["_unit_max","_unit_min","_static_max","_static_min","_buildings_formatted","_buildings_unformatted","_roads_formatted","_return"];
 //If (IS_SCALAR(_unitcount)) then {
-	_unit_min=_unitcount;
-	_unit_max=_unitcount;
+    _unit_min=_unitcount;
+    _unit_max=_unitcount;
 /*}else{
-	_unit_min=_unitcount select 0;
-	_unit_max=_unitcount select 1;
+    _unit_min=_unitcount select 0;
+    _unit_max=_unitcount select 1;
 };
 If (IS_SCALAR(_staticcount)) then {*/
-	_static_min=_staticcount;
-	_static_max=_staticcount;/*
+    _static_min=_staticcount;
+    _static_max=_staticcount;/*
 }else{
-	_static_min=_staticcount select 0;
-	_static_max=_staticcount select 1;
+    _static_min=_staticcount select 0;
+    _static_max=_staticcount select 1;
 };*/
 //LOG_2(_unitcount,_staticcount);
 //LOG_8(_unit_min,_unit_max,_static_min,_static_max,_fortifications,_ieds,_mines,_civvehicles);
@@ -62,8 +62,8 @@ _buildings_unformatted = _position nearObjects ["House", _radius];
 _buildings_formatted = [];
 
 for "_i" from 0 to ((count _buildings_unformatted)-1) do {
-	/// [typename,pos]
-	_buildings_formatted pushBack [typeOf  (_buildings_unformatted select _i),getPosASL(_buildings_unformatted select _i),getDir(_buildings_unformatted select _i)];
+    /// [typename,pos]
+    _buildings_formatted pushBack [typeOf  (_buildings_unformatted select _i),getPosASL(_buildings_unformatted select _i),getDir(_buildings_unformatted select _i)];
 };
 
 /// Roadarray

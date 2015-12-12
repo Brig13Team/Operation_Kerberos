@@ -1,8 +1,8 @@
 /*
-	Author: Dorbedo
-	
-	Description:
-		init
+    Author: Dorbedo
+    
+    Description:
+        init
 */
 #include "script_component.hpp"
 SCRIPT(init);
@@ -17,7 +17,7 @@ enableRadio false;
 tf_no_auto_long_range_radio = true;
 
 If ((!hasInterface) && (!isServer)) then {
-	[] execVM "VCOM_Driving\init.sqf";
+    [] execVM "VCOM_Driving\init.sqf";
 };
 
 ["Initialize"] call BIS_fnc_dynamicGroups;

@@ -19,7 +19,7 @@ for "_i" from 1 to 20 do {
 [1] call FUNC(crate_filter);
 
 GVAR(crate_boxes) = [
-    ["Box_NATO_Ammo_F"  ,"Box_NATO_WpsLaunch_F",  "Box_NATO_Wps_F",   "Box_NATO_WpsSpecial_F"    ,"IG_supplyCrate_F"   	,"B_CargoNet_01_ammo_F" 	,"B_Slingload_01_Cargo_F"],
+    ["Box_NATO_Ammo_F"  ,"Box_NATO_WpsLaunch_F",  "Box_NATO_Wps_F",   "Box_NATO_WpsSpecial_F"    ,"IG_supplyCrate_F"       ,"B_CargoNet_01_ammo_F"     ,"B_Slingload_01_Cargo_F"],
     [localize(LSTRING(crate_SIZE1)),localize(LSTRING(crate_SIZE2)),localize(LSTRING(crate_SIZE3)),localize(LSTRING(crate_SIZE4)),localize(LSTRING(crate_SIZE5)),localize(LSTRING(crate_SIZE6)),localize(LSTRING(crate_SIZE7))],
     [200                    ,300          ,400               ,500                        ,2000               ,2800                   ,14000]
 ];

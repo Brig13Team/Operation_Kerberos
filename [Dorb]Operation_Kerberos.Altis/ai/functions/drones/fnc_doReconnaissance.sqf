@@ -1,15 +1,15 @@
 /*
-	Author: iJesuz
-	
-	Description:
-	
-	Parameter(s):
-		0 : OBJECT - drone
-		1 : ARRAY/OBJECT - position or target object
+    Author: iJesuz
+    
+    Description:
+    
+    Parameter(s):
+        0 : OBJECT - drone
+        1 : ARRAY/OBJECT - position or target object
 
-	Retruns:
-		BOOLEAN
-	
+    Retruns:
+        BOOLEAN
+    
 */
 #include "script_component.hpp"
 SCRIPT(doReconnaissance);
@@ -18,11 +18,11 @@ params ["_target",["_caller",objNull,[objNull]],["_func",{},[{}]]];
 private ["_drone","_rdrones","_scan_radius","_pos","_wp_type","_dir","_height","_posBegin","_radius","_onExit"];
 
 _onExit = {
-	private ["_rdrones"];
-	_rdrones = GETVAR(missionNamespace,GVAR(availableReconDrones),[]);
-	_rdrones pushback (typeOf _this);
-	SETVAR(missionNamespace,GVAR(availableReconDrones),_rdrones);
-	deleteVehicle _this;
+    private ["_rdrones"];
+    _rdrones = GETVAR(missionNamespace,GVAR(availableReconDrones),[]);
+    _rdrones pushback (typeOf _this);
+    SETVAR(missionNamespace,GVAR(availableReconDrones),_rdrones);
+    deleteVehicle _this;
 };
 
 _rdrones = GETVAR(missionNamespace,GVAR(availableReconDrones),[]);
@@ -40,9 +40,9 @@ if (!isNumber(missionConfigFile >> "drones" >> typeOf _drone >> "scan_radius")) 
 _scan_radius = getNumber(missionConfigFile >> "drones" >> typeOf _drone >> "scan_radius");
 _wp_type = getText (missionConfigFile >> "drones" >> typeOf _drone >> "scan_waypoint");
 if (_wp_type == "LOITER") then {
-	_radius = getNumber (missionConfigFile >> "drones" >> typeOf _drone >> "waypoints" >> _wp_type >> "radius");
+    _radius = getNumber (missionConfigFile >> "drones" >> typeOf _drone >> "waypoints" >> _wp_type >> "radius");
 } else {
-	_radius = 0;
+    _radius = 0;
 };
 
 if (typeName _target == "OBJECT") then { _pos = getPos _target; };
@@ -57,8 +57,8 @@ _drone setDir (_dir + 180);
 if (!([_drone,_wp_type,_pos] call FUNC(drones_createWaypoint))) exitWith { _drone call _onExit; false };
 
 while { (((waypointPosition (waypoints _drone select 0)) distance2D _drone) >= (_radius + 50)) } do { 
-	uiSleep 1;
-	((waypointPosition (waypoints _drone select 0)) distance2D _drone) call BIS_fnc_log;
+    uiSleep 1;
+    ((waypointPosition (waypoints _drone select 0)) distance2D _drone) call BIS_fnc_log;
 };
 
 if (isNull _drone) exitWith { _drone call _onExit; false };
@@ -74,7 +74,7 @@ if(isNull _drone) exitWith { _drone call _onExit; false };
 if (!([_drone,"MOVE",_posBegin] call FUNC(drones_createWaypoint))) exitWith { _drone call _onExit; false };
 
 while { ((waypointPosition (waypoints _drone select 0)) distance2D _drone) >= 50 } do { 
-	uiSleep 1;
+    uiSleep 1;
 };
 
 _drone call _onExit;

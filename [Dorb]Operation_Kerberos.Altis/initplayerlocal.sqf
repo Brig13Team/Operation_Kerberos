@@ -1,8 +1,8 @@
 /*
-	Author: Dorbedo
-	
-	Description:
-		initplayerlocal
+    Author: Dorbedo
+    
+    Description:
+        initplayerlocal
 */
 #include "script_component.hpp"
 SCRIPT(initplayerlocal);
@@ -32,7 +32,7 @@ QEGVAR(mission,endzeit) addPublicVariableEventHandler {[] spawn EFUNC(interface,
 
 ISNILS(EGVAR(mission,fnc),[]);
 {
-	(_x select 0) spawn compile (_x select 1);
+    (_x select 0) spawn compile (_x select 1);
 }forEach EGVAR(mission,fnc);
 
 [LSTRING(CLAN),[LSTRING(WELCOME1),LSTRING(WELCOME2),LSTRING(WELCOME3),LSTRING(WELCOME4),LSTRING(WELCOME5),LSTRING(WELCOME6)],"data\logo_brig.paa",false] call EFUNC(interface,disp_info);

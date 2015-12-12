@@ -1,71 +1,71 @@
 /*
-	Author: Dorbedo
-	
-	Description:
-		adds a Briefing
-		
-	Parameter(s):
-		none
-		
-	Return
-		none
+    Author: Dorbedo
+    
+    Description:
+        adds a Briefing
+        
+    Parameter(s):
+        none
+        
+    Return
+        none
 */
 #include "script_component.hpp"
 SCRIPT(addbriefing);
 player createDiaryRecord ["Diary", ["Credits",format["
-	<br/>Author %1
-	<br/>Translations (English): Cypherstalker, Kiwa
-	<br/>Fortification-Design: Maverick2044
-	<br/>Base-Design: Dagobert
-	----------------
-	Used Scripts:
-	----------------
-	<br/>CH View Distance
-	<br/>http://forums.bistudio.com/showthread.php?185770-CH-View-Distance-Script
-	<br/>
-	<br/>VCOM Driving
-	<br/>http://forums.bistudio.com/showthread.php?187450-VCOM-AI-Driving-Mod
+    <br/>Author %1
+    <br/>Translations (English): Cypherstalker, Kiwa
+    <br/>Fortification-Design: Maverick2044
+    <br/>Base-Design: Dagobert
+    ----------------
+    Used Scripts:
+    ----------------
+    <br/>CH View Distance
+    <br/>http://forums.bistudio.com/showthread.php?185770-CH-View-Distance-Script
+    <br/>
+    <br/>VCOM Driving
+    <br/>http://forums.bistudio.com/showthread.php?187450-VCOM-AI-Driving-Mod
 ",localize ELSTRING(MAIN,AUTHOR)]]];
 player createDiaryRecord ["Diary", ["Informationen",format["
-	===================
-	<br />
-	%1 
-	<br />
-	-------------------
-	<br />
-	%2
-	<br />
-	===================
-	<br />
-	%3
-	<br />
-	-------------------
-	<br />
-	%4
-	<br />
-	===================  
-	<br />
-	%5
-	<br />
-	-------------------
-	<br />
-	%6
-	<br />
-	===================
-	<br />
-	%7
-	<br />
-	-------------------
-	<br />
-	%8
-	<br />
-	===================
-	<br />
-	%9
-	<br />
-	-------------------
-	<br />
-	%10
+    ===================
+    <br />
+    %1 
+    <br />
+    -------------------
+    <br />
+    %2
+    <br />
+    ===================
+    <br />
+    %3
+    <br />
+    -------------------
+    <br />
+    %4
+    <br />
+    ===================  
+    <br />
+    %5
+    <br />
+    -------------------
+    <br />
+    %6
+    <br />
+    ===================
+    <br />
+    %7
+    <br />
+    -------------------
+    <br />
+    %8
+    <br />
+    ===================
+    <br />
+    %9
+    <br />
+    -------------------
+    <br />
+    %10
   ",localize LSTRING(BRIEF_SETTING),localize LSTRING(BRIEF_SETTING_DESC),
    localize LSTRING(BRIEF_VEHICLES),localize LSTRING(BRIEF_VEHICLES_DESC),
    localize LSTRING(BRIEF_RESPAWN),localize LSTRING(BRIEF_RESPAWN_DESC),

@@ -1,14 +1,14 @@
 /*
-	Author: Dorbedo
-	
-	Description:
-		retreats
-	
-	Parameter(s):
-		none
+    Author: Dorbedo
+    
+    Description:
+        retreats
+    
+    Parameter(s):
+        none
 
-	Returns:
-		none
+    Returns:
+        none
 */
 #include "script_component.hpp"
 SCRIPT(state_retreat);
@@ -24,7 +24,7 @@ _waypoints = [getPos (leader _group),_target] call FUNC(waypoints_generate);
 _lastWaypoint = _waypoints deleteAt ((count _waypoints)-1);
 
 while {(count (waypoints _group)) > 0} do {
-	deleteWaypoint ((waypoints _group) select 0);
+    deleteWaypoint ((waypoints _group) select 0);
 };
 
 _statement = "";

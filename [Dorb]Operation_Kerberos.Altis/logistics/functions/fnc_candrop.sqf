@@ -1,14 +1,14 @@
 /*
-	Author: Dorbedo
-	
-	Description:
-		Checks if Unit can drop cargo
-		
-	Parameter(s):
-		0 : OBJECT - Target
-		
-	Returns:
-		BOOL
+    Author: Dorbedo
+    
+    Description:
+        Checks if Unit can drop cargo
+        
+    Parameter(s):
+        0 : OBJECT - Target
+        
+    Returns:
+        BOOL
 */
 #include "script_component.hpp"
 SCRIPT(candrop);

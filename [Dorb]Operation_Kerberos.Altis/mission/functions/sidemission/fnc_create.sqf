@@ -1,9 +1,9 @@
 /*
-	Author: Dorbedo
-	
-	Description:
-		creates mainmission
-	
+    Author: Dorbedo
+    
+    Description:
+        creates mainmission
+    
 */
 #include "script_component.hpp"
 SCRIPT(create);
@@ -27,13 +27,13 @@ _type = getText(missionconfigfile>>"missions_config">>"main">>_taskMAIN>>"sidemi
 CHECK(_locations isEqualTo [])
 
 _temp = switch (_type) do {
-	case "konvoi" : 		{[_position,_positionMain] call FUNC(sidemission_konvoi);};
-	
-	
-	
-	
-	
-	default {ERROR(FORMAT_1("FEHLENDER TASK: %1",_task));[]};
+    case "konvoi" :         {[_position,_positionMain] call FUNC(sidemission_konvoi);};
+    
+    
+    
+    
+    
+    default {ERROR(FORMAT_1("FEHLENDER TASK: %1",_task));[]};
 };
 CHECK(_temp isEqualTo [])
 _taskarray = [10,format["%1_%2",_taskID,_task]];
@@ -47,15 +47,15 @@ If ((_state in ["CANCELED","SUCCEEDED","FAILED"])||(taskcancel)) exitWith {true;
 
 //// Task creation
 [
-	[_taskID,format["%1_%2",_taskID,_task]],
-	true,
-	[_taskdesc,_taskname,_taskmark],
-	_centerposition,
-	"AUTOASSIGNED",
-	10,
-	false,
-	true,
-	_tasktype
+    [_taskID,format["%1_%2",_taskID,_task]],
+    true,
+    [_taskdesc,_taskname,_taskmark],
+    _centerposition,
+    "AUTOASSIGNED",
+    10,
+    false,
+    true,
+    _tasktype
 ] spawn BIS_fnc_setTask;
 
 /// workaround for localisation on player
@@ -70,8 +70,8 @@ _sucess = _taskarray call FUNC(taskhandler);
 
 /// display finished message
 if (_sucess) then {
-	[_task_name,[LSTRING(FINISHED)],_taskpic,true] spawn EFUNC(interface,disp_info_global);
+    [_task_name,[LSTRING(FINISHED)],_taskpic,true] spawn EFUNC(interface,disp_info_global);
 }else{
-	[_task_name,[LSTRING(FAILED)],_taskpic,true] spawn EFUNC(interface,disp_info_global);
+    [_task_name,[LSTRING(FAILED)],_taskpic,true] spawn EFUNC(interface,disp_info_global);
 };
 

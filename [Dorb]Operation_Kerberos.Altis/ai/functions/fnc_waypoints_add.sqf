@@ -1,21 +1,21 @@
 /*
-	Author: Dorbedo
-	
-	Description:
-		add waypoints
-	
-	Parameter(s):
-		none
+    Author: Dorbedo
+    
+    Description:
+        add waypoints
+    
+    Parameter(s):
+        none
 
-	Returns:
-		none
+    Returns:
+        none
 */
 #include "script_component.hpp"
 SCRIPT(waypoints_add);
 _this params[
-	["_group",grpNull,[grpNull,objNull]],
-	["_positions",[],[[],objNull,locationNull,grpNull]],
-	["_radius", 0, [0]],
+    ["_group",grpNull,[grpNull,objNull]],
+    ["_positions",[],[[],objNull,locationNull,grpNull]],
+    ["_radius", 0, [0]],
     ["_type", "MOVE", [""]],
     ["_behaviour", "UNCHANGED", [""]],
     ["_combat", "NO CHANGE", [""]],
@@ -24,7 +24,7 @@ _this params[
     ["_onComplete", "", [""]],
     ["_timeout", [0,0,0], [[]], 3],
     ["_compRadius", 5, [0]]
-	];
+    ];
 TRACEV_1(_positions);
 if ((IS_ARRAY(_positions))&&{!(IS_ARRAY(_positions select 0))}) then {_positions = [_positions];};
 if !(IS_ARRAY(_positions)) then {_positions = [_positions];};
@@ -35,18 +35,18 @@ _waypoints = [];
 _group = _group call CBA_fnc_getGroup;
 
 {
-	private ["_waypoint","_position"];
-	_position = _x call CBA_fnc_getPos;
-	_waypoint = _group addWaypoint [_position, _radius];
-	_waypoint setWaypointType _type;
-	_waypoint setWaypointBehaviour _behaviour;
-	_waypoint setWaypointCombatMode _combat;
-	_waypoint setWaypointSpeed _speed;
-	_waypoint setWaypointFormation _formation;
-	_waypoint setWaypointStatements ["TRUE", _onComplete];
-	_waypoint setWaypointTimeout _timeout;
-	_waypoint setWaypointCompletionRadius _compRadius;
-	_waypoints pushBack _waypoint;
+    private ["_waypoint","_position"];
+    _position = _x call CBA_fnc_getPos;
+    _waypoint = _group addWaypoint [_position, _radius];
+    _waypoint setWaypointType _type;
+    _waypoint setWaypointBehaviour _behaviour;
+    _waypoint setWaypointCombatMode _combat;
+    _waypoint setWaypointSpeed _speed;
+    _waypoint setWaypointFormation _formation;
+    _waypoint setWaypointStatements ["TRUE", _onComplete];
+    _waypoint setWaypointTimeout _timeout;
+    _waypoint setWaypointCompletionRadius _compRadius;
+    _waypoints pushBack _waypoint;
 }forEach _positions;
 
 _waypoints

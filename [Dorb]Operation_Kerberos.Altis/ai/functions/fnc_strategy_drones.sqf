@@ -1,14 +1,14 @@
 /*
-	Author: Dorbedo
-	
-	Description:
-		revon
-	
-	Parameter(s):
-		none
+    Author: Dorbedo
+    
+    Description:
+        revon
+    
+    Parameter(s):
+        none
 
-	Returns:
-		none
+    Returns:
+        none
 */
 #include "script_component.hpp"
 SCRIPT(strategy_);

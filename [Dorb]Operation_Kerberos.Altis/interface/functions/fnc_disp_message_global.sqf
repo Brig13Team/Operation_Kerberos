@@ -1,16 +1,16 @@
 /*
-	Author: Dorbedo
-	
-	Description:
-		displays message global
-		(is localized on client, if String is given)
-	
-	Parameter(s):
-		0 :	STRING - Title 
-		1 :	STRING - Beschreibung
-	
-	
-	
+    Author: Dorbedo
+    
+    Description:
+        displays message global
+        (is localized on client, if String is given)
+    
+    Parameter(s):
+        0 :    STRING - Title 
+        1 :    STRING - Beschreibung
+    
+    
+    
 */
 #include "script_component.hpp"
 SCRIPT(disp_message_global);

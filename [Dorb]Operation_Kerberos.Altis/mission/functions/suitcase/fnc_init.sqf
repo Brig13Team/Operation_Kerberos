@@ -1,9 +1,9 @@
 /*
-	Author: Dorbedo
-	
-	Description:
-		init function
-	
+    Author: Dorbedo
+    
+    Description:
+        init function
+    
 */
 #include "script_component.hpp"
 SCRIPT(init);

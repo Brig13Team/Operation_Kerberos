@@ -1,14 +1,14 @@
 /*
-	Author: iJesuz
-	
-	Description:
-	
-	Parameter(s):
-		0 : OBJECT/ARRAY - target
-		1 : OBJECT - caller
+    Author: iJesuz
+    
+    Description:
+    
+    Parameter(s):
+        0 : OBJECT/ARRAY - target
+        1 : OBJECT - caller
 
-	Returns:
-		BOOLEAN
+    Returns:
+        BOOLEAN
 */
 #include "script_component.hpp"
 SCRIPT(requestAirstrike);
@@ -22,9 +22,9 @@ if ((_lastRequest != -1) && ((_lastRequest + 600) >= serverTime)) exitWith { fal
 SETVAR(_caller,GVAR(lastAttackRequest),serverTime);
 
 _task = [
-	_target,
-	serverTime + 600,
-	_caller
+    _target,
+    serverTime + 600,
+    _caller
 ];
 
 _requestedAirstrikes = GETVAR(missionNamespace,GVAR(requestedAirstrikes),[]);

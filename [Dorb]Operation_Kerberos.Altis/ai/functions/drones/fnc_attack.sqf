@@ -1,12 +1,12 @@
 /*
-	Author: iJesuz
-	
-	Description:
-	
-	Parameter(s):
-		0 : OBJECT - drone
-		1 : OBJECT - target
-	
+    Author: iJesuz
+    
+    Description:
+    
+    Parameter(s):
+        0 : OBJECT - drone
+        1 : OBJECT - target
+    
 */
 #include "script_component.hpp"
 SCRIPT(attack);

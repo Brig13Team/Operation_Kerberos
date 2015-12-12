@@ -1,19 +1,19 @@
 /*
-	Author: Dorbedo
+    Author: Dorbedo
 
-	Description:
-	spawns an single unit
+    Description:
+    spawns an single unit
 
-	Parameter(s):
-		0 : ARRAY 	- Position AGL (3D)
-		1 : GROUP 	- Group
-		2 : STRING 	- Unittyp
-		(optional)
-		3 : STRING	- special properties
-		4 : SCALAR	- Direction
+    Parameter(s):
+        0 : ARRAY     - Position AGL (3D)
+        1 : GROUP     - Group
+        2 : STRING     - Unittyp
+        (optional)
+        3 : STRING    - special properties
+        4 : SCALAR    - Direction
 
-	Returns:
-	Object
+    Returns:
+    Object
 */
 #include "script_component.hpp"
 SCRIPT(Unit);

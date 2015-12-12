@@ -1,15 +1,15 @@
 /*
-	Author: Dorbedo
-	
-	Description:
-		registers a group for the HQ
-	
-	Parameter(s):
-		0:GROUP/OBJECT - the group to be registered
-		
+    Author: Dorbedo
+    
+    Description:
+        registers a group for the HQ
+    
+    Parameter(s):
+        0:GROUP/OBJECT - the group to be registered
+        
 
-	Returns:
-		none
+    Returns:
+        none
 */
 #include "script_component.hpp"
 SCRIPT(register_Group);

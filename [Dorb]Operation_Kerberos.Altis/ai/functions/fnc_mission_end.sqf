@@ -1,14 +1,14 @@
 /*
-	Author: Dorbedo
-	
-	Description:
-		initialiuzes AI HQ
-	
-	Parameter(s):
-		none
+    Author: Dorbedo
+    
+    Description:
+        initialiuzes AI HQ
+    
+    Parameter(s):
+        none
 
-	Returns:
-		none
+    Returns:
+        none
 */
 #include "script_component.hpp"
 SCRIPT(mission_end);

@@ -1,18 +1,18 @@
 /*
-	Author: Dorbedo
+    Author: Dorbedo
 
-	Description:
-	Creates Mission "Destroy Weaponcache".
-	
+    Description:
+    Creates Mission "Destroy Weaponcache".
+    
 
 
-	Parameter(s):
-		0 :	ARRAY - Position
-		1 :	ARRAY - Ziele
-		2 : STRING - Aufgabenname für Taskmaster
-		
-	Returns:
-	BOOL
+    Parameter(s):
+        0 :    ARRAY - Position
+        1 :    ARRAY - Ziele
+        2 : STRING - Aufgabenname für Taskmaster
+        
+    Returns:
+    BOOL
 */
 #include "script_component.hpp"
 SCRIPT(destoy_wpncache);
@@ -24,7 +24,7 @@ private["_position","_task","_ort","_position_rescue","_a"];
 _target=[];
 
 //////////////////////////////////////////////////
-////// Gebäudearray erstellen				 /////
+////// Gebäudearray erstellen                 /////
 //////////////////////////////////////////////////
 
 _rad = 260;
@@ -32,57 +32,57 @@ _gebaeudepos_arr = [];
 _gebaeudepos_arr = [_position,_rad] call EFUNC(common,get_buildings);
 
 //////////////////////////////////////////////////
-////// Ziel erstellen						 /////
+////// Ziel erstellen                         /////
 //////////////////////////////////////////////////
 
 _rand = ((floor(random 5)) + 8);
 
 for "_i" from 1 to _rand do{
-	_einheit = dorb_wpncache_list SELRND;
-	_spawngebaeude = _gebaeudepos_arr SELRND;
-	_spawnposition = _spawngebaeude SELRND;
-	_unit = createVehicle [_einheit,_spawnposition, [], 0, "NONE"];
-	_target pushBack _unit;
+    _einheit = dorb_wpncache_list SELRND;
+    _spawngebaeude = _gebaeudepos_arr SELRND;
+    _spawnposition = _spawngebaeude SELRND;
+    _unit = createVehicle [_einheit,_spawnposition, [], 0, "NONE"];
+    _target pushBack _unit;
 };
 LOG(FORMAT_2("Anzahl Waffenkisten=%1 \n Waffenkisten=%2",_rand,_target));
 
 //////////////////////////////////////////////////
-////// Ziel bearbeiten						 /////
+////// Ziel bearbeiten                         /////
 //////////////////////////////////////////////////
 
 if (dorb_debug) then {
-	_a=1;
-	{
-		INC(_a);
-		_mrkr = createMarker [format ["Box %2-%1",_a,_task],getPos _x];
-		_mrkr setMarkerShape "ICON";
-		_mrkr setMarkerColor "ColorBlack";
-		_mrkr setMarkerType "hd_destroy";
-		
-	}forEach _target;
+    _a=1;
+    {
+        INC(_a);
+        _mrkr = createMarker [format ["Box %2-%1",_a,_task],getPos _x];
+        _mrkr setMarkerShape "ICON";
+        _mrkr setMarkerColor "ColorBlack";
+        _mrkr setMarkerType "hd_destroy";
+        
+    }forEach _target;
 };
 
 //////////////////////////////////////////////////
-////// Gegner erstellen 					 /////
+////// Gegner erstellen                      /////
 //////////////////////////////////////////////////
 
 [_position,_gebaeudepos_arr] call EFUNC(spawn,obj_stadt);
 
 //////////////////////////////////////////////////
-////// Aufgabe erstellen 					 /////
+////// Aufgabe erstellen                      /////
 //////////////////////////////////////////////////
 
 [_task,true,[[LSTRING(DEST_WPN_TASK_DESC),_ort],LSTRING(DEST_WPN_TASK),LSTRING(DESTROY)],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
 [LSTRING(DESTROY),[LSTRING(DEST_WPN_TASK)],"data\icon\icon_destroy.paa",true] spawn EFUNC(interface,disp_info_global);
 sleep 10;
 {
-	_x addEventHandler ["killed",{"Bo_Mk82" createVehicle (getpos (_this select 0));}];
+    _x addEventHandler ["killed",{"Bo_Mk82" createVehicle (getpos (_this select 0));}];
 }forEach _target;
 
 
 
 //////////////////////////////////////////////////
-////// Überprüfung + Ende 					 /////
+////// Überprüfung + Ende                      /////
 //////////////////////////////////////////////////
 ["init",_target] spawn FUNC(examine);
 #define INTERVALL 10

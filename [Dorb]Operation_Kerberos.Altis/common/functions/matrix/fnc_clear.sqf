@@ -1,17 +1,17 @@
 /*
-	Author: Dorbedo
+    Author: Dorbedo
 
-	Description:
-		clears a matrix
+    Description:
+        clears a matrix
 
-	Parameter(s):
-		
-		0 : STRING - name of matrix-variable
-		(optional)
-		1 : SCALAR - value
-		2 : NAMESPACE
-	Return:
-		BOOL
+    Parameter(s):
+        
+        0 : STRING - name of matrix-variable
+        (optional)
+        1 : SCALAR - value
+        2 : NAMESPACE
+    Return:
+        BOOL
 */
 #include "script_component.hpp"
 SCRIPT(clear);

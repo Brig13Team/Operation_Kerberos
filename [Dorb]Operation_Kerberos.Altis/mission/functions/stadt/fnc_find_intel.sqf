@@ -1,18 +1,18 @@
 /*
-	Author: Dorbedo
+    Author: Dorbedo
 
-	Description:
-	Creates Mission "Find Intel".
-	
+    Description:
+    Creates Mission "Find Intel".
+    
 
 
-	Parameter(s):
-		0 :	ARRAY - Position
-		1 :	ARRAY - Ziele
-		2 : STRING - Aufgabenname für Taskmaster
-		
-	Returns:
-	BOOL
+    Parameter(s):
+        0 :    ARRAY - Position
+        1 :    ARRAY - Ziele
+        2 : STRING - Aufgabenname für Taskmaster
+        
+    Returns:
+    BOOL
 */
 #include "script_component.hpp"
 SCRIPT(find_intel);
@@ -27,7 +27,7 @@ private["_position_rescue","_pow"];
 _target=[];
 
 //////////////////////////////////////////////////
-////// Gebäudearray erstellen				 /////
+////// Gebäudearray erstellen                 /////
 //////////////////////////////////////////////////
 
 _rad = 260;
@@ -35,7 +35,7 @@ _gebaeudepos_arr = [];
 _gebaeudepos_arr = [_position,_rad] call EFUNC(common,get_buildings);
 
 //////////////////////////////////////////////////
-////// Ziel erstellen						 /////
+////// Ziel erstellen                         /////
 //////////////////////////////////////////////////
 LOG("Find Intel");
 
@@ -43,48 +43,48 @@ LOG("Find Intel");
 _rand=1;
 
 for "_i" from 1 to _rand do{
-	_einheit = dorb_intel SELRND;
-	_spawngebaeude = _gebaeudepos_arr SELRND;
-	_spawnposition = _spawngebaeude SELRND;
-	_unit = createVehicle [_einheit,_spawnposition, [], 0, "NONE"];
-	_target pushBack _unit;
+    _einheit = dorb_intel SELRND;
+    _spawngebaeude = _gebaeudepos_arr SELRND;
+    _spawnposition = _spawngebaeude SELRND;
+    _unit = createVehicle [_einheit,_spawnposition, [], 0, "NONE"];
+    _target pushBack _unit;
 };
 
 //////////////////////////////////////////////////
-////// Ziel bearbeiten						 /////
+////// Ziel bearbeiten                         /////
 //////////////////////////////////////////////////
 
 {
-	[-1,{_this call FUNC(stadt_found_intel);},[_x]] FMP;
+    [-1,{_this call FUNC(stadt_found_intel);},[_x]] FMP;
 }forEach _target;
 GVAR(interl_obj) = _target;
 publicVariable QGVAR(interl_obj);
 
 if (dorb_debug) then {
-	{
-		_mrkr = createMarker [name _x,getPos _x];
-		_mrkr setMarkerShape "ICON";
-		_mrkr setMarkerColor "ColorBlack";
-		_mrkr setMarkerType "hd_destroy";
-		
-	}forEach _target;
+    {
+        _mrkr = createMarker [name _x,getPos _x];
+        _mrkr setMarkerShape "ICON";
+        _mrkr setMarkerColor "ColorBlack";
+        _mrkr setMarkerType "hd_destroy";
+        
+    }forEach _target;
 };
 
 //////////////////////////////////////////////////
-////// Gegner erstellen 					 /////
+////// Gegner erstellen                      /////
 //////////////////////////////////////////////////
 
 [_position,_gebaeudepos_arr] call EFUNC(spawn,obj_stadt);
 
 //////////////////////////////////////////////////
-////// Aufgabe erstellen 					 /////
+////// Aufgabe erstellen                      /////
 //////////////////////////////////////////////////
 
 [LSTRING(FIND),[LSTRING(INTEL_TASK)],"data\icon\icon_search.paa",true] spawn EFUNC(interface,disp_info_global);
 [_task,true,[[LSTRING(INTEL_TASK_DESC),_ort],LSTRING(INTEL_TASK),LSTRING(FIND)],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
 
 //////////////////////////////////////////////////
-////// Überprüfung + Ende 					 /////
+////// Überprüfung + Ende                      /////
 //////////////////////////////////////////////////
 ["init",_target] spawn FUNC(examine);
 

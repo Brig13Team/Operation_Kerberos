@@ -1,14 +1,14 @@
 /*
-	Author: Dorbedo
-	
-	Description:
-		revon
-	
-	Parameter(s):
-		none
+    Author: Dorbedo
+    
+    Description:
+        revon
+    
+    Parameter(s):
+        none
 
-	Returns:
-		none
+    Returns:
+        none
 */
 #include "script_component.hpp"
 SCRIPT(strategy_helicopter);
@@ -38,16 +38,16 @@ _casVeh flyInHeight 400;
 _casGroup addWaypoint [_spawnpos, 0];
 
 [_casVeh,_spawnpos] spawn {
-	SCRIPTIN(strategy_airinterception_reset);
-	params ["_casVeh","_spawnpos"];
-	uisleep 60;
-	while {(alive _casVeh) && ((_casVeh distance2D _spawnpos)<100)} do {
-		uisleep 5;
-	};
-	If (alive _casVeh) then {
-		GVAR(callInArray) params ["_airborne","_airinterception","_armored","_cas","_fortifications","_motorized","_drones"];
-		GVAR(callInArray) = [_airborne,_airinterception,_armored,(_cas - 1),_fortifications,_motorized,_drones];
-	};
+    SCRIPTIN(strategy_airinterception_reset);
+    params ["_casVeh","_spawnpos"];
+    uisleep 60;
+    while {(alive _casVeh) && ((_casVeh distance2D _spawnpos)<100)} do {
+        uisleep 5;
+    };
+    If (alive _casVeh) then {
+        GVAR(callInArray) params ["_airborne","_airinterception","_armored","_cas","_fortifications","_motorized","_drones"];
+        GVAR(callInArray) = [_airborne,_airinterception,_armored,(_cas - 1),_fortifications,_motorized,_drones];
+    };
 };
 
 ([_casGroup] call FUNC(strength)) params ["_type","_strength"];

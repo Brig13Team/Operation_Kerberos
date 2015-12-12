@@ -1,18 +1,18 @@
 /*
-	Author: Dorbedo
+    Author: Dorbedo
 
-	Description:
-	Creates Mission "Kill".
-	
+    Description:
+    Creates Mission "Kill".
+    
 
 
-	Parameter(s):
-		0 :	ARRAY - Position
-		1 :	ARRAY - Ziele
-		2 : STRING - Aufgabenname für Taskmaster
-		
-	Returns:
-	BOOL
+    Parameter(s):
+        0 :    ARRAY - Position
+        1 :    ARRAY - Ziele
+        2 : STRING - Aufgabenname für Taskmaster
+        
+    Returns:
+    BOOL
 */
 #include "script_component.hpp"
 SCRIPT(kill_person);
@@ -26,7 +26,7 @@ _target=[];
 LOG("Kill Commander");
 
 //////////////////////////////////////////////////
-////// Gebäudearray erstellen				 /////
+////// Gebäudearray erstellen                 /////
 //////////////////////////////////////////////////
 
 _rad = 260;
@@ -34,71 +34,71 @@ _gebaeudepos_arr = [];
 _gebaeudepos_arr = [_position,_rad] call EFUNC(common,get_buildings);
 
 //////////////////////////////////////////////////
-////// Ziel erstellen						 /////
+////// Ziel erstellen                         /////
 //////////////////////////////////////////////////
 
 _rand = ((floor(random 2)) + 2);
 
 for "_i" from 1 to _rand do{
-	_gruppe = createGroup dorb_side;
-	_einheit = dorb_commanderlist SELRND;
-	_spawngebaeude = _gebaeudepos_arr SELRND;
-	_spawnposition = _spawngebaeude SELRND;
-	_unit = [_spawnposition,_gruppe,_einheit] call EFUNC(spawn,unit);
-	SETVAR(_unit,GVAR(istarget),true);
-	SETVAR(_gruppe,GVAR(istarget),true);
-	_target pushBack _unit;
+    _gruppe = createGroup dorb_side;
+    _einheit = dorb_commanderlist SELRND;
+    _spawngebaeude = _gebaeudepos_arr SELRND;
+    _spawnposition = _spawngebaeude SELRND;
+    _unit = [_spawnposition,_gruppe,_einheit] call EFUNC(spawn,unit);
+    SETVAR(_unit,GVAR(istarget),true);
+    SETVAR(_gruppe,GVAR(istarget),true);
+    _target pushBack _unit;
 };
 
 //////////////////////////////////////////////////
-////// Ziel bearbeiten						 /////
+////// Ziel bearbeiten                         /////
 //////////////////////////////////////////////////
 
 {
-	_x allowFleeing 0;
-	if (isnil (primaryWeapon _x)) then {
-		_x addMagazine ["150Rnd_762x51_Box_Tracer",4];
-		_x addWeapon "LMG_Zafir_F";
-		_x selectWeapon "LMG_Zafir_F";
-	};
-	_x addEventHandler 	["Killed", 
-							{
-								[-1,{[_this select 0,[format [localize (_this select 1),_this select 2]],_this select 3,_this select 4] spawn EFUNC(interface,disp_info);},[LSTRING(KILL),LSTRING(KILL_KILLED),(name(_this select 0)),"data\icon\icon_target.paa",true]] FMP;
-							}
-						];	
+    _x allowFleeing 0;
+    if (isnil (primaryWeapon _x)) then {
+        _x addMagazine ["150Rnd_762x51_Box_Tracer",4];
+        _x addWeapon "LMG_Zafir_F";
+        _x selectWeapon "LMG_Zafir_F";
+    };
+    _x addEventHandler     ["Killed", 
+                            {
+                                [-1,{[_this select 0,[format [localize (_this select 1),_this select 2]],_this select 3,_this select 4] spawn EFUNC(interface,disp_info);},[LSTRING(KILL),LSTRING(KILL_KILLED),(name(_this select 0)),"data\icon\icon_target.paa",true]] FMP;
+                            }
+                        ];    
 }forEach _target;
 
 _name = name(_target select 0);
 for "_i" from 1 to ((count _target) - 2) do {
-	_name = FORMAT_2("%1, %2",_name,name (_target select _i));
+    _name = FORMAT_2("%1, %2",_name,name (_target select _i));
 };
 _name = FORMAT_2("%1 and %2",_name,name(_target select ((count _target)-1)));
 
 if (dorb_debug) then {
-	{
-		_mrkr = createMarker [name _x,getPos _x];
-		_mrkr setMarkerShape "ICON";
-		_mrkr setMarkerColor "ColorBlack";
-		_mrkr setMarkerType "hd_destroy";
-		
-	}forEach _target;
+    {
+        _mrkr = createMarker [name _x,getPos _x];
+        _mrkr setMarkerShape "ICON";
+        _mrkr setMarkerColor "ColorBlack";
+        _mrkr setMarkerType "hd_destroy";
+        
+    }forEach _target;
 };
 
 //////////////////////////////////////////////////
-////// Gegner erstellen 					 /////
+////// Gegner erstellen                      /////
 //////////////////////////////////////////////////
 
 [_position,_gebaeudepos_arr] call EFUNC(spawn,obj_stadt);
 
 //////////////////////////////////////////////////
-////// Aufgabe erstellen 					 /////
+////// Aufgabe erstellen                      /////
 //////////////////////////////////////////////////
 
 [_task,true,[[LSTRING(KILL_TASK_DESC),_name,_ort],LSTRING(KILL_TASK),LSTRING(KILL)],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
 
 [LSTRING(KILL),[LSTRING(KILL_TASK)],"data\icon\icon_target.paa",true] spawn EFUNC(interface,disp_info_global);
 //////////////////////////////////////////////////
-////// Überprüfung + Ende 					 /////
+////// Überprüfung + Ende                      /////
 //////////////////////////////////////////////////
 
 ["init",_target] spawn FUNC(examine);

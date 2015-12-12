@@ -1,14 +1,14 @@
 /*
-	Author: Dorbedo
-	
-	Description:
-		supression fired EH
-	
-	Parameter(s):
-	
+    Author: Dorbedo
+    
+    Description:
+        supression fired EH
+    
+    Parameter(s):
+    
 
-	Return
-		none
+    Return
+        none
 */
 #include "script_component.hpp"
 SCRIPT(init);

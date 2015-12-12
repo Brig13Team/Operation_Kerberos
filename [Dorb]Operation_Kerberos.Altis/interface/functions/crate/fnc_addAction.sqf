@@ -1,10 +1,10 @@
 /*
-	Author: Dorbedo
+    Author: Dorbedo
 
-	Description:
-		adds Action to spawner
-	
-	
+    Description:
+        adds Action to spawner
+    
+    
 */
 #include "script_component.hpp"
 SCRIPT(addAction);

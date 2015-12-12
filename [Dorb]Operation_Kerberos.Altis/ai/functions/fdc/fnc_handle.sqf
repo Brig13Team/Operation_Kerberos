@@ -1,14 +1,14 @@
 /*
-	Author: Dorbedo
-	
-	Description:
-		The FDC - Logic
-		coordinates artilleryfire, sends firemissions, tries to defend artillery sites
-	
-	Parameter(s):
-		0 : ARRAY	- params
-		1 : SCALAR	- Handle
-	
+    Author: Dorbedo
+    
+    Description:
+        The FDC - Logic
+        coordinates artilleryfire, sends firemissions, tries to defend artillery sites
+    
+    Parameter(s):
+        0 : ARRAY    - params
+        1 : SCALAR    - Handle
+    
 */
 
 #include "script_component.hpp"
@@ -20,14 +20,14 @@ _current_firemission = GVAR(fdc_firemissions) deleteAt 0;
 private ["_current_artillerys_array"];
 _current_firemission params ["_position","_type","_shelltype","_amount"];
 _current_artillerys_array = switch(_type) do {
-	case 0 : {GVAR(fdc_artilleries)};
-	case 1 : {GVAR(fdc_mortars)};
-	case 2 : {GVAR(fdc_rocket)};
-	default {[]};
+    case 0 : {GVAR(fdc_artilleries)};
+    case 1 : {GVAR(fdc_mortars)};
+    case 2 : {GVAR(fdc_rocket)};
+    default {[]};
 };
 
 If (_current_artillerys_array isEqualTo []) exitwith {
-	TRACE_1("No artilleryunit found for Mission: \n %1",_current_artillerys_array);
+    TRACE_1("No artilleryunit found for Mission: \n %1",_current_artillerys_array);
 };
 
 _current_artillerys_array = [_current_artillerys_array] call BIS_fnc_arrayShuffle;
@@ -35,11 +35,11 @@ _current_artillerys_array = [_current_artillerys_array] call BIS_fnc_arrayShuffl
 
 private "_unit";
 _unit = {
-	If ((_position inRangeOfArtillery [[_x],_shelltype])&&(_shelltype in getArtilleryAmmo[_x])&&(GETVAR(_x,GVAR(fdc_ready),false))) exitwith {_x};
+    If ((_position inRangeOfArtillery [[_x],_shelltype])&&(_shelltype in getArtilleryAmmo[_x])&&(GETVAR(_x,GVAR(fdc_ready),false))) exitwith {_x};
 }forEach _current_artillerys_array;
 
 If((isNil "_unit")||{(!(IS_OBJECT(_unit)))}) exitwith {
-	GVAR(fdc_firemissions) pushBack _current_firemission;
+    GVAR(fdc_firemissions) pushBack _current_firemission;
 };
 
 SETVAR(_unit,GVAR(fdc_ready),false);

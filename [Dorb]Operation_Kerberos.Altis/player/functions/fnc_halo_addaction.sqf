@@ -1,14 +1,14 @@
 /*
-	Author: Dorbedo
-	
-	Description:
-		adds an Action to a definined Object
-		
-	Parameter(s):
-		none
-		
-	Return
-		none
+    Author: Dorbedo
+    
+    Description:
+        adds an Action to a definined Object
+        
+    Parameter(s):
+        none
+        
+    Return
+        none
 */
 #include "script_component.hpp"
 SCRIPT(halo_addaction);

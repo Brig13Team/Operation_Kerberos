@@ -1,16 +1,16 @@
 /*
-	Author: Dorbedo
-	
-	Description:
-		Makes Group patrol nearest building
-	
-	
-	Parameter(s):
-		0 : GROUP	- Group
-		1 : ARRAY	- Position
-	
-	Return
-	BOOL - Patrol is called
+    Author: Dorbedo
+    
+    Description:
+        Makes Group patrol nearest building
+    
+    
+    Parameter(s):
+        0 : GROUP    - Group
+        1 : ARRAY    - Position
+    
+    Return
+    BOOL - Patrol is called
 */
 #include "script_component.hpp"
 SCRIPT(patrol_building);
@@ -28,19 +28,19 @@ _wp_count = (floor(random(count _allBuildingPos))) max 2;
 
 _positions_ids = [];
 for "_i" from 0 to (_wp_count -1) do {
-	_pos_id = 0;
-	for "_j" from 0 to 10 do {
-		_pos_id = (floor(random(count _allBuildingPos)));
-		If (!(_pos_id in _positions_ids)) exitWith {};
-	};
-	_newPos = _allBuildingPos select _i;
-	_wp = _gruppe addWaypoint [_newPos, _i];
-	_wp setWaypointType "MOVE";
-	_wp waypointAttachObject _nearestBuilding;
-	_wp setWaypointHousePosition _pos_id;
-	_wp setWaypointSpeed "LIMITED";
-	_wp setWaypointTimeout [10,15,20];
-	_wp setWaypointCombatMode "WHITE";
+    _pos_id = 0;
+    for "_j" from 0 to 10 do {
+        _pos_id = (floor(random(count _allBuildingPos)));
+        If (!(_pos_id in _positions_ids)) exitWith {};
+    };
+    _newPos = _allBuildingPos select _i;
+    _wp = _gruppe addWaypoint [_newPos, _i];
+    _wp setWaypointType "MOVE";
+    _wp waypointAttachObject _nearestBuilding;
+    _wp setWaypointHousePosition _pos_id;
+    _wp setWaypointSpeed "LIMITED";
+    _wp setWaypointTimeout [10,15,20];
+    _wp setWaypointCombatMode "WHITE";
 };
 
 private ["_wp"];

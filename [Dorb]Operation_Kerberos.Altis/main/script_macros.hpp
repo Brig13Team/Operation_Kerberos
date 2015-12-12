@@ -37,9 +37,9 @@ Author:
         };
 
     #define GVAR(var1) DOUBLES(ADDON,var1)
-	#define QGVAR(var1) QUOTE(GVAR(var1))
+    #define QGVAR(var1) QUOTE(GVAR(var1))
     #define EGVAR(var1,var2) TRIPLES(PREFIX,var1,var2)
-	#define QEGVAR(var1,var2) QUOTE(EGVAR(var1,var2))
+    #define QEGVAR(var1,var2) QUOTE(EGVAR(var1,var2))
 
     #define ARR_1(ARG1) ARG1
     #define ARR_2(ARG1,ARG2) ARG1, ARG2

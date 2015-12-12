@@ -1,12 +1,12 @@
 /*
-	Author: Dorbedo
+    Author: Dorbedo
 
-	Description:
-	Displays the Groups and their Frequencies
-	
-	Requirements:
-		called as stacked EH
-	
+    Description:
+    Displays the Groups and their Frequencies
+    
+    Requirements:
+        called as stacked EH
+    
 */
 #include "script_component.hpp"
 SCRIPT(onOpen);
@@ -19,9 +19,9 @@ _gruppen = [] call EFUNC(common,list_groups);
 
 _sel pushBack [[localize LSTRING(TFR_GROUP),"SR","LR"],[],[]];
 
-for "_i" from 0 to ((count _gruppen)-1) do {	
-	_var = (leader(_gruppen select _i)) getVariable [QGVAR(tfr_freq),[0,0]];
-	_sel pushBack [[(groupID(_gruppen select _i)),format["%1",(_var select 0)],format["%1",(_var select 1)]],[],[]];
+for "_i" from 0 to ((count _gruppen)-1) do {    
+    _var = (leader(_gruppen select _i)) getVariable [QGVAR(tfr_freq),[0,0]];
+    _sel pushBack [[(groupID(_gruppen select _i)),format["%1",(_var select 0)],format["%1",(_var select 1)]],[],[]];
 };
 
 lnbClear 700201;

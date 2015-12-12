@@ -1,14 +1,14 @@
 /*
-	Author: Dorbedo
-	
-	Description:
-		converts the positon into a dangerzone coordinate
-	
-	Parameter(s):
-		none
+    Author: Dorbedo
+    
+    Description:
+        converts the positon into a dangerzone coordinate
+    
+    Parameter(s):
+        none
 
-	Returns:
-		none
+    Returns:
+        none
 */
 #include "script_component.hpp"
 SCRIPT(dangerzone_convert);

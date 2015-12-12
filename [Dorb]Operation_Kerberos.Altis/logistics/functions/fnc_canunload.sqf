@@ -1,14 +1,14 @@
 /*
-	Author: Dorbedo
-	
-	Description:
-		Checks if Unit can unload
-		
-	Parameter(s):
-		0 : OBJECT - Target
-		
-	Returns:
-		BOOL
+    Author: Dorbedo
+    
+    Description:
+        Checks if Unit can unload
+        
+    Parameter(s):
+        0 : OBJECT - Target
+        
+    Returns:
+        BOOL
 */
 #include "script_component.hpp"
 SCRIPT(canunload);

@@ -11,7 +11,7 @@ private["_spawnliste_ace","_spawnliste_ammo","_spawnliste_bwmat","_spawnliste_dr
         "_spawnliste_fahrzeug_unbewaffnet","_spawnliste_fia","_spawnliste_heli","_spawnliste_jet","_spawnliste_logistikheli",
         "_spawnliste_marine","_spawnliste_material","_spawnliste_panzer","_spawnliste_statisch","_spawnliste_submarine","_spawnliste_support",
         "_spawnliste_fahrzeug_rhs","_spawnliste_heli_rhs","_spawnliste_jet_rhs","_spawnliste_panzer_rhs","_spawnliste_statisch_rhs",
-		"_spawnliste_fahrzeug_usaf","_spawnliste_air_usaf","_spawnliste_drone_usaf",
+        "_spawnliste_fahrzeug_usaf","_spawnliste_air_usaf","_spawnliste_drone_usaf",
         "_class","_genMac","_vClass","_DName","_roles","_weapons","_magazines","_type","_faction","_side","_pic","_icon","_Desc","_autor",
         "_isBase","_isRHS","_isUSAF","_DNameRHS","_namearr","_DNameBIS","_DNameBW",
         "_cfgvehicles"
@@ -96,8 +96,8 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
             _faction in [   "USAF"
                             ];
         };
-		
-		_isRHS      =
+        
+        _isRHS      =
         {
             _faction in [   "rhs_faction_usmc_d","rhs_faction_usmc_wd",
                             "rhs_faction_usarmy_d","rhs_faction_usarmy_wd",
@@ -165,20 +165,20 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
                 _spawnliste_statisch_rhs pushBack [_class,_pic ,"RHS", (call(_DNameRHS)), _DName, _icon];
             };
         };
-		
-		if (_genMac !="" && (_type != "") && (_DName != "") && (_DName != _type) && (!(call(_isBase)))&& (call(_isUSAF))) then {
+        
+        if (_genMac !="" && (_type != "") && (_DName != "") && (_DName != _type) && (!(call(_isBase)))&& (call(_isUSAF))) then {
             if (_Class isKindOf "Air") then {
                 If (_vClass isEqualTo "Autonomous") then {
-					_spawnliste_drone_usaf pushBack [_class,_pic ,"USAF", _DName, _DName, _icon];
-				}else{
-					_spawnliste_air_usaf pushBack [_class,_pic ,"USAF", _DName, _DName, _icon];
-				};
+                    _spawnliste_drone_usaf pushBack [_class,_pic ,"USAF", _DName, _DName, _icon];
+                }else{
+                    _spawnliste_air_usaf pushBack [_class,_pic ,"USAF", _DName, _DName, _icon];
+                };
             };
             if (_vClass in ["usaf_vehicles"]) then {
                 _spawnliste_fahrzeug_usaf pushBack [_class,_pic ,"USAF", (call(_DNameRHS)), _DName, _icon];
             };
         };
-		
+        
         if (_genMac !="" && _pic!="" && _genMac==_class && (_type != "") && (_type != _class) && (_DName != _class) && (_DName != "")
             && (_DName != _type)/* && (!("FakeWeapon" in _weapons))*/ && (!(call(_isBase)))) then {
 
@@ -298,13 +298,13 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
 
         if((_genMac !="") and (_genMac !=_class)  and (_vClass=="Car")and(!(call(_isBase)))and(_side==1)and(_pic!="")and(_type != "")and(_type != _class)and(_DName != _class)and(_DName != "")and(_DName != _type)) then {
 
-			_spawnliste_fia pushBack [_class,_pic ,"BIS", (call(_DNameBIS)), _DName, _icon];
+            _spawnliste_fia pushBack [_class,_pic ,"BIS", (call(_DNameBIS)), _DName, _icon];
 
         };
-		
-		If (_class == "Land_ChairPlastic_F") then {
-			_spawnliste_material pushBack [_class,_pic ,"BIS", (call(_DNameBIS)), _DName, _icon];
-		};
+        
+        If (_class == "Land_ChairPlastic_F") then {
+            _spawnliste_material pushBack [_class,_pic ,"BIS", (call(_DNameBIS)), _DName, _icon];
+        };
 
     };
 };

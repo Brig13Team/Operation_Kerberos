@@ -1,12 +1,12 @@
 /*
-	Author: Dorbedo
-	
-	Description:
-		Selects Mission
-	
-	Parameter(s):
-		0 : STRING	- TASKID
-	
+    Author: Dorbedo
+    
+    Description:
+        Selects Mission
+    
+    Parameter(s):
+        0 : STRING    - TASKID
+    
 */
 #include "script_component.hpp"
 SCRIPT(choose);
@@ -18,7 +18,7 @@ _taskarray = [];
 _armys = [];
 _config = missionconfigfile>>"missions_config">>"main";
 for "_i" from 0 to (count _config)-1 do {
-	_taskarray pushBack [configname (_config select _i),getNumber((_config select _i)>>"probability")];
+    _taskarray pushBack [configname (_config select _i),getNumber((_config select _i)>>"probability")];
 };
 
 _task = ([_taskarray,1] call EFUNC(common,sel_array_weighted))select 0;
@@ -34,7 +34,7 @@ private ["_positions","_positiontypes","_position"];
 _positiontypes = getArray(missionconfigfile>>"missions_config">>"main">>_task>>"location">>"areas");
 _positions = [];
 {
-	_positions append (missionnamespace getVariable [_x,[]]);
+    _positions append (missionnamespace getVariable [_x,[]]);
 }forEach _positiontypes;
 CHECK(_positions isEqualTo [])
 _position = (_positions SELRND);

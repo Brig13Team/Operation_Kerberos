@@ -18,18 +18,18 @@ SETMVAR(GVAR(fdc_handle),-1);
 SETMVAR(GVAR(fdc_handle_search),-1);
 
 GVAR(fdc_handle) = [
-	{
-		_this call FUNC(fdc_handle);
-	},
-	INTERVALL_FDC,
-	[]
-	] call CBA_fnc_addPerFrameHandler;
+    {
+        _this call FUNC(fdc_handle);
+    },
+    INTERVALL_FDC,
+    []
+    ] call CBA_fnc_addPerFrameHandler;
 
 
 GVAR(fdc_handle_search) = [
-	{
-		_this call FUNC(fdc_defend_artypos);
-	},
-	INTERVALL_SEARCH,
-	[]
-	] call CBA_fnc_addPerFrameHandler;
+    {
+        _this call FUNC(fdc_defend_artypos);
+    },
+    INTERVALL_SEARCH,
+    []
+    ] call CBA_fnc_addPerFrameHandler;

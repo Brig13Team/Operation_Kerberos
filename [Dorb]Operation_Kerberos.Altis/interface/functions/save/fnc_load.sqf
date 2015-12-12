@@ -3,13 +3,13 @@
 
     Description:
     Loads
-	
-	
+    
+    
 
 */
 #include "script_component.hpp"
 SCRIPT(load);
-#define SAVE_IDD	600240
+#define SAVE_IDD    600240
 #define SAVE_LIST 600241
 disableSerialization;
 private ["_index","_ctrlList","_list","_selection"];

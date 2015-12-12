@@ -1,14 +1,14 @@
 /*
-	Author: Dorbedo
-	
-	Description:
-		adds a action to the player
-		
-	Parameter(s):
-		none
-		
-	Return
-		none
+    Author: Dorbedo
+    
+    Description:
+        adds a action to the player
+        
+    Parameter(s):
+        none
+        
+    Return
+        none
 */
 
 #include "script_component.hpp"

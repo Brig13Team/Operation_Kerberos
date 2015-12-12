@@ -91,30 +91,30 @@ switch _typ do {
             _rady = _rady + (_start select 1);
             _pos=[_radx,_rady,0];
             If ((surfaceIsWater [_radx,_rady])) then {
-				If ((getTerrainHeightASL _pos)<(-15)) then {
-					_generiere=false;
-				}else{
-					_temp=_pos;
-				};
-			};
+                If ((getTerrainHeightASL _pos)<(-15)) then {
+                    _generiere=false;
+                }else{
+                    _temp=_pos;
+                };
+            };
             DEC(_max_run);
         };
         If (_max_run<1) then {
-			If (surfaceIsWater _temp) then {
-				_pos = _temp;
-			}else{
-				_pos=[];
-			};
-		};
+            If (surfaceIsWater _temp) then {
+                _pos = _temp;
+            }else{
+                _pos=[];
+            };
+        };
     };
-	//Random pos including water
-	case 4 : {
-		_dir = random 360;
-		_radx = (cos _dir) * _rad;
-		_rady = (sin _dir) * _rad;
-		_radx = _radx + (_start select 0);
-		_rady = _rady + (_start select 1);
-		_pos=[_radx,_rady,0];	
+    //Random pos including water
+    case 4 : {
+        _dir = random 360;
+        _radx = (cos _dir) * _rad;
+        _rady = (sin _dir) * _rad;
+        _radx = _radx + (_start select 0);
+        _rady = _rady + (_start select 1);
+        _pos=[_radx,_rady,0];    
     };
 };
 _pos

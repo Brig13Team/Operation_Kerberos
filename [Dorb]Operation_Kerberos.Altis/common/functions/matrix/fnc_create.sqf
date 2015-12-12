@@ -1,18 +1,18 @@
 /*
-	Author: Dorbedo
+    Author: Dorbedo
 
-	Description:
-		creates a matrix with zeroes
+    Description:
+        creates a matrix with zeroes
 
-	Parameter(s):
-		
-		0 : SCARLAR - X-Size
-		(optional)
-		1 : SCARLAR - Y-Size
-		2 : SCALAR - value
-	
-	Return:
-		ARRAY - Matrix
+    Parameter(s):
+        
+        0 : SCARLAR - X-Size
+        (optional)
+        1 : SCARLAR - Y-Size
+        2 : SCALAR - value
+    
+    Return:
+        ARRAY - Matrix
 */
 #include "script_component.hpp"
 SCRIPT(create);
@@ -23,11 +23,11 @@ CHECKRET((_Xsize<=0),[]);
 If (_Ysize<=0) then {_Ysize=_Xsize;};
 private _matrix=[];
 For "_i" from 0 to _Xsize do {
-	private _array = [];
-	For "_i" from 0 to _Ysize do {
-		_array pushBack _value;
-	};
-	_matrix pushBack _array;
+    private _array = [];
+    For "_i" from 0 to _Ysize do {
+        _array pushBack _value;
+    };
+    _matrix pushBack _array;
 };
 
 _matrix;

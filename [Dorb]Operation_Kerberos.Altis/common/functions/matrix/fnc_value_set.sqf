@@ -1,19 +1,19 @@
 /*
-	Author: Dorbedo
+    Author: Dorbedo
 
-	Description:
-		sets a value in a matrix
+    Description:
+        sets a value in a matrix
 
-	Parameter(s):
-		
-		0 : STRING - name of matrix-variable
-		1 : SCARLAR - X-Pos
-		2 : SCARLAR - Y-Pos
-		3 : SCARLAR - Value
-		(optional)
-		4 : NAMESPACE
-	Return:
-		BOOL
+    Parameter(s):
+        
+        0 : STRING - name of matrix-variable
+        1 : SCARLAR - X-Pos
+        2 : SCARLAR - Y-Pos
+        3 : SCARLAR - Value
+        (optional)
+        4 : NAMESPACE
+    Return:
+        BOOL
 */
 #include "script_component.hpp"
 SCRIPT(value_add);

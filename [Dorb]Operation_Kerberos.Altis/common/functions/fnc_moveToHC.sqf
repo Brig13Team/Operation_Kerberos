@@ -1,12 +1,12 @@
 /*
-	Author: Dorbedo
+    Author: Dorbedo
 
-	Description:
-	moves group to HC
+    Description:
+    moves group to HC
 
-	Parameter(s):
-		
-		0 : Group
+    Parameter(s):
+        
+        0 : Group
 
 */
 #include "script_component.hpp"
@@ -14,7 +14,7 @@ CHECK(true)
 SCRIPT(movetoHC);
 /// CurrentHC erstellen, falls nicht vorhanden - Nur am Anfang interessant
 if ((isnil "currentHC")&&(!(isnil "HC1"))) then {
-	currentHC = HC1;
+    currentHC = HC1;
 };
 
 ///  Ist ein HC-Object plaziert?

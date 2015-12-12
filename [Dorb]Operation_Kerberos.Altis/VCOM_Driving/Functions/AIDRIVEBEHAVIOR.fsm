@@ -336,8 +336,8 @@ class FSM
        "" \n
        "" \n
        "" \n
-       "	_Unit setVariable [""VCOM_DriverDetectionIsDriver"",1,false];" \n
-       "	[_Unit] spawn VCOM_fnc_VehicleDetection;" \n
+       "    _Unit setVariable [""VCOM_DriverDetectionIsDriver"",1,false];" \n
+       "    [_Unit] spawn VCOM_fnc_VehicleDetection;" \n
        "" \n
        "if (VCOM_DRIVE_DEBUG isEqualTo 1) then {systemchat ""FSM: Execute Code"";};"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;

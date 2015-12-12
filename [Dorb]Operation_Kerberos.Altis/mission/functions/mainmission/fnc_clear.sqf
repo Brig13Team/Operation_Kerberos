@@ -1,14 +1,14 @@
-	/*
-	Author: Dorbedo
+    /*
+    Author: Dorbedo
 
-	Description:
-		Creates Mission "CLEAR".
+    Description:
+        Creates Mission "CLEAR".
 
-	Parameter(s):
-		0 :	ARRAY - Position
+    Parameter(s):
+        0 :    ARRAY - Position
 
-	Returns:
-	BOOL
+    Returns:
+    BOOL
 */
 #include "script_component.hpp"
 SCRIPT(clear);
@@ -17,10 +17,10 @@ TRACEV_1(_position);
 CHECK(_position isEqualTo [])
 
 /********************
-	taskhandler
+    taskhandler
 ********************/
 
 [
-	QUOTE(private '_a';_a = {(((side _x)!=GVARMAIN(playerside))&&((_x distance (_this select 0))<2500))}count allUnits;If (_a < 15) then {true}else{false};),
-	[_position]
+    QUOTE(private '_a';_a = {(((side _x)!=GVARMAIN(playerside))&&((_x distance (_this select 0))<2500))}count allUnits;If (_a < 15) then {true}else{false};),
+    [_position]
 ]

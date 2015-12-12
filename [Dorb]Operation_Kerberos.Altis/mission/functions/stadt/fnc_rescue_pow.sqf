@@ -1,16 +1,16 @@
 /*
-	Author: Dorbedo
+    Author: Dorbedo
 
-	Description:
-	Creates Mission "Rescue".
-	
+    Description:
+    Creates Mission "Rescue".
+    
 
 
-	Parameter(s):
-		0 :	ARRAY - Position
-		1 :	ARRAY - Trigger Area [A,B,Winkel,BOOL]
-		2 : STRING - Aufgabenname für Taskmaster
-		
+    Parameter(s):
+        0 :    ARRAY - Position
+        1 :    ARRAY - Trigger Area [A,B,Winkel,BOOL]
+        2 : STRING - Aufgabenname für Taskmaster
+        
 */
 #include "script_component.hpp"
 SCRIPT(rescue_pow);
@@ -24,7 +24,7 @@ _position_rescue = getMarkerPos "rescue_marker";
 _pow=[];
 
 //////////////////////////////////////////////////
-////// Gebäudearray erstellen				 /////
+////// Gebäudearray erstellen                 /////
 //////////////////////////////////////////////////
 
 _rad = 260;
@@ -32,29 +32,29 @@ _gebaeudepos_arr = [];
 _gebaeudepos_arr = [_position,_rad] call EFUNC(common,get_buildings);
 
 //////////////////////////////////////////////////
-////// Geiseln erstellen 					 /////
+////// Geiseln erstellen                      /////
 //////////////////////////////////////////////////
 _rand = floor(random 4) + 3;
 
 for "_i" from 1 to _rand do{
-	_gruppe = createGroup civilian;
-	_einheit = dorb_pow SELRND;
-	_spawngebaeude = _gebaeudepos_arr SELRND;
-	_spawnposition = _spawngebaeude SELRND;
-	_unit = [_spawnposition,_gruppe,_einheit] call EFUNC(spawn,unit);
-	SETPVAR(_unit,GVAR(istarget),true);
-	_pow pushBack _unit;
+    _gruppe = createGroup civilian;
+    _einheit = dorb_pow SELRND;
+    _spawngebaeude = _gebaeudepos_arr SELRND;
+    _spawnposition = _spawngebaeude SELRND;
+    _unit = [_spawnposition,_gruppe,_einheit] call EFUNC(spawn,unit);
+    SETPVAR(_unit,GVAR(istarget),true);
+    _pow pushBack _unit;
 };
 
 
 //////////////////////////////////////////////////
-////// Gegner erstellen 					 /////
+////// Gegner erstellen                      /////
 //////////////////////////////////////////////////
 
 [_position,_gebaeudepos_arr] call EFUNC(spawn,obj_stadt);
 
 //////////////////////////////////////////////////
-////// Aufgabe erstellen 					 /////
+////// Aufgabe erstellen                      /////
 //////////////////////////////////////////////////
 
 
@@ -64,34 +64,34 @@ for "_i" from 1 to _rand do{
 [LSTRING(RESCUE),[LSTRING(RESC_TASK)],"data\icon\icon_rescue.paa",true] spawn EFUNC(interface,disp_info_global);
 
 //////////////////////////////////////////////////
-////// Geiseln bearbeiten					 /////
+////// Geiseln bearbeiten                     /////
 //////////////////////////////////////////////////
 
 {
-	_x setCaptive true;
-	removeAllAssignedItems _x;
-	removeallweapons _x;
-	removeHeadgear _x;
-	removeBackpack _x;
-	_x setunitpos "UP";
-	_x setBehaviour "Careless";
-	dostop _x;
-	_x playmove "amovpercmstpsnonwnondnon_amovpercmstpssurwnondnon";
-	_x disableAI "MOVE";
+    _x setCaptive true;
+    removeAllAssignedItems _x;
+    removeallweapons _x;
+    removeHeadgear _x;
+    removeBackpack _x;
+    _x setunitpos "UP";
+    _x setBehaviour "Careless";
+    dostop _x;
+    _x playmove "amovpercmstpsnonwnondnon_amovpercmstpssurwnondnon";
+    _x disableAI "MOVE";
 
-	if (dorb_debug) then {
-		_mrkr = createMarker [format ["%1-POW:%2",_task,_x],(getPos _x)];
-		_mrkr setMarkerShape "ICON";
-		_mrkr setMarkerColor "ColorBlack";
-		_mrkr setMarkerType "hd_destroy";
-	};
-	[_x,QGVAR(rescuepoint),(QUOTE(INC(GVAR(rescue_counter));)+"moveOut (_this select 0);uisleep 0.3;deleteVehicle (_this select 0);")] call BIS_fnc_addScriptedEventHandler;
+    if (dorb_debug) then {
+        _mrkr = createMarker [format ["%1-POW:%2",_task,_x],(getPos _x)];
+        _mrkr setMarkerShape "ICON";
+        _mrkr setMarkerColor "ColorBlack";
+        _mrkr setMarkerType "hd_destroy";
+    };
+    [_x,QGVAR(rescuepoint),(QUOTE(INC(GVAR(rescue_counter));)+"moveOut (_this select 0);uisleep 0.3;deleteVehicle (_this select 0);")] call BIS_fnc_addScriptedEventHandler;
 }forEach _pow;
 
 
 
 //////////////////////////////////////////////////
-////// Überprüfung + Ende 					 /////
+////// Überprüfung + Ende                      /////
 //////////////////////////////////////////////////
 
 GVAR(rescue_counter) = 0;

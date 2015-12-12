@@ -1,3 +1,3 @@
 class maps {
-	#include "altis.hpp"
+    #include "altis.hpp"
 };

@@ -36,5 +36,5 @@ if ((_dd >=32)&&(_dd <=41)) then {
 };
 */
 {
-	SETPVAR(_x,GVAR(tfr_freq),_sel);
+    SETPVAR(_x,GVAR(tfr_freq),_sel);
 }forEach (units (group player));

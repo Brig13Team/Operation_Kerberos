@@ -1,16 +1,16 @@
 /*
-	Author: iJesuz
-	
-	Description:
-	
-	Parameter(s):
-		0 : OBJECT/ARRAY - target
-		1 : OBJECT - caller
-		2 : CODE - code (optional)
+    Author: iJesuz
+    
+    Description:
+    
+    Parameter(s):
+        0 : OBJECT/ARRAY - target
+        1 : OBJECT - caller
+        2 : CODE - code (optional)
 
-	Returns:
-		BOOLEAN
-	
+    Returns:
+        BOOLEAN
+    
 */
 #include "script_component.hpp"
 SCRIPT(requestReconnaissance);
@@ -24,10 +24,10 @@ if ((lastReconRequest != -1) && ((lastReconRequest + 600) >= serverTime)) exitWi
 SETVAR(_caller,GVAR(lastAttackRequest),serverTime);
 
 _task = [
-	_target,
-	serverTime + 600,
-	_caller,
-	_code
+    _target,
+    serverTime + 600,
+    _caller,
+    _code
 ];
 
 _requestedReconnaissances = GETMVAR(GVAR(requestedReconnaissances),[]);

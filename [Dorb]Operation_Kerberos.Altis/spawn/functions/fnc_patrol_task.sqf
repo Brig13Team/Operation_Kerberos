@@ -34,8 +34,8 @@ params [
     ["_formation","NO CHANGE",[""]],
     ["_onComplete","",[""]],
     ["_timeout",[0,0,0],[[]],[3]],
-	["_compRadius", 5, [0]]
-	
+    ["_compRadius", 5, [0]]
+    
 ];
 _group = _group call CBA_fnc_getGroup;
 if !(local _group) exitWith {};
@@ -53,12 +53,12 @@ _args params ["_centerpos","_behavior","_combatmode","_speed","_formation","_onC
 
 private "_temp";
 _pos = switch (true) do {
-	case ((typeOf (leader _group))isKindOf "Plane"): {_temp = [_centerpos,1000,4] call EFUNC(common,pos_random);_temp set [2,800];_temp};
-	case ((typeOf (leader _group))isKindOf "Air"): {_temp = [_centerpos,1000,4] call EFUNC(common,pos_random);_temp set [2,500];_temp};
-	case ((typeOf (leader _group))isKindOf "Ship"): {_temp = [_centerpos,1000,3] call EFUNC(common,pos_random);_temp};
-	case ((typeOf (leader _group))in GVAR(list_divers)): {_temp = [_centerpos,1000,3] call EFUNC(common,pos_random);{_x swimInDepth -10;} forEach (units _group);_temp set [2,-10];_temp};
-	case ((vehicle (leader _group))isKindOf "LandVehicle"): {_temp = [_centerpos,1000,0] call EFUNC(common,pos_random);_temp};
-	default {_temp = [_centerpos,1000,0] call EFUNC(common,pos_random);_temp};
+    case ((typeOf (leader _group))isKindOf "Plane"): {_temp = [_centerpos,1000,4] call EFUNC(common,pos_random);_temp set [2,800];_temp};
+    case ((typeOf (leader _group))isKindOf "Air"): {_temp = [_centerpos,1000,4] call EFUNC(common,pos_random);_temp set [2,500];_temp};
+    case ((typeOf (leader _group))isKindOf "Ship"): {_temp = [_centerpos,1000,3] call EFUNC(common,pos_random);_temp};
+    case ((typeOf (leader _group))in GVAR(list_divers)): {_temp = [_centerpos,1000,3] call EFUNC(common,pos_random);{_x swimInDepth -10;} forEach (units _group);_temp set [2,-10];_temp};
+    case ((vehicle (leader _group))isKindOf "LandVehicle"): {_temp = [_centerpos,1000,0] call EFUNC(common,pos_random);_temp};
+    default {_temp = [_centerpos,1000,0] call EFUNC(common,pos_random);_temp};
 };
 
 CHECK((_pos isEqualTo []))
@@ -86,5 +86,5 @@ If (count(waypoints _group)>1) then {
 };
 
 #ifdef DEBUG_MODE_FULL
-	[_pos] call EFUNC(common,debug_marker_create);
+    [_pos] call EFUNC(common,debug_marker_create);
 #endif

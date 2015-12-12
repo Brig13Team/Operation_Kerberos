@@ -1,12 +1,12 @@
 /*
-	Author: iJesuz
-	
-	Description:
-		Erstellt ein gesunkenes SDV mit Wachen
+    Author: iJesuz
+    
+    Description:
+        Erstellt ein gesunkenes SDV mit Wachen
 
-	Parameter(s):
-		0 : Array - Position
-		1 : Array of String - [Sidetaskname, Taskname]
+    Parameter(s):
+        0 : Array - Position
+        1 : Array of String - [Sidetaskname, Taskname]
 */
 #include "script_component.hpp"
 
@@ -19,7 +19,7 @@ params ["_position", "_task_array"];
 GVAR(sideby_objects) = [];
 
 #ifdef TEST
-	_position = getMarkerPos "spawn_side";
+    _position = getMarkerPos "spawn_side";
 #endif
 
 _rescue_point = getMarkerPos "rescue_marker";
@@ -54,12 +54,12 @@ LOG("SCHLEIFE ABGEBROCHEN");
 if (_temp isEqualTo "") exitWith {};
 
 if ((damage _sdv == 1)) then {
-	[LSTRING(SIDE_SIDEMISSION),[LSTRING(SIDE_FAILED)],"",false] call EFUNC(interface,disp_info_global);
-	[_task_array select 0, "Failed", false] call BIS_fnc_taskSetState;
-	missionNamespace setVariable [QGVAR(current_sidemission),""];
+    [LSTRING(SIDE_SIDEMISSION),[LSTRING(SIDE_FAILED)],"",false] call EFUNC(interface,disp_info_global);
+    [_task_array select 0, "Failed", false] call BIS_fnc_taskSetState;
+    missionNamespace setVariable [QGVAR(current_sidemission),""];
 } else {
-	[LSTRING(SIDE_SIDEMISSION),[LSTRING(SIDE_FINISHED)],"",false] call EFUNC(interface,disp_info_global);
-	[_task_array select 0, "Succeeded", false] call BIS_fnc_taskSetState;
-	[_task_array select 1, "targets", [3, 50]] call FUNC(reward);
-	missionNamespace setVariable [QGVAR(current_sidemission),""];
+    [LSTRING(SIDE_SIDEMISSION),[LSTRING(SIDE_FINISHED)],"",false] call EFUNC(interface,disp_info_global);
+    [_task_array select 0, "Succeeded", false] call BIS_fnc_taskSetState;
+    [_task_array select 1, "targets", [3, 50]] call FUNC(reward);
+    missionNamespace setVariable [QGVAR(current_sidemission),""];
 };

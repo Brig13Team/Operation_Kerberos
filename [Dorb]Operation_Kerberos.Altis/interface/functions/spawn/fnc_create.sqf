@@ -75,9 +75,9 @@ if (_mode isEqualTo "driver") then {
     If (((_flyingpos distance [0,0,0])>1)&&(_vehiclewahl isKindOf "Plane_Base_F")&&(!( (getText(configFile >> "CfgVehicles" >> _vehiclewahl >> "vehicleClass"))isEqualTo "Autonomous"))) then {
         {deleteVehicle _x;}forEach (crew _vehicle);
     };
-	#ifdef DORB_PILOT_WHITELIST_ENABLED
-	If ((isNil QEGVAR(main,reserved_pilot_slot))&&ISCASVEHICLE_C(_vehiclewahl)) exitWith {};
-	#endif
+    #ifdef DORB_PILOT_WHITELIST_ENABLED
+    If ((isNil QEGVAR(main,reserved_pilot_slot))&&ISCASVEHICLE_C(_vehiclewahl)) exitWith {};
+    #endif
     player moveInDriver _vehicle;
 };
 

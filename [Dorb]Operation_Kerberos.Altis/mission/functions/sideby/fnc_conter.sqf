@@ -1,17 +1,17 @@
 /*
-	Author: iJesuz
-	
-	Description:
-		selfexplaining
+    Author: iJesuz
+    
+    Description:
+        selfexplaining
 
-	Parameter(s):
-		0 : STRING - type of reinforcements
-		1 : Array - Position
-		2 : code - task
-		3 : Array - Extra arguments
+    Parameter(s):
+        0 : STRING - type of reinforcements
+        1 : Array - Position
+        2 : code - task
+        3 : Array - Extra arguments
 
-	Example:
-		["small",getMarkerPos "spawn_sideby", { (driver (_this select 0)) move (position player); }] call DORB_fnc_obj_sideby_conter;
+    Example:
+        ["small",getMarkerPos "spawn_sideby", { (driver (_this select 0)) move (position player); }] call DORB_fnc_obj_sideby_conter;
 */
 #include "script_component.hpp"
 
@@ -42,11 +42,11 @@ createVehicleCrew _veh;
 ISNILS(DORB_SIDE,east);
 _group = createGroup DORB_SIDE;
 {
-	for "_i" from 1 to (_infc select _forEachIndex) do {
-		_unit = _group createUnit [_x, _position, [], 0, "NONE"];
-		_unit moveInCargo _veh;
-		GVAR(sideby_objects) pushBack _unit;
-	};
+    for "_i" from 1 to (_infc select _forEachIndex) do {
+        _unit = _group createUnit [_x, _position, [], 0, "NONE"];
+        _unit moveInCargo _veh;
+        GVAR(sideby_objects) pushBack _unit;
+    };
 } forEach _inf;
 
 [_veh, _group, _args] spawn _task;

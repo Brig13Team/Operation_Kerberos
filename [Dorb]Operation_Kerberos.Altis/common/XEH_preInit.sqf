@@ -54,47 +54,47 @@ ADDON = true;
 GVAR(waitAndExecArray) = [];
 
 [
-	{
-		CHECK(GVAR(setVarSyncArray) isEqualTo [])
-		private["_temp"];
-		_temp = GVAR(setVarSyncArray);
-		GVAR(setVarSyncArray) = [];
-		{
-			(_x select 2) setVariable [(_x select 0),(_x select 1),(_x select 3)];
-		}forEach _temp;
-	},
-	1,
-	[]
+    {
+        CHECK(GVAR(setVarSyncArray) isEqualTo [])
+        private["_temp"];
+        _temp = GVAR(setVarSyncArray);
+        GVAR(setVarSyncArray) = [];
+        {
+            (_x select 2) setVariable [(_x select 0),(_x select 1),(_x select 3)];
+        }forEach _temp;
+    },
+    1,
+    []
 ] call CBA_fnc_addPerFrameHandler;
 
 If (!isServer) then {
-	[
-		{
-			CHECK(GVAR(setVarSyncServerArray) isEqualTo [])
-			private["_temp"];
-			_temp = GVAR(setVarSyncServerArray);
-			GVAR(setVarSyncServerArray) = [];
-			{
-				(_x select 2) setVariable [(_x select 0),(_x select 1),(_x select 3)];
-			}forEach _temp;
-		},
-		5,
-		[]
-	] call CBA_fnc_addPerFrameHandler;
+    [
+        {
+            CHECK(GVAR(setVarSyncServerArray) isEqualTo [])
+            private["_temp"];
+            _temp = GVAR(setVarSyncServerArray);
+            GVAR(setVarSyncServerArray) = [];
+            {
+                (_x select 2) setVariable [(_x select 0),(_x select 1),(_x select 3)];
+            }forEach _temp;
+        },
+        5,
+        []
+    ] call CBA_fnc_addPerFrameHandler;
 }else{
-	//QGVAR(setVarSyncServerArray) addPublicVariableEventHandler {_this };
+    //QGVAR(setVarSyncServerArray) addPublicVariableEventHandler {_this };
 };
 
 GVARMAIN(EVENTLOCAL)=[];
 GVARMAIN(EVENTEXEC)=[];
 
 if (!hasInterface) then {
-	QGVARMAIN(EVENTLOCAL) addpublicVariableEventHandler {(_this select 1) call FUNC(EventLocal);};
-	QGVARMAIN(EVENTEXEC) addpublicVariableEventHandler {(_this select 1) call FUNC(EventExec);};
+    QGVARMAIN(EVENTLOCAL) addpublicVariableEventHandler {(_this select 1) call FUNC(EventLocal);};
+    QGVARMAIN(EVENTEXEC) addpublicVariableEventHandler {(_this select 1) call FUNC(EventExec);};
 }else{
-	[] spawn {
-		waitUntil {alive player};
-		QGVARMAIN(EVENTLOCAL) addpublicVariableEventHandler {(_this select 1) call FUNC(EventLocal);};
-		QGVARMAIN(EVENTEXEC) addpublicVariableEventHandler {(_this select 1) call FUNC(EventExec);};
-	};
+    [] spawn {
+        waitUntil {alive player};
+        QGVARMAIN(EVENTLOCAL) addpublicVariableEventHandler {(_this select 1) call FUNC(EventLocal);};
+        QGVARMAIN(EVENTEXEC) addpublicVariableEventHandler {(_this select 1) call FUNC(EventExec);};
+    };
 };

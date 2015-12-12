@@ -1,14 +1,14 @@
 /*
-	Author: Dorbedo
-	
-	Description:
-		Returns the logistics config entry of an configclass
-		
-	Parameter(s):
-		0 : OBJECT - Target
-		
-	Returns:
-		STRING
+    Author: Dorbedo
+    
+    Description:
+        Returns the logistics config entry of an configclass
+        
+    Parameter(s):
+        0 : OBJECT - Target
+        
+    Returns:
+        STRING
 */
 #include "script_component.hpp"
 SCRIPT(getCargoCfg);

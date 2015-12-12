@@ -1,38 +1,38 @@
 /*
-	Author: Dorbedo
-	
-	Description:
-		creates the unitslists
-	
-	Parameter(s):
-		0 : SCALAR (opt)	- Number
-	
+    Author: Dorbedo
+    
+    Description:
+        creates the unitslists
+    
+    Parameter(s):
+        0 : SCALAR (opt)    - Number
+    
 */
 #include "script_component.hpp"
 SCRIPT(choose_army);
 
 If !(_this params[["_Army","",[""]]]) then {
-	private _ArmyArray = [
-		["regular",1], //mixed
-		//fighting troups
-		["armored",1],
-		["infanterie",1],
-		// special troups
-		["airborne",1],
-		["specops",1],	// special trained soldiers
-		["droneoperations",1], // droneoperations
-		//other
-		["guards",1]
-	];
-	GVARMAIN(side_type) = [_ArmyArray,1] call EFUNC(common,sel_array_weighted)
+    private _ArmyArray = [
+        ["regular",1], //mixed
+        //fighting troups
+        ["armored",1],
+        ["infanterie",1],
+        // special troups
+        ["airborne",1],
+        ["specops",1],    // special trained soldiers
+        ["droneoperations",1], // droneoperations
+        //other
+        ["guards",1]
+    ];
+    GVARMAIN(side_type) = [_ArmyArray,1] call EFUNC(common,sel_array_weighted)
 }else{
-	GVARMAIN(side_type) = _Army;
+    GVARMAIN(side_type) = _Army;
 };
 if (isNil QGVARMAIN(side)) then {
-	GVARMAIN(side) = switch (GVARMAIN(playerside)) do {
-		case "east" : {"west"};
-		default {"east"};
-	};
+    GVARMAIN(side) = switch (GVARMAIN(playerside)) do {
+        case "east" : {"west"};
+        default {"east"};
+    };
 };
 
 private _path = (missionConfigFile >> "unitlists" >> str GVARMAIN(side) >> GVARMAIN(side_type));

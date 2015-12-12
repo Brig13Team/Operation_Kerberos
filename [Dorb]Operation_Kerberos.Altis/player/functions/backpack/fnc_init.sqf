@@ -1,9 +1,9 @@
 /*
-	Author: Dorbedo
-	
-	Description:
-		Backpack on Chest
-		Init
+    Author: Dorbedo
+    
+    Description:
+        Backpack on Chest
+        Init
 */
 
 #include "script_component.hpp"

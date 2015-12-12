@@ -1,17 +1,17 @@
 /*
-	Author: Dorbedo
+    Author: Dorbedo
 
-	Description:
-		returns Array with Positions from a Square
+    Description:
+        returns Array with Positions from a Square
 
-	Parameter(s):
-		0 :	ARRAY	- Centerpos
-		1 : SCALAR 	- Step
-		2 : SCALAR	- lenght in X
-		3 : SCALAR	- lenght in Y
+    Parameter(s):
+        0 :    ARRAY    - Centerpos
+        1 : SCALAR     - Step
+        2 : SCALAR    - lenght in X
+        3 : SCALAR    - lenght in Y
 
-	Returns:
-	ARRAY : Array with Positions
+    Returns:
+    ARRAY : Array with Positions
 
 */
 #include "script_component.hpp"
@@ -25,9 +25,9 @@ _startpos = [((_position select 0)-(_sideX*0.5)),((_position select 1)-(_sideY*0
 _return = [];
 
 for "_i" from 0 to (floor(_sideX/_step)) do {
-	for "_j" from 0 to (floor(_sideY/_step)) do {
-		_return pushBack [(_startpos select 0)+(_i*_step),(_startpos select 1)+(_j*_step),0];
-	};
+    for "_j" from 0 to (floor(_sideY/_step)) do {
+        _return pushBack [(_startpos select 0)+(_i*_step),(_startpos select 1)+(_j*_step),0];
+    };
 };
 
 [[_position,_step,_sideX,_sideY],_return];

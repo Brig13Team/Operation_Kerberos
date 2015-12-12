@@ -1,14 +1,14 @@
 /*
-	Author: Dorbedo
-	
-	Description:
-		Displays the timer
-		called via publicVariableEventhandler
-	
-	Parameter(s):
-		None
-		
-	
+    Author: Dorbedo
+    
+    Description:
+        Displays the timer
+        called via publicVariableEventhandler
+    
+    Parameter(s):
+        None
+        
+    
 */
 #include "script_component.hpp"
 SCRIPT(disp_timer);
@@ -20,9 +20,9 @@ _endtime = EGVAR(mission,endzeit);
 _currenttime = if (ismultiplayer) then {servertime} else {time};
 _difference = _endtime - _currenttime;
 If (_difference <= 0) exitWith {
-	//// disable timer
-	DISP_LAYER cutText ["","PLAIN"];
-	uiNamespace setvariable [QGVAR(disp_timer),nil];
+    //// disable timer
+    DISP_LAYER cutText ["","PLAIN"];
+    uiNamespace setvariable [QGVAR(disp_timer),nil];
 };
 
 //// show timer
@@ -31,8 +31,8 @@ disableSerialization;
 _display = uiNamespace getvariable QGVAR(disp_timer);
 /// set current time
 if (!isNull _display) then {
-	_headerCtrl = _display displayCtrl 700104;
-	_headerCtrl ctrlSetText format["%1",(floor(_difference/60))];
+    _headerCtrl = _display displayCtrl 700104;
+    _headerCtrl ctrlSetText format["%1",(floor(_difference/60))];
 };
 /// call timer again
 uisleep 60;

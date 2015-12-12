@@ -8,13 +8,13 @@ if (time > 30) then { SETVAR(player,EGVAR(interface,respawntime),time); };
 
 ISNILS(GVAR(respawn_fnc),[]);
 {
-	_this spawn compile _x;
+    _this spawn compile _x;
 }forEach GVAR(respawn_fnc);
 
 ISNILS(EGVAR(mission,intel_obj),[]);
 {
-	if (alive _x) then {
-		removeAllActions _x;
-		[_x] spawn EFUNC(mission,stadt_found_intel);
-	};
+    if (alive _x) then {
+        removeAllActions _x;
+        [_x] spawn EFUNC(mission,stadt_found_intel);
+    };
 }forEach EGVAR(mission,intel_obj);

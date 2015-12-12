@@ -1,14 +1,14 @@
 /*
-	Author: Dorbedo
-	
-	Description:
-		test waypoints
-	
-	Parameter(s):
-		none
+    Author: Dorbedo
+    
+    Description:
+        test waypoints
+    
+    Parameter(s):
+        none
 
-	Returns:
-		none
+    Returns:
+        none
 */
 #include "script_component.hpp"
 SCRIPT(waypoints_test);
@@ -16,7 +16,7 @@ SCRIPT(waypoints_test);
 ISNILS(GVARMAIN(debug_marker),[]);
 ISNILS(GVAR(waypoints),[]);
 if (isNil QGVAR(definitions)) then {
-	[] call EFUNC(ai,init);
+    [] call EFUNC(ai,init);
 };
 
 GVAR(centerpos) = getMarkerPos "testmarker";
@@ -32,11 +32,11 @@ hint "wegpunkte geloescht";
 hint "wegpunkte fertig";
 
 {
-	[GVAR(wp_hashes),_x,2] call CBA_fnc_hashSet;
+    [GVAR(wp_hashes),_x,2] call CBA_fnc_hashSet;
 }forEach ["1450_1550","1450_1600","1450_1650","1450_1700","1500_1700","1550_1700","1600_1700","1600_1600","1600_1650"];
 
 {
-	[GVAR(wp_hashes),_x,4] call CBA_fnc_hashSet;
+    [GVAR(wp_hashes),_x,4] call CBA_fnc_hashSet;
 }forEach ["1500_1600","1500_1650","1550_1600","1550_1650"];
 
 

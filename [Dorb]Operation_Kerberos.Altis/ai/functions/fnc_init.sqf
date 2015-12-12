@@ -1,14 +1,14 @@
 /*
-	Author: Dorbedo
-	
-	Description:
-		initialiuzes AI HQ
-	
-	Parameter(s):
-		none
+    Author: Dorbedo
+    
+    Description:
+        initialiuzes AI HQ
+    
+    Parameter(s):
+        none
 
-	Returns:
-		none
+    Returns:
+        none
 */
 #include "script_component.hpp"
 SCRIPT(init);
@@ -25,25 +25,25 @@ GVAR(dangerzones) = [(GVAR(definitions) select 2)] call EFUNC(common,matrix_crea
 [] call FUNC(reset);
 
 [
-	{
-		_this call FUNC(handle);
-	},
-	INTERVALL_HQ,
-	[]
+    {
+        _this call FUNC(handle);
+    },
+    INTERVALL_HQ,
+    []
 ] call CBA_fnc_addPerFrameHandler;
 
 [
-	{
-		_this call FUNC(dangerzone_buffer);
-	},
-	INTERVALL_BUFFER,
-	[]
+    {
+        _this call FUNC(dangerzone_buffer);
+    },
+    INTERVALL_BUFFER,
+    []
 ] call CBA_fnc_addPerFrameHandler;
 
 [
-	{
-		_this call FUNC(check_radars);
-	},
-	INTERVALL_RADARS,
-	[]
+    {
+        _this call FUNC(check_radars);
+    },
+    INTERVALL_RADARS,
+    []
 ] call CBA_fnc_addPerFrameHandler;
