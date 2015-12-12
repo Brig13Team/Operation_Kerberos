@@ -23,6 +23,7 @@ GVAR(attackpos) pushback _logic;
 
 SETVAR(_logic,GVAR(isAttackpos),true);
 SETVAR(_logic,GVAR(enemy),_strenght);
+SETVAR(_logic,GVAR(strategyID),-1);
 
 true
 
