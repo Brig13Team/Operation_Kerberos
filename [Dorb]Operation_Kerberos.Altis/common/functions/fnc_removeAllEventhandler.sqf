@@ -6,19 +6,19 @@
 
     Parameter(s):
     (optional)
-		0 : MISSIONNAMESPACE(default)/UINAMESPACE/PARSINGNAMESPACE/OBJECT/GROUP/TASK/LOCATION - Place to save the Eventhandler
-		1 : STRING - Name of the Eventhandler - if not set, all Eventhandler will be removed
+        0 : MISSIONNAMESPACE(default)/UINAMESPACE/PARSINGNAMESPACE/OBJECT/GROUP/TASK/LOCATION - Place to save the Eventhandler
+        1 : STRING - Name of the Eventhandler - if not set, all Eventhandler will be removed
 
 */
 #include "script_component.hpp"
 SCRIPT(addEventhandler);
 _this params [
-	["_namespace",missionnamespace,[missionnamespace,uiNamespace,parsingNamespace,objNull,grpNull,taskNull,locationnull]],
-	["_eventName","",[""]]
-	];
+    ["_namespace",missionnamespace,[missionnamespace,uiNamespace,parsingNamespace,objNull,grpNull,taskNull,locationnull]],
+    ["_eventName","",[""]]
+    ];
 If (_eventName isEqualTo "") exitWith {
-	_namespace setVariable [QGVAR(events),nil];
-	true;
+    _namespace setVariable [QGVAR(events),nil];
+    true;
 };
 private _events = _namespace getVariable QGVAR(events);
 CHECKRET((isNil "_events"),true);

@@ -85,15 +85,15 @@ If (!isServer) then {
     //QGVAR(setVarSyncServerArray) addPublicVariableEventHandler {_this };
 };
 
-GVARMAIN(NETEVENTLOCAL)=[];
-GVARMAIN(NETEVENTEXEC)=[];
+DOUBLES(PREFIX,l)=[];
+DOUBLES(PREFIX,e)=[];
 
 if (!hasInterface) then {
-    QGVARMAIN(NETEVENTLOCAL) addpublicVariableEventHandler {(_this select 1) spawn FUNC(NetEventLocalExec);};
-    QGVARMAIN(NETEVENTEXEC) addpublicVariableEventHandler {(_this select 1) spawn FUNC(_EventExec);};
+    QUOTE(DOUBLES(PREFIX,l)) addpublicVariableEventHandler {(_this select 1) spawn FUNC(NetEventLocalExec);};
+    QUOTE(DOUBLES(PREFIX,e)) addpublicVariableEventHandler {(_this select 1) spawn FUNC(_EventExec);};
 }else{
     [] spawn {
         waitUntil {alive player};
-        QGVARMAIN(NETEVENTEXEC) addpublicVariableEventHandler {(_this select 1) spawn FUNC(_EventExec);};
+        QUOTE(DOUBLES(PREFIX,e)) addpublicVariableEventHandler {(_this select 1) spawn FUNC(_EventExec);};
     };
 };

@@ -16,7 +16,7 @@
 */
 #include "script_component.hpp"
 
-SCRIPT(NetEventExec);
+SCRIPT(_EventExec);
 If (_this params[["_function","",["",{}]],["_params",[]],["_target",objNull,[objNull,grpNull,0]]]) exitWith {
     TRACEV_3(_function,_params,_target);
     if (IS_STRING(_function)) then {

@@ -39,10 +39,10 @@ If (IS_GROUP(_target)) then {
 };
 
 If (_id > 0) exitWith {    
-	GVARMAIN(NETEVENTEXEC) = [_target,_function,_params]
-	_id publicVariableClient QGVARMAIN(NETEVENTEXEC);
+    DOUBLES(PREFIX,e) = [_target,_function,_params]
+    _id publicVariableClient QUOTE(DOUBLES(PREFIX,e));
     true;
 };
-GVARMAIN(NETEVENTLOCAL) = [_target,_function,_params];
-publicVariableServer QGVARMAIN(NETEVENTLOCAL);
+DOUBLES(PREFIX,l) = [_target,_function,_params];
+publicVariableServer QUOTE(DOUBLES(PREFIX,l));
 true;

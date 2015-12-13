@@ -2,7 +2,7 @@
     Author: Dorbedo
 
     Description:
-		spawns a function if a object is local
+        spawns a function if a object is local
         faster then EventLocal, but more networktraffic for all clients
 
     Parameter(s):
@@ -28,6 +28,6 @@ if (Local _target) exitWith {
     };
 };
 
-GVARMAIN(NETEVENTEXEC) = [_function,_params,_target];
-publicVariableServer QGVARMAIN(NETEVENTEXEC);
+DOUBLES(PREFIX,e) = [_function,_params,_target];
+publicVariableServer QUOTE(DOUBLES(PREFIX,e));
 true;
