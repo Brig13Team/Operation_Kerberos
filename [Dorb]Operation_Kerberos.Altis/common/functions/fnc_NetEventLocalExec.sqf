@@ -14,7 +14,7 @@
 */
 #include "script_component.hpp"
 
-SCRIPT(NetEventLocal);
+SCRIPT(NetEventLocalExec);
 _this params[["_target",objNull,[objNull,grpNull]],["_function","",["",{}]],["_params",[]]];
 TRACEV_3(_target,_function,_params);
 
@@ -39,7 +39,7 @@ If (IS_GROUP(_target)) then {
 };
 
 If (_id > 0) exitWith {    
-    DOUBLES(PREFIX,e) = [_target,_function,_params]
+    DOUBLES(PREFIX,e) = [_target,_function,_params];
     _id publicVariableClient QUOTE(DOUBLES(PREFIX,e));
     true;
 };

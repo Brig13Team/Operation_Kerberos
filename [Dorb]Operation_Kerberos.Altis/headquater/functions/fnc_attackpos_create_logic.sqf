@@ -13,7 +13,7 @@
 #include "script_component.hpp"
 SCRIPT(attackpos_create_logic);
 
-_this params[["_position",[],[[]],[2,3]],["_strenght",0,[0]];
+_this params[["_position",[],[[]],[2,3]],["_strenght",0,[0]]];
 
 _logic = "Logic" createVehicleLocal _position;
 

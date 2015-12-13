@@ -92,7 +92,7 @@ for "_i" from 1 to (count (_Strategy_Memory select _enemyID) -1) do {
 
 
 
-_chosenStrategie = [_strategyArray,1] call FUNC(common,sel_array_weighted);
+_chosenStrategie = [_strategyArray,1] call EFUNC(common,sel_array_weighted);
 
 private _params = compile (getText(missionnamespace>>"strategy">>_chosenStrategie>>"parameter"));
 _newTroops = _params call (missionnamespace getVariable [format["%1_%2",QGVAR(fnc_strategy),_chosenStrategie],{}]);
