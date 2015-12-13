@@ -90,7 +90,7 @@ Author:
 /* -------------------------------------------
 Macro: FMP
     Spawns CBA_fnc_globalExecute
-
+	outdated
 Parameters:
     none
 
@@ -102,7 +102,7 @@ Example:
 Author:
     Dorbedo
 ------------------------------------------- */
-#define FMP spawn CBA_fnc_globalExecute
+#define FMP spawn EFUNC(common,NetEvent);
 /* -------------------------------------------
 Macro: CHECK()
     Checks Condition - Exit if true

@@ -2,6 +2,6 @@
 #include "script_component.hpp"
 class Air {
     class ADDON {
-        getin = QUOTE(_this remoteExec ['FUNC(eh_getin)',(_this select 2)];);
+        clientgetin = QUOTE([(_this select 2),'_this call FUNC(EH_getIn)',_this] call EFUNC(common,NetEventLocalExec););
     };
 };

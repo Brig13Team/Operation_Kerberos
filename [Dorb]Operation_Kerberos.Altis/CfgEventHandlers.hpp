@@ -23,36 +23,58 @@ class Extended_PostInit_EventHandlers {
     INCLUDE_POSTINIT(common);
     INCLUDE_POSTINIT(mission);
 };
-
 class Extended_Init_Eventhandlers {
     #include "spawn\XEH_init.hpp"
 };
 
-class Extended_Respawn_EventHandlers {
-    #include "player\XEH_respawn.hpp"
+//class Extended_animChanged_EventHandlers {};
+//class Extended_animDone_EventHandlers {};
+//class Extended_animStateChanged_EventHandlers {};
+//class Extended_containerClosed_EventHandlers {};
+//class Extended_containerOpened_EventHandlers {};
+//class Extended_controlsShifted_EventHandlers {};
+//class Extended_dammaged_EventHandlers {};
+//class Extended_engine_EventHandlers {};
+//class Extended_epeContact_EventHandlers {};
+//class Extended_epeContactEnd_EventHandlers {};
+//class Extended_epeContactStart_EventHandlers {};
+//class Extended_explosion_EventHandlers {};
+//class Extended_Fired_Eventhandlers {};
+class Extended_FiredBIS_EventHandlers {
+    #include "player\XEH_firedBIS.hpp"
 };
-
-class Extended_fired_Eventhandlers {
-    #include "player\XEH_fired.hpp"
+//class Extended_firedNear_EventHandlers {};
+//class Extended_fuel_EventHandlers {};
+//class Extended_gear_EventHandlers {};
+class Extended_getIn_EventHandlers {
+    #include "player\XEH_getIn.hpp"
 };
-
-class Extended_Hit_EventHandlers {
+//class Extended_getOut_EventHandlers {};
+//class Extended_handleHeal_EventHandlers {};
+class Extended_hit_EventHandlers {
     #include "player\XEH_hit.hpp"
 };
-
-class Extended_HitPart_EventHandlers {
+class Extended_hitPart_EventHandlers {
     #include "player\XEH_hitPart.hpp"
     #include "bwpatch\XEH_hitPart.hpp"
 };
-
-class Extended_GetIn_Eventhandlers {
-    #include "player\XEH_getIn.hpp"
-};
-
-class Extended_Killed_EventHandlers {
+//class Extended_incomingMissile_EventHandlers {};
+//class Extended_inventoryClosed_EventHandlers {};
+//class Extended_inventoryOpened_EventHandlers {};
+class Extended_killed_EventHandlers {
     #include "headquater\XEH_killed.hpp"
 };
-
-class Extended_SeatSwitched_EventHandlers {
+//class Extended_landedTouchDown_EventHandlers {};
+//class Extended_landedStopped_EventHandlers {};
+//class Extended_local_EventHandlers {};
+class Extended_respawn_EventHandlers {
+    #include "player\XEH_respawn.hpp"
+};
+//class Extended_put_EventHandlers {};
+//class Extended_take_EventHandlers {};
+class Extended_seatSwitched_EventHandlers {
     #include "player\XEH_SeatSwitched.hpp"
 };
+//class Extended_soundPlayed_EventHandlers {};
+//class Extended_weaponAssembled_EventHandlers {};
+//class Extended_weaponDisAssembled_EventHandlers {};

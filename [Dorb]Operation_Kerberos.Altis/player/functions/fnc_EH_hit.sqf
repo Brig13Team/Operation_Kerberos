@@ -15,5 +15,5 @@ _this spawn {
         {diag_log text format["Teambeschuss: %1 / %2 beschossen von %3 / %4   Damage=%5",(_this select 0),name(_this select 0),(_this select 1),name(_this select 1),(_this select 2)];},
         _this,
         0
-    ] call FUNC(common,NetEventExec);
+    ] call FUNC(common,NetEvent);
 };
