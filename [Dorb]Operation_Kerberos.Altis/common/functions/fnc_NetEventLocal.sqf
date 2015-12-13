@@ -2,7 +2,7 @@
     Author: Dorbedo
 
     Description:
-        spawns a function if a object is local
+		spawns a function if a object is local
         faster then EventLocal, but more networktraffic for all clients
 
     Parameter(s):
@@ -14,12 +14,11 @@
 */
 #include "script_component.hpp"
 
-SCRIPT(EventExecLocal);
+SCRIPT(NetEventExecLocal);
 _this params[["_target",objNull,[objNull,grpNull]],["_function","",["",{}]],["_params",[]]];
 TRACEV_3(_target,_function,_params);
 
 CHECKRET((isNull _target || _function isEqualTo ""),false);
-
 
 if (Local _target) exitWith {
     if (IS_STRING(_function)) then {
@@ -29,7 +28,6 @@ if (Local _target) exitWith {
     };
 };
 
-GVARMAIN(EVENTEXEC) = [_function,_params,_target];
-publicVariableServer QGVARMAIN(EVENTEXEC);
-[_function,_params,_target] spawn FUNC(EventExec);
-true
+GVARMAIN(NETEVENTEXEC) = [_function,_params,_target];
+publicVariableServer QGVARMAIN(NETEVENTEXEC);
+true;

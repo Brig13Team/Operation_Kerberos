@@ -8,3 +8,11 @@
         (_entry select 2) call (_entry select 1);
     };
 }, 0, []] call CBA_fnc_addPerFrameHandler;
+
+/*
+[
+    ["GroupTransfered",{
+		///something from Headless
+	}]
+] call FUNC(addEventHandler);
+*/

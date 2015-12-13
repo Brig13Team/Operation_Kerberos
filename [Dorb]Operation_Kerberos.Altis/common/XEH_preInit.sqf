@@ -6,10 +6,10 @@ PREP(debug_marker_clean);
 PREP(debug_marker_create);
 PREP(determineHC);
 
-PREP(EventExec);
-PREP(EventExecLocal);
-PREP(EventGlobal);
-PREP(EventLocal);
+PREP(_EventExec);
+PREP(NetEvent);
+PREP(NetEventLocal);
+PREP(NetEventLocalExec);
 
 PREP(get_buildings);
 PREP(get_cfg_subclasses);
@@ -85,16 +85,15 @@ If (!isServer) then {
     //QGVAR(setVarSyncServerArray) addPublicVariableEventHandler {_this };
 };
 
-GVARMAIN(EVENTLOCAL)=[];
-GVARMAIN(EVENTEXEC)=[];
+GVARMAIN(NETEVENTLOCAL)=[];
+GVARMAIN(NETEVENTEXEC)=[];
 
 if (!hasInterface) then {
-    QGVARMAIN(EVENTLOCAL) addpublicVariableEventHandler {(_this select 1) call FUNC(EventLocal);};
-    QGVARMAIN(EVENTEXEC) addpublicVariableEventHandler {(_this select 1) call FUNC(EventExec);};
+    QGVARMAIN(NETEVENTLOCAL) addpublicVariableEventHandler {(_this select 1) spawn FUNC(NetEventLocalExec);};
+    QGVARMAIN(NETEVENTEXEC) addpublicVariableEventHandler {(_this select 1) spawn FUNC(_EventExec);};
 }else{
     [] spawn {
         waitUntil {alive player};
-        QGVARMAIN(EVENTLOCAL) addpublicVariableEventHandler {(_this select 1) call FUNC(EventLocal);};
-        QGVARMAIN(EVENTEXEC) addpublicVariableEventHandler {(_this select 1) call FUNC(EventExec);};
+        QGVARMAIN(NETEVENTEXEC) addpublicVariableEventHandler {(_this select 1) spawn FUNC(_EventExec);};
     };
 };

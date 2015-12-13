@@ -14,7 +14,7 @@
 */
 #include "script_component.hpp"
 
-SCRIPT(EventLocal);
+SCRIPT(NetEventLocal);
 _this params[["_target",objNull,[objNull,grpNull]],["_function","",["",{}]],["_params",[]]];
 TRACEV_3(_target,_function,_params);
 
@@ -38,11 +38,11 @@ If (IS_GROUP(_target)) then {
     _id = owner _target;
 };
 
-GVARMAIN(EVENTLOCAL) = [_target,_function,_params];
-
 If (_id > 0) exitWith {    
-    _id publicVariableClient QGVARMAIN(EVENTLOCAL);
+	GVARMAIN(NETEVENTEXEC) = [_target,_function,_params]
+	_id publicVariableClient QGVARMAIN(NETEVENTEXEC);
     true;
 };
-publicVariableServer QGVARMAIN(EVENTLOCAL);
+GVARMAIN(NETEVENTLOCAL) = [_target,_function,_params];
+publicVariableServer QGVARMAIN(NETEVENTLOCAL);
 true;
