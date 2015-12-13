@@ -15,7 +15,7 @@ SCRIPT(strategy_airborne);
 _this params ["_currentLogic"];
 
 private _currentPos = getPos _currentLogic;
-
+private _currentTroops = _currentLogic getVariable [QGVAR(troopsNeeded),0];
 private _position = [_currentPos,200,1] call EFUNC(common,random_pos);
 private _spawnpos = [GVAR(centerpos),(GVAR(definitions) select 0)+500,1] call EFUNC(common,random_pos);
 _spawnpos set [2,400];
@@ -90,4 +90,4 @@ uisleep 2;
     deletevehicle _transporter;
 };
 ([_jaeger_gruppe] call FUNC(strength)) params ["_type","_strength"];
-_strength;
+_currentTroops - _strength;

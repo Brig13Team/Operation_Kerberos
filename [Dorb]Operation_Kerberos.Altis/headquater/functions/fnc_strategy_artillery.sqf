@@ -38,7 +38,7 @@ if (_currenttroopsNeeded > 30) then {
 };
 
 [_currentPosition,0,_amount,_special] call FUNC(fdc_placeOrder);
-[QUOTE(_this call EFUNC(ai,attackpos_remove)),[_currentLogic],200] call FUNC(common,waitandexec);
+[QUOTE(_this call FUNC(attackpos_remove)),[_currentLogic],200] call FUNC(common,waitandexec);
 
 _return;
 

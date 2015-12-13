@@ -15,14 +15,12 @@ SCRIPT(strategy_helicopter);
 _this params ["_currentLogic"];
 
 private _currentPos = getPos _currentLogic;
-
+private _currentTroops = _currentLogic getVariable [QGVAR(troopsNeeded),0];
 private _spawnpos = [_currentPos,6000,2] call EFUNC(common,random_pos);
 
 CHECKRET((_spawnpos isEqualTo []),0);
 
-
-GVAR(callInArray) params ["_airborne","_airinterception","_armored","_cas","_fortifications","_motorized","_drones"];
-GVAR(callInArray) = [_airborne,_airinterception,_armored,(_cas-1),_fortifications,_motorized,_drones];
+GVAR(callIn_cas) = GVAR(callIn_cas) - 1;
 
 private _allcas = getNumber(missionconfigfile >> "unitlists" >> str GVARMAIN(side) >> GVARMAIN(side_type)>> "callIn" >> "cas" >> "units");
 private _casVehType = _allcas SELRND;
@@ -45,10 +43,9 @@ _casGroup addWaypoint [_spawnpos, 0];
         uisleep 5;
     };
     If (alive _casVeh) then {
-        GVAR(callInArray) params ["_airborne","_airinterception","_armored","_cas","_fortifications","_motorized","_drones"];
-        GVAR(callInArray) = [_airborne,_airinterception,_armored,(_cas - 1),_fortifications,_motorized,_drones];
+        GVAR(callIn_cas) = GVAR(callIn_cas) + 1;
     };
 };
 
 ([_casGroup] call FUNC(strength)) params ["_type","_strength"];
-_strength;
+_currentTroops - _strength;

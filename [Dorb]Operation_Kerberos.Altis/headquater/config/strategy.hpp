@@ -21,33 +21,32 @@ class strategy {
     
     /// simple support
     class airborne : infanterie {
-        condition = "_airborne > 0";
+        condition = QUOTE(GVAR(callIn_airborne) > 0);
         parameter = "[_currentLogic,_currenttroopsNeeded]";
     };
     class airinterception : airborne {
-        condition = "_airinterception > 0";
+        condition = QUOTE(GVAR(callIn_airinterception) > 0);
     };
     class armored : airborne {
-        condition = "_armored > 0";
+        condition = QUOTE(GVAR(callIn_armored) > 0);
     };
     class cas : airborne {
-        condition = "_cas > 0";
+        condition = QUOTE(GVAR(callIn_cas) > 0);
     };
-    
     class motorized : airborne {
-        condition = "_motorized > 0";
+        condition = QUOTE(GVAR(callIn_motorized) > 0);
     };
     class drones : airborne {
-        condition = "_drones > 0";
+        condition = QUOTE(GVAR(callIn_drones) > 0);
     };
     class artillery : airborne {
-        condition = QUOTE('artillery' call EFUNC(ai,fdc_ready));
+        condition = QUOTE('artillery' call EFUNC(headquater,fdc_ready));
     };
     class rocket : airborne {
-        condition = QUOTE('rocket' call EFUNC(ai,fdc_ready));
+        condition = QUOTE('rocket' call EFUNC(headquater,fdc_ready));
     };
     class mortar : airborne {
-        condition = QUOTE('mortar' call EFUNC(ai,fdc_ready));
+        condition = QUOTE('mortar' call EFUNC(headquater,fdc_ready));
     };
     
     /// combined shit

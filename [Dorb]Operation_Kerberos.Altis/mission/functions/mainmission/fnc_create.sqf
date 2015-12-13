@@ -10,7 +10,7 @@ SCRIPT(create);
 params[["_task","",[""]],["_centerposition",[],[[]]],["_distance",1000,[0]],["_taskID","",[""]],["_location","",[""]]];
 TRACEV_4(_task,_centerposition,_distance,_taskID);
 private "_position";
-EGVAR(ai,centerpos) = _centerposition;
+EGVAR(headquater,centerpos) = _centerposition;
 _position = [_centerposition,_distance,0] call EFUNC(common,pos_random);
 TRACEV_1(_position);
 private ["_taskname","_taskdesc","_tasktype","_taskpic"];
@@ -47,7 +47,7 @@ _taskarray append _temp;
 
 ///// spawn units
 
-//[] call EFUNC(ai,init_mission);
+//[] call EFUNC(headquater,init_mission);
 
 _isTown = {((_x select 0)==_location)} count GVAR(town);
 if (_isTown>0) then{

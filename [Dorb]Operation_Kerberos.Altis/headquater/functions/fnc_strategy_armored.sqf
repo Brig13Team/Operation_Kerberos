@@ -15,12 +15,11 @@ SCRIPT(strategy_armored);
 _this params ["_currentLogic"];
 
 private _currentPos = getPos _currentLogic;
-
+private _currentTroops = _currentLogic getVariable [QGVAR(troopsNeeded),0];
 private _spawnpos = [_currentPos,6000,2] call EFUNC(common,random_pos);
 CHECKRET((_spawnpos isEqualTo []),0);
 
-GVAR(callInArray) params ["_airborne","_airinterception","_armored","_cas","_fortifications","_motorized","_drones"];
-GVAR(callInArray) = [_airborne,_airinterception,(_armored-1),_cas,_fortifications,_motorized,_drones];
+GVAR(callIn_armored) = GVAR(callIn_armored) - 1;
 
 private _allTanks = getNumber(missionconfigfile >> "unitlists" >> str GVARMAIN(side) >> GVARMAIN(side_type)>> "callIn" >> "armored" >> "units");
 private _TankVehType = _allTanks SELRND;
@@ -34,4 +33,4 @@ SETVAR(_tankGroup,GVAR(state),'attack');
 [_tankGroup] call FUNC(state_change);
 
 ([_tankGroup] call FUNC(strength)) params ["_type","_strength"];
-_strength;
+_currentTroops - _strength;

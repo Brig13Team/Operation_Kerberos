@@ -1,4 +1,5 @@
-#define COMPONENT ai
+#define COMPONENT headquater
+
 #define DEBUG_MODE_FULL
 
 

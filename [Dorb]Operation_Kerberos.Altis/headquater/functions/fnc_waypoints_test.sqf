@@ -16,7 +16,7 @@ SCRIPT(waypoints_test);
 ISNILS(GVARMAIN(debug_marker),[]);
 ISNILS(GVAR(waypoints),[]);
 if (isNil QGVAR(definitions)) then {
-    [] call EFUNC(ai,init);
+    [] call FUNC(headquater,init);
 };
 
 GVAR(centerpos) = getMarkerPos "testmarker";

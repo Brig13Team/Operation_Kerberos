@@ -13,8 +13,8 @@
 #include "script_component.hpp"
 SCRIPT(strategy_);
 _this params ["_currentLogic"];
-
-_currentPos = getPos _currentLogic;
+private _currentTroops = _currentLogic getVariable [QGVAR(troopsNeeded),0];
+private _currentPos = getPos _currentLogic;
 
 private _pos = [GVAR(centerpos),(GVAR(definitions) select 0)+800,1] call EFUNC(common,random_pos);
 private _einheitArray = getNumber(missionconfigfile >> "unitlists" >> str GVARMAIN(side) >> GVARMAIN(side_type)>> "callIn" >> "motorized" >> "units");
@@ -22,8 +22,7 @@ private _einheit = _einheitArray SELRND;
 
 private _spawnpos = _pos findEmptyPosition [1,200,_einheit];
 CHECKRET((_spawnpos isEqualTo []),0)
-GVAR(callInArray) params ["_airborne","_airinterception","_armored","_cas","_fortifications","_motorized","_drones"];
-GVAR(callInArray) = [_airborne,_airinterception,_armored,_cas,_fortifications,(_motorized)-1,_drones];
+GVAR(callIn_motorized) = GVAR(callIn_motorized) - 1;
 
 ([_spawnpos,GVARMAIN(side),_einheit,(random 360),true,true] call EFUNC(spawn,vehicle)) params ["_transporterGroup","_transporter"];
 
@@ -65,4 +64,4 @@ _transporterGroup addWaypoint [_currentPos,100];
     deletevehicle _transporter;
 };
 ([_jaeger_gruppe] call FUNC(strength)) params ["_type","_strength"];
-_strength;
+_currentTroops - _strength;

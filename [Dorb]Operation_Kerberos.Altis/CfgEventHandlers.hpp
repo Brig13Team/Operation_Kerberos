@@ -14,12 +14,12 @@ class Extended_PreInit_EventHandlers {
     INCLUDE_PREINIT(player);
     INCLUDE_PREINIT(logistics);
     INCLUDE_PREINIT(mission);
-    INCLUDE_PREINIT(ai);
+    INCLUDE_PREINIT(headquater);
     INCLUDE_PREINIT(spawn);
 };
 
 class Extended_PostInit_EventHandlers {
-    INCLUDE_POSTINIT(ai);
+    INCLUDE_POSTINIT(headquater);
     INCLUDE_POSTINIT(common);
     INCLUDE_POSTINIT(mission);
 };
@@ -50,7 +50,7 @@ class Extended_GetIn_Eventhandlers {
 };
 
 class Extended_Killed_EventHandlers {
-    #include "ai\XEH_killed.hpp"
+    #include "headquater\XEH_killed.hpp"
 };
 
 class Extended_SeatSwitched_EventHandlers {

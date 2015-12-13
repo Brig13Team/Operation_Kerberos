@@ -16,7 +16,6 @@ SCRIPT(strategy_choose);
 _this params ["_attackarray","_groups"];
 _attackarray params ["_currenttroopsNeeded","_currentEnemy","_currentLogic"];
 
-GVAR(callInArray) params ["_airborne","_airinterception","_armored","_cas","_fortifications","_motorized","_drones"];
 
 _Strategy_Memory = GETPRVAR(GVAR(strategy_memory),[]);
 
@@ -99,10 +98,10 @@ private _params = compile (getText(missionnamespace>>"strategy">>_chosenStrategi
 _newTroops = _params call (missionnamespace getVariable [format["%1_%2",QGVAR(fnc_strategy),_chosenStrategie],{}]);
 
 
-
+SETVAR(_currentLogic,GVAR(troopsNeeded),_newTroops);
 SETVAR(_currentLogic,GVAR(strategy),_chosenStrategie);
 
-GVAR(callInArray) = [_airborne,_airinterception,_armored,_cas,_fortifications,_motorized,_drones];
+
 
 
 

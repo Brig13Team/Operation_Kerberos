@@ -27,8 +27,8 @@ private _gruppe = grpNull;
 
 If (((count _vehicles)>0)||((count _soldiers)>0)) then {
     _gruppe = createGroup GVARMAIN(side);
-    SETVAR(_gruppe,EGVAR(ai,state),"defence");
-    SETVAR(_gruppe,EGVAR(ai,target),"_centerpos");
+    SETVAR(_gruppe,EGVAR(headquater,state),"defence");
+    SETVAR(_gruppe,EGVAR(headquater,target),"_centerpos");
 };
 private _centerposASL = ATLtoASL _centerpos;
 

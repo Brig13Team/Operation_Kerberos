@@ -11,7 +11,7 @@
         none
 */
 #include "script_component.hpp"
-SCRIPT(strategy_rocket);
+SCRIPT(strategy_);
 _this params ["_currentLogic","_currenttroopsNeeded"];
 
 private _currentPosition = getPosATL _currentLogic;
@@ -29,16 +29,15 @@ private _dir = random(360);
     };
 } forEach _nearUnits;
 
-private _amount = 4;
-private _return = 20;
-if (_currenttroopsNeeded > 40) then {
-    _return = 80;
-    _amount = 16;
+private _amount = (floor(_currenttroopsNeeded / 2))max 2;
+private _return = 15;
+if (_currenttroopsNeeded > 20) then {
+    _return = 40;
+    _amount = 10;
 };
 
-
-[_currentPosition,2,_amount] call FUNC(fdc_placeOrder);
-[QUOTE(_this call EFUNC(ai,attackpos_remove)),[_currentLogic],200] call FUNC(common,waitandexec);
+[_currentPosition,1,_amount] call FUNC(fdc_placeOrder);
+[QUOTE(_this call FUNC(attackpos_remove)),[_currentLogic],200] call FUNC(common,waitandexec);
 
 _return;
 

@@ -82,7 +82,7 @@ CHECK(true)
     SETMVAR(GVAR(water),(_return select 3));
     SETMVAR(GVAR(other),(_return select 4));
 
-    [] call EFUNC(ai,init);
+    [] call EFUNC(headquater,init);
 
     uisleep 20;
 

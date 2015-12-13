@@ -30,10 +30,10 @@ for "_i" from 0 to _amount do {
         ERROR("Keine Spawnposition");
     }else{
         _group = [_spawnpos, _grouptype] call FUNC(group);
-        SETPVAR(_group,EGVAR(ai,state),'defend');
-        SETPVAR(_group,EGVAR(ai,target),_spawnpos);
-        [_group] call EFUNC(ai,register_Group);
-        [_group] call EFUNC(ai,state_change);
+        SETPVAR(_group,EGVAR(headquater,state),'defend');
+        SETPVAR(_group,EGVAR(headquater,target),_spawnpos);
+        [_group] call EFUNC(headquater,register_Group);
+        [_group] call EFUNC(headquater,state_change);
     };
 };
 
