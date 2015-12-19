@@ -45,5 +45,7 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
 };
 
 _return=[_usf_vehicles,_afrf_vehicles,_rest];
+copytoClipboard _return;
+hint "copy";
 //_return=_afrf_air + _afrf_soldiers + _afrf_vehicles + _usf_air + _usf_soldiers + _usf_vehicles;
 _return

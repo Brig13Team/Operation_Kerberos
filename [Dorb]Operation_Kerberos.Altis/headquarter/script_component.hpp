@@ -1,4 +1,4 @@
-#define COMPONENT headquater
+#define COMPONENT headquarter
 
 #define DEBUG_MODE_FULL
 

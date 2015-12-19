@@ -40,13 +40,13 @@ class strategy {
         condition = QUOTE(GVAR(callIn_drones) > 0);
     };
     class artillery : airborne {
-        condition = QUOTE('artillery' call EFUNC(headquater,fdc_ready));
+        condition = QUOTE('artillery' call EFUNC(headquarter,fdc_ready));
     };
     class rocket : airborne {
-        condition = QUOTE('rocket' call EFUNC(headquater,fdc_ready));
+        condition = QUOTE('rocket' call EFUNC(headquarter,fdc_ready));
     };
     class mortar : airborne {
-        condition = QUOTE('mortar' call EFUNC(headquater,fdc_ready));
+        condition = QUOTE('mortar' call EFUNC(headquarter,fdc_ready));
     };
     
     /// combined shit

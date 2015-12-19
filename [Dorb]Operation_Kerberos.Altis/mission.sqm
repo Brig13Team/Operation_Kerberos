@@ -2606,7 +2606,7 @@ class Mission
                     leader=1;
                     skill=0.60000002;
                     text="asd";
-                    init="this setVariable [""dorb_headquater_isAttackpos"",true];this setVariable [""dorb_headquater_enemy"",70];";
+                    init="this setVariable [""dorb_headquarter_isAttackpos"",true];this setVariable [""dorb_headquarter_enemy"",70];";
                 };
             };
         };

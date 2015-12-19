@@ -63,7 +63,7 @@ _pos = switch (true) do {
 
 CHECK((_pos isEqualTo []))
 
-_statement = QUOTE(if (((group _this) getVariable ['EGVAR(headquater,state)','patrol'])isEqualTo 'patrol') then {[this] call FUNC(patrol_task);}else{[this] call EFUNC(headquater,state_change);};);
+_statement = QUOTE(if (((group _this) getVariable ['EGVAR(headquarter,state)','patrol'])isEqualTo 'patrol') then {[this] call FUNC(patrol_task);}else{[this] call EFUNC(headquarter,state_change);};);
 TRACEV_1(_statement);
 _onComplete = _onComplete + _statement;
 

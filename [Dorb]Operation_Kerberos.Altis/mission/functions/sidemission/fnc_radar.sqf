@@ -24,7 +24,7 @@ if (!((_spawnpos isEqualTo []))) then {_position = _spawnpos;};
 _dir = floor(random 360);
 _return = [_position,GVARMAIN(side),_einheit,_dir] call BIS_fnc_spawnVehicle;
 _return params ["_veh"];
-_radars = GETMVAR(EGVAR(headquater,radars),[]);
+_radars = GETMVAR(EGVAR(headquarter,radars),[]);
 _radars pushBack _veh;
 SETMVAR(GVAR(radars),_radars);
 
