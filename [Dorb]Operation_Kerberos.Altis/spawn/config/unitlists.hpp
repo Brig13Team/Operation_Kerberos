@@ -74,8 +74,8 @@ class unitlists {
 			veh_car[] = {"rhs_tigr_VDV","rhs_tigr_ffv_vdv","rhs_tigr_3camo_vdv","rhs_tigr_ffv_3camo_vdv"};
 			heli_transport[] = {"rhs_Mi8mt_vdv","rhs_Mi8mt_Cargo_vdv","rhs_Mi8MTV3_vdv","rhs_Mi8MTV3_UPK23_vdv","rhs_Mi8MTV3_FAB_vdv","rhs_Mi8AMT_vdv"};
 			heli_attack[] = {"RHS_Ka52_UPK23_vvsc","rhs_ka60_c"};
-			plane_patrol[] = {"rhs_Su25SM_vvsc"};
-			plane_attack[] = {"rhs_Su25SM_KH29_vvsc"};
+			plane_patrol[] = {"RHS_T50_vvs_054"};
+			plane_attack[] = {"RHS_T50_vvs_054"};
 		};
 		class vdv_flora : vdv {
 			commander[] = {"rhs_vdv_flora_officer_armored","rhs_vdv_flora_officer"};
@@ -106,8 +106,8 @@ class unitlists {
 			veh_car[] = {"rhs_tigr_msv","rhs_tigr_ffv_msv","rhs_tigr_3camo_msv","rhs_tigr_ffv_3camo_msv"};
 			heli_transport[] = {"RHS_Mi8mt_vvs","RHS_Mi8mt_Cargo_vvs","RHS_Mi8MTV3_vvs","RHS_Mi8MTV3_UPK23_vvs","RHS_Mi8MTV3_FAB_vvs","RHS_Mi8AMT_vvs"};
 			heli_attack[] = {"RHS_Ka52_UPK23_vvs","rhs_ka60_grey"};
-			plane_patrol[] = {"rhs_Su25SM_vvs"};
-			plane_attack[] = {"rhs_Su25SM_KH29_vvs"};
+			plane_patrol[] = {"RHS_T50_vvs_054"};
+			plane_attack[] = {"RHS_T50_vvs_054"};
 		};
 		class msv_emr : msv {
 			commander[] = {"rhs_msv_officer_armored","rhs_msv_officer"};
@@ -152,8 +152,8 @@ class unitlists {
 			veh_car[] = {"LOP_AFR_Landrover","LOP_AFR_Offroad"};
 			heli_transport[] = {"RHS_Mi8mt_vvs","RHS_Mi8mt_Cargo_vvs","RHS_Mi8MTV3_vvs","RHS_Mi8MTV3_UPK23_vvs","RHS_Mi8MTV3_FAB_vvs","RHS_Mi8AMT_vvs"};
 			heli_attack[] = {"RHS_Ka52_UPK23_vvs","rhs_ka60_grey"};
-			plane_patrol[] = {"rhs_Su25SM_vvs"};
-			plane_attack[] = {"rhs_Su25SM_KH29_vvs"};
+			plane_patrol[] = {"RHS_T50_vvs_054"};
+			plane_attack[] = {"RHS_T50_vvs_054"};
 		};
 	};
 	

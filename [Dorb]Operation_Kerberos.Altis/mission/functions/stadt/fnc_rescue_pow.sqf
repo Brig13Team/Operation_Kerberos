@@ -64,16 +64,11 @@ for "_i" from 1 to _rand do{
 //////////////////////////////////////////////////
 
 {
-	_x setCaptive true;
 	removeAllAssignedItems _x;
 	removeallweapons _x;
 	removeHeadgear _x;
 	removeBackpack _x;
-	_x setunitpos "UP";
-	_x setBehaviour "Careless";
-	dostop _x;
-	_x playmove "amovpercmstpsnonwnondnon_amovpercmstpssurwnondnon";
-	_x disableAI "MOVE";
+	[_x,true] call ACE_captive_fnc_setHandcuffed,
 
 	if (dorb_debug) then {
 		_mrkr = createMarker [format ["%1-POW:%2",_task,_x],(getPos _x)];
@@ -82,7 +77,7 @@ for "_i" from 1 to _rand do{
 		_mrkr setMarkerType "hd_destroy";
 	};
 	[_x,QGVAR(rescuepoint),(QUOTE(INC(GVAR(rescue_counter));)+"moveOut (_this select 0);uisleep 0.3;deleteVehicle (_this select 0);")] call BIS_fnc_addScriptedEventHandler;
-}forEach _pow;
+} forEach _pow;
 
 
 
