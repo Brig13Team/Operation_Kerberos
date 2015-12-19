@@ -27,9 +27,9 @@ _type = getText(missionconfigfile>>"missions_config">>"main">>_taskMAIN>>"sidemi
 CHECK(_locations isEqualTo [])
 
 _temp = switch (_type) do {
-    case "konvoi" :         {[_position,_positionMain] call FUNC(sidemission_konvoi);};
-    
-    
+    case "konvoi" : {[_position,_positionMain] call FUNC(sidemission_konvoi);};
+    case "radar" : {[_position,_positionMain] call FUNC(sidemission_konvoi);};
+    case "artillery" : {[_position,_positionMain] call FUNC(sidemission_konvoi);};
     
     
     
