@@ -15,34 +15,40 @@
     };
 */
 
-params[["_center",[0,0,0],[[],objNull],[3,2]],["_radius",25,[0]],["_centerdir",9999,[0]]];
-private["_centerpos","_allObjects","_exportarray"];
-hint "Export in progess....";
-If (typename _center == "OBJECT") then {
-    _centerpos = getPosATL _center;
-    If (_centerdir>9998) then {
-        _centerdir = getDir _center;
-    };
-}else{_centerpos = _center};
+params[["_centerpos",[0,0,0],[[],objNull],[3,2]],["_radius",25,[0]],["_centerdir",nil,[0]]];
 
+hint "Export in progess....";
+
+If (_centerpos isEqualType objNull) then {
+    _centerpos = getPosATL _centerpos;
+};
 /// set center on ground
 _centerpos set[2,0];
 
-_allObjects = _center nearObjects _radius;
-_exportarray = [];
+
+if (isNil "_centerpos") then {
+	_centerdir = getDir _centerpos;
+};
+
+
+
+
+private _allObjects = _centerpos nearObjects _radius;
+private _exportarray = [];
 
 
 /// offset = [position,direction,vectorUp];
-_fnc_getoffset = {
+private _fnc_getoffset = {
     params["_object","_positionASL"];
-    private["_nextObject","_objDir","_objPosASL","_objVectorUp","_terrainNormal","_refpos","_offsetVector","_offsetPos","_offset"];
-    _nextObject = [_object] call _fnc_getObjbelow;
+    
+	private "_offset";
+    private _nextObject = [_object] call _fnc_getObjbelow;
     If (isNull _nextObject) then {
-        _objDir = getDir _object;
-        _objPosASL = getPosASL _object;
-        _objVectorUp = vectorUp _object;
-        _terrainNormal = surfaceNormal (getPosATL _object);
-        _offsetVector = vectorNormalized(_terrainNormal VectorAdd _objVectorUp);
+        private _objDir = getDir _object;
+        private _objPosASL = getPosASL _object;
+        private _objVectorUp = vectorUp _object;
+        private _terrainNormal = surfaceNormal (getPosATL _object);
+        private _offsetVector = vectorNormalized(_terrainNormal VectorAdd _objVectorUp);
         _offset = [_objPosASL,_objDir,_offsetVector];
     }else{
         _offset = [_nextObject,_positionASL] call _fnc_getoffset;
@@ -50,54 +56,60 @@ _fnc_getoffset = {
     _offset
 };
 
-_fnc_getObjbelow = {
+private _fnc_getObjbelow = {
     params["_object"];
     private["_objPosASL","_terrainPosASL","_terrainPos","_terrainPosATL","_nextObject"];
-    _objPosASL = getPosASL _object;
-    _terrainPosATL = getPosATL _object;
-    _terrainPos = [(_terrainPosATL select 0),(_terrainPosATL select 1),0];
-    _terrainPosASL = ATLtoASL _terrainPos;
-    _nextObject = lineIntersectsObjs [_objPosASL, _terrainPosASL, objNull, _object, false, 2];
-    if (_nextObject isEqualTo []) then {objNull}else{_nextObject select 0};
+    private _objPosASL = getPosASL _object;
+    private _terrainPosATL = getPosATL _object;
+    private _terrainPos = [(_terrainPosATL select 0),(_terrainPosATL select 1),0];
+    private _terrainPosASL = ATLtoASL _terrainPos;
+    private _nextObject = lineIntersectsObjs [_objPosASL, _terrainPosASL, objNull, _object, false, 2];
+    if (_nextObject isEqualTo []) then {
+		objNull
+	}else{
+		private _lastObject = [_nextObject select 0] call _fnc_getObjbelow;
+		If (isNull _lastObject) then {
+			_lastObject;
+		}else{
+			_nextObject select 0;
+		};
+	};
 };
 
-_centerposASL = ATLtoASL _centerpos;
+private _centerposASL = ATLtoASL _centerpos;
 
 {
     If (!(isPlayer _x)) then {
-        private["_temp","_nextObject"];
-        _temp = [];
-        _nextObject = [_x] call _fnc_getObjbelow;
+        private _temp = [];
+        private _nextObject = [_x] call _fnc_getObjbelow;
         If (isNull _nextObject) then {
             /// obj has nothing below -> offset = [0,0,0]
-            private["_objDir","_objVectorUp","_objPosASL","_terrainNormal","_temptype","_temppos","_tempdir","_tempoffset","_tempvector"];
-            _objDir = getDir _x;
-            _objVectorUp = vectorUp _x;
-            _objPosASL = getPosASL _x;
-            _terrainNormal = surfaceNormal (getPosATL _x);
-            _temptype = typeOf _x;
-            _temppos = _centerposASL VectorDiff _objPosASL;
-            _tempdir = _centerdir + _objDir;
+            private _objDir = getDir _x;
+            private _objVectorUp = vectorUp _x;
+            private _objPosASL = getPosASL _x;
+            private _terrainNormal = surfaceNormal (getPosATL _x);
+            private _temptype = typeOf _x;
+            private _temppos = _centerposASL VectorDiff _objPosASL;
+            private _tempdir = _centerdir + _objDir;
             If (_tempdir >= 360) then {_tempdir = _tempdir - 360;};
-            _tempoffset = [0,0,0];
-            _tempvector = vectorNormalized(_terrainNormal VectorAdd _objVectorUp);
+            private _tempoffset = [0,0,0];
+            private _tempvector = vectorNormalized(_terrainNormal VectorAdd _objVectorUp);
             _temp = [_temptype,_temppos,_tempdir,_tempoffset,_tempvector];
         }else{
             /// something below -> get offset
-            private ["_objDir","_objVectorUp","_objPosASL","_offsetArray","_refpos","_refdir","_refVector","_temptype","_temppos","_tempdir","_tempoffset","_tempvector"];
-            _objDir = getDir _x;
-            _objVectorUp = vectorUp _x;
-            _objPosASL = getPosASL _x;
-            _offsetArray = [_x,_objPosASL] call _fnc_getoffset;
-            _refpos = _offsetArray select 0;
-            _refdir = _offsetArray select 1;
-            _refVector = _offsetArray select 2;
-            _temptype = typeOf _x;
-            _temppos = _centerposASL VectorDiff _refpos;
-            _tempdir = _centerdir + /*_refdir +*/ _objDir;
+            private _objDir = getDir _x;
+            private _objVectorUp = vectorUp _x;
+            private _objPosASL = getPosASL _x;
+            private _offsetArray = [_x,_objPosASL] call _fnc_getoffset;
+            private _refpos = _offsetArray select 0;
+            private _refdir = _offsetArray select 1;
+            private _refVector = _offsetArray select 2;
+            private _temptype = typeOf _x;
+            private _temppos = _centerposASL VectorDiff _refpos;
+            private _tempdir = _centerdir + /*_refdir +*/ _objDir;
             If (_tempdir >= 360) then {_tempdir = _tempdir - 360;};
-            _tempoffset = _refpos VectorDiff _objPosASL;
-            _tempvector = vectorNormalized(_refVector VectorAdd _objVectorUp);
+            private _tempoffset = _refpos VectorDiff _objPosASL;
+            private _tempvector = vectorNormalized(_refVector VectorAdd _objVectorUp);
             _temp = [_temptype,_temppos,_tempdir,_tempoffset,_tempvector];
         };
         If (!(_temp isEqualTo [])) then {
@@ -107,10 +119,9 @@ _centerposASL = ATLtoASL _centerpos;
 }forEach _allObjects;
 
 ////// Sort the output
-private["_export_material","_export_soldier","_export_vehicles"];
-_export_vehicles = [];
-_export_soldier = [];
-_export_material = [];
+private _export_vehicles = [];
+private _export_soldier = [];
+private _export_material = [];
 
 {
     if ((_x select 0) isKindOf "LandVehicle") then {
@@ -127,12 +138,12 @@ _export_material = [];
 
 
 
-_br = toString [0x0D, 0x0A];
-_tab = "    "; // changed into spaces - toString[0x09];
-_tab2 = _tab + _tab;
-_tab3 = _tab2 + _tab;
+private _br = toString [0x0D, 0x0A];
+private _tab = "    "; // changed into spaces - toString[0x09];
+private _tab2 = _tab + _tab;
+private _tab3 = _tab2 + _tab;
 
-_output = _tab2 + format["class defencepos_%1 {",floor(random 99999)] + _br
+private _output = _tab2 + format["class defencepos_%1 {",floor(random 99999)] + _br
 + _tab3 + "material[] = {";
 If ((count(_export_material))>0) then {
     _i=0;
