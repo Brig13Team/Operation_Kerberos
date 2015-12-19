@@ -282,5 +282,5 @@ Author:
     iJesuz
 ------------------------------------------- */
 
-#define ISCASVEHICLE(ARG) [ARG, ["RHS_UH1Y_UNARMED"], ["RHS_UH1Y"]] call TRIPLES(PREFIX,makro,iscasvehicle)
+#define ISCASVEHICLE(ARG) [ARG, ["RHS_UH1Y_UNARMED"], ["RHS_UH1Y","rhsusf_f22"]] call TRIPLES(PREFIX,makro,iscasvehicle)
 #define ISCASVEHICLE_C(ARG) (ISCASVEHICLE(ARG))
