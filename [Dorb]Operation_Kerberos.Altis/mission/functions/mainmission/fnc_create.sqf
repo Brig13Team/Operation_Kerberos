@@ -20,10 +20,7 @@ private _taskpic = getText(missionconfigfile>>"CfgTaskTypes">>_tasktype>>"icon")
 
 TRACEV_5(_position,_taskname,_taskdesc,_tasktype,_taskpic);
 
-
 private _temp = [_position] call (missionNamespace getVariable [format ["%1_%2",QUOTE(DOUBLES(GVAR(fnc),PART)),_task],{}]);
-private _test = format ["%1_%2",QUOTE(DOUBLES(GVAR(fnc),PART)),_task];
-TRACEV_2(_temp,_task);
 
 CHECKRET(isNil "_temp",[]);
 CHECKRET(_temp isEqualTo [],ERROR(FORMAT_1("Missing Maintask %1",_task));[]);
@@ -86,11 +83,9 @@ private _task_desc = localize(format[LSTRING(TASKDESC_BLANK),toUpper(_task)]);
     [_centerposition,"CENTERPOS"] call EFUNC(common,debug_marker_create);
     [_position,"MISSIONPOS"] call EFUNC(common,debug_marker_create);
 #endif
-/// taskhandler
-private _sucess = _taskarray call FUNC(taskhandler);
 
-/// display finished message
-if (_sucess) then {
+/// taskhandler & display finished message
+if (_taskarray call FUNC(taskhandler)) then {
     [_task_name,[LSTRING(FINISHED)],_taskpic,true] spawn EFUNC(interface,disp_info_global);
 }else{
     [_task_name,[LSTRING(FAILED)],_taskpic,true] spawn EFUNC(interface,disp_info_global);
