@@ -79,7 +79,7 @@ private _fnc_getObjbelow = {
 private _centerposASL = ATLtoASL _centerpos;
 
 {
-    If (!(isPlayer _x)) then {
+    If ((!(isPlayer _x))&&(!((toLower(format["%1",typeOf _x])) in ["Camera","#dynamicsound"]))) then {
         private _temp = [];
         private _nextObject = [_x] call _fnc_getObjbelow;
         If (isNull _nextObject) then {
