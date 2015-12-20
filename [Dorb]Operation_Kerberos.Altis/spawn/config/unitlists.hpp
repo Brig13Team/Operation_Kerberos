@@ -163,7 +163,7 @@ class unitlists {
 						SOLDIER_5(rhs_vdv_grenadier_rpg);
 						SOLDIER_6(rhs_vdv_aa);
 					};
-					class E_Reg_Pat_02 {
+					class E_Reg_Pat_04 {
 						SOLDIERR_1(rhs_vdv_sergeant,SERGEANT);
 						SOLDIERR_2(rhs_vdv_junior_sergeant,CORPORAL);
 						SOLDIER_3(rhs_vdv_LAT);
