@@ -22,29 +22,9 @@ TRACEV_5(_position,_taskname,_taskdesc,_tasktype,_taskpic);
 
 private _temp = [_position] call (missionNamespace getVariable [format ["%1_%2",QUOTE(DOUBLES(GVAR(fnc),PART)),_task],{}]);
 
-CHECKRET(isNil "_temp",[]);
-CHECKRET(_temp isEqualTo [],ERROR(FORMAT_1("Missing Maintask %1",_task));[]);
-/*
-_temp = [];
-_temp = switch (_task) do {
-    case "scarab" :         {[_position] call FUNC(mainmission_scarab);};
-    case "prototype" :         {[_position] call FUNC(mainmission_prototype);};
-    case "tower" :             {[_position] call FUNC(mainmission_tower);};
-    case "device" :         {[_position] call FUNC(mainmission_device);};
-    case "emp" :             {[_position] call FUNC(mainmission_emp);};
-    case "clear" :             {[_position] call FUNC(mainmission_clear);};
-    case "hostage" :         {[_position] call FUNC(mainmission_hostage);};
-    case "kill" :             {[_position] call FUNC(mainmission_kill);};
-    case "intel" :             {[_position] call FUNC(mainmission_intel);};
-    case "weaponcaches" :     {[_position] call FUNC(mainmission_weaponcaches);};
-    //case "dronecommando" :     {[_position] call FUNC(mainmission_dronecommando);};
-    //case "specops" :         {[_position] call FUNC(mainmission_specops);};
-    //case "outpost" :         {[_position] call FUNC(mainmission_outpost);};
-    //case "radarsetup" :     {[_position] call FUNC(mainmission_radarsetup);};
-    default {ERROR(FORMAT_1("FEHLENDER TASK: %1",_task));[]};
-};
-CHECK(_temp isEqualTo [])
-*/
+CHECKRET(isNil "_temp",ERROR(FORMAT_1("Missing Maintask %1",_task));[]);
+CHECKRET(_temp isEqualTo [],[]);
+
 private _taskarray = [10,_taskID];
 _taskarray append _temp;
 
