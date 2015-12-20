@@ -9,19 +9,23 @@
 SCRIPT(create);
 params[["_task","",[""]],["_centerposition",[],[[]]],["_distance",1000,[0]],["_taskID","",[""]],["_location","",[""]]];
 TRACEV_4(_task,_centerposition,_distance,_taskID);
-private "_position";
 EGVAR(headquarter,centerpos) = _centerposition;
-_position = [_centerposition,_distance,0] call EFUNC(common,pos_random);
+private _position = [_centerposition,_distance,0] call EFUNC(common,pos_random);
 TRACEV_1(_position);
-private ["_taskname","_taskdesc","_tasktype","_taskpic"];
-_taskname = getText(missionconfigfile>>"missions_config">>"main">>_task>>"task">>"name");
-_taskdesc = getText(missionconfigfile>>"missions_config">>"main">>_task>>"task">>"description");
-_tasktype = getText(missionconfigfile>>"missions_config">>"main">>_task>>"task">>"tasktype");
-_taskmark = getText(missionconfigfile>>"missions_config">>"main">>_task>>"task">>"taskmarker");
-_taskpic = getText(missionconfigfile>>"CfgTaskTypes">>_tasktype>>"icon");
+private _taskname = getText(missionconfigfile>>"missions_config">>"main">>_task>>"task">>"name");
+private _taskdesc = getText(missionconfigfile>>"missions_config">>"main">>_task>>"task">>"description");
+private _tasktype = getText(missionconfigfile>>"missions_config">>"main">>_task>>"task">>"tasktype");
+private _taskmark = getText(missionconfigfile>>"missions_config">>"main">>_task>>"task">>"taskmarker");
+private _taskpic = getText(missionconfigfile>>"CfgTaskTypes">>_tasktype>>"icon");
 
 TRACEV_5(_position,_taskname,_taskdesc,_tasktype,_taskpic);
-private ["_temp","_taskarray"];
+
+
+private _temp = [_position] call (missionNamespace getVariable [format ["%1_%2", QGVAR(fnc),_task],{}])
+
+CHECKRET((isNil "_temp"),[]);
+CHECKRET((_temp isEqualTo []),ERROR(FORMAT_1("Missing MainTask %1",_type));[]);
+/*
 _temp = [];
 _temp = switch (_task) do {
     case "scarab" :         {[_position] call FUNC(mainmission_scarab);};
@@ -41,7 +45,8 @@ _temp = switch (_task) do {
     default {ERROR(FORMAT_1("FEHLENDER TASK: %1",_task));[]};
 };
 CHECK(_temp isEqualTo [])
-_taskarray = [10,_taskID];
+*/
+private _taskarray = [10,_taskID];
 _taskarray append _temp;
 
 
@@ -49,7 +54,7 @@ _taskarray append _temp;
 
 //[] call EFUNC(headquarter,init_mission);
 
-_isTown = {((_x select 0)==_location)} count GVAR(town);
+private _isTown = {((_x select 0)==_location)} count GVAR(town);
 if (_isTown>0) then{
     ERROR("town");
     [_centerposition,["strikeforce"]] call EFUNC(spawn,mission);
@@ -72,9 +77,8 @@ TRACEV_2(_isTown,_location);
 ] spawn BIS_fnc_setTask;
 
 /// workaround for localisation on player
-private ["_task_desc","_task_name"];
-_task_name = localize(format[LSTRING(TASKNAME_BLANK),toUpper(_task)]);
-_task_desc = localize(format[LSTRING(TASKDESC_BLANK),toUpper(_task)]);
+private _task_name = localize(format[LSTRING(TASKNAME_BLANK),toUpper(_task)]);
+private _task_desc = localize(format[LSTRING(TASKDESC_BLANK),toUpper(_task)]);
 [_task_name,[_task_desc],_taskpic,true] spawn EFUNC(interface,disp_info_global);
 
 #ifdef DEBUG_MODE_FULL
@@ -82,8 +86,7 @@ _task_desc = localize(format[LSTRING(TASKDESC_BLANK),toUpper(_task)]);
     [_position,"MISSIONPOS"] call EFUNC(common,debug_marker_create);
 #endif
 /// taskhandler
-private "_sucess";
-_sucess = _taskarray call FUNC(taskhandler);
+private _sucess = _taskarray call FUNC(taskhandler);
 
 /// display finished message
 if (_sucess) then {

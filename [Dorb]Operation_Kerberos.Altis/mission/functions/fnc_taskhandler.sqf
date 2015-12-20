@@ -47,9 +47,9 @@ params[
     ];
 TRACEV_7(_intervall,_task,_condition,_conditionArgs,_conditionSucess,_onSucess,_onFailure);
 TRACEV_3(_args,_afterCheck,_afterCheckArgs);
-private["_isTask","_cancel","_taskhandling","_state"];
-_cancel=false;
+private _cancel=false;
 /// Optional: Taskname/taskID
+private "_isTask";
 If (IS_SCALAR(_task)) then {
     _isTask=true;
 }else{
@@ -74,7 +74,7 @@ ISNILS(taskcancel,false);
 /// set intervall
 _intervall = (_intervall max 3)min 120;
 
-_taskhandling=false;
+private _taskhandling=false;
 while {!_taskhandling} do {
     _taskhandling = _conditionArgs call _condition;
     _afterCheckArgs call _afterCheck;
@@ -83,7 +83,7 @@ while {!_taskhandling} do {
     If (taskcancel) then {_cancel=true;};
     /// Exit if Parent has finished
     If (_isTask) then {
-        _state = [_task] call BIS_fnc_taskState;
+        private _state = [_task] call BIS_fnc_taskState;
         If (_state in ["CANCELED","SUCCEEDED","FAILED"]) then {_cancel=true;};
     };
     CHECK(_cancel)
