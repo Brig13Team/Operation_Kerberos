@@ -9,7 +9,7 @@
 SCRIPT(create);
 params[["_task","",[""]],["_centerposition",[],[[]]],["_distance",1000,[0]],["_taskID","",[""]],["_location","",[""]]];
 TRACEV_4(_task,_centerposition,_distance,_taskID);
-EGVAR(headquarter,centerpos) = _centerposition;
+[_centerposition] call EFUNC(headquarter,mission_init);
 private _position = [_centerposition,_distance,0] call EFUNC(common,pos_random);
 TRACEV_1(_position);
 private _taskname = getText(missionconfigfile>>"missions_config">>"main">>_task>>"task">>"name");
@@ -54,11 +54,10 @@ _taskarray append _temp;
 
 ///// spawn units
 
-//[] call EFUNC(headquarter,init_mission);
-
 private _isTown = {((_x select 0)==_location)} count GVAR(town);
 if (_isTown>0) then{
-    ERROR("town");
+    /// TO DO - call CITY-Defence
+	ERROR("town");
     [_centerposition,["strikeforce"]] call EFUNC(spawn,mission);
 }else{
     [_centerposition,["strikeforce","patrols"]] call EFUNC(spawn,mission);
