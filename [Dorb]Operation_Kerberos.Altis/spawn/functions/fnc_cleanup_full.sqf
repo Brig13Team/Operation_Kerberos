@@ -35,7 +35,7 @@ _this params ["_pos","_rad"];
 {
     _x TILGE;
 } foreach allGroups;
-[-1,{if(hasInterface)exitWith{};{deleteGroup _x;} foreach allGroups;}] FMP;    //Headless remove Groups
+[{if(hasInterface)exitWith{};{deleteGroup _x;} foreach allGroups;}-1] call EFUNC(common,NetEvent);    //Headless remove Groups
 
 
 ISNILS(EGVAR(mission,markerdump),[]);

@@ -20,10 +20,10 @@ TRACEV_5(_position,_taskname,_taskdesc,_tasktype,_taskpic);
 private _temp = [];
 private _type = getText(missionconfigfile>>"missions_config">>"main">>_taskMAIN>>"sidemissions">>_task>>"type");
 
-_temp = [_position,_positionMain] call (missionNamespace getVariable [format ["%1_%2", QGVAR(fnc),_type],{}])
+_temp = [_position,_positionMain] call (missionNamespace getVariable [format ["%1_%2",QUOTE(DOUBLES(GVAR(fnc),PART)),_type],{}]);
 
-CHECKRET((isNil "_temp"),[]);
-CHECKRET((_temp isEqualTo []),ERROR(FORMAT_1("Missing Sidetaks %1",_type));[]);
+CHECKRET(isNil "_temp",[]);
+CHECKRET(_temp isEqualTo [],ERROR(FORMAT_1("Missing Sidetaks %1",_type));[]);
 
 private _taskarray = [10,format["%1_%2",_taskID,_task]];
 _taskarray append _temp;

@@ -55,7 +55,7 @@ for "_i" from 1 to _rand do{
 //////////////////////////////////////////////////
 
 {
-    [-1,{_this call FUNC(stadt_found_intel);},[_x]] FMP;
+    [{_this call FUNC(stadt_found_intel);},[_x],-1] call EFUNC(common,NetEvent);
 }forEach _target;
 GVAR(interl_obj) = _target;
 publicVariable QGVAR(interl_obj);

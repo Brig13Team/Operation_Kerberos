@@ -63,7 +63,7 @@ for "_i" from 1 to _rand do{
     };
     _x addEventHandler     ["Killed", 
                             {
-                                [-1,{[_this select 0,[format [localize (_this select 1),_this select 2]],_this select 3,_this select 4] spawn EFUNC(interface,disp_info);},[LSTRING(KILL),LSTRING(KILL_KILLED),(name(_this select 0)),"data\icon\icon_target.paa",true]] FMP;
+                                [{[_this select 0,[format [localize (_this select 1),_this select 2]],_this select 3,_this select 4] spawn EFUNC(interface,disp_info);},[LSTRING(KILL),LSTRING(KILL_KILLED),(name(_this select 0)),"data\icon\icon_target.paa",true],-1] call EFUNC(common,NetEvent);
                             }
                         ];    
 }forEach _target;

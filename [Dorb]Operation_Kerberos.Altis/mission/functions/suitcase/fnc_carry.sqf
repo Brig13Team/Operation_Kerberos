@@ -24,10 +24,10 @@ _suitcase setVariable [QGVAR(suitcase_carrier),_carrier,true];
 _carrier setVariable [QGVAR(suitcase_suitcase),_suitcase];
 
 If (isMultiplayer) then {
-    [0, {
+    [{
         params ["_suitcase"];
         [{_this call FUNC(suitcase_handle); }, 1, [_suitcase]] call CBA_fnc_addPerFrameHandler;
-    }, [_suitcase]] FMP;
+    }, [_suitcase],0] call EFUNC(common,NetEvent);
 }else{
     [{_this call FUNC(suitcase_handle); }, 1, [_suitcase]] call CBA_fnc_addPerFrameHandler;
 };

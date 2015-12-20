@@ -11,9 +11,13 @@
         None
 */
 #include "script_component.hpp"
-private["_userconfig"];
 
-_userconfig = compile preprocessFileLineNumbers "\userconfig\kerberos\dorb_userconfig.sqf";
+If !(isMultiplayer) then {
+DORB_RESERVED_PILOT = ["_SP_AI_", "_SP_PLAYER_"];
+DORB_RESERVED_ZEUS = ["_SP_AI_", "_SP_PLAYER_"];
+};
+
+private _userconfig = compile preprocessFileLineNumbers "\userconfig\kerberos\dorb_userconfig.sqf";
 if (!isNil "_userconfig") then {
     [] call _userconfig; // Load the global defaults
 };

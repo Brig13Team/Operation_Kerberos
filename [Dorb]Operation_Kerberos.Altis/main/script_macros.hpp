@@ -88,22 +88,6 @@ Author:
 #define GUI_XW(Var1,Var2) GUI_DIM2(Var1)+GUI_DIM(Var2)
 #define GUI_YH(Var1,Var2) GUI_DIM2(Var1)+GUI_DIM(Var2)
 /* -------------------------------------------
-Macro: FMP
-    Spawns CBA_fnc_globalExecute
-	outdated
-Parameters:
-    none
-
-Example:
-    (begin example)
-        {-1,{hint _this},["Makro Test"]} FMP;
-    (end)
-
-Author:
-    Dorbedo
-------------------------------------------- */
-#define FMP spawn EFUNC(common,NetEvent);
-/* -------------------------------------------
 Macro: CHECK()
     Checks Condition - Exit if true
 

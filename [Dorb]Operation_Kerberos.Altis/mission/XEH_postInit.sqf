@@ -8,7 +8,6 @@
 #include "script_component.hpp"
 SCRIPT(init);
 
-
 /// suitcase
 If (hasInterface) then {
     [] call FUNC(suitcase_init);
@@ -64,9 +63,6 @@ If ((_markerpos distance [0,0,0])>1) then {
 };
 */
 
-
-
-CHECK(true)
 
 [] spawn {
 

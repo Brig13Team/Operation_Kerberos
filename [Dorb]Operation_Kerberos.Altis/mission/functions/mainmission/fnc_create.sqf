@@ -21,10 +21,12 @@ private _taskpic = getText(missionconfigfile>>"CfgTaskTypes">>_tasktype>>"icon")
 TRACEV_5(_position,_taskname,_taskdesc,_tasktype,_taskpic);
 
 
-private _temp = [_position] call (missionNamespace getVariable [format ["%1_%2", QGVAR(fnc),_task],{}])
+private _temp = [_position] call (missionNamespace getVariable [format ["%1_%2",QUOTE(DOUBLES(GVAR(fnc),PART)),_task],{}]);
+private _test = format ["%1_%2",QUOTE(DOUBLES(GVAR(fnc),PART)),_task];
+TRACEV_2(_temp,_task);
 
-CHECKRET((isNil "_temp"),[]);
-CHECKRET((_temp isEqualTo []),ERROR(FORMAT_1("Missing MainTask %1",_type));[]);
+CHECKRET(isNil "_temp",[]);
+CHECKRET(_temp isEqualTo [],ERROR(FORMAT_1("Missing Maintask %1",_task));[]);
 /*
 _temp = [];
 _temp = switch (_task) do {

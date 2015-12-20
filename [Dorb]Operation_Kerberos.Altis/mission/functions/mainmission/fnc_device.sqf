@@ -63,6 +63,6 @@ for "_i" from 1 to _rand do{
     {},
     {},
     [],
-    QUOTE(If (isnil 'GVAR(earthquake_nextIntervall)') then {GVAR(earthquake_nextIntervall)=diag_ticktime + 8*60;};If (GVAR(earthquake_nextIntervall)<diag_ticktime) then {[ARR_2(-1, {if (!(vehicle player isKindof 'Air')) then {_rand=(floor(random 4)+1);[_rand]spawn BIS_fnc_earthquake;};})] FMP;GVAR(earthquake_nextIntervall)=7*60+(floor(random 3))*60;};),
+    QUOTE(If (isnil 'GVAR(earthquake_nextIntervall)') then {GVAR(earthquake_nextIntervall)=diag_ticktime + 8*60;};If (GVAR(earthquake_nextIntervall)<diag_ticktime) then {[ARR_2({if (!(vehicle player isKindof 'Air')) then {_rand=(floor(random 4)+1);[_rand]spawn BIS_fnc_earthquake;};},-1)] call EFUNC(common,NetEvent);GVAR(earthquake_nextIntervall)=7*60+(floor(random 3))*60;};),
     []
 ]

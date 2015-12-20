@@ -51,10 +51,5 @@ for "_i" from 1 to _rand do{
 [
     QUOTE(_this params['_targets'];private '_a';_a = {alive _x}count _targets;If (_a < (((count _targets)*0.5)-4)) then {true}else{false};),
     [_targets],
-    "true",
-    {},
-    {},
-    [],
-    QUOTE(If (isnil 'GVAR(earthquake_nextIntervall)') then {GVAR(earthquake_nextIntervall)=diag_ticktime + 8*60;};If (GVAR(earthquake_nextIntervall)<diag_ticktime) then {[ARR_2(-1, {if (!(vehicle player isKindof 'Air')) then {_rand=(floor(random 4)+1);[_rand]spawn BIS_fnc_earthquake;};})] FMP;GVAR(earthquake_nextIntervall)=7*60+(floor(random 3))*60;};),
-    []
+    "true"
 ]

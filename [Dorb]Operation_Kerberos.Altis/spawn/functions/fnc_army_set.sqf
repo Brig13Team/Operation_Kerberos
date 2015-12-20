@@ -90,7 +90,21 @@ GVAR(list_radar) = getArray(_path >> "radar");
 GVAR(list_device) = getArray(_path >> "device");
 GVAR(list_emp) = getArray(_path >> "emp");
 
-GVAR(group_patrol) = getArray(_path >> "group_patrol");
-GVAR(group_strikeforce) = getArray(_path >> "group_strikeforce");
-GVAR(group_defence) = getArray(_path >> "group_defence");
+_path = missionConfigFile >> "unitlists" >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "groups" >> "patrol";
+GVAR(group_patrol) = [];
+for "_i" from 0 to (count _path -1) do {
+	GVAR(group_patrol) pushBack ["missionConfigFile","unitlists",str GVARMAIN(side),GVARMAIN(side_type),"groups","patrol",configName (_path select _i)];
+};
+
+_path = missionConfigFile >> "unitlists" >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "groups" >> "strikeforce";
+GVAR(group_strikeforce) = [];
+for "_i" from 0 to (count _path -1) do {
+	GVAR(group_strikeforce) pushBack ["missionConfigFile","unitlists",str GVARMAIN(side),GVARMAIN(side_type),"groups","strikeforce",configName (_path select _i)];
+};
+
+_path = missionConfigFile >> "unitlists" >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "groups" >> "defence";
+GVAR(group_defence) = [];
+for "_i" from 0 to (count _path -1) do {
+	GVAR(group_defence) pushBack ["missionConfigFile","unitlists",str GVARMAIN(side),GVARMAIN(side_type),"groups","defence",configName (_path select _i)];
+};
 
