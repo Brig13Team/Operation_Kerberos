@@ -65,41 +65,41 @@ SETMVAR(GVAR(working,true));
     _attackLogics = [] call FUNC(attackpos_getAll);
 
     {
-        ([getPos _x] call FUNC(dangerzones_convert)) params ["_x_coord","_y_coord"];
+        ([getPos _x] call FUNC(dangerzone_convert)) params ["_x_coord","_y_coord"];
         private _enemy = 0;
         {
-            _temp = _temp + _x call EFUNC(common,matrix_value_get);
+            _enemy = _enemy + (_x call EFUNC(common,matrix_value_get));
         }forEach [
-            [_x_coord,_y_coord],
+            [QGVAR(dangerzones),_x_coord,_y_coord],
             
-            [_x_coord+1,_y_coord],
-            [_x_coord-1,_y_coord],
-            [_x_coord,_y_coord+1],
-            [_x_coord,_y_coord-1],
+            [QGVAR(dangerzones),_x_coord+1,_y_coord],
+            [QGVAR(dangerzones),_x_coord-1,_y_coord],
+            [QGVAR(dangerzones),_x_coord,_y_coord+1],
+            [QGVAR(dangerzones),_x_coord,_y_coord-1],
             
-            [_x_coord+1,_y_coord+1],
-            [_x_coord-1,_y_coord-1],
-            [_x_coord-1,_y_coord+1],
-            [_x_coord+1,_y_coord-1],
+            [QGVAR(dangerzones),_x_coord+1,_y_coord+1],
+            [QGVAR(dangerzones),_x_coord-1,_y_coord-1],
+            [QGVAR(dangerzones),_x_coord-1,_y_coord+1],
+            [QGVAR(dangerzones),_x_coord+1,_y_coord-1],
             
-            [_x_coord+2,_y_coord-2],
-            [_x_coord+2,_y_coord+2],
-            [_x_coord-2,_y_coord-2],
-            [_x_coord-2,_y_coord+2],
+            [QGVAR(dangerzones),_x_coord+2,_y_coord-2],
+            [QGVAR(dangerzones),_x_coord+2,_y_coord+2],
+            [QGVAR(dangerzones),_x_coord-2,_y_coord-2],
+            [QGVAR(dangerzones),_x_coord-2,_y_coord+2],
             
-            [_x_coord-1,_y_coord-2],
-            [_x_coord-2,_y_coord-1],
-            [_x_coord+1,_y_coord-2],
-            [_x_coord+2,_y_coord-1],
-            [_x_coord+1,_y_coord+2],
-            [_x_coord+2,_y_coord+1],
-            [_x_coord-1,_y_coord+2],
-            [_x_coord-2,_y_coord+1],
+            [QGVAR(dangerzones),_x_coord-1,_y_coord-2],
+            [QGVAR(dangerzones),_x_coord-2,_y_coord-1],
+            [QGVAR(dangerzones),_x_coord+1,_y_coord-2],
+            [QGVAR(dangerzones),_x_coord+2,_y_coord-1],
+            [QGVAR(dangerzones),_x_coord+1,_y_coord+2],
+            [QGVAR(dangerzones),_x_coord+2,_y_coord+1],
+            [QGVAR(dangerzones),_x_coord-1,_y_coord+2],
+            [QGVAR(dangerzones),_x_coord-2,_y_coord+1],
             
-            [_x_coord+2,_y_coord],
-            [_x_coord-2,_y_coord],
-            [_x_coord,_y_coord+2],
-            [_x_coord,_y_coord-2]
+            [QGVAR(dangerzones),_x_coord+2,_y_coord],
+            [QGVAR(dangerzones),_x_coord-2,_y_coord],
+            [QGVAR(dangerzones),_x_coord,_y_coord+2],
+            [QGVAR(dangerzones),_x_coord,_y_coord-2]
         ];
         _x setVariable[QGVAR(enemy),_enemy];
     } forEach _attackLogics;

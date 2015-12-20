@@ -10,6 +10,7 @@ private "_handel";
 #define INTERVALL_FDC 120
 #define INTERVALL_SEARCH 400
 
+
 SETMVAR(GVAR(fdc_mortars),[]);
 SETMVAR(GVAR(fdc_artilleries),[]);
 SETMVAR(GVAR(fdc_rocket),[]);

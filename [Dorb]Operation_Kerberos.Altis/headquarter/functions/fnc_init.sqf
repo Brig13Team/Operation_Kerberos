@@ -22,7 +22,7 @@ GVAR(definitions) pushBack ((GVAR(definitions) select 0)/(GVAR(definitions) sele
 
 GVAR(dangerzones) = [(GVAR(definitions) select 2)] call EFUNC(common,matrix_create);
 
-[] call FUNC(reset);
+[] call FUNC(mission_end);
 
 [
     {

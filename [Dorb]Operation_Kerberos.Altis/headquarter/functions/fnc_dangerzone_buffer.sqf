@@ -15,13 +15,11 @@ SCRIPT(dangerzone_buffer);
 #define VALUEMODIFICATOR 0.5
 CHECK(GVAR(buffer) isEqualTo [])
 
-private "_temp";
-
-_temp = (GVAR(buffer)) deleteAt 0;
-
+private _temp = (GVAR(buffer)) deleteAt 0;
+TRACEV_2(GVAR(buffer),_temp);
 CHECK(_temp isEqualTo [])
 _temp params [["_X_pos",0,[0]],["_Y_pos",0,[0]],["_value",0,[0]]];
-TRACEV_3(_X_pos,_Y_pos,_value);
+
 {
     ([QGVAR(dangerzones)] append _x) call EFUNC(common,matrix_value_add);
 } forEach [

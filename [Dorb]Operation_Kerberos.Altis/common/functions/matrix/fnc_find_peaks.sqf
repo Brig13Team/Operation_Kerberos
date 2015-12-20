@@ -33,9 +33,9 @@ if (IS_STRING(_variablename)) then {
 
 CHECKRET((_matrix isEqualTo []),false);
 
-private _x_size = count (_variable);
+private _x_size = count (_matrix);
 CHECKRET((_x_size == 0),false);
-private _y_size = count (_variable select 0);
+private _y_size = count (_matrix select 0);
 CHECKRET((_y_size == 0),false);
 
 private _maxima=[];
@@ -48,8 +48,28 @@ for "_x" from 0 to (_x_size-1) do {
     _maxima sort false;
     _maxima resize MAXIMACOUNT;
     _last_maxima = (_maxima select 4)select 0;
-    for "_y" from 0 to (_y_size) do {
-        _temp = ((_matrix select _x)select _y)+(if(_x>0)then{((_matrix select (_x-1))select _y)}else{0})+(if(_y>0)then{((_matrix select (_x))select (_y-1))}else{0})+(if(_x<(_x_size-1))then{((_matrix select (_x+1))select _y)}else{0})+(if(_y<(_y_size-1))then{((_matrix select (_x))select (_y+1))}else{0});
+    for "_y" from 0 to (_y_size-1) do {
+        _temp = ((_matrix select _x)select _y)+
+				(
+					if (_x>0) then {
+						((_matrix select (_x-1))select _y)
+					}else{0}
+				)+
+				(
+					if (_y>0) then {
+						((_matrix select (_x))select (_y-1))
+					}else{0}
+				)+
+				(
+					if (_x<(_x_size-1)) then {
+						((_matrix select (_x+1))select _y)
+					}else{0}
+				)+
+				(
+					if (_y<(_y_size-1)) then {
+						((_matrix select (_x))select (_y+1))
+					}else{0}
+				);
         if ((_temp>_last_maxima)&&{!([_temp,_x,_y] in _maxima)}) then {
                 _maxima pushBack [_temp,_x,_y];
         };

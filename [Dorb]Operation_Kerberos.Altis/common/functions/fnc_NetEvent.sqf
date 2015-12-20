@@ -12,15 +12,22 @@
         2 : SCALAR - Target
         3 : BOOLEAN - execute on this machine too (default true)
 */
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-SCRIPT(NetEventLocal);
-_this params[["_function","",["",{}]],["_params",[]],["_target",-2,[0]],["_local",true,[false]]];
-TRACEV_2(_function,_params,_target);
+SCRIPT(NetEvent);
+TRACEV_1(_this);
+_this params[
+	["_function","",["",{}]],
+	["_parameter",[]],
+	["_target",-2,[0]],
+	["_local",true,[false]]
+	];
+TRACEV_2(_function,_parameter,_target);
 
 CHECKRET((_function isEqualTo ""),false);
 
-DOUBLES(PREFIX,e) = [_function,_params,_target];
+DOUBLES(PREFIX,e) = [_function,_parameter,_target];
 If (isServer) then {
     publicVariable QUOTE(DOUBLES(PREFIX,e));
 }else{
