@@ -31,7 +31,7 @@ private _searchrad = 150 min (_radius/4);
 //// Random Positions -> moved to open Area
 //// If not enaugh positions are found, the amount of spawned macros is reduced
 private _all_spawnpos = [];
-private _errorcounter;
+private _errorcounter = 0;
 
 while {(count _all_spawnpos)<_anzahl_spawnpos} do {
     private ["_currentPosition"];
@@ -64,7 +64,7 @@ while {(count _all_spawnpos)<_anzahl_spawnpos} do {
 
 
 //// Get the macros
-private _config = missionconfigfile>>"missions_config">>"defence_positions">>"terrain";
+private _config = (missionconfigfile>>"defence_positions">>str GVARMAIN(side)>>"terrain");
 private _makros = [];
 for "_i" from 0 to (count _config)-1 do {
     _makros pushBack [configname (_config select _i),getNumber((_config select _i)>>"probability")];
@@ -118,9 +118,9 @@ for "_i" from 0 to (count _config)-1 do {
     #endif
 
     ///// spawn defence
-    private _currentmakro = ([_makros,1] call EFUNC(common,sel_array_weighted))select 0;
-    private _configarray = ["missionConfigFile","defence_positions","terrain"];
-    private _configarray pushBack _currentmakro;
+    private _currentmakro = (([_makros,1] call EFUNC(common,sel_array_weighted))select 0);
+	TRACEV_2(_makros,_currentmakro);
+    private _configarray = ["missionConfigFile","defence_positions",str GVARMAIN(side),"terrain",format["%1",_currentmakro]];
     
     [_x,_configarray,_bestdir] call FUNC(macro_exec3d);
     

@@ -20,19 +20,17 @@ SCRIPT(defence_create);
 params["_position",["_radius",1200,[0]],["_amount",0,[0]]];
 
 for "_i" from 0 to _amount do {
-    private["_rad","_pos","_spawnpos","_grouptype","_group","_formation"];
-    _rad = ((random 100) + 100);
-    _pos = [_position,_radius,0] call EFUNC(common,pos_random);
-    _spawnpos = _pos findEmptyPosition [1,40];
-    _grouptype = GVAR(group_patrol) SELRND;
+    private _rad = ((random 100) + 100);
+    private _pos = [_position,_radius,0] call EFUNC(common,pos_random);
+    private _spawnpos = _pos findEmptyPosition [1,40];
+    private _grouptype = GVAR(group_patrol) SELRND;
 
     if (_spawnpos isEqualTo []) then {
         ERROR("Keine Spawnposition");
     }else{
-        _group = [_spawnpos, _grouptype] call FUNC(group);
+        private _group = [_spawnpos, _grouptype] call FUNC(group);
         SETPVAR(_group,EGVAR(headquarter,state),'defend');
         SETPVAR(_group,EGVAR(headquarter,target),_spawnpos);
-        [_group] call EFUNC(headquarter,register_Group);
         [_group] call EFUNC(headquarter,state_change);
     };
 };

@@ -245,27 +245,26 @@ for "_i" from (_lastbuilding+1) to ((count _buildings)-1) do {
     
     If (!(_doorpos isEqualTo [])) then {
         _doorpos = _doorpos call BIS_fnc_arrayShuffle;
-        private "_rand";
-        _rand = ((floor(random 1))+1) min ((count _doorpos)-1);
+        private _rand = ((floor(random 1))+1) min ((count _doorpos)-1);
         for "_j" from 0 to (_rand) do {
-            private ["_spawnposarray","_theta","_refpos","_spawnpos","_spawndir"];
-            _spawnposarray = _doorpos select _j;
-            _theta = 360 - _current_dir;
             
-            _refpos =  [        ( (cos _theta)*(_spawnposarray select 0) - (sin _theta)*(_spawnposarray select 1) ),
+            private _spawnposarray = _doorpos select _j;
+            private _theta = 360 - _current_dir;
+            
+            private _refpos =  [        ( (cos _theta)*(_spawnposarray select 0) - (sin _theta)*(_spawnposarray select 1) ),
                             ( (sin _theta)*(_spawnposarray select 0) + (cos _theta)*(_spawnposarray select 1) ),
                             (_spawnposarray select 2)
                         ];
 
             
-            _spawnpos = [        (_refpos select 0)+(_current_posASL select 0),
+            private _spawnpos = [        (_refpos select 0)+(_current_posASL select 0),
                             (_refpos select 1)+(_current_posASL select 1),
                             (_refpos select 2)+(_current_posASL select 2)
                         ];        
             
             CHECK((_spawnpos select 0)==0)
             _spawnpos = ASLtoATL _spawnpos;
-            _spawndir = _current_dir + (_spawnposarray select 3);
+            private _spawndir = _current_dir + (_spawnposarray select 3);
             _spawnpos = [_spawnpos, 0.35, (_spawndir + 90)] call BIS_fnc_relPos;
             _spawnpos pushBack _spawndir;
             _mines_spawnarray pushBack _spawnpos;

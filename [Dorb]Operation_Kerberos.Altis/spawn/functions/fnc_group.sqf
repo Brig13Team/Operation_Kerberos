@@ -30,8 +30,7 @@ If (IS_ARRAY(_type)) then {
 };
 
 for "_i" from 0 to ((count _type) - 1) do {
-    private ["_item"];
-    _item = _type select _i;
+    private _item = _type select _i;
     if (isClass _item) then {
         _types = _types + [getText(_item >> "vehicle")];
         _ranks = _ranks + [getText(_item >> "rank")];
@@ -48,8 +47,8 @@ _group = switch (getNumber(configFile >> "CfgVehicles" >> (_types select 0) >> "
 CHECKRET((_types isEqualTo []),grpNull);
 
 {
-    private ["_isMan","_spawnpos","_unit"];
-    _isMan = getNumber(configFile >> "CfgVehicles" >> _x >> "isMan") == 1;
+    private ["_spawnpos","_unit"];
+    private _isMan = getNumber(configFile >> "CfgVehicles" >> _x >> "isMan") == 1;
     
     If ((count _positions)>(_forEachIndex)) then {
         _spawnpos = [(_position select 0) + ((_positions select (_forEachIndex)) select 0),

@@ -33,11 +33,10 @@ _taskarray append _temp;
 
 private _isTown = {((_x select 0)==_location)} count GVAR(town);
 if (_isTown>0) then{
-    /// TO DO - call CITY-Defence
-	ERROR("town");
-    [_centerposition,["strikeforce"]] call EFUNC(spawn,mission);
+    [_centerposition,["_town","strikeforce","patrols"]] call EFUNC(spawn,mission);
 }else{
     [_centerposition,["strikeforce","patrols"]] call EFUNC(spawn,mission);
+	[_centerposition,1200,(floor(random 5)+5)] call EFUNC(spawn,defence_macros);
 };
 TRACEV_2(_isTown,_location);
 
@@ -55,8 +54,8 @@ TRACEV_2(_isTown,_location);
 ] spawn BIS_fnc_setTask;
 
 /// workaround for localisation on player
-private _task_name = localize(format[LSTRING(TASKNAME_BLANK),toUpper(_task)]);
-private _task_desc = localize(format[LSTRING(TASKDESC_BLANK),toUpper(_task)]);
+private _task_name = localize(format[localize LSTRING(TASKNAME_BLANK),toUpper(_task)]);
+private _task_desc = localize(format[localize LSTRING(TASKDESC_BLANK),toUpper(_task)]);
 [_task_name,[_task_desc],_taskpic,true] spawn EFUNC(interface,disp_info_global);
 
 #ifdef DEBUG_MODE_FULL

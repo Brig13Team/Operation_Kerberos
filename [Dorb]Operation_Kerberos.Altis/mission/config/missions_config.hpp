@@ -71,11 +71,21 @@ class missions_config {
         probability = 0.8;
     };
 	class side_standard {
-		class artillery : side_arty {};
-		class radar1 : side_radar {};
-		class radar2 : side_radar {};
-		class convoi1 : side_convoi {};
-		class convoi2 : side_convoi {delay_spawn = 1200;};	
+		class artillery : side_arty {
+			probability = 0.8;
+		};
+		class radar1 : side_radar {
+			probability = 0.8;
+		};
+		class radar2 : side_radar {
+			probability = 0.6;
+		};
+		class convoi1 : side_convoi {
+			probability = 0.8;
+		};
+		class convoi2 : side_convoi {
+			delay_spawn = 1200;
+		};	
 	};
     class main {
         class scarab : main_base {

@@ -44,7 +44,7 @@ _this spawn {
     // spawn a send_msg with the enemypos to the HQ
     _messagingUnits sort false;
 
-    uiSleep 10;
+    uiSleep 5;
 
     {
         If ((!isNull _x)&&{alive _x}) exitWith {

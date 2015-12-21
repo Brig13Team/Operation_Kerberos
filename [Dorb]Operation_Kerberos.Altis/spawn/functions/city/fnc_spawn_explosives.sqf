@@ -24,12 +24,12 @@ _IED_land = ["IEDLandBig_Remote_Mag","IEDLandSmall_Remote_Mag"];
 _IED_urban = ["IEDUrbanBig_Remote_Mag","IEDUrbanSmall_Remote_Mag"];
 
 For "_i" from 0 to ((count _spawnposarray)-1) do {
-    _dir = (_spawnposarray select _i)select 3;
-    _pos = [(_spawnposarray select _i)select 0,(_spawnposarray select _i)select 1,(_spawnposarray select _i)select 2];
-    _triggerConfig = "PressurePlate";
-    _triggerSpecificVars = [];
+    (_spawnposarray select _i) params ["_coord_x","_coord_y","_coord_z","_dir"];
+	private _pos = [_coord_x,_coord_y,_coord_z];
+    private _triggerConfig = "PressurePlate";
+    private _triggerSpecificVars = [];
     
-    _magazineClass = _ap_mines SELRND;
+    private _magazineClass = _ap_mines SELRND;
     If (_type > 2) then {
         _magazineClass = _IED_urban SELRND;
     }else{
@@ -41,27 +41,23 @@ For "_i" from 0 to ((count _spawnposarray)-1) do {
         };
     };
     
-    _magazineTrigger = ConfigFile >> "CfgMagazines" >> _magazineClass >> "ACE_Triggers" >> _triggerConfig;
-    _triggerConfig = ConfigFile >> "ACE_Triggers" >> _triggerConfig;
+    private _magazineTrigger = ConfigFile >> "CfgMagazines" >> _magazineClass >> "ACE_Triggers" >> _triggerConfig;
+    private _triggerConfig = ConfigFile >> "ACE_Triggers" >> _triggerConfig;
 
-    _ammo = getText(ConfigFile >> "CfgMagazines" >> _magazineClass >> "ammo");
+    private _ammo = getText(ConfigFile >> "CfgMagazines" >> _magazineClass >> "ammo");
     if (isText(_magazineTrigger >> "ammo")) then {
         _ammo = getText (_magazineTrigger >> "ammo");
     };
     _triggerSpecificVars pushBack _triggerConfig;
 
-    _explosive = createVehicle [_ammo, _pos, [], 0, "NONE"];
+    private _explosive = createVehicle [_ammo, _pos, [], 0, "NONE"];
     _explosive setPosATL _pos;
     _explosive setDir _dir;
     GVARMAIN(side) revealMine _explosive;
 
-    If (dorb_debug) then {
-        _mrkr = createMarker [format["minepos-%1",_pos],_pos];
-        _mrkr setMarkerShape "ICON";
-        _mrkr setMarkerColor "ColorBLUFOR";
-        _mrkr setMarkerType "MinefieldAP";
-    };
-    
-    
+    #ifdef DEBUG_MODE_FULL
+		[_pos,"","","MinefieldAP"] call EFUNC(common,debug_marker_create);
+	#endif
+	
     [objNull,_explosive,_magazineClass,_triggerSpecificVars] call compile (getText (_triggerConfig >> "onPlace"));
 };

@@ -60,9 +60,12 @@ class cfgFunctions {
 #include "CfgEventHandlers.hpp"
 #include "CfgRemoteExec.hpp"
 
-// other
+// Headquarter
 #include "headquarter\config\drones.hpp"
 #include "headquarter\config\maps.hpp"
+#include "headquarter\config\strategy.hpp"
+
+// other
 #include "spawn\config\city_defence.hpp"
 #include "spawn\config\unitlists.hpp"
 #include "spawn\config\gear.hpp"

@@ -30,7 +30,6 @@ for "_i" from 0 to _amount do {
         private _group = [_spawnpos, _grouptype] call FUNC(group);
         SETPVAR(_group,EGVAR(headquarter,state),'patrol');
         SETPVAR(_group,EGVAR(headquarter,target),_spawnpos);
-        [_group] call EFUNC(headquarter,register_Group);
         [_group] call EFUNC(headquarter,state_change);
     };
 };

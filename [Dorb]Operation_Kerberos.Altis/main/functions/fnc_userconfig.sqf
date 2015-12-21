@@ -12,7 +12,7 @@
 */
 #include "script_component.hpp"
 
-If !(isMultiplayer) then {
+If !(isMultiplayer) exitWith {
 DORB_RESERVED_PILOT = ["_SP_AI_", "_SP_PLAYER_"];
 DORB_RESERVED_ZEUS = ["_SP_AI_", "_SP_PLAYER_"];
 };

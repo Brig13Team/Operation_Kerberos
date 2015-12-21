@@ -53,6 +53,7 @@ switch (tolower _simulation) do {
     };
     default {
         _vehicle = createvehicle [_unittype,_position,[],0,_special];
+		_group addVehicle _vehicle;
     };
 };
 
@@ -63,9 +64,9 @@ If (_precisePos) then {_vehicle setPos _position;};
 if (_simulation == "airplanex") then {
     _vehicle setVelocity [100 * (sin _direction), 100 * (cos _direction), 0];
 };
-
-_group = [_vehicle,_group] call FUNC(crew);
-
+If (_withcrew) then {
+	_group = [_vehicle,_group] call FUNC(crew);
+};
 if (_changeleader) then {
     _group selectLeader (commander _vehicle);
 };

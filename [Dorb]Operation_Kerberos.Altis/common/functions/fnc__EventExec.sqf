@@ -28,7 +28,6 @@ If (_this params[["_function","",["",{}]],["_params",[]],["_target",objNull,[obj
 TRACEV_3(_function,_params,_target);
 
 If (IS_SCALAR(_target)) exitWith {
-    private "_exec";
     If ({ switch _target do {
             case 0 : {If (isServer) then {true}else{false};};
             case -1 : {If (!isServer) then {true}else{false};};

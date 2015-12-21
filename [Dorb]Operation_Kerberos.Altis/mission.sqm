@@ -307,13 +307,13 @@ class Mission
 				class Item0
 				{
 					position[]={17235.518,19.160311,19159.52};
-					azimut=0.038284916;
+					azimut=0.038284902;
 					id=7;
 					side="LOGIC";
 					vehicle="Logic";
 					leader=1;
 					skill=0.60000002;
-					text="teleporter";
+					text="teleporter1";
 				};
 			};
 		};
@@ -2114,7 +2114,7 @@ class Mission
 					vehicle="Logic";
 					leader=1;
 					skill=0.60000002;
-					text="cratespawner";
+					text="cratespawner1";
 				};
 			};
 		};
@@ -2624,14 +2624,14 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={14688.415,17.91,16698.195};
+					position[]={17378.209,20.881777,19121.879};
+					azimut=3.9881799;
 					id=95;
 					side="LOGIC";
 					vehicle="Logic";
 					leader=1;
 					skill=0.60000002;
-					text="asd";
-					init="this setVariable [""dorb_headquarter_isAttackpos"",true];this setVariable [""dorb_headquarter_enemy"",70];";
+					text="cratespawner2";
 				};
 			};
 		};
@@ -6197,10 +6197,10 @@ class Mission
 		class Item30
 		{
 			position[]={17380.598,20.941879,19103.865};
-			name="crate_spawn";
+			name="cratespawner1_marker";
 			text="Crate Spawn";
 			type="Empty";
-			angle=720.08826;
+			angle=720.08801;
 		};
 		class Item31
 		{
@@ -6217,15 +6217,19 @@ class Mission
 		};
 		class Item33
 		{
-			position[]={13034.135,14.637381,15733.427};
-			name="startmarker";
-			type="mil_start";
+			position[]={17369.504,20.936932,19121.555};
+			name="cratespawner2_marker";
+			text="Crate Spawn";
+			type="Empty";
+			angle=720.08801;
 		};
 		class Item34
 		{
-			position[]={17242.715,24.715977,16100.899};
-			name="zielmarker";
-			type="mil_objective";
+			position[]={17361.939,20.038967,19140.986};
+			name="cratespawner1_marker_1_1";
+			text="Crate Spawn";
+			type="Empty";
+			angle=720.08801;
 		};
 	};
 	class Sensors

@@ -15,6 +15,7 @@
 #include "script_component.hpp"
 SCRIPT(macro_exec3D);
 params[["_centerpos",[],[[]],[3]],["_configarray",[],[[]]],["_centerdir",9999,[0]]];
+TRACEV_3(_centerpos,_configarray,_centerdir);
 CHECK((_centerpos isEqualTo [])||(_configarray isEqualTo []))
 
 If (_centerdir > 9000) then {_centerdir = random 360;};
@@ -27,8 +28,8 @@ private _gruppe = grpNull;
 
 If (((count _vehicles)>0)||((count _soldiers)>0)) then {
     _gruppe = createGroup GVARMAIN(side);
-    SETVAR(_gruppe,EGVAR(headquarter,state),"defence");
-    SETVAR(_gruppe,EGVAR(headquarter,target),"_centerpos");
+    SETVAR(_gruppe,EGVAR(headquarter,state),"defend");
+    SETVAR(_gruppe,EGVAR(headquarter,target),_centerpos);
 };
 private _centerposASL = ATLtoASL _centerpos;
 
