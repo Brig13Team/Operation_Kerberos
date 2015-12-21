@@ -20,21 +20,18 @@ SETMVAR(GVAR(working,true));
 /// spawn to move it in the ingame sheduler
 [] spawn {
     
-    //// remove dead groups ***OBSOLET?
-    {
-        private _temp = missionnamespace getVariable [_x,[]];
-        If !(_temp isEqualTo []) then {
-            _temp = _temp - [grpNull];
-            missionnamespace setVariable [_x,_temp];
-        };
-    } forEach [QGVAR(Other),QGVAR(marine),QGVAR(Car),
-                QGVAR(Drone),QGVAR(Tank),QGVAR(Infanterie),
-                QGVAR(Attack_Helicopter),QGVAR(Transport_Helicopter),
-                QGVAR(CAS_Plane),QGVAR(Air_other)];
-
-
-    /// gather Informations
-
+	/*
+	/// backup -> get unregistered Groups
+	
+	{
+		If ((side _x != GVARMAIN(playerside))&&{(_x getVariable [QGVAR(state),""]) isEqualTo ""}) then {
+			_x setVariable [QGVAR(state),"idle"];
+		};
+	}forEach allGroups;
+	*/
+	
+	
+	
 
     private _attackarray = [QGVAR(dangerzones)] call EFUNC(common,matrix_find_peaks);
     private _attackpositions = [];
@@ -140,6 +137,7 @@ SETMVAR(GVAR(working,true));
     
     private _missingstrenght = 0;
     /// move into battle
+	TRACEV_2(_attackLogics,_waitingGroups);
     [_attackLogics,_waitingGroups] call FUNC(strategy);
     /*
     {

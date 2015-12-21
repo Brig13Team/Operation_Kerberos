@@ -11,9 +11,9 @@ SCRIPT(defend_artypos);
 
 If ((GVAR(fdc_mortars) isEqualTo [])&&(GVAR(fdc_artilleries) isEqualTo [])&&(GVAR(fdc_rocket) isEqualTo [])) exitwith {};
 
-GVAR(fdc_mortars) = GVAR(fdc_mortars) - objNull;
-GVAR(fdc_artilleries) = GVAR(fdc_artilleries) - objNull;
-GVAR(fdc_rocket) = GVAR(fdc_rocket) - objNull;
+GVAR(fdc_mortars) = GVAR(fdc_mortars) - [objNull];
+GVAR(fdc_artilleries) = GVAR(fdc_artilleries) - [objNull];
+GVAR(fdc_rocket) = GVAR(fdc_rocket) - [objNull];
 
 private ["_searchArea","_newcommands"];
 _newcommands = [];

@@ -15,22 +15,16 @@ SCRIPT(state_change);
 _this params[["_group",grpNull,[grpNull,objNull]]];
 
 _group = _group call CBA_fnc_getGroup;
+private _strength = [_group] call FUNC(strength);
+_group setVariable [QGVAR(strength),_strength];
+
 _state = toLower (GETVAR(_group,GVAR(state),''));
 
 switch (_state) do {
     case "patrol" : {
-            private ["_formation","_position"];
-            _formation = ["COLUMN","STAG COLUMN","WEDGE","VEE","FILE","DIAMOND"] SELRND;
-            _position = GETVAR(_group,GVAR(target),getPos (leader _group));
+            private _formation = ["COLUMN","STAG COLUMN","WEDGE","VEE","FILE","DIAMOND"] SELRND;
+            private _position = GETVAR(_group,GVAR(target),getPos (leader _group));
             [_group, _position, "AWARE", "WHITE", "NORMAL", "NO CHANGE", "", [5,10,15],50] call EFUNC(spawn,patrol_task);
         };
     default {[_group] call (missionnamespace getVariable [format["%1_%2",QGVAR(fnc_state),_state],{}]);};
-    /*
-    case "attack" : {[_group] call FUNC(state_attack);};
-    case "evade" : {[_group] call FUNC(state_evade);};
-    case "idle" : {[_group] call FUNC(state_idle);};
-    case "retreat" : {[_group] call FUNC(state_retreat);};
-    case "wait" : {[_group] call FUNC(state_wait);};
-    case "defend" : {[_group] call FUNC(state_defend);};
-    */
 };

@@ -13,10 +13,10 @@
 #include "script_component.hpp"
 SCRIPT(state_attack);
 _this params[["_group",grpNull,[grpNull,objNull]],["_statementFinish","",[""]]];
-private["_statement","_target","_waypoints","_lastWaypoint"];
+
 _group = _group call CBA_fnc_getGroup;
 
-_target = GETVAR(_group,GVAR(target),objNull);
+private _target = GETVAR(_group,GVAR(target),objNull);
 
 If ((IS_OBJECT(_target))&&{!(Alive _target)}) exitWith {
     SETVAR(_group,GVAR(state),'idle');
@@ -26,7 +26,7 @@ If ((IS_ARRAY(_target))&&{_target isEqualTo []}) exitWith {
     SETVAR(_group,GVAR(state),'idle');
     [_group] call FUNC(state_change);
 };
-
+private ["_statement","_waypoints"];
 if (IS_OBJECT(_target)) then {
     _waypoints = [getPos (leader _group),getPos _target] call FUNC(waypoints_generate);
     _statement = QUOTE(If !(alive ((group this) getVariable [ARR_2('GVAR(target)',objNull)])) then {_group setVariable [ARR_2('GVAR(state)','idle')];[this] call FUNC(state_change);};);
@@ -36,7 +36,7 @@ if (IS_OBJECT(_target)) then {
     _statement = "";
 };
 TRACEV_1(_waypoints);
-_lastWaypoint = _waypoints deleteAt ((count _waypoints)-1);
+private _lastWaypoint = _waypoints deleteAt ((count _waypoints)-1);
 
 while {(count (waypoints _group)) > 0} do {
     deleteWaypoint ((waypoints _group) select 0);

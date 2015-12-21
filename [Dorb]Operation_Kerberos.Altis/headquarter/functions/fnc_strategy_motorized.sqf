@@ -17,7 +17,7 @@ private _currentTroops = _currentLogic getVariable [QGVAR(troopsNeeded),0];
 private _currentPos = getPos _currentLogic;
 
 private _pos = [GVAR(centerpos),(GVAR(definitions) select 0)+800,1] call EFUNC(common,random_pos);
-private _einheitArray = getNumber(missionconfigfile >> "unitlists" >> str GVARMAIN(side) >> GVARMAIN(side_type)>> "callIn" >> "motorized" >> "units");
+private _einheitArray = getArray(missionconfigfile >> "unitlists" >> str GVARMAIN(side) >> GVARMAIN(side_type)>> "callIn" >> "motorized" >> "units");
 private _einheit = _einheitArray SELRND;
 
 private _spawnpos = _pos findEmptyPosition [1,200,_einheit];

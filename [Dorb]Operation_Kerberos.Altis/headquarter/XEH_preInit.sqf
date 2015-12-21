@@ -38,7 +38,7 @@ PREP(mission_init);
 PREP(recon);
 PREP(recon_radars);
 
-PREP(register_Group);
+
 PREP(register_POI);
 
 
