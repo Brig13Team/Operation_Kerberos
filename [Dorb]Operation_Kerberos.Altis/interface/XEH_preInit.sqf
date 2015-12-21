@@ -11,11 +11,10 @@ PREP(disp_progressbar);
 PREP(disp_timer);
 
 PREPS(crate,add);
-PREPS(crate,addAction);
 PREPS(crate,createlists);
-PREPS(crate,draw3D);
 PREPS(crate,filter);
 PREPS(crate,getMod);
+PREPS(crate,init);
 PREPS(crate,mass);
 PREPS(crate,OnLoad);
 PREPS(crate,OpenMenu);
@@ -29,18 +28,18 @@ PREPS(save,OpenMenu);
 PREPS(save,save);
 PREPS(save,select);
 
-PREPS(spawn,addaction);
 PREPS(spawn,create);
 PREPS(spawn,createlist);
 PREPS(spawn,createlist_east);
-PREPS(spawn,draw3D);
+PREPS(spawn,init);
 PREPS(spawn,Open);
 PREPS(spawn,select);
 
-PREPS(teleport,addAction);
-PREPS(teleport,draw3D);
-PREPS(teleport,onLoad);
+
+PREPS(teleport,init);
 PREPS(teleport,lead);
+PREPS(teleport,onLoad);
+
 
 PREPS(tfr,onOpen);
 PREPS(tfr,OpenMenu);

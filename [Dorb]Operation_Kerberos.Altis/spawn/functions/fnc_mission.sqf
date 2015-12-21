@@ -12,7 +12,7 @@
 */
 #include "script_component.hpp"
 SCRIPT(mission);
-params[["_centerposition",[],[[]],[2,3]],["_type","",["",[]]]];
+params[["_centerposition",[],[[]],[2,3]],["_type","",["",[]]],["_isTown",false,[true]]];
 TRACEV_2(_centerposition,_type);
 CHECK(_centerposition isEqualTo [])
 
@@ -28,7 +28,11 @@ _skill_compensation = _skill_compensation min 1;
 
 _amount_max = _amount_patrols + _amount_strikeforce + _amount_defence;
 
-_mult = 45/_amount_max;
+If (_isTown) then {
+	_mult = 35/_amount_max;
+}else{
+	_mult = 45/_amount_max;
+};
 
 _amount_players = count([] call EFUNC(common,players));
 _mult_player = switch (true) do {
@@ -57,6 +61,9 @@ If (IS_STRING(_type)) then {
         case "strikeforce" : {
             [_centerposition,_count_strikeforce] call EFUNC(spawn,strikeforce_create);
         };
+		case "town" : {
+			[_centerposition,400,GVARMAIN(side),35,8,true,true,true,true] call FUNC(city_fortify);
+		};
     };
 }forEach _type;
 true

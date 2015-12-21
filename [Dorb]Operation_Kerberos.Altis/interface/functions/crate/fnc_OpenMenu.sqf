@@ -7,6 +7,9 @@
 */
 #include "script_component.hpp"
 SCRIPT(OpenMenu);
+
+GVAR(crate_currentSpawn) = (_this select 3) select 0;
+
 [] call FUNC(crate_createlists);
 
 if (isnil QGVAR(crate_current)) then {

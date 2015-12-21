@@ -15,15 +15,15 @@ waituntil {! isnull player};
 ["init"] spawn EFUNC(player,grouptracker);
 
 QEGVAR(mission,endzeit) addPublicVariableEventHandler {[] spawn EFUNC(interface,disp_timer)};
+[] spawn EFUNC(interface,disp_timer);
+
 
 [] call EFUNC(player,playeraddaction);
-[] call EFUNC(interface,teleport_addaction);
-[] call EFUNC(interface,spawn_addaction);
-[] call EFUNC(interface,crate_addaction);
-[] call EFUNC(interface,teleport_draw3D);
-[] call EFUNC(interface,spawn_draw3D);
-[] call EFUNC(interface,crate_draw3D);
-[] call EFUNC(mission,rescue_draw3D);
+
+[] call EFUNC(interface,teleport_init);
+[] call EFUNC(interface,spawn_init);
+[] call EFUNC(interface,crate_init);
+
 [] call EFUNC(player,addbriefing);
 [] call EFUNC(player,halo_addaction);
 [] call EFUNC(player,backpack_init);
@@ -36,4 +36,3 @@ ISNILS(EGVAR(mission,fnc),[]);
 }forEach EGVAR(mission,fnc);
 
 [LSTRING(CLAN),[LSTRING(WELCOME1),LSTRING(WELCOME2),LSTRING(WELCOME3),LSTRING(WELCOME4),LSTRING(WELCOME5),LSTRING(WELCOME6)],"data\logo_brig.paa",false] call EFUNC(interface,disp_info);
-[] spawn EFUNC(interface,disp_timer);

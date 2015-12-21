@@ -11,7 +11,8 @@ private["_check_radius","_spawnpos","_padempty","_box","_boxtyp","_items","_anza
 /// Clear Pad
 
 _check_radius = 8;
-_spawnpos = getMarkerPos "crate_spawn";
+_spawnpos = getMarkerPos format["%1_marker",GVAR(crate_currentSpawn)];
+_spawndir = markerDir format["%1_marker",GVAR(crate_currentSpawn)];
 
 {if (count crew _x == 0) then {deletevehicle _x};} foreach (nearestObjects [_spawnpos, ["AllVehicles"], _check_radius]);
 {deletevehicle _x;} foreach nearestObjects [_spawnpos,["CraterLong_small","CraterLong","WeaponHolder","GroundWeaponHolder"], _check_radius];
@@ -25,6 +26,7 @@ If (!(_padempty isEqualTo [])) exitWith {hint localize LSTRING(NOTEMPTY);};
 _boxtyp = (GVAR(crate_boxes) select 0) select GVAR(crate_current_boxid);
 _box = createVehicle [_boxtyp, _spawnpos, [], 0 , "NONE"];
 _box setPosATL _spawnpos;
+_box setDir _spawndir;
 
 clearWeaponCargoGlobal _box;
 clearItemCargoGlobal _box;
