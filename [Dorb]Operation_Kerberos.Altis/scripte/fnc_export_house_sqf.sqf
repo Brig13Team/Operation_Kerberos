@@ -68,8 +68,8 @@ _fnc_getRollPitchYaw = {
 	private _objectVSide = _objectVDir VectorcrossProduct _objectVUp;
 	private _objectDir = getDir _object;
 
-	private _VectorDir = [_objectVDir,_objectDir] call FUNC(rotateVectorXY);
-	private _VectorUp = [_objectVUp,_objectDir] call FUNC(rotateVectorXY);
+	private _VectorDir = [_objectVDir,_objectDir] call _fnc_rotVector;
+	private _VectorUp = [_objectVUp,_objectDir] call _fnc_rotVector;
 
 	private _VectorDirY = _VectorDir select 1;
 	private _VectorUpZ = _VectorUp select 2;
@@ -84,7 +84,11 @@ _fnc_getRollPitchYaw = {
 	if((_VectorUp select 2) < 0) then {
 		_Rollwinkel = _Rollwinkel - ([1,-1] select (_Rollwinkel < 0)) * 180;
 	};
-	[(_Rollwinkel + _Roll),(_Nickwinkel + _Nick),(_Gierwinkel + _Gier)];
+	
+	_Rollwinkel = _Rollwinkel - _Roll;
+	_Nickwinkel = _Nickwinkel - _Nick;
+	_Gierwinkel = _Gierwinkel - _Gier;
+	[_Rollwinkel,_Nickwinkel,_Gierwinkel];
 };
 
 _fnc_ObjGetRollPitchYaw = {
@@ -110,6 +114,7 @@ _fnc_ObjGetRotMat = {
 		private _currentPos = getPosASL _currentObject;
 		private _currentRotMat = [_currentObject,_house_roll,_house_pitch,_house_yaw] call _fnc_ObjGetRotMat;
 		private _temppos = _housePos vectorDiff _currentPos;
+		private _temppos = [_temppos,_house_yaw] call _fnc_rotVector;
 		_temp = [_currenttype,_temppos,_currentRotMat];
 	};
 	If !(_temp isEqualTo []) then {
