@@ -12,18 +12,12 @@
 */
 #include "script_component.hpp"
 SCRIPT(ObjSetRotMatrix);
-_this params [["_object",objNull,[objNull]],["_rotMat",[],[[]],[3]]];
+_this params [["_object",objNull,[objNull]],["_Rollwinkel",0,[0]],["_Nickwinkel",0,[0]],["_Gierwinkel",0,[0]]];
 
-_angles = ([_rotMat] call FUNC(RotMatToAngle));
-CHECK(_angles isEqualTo []);
-//_angles params ["_Rollwinkel","_Nickwinkel","_Gierwinkel"];
-_angles params ["_Gierwinkel","_Nickwinkel","_Rollwinkel"];
-
-TRACEV_3(_Rollwinkel,_Nickwinkel,_Gierwinkel);
 If (floor(abs _Rollwinkel / 90) == (abs _Rollwinkel / 90)) then {_Rollwinkel = _Rollwinkel + 0.01;};
 If (floor(abs _Nickwinkel / 90) == (abs _Nickwinkel / 90)) then {_Nickwinkel = _Nickwinkel + 0.01;};
 If (floor(abs _Gierwinkel / 90) == (abs _Gierwinkel / 90)) then {_Gierwinkel = _Gierwinkel + 0.01;};
-TRACEV_3(_Rollwinkel,_Nickwinkel,_Gierwinkel);
+
 
 while {abs _Nickwinkel > 180} do {_Nickwinkel = ([-1,1] select (_Nickwinkel > 0))*(abs _Nickwinkel - 180)};
 if (abs _Nickwinkel > 90) then {

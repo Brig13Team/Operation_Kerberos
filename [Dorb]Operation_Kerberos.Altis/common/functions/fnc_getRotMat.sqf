@@ -11,21 +11,18 @@
 */
 #define DEBUG_MODE_FULL
 #include "script_component.hpp"
-SCRIPT(ObjGetRotMatrix);
+SCRIPT(getRotMat);
 _this params [["_object",objNull,[objNull]]];
-CHECKRET(isNull _object,[]);
 
-private _objectDir = VectorDir _object;
-private _objectUp = VectorUp _object;
+private _objectVDir = VectorDir _object;
+private _objectVUp = VectorUp _object;
+private _objectDir = getDir _object;
 
 private _Rollwinkel = 0;
 private _Gierwinkel = 0;
 private _Nickwinkel = 0;
 
-private _objectVDir = VectorDir _object;
-private _objectVUp = VectorUp _object;
 private _objectVSide = _objectVDir VectorcrossProduct _objectVUp;
-private _objectDir = getDir _object;
 
 private _VectorDir = [_objectVDir,_objectDir] call FUNC(rotateVectorXY);
 private _VectorUp = [_objectVUp,_objectDir] call FUNC(rotateVectorXY);

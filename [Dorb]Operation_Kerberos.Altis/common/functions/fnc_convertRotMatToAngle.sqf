@@ -11,7 +11,7 @@
 		[alpha,betha,gamma]
 */
 #include "script_component.hpp"
-SCRIPT(RotMatToAngle);
+SCRIPT(convertRotMatToAngle);
 _this params ["_rotMatrix"];
 CHECKRET(_rotMatrix isEqualTo [],[]);
 CHECKRET((count (_rotMatrix select 0) !=3),[]);

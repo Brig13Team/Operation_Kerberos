@@ -21,10 +21,13 @@ PREP(headless_determine);
 PREP(headless_move);
 
 
-PREP(ObjGetRotMatrix);
-PREP(ObjSetRotMatrix);
-PREP(RotMatToAngle);
+PREP(setRotMat);
+PREP(setRollPitchYaw);
+PREP(getRotMat);
+PREP(getRollPitchYaw);
+PREP(convertRotMatToAngle);
 PREP(rotateVectorXY);
+
 
 PREP(list_groups);
 
