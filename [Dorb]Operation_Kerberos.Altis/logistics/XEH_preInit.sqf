@@ -13,5 +13,6 @@ PREP(init);
 PREP(initServer);
 PREP(load);
 PREP(unload);
+PREP(setContainerWeight);
 
 ADDON = true;

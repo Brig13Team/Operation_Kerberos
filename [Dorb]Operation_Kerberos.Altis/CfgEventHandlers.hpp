@@ -25,6 +25,7 @@ class Extended_PostInit_EventHandlers {
 };
 class Extended_Init_Eventhandlers {
     #include "spawn\XEH_init.hpp"
+    #include "logistics\XEH_init.hpp"
 };
 
 //class Extended_animChanged_EventHandlers {};
@@ -59,7 +60,9 @@ class Extended_hitPart_EventHandlers {
     #include "bwpatch\XEH_hitPart.hpp"
 };
 //class Extended_incomingMissile_EventHandlers {};
-//class Extended_inventoryClosed_EventHandlers {};
+class Extended_inventoryClosed_EventHandlers {
+    #include "logistics\XEH_InventoryClosed.hpp"
+};
 //class Extended_inventoryOpened_EventHandlers {};
 class Extended_killed_EventHandlers {
     #include "headquarter\XEH_killed.hpp"
