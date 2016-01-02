@@ -16,13 +16,13 @@ CHECK(!hasinterface)
 
 params["_carrier"];
 
-_suitcase = _carrier getVariable [QGVAR(suitcase_suitcase),objNull];
+_suitcase = _carrier getVariable [QGVAR(objects_suitcase),objNull];
 
 detach _suitcase;
 _suitcase setPos (position _carrier);
 _carrier forceWalk false;
 
-_suitcase setVariable [QGVAR(suitcase_pos),getPos _suitcase,true];
-_suitcase setVariable [QGVAR(suitcase_carrier),objNull,true];
+_suitcase setVariable [QGVAR(objects_pos),getPos _suitcase,true];
+_suitcase setVariable [QGVAR(objects_carrier),objNull,true];
 
 

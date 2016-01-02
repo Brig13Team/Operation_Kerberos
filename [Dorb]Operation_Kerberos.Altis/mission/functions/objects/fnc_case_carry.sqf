@@ -20,14 +20,14 @@ _suitcase attachTo [_carrier, ATTACH_POINT, "RightHand"];
 _suitcase setDir 90;
 _carrier forceWalk true;
 
-_suitcase setVariable [QGVAR(suitcase_carrier),_carrier,true];
-_carrier setVariable [QGVAR(suitcase_suitcase),_suitcase];
+_suitcase setVariable [QGVAR(objects_carrier),_carrier,true];
+_carrier setVariable [QGVAR(objects_suitcase),_suitcase];
 
 If (isMultiplayer) then {
     [{
         params ["_suitcase"];
-        [{_this call FUNC(suitcase_handle); }, 1, [_suitcase]] call CBA_fnc_addPerFrameHandler;
+        [{_this call FUNC(objects_handle); }, 1, [_suitcase]] call CBA_fnc_addPerFrameHandler;
     }, [_suitcase],0] call EFUNC(common,NetEvent);
 }else{
-    [{_this call FUNC(suitcase_handle); }, 1, [_suitcase]] call CBA_fnc_addPerFrameHandler;
+    [{_this call FUNC(objects_handle); }, 1, [_suitcase]] call CBA_fnc_addPerFrameHandler;
 };

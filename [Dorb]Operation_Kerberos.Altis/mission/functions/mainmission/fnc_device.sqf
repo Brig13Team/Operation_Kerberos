@@ -44,10 +44,8 @@ for "_i" from 1 to _rand do{
     godmode
 ********************/
 {
-    _x setdamage 0;
-    SETVAR(_x,GVAR(target_dead),false);
-    _x addEventHandler ["HandleDamage", {_this call EFUNC(common,handledamage_C4);}];
-    #ifdef DEBUG_MODE_FULL
+    [_x] call FUNC(device_init);
+	#ifdef DEBUG_MODE_FULL
         [getPos _x,"DEVICE","ColorBlack","hd_destroy"] call EFUNC(common,debug_marker_create);
     #endif
 } forEach _targets;

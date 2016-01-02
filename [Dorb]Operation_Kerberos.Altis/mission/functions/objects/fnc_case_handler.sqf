@@ -15,14 +15,14 @@ params["_params","_handle"];
 _params params ["_suitcase"];
 
 
-_carrier = _suitcase getVariable [QGVAR(suitcase_carrier),objNull];
+_carrier = _suitcase getVariable [QGVAR(objects_carrier),objNull];
 
 if (isNull _carrier) exitWith {
-    _pos = _suitcase getVariable [QGVAR(suitcase_pos),[]];
+    _pos = _suitcase getVariable [QGVAR(objects_pos),[]];
     If !(_pos isEqualTo []) then {
         _suitcase setPos _pos;
     };
-    _suitcase setVariable [QGVAR(suitcase_carrierInCar),false];
+    _suitcase setVariable [QGVAR(objects_carrierInCar),false];
     [_handle] call CBA_fnc_removePerFrameHandler;
 };
 

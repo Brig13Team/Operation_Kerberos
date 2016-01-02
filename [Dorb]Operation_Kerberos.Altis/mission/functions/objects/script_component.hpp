@@ -1,4 +1,4 @@
-#define PART suitcase
+#define PART objects
 #include "..\script_component.hpp"
 
 #define ANIM_TIME 1.1

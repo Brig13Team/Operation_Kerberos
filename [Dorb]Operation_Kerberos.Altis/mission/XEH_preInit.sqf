@@ -7,13 +7,15 @@ PREP(choose_side);
 
 PREP(examine);
 
+PREP(playerinit);
+
 PREP(rescue_draw3D);
 PREP(reward);
 PREP(rtb);
 
 PREP(taskhandler);
 
-PREPS(suitcase,init);
+
 PREPS(suitcase,carry);
 PREPS(suitcase,drop);
 PREPS(suitcase,handler);
