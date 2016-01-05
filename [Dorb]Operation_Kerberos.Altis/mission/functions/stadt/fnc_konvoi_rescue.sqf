@@ -107,6 +107,7 @@ _vehicles pushBack _geiseltransport;
 
 for "_i" from 1 to 3 do{
 	_gruppe = createGroup civilian;
+	SETPVAR(_gruppe,GVAR(istarget),true);
 	_einheit = dorb_pow call BIS_fnc_selectRandom;
 	_unit = [_spawn_pos,_gruppe,_einheit] call EFUNC(spawn,unit);
 	sleep 0.5;
