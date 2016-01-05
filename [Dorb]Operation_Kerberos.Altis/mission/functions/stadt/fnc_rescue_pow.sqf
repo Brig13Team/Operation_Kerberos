@@ -38,6 +38,7 @@ _rand = floor(random 4) + 3;
 
 for "_i" from 1 to _rand do{
 	_gruppe = createGroup civilian;
+	SETPVAR(_gruppe,GVAR(istarget),true);
 	_einheit = dorb_pow SELRND;
 	_spawngebaeude = _gebaeudepos_arr SELRND;
 	_spawnposition = _spawngebaeude SELRND;
