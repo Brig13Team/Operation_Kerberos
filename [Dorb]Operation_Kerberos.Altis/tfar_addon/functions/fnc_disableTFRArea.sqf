@@ -13,10 +13,11 @@
 #include "script_component.hpp"
 SCRIPT(disableTFRArea);
 _this params [
-		["_centerpos",[0,0,0],[[]],[2,3]],
+		["_centerpos",[0,0,0],[[],objNull],[2,3]],
 		["_range",5000,[0]],
 		["_duration",180,[0]]
     ];
+If (IS_OBJECT(_centerpos)) then {_centerpos = getPos _centerpos;};
 _enableTime = diag_tickTime + _duration;
 {
 	If ((_x distance _centerpos)< _range) then {

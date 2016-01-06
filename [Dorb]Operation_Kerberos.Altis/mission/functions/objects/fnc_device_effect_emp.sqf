@@ -7,17 +7,28 @@
 */
 #include "script_component.hpp"
 SCRIPT(canDisable);
-
+#define EMP_RANGE 5000
 _this params ["_target"];
 
-ISNILS(QGVAR(device_intervall),diag_ticktime);
+ISNILS(GVAR(device_intervall),diag_ticktime);
 
-If (QGVAR(device_intervall)>diag_ticktime) exitWith {};
+If (GVAR(device_intervall)>diag_ticktime) exitWith {};
+
 {
-	if (!(vehicle player isKindof 'Air')) then {
-		_rand=(floor(random 4) + 1);
-		[_rand]spawn BIS_fnc_earthquake;
-	};
-},-1)] call EFUNC(common,NetEvent);
+	_x setHitPointDamage ["hitEngine", 1];
+	_x setHitPointDamage ["HitStarter1", 1];
+	
+	_x setHitPointDamage ["hitEngine2", 1];
+	_x setHitPointDamage ["HitStarter2", 1];
+	
+	_x setHitPointDamage ["hitEngine3", 1];
+	_x setHitPointDamage ["HitStarter3", 1];
+	
+	_x setHitPointDamage ["HitBatteries", 1];
+} forEach ((getPos _target) nearEntities [["Air","LandVehicle"],EMP_RANGE]);
+
+
+
+[_target] call EFUNC(tfar_addon,disableTFRArea);
 
 GVAR(earthquake_nextIntervall) = 7 * 60 + (floor(random 3)) * 60;

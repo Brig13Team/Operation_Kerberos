@@ -16,9 +16,17 @@ PREP(rtb);
 PREP(taskhandler);
 
 
-PREPS(suitcase,carry);
-PREPS(suitcase,drop);
-PREPS(suitcase,handler);
+PREPS(objects,case_carry);
+PREPS(objects,case_drop);
+PREPS(objects,case_handler);
+PREPS(objects,device_canDisable);
+PREPS(objects,device_damage_C4);
+PREPS(objects,device_damage_disable);
+PREPS(objects,device_disable);
+PREPS(objects,device_effect_earthquake);
+PREPS(objects,device_effect_emp);
+PREPS(objects,device_init);
+
 
 PREPS(mainmission,create);
 PREPS(mainmission,clear);
