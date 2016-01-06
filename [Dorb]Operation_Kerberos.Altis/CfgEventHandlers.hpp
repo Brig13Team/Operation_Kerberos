@@ -16,12 +16,14 @@ class Extended_PreInit_EventHandlers {
     INCLUDE_PREINIT(mission);
     INCLUDE_PREINIT(headquarter);
     INCLUDE_PREINIT(spawn);
+	INCLUDE_PREINIT(tfar_addon);
 };
 
 class Extended_PostInit_EventHandlers {
     INCLUDE_POSTINIT(headquarter);
     INCLUDE_POSTINIT(common);
     INCLUDE_POSTINIT(mission);
+	INCLUDE_POSTINIT(tfar_addon);
 };
 class Extended_Init_Eventhandlers {
     #include "spawn\XEH_init.hpp"
