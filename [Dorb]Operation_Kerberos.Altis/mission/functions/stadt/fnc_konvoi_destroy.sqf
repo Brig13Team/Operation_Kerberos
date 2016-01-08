@@ -100,7 +100,6 @@ _start_mrkr setMarkerType "hd_start";
 //////////////////////////////////////////////////
 
 [_task,true,[[LSTRING(KILL_CONV_TASK_DESC),(_startort select 0),_ort],LSTRING(KILL_CONV_TASK),LSTRING(DESTROY)],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
-
 [LSTRING(DESTROY),[LSTRING(KILL_CONV_TASK)],"data\icon\icon_destroy.paa",true] spawn EFUNC(interface,disp_info_global);
 
 //////////////////////////////////////////////////

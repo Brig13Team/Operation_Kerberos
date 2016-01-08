@@ -95,8 +95,8 @@ if (dorb_debug) then {
 //////////////////////////////////////////////////
 
 [_task,true,[[LSTRING(KILL_TASK_DESC),_name,_ort],LSTRING(KILL_TASK),LSTRING(KILL)],_position,"AUTOASSIGNED",0,false,true,"",true] spawn BIS_fnc_setTask;
-
 [LSTRING(KILL),[LSTRING(KILL_TASK)],"data\icon\icon_target.paa",true] spawn EFUNC(interface,disp_info_global);
+
 //////////////////////////////////////////////////
 ////// Überprüfung + Ende                      /////
 //////////////////////////////////////////////////
