@@ -106,10 +106,15 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
             _result;
         };
 		
+		private _isFlatBed = {
+			private _namearr = (toLower _class) splitString "_";
+			"flatbed" in _namearr;
+		};
+		
         if (_genMac !="" && (_text != "") && (_dName != "") && (_dName != _text) && (!(call(_isBase)))&& (!(call(_isRHSBase))) && (call(_isRHS))) then {
             if (_Class isKindOf "Air") then {
                 if (_simulation in ["helicopterrtd","helicopterx"]) then {
-                    If (ISCASVEHICLE(ARG)) then {
+                    If (ISCASVEHICLE(_class)) then {
 						_spawnlist_heli_CAS pushBack [_class,_pic ,"RHS", (call(_dNameRHS)), _dName, _icon];
 					} else {
 						_spawnlist_heli_log pushBack [_class,_pic ,"RHS", (call(_dNameRHS)), _dName, _icon];
@@ -122,7 +127,11 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
                 _spawnlist_tanks pushBack [_class,_pic ,"RHS", (call(_dNameRHS)), _dName, _icon];
             };
             if (_vClass in ["rhs_vehclass_car","rhs_vehclass_truck","rhs_vehclass_MRAP"]) then {
-                _spawnlist_cars pushBack [_class,_pic ,"RHS", (call(_dNameRHS)), _dName, _icon];
+                If (call(_isFlatBed)) then {
+					_spawnlist_support pushBack [_class,_pic ,"RHS", (call(_dNameRHS)), _dName, _icon];
+				}else{
+					_spawnlist_cars pushBack [_class,_pic ,"RHS", (call(_dNameRHS)), _dName, _icon];
+				};
             };
             if (_vClass isEqualTo "Static") then {
                 _spawnlist_static pushBack [_class,_pic ,"RHS", (call(_dNameRHS)), _dName, _icon];
@@ -231,6 +240,6 @@ ISNILS(logistik2,objNull);
 	[luftfahrzeuge,"air_spawn",_luftliste_CAS],
 	[luftfahrzeuge_leicht,"air_spawn_light",_luftliste_log],
 	[marine,"boat_spawn",_marineliste],
-	[logistik,"logistic_spawn",_fahrzeugliste],
+	[logistik,"logistic_spawn",_logistikliste],
 	[logistik2,"logistic_spawn2",_logistikliste]
 ];

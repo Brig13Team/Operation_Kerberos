@@ -5,6 +5,7 @@
 */
 author = "Dorbedo && iJesuz";
 onLoadName = "Operation Kerberos";
+//OnLoadMission = "";
 
 class Header {
     gameType = Coop;
@@ -13,11 +14,15 @@ class Header {
 };
 
 ///// ALLGEMEIN
-ShowGPS = 1;
+ShowGPS = 0;
 disabledAI=1;
 saving = 0;
 scriptedPlayer = 1;
 enableDebugConsole = 1;
+//showHUD[] = {true,false,false,false,false,false,false,false};
+//disableChannels[]={2,4,5};
+joinUnassigned = 1;
+
 
 ///// RESPAWN
 respawnButton = 1;

@@ -124,7 +124,7 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
         if (_genMac !="" && (_text != "") && (_dName != "") && (_dName != _text) && (!(call(_isBase)))&& (!(call(_isRHSBase))) && (call(_isRHS))) then {
             if (_Class isKindOf "Air") then {
                 if (_simulation in ["helicopterrtd","helicopterx"]) then {
-                    If (ISCASVEHICLE(ARG)) then {
+                    If (ISCASVEHICLE(_class)) then {
 						_spawnlist_heli_CAS pushBack [_class,_pic ,"RHS", (call(_dNameRHS)), _dName, _icon];
 					} else {
 						_spawnlist_heli_log pushBack [_class,_pic ,"RHS", (call(_dNameRHS)), _dName, _icon];
@@ -205,6 +205,14 @@ private _luftliste_log  = _spawnlist_heli_log;
 private _marineliste    = _spawnlist_marine;
 private _fahrzeugliste  = _spawnlist_cars + _spawnlist_tanks;
 private _logistikliste  = _spawnlist_support + _spawnlist_static + _spawnlist_others;
+
+ISNILS(fahrzeuge,objNull);
+ISNILS(drohnen,objNull);
+ISNILS(luftfahrzeuge,objNull);
+ISNILS(luftfahrzeuge_leicht,objNull);
+ISNILS(marine,objNull);
+ISNILS(logistik,objNull);
+ISNILS(logistik2,objNull);
 
 {
 	If (!(isNil (format["%1",(_x select 0)]))) then {

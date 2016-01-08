@@ -48,7 +48,7 @@ for "_i" from 1 to _rand do{
     godmode
 ********************/
 {
-    [_x] call FUNC(device_init);
+    [_x] call FUNC(objects_device_init);
 	#ifdef DEBUG_MODE_FULL
         [getPos _x,"EMP"] call EFUNC(common,debug_marker_create);
     #endif
