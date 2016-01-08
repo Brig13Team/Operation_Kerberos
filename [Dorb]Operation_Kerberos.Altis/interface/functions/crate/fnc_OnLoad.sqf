@@ -11,6 +11,11 @@ SCRIPT(onLoad);
 private["_ctrl"];
 disableSerialization;
 
+//(findDisplay 600200) setVariable [QGVAR(crate_multi),1];
+missionNamespace setVariable [QGVAR(crate_multi),1];
+
+(findDisplay 600200) displayAddEventHandler ["KeyDown",QUOTE([ARR_2(_this select 1,true)] call FUNC(crate_keyEvent);)];
+(findDisplay 600200) displayAddEventHandler ["KeyUp",QUOTE([ARR_2(_this select 1,false)] call FUNC(crate_keyEvent);)];
 for "_i" from 1 to 20 do {
     _ctrl = (findDisplay 600200 displayCtrl (600210 + _i));
     _ctrl ctrlSetEventHandler ["ButtonClick", FORMAT_1(QUOTE([%1] call FUNC(crate_filter)),_i)];

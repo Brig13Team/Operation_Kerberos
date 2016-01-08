@@ -15,6 +15,7 @@ PREPS(crate,createlists);
 PREPS(crate,filter);
 PREPS(crate,getMod);
 PREPS(crate,init);
+PREPS(crate,keyEvent);
 PREPS(crate,mass);
 PREPS(crate,OnLoad);
 PREPS(crate,OpenMenu);

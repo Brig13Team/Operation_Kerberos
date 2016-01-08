@@ -7,12 +7,12 @@
 */
 #include "script_component.hpp"
 SCRIPT(mass);
-PARAMS_2(_mode,_param);
+_this params ["_mode","_param"];
 switch (_mode) do {
     case "check" : {
         private["_config","_mass_new","_mass_current","_mass_max"];
-        _config = _param;
-        _mass_new = ["getmass",_config] call FUNC(crate_mass);
+        _param params ["_config","_amount"];
+        _mass_new = ["getmass",[_config,_amount]] call FUNC(crate_mass);
         _mass_current = ["currentmass"] call FUNC(crate_mass);
         _mass_max = (GVAR(crate_boxes) select 2) select GVAR(crate_current_boxid);
         _return=!((_mass_current+_mass_new)<_mass_max);
@@ -35,14 +35,16 @@ switch (_mode) do {
     };
     case "getmass" : {
         private["_mass"];
-        _mass = getnumber (_param>>"mass");
+		_param params ["_config","_amount"];
+		If (isNil "_amount") then {_amount = 1;};
+        _mass = getnumber (_config>>"mass");
         If (_mass == 0) then {
-            _mass = getnumber (_param>>"ItemInfo">>"mass");
+            _mass = getnumber (_config>>"ItemInfo">>"mass");
             If (_mass == 0) then {
-                _mass = getnumber (_param>>"WeaponSlotsInfo">>"mass");
+                _mass = getnumber (_config>>"WeaponSlotsInfo">>"mass");
             };
         };
-        _mass
+        (_mass * _amount)
     };
     case "displaymass" : {
         private["_ctrl","_mass_current","_mass_max","_status"];

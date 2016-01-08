@@ -20,7 +20,8 @@ _row = lnbCurSelRow _ctrlList;
 _config = (configfile>>(_ctrlList lnbData [_row,1])>>(_ctrlList lnbData [_row,2]));
 _istMagazin = ((_ctrlList lnbData [_row,1]) isEqualTo "CfgMagazines");
 //Masscheck
-If (_mode && (["check",_config]call FUNC(crate_mass))) exitwith {};
+_multi = missionNamespace getVariable [QGVAR(crate_multi),1];
+If (_mode && (["check",[_config,_multi]]call FUNC(crate_mass))) exitwith {};
 _id=0;
 If (_istMagazin) then {_id = 2;};
 Private["_anzahl","_items","_weaponid"];
@@ -29,12 +30,12 @@ If (_config in (GVAR(crate_current) select _id)) then {
     _weaponid = (GVAR(crate_current) select _id) find _config;
     _anzahl = GVAR(crate_current) select (_id+1);
     If (_mode) then {
-        _anzahl set [_weaponid, ((_anzahl select _weaponid)+1)];
-        _ctrlList lnbsetValue [[_row,0],((_ctrlList lnbValue [_row,0])+1)];
+        _anzahl set [_weaponid, ((_anzahl select _weaponid)+_multi)];
+        _ctrlList lnbsetValue [[_row,0],((_ctrlList lnbValue [_row,0])+_multi)];
     }else{
         if ((_anzahl select _weaponid)>0) then {
-            _anzahl set [_weaponid, ((_anzahl select _weaponid)-1)];
-            _ctrlList lnbsetValue [[_row,0],((_ctrlList lnbValue [_row,0])-1)];
+            _anzahl set [_weaponid, (((_anzahl select _weaponid)-_multi)max 0)];
+            _ctrlList lnbsetValue [[_row,0],(((_ctrlList lnbValue [_row,0])-_multi)max 0)];
         };
     };
 }else{

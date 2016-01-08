@@ -61,7 +61,7 @@ if(((lnbSize _ctrlList) select 0)>0) then {lbSetCurSel [dlg_veh_spawn_list_idc, 
 
 for "_i" from 0 to ((lnbSize _ctrlList) select 0) do {
     _pic = _ctrlList lnbData [_i,1];
-    if (!(_pic in ["pictureThing","pictureStaticObject"])) then {
+    if (!(_pic in ["pictureThing","pictureStaticObject","iconobject_1x3"])) then {
         _ctrlList lnbSetPicture [ [_i, 0],(_ctrlList lnbData [_i,1])];
     };
 };

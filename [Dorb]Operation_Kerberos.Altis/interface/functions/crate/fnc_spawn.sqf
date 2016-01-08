@@ -59,5 +59,7 @@ _anzahl = GVAR(crate_current) select 3;
     _box addMagazineCargoGlobal [configname (_x),(_anzahl select _foreachindex)];
 }forEach _items;
 
+[_box] call EFUNC(logistics,setContainerWeight);
+
 disableSerialization;
 closeDialog 600200;
