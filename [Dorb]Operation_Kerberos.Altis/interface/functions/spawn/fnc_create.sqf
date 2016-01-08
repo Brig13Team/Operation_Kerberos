@@ -81,4 +81,9 @@ if (_mode isEqualTo "driver") then {
     player moveInDriver _vehicle;
 };
 
+If (GVARMAIN(mods_TFAR)) then {
+	_vehicle setVariable ["tf_side", GVARMAIN(playerSide), true];
+};
+
+
 closeDialog dlg_veh_spawn_idd;

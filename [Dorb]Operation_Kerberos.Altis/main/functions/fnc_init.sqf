@@ -15,8 +15,8 @@ SCRIPT(init);
 
 
 /// initialize MODS
-GVAR(mods_rds) = (isClass(configFile >> "CfgPatches" >> "RDS_StaticWeapons_Core"));
-GVAR(mods_bwa) = (isClass(configFile >> "CfgPatches" >> "BWA3_Tracked"));
+GVARMAIN(mods_TFAR) = (isClass(configFile >> "CfgPatches" >> "task_force_radio"));
+GVARMAIN(mods_bwa) = (isClass(configFile >> "CfgPatches" >> "BWA3_Tracked"));
 
 /// initialize SIDES
 IF (isNil QGVAR(playerside)) then {

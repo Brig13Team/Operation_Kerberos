@@ -6,6 +6,7 @@ PREP(cleanup_base);
 PREP(cleanup_full);
 
 PREP(addACEMedicalItems);
+PREP(addTFR);
 PREP(army_set);
 
 PREP(crew);
