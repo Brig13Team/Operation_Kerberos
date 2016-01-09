@@ -6,17 +6,18 @@
     
 */
 #include "script_component.hpp"
-SCRIPT(init);
+SCRIPT(postInit);
 
-/// suitcase
+/// sandstorm
+If (isNil QGVAR(sandstormIsActive)) then {GVAR(sandstormIsActive) = false;};
 If (hasInterface) then {
-    [] call FUNC(suitcase_init);
+    [] spawn FUNC(objects_device_effect_sandstorm_init);
 };
 
 GVARMAIN(debug)=false;
 
 CHECK(!isServer)
-
+CHECK(true)
 // Delete dead Units
 [{
     If ((count allDead)>20) then {

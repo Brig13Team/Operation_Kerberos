@@ -133,10 +133,10 @@ class Mission
 		briefingName="Operation Kerberos";
 		overviewText="Version 0.17";
 		timeOfChanges=7200;
-		startWeather=1;
+		startWeather=0.1;
 		startFog=0.059999999;
 		startWind=0;
-		forecastWeather=0.11;
+		forecastWeather=0.1;
 		forecastWind=0;
 		forecastWaves=0;
 		year=2035;
