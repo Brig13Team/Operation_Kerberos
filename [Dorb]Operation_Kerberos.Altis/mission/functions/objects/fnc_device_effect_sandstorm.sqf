@@ -11,17 +11,22 @@ SCRIPT(device_effect_sandstorm);
 _this params ["_active"];
 
 
+
 If !(_active) exitWith {
 	/// Destroy
 	[] spawn {
+		If (isNil QGVAR(sandstorm_ppEffect)) exitWith {};
 		GVAR(sandstorm_ppEffect) ppEffectAdjust [1,1.0,0.0,[.55,.55,.52,0],[.88,.88,.93,1],[1,.1,.4,0.03]];
 		GVAR(sandstorm_ppEffect) ppEffectCommit 30;
 		ppEffectDestroy GVAR(sandstorm_ppEffect);
 	};
+	If (isNil QGVAR(sandstorm_emitterArray)) exitWith {};
 	{
 		deleteVehicle _x;
 	} forEach GVAR(sandstorm_emitterArray);
 	GVAR(sandstorm_emitterArray) = nil;
+	deleteVehicle GVAR(sandstorm_emitter);
+	GVAR(sandstorm_emitter) = nil
 };
 
 /// player is in respawn -> do nothing
