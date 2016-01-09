@@ -14,5 +14,9 @@ PREP(initServer);
 PREP(load);
 PREP(unload);
 PREP(setContainerWeight);
+PREP(canTow);
+PREP(doTow);
+PREP(doUnTow);
+PREP(tow);
 
 ADDON = true;

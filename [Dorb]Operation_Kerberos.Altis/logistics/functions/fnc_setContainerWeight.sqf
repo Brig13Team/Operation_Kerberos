@@ -48,5 +48,3 @@ for "_i" from 0 to (count (_itemCargo select 0) - 1) do {
 
 _container setMass (_iweight + _cweight);
 _container setVariable [QGVAR(emptyMass),_cweight,true];
-
-// systemChat format ["%1",_iweight + _cweight];
