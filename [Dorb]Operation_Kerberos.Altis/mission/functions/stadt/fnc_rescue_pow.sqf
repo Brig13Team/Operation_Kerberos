@@ -39,6 +39,7 @@ _rand = floor(random 4) + 3;
 for "_i" from 1 to _rand do{
 	_gruppe = createGroup civilian;
 	SETPVAR(_gruppe,GVAR(istarget),true);
+	_gruppe allowFleeing 0;
 	_einheit = dorb_pow SELRND;
 	_spawngebaeude = _gebaeudepos_arr SELRND;
 	_spawnposition = _spawngebaeude SELRND;
@@ -69,6 +70,8 @@ for "_i" from 1 to _rand do{
 	removeallweapons _x;
 	removeHeadgear _x;
 	removeBackpack _x;
+	_x disableAI "MOVE";
+	_x disableAI "FSM";
 	[_x,true] call ACE_captive_fnc_setHandcuffed,
 
 	if (dorb_debug) then {
