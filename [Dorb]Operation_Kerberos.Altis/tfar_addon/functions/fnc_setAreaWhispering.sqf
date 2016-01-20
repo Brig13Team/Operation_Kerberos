@@ -19,14 +19,8 @@ _this params [
     ];
 CHECK(_position isEqualTo [])
 
-private _setWhispering = "
-	TF_speak_volume_level = 'whispering';
-	TF_speak_volume_meters = 5;
-	['OnSpeakVolume_', TFAR_currentUnit, [TFAR_currentUnit, TF_speak_volume_meters]] call TFAR_fnc_fireEventHandlers; ";
-
-
 {
 	If ((_x distance2D _position)<= _radius) then {
-		[_x,_setWhispering] call EFUNC(common,NetEventLocalExec);
+		[_x,QUOTE(call FUNC(setWhispering);)] call EFUNC(common,NetEventLocalExec);
 	};
 }forEach allPlayers;
