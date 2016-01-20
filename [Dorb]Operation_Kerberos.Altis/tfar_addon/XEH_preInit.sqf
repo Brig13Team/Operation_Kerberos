@@ -7,5 +7,6 @@ PREP(disableTFRArea);
 PREP(enableTFR);
 PREP(enableTFRtime);
 PREP(isSpeaking);
+PREP(setAreaWhispering);
 
 ADDON = true;
