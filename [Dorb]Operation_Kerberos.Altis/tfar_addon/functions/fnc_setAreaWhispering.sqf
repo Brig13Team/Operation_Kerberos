@@ -21,6 +21,6 @@ CHECK(_position isEqualTo [])
 
 {
 	If ((_x distance2D _position)<= _radius) then {
-		[_x,QUOTE(call FUNC(setWhispering);)] call EFUNC(common,targetExec);
+		[_x,QUOTE(call FUNC(setWhispering);)] call EFUNC(events,targetExec);
 	};
 }forEach allPlayers;

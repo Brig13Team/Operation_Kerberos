@@ -21,6 +21,13 @@ class Extended_PreInit_EventHandlers {
 };
 
 class Extended_PostInit_EventHandlers {
+    INCLUDE_SERVERPOSTINIT(main);
+    INCLUDE_SERVERPOSTINIT(interface);
+    INCLUDE_SERVERPOSTINIT(logistics);
+    INCLUDE_SERVERPOSTINIT(player);
+    INCLUDE_CLIENTPOSTINIT(logistics);
+    INCLUDE_CLIENTPOSTINIT(interface);
+    INCLUDE_CLIENTPOSTINIT(player);
     INCLUDE_POSTINIT(headquarter);
     INCLUDE_POSTINIT(common);
     INCLUDE_POSTINIT(mission);

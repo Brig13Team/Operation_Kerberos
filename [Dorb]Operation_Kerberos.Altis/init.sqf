@@ -16,9 +16,23 @@ enableRadio false;
 /// Mod-Specific
 tf_no_auto_long_range_radio = true;
 
-If ((!hasInterface) && (!isServer)) then {
+["Initialize"] call BIS_fnc_dynamicGroups;
+
+If (isServer) then {
+    setTimeMultiplier 2;
+};
+
+If (isHeadless) then {
     [] execVM "VCOM_Driving\init.sqf";
 };
 
-["Initialize"] call BIS_fnc_dynamicGroups;
-
+If (hasInterface) then {
+    waituntil {! isnull player};
+    ["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;
+    [
+        LSTRING(CLAN),
+        [LSTRING(WELCOME1),LSTRING(WELCOME2),LSTRING(WELCOME3),LSTRING(WELCOME4),LSTRING(WELCOME5),LSTRING(WELCOME6)],
+        "data\logo_brig.paa",
+        false
+    ] call FUNC(disp_info);
+};

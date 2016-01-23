@@ -21,5 +21,5 @@ PARAMS_1(_obj);
 _obj addAction [localize LSTRING(INTEL_GRAB), 
     {
         deleteVehicle (_this select 0);
-        [{[_this select 0,format[localize (_this select 1),_this select 2]] spawn EFUNC(interface,disp_message);},[LSTRING(INTEL_TASK),LSTRING(INTEL_FOUND),name player],-1] call EFUNC(common,globalExec);
+        [{[_this select 0,format[localize (_this select 1),_this select 2]] spawn EFUNC(interface,disp_message);},[LSTRING(INTEL_TASK),LSTRING(INTEL_FOUND),name player],-1] call EFUNC(events,globalExec);
     },[], 2, true, true, "",""];

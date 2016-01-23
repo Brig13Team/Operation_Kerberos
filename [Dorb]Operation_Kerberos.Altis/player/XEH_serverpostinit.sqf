@@ -2,19 +2,9 @@
     Author: Dorbedo
     
     Description:
-        initServer
+        postinit server
 */
 #include "script_component.hpp"
-SCRIPT(initServer);
-//waituntil{!isNil QGVAR(RESPAWNMARKER)};
-
-/// 6h == 12h Ingame
-setTimeMultiplier 2;
-
-EGVAR(common,PFEH_headless) = [{ [] call EFUNC(common,headless) } , 30, [] ] call CBA_fnc_addPerFrameHandler;
-
-[] spawn EFUNC(interface,spawn_createlist);
-[] spawn EFUNC(logistics,initServer);
 
 #ifdef DORB_PILOT_WHITELIST_ENABLED
     GVAR(reserved_pilot)=[];

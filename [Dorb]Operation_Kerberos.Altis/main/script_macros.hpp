@@ -35,7 +35,22 @@ Author:
         class DOUBLES(PREFIX,var1) {\
             init = QUOTE(call compile preProcessFileLineNumbers 'var1\XEH_PostInit.sqf'); \
         };
-
+    #define INCLUDE_SERVERPREINIT(var1) \
+         class DOUBLES(PREFIX,var1) {\
+            Serverinit = QUOTE(call compile preProcessFileLineNumbers 'var1\XEH_ServerPreInit.sqf'); \
+        };
+    #define INCLUDE_SERVERPOSTINIT(var1) \
+        class DOUBLES(PREFIX,var1) {\
+            Serverinit = QUOTE(call compile preProcessFileLineNumbers 'var1\XEH_ServerPostInit.sqf'); \
+        };
+    #define INCLUDE_CLIENTPREINIT(var1) \
+         class DOUBLES(PREFIX,var1) {\
+            Clientinit = QUOTE(call compile preProcessFileLineNumbers 'var1\XEH_ClientPreInit.sqf'); \
+        };
+    #define INCLUDE_CLIENTPOSTINIT(var1) \
+        class DOUBLES(PREFIX,var1) {\
+            Clientinit = QUOTE(call compile preProcessFileLineNumbers 'var1\XEH_ClientPostInit.sqf'); \
+        };
     #define GVAR(var1) DOUBLES(ADDON,var1)
     #define QGVAR(var1) QUOTE(GVAR(var1))
     #define EGVAR(var1,var2) TRIPLES(PREFIX,var1,var2)

@@ -1,12 +1,13 @@
 #include "script_component.hpp"
 
+If (hasInterface) exitWith {};
+
 GVAR(WP_deaktivated) = [];
 GVAR(WP_hashes) = [[],0] call CBA_fnc_hashCreate;
 
 
 
 ///// FDC
-private "_handel";
 #define INTERVALL_FDC 120
 #define INTERVALL_SEARCH 400
 

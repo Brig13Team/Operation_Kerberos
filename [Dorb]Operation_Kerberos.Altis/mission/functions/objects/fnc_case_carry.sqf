@@ -27,7 +27,7 @@ If (isMultiplayer) then {
     [{
         params ["_suitcase"];
         [{_this call FUNC(objects_handle); }, 1, [_suitcase]] call CBA_fnc_addPerFrameHandler;
-    }, [_suitcase],0] call EFUNC(common,globalExec);
+    }, [_suitcase],0] call EFUNC(events,globalExec);
 }else{
     [{_this call FUNC(objects_handle); }, 1, [_suitcase]] call CBA_fnc_addPerFrameHandler;
 };
