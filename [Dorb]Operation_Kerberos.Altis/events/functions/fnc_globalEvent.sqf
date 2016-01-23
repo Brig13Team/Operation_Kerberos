@@ -20,5 +20,5 @@ SCRIPT(GlobalEvent);
     _this,
     -2,
     false
-] call FUNC(NetEvent);
+] call FUNC(GlobalExec);
 _this call FUNC(localEvent);

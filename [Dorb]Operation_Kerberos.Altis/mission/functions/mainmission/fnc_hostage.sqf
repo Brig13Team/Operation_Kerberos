@@ -56,7 +56,7 @@ GVAR(rescue_counter) = 0;
     #ifdef DEBUG_MODE_FULL
         [getPos _x,format["RESCUE %1",(name _x)]] call EFUNC(common,debug_marker_create);
     #endif
-    [_x,QGVAR(rescuepoint),(QUOTE(INC(GVAR(rescue_counter));)+"moveOut (_this select 0);uisleep 0.3;deleteVehicle (_this select 0);")] call BIS_fnc_addScriptedEventHandler;
+    [QGVAR(rescuepoint),QUOTE(INC(GVAR(rescue_counter)); moveOut (_this select 0); uisleep 0.3; deleteVehicle (_this select 0);),_x] call EFUNC(events,addEventHandler);
 }forEach _targets;
 
 /********************

@@ -14,7 +14,7 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(addEventhandler);
+SCRIPT(removeEventhandler);
 _this params [
     ["_eventName","",[""]],
     ["_ID",-1,[0]],

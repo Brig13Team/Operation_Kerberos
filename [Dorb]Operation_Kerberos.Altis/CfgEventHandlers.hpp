@@ -9,6 +9,7 @@
 
 class Extended_PreInit_EventHandlers {
     INCLUDE_PREINIT(main);
+    INCLUDE_PREINIT(events);
     INCLUDE_PREINIT(common);
     INCLUDE_PREINIT(interface);
     INCLUDE_PREINIT(player);

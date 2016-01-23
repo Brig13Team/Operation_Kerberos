@@ -14,7 +14,7 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(addEventhandler);
+SCRIPT(localEvent);
 _this params [
     ["_eventName","",[""]],
     ["_parameter",[],[[]]],

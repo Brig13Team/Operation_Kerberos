@@ -20,4 +20,4 @@ params[["_title","",[""]],["_content","",["",[]]],["_icon","",[""]],["_body",tru
 
 If (IS_STRING(_content)) then {_content = [_content];};
 
-[{_this spawn FUNC(disp_info)},[_title,_content,_icon,_body],-1] call EFUNC(common,NetEvent);
+[{_this spawn FUNC(disp_info)},[_title,_content,_icon,_body],-1] call EFUNC(common,globalExec);

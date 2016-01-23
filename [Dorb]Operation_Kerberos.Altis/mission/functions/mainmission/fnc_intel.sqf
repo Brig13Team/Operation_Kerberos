@@ -44,7 +44,7 @@ GVAR(rescue_counter) = 0;
     #ifdef DEBUG_MODE_FULL
         [getPos _x,"INTEL","ColorBlack","hd_destroy"] call EFUNC(common,debug_marker_create);
     #endif
-    [_x,QGVAR(rescuepoint),(QUOTE(INC(GVAR(rescue_counter));))] call BIS_fnc_addScriptedEventHandler;
+    [QGVAR(rescuepoint),QUOTE(INC(GVAR(rescue_counter));),_x] call EFUNC(events,addEventHandler);
 }forEach _targets;
 
 /********************

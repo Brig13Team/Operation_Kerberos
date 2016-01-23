@@ -6,11 +6,6 @@ PREP(debug_marker_clean);
 PREP(debug_marker_create);
 PREP(determineHC);
 
-PREP(_EventExec);
-PREP(NetEvent);
-PREP(NetEventLocal);
-PREP(NetEventLocalExec);
-
 PREP(get_buildings);
 PREP(get_cfg_subclasses);
 PREP(get_cfglocations);
@@ -20,14 +15,12 @@ PREP(headless);
 PREP(headless_determine);
 PREP(headless_move);
 
-
 PREP(setRotMat);
 PREP(setRollPitchYaw);
 PREP(getRotMat);
 PREP(getRollPitchYaw);
 PREP(convertRotMatToAngle);
 PREP(rotateVectorXY);
-
 
 PREP(list_groups);
 
@@ -93,17 +86,4 @@ If (!isServer) then {
     ] call CBA_fnc_addPerFrameHandler;
 }else{
     //QGVAR(setVarSyncServerArray) addPublicVariableEventHandler {_this };
-};
-
-DOUBLES(PREFIX,l)=[];
-DOUBLES(PREFIX,e)=[];
-
-if (!hasInterface) then {
-    QUOTE(DOUBLES(PREFIX,l)) addpublicVariableEventHandler {(_this select 1) spawn FUNC(NetEventLocalExec);};
-    QUOTE(DOUBLES(PREFIX,e)) addpublicVariableEventHandler {(_this select 1) spawn FUNC(_EventExec);};
-}else{
-    [] spawn {
-        waitUntil {alive player};
-        QUOTE(DOUBLES(PREFIX,e)) addpublicVariableEventHandler {(_this select 1) spawn FUNC(_EventExec);};
-    };
 };

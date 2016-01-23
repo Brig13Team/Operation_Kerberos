@@ -21,5 +21,5 @@ If (hasInterface) exitWith {
 If (isServer) then {
 	[{
 		[] call FUNC(objects_device_effect_sandstorm_init);
-    }, [],-2] call EFUNC(common,NetEvent);
+    }, [],-2] call EFUNC(common,globalExec);
 };

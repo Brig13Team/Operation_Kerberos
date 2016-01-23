@@ -16,4 +16,4 @@
 SCRIPT(disp_message_global);
 params[["_title","",[""]],["_content","",[""]]];
 
-[{_this spawn FUNC(disp_message);},[_title,_content],-1] call EFUNC(common,NetEvent);
+[{_this spawn FUNC(disp_message);},[_title,_content],-1] call EFUNC(common,globalExec);

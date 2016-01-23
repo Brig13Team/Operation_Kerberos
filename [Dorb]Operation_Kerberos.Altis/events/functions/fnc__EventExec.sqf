@@ -36,11 +36,11 @@ If (IS_SCALAR(_target)) exitWith {
             case -5 : {If (hasInterface) then {true}else{false};};
             default {true};
         }}) then {
-        if (IS_STRING(_function)) then {
-            _params spawn compile _function;
-        }else{
-            _params spawn _function;
-        };    
+            if (IS_STRING(_function)) then {
+                _params spawn compile _function;
+            }else{
+                _params spawn _function;
+            };
     };
 };
 

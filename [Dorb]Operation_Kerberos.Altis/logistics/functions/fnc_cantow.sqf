@@ -1,28 +1,34 @@
 /*
-    Author: iJesuz
+    Author: iJesuz, Dorbedo
 
     Description:
-        towing
+        checks if a vehicle can tow something
 
     Parameter(s):
-        0 : OBJECT - vehicle 1
-        1 : OBJECT - vehicle 2
+        0 : OBJECT - target of the ace action
 */
 #include "script_component.hpp"
 SCRIPT(canTow);
-
 private ["_boundingBox1","_boundingBox2"];
-params [["_veh1",objNull,[objNull]],["_veh2",objNull,[objNull]]];
+_this params [["_target",objNull,[objNull]]];
 
-if ((isNull _veh1) || (isNull _veh2)) exitWith {};
+If !((_target isKindOf "Car")||(_target isKindOf "Tank")) exitWith {false};
 
-_boundingBox1 = boundingBoxReal _veh1;
-_boundingBox2 = boundingBoxReal _veh2;
-_l1 = abs(_boundingBox1 select 1 select 0);
-_l2 = abs(_boundingBox2 select 0 select 0);
+private _boundingBox1 = boundingBoxReal _target;
+private _target_lenght = abs(_boundingBox1 select 1 select 0);
 
-if (((_veh1 distance2D _veh2) - (_l1 + _l2)) <= 1) then {
-	true;
-} else {
-	false;
-}
+private _position = (getPos _target) vectorAdd ((vectorDir _target) vectorMultiply (-1 * _target_lenght));
+private _nearVehicles = _position nearEntities [["Tank","Car","Plane"],15];
+
+private _return = true;
+{
+	If ((_x != _target)&&{
+        (
+            _position distance2D (
+                (getPos _x) vectorAdd ((vectorDir _x) vectorMultiply (abs((boundingBoxReal _x) select 0 select 0)))
+            )< 2
+        )
+    } exitWith {_return = true;};
+} forEach _nearVehicles;
+
+_return;

@@ -14,7 +14,7 @@
 */
 #include "script_component.hpp"
 
-SCRIPT(NetEventLocalExec);
+SCRIPT(targetExec);
 _this params[["_target",objNull,[objNull,grpNull]],["_function","",["",{}]],["_params",[]]];
 TRACEV_3(_target,_function,_params);
 
@@ -22,12 +22,7 @@ CHECKRET((isNull _target || _function isEqualTo ""),false);
 
 
 if (Local _target) exitWith {
-    if (IS_STRING(_function)) then {
-        _params spawn compile _function;
-    }else{
-        _params spawn _function;
-    };
-    true;
+    [_function,_params,_target] call FUNC(_EventExec);
 };
 
 

@@ -19,7 +19,7 @@ CHECK(!isClass(missionconfigFile >> "logistics"))
 private["_cfgLog","_loadAction","_unloadAction","_checkAction","_paraAction","_vehicle","_loadfunction"];
 
 ISNILS(EGVAR(player,respawn_fnc),[]);
-EGVAR(player,respawn_fnc) pushBack "player setVariable ['dorb_logistics_isloading',false];";
+EGVAR(player,respawn_fnc) pushBack QUOTE(player setVariable [ARR_2('GVAR(isloading)',false)];);
 
 _cfgLog = missionconfigFile >> "logistics" >> "vehicles";
 _loadAction = [QGVAR(action_load), localize LSTRING(ACTION_LOAD), "", {[_target] spawn FUNC(doload);}, {[_target] call FUNC(canload);}] call ace_interact_menu_fnc_createAction;

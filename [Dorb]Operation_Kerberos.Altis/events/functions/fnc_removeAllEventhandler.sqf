@@ -11,7 +11,7 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(addEventhandler);
+SCRIPT(removeAllEventhandler);
 _this params [
     ["_namespace",missionnamespace,[missionnamespace,uiNamespace,parsingNamespace,objNull,grpNull,taskNull,locationnull]],
     ["_eventName","",[""]]
