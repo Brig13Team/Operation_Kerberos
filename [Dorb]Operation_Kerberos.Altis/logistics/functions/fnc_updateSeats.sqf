@@ -1,11 +1,11 @@
 /*
-	Author: iJesuz
+    Author: iJesuz
 
-	Description:
-		blocks seats which shouldn't be useable because of the cargo
+    Description:
+        blocks seats which shouldn't be useable because of the cargo
 
-	Parameter(s):
-		0: OBJECT - vehicle
+    Parameter(s):
+        0: OBJECT - vehicle
 */
 #include "script_component.hpp"
 SCRIPT(updateSeats);
@@ -22,19 +22,19 @@ _cargo_point = getArray (missionConfigFile >> "logistics" >> "vehicles" >> (type
 _stack = _vehicle getVariable [QGVAR(stack),[]];
 
 if (_stack isEqualTo []) then {
-	{ _vehicle lockCargo[_x select 0, false]; } forEach _cargo_positions;
+    { _vehicle lockCargo[_x select 0, false]; } forEach _cargo_positions;
 } else {
-	_last_row = _stack select (count _stack - 1);
-	_y = (_last_row select 0 select 1 select 3 select 1) - (_last_row select 0 select 1 select 1);
-	for [{_i = 1},{_i < (count _last_row)},{_i = _i + 1}] do {
-		_y = if (_y < ((_last_row select _i select 1 select 3 select 1) - (_last_row select _i select 1 select 1))) then { (_last_row select _i select 1 select 3 select 1) - (_last_row select _i select 1 select 1) } else { _y };
-	};
+    _last_row = _stack select (count _stack - 1);
+    _y = (_last_row select 0 select 1 select 3 select 1) - (_last_row select 0 select 1 select 1);
+    for [{_i = 1},{_i < (count _last_row)},{_i = _i + 1}] do {
+        _y = if (_y < ((_last_row select _i select 1 select 3 select 1) - (_last_row select _i select 1 select 1))) then { (_last_row select _i select 1 select 3 select 1) - (_last_row select _i select 1 select 1) } else { _y };
+    };
 
-	{
-	if (_y <= (_x select 1 select 1)) then {
-		_vehicle lockCargo [_x select 0,true];
-	} else {
-		_vehicle lockCargo [_x select 0,false];
-	};
-	} forEach _cargo_positions;
+    {
+    if (_y <= (_x select 1 select 1)) then {
+        _vehicle lockCargo [_x select 0,true];
+    } else {
+        _vehicle lockCargo [_x select 0,false];
+    };
+    } forEach _cargo_positions;
 };

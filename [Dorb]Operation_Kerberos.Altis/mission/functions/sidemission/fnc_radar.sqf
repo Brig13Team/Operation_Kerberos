@@ -25,7 +25,7 @@ if (_spawnpos isEqualTo []) then {ERROR("No radar spawnpos");_spawnpos = _positi
 private _cfg = missionConfigFile >> "defence_positions" >> "radar"
 private _macroarray = [];
 for "_i" from 0 to count _cfg do {
-	_macroarray pushBack ["missionConfigFile","defence_positions","radar",configname (_cfg select _i)];
+    _macroarray pushBack ["missionConfigFile","defence_positions","radar",configname (_cfg select _i)];
 };
 _macro = _macroarray SELRND;
 _dir = random 360;

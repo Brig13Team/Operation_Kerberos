@@ -21,18 +21,18 @@ private ["_einheit",,"_spawnpos","_dir","_return","_radars"];
 
 private _spawnpos = [_position,40,500,15,0.5] call EFUNC(common,pos_flatempty);
 if (_spawnpos isEqualTo []) then {
-	ERROR("No artillery spawnpos -> 2dn try");
-	private _spawnpos = [_position,20,500,15,0.7] call EFUNC(common,pos_flatempty);
-	if (_spawnpos isEqualTo []) then {
-		ERROR(FORMAT_1("No artillery spawnpos - no free position at %1",_position));
-		_spawnpos = _position;
-	};
+    ERROR("No artillery spawnpos -> 2dn try");
+    private _spawnpos = [_position,20,500,15,0.7] call EFUNC(common,pos_flatempty);
+    if (_spawnpos isEqualTo []) then {
+        ERROR(FORMAT_1("No artillery spawnpos - no free position at %1",_position));
+        _spawnpos = _position;
+    };
 };
 
 private _cfg = missionConfigFile >> "defence_positions" >> "artillery"
 private _macroarray = [];
 for "_i" from 0 to count _cfg do {
-	_macroarray pushBack ["missionConfigFile","defence_positions","artillery",configname (_cfg select _i)];
+    _macroarray pushBack ["missionConfigFile","defence_positions","artillery",configname (_cfg select _i)];
 };
 _macro = _macroarray SELRND;
 _dir = random 360;
@@ -45,5 +45,5 @@ _dir = random 360;
 
 [
     QUOTE(If ((GVARMAIN(side) countSide (_this nearEntities [ARR_2("CAManBase",600)]))>0) then {false} else {false};),
-	[_spawnpos]
+    [_spawnpos]
 ]

@@ -36,7 +36,7 @@ if (_isTown>0) then{
     [_centerposition,["_town","strikeforce","patrols"]] call EFUNC(spawn,mission);
 }else{
     [_centerposition,["strikeforce","patrols"]] call EFUNC(spawn,mission);
-	[_centerposition,1200,(floor(random 5)+5)] call EFUNC(spawn,defence_macros);
+    [_centerposition,1200,(floor(random 5)+5)] call EFUNC(spawn,defence_macros);
 };
 TRACEV_2(_isTown,_location);
 

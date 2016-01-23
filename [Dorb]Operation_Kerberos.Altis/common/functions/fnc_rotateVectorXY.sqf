@@ -2,14 +2,14 @@
     Author: Dorbedo
     
     Description:
-		rotate a Vector on XY-Direction
-		
+        rotate a Vector on XY-Direction
+        
     Parameter(s):
         0 : ARRAY - Vector
-		1 : SCALAR - direction
+        1 : SCALAR - direction
     
     Return
-		ARRAY - rotated Vector
+        ARRAY - rotated Vector
 */
 #include "script_component.hpp"
 SCRIPT(rotateVectorXY);

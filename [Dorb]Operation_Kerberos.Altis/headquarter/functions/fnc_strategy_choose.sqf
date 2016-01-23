@@ -46,7 +46,7 @@ TRACEV_1(_Strategy_Memory);
 */
 
 If ((!IS_ARRAY(_Strategy_Memory select 0))||{!IS_ARRAY((_Strategy_Memory select 0)select 0)}) then {
-	_Strategy_Memory = [];
+    _Strategy_Memory = [];
 };
 
 
@@ -71,11 +71,11 @@ If (_enemyID < 0) then {
     };
     TRACEV_1(_strategies);
     private _temp = [[_enemyHelicopters,_enemyTanks,_enemyVehicles,_enemySoldiers]];
-	_temp append _strategies;
+    _temp append _strategies;
     TRACEV_1(_temp);
     _Strategy_Memory pushBack _temp;
     TRACEV_1(_Strategy_Memory);
-	SETPRVAR(GVAR(strategy_memory),_Strategy_Memory);
+    SETPRVAR(GVAR(strategy_memory),_Strategy_Memory);
     _enemyID = (count _Strategy_Memory)-1;
 };
 TRACEV_2(_enemyID,GVAR(strategy_memory));
@@ -84,28 +84,28 @@ private _tankGroups = [];
 private _infanterieGroups = [];
 private _helicoptersGroups = [];
 {
-	private _currentGroup = _x;
-	private _currentType = "soldier";
-	{
-		If ((vehicle _x) isKindOf "Air") exitWith {_currentType = "air";};
-		If ((vehicle _x) isKindOf "Armored") exitWith {_currentType = "tank";};
-	}forEach (units _currentGroup);
-	switch (_currentType) do {
-		case "air" : {_helicoptersGroups pushBack _currentGroup;};
-		case "tank" : {_tankGroups pushBack _currentGroup;};
-		default {_infanterieGroups pushBack _currentGroup};
-	};
+    private _currentGroup = _x;
+    private _currentType = "soldier";
+    {
+        If ((vehicle _x) isKindOf "Air") exitWith {_currentType = "air";};
+        If ((vehicle _x) isKindOf "Armored") exitWith {_currentType = "tank";};
+    }forEach (units _currentGroup);
+    switch (_currentType) do {
+        case "air" : {_helicoptersGroups pushBack _currentGroup;};
+        case "tank" : {_tankGroups pushBack _currentGroup;};
+        default {_infanterieGroups pushBack _currentGroup};
+    };
 }forEach _groups;
 
 
 
 for "_i" from 1 to (count (_Strategy_Memory select _enemyID) -1) do {
     _test = ((_Strategy_Memory select _enemyID)select _i);
-	TRACEV_1(_test);
-	((_Strategy_Memory select _enemyID)select _i) params ["_tempStrategie","_fails","_wins"];
+    TRACEV_1(_test);
+    ((_Strategy_Memory select _enemyID)select _i) params ["_tempStrategie","_fails","_wins"];
     private _condition = getText(missionconfigfile>>"strategy">>_tempStrategie>>"condition");
-	_test = (call compile _condition);
-	TRACEV_1(_test);
+    _test = (call compile _condition);
+    TRACEV_1(_test);
     If (call compile _condition) then {    
         private _probability = If ((_fails == 0)||(_wins == 0)) then {
                 If (_wins > 0) then {

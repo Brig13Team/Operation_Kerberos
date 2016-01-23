@@ -22,7 +22,7 @@ private _nearVehicles = _position nearEntities [["Tank","Car","Plane"],15];
 
 private _return = true;
 {
-	If ((_x != _target)&&{
+    If ((_x != _target)&&{
         (
             _position distance2D (
                 (getPos _x) vectorAdd ((vectorDir _x) vectorMultiply (abs((boundingBoxReal _x) select 0 select 0)))

@@ -17,8 +17,8 @@ _this params[["_vehicle",objNull,[objNull]],["_gruppe",grpNull,[grpNull]],["_wit
 CHECKRET(((isNull _vehicle)||(isNull _gruppe)),[]);
 private _crew = [];
 If (IS_SIDE(_gruppe)) then {
-	_gruppe = createGroup _gruppe;
-	_gruppe addVehicle _vehicle;
+    _gruppe = createGroup _gruppe;
+    _gruppe addVehicle _vehicle;
 };
 Private ["_crewmen","_unit"];
 for "_i" from 1 to (_vehicle emptyPositions "Driver") do {

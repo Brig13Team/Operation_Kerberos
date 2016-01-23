@@ -31,38 +31,38 @@ _array = _veh1 getVariable [QGVAR(towArray), CREATE_ARRAY(getDir _veh1)];
 _index = _veh1 getVariable [QGVAR(towIndex), 0];
 
 while {(driver _veh1 == player) && (attachedTo _veh2 == _veh1)} do {
-	uiSleep 0.05;
+    uiSleep 0.05;
 
-	// status: set speed limit
+    // status: set speed limit
 
-	if ((abs (speed _veh1)) > 0.2) then {
-		// systemChat format ["_dir : %1", getDir _veh1];
+    if ((abs (speed _veh1)) > 0.2) then {
+        // systemChat format ["_dir : %1", getDir _veh1];
 
-		if (speed _veh1 > 0) then {
-			// status: ok
-			_dir1 = _array select (INCREASE_INDEX(_index));
-			_dir2 = (getDir _veh1) - _dir1;
-			_index = INCREASE_INDEX(_index);
-			_array set [_index, getDir _veh1];
+        if (speed _veh1 > 0) then {
+            // status: ok
+            _dir1 = _array select (INCREASE_INDEX(_index));
+            _dir2 = (getDir _veh1) - _dir1;
+            _index = INCREASE_INDEX(_index);
+            _array set [_index, getDir _veh1];
 
-			_y2 = _l2 * cos(_dir2);
-			_x2 = _l2 * sin(_dir2);
-			_veh2 attachTo [_veh1, [_x2, -1 * (_l1 + _y2 + BUFFER), 0]];
-			_veh2 setDir (- _dir2);
-		} else {
-			// status:  . could be better (_veh2 should stay after certain angle)
-			//			. transform _array when changing from forward to backward
-			_dir1 = _array select (INCREASE_INDEX(_index));
-			_dir2 = (getDir _veh1) - _dir1;
-			_index = INCREASE_INDEX(_index);
-			_array set [_index, getDir _veh1];
+            _y2 = _l2 * cos(_dir2);
+            _x2 = _l2 * sin(_dir2);
+            _veh2 attachTo [_veh1, [_x2, -1 * (_l1 + _y2 + BUFFER), 0]];
+            _veh2 setDir (- _dir2);
+        } else {
+            // status:  . could be better (_veh2 should stay after certain angle)
+            //            . transform _array when changing from forward to backward
+            _dir1 = _array select (INCREASE_INDEX(_index));
+            _dir2 = (getDir _veh1) - _dir1;
+            _index = INCREASE_INDEX(_index);
+            _array set [_index, getDir _veh1];
 
-			_y2 = _l2 * cos(_dir2);
-			_x2 = _l2 * sin(_dir2);
-			_veh2 attachTo [_veh1, [_x2, -1 * (_l1 + _y2 + BUFFER), 0]];
-			_veh2 setDir (- _dir2);
-		};
-	};
+            _y2 = _l2 * cos(_dir2);
+            _x2 = _l2 * sin(_dir2);
+            _veh2 attachTo [_veh1, [_x2, -1 * (_l1 + _y2 + BUFFER), 0]];
+            _veh2 setDir (- _dir2);
+        };
+    };
 };
 
 _veh1 setVariable [QGVAR(towArray), _array, true];

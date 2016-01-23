@@ -35,24 +35,24 @@ _wp setWaypointBehaviour "SAD";
 _wp setWaypointTimeout [300,400,500];
 _wp = _planeGroup addWaypoint [_spawnpos, 0];
 [_plane] spawn {
-	SCRIPTIN(strategy_airinterception_refuel);
-	params["_plane"];
-	while {alive _plane} do {
-		_plane setfuel 1;
-		_plane setVehicleAmmo 1;
-		sleep 500;
-	};
+    SCRIPTIN(strategy_airinterception_refuel);
+    params["_plane"];
+    while {alive _plane} do {
+        _plane setfuel 1;
+        _plane setVehicleAmmo 1;
+        sleep 500;
+    };
 };
 [_plane,_spawnpos] spawn {
-	SCRIPTIN(strategy_airinterception_reset);
-	params ["_plane","_spawnpos"];
-	uisleep 60;
-	while {(alive _plane) && ((_plane distance2D _spawnpos)<500)} do {
-		uisleep 5;
-	};
-	If (alive _plane) then {
-		GVAR(callIn_airinterception) = GVAR(callIn_airinterception) + 1;
-	};
+    SCRIPTIN(strategy_airinterception_reset);
+    params ["_plane","_spawnpos"];
+    uisleep 60;
+    while {(alive _plane) && ((_plane distance2D _spawnpos)<500)} do {
+        uisleep 5;
+    };
+    If (alive _plane) then {
+        GVAR(callIn_airinterception) = GVAR(callIn_airinterception) + 1;
+    };
 };
 
 

@@ -18,10 +18,10 @@
 SCRIPT(value_get);
 
 _this params [
-	["_variablename","",[""]],
-	["_x_pos",0,[0]],
-	["_y_pos",0,[0]],
-	["_namespace",missionnamespace,[missionnamespace,profilenamespace,uinamespace]]
+    ["_variablename","",[""]],
+    ["_x_pos",0,[0]],
+    ["_y_pos",0,[0]],
+    ["_namespace",missionnamespace,[missionnamespace,profilenamespace,uinamespace]]
 ];
 
 CHECKRET((_variablename isEqualTo ""),0);

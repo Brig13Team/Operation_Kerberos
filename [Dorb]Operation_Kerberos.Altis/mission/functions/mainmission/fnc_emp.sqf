@@ -49,7 +49,7 @@ for "_i" from 1 to _rand do{
 ********************/
 {
     [_x] call FUNC(objects_device_init);
-	#ifdef DEBUG_MODE_FULL
+    #ifdef DEBUG_MODE_FULL
         [getPos _x,"EMP"] call EFUNC(common,debug_marker_create);
     #endif
 } forEach _targets;

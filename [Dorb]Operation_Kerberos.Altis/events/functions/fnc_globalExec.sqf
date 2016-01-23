@@ -16,11 +16,11 @@
 
 SCRIPT(globalExec);
 _this params[
-	["_function","",["",{}]],
-	["_parameter",[]],
-	["_target",-2,[0]],
-	["_local",true,[false]]
-	];
+    ["_function","",["",{}]],
+    ["_parameter",[]],
+    ["_target",-2,[0]],
+    ["_local",true,[false]]
+    ];
 
 CHECKRET((_function isEqualTo ""),false);
 

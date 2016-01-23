@@ -20,18 +20,18 @@ SETMVAR(GVAR(working,true));
 /// spawn to move it in the ingame sheduler
 [] spawn {
     
-	/*
-	/// backup -> get unregistered Groups
-	
-	{
-		If ((side _x != GVARMAIN(playerside))&&{(_x getVariable [QGVAR(state),""]) isEqualTo ""}) then {
-			_x setVariable [QGVAR(state),"idle"];
-		};
-	}forEach allGroups;
-	*/
-	
-	
-	
+    /*
+    /// backup -> get unregistered Groups
+    
+    {
+        If ((side _x != GVARMAIN(playerside))&&{(_x getVariable [QGVAR(state),""]) isEqualTo ""}) then {
+            _x setVariable [QGVAR(state),"idle"];
+        };
+    }forEach allGroups;
+    */
+    
+    
+    
 
     private _attackarray = [QGVAR(dangerzones)] call EFUNC(common,matrix_find_peaks);
     private _attackpositions = [];
@@ -137,7 +137,7 @@ SETMVAR(GVAR(working,true));
     
     private _missingstrenght = 0;
     /// move into battle
-	TRACEV_2(_attackLogics,_waitingGroups);
+    TRACEV_2(_attackLogics,_waitingGroups);
     [_attackLogics,_waitingGroups] call FUNC(strategy);
     /*
     {

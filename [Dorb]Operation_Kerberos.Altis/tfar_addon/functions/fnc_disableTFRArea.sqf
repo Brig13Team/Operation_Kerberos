@@ -13,16 +13,16 @@
 #include "script_component.hpp"
 SCRIPT(disableTFRArea);
 _this params [
-		["_centerpos",[0,0,0],[[],objNull],[2,3]],
-		["_range",5000,[0]],
-		["_duration",180,[0]]
+        ["_centerpos",[0,0,0],[[],objNull],[2,3]],
+        ["_range",5000,[0]],
+        ["_duration",180,[0]]
     ];
 If (IS_OBJECT(_centerpos)) then {_centerpos = getPos _centerpos;};
 _enableTime = diag_tickTime + _duration;
 {
-	If ((_x distance _centerpos)< _range) then {
-		[_x] call FUNC(disableTFR);
-		SETVAR(_x,GVAR(TFR_enable),_enableTime);
-	};
+    If ((_x distance _centerpos)< _range) then {
+        [_x] call FUNC(disableTFR);
+        SETVAR(_x,GVAR(TFR_enable),_enableTime);
+    };
 } forEach allPlayers;
 [QUOTE(call FUNC(enableTFRtime)),[],(_duration + 2)] call EFUNC(common,waitandexec);

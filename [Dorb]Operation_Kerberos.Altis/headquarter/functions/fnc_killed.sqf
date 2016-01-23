@@ -30,11 +30,11 @@ private _weapon = currentWeapon (vehicle _killer);
 
 _value = switch (true) do {
     case (_weapontype in ["SniperRifle","Rifle"]) : {25};
-	case (_weapontype in ["BombLauncher","Cannon","Mortar"]) : {30};
-	case (_weapontype in ["AssaultRifle","GrenadeLauncher","Handgun","SubmachineGun"]) : {10};
-	case (_weapontype in ["MachineGun"]) : {20};
-	case (_weapontype in ["Launcher","MissileLauncher","RocketLauncher"]) : {20};
-	case ((vehicle _killer)isKindOf "Armored") : {30};
+    case (_weapontype in ["BombLauncher","Cannon","Mortar"]) : {30};
+    case (_weapontype in ["AssaultRifle","GrenadeLauncher","Handgun","SubmachineGun"]) : {10};
+    case (_weapontype in ["MachineGun"]) : {20};
+    case (_weapontype in ["Launcher","MissileLauncher","RocketLauncher"]) : {20};
+    case ((vehicle _killer)isKindOf "Armored") : {30};
     case ((vehicle _killer)isKindOf "Car") : {20};
     case ((vehicle _killer)isKindOf "Ship_F") : {20};
     case ((vehicle _killer)isKindOf "Air") : {35};

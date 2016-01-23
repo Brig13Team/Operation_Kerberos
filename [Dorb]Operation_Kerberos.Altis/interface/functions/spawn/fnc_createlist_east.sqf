@@ -40,27 +40,27 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
         private _icon         = getText(configFile >> "cfgvehicles" >> _class >> "Icon");
         private _Desc         = getText(configFile >> "cfgvehicles" >> _class >> "Library" >> "libTextDesc");
         private _autor        = getText(configFile >> "cfgvehicles" >> _class >> "author");
-		private _simulation   = getText(configFile >> "cfgvehicles" >> _class >> "simulation");
-		
+        private _simulation   = getText(configFile >> "cfgvehicles" >> _class >> "simulation");
+        
         private _filter     = toArray("BASE");
         private _isBase     = {
-			private _result = false;
-			private _int = 0;
-			{
-				if((_x == _filter select 0) && (_int == 0)) then {
-					_int = 1;
-				};
-				if((_x == _filter select 1) && (_int == 1)) then {
-					_int = 2;
-				};
-				if((_x == _filter select 2) && (_int == 2)) then {
-					_int = 3;
-				};
-				if((_x == _filter select 3) && (_int == 3)) then {
-					_result = true;
-				};
-			}foreach (toArray (toUpper(_class)));
-			_result;
+            private _result = false;
+            private _int = 0;
+            {
+                if((_x == _filter select 0) && (_int == 0)) then {
+                    _int = 1;
+                };
+                if((_x == _filter select 1) && (_int == 1)) then {
+                    _int = 2;
+                };
+                if((_x == _filter select 2) && (_int == 2)) then {
+                    _int = 3;
+                };
+                if((_x == _filter select 3) && (_int == 3)) then {
+                    _result = true;
+                };
+            }foreach (toArray (toUpper(_class)));
+            _result;
         };
 
         private _isRHS = {
@@ -120,15 +120,15 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
             };
             _result;
         };
-		
+        
         if (_genMac !="" && (_text != "") && (_dName != "") && (_dName != _text) && (!(call(_isBase)))&& (!(call(_isRHSBase))) && (call(_isRHS))) then {
             if (_Class isKindOf "Air") then {
                 if (_simulation in ["helicopterrtd","helicopterx"]) then {
                     If (ISCASVEHICLE(_class)) then {
-						_spawnlist_heli_CAS pushBack [_class,_pic ,"RHS", (call(_dNameRHS)), _dName, _icon];
-					} else {
-						_spawnlist_heli_log pushBack [_class,_pic ,"RHS", (call(_dNameRHS)), _dName, _icon];
-					};
+                        _spawnlist_heli_CAS pushBack [_class,_pic ,"RHS", (call(_dNameRHS)), _dName, _icon];
+                    } else {
+                        _spawnlist_heli_log pushBack [_class,_pic ,"RHS", (call(_dNameRHS)), _dName, _icon];
+                    };
                 } else {
                     _spawnlist_planes pushBack [_class,_pic ,"RHS", (call(_dNameRHS)), _dName, _icon];
                 };
@@ -142,7 +142,7 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
             if (_vClass isEqualTo "Static") then {
                 _spawnlist_static pushBack [_class,_pic ,"RHS", (call(_dNameRHS)), _dName, _icon];
             };
-			if (_vClass=="Autonomous") then {
+            if (_vClass=="Autonomous") then {
                 _spawnlist_drone pushBack [_class,_pic ,"RHS", (call(_DNameRHS)), _DName, _icon];
             };
         };
@@ -150,48 +150,48 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
         //// BIS - Vehicles
         if (_genMac !="" && _pic!="" && _genMac==_class && (_text != "") && (_text != _class) && (_dName != _class) && (_dName != "")
             && (_dName != _text) && (!(call(_isBase)))) then {
-			// unarmed Helicopter
+            // unarmed Helicopter
             if((_vClass isEqualTo "Air")and (!(_class iskindof "ParachuteBase"))and(_side==0)) then {
                if (_simulation in ["helicopterrtd","helicopterx"]) then {
                     _spawnlist_heli_log pushBack [_class,_pic ,"BIS", (call(_dNameBIS)), _dName, _icon];
                 };
             };
-			// Bardelas
+            // Bardelas
             if (((_vClass=="Armored"))and(_side==0) and (_class in ["O_APC_Tracked_02_AA_F"])) then {
                 _spawnlist_tanks pushBack [_class,_pic ,"BIS", (call(_dNameBIS)), _dName, _icon];
             };
-			// HEMTT Trucks
-			If (((_Class isKindOf "Truck_02_base_F")||(_Class isKindOf "Truck_03_base_F"))&&(!(_class in ["O_Truck_02_transport_F","O_Truck_02_covered_F","O_Truck_03_covered_F","O_Truck_03_transport_F","O_Truck_03_device_F"]))) then {
-				_spawnlist_support pushBack [_class,_pic ,"BIS", (call(_dNameBIS)), _dName, _icon];
-			};
-			// Slingload
-			If (_Class isKindOf "Pod_Heli_Transport_04_base_F") then {
-				_spawnlist_support pushBack [_class,_pic ,"BIS", (call(_dNameBIS)), _dName, _icon];
-			};
-			
+            // HEMTT Trucks
+            If (((_Class isKindOf "Truck_02_base_F")||(_Class isKindOf "Truck_03_base_F"))&&(!(_class in ["O_Truck_02_transport_F","O_Truck_02_covered_F","O_Truck_03_covered_F","O_Truck_03_transport_F","O_Truck_03_device_F"]))) then {
+                _spawnlist_support pushBack [_class,_pic ,"BIS", (call(_dNameBIS)), _dName, _icon];
+            };
+            // Slingload
+            If (_Class isKindOf "Pod_Heli_Transport_04_base_F") then {
+                _spawnlist_support pushBack [_class,_pic ,"BIS", (call(_dNameBIS)), _dName, _icon];
+            };
+            
             if((_side==0)and(_vClass=="Static")) then {
                 _spawnlist_static pushBack [_class,_pic ,"BIS", (call(_dNameBIS)), _dName, _icon];
             };
-			
-			// Drones
+            
+            // Drones
             if(((_vClass=="Autonomous")and(_side==0)and !(_class=="B_UGV_01_F"))or(_class=="B_UAV_02_CAS_F")) then {
                 _spawnlist_drone pushBack [_class,_pic ,"BIS", (call(_dNameBIS)), _dName, _icon];
             };
-			// Cars
+            // Cars
             if ((_side==0)and(_vClass=="Car")and(!((_Class isKindOf "Truck_02_base_F")||(_Class isKindOf "Truck_03_base_F")))) then {
-				_spawnlist_cars pushBack [_class,_pic ,"BIS", (call(_dNameBIS)), _dName, _icon];
+                _spawnlist_cars pushBack [_class,_pic ,"BIS", (call(_dNameBIS)), _dName, _icon];
             };
-			// Ships
+            // Ships
             if ((_side==0)and(_Class isKindOf "Ship")) then {
                 _spawnlist_marine pushBack [_class,_pic ,"BIS", (call(_dNameBIS)), _dName, _icon];
             };
 
         };
-		// Submarines
+        // Submarines
         if ((_vClass=="Submarine")and(!(call(_isBase)))and(_side==0)) then {
             _spawnlist_marine pushBack  [_class,_pic ,"BIS", (call(_dNameBIS)), _dName, _icon];
         };
-		
+        
         If (_class == "Land_ChairPlastic_F") then {
             _spawnlist_others pushBack [_class,_pic ,"BIS", (call(_dNameBIS)), _dName, _icon];
         };
@@ -215,16 +215,16 @@ ISNILS(logistik,objNull);
 ISNILS(logistik2,objNull);
 
 {
-	If (!(isNil (format["%1",(_x select 0)]))) then {
-		(_x select 0) setVariable [QGVAR(spawn_list),_x select 2];
-		(_x select 0) setVariable [QGVAR(spawn_point),_x select 1];
-	};
+    If (!(isNil (format["%1",(_x select 0)]))) then {
+        (_x select 0) setVariable [QGVAR(spawn_list),_x select 2];
+        (_x select 0) setVariable [QGVAR(spawn_point),_x select 1];
+    };
 }forEach [
-	[fahrzeuge,"veh_spawn",_fahrzeugliste],
-	[drohnen,"drone_spawn",_drohnenliste],
-	[luftfahrzeuge,"air_spawn",_luftliste_CAS],
-	[luftfahrzeuge_leicht,"air_spawn_light",_luftliste_log],
-	[marine,"boat_spawn",_marineliste],
-	[logistik,"logistic_spawn",_fahrzeugliste],
-	[logistik2,"logistic_spawn2",_logistikliste]
+    [fahrzeuge,"veh_spawn",_fahrzeugliste],
+    [drohnen,"drone_spawn",_drohnenliste],
+    [luftfahrzeuge,"air_spawn",_luftliste_CAS],
+    [luftfahrzeuge_leicht,"air_spawn_light",_luftliste_log],
+    [marine,"boat_spawn",_marineliste],
+    [logistik,"logistic_spawn",_fahrzeugliste],
+    [logistik2,"logistic_spawn2",_logistikliste]
 ];

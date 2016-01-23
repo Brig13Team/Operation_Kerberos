@@ -86,7 +86,7 @@ private _centerposASL = ATLtoASL _centerpos;
     };
     _vehicle = createVehicle[format["%1",_currentType],_spawnPosATL, [], 0, "CAN_COLLIDE"];
     If (_currentType in ["rhs_p37","rhs_prv13"]) then {EGVAR(headquarter,radars) pushback _vehicle};
-	_vehicle enableSimulation false;
+    _vehicle enableSimulation false;
     _vehicle setVectorUP _spawnVector;
     _vehicle setPosATL _spawnPosATL;
     _vehicle setDir _spawndir;
@@ -143,7 +143,7 @@ private _centerposASL = ATLtoASL _centerpos;
     
     };
     private _vehicle = createVehicle[format["%1",_currentType],_spawnPosATL, [], 0, "CAN_COLLIDE"];
-	If ("Artillery" in getArray(configFile>>"cfgVehicles">>_currentType>>"availableforsupporttypes")) then {[_vehicle] call EFUNC(headquarter,fdc_register);};
+    If ("Artillery" in getArray(configFile>>"cfgVehicles">>_currentType>>"availableforsupporttypes")) then {[_vehicle] call EFUNC(headquarter,fdc_register);};
     _vehicle enableSimulation false;
     _vehicle setPosATL _spawnPosATL;
     _vehicle setDir _spawndir;

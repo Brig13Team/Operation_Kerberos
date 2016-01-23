@@ -27,7 +27,7 @@ _centerpos set[2,0];
 
 
 if (isNil "_centerpos") then {
-	_centerdir = getDir _centerpos;
+    _centerdir = getDir _centerpos;
 };
 
 
@@ -41,7 +41,7 @@ private _exportarray = [];
 private _fnc_getoffset = {
     params["_object","_positionASL"];
     
-	private "_offset";
+    private "_offset";
     private _nextObject = [_object] call _fnc_getObjbelow;
     If (isNull _nextObject) then {
         private _objDir = getDir _object;
@@ -65,15 +65,15 @@ private _fnc_getObjbelow = {
     private _terrainPosASL = ATLtoASL _terrainPos;
     private _nextObject = lineIntersectsObjs [_objPosASL, _terrainPosASL, objNull, _object, false, 2];
     if (_nextObject isEqualTo []) then {
-		objNull
-	}else{
-		private _lastObject = [_nextObject select 0] call _fnc_getObjbelow;
-		If (isNull _lastObject) then {
-			_lastObject;
-		}else{
-			_nextObject select 0;
-		};
-	};
+        objNull
+    }else{
+        private _lastObject = [_nextObject select 0] call _fnc_getObjbelow;
+        If (isNull _lastObject) then {
+            _lastObject;
+        }else{
+            _nextObject select 0;
+        };
+    };
 };
 
 private _centerposASL = ATLtoASL _centerpos;

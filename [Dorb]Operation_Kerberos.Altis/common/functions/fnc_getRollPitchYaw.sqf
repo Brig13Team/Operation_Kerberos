@@ -2,12 +2,12 @@
     Author: Dorbedo
     
     Description:
-		returns Roll Pitch Yaw of an Object
+        returns Roll Pitch Yaw of an Object
     Parameter(s):
         0 : OBJECT - the object
     
     Return
-		ARRAY - Roll Pitch Yaw
+        ARRAY - Roll Pitch Yaw
 */
 #define DEBUG_MODE_FULL
 #include "script_component.hpp"
@@ -38,7 +38,7 @@ _Rollwinkel = atan ((_VectorUp select 0) / _VectorUpZ);
 _Gierwinkel = 360 - _objectDir;
 
 if((_VectorUp select 2) < 0) then {
-	_Rollwinkel = _Rollwinkel - ([1,-1] select (_Rollwinkel < 0)) * 180;
+    _Rollwinkel = _Rollwinkel - ([1,-1] select (_Rollwinkel < 0)) * 180;
 };
 
 [_Rollwinkel,_Nickwinkel,_Gierwinkel];

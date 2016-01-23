@@ -3,7 +3,7 @@
 
     Description:
         enables TFR
-		INTERNAL
+        INTERNAL
     Parameter(s):
         none
     Returns:
@@ -13,7 +13,7 @@
 #include "script_component.hpp"
 SCRIPT(enableTFRtime);
 {
-	If ((GETVAR(_x,GVAR(TFR_enable),(diag_tickTime - 1)))< diag_tickTime) then {
-		[_x] call FUNC(enableTFR);
-	};
+    If ((GETVAR(_x,GVAR(TFR_enable),(diag_tickTime - 1)))< diag_tickTime) then {
+        [_x] call FUNC(enableTFR);
+    };
 } forEach allPlayers;

@@ -31,7 +31,7 @@ class missions_config {
         };
         probability = 1;
         armys[] = {{"regular",1},{"armored",1},{"infanterie",1},{"airborne",1},{"specops",1},{"droneoperations",1},{"guards",1}};
-		class sidemissions {};
+        class sidemissions {};
     };
     class side_arty : side_base {
         type = "artillery";
@@ -70,23 +70,23 @@ class missions_config {
         delay_reveal = 1;
         probability = 0.8;
     };
-	class side_standard {
-		class artillery : side_arty {
-			probability = 0.8;
-		};
-		class radar1 : side_radar {
-			probability = 0.8;
-		};
-		class radar2 : side_radar {
-			probability = 0.6;
-		};
-		class convoi1 : side_convoi {
-			probability = 0.8;
-		};
-		class convoi2 : side_convoi {
-			delay_spawn = 1200;
-		};	
-	};
+    class side_standard {
+        class artillery : side_arty {
+            probability = 0.8;
+        };
+        class radar1 : side_radar {
+            probability = 0.8;
+        };
+        class radar2 : side_radar {
+            probability = 0.6;
+        };
+        class convoi1 : side_convoi {
+            probability = 0.8;
+        };
+        class convoi2 : side_convoi {
+            delay_spawn = 1200;
+        };    
+    };
     class main {
         class scarab : main_base {
             class task {
@@ -105,7 +105,7 @@ class missions_config {
             class location : location {
                 distance = 1500;
             };
-			class sidemissions : side_standard {};
+            class sidemissions : side_standard {};
         };
         class device : main_base {
             class task {
@@ -116,7 +116,7 @@ class missions_config {
             class location : location {
                 areas[] = {QGVAR(industrie),QGVAR(military),QGVAR(other)};
             };
-			class sidemissions : side_standard {};
+            class sidemissions : side_standard {};
         };
         class emp : main_base {
             class task {
@@ -127,7 +127,7 @@ class missions_config {
             class location : location {
                 areas[] = {QGVAR(industrie),QGVAR(military),QGVAR(other)};
             };
-			class sidemissions : side_standard {};
+            class sidemissions : side_standard {};
         };
         class prototype : main_base {
             class task {
@@ -135,7 +135,7 @@ class missions_config {
                 description = CSTRING(prototype_desc);
                 tasktype = "Move";
             };
-			class sidemissions : side_standard {};
+            class sidemissions : side_standard {};
         };
         class clear : main_base {
             class task {
@@ -146,7 +146,7 @@ class missions_config {
             class location : location {
                 areas[] = {QGVAR(industrie),QGVAR(military),QGVAR(other)};
             };
-			class sidemissions : side_standard {};
+            class sidemissions : side_standard {};
         };
         
         class hostage : main_base {
@@ -159,7 +159,7 @@ class missions_config {
                 areas[] = {QGVAR(town)};
                 distance = 200;
             };
-			class sidemissions : side_standard {};
+            class sidemissions : side_standard {};
         };
         class kill : main_base {
             class task {
@@ -171,7 +171,7 @@ class missions_config {
                 areas[] = {QGVAR(town)};
                 distance = 200;
             };
-			class sidemissions : side_standard {};
+            class sidemissions : side_standard {};
         };
         class intel : main_base {
             class task {
@@ -183,7 +183,7 @@ class missions_config {
                 areas[] = {QGVAR(town)};
                 distance = 200;
             };
-			class sidemissions : side_standard {};
+            class sidemissions : side_standard {};
         };
         class weaponcaches : main_base {
             class task {
@@ -195,7 +195,7 @@ class missions_config {
                 areas[] = {QGVAR(town)};
                 distance = 200;
             };
-			class sidemissions : side_standard {};
+            class sidemissions : side_standard {};
         };
         class dronecommando : main_base {
             class task {
@@ -204,7 +204,7 @@ class missions_config {
                 tasktype = "Attack";
             };
             armys[] = {{"specops",1},{"droneoperations",1},{"guards",1}};
-			class sidemissions : side_standard {};
+            class sidemissions : side_standard {};
         };
         class specops : main_base {
             class task {
@@ -213,7 +213,7 @@ class missions_config {
                 tasktype = "Search";
             };
             armys[] = {{"specops",1}};
-			class sidemissions : side_standard {};
+            class sidemissions : side_standard {};
         };
         class outpost : main_base {
             class task {
@@ -224,7 +224,7 @@ class missions_config {
             class location : location {
                 areas[] = {QGVAR(military)};
             };
-			class sidemissions : side_standard {};
+            class sidemissions : side_standard {};
         };
         class radarsetup : main_base {
             class task {
@@ -235,7 +235,7 @@ class missions_config {
             class location : location {
                 areas[] = {QGVAR(industrie),QGVAR(military),QGVAR(other)};
             };
-			class sidemissions : side_standard {};
+            class sidemissions : side_standard {};
         };
     };
 };

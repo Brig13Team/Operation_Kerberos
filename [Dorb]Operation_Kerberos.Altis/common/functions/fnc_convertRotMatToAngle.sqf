@@ -2,13 +2,13 @@
     Author: Dorbedo
     
     Description:
-		Returns the rotation angles of an rotation matrix
-		
+        Returns the rotation angles of an rotation matrix
+        
     Parameter(s):
         0 : ARRAY    - rotation matrix
     
     Return
-		[alpha,betha,gamma]
+        [alpha,betha,gamma]
 */
 #include "script_component.hpp"
 SCRIPT(convertRotMatToAngle);

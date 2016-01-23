@@ -35,8 +35,8 @@ switch (_mode) do {
     };
     case "getmass" : {
         private["_mass"];
-		_param params ["_config","_amount"];
-		If (isNil "_amount") then {_amount = 1;};
+        _param params ["_config","_amount"];
+        If (isNil "_amount") then {_amount = 1;};
         _mass = getnumber (_config>>"mass");
         If (_mass == 0) then {
             _mass = getnumber (_config>>"ItemInfo">>"mass");

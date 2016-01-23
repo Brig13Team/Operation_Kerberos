@@ -27,99 +27,99 @@ private _allObjects = _house nearObjects [["CAManBase","Static","LandVehicle","A
 private _exportarray = [];
 
 _fnc_rotVector = {
-	_this params ["_vector","_dir"];
-	_vector params ["_x","_y"];
-	_vector set [0,(cos _dir)*_x - (sin _dir) * _y];
-	_vector set [1,(sin _dir)*_x + (cos _dir) * _y];
-	_vector;
+    _this params ["_vector","_dir"];
+    _vector params ["_x","_y"];
+    _vector set [0,(cos _dir)*_x - (sin _dir) * _y];
+    _vector set [1,(sin _dir)*_x + (cos _dir) * _y];
+    _vector;
 };
 
 _fnc_formatRotMat = {
-	_this params ["_Rollwinkel","_Nickwinkel","_Gierwinkel"];
-	[[
-		(cos _Gierwinkel) * (cos _Nickwinkel),
-		(sin _Gierwinkel) * (cos _Nickwinkel),
-		(-1 * (sin _Nickwinkel))
-	 ],
-	 [
-		(cos _Gierwinkel) * (sin _Nickwinkel) * (sin _Rollwinkel) - (sin _Gierwinkel) * (cos _Rollwinkel),
-		(sin _Gierwinkel) * (sin _Nickwinkel) * (sin _Rollwinkel) + (cos _Gierwinkel) * (cos _Rollwinkel),
-		(cos _Nickwinkel) * (sin _Rollwinkel)
-	 ],
-	 [
-		(cos _Gierwinkel) * (sin _Nickwinkel) * (cos _Rollwinkel) + (sin _Gierwinkel) * (sin _Rollwinkel),
-		(sin _Gierwinkel) * (sin _Nickwinkel) * (cos _Rollwinkel) - (cos _Gierwinkel) * (sin _Rollwinkel),
-		(cos _Nickwinkel) * (cos _Rollwinkel)
-	]];
+    _this params ["_Rollwinkel","_Nickwinkel","_Gierwinkel"];
+    [[
+        (cos _Gierwinkel) * (cos _Nickwinkel),
+        (sin _Gierwinkel) * (cos _Nickwinkel),
+        (-1 * (sin _Nickwinkel))
+     ],
+     [
+        (cos _Gierwinkel) * (sin _Nickwinkel) * (sin _Rollwinkel) - (sin _Gierwinkel) * (cos _Rollwinkel),
+        (sin _Gierwinkel) * (sin _Nickwinkel) * (sin _Rollwinkel) + (cos _Gierwinkel) * (cos _Rollwinkel),
+        (cos _Nickwinkel) * (sin _Rollwinkel)
+     ],
+     [
+        (cos _Gierwinkel) * (sin _Nickwinkel) * (cos _Rollwinkel) + (sin _Gierwinkel) * (sin _Rollwinkel),
+        (sin _Gierwinkel) * (sin _Nickwinkel) * (cos _Rollwinkel) - (cos _Gierwinkel) * (sin _Rollwinkel),
+        (cos _Nickwinkel) * (cos _Rollwinkel)
+    ]];
 };
 
 _fnc_getRollPitchYaw = {
-	_this params ["_objectDir","_objectUp",["_Roll",0,[0]],["_Nick",0,[0]],["_Gier",0,[0]]];
+    _this params ["_objectDir","_objectUp",["_Roll",0,[0]],["_Nick",0,[0]],["_Gier",0,[0]]];
 
-	private _objectDir = VectorDir _object;
-	private _objectUp = VectorUp _object;
+    private _objectDir = VectorDir _object;
+    private _objectUp = VectorUp _object;
 
-	private _Rollwinkel = 0;
-	private _Gierwinkel = 0;
-	private _Nickwinkel = 0;
+    private _Rollwinkel = 0;
+    private _Gierwinkel = 0;
+    private _Nickwinkel = 0;
 
-	private _objectVDir = VectorDir _object;
-	private _objectVUp = VectorUp _object;
-	private _objectVSide = _objectVDir VectorcrossProduct _objectVUp;
-	private _objectDir = getDir _object;
+    private _objectVDir = VectorDir _object;
+    private _objectVUp = VectorUp _object;
+    private _objectVSide = _objectVDir VectorcrossProduct _objectVUp;
+    private _objectDir = getDir _object;
 
-	private _VectorDir = [_objectVDir,_objectDir] call _fnc_rotVector;
-	private _VectorUp = [_objectVUp,_objectDir] call _fnc_rotVector;
+    private _VectorDir = [_objectVDir,_objectDir] call _fnc_rotVector;
+    private _VectorUp = [_objectVUp,_objectDir] call _fnc_rotVector;
 
-	private _VectorDirY = _VectorDir select 1;
-	private _VectorUpZ = _VectorUp select 2;
+    private _VectorDirY = _VectorDir select 1;
+    private _VectorUpZ = _VectorUp select 2;
 
-	if (_VectorDirY == 0) then {_VectorDirY = 0.01;};
-	if (_VectorUpZ == 0) then {_VectorUpZ = 0.01;};
+    if (_VectorDirY == 0) then {_VectorDirY = 0.01;};
+    if (_VectorUpZ == 0) then {_VectorUpZ = 0.01;};
 
-	_Nickwinkel = atan ((_VectorDir select 2) / _VectorDirY);
-	_Rollwinkel = atan ((_VectorUp select 0) / _VectorUpZ);
-	_Gierwinkel = 360 - _objectDir;
+    _Nickwinkel = atan ((_VectorDir select 2) / _VectorDirY);
+    _Rollwinkel = atan ((_VectorUp select 0) / _VectorUpZ);
+    _Gierwinkel = 360 - _objectDir;
 
-	if((_VectorUp select 2) < 0) then {
-		_Rollwinkel = _Rollwinkel - ([1,-1] select (_Rollwinkel < 0)) * 180;
-	};
-	
-	_Rollwinkel = _Rollwinkel - _Roll;
-	_Nickwinkel = _Nickwinkel - _Nick;
-	_Gierwinkel = _Gierwinkel - _Gier;
-	[_Rollwinkel,_Nickwinkel,_Gierwinkel];
+    if((_VectorUp select 2) < 0) then {
+        _Rollwinkel = _Rollwinkel - ([1,-1] select (_Rollwinkel < 0)) * 180;
+    };
+    
+    _Rollwinkel = _Rollwinkel - _Roll;
+    _Nickwinkel = _Nickwinkel - _Nick;
+    _Gierwinkel = _Gierwinkel - _Gier;
+    [_Rollwinkel,_Nickwinkel,_Gierwinkel];
 };
 
 _fnc_ObjGetRollPitchYaw = {
-	_this params [["_object",objNull,[objNull]],["_roll",0,[0]],["_nick",0,[0]],["_gier",0,[0]]];
-	private _objectDir = VectorDir _object;
-	private _objectUp = VectorUp _object;
-	[_objectDir,_objectUp,_roll,_nick,_gier] call _fnc_getRollPitchYaw;
+    _this params [["_object",objNull,[objNull]],["_roll",0,[0]],["_nick",0,[0]],["_gier",0,[0]]];
+    private _objectDir = VectorDir _object;
+    private _objectUp = VectorUp _object;
+    [_objectDir,_objectUp,_roll,_nick,_gier] call _fnc_getRollPitchYaw;
 };
 
 _fnc_ObjGetRotMat = {
-	_this params [["_object",objNull,[objNull]],["_roll",0,[0]],["_nick",0,[0]],["_gier",0,[0]]];
-	private _tempRollPitchYaw = [_object] call _fnc_ObjGetRollPitchYaw;
-	[_tempRollPitchYaw] call _fnc_formatRotMat;
+    _this params [["_object",objNull,[objNull]],["_roll",0,[0]],["_nick",0,[0]],["_gier",0,[0]]];
+    private _tempRollPitchYaw = [_object] call _fnc_ObjGetRollPitchYaw;
+    [_tempRollPitchYaw] call _fnc_formatRotMat;
 };
 
 ([_houseVDir,_houseVUp] call _fnc_getRollPitchYaw) params ["_house_roll","_house_pitch","_house_yaw"];
 
 {
-	private _temp = []
-	If !(isPlayer _x) then {
-		private _currentObject = _x;
-		private _currenttype = typeOf _currentObject;
-		private _currentPos = getPosASL _currentObject;
-		private _currentRotMat = [_currentObject,_house_roll,_house_pitch,_house_yaw] call _fnc_ObjGetRotMat;
-		private _temppos = _housePos vectorDiff _currentPos;
-		private _temppos = [_temppos,_house_yaw] call _fnc_rotVector;
-		_temp = [_currenttype,_temppos,_currentRotMat];
-	};
-	If !(_temp isEqualTo []) then {
-		_exportArray pushBack _temp;
-	};
+    private _temp = []
+    If !(isPlayer _x) then {
+        private _currentObject = _x;
+        private _currenttype = typeOf _currentObject;
+        private _currentPos = getPosASL _currentObject;
+        private _currentRotMat = [_currentObject,_house_roll,_house_pitch,_house_yaw] call _fnc_ObjGetRotMat;
+        private _temppos = _housePos vectorDiff _currentPos;
+        private _temppos = [_temppos,_house_yaw] call _fnc_rotVector;
+        _temp = [_currenttype,_temppos,_currentRotMat];
+    };
+    If !(_temp isEqualTo []) then {
+        _exportArray pushBack _temp;
+    };
 }forEach _allObjects;
 
 private _export_vehicles = [];

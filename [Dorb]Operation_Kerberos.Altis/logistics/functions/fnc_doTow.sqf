@@ -29,22 +29,22 @@ _veh2 setDir 0;
 _veh1 setVariable [QGVAR(towedVehicle),_veh2,true];
 
 if (player == (driver _veh1)) then {
-	[_veh1,_veh2] spawn FUNC(tow);
+    [_veh1,_veh2] spawn FUNC(tow);
 };
 
 _aindex = [];
 
 _index = _veh1 addEventHandler ["GetIn", {
-	if ((_this select 1) isEqualTo "driver") then {
-		[_this select 0, (_this select 0) getVariable [QGVAR(towedVehicle), objNull]] spawn FUNC(tow);
-	};
+    if ((_this select 1) isEqualTo "driver") then {
+        [_this select 0, (_this select 0) getVariable [QGVAR(towedVehicle), objNull]] spawn FUNC(tow);
+    };
 }];
 _aindex pushBack ["GetIn",_index];
 
 _index = _veh1 addEventHandler ["SeatSwitched", {
-	if ((assignedVehicleRole (_this select 1)) isEqualTo ["driver"]) then {
-		[_this select 0, (_this select 0) getVariable [QGVAR(towedVehicle), objNull]] spawn FUNC(tow);
-	};
+    if ((assignedVehicleRole (_this select 1)) isEqualTo ["driver"]) then {
+        [_this select 0, (_this select 0) getVariable [QGVAR(towedVehicle), objNull]] spawn FUNC(tow);
+    };
 }];
 _aindex pushBack ["SeatSwitched",_index];
 

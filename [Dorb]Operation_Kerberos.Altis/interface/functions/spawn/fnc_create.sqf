@@ -82,7 +82,7 @@ if (_mode isEqualTo "driver") then {
 };
 
 If (GVARMAIN(mods_TFAR)) then {
-	_vehicle setVariable ["tf_side", GVARMAIN(playerSide), true];
+    _vehicle setVariable ["tf_side", GVARMAIN(playerSide), true];
 };
 
 

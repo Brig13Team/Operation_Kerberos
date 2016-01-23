@@ -29,9 +29,9 @@ _skill_compensation = _skill_compensation min 1;
 _amount_max = _amount_patrols + _amount_strikeforce + _amount_defence;
 
 If (_isTown) then {
-	_mult = 35/_amount_max;
+    _mult = 35/_amount_max;
 }else{
-	_mult = 45/_amount_max;
+    _mult = 45/_amount_max;
 };
 
 _amount_players = count([] call EFUNC(common,players));
@@ -61,9 +61,9 @@ If (IS_STRING(_type)) then {
         case "strikeforce" : {
             [_centerposition,_count_strikeforce] call EFUNC(spawn,strikeforce_create);
         };
-		case "town" : {
-			[_centerposition,400,GVARMAIN(side),35,8,true,true,true,true] call FUNC(city_fortify);
-		};
+        case "town" : {
+            [_centerposition,400,GVARMAIN(side),35,8,true,true,true,true] call FUNC(city_fortify);
+        };
     };
 }forEach _type;
 true

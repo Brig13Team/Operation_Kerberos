@@ -2,12 +2,12 @@
     Author: Dorbedo
     
     Description:
-		returns the RotationMatrix of an Object
+        returns the RotationMatrix of an Object
     Parameter(s):
         0 : OBJECT - the object
     
     Return
-		ARRAY - RotationMatrix
+        ARRAY - RotationMatrix
 */
 #define DEBUG_MODE_FULL
 #include "script_component.hpp"
@@ -38,23 +38,23 @@ _Rollwinkel = atan ((_VectorUp select 0) / _VectorUpZ);
 _Gierwinkel = 360 - _objectDir;
 
 if((_VectorUp select 2) < 0) then {
-	_Rollwinkel = _Rollwinkel - ([1,-1] select (_Rollwinkel < 0)) * 180;
+    _Rollwinkel = _Rollwinkel - ([1,-1] select (_Rollwinkel < 0)) * 180;
 };
 
 [
-	[
-		(cos _Gierwinkel) * (cos _Nickwinkel),
-		(sin _Gierwinkel) * (cos _Nickwinkel),
-		(-1 * (sin _Nickwinkel))
-	],
-	[
-		(cos _Gierwinkel) * (sin _Nickwinkel) * (sin _Rollwinkel) - (sin _Gierwinkel) * (cos _Rollwinkel),
-		(sin _Gierwinkel) * (sin _Nickwinkel) * (sin _Rollwinkel) + (cos _Gierwinkel) * (cos _Rollwinkel),
-		(cos _Nickwinkel) * (sin _Rollwinkel)
-	],
-	[
-		(cos _Gierwinkel) * (sin _Nickwinkel) * (cos _Rollwinkel) + (sin _Gierwinkel) * (sin _Rollwinkel),
-		(sin _Gierwinkel) * (sin _Nickwinkel) * (cos _Rollwinkel) - (cos _Gierwinkel) * (sin _Rollwinkel),
-		(cos _Nickwinkel) * (cos _Rollwinkel)
-	]
+    [
+        (cos _Gierwinkel) * (cos _Nickwinkel),
+        (sin _Gierwinkel) * (cos _Nickwinkel),
+        (-1 * (sin _Nickwinkel))
+    ],
+    [
+        (cos _Gierwinkel) * (sin _Nickwinkel) * (sin _Rollwinkel) - (sin _Gierwinkel) * (cos _Rollwinkel),
+        (sin _Gierwinkel) * (sin _Nickwinkel) * (sin _Rollwinkel) + (cos _Gierwinkel) * (cos _Rollwinkel),
+        (cos _Nickwinkel) * (sin _Rollwinkel)
+    ],
+    [
+        (cos _Gierwinkel) * (sin _Nickwinkel) * (cos _Rollwinkel) + (sin _Gierwinkel) * (sin _Rollwinkel),
+        (sin _Gierwinkel) * (sin _Nickwinkel) * (cos _Rollwinkel) - (cos _Gierwinkel) * (sin _Rollwinkel),
+        (cos _Nickwinkel) * (cos _Rollwinkel)
+    ]
 ];

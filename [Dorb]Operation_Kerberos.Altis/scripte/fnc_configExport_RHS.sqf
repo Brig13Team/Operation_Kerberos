@@ -34,25 +34,25 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
 _output = "";
 {
     _x params ["_cfgEntrie","_faction","_name","_vehicleClass"];
-	_output = _output + _br + format["%1;%2;%3;%4",_cfgEntrie,_faction,_name,_vehicleClass];
+    _output = _output + _br + format["%1;%2;%3;%4",_cfgEntrie,_faction,_name,_vehicleClass];
 }forEach _afrf_vehicles;
 
 
 {
     _x params ["_cfgEntrie","_faction","_name","_vehicleClass"];
-	_output = _output + _br + format["%1;%2;%3;%4",_cfgEntrie,_faction,_name,_vehicleClass];
+    _output = _output + _br + format["%1;%2;%3;%4",_cfgEntrie,_faction,_name,_vehicleClass];
 }forEach _usf_vehicles;
 
 
 {
     _x params ["_cfgEntrie","_faction","_name","_vehicleClass"];
-	_output = _output + _br + format["%1;%2;%3;%4",_cfgEntrie,_faction,_name,_vehicleClass];
+    _output = _output + _br + format["%1;%2;%3;%4",_cfgEntrie,_faction,_name,_vehicleClass];
 }forEach _afrf_soldiers;
 
 
 {
     _x params ["_cfgEntrie","_faction","_name","_vehicleClass"];
-	_output = _output + _br + format["%1;%2;%3;%4",_cfgEntrie,_faction,_name,_vehicleClass];
+    _output = _output + _br + format["%1;%2;%3;%4",_cfgEntrie,_faction,_name,_vehicleClass];
 }forEach _usf_soldiers;
 
 copytoClipboard _output;

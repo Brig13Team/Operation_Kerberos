@@ -225,7 +225,7 @@ Author:
 #define QGVARMAIN(var1) QUOTE(GVARMAIN(var1))
 
 #ifndef STRING_MACROS_GUARD
-	#define STRING_MACROS_GUARD
+    #define STRING_MACROS_GUARD
     #define LSTRING(var1) QUOTE(TRIPLES(STR,ADDON,var1))
     #define ELSTRING(var1,var2) QUOTE(TRIPLES(STR,DOUBLES(PREFIX,var1),var2))
     #define CSTRING(var1) QUOTE(TRIPLES($STR,ADDON,var1))
@@ -327,10 +327,10 @@ Author:
     Dorbedo
 ------------------------------------------- */
 #define SOLDIER_SYS(VAR1,VAR2,VAR3,VAR4) class VAR1 { \
-							vehicle = QUOTE(VAR2); \
-							rank = QUOTE(VAR3); \
-							position[] = VAR4; \
-						};
+                            vehicle = QUOTE(VAR2); \
+                            rank = QUOTE(VAR3); \
+                            position[] = VAR4; \
+                        };
 #define SOLDIERR_1(TYPE,RANK) SOLDIER_SYS(soldier_1,TYPE,RANK,{ARR_3(0,0,0)})
 #define SOLDIER_1(TYPE) SOLDIERR_1(TYPE,PRIVATE)
 #define SOLDIERR_2(TYPE,RANK) SOLDIER_SYS(soldier_2,TYPE,RANK,{ARR_3(-1,-1,0)})

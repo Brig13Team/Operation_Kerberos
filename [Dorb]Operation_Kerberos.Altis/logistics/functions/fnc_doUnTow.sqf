@@ -20,7 +20,7 @@ detach _veh2;
 _index = _veh1 getVariable [QGVAR(towEventHandler),[]];
 
 {
-	_veh1 removeEventHandler _x;
+    _veh1 removeEventHandler _x;
 } forEach _index;
 
 _veh1 setVariable [QGVAR(towArray), nil];

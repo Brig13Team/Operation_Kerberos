@@ -19,7 +19,7 @@ _ACE_Action = [QGVAR(objects_drop), localize LSTRING(OBJECTS_DROP), "\A3\Air_F_B
 ///// Device
 private _devicetypes = ["Land_Device_assembled_F","rhs_typhoon_vdv"];
 {
-	_ACE_Action = [QGVAR(objects_disable), localize LSTRING(OBJECTS_DISABLE), "", {[_target,player] spawn FUNC(objects_disable);}, {[_target] call FUNC(objects_canDisable)}] call ace_interact_menu_fnc_createAction;
-	[_x, 0, ["ACE_MainActions"], _ACE_Action] call ace_interact_menu_fnc_addActionToClass;
+    _ACE_Action = [QGVAR(objects_disable), localize LSTRING(OBJECTS_DISABLE), "", {[_target,player] spawn FUNC(objects_disable);}, {[_target] call FUNC(objects_canDisable)}] call ace_interact_menu_fnc_createAction;
+    [_x, 0, ["ACE_MainActions"], _ACE_Action] call ace_interact_menu_fnc_addActionToClass;
 }forEach _devicetypes;
 

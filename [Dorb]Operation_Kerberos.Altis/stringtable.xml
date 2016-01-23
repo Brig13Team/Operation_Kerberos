@@ -460,7 +460,7 @@
             <German>Abstellen</German>
             <English>Drop</English>
         </Key>
-		<Key ID="STR_DORB_MISSION_OBJECTS_DISABLE">
+        <Key ID="STR_DORB_MISSION_OBJECTS_DISABLE">
             <Original>Disable</Original>
             <German>Deaktivieren</German>
             <English>Disable</English>

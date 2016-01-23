@@ -93,11 +93,11 @@ class unitlists {
         
         class groups {
             class patrol {
-			};
-			class strikeforce {
-			};
-			class defence {
-			};
+            };
+            class strikeforce {
+            };
+            class defence {
+            };
         };
     };
     
@@ -121,16 +121,16 @@ class unitlists {
             
             boat_patrol[] = {"O_Boat_Armed_01_hmg_F"};    
             
-			soldiers[] = {"rhs_vdv_aa","rhs_vdv_arifleman","rhs_vdv_at","rhs_vdv_efreitor","rhs_vdv_engineer",
-						"rhs_vdv_grenadier","rhs_vdv_grenadier_rpg","rhs_vdv_junior_sergeant","rhs_vdv_LAT",
-						"rhs_vdv_machinegunner","rhs_vdv_machinegunner_assistant","rhs_vdv_marksman",
-						"rhs_vdv_marksman_asval","rhs_vdv_medic","rhs_vdv_officer",	"rhs_vdv_recon_at",
-						"rhs_vdv_recon_marksman","rhs_vdv_recon_marksman_asval","rhs_vdv_recon_sergeant",
-						"rhs_vdv_rifleman","rhs_vdv_rifleman_asval","rhs_vdv_RShG2","rhs_vdv_sergeant","rhs_vdv_strelok_rpg_assist"};
+            soldiers[] = {"rhs_vdv_aa","rhs_vdv_arifleman","rhs_vdv_at","rhs_vdv_efreitor","rhs_vdv_engineer",
+                        "rhs_vdv_grenadier","rhs_vdv_grenadier_rpg","rhs_vdv_junior_sergeant","rhs_vdv_LAT",
+                        "rhs_vdv_machinegunner","rhs_vdv_machinegunner_assistant","rhs_vdv_marksman",
+                        "rhs_vdv_marksman_asval","rhs_vdv_medic","rhs_vdv_officer",    "rhs_vdv_recon_at",
+                        "rhs_vdv_recon_marksman","rhs_vdv_recon_marksman_asval","rhs_vdv_recon_sergeant",
+                        "rhs_vdv_rifleman","rhs_vdv_rifleman_asval","rhs_vdv_RShG2","rhs_vdv_sergeant","rhs_vdv_strelok_rpg_assist"};
 
-			crewmen[] = {"rhs_vdv_officer_armored","rhs_vdv_combatcrew","rhs_vdv_crew","rhs_vdv_armoredcrew",
-						"rhs_vdv_crew_commander","rhs_vdv_driver","rhs_vdv_driver_armored"};
-			
+            crewmen[] = {"rhs_vdv_officer_armored","rhs_vdv_combatcrew","rhs_vdv_crew","rhs_vdv_armoredcrew",
+                        "rhs_vdv_crew_commander","rhs_vdv_driver","rhs_vdv_driver_armored"};
+            
             divers[] = {"O_diver_f","O_diver_exp_f","O_diver_TL_f","O_diver_f","O_diver_exp_f","O_diver_f"};
             
             veh_transport[] = {"rhs_btr60_vdv","rhs_btr70_vdv","rhs_btr80_vdv","rhs_btr80a_vdv"};
@@ -138,101 +138,101 @@ class unitlists {
             veh_armored[] = {"rhs_bmd1","rhs_bmd1k","rhs_bmd1p","rhs_bmd1pk","rhs_bmd1r","rhs_bmd2","rhs_bmd2m","rhs_bmd2k","rhs_bmp1_vdv","rhs_bmp1p_vdv","rhs_bmp1k_vdv","rhs_bmp1d_vdv","rhs_bmp2e_vdv","rhs_bmp2_vdv","rhs_bmp2k_vdv","rhs_bmp2d_vdv","rhs_brm1k_vdv","rhs_bmd4_vdv","rhs_bmd4m_vdv","rhs_bmd4ma_vdv","rhs_sprut_vdv"};
             veh_antiair[] = {"rhs_zsu234_aa"};
             
-			class groups {
-				class patrol {
-			        class E_Reg_Pat_01 {
-						SOLDIERR_1(rhs_vdv_sergeant,SERGEANT);
-						SOLDIERR_2(rhs_vdv_junior_sergeant,CORPORAL);
-						SOLDIER_3(rhs_vdv_rifleman);
-						SOLDIER_4(rhs_vdv_rifleman);
-						SOLDIER_5(rhs_vdv_grenadier_rpg);
-						SOLDIER_6(rhs_vdv_grenadier);
-					};
-					class E_Reg_Pat_02 {
-						SOLDIERR_1(rhs_vdv_sergeant,SERGEANT);
-						SOLDIERR_2(rhs_vdv_junior_sergeant,CORPORAL);
-						SOLDIER_3(rhs_vdv_marksman);
-						SOLDIER_4(rhs_vdv_marksman);
-						SOLDIER_5(rhs_vdv_medic);
-					};
-					class E_Reg_Pat_03 {
-						SOLDIERR_1(rhs_vdv_junior_sergeant,CORPORAL);
-						SOLDIER_2(rhs_vdv_medic);
-						SOLDIER_3(rhs_vdv_machinegunner);
-						SOLDIER_4(rhs_vdv_machinegunner_assistant);
-						SOLDIER_5(rhs_vdv_grenadier_rpg);
-						SOLDIER_6(rhs_vdv_aa);
-					};
-					class E_Reg_Pat_04 {
-						SOLDIERR_1(rhs_vdv_sergeant,SERGEANT);
-						SOLDIERR_2(rhs_vdv_junior_sergeant,CORPORAL);
-						SOLDIER_3(rhs_vdv_LAT);
-						SOLDIER_4(rhs_vdv_LAT);
-						SOLDIER_5(rhs_vdv_medic);
-						SOLDIER_6(rhs_vdv_grenadier);
-					};
-				};
-				class strikeforce {
-					class E_Reg_Att_01 {
-						SOLDIERR_1(rhs_vdv_sergeant,SERGEANT);
-						SOLDIERR_2(rhs_vdv_junior_sergeant,CORPORAL);
-						SOLDIER_3(rhs_vdv_LAT);
-						SOLDIER_4(rhs_vdv_LAT);
-						SOLDIER_5(rhs_vdv_medic);
-						SOLDIER_6(rhs_vdv_grenadier);
-						SOLDIER_7(rhs_vdv_grenadier);
-					};
-					class E_Reg_Att_02 {
-						SOLDIERR_1(rhs_vdv_junior_sergeant,CORPORAL);
-						SOLDIER_2(rhs_vdv_medic);
-						SOLDIER_3(rhs_vdv_machinegunner);
-						SOLDIER_4(rhs_vdv_machinegunner_assistant);
-						SOLDIER_5(rhs_vdv_grenadier_rpg);
-						SOLDIER_6(rhs_vdv_grenadier_rpg);
-						SOLDIER_7(rhs_vdv_aa);
-					};
-					class E_Reg_Att_03 {
-						SOLDIER_1(rhs_btr80a_vdv);
-						SOLDIERR_2(rhs_vdv_junior_sergeant,CORPORAL);
-						SOLDIER_3(rhs_vdv_rifleman);
-						SOLDIER_4(rhs_vdv_rifleman);
-						SOLDIER_5(rhs_vdv_rifleman);
-						SOLDIER_6(rhs_vdv_grenadier);
-						SOLDIER_7(rhs_vdv_grenadier);
-						SOLDIER_8(rhs_vdv_grenadier_rpg);
-						SOLDIER_9(rhs_vdv_grenadier_rpg);
-						SOLDIER_10(rhs_vdv_medic);
-						SOLDIER_11(rhs_vdv_medic);
-						SOLDIER_12(rhs_vdv_rifleman);
-						SOLDIER_13(rhs_vdv_rifleman);
-					};
-				};
-				class defence {
-					class E_Reg_def_01 {
-						SOLDIERR_1(rhs_vdv_junior_sergeant,CORPORAL);
-						SOLDIER_2(rhs_vdv_medic);
-						SOLDIER_3(rhs_vdv_machinegunner);
-						SOLDIER_4(rhs_vdv_machinegunner_assistant);
-						SOLDIER_5(rhs_vdv_grenadier_rpg);
-					};
-					class E_Reg_def_02 {
-						SOLDIERR_1(rhs_vdv_sergeant,SERGEANT);
-						SOLDIERR_2(rhs_vdv_junior_sergeant,CORPORAL);
-						SOLDIER_3(rhs_vdv_at);
-						SOLDIER_4(rhs_vdv_at);
-						SOLDIER_5(rhs_vdv_LAT);
-						SOLDIER_6(rhs_vdv_rifleman);
-					};
-					class E_Reg_def_03 {
-						SOLDIERR_1(rhs_vdv_junior_sergeant,CORPORAL);
-						SOLDIER_2(rhs_vdv_medic);
-						SOLDIER_3(rhs_vdv_aa);
-						SOLDIER_4(rhs_vdv_aa);
-						SOLDIER_5(rhs_vdv_strelok_rpg_assist);
-						SOLDIER_6(rhs_vdv_strelok_rpg_assist);
-					};
-				};
-			};
+            class groups {
+                class patrol {
+                    class E_Reg_Pat_01 {
+                        SOLDIERR_1(rhs_vdv_sergeant,SERGEANT);
+                        SOLDIERR_2(rhs_vdv_junior_sergeant,CORPORAL);
+                        SOLDIER_3(rhs_vdv_rifleman);
+                        SOLDIER_4(rhs_vdv_rifleman);
+                        SOLDIER_5(rhs_vdv_grenadier_rpg);
+                        SOLDIER_6(rhs_vdv_grenadier);
+                    };
+                    class E_Reg_Pat_02 {
+                        SOLDIERR_1(rhs_vdv_sergeant,SERGEANT);
+                        SOLDIERR_2(rhs_vdv_junior_sergeant,CORPORAL);
+                        SOLDIER_3(rhs_vdv_marksman);
+                        SOLDIER_4(rhs_vdv_marksman);
+                        SOLDIER_5(rhs_vdv_medic);
+                    };
+                    class E_Reg_Pat_03 {
+                        SOLDIERR_1(rhs_vdv_junior_sergeant,CORPORAL);
+                        SOLDIER_2(rhs_vdv_medic);
+                        SOLDIER_3(rhs_vdv_machinegunner);
+                        SOLDIER_4(rhs_vdv_machinegunner_assistant);
+                        SOLDIER_5(rhs_vdv_grenadier_rpg);
+                        SOLDIER_6(rhs_vdv_aa);
+                    };
+                    class E_Reg_Pat_04 {
+                        SOLDIERR_1(rhs_vdv_sergeant,SERGEANT);
+                        SOLDIERR_2(rhs_vdv_junior_sergeant,CORPORAL);
+                        SOLDIER_3(rhs_vdv_LAT);
+                        SOLDIER_4(rhs_vdv_LAT);
+                        SOLDIER_5(rhs_vdv_medic);
+                        SOLDIER_6(rhs_vdv_grenadier);
+                    };
+                };
+                class strikeforce {
+                    class E_Reg_Att_01 {
+                        SOLDIERR_1(rhs_vdv_sergeant,SERGEANT);
+                        SOLDIERR_2(rhs_vdv_junior_sergeant,CORPORAL);
+                        SOLDIER_3(rhs_vdv_LAT);
+                        SOLDIER_4(rhs_vdv_LAT);
+                        SOLDIER_5(rhs_vdv_medic);
+                        SOLDIER_6(rhs_vdv_grenadier);
+                        SOLDIER_7(rhs_vdv_grenadier);
+                    };
+                    class E_Reg_Att_02 {
+                        SOLDIERR_1(rhs_vdv_junior_sergeant,CORPORAL);
+                        SOLDIER_2(rhs_vdv_medic);
+                        SOLDIER_3(rhs_vdv_machinegunner);
+                        SOLDIER_4(rhs_vdv_machinegunner_assistant);
+                        SOLDIER_5(rhs_vdv_grenadier_rpg);
+                        SOLDIER_6(rhs_vdv_grenadier_rpg);
+                        SOLDIER_7(rhs_vdv_aa);
+                    };
+                    class E_Reg_Att_03 {
+                        SOLDIER_1(rhs_btr80a_vdv);
+                        SOLDIERR_2(rhs_vdv_junior_sergeant,CORPORAL);
+                        SOLDIER_3(rhs_vdv_rifleman);
+                        SOLDIER_4(rhs_vdv_rifleman);
+                        SOLDIER_5(rhs_vdv_rifleman);
+                        SOLDIER_6(rhs_vdv_grenadier);
+                        SOLDIER_7(rhs_vdv_grenadier);
+                        SOLDIER_8(rhs_vdv_grenadier_rpg);
+                        SOLDIER_9(rhs_vdv_grenadier_rpg);
+                        SOLDIER_10(rhs_vdv_medic);
+                        SOLDIER_11(rhs_vdv_medic);
+                        SOLDIER_12(rhs_vdv_rifleman);
+                        SOLDIER_13(rhs_vdv_rifleman);
+                    };
+                };
+                class defence {
+                    class E_Reg_def_01 {
+                        SOLDIERR_1(rhs_vdv_junior_sergeant,CORPORAL);
+                        SOLDIER_2(rhs_vdv_medic);
+                        SOLDIER_3(rhs_vdv_machinegunner);
+                        SOLDIER_4(rhs_vdv_machinegunner_assistant);
+                        SOLDIER_5(rhs_vdv_grenadier_rpg);
+                    };
+                    class E_Reg_def_02 {
+                        SOLDIERR_1(rhs_vdv_sergeant,SERGEANT);
+                        SOLDIERR_2(rhs_vdv_junior_sergeant,CORPORAL);
+                        SOLDIER_3(rhs_vdv_at);
+                        SOLDIER_4(rhs_vdv_at);
+                        SOLDIER_5(rhs_vdv_LAT);
+                        SOLDIER_6(rhs_vdv_rifleman);
+                    };
+                    class E_Reg_def_03 {
+                        SOLDIERR_1(rhs_vdv_junior_sergeant,CORPORAL);
+                        SOLDIER_2(rhs_vdv_medic);
+                        SOLDIER_3(rhs_vdv_aa);
+                        SOLDIER_4(rhs_vdv_aa);
+                        SOLDIER_5(rhs_vdv_strelok_rpg_assist);
+                        SOLDIER_6(rhs_vdv_strelok_rpg_assist);
+                    };
+                };
+            };
         };
         class armored : regular {
         };

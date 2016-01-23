@@ -15,16 +15,16 @@ ISNILS(GVAR(device_intervall),diag_ticktime);
 If (GVAR(device_intervall)>diag_ticktime) exitWith {};
 
 {
-	_x setHitPointDamage ["hitEngine", 1];
-	_x setHitPointDamage ["HitStarter1", 1];
-	
-	_x setHitPointDamage ["hitEngine2", 1];
-	_x setHitPointDamage ["HitStarter2", 1];
-	
-	_x setHitPointDamage ["hitEngine3", 1];
-	_x setHitPointDamage ["HitStarter3", 1];
-	
-	_x setHitPointDamage ["HitBatteries", 1];
+    _x setHitPointDamage ["hitEngine", 1];
+    _x setHitPointDamage ["HitStarter1", 1];
+    
+    _x setHitPointDamage ["hitEngine2", 1];
+    _x setHitPointDamage ["HitStarter2", 1];
+    
+    _x setHitPointDamage ["hitEngine3", 1];
+    _x setHitPointDamage ["HitStarter3", 1];
+    
+    _x setHitPointDamage ["HitBatteries", 1];
 } forEach ((getPos _target) nearEntities [["Air","LandVehicle"],EMP_RANGE]);
 
 

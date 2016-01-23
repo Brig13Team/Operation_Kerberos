@@ -25,7 +25,7 @@ _IED_urban = ["IEDUrbanBig_Remote_Mag","IEDUrbanSmall_Remote_Mag"];
 
 For "_i" from 0 to ((count _spawnposarray)-1) do {
     (_spawnposarray select _i) params ["_coord_x","_coord_y","_coord_z","_dir"];
-	private _pos = [_coord_x,_coord_y,_coord_z];
+    private _pos = [_coord_x,_coord_y,_coord_z];
     private _triggerConfig = "PressurePlate";
     private _triggerSpecificVars = [];
     
@@ -56,8 +56,8 @@ For "_i" from 0 to ((count _spawnposarray)-1) do {
     GVARMAIN(side) revealMine _explosive;
 
     #ifdef DEBUG_MODE_FULL
-		[_pos,"","","MinefieldAP"] call EFUNC(common,debug_marker_create);
-	#endif
-	
+        [_pos,"","","MinefieldAP"] call EFUNC(common,debug_marker_create);
+    #endif
+    
     [objNull,_explosive,_magazineClass,_triggerSpecificVars] call compile (getText (_triggerConfig >> "onPlace"));
 };

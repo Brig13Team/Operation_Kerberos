@@ -119,7 +119,7 @@ for "_i" from 0 to (count _config)-1 do {
 
     ///// spawn defence
     private _currentmakro = (([_makros,1] call EFUNC(common,sel_array_weighted))select 0);
-	TRACEV_2(_makros,_currentmakro);
+    TRACEV_2(_makros,_currentmakro);
     private _configarray = ["missionConfigFile","defence_positions",str GVARMAIN(side),"terrain",format["%1",_currentmakro]];
     
     [_x,_configarray,_bestdir] call FUNC(macro_exec3d);
