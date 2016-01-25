@@ -6,6 +6,9 @@
 */
 #include "script_component.hpp"
 SCRIPT(XEH_CLIENTPOSTINIT);
+
+SETUVAR(EGVAR(interface,respawnTime),nil);
+
 [] call FUNC(playeraddaction);
 [] call FUNC(addbriefing);
 [] call FUNC(halo_addaction);

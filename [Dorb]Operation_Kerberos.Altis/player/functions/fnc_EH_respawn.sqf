@@ -2,7 +2,12 @@
 SCRIPT(XEH_respawn);
 If(!hasInterface)exitWith{};
 
-if (time > 30) then { SETVAR(player,EGVAR(interface,respawntime),time); };
+private _respawntime = uiNamespace getVariable QEGVAR(interface,RespawnTime);
+if (isNil "_respawntime") then {
+    uiNamespace setVariable [QEGVAR(interface,RespawnTime),-1];
+} else {
+    uiNamespace setVariable [QEGVAR(interface,RespawnTime),diag_tickTime];
+};
 
 ["restart"] spawn FUNC(grouptracker);
 
