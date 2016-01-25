@@ -1,5 +1,5 @@
 #include "script_component.hpp"
-
+SCRIPT(XEH_PREINIT);
 ADDON = false;
 
 PREP(candrop);

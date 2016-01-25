@@ -28,7 +28,7 @@ private _return = true;
                 (getPos _x) vectorAdd ((vectorDir _x) vectorMultiply (abs((boundingBoxReal _x) select 0 select 0)))
             )< 2
         )
-    } exitWith {_return = true;};
+    }) exitWith {_return = true;};
 } forEach _nearVehicles;
 
 _return;

@@ -5,7 +5,7 @@
         postinit client
 */
 #include "script_component.hpp"
-
+SCRIPT(XEH_CLIENTPOSTINIT);
 QEGVAR(mission,endzeit) addPublicVariableEventHandler {[] spawn FUNC(disp_timer)};
 [] spawn FUNC(disp_timer);
 

@@ -6,7 +6,9 @@
     
 */
 #include "script_component.hpp"
-SCRIPT(postInit);
+SCRIPT(XEH_POSTINIT);
+
+diag_log format["     _fnc_scriptname = %1",_fnc_scriptname];
 
 /// sandstorm
 If (isNil QGVAR(sandstormIsActive)) then {GVAR(sandstormIsActive) = false;};
@@ -17,7 +19,7 @@ If (hasInterface) then {
 GVARMAIN(debug)=false;
 
 CHECK(!isServer)
-CHECK(true)
+//CHECK(true)
 // Delete dead Units
 [{
     If ((count allDead)>20) then {
@@ -66,13 +68,10 @@ If ((_markerpos distance [0,0,0])>1) then {
 
 
 [] spawn {
+    SCRIPTIN(XEH_POSTINIT,taskloop);
 
-
-
-
-    private ["_aufgabennummer","_aktuelle_aufgabe","_return"];
-    _aufgabennummer=0;
-    _return = [] call EFUNC(common,get_cfglocations);
+    private _aufgabennummer=0;
+    private _return = [] call EFUNC(common,get_cfglocations);
     SETMVAR(GVAR(town),(_return select 0));
     SETMVAR(GVAR(industrie),(_return select 1));
     SETMVAR(GVAR(military),(_return select 2));
@@ -91,7 +90,4 @@ If ((_markerpos distance [0,0,0])>1) then {
     };
     ERROR("CORE LOOP CRASHED");
     endMission "End1";
-
-
-
 };

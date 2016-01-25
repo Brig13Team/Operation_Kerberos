@@ -19,7 +19,8 @@ GVARMAIN(mods_TFAR) = (isClass(configFile >> "CfgPatches" >> "task_force_radio")
 GVARMAIN(mods_bwa) = (isClass(configFile >> "CfgPatches" >> "BWA3_Tracked"));
 
 /// initialize SIDES
-IF (isNil QGVAR(playerside)) then {
+IF (isNil QGVARMAIN(playerside)) then {
+    ERROR("playerside nicht definiert");
     GVARMAIN(playerside) = west;
 };
 

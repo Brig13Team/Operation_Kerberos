@@ -14,6 +14,7 @@ Example:
 Author:
     Dorbedo
 ------------------------------------------- */
+
 #ifndef CBA_OFF
     #include "\x\cba\addons\main\script_macros_mission.hpp"
 #else
@@ -28,7 +29,7 @@ Author:
     #define FUNCMAIN(var1) TRIPLES(PREFIX,fnc,var1)
     #define EFUNC(var1,var2) TRIPLES(DOUBLES(PREFIX,var1),fnc,var2)
     #define INCLUDE_PREINIT(var1) \
-         class DOUBLES(PREFIX,var1) {\
+        class DOUBLES(PREFIX,var1) {\
             init = QUOTE(call compile preProcessFileLineNumbers 'var1\XEH_PreInit.sqf'); \
         };
     #define INCLUDE_POSTINIT(var1) \
@@ -36,19 +37,19 @@ Author:
             init = QUOTE(call compile preProcessFileLineNumbers 'var1\XEH_PostInit.sqf'); \
         };
     #define INCLUDE_SERVERPREINIT(var1) \
-         class DOUBLES(PREFIX,var1) {\
+        class TRIPLES(PREFIX,var1,server) {\
             Serverinit = QUOTE(call compile preProcessFileLineNumbers 'var1\XEH_ServerPreInit.sqf'); \
         };
     #define INCLUDE_SERVERPOSTINIT(var1) \
-        class DOUBLES(PREFIX,var1) {\
+        class TRIPLES(PREFIX,var1,server) {\
             Serverinit = QUOTE(call compile preProcessFileLineNumbers 'var1\XEH_ServerPostInit.sqf'); \
         };
     #define INCLUDE_CLIENTPREINIT(var1) \
-         class DOUBLES(PREFIX,var1) {\
+        class TRIPLES(PREFIX,var1,client) {\
             Clientinit = QUOTE(call compile preProcessFileLineNumbers 'var1\XEH_ClientPreInit.sqf'); \
         };
     #define INCLUDE_CLIENTPOSTINIT(var1) \
-        class DOUBLES(PREFIX,var1) {\
+        class TRIPLES(PREFIX,var1,client) {\
             Clientinit = QUOTE(call compile preProcessFileLineNumbers 'var1\XEH_ClientPostInit.sqf'); \
         };
     #define GVAR(var1) DOUBLES(ADDON,var1)
@@ -169,6 +170,7 @@ Author:
 Macro: SCRIPT(VAR)
    Sets name of script
    Overrides CBA "SCRIPT"
+   adds _fnc_scriptName due to compatibility with BIS-System
 Parameters:
     NAME - Name of script [Indentifier]
 
@@ -181,14 +183,19 @@ Author:
     Dorbedo
 ------------------------------------------- */
 #ifdef PART
-    #define SCRIPT(NAME) scriptName 'PREFIX\COMPONENT\PART\NAME'
+    #define SCRIPT(NAME) \
+    private _fnc_scriptName = QUOTE(DOUBLES(ADDON,TRIPLES(fnc,PART,NAME))); \
+    scriptName _fnc_scriptName
 #else
-    #define SCRIPT(NAME) scriptName 'PREFIX\COMPONENT\NAME'
+    #define SCRIPT(NAME) \
+    private _fnc_scriptName = QUOTE(TRIPLES(ADDON,fnc,NAME)); \
+    scriptName _fnc_scriptName
 #endif
 
 /* -------------------------------------------
 Macro: SCRIPTIN(VAR)
    Sets name of an inner script
+   adds _fnc_scriptName due to compatibility with BIS-System
 Parameters:
     NAME - Name of script [Indentifier]
 
@@ -201,28 +208,98 @@ Author:
     Dorbedo
 ------------------------------------------- */
 #ifdef PART
-    #define SCRIPTIN(NAME,NAME2) scriptName 'PREFIX\COMPONENT\PART\NAME_NAME2'
+    #define SCRIPTIN(NAME,NAME2) \
+    private _fnc_scriptName = QUOTE(TRIPLES(ADDON,fnc,TRIPLES(fnc,NAME,NAME2))); \
+    scriptName _fnc_scriptName
 #else
-    #define SCRIPTIN(NAME,NAME2) scriptName 'PREFIX\COMPONENT\NAME_NAME2'
+    #define SCRIPTIN(NAME,NAME2) \
+    private _fnc_scriptName = QUOTE(DOUBLES(ADDON,TRIPLES(fnc,NAME,NAME2))); \
+    scriptName _fnc_scriptName
 #endif
 
+
+/* -------------------------------------------
+Macro: PREP(VAR)
+   compiling functions
+   file: COMPONENT\functions\fnc_VAR.sqf
+   adding an header to the function if DEBUG_MODE_NORMAL enabled (COMPONENT WIDE)
+Parameters:
+    VAR - Name of file [Indentifier]
+    
+Example:
+    (begin example)
+        #define COMPONENT main
+        PREP(test);
+        
+        Result: PREFIX_main_fnc_test = *compiled function*;
+    (end)
+
+Author:
+    Dorbedo
+------------------------------------------- */
+
+/* -------------------------------------------
+Macro: PREPS(VAR1,VAR2)
+   compiling functions
+   file: COMPONENT\functions\VAR1\fnc_VAR2.sqf
+   adding an header to the function if DEBUG_MODE_NORMAL enabled (COMPONENT WIDE)
+Parameters:
+    VAR1 - Name of PART
+    VAR2 - Name of file [Indentifier]
+    
+Example:
+    (begin example)
+        #define COMPONENT main
+        PREPS(player,test);
+        
+        Result: PREFIX_main_fnc_player_test = *compiled function*;
+    (end)
+
+Author:
+    Dorbedo
+------------------------------------------- */
+
+/* -------------------------------------------
+Macro: PREPMAIN(VAR)
+   compiling functions
+   file: COMPONENT\functions\fnc_VAR.sqf
+   adding an header to the function if DEBUG_MODE_NORMAL enabled (COMPONENT WIDE)
+Parameters:
+    VAR - Name of file [Indentifier]
+    
+Example:
+    (begin example)
+        #define COMPONENT main
+        PREPMAIN(test);
+        
+        Result: PREFIX_fnc_test = *compiled function*;
+    (end)
+
+Author:
+    Dorbedo
+------------------------------------------- */
+
+#ifdef INCLUDE_HEADER
+    #undef INCLUDE_HEADER
+#endif
+
+#ifdef DEBUG_MODE_NORMAL
+    #define INCLUDE_HEADER true
+#else
+    #define INCLUDE_HEADER false
+#endif
 
 #define PATHTO_SYS_LONG(var1,var2,var3,var4) ##var1\##var2\##var3\##var4.sqf
 
 #ifdef DISABLE_COMPILE_CACHE
-    #define PREP(var1) TRIPLES(ADDON,fnc,var1) = compile preProcessFileLineNumbers 'PATHTO_SYS(COMPONENT,functions,DOUBLES(fnc,var1))'
-    #define PREPMAIN(var1) TRIPLES(PREFIX,fnc,var1) = compile preProcessFileLineNumbers 'PATHTO_SYS(COMPONENT,functions,DOUBLES(fnc,var1))'
-    #define PREPS(var1,var2) TRIPLES(ADDON,fnc,DOUBLES(var1,var2)) = compile preProcessFileLineNumbers 'PATHTO_SYS_LONG(COMPONENT,functions,var1,DOUBLES(fnc,var2))'
+    #define PREP(var1) ['PATHTO_SYS(COMPONENT,functions,DOUBLES(fnc,var1))', 'TRIPLES(ADDON,fnc,var1)',INCLUDE_HEADER] call TRIPLES(PREFIX,makro,compileFile)
+    #define PREPMAIN(var1) ['PATHTO_SYS(COMPONENT,functions,DOUBLES(fnc,var1))', 'TRIPLES(PREFIX,fnc,var1)',INCLUDE_HEADER] call TRIPLES(PREFIX,makro,compileFile)
+    #define PREPS(var1,var2) ['PATHTO_SYS_LONG(COMPONENT,functions,var1,DOUBLES(fnc,var2))', 'TRIPLES(ADDON,fnc,DOUBLES(var1,var2))',INCLUDE_HEADER] call TRIPLES(PREFIX,makro,compileFile)
 #else
-    #define PREP(var1) ['PATHTO_SYS(COMPONENT,functions,DOUBLES(fnc,var1))', 'TRIPLES(ADDON,fnc,var1)'] call SLX_XEH_COMPILE_NEW
-    #define PREPMAIN(var1) ['PATHTO_SYS(COMPONENT,functions,DOUBLES(fnc,var1))', 'TRIPLES(PREFIX,fnc,var1)'] call SLX_XEH_COMPILE_NEW
-    #define PREPS(var1,var2) ['PATHTO_SYS_LONG(COMPONENT,functions,var1,DOUBLES(fnc,var2))', 'TRIPLES(ADDON,fnc,DOUBLES(var1,var2))'] call SLX_XEH_COMPILE_NEW
+    #define PREP(var1) ['PATHTO_SYS(COMPONENT,functions,DOUBLES(fnc,var1))', 'TRIPLES(ADDON,fnc,var1)',INCLUDE_HEADER] call TRIPLES(PREFIX,makro,compileFileFinal)
+    #define PREPMAIN(var1) ['PATHTO_SYS(COMPONENT,functions,DOUBLES(fnc,var1))', 'TRIPLES(PREFIX,fnc,var1)',INCLUDE_HEADER] call TRIPLES(PREFIX,makro,compileFileFinal)
+    #define PREPS(var1,var2) ['PATHTO_SYS_LONG(COMPONENT,functions,var1,DOUBLES(fnc,var2))', 'TRIPLES(ADDON,fnc,DOUBLES(var1,var2))',INCLUDE_HEADER] call TRIPLES(PREFIX,makro,compileFileFinal)
 #endif
-
-
-#define EGVAR(var1,var2) TRIPLES(PREFIX,var1,var2)
-#define QEGVAR(var1,var2) QUOTE(EGVAR(var1,var2))
-#define QGVARMAIN(var1) QUOTE(GVARMAIN(var1))
 
 #ifndef STRING_MACROS_GUARD
     #define STRING_MACROS_GUARD

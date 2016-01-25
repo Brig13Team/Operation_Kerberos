@@ -5,7 +5,7 @@
         postinit server
 */
 #include "script_component.hpp"
-
+SCRIPT(XEH_SERVERPOSTINIT);
 #ifdef DORB_PILOT_WHITELIST_ENABLED
     GVAR(reserved_pilot)=[];
     GVAR(reserved_pilot_slot) = true;

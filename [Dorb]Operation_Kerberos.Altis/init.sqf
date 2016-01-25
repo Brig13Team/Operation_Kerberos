@@ -4,7 +4,9 @@
     Description:
         init
 */
+
 #include "script_component.hpp"
+
 SCRIPT(init);
 
 GVARMAIN(playerside) = west;
@@ -34,5 +36,5 @@ If (hasInterface) then {
         [LSTRING(WELCOME1),LSTRING(WELCOME2),LSTRING(WELCOME3),LSTRING(WELCOME4),LSTRING(WELCOME5),LSTRING(WELCOME6)],
         "data\logo_brig.paa",
         false
-    ] call FUNC(disp_info);
+    ] call EFUNC(interface,disp_info);
 };
