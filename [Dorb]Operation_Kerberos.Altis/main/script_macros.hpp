@@ -218,6 +218,13 @@ Author:
 #endif
 
 
+
+#ifdef DEBUG_MODE_NORMAL
+    #define INCLUDE_HEADER true
+#else
+    #define INCLUDE_HEADER false
+#endif
+#define PATHTO_SYS_LONG(var1,var2,var3,var4) ##var1\##var2\##var3\##var4.sqf
 /* -------------------------------------------
 Macro: PREP(VAR)
    compiling functions
@@ -237,7 +244,7 @@ Example:
 Author:
     Dorbedo
 ------------------------------------------- */
-
+#define PREP(var1) ['PATHTO_SYS(COMPONENT,functions,DOUBLES(fnc,var1))', 'TRIPLES(ADDON,fnc,var1)',INCLUDE_HEADER] call TRIPLES(PREFIX,makro,compileFileFinal)
 /* -------------------------------------------
 Macro: PREPS(VAR1,VAR2)
    compiling functions
@@ -258,7 +265,7 @@ Example:
 Author:
     Dorbedo
 ------------------------------------------- */
-
+#define PREPS(var1,var2) ['PATHTO_SYS_LONG(COMPONENT,functions,var1,DOUBLES(fnc,var2))', 'TRIPLES(ADDON,fnc,DOUBLES(var1,var2))',INCLUDE_HEADER] call TRIPLES(PREFIX,makro,compileFileFinal)
 /* -------------------------------------------
 Macro: PREPMAIN(VAR)
    compiling functions
@@ -278,22 +285,7 @@ Example:
 Author:
     Dorbedo
 ------------------------------------------- */
-
-#ifdef INCLUDE_HEADER
-    #undef INCLUDE_HEADER
-#endif
-
-#ifdef DEBUG_MODE_NORMAL
-    #define INCLUDE_HEADER true
-#else
-    #define INCLUDE_HEADER false
-#endif
-
-#define PATHTO_SYS_LONG(var1,var2,var3,var4) ##var1\##var2\##var3\##var4.sqf
-
-#define PREP(var1) ['PATHTO_SYS(COMPONENT,functions,DOUBLES(fnc,var1))', 'TRIPLES(ADDON,fnc,var1)',INCLUDE_HEADER] call TRIPLES(PREFIX,makro,compileFileFinal)
 #define PREPMAIN(var1) ['PATHTO_SYS(COMPONENT,functions,DOUBLES(fnc,var1))', 'TRIPLES(PREFIX,fnc,var1)',INCLUDE_HEADER] call TRIPLES(PREFIX,makro,compileFileFinal)
-#define PREPS(var1,var2) ['PATHTO_SYS_LONG(COMPONENT,functions,var1,DOUBLES(fnc,var2))', 'TRIPLES(ADDON,fnc,DOUBLES(var1,var2))',INCLUDE_HEADER] call TRIPLES(PREFIX,makro,compileFileFinal)
 
 #ifndef STRING_MACROS_GUARD
     #define STRING_MACROS_GUARD
