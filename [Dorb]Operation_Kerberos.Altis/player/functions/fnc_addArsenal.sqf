@@ -13,5 +13,10 @@
 */
 #include "script_component.hpp"
 SCRIPT(addArsenal);
-CHECK(!(local _this))
-["AmmoboxInit",[_this,true,{true}]] call BIS_fnc_arsenal;
+CHECK(!isServer)
+
+If (isClass(missionConfigFile>>GVARMAIN(arsenal))) then {
+    waitUntil{!isNil QGVAR(arsenalList)};
+}else{
+    ["AmmoboxInit",[_this,true,{true}]] call BIS_fnc_arsenal;
+};
