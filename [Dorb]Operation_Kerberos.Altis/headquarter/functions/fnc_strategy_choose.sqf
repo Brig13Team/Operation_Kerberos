@@ -11,7 +11,7 @@
         none
 */
 #include "script_component.hpp"
-SCRIPT(strategy_choose);
+
 
 
 

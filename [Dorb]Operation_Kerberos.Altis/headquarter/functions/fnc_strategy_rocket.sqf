@@ -11,7 +11,6 @@
         none
 */
 #include "script_component.hpp"
-SCRIPT(strategy_rocket);
 _this params ["_currentLogic","_currenttroopsNeeded"];
 
 private _currentPosition = getPosATL _currentLogic;

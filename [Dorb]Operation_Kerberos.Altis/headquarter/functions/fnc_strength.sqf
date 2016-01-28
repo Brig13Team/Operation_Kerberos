@@ -12,7 +12,6 @@
         none
 */
 #include "script_component.hpp"
-SCRIPT(update_strength);
 _this params[["_group",grpNull,[grpNull]]];
 if (isNull _group) exitWith {["",0]};
 

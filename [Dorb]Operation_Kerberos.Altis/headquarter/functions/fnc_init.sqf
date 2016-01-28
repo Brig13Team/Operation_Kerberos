@@ -11,7 +11,6 @@
         none
 */
 #include "script_component.hpp"
-SCRIPT(init);
 #define INTERVALL_HQ 30
 #define INTERVALL_RADARS 20
 #define INTERVALL_BUFFER 2

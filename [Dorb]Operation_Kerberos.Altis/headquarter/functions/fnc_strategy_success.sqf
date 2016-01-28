@@ -11,7 +11,6 @@
         none
 */
 #include "script_component.hpp"
-SCRIPT(strategy_success);
 _this params ["_currentLogic"];
 
 private _Strategy_Memory = GETPRVAR(GVAR(strategy_memory),[]);

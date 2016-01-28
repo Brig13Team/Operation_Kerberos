@@ -11,7 +11,6 @@
         BOOL
 */
 #include "script_component.hpp"
-SCRIPT(register_POI);
 _this params[["_POI",[],[[],objNull],[2,3]]];
 If (_POI isEqualTo []) exitWith {false};
 

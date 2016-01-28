@@ -11,7 +11,6 @@
         none
 */
 #include "script_component.hpp"
-SCRIPT(mission_end);
 
 GVAR(aktive) = false;
 

@@ -11,7 +11,6 @@
         none
 */
 #include "script_component.hpp"
-SCRIPT(waypoints_next);
 _this params[
     ["_position",[],[[]]]
     ];

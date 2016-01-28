@@ -11,7 +11,6 @@
         none
 */
 #include "script_component.hpp"
-SCRIPT(strategy_);
 _this params ["_currentLogic"];
 private _currentTroops = _currentLogic getVariable [QGVAR(troopsNeeded),0];
 private _currentPos = getPos _currentLogic;

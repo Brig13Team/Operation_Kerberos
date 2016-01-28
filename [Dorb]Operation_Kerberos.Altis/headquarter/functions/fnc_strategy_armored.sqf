@@ -11,7 +11,6 @@
         none
 */
 #include "script_component.hpp"
-SCRIPT(strategy_armored);
 _this params ["_currentLogic"];
 
 private _currentPos = getPos _currentLogic;

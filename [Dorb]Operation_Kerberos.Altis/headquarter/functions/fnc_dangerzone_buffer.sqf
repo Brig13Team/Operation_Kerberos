@@ -11,7 +11,6 @@
         none
 */
 #include "script_component.hpp"
-SCRIPT(dangerzone_buffer);
 #define VALUEMODIFICATOR 0.5
 CHECK(GVAR(buffer) isEqualTo [])
 

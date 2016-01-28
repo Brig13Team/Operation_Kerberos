@@ -11,7 +11,6 @@
         none
 */
 #include "script_component.hpp"
-SCRIPT(strategy_helicopter);
 _this params ["_currentLogic","_attackgroups"];
 TRACEV_2(_currentLogic,_attackgroups);
 private _currentPos = getPos _currentLogic;

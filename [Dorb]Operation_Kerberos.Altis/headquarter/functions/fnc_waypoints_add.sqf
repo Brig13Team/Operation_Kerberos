@@ -11,7 +11,6 @@
         none
 */
 #include "script_component.hpp"
-SCRIPT(waypoints_add);
 _this params[
     ["_group",grpNull,[grpNull,objNull]],
     ["_positions",[],[[],objNull,locationNull,grpNull]],

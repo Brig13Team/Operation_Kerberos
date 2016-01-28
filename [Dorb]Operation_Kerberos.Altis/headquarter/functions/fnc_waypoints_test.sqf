@@ -11,7 +11,6 @@
         none
 */
 #include "script_component.hpp"
-SCRIPT(waypoints_test);
 
 ISNILS(GVARMAIN(debug_marker),[]);
 ISNILS(GVAR(waypoints),[]);

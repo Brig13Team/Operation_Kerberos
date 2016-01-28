@@ -11,7 +11,6 @@
         none
 */
 #include "script_component.hpp"
-SCRIPT(attackpos_create);
 
 _this params[["_group",grpNull,[grpNull]]];
 private ["_strenght","_position","_logic"];

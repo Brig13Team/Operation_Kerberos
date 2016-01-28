@@ -11,7 +11,6 @@
         none
 */
 #include "script_component.hpp"
-SCRIPT(strategy);
 _this params [
     ["_attacklogics",[],[[]]],
     ["_groups",[],[[]]]

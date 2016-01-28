@@ -11,7 +11,6 @@
         none
 */
 #include "script_component.hpp"
-SCRIPT(init_mission);
 _this params[["_centerposition",[],[[]],[2,3]]];
 
 SETMVAR(GVAR(centerpos),_centerposition);

@@ -11,7 +11,6 @@
         none
 */
 #include "script_component.hpp"
-SCRIPT(dangerzone_convert);
 _this params [["_position",[],[[]],[2,3]]];
 
 CHECKRET((_position isEqualTo []),[ARR_2(-1,-1)]);

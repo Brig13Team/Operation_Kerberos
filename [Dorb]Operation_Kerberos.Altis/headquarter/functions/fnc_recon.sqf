@@ -11,4 +11,4 @@
         none
 */
 #include "script_component.hpp"
-SCRIPT(recon);
+

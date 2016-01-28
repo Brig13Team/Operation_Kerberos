@@ -11,7 +11,6 @@
         none
 */
 #include "script_component.hpp"
-SCRIPT(state_change);
 _this params[["_group",grpNull,[grpNull,objNull]]];
 
 _group = _group call CBA_fnc_getGroup;

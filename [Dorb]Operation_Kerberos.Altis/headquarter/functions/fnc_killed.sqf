@@ -11,7 +11,6 @@
         none
 */
 #include "script_component.hpp"
-SCRIPT(killed);
 private ["_killerpos","_x_pos","_y_pos","_value"];
 
 _this params ["_killer","_caller"];

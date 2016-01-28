@@ -13,7 +13,7 @@
 */
 #include "script_component.hpp"
 _this spawn {
-    SCRIPT(EH_killed);
+    SCRIPTIN(EH_killed,spawn);
     _this params["_unit","_killer"];
     CHECK(isPlayer _unit)
     CHECK((side _unit)==civilian)

@@ -11,7 +11,6 @@
         none
 */
 #include "script_component.hpp"
-SCRIPT(waypoints_generate);
 
 #define ROADDECRESE 50
 #define DISTANCE_BETWEEN 50

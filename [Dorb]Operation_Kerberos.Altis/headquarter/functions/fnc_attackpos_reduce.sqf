@@ -11,7 +11,6 @@
         none
 */
 #include "script_component.hpp"
-SCRIPT(attackpos_remove);
 
 _this params [["_group",grpNull,[grpNull]]];
 CHECK(isNull _group)
