@@ -2,7 +2,7 @@
     Author: Dorbedo
 
     Description:
-        raises an GlobalEvent
+        raises a serverEvent
 
     Parameter(s):
         0 : STRING - Name of the Eventhandler
@@ -14,10 +14,13 @@
 
 */
 #include "script_component.hpp"
-[
-    QUOTE(_this call FUNC(localEvent)),
-    _this,
-    -2,
-    false
-] call FUNC(GlobalExec);
-_this call FUNC(localEvent);
+If (!isServer) then {
+    [
+        QUOTE(_this call FUNC(localEvent)),
+        _this,
+        0,
+        false
+    ] call FUNC(GlobalExec);
+}else{
+    _this call FUNC(localEvent);
+};

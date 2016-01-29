@@ -75,6 +75,7 @@ class cfgFunctions {
 #include "spawn\config\unitlists.hpp"
 #include "spawn\config\gear.hpp"
 #include "spawn\config\defence_positions.hpp"
+#include "player\config\arsenal.hpp"
 #include "logistics\config\logistics.hpp"
 
 //Debrief
