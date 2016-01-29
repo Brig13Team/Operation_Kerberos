@@ -12,15 +12,14 @@
 */
 #include "script_component.hpp"
 SCRIPT(createArsenalList);
-CHECK(!(local _this))
 
 If !(isClass(missionConfigFile>>QGVAR(arsenal))) exitWith {};
 private _arsenalArray = [[],[],[],[]];
-
-private _blacklist = getArray(missionConfigFile>>QGVAR(arsenal)>>"blacklist">>"items");
-private _blacklist_magazines = getArray(missionConfigFile>>QGVAR(arsenal)>>"blacklist">>"magazines");
-
-
+private _blacklist = getArray(missionConfigFile>>QGVAR(arsenal)>>str (GVARMAIN(playerSide))>>"blacklist">>"items");
+private _blacklist_magazines = getArray(missionConfigFile>>QGVAR(arsenal)>>str (GVARMAIN(playerSide))>>"blacklist">>"magazines");
+private _sideStringBIS = If (GVARMAIN(playerSide) == west) then {"_B_"}else{"_O_"};
+private _dlcs = getArray(missionConfigFile>>QGVAR(arsenal)>>str (GVARMAIN(playerSide))>>"dlcs");
+private _BISStringblack = getArray(missionConfigFile>>QGVAR(arsenal)>>str (GVARMAIN(playerSide))>>"BISBlack");
 private _configArray = (
                 ("isclass _x" configclasses (configfile >> "cfgweapons")) +
                 ("isclass _x && (getText(_x >> 'vehicleClass')=='Backpacks')" configclasses (configfile >> "cfgvehicles")) +
@@ -37,10 +36,9 @@ private _arsenalArray = [[],[],[],[]];
         private ["_weaponType","_weaponTypeCategory","_weaponTypeID","_weaponTypeSpecific","_items","_magazines"];
         private _weaponType = (_className call bis_fnc_itemType);
         private _weaponTypeCategory = _weaponType select 0;
-        if (_weaponTypeCategory != "VehicleWeapon") then {
-			_hinzufuegen = false;
-
-			If (isClass (configFile >> "CfgGlasses" >> _className)) then {_hinzufuegen = true;};
+        if ((_weaponTypeCategory != "VehicleWeapon")) then {
+			private _hinzufuegen = true;
+            If (_className in _blacklist) then {_hinzufuegen = false;};
 			
 			If (_hinzufuegen) then {
 				_weaponTypeSpecific = _weaponType select 1;
@@ -48,35 +46,63 @@ private _arsenalArray = [[],[],[],[]];
 					case (_weaponTypeSpecific in ["Throw"]) : {2};
 					case (_weaponTypeSpecific in ["Backpack"]) : {0};
 					case (_weaponTypeCategory in ["Weapon"]) : {3};
-					case (_weaponTypeCategory in ["Item","Equipment"]) : {1};
+					case ((_weaponTypeCategory in [])) : {1};
+                    case (_weaponTypeCategory in ["Item","Equipment"]) : {1};
 					case (_weaponTypeCategory in ["Mine"]) : {3};
+                    default {-1};
 				};
-				TRACEV_2(_className,_weaponTypeID);
-				private _items = (_arsenalArray select _weaponTypeID);
-				_items set [count _items, _className];
-				/// passende Magazin + vergleich ob schon gelistet
-				_items = (_arsenalArray select 2);
-				private _magazines = getarray(_class >> "magazines");
-				{
-					If ((!(_x in _blacklist_magazines))&&{!(_x in _items)}) then {
-						_items set [count _items,_x];
-					};
-				}foreach _magazines;
+                If (_weaponTypeSpecific in ["Headgear","Vest","Uniform"]) then {
+                    If ((getText(_class>>"dlc") isEqualTo "")||{getText(_class>>"dlc") in ["Mark"]}) then {
+                        private _namestring = [getText(_class>>"model"),"\"] call CBA_fnc_split;
+                        private _namecount = {_x in _BISStringblack} count _namestring;
+                        If ( _namecount > 0) then {_weaponTypeID = -1;};
+                    }else{
+                       private _temp = getText(_class>>"dlc");
+                        if !((getText(_class>>"dlc"))in _dlcs) then {_weaponTypeID = -1;};
+                    };
+                };
+                If (_weaponTypeSpecific in ["Backpack"]) then {
+                    private _sidenumber = ["west","east"] find (format ["%1",GVARMAIN(playerSide)]);
+                    If (getNumber(_class >> "side")== _sidenumber) then {_weaponTypeID = -1;};
+                };
+                
+                If !(_weaponTypeID < 0) then {
+                    private _items = (_arsenalArray select _weaponTypeID);
+                    _items set [count _items, _className];
+                    _items = (_arsenalArray select 2);
+                    private _magazines = getarray(_class >> "magazines");
+                    {
+                        If ((!(_x in _blacklist_magazines))&&{!(_x in _items)}) then {
+                            _items set [count _items,_x];
+                        };
+                    }foreach _magazines;
+                };
 			};
         };
     };
 } foreach _configArray;
 
-private _back = _arsenalArray select 0;
-private _item = _arsenalArray select 1;
-private _magazine = _arsenalArray select 2;
-private _weapons = _arsenalArray select 3;
-TRACEV_4(_back,_item,_magazine,_weapons);
+{
+    private _items = (_arsenalArray select 2);
+    private _magazines = [];
+    private _weapon = _x;
+    {
+        {
+        private _mag = _x;
+        if (!(_mag in _magazines)) then {
+            _magazines set [count _magazines,_mag];
+            private _scope = if (isnumber (configfile >> "cfgmagazines" >> _mag >> "scopeArsenal")) then {
+                getnumber (configfile >> "cfgmagazines" >> _mag >> "scopeArsenal")
+            } else {
+                getnumber (configfile >> "cfgmagazines" >> _mag >> "scope")
+            };
+            if (_scope > 1) then {
+                    _items set [count _items, _mag];
+                };
+            };
+        } foreach getarray (_x >> "magazines");
+    } foreach ("isclass _x" configclasses (configfile >> "cfgweapons" >> _weapon));
+} foreach ["Put","Throw"];
 
 
-[_arsenalObject,_arsenalArray select 0,false,true] call BIS_fnc_addVirtualBackpackCargo;
-[_arsenalObject,_arsenalArray select 1,false,true] call BIS_fnc_addVirtualItemCargo;
-[_arsenalObject,_arsenalArray select 2,false,true] call BIS_fnc_addVirtualMagazineCargo;
-[_arsenalObject,_arsenalArray select 3,false,true] call BIS_fnc_addVirtualWeaponCargo;
-
-
+GVAR(arsenalList) = _arsenalArray;
