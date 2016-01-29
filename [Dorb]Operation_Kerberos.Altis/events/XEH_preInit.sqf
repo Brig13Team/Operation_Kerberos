@@ -9,6 +9,7 @@ PREP(targetExecFast);
 
 PREP(addEventHandler);
 PREP(globalEvent);
+PREP(serverEvent);
 PREP(localEvent);
 PREP(removeAllEventHandler);
 PREP(removeEventHandler);
