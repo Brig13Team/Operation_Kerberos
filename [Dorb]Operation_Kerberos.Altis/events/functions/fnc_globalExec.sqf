@@ -13,8 +13,6 @@
         3 : BOOLEAN - execute on this machine too (default true)
 */
 #include "script_component.hpp"
-
-SCRIPT(globalExec);
 _this params[
     ["_function","",["",{}]],
     ["_parameter",[]],

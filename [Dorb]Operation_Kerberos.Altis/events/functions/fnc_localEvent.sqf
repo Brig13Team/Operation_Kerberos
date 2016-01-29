@@ -14,7 +14,6 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(localEvent);
 _this params [
     ["_eventName","",[""]],
     ["_parameter",[],[[]]],

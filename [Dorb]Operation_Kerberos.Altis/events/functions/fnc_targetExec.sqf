@@ -13,8 +13,6 @@
 
 */
 #include "script_component.hpp"
-
-SCRIPT(targetExec);
 _this params[["_target",objNull,[objNull,grpNull]],["_function","",["",{}]],["_params",[]]];
 TRACEV_3(_target,_function,_params);
 

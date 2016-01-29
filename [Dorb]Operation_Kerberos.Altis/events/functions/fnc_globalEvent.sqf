@@ -14,7 +14,6 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(GlobalEvent);
 [
     QUOTE(_this call FUNC(localEvent)),
     _this,
