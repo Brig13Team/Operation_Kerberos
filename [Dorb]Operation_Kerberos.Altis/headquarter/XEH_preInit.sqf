@@ -41,6 +41,8 @@ PREP(recon_radars);
 
 PREP(register_POI);
 
+PREP(player_unconscious);
+PREP(player_value);
 
 PREP(state_attack);
 PREP(state_change);
