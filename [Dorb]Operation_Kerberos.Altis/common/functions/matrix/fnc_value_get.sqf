@@ -15,8 +15,6 @@
         BOOL
 */
 #include "script_component.hpp"
-SCRIPT(value_get);
-
 _this params [
     ["_variablename","",[""]],
     ["_x_pos",0,[0]],

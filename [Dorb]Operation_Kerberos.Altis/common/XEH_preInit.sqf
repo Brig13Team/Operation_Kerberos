@@ -1,6 +1,7 @@
 #include "script_component.hpp"
-SCRIPT(XEH_PREINIT);
 ADDON = false;
+
+PREP(arithmeticMean);
 
 PREP(debug_marker_clean);
 PREP(debug_marker_create);
@@ -27,9 +28,10 @@ PREP(list_groups);
 PREP(moveToHC);
 
 PREP(players);
-PREP(pointBetween);
+PREP(pos_between);
 PREP(pos_flatempty);
 PREP(pos_random);
+PREP(pos_relative);
 PREP(pos_square);
 PREP(pos_surrounding);
 PREP(positionsMean);
@@ -59,8 +61,7 @@ GVAR(waitAndExecArray) = [];
 [
     {
         CHECK(GVAR(setVarSyncArray) isEqualTo [])
-        private["_temp"];
-        _temp = GVAR(setVarSyncArray);
+        private _temp = GVAR(setVarSyncArray);
         GVAR(setVarSyncArray) = [];
         {
             (_x select 2) setVariable [(_x select 0),(_x select 1),(_x select 3)];
@@ -69,21 +70,3 @@ GVAR(waitAndExecArray) = [];
     1,
     []
 ] call CBA_fnc_addPerFrameHandler;
-
-If (!isServer) then {
-    [
-        {
-            CHECK(GVAR(setVarSyncServerArray) isEqualTo [])
-            private["_temp"];
-            _temp = GVAR(setVarSyncServerArray);
-            GVAR(setVarSyncServerArray) = [];
-            {
-                (_x select 2) setVariable [(_x select 0),(_x select 1),(_x select 3)];
-            }forEach _temp;
-        },
-        5,
-        []
-    ] call CBA_fnc_addPerFrameHandler;
-}else{
-    //QGVAR(setVarSyncServerArray) addPublicVariableEventHandler {_this };
-};

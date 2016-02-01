@@ -14,8 +14,6 @@
         BOOL
 */
 #include "script_component.hpp"
-SCRIPT(clear);
-
 _this params [["_variablename","",[""]],["_value",0,[0]],["_namespace",missionnamespace,[missionnamespace,profilenamespace,uinamespace]]];
 
 CHECKRET(((_variablename isEqualTo "")),false);
