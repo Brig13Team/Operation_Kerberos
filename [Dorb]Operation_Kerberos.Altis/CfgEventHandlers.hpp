@@ -11,6 +11,7 @@ class Extended_PreInit_EventHandlers {
     INCLUDE_PREINIT(main);
     INCLUDE_PREINIT(events);
     INCLUDE_PREINIT(common);
+    INCLUDE_PREINIT(headless);
     INCLUDE_PREINIT(interface);
     INCLUDE_PREINIT(player);
     INCLUDE_PREINIT(logistics);
@@ -30,6 +31,7 @@ class Extended_PostInit_EventHandlers {
     INCLUDE_CLIENTPOSTINIT(player);
     INCLUDE_POSTINIT(headquarter);
     INCLUDE_POSTINIT(common);
+    INCLUDE_POSTINIT(headless);
     INCLUDE_POSTINIT(mission);
     INCLUDE_POSTINIT(tfar_addon);
 };
@@ -37,7 +39,9 @@ class Extended_Init_Eventhandlers {
     #include "spawn\XEH_init.hpp"
     #include "logistics\XEH_init.hpp"
 };
-
+class Extended_InitPost_EventHandlers {
+    #include "headless\XEH_initPost.hpp"
+};
 //class Extended_animChanged_EventHandlers {};
 //class Extended_animDone_EventHandlers {};
 //class Extended_animStateChanged_EventHandlers {};
