@@ -11,7 +11,6 @@
         [alpha,betha,gamma]
 */
 #include "script_component.hpp"
-SCRIPT(setRollPitchYaw);
 _this params [["_object",objNull,[objNull]],["_Rollwinkel",0,[0]],["_Nickwinkel",0,[0]],["_Gierwinkel",0,[0]]];
 
 If (floor(abs _Rollwinkel / 90) == (abs _Rollwinkel / 90)) then {_Rollwinkel = _Rollwinkel + 0.01;};
@@ -27,7 +26,7 @@ if (abs _Nickwinkel > 90) then {
     _Nickwinkel = (180 - abs _Nickwinkel) * ([-1,1] select (_Nickwinkel > 0));
 };
 
-_VectorDir = [0,cos _Nickwinkel,sin _Nickwinkel];
+private _VectorDir = [0,cos _Nickwinkel,sin _Nickwinkel];
 _VectorDir = [_VectorDir,_Gierwinkel] call FUNC(rotateVectorXY);
 
 while {abs _Rollwinkel > 360} do {_Rollwinkel = ([1,-1] select (_Rollwinkel < 0))*(abs _Rollwinkel - 360)};
@@ -36,7 +35,7 @@ if(abs _Rollwinkel > 180) then {
     _Rollwinkel = (360-_Rollwinkel)*([1,-1] select (_Rollwinkel > 0));
 };
 
-_VectorUp = [sin _Rollwinkel,0,cos _Rollwinkel];
+private _VectorUp = [sin _Rollwinkel,0,cos _Rollwinkel];
 _VectorUp = [_VectorUp,_Gierwinkel] call FUNC(rotateVectorXY);
 
 _object setVectorDirAndUp [_VectorDir,_VectorUp];

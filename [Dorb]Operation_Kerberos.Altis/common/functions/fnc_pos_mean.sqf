@@ -9,23 +9,21 @@
 
     Returns:
     ARRAY : Array with Centerposition
-
     
 */
 #include "script_component.hpp"
-SCRIPT(positionsMean);
-private ["_positionsarray","_all_x","_all_y","_all_z","_x","_y","_z","_currentpos","_return"];
 _this params [["_positionsarray",[],[[]]]];
 
 CHECKRET((_positionsarray isEqualTo []),[]);
-_all_x = [((_positionsarray select 0) select 0)];
-_all_y = [((_positionsarray select 0) select 1)];
+private _all_x = [((_positionsarray select 0) select 0)];
+private _all_y = [((_positionsarray select 0) select 1)];
+private "_all_z";
 If ((count(_positionsarray select 0))>2) then {
     _all_z = [((_positionsarray select 0) select 2)];
 }else{_all_z=[0]};
 
 for "_i" from 1 to ((count _positionsarray)-1) do {
-    _currentpos = [(_positionsarray select _i),_i,[],[[]],[2,3]] call BIS_fnc_Param;
+    private _currentpos = (_positionsarray select _i) param [_i,[],[[]],[2,3]];
     _all_x pushBack (_currentpos select 0);
     _all_x pushBack (_currentpos select 0);
     If ((count(_currentpos))>2) then {
@@ -33,14 +31,12 @@ for "_i" from 1 to ((count _positionsarray)-1) do {
     };
 };
 
-_x = _all_x call BIS_fnc_arithmeticMean;
-_y = _all_y call BIS_fnc_arithmeticMean;
-_z = _all_z call BIS_fnc_arithmeticMean;
+private _x_value = _all_x call FUNC(arithmeticMean);
+private _y_value = _all_y call FUNC(arithmeticMean);
+private _z_value = _all_z call FUNC(arithmeticMean);
 
 If ((count _all_x)>(count _all_z)) then {
-    _return=[_x,_y];
+    [_x_value,_y_value];
 }else{
-    _return=[_x,_y,_z];
+    [_x_value,_y_value,_z_value];
 };
-
-_return
