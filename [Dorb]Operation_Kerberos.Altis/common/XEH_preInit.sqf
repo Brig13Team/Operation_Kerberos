@@ -16,9 +16,6 @@ PREP(getRollPitchYaw);
 PREP(getRotMat);
 
 PREP(handledamage_C4);
-PREP(headless);
-PREP(headless_determine);
-PREP(headless_move);
 
 PREP(list_groups);
 
