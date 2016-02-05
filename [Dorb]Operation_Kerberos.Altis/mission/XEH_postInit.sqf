@@ -6,7 +6,7 @@
     
 */
 #include "script_component.hpp"
-SCRIPT(XEH_POSTINIT);
+
 
 diag_log format["     _fnc_scriptname = %1",_fnc_scriptname];
 

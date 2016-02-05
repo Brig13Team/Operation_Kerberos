@@ -1,5 +1,4 @@
 #include "script_component.hpp"
-SCRIPT(XEH_PREINIT);
 ADDON = false;
 
 TRIPLES(PREFIX,makro,selectrandom) = {
@@ -33,38 +32,6 @@ TRIPLES(PREFIX,makro,iscasvehicle) = {
     if ("CAS_Heli" in getArray(configFile >> "CfgVehicles" >> _class >> "availableForSupportTypes")) exitWith {true};
     if ("CAS_Bombing" in getArray(configFile >> "CfgVehicles" >> _class >> "availableForSupportTypes")) exitWith {true};
     false
-};
-TRIPLES(PREFIX,makro,compileFile) = {
-    scriptName QUOTE(TRIPLES(PREFIX,makro,compileFile));
-    _this params [["_path","",[""]],["_funcName","",[""]],["_addheader",false,[false]]];
-    private _headerstring = If (_addheader) then {
-        format ["private _fnc_scriptNameParent = If (!isNil '_fnc_scriptName') then {_fnc_scriptName}else{'%1'};private _fnc_scriptName = '%1';scriptName _fnc_scriptName;",_funcName];
-    }else{
-        format ["private _fnc_scriptName = '%1';scriptName _fnc_scriptName;",_funcName];
-    };
-    missionNamespace setVariable [_funcName, compile (_headerstring + preprocessFileLineNumbers _path)];
-    nil;
-};
-TRIPLES(PREFIX,makro,compileFileFinal) = {
-    scriptName QUOTE(TRIPLES(PREFIX,makro,compileFileFinal));
-    _this params [["_path","",[""]],["_funcName","",[""]],["_addheader",false,[false]]];
-    private _headerstring = If (_addheader) then {
-        format ["private _fnc_scriptNameParent = If (!isNil '_fnc_scriptName') then {_fnc_scriptName}else{'%1'};private _fnc_scriptName = '%1';scriptName _fnc_scriptName;",_funcName];
-    }else{
-        format ["private _fnc_scriptName = '%1';scriptName _fnc_scriptName;",_funcName];
-    };
-    If (isClass(configFile>>"cfgPatches">>"cba_cache_disable")) then {
-        missionNamespace setVariable [_funcName, compileFinal (_headerstring + preprocessFileLineNumbers _path)];
-    }else{
-        private _cache = uiNamespace getVariable _funcName;
-        if (isNil "_cache") then {
-            uiNamespace setVariable [_funcName, compileFinal (_headerstring + preprocessFileLineNumbers _path)];
-            missionNamespace setVariable [_funcName, uiNamespace getVariable _funcName];
-        }else{
-            missionNamespace setVariable [_funcName,_cache];
-        };
-    };
-    nil;
 };
 
 PREP(debug_performance);
