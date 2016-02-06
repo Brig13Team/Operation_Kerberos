@@ -11,9 +11,6 @@
         None
 */
 #include "script_component.hpp"
-SCRIPT(write);
-params["_message"];
-
+_this params["_message"];
 diag_log text _message;
-
-nil
+nil;

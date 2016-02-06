@@ -3,6 +3,7 @@
 
 */
 #include "script_component.hpp"
+
 [{
     while {((count GVAR(waitAndExecArray)) > 0) && {((GVAR(waitAndExecArray) select 0) select 0) <= diag_tickTime}} do {
         private _entry = GVAR(waitAndExecArray) deleteAt 0;

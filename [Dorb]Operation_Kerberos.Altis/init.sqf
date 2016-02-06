@@ -7,8 +7,6 @@
 
 #include "script_component.hpp"
 
-SCRIPT(init);
-
 GVARMAIN(playerside) = west;
 enableSaving [false, false];
 enableRadio false;

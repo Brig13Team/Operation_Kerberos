@@ -49,6 +49,10 @@ class cfgFunctions {
     #include "CHVD\CfgFunctions.hpp"
 };
 
+//// MAIN
+#include "main\system.hpp"
+
+
 ///// MISSION
 // tasks
 #include "mission\config\CfgTaskTypes.hpp"

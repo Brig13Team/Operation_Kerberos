@@ -11,8 +11,6 @@
         None
 */
 #include "script_component.hpp"
-SCRIPT(init);
-
 
 /// initialize MODS
 GVARMAIN(mods_TFAR) = (isClass(configFile >> "CfgPatches" >> "task_force_radio"));
