@@ -1,5 +1,4 @@
 #include "script_component.hpp"
-SCRIPT(XEH_PREINIT);
 ADDON = false;
 
 PREP(choose_main);
@@ -7,9 +6,7 @@ PREP(choose_side);
 
 PREP(examine);
 
-PREP(playerinit);
-
-PREP(rescue_draw3D);
+PREP(registerTask);
 PREP(reward);
 PREP(rtb);
 

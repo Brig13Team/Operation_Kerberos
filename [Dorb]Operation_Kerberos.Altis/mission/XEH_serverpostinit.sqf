@@ -2,24 +2,12 @@
     Author: Dorbedo
     
     Description:
-        Core function
-    
+        postinit server
 */
 #include "script_component.hpp"
-SCRIPT(XEH_POSTINIT);
-
-diag_log format["     _fnc_scriptname = %1",_fnc_scriptname];
-
-/// sandstorm
-If (isNil QGVAR(sandstormIsActive)) then {GVAR(sandstormIsActive) = false;};
-If (hasInterface) then {
-    [] spawn FUNC(objects_device_effect_sandstorm_init);
-};
 
 GVARMAIN(debug)=false;
 
-CHECK(!isServer)
-//CHECK(true)
 // Delete dead Units
 [{
     If ((count allDead)>20) then {
@@ -36,8 +24,7 @@ CHECK(!isServer)
 
 
 /// Rescue Point;
-private["_markerpos"];
-_markerpos = getMarkerPos "rescue_marker";
+private _markerpos = getMarkerPos "rescue_marker";
 If ((_markerpos distance [0,0,0])>1) then {
     [{
         private "_units";
@@ -67,6 +54,27 @@ If ((_markerpos distance [0,0,0])>1) then {
 */
 
 
+//// end secondary Missions
+[
+    "MISSION_ENDSEC",
+    {
+        _this params [['_event'],'',['']];
+        private _val = [GVAR(allTasks),_event] call CBA_fnc_hashGet;
+        {
+            private _state = [_x] call BIS_fnc_taskState;
+            If !(_state in ['CANCELED','SUCCEEDED','FAILED']) then {
+                [_x,'CANCELED',false] spawn BIS_fnc_taskSetState;
+            };
+        } forEach _val;
+        nil;
+    }
+] call EFUNC(events,addEventHandler);
+
+
+
+
+
+
 [] spawn {
     SCRIPTIN(XEH_POSTINIT,taskloop);
 
@@ -85,8 +93,8 @@ If ((_markerpos distance [0,0,0])>1) then {
     for "_u" from 0 to 120 do {
         uisleep 5;
         INC(_aufgabennummer);
-        TRACEV_1(_aufgabennummer);
-        [FORMAT_1("MAINTASK_%1",_aufgabennummer)] call FUNC(choose_main);
+        TRACEV_1(_aufgabennummer);       
+        [FORMAT_1("MAINTASK%1",_aufgabennummer)] call FUNC(choose_main);
     };
     ERROR("CORE LOOP CRASHED");
     endMission "End1";
