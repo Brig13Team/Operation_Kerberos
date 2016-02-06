@@ -11,9 +11,6 @@
         None
 */
 #include "script_component.hpp"
-SCRIPT(show);
-params["_message"];
-
+_this params["_message"];
 systemchat _message;
-
-nil
+nil;
