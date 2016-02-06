@@ -11,7 +11,6 @@
     BOOL
 */
 #include "script_component.hpp"
-SCRIPT(kill);
 _this params [["_position",[],[[]],[2,3]]];
 TRACEV_1(_position);
 CHECK(_position isEqualTo [])

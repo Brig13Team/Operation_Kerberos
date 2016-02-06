@@ -6,7 +6,7 @@
     
 */
 #include "script_component.hpp"
-params[["_task","",[""]],["_centerposition",[],[[]]],["_distance",1000,[0]],["_taskID","",[""]],["_location","",[""]]];
+_this params[["_task","",[""]],["_centerposition",[],[[]]],["_distance",1000,[0]],["_taskID","",[""]],["_location","",[""]]];
 TRACEV_4(_task,_centerposition,_distance,_taskID);
 [_centerposition] call EFUNC(headquarter,mission_init);
 private _position = [_centerposition,_distance,0] call EFUNC(common,pos_random);

@@ -1,9 +1,5 @@
 #include "script_component.hpp"
-SCRIPT(scarab_launch);
-
-private["_dir","_zielpos"];
-params["_abschussrampe"];
-
+_this params["_abschussrampe"];
 
 /*
 _mapSize = getNumber(configFile >> "CfgWorlds" >> worldName >> "MapSize");
@@ -15,7 +11,6 @@ if ((_dir >=225)&&(_dir < 315)) exitWith {[_abschussrampe,[0,(_mapSize/2),0]] ca
 [_abschussrampe,[(_mapSize/2),_mapSize,0]] call rhs_fnc_ss21_AI_launch;
 */
 
-_dir = getDir _abschussrampe;
-_zielpos = [];
-_zielpos = [_abschussrampe, 20000, _dir] call BIS_fnc_relPos;
+private _dir = getDir _abschussrampe;
+private _zielpos = [_abschussrampe, 20000, _dir] call BIS_fnc_relPos;
 [_abschussrampe,_zielpos] call rhs_fnc_ss21_AI_launch;
