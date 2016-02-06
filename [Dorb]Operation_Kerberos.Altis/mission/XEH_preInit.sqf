@@ -10,6 +10,8 @@ PREP(registerTask);
 PREP(reward);
 PREP(rtb);
 
+PREP(isSidemission);
+
 PREP(taskhandler);
 
 

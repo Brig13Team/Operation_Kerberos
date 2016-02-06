@@ -22,8 +22,8 @@ private _value = [];
 private _searchkey = _task;
 
 If ((count _namearray)>1) exitWith {
-    _value = [QGVAR(allTasks),(_namearray select 0)] call CBA_fnc_hashGet;
+    _value = [GVAR(allTasks),(_namearray select 0)] call CBA_fnc_hashGet;
     _value pushBack _task;
-    [QGVAR(allTasks),(_namearray select 0),_value] call CBA_fnc_hashSet;
+    [GVAR(allTasks),(_namearray select 0),_value] call CBA_fnc_hashSet;
 };
-[QGVAR(allTasks),_task,[]] call CBA_fnc_hashSet;
+[GVAR(allTasks),_task,[]] call CBA_fnc_hashSet;
