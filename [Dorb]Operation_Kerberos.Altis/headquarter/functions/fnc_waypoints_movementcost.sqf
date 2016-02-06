@@ -31,7 +31,7 @@ _target = ATLtoASL [_target select 0,_target select 1,0];
 _anzahl = floor((_start distance2D _target)/DISTANCE_BETWEEN) max 1;
 
 for "_i" from 0 to (_anzahl - 1) do {
-    _points pushBack ([_start,_target,DISTANCE_BETWEEN] call EFUNC(common,pointBetween));
+    _points pushBack ([_start,_target,DISTANCE_BETWEEN] call EFUNC(common,pos_between));
 };
 _points pushBack _target;
 

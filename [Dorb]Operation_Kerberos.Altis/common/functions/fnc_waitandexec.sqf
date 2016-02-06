@@ -4,15 +4,14 @@
     Description:
         waits and executes code
     Parameter(s):
-        0: CODE/STRING    - the code to be execued
+        0: CODE/STRING  - the code to be execued
         1: ARRAY        - parameters
-        2: SCALAR        - delay
+        2: SCALAR       - delay
         
     Return:
-        none
+        BOOL
 */
 #include "script_component.hpp"
-SCRIPT(waitAndExec);
 _this params [["_code","",[{},""]],["_parameter",[],[[]]],["_delay",1,[0]]];
 TRACEV_3(_code,_parameter,_delay);
 CHECKRET((_code isEqualTo ""),false);

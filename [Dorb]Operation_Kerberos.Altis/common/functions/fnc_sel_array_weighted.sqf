@@ -9,16 +9,16 @@
         1 : SCALAR    - Pos of Weight inside Element
         2 : BOOL    - Return just the Pos of the Element
     
+    Return:
+        ARRAY/SCALAR - Index or Value
 */
 #include "script_component.hpp"
-SCRIPT(sel_array_weighted);
-params[["_array",[],[[]]],["_weightpos",-1,[0]],["_returnPos",false,[true]]];
+_this params[["_array",[],[[]]],["_weightpos",-1,[0]],["_returnPos",false,[true]]];
 If ((_array isEqualTo [])||(_weightpos<0)) exitWith {
     If (_returnPos) then {-1}else{[]};
 };
 
 private _weightsum = 0;
-
 {
     _weightsum = _weightsum + abs(_x select _weightpos);
 }forEach _array;

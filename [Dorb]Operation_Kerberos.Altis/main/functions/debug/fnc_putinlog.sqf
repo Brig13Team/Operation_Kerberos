@@ -15,7 +15,6 @@
         nil
 */
 #include "script_component.hpp"
-scriptname 'PREFIX\COMPONENT\PART\NAME';
 _this params[["_header","",[""]],["_functionname","",[""]],["_functionnameParent","",[""]],["_message","",[""]],["_file","",[""]],"_line"];
 
 If (_message isEqualTo "") exitWith {
