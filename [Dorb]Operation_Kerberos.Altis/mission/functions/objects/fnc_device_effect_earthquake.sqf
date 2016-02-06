@@ -6,8 +6,6 @@
     
 */
 #include "script_component.hpp"
-SCRIPT(device_effect_earthquake);
-
 _this params ["_target"];
 
 ISNILS(GVAR(device_intervall),diag_ticktime);

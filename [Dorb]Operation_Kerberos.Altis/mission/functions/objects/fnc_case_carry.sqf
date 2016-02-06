@@ -2,15 +2,13 @@
     Author: Dorbedo
     
     Description:
-        init function
+        carry function
     
 */
 #include "script_component.hpp"
-SCRIPT(carry);
-
 CHECK(!hasinterface)
 
-params["_suitcase","_carrier"];
+_this params["_suitcase","_carrier"];
 
 _carrier action ["SwitchWeapon", _carrier, _carrier, 100];
 
@@ -23,7 +21,7 @@ _carrier forceWalk true;
 _suitcase setVariable [QGVAR(objects_carrier),_carrier,true];
 _carrier setVariable [QGVAR(objects_suitcase),_suitcase];
 
-If (isMultiplayer) then {
+If (isMultiplayer && !isServer) then {
     [{
         params ["_suitcase"];
         [{_this call FUNC(objects_handle); }, 1, [_suitcase]] call CBA_fnc_addPerFrameHandler;

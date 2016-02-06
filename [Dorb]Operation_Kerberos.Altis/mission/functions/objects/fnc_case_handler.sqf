@@ -6,19 +6,14 @@
     
 */
 #include "script_component.hpp"
-SCRIPT(init);
-
 CHECK(!isServer)
-
-
-params["_params","_handle"];
+_this params["_params","_handle"];
 _params params ["_suitcase"];
-
 
 _carrier = _suitcase getVariable [QGVAR(objects_carrier),objNull];
 
 if (isNull _carrier) exitWith {
-    _pos = _suitcase getVariable [QGVAR(objects_pos),[]];
+    private _pos = _suitcase getVariable [QGVAR(objects_pos),[]];
     If !(_pos isEqualTo []) then {
         _suitcase setPos _pos;
     };
