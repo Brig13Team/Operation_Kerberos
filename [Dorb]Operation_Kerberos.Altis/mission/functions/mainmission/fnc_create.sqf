@@ -6,7 +6,6 @@
     
 */
 #include "script_component.hpp"
-SCRIPT(create);
 params[["_task","",[""]],["_centerposition",[],[[]]],["_distance",1000,[0]],["_taskID","",[""]],["_location","",[""]]];
 TRACEV_4(_task,_centerposition,_distance,_taskID);
 [_centerposition] call EFUNC(headquarter,mission_init);
