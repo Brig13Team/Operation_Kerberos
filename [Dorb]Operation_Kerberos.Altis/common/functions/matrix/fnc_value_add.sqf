@@ -16,8 +16,6 @@
         BOOL
 */
 #include "script_component.hpp"
-SCRIPT(value_add);
-
 _this params [["_variablename","",[""]],["_x_pos",0,[0]],["_y_pos",0,[0]],["_value",0,[0]],["_namespace",missionnamespace,[missionnamespace,profilenamespace,uinamespace]]];
 
 CHECKRET(((_variablename isEqualTo "")||(_value == 0)),false);

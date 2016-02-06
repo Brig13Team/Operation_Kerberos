@@ -15,8 +15,6 @@
         ARRAY - Matrix
 */
 #include "script_component.hpp"
-SCRIPT(create);
-
 _this params [["_Xsize",0,[0]],["_Ysize",-1,[0]],["_value",0,[0]]];
 
 CHECKRET((_Xsize<=0),[]);

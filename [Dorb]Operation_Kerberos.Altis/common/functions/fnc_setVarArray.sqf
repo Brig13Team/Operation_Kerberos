@@ -2,7 +2,7 @@
     Author: Dorbedo
 
     Description:
-        sets an Array with Variables
+        Sets Variables on units
 
     Parameter(s):
         ARRAY - Array with Variables ["Varname",value,namespace/object,public];

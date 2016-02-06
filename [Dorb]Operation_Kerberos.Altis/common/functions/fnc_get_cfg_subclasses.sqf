@@ -15,7 +15,6 @@
         
 */
 #include "script_component.hpp"
-SCRIPT(get_cfg_subclasses);
 _this params [["_classname","",[""]],["_config",(configfile>>"CfGVehicles"),[configfile]]];
 TRACEV_2(_classname,_config);
 
