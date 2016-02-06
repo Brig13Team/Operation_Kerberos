@@ -145,7 +145,7 @@ _waypoints = _waypoints - [objNull];
         
 #ifdef MARKER_MOVEMENTCOST        
         private ["_position","_dir"];
-        //_position = [[getPos _x,getPos (_temp select 0)]] call EFUNC(common,positionsMean);
+        //_position = [[getPos _x,getPos (_temp select 0)]] call EFUNC(common,pos_mean);
         _position = [[(getPos _x)select 0,(getPos (_temp select 0))select 0] call BIS_fnc_arithmeticMean,[(getPos _x)select 1,(getPos (_temp select 0))select 1] call BIS_fnc_arithmeticMean,0];
         _dir = [_x,(_temp select 0)] call BIS_fnc_relativeDirTo;
         [_position,format["%1",_value],"ColorGreen","mil_arrow2",_dir] call EFUNC(common,debug_marker_create);
@@ -158,7 +158,7 @@ _waypoints = _waypoints - [objNull];
         (_temp select 0) setVariable [QGVAR(WP_YM),[_x,_value]];
 #ifdef MARKER_MOVEMENTCOST
         private ["_position","_dir"];
-        //_position = [[getPos _x,getPos (_temp select 0)]] call EFUNC(common,positionsMean);
+        //_position = [[getPos _x,getPos (_temp select 0)]] call EFUNC(common,pos_mean);
         _position = [[(getPos _x)select 0,(getPos (_temp select 0))select 0] call BIS_fnc_arithmeticMean,[(getPos _x)select 1,(getPos (_temp select 0))select 1] call BIS_fnc_arithmeticMean,0];
         _dir = [_x,(_temp select 0)] call BIS_fnc_relativeDirTo;
         [_position,format["%1",_value],"ColorBlue","mil_arrow2",_dir] call EFUNC(common,debug_marker_create);
@@ -172,7 +172,7 @@ _waypoints = _waypoints - [objNull];
         (_temp select 0) setVariable [QGVAR(WP_XMYM),[_x,_value]];
 #ifdef MARKER_MOVEMENTCOST        
         private ["_position","_dir"];
-        //_position = [[getPos _x,getPos (_temp select 0)]] call EFUNC(common,positionsMean);
+        //_position = [[getPos _x,getPos (_temp select 0)]] call EFUNC(common,pos_mean);
         _position = [[(getPos _x)select 0,(getPos (_temp select 0))select 0] call BIS_fnc_arithmeticMean,[(getPos _x)select 1,(getPos (_temp select 0))select 1] call BIS_fnc_arithmeticMean,0];
         _dir = [_x,(_temp select 0)] call BIS_fnc_relativeDirTo;
         [_position,format["%1",_value],"ColorOrange","mil_arrow2",_dir] call EFUNC(common,debug_marker_create);
@@ -187,7 +187,7 @@ _waypoints = _waypoints - [objNull];
 #ifdef MARKER_MOVEMENTCOST        
         
         private ["_position","_dir"];
-        //_position = [[getPos _x,getPos (_temp select 0)]] call EFUNC(common,positionsMean);
+        //_position = [[getPos _x,getPos (_temp select 0)]] call EFUNC(common,pos_mean);
         _position = [[(getPos _x)select 0,(getPos (_temp select 0))select 0] call BIS_fnc_arithmeticMean,[(getPos _x)select 1,(getPos (_temp select 0))select 1] call BIS_fnc_arithmeticMean,0];
         _dir = [_x,(_temp select 0)] call BIS_fnc_relativeDirTo;
         [_position,format["%1",_value],"ColorPink","mil_arrow2",_dir] call EFUNC(common,debug_marker_create);

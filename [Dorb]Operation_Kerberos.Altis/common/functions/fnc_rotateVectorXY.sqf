@@ -12,7 +12,6 @@
         ARRAY - rotated Vector
 */
 #include "script_component.hpp"
-SCRIPT(rotateVectorXY);
 _this params ["_vector","_dir"];
 _vector params ["_x","_y"];
 _vector set [0,(cos _dir)*_x - (sin _dir) * _y];

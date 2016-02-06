@@ -11,7 +11,6 @@
 */
 #define DEBUG_MODE_FULL
 #include "script_component.hpp"
-SCRIPT(getRotMat);
 _this params [["_object",objNull,[objNull]]];
 
 private _objectVDir = VectorDir _object;

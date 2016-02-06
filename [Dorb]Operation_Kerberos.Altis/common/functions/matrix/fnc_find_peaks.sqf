@@ -14,9 +14,7 @@
         ARRAY - [[value,x,y], ... ]
 */
 #include "script_component.hpp"
-SCRIPT(find_peaks);
 #define MAXIMACOUNT 5
-
 _this params [["_variablename","",["",[]]],["_namespace",missionnamespace,[missionnamespace,profilenamespace,uinamespace]]];
 
 Private ["_matrix"];

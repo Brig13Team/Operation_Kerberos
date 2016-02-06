@@ -1,5 +1,5 @@
 #include "script_component.hpp"
-SCRIPT(XEH_POSTINIT);
+
 If (hasInterface) exitWith {};
 
 GVAR(WP_deaktivated) = [];
