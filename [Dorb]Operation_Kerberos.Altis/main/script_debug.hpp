@@ -64,6 +64,22 @@ Author:
 #define TRACE_8(MESSAGE,A,B,C,D,E,F,G,H) TRACE_SYS(PFORMAT_8(MESSAGE,A,B,C,D,E,F,G,H))
 #define TRACE_9(MESSAGE,A,B,C,D,E,F,G,H,I) TRACE_SYS(PFORMAT_9(MESSAGE,A,B,C,D,E,F,G,H,I))
 /* -------------------------------------------
+Macro: TRACE_MAP
+    Logs the mapped functions
+
+Parameters:
+    none
+
+Example:
+    (begin example)
+        TRACE_MAP;
+    (end)
+
+Author:
+    Dorbedo
+------------------------------------------- */
+#define TRACE_MAP ["TRACE",If (isNil "_fnc_scriptname") then {""}else{_fnc_scriptname}, if (isNil "_fnc_scriptNameParent") then {""}else{_fnc_scriptNameParent},If (isNil "_fnc_scriptMap") then {"MAPPING MISSING"}else{_fnc_scriptMap},__FILE__, __LINE__] call EFUNC(main,debug_maplog)
+/* -------------------------------------------
 Macro: TRACEV_n(VAR)
     Logs 1-9 Variables into LOG
     Only run if <DEBUG_MODE_FULL> is defined.
