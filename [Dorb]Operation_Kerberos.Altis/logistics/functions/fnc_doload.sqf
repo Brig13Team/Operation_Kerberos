@@ -51,9 +51,9 @@ If (!isNull _object) then {
     SETPVAR(_object,GVAR(aceactions),GVAR(aceactions));
     [
         LOADTIME,
-        {(((getPos player) distance GVAR(isloading_pos))<1)},
+        [_object,_target],
         {_this call FUNC(load);SETVAR(player,GVAR(isloading),false);},
-        {SETVAR(player,GVAR(isloading),false);},
-        [_object,_target]
-    ] call EFUNC(interface,disp_progressbar);
+        {SETVAR(player,GVAR(isloading),false);}
+    ] call ace_common_fnc_progressBar;
+
 };

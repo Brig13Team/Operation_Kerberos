@@ -35,9 +35,7 @@ If !(_isdrop) then {
 };
 [
     LOADTIME,
-    _unloadcondition,
+    [_target],
     {_this call FUNC(unload);SETVAR(player,GVAR(isloading),false);},
-    {SETVAR(player,GVAR(isloading),false);},
-    [_target]
-] call EFUNC(interface,disp_progressbar);
-
+    {SETVAR(player,GVAR(isloading),false);}
+] call ace_common_fnc_progressBar;
