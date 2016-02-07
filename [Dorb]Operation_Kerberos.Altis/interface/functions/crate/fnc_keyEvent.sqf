@@ -10,7 +10,6 @@
 */
 #define DEBUG_MODE_FULL
 #include "script_component.hpp"
-SCRIPT(keyEvent);
 _this params ["_key","_pushed"];
 TRACEV_2(_key,_pushed);
 

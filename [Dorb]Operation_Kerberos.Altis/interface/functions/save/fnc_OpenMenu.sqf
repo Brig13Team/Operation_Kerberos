@@ -10,14 +10,13 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(OpenMenu);
 #define SAVE_OK 600244
 #define SAVE_IDD    600240
 #define SAVE_LIST 600241
 #define SAVE_HEADER 600246
 CHECK(!hasInterface)
 
-params[["_namespaceVariable","",[""]],["_isSave",true,[true]],["_arraytoSave",[],[[]]]];
+_this params[["_namespaceVariable","",[""]],["_isSave",true,[true]],["_arraytoSave",[],[[]]]];
 CHECK(_namespaceVariable isEqualTo "")
 CHECK((_arraytoSave isEqualTo [])&&(_isSave));
 
@@ -27,15 +26,15 @@ GVAR(save_isopened) = true;
 createDialog QGVAR(save);
 
 disableSerialization;
-_text = localize LSTRING(SAVE_LOAD);
-_action = QUOTE([] call FUNC(save_load));
+private _text = localize LSTRING(SAVE_LOAD);
+private _action = QUOTE([] call FUNC(save_load));
 If (_isSave) then {
     _text = localize LSTRING(SAVE_SAVE);
     _action = QUOTE([] call FUNC(save_save));
     
 };
 
-_ctrl = (findDisplay SAVE_IDD displayCtrl SAVE_OK);
+private _ctrl = (findDisplay SAVE_IDD displayCtrl SAVE_OK);
 _ctrl ctrlSetText _text;
 _ctrl ctrlShow true;
 _ctrl buttonSetAction _action;

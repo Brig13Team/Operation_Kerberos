@@ -10,19 +10,17 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(add);
-PARAMS_1(_mode);
-private["_ctrlList","_row","_config","_istMagazin","_id"];
+_this params ["_mode"];
 disableSerialization;
-_ctrlList = findDisplay 600200 displayCtrl 600201;
-_row = lnbCurSelRow _ctrlList;
+private _ctrlList = findDisplay 600200 displayCtrl 600201;
+private _row = lnbCurSelRow _ctrlList;
 /// get cfg
-_config = (configfile>>(_ctrlList lnbData [_row,1])>>(_ctrlList lnbData [_row,2]));
-_istMagazin = ((_ctrlList lnbData [_row,1]) isEqualTo "CfgMagazines");
+private _config = (configfile>>(_ctrlList lnbData [_row,1])>>(_ctrlList lnbData [_row,2]));
+private _istMagazin = ((_ctrlList lnbData [_row,1]) isEqualTo "CfgMagazines");
 //Masscheck
-_multi = missionNamespace getVariable [QGVAR(crate_multi),1];
+private _multi = missionNamespace getVariable [QGVAR(crate_multi),1];
 If (_mode && (["check",[_config,_multi]]call FUNC(crate_mass))) exitwith {};
-_id=0;
+private _id=0;
 If (_istMagazin) then {_id = 2;};
 Private["_anzahl","_items","_weaponid"];
 If (_config in (GVAR(crate_current) select _id)) then {

@@ -7,10 +7,9 @@
     
 */
 #include "script_component.hpp"
-SCRIPT(save);
 CHECK(!hasInterface)
 params[["_isSave",true,[true]]];
-private["_return"];
+private "_return" ;
 If (_isSave) exitWith {
     _return = [GVAR(crate_current_boxid),GVAR(crate_current)];
     ["CrateSpawn",true,_return] call FUNC(save_OpenMenu);

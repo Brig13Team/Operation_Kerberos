@@ -6,9 +6,7 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(createlists);
-private ["_daten","_types","_isAceMedical","_configArray","_cfgPatches","_progressStep","_step1"];
-_daten = GETMVAR(GVAR(crate_items),[]);
+private _daten = GETMVAR(GVAR(crate_items),[]);
 
 If (!(_daten isEqualTo [])) exitwith {false};
 
@@ -39,7 +37,7 @@ If (!(_daten isEqualTo [])) exitwith {false};
 
 //// _daten = [     [   [Items] ,   [Munition, nur bei Waffen]  ]   ,   ID_MG   ,   ...     ,   [   [Funken],   []  ]   ,   ...     ];
 
-_types = [];
+private _types = [];
 _types set [ID_RIFLES,["AssaultRifle","Rifle","SubmachineGun"]];
 _types set [ID_MG,["MachineGun"]];
 _types set [ID_SNIPER,["SniperRifle"]];
@@ -59,45 +57,43 @@ _types set [ID_MEDICAL,["Medikit","FirstAidKit"]];
 _types set [ID_ITEMS,["MineDetector","Toolkit"]];
 _types set [ID_SONSTIGES,[]];
 
-_isAceMedical = {
+private _isAceMedical = {
         Private["_namearr"];
         _namearr = (gettext(_class >> "picture")) splitString "\";
         If ("medical" in _namearr) then {true} else {false};
     };
 
-_daten=[];
+private _daten=[];
 for "_i" from 0 to 17 do {
     _daten pushback [[],[]];
 };
 
 [QGVAR(crate_loading)] call bis_fnc_startloadingscreen;
 
-_configArray = (
+private _configArray = (
                 ("isclass _x" configclasses (configfile >> "cfgweapons")) +
                 ("isclass _x && (getText(_x >> 'vehicleClass')=='Backpacks')" configclasses (configfile >> "cfgvehicles")) +
                 ("isclass _x" configclasses (configfile >> "cfgglasses"))
             );
-_cfgPatches = "(
+private _cfgPatches = "(
                 (!((getArray (_x >> 'magazines'))isEqualTo [])) ||
                 (!((getArray (_x >> 'units'))isEqualTo [])) ||
                 (!((getArray (_x >> 'weapons'))isEqualTo []))
             )" configClasses (configFile >> "CfgPatches");
 
-_progressStep = 1 / (count _configArray + count _cfgPatches);
-_step1 = (count _configArray);
+private _progressStep = 1 / (count _configArray + count _cfgPatches);
+private _step1 = (count _configArray);
 
 {
-    private["_class","_className","_scope","_isBase"];
-    _class = _x;
-    _className = configname _x;
-    _scope = if (isnumber (_class >> "scopeArsenal")) then {getnumber (_class >> "scopeArsenal")} else {getnumber (_class >> "scope")};
-    _isBase = if (isarray (_x >> "muzzles")) then {(_className call bis_fnc_baseWeapon == _className)} else {true}; //-- Check if base weapon (true for all entity types)
+    private _class = _x;
+    private _className = configname _x;
+    private _scope = if (isnumber (_class >> "scopeArsenal")) then {getnumber (_class >> "scopeArsenal")} else {getnumber (_class >> "scope")};
+    private _isBase = if (isarray (_x >> "muzzles")) then {(_className call bis_fnc_baseWeapon == _className)} else {true}; //-- Check if base weapon (true for all entity types)
     if (_scope == 2 && {gettext (_class >> "model") != ""} && _isBase && {gettext (_class >> "displayName") != ""}) then {
-        private ["_weaponType","_weaponTypeCategory","_weaponTypeID","_weaponTypeSpecific","_items","_magazines"];
-        _weaponType = (_className call bis_fnc_itemType);
-        _weaponTypeCategory = _weaponType select 0;
+        private _weaponType = (_className call bis_fnc_itemType);
+        private _weaponTypeCategory = _weaponType select 0;
         if (_weaponTypeCategory != "VehicleWeapon") then {
-            _weaponTypeSpecific = _weaponType select 1;
+            private _weaponTypeSpecific = _weaponType select 1;
             _weaponTypeID = switch (true) do {
                 case (_weaponTypeSpecific in (_types select ID_RIFLES))  : {ID_RIFLES};
                 case (_weaponTypeSpecific in (_types select ID_MG))  : {ID_MG};
@@ -118,11 +114,11 @@ _step1 = (count _configArray);
                 case (_weaponTypeSpecific in (_types select ID_ITEMS))  : {ID_ITEMS};
                 default {ID_SONSTIGES};
             };
-            _items = (_daten select _weaponTypeID) select 0;
+            private _items = (_daten select _weaponTypeID) select 0;
             _items set [count _items, _class];
             /// passende Magazin + vergleich ob schon gelistet
             _items = (_daten select _weaponTypeID) select 1;
-            _magazines = getarray(_class >> "magazines");
+            private _magazines = getarray(_class >> "magazines");
             {
                 If (!((configfile >> "cfgmagazines" >> _x) in _items)) then {_items set [count _items,(configfile >> "cfgmagazines" >> _x)];};
             }foreach _magazines;
@@ -132,10 +128,9 @@ _step1 = (count _configArray);
 } foreach _configArray;
 
 {
-    private["_weapon","_items","_magazines"];
-    _weapon = (_types select _x)select 0;
-    _items = (_daten select _x) select 0;
-    _magazines = [];
+    private _weapon = (_types select _x)select 0;
+    private _items = (_daten select _x) select 0;
+    private _magazines = [];
     {
         {
         private ["_mag"];
@@ -153,8 +148,7 @@ _step1 = (count _configArray);
     } foreach ("isclass _x" configclasses (configfile >> "cfgweapons" >> _weapon));
 } foreach [ID_GRANATEN,ID_SPRENGSTOFF];
 
-private "_patches";
-_patches=[];
+private _patches=[];
 {
     private["_configname","_namearr"];
     _configname = configname _x;
@@ -166,4 +160,4 @@ _patches=[];
 SETMVAR(GVAR(crate_patches),_patches);
 SETMVAR(GVAR(crate_items),_daten);
 [QGVAR(crate_loading)] call bis_fnc_endLoadingScreen;
-true
+true;

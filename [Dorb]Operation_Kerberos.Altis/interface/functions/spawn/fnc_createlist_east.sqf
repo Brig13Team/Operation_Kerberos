@@ -5,7 +5,6 @@
     Creates the Spawnlists as Variables attachTo Spawnlists
 */
 #include "script_component.hpp"
-SCRIPT(createlist);
 If (GVARMAIN(playerside) == west) exitWith {[] spawn FUNC(spawn_createlist);};
 
 private _namearr = [];
