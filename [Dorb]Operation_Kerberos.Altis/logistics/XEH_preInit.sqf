@@ -18,5 +18,6 @@ PREP(canTow);
 PREP(doTow);
 PREP(doUnTow);
 PREP(tow);
+PREP(updateSeats);
 
 ADDON = true;
