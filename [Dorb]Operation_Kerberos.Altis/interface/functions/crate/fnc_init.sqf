@@ -7,7 +7,6 @@
     
 */
 #include "script_component.hpp"
-SCRIPT(addAction);
 CHECK(!hasInterface)
 
 GVAR(cratelogics) = [];

@@ -6,35 +6,30 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(mass);
 _this params ["_mode","_param"];
 switch (_mode) do {
     case "check" : {
-        private["_config","_mass_new","_mass_current","_mass_max"];
         _param params ["_config","_amount"];
-        _mass_new = ["getmass",[_config,_amount]] call FUNC(crate_mass);
-        _mass_current = ["currentmass"] call FUNC(crate_mass);
-        _mass_max = (GVAR(crate_boxes) select 2) select GVAR(crate_current_boxid);
-        _return=!((_mass_current+_mass_new)<_mass_max);
-        _return
+        private _mass_new = ["getmass",[_config,_amount]] call FUNC(crate_mass);
+        private _mass_current = ["currentmass"] call FUNC(crate_mass);
+        private _mass_max = (GVAR(crate_boxes) select 2) select GVAR(crate_current_boxid);
+        (!((_mass_current+_mass_new)<_mass_max));
     };
     case "currentmass" : {
-        private["_mass_current","_mass"];
-        _mass_current = 0;
+        private _mass_current = 0;
         for "_i" from 0 to ((count (GVAR(crate_current) select 0))-1) do {
-            _mass = ["getmass",((GVAR(crate_current) select 0)select _i)] call FUNC(crate_mass);
+            private _mass = ["getmass",((GVAR(crate_current) select 0)select _i)] call FUNC(crate_mass);
             _mass = _mass * ((GVAR(crate_current) select 1)select _i);
             _mass_current = _mass_current + _mass;
         };
         for "_i" from 0 to ((count (GVAR(crate_current) select 2))-1) do {
-            _mass = ["getmass",((GVAR(crate_current) select 2)select _i)] call FUNC(crate_mass);
+            private _mass = ["getmass",((GVAR(crate_current) select 2)select _i)] call FUNC(crate_mass);
             _mass = _mass * ((GVAR(crate_current) select 3)select _i);
             _mass_current = _mass_current + _mass;
         };
         _mass_current
     };
     case "getmass" : {
-        private["_mass"];
         _param params ["_config","_amount"];
         If (isNil "_amount") then {_amount = 1;};
         _mass = getnumber (_config>>"mass");
@@ -47,18 +42,16 @@ switch (_mode) do {
         (_mass * _amount)
     };
     case "displaymass" : {
-        private["_ctrl","_mass_current","_mass_max","_status"];
-        _ctrl = findDisplay 600200 displayCtrl 600204;
-        _mass_current = ["currentmass"] call FUNC(crate_mass);
-        _mass_max = (GVAR(crate_boxes) select 2) select GVAR(crate_current_boxid);
-        _status=(_mass_current / _mass_max) min 1;
+        private _ctrl = findDisplay 600200 displayCtrl 600204;
+        private _mass_current = ["currentmass"] call FUNC(crate_mass);
+        private _mass_max = (GVAR(crate_boxes) select 2) select GVAR(crate_current_boxid);
+        private _status=(_mass_current / _mass_max) min 1;
         _ctrl progressSetPosition _status;
     };
     case "changebox" : {
-        private["_mass_current","_mass_max","_values"];
-        _mass_current = ["currentmass"] call FUNC(crate_mass);
-        _mass_max = (GVAR(crate_boxes) select 2) select GVAR(crate_current_boxid);
-        _values=[];
+        private _mass_current = ["currentmass"] call FUNC(crate_mass);
+        private _mass_max = (GVAR(crate_boxes) select 2) select GVAR(crate_current_boxid);
+        private _values=[];
         If (_mass_current > _mass_max) then {
             If (count(GVAR(crate_current) select 2)>0) then {
                 _values = GVAR(crate_current) select 3;
@@ -84,9 +77,8 @@ switch (_mode) do {
     };
     case "cleanupcurrent" : {
         {
-            private["_selection","_selection_value"];
-            _selection = GVAR(crate_current) select _x;
-            _selection_value = GVAR(crate_current) select (_x+1);
+            private _selection = GVAR(crate_current) select _x;
+            private _selection_value = GVAR(crate_current) select (_x+1);
             for [{_i = (count _selection_value)},{_i > -1},{_i = _i - 1}] do {
                 If ((_selection_value select _i)<1) then {
                     _selection deleteAt _i;

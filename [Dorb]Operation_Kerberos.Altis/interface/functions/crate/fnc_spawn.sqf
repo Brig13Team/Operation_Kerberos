@@ -6,25 +6,23 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(spawn);
-private["_check_radius","_spawnpos","_padempty","_box","_boxtyp","_items","_anzahl","_name"];
 /// Clear Pad
 
-_check_radius = 8;
-_spawnpos = getMarkerPos format["%1_marker",GVAR(crate_currentSpawn)];
-_spawndir = markerDir format["%1_marker",GVAR(crate_currentSpawn)];
+private _check_radius = 8;
+private _spawnpos = getMarkerPos format["%1_marker",GVAR(crate_currentSpawn)];
+private _spawndir = markerDir format["%1_marker",GVAR(crate_currentSpawn)];
 
 {if (count crew _x == 0) then {deletevehicle _x};} foreach (nearestObjects [_spawnpos, ["AllVehicles"], _check_radius]);
 {deletevehicle _x;} foreach nearestObjects [_spawnpos,["CraterLong_small","CraterLong","WeaponHolder","GroundWeaponHolder"], _check_radius];
 {deleteVehicle _x;} forEach nearestObjects [_spawnpos,["allDead"], _check_radius];
 {deleteVehicle _x;} forEach nearestObjects [_spawnpos,["Thing"], _check_radius];
 
-_padempty = nearestObjects [_spawnpos, ["LandVehicle","Air"], _check_radius];
+private _padempty = nearestObjects [_spawnpos, ["LandVehicle","Air"], _check_radius];
 
 If (!(_padempty isEqualTo [])) exitWith {hint localize LSTRING(NOTEMPTY);};
 
-_boxtyp = (GVAR(crate_boxes) select 0) select GVAR(crate_current_boxid);
-_box = createVehicle [_boxtyp, _spawnpos, [], 0 , "NONE"];
+private _boxtyp = (GVAR(crate_boxes) select 0) select GVAR(crate_current_boxid);
+private _box = createVehicle [_boxtyp, _spawnpos, [], 0 , "NONE"];
 _box setPosATL _spawnpos;
 _box setDir _spawndir;
 
@@ -33,11 +31,11 @@ clearItemCargoGlobal _box;
 clearMagazineCargoGlobal _box;
 clearBackpackCargoGlobal _box;
 
-_items = GVAR(crate_current) select 0;
-_anzahl = GVAR(crate_current) select 1;
+private _items = GVAR(crate_current) select 0;
+private _anzahl = GVAR(crate_current) select 1;
 
 {
-    _name = ([_x]call BIS_fnc_configPath)select 1;
+    private _name = ([_x]call BIS_fnc_configPath)select 1;
     If (_name isEqualTo "CfgVehicles") then {
         _box addBackpackCargoGlobal [configname (_x),(_anzahl select _foreachindex)];
     }else{
@@ -60,6 +58,6 @@ _anzahl = GVAR(crate_current) select 3;
 }forEach _items;
 
 [_box] call EFUNC(logistics,setContainerWeight);
-
+["CRATE_SPAWNED",[_box]] spawn EFUNC(events,serverEvent);
 disableSerialization;
 closeDialog 600200;

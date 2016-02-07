@@ -6,9 +6,8 @@
     
 */
 #include "script_component.hpp"
-SCRIPT(disp_blur);
-CHECK(isDedicated)
-params[["_id","",[""]],["_show",false,[true]]];
+CHECK(!hasInterface)
+_this params[["_id","",[""]],["_show",false,[true]]];
 
 if (isnil QGVAR(disp_blur_arr)) then {
     GVAR(disp_blur_arr) = [];
