@@ -9,19 +9,16 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(filter);
-PARAMS_1(_buttonid);
-private["_sel","_items","_mag","_daten","_cleanupCurrent","_getAnzahl","_getConfig","_ctrlList"];
+_this params ["_buttonid"];
 CHECK(_buttonid<1 || _buttonid>20)
-_sel = [];
-_items = [];
-_mag = [];
-_daten = [];
-_cleanupCurrent={
+private _sel = [];
+private _items = [];
+private _mag = [];
+private _daten = [];
+private _cleanupCurrent={
     {
-        private["_selection","_selection_value"];
-        _selection = GVAR(crate_current) select _x;
-        _selection_value = GVAR(crate_current) select (_x+1);
+        private _selection = GVAR(crate_current) select _x;
+        private _selection_value = GVAR(crate_current) select (_x+1);
         for [{_i = (count _selection_value)},{_i > 0},{_i = _i - 1}] do {
             If ((_selection_value select _i)<1) then {
                 _selection deleteAt _i;
@@ -44,10 +41,9 @@ If (_buttonid<2) then {
     _mag = (_daten select (_buttonid - 2)) select 1;
 };
 CHECK(_daten isEqualTo [])
-_getAnzahl = {
-    PARAMS_1(_ziel);
-    private["_return"];
-    _return=0;
+private _getAnzahl = {
+    _this params ["_ziel"];
+    private _return=0;
     if (_ziel in (GVAR(crate_current) select 0)) then {
         private["_id"];
         _id=(GVAR(crate_current) select 0) find _ziel;
@@ -60,10 +56,9 @@ _getAnzahl = {
     };
     _return
 };
-_getConfig = {
-    PARAMS_1(_cfg);
-    private["_return"];
-    _return = [];
+private _getConfig = {
+    _this params ["_cfg"];
+    private _return = [];
     _return=[_cfg,[]]call BIS_fnc_configPath;
     _return select 1
 };
@@ -78,7 +73,7 @@ for "_i" from 0 to ((count _mag) -1) do {
 lnbClear 600201;
 lnbAddArray [600201,_sel];
 disableSerialization;
-_ctrlList = findDisplay 600200 displayCtrl 600201;
+private _ctrlList = findDisplay 600200 displayCtrl 600201;
 for "_i" from 0 to ((lnbSize _ctrlList) select 0) do {
     _ctrlList lnbSetText [ [_i, 3],format["%1",(_ctrlList lnbValue [_i,0])]];
     _ctrlList lnbSetPicture [ [_i, 1],gettext(configfile>>(_ctrlList lnbData [_i,1])>>(_ctrlList lnbData [_i,2])>>"picture")];

@@ -6,9 +6,7 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(init);
 CHECK(!hasInterface)
-
 GVAR(teleporterlogics) = [];
 
 for "_i" from 1 to 9 do {

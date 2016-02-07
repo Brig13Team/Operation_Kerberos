@@ -10,7 +10,6 @@
     
 */
 #include "script_component.hpp"
-SCRIPT(disp_message);
 CHECK(!hasInterface)
 #define DISP_LAYER 700100
 #define FONT_CORRECTION_CAPITAL 17
@@ -20,17 +19,16 @@ CHECK((_title isEqualTo "")&&(_content isEqualTo ""))
 
 DISP_LAYER cutRsc [QGVAR(disp_msg),"PLAIN"];
 disableSerialization;
-_disp = uiNamespace getvariable QGVAR(disp_msg);
+Private _disp = uiNamespace getvariable QGVAR(disp_msg);
 If (islocalized _title) then {_title = localize _title;};
 If (islocalized _content) then {_content = localize _content;};
 CHECK(isNil "_disp")
 {
-    private["_ctrl","_chars","_size","_pos"];
     _x params ["_idc",["_text","",[""]]];
-    _ctrl = _disp displayCtrl _idc;
+    Private _ctrl = _disp displayCtrl _idc;
     _ctrl ctrlSetText _text;
-    _chars = count(_text);
-    _size = 0;
+    Private _chars = count(_text);
+    Private _size = 0;
     If (_chars>0) then {
         private["_chars_capital","_chars_array"];
         _chars_array = toArray _text;

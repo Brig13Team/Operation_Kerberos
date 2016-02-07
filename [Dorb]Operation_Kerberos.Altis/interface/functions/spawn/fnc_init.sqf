@@ -5,7 +5,6 @@
         3DIcons
 */
 #include "script_component.hpp"
-SCRIPT(init);
 CHECK(!hasInterface)
 
 [["<t size='1.5' shadow='2' color='#FF860F'>"   +localize LSTRING(SPAWN_VEHICLE_DESC) +"</t>",    {_this call FUNC(spawn_Open);}, [localize LSTRING(SPAWN_VEHICLE),    fahrzeuge       ], 5, false, true, "","alive _target and (getposatl player distance getposatl fahrzeuge) < 4"]] call CBA_fnc_addPlayerAction;
