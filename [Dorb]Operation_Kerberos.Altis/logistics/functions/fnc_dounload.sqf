@@ -36,7 +36,7 @@ If !(_isdrop) then {
 [
     LOADTIME,
     [_target, getPos _target],
-    {_this call FUNC(unload);SETVAR(player,GVAR(isloading),false);},
+    {(_this select 0) call FUNC(unload);SETVAR(player,GVAR(isloading),false);},
     {SETVAR(player,GVAR(isloading),false);},
     "",
     { if (!((getPos (_this select 0 select 0)) isEqualTo (_this select 0 select 1))) exitWith { false }; true }
