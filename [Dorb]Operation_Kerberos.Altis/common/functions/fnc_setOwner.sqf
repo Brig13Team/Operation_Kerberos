@@ -25,13 +25,11 @@ If (IS_BOOL(_target)) then {_target = 0;};
 If (IS_OBJECT(_target)) then {_target = owner _target;};
 
 If (IS_GROUP(_object)) then {
-    If !((owner _object) == _target) then {
-        _object setOwner _target;
-    };
-}else{
     If !((groupowner _object) == _target) then {
         _object setGroupOwner _targetOwner;
     };
+}else{
+    If !((owner _object) == _target) then {
+        _object setOwner _target;
+    };
 };
-
-
