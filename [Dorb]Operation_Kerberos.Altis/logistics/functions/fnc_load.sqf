@@ -177,3 +177,5 @@ if (isMultiplayer && {!local _vehicle}) then {
 } else {
     [_vehicle] call FUNC(updateSeats);
 };
+
+[_cargo,_vehicle] call EFUNC(common,setOwner);
