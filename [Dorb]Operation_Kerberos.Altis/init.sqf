@@ -53,8 +53,37 @@ _r3f = execVM "R3F_LOG\init.sqf";
 
 // VCOM-Driving
 If ((!hasInterface) && (!isServer)) then {
-	[] execVM "VCOM_Driving\init.sqf";
+	//[] execVM "VCOM_Driving\init.sqf";
+    [] spawn {
+        SCRIPTIN(core,performance);
+        while {true} do {
+        For "_i" from 0 to 4 do {
+            [false,false] call EFUNC(main,debug_performance);
+            uisleep 60;
+        };
+        [true,false] call EFUNC(main,debug_performance);
+        uisleep 60;
+        false
+        };
+
+    };
 };
+If (isDedicated) then {
+    [] spawn {
+        SCRIPTIN(core,performance);
+        while {true} do {
+        For "_i" from 0 to 4 do {
+            [false,false] call EFUNC(main,debug_performance);
+            uisleep 60;
+        };
+        [true,false] call EFUNC(main,debug_performance);
+        uisleep 60;
+        false
+        };
+
+    };
+};
+
 
 //Task Force Radio
 tf_no_auto_long_range_radio = true;
