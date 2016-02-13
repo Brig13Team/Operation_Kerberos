@@ -953,7 +953,7 @@ class Mission
 					vehicle="B_engineer_F";
 					player="PLAY CDG";
 					skill=0.60000002;
-					init="this setVariable ['DORB_INGENIEUR',true,true]; this setVariable ['ACE_IsEngineer',1,true];";
+					init="this setVariable ['DORB_INGENIEUR',true,true]; this setVariable ['ACE_IsEngineer',2,true];";
 					description="Logistiker (Ingenieur)";
 				};
 				class Item3
@@ -965,7 +965,7 @@ class Mission
 					vehicle="B_engineer_F";
 					player="PLAYER COMMANDER";
 					skill=0.60000002;
-					init="this setVariable ['DORB_INGENIEUR',true,true]; this setVariable ['ACE_IsEngineer',1,true];";
+					init="this setVariable ['DORB_INGENIEUR',true,true]; this setVariable ['ACE_IsEngineer',2,true];";
 					description="Logistiker (Ingenieur)";
 				};
 			};
@@ -2483,7 +2483,7 @@ class Mission
 					player="PLAY CDG";
 					leader=1;
 					skill=0.60000002;
-					init="this setVariable ['ACE_IsEngineer',2,true];";
+					init="this setVariable ['ACE_IsEngineer',1,true];";
 					description="Fahrzeugkommandant";
 				};
 				class Item1
