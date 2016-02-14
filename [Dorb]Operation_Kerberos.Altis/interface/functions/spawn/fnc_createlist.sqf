@@ -155,7 +155,7 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
                     _spawnliste_jet_rhs pushBack [_class,_pic ,"RHS", (call(_DNameRHS)), _DName, _icon];
                 };
             };
-            if (_vClass in ["rhs_vehclass_ifv","rhs_vehclass_tank","rhs_vehclass_artillery"])then {
+            if (_vClass in ["rhs_vehclass_ifv","rhs_vehclass_tank","rhs_vehclass_artillery","rhs_vehclass_apc"])then {
                 _spawnliste_panzer_rhs pushBack [_class,_pic ,"RHS", (call(_DNameRHS)), _DName, _icon];
             };
             if (_vClass in ["rhs_vehclass_car","rhs_vehclass_truck","rhs_vehclass_MRAP"]) then {
