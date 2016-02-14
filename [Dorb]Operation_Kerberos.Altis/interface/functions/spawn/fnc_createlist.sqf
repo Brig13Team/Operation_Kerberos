@@ -231,9 +231,15 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
 
             };
 
-            if ((_vClass=="Ammo")or(_Class isKindOf "Slingload_01_Base_F")) then {
+            if (_vClass=="Ammo") then {
 
                 _spawnliste_ammo pushBack [_class,_pic ,"BIS", (call(_DNameBIS)), _DName, _icon];
+
+            };
+			
+			if (_Class isKindOf "Slingload_01_Base_F") then {
+
+                _spawnliste_material pushBack [_class,_pic ,"BIS", (call(_DNameBIS)), _DName, _icon];
 
             };
 
