@@ -16,6 +16,7 @@ SCRIPT(XEH_getIn);
 params["_group","_position","_unit","_turret"];
 
 CHECK(!isPlayer _unit)
+CHECK((vehicle player) isKindOf "ParachuteBase")
 
 if (!(((_turret isEqualTo [0]) || (_position == "driver")))) exitWith {};
 
