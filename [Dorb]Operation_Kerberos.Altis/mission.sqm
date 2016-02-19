@@ -371,7 +371,7 @@ class Mission
 						};
 						class Item2
 						{
-							value="[""cba_cache_disable"",""cba_diagnostic_disable_xeh_logging"",""Disable_XEH_Logging"",""cba_diagnostic_enable_logging"",""warfxpe"",""blastcore_maincore"",""blastcore_vep"",""BlastcoreTracers"",""BC_Skies_Stratis"",""BC_Skies_Altis"",""Blastcore_Sun"",""Blastcore_SmokeCS"",""WarFXPE"",""Blastcore_VEP"",""ststaminabar"",""st_sthud"",""stnametags"",""stgi"",""st_sthud_usermenu"",""st_interact"",""st_interact_enabler"",""st_map_auto_brightness"",""asr_ai3_main"",""asr_ai3_rhs_c"",""cw_9liners_and_notepad"",""BWA3_EnablePIPOptics"",""jesuzpack_secondprimary""]";
+							value="[""cba_diagnostic_enable_perf_loop"",""cba_diagnostic_logging"",""cba_cache_disable"",""cba_diagnostic_disable_xeh_logging"",""Disable_XEH_Logging"",""cba_diagnostic_enable_logging"",""warfxpe"",""blastcore_maincore"",""blastcore_vep"",""BlastcoreTracers"",""BC_Skies_Stratis"",""BC_Skies_Altis"",""Blastcore_Sun"",""Blastcore_SmokeCS"",""WarFXPE"",""Blastcore_VEP"",""ststaminabar"",""st_sthud"",""stnametags"",""stgi"",""st_sthud_usermenu"",""st_interact"",""st_interact_enabler"",""st_map_auto_brightness"",""asr_ai3_main"",""asr_ai3_rhs_c"",""cw_9liners_and_notepad"",""BWA3_EnablePIPOptics"",""jesuzpack_secondprimary""]";
 							parentCls="ACE_ModuleCheckPBOs";
 							typeName="Whitelist";
 						};
