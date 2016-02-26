@@ -37,7 +37,7 @@ _attack_ai = {
             private["_unit","_spawnpos","_dir","_return","_veh","_wp"];
             _spawnpos = [_attackpos_air select 0,5000,2] call EFUNC(common,pos_random);
             if (!(_spawnpos isEqualTo [])) then {
-                _unit = dorb_patrol_air_list SELRND;
+                _unit = selectRandom dorb_patrol_air_list;
                 _spawnpos set [2,3000];
                 _dir = [_spawnpos, _attackpos_air select 0] call BIS_fnc_dirTo;
                 If (worldName in ["australia"]) then {
@@ -79,7 +79,7 @@ _attack_mech = {
     PARAMS_1(_attack_pos);
     _position =  GETVAR(GVAR(commander_logic),GVAR(commander_current_pos),[]);
     _pos = [_position,2000,2] call EFUNC(common,pos_random);
-    _einheit = dorb_veh_truck SELRND;
+    _einheit = selectRandom dorb_veh_truck;
     _spawnpos = _pos findEmptyPosition [1,200,_einheit];
     if (!(_spawnpos isEqualTo [])) then {
         private["_spawn_array","_transporter","_jaeger_gruppe","_platzanzahl"];
@@ -90,7 +90,7 @@ _attack_mech = {
         _jaeger_gruppe setCombatMode "RED";
         _platzanzahl = _transporter emptyPositions "cargo";
         for "_i" from 0 to (_platzanzahl - 2) do {
-            _einheit = dorb_menlist SELRND;
+            _einheit = selectRandom dorb_menlist;
             _jaeger = [_spawnpos,_jaeger_gruppe,_einheit] call EFUNC(spawn,unit);
         };
         uisleep 1;        
@@ -125,7 +125,7 @@ _attack_sniper = {
     PARAMS_1(_attack_pos);
     _position =  GETVAR(GVAR(commander_logic),GVAR(commander_current_pos),[]);
     _pos = [_position,2000,2] call EFUNC(common,pos_random);
-    _einheit = dorb_veh_car SELRND;
+    _einheit = selectRandom dorb_veh_car;
     _spawnpos = _pos findEmptyPosition [1,200,_einheit];
     if (count _spawnpos > 1) then {
         private["_spawn_array","_transporter","_jaeger_gruppe","_platzanzahl"];
@@ -134,7 +134,7 @@ _attack_sniper = {
         
         _jaeger_gruppe = createGroup dorb_side;
         _jaeger_gruppe setCombatMode "RED";
-        _einheit = dorb_sniper SELRND;
+        _einheit = selectRandom dorb_sniper;
         for "_i" from 0 to 1 do {
             _jaeger = [_spawnpos,_jaeger_gruppe,_einheit] call EFUNC(spawn,unit);
         };
@@ -180,10 +180,10 @@ _attack_tanks = {
     INC(_anzahl);
     for "_i" from 0 to _anzahl do {
         private["_einheit","_rand","_spawnpos","_gruppe","_return"];
-        _einheit = dorb_veh_armored SELRND;
+        _einheit = selectRandom dorb_veh_armored;
         _rand = (floor(random 8));
         if (_rand<2) then {
-            _einheit = dorb_veh_aa SELRND;
+            _einheit = selectRandom dorb_veh_aa;
         };
         _spawnpos = _pos findEmptyPosition [1,100,_einheit];
         if (!(_spawnpos isEqualTo [])) then {

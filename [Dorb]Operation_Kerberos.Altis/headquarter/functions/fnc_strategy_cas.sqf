@@ -23,7 +23,7 @@ CHECKRET((_spawnpos isEqualTo []),0);
 GVAR(callIn_cas) = GVAR(callIn_cas) - 1;
 
 private _allcas = getNumber(missionconfigfile >> "unitlists" >> str GVARMAIN(side) >> GVARMAIN(side_type)>> "callIn" >> "cas" >> "units");
-private _casVehType = _allcas SELRND;
+private _casVehType = selectRandom _allcas;
 _spawnpos set [2,1500];
 _dir = [_spawnpos, _currentPos] call BIS_fnc_dirTo;
 

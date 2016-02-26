@@ -143,7 +143,7 @@ for "_i" from 1 to 25 do {
     _pos = [_dest+[0], _dest_radius, 0] call EFUNC(common,pos_random);
     if ((random 9) > 4) then {
         _building = nearestBuilding _pos;
-        _pos = ( [_building] call BIS_fnc_buildingPositions ) SELRND;
+        _pos = selectRandom ( [_building] call BIS_fnc_buildingPositions );
         private["_gruppe","_einheit"];
         _gruppe = (createGroup DORB_SIDE);
         _einheit = [_inf,_infw] call BIS_fnc_selectRandomWeighted;
@@ -160,10 +160,10 @@ for "_i" from 1 to 25 do {
     _pos = [_dest+[0], _dest_radius, 0] call EFUNC(common,pos_random);
     if ((random 9) > 4) then {
         _building = nearestBuilding _pos;
-        _pos = ( [_building] call BIS_fnc_buildingPositions ) SELRND;
+        _pos = selectRandom ( [_building] call BIS_fnc_buildingPositions );
         private["_gruppe","_einheit"];
         _gruppe = (createGroup civilian);
-        _einheit = _civs SELRND;
+        _einheit = selectRandom _civs;
         _civ = _gruppe createUnit [_einheit, _pos, [], 0, "FORM"];
         _civ setUnitPos "MIDDLE";
         _civ disableAI "MOVE";
@@ -172,7 +172,7 @@ for "_i" from 1 to 25 do {
     } else {
         private["_gruppe","_einheit"];
         _gruppe = (createGroup civilian);
-        _einheit = _civs SELRND;
+        _einheit = selectRandom _civs;
         _civ = _gruppe createUnit [_einheit, _pos, [], 0, "FORM"];
         _civ setDamage 1;
         _civ setDir (random 360);

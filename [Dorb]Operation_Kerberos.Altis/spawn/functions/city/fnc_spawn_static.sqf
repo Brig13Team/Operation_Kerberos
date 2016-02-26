@@ -21,7 +21,7 @@ CHECK(_spawnposarray isEqualTo [])
 Private["_spawnedunit","_spawnedunits","_typ","_gruppe","_dir","_position"];
 
 For "_i" from 0 to ((count _spawnposarray)-1) do {
-    _typ = _unitarray SELRND;
+    _typ = selectRandom _unitarray;
     _gruppe = createGroup _side;
     _dir = (_spawnposarray select _i)select 3;
     _position = [(_spawnposarray select _i)select 0,(_spawnposarray select _i)select 1,(_spawnposarray select _i)select 2];

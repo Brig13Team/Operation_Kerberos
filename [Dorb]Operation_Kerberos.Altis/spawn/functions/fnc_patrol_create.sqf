@@ -23,7 +23,7 @@ for "_i" from 0 to _amount do {
     private _rad = ((random 800) + 800);
     private _pos = [_position,_radius,0] call EFUNC(common,pos_random);
     private _spawnpos = _pos findEmptyPosition [1,40];
-    private _grouptype = GVAR(group_patrol) SELRND;
+    private _grouptype = selectRandom GVAR(group_patrol);
     if (_spawnpos isEqualTo []) then {
         ERROR("Keine Spawnposition");
     }else{

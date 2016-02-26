@@ -51,7 +51,7 @@ if (_vehicles) then {
     _garages = _garages call BIS_fnc_arrayShuffle;
     for "_i" from 0 to (floor(((count _garages)-1)/3)) do {
         private["_einheit","_spawnpos","_spawndir","_newpos","_veh"];
-        _einheit = dorb_civ_cars_garage SELRND;
+        _einheit = selectRandom dorb_civ_cars_garage;
         _spawnpos = ASLtoATL ((_garages select _i) select 1);
         _spawndir = ((_garages select _i) select 2)+90;
         _newpos = ASLtoATL((_garages select _i) select 1);
@@ -124,9 +124,9 @@ for "_i" from 0 to ((count _buildings)-1) do {
             private ["_spawnposarray","_unit","_theta","_refpos","_spawnpos","_spawndir","_veh"];
             _staticpos = _staticpos call BIS_fnc_arrayShuffle;
             _spawnposarray = [_staticpos] call BIS_fnc_arrayShift;
-            _unit = dorb_staticlist_high SELRND;
+            _unit = selectRandom dorb_staticlist_high;
             If ((_spawnposarray select 5)!=1) then {
-                _unit = dorb_staticlist SELRND;
+                _unit = selectRandom dorb_staticlist;
             };
             _theta = 360 - _current_dir;
             
@@ -175,7 +175,7 @@ for "_i" from 0 to ((count _buildings)-1) do {
             CHECK(_unitpos isEqualTo [])
             _unitpos = _unitpos call BIS_fnc_arrayShuffle;
             _spawnposarray = [_unitpos] call BIS_fnc_arrayShift;
-            _unit = dorb_menlist SELRND;
+            _unit = selectRandom dorb_menlist;
             _theta = 360 - _current_dir;
             _refpos =  [        ( (cos _theta)*(_spawnposarray select 0) - (sin _theta)*(_spawnposarray select 1) ),
                             ( (sin _theta)*(_spawnposarray select 0) + (cos _theta)*(_spawnposarray select 1) ),

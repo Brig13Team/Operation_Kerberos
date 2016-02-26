@@ -38,9 +38,9 @@ _gebaeudepos_arr = [_position,_rad] call EFUNC(common,get_buildings);
 _rand = ((floor(random 5)) + 8);
 
 for "_i" from 1 to _rand do{
-    _einheit = dorb_wpncache_list SELRND;
-    _spawngebaeude = _gebaeudepos_arr SELRND;
-    _spawnposition = _spawngebaeude SELRND;
+    _einheit = selectRandom dorb_wpncache_list;
+    _spawngebaeude = selectRandom _gebaeudepos_arr;
+    _spawnposition = selectRandom _spawngebaeude;
     _unit = createVehicle [_einheit,_spawnposition, [], 0, "NONE"];
     _target pushBack _unit;
 };

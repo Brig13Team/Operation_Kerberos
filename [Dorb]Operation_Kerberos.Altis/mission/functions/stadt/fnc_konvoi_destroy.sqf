@@ -68,12 +68,12 @@ for "_j" from 0 to _difficulty do {
         _rand = (floor(random 9));
         if (_rand>3) then {
             if (_rand<5) then {
-                _einheit = dorb_veh_aa SELRND;
+                _einheit = selectRandom dorb_veh_aa;
             }else{
-                _einheit = dorb_veh_unarmored SELRND;
+                _einheit = selectRandom dorb_veh_unarmored;
             };
         }else{
-            _einheit = dorb_veh_armored SELRND;
+            _einheit = selectRandom dorb_veh_armored;
         };
         
         LOG(FORMAT_2("Konvoi %1:%2 ",_i,_einheit));

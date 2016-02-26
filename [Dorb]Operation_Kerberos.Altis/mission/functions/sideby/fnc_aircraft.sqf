@@ -300,7 +300,7 @@ switch (_mode) do {
             _buffer = GETMVAR(GVAR(militaer),[]);
             CHECK(GVAR(militaer) isEqualTo [])
             for "_i" from 1 to 130 do {
-                _dest = ((_buffer SELRND) select 1) + [0];
+                _dest = ((selectRandom _buffer) select 1) + [0];
                 if ((_dest distance _position) > 6000) exitWith {};
             };
         #endif

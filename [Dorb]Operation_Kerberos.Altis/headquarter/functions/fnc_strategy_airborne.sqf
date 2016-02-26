@@ -22,7 +22,7 @@ _spawnpos set [2,400];
 private _transporthelicopter = getArray(missionconfigfile >> "unitlists" >> str GVARMAIN(side) >> GVARMAIN(side_type)>> "callIn" >> "airborne" >> "transport");
 
 private _dir = [_spawnpos, _position] call BIS_fnc_dirTo;
-private _einheit = _transporthelicopter SELRND;
+private _einheit = selectRandom _transporthelicopter;
 
 ([_spawnpos,GVARMAIN(side),_einheit,_dir,true,true,"FLY"] call EFUNC(spawn,vehicle)) params ["_transporterGroup","_transporter"];
 
@@ -42,7 +42,7 @@ SETVAR(_jaeger_gruppe,EGVAR(mission,istarget),true);
 _jaeger_gruppe setCombatMode "RED";
 
 for "_i" from 0 to 5 do {
-    _einheit = _jaeger SELRND;
+    _einheit = selectRandom _jaeger;
     [[(_spawnpos select 0),(_spawnpos select 1),0],_jaeger_gruppe,_einheit] call FUNC(unit);
 };
 

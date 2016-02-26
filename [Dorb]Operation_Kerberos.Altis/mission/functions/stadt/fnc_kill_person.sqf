@@ -41,9 +41,9 @@ _rand = ((floor(random 2)) + 2);
 
 for "_i" from 1 to _rand do{
     _gruppe = createGroup dorb_side;
-    _einheit = dorb_commanderlist SELRND;
-    _spawngebaeude = _gebaeudepos_arr SELRND;
-    _spawnposition = _spawngebaeude SELRND;
+    _einheit = selectRandom dorb_commanderlist;
+    _spawngebaeude = selectRandom _gebaeudepos_arr;
+    _spawnposition = selectRandom _spawngebaeude;
     _unit = [_spawnposition,_gruppe,_einheit] call EFUNC(spawn,unit);
     SETVAR(_unit,GVAR(istarget),true);
     SETVAR(_gruppe,GVAR(istarget),true);

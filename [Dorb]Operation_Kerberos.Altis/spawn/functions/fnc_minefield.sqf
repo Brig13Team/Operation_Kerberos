@@ -32,12 +32,12 @@ for "_i" from 0 to _anzahl do {
     _pos = [_centerpos,_spawnrad,0] call EFUNC(common,pos_random);
     
     If (_type <1) then {
-        _magazineClass = _allmines SELRND;
+        _magazineClass = selectRandom _allmines;
     }else{
         If (_type <2) then {
-            _magazineClass = _at_mines SELRND;
+            _magazineClass = selectRandom _at_mines;
         }else{
-            _magazineClass = _ap_mines SELRND;
+            _magazineClass = selectRandom _ap_mines;
         };
     };
     

@@ -31,7 +31,7 @@ params ["_position", "_task_array"];
     private "_buffer";
     _buffer = GETMVAR(GVAR(militaer),[]);
     for "_i" from 1 to 130 do {
-        _dest = ((_buffer SELRND) select 1) + [0];
+        _dest = ((selectRandom _buffer) select 1) + [0];
         if ((_dest distance _position) > 6000) exitWith {};
     };
 #endif
@@ -39,7 +39,7 @@ params ["_position", "_task_array"];
 _zielPos = [_position, 50, 0] call EFUNC(common,pos_random);
 _buildings = _position nearObjects ["House", 50];
 if (!(_buildings isEqualTo [])) then {
-    _zielPos = ([_buildings SELRND] call BIS_fnc_buildingPositions) SELRND;
+    _zielPos = selectRandom ([selectRandom _buildings] call BIS_fnc_buildingPositions);
 };
 
 _ziel = [_zielPos, createGroup civilian, "C_man_polo_1_F"] call EFUNC(spawn,unit);
