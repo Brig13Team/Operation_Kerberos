@@ -19,16 +19,27 @@ _this params[
     ["_target",-2,[0]],
     ["_local",true,[false]]
     ];
-
-CHECKRET((_function isEqualTo ""),false);
-
-DOUBLES(PREFIX,e) = [_function,_parameter,_target];
-If (isServer) then {
-    publicVariable QUOTE(DOUBLES(PREFIX,e));
-}else{
-    publicVariableServer QUOTE(DOUBLES(PREFIX,e));
+_target = switch (_target) do {
+    case -5 : {[] call EFUNC(common,players);};
+    case -4 : {
+            If (!isNil QGVAR(HeadlessClients)) then {
+                [2,GVAR(HeadlessClients)];
+            }else{
+                2;
+            };
+        };
+    case -3 : {
+        If (!isNil QGVAR(HeadlessClients)) then {
+            GVAR(HeadlessClients);
+        }else{
+            [];
+        };
+    };
+    case -2 : {0;};
+    case -1 : {-2;};
+    case 0 : {2;};
+    default {0;};
 };
-If (_local) then {
-    DOUBLES(PREFIX,e) call FUNC(_EventExec);
-};
-true;
+
+
+[_parameter,_function,_target,_local] call FUNC(remoteExec);
