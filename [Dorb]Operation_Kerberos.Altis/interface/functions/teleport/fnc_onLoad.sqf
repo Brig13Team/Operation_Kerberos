@@ -12,7 +12,7 @@ Private _teleporter = [
     /// ["",""],      /// Beispiel zum Ausschalten von einem Teleport
     [localize LSTRING(TELEPORT_BASE),QUOTE(closeDialog 600300;player setposatl (getMarkerPos GVARMAIN(RESPAWNMARKER)))],
     [localize LSTRING(TELEPORT_VEHICLES),"closeDialog 600300;player setposatl (getMarkerPos 'teleport_fahrzeuge')"],
-    [localize LSTRING(TELEPORT_AIR),QUOTE(closeDialog 600300;If (missionNamespace getVariable [ARR_2('GVAR(teleport_airfield)',true)]) then {player setposatl (getMarkerPos 'teleport_luftwaffe'));}else{};],
+    [localize LSTRING(TELEPORT_AIR),QUOTE(closeDialog 600300;If (missionNamespace getVariable [ARR_2('GVAR(teleport_airfield)',true)]) then {player setposatl (getMarkerPos 'teleport_luftwaffe');}else{};],
     [localize LSTRING(TELEPORT_SHOOTINGRANGE),"closeDialog 600300;player setposatl (getMarkerPos 'teleport_schiessstand')"],
     [localize LSTRING(TELEPORT_MARINE),"closeDialog 600300;player setposatl (getMarkerPos 'teleport_hafen')"],
     [localize LSTRING(TELEPORT_LOGISTIC),"closeDialog 600300;player setposatl (getMarkerPos 'teleport_logistik')"],

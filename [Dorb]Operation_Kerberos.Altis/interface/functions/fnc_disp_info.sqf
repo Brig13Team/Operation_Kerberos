@@ -57,6 +57,7 @@ For "_i" from 0 to 7 do {
 };
 
 {
+    private "_text";
     If (islocalized _x) then {_text = localize _x;}else{_text = _x;};
     Private _ctrl = _disp displayCtrl (700109+_forEachIndex);
     _ctrl ctrlSetText _text;
