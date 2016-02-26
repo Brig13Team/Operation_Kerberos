@@ -72,15 +72,15 @@ struct buildings *buildingname*;
 /// Filter
 
 
-_cfgvehicles = configFile >> "cfgvehicles";
-_nullposition = [0,0,0];
-_buildingsarray = [];
+private _cfgvehicles = configFile >> "cfgvehicles";
+private _nullposition = [0,0,0];
+private _buildingsarray = [];
 
 for "_i" from 0 to (count _cfgvehicles)-1  do {
-    _vehicle    = _cfgvehicles select _i;
+    private _vehicle    = _cfgvehicles select _i;
     if (isClass _vehicle) then {        
-        _class = configName(_vehicle);
-        _scope = getNumber(configFile >> "cfgvehicles" >> _class >> "scope");
+        private _class = configName(_vehicle);
+        private _scope = getNumber(configFile >> "cfgvehicles" >> _class >> "scope");
         
         If ((_class isKindOf "House")&&(_scope > 0)) then {
             /// exclude damaged buildings
@@ -166,6 +166,8 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
                 
                 _buildingsarray pushback _temp;
                 deleteVehicle _house;
+            }else{
+                _buildingsarray_damaged pushBack _x;
             };
         };
     };
