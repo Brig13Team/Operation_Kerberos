@@ -31,7 +31,7 @@ _this params[
     ];
 
 If (_local) then {
-    _parameter spawn (missionNamespace getVariable [_function,{true}];
+    _parameter spawn (missionNamespace getVariable [_function,{true}]);
     _local = false;
 };
     

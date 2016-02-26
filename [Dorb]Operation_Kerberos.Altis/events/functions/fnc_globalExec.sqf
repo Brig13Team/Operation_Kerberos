@@ -19,7 +19,7 @@ _this params[
     ["_target",-2,[0]],
     ["_local",true,[false]]
     ];
-_target = select (_target) do {
+_target = switch (_target) do {
     case -5 : {[] call EFUNC(common,players);};
     case -4 : {
             If (!isNil QGVAR(HeadlessClients)) then {
