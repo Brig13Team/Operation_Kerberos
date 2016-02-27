@@ -8,12 +8,13 @@ TRIPLES(PREFIX,makro,selectrandom) = {
     };
 TRIPLES(PREFIX,makro,delete) = {
     scriptName QUOTE(TRIPLES(PREFIX,makro,delete));
-    _this params [["_delete",false,[[],objNull,"",grpNull]]];
-    If(_this isEqualType [])exitWith{{_x call TRIPLES(PREFIX,makro,delete);}forEach _this;};
-    If(_this isEqualType grpNull)exitWith{deletegroup _this;};
-    If(_this isEqualType objNull)exitWith{{_this deleteVehicleCrew _x} forEach crew _this; deleteVehicle _this;};
-    If(_this isEqualType "STRING")exitWith{deleteMarker _this};
-    diag_log text format['TILGE: Nicht unterstuetzt | %1',_this];
+    If !(_this params [["_delete",false,[[],objNull,"",grpNull]]]) exitWith {
+        diag_log text format['TILGE: Nicht unterstuetzt | %1',_delete];
+    };
+    If(_delete isEqualType [])exitWith{{_x call TRIPLES(PREFIX,makro,delete);}forEach _delete;};
+    If(_delete isEqualType grpNull)exitWith{deletegroup _delete;};
+    If(_delete isEqualType objNull)exitWith{{_delete deleteVehicleCrew _x} forEach crew _delete; deleteVehicle _delete;};
+    If(_delete isEqualType "STRING")exitWith{deleteMarker _delete};
     nil;
     };
 TRIPLES(PREFIX,makro,map) = {

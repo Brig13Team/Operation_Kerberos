@@ -13,8 +13,7 @@
     BOOL
 */
 #include "script_component.hpp"
-SCRIPT(minefields);
-params[["_position",[],[[]],[2,3]],["_radius",1300,[0]],["_anzahl",8,[0]]];
+_this params[["_position",[],[[]],[2,3]],["_radius",1300,[0]],["_anzahl",8,[0]]];
 
 CHECKRET((_position isEqualTo []),false);
 

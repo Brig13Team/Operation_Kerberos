@@ -6,7 +6,6 @@
     
 */
 #include "script_component.hpp"
-SCRIPT(cleanup_full);
 _this params ["_pos","_rad"];
 
 [] call FUNC(cleanup_base);
@@ -14,9 +13,11 @@ _this params ["_pos","_rad"];
 {
     _x TILGE;
 } foreach (_pos nearObjects ["ALL", _rad]);
+
 {
     _x TILGE;
 } forEach allMines;
+
 {
     if (side _x != GVARMAIN(playerside) ) then {
         _x TILGE;
@@ -28,6 +29,7 @@ _this params ["_pos","_rad"];
         _x TILGE;
     };
 } foreach vehicles;
+
 {
     _x TILGE;
 } forEach allDead;
@@ -35,7 +37,15 @@ _this params ["_pos","_rad"];
 {
     _x TILGE;
 } foreach allGroups;
-[{if(hasInterface)exitWith{};{deleteGroup _x;} foreach allGroups;}-1] call EFUNC(events,globalExec);    //Headless remove Groups
+
+[
+    [],
+    {
+        if(hasInterface) exitWith {};
+        {deleteGroup _x;} foreach allGroups;
+    },
+    [EGVAR(headless,HeadlessClients)]
+] call EFUNC(events,remoteExec);    //Headless remove Groups
 
 
 ISNILS(EGVAR(mission,markerdump),[]);

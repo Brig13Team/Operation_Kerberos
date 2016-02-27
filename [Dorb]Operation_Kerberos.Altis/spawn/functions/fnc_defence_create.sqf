@@ -16,8 +16,7 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(defence_create);
-params["_position",["_radius",1200,[0]],["_amount",0,[0]]];
+_this params["_position",["_radius",1200,[0]],["_amount",0,[0]]];
 
 for "_i" from 0 to _amount do {
     private _rad = ((random 100) + 100);

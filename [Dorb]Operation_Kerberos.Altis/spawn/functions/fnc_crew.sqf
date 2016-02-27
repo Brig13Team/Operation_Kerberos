@@ -11,7 +11,6 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(crew);
 _this params[["_vehicle",objNull,[objNull]],["_gruppe",grpNull,[grpNull]],["_withCargo",false,[true]]];
 
 CHECKRET(((isNull _vehicle)||(isNull _gruppe)),[]);
@@ -56,6 +55,6 @@ If (_withCargo) exitWith {
         _unit moveInCargo _vehicle;
         _crew pushBack _unit;
     };
-    [_crew,_group2]
+    [_crew,_group2];
 };
-[_crew]
+[_crew];

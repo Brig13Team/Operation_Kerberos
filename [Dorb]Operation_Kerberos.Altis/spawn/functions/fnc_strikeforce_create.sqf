@@ -16,8 +16,7 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(strikeforce_create);
-params["_centerposition",["_amount",0,[0]],["_radius",600,[0]]];
+_this params["_centerposition",["_amount",0,[0]],["_radius",600,[0]]];
 
 for "_i" from 0 to _amount do {
     private _rad = ((random 600) + 200);

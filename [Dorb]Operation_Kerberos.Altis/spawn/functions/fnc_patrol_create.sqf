@@ -16,7 +16,6 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(patrol_create);
 _this params["_position",["_amount",0,[0]],["_radius",1200,[0]]];
 
 for "_i" from 0 to _amount do {

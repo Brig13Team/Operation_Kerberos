@@ -21,12 +21,9 @@
     
 */
 #include "script_component.hpp"
-SCRIPT(defence_macros);
 _this params[["_position",[],[[]],[2,3]],["_radius",1000,[0]],["_anzahl_spawnpos",3,[0]],["_isTown",false,[true]]];
 
-
 private _searchrad = 150 min (_radius/4);
-
 
 //// Random Positions -> moved to open Area
 //// If not enaugh positions are found, the amount of spawned macros is reduced
@@ -125,5 +122,4 @@ for "_i" from 0 to (count _config)-1 do {
     [_x,_configarray,_bestdir] call FUNC(macro_exec3d);
     
 }forEach  _all_spawnpos;
-
-true
+true;

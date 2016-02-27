@@ -13,8 +13,7 @@
     group
 */
 #include "script_component.hpp"
-SCRIPT(group);
-params[["_position",[],[[]],[2,3]],["_type",[],[[],configfile]]];
+_this params[["_position",[],[[]],[2,3]],["_type",[],[[],configfile]]];
 LOG_2(_position,_type);
 CHECKRET((_position isEqualTo []),grpNull);
 CHECKRET(((IS_STRING(_type))&&{_type isEqualTo ""}),grpNull);

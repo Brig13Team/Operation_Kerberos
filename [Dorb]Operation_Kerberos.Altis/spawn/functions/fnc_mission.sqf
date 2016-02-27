@@ -11,8 +11,7 @@
     none
 */
 #include "script_component.hpp"
-SCRIPT(mission);
-params[["_centerposition",[],[[]],[2,3]],["_type","",["",[]]],["_isTown",false,[true]]];
+_this params[["_centerposition",[],[[]],[2,3]],["_type","",["",[]]],["_isTown",false,[true]]];
 TRACEV_2(_centerposition,_type);
 CHECK(_centerposition isEqualTo [])
 

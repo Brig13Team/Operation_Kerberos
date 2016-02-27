@@ -13,8 +13,7 @@
     
 */
 #include "script_component.hpp"
-SCRIPT(macro_exec3D);
-params[["_centerpos",[],[[]],[3]],["_configarray",[],[[]]],["_centerdir",9999,[0]]];
+_this params[["_centerpos",[],[[]],[3]],["_configarray",[],[[]]],["_centerdir",9999,[0]]];
 TRACEV_3(_centerpos,_configarray,_centerdir);
 CHECK((_centerpos isEqualTo [])||(_configarray isEqualTo []))
 

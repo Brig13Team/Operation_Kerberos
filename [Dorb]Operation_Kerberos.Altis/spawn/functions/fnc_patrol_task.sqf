@@ -23,9 +23,7 @@
 */
 
 #include "script_component.hpp"
-SCRIPT(patrol_task);
-
-params [
+_this params [
     ["_group",grpNull,[grpNull,objNull]],
     ["_centerpos",[],[[]],[2,3]],
     ["_behavior","UNCHANGED",[""]],

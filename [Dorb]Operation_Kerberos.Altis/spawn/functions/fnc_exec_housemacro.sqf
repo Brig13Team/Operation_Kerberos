@@ -13,7 +13,6 @@
     
 */
 #include "script_component.hpp"
-SCRIPT(exec_housemacro);
 _this params [ ["_house",objNull,[objNull]],["_material",[],[[]]],["_vehicles",[],[[]]],["_soldiers",[],[[]]] ];
 
 If (isNull _house) exitWith {};
