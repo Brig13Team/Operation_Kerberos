@@ -18,15 +18,15 @@ hint "Export in progess....";
 
 If (isNull _house) exitWith {};
 
-_houseType = typeOf _house;
-_housePos = getPosASL _house;
-_houseVDir = VectorDir _house;
-_houseVUp = VectorUp _house;
+private _houseType = typeOf _house;
+private _housePos = getPosASL _house;
+private _houseVDir = VectorDir _house;
+private _houseVUp = VectorUp _house;
 
 private _allObjects = _house nearObjects [["CAManBase","Static","LandVehicle","Air","Ship"],_radius];
 private _exportarray = [];
 
-_fnc_rotVector = {
+private _fnc_rotVector = {
     _this params ["_vector","_dir"];
     _vector params ["_x","_y"];
     _vector set [0,(cos _dir)*_x - (sin _dir) * _y];
@@ -34,7 +34,7 @@ _fnc_rotVector = {
     _vector;
 };
 
-_fnc_formatRotMat = {
+private _fnc_formatRotMat = {
     _this params ["_Rollwinkel","_Nickwinkel","_Gierwinkel"];
     [[
         (cos _Gierwinkel) * (cos _Nickwinkel),
@@ -53,7 +53,7 @@ _fnc_formatRotMat = {
     ]];
 };
 
-_fnc_getRollPitchYaw = {
+private _fnc_getRollPitchYaw = {
     _this params ["_objectDir","_objectUp",["_Roll",0,[0]],["_Nick",0,[0]],["_Gier",0,[0]]];
 
     private _objectDir = VectorDir _object;
@@ -91,14 +91,14 @@ _fnc_getRollPitchYaw = {
     [_Rollwinkel,_Nickwinkel,_Gierwinkel];
 };
 
-_fnc_ObjGetRollPitchYaw = {
+private _fnc_ObjGetRollPitchYaw = {
     _this params [["_object",objNull,[objNull]],["_roll",0,[0]],["_nick",0,[0]],["_gier",0,[0]]];
     private _objectDir = VectorDir _object;
     private _objectUp = VectorUp _object;
     [_objectDir,_objectUp,_roll,_nick,_gier] call _fnc_getRollPitchYaw;
 };
 
-_fnc_ObjGetRotMat = {
+private _fnc_ObjGetRotMat = {
     _this params [["_object",objNull,[objNull]],["_roll",0,[0]],["_nick",0,[0]],["_gier",0,[0]]];
     private _tempRollPitchYaw = [_object] call _fnc_ObjGetRollPitchYaw;
     [_tempRollPitchYaw] call _fnc_formatRotMat;
