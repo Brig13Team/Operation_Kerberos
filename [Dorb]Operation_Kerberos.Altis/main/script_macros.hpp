@@ -160,7 +160,7 @@ Example:
 Author:
     Dorbedo
 ------------------------------------------- */
-#define TILGE call TRIPLES(dorb,makro,delete)
+#define TILGE call TRIPLES(dorb,common,DOUBLES(fnc,delete))
 /* -------------------------------------------
 Macro: SCRIPT(VAR)
    Sets name of script
@@ -331,7 +331,7 @@ Example:
 Author:
     iJesuz
 ------------------------------------------- */
-#define MAP(CODE,ARRAY) [CODE,ARRAY] call TRIPLES(dorb,makro,map)
+#define MAP(CODE,ARRAY) ARRAY apply CODE
 
 /* -------------------------------------------
 Macro(s): <PREFIX>POLAR_<POSTFIX>(PHI,RADIUS)
