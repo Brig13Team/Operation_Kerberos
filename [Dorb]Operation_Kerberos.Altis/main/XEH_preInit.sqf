@@ -14,7 +14,6 @@ TRIPLES(PREFIX,makro,iscasvehicle) = {
 
 PREP(debug_performance);
 PREP(userconfig);
-PREP(init);
 PREPS(debug,maplog);
 PREPS(debug,putinlog);
 PREPS(debug,show);
