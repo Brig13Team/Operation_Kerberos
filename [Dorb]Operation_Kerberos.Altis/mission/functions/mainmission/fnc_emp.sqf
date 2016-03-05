@@ -65,6 +65,6 @@ for "_i" from 1 to _rand do{
     {},
     {},
     [],
-    QUOTE(If (isnil 'GVAR(emp_nextIntervall)') then {GVAR(emp_nextIntervall)=diag_ticktime + 8*60;};If (GVAR(emp_nextIntervall)<diag_ticktime) then {private['_vehicles'];(_this select 0) nearEntities [ARR_2([ARR_3('LandVehicle','Air','Ship_F')],2000)];{_x setFuel 0;}forEach _vehicles;GVAR(emp_nextIntervall) = diag_ticktime + 8*60 + 60*(floor(random 6));};),
+    QUOTE(If (isnil 'GVAR(emp_nextIntervall)') then {GVAR(emp_nextIntervall)=CBA_missionTime + 8*60;};If (GVAR(emp_nextIntervall)<CBA_missionTime) then {private['_vehicles'];(_this select 0) nearEntities [ARR_2([ARR_3('LandVehicle','Air','Ship_F')],2000)];{_x setFuel 0;}forEach _vehicles;GVAR(emp_nextIntervall) = CBA_missionTime + 8*60 + 60*(floor(random 6));};),
     []
 ]
