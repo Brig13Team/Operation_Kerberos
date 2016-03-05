@@ -4,6 +4,7 @@ ADDON = false;
 
 PREP(_raiseEvent);
 PREP(addEventHandler);
+PREP(clientEvent);
 PREP(globalEvent);
 PREP(globalExec);
 PREP(localEvent);
