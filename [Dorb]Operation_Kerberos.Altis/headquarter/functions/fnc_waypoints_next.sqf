@@ -18,8 +18,8 @@ TRACEV_1(_position);
 _raster = getNumber(missionconfigFile >> "maps" >> worldname >> "raster");
 
 TRACEV_1(_raster);
-_keyX = round(((_position select 0)-_raster*0.5)/_raster)*(_raster/10);
-_keyY = round(((_position select 1)-_raster*0.5)/_raster)*(_raster/10);
+private _keyX = round(((_position select 0)-_raster*0.5)/_raster)*(_raster/10);
+private _keyY = round(((_position select 1)-_raster*0.5)/_raster)*(_raster/10);
 
 
 format["%1_%2",_keyX,_keyY];
