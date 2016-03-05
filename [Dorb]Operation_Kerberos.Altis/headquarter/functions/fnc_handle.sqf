@@ -43,8 +43,7 @@ SETMVAR(GVAR(working,true));
     }forEach _attackarray;
 
 
-    //// create new Attacklogics
-    private _attackLogics = [] call FUNC(attackpos_getAll);
+    //// create new Attackpositions
 
     {
         private _currentAttackPos = _x;

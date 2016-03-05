@@ -11,10 +11,10 @@
         none
 */
 #include "script_component.hpp"
-_this params ["_currentLogic"];
+_this params ["_currentLocation"];
 
-private _currentPos = getPos _currentLogic;
-private _currentTroops = _currentLogic getVariable [QGVAR(troopsNeeded),0];
+private _currentPos = getPos _currentLocation;
+private _currentTroops = _currentLocation getVariable [QGVAR(troopsNeeded),0];
 private _spawnpos = [_currentPos,6000,2] call EFUNC(common,random_pos);
 
 CHECKRET((_spawnpos isEqualTo []),0);

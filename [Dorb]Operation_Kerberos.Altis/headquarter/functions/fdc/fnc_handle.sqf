@@ -12,7 +12,6 @@
 */
 
 #include "script_component.hpp"
-SCRIPT(register);
 
 CHECK(GVAR(fdc_firemissions) isEqualTo [])
 private ["_current_firemission"];

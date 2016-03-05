@@ -14,9 +14,7 @@
 
 GVAR(aktive) = false;
 
-private _attackLogics = [] call FUNC(attackpos_getAll);
-_attackLogics TILGE;
-
+GVAR(attackpos) TILGE;
 
 SETMVAR(GVAR(Infanterie),[]);
 SETMVAR(GVAR(Attack_Helicopter),[]);

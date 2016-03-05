@@ -12,7 +12,7 @@
 */
 #include "script_component.hpp"
 SCRIPT(strategy_);
-_this params ["_currentLogic"];
+_this params ["_currentLocation"];
 
 
 //******WIP***********

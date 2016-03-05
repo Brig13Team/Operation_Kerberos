@@ -8,21 +8,21 @@ class strategy {
     class infanterie {
         condition = "(count _infanterieGroups) > 0";
         probability = 0.5;
-        parameter = "[_currentLogic,_infanterieGroups]";
+        parameter = "[_currentLocation,_infanterieGroups]";
     };
     class tankattack : infanterie {
         condition = "(count _tankGroups) > 0";
-        parameter = "[_currentLogic,_tankGroups]";
+        parameter = "[_currentLocation,_tankGroups]";
     };
     class helicopter : infanterie {
         condition = "(count _helicoptersGroups) > 0";
-        parameter = "[_currentLogic,_helicoptersGroups]";
+        parameter = "[_currentLocation,_helicoptersGroups]";
     };
     
     /// simple support
     class airborne : infanterie {
         condition = QUOTE((GVAR(callIn_airborne)) > 0);
-        parameter = "[_currentLogic,_currenttroopsNeeded]";
+        parameter = "[_currentLocation,_currenttroopsNeeded]";
     };
     class airinterception : airborne {
         condition = QUOTE((GVAR(callIn_airinterception)) > 0);
