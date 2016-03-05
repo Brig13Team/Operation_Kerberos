@@ -136,7 +136,7 @@ SETMVAR(GVAR(working,true));
     private _missingstrenght = 0;
     /// move into battle
     TRACEV_2(GVAR(attackpos),_waitingGroups);
-    [GVAR(attackpos),_waitingGroups] call FUNC(strategy);
+    [GVAR(attackpos),_waitingGroups] call FUNC(strategy_exec);
     /*
     {
         private _enemy = _x getVariable[QGVAR(enemy),0];

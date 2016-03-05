@@ -42,4 +42,4 @@ hint "wegpunkte fertig";
 _script = [getMarkerPos "startmarker",getMarkerPos "zielmarker",true] execVM "ai\functions\fnc_waypoints_generate.sqf";
 
 hint "Weight fertig";
-_script
+_script;

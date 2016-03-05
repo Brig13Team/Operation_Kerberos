@@ -2,7 +2,7 @@
     Author: Dorbedo
     
     Description:
-        revon
+        
     
     Parameter(s):
         none
@@ -11,4 +11,7 @@
         none
 */
 #include "script_component.hpp"
+_this params[["_group",grpNull,[grpNull]]];
+
+CHECKRET(isnull _group,-1);
 

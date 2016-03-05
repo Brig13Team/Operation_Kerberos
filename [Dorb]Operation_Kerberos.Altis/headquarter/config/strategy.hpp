@@ -6,35 +6,35 @@ class strategy {
     
     /// simple attack
     class infanterie {
-        condition = "(count _infanterieGroups) > 0";
+        condition = QUOTE(((count _infanterieGroups) > 0)&&([] call EFUNC(spawn,unit_limit)));
         probability = 0.5;
         parameter = "[_currentLocation,_infanterieGroups]";
     };
     class tankattack : infanterie {
-        condition = "(count _tankGroups) > 0";
+       condition = QUOTE(((count _tankGroups) > 0)&&([] call EFUNC(spawn,unit_limit))); 
         parameter = "[_currentLocation,_tankGroups]";
     };
     class helicopter : infanterie {
-        condition = "(count _helicoptersGroups) > 0";
+        condition = QUOTE(((count _helicoptersGroups) > 0)&&([] call EFUNC(spawn,unit_limit)));
         parameter = "[_currentLocation,_helicoptersGroups]";
     };
     
     /// simple support
     class airborne : infanterie {
-        condition = QUOTE((GVAR(callIn_airborne)) > 0);
+        condition = QUOTE(((GVAR(callIn_airborne)) > 0)&&([] call EFUNC(spawn,unit_limit))); 
         parameter = "[_currentLocation,_currenttroopsNeeded]";
     };
     class airinterception : airborne {
-        condition = QUOTE((GVAR(callIn_airinterception)) > 0);
+        condition = QUOTE(((GVAR(callIn_airinterception)) > 0)&&([] call EFUNC(spawn,unit_limit)));
     };
     class armored : airborne {
-        condition = QUOTE((GVAR(callIn_armored)) > 0);
+        condition = QUOTE(((GVAR(callIn_armored)) > 0)&&([] call EFUNC(spawn,unit_limit)));
     };
     class cas : airborne {
         condition = QUOTE((GVAR(callIn_cas)) > 0);
     };
     class motorized : airborne {
-        condition = QUOTE((GVAR(callIn_motorized)) > 0);
+        condition = QUOTE(((GVAR(callIn_motorized)) > 0)&&([] call EFUNC(spawn,unit_limit)));
     };
     class drones : airborne {
         condition = QUOTE((GVAR(callIn_drones)) > 0);

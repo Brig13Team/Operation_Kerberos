@@ -15,17 +15,13 @@
 _this params[["_group",grpNull,[grpNull]]];
 if (isNull _group) exitWith {["",0]};
 
-_value = 0;
-_all_Vehicles = [];
+private _value = 0;
+private _all_Vehicles = [];
 {
-    If !(_x in _all_Vehicles) then {
-        _all_Vehicles pushBack _x;
-    };
-    If !((vehicle _x) in _all_Vehicles) then {
-        _all_Vehicles pushBack (vehicle _x);
-    };
+    _all_Vehicles pushBackUnique _x;
+    _all_Vehicles pushBackUnique (vehicle _x);
 }forEach (units _group);
-_type = "Infanterie";
+private _type = "Infanterie";
 {
     _value = _value + (switch (true) do {
         case (_x isKindOf "Air") : {

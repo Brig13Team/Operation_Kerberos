@@ -19,7 +19,8 @@ private _strenght = [_group] call FUNC(strenght);
 private _size = [_group] call FUNC(attackpos_size);
 private _position = getPos leader _group;
 
-private _newLoc = createLocation ["CBA_NamespaceDummy", _position , _size, _size];
-_newLoc setRectangular false;
+private _newLoc = [_position,_size,false] call EFUNC(common,create_location);
+_newLoc setImportance _strenght;
+_newLoc setVariable [QGVAR(troopsNeeded),0];
 GVAR(attackpos) pushBack _newLoc;
 _newLoc;

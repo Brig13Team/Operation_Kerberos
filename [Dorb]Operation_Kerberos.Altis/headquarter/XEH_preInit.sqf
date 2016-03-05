@@ -2,6 +2,15 @@
 
 ADDON = false;
 
+PREPS(attackpos,create);
+PREPS(attackpos,create_logic);
+PREPS(attackpos,getAll);
+PREPS(attackpos,reduce);
+PREPS(attackpos,remove);
+
+PREP(dangerzone_buffer);
+PREP(dangerzone_convert);
+
 PREPS(drones,attack);
 PREPS(drones,createWaypoint);
 PREPS(drones,doAirstrike);
@@ -17,15 +26,41 @@ PREPS(fdc,placeOrder);
 PREPS(fdc,ready);
 PREPS(fdc,register);
 
+PREPS(state,attack);
+PREPS(state,change);
+PREPS(state,defend);
+PREPS(state,evade);
+PREPS(state,idle);
+PREPS(state,retreat);
+PREPS(state,wait);
 
-PREP(attackpos_create);
-PREP(attackpos_create_logic);
-PREP(attackpos_getAll);
-PREP(attackpos_reduce);
-PREP(attackpos_remove);
+PREPS(strategy_exec);
+PREPS(strategy,airborne);
+PREPS(strategy,armored);
+PREPS(strategy,artillery);
+PREPS(strategy,cas);
+PREPS(strategy,choose);
+PREPS(strategy,drones);
+PREPS(strategy,failed);
+PREPS(strategy,helicopter);
+PREPS(strategy,infanterie);
+PREPS(strategy,mortar);
+PREPS(strategy,motorized);
+PREPS(strategy,rocket);
+PREPS(strategy,success);
+PREPS(strategy,tankattack);
 
-PREP(dangerzone_buffer);
-PREP(dangerzone_convert);
+PREPS(waypoints,add);
+PREPS(waypoints,deaktivate);
+PREPS(waypoints,evade);
+PREPS(waypoints,generate);
+PREPS(waypoints,movementcost);
+PREPS(waypoints,next);
+PREPS(waypoints,test);
+
+
+
+
 
 PREP(EH_killed);
 PREP(handle);
@@ -38,46 +73,12 @@ PREP(mission_init);
 PREP(recon);
 PREP(recon_radars);
 
-
 PREP(register_POI);
 
 PREP(player_unconscious);
 PREP(player_value);
 
-PREP(state_attack);
-PREP(state_change);
-PREP(state_defend);
-PREP(state_evade);
-PREP(state_idle);
-PREP(state_retreat);
-PREP(state_wait);
-
-PREP(strategy);
-PREP(strategy_airborne);
-PREP(strategy_armored);
-PREP(strategy_artillery);
-PREP(strategy_cas);
-PREP(strategy_choose);
-PREP(strategy_drones);
-PREP(strategy_failed);
-PREP(strategy_helicopter);
-PREP(strategy_infanterie);
-PREP(strategy_mortar);
-PREP(strategy_motorized);
-PREP(strategy_rocket);
-PREP(strategy_success);
-PREP(strategy_tankattack);
-
-
 PREP(strength);
-PREP(waypoints_add);
-PREP(waypoints_deaktivate);
-PREP(waypoints_evade);
-PREP(waypoints_generate);
-PREP(waypoints_movementcost);
-PREP(waypoints_next);
-
-PREP(waypoints_test);
 
 ADDON = true;
 

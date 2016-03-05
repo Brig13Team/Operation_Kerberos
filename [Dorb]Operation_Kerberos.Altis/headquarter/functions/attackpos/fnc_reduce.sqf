@@ -14,7 +14,7 @@
 
 _this params [["_group",grpNull,[grpNull]]];
 CHECK(isNull _group)
-private _target = _group getVariable [QGVAR(target),objNull];
+private _target = _group getVariable [QGVAR(target),locationNull];
 
 CHECK(IS_ARRAY(_target))
 CHECK(isNull _target)
