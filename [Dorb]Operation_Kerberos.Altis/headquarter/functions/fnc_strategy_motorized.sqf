@@ -11,9 +11,9 @@
         none
 */
 #include "script_component.hpp"
-_this params ["_currentLogic"];
-private _currentTroops = _currentLogic getVariable [QGVAR(troopsNeeded),0];
-private _currentPos = getPos _currentLogic;
+_this params ["_currentLocation"];
+private _currentTroops = _currentLocation getVariable [QGVAR(troopsNeeded),0];
+private _currentPos = getPos _currentLocation;
 
 private _pos = [GVAR(centerpos),(GVAR(definitions) select 0)+800,1] call EFUNC(common,random_pos);
 private _einheitArray = getArray(missionconfigfile >> "unitlists" >> str GVARMAIN(side) >> GVARMAIN(side_type)>> "callIn" >> "motorized" >> "units");

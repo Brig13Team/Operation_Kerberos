@@ -11,11 +11,11 @@
         none
 */
 #include "script_component.hpp"
-_this params ["_currentLogic","_attackgroups"];
-TRACEV_2(_currentLogic,_attackgroups);
-private _currentPos = getPos _currentLogic;
-private _currentEnemy = _currentLogic getVariable [QGVAR(enemy),0];
-private _currentTroops = _currentLogic getVariable [QGVAR(troopsNeeded),0];
+_this params ["_currentLocation","_attackgroups"];
+TRACEV_2(_currentLocation,_attackgroups);
+private _currentPos = getPos _currentLocation;
+private _currentEnemy = importance _currentLocation;
+private _currentTroops = _currentLocation getVariable [QGVAR(troopsNeeded),0];
 
 
 for "_i" from 0 to ((count _attackgroups) -1) do {

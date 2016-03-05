@@ -11,9 +11,9 @@
         none
 */
 #include "script_component.hpp"
-_this params ["_currentLogic","_currenttroopsNeeded"];
+_this params ["_currentLocation","_currenttroopsNeeded"];
 
-private _currentPosition = getPosATL _currentLogic;
+private _currentPosition = getPosATL _currentLocation;
 
 private _nearUnits = _currentPosition nearEntities [["CAManBase","Car","Tank"], 100];
 
@@ -36,7 +36,7 @@ if (_currenttroopsNeeded > 20) then {
 };
 
 [_currentPosition,1,_amount] call FUNC(fdc_placeOrder);
-[QUOTE(_this call FUNC(attackpos_remove)),[_currentLogic],200] call EFUNC(common,waitandexec);
+[QUOTE(_this call FUNC(attackpos_remove)),[_currentLocation],200] call EFUNC(common,waitandexec);
 
 _return;
 

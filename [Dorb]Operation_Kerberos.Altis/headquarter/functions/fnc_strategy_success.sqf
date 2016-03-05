@@ -11,11 +11,11 @@
         none
 */
 #include "script_component.hpp"
-_this params ["_currentLogic"];
+_this params ["_currentLocation"];
 
 private _Strategy_Memory = GETPRVAR(GVAR(strategy_memory),[]);
 
-private _currentStrategie = GETVAR(_currentLogic,GVAR(strategy),[]);
+private _currentStrategie = GETVAR(_currentLocation,GVAR(strategy),[]);
 
 CHECK(_currentStrategie isEqualTo [])
 
