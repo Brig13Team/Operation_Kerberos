@@ -71,7 +71,6 @@ PREP(strategy_tankattack);
 
 PREP(strength);
 PREP(waypoints_add);
-PREP(waypoints_create);
 PREP(waypoints_deaktivate);
 PREP(waypoints_evade);
 PREP(waypoints_generate);
