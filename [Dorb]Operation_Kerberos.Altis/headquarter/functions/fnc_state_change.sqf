@@ -21,7 +21,7 @@ _state = toLower (GETVAR(_group,GVAR(state),''));
 
 switch (_state) do {
     case "patrol" : {
-            private _formation = ["COLUMN","STAG COLUMN","WEDGE","VEE","FILE","DIAMOND"] SELRND;
+            private _formation = selectRandom ["COLUMN","STAG COLUMN","WEDGE","VEE","FILE","DIAMOND"];
             private _position = GETVAR(_group,GVAR(target),getPos (leader _group));
             [_group, _position, "AWARE", "WHITE", "NORMAL", "NO CHANGE", "", [5,10,15],50] call EFUNC(spawn,patrol_task);
         };

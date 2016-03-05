@@ -119,10 +119,10 @@ If (ZAEHLER > 4) then {
             [(_windDirVec select 0) * WINDSTRENGTH,(_windDirVec select 1) * WINDSTRENGTH,0],        //Velocity
             0,
             10,
-            (_Volume SELRND),
+            (selectRandom _Volume),
             0.0001,
             [5,15,10,15,20],
-            (_colors SELRND),
+            (selectRandom _colors),
             [1000],
             0,
             0.0,

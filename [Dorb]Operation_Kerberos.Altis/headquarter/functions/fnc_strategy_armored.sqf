@@ -21,7 +21,7 @@ CHECKRET((_spawnpos isEqualTo []),0);
 GVAR(callIn_armored) = GVAR(callIn_armored) - 1;
 
 private _allTanks = getArray(missionconfigfile >> "unitlists" >> str GVARMAIN(side) >> GVARMAIN(side_type)>> "callIn" >> "armored" >> "units");
-private _TankVehType = _allTanks SELRND;
+private _TankVehType = selectRandom _allTanks;
 _spawnpos set [2,1500];
 _dir = [_spawnpos, _currentPos] call BIS_fnc_dirTo;
 

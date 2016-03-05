@@ -21,15 +21,15 @@ switch (_mode) do {
         _avail_adrones = [];
         _avail_rdrones = [];
 
-        if (playersNumber GVARMAIN(playerside)  >=  5) then { _avail_rdrones pushBack (_rdrones SELRND); };
-        if (playersNumber GVARMAIN(playerside)  >= 15) then { _avail_rdrones pushBack (_rdrones SELRND); };
-        if (playersNumber GVARMAIN(playerside)  >= 25) then { _avail_rdrones pushBack (_rdrones SELRND); };
-        if (playersNumber GVARMAIN(playerside)  >= 35) then { _avail_rdrones pushBack (_rdrones SELRND); };
+        if (playersNumber GVARMAIN(playerside)  >=  5) then { _avail_rdrones pushBack (selectRandom _rdrones); };
+        if (playersNumber GVARMAIN(playerside)  >= 15) then { _avail_rdrones pushBack (selectRandom _rdrones); };
+        if (playersNumber GVARMAIN(playerside)  >= 25) then { _avail_rdrones pushBack (selectRandom _rdrones); };
+        if (playersNumber GVARMAIN(playerside)  >= 35) then { _avail_rdrones pushBack (selectRandom _rdrones); };
 
-        if (playersNumber GVARMAIN(playerside)  >= 10) then { _avail_adrones pushBack (_adrones SELRND); };
-        if (playersNumber GVARMAIN(playerside)  >= 20) then { _avail_adrones pushBack (_adrones SELRND); };
-        if (playersNumber GVARMAIN(playerside)  >= 30) then { _avail_adrones pushBack (_adrones SELRND); };
-        if (playersNumber GVARMAIN(playerside)  >= 40) then { _avail_adrones pushBack (_adrones SELRND); };
+        if (playersNumber GVARMAIN(playerside)  >= 10) then { _avail_adrones pushBack (selectRandom _rdrones); };
+        if (playersNumber GVARMAIN(playerside)  >= 20) then { _avail_adrones pushBack (selectRandom _rdrones); };
+        if (playersNumber GVARMAIN(playerside)  >= 30) then { _avail_adrones pushBack (selectRandom _rdrones); };
+        if (playersNumber GVARMAIN(playerside)  >= 40) then { _avail_adrones pushBack (selectRandom _rdrones); };
         
         SETVAR(missionNamespace,GVAR(commander),_commander);
         SETVAR(missionNamespace,GVAR(requestedAirstrikes),[]);

@@ -23,7 +23,7 @@ _this spawn {
     if (count (units group _unit))<2 then {
         private _group = group _unit;
         [_group] call FUNC(attackpos_reduce);
-        private _curPOI = GVAR(POI) SELRND;
+        private _curPOI = selectRandom GVAR(POI);
         private _curPos = [_curPOI,800,0] call EFUNC(common,pos_random);
         _group setVariable [QGVAR(target),_curPos];
         _group setVariable [QGVAR(state),"defend"];

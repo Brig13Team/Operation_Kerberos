@@ -164,7 +164,7 @@ SETMVAR(GVAR(working,true));
     //// Let the rest do something too.
     {
         if ((_x getVariable [QGVAR(state),""]) isEqualTo "idle") then {
-            private _curPOI = GVAR(POI) SELRND;
+            private _curPOI = selectRandom GVAR(POI);
             private _curPos = [_curPOI,800,0] call EFUNC(common,pos_random);
             _x setVariable [QGVAR(target),_curPos];
             _x setVariable [QGVAR(state),"wait"];
@@ -188,7 +188,7 @@ SETMVAR(GVAR(working,true));
         {
             if (_missingstrenght <= 0) exitWith {};
             private _strength = [_x] call FUNC(strength);
-            private _curPOI = GVAR(POI) SELRND;
+            private _curPOI = selectRandom GVAR(POI);
             private _curPos = [_curPOI,200,0] call EFUNC(common,pos_random);
             _x setVariable [QGVAR(target),_curPos];
             _x setVariable [QGVAR(state),"retreat"];

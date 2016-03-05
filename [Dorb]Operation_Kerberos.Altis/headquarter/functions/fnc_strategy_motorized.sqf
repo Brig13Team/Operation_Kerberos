@@ -17,7 +17,7 @@ private _currentPos = getPos _currentLogic;
 
 private _pos = [GVAR(centerpos),(GVAR(definitions) select 0)+800,1] call EFUNC(common,random_pos);
 private _einheitArray = getArray(missionconfigfile >> "unitlists" >> str GVARMAIN(side) >> GVARMAIN(side_type)>> "callIn" >> "motorized" >> "units");
-private _einheit = _einheitArray SELRND;
+private _einheit = selectRandom _einheitArray;
 
 private _spawnpos = _pos findEmptyPosition [1,200,_einheit];
 CHECKRET((_spawnpos isEqualTo []),0)
@@ -29,7 +29,7 @@ private _jaeger_gruppe = createGroup GVARMAIN(side);
 _jaeger_gruppe setCombatMode "RED";
 private _platzanzahl = _transporter emptyPositions "cargo" min 6;
 for "_i" from 0 to _platzanzahl do {
-    private _einheit = GVAR(list_soldiers) SELRND;
+    private _einheit = selectRandom GVAR(list_soldiers);
     [_spawnpos,_jaeger_gruppe,_einheit] call EFUNC(spawn,unit);
 };
 uisleep 1;        

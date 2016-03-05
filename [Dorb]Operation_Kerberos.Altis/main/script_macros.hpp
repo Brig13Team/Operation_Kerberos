@@ -140,27 +140,6 @@ Author:
 #define CHECK(CONDITION) if (CONDITION) exitWith {};
 #define CHECKRET(CONDITION,RETURN) if (CONDITION) exitWith {RETURN;};
 /* -------------------------------------------
-Macro: SELRND()
-    Selects a random element of an array
-
-Parameters:
-    ARRAY - array to select from
-
-Example:
-    (begin example)
-        _winner = ["Klaus","Dieter","Thorsten"] SELRND;
-    (end)
-
-    (begin example)
-        _gamers = ["Felix","Hans","Heinrich"];
-        _looser = _gamers SELRND;
-    (end)
-
-Author:
-    Dorbedo
-------------------------------------------- */
-#define SELRND call TRIPLES(dorb,makro,selectrandom)
-/* -------------------------------------------
 Macro: TILGE
     deletes:
         - Marker
@@ -354,6 +333,39 @@ Author:
 ------------------------------------------- */
 #define MAP(CODE,ARRAY) [CODE,ARRAY] call TRIPLES(dorb,makro,map)
 
+/* -------------------------------------------
+Macro(s): <PREFIX>POLAR_<POSTFIX>(PHI,RADIUS)
+    prefix:
+        non: arma-like polarcoordinates
+             (angle between y-axis and radius)
+        "N": normal polarcoordinates
+             (angle between x-axis and radius)
+    postfix:
+        "X": x-value
+        "Y": y-value
+        "2D": 2D coordinate
+        "3D": 3D coordinate (z = 0)
+
+Parameters:
+    0 : NUMBER
+    1 : NUMBER
+
+Example:
+    (begin example)
+        POLAR_3D(35,1)
+    (end)
+
+Author:
+    iJesuz
+------------------------------------------- */
+#define POLAR_X(PHI,RADIUS) ((sin (PHI)) * (RADIUS))
+#define POLAR_Y(PHI,RADIUS) ((cos (PHI)) * (RADIUS))
+#define POLAR_2D(PHI,RADIUS) [POLAR_X(PHI,RADIUS),POLAR_Y(PHI,RADIUS)]
+#define POLAR_3D(PHI,RADIUS) [POLAR_X(PHI,RADIUS),POLAR_Y(PHI,RADIUS),0]
+#define NPOLAR_X(PHI,RADIUS) POLAR_Y(PHI,RADIUS)
+#define NPOLAR_Y(PHI,RADIUS) POLAR_X(PHI,RADIUS)
+#define NPOLAR_2D(PHI,RADIUS) [NPOLAR_X(PHI,RADIUS),NPOLAR_Y(PHI,RADIUS)]
+#define NPOLAR_3D(PHI,RADIUS) [NPOLAR_X(PHI,RADIUS),NPOLAR_Y(PHI,RADIUS),0]
 
 /* -------------------------------------------
 Macro(s):

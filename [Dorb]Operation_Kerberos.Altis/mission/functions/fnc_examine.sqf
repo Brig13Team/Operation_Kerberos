@@ -120,7 +120,7 @@ switch (_option) do {
                         _genauigkeit_falsch = [_paramter,3,50,[0]] call BIS_fnc_Param;
                         
                         for "_i" from 0 to ((count GVAR(examine_targetarray))-1) do {
-                            _pos = [getPos(GVAR(examine_targetarray) SELRND), 300,0] call EFUNC(common,pos_random);
+                            _pos = [getPos(selectRandom GVAR(examine_targetarray)), 300,0] call EFUNC(common,pos_random);
                             _marker = createMarker [format["EXAMINE_Mark_%1",((count GVAR(markerdump))+1)],_pos];
                             _marker setMarkerShape "Ellipse";
                             _marker setMarkerColor "ColorRed";

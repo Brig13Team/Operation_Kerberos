@@ -64,7 +64,7 @@ for "_i" from 0 to 2 do {
     _direction = [_road, _connectedRoad] call BIS_fnc_DirTo;
     _spawnpos = getPos _road;
     
-    _einheit = dorb_veh_unarmored SELRND;
+    _einheit = selectRandom dorb_veh_unarmored;
     
     LOG(FORMAT_2("Konvoi 1:%2 ",_i,_einheit));
         

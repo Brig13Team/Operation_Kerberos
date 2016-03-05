@@ -218,7 +218,7 @@ private _centerposASL = ATLtoASL _centerpos;
             - generate a new soldiert, if side of soldier is not matching
             - solder should have similar equipment
     */
-    _currentType = GVAR(list_soldiers) SELRND;
+    _currentType = selectRandom GVAR(list_soldiers);
     _unit = _gruppe createUnit[_currentType,_spawnPosATL, [], 0, "NONE"];
     _unit setPosATL _spawnPosATL;
     _unit setDir _spawndir;

@@ -21,7 +21,7 @@ CHECK(_spawnposarray isEqualTo [])
 Private["_spawnedunit","_spawnedunits","_typ","_gruppe","_dir","_position"];
 
 For "_i" from 0 to ((count _spawnposarray)-1) do {
-    _typ = _unitarray SELRND;
+    _typ = selectRandom _unitarray;
     _gruppe = createGroup _side;
     /// Prevent ASR-AI Option "JoinLast" - No compatibility Issues if no ASR-AI is enabled
     SETPVAR(_gruppe,asr_ai3_main_initgroupsize,1);
