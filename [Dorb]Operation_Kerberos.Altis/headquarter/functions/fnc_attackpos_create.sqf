@@ -2,7 +2,7 @@
     Author: Dorbedo
     
     Description:
-        revon
+        
     
     Parameter(s):
         none
@@ -13,13 +13,13 @@
 #include "script_component.hpp"
 
 _this params[["_group",grpNull,[grpNull]]];
-private ["_strenght","_position","_logic"];
 
-_strenght = [_group] call FUNC(strenght);
+ISNILS(GVAR(attackpos),[]);
+private _strenght = [_group] call FUNC(strenght);
+private _size = [_group] call FUNC(attackpos_size);
+private _position = getPos leader _group;
 
-_position = getPos leader _group;
-
-[_position,_strenght] call FUNC(attackpos_create_logic);
-
-true
-
+private _newLoc = createLocation ["CBA_NamespaceDummy", _position , _size, _size];
+_newLoc setRectangular false;
+GVAR(attackpos) pushBack _newLoc;
+_newLoc;

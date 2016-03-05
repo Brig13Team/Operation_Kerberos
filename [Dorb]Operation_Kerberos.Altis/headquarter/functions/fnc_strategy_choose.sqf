@@ -12,19 +12,16 @@
 */
 #include "script_component.hpp"
 
-
-
-
-_this params ["_currenttroopsNeeded","_currentEnemy","_currentLogic","_groups"];
-TRACEV_4(_currenttroopsNeeded,_currentEnemy,_currentLogic,_groups);
+_this params ["_currenttroopsNeeded","_currentEnemy","_currentLocation","_groups"];
+TRACEV_4(_currenttroopsNeeded,_currentEnemy,_currentLocation,_groups);
 
 
 _Strategy_Memory = GETPRVAR(GVAR(strategy_memory),[]);
 
-private _enemySoldiers = GVARMAIN(playerside) countSide ((getPos _currentLogic) nearEntities ["CAManBase",400]);
-private _enemyTanks = GVARMAIN(playerside) countSide ((getPos _currentLogic) nearEntities ["Tank",400]);
-private _enemyHelicopters = GVARMAIN(playerside) countSide ((getPos _currentLogic) nearEntities ["Helicopter",400]);
-private _enemyVehicles = GVARMAIN(playerside) countSide ((getPos _currentLogic) nearEntities ["Car",400]);
+private _enemySoldiers = GVARMAIN(playerside) countSide ((getPos _currentLocation) nearEntities ["CAManBase",400]);
+private _enemyTanks = GVARMAIN(playerside) countSide ((getPos _currentLocation) nearEntities ["Tank",400]);
+private _enemyHelicopters = GVARMAIN(playerside) countSide ((getPos _currentLocation) nearEntities ["Helicopter",400]);
+private _enemyVehicles = GVARMAIN(playerside) countSide ((getPos _currentLocation) nearEntities ["Car",400]);
 _enemySoldiers = 50;
 
 
@@ -134,8 +131,8 @@ TRACEV_1(_parameter);
 _newTroops = _parameter call (missionnamespace getVariable [format["%1_%2",QGVAR(fnc_strategy),_chosenStrategie],{}]);
 
 
-SETVAR(_currentLogic,GVAR(troopsNeeded),_newTroops);
-SETVAR(_currentLogic,GVAR(strategy),_chosenStrategie);
+SETVAR(_currentLocation,GVAR(troopsNeeded),_newTroops);
+SETVAR(_currentLocation,GVAR(strategy),_chosenStrategie);
 
 
 

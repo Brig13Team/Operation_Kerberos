@@ -47,19 +47,19 @@ SETMVAR(GVAR(working,true));
     private _attackLogics = [] call FUNC(attackpos_getAll);
 
     {
-        private _curentAttackPos = _x;
+        private _currentAttackPos = _x;
+        private _found = false;
         {
-            if ((_x distance _curentAttackPos)<400) exitWith {
-                [_curentAttackPos,0] call FUNC(attackpos_create_logic);
-            };
-        }forEach _attackLogics;
+            if (_currentAttackPos in _x) exitWith {_found = true;};
+        }forEach GVAR(attackpos);
+        If !(_found) then {
+            GVAR(attackpos) pushBack ([_curentAttackPos,0] call EFUNC(common,create_location);
+        };
     }forEach _attackpositions;
 
 
 
     /// Update the enemyamount on each Attackpos
-    _attackLogics = [] call FUNC(attackpos_getAll);
-
     {
         ([getPos _x] call FUNC(dangerzone_convert)) params ["_x_coord","_y_coord"];
         private _enemy = 0;
@@ -97,8 +97,8 @@ SETMVAR(GVAR(working,true));
             [QGVAR(dangerzones),_x_coord,_y_coord+2],
             [QGVAR(dangerzones),_x_coord,_y_coord-2]
         ];
-        _x setVariable[QGVAR(enemy),_enemy];
-    } forEach _attackLogics;
+        _x setImportance _enemy;
+    } forEach GVAR(attackpos);
 
 
 /*
@@ -136,8 +136,8 @@ SETMVAR(GVAR(working,true));
     
     private _missingstrenght = 0;
     /// move into battle
-    TRACEV_2(_attackLogics,_waitingGroups);
-    [_attackLogics,_waitingGroups] call FUNC(strategy);
+    TRACEV_2(GVAR(attackpos),_waitingGroups);
+    [GVAR(attackpos),_waitingGroups] call FUNC(strategy);
     /*
     {
         private _enemy = _x getVariable[QGVAR(enemy),0];
@@ -158,7 +158,7 @@ SETMVAR(GVAR(working,true));
         };
         _missingstrenght = _missingstrenght + ((_enemy - _troops) max 0);
         _x setVariable[QGVAR(troopsNeeded),_troops];
-    }forEach _attackLogics;
+    }forEach GVAR(attackpos);
     */
     
     //// Let the rest do something too.
