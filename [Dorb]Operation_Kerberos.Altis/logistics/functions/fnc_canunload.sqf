@@ -11,13 +11,12 @@
         BOOL
 */
 #include "script_component.hpp"
-SCRIPT(canunload);
 
 #define INTERVALL 5
 
 if (player getVariable [QGVAR(isloading),false]) exitWith { false };
-
-PARAMS_1(_target);
+_this params ["_target"];
+LOG_1(_target);
 
 private _logistic_stack = _target getVariable [QGVAR(stack),[]];
 if (_logistic_stack isEqualTo []) exitWith { false };
@@ -39,12 +38,11 @@ private _theta = _width atan2 _length;
 private _radius = 0.5 * sqrt(_width^2 + _length^2);
 private _pos = _load_point vectorAdd POLAR_3D(_phi + _theta, _radius) vectorAdd [0,0,0.05]; // Ecke oben rechts (etwas erhöht)
 
-private "_temp";
 private _intersects = false;
 for [{_i = 0}, {_i <= _length}, {_i = _i + _length/INTERVALL}] do {
     for [{_k = 0}, {_k <= _width}, {_k = _k + _width/INTERVALL}] do {
         _theta = _i atan2 _k;
-        _temp = _pos vectorDiff NPOLAR_3D(_theta - _phi,sqrt(_k^2 + _i^2)); // pos relativ zur Ecke oben rechts
+        private _temp = _pos vectorDiff NPOLAR_3D(_theta - _phi,sqrt(_k^2 + _i^2)); // pos relativ zur Ecke oben rechts
 
         _intersects = _intersects || (!(lineIntersectsSurfaces [AGLToASL _temp, AGLToASL (_temp vectorAdd [0,0,_height-0.05])] isEqualTo []));
     };

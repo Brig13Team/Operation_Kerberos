@@ -8,7 +8,6 @@
         0: OBJECT - vehicle
 */
 #include "script_component.hpp"
-SCRIPT(unload);
 
 #define SPACE_BETWEEN_CARGO 0.1
 
@@ -57,8 +56,7 @@ _cargo_mass = getMass (_last_cargo select 0);
 (_last_cargo select 0) setDir (getDir _vehicle);
 
 if (isMultiplayer && {!local _vehicle}) then {
-    missionNamespace setVariable [QGVAR(updateSeats_Vehicle),_vehicle];
-    publicVariable QGVAR(updateSeats_Vehicle);
+    [QGVAR(updateSeats_Vehicle),[_vehicle],missionNamespace,_vehicle] call EFUNC(events,targetEvent);
 } else {
     [_vehicle] call FUNC(updateSeats);
 };

@@ -11,14 +11,13 @@
         BOOL
 */
 #include "script_component.hpp"
-SCRIPT(doload);
 #define LOADTIME 3
-PARAMS_1(_target);
+_this params ["_target"];
+LOG_1(_target);
 
 CHECK(GETVAR(player,GVAR(isloading),false))
-private["_nearObjects","_object"];
-_nearObjects = nearestObjects[(_target modelToWorld (getArray(missionConfigFile >> "logistics" >> "vehicles" >> (typeOf _target) >> "load_point"))), ["AllVehicles","ThingX"], 2];
-_object = objNull;
+private _nearObjects = nearestObjects[(_target modelToWorld (getArray(missionConfigFile >> "logistics" >> "vehicles" >> (typeOf _target) >> "load_point"))), ["AllVehicles","ThingX"], 2];
+private _object = objNull;
 
 {
     If (!(([_x] call FUNC(getCargoCfg))isEqualTo "")) exitWith {
@@ -29,8 +28,7 @@ _object = objNull;
 If (!isNull _object) then {
     SETVAR(player,GVAR(isloading),true);
     GVAR(isloading_pos)=getPos player;
-    private["_anim"];
-    _anim = getText(missionConfigFile >> "logistics" >> "vehicles" >> (typeOf _target) >> "hatch_isclosed");
+    private _anim = getText(missionConfigFile >> "logistics" >> "vehicles" >> (typeOf _target) >> "hatch_isclosed");
     If (!(_anim isEqualTo "")) then {
         If (_target call compile _anim) then {
             _target call (compile (getText(missionConfigFile >> "logistics" >> "vehicles" >> (typeOf _target) >> "hatch_open")));
@@ -57,5 +55,4 @@ If (!isNull _object) then {
         "",
         { if (!((getPos (_this select 0 select 0)) isEqualTo (_this select 0 select 2))) exitWith { false }; if (!((getPos (_this select 0 select 1)) isEqualTo (_this select 0 select 3))) exitWith { false }; true }
     ] call ace_common_fnc_progressBar;
-
 };

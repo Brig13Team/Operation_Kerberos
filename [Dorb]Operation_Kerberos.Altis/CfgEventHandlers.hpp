@@ -22,12 +22,12 @@ class Extended_PreInit_EventHandlers {
 };
 
 class Extended_PostInit_EventHandlers {
-    INCLUDE_SERVERPOSTINIT(logistics);
     INCLUDE_SERVERPOSTINIT(interface);
     INCLUDE_SERVERPOSTINIT(player);
     INCLUDE_CLIENTPOSTINIT(logistics);
     INCLUDE_CLIENTPOSTINIT(interface);
     INCLUDE_CLIENTPOSTINIT(player);
+    INCLUDE_POSTINIT(logistics);
     INCLUDE_POSTINIT(headquarter);
     INCLUDE_POSTINIT(common);
     INCLUDE_POSTINIT(headless);
