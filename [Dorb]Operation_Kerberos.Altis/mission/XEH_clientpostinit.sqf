@@ -6,6 +6,7 @@
 */
 #include "script_component.hpp"
 
+<<<<<<< HEAD
 CHECK(!hasinterface)
 
 ///// suitcase actions
@@ -36,3 +37,18 @@ if !((getMarkerPos "rescue_marker") isEqualTo [0,0,0]) then {
 
 If (isNil QGVAR(sandstormIsActive)) then {GVAR(sandstormIsActive) = false;};
 [] spawn FUNC(objects_device_effect_sandstorm_init);
+=======
+CHECK(!hasInterface)
+
+If (isNil QGVAR(sandstormIsActive)) then {GVAR(sandstormIsActive) = false;};
+[] spawn FUNC(objects_device_effect_sandstorm_init);
+
+
+[QGVAR(earthquake),{
+    If (!(vehicle player isKindOf "Air")) then {
+        _this params ["_strenght"];
+        [_rand]spawn BIS_fnc_earthquake;
+    };
+}] call EFUNC(events,addEventHandler);
+
+>>>>>>> refs/remotes/origin/functions_improvements

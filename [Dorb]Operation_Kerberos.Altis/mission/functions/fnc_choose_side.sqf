@@ -43,7 +43,7 @@ for "_i" from 0 to (count _config)-1 do {
                         _positionsArray pushBack _x;
                     };
                 } forEach _positions;
-                _position = (_positionsArray SELRND)select 1;
+                _position = (selectRandom _positionsArray)select 1;
                 _position = [_position,_distance,3] call EFUNC(common,pos_random);
             }else{
                 private "_positions";
@@ -57,7 +57,7 @@ for "_i" from 0 to (count _config)-1 do {
                         _positionsArray pushBack _x;
                     };
                 } forEach _positions;
-                _position = (_positionsArray SELRND)select 1;
+                _position = (selectRandom _positionsArray)select 1;
                 _position = [_position,_distance,0] call EFUNC(common,pos_random);
             };
         };

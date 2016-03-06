@@ -6,10 +6,8 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(setFreq);
-private["_sr","_lr"];
-_sr = parseNumber (ctrlText 700202);
-_lr = parseNumber (ctrlText 700203);
+Private _sr = parseNumber (ctrlText 700202);
+Private _lr = parseNumber (ctrlText 700203);
 
 if ((_sr >=30)&&(_sr <=512)&&( call TFAR_fnc_haveSWRadio)) then {
     [(call TFAR_fnc_activeSwRadio), format["%1",_sr]] call TFAR_fnc_setSwFrequency;

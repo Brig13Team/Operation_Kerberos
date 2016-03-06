@@ -33,7 +33,7 @@ private _positions = [];
     _positions append (missionnamespace getVariable [_x,[]]);
 }forEach _positiontypes;
 CHECK(_positions isEqualTo [])
-private _position = (_positions SELRND);
+private _position = selectRandom _positions;
 private _distance = getnumber(missionconfigfile>>"missions_config">>"main">>_task>>"location">>"distance");
 
 /// create side and mainmission

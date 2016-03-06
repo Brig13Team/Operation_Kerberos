@@ -22,7 +22,7 @@ _targets=[];
 _spawnposition=[];
 _rand = 1;
 for "_i" from 1 to _rand do{
-    _einheit = EGVAR(spawn,list_device) SELRND;
+    _einheit = selectRandom EGVAR(spawn,list_device);
     _spawnposition = [_position,25,200,15,0.15] call EFUNC(common,pos_flatempty);
     If (_spawnposition isEqualTo []) then {
         _spawnposition = [_position,25,200,15,0.22] call EFUNC(common,pos_flatempty);
@@ -56,7 +56,7 @@ for "_i" from 1 to _rand do{
 /********************
     taskhandler
 ********************/
-
+GVAR(emp_nextIntervall)= CBA_missionTime + 8*60;
 [
     QUOTE(_this params['_targets'];private '_a';_a = {_x getVariable [ARR_2('GVAR(disabled)',false)];}count _targets;If (_a == (count _targets)) then {true}else{false};),
     [_targets],
@@ -64,6 +64,6 @@ for "_i" from 1 to _rand do{
     {},
     {},
     [],
-    QUOTE(If (isnil 'GVAR(emp_nextIntervall)') then {GVAR(emp_nextIntervall)=diag_ticktime + 8*60;};If (GVAR(emp_nextIntervall)<diag_ticktime) then {private['_vehicles'];(_this select 0) nearEntities [ARR_2([ARR_3('LandVehicle','Air','Ship_F')],2000)];{_x setFuel 0;}forEach _vehicles;GVAR(emp_nextIntervall) = diag_ticktime + 8*60 + 60*(floor(random 6));};),
-    []
+    QUOTE(If (GVAR(emp_nextIntervall)<CBA_missionTime) then {{[QGVAR(emp),getPos _x] call EFUNC(events,serverEvent)} forEach (_this select 0);GVAR(emp_nextIntervall) = CBA_missionTime + 10*60 + 60*(floor(random 10));};),
+    [_targets]
 ]

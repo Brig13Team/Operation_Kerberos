@@ -15,9 +15,8 @@
     
 */
 #include "script_component.hpp"
-SCRIPT(disp_info_global);
-params[["_title","",[""]],["_content","",["",[]]],["_icon","",[""]],["_body",true,[true]]];
+_this params[["_title","",[""]],["_content","",["",[]]],["_icon","",[""]],["_body",true,[true]]];
 
 If (IS_STRING(_content)) then {_content = [_content];};
 
-[{_this spawn FUNC(disp_info)},[_title,_content,_icon,_body],-1] call EFUNC(events,globalExec);
+[QUOTE(FUNC(disp_info)),[_title,_content,_icon,_body],-1] call EFUNC(events,globalExec);

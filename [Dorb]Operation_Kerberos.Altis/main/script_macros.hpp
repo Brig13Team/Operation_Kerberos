@@ -30,27 +30,27 @@ Author:
     #define EFUNC(var1,var2) TRIPLES(DOUBLES(PREFIX,var1),fnc,var2)
     #define INCLUDE_PREINIT(var1) \
         class DOUBLES(PREFIX,var1) {\
-            init = QUOTE(call compile preProcessFileLineNumbers 'var1\XEH_PreInit.sqf'); \
+            init = QUOTE(call compile ('_fnc_scriptName = ''TRIPLES(PREFIX,var1,preinit)''; scriptName _fnc_scriptName;' + preProcessFileLineNumbers 'var1\XEH_PreInit.sqf')); \
         };
     #define INCLUDE_POSTINIT(var1) \
         class DOUBLES(PREFIX,var1) {\
-            init = QUOTE(call compile preProcessFileLineNumbers 'var1\XEH_PostInit.sqf'); \
+            init = QUOTE(call compile ('_fnc_scriptName = ''TRIPLES(PREFIX,var1,postinit)''; scriptName _fnc_scriptName;' + preProcessFileLineNumbers 'var1\XEH_PostInit.sqf')); \
         };
     #define INCLUDE_SERVERPREINIT(var1) \
         class TRIPLES(PREFIX,var1,server) {\
-            Serverinit = QUOTE(call compile preProcessFileLineNumbers 'var1\XEH_ServerPreInit.sqf'); \
+            Serverinit = QUOTE(call compile ('_fnc_scriptName = ''TRIPLES(PREFIX,var1,serverpreinit)''; scriptName _fnc_scriptName;' + preProcessFileLineNumbers 'var1\XEH_ServerPreInit.sqf')); \
         };
     #define INCLUDE_SERVERPOSTINIT(var1) \
         class TRIPLES(PREFIX,var1,server) {\
-            Serverinit = QUOTE(call compile preProcessFileLineNumbers 'var1\XEH_ServerPostInit.sqf'); \
+            Serverinit = QUOTE(call compile ('_fnc_scriptName = ''TRIPLES(PREFIX,var1,serverpostinit)''; scriptName _fnc_scriptName;' + preProcessFileLineNumbers 'var1\XEH_ServerPostInit.sqf')); \
         };
     #define INCLUDE_CLIENTPREINIT(var1) \
         class TRIPLES(PREFIX,var1,client) {\
-            Clientinit = QUOTE(call compile preProcessFileLineNumbers 'var1\XEH_ClientPreInit.sqf'); \
+            Clientinit = QUOTE(call compile ('_fnc_scriptName = ''TRIPLES(PREFIX,var1,clientpreinit)''; scriptName _fnc_scriptName;' + preProcessFileLineNumbers 'var1\XEH_ClientPreInit.sqf')); \
         };
     #define INCLUDE_CLIENTPOSTINIT(var1) \
         class TRIPLES(PREFIX,var1,client) {\
-            Clientinit = QUOTE(call compile preProcessFileLineNumbers 'var1\XEH_ClientPostInit.sqf'); \
+            Clientinit = QUOTE(call compile ('_fnc_scriptName = ''TRIPLES(PREFIX,var1,clientpreinit)''; scriptName _fnc_scriptName;' + preProcessFileLineNumbers 'var1\XEH_ClientPostInit.sqf')); \
         };
     #define GVAR(var1) DOUBLES(ADDON,var1)
     #define QGVAR(var1) QUOTE(GVAR(var1))
@@ -77,6 +77,22 @@ Author:
 
     #undef CBA_OFF
 #endif
+/* -------------------------------------------
+Macro: FUNCSYS(VAR)
+    
+Parameters:
+    VAR - NAME
+
+Author:
+    Dorbedo
+------------------------------------------- */
+#define SYS_SYSTEM(VAR) (parsingNamespace getVariable 'TRIPLES(PREFIX,SYSTEM,VAR)')
+#define FUNCSYS(VAR) (parsingNamespace getVariable [ARR_2('TRIPLES(PREFIX,SYSTEM,VAR)',COMPILE_FIRST(VAR))])
+#define COMPILE_FIRST(VAR) {parsingNamespace setVariable [ARR_2('TRIPLES(PREFIX,SYSTEM,VAR)',compile getText(missionConfigFile>>'system'>>'VAR'))];parsingNamespace getVariable 'TRIPLES(PREFIX,SYSTEM,VAR)';}
+#define COMPILE_SYS call (parsingNamespace getVariable [ARR_2('TRIPLES(PREFIX,system,compile)',COMPILE_SYS_FIRST)])
+#define COMPILE_SYS_FIRST {parsingNamespace setVariable [ARR_2('TRIPLES(PREFIX,SYSTEM,compile)',compile getText(missionConfigFile>>'system'>>'compile'))];parsingNamespace setVariable [ARR_2('TRIPLES(PREFIX,SYSTEM,compile_sys)',compile getText(missionConfigFile>>'system'>>'compile_sys'))];parsingNamespace getVariable 'TRIPLES(PREFIX,SYSTEM,compile)';}
+
+
 /* -------------------------------------------
 Macro: GUI_*
     Macros for definining the right size of the gui
@@ -124,27 +140,6 @@ Author:
 #define CHECK(CONDITION) if (CONDITION) exitWith {};
 #define CHECKRET(CONDITION,RETURN) if (CONDITION) exitWith {RETURN;};
 /* -------------------------------------------
-Macro: SELRND()
-    Selects a random element of an array
-
-Parameters:
-    ARRAY - array to select from
-
-Example:
-    (begin example)
-        _winner = ["Klaus","Dieter","Thorsten"] SELRND;
-    (end)
-
-    (begin example)
-        _gamers = ["Felix","Hans","Heinrich"];
-        _looser = _gamers SELRND;
-    (end)
-
-Author:
-    Dorbedo
-------------------------------------------- */
-#define SELRND call TRIPLES(dorb,makro,selectrandom)
-/* -------------------------------------------
 Macro: TILGE
     deletes:
         - Marker
@@ -165,7 +160,7 @@ Example:
 Author:
     Dorbedo
 ------------------------------------------- */
-#define TILGE call TRIPLES(dorb,makro,delete)
+#define TILGE call TRIPLES(dorb,common,DOUBLES(fnc,delete))
 /* -------------------------------------------
 Macro: SCRIPT(VAR)
    Sets name of script
@@ -218,11 +213,12 @@ Author:
 #endif
 
 
-
+#define INCLUDE_HEADER 0
 #ifdef DEBUG_MODE_NORMAL
-    #define INCLUDE_HEADER true
-#else
-    #define INCLUDE_HEADER false
+    #define INCLUDE_HEADER 1
+#endif
+#ifdef DEBUG_MODE_FULL
+    #define INCLUDE_HEADER 2
 #endif
 #define PATHTO_SYS_LONG(var1,var2,var3,var4) ##var1\##var2\##var3\##var4.sqf
 /* -------------------------------------------
@@ -244,7 +240,7 @@ Example:
 Author:
     Dorbedo
 ------------------------------------------- */
-#define PREP(var1) ['PATHTO_SYS(COMPONENT,functions,DOUBLES(fnc,var1))', 'TRIPLES(ADDON,fnc,var1)',INCLUDE_HEADER] call TRIPLES(PREFIX,makro,compileFileFinal)
+#define PREP(var1) ['PATHTO_SYS(COMPONENT,functions,DOUBLES(fnc,var1))', 'TRIPLES(ADDON,fnc,var1)',INCLUDE_HEADER] COMPILE_SYS
 /* -------------------------------------------
 Macro: PREPS(VAR1,VAR2)
    compiling functions
@@ -265,7 +261,7 @@ Example:
 Author:
     Dorbedo
 ------------------------------------------- */
-#define PREPS(var1,var2) ['PATHTO_SYS_LONG(COMPONENT,functions,var1,DOUBLES(fnc,var2))', 'TRIPLES(ADDON,fnc,DOUBLES(var1,var2))',INCLUDE_HEADER] call TRIPLES(PREFIX,makro,compileFileFinal)
+#define PREPS(var1,var2) ['PATHTO_SYS_LONG(COMPONENT,functions,var1,DOUBLES(fnc,var2))', 'TRIPLES(ADDON,fnc,DOUBLES(var1,var2))',INCLUDE_HEADER] COMPILE_SYS
 /* -------------------------------------------
 Macro: PREPMAIN(VAR)
    compiling functions
@@ -285,7 +281,8 @@ Example:
 Author:
     Dorbedo
 ------------------------------------------- */
-#define PREPMAIN(var1) ['PATHTO_SYS(COMPONENT,functions,DOUBLES(fnc,var1))', 'TRIPLES(PREFIX,fnc,var1)',INCLUDE_HEADER] call TRIPLES(PREFIX,makro,compileFileFinal)
+#define PREPMAIN(var1) ['PATHTO_SYS(COMPONENT,functions,DOUBLES(fnc,var1))', 'TRIPLES(PREFIX,fnc,var1)',INCLUDE_HEADER] COMPILE_SYS
+
 
 #ifndef STRING_MACROS_GUARD
     #define STRING_MACROS_GUARD
@@ -334,8 +331,41 @@ Example:
 Author:
     iJesuz
 ------------------------------------------- */
-#define MAP(CODE,ARRAY) [CODE,ARRAY] call TRIPLES(dorb,makro,map)
+#define MAP(CODE,ARRAY) ARRAY apply CODE
 
+/* -------------------------------------------
+Macro(s): <PREFIX>POLAR_<POSTFIX>(PHI,RADIUS)
+    prefix:
+        non: arma-like polarcoordinates
+             (angle between y-axis and radius)
+        "N": normal polarcoordinates
+             (angle between x-axis and radius)
+    postfix:
+        "X": x-value
+        "Y": y-value
+        "2D": 2D coordinate
+        "3D": 3D coordinate (z = 0)
+
+Parameters:
+    0 : NUMBER
+    1 : NUMBER
+
+Example:
+    (begin example)
+        POLAR_3D(35,1)
+    (end)
+
+Author:
+    iJesuz
+------------------------------------------- */
+#define POLAR_X(PHI,RADIUS) ((sin (PHI)) * (RADIUS))
+#define POLAR_Y(PHI,RADIUS) ((cos (PHI)) * (RADIUS))
+#define POLAR_2D(PHI,RADIUS) [POLAR_X(PHI,RADIUS),POLAR_Y(PHI,RADIUS)]
+#define POLAR_3D(PHI,RADIUS) [POLAR_X(PHI,RADIUS),POLAR_Y(PHI,RADIUS),0]
+#define NPOLAR_X(PHI,RADIUS) POLAR_Y(PHI,RADIUS)
+#define NPOLAR_Y(PHI,RADIUS) POLAR_X(PHI,RADIUS)
+#define NPOLAR_2D(PHI,RADIUS) [NPOLAR_X(PHI,RADIUS),NPOLAR_Y(PHI,RADIUS)]
+#define NPOLAR_3D(PHI,RADIUS) [NPOLAR_X(PHI,RADIUS),NPOLAR_Y(PHI,RADIUS),0]
 
 /* -------------------------------------------
 Macro(s):

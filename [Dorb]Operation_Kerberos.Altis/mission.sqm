@@ -989,7 +989,7 @@ class Mission
 					vehicle="B_engineer_F";
 					player="PLAY CDG";
 					skill=0.60000002;
-					init="this setVariable ['DORB_INGENIEUR',true,true]; this setVariable ['ACE_IsEngineer',1,true];";
+					init="this setVariable ['DORB_INGENIEUR',true,true]; this setVariable ['ACE_IsEngineer',2,true];";
 					description="Logistiker (Ingenieur)";
 				};
 				class Item3
@@ -1001,7 +1001,7 @@ class Mission
 					vehicle="B_engineer_F";
 					player="PLAY CDG";
 					skill=0.60000002;
-					init="this setVariable ['DORB_INGENIEUR',true,true]; this setVariable ['ACE_IsEngineer',1,true];";
+					init="this setVariable ['DORB_INGENIEUR',true,true]; this setVariable ['ACE_IsEngineer',2,true];";
 					description="Logistiker (Ingenieur)";
 				};
 			};
@@ -1056,7 +1056,7 @@ class Mission
 					position[]={17362.889,17.310385,19361.012};
 					class args
 					{
-						items=3;
+						items=4;
 						class Item0
 						{
 							value="1";
@@ -1075,6 +1075,12 @@ class Mission
 							parentCls="ace_mk6mortar_module";
 							typeName="allowCompass";
 						};
+                        class Item3
+                        {
+                            value="1";
+                            parentCls="ace_mk6mortar_module";
+                            typeName="useAmmoHandling";
+                        };
 					};
 					id=55;
 					side="LOGIC";
@@ -2528,7 +2534,7 @@ class Mission
 					player="PLAY CDG";
 					leader=1;
 					skill=0.60000002;
-					init="this setVariable ['ACE_IsEngineer',2,true];";
+					init="this setVariable ['ACE_IsEngineer',1,true];";
 					description="Fahrzeugkommandant";
 				};
 				class Item1

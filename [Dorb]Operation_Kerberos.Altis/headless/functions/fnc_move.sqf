@@ -1,4 +1,5 @@
 /*
+    Original Author: jonpas
     Author: Dorbedo
 
     Description:
@@ -28,7 +29,7 @@ private _headlessBalance = [];
         _headlessBalance pushBack 0;
         _currentHC = (count _headlessOwnerIDs) - 1;
     };
-} forEach GVAR(headlessClients)
+} forEach GVAR(headlessClients);
 
 If (_currentHC < 0) then {
     TRACE_1("No Valid HC to transfer to %1",_currentHC);

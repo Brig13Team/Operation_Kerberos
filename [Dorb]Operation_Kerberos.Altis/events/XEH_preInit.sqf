@@ -1,31 +1,17 @@
 #include "script_component.hpp"
-SCRIPT(XEH_PREINIT);
+
 ADDON = false;
 
-PREP(_EventExec);
-PREP(globalExec);
-PREP(targetExec);
-PREP(targetExecFast);
-
+PREP(_raiseEvent);
 PREP(addEventHandler);
+PREP(clientEvent);
 PREP(globalEvent);
-PREP(serverEvent);
+PREP(globalExec);
 PREP(localEvent);
+PREP(remoteExec);
 PREP(removeAllEventHandler);
 PREP(removeEventHandler);
+PREP(serverEvent);
+PREP(targetEvent);
 
 ADDON = true;
-
-
-DOUBLES(PREFIX,l)=[];
-DOUBLES(PREFIX,e)=[];
-
-if (!hasInterface) then {
-    QUOTE(DOUBLES(PREFIX,l)) addpublicVariableEventHandler {(_this select 1) spawn FUNC(targetExec);};
-    QUOTE(DOUBLES(PREFIX,e)) addpublicVariableEventHandler {(_this select 1) spawn FUNC(_EventExec);};
-}else{
-    [] spawn {
-        waitUntil {alive player};
-        QUOTE(DOUBLES(PREFIX,e)) addpublicVariableEventHandler {(_this select 1) spawn FUNC(_EventExec);};
-    };
-};

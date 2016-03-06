@@ -9,13 +9,11 @@
     
 */
 #include "script_component.hpp"
-SCRIPT(onOpen);
 if (GETMVAR(TFR_UPDATE,false)) exitWith {};
-private["_sel","_gruppen","_var"];
 SETMVAR(TFR_UPDATE,true);
-_sel = [];
-_gruppen=[];
-_gruppen = [] call EFUNC(common,list_groups);
+Private _sel = [];
+Private _gruppen=[];
+Private _gruppen = [] call EFUNC(common,list_groups);
 
 _sel pushBack [[localize LSTRING(TFR_GROUP),"SR","LR"],[],[]];
 

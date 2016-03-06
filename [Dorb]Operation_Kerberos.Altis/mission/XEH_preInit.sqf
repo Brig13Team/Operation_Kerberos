@@ -1,4 +1,5 @@
 #include "script_component.hpp"
+
 ADDON = false;
 
 PREP(choose_main);
@@ -22,8 +23,6 @@ PREPS(objects,device_canDisable);
 PREPS(objects,device_damage_C4);
 PREPS(objects,device_damage_disable);
 PREPS(objects,device_disable);
-PREPS(objects,device_effect_earthquake);
-PREPS(objects,device_effect_emp);
 PREPS(objects,device_effect_sandstorm);
 PREPS(objects,device_effect_sandstorm_init);
 PREPS(objects,device_init);

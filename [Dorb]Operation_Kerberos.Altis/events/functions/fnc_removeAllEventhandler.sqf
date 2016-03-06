@@ -6,7 +6,7 @@
 
     Parameter(s):
     (optional)
-        0 : MISSIONNAMESPACE(default)/UINAMESPACE/PARSINGNAMESPACE/OBJECT/GROUP/TASK/LOCATION - Place to save the Eventhandler
+        0 : MISSIONNAMESPACE(default)/UINAMESPACE/PARSINGNAMESPACE/OBJECT/GROUP/TASK/LOCATION - Place of the Eventhandler
         1 : STRING - Name of the Eventhandler - if not set, all Eventhandler will be removed
 
 */

@@ -27,7 +27,7 @@ private _macroarray = [];
 for "_i" from 0 to count _cfg do {
     _macroarray pushBack ["missionConfigFile","defence_positions","radar",configname (_cfg select _i)];
 };
-_macro = _macroarray SELRND;
+_macro = selectRandom _macroarray;
 _dir = random 360;
 [_spawnpos,_macro,_dir] call FUNC(macro_exec3d);
 

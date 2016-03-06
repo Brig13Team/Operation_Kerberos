@@ -21,7 +21,7 @@ CHECKRET((_spawnpos isEqualTo []),_currentTroops);
 
 GVAR(callIn_airinterception) = GVAR(callIn_airinterception) - 1;
 private _allPlanes = getNumber(missionconfigfile >> "unitlists" >> str GVARMAIN(side) >> GVARMAIN(side_type)>> "callIn" >> "airinterception" >> "units");
-private _plane = _allPlanes SELRND;
+private _plane = selectRandom _allPlanes;
 _spawnpos set [2,3000];
 _dir = [_spawnpos, _currentPos] call BIS_fnc_dirTo;
 

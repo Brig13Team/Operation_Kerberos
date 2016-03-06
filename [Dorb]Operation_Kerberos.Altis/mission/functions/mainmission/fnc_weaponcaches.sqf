@@ -27,9 +27,9 @@ _rand = ((floor(random 5)) + 8);
 
 for "_i" from 1 to _rand do{
     private["_einheit","_spawngebaeude","_spawnposition","_unit"];
-    _einheit = EGVAR(spawn,list_weaponcache) SELRND;
-    _spawngebaeude = _gebaeudepos_arr SELRND;
-    _spawnposition = _spawngebaeude SELRND;
+    _einheit = selectRandom EGVAR(spawn,list_weaponcache);
+    _spawngebaeude = selectRandom _gebaeudepos_arr;
+    _spawnposition = selectRandom _spawngebaeude;
     _unit = createVehicle [_einheit,_spawnposition, [], 0, "NONE"];
     _targets pushBack _unit;
 };

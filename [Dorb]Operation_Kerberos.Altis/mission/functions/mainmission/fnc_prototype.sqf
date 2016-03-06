@@ -22,7 +22,7 @@ _targets=[];
 _spawnposition=[];
 _rand = 1;
 for "_i" from 1 to _rand do{
-    _einheit = EGVAR(spawn,list_prototype) SELRND;
+    _einheit = selectRandom EGVAR(spawn,list_prototype);
     _spawnposition = [_position,25,200,15,0.15] call EFUNC(common,pos_flatempty);
     If (_spawnposition isEqualTo []) then {
         _spawnposition = [_position,25,200,15,0.22] call EFUNC(common,pos_flatempty);

@@ -5,7 +5,8 @@
         postinit client
 */
 #include "script_component.hpp"
-SCRIPT(XEH_CLIENTPOSTINIT);
+
+CHECK(!hasInterface)
 
 SETUVAR(EGVAR(interface,respawnTime),nil);
 
@@ -14,5 +15,6 @@ SETUVAR(EGVAR(interface,respawnTime),nil);
 [] call FUNC(halo_addaction);
 [] call FUNC(backpack_init);
 [] call FUNC(EH_respawn);
+[] call FUNC(initKnockKnock);
 
 ["init"] spawn FUNC(grouptracker);

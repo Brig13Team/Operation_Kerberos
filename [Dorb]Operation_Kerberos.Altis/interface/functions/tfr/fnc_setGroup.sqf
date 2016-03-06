@@ -6,16 +6,14 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(setGroup);
-private["_sel","_sr","_lr","_dd"];
 
 if (leader group player != player) exitWith {hint localize LSTRING(TFR_NOLEADER);};
 
-_sel=[];
+Private _sel=[];
 
-_sr = parseNumber (ctrlText 700205);
-_lr = parseNumber (ctrlText 700206);
-//_dd = parseNumber (ctrlText 700207);
+Private _sr = parseNumber (ctrlText 700205);
+Private _lr = parseNumber (ctrlText 700206);
+//Private _dd = parseNumber (ctrlText 700207);
 
 if ((_sr >=30)&&(_sr <=512)) then {
     _sel pushBack _sr;

@@ -39,7 +39,7 @@ _allCommander=[];
 //// Create Commander-HQ
 for "_i" from 0 to (_difficulty + 1) do {
     private["_einheit","_spawnpos","_return","_commander","_temp"];
-    _einheit = dorb_commandveh_radio SELRND;
+    _einheit = selectRandom dorb_commandveh_radio;
     _spawnposition = [_position,350,0] call EFUNC(common,pos_random);
     _spawnposition = _spawnposition findEmptyPosition [1,100,_einheit];
     if (count _spawnposition < 1) exitWith {ERROR("Keine Spawnposition | Commander-HQ");};
@@ -114,7 +114,7 @@ If ((dorb_side_nr > 2)&&(dorb_side_nr < 6)) then {
 If (GETVAR(GVAR(commander_logic),GVAR(commander_ai),false)) then {
     for [{_i= 1},{_i <= _difficulty},{_i = _i + 2}] do {
         private["_einheit","_spawnpos","_spawnposition","_dir","_return","_veh","_temp"];
-        _einheit = ["rhs_p37","rhs_prv13"] SELRND;
+        _einheit = selectRandom ["rhs_p37","rhs_prv13"];
         _spawnposition = [_position,(150+(random 150)),1] call EFUNC(common,pos_random);
         _spawnpos = _spawnposition findEmptyPosition [1,50,_einheit];
         if (!((_spawnpos isEqualTo []))) then {_spawnposition = _spawnpos;};

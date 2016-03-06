@@ -35,9 +35,9 @@ If !(_isdrop) then {
 };
 [
     LOADTIME,
-    _unloadcondition,
-    {_this call FUNC(unload);SETVAR(player,GVAR(isloading),false);},
+    [_target, getPos _target],
+    {(_this select 0) call FUNC(unload);SETVAR(player,GVAR(isloading),false);},
     {SETVAR(player,GVAR(isloading),false);},
-    [_target]
-] call EFUNC(interface,disp_progressbar);
-
+    "",
+    { if (!((getPos (_this select 0 select 0)) isEqualTo (_this select 0 select 1))) exitWith { false }; true }
+] call ace_common_fnc_progressBar;

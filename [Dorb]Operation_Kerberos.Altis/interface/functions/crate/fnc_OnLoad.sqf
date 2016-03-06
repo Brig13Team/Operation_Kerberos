@@ -7,11 +7,9 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(onLoad);
-private["_ctrl"];
+private "_ctrl";
 disableSerialization;
 
-//(findDisplay 600200) setVariable [QGVAR(crate_multi),1];
 missionNamespace setVariable [QGVAR(crate_multi),1];
 
 (findDisplay 600200) displayAddEventHandler ["KeyDown",QUOTE([ARR_2(_this select 1,true)] call FUNC(crate_keyEvent);)];
