@@ -14,9 +14,7 @@ if "%branch%" == "" goto start
 :commiting
 set /p commiting=Commit? y/n: 
 if "%commiting%" == "" goto commiting
-if '%commiting%'=='n' or '%add%'=='N' (
-goto add
-)
+if '%commiting%'=='n' goto add
 
 :commit
 set /p commit=Commit Message: 
@@ -30,20 +28,27 @@ if "%add%" == "" goto add
 set /p push=Pushen? y/n:
 if "%push%" == "" goto push
 
+sleep 2
+
 echo ******************************************************************************
 echo Current Branch: "%branch%"
-if '%commiting%'=='y' or '%add%'=='Y' (
+sleep 2
+if '%commiting%'=='y' (
     echo Current Commit Message: "%commit%"
+sleep 2
 )
 echo Neue Datein angelegt?: "%add%"
+sleep 2
 echo Pushen?: "%push%"
+sleep 2
 echo Current dir: "%CD%"
 echo ******************************************************************************
+sleep 2
 cd /D %CD%/../../
 echo In Hauptverzeichnis gewechselt
 sleep 2
 REM ADD
-if '%add%'=='y' or '%add%'=='Y' (
+if '%add%'=='y' (
 echo   Add new Files and Folders to Git
     echo ************************************
         git add *
@@ -51,7 +56,7 @@ echo   Add new Files and Folders to Git
 )
 
 REM Commit
-if '%commiting%'=='y' or '%commiting%'=='Y' (
+if '%commiting%'=='y' (
 echo   Fuehre Commit durch.
     echo ************************************
         git commit -am "%commit%"
@@ -59,15 +64,19 @@ echo   Fuehre Commit durch.
 )
 
 REM Pushing to the Git-System
-if '%push%'=='y' or '%push%'=='Y' (
+if '%push%'=='y' (
     echo   Fuehre Commit durch.
     echo ************************************
-        git commit -am "%push%"
+        git push origin %branch%
     echo ************************************
 )
 
 echo ******************************************************************************
-echo "Keberos Syncronisation abgeschlossen."
+if '%push%'=='y' (
+    echo "Keberos Commit und Push abgeschlossen."
+) else (
+    echo "Keberos Commit abgeschlossen."
+)
 echo ******************************************************************************
 sleep 10
 
