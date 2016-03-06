@@ -5,38 +5,79 @@
         postinit server
 */
 #include "script_component.hpp"
-
 GVARMAIN(debug)=false;
+/********************
+    Events
+********************/
 
-// Delete dead Units
+[QGVAR(emp),{
+    _this params ["_position"];
+    private _allVehicles = _position nearEntities [["LandVehicle","Air","Ship_F"],2000];
+    {
+        switch (true) do {
+            case (_x isKindOf 'Air') then {
+                private _damagecount = (floor(random 4)) max 1;
+                private _hitpoints = ["HitEngine","HitEngine2","HitEngine3","HitBatteries","HitLight","HitHydraulics","HitHStabilizerL1",
+                    "HitHStabilizerR1","HitVStabilizer1","HitPitotTube","HitStaticPort","HitStarter1","HitStarter2","HitStarter3",
+                    "HitAvionics","HitMissiles"] call BIS_fnc_arrayShuffle;
+                {
+                    If (_damagecount < 0) exitWith {};
+                    private _engine = (vehicle _x) getHitPointDamage "HitEngine";
+                    If !(isNil "_engine") then {
+                        (vehicle _x) setHitPointDamage ["HitEngine",1];
+                        _damagecount = _damagecount - 1;
+                    };
+                } forEach _hitpoints;
+                If (_damagecount > 0) then {
+                    (vehicle _x) setFuel 0;
+                };
+            };
+            default {
+                private _engine = (vehicle _x) getHitPointDamage "HitEngine";
+                If (isNil "_engine") then {
+                    (vehicle _x) setFuel 0;
+                }else{
+                    (vehicle _x) setHitPointDamage ["HitEngine",1];
+                };
+            };
+        };
+    } forEach _allVehicles;
+    [_position] call EFUNC(tfar_addon,disableTFRArea);
+}] call EFUNC(events,addEventHandler);
+
+/********************
+    Cleanup
+********************/
 [{
     If ((count allDead)>20) then {
-        private["_allDead","_anzahl"];
-        _allDead = allDead;
-        _anzahl = floor(((count allDead)/3)*2);
+        private _allDead = allDead;
+        private _anzahl = floor(((count allDead)/3)*2);
         _allDead resize _anzahl;
         {_x TILGE;}forEach _allDead;
     };
 } , 180, [] ] call CBA_fnc_addPerFrameHandler;
 
-/// Cleanup script (small version)
 [{[] spawn EFUNC(common,cleanup_small);} , 900, [] ] call CBA_fnc_addPerFrameHandler;
 
 
-/// Rescue Point;
+/********************
+    rescue point
+********************/
+
 private _markerpos = getMarkerPos "rescue_marker";
 If ((_markerpos distance [0,0,0])>1) then {
     [{
-        private "_units";
-        _units = (getMarkerPos "rescue_marker") nearEntities [["Man","Ship_F","LandVehicle","Land_Suitcase_F","Air"], 15];
+        private _units = (getMarkerPos "rescue_marker") nearEntities [["Man","Ship_F","LandVehicle","Land_Suitcase_F","Air"], 15];
             {
                 [QGVAR(rescuepoint),[_x],_x] call EFUNC(events,localEvent);
             }forEach _units;
     } , 30, [] ] call CBA_fnc_addPerFrameHandler;
 };
 
+/********************
+    Diag
+********************/
 
-/// Diag
 /*
 [] spawn {
     SCRIPTIN(core,performance);
@@ -54,7 +95,10 @@ If ((_markerpos distance [0,0,0])>1) then {
 */
 
 
-//// end secondary Missions
+/********************
+    End sidemissions
+********************/
+
 [
     "MISSION_ENDSEC",
     {
@@ -70,13 +114,12 @@ If ((_markerpos distance [0,0,0])>1) then {
     }
 ] call EFUNC(events,addEventHandler);
 
-
-
-
-
+/********************
+    Missionloop
+********************/
 
 [] spawn {
-    SCRIPTIN(XEH_POSTINIT,taskloop);
+    SCRIPTIN(XEH_SERVERPOSTINIT,taskloop);
 
     private _aufgabennummer=0;
     private _return = [] call EFUNC(common,get_cfglocations);
@@ -93,7 +136,7 @@ If ((_markerpos distance [0,0,0])>1) then {
     for "_u" from 0 to 120 do {
         uisleep 5;
         INC(_aufgabennummer);
-        TRACEV_1(_aufgabennummer);       
+        TRACEV_1(_aufgabennummer);
         [FORMAT_1("MAINTASK%1",_aufgabennummer)] call FUNC(choose_main);
     };
     ERROR("CORE LOOP CRASHED");
