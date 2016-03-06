@@ -27,26 +27,25 @@ if "%add%" == "" goto add
 :push
 set /p push=Pushen? y/n:
 if "%push%" == "" goto push
-
-sleep 2
-
 echo ******************************************************************************
+
+sleep 1
 echo Current Branch: "%branch%"
-sleep 2
+sleep 1
 if '%commiting%'=='y' (
     echo Current Commit Message: "%commit%"
-sleep 2
+sleep 1
 )
 echo Neue Datein angelegt?: "%add%"
-sleep 2
+sleep 1
 echo Pushen?: "%push%"
-sleep 2
+sleep 1
 echo Current dir: "%CD%"
 echo ******************************************************************************
-sleep 2
 cd /D %CD%/../../
 echo In Hauptverzeichnis gewechselt
 sleep 2
+
 REM ADD
 if '%add%'=='y' (
 echo   Add new Files and Folders to Git
@@ -65,7 +64,7 @@ echo   Fuehre Commit durch.
 
 REM Pushing to the Git-System
 if '%push%'=='y' (
-    echo   Fuehre Commit durch.
+echo   Fuehre Push durch.
     echo ************************************
         git push origin %branch%
     echo ************************************
