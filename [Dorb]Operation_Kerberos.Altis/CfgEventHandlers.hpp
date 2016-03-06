@@ -26,13 +26,14 @@ class Extended_PostInit_EventHandlers {
     INCLUDE_SERVERPOSTINIT(logistics);
     INCLUDE_SERVERPOSTINIT(interface);
     INCLUDE_SERVERPOSTINIT(player);
+    INCLUDE_SERVERPOSTINIT(mission);
     INCLUDE_CLIENTPOSTINIT(logistics);
     INCLUDE_CLIENTPOSTINIT(interface);
     INCLUDE_CLIENTPOSTINIT(player);
+    INCLUDE_CLIENTPOSTINIT(mission);
     INCLUDE_POSTINIT(headquarter);
     INCLUDE_POSTINIT(common);
     INCLUDE_POSTINIT(headless);
-    INCLUDE_POSTINIT(mission);
     INCLUDE_POSTINIT(tfar_addon);
 };
 class Extended_Init_Eventhandlers {
