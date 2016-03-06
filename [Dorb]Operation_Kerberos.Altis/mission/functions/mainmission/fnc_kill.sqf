@@ -50,11 +50,7 @@ GVAR(rescue_counter) = 0;
     #ifdef DEBUG_MODE_FULL
         [getPos _x,format["KILL %1",(name _x)]] call EFUNC(common,debug_marker_create);
     #endif
-    _x addEventHandler     ["Killed", 
-                            {
-                                [{[_this select 0,[format [localize (_this select 1),_this select 2]],_this select 3,_this select 4] spawn EFUNC(interface,disp_info);},[LSTRING(KILL),LSTRING(KILL_KILLED),(name(_this select 0)),"data\icon\icon_target.paa",true],-1] call EFUNC(events,globalExec);
-                            }
-                        ];    
+    _x addEventHandler ["Killed",{[QGVAR(killed_Event),[(name(_this select 0))]] call EFUNC(events,clientEvent);}];    
 }forEach _targets;
 
 
