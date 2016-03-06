@@ -12,5 +12,6 @@ PREP(remoteExec);
 PREP(removeAllEventHandler);
 PREP(removeEventHandler);
 PREP(serverEvent);
+PREP(targetEvent);
 
 ADDON = true;
