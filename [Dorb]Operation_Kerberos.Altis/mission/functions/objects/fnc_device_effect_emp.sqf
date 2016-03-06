@@ -10,9 +10,9 @@ SCRIPT(canDisable);
 #define EMP_RANGE 5000
 _this params ["_target"];
 
-ISNILS(GVAR(device_intervall),diag_ticktime);
+ISNILS(GVAR(device_intervall),CBA_missionTime);
 
-If (GVAR(device_intervall)>diag_ticktime) exitWith {};
+If (GVAR(device_intervall)>CBA_missionTime) exitWith {};
 
 {
     _x setHitPointDamage ["hitEngine", 1];

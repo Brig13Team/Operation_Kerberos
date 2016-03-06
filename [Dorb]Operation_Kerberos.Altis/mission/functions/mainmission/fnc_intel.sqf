@@ -29,9 +29,9 @@ _rand = 1;
 for "_i" from 1 to _rand do{
     private["_einheit","_spawngebaeude","_spawnposition","_unit","_gruppe"];
     _gruppe = createGroup civilian;
-    _einheit = EGVAR(spawn,list_intel) SELRND;
-    _spawngebaeude = _gebaeudepos_arr SELRND;
-    _spawnposition = _spawngebaeude SELRND;
+    _einheit = selectRandom EGVAR(spawn,list_intel);
+    _spawngebaeude = selectRandom _gebaeudepos_arr;
+    _spawnposition = selectRandom _spawngebaeude;
     _unit = [_spawnposition,_gruppe,_einheit] call EFUNC(spawn,unit);
     SETPVAR(_unit,GVAR(istarget),true);
     _targets pushBack _unit;

@@ -140,27 +140,6 @@ Author:
 #define CHECK(CONDITION) if (CONDITION) exitWith {};
 #define CHECKRET(CONDITION,RETURN) if (CONDITION) exitWith {RETURN;};
 /* -------------------------------------------
-Macro: SELRND()
-    Selects a random element of an array
-
-Parameters:
-    ARRAY - array to select from
-
-Example:
-    (begin example)
-        _winner = ["Klaus","Dieter","Thorsten"] SELRND;
-    (end)
-
-    (begin example)
-        _gamers = ["Felix","Hans","Heinrich"];
-        _looser = _gamers SELRND;
-    (end)
-
-Author:
-    Dorbedo
-------------------------------------------- */
-#define SELRND call TRIPLES(dorb,makro,selectrandom)
-/* -------------------------------------------
 Macro: TILGE
     deletes:
         - Marker
@@ -181,7 +160,7 @@ Example:
 Author:
     Dorbedo
 ------------------------------------------- */
-#define TILGE call TRIPLES(dorb,makro,delete)
+#define TILGE call TRIPLES(dorb,common,DOUBLES(fnc,delete))
 /* -------------------------------------------
 Macro: SCRIPT(VAR)
    Sets name of script
@@ -352,7 +331,7 @@ Example:
 Author:
     iJesuz
 ------------------------------------------- */
-#define MAP(CODE,ARRAY) [CODE,ARRAY] call TRIPLES(dorb,makro,map)
+#define MAP(CODE,ARRAY) ARRAY apply CODE
 
 /* -------------------------------------------
 Macro(s): <PREFIX>POLAR_<POSTFIX>(PHI,RADIUS)

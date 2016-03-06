@@ -44,11 +44,11 @@ switch (_aufgabe) do
     };
 };
 
-_position = (_positionen SELRND);
+_position = (selectRandom _positionen);
 
 _counter = 0;
 while { (((_position select 1) distance _location) < 6000) AND (((_position select 1) distance _basisPosition) < 6000)  } do {
-    _position = _positionen SELRND;
+    _position = selectRandom _positionen;
     _counter = _counter + 1;
     if (_counter > 100) exitWith {};
 };

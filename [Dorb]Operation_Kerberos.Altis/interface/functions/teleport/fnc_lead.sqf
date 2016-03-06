@@ -6,27 +6,26 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(lead);
-PARAMS_2(_host,_caller);
-private["_position","_platzanzahl","_nearestEnemy","_time"];
-_position = [];
+_this params ["_host","_caller"];
+TRACEV_2(_host,_caller);
+Private _position = [];
 
 if (leader _caller == _caller) exitWith {[LSTRING(TELEPORT),[LSTRING(TELEPORT_LEAD_FAIL),LSTRING(TELEPORT_LEAD_ISLEADER)]] call FUNC(disp_info);};
 
-_time = GETUVAR(GVAR(respawnTime),-1);
-if ((_time > 0) && {(diag_tickTime - _time) < 900}) exitWith {
-    _time = floor (900 - diag_tickTime + _time);
+Private _time = GETUVAR(GVAR(respawnTime),-1);
+if ((_time > 0) && {(CBA_missionTime - _time) < 900}) exitWith {
+    _time = floor (900 - CBA_missionTime + _time);
     [LSTRING(TELEPORT),[format [localize LSTRING(TELEPORT_LEAD_WAIT),floor (_time / 60),floor (_time mod 60)]]] call FUNC(disp_info); 
 };
 
 if ((vehicle _caller) == _caller) then {
-    _nearestEnemy = _caller findNearestEnemy (leader _caller);
+    Private _nearestEnemy = _caller findNearestEnemy (leader _caller);
     if (((leader _caller) distance _nearestEnemy)<350) then {
         [LSTRING(TELEPORT),[LSTRING(TELEPORT_LEAD_FAIL),LSTRING(TELEPORT_LEAD_NEARENEMY)]] call FUNC(disp_info);
     }else{
         /// in vehicle
         If ((vehicle (leader _caller)) != (leader _caller)) then {
-            _platzanzahl = (vehicle (leader _caller)) emptyPositions "cargo";
+            Private _platzanzahl = (vehicle (leader _caller)) emptyPositions "cargo";
             If (_platzanzahl<1) then {
                 [LSTRING(TELEPORT),[LSTRING(TELEPORT_LEAD_FAIL),LSTRING(TELEPORT_LEAD_NOPLACE)]] call FUNC(disp_info);
             }else{
@@ -49,4 +48,4 @@ if ((vehicle _caller) == _caller) then {
         };
     };
 };
-false
+false;

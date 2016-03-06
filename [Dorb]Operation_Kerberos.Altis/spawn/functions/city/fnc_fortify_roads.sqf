@@ -209,7 +209,7 @@ If (_IEDs) then {
 /// Civ-Vehicles
 if (_civVehicles) then {
     for "_i" from 0 to (floor(((_amounts select 0))/3)) do {
-        _einheit = dorb_civ_cars SELRND;
+        _einheit = selectRandom dorb_civ_cars;
         _rand = floor(random 2);
         _spawndir = ((_roadArray_weighted select _i)select 4);
         If (_rand>0) then {_spawndir = _spawndir + 90;}else{_spawndir = _spawndir - 90;};
@@ -245,7 +245,7 @@ for "_i" from 0 to (floor(((_amounts select 0))/3)) do {
     
     _gruppe = createGroup GVARMAIN(side);
     for "_j" from 0 to 3 do {
-        _typ = dorb_menlist SELRND;
+        _typ = selectRandom dorb_menlist;
         _spawnedunit = _gruppe createUnit [_typ,_spawnpos, [], 5, "NONE"];
     };
     
@@ -280,7 +280,7 @@ If (_trash) then {
     _trash_array = ["Land_Garbage_line_F","Land_Garbage_square3_F","Land_Garbage_square5_F","Land_GarbageBags_F","Land_GarbagePallet_F","Land_GarbageWashingMachine_F","Land_JunkPile_F","Land_Tyres_F"];
     _roadArray_weighted = _roadArray_weighted call BIS_fnc_arrayShuffle;
     for "_i" from 0 to (floor(((_amounts select 0))/4)) do {
-        _einheit = _trash_array SELRND;
+        _einheit = selectRandom _trash_array;
         _rand = floor(random 2);
         _spawndir = ((_roadArray_weighted select _i)select 4);
         If (_rand>0) then {_spawndir = _spawndir + 90;}else{_spawndir = _spawndir - 90;};

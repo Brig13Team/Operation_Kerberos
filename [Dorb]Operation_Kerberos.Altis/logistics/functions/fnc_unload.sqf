@@ -66,9 +66,9 @@ if ([_vehicle,false] call FUNC(candrop)) then {
     [(_last_cargo select 0),_vehicle] spawn {
         SCRIPTIN(unload,paradrop);
         params["_cargo","_vehicle"];
-        private _time = diag_ticktime;
-        waitUntil{(((getPos _cargo)select 2)<10)||((_cargo distance _vehicle)>35)||(diag_ticktime>(_time + 20))};
-        CHECK((((getPos _cargo)select 2)<10)||(diag_ticktime>(_time + 20)))
+        private _time = CBA_missionTime;
+        waitUntil{(((getPos _cargo)select 2)<10)||((_cargo distance _vehicle)>35)||(CBA_missionTime>(_time + 20))};
+        CHECK((((getPos _cargo)select 2)<10)||(CBA_missionTime>(_time + 20)))
         private _para = createVehicle ["B_Parachute_02_F",(getPos _cargo),[],0,"FLY"];
         _para setDir (getDir _cargo);
         _para setPos (getPos _cargo);
@@ -77,8 +77,8 @@ if ([_vehicle,false] call FUNC(candrop)) then {
         detach _para;
         _para setVelocity _velocity;
         _cargo attachTo [_para, [0,0,0]];
-        _time = diag_ticktime;
-        waitUntil{((((getPos _cargo)select 2)<2)||(diag_ticktime>(_time + 600)))};
+        _time = CBA_missionTime;
+        waitUntil{((((getPos _cargo)select 2)<2)||(CBA_missionTime>(_time + 600)))};
         deleteVehicle _para;
     };
 };

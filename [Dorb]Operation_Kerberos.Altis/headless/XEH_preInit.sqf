@@ -1,8 +1,10 @@
 #include "script_component.hpp"
 ADDON = false;
 
-PREP(_EventExec);
-
+PREP(connect);
+PREP(disconnect);
+PREP(initPost);
+PREP(move);
 
 ADDON = true;
 

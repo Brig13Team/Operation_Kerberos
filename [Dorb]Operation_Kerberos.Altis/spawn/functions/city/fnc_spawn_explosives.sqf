@@ -29,15 +29,15 @@ For "_i" from 0 to ((count _spawnposarray)-1) do {
     private _triggerConfig = "PressurePlate";
     private _triggerSpecificVars = [];
     
-    private _magazineClass = _ap_mines SELRND;
+    private _magazineClass = selectRandom _ap_mines;
     If (_type > 2) then {
-        _magazineClass = _IED_urban SELRND;
+        _magazineClass = selectRandom _IED_urban;
     }else{
         If (_type > 1) then {
-            _magazineClass = _trip_mines SELRND;
+            _magazineClass = selectRandom _trip_mines;
             _triggerConfig = "Tripwire";
         }else{
-            _magazineClass = _at_mines SELRND;
+            _magazineClass = selectRandom _at_mines;
         };
     };
     

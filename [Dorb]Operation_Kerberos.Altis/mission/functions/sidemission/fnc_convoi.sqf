@@ -18,7 +18,7 @@ private ["_startPosition","_transporttype","_spawnpos"];
 /********************
     create convoi
 ********************/
-_transporttype = GVAR(list_veh_mechanized) SELRND;
+_transporttype = selectRandom GVAR(list_veh_mechanized);
 _spawnpos = _position findEmptyPosition [1,200,_transporttype];
 
 if (_spawnpos isEqualTo []) exitWith {[]};

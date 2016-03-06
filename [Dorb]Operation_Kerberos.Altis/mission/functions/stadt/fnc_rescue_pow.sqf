@@ -38,9 +38,9 @@ _rand = floor(random 4) + 3;
 
 for "_i" from 1 to _rand do{
     _gruppe = createGroup civilian;
-    _einheit = dorb_pow SELRND;
-    _spawngebaeude = _gebaeudepos_arr SELRND;
-    _spawnposition = _spawngebaeude SELRND;
+    _einheit = selectRandom dorb_pow;
+    _spawngebaeude = selectRandom _gebaeudepos_arr;
+    _spawnposition = selectRandom _spawngebaeude;
     _unit = [_spawnposition,_gruppe,_einheit] call EFUNC(spawn,unit);
     SETPVAR(_unit,GVAR(istarget),true);
     _pow pushBack _unit;

@@ -78,21 +78,21 @@ _cancel = switch (_type) do {
             };
     case 0 : {
                 If (GVAR(fdc_artilleries) isEqualTo []) exitWith {true};
-                _unit = GVAR(fdc_artilleries) SELRND;
+                _unit = selectRandom GVAR(fdc_artilleries);
                 _shelltype = ((getArtilleryAmmo [_unit])select 0);
                 If (_amount < 0) then {_amount = 6;};
                 false;
             };
     case 1 : {
                 If (GVAR(fdc_mortars) isEqualTo []) exitWith {true};
-                _unit = GVAR(fdc_mortars) SELRND;
+                _unit = selectRandom GVAR(fdc_mortars);
                 _shelltype = ((getArtilleryAmmo [_unit])select 0);
                 If (_amount < 0) then {_amount = 3;};
                 false
             };
     case 2 : {
                 If (GVAR(fdc_rocket) isEqualTo []) exitWith {true};
-                _unit = GVAR(fdc_rocket) SELRND;
+                _unit = selectRandom GVAR(fdc_rocket);
                 _shelltype = ((getArtilleryAmmo [_unit])select 0);
                 _ammo = getText(configFile>>"CfgMagazines">> _shelltype >> "ammo");
                 _submun = getText(configFile>>"CfgAmmo">>_ammo>>"submunitionAmmo");

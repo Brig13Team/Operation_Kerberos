@@ -97,7 +97,7 @@ If (((count _vehicles)>0)||((count _soldiers)>0)) then {
     _setUp = [_setUp,_currentYaw] call FUNC(rotateVectorXY);
     _setDir = [_setDir,_currentYaw] call FUNC(rotateVectorXY);
     
-    private _currentType = GVAR(list_soldiers) SELRND;
+    private _currentType = selectRandom GVAR(list_soldiers);
     private _unit = _gruppe createUnit[_currentType,_spawnPosATL, [], 0, "NONE"];
     _unit setPosATL _spawnPosATL;
     _unit setVectorUP _setUp;

@@ -9,11 +9,9 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(getMod);
-PARAMS_1(_config);
-private["_mod","_namearray"];
-_mod="";
-_namearray=(configname _config) splitString "_";
+_this params ["_config"];
+private _mod="";
+private _namearray=(configname _config) splitString "_";
 If ("ACE" in _namearray) then {_mod="ACE";};
 If ("BWA3" in _namearray) then {_mod="BWA3";};
 If ("tf" in _namearray) then {_mod="TFR";};

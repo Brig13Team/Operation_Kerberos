@@ -9,48 +9,46 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(create);
 #define dlg_veh_spawn_idd 600100
 #define dlg_veh_spawn_list_idc 600102
-params[["_mode","",[""]]];
-Private["_check_radius","_selection","_vehiclewahl","_vehicle","_spawn","_spawnpoint","_spawndir","_spawnpos","_padempty"];
-_check_radius = 10;
+_this params[["_mode","",[""]]];
+private _check_radius = 10;
 disableSerialization;
-_selection = lnbCurSelRow dlg_veh_spawn_list_idc;
-_vehiclewahl = lnbData [dlg_veh_spawn_list_idc,[_selection,0] ];
+private _selection = lnbCurSelRow dlg_veh_spawn_list_idc;
+private _vehiclewahl = lnbData [dlg_veh_spawn_list_idc,[_selection,0] ];
 CHECK(_vehiclewahl isEqualTo "")
 
-_spawn = GETMVAR(GVAR(spawn_current),"");
+private _spawn = GETMVAR(GVAR(spawn_current),"");
 //CHECK(IS_OBJECT(_spawn))
 
-_spawnpoint = GETVAR(_spawn,GVAR(spawn_point),"");
-_spawnpos = markerPos _spawnpoint;
-_spawndir = markerDir _spawnpoint;
+private _spawnpoint = GETVAR(_spawn,GVAR(spawn_point),"");
+private _spawnpos = markerPos _spawnpoint;
+private _spawndir = markerDir _spawnpoint;
 
-_padempty = nearestObjects [_spawnpos, ["LandVehicle","Air"], _check_radius];
+private _padempty = nearestObjects [_spawnpos, ["LandVehicle","Air"], _check_radius];
 If (!(_padempty isEqualTo [])) exitWith {hint localize LSTRING(NOTEMPTY);};
 
-private["_flyingpos"];
-_flyingpos = getMarkerPos "air_spawn_flying";
+private _flyingpos = getMarkerPos "air_spawn_flying";
 
 CHECK((_vehiclewahl isKindOf "Plane_Base_F")&&(!(_mode isEqualTo "driver"))&&(worldName == "Altis"))
-_dist = (_flyingpos distance [0,0,0])>1;
+private _dist = (_flyingpos distance [0,0,0])>1;
 
-_canNotFly = {
+private _canNotFly = {
     _return = true;
     If ((typeOf player) in ["B_Pilot_F","B_Helipilot_F"]) then {_return = false;};
     If (GETVAR(player,GVARMAIN(ISPILOT),false)) then {_return = false;};
     _return
 };
 
-private["_vlclass"];
-_vclass = getText(configFile >> "CfgVehicles" >> _vehiclewahl >> "vehicleClass");
+private _vclass = getText(configFile >> "CfgVehicles" >> _vehiclewahl >> "vehicleClass");
 CHECK((_vehiclewahl isKindOf "Air")&&(!(_vehiclewahl isKindOf "UAV"))&&(call _canNotFly))
 if((_vclass in ["rhs_vehclass_ifv","rhs_vehclass_tank","rhs_vehclass_artillery","Armored","BWA3_VehClass_Tracked_Tropen","BWA3_VehClass_Tracked_Fleck","BWA3_VehClass_Wheeled_Tropen","BWA3_VehClass_Wheeled_Fleck"]) && {typeOf player != "B_Crew_F"}) exitWith {};
 
+private "_vehicle";
+
 If (((_flyingpos distance [0,0,0])>1)&&(_vehiclewahl isKindOf "Plane_Base_F")) then {
     _flyingpos set [2,2000];
-    _vehiclearray = [_flyingpos, (markerDir "air_spawn_flying"), _vehiclewahl, GVARMAIN(playerside) ] call bis_fnc_spawnvehicle;
+    private _vehiclearray = [_flyingpos, (markerDir "air_spawn_flying"), _vehiclewahl, GVARMAIN(playerside) ] call bis_fnc_spawnvehicle;
     _vehicle = _vehiclearray select 0;
 }else{
     _vehicle = createVehicle [_vehiclewahl, _spawnpos, [], 0 , "NONE"];
@@ -60,6 +58,9 @@ If (((_flyingpos distance [0,0,0])>1)&&(_vehiclewahl isKindOf "Plane_Base_F")) t
     } else {
         _vehicle setposatl [_spawnpos select 0, _spawnpos select 1, 0.2];
         _vehicle setVectorUP (surfaceNormal [(getPosatl _vehicle) select 0,(getPosatl _vehicle) select 1]);
+    };
+    If (isNumber(configFile >> "CfgVehicles" >> _vehiclewahl >> "ace_fastroping_enabled")) then {
+        [_vehicle] call ace_fastroping_fnc_equipFRIES;
     };
 };
 _vehicle lock 0;
@@ -85,5 +86,6 @@ If (GVARMAIN(mods_TFAR)) then {
     _vehicle setVariable ["tf_side", GVARMAIN(playerSide), true];
 };
 
+["VEHICLE_SPAWNED",[_vehicle]] spawn EFUNC(events,serverEvent);
 
 closeDialog dlg_veh_spawn_idd;

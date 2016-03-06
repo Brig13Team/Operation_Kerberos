@@ -10,9 +10,9 @@ SCRIPT(device_effect_earthquake);
 
 _this params ["_target"];
 
-ISNILS(GVAR(device_intervall),diag_ticktime);
+ISNILS(GVAR(device_intervall),CBA_missionTime);
 
-If (GVAR(device_intervall)>diag_ticktime) exitWith {};
+If (GVAR(device_intervall)>CBA_missionTime) exitWith {};
 [{
     if (!(vehicle player isKindof 'Air')) then {
         _rand=(floor(random 4) + 1);
