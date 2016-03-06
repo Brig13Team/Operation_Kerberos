@@ -9,8 +9,9 @@
 [
     QGVAR(updateSeats_Vehicle),
     {
-        If (local (_this select 0)) then {
-            [_this select 0] call FUNC(updateSeats);
+        _this params ["_vehicle"];
+        If (local _vehicle) then {
+            [_vehicle] call FUNC(updateSeats);
         };
     }
 ] call EFUNC(events,addEventHandler);
