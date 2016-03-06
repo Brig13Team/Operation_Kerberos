@@ -6,7 +6,7 @@
         Target can be (-5 == AllPlayer)||(-4 == Headless,Server)||(-3 == Headless)||(-2 == global)||(-1 == AllClients)||(0 == server)
     Parameter(s):
         
-        0 : CODE/STRING - code/function to be executed
+        0 : STRING/CODE - code/function to be executed
         (optional)
         1 : ANY - Parameter
         2 : 
@@ -23,26 +23,27 @@
 #include "script_component.hpp"
 _this params[
     ["_parameter",[]],
-    ["_function","",["",{}]],
+    ["_function","",[""]],
     ["_target",true,[[],0,west,objNull,grpNull,true]],
     ["_local",true,[false]],
     ["_call",false,[false]],
     ["_isPersistent",false,[false]]
     ];
-
-If (_local) then {
-    _parameter spawn (missionNamespace getVariable [_function,{true}]);
-    _local = false;
-};
     
 If (_target isEqualType []) exitWith {
     If (true in _target) then {
+        _local = false;
         [_parameter,_function,true,_local,_call] call FUNC(remoteExec);
     }else{
         {
             [_parameter,_function,_x,_local,_call] call FUNC(remoteExec);
         }forEach _target;
     };
+};
+
+If (_local) then {
+    _parameter spawn (missionNamespace getVariable [_function,{true}]);
+    _local = false;
 };
 
 If (_target isEqualType true) then {_target = [2,0] select _target;};
