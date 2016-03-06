@@ -11,7 +11,7 @@ class CfgRemoteExec {
     class Functions {
         mode = 1;
         class EFUNC(player,eh_getin) {
-            allowedTargets = 1;
+            allowedTargets = 0;
         };
         #include "events\CfgRemoteExecFnc.hpp"
     };
