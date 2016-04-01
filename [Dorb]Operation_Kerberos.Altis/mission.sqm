@@ -3379,7 +3379,7 @@ class Mission
 			azimut=-237.16901;
 			id=163;
 			side="EMPTY";
-			vehicle="Land_Cargo10_red_F";
+			vehicle="Land_CargoBox_V1_F";
 			skill=0.60000002;
 			init="this allowDamage false; nul = [this, 60000, west, 'LIGHT'] execVM ""R3F_LOG\USER_FUNCT\init_creation_factory.sqf"";";
 		};
@@ -3389,7 +3389,7 @@ class Mission
 			azimut=-237.16901;
 			id=164;
 			side="EMPTY";
-			vehicle="Land_Cargo10_red_F";
+			vehicle="Land_CargoBox_V1_F";
 			skill=0.60000002;
 			init="this allowDamage false; nul = [this, 60000, west, 'LIGHT'] execVM ""R3F_LOG\USER_FUNCT\init_creation_factory.sqf"";";
 		};
@@ -4042,7 +4042,7 @@ class Mission
 			azimut=-237.16901;
 			id=228;
 			side="EMPTY";
-			vehicle="Land_Cargo10_red_F";
+			vehicle="Land_CargoBox_V1_F";
 			skill=0.60000002;
 			init="this allowDamage false; nul = [this, 60000, west, 'LIGHT'] execVM ""R3F_LOG\USER_FUNCT\init_creation_factory.sqf"";";
 		};
@@ -4052,7 +4052,7 @@ class Mission
 			azimut=-237.16901;
 			id=229;
 			side="EMPTY";
-			vehicle="Land_Cargo10_red_F";
+			vehicle="Land_CargoBox_V1_F";
 			skill=0.60000002;
 			init="this allowDamage false; nul = [this, 60000, west, 'LIGHT'] execVM ""R3F_LOG\USER_FUNCT\init_creation_factory.sqf"";";
 		};
@@ -4062,7 +4062,7 @@ class Mission
 			azimut=-237.16901;
 			id=230;
 			side="EMPTY";
-			vehicle="Land_Cargo10_red_F";
+			vehicle="Land_CargoBox_V1_F";
 			skill=0.60000002;
 			init="this allowDamage false; nul = [this, 60000, west, 'LIGHT'] execVM ""R3F_LOG\USER_FUNCT\init_creation_factory.sqf"";";
 		};
@@ -4072,7 +4072,7 @@ class Mission
 			azimut=-237.16901;
 			id=231;
 			side="EMPTY";
-			vehicle="Land_Cargo10_red_F";
+			vehicle="Land_CargoBox_V1_F";
 			skill=0.60000002;
 			init="this allowDamage false; nul = [this, 60000, west, 'LIGHT'] execVM ""R3F_LOG\USER_FUNCT\init_creation_factory.sqf"";";
 		};
@@ -4082,7 +4082,7 @@ class Mission
 			azimut=-237.16901;
 			id=232;
 			side="EMPTY";
-			vehicle="Land_Cargo10_red_F";
+			vehicle="Land_CargoBox_V1_F";
 			skill=0.60000002;
 			init="this allowDamage false; nul = [this, 60000, west, 'LIGHT'] execVM ""R3F_LOG\USER_FUNCT\init_creation_factory.sqf"";";
 		};
@@ -4092,7 +4092,7 @@ class Mission
 			azimut=-237.16901;
 			id=233;
 			side="EMPTY";
-			vehicle="Land_Cargo10_red_F";
+			vehicle="Land_CargoBox_V1_F";
 			skill=0.60000002;
 			init="this allowDamage false; nul = [this, 60000, west, 'LIGHT'] execVM ""R3F_LOG\USER_FUNCT\init_creation_factory.sqf"";";
 		};
@@ -4102,7 +4102,7 @@ class Mission
 			azimut=-237.16901;
 			id=234;
 			side="EMPTY";
-			vehicle="Land_Cargo10_red_F";
+			vehicle="Land_CargoBox_V1_F";
 			skill=0.60000002;
 			init="this allowDamage false; nul = [this, 60000, west, 'LIGHT'] execVM ""R3F_LOG\USER_FUNCT\init_creation_factory.sqf"";";
 		};
@@ -4112,7 +4112,7 @@ class Mission
 			azimut=-237.16901;
 			id=235;
 			side="EMPTY";
-			vehicle="Land_Cargo10_red_F";
+			vehicle="Land_CargoBox_V1_F";
 			skill=0.60000002;
 			init="this allowDamage false; nul = [this, 60000, west, 'LIGHT'] execVM ""R3F_LOG\USER_FUNCT\init_creation_factory.sqf"";";
 		};
@@ -4122,7 +4122,7 @@ class Mission
 			azimut=-237.16901;
 			id=236;
 			side="EMPTY";
-			vehicle="Land_Cargo10_red_F";
+			vehicle="Land_CargoBox_V1_F";
 			skill=0.60000002;
 			init="this allowDamage false; nul = [this, 60000, west, 'LIGHT'] execVM ""R3F_LOG\USER_FUNCT\init_creation_factory.sqf"";";
 		};
@@ -4132,7 +4132,7 @@ class Mission
 			azimut=-237.16901;
 			id=237;
 			side="EMPTY";
-			vehicle="Land_Cargo10_red_F";
+			vehicle="Land_CargoBox_V1_F";
 			skill=0.60000002;
 			init="this allowDamage false; nul = [this, 60000, west, 'LIGHT'] execVM ""R3F_LOG\USER_FUNCT\init_creation_factory.sqf"";";
 		};
