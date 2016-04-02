@@ -32,8 +32,7 @@ If (!isNull _object) then {
     If (!(_anim isEqualTo "")) then {
         If (_target call compile _anim) then {
             _target call (compile (getText(missionConfigFile >> "logistics" >> "vehicles" >> (typeOf _target) >> "hatch_open")));
-            private "_isopened";
-            _isopened = compile (getText(missionConfigFile >> "logistics" >> "vehicles" >> (typeOf _target) >> "hatch_isopened"));
+            private _isopened = compile (getText(missionConfigFile >> "logistics" >> "vehicles" >> (typeOf _target) >> "hatch_isopened"));
             waitUntil{uisleep 0.2;_target call _isopened;};
         };
     };

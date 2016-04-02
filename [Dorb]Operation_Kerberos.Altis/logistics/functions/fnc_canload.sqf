@@ -27,11 +27,13 @@ If (!(_max_width>0)) exitWith {false};
 private _load_point = _target modelToWorld _load_point_offset;
 private _nearObjects = nearestObjects[_load_point, ["AllVehicles","ThingX"], 2];
 private _cargo_class = "";
+private _cargo = objNull;
 {
     private "_temp";
     _temp = [_x] call FUNC(getCargoCfg); 
     If (!(_temp isEqualTo "") && {isNull attachedTo _x}) exitWith {
         _cargo_class = _temp;
+        _cargo = _x;
     };
 }forEach _nearObjects;
 
@@ -61,6 +63,14 @@ private _ret = if (_logistic_stack isEqualTo []) then {
 
     if (((_max_width - _row_width >= _cargo_width + SPACE_BETWEEN_CARGO) && (_left_length >= _cargo_length + SPACE_BETWEEN_CARGO)) || ((_max_width - _row_width >= _cargo_length + SPACE_BETWEEN_CARGO) && (_left_length >= _cargo_width + SPACE_BETWEEN_CARGO))) exitWith { true };
     if (!(((_row_length < _cargo_length + SPACE_BETWEEN_CARGO) || (_max_width < _cargo_width)) && ((_row_length < _cargo_width + SPACE_BETWEEN_CARGO) || (_max_width < _cargo_length)))) exitWith { true };
+
+    private _stackable = false; 
+    for [{_i = 0},{_i < (count _last_row)},{_i = _i + 1}] do {
+        if (((getModelInfo (_last_row select _i select 0) select 0) == (getModelInfo _cargo select 0)) && (!(_last_row select _i select 5)) && (((_last_row select _i select 1 select 3 select 2) + _cargo_height) <= _max_height)) exitWith { _stackable = true; };
+    };
+    if (_stackable) exitWith { true };
+
     false
 };
-_ret;
+
+_ret

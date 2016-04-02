@@ -88,7 +88,7 @@ if (!(_logistic_stack isEqualTo [])) then {
                 (_point select 1) + (_cargo_offset select 1) - _max_length + _left_length - (_cargo_width/2),
                 (_point select 2) + (_cargo_height / 2)  + (_cargo_offset select 2)
             ];
-            _last_row pushBack [_cargo,[_cargo_width,_cargo_length,_cargo_height,_attach_point], _left_length - _cargo_width];
+            _last_row pushBack [_cargo,[_cargo_width,_cargo_length,_cargo_height,_attach_point], _left_length - _cargo_width, _rotate, [], false];
             _logistic_stack resize (count _logistic_stack - 1);
             _logistic_stack pushBack _last_row;
         } else {
@@ -105,28 +105,51 @@ if (!(_logistic_stack isEqualTo [])) then {
                 (_point select 1) + (_cargo_offset select 1) - _max_length + _left_length - (_cargo_length/2),
                 (_point select 2) + (_cargo_height / 2)  + (_cargo_offset select 2)
             ];
-            _last_row pushBack [_cargo,[_cargo_width,_cargo_length,_cargo_height,_attach_point], _left_length - _cargo_length];
+            _last_row pushBack [_cargo,[_cargo_width,_cargo_length,_cargo_height,_attach_point], _left_length - _cargo_length, _rotate, [], false];
             _logistic_stack resize (count _logistic_stack - 1);
             _logistic_stack pushBack _last_row;
         };
     } else {
-        // create new row
+        private _stackable = false;
 
-        if (((_row_length < _cargo_length + SPACE_BETWEEN_CARGO) || (_max_width < _cargo_width)) && // cargo fits without rotating
-            ((_row_length < _cargo_width + SPACE_BETWEEN_CARGO) || (_max_width < _cargo_length)) /* cargo fits if rotated */ ) exitWith {
-            _attach_point = [];
+        for [{_i = 0},{_i < (count _last_row)},{_i = _i + 1}] do {
+            if (((getModelInfo (_last_row select _i select 0) select 0) == (getModelInfo _cargo select 0)) && (!(_last_row select _i select 5)) && (((_last_row select _i select 1 select 3 select 2) + _cargo_height) <= _max_height)) exitWith { _stackable = true; };
         };
 
-        _rotate = true;
-        if ((_row_length >= _cargo_length - SPACE_BETWEEN_CARGO) && (_max_width >= _cargo_width)) then { _rotate = false; };
-        // if ( && {(_max_length >= _cargo_width - SPACE_BETWEEN_CARGO) && (_max_width >= _cargo_length)}) then { _rotate = true; };
+        if (_stackable) then {
+            // stack cargo
 
-        if (_rotate) then {
-            _attach_point = [_point select 0 + (_cargo_offset select 0), (_point select 1) - (_cargo_width / 2) - SPACE_BETWEEN_CARGO - _max_length + (_last_cargo select 2) + (_cargo_offset select 1), (_point select 2) + (_cargo_height / 2)  + (_cargo_offset select 2)];
-            _logistic_stack pushBack [[_cargo,[_cargo_width,_cargo_length,_cargo_height,_attach_point],_row_length - SPACE_BETWEEN_CARGO - _cargo_width]];
+            private["_under"];
+            _under = _last_row select _i;
+            _under set [5,true];
+
+            _attach_point =+ (_under select 1 select 3);
+            _attach_point set [2,(_attach_point select 2) + _cargo_height + (_cargo_offset select 2)];
+            _rotate = _under select 3;
+
+            _last_row set [_i,_under];
+            _last_row pushBack [_cargo,[_cargo_width,_cargo_length,_cargo_height,_attach_point],_under select 2,_rotate,[(count _logistic_stack) - 1, _i], false];
+            _logistic_stack resize (count _logistic_stack - 1);
+            _logistic_stack pushBack _last_row;
         } else {
-            _attach_point = [_point select 0 + (_cargo_offset select 0), (_point select 1) - (_cargo_length / 2) - SPACE_BETWEEN_CARGO - _max_length + (_last_cargo select 2) + (_cargo_offset select 1), (_point select 2) + (_cargo_height / 2)  + (_cargo_offset select 2)];
-            _logistic_stack pushBack [[_cargo,[_cargo_width,_cargo_length,_cargo_height,_attach_point],_row_length - SPACE_BETWEEN_CARGO - _cargo_length]];
+            // create new row
+
+            if (((_row_length < _cargo_length + SPACE_BETWEEN_CARGO) || (_max_width < _cargo_width)) && // cargo fits without rotating
+                ((_row_length < _cargo_width + SPACE_BETWEEN_CARGO) || (_max_width < _cargo_length)) /* cargo fits if rotated */ ) exitWith {
+                _attach_point = [];
+            };
+
+            _rotate = true;
+            if ((_row_length >= _cargo_length - SPACE_BETWEEN_CARGO) && (_max_width >= _cargo_width)) then { _rotate = false; };
+            // if ( && {(_max_length >= _cargo_width - SPACE_BETWEEN_CARGO) && (_max_width >= _cargo_length)}) then { _rotate = true; };
+
+            if (_rotate) then {
+                _attach_point = [_point select 0 + (_cargo_offset select 0), (_point select 1) - (_cargo_width / 2) - SPACE_BETWEEN_CARGO - _max_length + (_last_cargo select 2) + (_cargo_offset select 1), (_point select 2) + (_cargo_height / 2)  + (_cargo_offset select 2)];
+                _logistic_stack pushBack [[_cargo,[_cargo_width,_cargo_length,_cargo_height,_attach_point],_row_length - SPACE_BETWEEN_CARGO - _cargo_width, _rotate, [], false]];
+            } else {
+                _attach_point = [_point select 0 + (_cargo_offset select 0), (_point select 1) - (_cargo_length / 2) - SPACE_BETWEEN_CARGO - _max_length + (_last_cargo select 2) + (_cargo_offset select 1), (_point select 2) + (_cargo_height / 2)  + (_cargo_offset select 2)];
+                _logistic_stack pushBack [[_cargo,[_cargo_width,_cargo_length,_cargo_height,_attach_point],_row_length - SPACE_BETWEEN_CARGO - _cargo_length, _rotate, [], false]];
+            };
         };
     };
 } else {
@@ -142,10 +165,10 @@ if (!(_logistic_stack isEqualTo [])) then {
 
     if (_rotate) then {
         _attach_point = [_point select 0 + (_cargo_offset select 0), (_point select 1) - (_cargo_width / 2)  + (_cargo_offset select 1), (_point select 2) + (_cargo_height / 2) + (_cargo_offset select 2)];
-        _logistic_stack pushBack [[_cargo,[_cargo_width,_cargo_length,_cargo_height,_attach_point],_max_length - _cargo_width]];
+        _logistic_stack pushBack [[_cargo,[_cargo_width,_cargo_length,_cargo_height,_attach_point],_max_length - _cargo_width, _rotate, [], false]];
     } else {
         _attach_point = [_point select 0 + (_cargo_offset select 0), (_point select 1) - (_cargo_length / 2)  + (_cargo_offset select 1), (_point select 2) + (_cargo_height / 2) + (_cargo_offset select 2)];
-        _logistic_stack pushBack [[_cargo,[_cargo_width,_cargo_length,_cargo_height,_attach_point],_max_length - _cargo_length]];
+        _logistic_stack pushBack [[_cargo,[_cargo_width,_cargo_length,_cargo_height,_attach_point],_max_length - _cargo_length, _rotate, [], false]];
     };
 };
 

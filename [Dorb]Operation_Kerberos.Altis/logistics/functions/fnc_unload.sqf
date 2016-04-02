@@ -31,6 +31,15 @@ if (_last_row isEqualTo []) then { _logistic_stack resize ((count _logistic_stac
 
 private _vehicle_mass = getMass _vehicle;
 
+if (!((_last_cargo select 4) isEqualTo [])) then {
+    private _index = _last_cargo select 4;
+    private _row = _logistic_stack select (_index select 0);
+    private _elem = _row select (_index select 1);
+    _elem set [5,false];
+    _row set [_index select 0, _elem];
+    _logistic_stack set [_index select 0, _row];
+};
+
 private "_cargo_mass";
 if (!((_last_cargo select 0) in (attachedObjects _vehicle))) exitWith {
     _cargo_mass = getMass (_last_cargo select 0);
