@@ -23,14 +23,15 @@ private _logisticStack = _vehicle getVariable [QGVAR(stack),[]];
 
 private _ladungsmasse = _gesamtmasse - _leermasse;
 
+private "_leereLadeflaeche";
 if (count _logisticStack > 0) then {
-    private _leereLadeflaeche = getNumber(missionConfigFile >> "logistics" >> "vehicles" >> typeOf _vehicle >> "max_length");
+    _leereLadeflaeche = getNumber(missionConfigFile >> "logistics" >> "vehicles" >> typeOf _vehicle >> "max_length");
     {
         _leereLadeflaeche = if (_leereLadeflaeche > (_x select 2)) then { _x select 2 } else { _leereLadeflaeche };
         INC(_counter);
     } forEach (_logisticStack select (count _logisticStack - 1));
 } else {
-    private _leereLadeflaeche = getNumber(missionConfigFile >> "logistics" >> "vehicles" >> typeOf _vehicle >> "max_length");
+    _leereLadeflaeche = getNumber(missionConfigFile >> "logistics" >> "vehicles" >> typeOf _vehicle >> "max_length");
 };
 
 [LSTRING(CARGO_INFO),[
