@@ -12,8 +12,9 @@
         BOOL
 */
 #include "script_component.hpp"
-#define SPACE_BETWEEN_CARGO 0.1
 
+true
+/*
 if (player getVariable [QGVAR(isloading),false]) exitWith { false };
 _this params ["_target"];
 LOG_1(_target);
@@ -74,4 +75,4 @@ private _ret = if (_logistic_stack isEqualTo []) then {
     false
 };
 
-_ret
+_ret*/

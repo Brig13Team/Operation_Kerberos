@@ -22,9 +22,9 @@ private _loadAction = [
     QGVAR(action_load),
     localize LSTRING(ACTION_LOAD),
     "",
-    {[_target] spawn FUNC(doload);},
+    {true},
     {[_target] call FUNC(canload);},
-    {[_target] call FUNC(addLoadActions);},
+    {[_target] call FUNC(addLoadActions);}
     ] call ace_interact_menu_fnc_createAction;
 private _unloadAction = [QGVAR(action_unload), localize LSTRING(ACTION_UNLOAD), "", {[_target] spawn FUNC(dounload);}, {  [_target] call FUNC(canUnload);  }] call ace_interact_menu_fnc_createAction;
 private _infoAction = [QGVAR(action_info), localize LSTRING(ACTION_DISP_CARGO),"",{[_target] spawn FUNC(disp_cargo);},{true}] call ace_interact_menu_fnc_createAction;

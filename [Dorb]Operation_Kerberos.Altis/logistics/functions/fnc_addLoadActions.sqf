@@ -26,15 +26,16 @@ private _loadActions = [];
 {
     _cargo = _x;   
     If ((_target != _cargo)&&{[_target,_cargo] call FUNC(canbeLoaded)}) then {
-        _loadActions pushBack [
-            str _cargo,
+        private _action = [
+            _cargo,
             getText(configFile >> "CfgVehicles" >> typeOf _cargo >> "displayName"),
             "",
             {_this spawn FUNC(doload);},
             {true},
             {},
             [_target,_cargo]
-        ];
+            ] call ace_interact_menu_fnc_createAction;
+        _loadActions pushBack [_action,[],_target];
     };
 } forEach _nearObjects;
-[_loadActions,[],_target];
+_loadActions;

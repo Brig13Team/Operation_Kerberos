@@ -3,6 +3,7 @@
 ADDON = false;
 
 PREP(addLoadActions);
+PREP(canbeLoaded);
 PREP(candrop);
 PREP(canload);
 PREP(canunload);
