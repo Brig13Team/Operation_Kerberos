@@ -9,8 +9,6 @@
 */
 #include "script_component.hpp"
 
-#define SPACE_BETWEEN_CARGO 0.1
-
 params ["_vehicle"];
 
 private _vehicle_class = typeOf _vehicle;
