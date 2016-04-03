@@ -5,19 +5,19 @@
         shows the loadable cargo
         
     Parameter(s):
-        0 : OBJECT - Target
+        0 : OBJECT - vehicle
         
     Returns:
         ARRAY - ChildActions
 */
 #include "script_component.hpp"
 
-_this params [["_target",objNull,[objNull]]];
-CHECKRET(isNull _target,[]);
+_this params [["_vehicle",objNull,[objNull]]];
+CHECKRET(isNull _vehicle,[]);
 
-private _load_point_offset = getArray(missionConfigFile >> "logistics" >> "vehicles" >> (typeOf _target) >> "load_point");
-private _load_point = _target modelToWorld _load_point_offset;
-private _nearObjects = nearestObjects[_load_point, ["AllVehicles","ThingX"], 3];
+private _load_point_offset = getArray(missionConfigFile >> "logistics" >> "vehicles" >> (typeOf _vehicle) >> "load_point");
+private _load_point = _vehicle modelToWorld _load_point_offset;
+private _nearObjects = nearestObjects[_load_point, ["AllVehicles","ThingX"], LOADING_DISTANCE];
 
 
 private _loadActions = [];
@@ -25,7 +25,7 @@ private _loadActions = [];
 
 {
     _cargo = _x;   
-    If ((_target != _cargo)&&{[_target,_cargo] call FUNC(canbeLoaded)}) then {
+    If ((_vehicle != _cargo)&&{[_vehicle,_cargo] call FUNC(canbeLoaded)}) then {
         private _action = [
             _cargo,
             getText(configFile >> "CfgVehicles" >> typeOf _cargo >> "displayName"),
@@ -33,9 +33,9 @@ private _loadActions = [];
             {_this spawn FUNC(doload);},
             {true},
             {},
-            [_target,_cargo]
+            [_cargo,_vehicle]
             ] call ace_interact_menu_fnc_createAction;
-        _loadActions pushBack [_action,[],_target];
+        _loadActions pushBack [_action,[],_vehicle];
     };
 } forEach _nearObjects;
 _loadActions;

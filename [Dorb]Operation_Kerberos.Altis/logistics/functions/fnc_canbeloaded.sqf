@@ -14,8 +14,8 @@
 #include "script_component.hpp"
 _this params ["_target","_cargo"];
 
-private _cargo_class = [_x] call FUNC(getCargoCfg);
-If ((_cargo_class isEqualTo "")&&{!(isNull (attachedTo _cargo))}) exitWith {false};
+private _cargo_class = [_cargo] call FUNC(getCargoCfg);
+If ((_cargo_class isEqualTo "")||{!(isNull (attachedTo _cargo))}) exitWith {false};
 
 private _vehicle_class = typeOf _target;
 private _max_width = getNumber(missionConfigFile >> "logistics" >> "vehicles" >> _vehicle_class >> "max_width");
@@ -27,20 +27,21 @@ private _cargo_height = getNumber(missionConfigFile >> "logistics" >> "cargos" >
 /// Exit if no entry in cfg
 If (!(_max_width>0)) exitWith {false};
 /// Way to big
+
 If (
-    (!((
-        (_max_length < _cargo_length) ||
-        (_max_width < _cargo_width)
-     ) && 
-     (
-        (_max_length < _cargo_width) ||
-        (_max_width < _cargo_length)
-    ))) || 
     (
-        _max_height < _cargo_height
+        (
+            (_cargo_length > _max_length) ||
+            (_cargo_width > _max_width)
+        )&&(
+            (_cargo_length > _max_width) ||
+            (_cargo_width > _max_length)
+        )
+    )||(
+        _cargo_height > _max_height
     )
     ) exitWith {false};
-
+test = 2;
 private _logistic_stack = _target getVariable [QGVAR(stack),[]];
 /// EMPTY Truck
 if (_logistic_stack isEqualTo []) exitWith {true};

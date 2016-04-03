@@ -31,7 +31,7 @@ private _infoAction = [QGVAR(action_info), localize LSTRING(ACTION_DISP_CARGO),"
 private _paraAction = [QGVAR(action_paradrop), localize LSTRING(ACTION_PARADROP), "", {[_target,true] spawn FUNC(dounload);}, {[_target] call FUNC(candrop);}] call ace_interact_menu_fnc_createAction;
 
 [localize ELSTRING(main,name), QGVAR(keybind_g), [localize LSTRING(ACTION_PARADROP), localize LSTRING(ACTION_PARADROP)], { if ([vehicle player] call FUNC(candrop)) then { [vehicle player,true] spawn FUNC(dounload)}; }, {true}, [0x22, [false, false, false]], false] call CBA_fnc_addKeybind;
-
+/// Vehicles
 for "_i" from 0 to ((count _cfgLog)-1) do {
     private _vehicle = configname(_cfgLog select _i);
     If (isClass(configFile >> "cfgvehicles" >> _vehicle)) then {
@@ -50,4 +50,23 @@ for "_i" from 0 to ((count _cfgLog)-1) do {
             
         };
     };
+};
+/// Cargo
+private _cfgVeh = configFile >> "CfgVehicles";
+_loadAction = [
+    QGVAR(action_load),
+    localize LSTRING(ACTION_LOAD),
+    "",
+    {true},
+    {[_target] call FUNC(canbeload);},
+    {[_target] call FUNC(addbeLoadedActions);}
+    ] call ace_interact_menu_fnc_createAction;
+
+for "_i" from 0 to ((count _cfgVeh)-1) do {
+    private _vehicle = configname(_cfgVeh select _i);
+    If (!([_vehicle] call FUNC(getCargoCfg) isEqualTo "")) then {
+        [_vehicle, 0, ["ACE_MainActions"], _mainAction] call ace_interact_menu_fnc_addActionToClass;
+        [_vehicle, 0, ["ACE_MainActions",QGVAR(action_main)], _loadAction] call ace_interact_menu_fnc_addActionToClass;
+    };
+    
 };

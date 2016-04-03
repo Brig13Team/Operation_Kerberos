@@ -2,7 +2,9 @@
 
 ADDON = false;
 
+PREP(addbeLoadedActions);
 PREP(addLoadActions);
+PREP(canbeLoad);
 PREP(canbeLoaded);
 PREP(candrop);
 PREP(canload);
@@ -13,6 +15,7 @@ PREP(dounload);
 PREP(getCargoCfg);
 PREP(load);
 PREP(unload);
+
 PREP(setContainerWeight);
 PREP(canTow);
 PREP(doTow);

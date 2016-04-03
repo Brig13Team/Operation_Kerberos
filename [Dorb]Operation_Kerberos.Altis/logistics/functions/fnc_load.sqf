@@ -11,8 +11,7 @@
 */
 #include "script_component.hpp"
 
-_this params ["_cargo","_vehicle"];
-
+_this params ["_vehicle","_cargo"];
 private _vehicle_class = typeOf _vehicle;
 private _cargo_class = [_cargo] call FUNC(getCargoCfg);
 
