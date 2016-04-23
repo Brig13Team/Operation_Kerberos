@@ -243,7 +243,7 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
 
             };
 
-            if(((_vClass=="Autonomous")and(_side==1)and !(_class=="B_UGV_01_F"))or(_class=="B_UAV_02_CAS_F")) then {
+            if(((_vClass=="Autonomous")and(_side==1))or(_class=="B_UAV_01_CAS_F")) then {
 
                 _spawnliste_drohne pushBack [_class,_pic ,"BIS", (call(_DNameBIS)), _DName, _icon];
 
