@@ -10,6 +10,7 @@
 #include "script_component.hpp"
 SCRIPT(XEH_hitPart);
 
+/*
 if (difficulty < 3) exitWith {};
 
 private ["_target","_hit_parts"];
@@ -40,3 +41,4 @@ if ((("spine1" in _hit_parts) || ("spine3" in _hit_parts)) && {backpack _target 
 		};
 	} forEach _mags;
 };
+*/
