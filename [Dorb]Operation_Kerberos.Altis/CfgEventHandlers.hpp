@@ -69,7 +69,6 @@ class Extended_hit_EventHandlers {
     #include "player\XEH_hit.hpp"
 };
 class Extended_hitPart_EventHandlers {
-    #include "player\XEH_hitPart.hpp"
     #include "bwpatch\XEH_hitPart.hpp"
 };
 //class Extended_incomingMissile_EventHandlers {};
