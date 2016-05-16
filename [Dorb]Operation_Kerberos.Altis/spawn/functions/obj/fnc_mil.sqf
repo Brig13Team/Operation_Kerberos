@@ -53,7 +53,7 @@ LOG_5(_position,_count_inf,_count_specops,_count_light,_count_tanks);
 [_position,800,_count_inf,_count_specops] call FUNC(patrol_inf);
 [_position,1200,_count_light,_count_tanks] call FUNC(patrol_veh);
 //[_position,1200,-1,-1] call FUNC(patrol_water);
-[_position,1300,8] call FUNC(minefields);
+[_position,1300,3] call FUNC(minefields);
 /*
 [_position,_difficulty] spawn {
 	_gebaeudepos_arr = [];

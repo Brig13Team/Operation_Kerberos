@@ -72,6 +72,10 @@ if ((_vehicle isKindOf "B_Truck_01_medical_F") or (_vehicle isKindOf "B_Slingloa
     SETPVAR(_vehicle,ace_medical_isMedicalFacility,true);
 };
 
+if (_vehicle isKindOf "I_MRAP_03_F") then {
+    [_vehicle,["blu",1],true] call BIS_fnc_initVehicle;
+};
+
 if (_mode isEqualTo "driver") then {
     If (((_flyingpos distance [0,0,0])>1)&&(_vehiclewahl isKindOf "Plane_Base_F")&&(!( (getText(configFile >> "CfgVehicles" >> _vehiclewahl >> "vehicleClass"))isEqualTo "Autonomous"))) then {
         {deleteVehicle _x;}forEach (crew _vehicle);

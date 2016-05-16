@@ -22,7 +22,8 @@ If (_rand < 1) then {
 			_rand = ((floor(random 4))+ 100);
 		};
 	};
-	_rand = floor(random 5) +1 ;
+	_rand = floor(random 6) +1 ;
+    If (_rand > 4) then {_rand = 5;};
 };
 private "_path";
 switch (_rand) do {

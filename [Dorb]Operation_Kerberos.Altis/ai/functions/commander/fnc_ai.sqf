@@ -13,6 +13,14 @@
 SCRIPT(ai);
 private ["_attackpos_air","_attackpos_tanks","_attackpos_ground"];
 
+#define WEIGHT_SOLDIER 2
+// 1
+#define WEIGHT_VEHICLE 6
+// 4
+#define WEIGHT_TANK 14
+// 10
+
+
 /// functions
 
 _attack_ai = {
@@ -29,7 +37,7 @@ _attack_ai = {
 		_outOfSight = terrainIntersect[(_attackpos_air select 0),_radarpos];
 		If ((IS_BOOL(_outOfSight))&&{(!(_outOfSight))}) exitWith {_inSight=true;};
 	}forEach _radars;	
-	
+	private _returnbool = false;
 	If (_inSight) then {
 		private "_planes";
 		_planes = GETVAR(GVAR(commander_logic),GVAR(commander_planes),[]);
@@ -60,9 +68,11 @@ _attack_ai = {
 						sleep 500;
 					};
 				};
+                _returnbool = true;
 			};
 		};
 	};
+    _returnbool;
 };
 
 _attack_arty_smoke = {
@@ -238,12 +248,13 @@ private["_sleep","_generalsleep","_nextintervall"];
 _sleep = 0;
 _generalsleep = 4;
 _nextintervall = diag_tickTime;
+private _nextairIntervall = diag_tickTime;
 while {_a={alive _x}count (GETVAR(GVAR(commander_logic),GVAR(commander_current_hqs),[]));If (_a>0) then {true}else{false};} do {
 	private ["_temp","_checkunits","_attackpos_air"];
 	
 	///// AIR-Interception
 	_attackpos_air = [];
-	If (GETVAR(GVAR(commander_logic),GVAR(commander_ai),false)) then {
+	If ((GETVAR(GVAR(commander_logic),GVAR(commander_ai),false))&&(diag_tickTime > _nextairIntervall)) then {
 		//// Get the posible Attackpositions
 		_attackunit_air = [];
 		for "_i" from 0 to ((count (GETVAR(GVAR(commander_logic),GVAR(commander_radar),[])))-1) do {
@@ -268,7 +279,9 @@ while {_a={alive _x}count (GETVAR(GVAR(commander_logic),GVAR(commander_current_h
 		SETVAR(GVAR(commander_logic),GVAR(commander_planes),_temp);
 		
 		If (!(_attackpos_air isEqualTo [])) then {
-			[_attackpos_air] call (_attack_ai);
+			If ([_attackpos_air] call (_attack_ai)) then {
+                _nextairIntervall = (diag_tickTime + (10 * 60 ));
+            };
 		};
 	};
 	
@@ -305,27 +318,27 @@ while {_a={alive _x}count (GETVAR(GVAR(commander_logic),GVAR(commander_current_h
 			/// Set Unitweight
 			If ((_attackunits_all select _i)isKindOf "LandVehicle") then {
 				If ((_attackunits_all select _i)isKindOf "Tank") then {
-					_attackunits_weight set [_i,10];
+					_attackunits_weight set [_i,WEIGHT_TANK];
 				}else{
-					_attackunits_weight set [_i,4];
+					_attackunits_weight set [_i,WEIGHT_VEHICLE];
 				};
 			}else{
-				_attackunits_weight set [_i,1];
+				_attackunits_weight set [_i,WEIGHT_SOLDIER];
 			};
 			/// Increase when additional Units are near
 			private "_cur_unit";
 			_cur_unit = (_attackunits_all select _i);
 			for "_j" from 0 to ((count _attackunit_ground)-1) do {
-				If (((_attackunit_ground select _j)distance(_cur_unit))<30) then {
-					_attackunits_weight set [_i,((_attackunits_weight select _i)+1)];
+				If (((_attackunit_ground select _j)distance(_cur_unit))<40) then {
+					_attackunits_weight set [_i,((_attackunits_weight select _i)+WEIGHT_SOLDIER)];
 				};
 			};
 			for "_j" from 0 to ((count _attackunit_tanks)-1) do {
-				If (((_attackunit_tanks select _j)distance(_cur_unit))<30) then {
+				If (((_attackunit_tanks select _j)distance(_cur_unit))<40) then {
 					If ((_attackunit_tanks select _j)isKindOf "Tank") then {
-						_attackunits_weight set [_i,((_attackunits_weight select _i)+7)];
+						_attackunits_weight set [_i,((_attackunits_weight select _i)+WEIGHT_TANK)];
 					}else{
-						_attackunits_weight set [_i,((_attackunits_weight select _i)+3)];
+						_attackunits_weight set [_i,((_attackunits_weight select _i)+WEIGHT_VEHICLE)];
 					};
 				};
 			};
