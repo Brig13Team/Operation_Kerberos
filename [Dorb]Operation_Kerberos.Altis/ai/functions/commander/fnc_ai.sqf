@@ -43,7 +43,7 @@ _attack_ai = {
 		_planes = GETVAR(GVAR(commander_logic),GVAR(commander_planes),[]);
 		If ((count _radars)>(count _planes)) then {
 			private["_unit","_spawnpos","_dir","_return","_veh","_wp"];
-			_spawnpos = [_attackpos_air select 0,5000,2] call EFUNC(common,random_pos);
+			_spawnpos = [_attackpos_air select 0,10000,2] call EFUNC(common,random_pos);
 			if (!(_spawnpos isEqualTo [])) then {
 				_unit = dorb_patrol_air_list SELRND;
 				_spawnpos set [2,3000];
