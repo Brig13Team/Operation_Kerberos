@@ -18,3 +18,14 @@
 ["sandstorm",
     {[] call FUNC(objects_device_effect_sandstorm_init);}
 ] call CBA_fnc_remoteEvent;
+
+["killedMessage",
+    {[localize LSTRING(KILL),[format [localize LSTRING(KILL_KILLED),_this select 0]],"data\icon\icon_target.paa",true] call EFUNC(interface,disp_info);}
+] call CBA_fnc_addEventHandler;
+
+["suitcase_handle",
+    {
+        params ["_suitcase"];
+        [{_this call FUNC(objects_handle); }, 1, [_suitcase]] call CBA_fnc_addPerFrameHandler;
+    }
+] call CBA_fnc_addEventHandler;
