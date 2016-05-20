@@ -58,6 +58,6 @@ _anzahl = GVAR(crate_current) select 3;
 }forEach _items;
 
 [_box] call EFUNC(logistics,setContainerWeight);
-["CRATE_SPAWNED",[_box]] spawn EFUNC(events,serverEvent);
+["CRATE_SPAWNED",[_box]] spawn CBA_fnc_ServerEvent;
 disableSerialization;
 closeDialog 600200;
