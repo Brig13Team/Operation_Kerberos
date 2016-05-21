@@ -1,0 +1,15 @@
+/*
+
+    Author: Dorbedo, iJesuz
+
+*/
+#define CBA_OFF
+#include "script_component.hpp"
+class CfgSounds {
+    sounds[] = {};
+    class GVARMAIN(sound_knockknock) {
+        name = "knockknock";
+        sound[] = {"data\sound\knockknock.ogg",1,1};
+        titles[] = {0,""};
+    };
+};

@@ -43,7 +43,7 @@ If ((_markerpos distance [0,0,0])>1) then {
         private "_units";
         _units = (getMarkerPos "rescue_marker") nearEntities [["Man","Ship_F","LandVehicle","Land_Suitcase_F","Air"], 15];
             {
-                [QGVAR(rescuepoint),[_x],_x] call EFUNC(events,localEvent);
+                [_x,QGVAR(rescuepoint),[_x]] call BIS_fnc_callScriptedEventHandler
             }forEach _units;
     } , 30, [] ] call CBA_fnc_addPerFrameHandler;
 };

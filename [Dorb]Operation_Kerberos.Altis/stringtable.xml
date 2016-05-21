@@ -1045,6 +1045,11 @@
             <German>Rucksack auf den Ruecken schnallen</German>
             <English>Move backpack to back</English>
         </Key>
+        <Key ID="STR_DORB_PLAYER_ACTION_KNOCKKNOCK">
+            <Original>knock</Original>
+            <German>Anklopfen</German>
+            <English>knock</English>
+        </Key>
     </Package>
     <Package name="logistics">
         <Key ID="STR_DORB_LOGISTICS_ACTION_LOAD">

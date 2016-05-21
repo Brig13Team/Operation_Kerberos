@@ -12,3 +12,4 @@ CHECK(!hasInterface);
    If (_this select 1) then {_this call FUNC(isSpeaking);};
 }, Player] call TFAR_fnc_addEventHandler;
 
+["setWhispering",{[] call FUNC(setWhispering);}] call CBA_fnc_addEventHandler;
