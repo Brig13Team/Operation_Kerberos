@@ -11,7 +11,6 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(setWhispering);
 
 TF_speak_volume_level = "whispering";
 TF_speak_volume_meters = 5;
