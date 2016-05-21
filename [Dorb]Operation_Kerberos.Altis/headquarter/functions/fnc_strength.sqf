@@ -13,30 +13,41 @@
 */
 #include "script_component.hpp"
 _this params[["_group",grpNull,[grpNull]]];
-if (isNull _group) exitWith {["",0]};
+if (isNull _group) exitWith {[-1,-1]};
 
+private _soldiers = (units _group) select {alive _x};
+private _vehicles = [];
+
+private _thread = [0,0,0];
 private _value = 0;
-private _all_Vehicles = [];
+private _type = 0;
 {
-    _all_Vehicles pushBackUnique _x;
-    _all_Vehicles pushBackUnique (vehicle _x);
-}forEach (units _group);
-private _type = "Infanterie";
-{
-    _value = _value + (switch (true) do {
-        case (_x isKindOf "Air") : {
-            If ((toLower(getText(configFile >> "CfgVehicles" >> (typeOf _x) >> "simulation")))in ["helicopterrtd","helicopterx"]) then {
-                _type = "Helicopter";20
-            }else{
-                _type = "Plane";30
-            };
-        };
-        case (_x isKindOf "Armored") : {_type = "Armored";15};
-        case (_x isKindOf "Autonomous") : {_type = "Autonomous";9};
-        case (_x isKindOf "Car") : {_type = "Car";5};
-        case (_x isKindOf "Ship") : {_type = "Ship";8};
-        default {1};
-    });
-} forEach _all_Vehicles;
+    If (!isNull (assignedVehicle _x)) then {
+        _vehicles pushBackUnique (assignedVehicle _x);
+    };
+    private _temp = getArray(configFile >> "CfgVehicles" >> (typeOf _x) >> "thread");
+    If !(_temp isEqualTo []) then {
+        _thread = [
+            (_thread select 0) max (_temp select 0),
+            (_thread select 1) max (_temp select 1),
+            (_thread select 2) max (_temp select 2),
+        ];
+    };
+    _value = _value + getNumber(configFile >> "CfgVehicles" >> (typeOf _x) >> "cost");
+}forEach _soldiers;
 
-[_type,_value]
+
+{
+    _type = _type max (getNumber(configFile >> "CfgVehicles" >> (typeOf _x) >> "type"));
+    private _temp = getArray(configFile >> "CfgVehicles" >> (typeOf _x) >> "thread")
+    If !(_temp isEqualTo []) then {
+        _thread = [
+            (_thread select 0) max (_temp select 0),
+            (_thread select 1) max (_temp select 1),
+            (_thread select 2) max (_temp select 2),
+        ];
+    };
+    _value = _value + getNumber(configFile >> "CfgVehicles" >> (typeOf _x) >> "cost");
+} forEach _vehicles
+
+[_type,_value,_thread];
