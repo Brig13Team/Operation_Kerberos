@@ -214,7 +214,7 @@ _Attacktype_airdrop_smoke = {
 	PARAMS_1(_attack_pos);
 	[_attack_pos,1,40] spawn EFUNC(spawn,attack_airdrop);
 	uisleep 20;
-	[_attack_pos,3] call (_spawn_attack_arty_smoke);
+	[_attack_pos,3] spawn (_attack_arty_smoke);
 };
 _Attacktype_airdrop = {
 	PARAMS_1(_attack_pos);

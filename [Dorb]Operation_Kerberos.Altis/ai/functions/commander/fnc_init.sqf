@@ -146,7 +146,11 @@ If (GETVAR(GVAR(commander_logic),GVAR(commander_art),[])) then {
 
 //// Call BRAIN
 
-[] call FUNC(commander_ai);
+If !((isNil QGVAR(AI_COMMANDER_FNC))||{isNull GVAR(AI_COMMANDER_FNC)}) then {
+    terminate GVAR(AI_COMMANDER_FNC);
+};
+uiSleep 4;
+GVAR(AI_COMMANDER_FNC) = [] call FUNC(commander_ai);
 
 SETVAR(GVAR(commander_logic),GVAR(commander_current_pos),_position);
 SETVAR(GVAR(commander_logic),GVAR(commander_current_hqs),[]);
