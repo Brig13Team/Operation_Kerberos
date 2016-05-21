@@ -78,7 +78,8 @@ PREP(register_POI);
 PREP(player_unconscious);
 PREP(player_value);
 
-PREP(strength);
+PREP(strength_ai);
+PREP(strength_player);
 
 ADDON = true;
 

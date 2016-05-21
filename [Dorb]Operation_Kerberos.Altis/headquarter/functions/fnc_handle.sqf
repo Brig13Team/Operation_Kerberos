@@ -12,12 +12,12 @@
 */
 #include "script_component.hpp"
 CHECK(GETMVAR(GVAR(active),false))
-CHECK(GETMVAR(GVAR(working),false))
+
 CHECK((GETMVAR(GVAR(centerpos),[]) isEqualTo []))
-SETMVAR(GVAR(working,true));
+CHECK(!isNull(GVAR(handle)))
 
 /// spawn to move it in the ingame sheduler
-[] spawn {
+GVAR(handle) = [] spawn {
     SCRIPTIN(handle,spawn);
     /*
     /// backup -> get unregistered Groups
@@ -200,6 +200,5 @@ SETMVAR(GVAR(working,true));
     
 
 
-    SETMVAR(GVAR(working),false);
 
 };

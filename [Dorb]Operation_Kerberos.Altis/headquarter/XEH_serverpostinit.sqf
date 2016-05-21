@@ -5,7 +5,6 @@
         postinit server
 */
 #include "script_component.hpp"
-SCRIPT(XEH_SERVERPOSTINIT);
 
 ["medical_onUnconscious", {
     _this params ["_unit", "_status"];

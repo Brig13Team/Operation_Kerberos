@@ -22,22 +22,8 @@ CHECK((_killerpos distance [0,0,0])<10);
 
 ([_killerpos] call FUNC(dangerzone_convert)) params ["_x_coordinate","_y_coordinate"];
 
-CHECK(_x<0)
+private _strengthArray = [_killer] call FUNC(strength_player);
 
-private _weapon = currentWeapon (vehicle _killer);
-([_weapon] call BIS_fnc_itemType) params ["_weaponcategory","_weapontype"];
-
-_value = switch (true) do {
-    case (_weapontype in ["SniperRifle","Rifle"]) : {25};
-    case (_weapontype in ["BombLauncher","Cannon","Mortar"]) : {30};
-    case (_weapontype in ["AssaultRifle","GrenadeLauncher","Handgun","SubmachineGun"]) : {10};
-    case (_weapontype in ["MachineGun"]) : {20};
-    case (_weapontype in ["Launcher","MissileLauncher","RocketLauncher"]) : {20};
-    case ((vehicle _killer)isKindOf "Armored") : {30};
-    case ((vehicle _killer)isKindOf "Car") : {20};
-    case ((vehicle _killer)isKindOf "Ship_F") : {20};
-    case ((vehicle _killer)isKindOf "Air") : {35};
-    default {10};
-};
+_value = _strengthArray select 1;
 
 GVAR(buffer) pushBack [_x_coordinate,_y_coordinate,_value];
