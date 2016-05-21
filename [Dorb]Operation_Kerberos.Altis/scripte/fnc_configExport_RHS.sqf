@@ -18,7 +18,7 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
         private _classname = configName(_vehicle);
         private _namearr = _classname splitString "_";
         _scope =  getnumber(configFile >> "cfgvehicles" >> _classname >> "scope");
-        If (((toUpper(_namearr select 0)) in ["RHS","RHSUSF"])&&(_scope>1)) then {
+        If (((toUpper(_namearr select 0)) in ["RHS","RHSUSF","RHSGREF"])&&(_scope>1)) then {
             _side = getnumber(configFile >> "cfgvehicles" >> _classname >> "side");
             If (_classname isKindOf "CAManBase") then {
                 If (_side == 1) then {_usf_soldiers pushback [_classname,getText(configFile >> "cfgvehicles" >> _classname >> "faction"),getText(configFile >> "cfgvehicles" >> _classname >> "displayname"),getText(configFile >> "cfgvehicles" >> _classname >> "vehicleClass")];};
