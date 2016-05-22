@@ -34,20 +34,20 @@ PREPS(state,idle);
 PREPS(state,retreat);
 PREPS(state,wait);
 
-PREPS(strategy_exec);
+PREPS(strategy,_exec);
+PREPS(strategy,_choose);
+PREPS(strategy,_failed);
+PREPS(strategy,_success);
 PREPS(strategy,airborne);
 PREPS(strategy,armored);
 PREPS(strategy,artillery);
 PREPS(strategy,cas);
-PREPS(strategy,choose);
 PREPS(strategy,drones);
-PREPS(strategy,failed);
 PREPS(strategy,helicopter);
 PREPS(strategy,infanterie);
 PREPS(strategy,mortar);
 PREPS(strategy,motorized);
 PREPS(strategy,rocket);
-PREPS(strategy,success);
 PREPS(strategy,tankattack);
 
 PREPS(waypoints,add);

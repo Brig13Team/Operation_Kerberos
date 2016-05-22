@@ -136,7 +136,7 @@ GVAR(handle) = [] spawn {
     private _missingstrenght = 0;
     /// move into battle
     TRACEV_2(GVAR(attackpos),_waitingGroups);
-    [GVAR(attackpos),_waitingGroups] call FUNC(strategy_exec);
+    [GVAR(attackpos),_waitingGroups] call FUNC(strategy__exec);
     /*
     {
         private _enemy = _x getVariable[QGVAR(enemy),0];
