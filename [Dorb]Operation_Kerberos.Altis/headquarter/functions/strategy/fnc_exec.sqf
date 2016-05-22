@@ -21,8 +21,11 @@ private _attackarray = [];
 {
     private _currentLocation = _x;
     private _currentEnemy =  importance _currentLocation;
-    private _currentTroops = _currentLocation getVariable [QGVAR(troopsNeeded),0];
-    _attackarray pushBack [_currentTroops,_currentEnemy,_currentLocation];
+    private _nearPlayers = allPlayers select {((_x distance _currentLocation) < ATTACKPOS_DISTANCE)};
+    private _strengtharray = [_nearPlayers] call FUNC(strength_player);
+    private _currentTroops = _currentLocation getVariable QGVAR(troopsNeeded);
+    If (isNil "_currentTroops") then {_currentTroops = _currentEnemy};
+    _attackarray pushBack [_currentTroops,_currentEnemy,_currentLocation,_strengtharray select 0,_strengtharray select 2];
 } forEach _attacklocations;
 
 _attackarray sort true;
@@ -30,7 +33,7 @@ _attackarray sort true;
 
 
 for "_i" from 0 to (count _attackarray - 1) do {
-    (_attackarray select _i) params ["_currenttroopsNeeded","_currentEnemy","_currentLocation"];
+    (_attackarray select _i) params ["_currenttroopsNeeded","_currentEnemy","_currentLocation","_type","_strengtharray"];
     private _currentStrategy = _currentLocation getVariable [QGVAR(strategy),[]];
     
     If !(_currentStrategy isEqualTo []) then {

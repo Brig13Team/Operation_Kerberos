@@ -18,10 +18,10 @@ TRACEV_4(_currenttroopsNeeded,_currentEnemy,_currentLocation,_groups);
 
 _Strategy_Memory = GETPRVAR(GVAR(strategy_memory),[]);
 
-private _enemySoldiers = GVARMAIN(playerside) countSide ((getPos _currentLocation) nearEntities ["CAManBase",400]);
-private _enemyTanks = GVARMAIN(playerside) countSide ((getPos _currentLocation) nearEntities ["Tank",400]);
-private _enemyHelicopters = GVARMAIN(playerside) countSide ((getPos _currentLocation) nearEntities ["Helicopter",400]);
-private _enemyVehicles = GVARMAIN(playerside) countSide ((getPos _currentLocation) nearEntities ["Car",400]);
+private _enemySoldiers = GVARMAIN(playerside) countSide ((getPos _currentLocation) nearEntities ["CAManBase",ATTACKPOS_DISTANCE]);
+private _enemyTanks = GVARMAIN(playerside) countSide ((getPos _currentLocation) nearEntities ["Tank",ATTACKPOS_DISTANCE]);
+private _enemyHelicopters = GVARMAIN(playerside) countSide ((getPos _currentLocation) nearEntities ["Helicopter",ATTACKPOS_DISTANCE]);
+private _enemyVehicles = GVARMAIN(playerside) countSide ((getPos _currentLocation) nearEntities ["Car",ATTACKPOS_DISTANCE]);
 _enemySoldiers = 50;
 
 

@@ -31,5 +31,5 @@ SETVAR(_tankGroup,GVAR(target),_currentPos);
 SETVAR(_tankGroup,GVAR(state),'attack');
 [_tankGroup] call FUNC(state_change);
 
-([_tankGroup] call FUNC(strength)) params ["_type","_strength"];
-_currentTroops - _strength;
+([_tankGroup] call FUNC(strength_ai)) params ["_type","_cost","_threat"];
+_currentTroops - _cost;

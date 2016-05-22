@@ -14,8 +14,10 @@
 _this params[["_group",grpNull,[grpNull,objNull]]];
 
 _group = _group call CBA_fnc_getGroup;
-private _strength = [_group] call FUNC(strength);
-_group setVariable [QGVAR(strength),_strength];
+private _strength = [_group] call FUNC(strength_ai);
+_group setVariable [QGVAR(type),_strength select 0];
+_group setVariable [QGVAR(cost),_strength select 1];
+_group setVariable [QGVAR(threat),_strength select 2];
 
 _state = toLower (GETVAR(_group,GVAR(state),''));
 

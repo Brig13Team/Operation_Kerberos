@@ -62,5 +62,5 @@ _transporterGroup addWaypoint [_currentPos,100];
     {deletevehicle _x} foreach crew _transporter;
     deletevehicle _transporter;
 };
-([_jaeger_gruppe] call FUNC(strength)) params ["_type","_strength"];
-_currentTroops - _strength;
+([_jaeger_gruppe] call FUNC(strength_ai)) params ["_type","_cost","_threat"];
+_currentTroops - _cost;

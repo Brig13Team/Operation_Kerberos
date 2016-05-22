@@ -53,7 +53,5 @@ _wp = _planeGroup addWaypoint [_spawnpos, 0];
         GVAR(callIn_airinterception) = GVAR(callIn_airinterception) + 1;
     };
 };
-
-
-([_planeGroup] call FUNC(strength)) params ["_type","_strength"];
-_currentTroops - _strength;
+([_planeGroup] call FUNC(strength_ai)) params ["_type","_cost","_threat"];
+_currentTroops - _cost;

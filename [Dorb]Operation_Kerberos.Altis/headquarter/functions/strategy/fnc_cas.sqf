@@ -45,6 +45,5 @@ _casGroup addWaypoint [_spawnpos, 0];
         GVAR(callIn_cas) = GVAR(callIn_cas) + 1;
     };
 };
-
-([_casGroup] call FUNC(strength)) params ["_type","_strength"];
-_currentTroops - _strength;
+([_casGroup] call FUNC(strength_ai)) params ["_type","_cost","_threat"];
+_currentTroops - _cost;

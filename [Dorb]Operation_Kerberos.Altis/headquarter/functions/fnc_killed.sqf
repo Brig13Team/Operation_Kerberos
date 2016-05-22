@@ -22,7 +22,7 @@ CHECK((_killerpos distance [0,0,0])<10);
 
 ([_killerpos] call FUNC(dangerzone_convert)) params ["_x_coordinate","_y_coordinate"];
 
-private _strengthArray = [_killer] call FUNC(strength_player);
+private _strengthArray = [vehicle _killer] call FUNC(strength_player);
 
 _value = _strengthArray select 1;
 
