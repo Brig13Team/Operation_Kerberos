@@ -7,8 +7,22 @@ class Extended_PreInit_EventHandlers {
     };
 };
 
+class Extended_PostInit_EventHandlers {
+	class Dorb_Logistics_client {
+		Clientinit = "call compile preProcessFileLineNumbers 'logistics\XEH_clientpostinit.sqf'";
+	};
+	class Dorb_Logistics {
+		init = "call compile preProcessFileLineNumbers 'logistics\XEH_postinit.sqf'";
+	};
+};
+
 class Extended_Init_Eventhandlers {
     #include "spawn\XEH_init.hpp"
+	#include "logistics\XEH_init.hpp"
+};
+
+class Extended_inventoryClosed_EventHandlers {
+    #include "logistics\XEH_InventoryClosed.hpp"
 };
 
 class Extended_Respawn_EventHandlers {

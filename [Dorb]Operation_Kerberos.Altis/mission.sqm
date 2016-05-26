@@ -54,7 +54,8 @@ class Mission
 		"ace_cargo",
 		"ace_repair",
 		"ace_refuel",
-		"ace_rearm"
+		"ace_rearm",
+		"A3_Structures_F_Ind_Cargo"
 	};
 	addOnsAuto[]=
 	{
@@ -104,7 +105,7 @@ class Mission
 		"a3_roads_f",
 		"A3_Structures_F_EPA_Mil_Scrapyard",
 		"A3_Soft_F_Gamma_HEMTT",
-		"A3_Structures_F_Heli_Ind_Cargo",
+		"A3_Structures_F_Ind_Cargo",
 		"A3_Structures_F_Civ_Lamps",
 		"A3_Structures_F_Mil_Flags",
 		"A3_Structures_F_EPB_Civ_Camping",
@@ -4771,7 +4772,7 @@ class Mission
 		{
 			position[]={11941.594,9.4472518e-005,11482.82};
 			name="TS_IP";
-			text="TS3-IP: 5.9.83.17";
+			text="TS3-Adresse: ts.brigade13.de";
 			type="mil_unknown";
 			colorName="ColorRed";
 		};

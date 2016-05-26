@@ -594,5 +594,17 @@ class logistics
 			length = 1.6;
 			height = 1.68;
 		};
+		class RHS_M119_WD {
+			width = 2;
+			length = 5.1;
+			height = 1.5;
+			offset[] = {0,-1.3,0.8};
+		};
+		class RHS_M119_D : RHS_M119_WD {};
+		class rhs_D30_vdv : RHS_M119_WD {
+			offset[] = {0,0.6,-0.7};
+		};
+		class rhs_D30_at_vdv : rhs_D30_vdv {};
+		
 	};
 };
