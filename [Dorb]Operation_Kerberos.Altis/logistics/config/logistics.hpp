@@ -80,15 +80,21 @@ class logistics
 		/// LKW
 		
 		
-		class rhsusf_HEMTT_A2_base {
-			max_width = 2.13;
-			max_length = 5.5;
-			max_height = 3;
-			cargo_point[] = {0,1.48,0.257};
-			load_point[] = {0,-6,-1.4};
+		class rhsusf_M977A4_usarmy_wd {
+			max_width = 2.05;
+			max_length = 5.48;
+			max_height = 2;
+			cargo_point[] = {0,-0.25,0.75};
+			load_point[] = {0,-8.5,-1};
 		};
-		class rhsusf_M977A2_usarmy_wd : rhsusf_HEMTT_A2_base {};
-		class rhsusf_M977A2_CPK_usarmy_wd : rhsusf_M977A2_usarmy_wd {};
+		class rhsusf_M977A4_usarmy_d : rhsusf_M977A4_usarmy_wd {};
+		class rhsusf_M977A4_BKIT_M2_usarmy_wd : rhsusf_M977A4_usarmy_wd {
+			cargo_point[] = {0,1,22,0.31};
+			load_point[] = {0,-6.5,-1};
+		};
+		class rhsusf_M977A4_BKIT_M2_usarmy_d : rhsusf_M977A4_BKIT_M2_usarmy_wd {};
+		
+		
 		
 		class rhsusf_M1078A1P2_Base {
 			max_width = 1.42;
@@ -162,6 +168,20 @@ class logistics
 		class RHS_UH60M_MEV2 : RHS_UH60M_Base {};
 		class RHS_UH60M_MEV : RHS_UH60M_Base {};
 		class RHS_UH60M_MEV_d : RHS_UH60M_Base {};
+		
+		class RHS_MELB_MH6M {
+			max_width = 1;
+			max_length = 0.9;
+			max_height = 0.8;
+			cargo_point[] = {0,1,-1.25};
+			load_point[] = {2,1,-1.9};
+		};
+		class RHS_MELB_H6M : RHS_MELB_MH6M {
+			max_width = 0.5;
+			max_length = 0.7;
+			cargo_pos[] = {{0,{0.103516,0.730957,-1.11869}}};
+		};
+		
 		
 		class RHS_CH_47_Base {
 			max_width = 1.14;

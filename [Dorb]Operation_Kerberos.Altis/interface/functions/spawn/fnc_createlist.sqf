@@ -101,7 +101,7 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
         {
             _faction in [   "rhs_faction_usmc_d","rhs_faction_usmc_wd",
                             "rhs_faction_usarmy_d","rhs_faction_usarmy_wd",
-                            "rhs_faction_usaf"
+                            "rhs_faction_usaf", "rhs_faction_socom"
                             ];
         };
 
