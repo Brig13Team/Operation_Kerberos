@@ -183,7 +183,7 @@ _vehicle setVariable [QGVAR(stack),_logistic_stack,true];
 _vehicle setMass (_vehicle_mass + _cargo_mass);
 
 if (isMultiplayer && {!local _vehicle}) then {
-    [QGVAR(updateSeats_Vehicle),[_vehicle],missionNamespace,_vehicle] call EFUNC(events,targetEvent);
+    [QGVAR(updateSeats_Vehicle),[_vehicle],_vehicle] call CBA_fnc_targetEvent;
 } else {
     [_vehicle] call FUNC(updateSeats);
 };

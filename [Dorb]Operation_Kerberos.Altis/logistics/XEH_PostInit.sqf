@@ -14,4 +14,4 @@
             [_vehicle] call FUNC(updateSeats);
         };
     }
-] call EFUNC(events,addEventHandler);
+] call CBA_fnc_addEventHandler;
