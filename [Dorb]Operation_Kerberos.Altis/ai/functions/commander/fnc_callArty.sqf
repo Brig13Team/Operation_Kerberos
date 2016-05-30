@@ -44,7 +44,8 @@ If (_count < 0) then {
 				default 	{_count = 3;_shell = "";};
 			};
 		}else{
-			default 	{_count = 3;_shell = "";};
+			_count = 3;
+            _shell = "";
 		};
 	};
 		
@@ -52,11 +53,11 @@ If (_count < 0) then {
 	{
 		if (!(_shell in getArtilleryAmmo [_x])) then {_shell_cur = ((getArtilleryAmmo [_x])select 0);};
 		if (alive _x) then {_x commandArtilleryFire [_attack_pos,_shell_cur,_count];};
-		_x setAmmo 1;
+		_x setVehicleAmmo 1;
 	} forEach _artilleries;
 }else{
 	{
 		if (alive _x) then {_x commandArtilleryFire [_attack_pos,((getArtilleryAmmo [_x])select 0),_count];};
-		_x setAmmo 1;
+		_x setVehicleAmmo 1;
 	} forEach _artilleries;
 };
