@@ -55,7 +55,8 @@ class Mission
 		"ace_repair",
 		"ace_refuel",
 		"ace_rearm",
-		"A3_Structures_F_Ind_Cargo"
+		"A3_Structures_F_Ind_Cargo",
+		"A3_Structures_F_System"
 	};
 	addOnsAuto[]=
 	{
@@ -110,6 +111,7 @@ class Mission
 		"A3_Structures_F_Mil_Flags",
 		"A3_Structures_F_EPB_Civ_Camping",
 		"A3_Structures_F_EPC_Civ_InfoBoards",
+		"A3_Structures_F_System",
 		"a3_map_altis"
 	};
 	randomSeed=32840;
@@ -1224,7 +1226,7 @@ class Mission
 						items=3;
 						class Item0
 						{
-							value="2";
+							value="1";
 							parentCls="ACE_moduleReviveSettings";
 							typeName="enableRevive";
 						};
@@ -2386,7 +2388,7 @@ class Mission
 					position[]={11515.811,25.494686,11925.944};
 					class args
 					{
-						items=13;
+						items=14;
 						class Item0
 						{
 							value="1";
@@ -2403,63 +2405,69 @@ class Mission
 						{
 							value="0";
 							parentCls="ACE_moduleMedicalSettings";
-							typeName="allowLitterCreation";
+							typeName="increaseTrainingInLocations";
 						};
 						class Item3
+						{
+							value="0";
+							parentCls="ACE_moduleMedicalSettings";
+							typeName="allowLitterCreation";
+						};
+						class Item4
 						{
 							value="300";
 							parentCls="ACE_moduleMedicalSettings";
 							typeName="litterCleanUpDelay";
 						};
-						class Item4
+						class Item5
 						{
 							value="1";
 							parentCls="ACE_moduleMedicalSettings";
 							typeName="enableScreams";
 						};
-						class Item5
+						class Item6
 						{
 							value="1";
 							parentCls="ACE_moduleMedicalSettings";
 							typeName="playerDamageThreshold";
 						};
-						class Item6
+						class Item7
 						{
 							value="1";
 							parentCls="ACE_moduleMedicalSettings";
 							typeName="AIDamageThreshold";
 						};
-						class Item7
+						class Item8
 						{
 							value="0";
 							parentCls="ACE_moduleMedicalSettings";
 							typeName="enableUnconsciousnessAI";
 						};
-						class Item8
+						class Item9
 						{
 							value="1";
 							parentCls="ACE_moduleMedicalSettings";
 							typeName="remoteControlledAI";
 						};
-						class Item9
+						class Item10
 						{
 							value="0";
 							parentCls="ACE_moduleMedicalSettings";
 							typeName="preventInstaDeath";
 						};
-						class Item10
+						class Item11
 						{
 							value="1";
 							parentCls="ACE_moduleMedicalSettings";
 							typeName="bleedingCoefficient";
 						};
-						class Item11
+						class Item12
 						{
 							value="1";
 							parentCls="ACE_moduleMedicalSettings";
 							typeName="painCoefficient";
 						};
-						class Item12
+						class Item13
 						{
 							value="1";
 							parentCls="ACE_moduleMedicalSettings";
@@ -2656,7 +2664,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=183;
+		items=185;
 		class Item0
 		{
 			position[]={11644.7,-0.521698,11973.6};
@@ -4573,6 +4581,22 @@ class Mission
 			vehicle="Land_PortableLight_double_F";
 			skill=0.60000002;
 			init="this allowDamage false;this setVariable ['R3F_LOG_disabled', true];";
+		};
+		class Item183
+		{
+			position[]={11659.561,23.207413,11969.857};
+			id=279;
+			side="EMPTY";
+			vehicle="Land_ClutterCutter_large_F";
+			skill=0.60000002;
+		};
+		class Item184
+		{
+			position[]={11654.136,23.094374,11973.325};
+			id=280;
+			side="EMPTY";
+			vehicle="Land_ClutterCutter_large_F";
+			skill=0.60000002;
 		};
 	};
 	class Markers

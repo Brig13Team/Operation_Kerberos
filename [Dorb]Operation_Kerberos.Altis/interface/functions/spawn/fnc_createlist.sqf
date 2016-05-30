@@ -283,7 +283,7 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
 
         };
         
-        if(_vClass=="I_MRAP_03_F") then {
+        if(_class=="I_MRAP_03_F") then {
 
             _spawnliste_fahrzeug_bewaffnet pushBack [_class,_pic ,"BIS", (call(_DNameBIS)), _DName, _icon];
 
