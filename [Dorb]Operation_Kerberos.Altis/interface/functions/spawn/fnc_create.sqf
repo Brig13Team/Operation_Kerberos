@@ -73,7 +73,7 @@ if ((_vehicle isKindOf "B_Truck_01_medical_F") or (_vehicle isKindOf "B_Slingloa
 };
 
 if (_vehicle isKindOf "I_MRAP_03_F") then {
-    [_vehicle,["blu",1],true] call BIS_fnc_initVehicle;
+    [_vehicle,"blu",true] call BIS_fnc_initVehicle;
 };
 
 if (_mode isEqualTo "driver") then {
