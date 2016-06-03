@@ -9,15 +9,13 @@
         1 : OBJECT - vehicle 2
 */
 #include "script_component.hpp"
-SCRIPT(doUnTow);
 
-private ["_index"];
-params [["_veh1",objNull,[objNull]],["_veh2",objNull,[objNull]]];
+_this params [["_veh1",objNull,[objNull]],["_veh2",objNull,[objNull]]];
 
 if ((isNull _veh1) || (isNull _veh2)) exitWith {};
 
 detach _veh2;
-_index = _veh1 getVariable [QGVAR(towEventHandler),[]];
+private _index = _veh1 getVariable [QGVAR(towEventHandler),[]];
 
 {
     _veh1 removeEventHandler _x;

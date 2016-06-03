@@ -6,37 +6,25 @@
         
     Parameter(s):
         0 : OBJECT - Target
+        1 : OBJECT - Cargo
         
     Returns:
         BOOL
 */
 #include "script_component.hpp"
-SCRIPT(doload);
-#define LOADTIME 3
-PARAMS_1(_target);
-
+_this params ["_target","_caller","_params"];
+_params params ["_vehicle",["_object",objNull,[objNull]]];
 CHECK(GETVAR(player,GVAR(isloading),false))
-private["_nearObjects","_object"];
-_nearObjects = nearestObjects[(_target modelToWorld (getArray(missionConfigFile >> "logistics" >> "vehicles" >> (typeOf _target) >> "load_point"))), ["AllVehicles","ThingX"], 2];
-_object = objNull;
-
-{
-    If (!(([_x] call FUNC(getCargoCfg))isEqualTo "")) exitWith {
-        _object = _x;
-    };
-}forEach _nearObjects;
 
 If (!isNull _object) then {
     SETVAR(player,GVAR(isloading),true);
     GVAR(isloading_pos)=getPos player;
-    private["_anim"];
-    _anim = getText(missionConfigFile >> "logistics" >> "vehicles" >> (typeOf _target) >> "hatch_isclosed");
+    private _anim = getText(missionConfigFile >> "logistics" >> "vehicles" >> (typeOf _vehicle) >> "hatch_isclosed");
     If (!(_anim isEqualTo "")) then {
-        If (_target call compile _anim) then {
-            _target call (compile (getText(missionConfigFile >> "logistics" >> "vehicles" >> (typeOf _target) >> "hatch_open")));
-            private "_isopened";
-            _isopened = compile (getText(missionConfigFile >> "logistics" >> "vehicles" >> (typeOf _target) >> "hatch_isopened"));
-            waitUntil{uisleep 0.2;_target call _isopened;};
+        If (_vehicle call compile _anim) then {
+            _vehicle call (compile (getText(missionConfigFile >> "logistics" >> "vehicles" >> (typeOf _vehicle) >> "hatch_open")));
+            private _isopened = compile (getText(missionConfigFile >> "logistics" >> "vehicles" >> (typeOf _vehicle) >> "hatch_isopened"));
+            waitUntil{uisleep 0.2;_vehicle call _isopened;};
         };
     };
     GVAR(aceactions) = [false,false];
@@ -51,11 +39,10 @@ If (!isNull _object) then {
     SETPVAR(_object,GVAR(aceactions),GVAR(aceactions));
     [
         LOADTIME,
-        [_object,_target, getPos _object, getPos _target],
+        [_object,_vehicle, getPos _object, getPos _vehicle],
         {(_this select 0) call FUNC(load);SETVAR(player,GVAR(isloading),false);},
         {SETVAR(player,GVAR(isloading),false);},
         "",
         { if (!((getPos (_this select 0 select 0)) isEqualTo (_this select 0 select 2))) exitWith { false }; if (!((getPos (_this select 0 select 1)) isEqualTo (_this select 0 select 3))) exitWith { false }; true }
     ] call ace_common_fnc_progressBar;
-
 };

@@ -8,12 +8,8 @@
         0 : OBJECT - target of the ace action
 */
 #include "script_component.hpp"
-SCRIPT(canTow);
-private ["_boundingBox1","_boundingBox2"];
 _this params [["_target",objNull,[objNull]]];
-
 If !((_target isKindOf "Car")||(_target isKindOf "Tank")) exitWith {false};
-
 private _boundingBox1 = boundingBoxReal _target;
 private _target_lenght = abs(_boundingBox1 select 1 select 0);
 

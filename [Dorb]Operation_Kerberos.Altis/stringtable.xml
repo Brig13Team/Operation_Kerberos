@@ -1052,6 +1052,11 @@
         </Key>
     </Package>
     <Package name="logistics">
+        <Key ID="STR_DORB_LOGISTICS_ACTION_MAIN">
+            <Original>Logistics</Original>
+            <German>Logistik</German>
+            <English>Logistics</English>
+        </Key>
         <Key ID="STR_DORB_LOGISTICS_ACTION_LOAD">
             <Original>Load</Original>
             <German>Einladen</German>
