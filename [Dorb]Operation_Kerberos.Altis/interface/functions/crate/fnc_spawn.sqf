@@ -57,7 +57,7 @@ _anzahl = GVAR(crate_current) select 3;
     _box addMagazineCargoGlobal [configname (_x),(_anzahl select _foreachindex)];
 }forEach _items;
 
-[_box] call EFUNC(logistics,setContainerWeight);
+[QEGVAR(logistics,setContainerWeight),_box] call CBA_fnc_localEvent;
 ["CRATE_SPAWNED",[_box]] spawn CBA_fnc_ServerEvent;
 disableSerialization;
 closeDialog 600200;
