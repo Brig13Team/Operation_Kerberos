@@ -15,3 +15,10 @@
         };
     }
 ] call CBA_fnc_addEventHandler;
+
+[
+    QGVAR(setContainerWeight),
+    {
+        _this call FUNC(setContainerWeight);
+    }
+] call CBA_fnc_addEventHandler;
