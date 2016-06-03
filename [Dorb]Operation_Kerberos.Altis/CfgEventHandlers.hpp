@@ -9,7 +9,6 @@
 
 class Extended_PreInit_EventHandlers {
     INCLUDE_PREINIT(main);
-    INCLUDE_PREINIT(events);
     INCLUDE_PREINIT(common);
     INCLUDE_PREINIT(headless);
     INCLUDE_PREINIT(interface);
@@ -25,6 +24,7 @@ class Extended_PostInit_EventHandlers {
     INCLUDE_POSTINIT(main);
     INCLUDE_SERVERPOSTINIT(logistics);
     INCLUDE_SERVERPOSTINIT(interface);
+    INCLUDE_SERVERPOSTINIT(common);
     INCLUDE_SERVERPOSTINIT(player);
     INCLUDE_SERVERPOSTINIT(mission);
     INCLUDE_CLIENTPOSTINIT(logistics);
@@ -71,7 +71,6 @@ class Extended_hit_EventHandlers {
     #include "player\XEH_hit.hpp"
 };
 class Extended_hitPart_EventHandlers {
-    #include "player\XEH_hitPart.hpp"
     #include "bwpatch\XEH_hitPart.hpp"
 };
 //class Extended_incomingMissile_EventHandlers {};

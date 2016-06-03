@@ -19,4 +19,4 @@ _this params[["_title","",[""]],["_content","",["",[]]],["_icon","",[""]],["_bod
 
 If (IS_STRING(_content)) then {_content = [_content];};
 
-[QUOTE(FUNC(disp_info)),[_title,_content,_icon,_body],-1] call EFUNC(events,globalExec);
+["dispInfo",[_title,_content,_icon,_body]] call CBA_fnc_globalEvent;
