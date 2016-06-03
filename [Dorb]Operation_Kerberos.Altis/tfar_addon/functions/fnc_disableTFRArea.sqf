@@ -11,7 +11,6 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(disableTFRArea);
 _this params [
         ["_centerpos",[0,0,0],[[],objNull],[2,3]],
         ["_range",5000,[0]],

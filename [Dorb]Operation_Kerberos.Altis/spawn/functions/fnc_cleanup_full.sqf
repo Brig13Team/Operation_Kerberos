@@ -6,7 +6,6 @@
     
 */
 #include "script_component.hpp"
-SCRIPT(cleanup_full);
 _this params ["_pos","_rad"];
 
 [] call FUNC(cleanup_base);
