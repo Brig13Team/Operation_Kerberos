@@ -10,7 +10,7 @@ SCRIPT(device_effect_earthquake);
 
 _this params ["_target"];
 
-ISNILS(GVAR(device_intervall),diag_ticktime);
+ISNILS(GVAR(device_intervall),CBA_missionTime);
 
 If (GVAR(device_intervall)>diag_ticktime) exitWith {};
 

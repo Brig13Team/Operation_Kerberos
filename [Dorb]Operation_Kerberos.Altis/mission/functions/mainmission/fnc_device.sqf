@@ -53,7 +53,7 @@ for "_i" from 1 to _rand do{
 /********************
     taskhandler
 ********************/
-
+GVAR(earthquake_nextIntervall) = CBA_missionTime + 8*60;
 [
     QUOTE(_this params['_targets'];private '_a';_a = {_x getVariable [ARR_2('GVAR(target_dead)',false)];}count _targets;If (_a == (count _targets)) then {true}else{false};),
     [_targets],

@@ -8,17 +8,15 @@
         0 : STRING - mode
 */
 #include "script_component.hpp"
-SCRIPT(setContainerWeight);
 
-private["_cweight","_iweight","_itemCargo","_container"];
-params[["_container",objNull,[objNull]]];
+_this params[["_container",objNull,[objNull]]];
 
 if (not (_container isKindOf "ReammoBox_f")) exitWith {};
 
-_cweight = _container getVariable [QGVAR(emptyMass), getMass _container];
-_iweight = 0;
+private _cweight = _container getVariable [QGVAR(emptyMass), getMass _container];
+private _iweight = 0;
 
-_itemCargo = getItemCargo _container;
+private _itemCargo = getItemCargo _container;
 for "_i" from 0 to (count (_itemCargo select 0) - 1) do {
     if (isNumber (configFile >> "CfgWeapons" >> (_itemCargo select 0 select _i) >> "ItemInfo" >> "mass")) then {
         _iweight = _iweight + (getNumber(configFile >> "CfgWeapons" >> (_itemCargo select 0 select _i) >> "ItemInfo" >> "mass") * (_itemCargo select 1 select _i));

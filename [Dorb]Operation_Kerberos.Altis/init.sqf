@@ -22,10 +22,6 @@ If (isServer) then {
     setTimeMultiplier 2;
 };
 
-If (isHeadless) then {
-    [] execVM "VCOM_Driving\init.sqf";
-};
-
 If (hasInterface) then {
     waituntil {! isnull player};
     ["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;

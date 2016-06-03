@@ -18,7 +18,7 @@ _this params [
         ["_duration",180,[0]]
     ];
 If (IS_OBJECT(_centerpos)) then {_centerpos = getPos _centerpos;};
-_enableTime = diag_tickTime + _duration;
+_enableTime = CBA_missionTime + _duration;
 {
     If ((_x distance _centerpos)< _range) then {
         [_x] call FUNC(disableTFR);

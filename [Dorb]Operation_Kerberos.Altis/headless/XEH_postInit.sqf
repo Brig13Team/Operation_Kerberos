@@ -3,8 +3,8 @@ CHECK(!GVARMAIN(HC_enabled))
 CHECK(hasInterface&&(!isServer))
 
 If (isServer) then {
-    [GVAR(joined),{_this call FUNC(connect);}] call CBA_fnc_addEventHandler;
+    [QGVAR(joined),{_this call FUNC(connect);}] call EFUNC(events,addEventHandler);
     addMissionEventHandler ["HandleDisconnect",{_this call EFUNC(disconnect)}];
 }else{
-    [QGVAR(joined),[player]] call CBA_fnc_ServerEvent;
+    [QGVAR(joined),[player]] call EFUNC(events,serverEvent);
 };

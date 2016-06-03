@@ -56,5 +56,3 @@ If (GVARMAIN(playerside) == east) then {
     INDEPENDENT setFriend [WEST, 1];
     INDEPENDENT setFriend [EAST, 0];
 };
-
-
