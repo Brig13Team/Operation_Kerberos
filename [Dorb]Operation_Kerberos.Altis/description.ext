@@ -5,7 +5,7 @@ onLoadName = "Operation Kerberos";
 class Header {
   gameType = Coop;
   minPlayers = 1;
-  maxPlayers = 38;
+  maxPlayers = 54;
 };
 
 ///// ALLGEMEIN
