@@ -73,8 +73,13 @@ if ((_vehicle isKindOf "B_Truck_01_medical_F") or (_vehicle isKindOf "B_Slingloa
 };
 
 if (_vehiclewahl in ["I_MRAP_03_F"]) then {
-    [_vehicle,"blu",true] call BIS_fnc_initVehicle;
+    [_vehicle,"blufor",true] call BIS_fnc_initVehicle;
 };
+
+if (_vehiclewahl in ["O_Heli_Transport_04_F"]) then {
+    [_vehicle,"Black",["AddCargoHook_COver",0]] call BIS_fnc_initVehicle;
+};
+
 
 if (_mode isEqualTo "driver") then {
     If (((_flyingpos distance [0,0,0])>1)&&(_vehiclewahl isKindOf "Plane_Base_F")&&(!( (getText(configFile >> "CfgVehicles" >> _vehiclewahl >> "vehicleClass"))isEqualTo "Autonomous"))) then {
