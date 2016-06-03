@@ -296,7 +296,8 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
 
         };
 
-        if ((_class=="ACE_medicalSupplyCrate")or(_class=="ACE_medicalSupplyCrate_advanced")or(_class=="ACE_Box_Misc")or(_class=="ACE_Box_Ammo")or(_class=="B_Truck_01_medical_F")or(_class=="ACE_Track")or(_class=="ACE_Wheel")) then {
+        if (_class in ["ACE_medicalSupplyCrate","ACE_medicalSupplyCrate_advanced","ACE_Box_Misc","ACE_Box_Ammo","B_Truck_01_medical_F",
+                        "ACE_Track","ACE_Wheel","ACE_Box_82mm_Mo_Combo","ACE_Box_82mm_Mo_HE","ACE_Box_82mm_Mo_Illum","ACE_Box_82mm_Mo_Smoke") then {
 
             _spawnliste_ace  pushBack       [_class,_pic ,"ACE",_DName, _DName, _icon];
 

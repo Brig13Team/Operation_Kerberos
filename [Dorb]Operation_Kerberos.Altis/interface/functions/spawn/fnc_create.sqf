@@ -72,7 +72,7 @@ if ((_vehicle isKindOf "B_Truck_01_medical_F") or (_vehicle isKindOf "B_Slingloa
     SETPVAR(_vehicle,ace_medical_isMedicalFacility,true);
 };
 
-if (_vehicle isKindOf "I_MRAP_03_F") then {
+if (_vehiclewahl in ["I_MRAP_03_F"]) then {
     [_vehicle,"blu",true] call BIS_fnc_initVehicle;
 };
 
