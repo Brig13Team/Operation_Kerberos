@@ -20,6 +20,6 @@ If (IS_STRING(_code)) then {
     _code = compile _code;
 };
 
-GVAR(waitAndExecArray) pushBack [(diag_ticktime + _delay), _code, _parameter];
+GVAR(waitAndExecArray) pushBack [(CBA_missionTime + _delay), _code, _parameter];
 GVAR(waitAndExecArray) sort true;
 true;

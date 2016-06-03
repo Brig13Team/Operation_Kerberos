@@ -13,7 +13,6 @@
         true
 */
 #include "script_component.hpp"
-SCRIPT(XEH_getIn);
 
 params["_group","_position","_unit","_turret"];
 

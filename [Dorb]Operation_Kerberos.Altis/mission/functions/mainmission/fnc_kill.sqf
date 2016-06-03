@@ -51,7 +51,7 @@ GVAR(rescue_counter) = 0;
     #ifdef DEBUG_MODE_FULL
         [getPos _x,format["KILL %1",(name _x)]] call EFUNC(common,debug_marker_create);
     #endif
-    _x addEventHandler ["Killed",{["killedMessage",[name(_this select 0)]] call CBA_fnc_globalEvent;}];    
+    _x addEventHandler ["Killed",{[QGVAR(killedMessage),[name(_this select 0)]] call CBA_fnc_globalEvent;}];    
 }forEach _targets;
 
 

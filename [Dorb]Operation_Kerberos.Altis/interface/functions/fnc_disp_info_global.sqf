@@ -19,4 +19,4 @@ _this params[["_title","",[""]],["_content","",["",[]]],["_icon","",[""]],["_bod
 
 If (IS_STRING(_content)) then {_content = [_content];};
 
-["dispInfo",[_title,_content,_icon,_body]] call CBA_fnc_globalEvent;
+[QGVAR(dispInfo),[_title,_content,_icon,_body]] call CBA_fnc_globalEvent;

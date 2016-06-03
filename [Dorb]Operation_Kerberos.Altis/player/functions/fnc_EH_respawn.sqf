@@ -6,7 +6,7 @@ private _respawntime = uiNamespace getVariable QEGVAR(interface,RespawnTime);
 if (isNil "_respawntime") then {
     uiNamespace setVariable [QEGVAR(interface,RespawnTime),-1];
 } else {
-    uiNamespace setVariable [QEGVAR(interface,RespawnTime),diag_tickTime];
+    uiNamespace setVariable [QEGVAR(interface,RespawnTime),CBA_missionTime];
 };
 
 ["restart"] spawn FUNC(grouptracker);

@@ -9,7 +9,6 @@
         ARRAY - including all players
 */
 #include "script_component.hpp"
-SCRIPT(players);
 
 If !(isMultiplayer) exitWith {[player]};
 

@@ -112,17 +112,17 @@ _targets = _targets - [objNull];
 /********************
     timer
 ********************/
-GVAR(endzeit) = diag_tickTime + (60 * /*time in minutes*/ 80);
+GVAR(endzeit) = CBA_missionTime + (60 * /*time in minutes*/ 80);
 publicVariable QGVAR(endzeit);
 GVAR(scarab_waiting) = true;
 
 [
-    QUOTE(params['_targets'];If (diag_tickTime>GVAR(endzeit)) exitWith {{If (alive _x) then {[_x] spawn FUNC(mainmission_scarab_launch);};}forEach _targets;uisleep 30;true};if ((({!(alive _x)} count _targets) > 0)||((({(alive gunner _x)} count _targets)) <= 0))then{true}else{false};),
+    QUOTE(params['_targets'];If (CBA_missionTime>GVAR(endzeit)) exitWith {{If (alive _x) then {[_x] spawn FUNC(mainmission_scarab_launch);};}forEach _targets;uisleep 30;true};if ((({!(alive _x)} count _targets) > 0)||((({(alive gunner _x)} count _targets)) <= 0))then{true}else{false};),
     [_targets],
-    QUOTE(If (diag_tickTime>GVAR(endzeit)) exitWith {false};    If !((({(alive gunner _x)} count (_this select 0))) > 0) exitWith {false};true),
+    QUOTE(If (CBA_missionTime>GVAR(endzeit)) exitWith {false};    If !((({(alive gunner _x)} count (_this select 0))) > 0) exitWith {false};true),
     QUOTE(GVAR(endzeit) = 0;publicVariable 'GVAR(endzeit)';),
     QUOTE(GVAR(endzeit) = 0;publicVariable 'GVAR(endzeit)';),
     [_targets],
-    QUOTE(If ((GVAR(endzeit) < (diag_tickTime + 300))&&(GVAR(scarab_waiting))) then {GVAR(scarab_waiting)=false;{[ARR_2(_x,1)] spawn rhs_fnc_ss21_AI_prepare;}forEach (_this select 0);};),
+    QUOTE(If ((GVAR(endzeit) < (CBA_missionTime + 300))&&(GVAR(scarab_waiting))) then {GVAR(scarab_waiting)=false;{[ARR_2(_x,1)] spawn rhs_fnc_ss21_AI_prepare;}forEach (_this select 0);};),
     [_targets]
 ]

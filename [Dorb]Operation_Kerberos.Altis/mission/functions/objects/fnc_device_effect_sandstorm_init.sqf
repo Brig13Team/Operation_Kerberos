@@ -20,5 +20,5 @@ If (hasInterface) exitWith {
 };
 
 If (isServer) then {
-    ["sandstorm",[]] call CBA_fnc_remoteEvent;
+    [QGVAR(sandstorm),[]] call CBA_fnc_remoteEvent;
 };

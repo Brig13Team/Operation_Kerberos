@@ -53,7 +53,7 @@ for "_i" from 1 to _rand do{
 /********************
     taskhandler
 ********************/
-
+GVAR(earthquake_nextIntervall) = CBA_missionTime + 8*60;
 [
     QUOTE(_this params['_targets'];private '_a';_a = {_x getVariable [ARR_2('GVAR(target_dead)',false)];}count _targets;If (_a == (count _targets)) then {true}else{false};),
     [_targets],
@@ -61,6 +61,6 @@ for "_i" from 1 to _rand do{
     {},
     {},
     [],
-    QUOTE(If (isnil 'GVAR(earthquake_nextIntervall)') then {GVAR(earthquake_nextIntervall)=diag_ticktime + 8*60;};If (GVAR(earthquake_nextIntervall)<diag_ticktime) then {["earthquake"] call CBA_fnc_globalEvent;GVAR(earthquake_nextIntervall)=7*60+(floor(random 3))*60;};),
+    QUOTE(If (isnil 'GVAR(earthquake_nextIntervall)') then {GVAR(earthquake_nextIntervall)=diag_ticktime + 8*60;};If (GVAR(earthquake_nextIntervall)<diag_ticktime) then {[QGVAR(earthquake)] call CBA_fnc_globalEvent;GVAR(earthquake_nextIntervall)=7*60+(floor(random 3))*60;};),
     []
 ]

@@ -13,7 +13,7 @@
 #include "script_component.hpp"
 If (!hasInterface) then {
     [
-        "KnockKnock",
+        QGVAR(KnockKnock),
         {
             _this params ["_tank","_knocker"];
             [_tank,_knocker] say3D QGVARMAIN(sound_knockknock);
@@ -24,7 +24,7 @@ If (!hasInterface) then {
 private _targets = ["Tank"];
 private _cfgLog = missionconfigFile >> "logistics" >> "vehicles";
 
-private _Action = [QGVAR(action_knockknock), localize LSTRING(ACTION_KNOCKKNOCK), "", {["KnockKnock",[_target,player]] call CBA_fnc_globalEvent;}, {alive _target}] call ace_interact_menu_fnc_createAction;
+private _Action = [QGVAR(action_knockknock), localize LSTRING(ACTION_KNOCKKNOCK), "", {[QGVAR(KnockKnock),[_target,player]] call CBA_fnc_globalEvent;}, {alive _target}] call ace_interact_menu_fnc_createAction;
 
 for "_i" from 0 to ((count _cfgLog)-1) do {
     private _vehicle = configname(_cfgLog select _i);

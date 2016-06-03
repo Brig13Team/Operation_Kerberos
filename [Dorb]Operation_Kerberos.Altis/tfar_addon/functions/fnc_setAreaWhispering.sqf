@@ -21,6 +21,6 @@ CHECK(_position isEqualTo [])
 
 {
     If ((_x distance2D _position)<= _radius) then {
-        ["setWhispering",[],_x] call CBA_fnc_targetEvent;
+        [QGVAR(setWhispering),[],_x] call CBA_fnc_targetEvent;
     };
 }forEach allPlayers;
