@@ -61,6 +61,6 @@ GVAR(earthquake_nextIntervall) = CBA_missionTime + 8*60;
     {},
     {},
     [],
-    QUOTE(If (GVAR(earthquake_nextIntervall)<CBA_missionTime) then {[ARR_2(QGVAR(earthquake),(floor(random 4)+1))] call EFUNC(events,clientEvent);GVAR(earthquake_nextIntervall)=7*60+(floor(random 3))*60;};),
+    QUOTE(If (isnil 'GVAR(earthquake_nextIntervall)') then {GVAR(earthquake_nextIntervall)=diag_ticktime + 8*60;};If (GVAR(earthquake_nextIntervall)<diag_ticktime) then {["earthquake"] call CBA_fnc_globalEvent;GVAR(earthquake_nextIntervall)=7*60+(floor(random 3))*60;};),
     []
 ]

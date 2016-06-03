@@ -18,7 +18,7 @@
 _this params [["_object",objNull,[objNull]],["_target",objNull,[objNull,0,true]]];
 
 If (!isServer) then {
-    [{_this call FUNC(setOwner);},[_object,_target],0,false] call EFUNC(events,globalExec);
+    ["changeOwner",[_object,_target]] call CBA_fnc_serverEvent;
 };
 
 If (IS_BOOL(_target)) then {_target = 0;};

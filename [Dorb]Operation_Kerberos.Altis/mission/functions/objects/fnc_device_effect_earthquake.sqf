@@ -12,12 +12,8 @@ _this params ["_target"];
 
 ISNILS(GVAR(device_intervall),CBA_missionTime);
 
-If (GVAR(device_intervall)>CBA_missionTime) exitWith {};
-[{
-    if (!(vehicle player isKindof 'Air')) then {
-        _rand=(floor(random 4) + 1);
-        [_rand]spawn BIS_fnc_earthquake;
-    };
-},-1] call EFUNC(events,globalExec);
+If (GVAR(device_intervall)>diag_ticktime) exitWith {};
+
+["earthquake",[]] call CBA_fnc_globalEvent;
 
 GVAR(earthquake_nextIntervall) = 7 * 60 + (floor(random 3)) * 60;
