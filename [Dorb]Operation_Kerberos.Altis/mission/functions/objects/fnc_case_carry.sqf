@@ -23,7 +23,7 @@ _suitcase setVariable [QGVAR(objects_carrier),_carrier,true];
 _carrier setVariable [QGVAR(objects_suitcase),_suitcase];
 
 If (isMultiplayer) then {
-    ["suitcase_handle", [_suitcase]] call CBA_fnc_globalEvent;
+    [QGVAR(suitcase_handle), [_suitcase]] call CBA_fnc_globalEvent;
 }else{
     [{_this call FUNC(objects_handle); }, 1, [_suitcase]] call CBA_fnc_addPerFrameHandler;
 };

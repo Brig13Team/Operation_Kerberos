@@ -7,7 +7,7 @@
 #include "script_component.hpp"
 If (!hasInterface) then {
     [
-        "teamkill",
+        QGVAR(teamkill),
         {diag_log text _this}
     ] call CBA_fnc_addEventHandler;
 };
