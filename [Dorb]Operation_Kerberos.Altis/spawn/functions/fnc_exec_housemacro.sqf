@@ -13,7 +13,6 @@
     
 */
 #include "script_component.hpp"
-SCRIPT(exec_housemacro);
 _this params [ ["_house",objNull,[objNull]],["_material",[],[[]]],["_vehicles",[],[[]]],["_soldiers",[],[[]]] ];
 
 If (isNull _house) exitWith {};
@@ -21,7 +20,8 @@ If (isNull _house) exitWith {};
 _houseType = typeOf _house;
 _housePos = getPosASL _house;
 
-([_house] call FUNC(getRollPitchYaw)) params ["_houseRoll","_housePitch","_houseYawn"];
+([_house] call EFUNC(common,getRollPitchYaw)) params ["_houseRoll","_housePitch","_houseYawn"];
+LOG_3(_houseRoll,_housePitch,_houseYawn);
 If (((count _vehicles)>0)||((count _soldiers)>0)) then {
     _gruppe = createGroup GVARMAIN(side);
     SETVAR(_gruppe,EGVAR(headquarter,state),"defend");
@@ -30,7 +30,8 @@ If (((count _vehicles)>0)||((count _soldiers)>0)) then {
 
 {
     _x params[ ["_currentObjectType","",[""]],["_currentPos",[],[[]]],["_currentRotMat",[],[[]]]  ];
-    ([_currentRotMat] call FUNC(convertRotMatToAngle)) params ["_currentRoll","_currentPitch","_currentYaw"];
+    LOG_3(_currentObjectType,_currentPos,_currentRotMat);
+    ([_currentRotMat] call EFUNC(common,convertRotMatToAngle)) params ["_currentRoll","_currentPitch","_currentYaw"];
     private _setPos = _currentPos vectorAdd _housePos;
     
     _currentRoll = _currentRoll + _houseRoll;
@@ -39,19 +40,21 @@ If (((count _vehicles)>0)||((count _soldiers)>0)) then {
     
     private _setUp = [sin _currentRoll,0,cos _currentRoll];
     private _setDir = [0,cos _currentPitch,sin _currentPitch];
-    _setUp = [_setUp,_currentYaw] call FUNC(rotateVectorXY);
-    _setDir = [_setDir,_currentYaw] call FUNC(rotateVectorXY);
+    _setUp = [_setUp,_currentYaw] call EFUNC(common,rotateVectorXY);
+    _setDir = [_setDir,_currentYaw] call EFUNC(common,rotateVectorXY);
     
-    private _vehicle = createVehicle [_currentType,_spawnPosATL, [], 0, "CAN_COLLIDE"];
+    private _vehicle = createVehicle [_currentObjectType,_setPos, [], 0, "CAN_COLLIDE"];
     _vehicle enableSimulation false;
+    LOG_3(_setUp,_setDir,_setPos);
+    _setPos = _house modelToWorld _currentPos;
+    _vehicle setPosATL _setPos;
     _vehicle setVectorUP _setUp;
     _vehicle setVectorDir _setDir;
-    _vehicle setPosATL _setPos;
 } forEach _material;
 
 {
     _x params[ ["_currentObjectType","",[""]],["_currentPos",[],[[]]],["_currentRotMat",[],[[]]]  ];
-    ([_currentRotMat] call FUNC(convertRotMatToAngle)) params ["_currentRoll","_currentPitch","_currentYaw"];
+    ([_currentRotMat] call EFUNC(common,convertRotMatToAngle)) params ["_currentRoll","_currentPitch","_currentYaw"];
     private _setPos = _currentPos vectorAdd _housePos;
     
     _currentRoll = _currentRoll + _houseRoll;
@@ -60,15 +63,15 @@ If (((count _vehicles)>0)||((count _soldiers)>0)) then {
     
     private _setUp = [sin _currentRoll,0,cos _currentRoll];
     private _setDir = [0,cos _currentPitch,sin _currentPitch];
-    _setUp = [_setUp,_currentYaw] call FUNC(rotateVectorXY);
-    _setDir = [_setDir,_currentYaw] call FUNC(rotateVectorXY);
+    _setUp = [_setUp,_currentYaw] call EFUNC(common,rotateVectorXY);
+    _setDir = [_setDir,_currentYaw] call EFUNC(common,rotateVectorXY);
     
-    private _vehicle = createVehicle [_currentType,_spawnPosATL, [], 0, "CAN_COLLIDE"];
+    private _vehicle = createVehicle [_currentObjectType,_setPos, [], 0, "CAN_COLLIDE"];
     _vehicle enableSimulation false;
     _vehicle setVectorUP _setUp;
     _vehicle setVectorDir _setDir;
     _vehicle setPosATL _setPos;
-    If ("Artillery" in getArray(configFile>>"cfgVehicles">>_currentType>>"availableforsupporttypes")) then {[_vehicle] call EFUNC(headquarter,fdc_register);};
+    If ("Artillery" in getArray(configFile>>"cfgVehicles">>_currentObjectType>>"availableforsupporttypes")) then {[_vehicle] call EFUNC(headquarter,fdc_register);};
     _vehicle enableSimulation true;
     [_vehicle,_gruppe] call FUNC(crew);
     If (!(_vehicle isKindOf "StaticWeapon")) then {
@@ -85,7 +88,7 @@ If (((count _vehicles)>0)||((count _soldiers)>0)) then {
 
 {
     _x params[ ["_currentObjectType","",[""]],["_currentPos",[],[[]]],["_currentRotMat",[],[[]]]  ];
-    ([_currentRotMat] call FUNC(convertRotMatToAngle)) params ["_currentRoll","_currentPitch","_currentYaw"];
+    ([_currentRotMat] call EFUNC(common,convertRotMatToAngle)) params ["_currentRoll","_currentPitch","_currentYaw"];
     private _setPos = _currentPos vectorAdd _housePos;
     
     _currentRoll = _currentRoll + _houseRoll;
@@ -94,12 +97,11 @@ If (((count _vehicles)>0)||((count _soldiers)>0)) then {
     
     private _setUp = [sin _currentRoll,0,cos _currentRoll];
     private _setDir = [0,cos _currentPitch,sin _currentPitch];
-    _setUp = [_setUp,_currentYaw] call FUNC(rotateVectorXY);
-    _setDir = [_setDir,_currentYaw] call FUNC(rotateVectorXY);
+    _setUp = [_setUp,_currentYaw] call EFUNC(common,rotateVectorXY);
+    _setDir = [_setDir,_currentYaw] call EFUNC(common,rotateVectorXY);
     
-    private _currentType = selectRandom GVAR(list_soldiers);
-    private _unit = _gruppe createUnit[_currentType,_spawnPosATL, [], 0, "NONE"];
-    _unit setPosATL _spawnPosATL;
+    private _currentObjectType = selectRandom GVAR(list_soldiers);
+    private _unit = _gruppe createUnit[_currentObjectType,_setPos, [], 0, "NONE"];
     _unit setVectorUP _setUp;
     _unit setVectorDir _setDir;
     _unit setPosATL _setPos;

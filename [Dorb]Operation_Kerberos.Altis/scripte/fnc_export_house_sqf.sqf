@@ -2,11 +2,11 @@
     Author: Dorbedo
     
     called via:
-        [cursorTarget,25] execVM "fnc_export_obj_sqf.sqf";
+        [cursorTarget,25] execVM "fnc_export_house_sqf.sqf";
 
     
     class Housename_randomnumber {
-        material[] = {  {classname,position,direction,offset,vectorUp}  };
+        material[] = {  {classname,position,RotMatrix}  };
         vehicles[] = {  {classname,position,direction,offset,vectorUp}  };        //static and vehicles
         soldier[] = {  {classname,position,direction,offset,vectorUp}  };
     };
@@ -20,17 +20,18 @@ If (isNull _house) exitWith {};
 
 private _houseType = typeOf _house;
 private _housePos = getPosASL _house;
+private _houseDir = getDir _house;
 private _houseVDir = VectorDir _house;
 private _houseVUp = VectorUp _house;
 
-private _allObjects = _house nearObjects [["CAManBase","Static","LandVehicle","Air","Ship"],_radius];
+private _allObjects = nearestObjects [_house,["CAManBase","Static","LandVehicle","Air","Ship"],_radius];
 private _exportarray = [];
 
 private _fnc_rotVector = {
     _this params ["_vector","_dir"];
     _vector params ["_x","_y"];
-    _vector set [0,(cos _dir)*_x - (sin _dir) * _y];
-    _vector set [1,(sin _dir)*_x + (cos _dir) * _y];
+    _vector set [0,((cos _dir)*_x - (sin _dir) * _y)];
+    _vector set [1,((sin _dir)*_x + (cos _dir) * _y)];
     _vector;
 };
 
@@ -54,20 +55,11 @@ private _fnc_formatRotMat = {
 };
 
 private _fnc_getRollPitchYaw = {
-    _this params ["_objectDir","_objectUp",["_Roll",0,[0]],["_Nick",0,[0]],["_Gier",0,[0]]];
-
-    private _objectDir = VectorDir _object;
-    private _objectUp = VectorUp _object;
+    _this params ["_objectDir","_objectVDir","_objectVUp",["_Roll",0,[0]],["_Nick",0,[0]],["_Gier",0,[0]]];
 
     private _Rollwinkel = 0;
     private _Gierwinkel = 0;
     private _Nickwinkel = 0;
-
-    private _objectVDir = VectorDir _object;
-    private _objectVUp = VectorUp _object;
-    private _objectVSide = _objectVDir VectorcrossProduct _objectVUp;
-    private _objectDir = getDir _object;
-
     private _VectorDir = [_objectVDir,_objectDir] call _fnc_rotVector;
     private _VectorUp = [_objectVUp,_objectDir] call _fnc_rotVector;
 
@@ -93,49 +85,57 @@ private _fnc_getRollPitchYaw = {
 
 private _fnc_ObjGetRollPitchYaw = {
     _this params [["_object",objNull,[objNull]],["_roll",0,[0]],["_nick",0,[0]],["_gier",0,[0]]];
-    private _objectDir = VectorDir _object;
-    private _objectUp = VectorUp _object;
-    [_objectDir,_objectUp,_roll,_nick,_gier] call _fnc_getRollPitchYaw;
+    private _objectDir = getDir _object;
+    private _objectVDir = VectorDir _object;
+    private _objectVUp = VectorUp _object;
+    [_objectDir,_objectVDir,_objectVUp,_roll,_nick,_gier] call _fnc_getRollPitchYaw;
 };
 
 private _fnc_ObjGetRotMat = {
     _this params [["_object",objNull,[objNull]],["_roll",0,[0]],["_nick",0,[0]],["_gier",0,[0]]];
     private _tempRollPitchYaw = [_object] call _fnc_ObjGetRollPitchYaw;
-    [_tempRollPitchYaw] call _fnc_formatRotMat;
+    _tempRollPitchYaw call _fnc_formatRotMat;
 };
 
-([_houseVDir,_houseVUp] call _fnc_getRollPitchYaw) params ["_house_roll","_house_pitch","_house_yaw"];
+([_houseDir,_houseVDir,_houseVUp] call _fnc_getRollPitchYaw) params ["_house_roll","_house_pitch","_house_yaw"];
 
 {
-    private _temp = []
+    private _temp = [];
     If !(isPlayer _x) then {
         private _currentObject = _x;
         private _currenttype = typeOf _currentObject;
-        private _currentPos = getPosASL _currentObject;
+        private _currentPos = getPos _currentObject;
         private _currentRotMat = [_currentObject,_house_roll,_house_pitch,_house_yaw] call _fnc_ObjGetRotMat;
-        private _temppos = _housePos vectorDiff _currentPos;
-        private _temppos = [_temppos,_house_yaw] call _fnc_rotVector;
+        private _temppos = _house worldToModel _currentPos;
+        
+        //private _temppos = _housePos vectorDiff _currentPos;
+        //private _temppos = [_temppos,_houseDir] call _fnc_rotVector;
         _temp = [_currenttype,_temppos,_currentRotMat];
     };
     If !(_temp isEqualTo []) then {
         _exportArray pushBack _temp;
     };
-}forEach _allObjects;
+}forEach (_allObjects - [_house]);
 
 private _export_vehicles = [];
 private _export_soldier = [];
 private _export_material = [];
+private _export_targets = [];
 
 {
-    if ((_x select 0) isKindOf "LandVehicle") then {
-        _export_vehicles pushBack _x;
+    If ((_x select 0) isKindOf "Land_CargoBox_V1_F") then {
+        _export_targets pushBack _x;
     }else{
-        If ((_x select 0) isKindOf "Man") then {
-            _export_soldier pushBack _x;
+        if ((_x select 0) isKindOf "LandVehicle") then {
+            _export_vehicles pushBack _x;
         }else{
-            _export_material pushBack _x;
+            If ((_x select 0) isKindOf "Man") then {
+                _export_soldier pushBack _x;
+            }else{
+                _export_material pushBack _x;
+            };
         };
-    };
+    };    
 }forEach _exportarray;
 
 
@@ -145,6 +145,7 @@ private _tab2 = _tab + _tab;
 private _tab3 = _tab2 + _tab;
 
 private _output = _tab2 + format["class %1_ver%2 {",_houseType,floor(random 99999)] + _br
++ _tab3 + format["housetype = ""%1"";",_houseType] + _br
 + _tab3 + "material[] = {";
 If ((count(_export_material))>0) then {
     _i=0;
@@ -169,6 +170,15 @@ If ((count(_export_soldier))>0) then {
     _output = _output + format["{%1,{%2,%3,%4},{{%5,%6,%7},{%8,%9,%10},{%11,%12,%13}}}",((_export_soldier select _i)select 0),(((_export_soldier select _i)select 1)select 0),(((_export_soldier select _i)select 1)select 1),(((_export_soldier select _i)select 1)select 2),((((_export_soldier select _i)select 2)select 0)select 0),((((_export_soldier select _i)select 2)select 0)select 1),((((_export_soldier select _i)select 2)select 0)select 2),((((_export_soldier select _i)select 2)select 1)select 0),((((_export_soldier select _i)select 2)select 1)select 1),((((_export_soldier select _i)select 2)select 1)select 2),((((_export_soldier select _i)select 2)select 2)select 0),((((_export_soldier select _i)select 2)select 2)select 1),((((_export_soldier select _i)select 2)select 2)select 2)];
     For "_i" from 1 to (count _export_soldier -1) do {
         _output = _output + format[",{%1,{%2,%3,%4},{{%5,%6,%7},{%8,%9,%10},{%11,%12,%13}}}",((_export_soldier select _i)select 0),(((_export_soldier select _i)select 1)select 0),(((_export_soldier select _i)select 1)select 1),(((_export_soldier select _i)select 1)select 2),((((_export_soldier select _i)select 2)select 0)select 0),((((_export_soldier select _i)select 2)select 0)select 1),((((_export_soldier select _i)select 2)select 0)select 2),((((_export_soldier select _i)select 2)select 1)select 0),((((_export_soldier select _i)select 2)select 1)select 1),((((_export_soldier select _i)select 2)select 1)select 2),((((_export_soldier select _i)select 2)select 2)select 0),((((_export_soldier select _i)select 2)select 2)select 1),((((_export_soldier select _i)select 2)select 2)select 2)];
+    };
+};
+_output = _output + "};" + _br
++ _tab3 + "targets[] = {";
+If ((count(_export_targets))>0) then {
+    _i=0;
+    _output = _output + format["{%1,{%2,%3,%4},{{%5,%6,%7},{%8,%9,%10},{%11,%12,%13}}}",((_export_targets select _i)select 0),(((_export_targets select _i)select 1)select 0),(((_export_targets select _i)select 1)select 1),(((_export_targets select _i)select 1)select 2),((((_export_targets select _i)select 2)select 0)select 0),((((_export_targets select _i)select 2)select 0)select 1),((((_export_targets select _i)select 2)select 0)select 2),((((_export_targets select _i)select 2)select 1)select 0),((((_export_targets select _i)select 2)select 1)select 1),((((_export_targets select _i)select 2)select 1)select 2),((((_export_targets select _i)select 2)select 2)select 0),((((_export_targets select _i)select 2)select 2)select 1),((((_export_targets select _i)select 2)select 2)select 2)];
+    For "_i" from 1 to (count _export_targets -1) do {
+        _output = _output + format[",{%1,{%2,%3,%4},{{%5,%6,%7},{%8,%9,%10},{%11,%12,%13}}}",((_export_targets select _i)select 0),(((_export_targets select _i)select 1)select 0),(((_export_targets select _i)select 1)select 1),(((_export_targets select _i)select 1)select 2),((((_export_targets select _i)select 2)select 0)select 0),((((_export_targets select _i)select 2)select 0)select 1),((((_export_targets select _i)select 2)select 0)select 2),((((_export_targets select _i)select 2)select 1)select 0),((((_export_targets select _i)select 2)select 1)select 1),((((_export_targets select _i)select 2)select 1)select 2),((((_export_targets select _i)select 2)select 2)select 0),((((_export_targets select _i)select 2)select 2)select 1),((((_export_targets select _i)select 2)select 2)select 2)];
     };
 };
 _output = _output + "};" + _br + _tab2 + "};" + _br;
