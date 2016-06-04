@@ -52,7 +52,7 @@ GVAR(handle) = [] spawn {
             if (_currentAttackPos in _x) exitWith {_found = true;};
         }forEach GVAR(attackpos);
         If !(_found) then {
-            GVAR(attackpos) pushBack ([_curentAttackPos,0] call EFUNC(common,create_location);
+            GVAR(attackpos) pushBack ([_curentAttackPos,(GVAR(definitions) select 1)*1.2] call EFUNC(common,create_location);
         };
     }forEach _attackpositions;
 
@@ -115,23 +115,18 @@ GVAR(handle) = [] spawn {
 
     /// get the availlible groups
     private _waitingGroups = [];
-    /// the bored groups
     {
         If (side _x != GVARMAIN(playerside)) then {
+            // bored 
             if ((_x getVariable [QGVAR(state),""]) isEqualTo "wait") then {
                 _waitingGroups pushBack _x;
             };
-        };
-    }forEach allGroups;
-    /// the veterans
-    {
-        If (side _x != GVARMAIN(playerside)) then {
+            // Veteran
             if ((_x getVariable [QGVAR(state),""]) isEqualTo "idle") then {
                 _waitingGroups pushBack _x;
             };
         };
     }forEach allGroups;
-    
     
     private _missingstrenght = 0;
     /// move into battle

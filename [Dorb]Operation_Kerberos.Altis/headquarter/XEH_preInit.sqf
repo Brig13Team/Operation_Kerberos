@@ -1,3 +1,7 @@
+/*
+    Author: Dorbedo
+    v1.0
+*/
 #include "script_component.hpp"
 
 ADDON = false;
@@ -64,11 +68,7 @@ PREPS(waypoints,test);
 
 PREP(EH_killed);
 PREP(handle);
-PREP(init);
 PREP(killed);
-
-PREP(mission_end);
-PREP(mission_init);
 
 PREP(recon);
 PREP(recon_radars);

@@ -1,6 +1,7 @@
 /*
     Author: Dorbedo
     
+    
     Description:
         pirmary to register the dead to the HQ
     

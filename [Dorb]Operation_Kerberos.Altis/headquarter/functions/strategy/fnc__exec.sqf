@@ -2,7 +2,7 @@
     Author: Dorbedo
     
     Description:
-        revon
+        execues the strategie
     
     Parameter(s):
         none
@@ -24,7 +24,10 @@ private _attackarray = [];
     private _nearPlayers = allPlayers select {((_x distance _currentLocation) < ATTACKPOS_DISTANCE)};
     private _strengtharray = [_nearPlayers] call FUNC(strength_player);
     private _currentTroops = _currentLocation getVariable QGVAR(troopsNeeded);
-    If (isNil "_currentTroops") then {_currentTroops = _currentEnemy;_currentLocation setVariable [QGVAR(troopsNeeded),_currentTroops];};
+    If (isNil "_currentTroops") then {
+        _currentTroops = _currentEnemy;
+        _currentLocation setVariable [QGVAR(troopsNeeded),_currentTroops];
+    };
     _attackarray pushBack [_currentTroops,_currentEnemy,_currentLocation,_strengtharray select 0,_strengtharray select 2];
 } forEach _attacklocations;
 

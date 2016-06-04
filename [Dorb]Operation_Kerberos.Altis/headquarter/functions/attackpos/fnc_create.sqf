@@ -16,7 +16,8 @@ _this params[["_group",grpNull,[grpNull]]];
 
 ISNILS(GVAR(attackpos),[]);
 private _strenght = [_group] call FUNC(strenght);
-private _size = [_group] call FUNC(attackpos_size);
+//private _size = [_group] call FUNC(attackpos_size);
+private _size = (GVAR(definitions) select 1)*1.2;
 private _position = getPos leader _group;
 
 private _newLoc = [_position,_size,false] call EFUNC(common,create_location);

@@ -19,6 +19,6 @@ private _index = GVAR(attackpos) find _location;
 If (_index < 0) then {
     false;
 }else{
-    GVAR(attackpos) deleteAt _index;
+    deleteLocation (GVAR(attackpos) deleteAt _index);
     true;
 };

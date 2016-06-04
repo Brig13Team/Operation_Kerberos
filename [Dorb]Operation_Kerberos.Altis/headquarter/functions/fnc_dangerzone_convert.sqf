@@ -1,5 +1,6 @@
 /*
     Author: Dorbedo
+    v1.0
     
     Description:
         converts the positon into a dangerzone coordinate

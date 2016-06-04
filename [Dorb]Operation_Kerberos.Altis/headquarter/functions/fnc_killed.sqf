@@ -1,5 +1,6 @@
 /*
     Author: Dorbedo
+    v1.0
     
     Description:
         ads a vakue to the Dangeraray when a unit git killed
@@ -9,6 +10,7 @@
 
     Returns:
         none
+
 */
 #include "script_component.hpp"
 private ["_killerpos","_x_pos","_y_pos","_value"];

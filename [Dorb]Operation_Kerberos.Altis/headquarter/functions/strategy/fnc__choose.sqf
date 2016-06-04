@@ -49,6 +49,37 @@ If (_enemyID >= 0) then {
     _current_Memory_Strategy = _Strategy_Memory select _enemyID;
 };
 
+//// Update the Variables
+private _tankGroups = [];
+private _infanterieGroups = [];
+private _helicoptersGroups = [];
+{
+    
+    
+} forEach _groups;
+
+
+
+
+
+{
+    private _currentGroup = _x;
+    private _currentType = "soldier";
+    {
+        If ((vehicle _x) isKindOf "Air") exitWith {_currentType = "air";};
+        If ((vehicle _x) isKindOf "Armored") exitWith {_currentType = "tank";};
+    }forEach (units _currentGroup);
+    switch (_currentType) do {
+        case "air" : {_helicoptersGroups pushBack _currentGroup;};
+        case "tank" : {_tankGroups pushBack _currentGroup;};
+        default {_infanterieGroups pushBack _currentGroup};
+    };
+}forEach _groups;
+
+
+
+
+
 
 // get all possible Strategys
 
@@ -61,13 +92,9 @@ For "_i" from 0 to ((count _strategyCfg)-1) do {
     private _conditionCfg = (_currentStrategy >> "conditions");
     for "_j" from 1 to 99 do {
         private _condition = getText(_currentStrategy >> "conditions" >> format["c%1",_j]);
-        If (_condition isEqualTo "") then {
-            _j=100;
-        }else{
-            If !(compile(_condition)) then {
-                _isPossible = false;
-                _j = 100;
-            };
+        If (_condition isEqualTo "") exitWith {};
+        If !(compile(_condition)) exitWith {
+            _isPossible = false;
         };
     };
     If (_isPossible) then {
