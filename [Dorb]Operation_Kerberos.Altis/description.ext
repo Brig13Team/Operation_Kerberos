@@ -67,7 +67,6 @@ class cfgFunctions {
 
 // Eventhandlers
 #include "CfgEventHandlers.hpp"
-#include "CfgRemoteExec.hpp"
 
 // Headquarter
 #include "headquarter\config\drones.hpp"
@@ -82,22 +81,8 @@ class cfgFunctions {
 #include "player\config\arsenal.hpp"
 #include "logistics\config\logistics.hpp"
 
+// Sounds
+#include "CfgSounds.hpp"
+
 //Debrief
-class CfgDebriefing {
-    class End1 {
-        title = "Mission Abgeschlossen";
-        subtitle = "";
-        description = "Mission abgeschlossen. Gute Arbeit.";
-        pictureBackground = "";
-        picture = "b_inf";
-        pictureColor[] = {0.0,0.3,0.6,1};
-    };
-    class Fail {
-        title = "Mission gescheitert";
-        subtitle = "";
-        description = "Ihr seid alle gestorben.";
-        pictureBackground = "";
-        picture = "b_inf";
-        pictureColor[] = {0.0,0.3,0.6,1};
-    };
-};
+#include "mission\CfgDebriefing.hpp"

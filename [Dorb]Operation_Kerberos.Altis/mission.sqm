@@ -1056,7 +1056,7 @@ class Mission
 					position[]={17362.889,17.310385,19361.012};
 					class args
 					{
-						items=3;
+						items=4;
 						class Item0
 						{
 							value="1";
@@ -1075,6 +1075,12 @@ class Mission
 							parentCls="ace_mk6mortar_module";
 							typeName="allowCompass";
 						};
+                        class Item3
+                        {
+                            value="1";
+                            parentCls="ace_mk6mortar_module";
+                            typeName="useAmmoHandling";
+                        };
 					};
 					id=55;
 					side="LOGIC";

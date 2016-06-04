@@ -14,7 +14,6 @@
     Position
 */
 #include "script_component.hpp"
-SCRIPT(random_pos);
 private ["_pos","_dir","_radx","_rady","_generiere"];
 _this params [
     ["_start",[],[[]],[2,3]],
