@@ -199,7 +199,7 @@ class logistics
                 max_width = 2.3;
                 extend = "_this animate ['hide_cargo',1];_this lockCargo true;";
                 isextended = "(_this animationPhase 'hide_cargo') > 0";
-                reduce = "_this animate ['hide_cargo',0];_this lockCargo false;"
+                reduce = "_this animate ['hide_cargo',0];_this lockCargo false;";
                 isreduced = "(_this animationPhase 'hide_cargo') == 0";
             };
 		};
@@ -211,7 +211,7 @@ class logistics
             class cargo {
                 extend = "_this animate ['hide_cargo',1];_this lockCargo true;";
                 isextended = "(_this animationPhase 'hide_cargo') > 0";
-                reduce = "_this animate ['hide_cargo',0];_this lockCargo false;"
+                reduce = "_this animate ['hide_cargo',0];_this lockCargo false;";
                 isreduced = "(_this animationPhase 'hide_cargo') == 0";
             };
         };
@@ -527,11 +527,6 @@ class logistics
 			width = 1.3;
 			length = 0.4;
 			height = 0.35;
-		};
-		class rhs_3Ya40_1 {
-			width = 1.1;
-			length = 0.5;
-			height = 0.5;
 		};
 		
 		class bwa3_democracybox {
