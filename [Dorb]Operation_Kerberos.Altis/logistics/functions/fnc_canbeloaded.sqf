@@ -20,9 +20,16 @@ private _cargo_class = [_cargo] call FUNC(getCargoCfg);
 If ((_cargo_class isEqualTo "")||{!(isNull (attachedTo _cargo))}) exitWith {false};
 
 private _vehicle_class = typeOf _target;
+
 private _max_width = getNumber(missionConfigFile >> "logistics" >> "vehicles" >> _vehicle_class >> "max_width");
 private _max_length = getNumber(missionConfigFile >> "logistics" >> "vehicles" >> _vehicle_class >> "max_length");
 private _max_height = getNumber(missionConfigFile >> "logistics" >> "vehicles" >> _vehicle_class >> "max_height");
+If (isClass(missionConfigFile >> "logistics" >> "vehicles" >> _vehicle_class >> "cargo") && {_vehicle call compile getText(missionConfigFile >> "logistics" >> "vehicles" >> _vehicle_class >> "cargo" >> "isextended")}) then {
+    _max_width = _max_width max (getNumber(missionConfigFile >> "logistics" >> "vehicles" >> _vehicle_class >> "cargo" >> "max_width"));
+    _max_length = _max_length max (getNumber(missionConfigFile >> "logistics" >> "vehicles" >> _vehicle_class >> "cargo" >> "max_length"));
+    _max_height = _max_height max (getNumber(missionConfigFile >> "logistics" >> "vehicles" >> _vehicle_class >> "cargo" >> "max_height"));
+};
+
 private _cargo_width = getNumber(missionConfigFile >> "logistics" >> "cargos" >> _cargo_class >> "width");
 private _cargo_length = getNumber(missionConfigFile >> "logistics" >> "cargos" >> _cargo_class >> "length");
 private _cargo_height = getNumber(missionConfigFile >> "logistics" >> "cargos" >> _cargo_class >> "height");

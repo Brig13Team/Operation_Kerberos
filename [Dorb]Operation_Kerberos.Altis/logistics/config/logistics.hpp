@@ -81,21 +81,22 @@ class logistics
 		
 		
 		class rhsusf_M977A4_usarmy_wd {
-			max_width = 2.05;
+			max_width = 2.1;
 			max_length = 5.48;
 			max_height = 2;
-			cargo_point[] = {0,-0.25,0.75};
+			cargo_point[] = {0,-0.25,0.67};
 			load_point[] = {0,-8.5,-1};
 		};
 		class rhsusf_M977A4_usarmy_d : rhsusf_M977A4_usarmy_wd {};
+        class rhsusf_M977A4_BKIT_usarmy_d : rhsusf_M977A4_usarmy_wd {};
+        class rhsusf_M977A4_BKIT_usarmy_wd : rhsusf_M977A4_usarmy_wd {};
 		class rhsusf_M977A4_BKIT_M2_usarmy_wd : rhsusf_M977A4_usarmy_wd {
-			cargo_point[] = {0,1,22,0.31};
-			load_point[] = {0,-6.5,-1};
+			cargo_point[] = {0,1.2,0.31};
+			load_point[] = {0,-7,-1.5};
 		};
 		class rhsusf_M977A4_BKIT_M2_usarmy_d : rhsusf_M977A4_BKIT_M2_usarmy_wd {};
 		
-		
-		
+        
 		class rhsusf_M1078A1P2_Base {
 			max_width = 1.42;
 			max_length = 4;
@@ -194,11 +195,26 @@ class logistics
 			hatch_close = "_this animateDoor ['ramp_anim', 0];";
 			hatch_isopened = "_this doorPhase 'ramp_anim' > 0 and (alive _this)";
 			hatch_isclosed = "_this doorPhase 'ramp_anim' == 0 and (alive _this)";
+            class cargo {
+                max_width = 2.3;
+                extend = "_this animate ['hide_cargo',1];_this lockCargo true;";
+                isextended = "(_this animationPhase 'hide_cargo') > 0";
+                reduce = "_this animate ['hide_cargo',0];_this lockCargo false;"
+                isreduced = "(_this animationPhase 'hide_cargo') == 0";
+            };
 		};
 		class RHS_CH_47F_light : RHS_CH_47_Base {};
 		class RHS_CH_47F_10 : RHS_CH_47_Base {};
 		class RHS_CH_47F : RHS_CH_47_Base {};
-
+        
+        class RHS_C130J {
+            class cargo {
+                extend = "_this animate ['hide_cargo',1];_this lockCargo true;";
+                isextended = "(_this animationPhase 'hide_cargo') > 0";
+                reduce = "_this animate ['hide_cargo',0];_this lockCargo false;"
+                isreduced = "(_this animationPhase 'hide_cargo') == 0";
+            };
+        };
 		class rhsusf_CH53E_USMC {
 			max_width = 1.6;
 			max_length = 8;
