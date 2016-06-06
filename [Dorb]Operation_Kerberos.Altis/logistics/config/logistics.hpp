@@ -622,5 +622,74 @@ class logistics
 		};
 		class rhs_D30_at_vdv : rhs_D30_vdv {};
 		
+        class FIM92_static {
+            width = 3;
+			length = 3;
+			height = 2;
+			offset[] = {0,0,-0.5};
+        };
+        
+        class TOW_static {
+            width = 1.7;
+			length = 1.7;
+			height = 1.2;
+			offset[] = {0,0.5,-0.5};
+        };
+        
+        class m2_mg2 {
+            width = 1.2;
+			length = 2;
+			height = 0.7;
+			offset[] = {-0.35,0.6,-0.9};
+        };
+        
+        class m2_mg {
+            width = 1.2;
+			length = 1.9;
+			height = 1.5;
+			offset[] = {-0.35,0.6,-1};
+        };
+        
+        class mk19_stat {
+            width = 1.2;
+			length = 1.2;
+			height = 0.7;
+			offset[] = {0,0.8,-0.7};
+        };
+        
+        class Quadbike_01_F {
+            width = 1.2;
+			length = 2.2;
+			height = 1;
+			offset[] = {0,-0.05,-0.9};
+        };
+        
+        class SDV_01_F {
+            width = 2;
+			length = 6.2;
+			height = 1.5;
+			offset[] = {0,-1.1,-1.2};
+        };
+        
+        class Boat_Transport_01_F {
+            width = 2.1;
+			length = 4.9;
+			height = 1.5;
+			offset[] = {0,0,-0.5};
+        };
+        
+        class rhs_3Ya40_1 {
+            width = 2.5;
+			length = 0.9;
+			height = 0.8;
+			offset[] = {0,0,-0.05};
+        };
+        
+        class rhs_7ya37_1 {
+            width = 1.15;
+			length = 0.45;
+			height = 0.55;
+			offset[] = {0,0,0};
+        };
 	};
 };

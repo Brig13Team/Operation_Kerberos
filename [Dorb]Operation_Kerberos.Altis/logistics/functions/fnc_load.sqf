@@ -182,6 +182,7 @@ if(_attach_point isEqualTo []) exitWith {
 private _cargo_mass = getMass _cargo;
 private _vehicle_mass = getMass _vehicle;
 
+_cargo lock true;
 _cargo attachTo [_vehicle,_attach_point];
 if(_rotate) then { _cargo setDir 90; };
 _vehicle setVariable [QGVAR(stack),_logistic_stack,true];
