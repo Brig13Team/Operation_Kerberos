@@ -37,6 +37,11 @@ private _point = getArray(missionConfigFile >> "logistics" >> "vehicles" >> _veh
 private _max_width = getNumber(missionConfigFile >> "logistics" >> "vehicles" >> _vehicle_class >> "max_width");
 private _max_length = getNumber(missionConfigFile >> "logistics" >> "vehicles" >> _vehicle_class >> "max_length");
 private _max_height = getNumber(missionConfigFile >> "logistics" >> "vehicles" >> _vehicle_class >> "max_height");
+If (isClass(missionConfigFile >> "logistics" >> "vehicles" >> _vehicle_class >> "cargo") && {_vehicle call compile getText(missionConfigFile >> "logistics" >> "vehicles" >> _vehicle_class >> "cargo" >> "isextended")}) then {
+    _max_width = _max_width max (getNumber(missionConfigFile >> "logistics" >> "vehicles" >> _vehicle_class >> "cargo" >> "max_width"));
+    _max_length = _max_length max (getNumber(missionConfigFile >> "logistics" >> "vehicles" >> _vehicle_class >> "cargo" >> "max_length"));
+    _max_height = _max_height max (getNumber(missionConfigFile >> "logistics" >> "vehicles" >> _vehicle_class >> "cargo" >> "max_height"));
+};
 private _logistic_stack = _vehicle getVariable [QGVAR(stack),[]];
 
 if ((_max_height > 0) && {_cargo_height > _max_height}) exitWith {
@@ -177,6 +182,7 @@ if(_attach_point isEqualTo []) exitWith {
 private _cargo_mass = getMass _cargo;
 private _vehicle_mass = getMass _vehicle;
 
+_cargo lock true;
 _cargo attachTo [_vehicle,_attach_point];
 if(_rotate) then { _cargo setDir 90; };
 _vehicle setVariable [QGVAR(stack),_logistic_stack,true];
