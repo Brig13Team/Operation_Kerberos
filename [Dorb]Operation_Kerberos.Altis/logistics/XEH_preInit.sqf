@@ -22,4 +22,9 @@ PREP(updateSeats);
 PREP(canChangeCargo);
 PREP(ChangeCargo);
 
+PREP(canTow);
+PREP(doTow);
+PREP(doUnTow);
+PREP(tow);
+
 ADDON = true;
