@@ -16,7 +16,6 @@
 
 if (player getVariable [QGVAR(isloading),false]) exitWith { false };
 _this params ["_target"];
-LOG_1(_target);
 
 private _logistic_stack = _target getVariable [QGVAR(stack),[]];
 if (_logistic_stack isEqualTo []) exitWith { false };

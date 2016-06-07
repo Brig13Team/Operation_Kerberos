@@ -14,4 +14,11 @@
             [_vehicle] call FUNC(updateSeats);
         };
     }
-] call EFUNC(events,addEventHandler);
+] call CBA_fnc_addEventHandler;
+
+[
+    QGVAR(setContainerWeight),
+    {
+        _this call FUNC(setContainerWeight);
+    }
+] call CBA_fnc_addEventHandler;

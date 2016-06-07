@@ -10,10 +10,8 @@
 
 */
 #include "script_component.hpp"
-#define SPACE_BETWEEN_CARGO 0.1
 
-_this params ["_cargo","_vehicle"];
-
+_this params ["_vehicle","_cargo"];
 private _vehicle_class = typeOf _vehicle;
 private _cargo_class = [_cargo] call FUNC(getCargoCfg);
 
@@ -39,6 +37,11 @@ private _point = getArray(missionConfigFile >> "logistics" >> "vehicles" >> _veh
 private _max_width = getNumber(missionConfigFile >> "logistics" >> "vehicles" >> _vehicle_class >> "max_width");
 private _max_length = getNumber(missionConfigFile >> "logistics" >> "vehicles" >> _vehicle_class >> "max_length");
 private _max_height = getNumber(missionConfigFile >> "logistics" >> "vehicles" >> _vehicle_class >> "max_height");
+If (isClass(missionConfigFile >> "logistics" >> "vehicles" >> _vehicle_class >> "cargo") && {_vehicle call compile getText(missionConfigFile >> "logistics" >> "vehicles" >> _vehicle_class >> "cargo" >> "isextended")}) then {
+    _max_width = _max_width max (getNumber(missionConfigFile >> "logistics" >> "vehicles" >> _vehicle_class >> "cargo" >> "max_width"));
+    _max_length = _max_length max (getNumber(missionConfigFile >> "logistics" >> "vehicles" >> _vehicle_class >> "cargo" >> "max_length"));
+    _max_height = _max_height max (getNumber(missionConfigFile >> "logistics" >> "vehicles" >> _vehicle_class >> "cargo" >> "max_height"));
+};
 private _logistic_stack = _vehicle getVariable [QGVAR(stack),[]];
 
 if ((_max_height > 0) && {_cargo_height > _max_height}) exitWith {
@@ -179,13 +182,14 @@ if(_attach_point isEqualTo []) exitWith {
 private _cargo_mass = getMass _cargo;
 private _vehicle_mass = getMass _vehicle;
 
+_cargo lock true;
 _cargo attachTo [_vehicle,_attach_point];
 if(_rotate) then { _cargo setDir 90; };
 _vehicle setVariable [QGVAR(stack),_logistic_stack,true];
 _vehicle setMass (_vehicle_mass + _cargo_mass);
 
 if (isMultiplayer && {!local _vehicle}) then {
-    [QGVAR(updateSeats_Vehicle),[_vehicle],missionNamespace,_vehicle] call EFUNC(events,targetEvent);
+    [QGVAR(updateSeats_Vehicle),[_vehicle],_vehicle] call CBA_fnc_targetEvent;
 } else {
     [_vehicle] call FUNC(updateSeats);
 };

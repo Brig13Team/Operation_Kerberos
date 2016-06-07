@@ -9,8 +9,6 @@
 */
 #include "script_component.hpp"
 
-#define SPACE_BETWEEN_CARGO 0.1
-
 params ["_vehicle"];
 
 private _vehicle_class = typeOf _vehicle;
@@ -63,9 +61,10 @@ detach (_last_cargo select 0);
 _cargo_mass = getMass (_last_cargo select 0);
 (_last_cargo select 0) setPos _detach_point;
 (_last_cargo select 0) setDir (getDir _vehicle);
+(_last_cargo select 0) lock false;
 
 if (isMultiplayer && {!local _vehicle}) then {
-    [QGVAR(updateSeats_Vehicle),[_vehicle],missionNamespace,_vehicle] call EFUNC(events,targetEvent);
+    [QGVAR(updateSeats_Vehicle),[_vehicle],_vehicle] call CBA_fnc_targetEvent;
 } else {
     [_vehicle] call FUNC(updateSeats);
 };

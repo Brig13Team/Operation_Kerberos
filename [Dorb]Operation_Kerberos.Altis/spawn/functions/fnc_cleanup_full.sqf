@@ -6,7 +6,6 @@
     
 */
 #include "script_component.hpp"
-SCRIPT(cleanup_full);
 _this params ["_pos","_rad"];
 
 [] call FUNC(cleanup_base);
@@ -35,7 +34,6 @@ _this params ["_pos","_rad"];
 {
     _x TILGE;
 } foreach allGroups;
-[{if(hasInterface)exitWith{};{deleteGroup _x;} foreach allGroups;}-1] call EFUNC(events,globalExec);    //Headless remove Groups
 
 
 ISNILS(EGVAR(mission,markerdump),[]);

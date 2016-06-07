@@ -67,7 +67,6 @@ class cfgFunctions {
 
 // Eventhandlers
 #include "CfgEventHandlers.hpp"
-#include "CfgRemoteExec.hpp"
 
 // Headquarter
 #include "headquarter\config\drones.hpp"

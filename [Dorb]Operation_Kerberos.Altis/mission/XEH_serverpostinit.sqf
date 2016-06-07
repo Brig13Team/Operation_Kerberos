@@ -42,6 +42,7 @@
             };
         };
     } forEach _allVehicles;
+    [_position] call EFUNC(tfar_addon,disableTFRArea);
 }] call EFUNC(events,addEventHandler);
 
 /********************
