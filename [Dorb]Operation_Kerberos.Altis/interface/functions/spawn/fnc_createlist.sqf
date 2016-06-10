@@ -147,7 +147,7 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
         };
 
         if (_genMac !="" && (_type != "") && (_DName != "") && (_DName != _type) && (!(call(_isBase)))&& (!(call(_isRHSBase))) && (call(_isRHS))) then {
-            if ((_Class isKindOf "Air")&&(!(_class in ["rhsusf_f22"]))) then {
+            if ((_Class isKindOf "Air")&&(!(_class in ["rhsusf_f22","rhs_a10_canopy","rhs_a10_acesII_seat","rhs_f22_canopy"]))) then {
 
                 if (_vClass in ["rhs_vehclass_helicopter"]) then {
                     _spawnliste_heli_rhs pushBack [_class,_pic ,"RHS", (call(_DNameRHS)), _DName, _icon];

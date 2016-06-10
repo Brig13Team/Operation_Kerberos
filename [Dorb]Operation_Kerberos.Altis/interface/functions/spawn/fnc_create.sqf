@@ -30,11 +30,7 @@ _spawndir = markerDir _spawnpoint;
 _padempty = nearestObjects [_spawnpos, ["LandVehicle","Air"], _check_radius];
 If (!(_padempty isEqualTo [])) exitWith {hint localize LSTRING(NOTEMPTY);};
 
-private["_flyingpos"];
-_flyingpos = getMarkerPos "air_spawn_flying";
 
-CHECK((_vehiclewahl isKindOf "Plane_Base_F")&&(!(_mode isEqualTo "driver"))&&(worldName == "Altis"))
-_dist = (_flyingpos distance [0,0,0])>1;
 
 _canNotFly = {
     _return = true;
@@ -48,21 +44,19 @@ _vclass = getText(configFile >> "CfgVehicles" >> _vehiclewahl >> "vehicleClass")
 CHECK((_vehiclewahl isKindOf "Air")&&(!(_vehiclewahl isKindOf "UAV"))&&(call _canNotFly))
 if((_vclass in ["rhs_vehclass_ifv","rhs_vehclass_tank","rhs_vehclass_artillery","Armored","BWA3_VehClass_Tracked_Tropen","BWA3_VehClass_Tracked_Fleck","BWA3_VehClass_Wheeled_Tropen","BWA3_VehClass_Wheeled_Fleck"]) && {typeOf player != "B_Crew_F"}) exitWith {};
 
-If (((_flyingpos distance [0,0,0])>1)&&(_vehiclewahl isKindOf "Plane_Base_F")) then {
-    _flyingpos set [2,2000];
-    _vehiclearray = [_flyingpos, (markerDir "air_spawn_flying"), _vehiclewahl, EGVAR(main,playerside)] call bis_fnc_spawnvehicle;
-    _vehicle = _vehiclearray select 0;
-}else{
-    _vehicle = createVehicle [_vehiclewahl, _spawnpos, [], 0 , "NONE"];
-    _vehicle setDir _spawndir;
-    if ((_vehicle isKindOf "SDV") or (_vehicle isKindOf "Ship")) then {
-        _vehicle setPosASL [getPosASL _vehicle select 0, getPosASL _vehicle select 1, 0];
-    } else {
-        _vehicle setposatl [_spawnpos select 0, _spawnpos select 1, 0.2];
-        _vehicle setVectorUP (surfaceNormal [(getPosatl _vehicle) select 0,(getPosatl _vehicle) select 1]);
-    };
-    [_vehicle] call ace_fastroping_fnc_equipFRIES;
+
+_vehicle = createVehicle [_vehiclewahl, _spawnpos, [], 0 , "NONE"];
+_vehicle setDir _spawndir;
+if ((_vehicle isKindOf "SDV") or (_vehicle isKindOf "Ship")) then {
+	_vehicle setPosASL [getPosASL _vehicle select 0, getPosASL _vehicle select 1, 0];
+} else {
+	_vehicle setposatl [_spawnpos select 0, _spawnpos select 1, 0.2];
+	_vehicle setVectorUP (surfaceNormal [(getPosatl _vehicle) select 0,(getPosatl _vehicle) select 1]);
 };
+If (_vehicle isKindOf "Air") then {
+	[_vehicle] call ace_fastroping_fnc_equipFRIES;
+};
+
 _vehicle lock 0;
 if ( (getText(configFile >> "CfgVehicles" >> _vehiclewahl >> "vehicleClass"))isEqualTo "Autonomous") then {
     createVehicleCrew _vehicle;
@@ -82,9 +76,6 @@ if (_vehiclewahl in ["O_Heli_Transport_04_F"]) then {
 
 
 if (_mode isEqualTo "driver") then {
-    If (((_flyingpos distance [0,0,0])>1)&&(_vehiclewahl isKindOf "Plane_Base_F")&&(!( (getText(configFile >> "CfgVehicles" >> _vehiclewahl >> "vehicleClass"))isEqualTo "Autonomous"))) then {
-        {deleteVehicle _x;}forEach (crew _vehicle);
-    };
 	#ifdef DORB_PILOT_WHITELIST_ENABLED
 	If ((isNil QEGVAR(main,reserved_pilot_slot))&&ISCASVEHICLE_C(_vehiclewahl)) exitWith {};
 	#endif

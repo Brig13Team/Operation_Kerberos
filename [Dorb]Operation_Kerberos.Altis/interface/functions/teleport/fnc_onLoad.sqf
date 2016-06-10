@@ -15,7 +15,7 @@ _teleporter = [
     [localize LSTRING(TELEPORT_BASE),QUOTE(closeDialog 600300;player setposatl (getMarkerPos GVARMAIN(RESPAWNMARKER)))],
     [localize LSTRING(TELEPORT_VEHICLES),"closeDialog 600300;player setposatl (getMarkerPos 'teleport_fahrzeuge')"],
     [localize LSTRING(TELEPORT_AIR),"closeDialog 600300;player setposatl (getMarkerPos 'teleport_luftwaffe')"],
-    [localize LSTRING(TELEPORT_SHOOTINGRANGE),"closeDialog 600300;player setposatl (getMarkerPos 'teleport_schiessstand')"],
+    [localize LSTRING(TELEPORT_SHOOTINGRANGE),"closeDialog 600300;player setposasl (getMarkerPos 'teleport_schiessstand')"],
     [localize LSTRING(TELEPORT_MARINE),"closeDialog 600300;player setposatl (getMarkerPos 'teleport_hafen')"],
     [localize LSTRING(TELEPORT_LOGISTIC),"closeDialog 600300;player setposatl (getMarkerPos 'teleport_logistik')"],
     [localize LSTRING(TELEPORT_LEAD),QUOTE(closeDialog 600300;[ARR_2(ObjNull,player)] call FUNC(teleport_lead))]
