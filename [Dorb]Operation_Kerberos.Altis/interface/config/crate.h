@@ -121,7 +121,7 @@ class GVAR(crate) {
         idc = 600207;
         x = GUI_XW(0,0.725);
         text = ECSTRING(INTERFACE,CRATE_CLEAR);
-        action = QUOTE( (GVAR(crate_current) = [[],[],[],[],[],[]] ); GVAR(crate_current_boxid) = 0; [] call FUNC(crate_onLoad); false);
+        action = QUOTE( (GVAR(crate_current) = [ARR_6([],[],[],[],[],[])] ); GVAR(crate_current_boxid) = 0; [] call FUNC(crate_onLoad); false);
     };
 
     class crate_save : crate_spawn {
