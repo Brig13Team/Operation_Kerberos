@@ -114,8 +114,8 @@ if (!(_logistic_stack isEqualTo [])) then {
         };
     } else {
         private _stackable = false;
-        private _cargo_stackable = if ( isText (missionConfigFile >> "logistics" >> "cargos" >> _cargo_class >> "stackable") ) then {
-                                      if ( (getText (missionConfigFile >> "logistics" >> "cargos" >> _cargo_class >> "stackable")) isEqualTo "true" ) then { true } else { false }
+        private _cargo_stackable = if ( isNumber (missionConfigFile >> "logistics" >> "cargos" >> _cargo_class >> "stackable") ) then {
+                                      if ( (getNumber (missionConfigFile >> "logistics" >> "cargos" >> _cargo_class >> "stackable")) < 0 ) then { false } else { true }
                                    } else {
                                       false
                                    };

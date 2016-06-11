@@ -604,14 +604,14 @@ class logistics
 			width = 1.6;
 			length = 1.6;
 			height = 1.68;
-			stackable = "false";
+			stackable = -1;
 		};
 		class RHS_M119_WD {
 			width = 2;
 			length = 5.1;
 			height = 1.5;
 			offset[] = {0,-1.3,0.8};
-			stackable = "false";
+			stackable = -1;
 		};
 		class RHS_M119_D : RHS_M119_WD {};
 		class rhs_D30_vdv : RHS_M119_WD {
@@ -624,7 +624,7 @@ class logistics
 			length = 3;
 			height = 2;
 			offset[] = {0,0,-0.5};
-			stackable = "false";
+			stackable = -1;
         };
         
         class TOW_static {
@@ -632,7 +632,7 @@ class logistics
 			length = 1.7;
 			height = 1.2;
 			offset[] = {0,0.5,-0.5};
-			stackable = "false";
+			stackable = -1;
         };
         
         class m2_mg2 {
@@ -640,7 +640,7 @@ class logistics
 			length = 2;
 			height = 0.7;
 			offset[] = {-0.35,0.6,-0.9};
-			stackable = "false";
+			stackable = -1;
         };
         
         class m2_mg {
@@ -648,7 +648,7 @@ class logistics
 			length = 1.9;
 			height = 1.5;
 			offset[] = {-0.35,0.6,-1};
-			stackable = "false";
+			stackable = -1;
         };
         
         class mk19_stat {
@@ -656,7 +656,7 @@ class logistics
 			length = 1.2;
 			height = 0.7;
 			offset[] = {0,0.8,-0.7};
-			stackable = "false";
+			stackable = -1;
         };
         
         class Quadbike_01_F {
@@ -664,7 +664,7 @@ class logistics
 			length = 2.2;
 			height = 1;
 			offset[] = {0,-0.05,-0.9};
-			stackable = "false";
+			stackable = -1;
         };
         
         class SDV_01_F {
@@ -672,7 +672,7 @@ class logistics
 			length = 6.2;
 			height = 1.5;
 			offset[] = {0,-1.1,-1.2};
-			stackable = "false";
+			stackable = -1;
         };
         
         class Boat_Transport_01_F {
@@ -680,7 +680,7 @@ class logistics
 			length = 4.9;
 			height = 1.5;
 			offset[] = {0,0,-0.5};
-			stackable = "false";
+			stackable = -1;
         };
         
         class rhs_3Ya40_1 {
