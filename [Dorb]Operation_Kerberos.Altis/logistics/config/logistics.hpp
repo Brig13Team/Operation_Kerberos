@@ -605,17 +605,15 @@ class logistics
 			length = 1.6;
 			height = 1.68;
 		};
-		class RHS_M119_WD {
+		class M119 {
 			width = 2;
 			length = 5.1;
 			height = 1.5;
-			offset[] = {0,-1.3,0.8};
+			offset[] = {0,-1.3,0.9};
 		};
-		class RHS_M119_D : RHS_M119_WD {};
-		class rhs_D30_vdv : RHS_M119_WD {
+		class D30 : M119 {
 			offset[] = {0,0.6,-0.7};
 		};
-		class rhs_D30_at_vdv : rhs_D30_vdv {};
 		
         class FIM92_static {
             width = 3;
@@ -686,5 +684,11 @@ class logistics
 			height = 0.55;
 			offset[] = {0,0,0};
         };
+		class 81Mortar {
+			width = 0.6;
+			length = 1.2;
+			height = 1.2;
+			offset[] = {0,0.4,-0.2};
+		};
 	};
 };

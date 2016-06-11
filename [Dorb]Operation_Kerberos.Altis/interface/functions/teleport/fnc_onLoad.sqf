@@ -10,14 +10,19 @@ SCRIPT(onLoad);
 CHECK(!hasInterface)
 Private["_teleporter","_ctrl"];
 disableSerialization;
+
+#define TELEPORTER_FNC_ATL(TARGET,HEIGHT) QUOTE(closeDialog 600300;private _target = getMarkerPos TARGET; _target set [ARR_2(2,HEIGHT)];player setposatl _target;)
+#define TELEPORTER_FNC_ASL(TARGET,HEIGHT) QUOTE(closeDialog 600300;private _target = getMarkerPos TARGET; _target set [ARR_2(2,HEIGHT)];player setposasl _target;)
+
+
 _teleporter = [
     /// ["",""],      /// Beispiel zum Ausschalten von einem Teleport
-    [localize LSTRING(TELEPORT_BASE),QUOTE(closeDialog 600300;player setposatl (getMarkerPos GVARMAIN(RESPAWNMARKER)))],
-    [localize LSTRING(TELEPORT_VEHICLES),"closeDialog 600300;player setposatl (getMarkerPos 'teleport_fahrzeuge')"],
-    [localize LSTRING(TELEPORT_AIR),"closeDialog 600300;player setposatl (getMarkerPos 'teleport_luftwaffe')"],
-    [localize LSTRING(TELEPORT_SHOOTINGRANGE),"closeDialog 600300;player setposasl (getMarkerPos 'teleport_schiessstand')"],
-    [localize LSTRING(TELEPORT_MARINE),"closeDialog 600300;player setposatl (getMarkerPos 'teleport_hafen')"],
-    [localize LSTRING(TELEPORT_LOGISTIC),"closeDialog 600300;player setposatl (getMarkerPos 'teleport_logistik')"],
+    [localize LSTRING(TELEPORT_BASE),TELEPORTER_FNC_ATL(GVARMAIN(RESPAWNMARKER),0.5)],
+    [localize LSTRING(TELEPORT_VEHICLES),TELEPORTER_FNC_ATL('teleport_fahrzeuge',0.5)],
+    [localize LSTRING(TELEPORT_AIR),TELEPORTER_FNC_ATL('teleport_luftwaffe',0)],
+    [localize LSTRING(TELEPORT_SHOOTINGRANGE),TELEPORTER_FNC_ASL('teleport_schiessstand',0.5)],
+    [localize LSTRING(TELEPORT_MARINE),TELEPORTER_FNC_ATL('teleport_hafen',0)],
+    [localize LSTRING(TELEPORT_LOGISTIC),TELEPORTER_FNC_ATL('teleport_logistik',0)],
     [localize LSTRING(TELEPORT_LEAD),QUOTE(closeDialog 600300;[ARR_2(ObjNull,player)] call FUNC(teleport_lead))]
 ];
 

@@ -8,22 +8,22 @@ class EditorData
 	toggles=109;
 	class ItemIDProvider
 	{
-		nextID=1415;
+		nextID=1421;
 	};
 	class MarkerIDProvider
 	{
-		nextID=50;
+		nextID=55;
 	};
 	class LayerIndexProvider
 	{
-		nextID=40;
+		nextID=50;
 	};
 	class Camera
 	{
-		pos[]={11613.422,65.444725,11937.506};
-		dir[]={0.77286518,-0.49938726,-0.39173988};
-		up[]={0.44556668,0.86628395,-0.22584262};
-		aside[]={-0.45214656,8.4291969e-007,-0.89204401};
+		pos[]={11682.07,34.94529,11594.802};
+		dir[]={0,-0.70710683,0.70710683};
+		up[]={0,0.70710677,0.70710677};
+		aside[]={0.99999994,0,-0};
 	};
 };
 binarizationWanted=0;
@@ -416,7 +416,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=513;
+		items=514;
 		class Item0
 		{
 			dataType="Marker";
@@ -638,7 +638,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={15175.018,17.91,16817.049};
-			name="repair_mark_4_1";
+			name="repair_mark";
 			type="b_maint";
 			colorName="ColorYellow";
 			id=20;
@@ -1022,7 +1022,6 @@ class Mission
 			};
 			id=83;
 			type="MapBoard_altis_F";
-			atlOffset=5.7220459e-005;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -3428,8 +3427,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={11767.375,10.750462,11758.925};
-						angles[]={6.2698488,0.69341791,6.1967349};
+						position[]={11753.875,22.681858,11852.3};
+						angles[]={6.2578578,0.69341791,6.1519442};
 					};
 					side="West";
 					flags=4;
@@ -3443,7 +3442,7 @@ class Mission
 					};
 					id=287;
 					type="B_engineer_F";
-					atlOffset=0.0032215118;
+					atlOffset=0.0050487518;
 				};
 			};
 			class Attributes
@@ -17071,7 +17070,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={13747,-39.853756,11627.625};
-			name="marker_40";
+			name="shooting_range";
 			markerType="ELLIPSE";
 			type="ellipse";
 			colorName="ColorRed";
@@ -17947,7 +17946,7 @@ class Mission
 			text="1";
 			type="mil_dot";
 			colorName="ColorGrey";
-			angle=358.99988;
+			angle=358.99982;
 			id=1374;
 			atlOffset=-0.00016784668;
 		};
@@ -18738,6 +18737,19 @@ class Mission
 				};
 				nAttributes=1;
 			};
+		};
+		class Item513
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={11504.625,24.380596,11827.375};
+				angles[]={6.2565274,0,6.2711902};
+			};
+			name="teleporter5";
+			id=1415;
+			type="Logic";
+			atlOffset=-0.00057601929;
 		};
 	};
 	class Connections

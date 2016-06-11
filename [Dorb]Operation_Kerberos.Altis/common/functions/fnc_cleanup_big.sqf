@@ -9,9 +9,12 @@
 SCRIPT(cleanup_big);
 PARAMS_2(_pos,_rad);
 
-{_x TILGE;} foreach (_pos nearObjects ["ALL", _rad]); ///hier west rausnehmen
+private _exeptions = [["boat_spawn",100],["shooting_range",500],["repair_mark",50],[GVARMAIN(respawnmarker),800]];
+
+private _objectsToDelete = allMissionObjects "All" select {private _curObj = _x;!({(_curObj distance2D (getMarkerPos (_x select 0)))<(_x select 1)} count _exeptions>0)};
+
+{_x TILGE;} forEach _objectsToDelete;
 {_x TILGE;} forEach allMines;
-{if (side _x != EGVAR(main,playerside)) then {_x TILGE;};} foreach allunits;
 
 {if (!(alive _x)) then {_x TILGE;};} foreach vehicles;
 {_x TILGE;} forEach allDead;
@@ -24,6 +27,7 @@ ISNILS(EGVAR(mission,markerdump),[]);
 EGVAR(mission,markerdump) TILGE;
 
 [-1,{if(hasInterface)exitWith{};{deleteGroup _x;} foreach allGroups;}] FMP;	//Headless remove Groups
+
 ISNILS(EGVAR(mission,sideby_objects),[]);
 {_x TILGE;} forEach EGVAR(mission,sideby_objects);
 EGVAR(mission,sideby_objects) = [];
