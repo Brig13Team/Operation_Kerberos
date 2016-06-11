@@ -68,9 +68,14 @@ if (((_max_width - _row_width >= _cargo_width + SPACE_BETWEEN_CARGO) && (_left_l
 if (!(((_row_length < _cargo_length + SPACE_BETWEEN_CARGO) || (_max_width < _cargo_width)) && ((_row_length < _cargo_width + SPACE_BETWEEN_CARGO) || (_max_width < _cargo_length)))) exitWith { true };
 
 /// STACKING
-private _stackable = false; 
+private _stackable = false;
+private _cargo_stackable = if ( isText (missionConfigFile >> "logistics" >> "cargos" >> _cargo_class >> "stackable") ) then {
+                              if ( (getText (missionConfigFile >> "logistics" >> "cargos" >> _cargo_class >> "stackable")) isEqualTo "true" ) then { true } else { false }
+                           } else {
+                              false
+                           }; 
 for [{_i = 0},{_i < (count _last_row)},{_i = _i + 1}] do {
-    if (((getModelInfo (_last_row select _i select 0) select 0) == (getModelInfo _cargo select 0)) && (!(_last_row select _i select 5)) && (((_last_row select _i select 1 select 3 select 2) + 2 * _cargo_height) <= _max_height)) exitWith { _stackable = true; };
+    if (_cargo_stackable && ((getModelInfo (_last_row select _i select 0) select 0) == (getModelInfo _cargo select 0)) && (!(_last_row select _i select 5)) && (((_last_row select _i select 1 select 3 select 2) + 2 * _cargo_height) <= _max_height)) exitWith { _stackable = true; };
 };
 if (_stackable) exitWith { true };
 
