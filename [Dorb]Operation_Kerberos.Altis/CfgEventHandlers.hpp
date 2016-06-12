@@ -14,6 +14,12 @@ class Extended_PostInit_EventHandlers {
 	class Dorb_Logistics {
 		init = "call compile preProcessFileLineNumbers 'logistics\XEH_postinit.sqf'";
 	};
+    class Dorb_headless_client {
+        Clientinit = "call compile preProcessFileLineNumbers 'headless\XEH_clientpostinit.sqf'";
+    };
+    class Dorb_headless_Server {
+        Serverinit = "call compile preProcessFileLineNumbers 'headless\XEH_serverpostinit.sqf'";
+    };
 };
 
 class Extended_Init_Eventhandlers {

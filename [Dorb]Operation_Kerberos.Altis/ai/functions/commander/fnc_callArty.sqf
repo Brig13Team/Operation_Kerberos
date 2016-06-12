@@ -51,8 +51,8 @@ If (_count < 0) then {
 		
 	// Fire
 	{
-		if (!(_shell in getArtilleryAmmo [_x])) then {_shell_cur = ((getArtilleryAmmo [_x])select 0);};
-		if (alive _x) then {_x commandArtilleryFire [_attack_pos,_shell_cur,_count];};
+		if (!(_shell in getArtilleryAmmo [_x])) then {_shell = ((getArtilleryAmmo [_x])select 0);};
+		if (alive _x) then {_x commandArtilleryFire [_attack_pos,_shell,_count];};
 		_x setVehicleAmmo 1;
 	} forEach _artilleries;
 }else{
