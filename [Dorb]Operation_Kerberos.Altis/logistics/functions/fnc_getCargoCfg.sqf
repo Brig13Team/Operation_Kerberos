@@ -12,7 +12,7 @@
 */
 #include "script_component.hpp"
 
-(_this) params[["_object",objNull,[objNull,""]]];
+_this params[["_object",objNull,[objNull,""]]];
 
 If (IS_OBJECT(_object)) then {
 If (isNull _object) exitWith {""};
