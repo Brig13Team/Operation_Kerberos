@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=80;
+		nextID=90;
 	};
 	class Camera
 	{
-		pos[]={11602.668,46.911182,11986.154};
-		dir[]={0.12990496,-0.65698785,0.74265307};
-		up[]={0.11320369,0.75388956,0.64717138};
-		aside[]={0.98505986,1.8684659e-007,-0.1723094};
+		pos[]={11483.91,90.228455,11894.789};
+		dir[]={-0.044729155,-0.79493105,0.60509056};
+		up[]={-0.058602132,0.60669303,0.79277098};
+		aside[]={0.99729967,6.192713e-007,0.073719703};
 	};
 };
 binarizationWanted=0;
@@ -1003,6 +1003,7 @@ class Mission
 			};
 			id=83;
 			type="MapBoard_altis_F";
+			atlOffset=5.7220459e-005;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -2426,12 +2427,11 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={11465.796,27.492067,11959.687};
-				angles[]={6.2645216,0,0.02666023};
+				position[]={11465.796,27.492065,11959.687};
+				angles[]={6.2645278,0,0.026668631};
 			};
 			id=235;
 			type="ACE_ModuleCheckPBOs";
-			atlOffset=1.9073486e-006;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -2468,7 +2468,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="[""cba_diagnostic_enable_perf_loop"",""cba_diagnostic_logging"",""cba_cache_disable"",""cba_diagnostic_disable_xeh_logging"",""Disable_XEH_Logging"",""cba_diagnostic_enable_logging"",""warfxpe"",""blastcore_maincore"",""blastcore_vep"",""BlastcoreTracers"",""BC_Skies_Stratis"",""BC_Skies_Altis"",""Blastcore_Sun"",""Blastcore_SmokeCS"",""WarFXPE"",""Blastcore_VEP"",""ststaminabar"",""st_sthud"",""stnametags"",""stgi"",""st_sthud_usermenu"",""st_interact"",""st_interact_enabler"",""st_map_auto_brightness"",""asr_ai3_main"",""asr_ai3_rhs_c"",""cw_9liners_and_notepad"",""BWA3_EnablePIPOptics"",""jesuzpack_secondprimary""]";
+							value="[""cba_diagnostic_enable_perf_loop"",""cba_diagnostic_logging"",""cba_cache_disable"",""cba_diagnostic_disable_xeh_logging"",""Disable_XEH_Logging"",""cba_diagnostic_enable_logging"",""warfxpe"",""blastcore_maincore"",""blastcore_vep"",""BlastcoreTracers"",""BC_Skies_Stratis"",""BC_Skies_Altis"",""Blastcore_Sun"",""Blastcore_SmokeCS"",""WarFXPE"",""Blastcore_VEP"",""ststaminabar"",""st_sthud"",""stnametags"",""stgi"",""st_sthud_usermenu"",""st_interact"",""st_interact_enabler"",""st_map_auto_brightness"",""asr_ai3_main"",""asr_ai3_rhs_c"",""cw_9liners_and_notepad"",""BWA3_EnablePIPOptics"",""jesuzpack_secondprimary"",""asr_ai3_rhs_ru_c"",""asr_ai3_rhs_us_c""]";
 						};
 					};
 				};
