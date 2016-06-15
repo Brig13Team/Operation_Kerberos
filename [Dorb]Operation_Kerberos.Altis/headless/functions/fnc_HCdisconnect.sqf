@@ -3,7 +3,7 @@
     Author: Dorbedo
     
     Description:
-        registration of the new connected headless client
+        removal of the  disconnected headless client
     Parameter(s):
         0:OBJECT - connected headless
     Return:
@@ -11,12 +11,10 @@
 */
 #include "script_component.hpp"
 _this params ["_object"];
+CHECK(!(_object in GVAR(HeadlessClients)))
 
-CHECK((!GVARMAIN(HC_enabled))||{!(_object in AllUnits)}||{!(isPlayer _object)})
-
-GVAR(HeadlessClients) pushBack _object;
+GVAR(HeadlessClients) deleteAt (GVAR(HeadlessClients) find _object);
 
 CHECK(GVAR(transfering))
 GVAR(transfering) = true;
-[FUNC(move), [], HEADLESSDELAY] call EFUNC(common,waitAndExecute);
-nil;
+[FUNC(move), [true], HEADLESSDELAY] call CBA_fnc_waitAndExecute;

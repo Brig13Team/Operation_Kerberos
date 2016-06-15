@@ -31,8 +31,9 @@ private _headlessBalance = [];
     };
 } forEach GVAR(headlessClients);
 
-If (_currentHC < 0) then {
+If (_currentHC < 0) exitWith {
     TRACE_1("No Valid HC to transfer to %1",_currentHC);
+    GVAR(transfering) = false;
 };
 
 private _loadBalance = ((count _headlessOwnerIDs) > 1);
@@ -41,6 +42,7 @@ private _loadBalance = ((count _headlessOwnerIDs) > 1);
     private _transfer = !((units _x) isEqualTo []);
     If (_transfer) then {
         { 
+            /// If forcing is enabled -> ignore the searching for owner
             if (!_force && { (owner _x) in _headlessOwnerIDs }) exitWith {
                 _transfer = false;
             };
@@ -62,7 +64,7 @@ private _loadBalance = ((count _headlessOwnerIDs) > 1);
             _headlessBalance set [_currentHC,(_headlessBalance select _currentHC)+1];
         }; 
         If (_loadBalance) then {
-            _currentHC = If ((_currentHC)>(count _headlessOwnerIDs)) then {0}else{_currentHC + 1};
+            _currentHC = If ((_currentHC + 1)>(count _headlessOwnerIDs -1)) then {0}else{_currentHC + 1};
         };
     };
 } forEach allGroups;

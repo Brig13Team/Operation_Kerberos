@@ -19,4 +19,7 @@ PREP(unload);
 PREP(setContainerWeight);
 PREP(updateSeats);
 
+PREP(canChangeCargo);
+PREP(ChangeCargo);
+
 ADDON = true;

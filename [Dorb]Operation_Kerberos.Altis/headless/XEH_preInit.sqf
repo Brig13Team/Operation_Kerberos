@@ -1,12 +1,14 @@
 #include "script_component.hpp"
 ADDON = false;
 
-PREP(connect);
-PREP(disconnect);
+PREP(HCconnect);
+PREP(HCdisconnect);
 PREP(initPost);
-PREP(move);
+PREP(transfer);
 
 ADDON = true;
 
-GVAR(transfering) = false;
+If (isNil QGVARMAIN(HC_enabled)) then {GVARMAIN(HC_enabled)=true;};
+
+GVAR(istransfering) = false;
 GVAR(HeadlessClients) = [];
