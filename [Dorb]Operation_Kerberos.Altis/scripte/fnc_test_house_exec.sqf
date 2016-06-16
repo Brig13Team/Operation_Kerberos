@@ -25,8 +25,7 @@ test3=[];
     private _vehicle = createVehicle [_currentObjectType,_setPos, [], 0, "CAN_COLLIDE"];
     _vehicle enableSimulation false;
     _vehicle setPosASL _setPos;
-    _vehicle setDir (_gier + _haus_Gier);
-    [_vehicle,(_wank+_haus_Wank),(_nick+_haus_Nick)] call BIS_fnc_setPitchBank;
+    [_vehicle,[(_gier + _haus_Gier),(_wank+_haus_Wank),(_nick+_haus_Nick)]] call BIS_fnc_setobjectrotation;
     test3 pushBack _vehicle;
 } forEach _material;
 
@@ -37,8 +36,7 @@ test3=[];
     private _vehicle = createVehicle [_currentObjectType,_setPos, [], 0, "CAN_COLLIDE"];
     _vehicle enableSimulation false;
     _vehicle setPosASL _setPos;
-    _vehicle setDir (_gier + _haus_Gier);
-    [_vehicle,(_wank+_haus_Wank),(_nick+_haus_Nick)] call BIS_fnc_setPitchBank;
+    [_vehicle,[(_gier + _haus_Gier),(_wank+_haus_Wank),(_nick+_haus_Nick)]] call BIS_fnc_setobjectrotation;
     test3 pushBack _vehicle;
 } forEach _vehicles;
 
@@ -49,7 +47,6 @@ test3=[];
     private _setPos = _housePos vectorAdd _newpos;
     private _vehicle = _gruppe createUnit[_currentObjectType,_setPos, [], 0, "NONE"];
     _vehicle setPosASL _setPos;
-    _vehicle setDir (_gier + _haus_Gier);
-    [_vehicle,(_wank+_haus_Wank),(_nick+_haus_Nick)] call BIS_fnc_setPitchBank;
+    [_vehicle,[(_gier + _haus_Gier),(_wank+_haus_Wank),(_nick+_haus_Nick)]] call BIS_fnc_setobjectrotation;
     test3 pushBack _vehicle;
 } forEach _soldiers;
