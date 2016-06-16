@@ -45,7 +45,7 @@ private _haus_Gier = getDir _haus;
         private _obj_Gier = getDir _currentObject;
 
         private _wank = _haus_Wank + _obj_Wank;
-        private _nick = _haus_Nick + _obj_Wank;
+        private _nick = _haus_Nick + _obj_Nick;
         private _gier = _haus_Gier + _obj_Gier;
         
         _temp = [_currenttype,_temppos,_wank,_nick,_gier];

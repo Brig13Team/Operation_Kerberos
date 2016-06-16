@@ -17,6 +17,7 @@ PREP(defence_macros);
 
 PREP(exec_housemacro);
 PREP(defence_house);
+PREP(get_similar_class);
 
 PREP(gear);
 PREP(group);
