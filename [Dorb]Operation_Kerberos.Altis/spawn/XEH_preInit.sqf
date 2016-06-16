@@ -15,8 +15,13 @@ PREP(crew);
 PREP(defence_create);
 PREP(defence_macros);
 
+
+PREP(defence_position);
+PREP(exec_defence)
+
 PREP(exec_housemacro);
 PREP(defence_house);
+
 PREP(get_similar_class);
 
 PREP(gear);
