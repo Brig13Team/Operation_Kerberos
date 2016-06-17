@@ -41,6 +41,22 @@ private _fnc_getObjectBelow = {
     };
 };
 
+private _fnc_getPitchBank = {
+    _this params ["_obj"];
+    private _yaw = getdir _obj;
+    private _vdir = vectordir _obj;
+    _vdir = [_vdir, _yaw] call BIS_fnc_rotateVector2D;
+    private _vdirY = _vdir select 1;
+    if (_vdirY == 0) then {_vdirY = 0.01;};
+    private _pitch = atan ((_vdir select 2) / _vdirY);
+    private _vup = vectorup _obj;
+    _vup = [_vup, _yaw] call BIS_fnc_rotateVector2D;
+    private _vupZ = _vup select 2;
+    if (_vupZ == 0) then {_vupZ = 0.01;};
+    private _bank = atan ((_vup select 0) / _vupZ);
+    [_pitch, _bank];
+};
+
 /*******************************************************************
 *
 *
@@ -79,7 +95,7 @@ private _exportarray = [];
     private _type = typeOf _currentObject;
     private _gier = direction _currentObject;
     private _offset = (getPosASL _currentObject) vectorDiff _centerPosASL;
-    (_currentObject call BIS_fnc_getPitchBank) params ["_wank","_nick"];
+    (_currentObject call _fnc_getPitchBank) params ["_wank","_nick"];
     private _objBelow = [_currentObject] call _fnc_getObjectBelow;
     If !(isNull _objBelow) then {
         _pos = (getPosASL _objBelow) vectorDiff _centerPosASL;

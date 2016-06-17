@@ -18,7 +18,22 @@ _this params [ ["_house",objNull,[objNull]],["_material",[],[[]]],["_vehicles",[
 If (isNull _house) exitWith {};
 
 private _housePos = getPosASL _house;
-(_house call BIS_fnc_getPitchBank) params ["_haus_Wank","_haus_Nick"];
+private _fnc_getPitchBank = {
+    _this params ["_obj"];
+    private _yaw = getdir _obj;
+    private _vdir = vectordir _obj;
+    _vdir = [_vdir, _yaw] call BIS_fnc_rotateVector2D;
+    private _vdirY = _vdir select 1;
+    if (_vdirY == 0) then {_vdirY = 0.01;};
+    private _pitch = atan ((_vdir select 2) / _vdirY);
+    private _vup = vectorup _obj;
+    _vup = [_vup, _yaw] call BIS_fnc_rotateVector2D;
+    private _vupZ = _vup select 2;
+    if (_vupZ == 0) then {_vupZ = 0.01;};
+    private _bank = atan ((_vup select 0) / _vupZ);
+    [_pitch, _bank];
+};
+(_house call _fnc_getPitchBank) params ["_haus_Wank","_haus_Nick"];
 private _haus_Gier = getDir _house;
 
 {

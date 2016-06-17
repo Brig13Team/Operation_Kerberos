@@ -28,8 +28,23 @@ private _hauspos = getPosASL _haus;
 private _alleobjekte = nearestObjects [_haus,["CAManBase","Static","LandVehicle","Air","Ship"],_radius];
 private _exportarray = [];
 
+private _fnc_getPitchBank = {
+    _this params ["_obj"];
+    private _yaw = getdir _obj;
+    private _vdir = vectordir _obj;
+    _vdir = [_vdir, _yaw] call BIS_fnc_rotateVector2D;
+    private _vdirY = _vdir select 1;
+    if (_vdirY == 0) then {_vdirY = 0.01;};
+    private _pitch = atan ((_vdir select 2) / _vdirY);
+    private _vup = vectorup _obj;
+    _vup = [_vup, _yaw] call BIS_fnc_rotateVector2D;
+    private _vupZ = _vup select 2;
+    if (_vupZ == 0) then {_vupZ = 0.01;};
+    private _bank = atan ((_vup select 0) / _vupZ);
+    [_pitch, _bank];
+};
 
-(_haus call BIS_fnc_getPitchBank) params ["_haus_Wank","_haus_Nick"];
+(_haus call _fnc_getPitchBank) params ["_haus_Wank","_haus_Nick"];
 private _haus_Gier = getDir _haus;
 
 {
@@ -41,7 +56,7 @@ private _haus_Gier = getDir _haus;
         private _currentPos = getPosASL _currentObject;
         private _temppos = _currentPos vectorDiff _hauspos;
         
-        (_currentObject call BIS_fnc_getPitchBank) params ["_obj_Wank","_obj_Nick"];
+        (_currentObject call _fnc_getPitchBank) params ["_obj_Wank","_obj_Nick"];
         private _obj_Gier = getDir _currentObject;
 
         private _wank = _haus_Wank + _obj_Wank;
