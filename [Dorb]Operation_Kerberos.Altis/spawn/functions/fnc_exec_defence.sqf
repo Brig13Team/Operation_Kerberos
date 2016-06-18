@@ -27,16 +27,20 @@ _centerpos = ATLToASL _centerpos;
         _newpos = [_currentOffset,-1*_centerdir] call BIS_fnc_rotateVector2D;
         _newpos = _centerpos vectorAdd _newpos;
         private _terNorm = surfaceNormal _newpos;
+        _newpos set [2,(_currentOffset select 2)];
+        _newpos = ATLToASL _newpos;
         _gier = _gier + _centerdir;
-        _nick = (_terNorm select 1) atan2 1 + _nick;
-        _wank = (_terNorm select 0) atan2 1 + _wank;
+        _nick = (_terNorm select 0) atan2 (_terNorm select 2) + _nick;
+        _wank = (_terNorm select 1) atan2 (_terNorm select 2) + _wank;
     }else{
         _newpos = _centerpos vectorAdd ([_currentPos,-1*_centerdir] call BIS_fnc_rotateVector2D);
         private _terNorm = surfaceNormal _newpos;
+        _newpos set [2,(_currentPos select 2)];
+        _newpos = ATLToASL _newpos;
         _newpos = _newpos vectorAdd ([_currentOffset,-1*_centerdir] call BIS_fnc_rotateVector2D);
         _gier = _gier + _centerdir;
-        _nick = (_terNorm select 1) atan2 1 + _nick;
-        _wank = (_terNorm select 0) atan2 1 + _wank;
+        _nick = (_terNorm select 0) atan2 (_terNorm select 2) + _nick;
+        _wank = (_terNorm select 1) atan2 (_terNorm select 2) + _wank;
     };
     diag_log [_currentObjectType,_newpos];
     private _vehicle = createVehicle [_currentObjectType,_newpos, [], 0, "CAN_COLLIDE"];
@@ -44,7 +48,7 @@ _centerpos = ATLToASL _centerpos;
     _vehicle setPosASL _newpos;
     [_vehicle,[_gier,_wank,_nick]] call BIS_fnc_setobjectrotation;
 } forEach _material;
-
+private _gruppe = grpNull;
 If ((count _vehicles)>0) then {
     _gruppe = createGroup GVARMAIN(side);
     SETVAR(_gruppe,EGVAR(headquarter,state),"defend");
@@ -58,16 +62,20 @@ If ((count _vehicles)>0) then {
         _newpos = [_currentOffset,-1*_centerdir] call BIS_fnc_rotateVector2D;
         _newpos = _centerpos vectorAdd _newpos;
         private _terNorm = surfaceNormal _newpos;
+        _newpos set [2,(_currentOffset select 2)];
+        _newpos = ATLToASL _newpos;
         _gier = _gier + _centerdir;
-        _nick = (_terNorm select 1) atan2 1 + _nick;
-        _wank = (_terNorm select 0) atan2 1 + _wank;
+        _nick = (_terNorm select 0) atan2 (_terNorm select 2) + _nick;
+        _wank = (_terNorm select 1) atan2 (_terNorm select 2) + _wank;
     }else{
         _newpos = _centerpos vectorAdd ([_currentPos,-1*_centerdir] call BIS_fnc_rotateVector2D);
         private _terNorm = surfaceNormal _newpos;
+        _newpos set [2,(_currentPos select 2)];
+        _newpos = ATLToASL _newpos;
         _newpos = _newpos vectorAdd ([_currentOffset,-1*_centerdir] call BIS_fnc_rotateVector2D);
         _gier = _gier + _centerdir;
-        _nick = (_terNorm select 1) atan2 1 + _nick;
-        _wank = (_terNorm select 0) atan2 1 + _wank;
+        _nick = (_terNorm select 0) atan2 (_terNorm select 2) + _nick;
+        _wank = (_terNorm select 1) atan2 (_terNorm select 2) + _wank;
     };
     diag_log [_currentObjectType,_newpos];
     private _vehicle = createVehicle [_currentObjectType,_newpos, [], 0, "CAN_COLLIDE"];
@@ -75,7 +83,7 @@ If ((count _vehicles)>0) then {
     _vehicle setPosASL _newpos;
     [_vehicle,[_gier,_wank,_nick]] call BIS_fnc_setobjectrotation;
     
-    If ("Artillery" in getArray(configFile>>"cfgVehicles">>_currentObjectType>>"availableforsupporttypes")) then {[_vehicle] call EFUNC(headquarter,fdc_register);};
+    //If ("Artillery" in getArray(configFile>>"cfgVehicles">>_currentObjectType>>"availableforsupporttypes")) then {[_vehicle] call EFUNC(headquarter,fdc_register);};
     _vehicle enableSimulation true;
     
     If (!(_vehicle isKindOf "StaticWeapon")) then {
@@ -85,7 +93,7 @@ If ((count _vehicles)>0) then {
         _vehicle lock 0;
         [_vehicle,_gruppe] call FUNC(crew);
         private["_watchpos"];
-        _watchpos = [_setPos,250,_gier] call BIS_fnc_relPos;
+        _watchpos = [_newpos,250,_gier] call BIS_fnc_relPos;
         _watchpos set[2,0];
         (gunner _vehicle) doWatch (_watchpos);
     };
@@ -104,19 +112,23 @@ If ((count _soldiers)>0) then {
         _newpos = [_currentOffset,-1*_centerdir] call BIS_fnc_rotateVector2D;
         _newpos = _centerpos vectorAdd _newpos;
         private _terNorm = surfaceNormal _newpos;
+        _newpos set [2,(_currentOffset select 2)];
+        _newpos = ATLToASL _newpos;
         _gier = _gier + _centerdir;
-        _nick = (_terNorm select 1) atan2 1 + _nick;
-        _wank = (_terNorm select 0) atan2 1 + _wank;
+        _nick = (_terNorm select 0) atan2 (_terNorm select 2) + _nick;
+        _wank = (_terNorm select 1) atan2 (_terNorm select 2) + _wank;
     }else{
         _newpos = _centerpos vectorAdd ([_currentPos,-1*_centerdir] call BIS_fnc_rotateVector2D);
         private _terNorm = surfaceNormal _newpos;
+        _newpos set [2,(_currentPos select 2)];
+        _newpos = ATLToASL _newpos;
         _newpos = _newpos vectorAdd ([_currentOffset,-1*_centerdir] call BIS_fnc_rotateVector2D);
         _gier = _gier + _centerdir;
-        _nick = (_terNorm select 1) atan2 1 + _nick;
-        _wank = (_terNorm select 0) atan2 1 + _wank;
+        _nick = (_terNorm select 0) atan2 (_terNorm select 2) + _nick;
+        _wank = (_terNorm select 1) atan2 (_terNorm select 2) + _wank;
     };
     private _currentObjectType = [_currentObjectType] call FUNC(get_Similar_Class);
-    private _vehicle = _gruppe createUnit[_currentObjectType,_setPos, [], 0, "NONE"];
+    private _vehicle = _gruppe createUnit[_currentObjectType,_newpos, [], 0, "NONE"];
     doStop _vehicle;
     _vehicle setPosASL _newpos;
     [_vehicle,[_gier,_wank,_nick]] call BIS_fnc_setobjectrotation;

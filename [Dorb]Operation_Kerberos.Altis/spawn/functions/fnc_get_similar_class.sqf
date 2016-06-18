@@ -15,4 +15,5 @@
 #include "script_component.hpp"
 _this params ["_classname"];
 
-(selectRandom GVAR(list_soldiers));
+//(selectRandom GVAR(list_soldiers));
+_classname;
