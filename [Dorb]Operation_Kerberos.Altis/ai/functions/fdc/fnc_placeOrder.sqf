@@ -16,15 +16,11 @@
 */
 
 #include "script_component.hpp"
-SCRIPT(placeOrder);
-#define CREEPING_DISTANCE 80
-If (isNil QGVAR(fdc_logic)) exitWith {false};
-
-params[["_attackpos",[],[[]],[2,3]],["_type",-1,[0]],["_amount",-1,[0]],["_modearray",[],[[]]]];
+_this params[["_attackpos",[],[[]],[2,3]],["_type",-1,[0]],["_amount",-1,[0]],["_modearray",[],[[]]]];
 TRACEV_4(_attackpos,_type,_amount,_modearray);
 If (_attackpos isEqualTo []) exitWith {false};
-private "_cancel";
-_cancel = false;
+private _cancel = false;
+
 If ((count _attackpos)<2) then {
 	_attackpos pushBack 0;
 };
@@ -37,7 +33,7 @@ If (!(_modearray isEqualTo [])) then {
 		case "creeping" : {
 			CHECK(_direction < 0)
 			private ["_side_shots","_direction_shots","_temp_center","_positions_array"];
-			_side_shots = (floor((size/2)/CREEPING_DISTANCE))min 2;
+			_side_shots = (floor((_size/2)/CREEPING_DISTANCE))min 2;
 			_direction_shots = (floor((_range)/CREEPING_DISTANCE))min 6;
 			_positions_array = [];
 			_temp_center = _attackpos;
@@ -54,16 +50,10 @@ If (!(_modearray isEqualTo [])) then {
 			}forEach _positions_array;
 		};
 		case "smoke" : {
-			_temp = GETVAR(GVAR(fdc_logic),GVAR(fdc_firemissions),[]);
-			_temp pushBack [_position,_type,"Smoke_120mm_AMOS_White",_amount];
-			TRACEV_4(_position,_type,"Smoke_120mm_AMOS_White",_amount);
-			SETVAR(GVAR(fdc_logic),GVAR(fdc_firemissions),_temp);
+			GVAR(fdc_firemissions) pushBack [_position,_type,"Smoke_120mm_AMOS_White",_amount];
 		};
 		case "flare" : {
-			_temp = GETVAR(GVAR(fdc_logic),GVAR(fdc_firemissions),[]);
-			_temp pushBack [_position,1,"Flare_82mm_AMOS_White",_amount];
-			TRACEV_4(_position,1,"Flare_82mm_AMOS_White",_amount);
-			SETVAR(GVAR(fdc_logic),GVAR(fdc_firemissions),_temp);
+			GVAR(fdc_firemissions) pushBack [_position,1,"Flare_82mm_AMOS_White",_amount];
 		};
 	};
 };
@@ -71,44 +61,42 @@ If (!(_modearray isEqualTo [])) then {
 if(_cancel) exitWith {false};
 _cancel = switch (_type) do {
 	case -1 : {
-				true
-	
-			};
+				_type = [];
+                If !(GVAR(fdc_artilleries) isEqualTo []) then {_type pushBack 0;};
+                If !(GVAR(fdc_mortars) isEqualTo []) then {_type pushBack 1;};
+                If !(GVAR(fdc_rocket) isEqualTo []) then {_type pushBack 2;};
+                If (_type isEqualTo []) exitWith {true};
+                [_attackpos,selectRandom _type,-1] call FUNC(fdc_placeOrder);
+                true
+             };
 	case 0 : {
-				_artilleries = GETVAR(GVAR(fdc_logic),GVAR(fdc_artilleries),[]);
-				If (_artilleries isEqualTo []) exitWith {true};
-				_unit = _artilleries SELRND;
+				If (GVAR(fdc_artilleries) isEqualTo []) exitWith {true};
+				_unit = selectRandom GVAR(fdc_artilleries);
 				_shelltype = ((getArtilleryAmmo [_unit])select 0);
 				If (_amount < 0) then {_amount = 6;};
 				false
 			};
 	case 1 : {
-				_artilleries = GETVAR(GVAR(fdc_logic),GVAR(fdc_mortars),[]);
-				If (_artilleries isEqualTo []) exitWith {true};
-				_unit = _artilleries SELRND;
+				If (GVAR(fdc_mortars) isEqualTo []) exitWith {true};
+				_unit = selectRandom GVAR(fdc_mortars);
 				_shelltype = ((getArtilleryAmmo [_unit])select 0);
 				If (_amount < 0) then {_amount = 3;};
 				false
 			};
 	case 2 : {
-				_artilleries = GETVAR(GVAR(fdc_logic),GVAR(fdc_rocket),[]);
-				If (_artilleries isEqualTo []) exitWith {true};
-				_unit = _artilleries SELRND;
+				If (GVAR(fdc_rocket) isEqualTo []) exitWith {true};
+				_unit = selectRandom GVAR(fdc_rocket);
 				_shelltype = ((getArtilleryAmmo [_unit])select 0);
 				_ammo = getText(configFile>>"CfgMagazines">> _shelltype >> "ammo");
 				_submun = getText(configFile>>"CfgAmmo">>_ammo>>"submunitionAmmo");
 				_strength = getNumber(configFile>>"CfgAmmo">>_submun>>"hit");
-				_ammo = floor(3000/(_strength)) min 1
+				_amount = floor(3000/(_strength)) min 1;
 				false
 			};
 };
 
 
 if(_cancel) exitWith {false};
-_temp = GETVAR(GVAR(fdc_logic),GVAR(fdc_firemissions),[]);
-_temp pushBack [_position,_type,_shelltype,_amount];
-TRACEV_4(_position,_type,_shelltype,_amount);
-SETVAR(GVAR(fdc_logic),GVAR(fdc_firemissions),_temp);
-
+GVAR(fdc_firemissions) pushBack [_position,_type,_shelltype,_amount];
 true
 

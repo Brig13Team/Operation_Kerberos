@@ -20,6 +20,7 @@
 	
 	
 */
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 SCRIPT(defence_macros);
 params["_position",["_radius",1000,[0]],["_anzahl_spawnpos",3,[0]],["_isTown",false,[true]]];
@@ -124,14 +125,18 @@ If (EGVAR(main,mods_rds)) then {
 		_mrkr setMarkerDir _bestdir;
 	};
 	
-	///// spawn defence
-	_currentmakro = -1;
-	_currentmakro = [_makros,_markos_weight] call BIS_fnc_selectRandomWeighted;
-	_configarray = ["missionConfigFile","defence_positions","terrain"];
-	_configarray pushBack _currentmakro;
-	
-	[_x,_configarray,_bestdir] call FUNC(macro_exec3d);
-	
+    private _allCfg = "true" configClasses (missionConfigFile >> "defence_positions" >> "terrain");
+
+    if ((count _allCfg)<1) exitWith {};
+
+    private _cfg = selectRandom _allCfg;
+
+    private _material = getArray(_cfg>>"material");
+    private _vehicles = getArray(_cfg>>"vehicles");
+    private _soldiers = getArray(_cfg>>"soldiers");
+    LOG_5(_x,_bestdir,_material,_vehicles,_soldiers);
+    [_x,_bestdir,_material,_vehicles,_soldiers] call FUNC(exec_defence);
+    
 }forEach  _all_spawnpos;
 
 

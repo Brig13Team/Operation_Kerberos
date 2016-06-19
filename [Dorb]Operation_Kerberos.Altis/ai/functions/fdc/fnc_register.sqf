@@ -9,30 +9,22 @@
 	
 */
 #include "script_component.hpp"
-SCRIPT(register);
 
-If (isNil QGVAR(fdc_logic)) then {
-	[] call FUNC(fdc_init);
-};
+_this params[["_newUnit",objNull,[objNull]]];
 
-params[["_newUnit",objNull,[objNull]]];
-private "_temp";
+LOG_2(_this,_newUnit);
+CHECK(isNull _newUnit)
 If ((vehicle _newUnit) isKindOf "StaticMortar") exitWith {
-	_temp = GETVAR(GVAR(fdc_logic),GVAR(fdc_mortars),[]);
-	_temp pushBack [_newUnit,_position];
-	SETVAR(GVAR(fdc_logic),GVAR(fdc_mortars),_temp);
+	GVAR(fdc_mortars) pushBack [_newUnit,_position];
 };
-private ["_mags","_ammo","_isRocket"];
 
-_mags = getArtilleryAmmo [cursorTarget]
-_ammo = getText(configFile>>"CfgMagazines">> _mags >> "ammo");
-_isRocket = (_ammo isKindOf "R_230mm_HE");
+private _mags = getArtilleryAmmo [_newUnit];
+private _isRocket = ({(getText(configFile>>"CfgMagazines">> _x >> "ammo")) isKindOf "R_230mm_HE"} count _mags)>0;
+
+//private _ammo = (getText(configFile>>"CfgMagazines">> _mags >> "ammo");
+//private _isRocket = (_ammo isKindOf "R_230mm_HE");
 
 If (_isRocket) exitWith {
-	_temp = GETVAR(GVAR(fdc_logic),GVAR(fdc_rocket),[]);
-	_temp pushBack [_newUnit,_position];
-	SETVAR(GVAR(fdc_logic),GVAR(fdc_rocket),_temp);
+	GVAR(fdc_rocket) pushBack [_newUnit,_position];
 };
-_temp = GETVAR(GVAR(fdc_logic),GVAR(fdc_artilleries),[]);
-_temp pushBack [_newUnit,_position];
-SETVAR(GVAR(fdc_logic),GVAR(fdc_artilleries),_temp);
+GVAR(fdc_artilleries) pushBack [_newUnit,_position];

@@ -45,7 +45,7 @@ class unitlists {
 			prototyp[] = {"B_MBT_01_TUSK_F","B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F"};
 			
 			commandoveh[] = {"rhs_gaz66_r142_vdv"};
-			commandoveh_arty[] = {"rhs_prp3_tv"};
+			commandoveh_arty[] = {"rhs_prp3_tv","RHS_BM21_MSV_01"};
 			commandoveh_side = 0;
 			weaponcache[] = {"Box_IND_Wps_F","Box_IND_WpsSpecial_F","Box_IND_WpsLaunch_F","Box_IND_Ammo_F","Box_IND_Grenades_F","Box_IND_Support_F"};
 			

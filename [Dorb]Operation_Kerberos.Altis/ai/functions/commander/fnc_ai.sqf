@@ -211,10 +211,11 @@ _attack_tanks = {
 /// Atacktypes
 private["_Attacktype_airdrop","_Attacktype_airdrop_smoke","_Attacktype_arty_auto","_Attacktype_mechattack","_Attacktype_tankattack","_Attacktype_heliattack","_Attacktype_sniperattack"];
 _Attacktype_airdrop_smoke = {
-	PARAMS_1(_attack_pos);
+	_this params ["_attack_pos"];
 	[_attack_pos,1,40] spawn EFUNC(spawn,attack_airdrop);
 	uisleep 20;
-	[_attack_pos,3] spawn (_attack_arty_smoke);
+    [_attack_pos,0,5,"smoke"] spawn FUNC(fdc_placeOrder);
+	//[_attack_pos,3] spawn (_attack_arty_smoke);
 };
 _Attacktype_airdrop = {
 	PARAMS_1(_attack_pos);
@@ -225,8 +226,9 @@ _Attacktype_mechattack = {
 	[_attack_pos] spawn (_attack_mech);
 };
 _Attacktype_arty_auto = {
-	PARAMS_1(_attack_pos);
-	[_attack_pos,-1]spawn FUNC(commander_callArty);
+	_this params ["_attack_pos"];
+    [_attack_pos,-1,-1] spawn FUNC(fdc_placeOrder);
+	//[_attack_pos,-1]spawn FUNC(commander_callArty);
 };
 _Attacktype_tankattack = {
 	PARAMS_1(_attack_pos);

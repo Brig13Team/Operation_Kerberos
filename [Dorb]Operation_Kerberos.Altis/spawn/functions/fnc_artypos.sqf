@@ -43,4 +43,5 @@ for "_i" from 0 to 7 do {
 	SPAWNDIR = (_dir + ((360/9)*_i)+180);
 	_return = [_pos,"Land_Razorwire_F",1,[0,0,0],0,{SPAWNDIR}] call BIS_fnc_spawnObjects;
 };
+[QEGVAR(headquarter,register_artillery),_arty] call CBA_fnc_serverEvent;
 _arty

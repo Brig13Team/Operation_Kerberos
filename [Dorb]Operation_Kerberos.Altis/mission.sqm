@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=90;
+		nextID=110;
 	};
 	class Camera
 	{
-		pos[]={11483.91,90.228455,11894.789};
-		dir[]={-0.044729155,-0.79493105,0.60509056};
-		up[]={-0.058602132,0.60669303,0.79277098};
-		aside[]={0.99729967,6.192713e-007,0.073719703};
+		pos[]={11705.228,91.932175,11853.709};
+		dir[]={-0.48466539,-0.47248793,0.73615468};
+		up[]={-0.25983471,0.88131732,0.39466295};
+		aside[]={0.83525902,-4.1315798e-007,0.5499087};
 	};
 };
 binarizationWanted=0;
@@ -1003,7 +1003,6 @@ class Mission
 			};
 			id=83;
 			type="MapBoard_altis_F";
-			atlOffset=5.7220459e-005;
 			class CustomAttributes
 			{
 				class Attribute0

@@ -10,6 +10,8 @@ PREP(defence);
 PREP(defence_macros);
 PREP(in_building);
 PREP(macro_exec3d);
+PREP(exec_defence);
+PREP(get_similar_class);
 PREP(minefield);
 PREP(minefields);
 PREP(mortarpos);
