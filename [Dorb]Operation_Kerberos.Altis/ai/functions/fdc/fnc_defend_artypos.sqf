@@ -11,7 +11,7 @@ private _newcommands = [];
 private _searchArea = {
 	_this params["_unit","_min","_max","_type"];
 	TRACEV_4(_unit,_min,_max,_type);
-	private _targetpos = {if ((_x distance _unit)<_max) exitwith {getPos _x};[]}forEach allPlayers;
+	private _targetpos = {if (((_x distance _unit)<_max)&&{(GVARMAIN(side) knowsAbout _x)>1})exitwith {getPos _x};[]}forEach allPlayers;
 	CHECK(_targetpos isEqualTo [])
 	If ((_targetpos distance _unit)>_min) exitwith {_newcommands pushBack [_targetpos,_type,3];};
     
