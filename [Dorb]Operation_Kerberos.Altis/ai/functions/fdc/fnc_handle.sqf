@@ -21,9 +21,9 @@ GVAR(fdc_mortars) = GVAR(fdc_mortars) select {alive _x;};
 GVAR(fdc_rocket) = GVAR(fdc_rocket) select {alive _x;};
 
 private _current_artillerys_array = switch(_type) do {
-	case 0 : {[GETMVAR(GVAR(fdc_artilleries),[])] call BIS_fnc_arrayShuffle};
-	case 1 : {[GETMVAR(GVAR(fdc_mortars),[])] call BIS_fnc_arrayShuffle};
-	case 2 : {[GETMVAR(GVAR(fdc_rocket),[])] call BIS_fnc_arrayShuffle};
+	case 0 : {(GETMVAR(GVAR(fdc_artilleries),[])) call BIS_fnc_arrayShuffle};
+	case 1 : {(GETMVAR(GVAR(fdc_mortars),[])) call BIS_fnc_arrayShuffle};
+	case 2 : {(GETMVAR(GVAR(fdc_rocket),[])) call BIS_fnc_arrayShuffle};
 	default {[]};
 };
 

@@ -50,10 +50,10 @@ If (!(_modearray isEqualTo [])) then {
 			}forEach _positions_array;
 		};
 		case "smoke" : {
-			GVAR(fdc_firemissions) pushBack [_position,_type,"Smoke_120mm_AMOS_White",_amount];
+			GVAR(fdc_firemissions) pushBack [_attackpos,_type,"Smoke_120mm_AMOS_White",_amount];
 		};
 		case "flare" : {
-			GVAR(fdc_firemissions) pushBack [_position,1,"Flare_82mm_AMOS_White",_amount];
+			GVAR(fdc_firemissions) pushBack [_attackpos,1,"Flare_82mm_AMOS_White",_amount];
 		};
 	};
 };
@@ -97,6 +97,6 @@ _cancel = switch (_type) do {
 
 
 if(_cancel) exitWith {false};
-GVAR(fdc_firemissions) pushBack [_position,_type,_shelltype,_amount];
+GVAR(fdc_firemissions) pushBack [_attackpos,_type,_shelltype,_amount];
 true
 
