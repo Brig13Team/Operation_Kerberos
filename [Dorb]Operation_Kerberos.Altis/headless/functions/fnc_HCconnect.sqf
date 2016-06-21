@@ -13,7 +13,7 @@
 _this params ["_object"];
 
 GVAR(HeadlessClients) pushBack _object;
-
+LOG("Headless connected");
 CHECK(GVAR(istransfering))
 GVAR(istransfering) = true;
 [FUNC(transfer), [], HEADLESSDELAY] call CBA_fnc_waitAndExecute;

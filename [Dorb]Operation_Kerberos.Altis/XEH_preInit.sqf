@@ -10,5 +10,6 @@ ADDON = false;
 #include "ai\XEH_preInit.sqf"
 #include "mission\XEH_preInit.sqf"
 #include "spawn\XEH_preInit.sqf"
+#include "headless\XEH_preInit.sqf"
 
 ADDON = true;
