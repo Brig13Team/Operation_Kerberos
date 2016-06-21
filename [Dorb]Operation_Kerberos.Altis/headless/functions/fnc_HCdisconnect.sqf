@@ -17,4 +17,4 @@ GVAR(HeadlessClients) deleteAt (GVAR(HeadlessClients) find _object);
 
 CHECK(GVAR(transfering))
 GVAR(transfering) = true;
-[FUNC(move), [true], HEADLESSDELAY] call CBA_fnc_waitAndExecute;
+[FUNC(transfer), [true], HEADLESSDELAY] call CBA_fnc_waitAndExecute;
