@@ -16,4 +16,4 @@ CHECK((!GVARMAIN(HC_enabled))||{!(_object in AllUnits)}||{!(isPlayer _object)})
 
 CHECK(GVAR(transfering))
 GVAR(transfering) = true;
-[FUNC(move), [], HEADLESSDELAY] call EFUNC(common,waitAndExecute);
+[FUNC(transfer), [], HEADLESSDELAY] call EFUNC(common,waitAndExecute);
