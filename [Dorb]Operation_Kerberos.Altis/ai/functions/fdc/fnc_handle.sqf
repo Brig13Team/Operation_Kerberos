@@ -15,7 +15,6 @@
 If (GVAR(fdc_firemissions) isEqualTo []) exitWith {};
 private _current_firemission = GVAR(fdc_firemissions) deleteAt 0;
 _current_firemission params ["_position","_type","_shelltype","_amount"];
-
 GVAR(fdc_artilleries) = GVAR(fdc_artilleries) select {alive _x;};
 GVAR(fdc_mortars) = GVAR(fdc_mortars) select {alive _x;};
 GVAR(fdc_rocket) = GVAR(fdc_rocket) select {alive _x;};
