@@ -33,7 +33,7 @@ private _headlessBalance = [];
 
 If (_currentHC < 0) exitWith {
     TRACE_1("No Valid HC to transfer to %1",_currentHC);
-    GVAR(transfering) = false;
+    GVAR(istransfering) = false;
 };
 
 private _loadBalance = ((count _headlessOwnerIDs) > 1);
@@ -71,5 +71,5 @@ private _loadBalance = ((count _headlessOwnerIDs) > 1);
 #ifdef DEBUG_MODE_FULL
 LOG_2(_headlessOwnerIDs,_headlessBalance);
 #endif
-GVAR(transfering) = false;
+GVAR(istransfering) = false;
 nil;

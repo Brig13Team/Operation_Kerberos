@@ -15,6 +15,6 @@ CHECK(!(_object in GVAR(HeadlessClients)))
 LOG("Headless disconnected");
 GVAR(HeadlessClients) deleteAt (GVAR(HeadlessClients) find _object);
 
-CHECK(GVAR(transfering))
-GVAR(transfering) = true;
+CHECK(GVAR(istransfering))
+GVAR(istransfering) = true;
 [FUNC(transfer), [true], HEADLESSDELAY] call CBA_fnc_waitAndExecute;
