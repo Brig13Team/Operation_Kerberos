@@ -1,18 +1,18 @@
 /*
     Author: Dorbedo
-    
+
     Description:
         places an artillery order
-    
+
     Parameter(s):
         0 : ARRAY   - Position / Start Position
         1 : SCALAR  - Type AUTO=-1 , ARTY = 0 , MORTAR = 1 , ROCKET = 2
         2 : SCALAR  - Amount (might be overwritten by MODE)
         (optional)
         3 : ARRAY   - ["MODE",[Parameter]]
-                            * ["creeping",direction,range,size in m (200m Standard)]
-                            * ["smoke"]
-                            * ["flare"]
+                    * ["creeping",direction,range,size in m (200m Standard)]
+                    * ["smoke"]
+                    * ["flare"]
 */
 
 #include "script_component.hpp"
@@ -31,30 +31,30 @@ If (!(_modearray isEqualTo [])) then {
     TRACEV_3(_mode,_goalpos,_size);
     switch (_mode) do {
         case "creeping" : {
-            CHECK(_direction < 0)
-            private ["_side_shots","_direction_shots","_temp_center","_positions_array"];
-            _side_shots = (floor((_size/2)/CREEPING_DISTANCE))min 2;
-            _direction_shots = (floor((_range)/CREEPING_DISTANCE))min 6;
-            _positions_array = [];
-            _temp_center = _attackpos;
-            for "_i" from 0 to _direction_shots do {
-                _positions_array pushBack _temp_center;
-                for "_j" from 1 to _side_shots do {
-                    _positions_array pushBack [_temp_center,CREEPING_DISTANCE*_j,(_direction+90)] call BIS_fnc_relPos;
-                    _positions_array pushBack [_temp_center,CREEPING_DISTANCE*_j,(_direction+270)] call BIS_fnc_relPos;
-                };
-                _temp_center = [_attackpos,CREEPING_DISTANCE*(_i+1),_direction] call BIS_fnc_relPos;
-            };
-            {
-                [_x,0,1] call FUNC(fdc_placeOrder);
-            }forEach _positions_array;
-        };
+                            CHECK(_direction < 0)
+                            private ["_side_shots","_direction_shots","_temp_center","_positions_array"];
+                            _side_shots = (floor((_size/2)/CREEPING_DISTANCE))min 2;
+                            _direction_shots = (floor((_range)/CREEPING_DISTANCE))min 6;
+                            _positions_array = [];
+                            _temp_center = _attackpos;
+                            for "_i" from 0 to _direction_shots do {
+                                _positions_array pushBack _temp_center;
+                                for "_j" from 1 to _side_shots do {
+                                    _positions_array pushBack [_temp_center,CREEPING_DISTANCE*_j,(_direction+90)] call BIS_fnc_relPos;
+                                    _positions_array pushBack [_temp_center,CREEPING_DISTANCE*_j,(_direction+270)] call BIS_fnc_relPos;
+                                };
+                            _temp_center = [_attackpos,CREEPING_DISTANCE*(_i+1),_direction] call BIS_fnc_relPos;
+                            };
+                            {
+                                [_x,0,1] call FUNC(fdc_placeOrder);
+                            }forEach _positions_array;
+                        };
         case "smoke" : {
-            GVAR(fdc_firemissions) pushBack [_attackpos,_type,"Smoke_120mm_AMOS_White",_amount];
-        };
+                            GVAR(fdc_firemissions) pushBack [_attackpos,_type,"Smoke_120mm_AMOS_White",_amount];
+                        };
         case "flare" : {
-            GVAR(fdc_firemissions) pushBack [_attackpos,1,"Flare_82mm_AMOS_White",_amount];
-        };
+                            GVAR(fdc_firemissions) pushBack [_attackpos,1,"Flare_82mm_AMOS_White",_amount];
+                        };
     };
 };
 private ["_shelltype","_unit"];
@@ -69,7 +69,7 @@ _cancel = switch (_type) do {
                 If (_type isEqualTo []) exitWith {true};
                 [_attackpos,selectRandom _type,-1] call FUNC(fdc_placeOrder);
                 true;
-             };
+            };
     case 0 : {
                 If (GVAR(fdc_artilleries) isEqualTo []) exitWith {true};
                 _unit = selectRandom GVAR(fdc_artilleries);

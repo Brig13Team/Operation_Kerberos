@@ -1,14 +1,14 @@
 /*
     Author: Dorbedo
-    
+
     Description:
         The FDC - Logic
         coordinates artilleryfire, sends firemissions, tries to defend artillery sites
-    
+
     Parameter(s):
         0 : ARRAY   - params
         1 : SCALAR  - Handle
-    
+
 */
 #include "script_component.hpp"
 

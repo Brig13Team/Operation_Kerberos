@@ -1,9 +1,9 @@
 /*
     Author: Dorbedo
-    
+
     Description:
         searches Area around artilleriepositions and places Orders
-        
+
 */
 #include "script_component.hpp"
 
@@ -14,7 +14,7 @@ private _searchArea = {
     private _targetpos = {if (((_x distance _unit)<_max)&&{(GVARMAIN(side) knowsAbout _x)>1})exitwith {getPos _x};[]}forEach allPlayers;
     CHECK(_targetpos isEqualTo [])
     If ((_targetpos distance _unit)>_min) exitwith {_newcommands pushBack [_targetpos,_type,3];};
-    
+
     If (!(GVAR(fdc_rocket) isEqualTo [])) exitwith {_newcommands pushBack [_targetpos,_type,3];};
     If (!(GVAR(fdc_artilleries) isEqualTo [])) exitwith {_newcommands pushBack [_targetpos,_type,3];};
     If (!(GVAR(fdc_logic) isEqualTo [])) exitwith {_newcommands pushBack [_targetpos,_type,3];};
