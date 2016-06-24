@@ -61,6 +61,7 @@ detach (_last_cargo select 0);
 _cargo_mass = getMass (_last_cargo select 0);
 (_last_cargo select 0) setPos _detach_point;
 (_last_cargo select 0) setDir (getDir _vehicle);
+(_last_cargo select 0) lock false;
 
 if (isMultiplayer && {!local _vehicle}) then {
     [QGVAR(updateSeats_Vehicle),[_vehicle],_vehicle] call CBA_fnc_targetEvent;

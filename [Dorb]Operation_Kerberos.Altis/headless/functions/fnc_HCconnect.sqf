@@ -12,11 +12,9 @@
 #include "script_component.hpp"
 _this params ["_object"];
 
-CHECK((!GVARMAIN(HC_enabled))||{!(_object in AllUnits)}||{!(isPlayer _object)})
-
 GVAR(HeadlessClients) pushBack _object;
-
-CHECK(GVAR(transfering))
-GVAR(transfering) = true;
-[FUNC(move), [], HEADLESSDELAY] call EFUNC(common,waitAndExecute);
+LOG("Headless connected");
+CHECK(GVAR(istransfering))
+GVAR(istransfering) = true;
+[FUNC(transfer), [], HEADLESSDELAY] call CBA_fnc_waitAndExecute;
 nil;
