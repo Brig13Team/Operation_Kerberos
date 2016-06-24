@@ -13,12 +13,10 @@
 
 */
 #include "script_component.hpp"
-private ["_killerpos","_x_pos","_y_pos","_value"];
-
 _this params ["_killer","_caller"];
 TRACEV_2(_killer,_caller);
 
-_killerpos = _caller gethidefrom _killer;
+private _killerpos = _caller gethidefrom _killer;
 
 CHECK((_killerpos distance [0,0,0])<10);
 
@@ -26,6 +24,6 @@ CHECK((_killerpos distance [0,0,0])<10);
 
 private _strengthArray = [vehicle _killer] call FUNC(strength_player);
 
-_value = _strengthArray select 1;
+private _value = _strengthArray select 1;
 
 GVAR(buffer) pushBack [_x_coordinate,_y_coordinate,_value];

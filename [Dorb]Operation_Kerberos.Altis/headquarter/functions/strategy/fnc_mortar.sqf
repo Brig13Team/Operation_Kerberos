@@ -11,7 +11,7 @@
         none
 */
 #include "script_component.hpp"
-_this params ["_currentLocation","_currenttroopsNeeded"];
+_this params ["_currentLocation","_currenttroopsSend"];
 
 private _currentPosition = getPosATL _currentLocation;
 
@@ -28,9 +28,9 @@ private _dir = random(360);
     };
 } forEach _nearUnits;
 
-private _amount = (floor(_currenttroopsNeeded / 2))max 2;
+private _amount = (floor(_currenttroopsSend / 2))max 2;
 private _return = 15;
-if (_currenttroopsNeeded > 20) then {
+if (_currenttroopsSend > 20) then {
     _return = 40;
     _amount = 10;
 };

@@ -7,10 +7,9 @@
 ADDON = false;
 
 PREPS(attackpos,create);
-PREPS(attackpos,create_logic);
-PREPS(attackpos,getAll);
 PREPS(attackpos,reduce);
 PREPS(attackpos,remove);
+PREPS(attackpos,returnLocAtPos);
 
 PREP(dangerzone_buffer);
 PREP(dangerzone_convert);
@@ -83,4 +82,6 @@ PREP(strength_player);
 
 ADDON = true;
 
+
+GVAR(attackpos) = [];
 

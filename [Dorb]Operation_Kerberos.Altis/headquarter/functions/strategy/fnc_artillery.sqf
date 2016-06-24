@@ -11,7 +11,7 @@
         none
 */
 #include "script_component.hpp"
-_this params ["_currentLocation","_currenttroopsNeeded"];
+_this params ["_currentLocation","_currenttroopsSend"];
 
 private _currentPosition = getPosATL _currentLocation;
 
@@ -30,8 +30,8 @@ private _dir = random(360);
 
 private _return = 15;
 private _special = [];
-private _amount = (floor(_currenttroopsNeeded / 2))max 10;
-if (_currenttroopsNeeded > 30) then {
+private _amount = (floor(_currenttroopsSend / 2))max 10;
+if (_currenttroopsSend > 30) then {
     _return = 50;
     _special = ["creeping",_dir,50,200];
 };

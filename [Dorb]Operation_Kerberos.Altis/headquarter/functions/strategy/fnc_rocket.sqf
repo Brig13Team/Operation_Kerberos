@@ -11,7 +11,7 @@
         none
 */
 #include "script_component.hpp"
-_this params ["_currentLocation","_currenttroopsNeeded"];
+_this params ["_currentLocation","_currenttroopsSend"];
 
 private _currentPosition = getPosATL _currentLocation;
 
@@ -30,7 +30,7 @@ private _dir = random(360);
 
 private _amount = 4;
 private _return = 20;
-if (_currenttroopsNeeded > 40) then {
+if (_currenttroopsSend > 40) then {
     _return = 80;
     _amount = 16;
 };

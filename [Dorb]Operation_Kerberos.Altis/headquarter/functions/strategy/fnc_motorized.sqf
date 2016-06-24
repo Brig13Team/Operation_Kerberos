@@ -12,7 +12,7 @@
 */
 #include "script_component.hpp"
 _this params ["_currentLocation"];
-private _currentTroops = _currentLocation getVariable [QGVAR(troopsNeeded),0];
+private _currentTroops = _currentLocation getVariable [QGVAR(troopsSend),0];
 private _currentPos = getPos _currentLocation;
 
 private _pos = [GVAR(centerpos),(GVAR(definitions) select 0)+800,1] call EFUNC(common,random_pos);

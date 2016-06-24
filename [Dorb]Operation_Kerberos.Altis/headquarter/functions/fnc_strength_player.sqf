@@ -11,13 +11,17 @@
         none
 */
 #include "script_component.hpp"
-_this params[["_group",grpNull,[grpNull,objNull]]];
+_this params[["_group",grpNull,[grpNull,[],objNull]]];
 if (isNull _group) exitWith {[0,0,[0,0,0]]};
 private _soldiers = [];
 If (IS_GROUP(_group)) then {
     _soldiers = (units _group) select {alive _x};
 }else{
-    _soldiers = [_group];
+    If (IS_OBJECT(_group)) then {
+        _soldiers = [_group];
+    }else{
+        _soldiers = _group;
+    };
 };
 
 private _vehicles = [];

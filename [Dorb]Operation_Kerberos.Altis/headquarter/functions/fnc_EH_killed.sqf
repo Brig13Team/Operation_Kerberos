@@ -26,6 +26,7 @@ _this spawn {
         [_group] call FUNC(attackpos_reduce);
         private _curPOI = selectRandom GVAR(POI);
         private _curPos = [_curPOI,800,0] call EFUNC(common,pos_random);
+        [_group] call FUNC(strength_ai_update);
         _group setVariable [QGVAR(target),_curPos];
         _group setVariable [QGVAR(state),"defend"];
         [_group] spawn FUNC(state_change);

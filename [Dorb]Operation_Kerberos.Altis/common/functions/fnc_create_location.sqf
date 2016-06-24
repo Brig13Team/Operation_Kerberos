@@ -19,5 +19,5 @@ If (_size isEqualType []) then {
 }else{
     createLocation ["CBA_NamespaceDummy", _position , _size, _size];
 };
-_newLoc setRectangular false;
+_newLoc setRectangular _retangular;
 _newLoc;

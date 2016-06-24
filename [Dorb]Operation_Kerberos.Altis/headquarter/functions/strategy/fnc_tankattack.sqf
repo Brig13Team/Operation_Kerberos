@@ -15,7 +15,7 @@ _this params ["_currentLocation","_attackgroups"];
 TRACEV_2(_currentLocation,_attackgroups);
 private _currentPos = getPos _currentLocation;
 private _currentEnemy = importance _currentLocation;
-private _currentTroops = _currentLocation getVariable [QGVAR(troopsNeeded),0];
+private _currentTroops = _currentLocation getVariable [QGVAR(troopsSend),0];
 
 
 for "_i" from 0 to ((count _attackgroups) -1) do {

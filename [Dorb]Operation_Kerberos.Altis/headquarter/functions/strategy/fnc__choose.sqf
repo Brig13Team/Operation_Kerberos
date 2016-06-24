@@ -12,8 +12,8 @@
 */
 #include "script_component.hpp"
 
-_this params ["_currenttroopsNeeded","_cost","_currentLocation","_type","_strengtharray","_groups"];
-TRACEV_4(_currenttroopsNeeded,_cost,_currentLocation,_type,_strengtharray,_groups);
+_this params ["_currenttroopsSend","_cost","_currentLocation","_type","_strengtharray","_groups"];
+TRACEV_4(_currenttroopsSend,_cost,_currentLocation,_type,_strengtharray,_groups);
 
 
 /*
@@ -83,6 +83,18 @@ private _helicoptersGroups = [];
 
 // get all possible Strategys
 
+private _possibleStrategys = [];
+private _strategyCfgs = "true" configClasses (missionConfigFile >> "strategy");
+{
+    private _currentStrategyClass = configName _x;
+    private _conditionsClasses = configProperties [missionConfigFile >> "strategy" >> _currentStrategyClass >> "conditions","isText _x",false];
+    if (({call compile _x;} count _conditionsClasses)>0) then {_possibleStrategys pushBack _currentStrategyClass;};
+} forEach _strategyCfgs
+
+
+
+
+/*
 private _strategyCfg = (missionConfigFile >> "strategy");
 private _possibleStrategys = [];
 
@@ -101,7 +113,7 @@ For "_i" from 0 to ((count _strategyCfg)-1) do {
         _possibleStrategys pushBack (configName _currentStrategy);
     };
 };
-
+*/
 
 // addWeight to all Strategys
 _strategies_weighted = [];
@@ -137,7 +149,7 @@ TRACEV_1(_parameter);
 _newTroops = _parameter call (missionnamespace getVariable [format["%1_%2",QGVAR(fnc_strategy),_chosenStrategie],{}]);
 
 
-SETVAR(_currentLocation,GVAR(troopsNeeded),_newTroops);
+SETVAR(_currentLocation,GVAR(troopsSend),_newTroops);
 SETVAR(_currentLocation,GVAR(strategy),_chosenStrategie);
 
 

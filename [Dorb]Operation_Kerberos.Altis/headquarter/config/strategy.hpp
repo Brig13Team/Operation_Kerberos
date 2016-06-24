@@ -38,7 +38,7 @@ class strategy {
             c2 = QUOTE((GVAR(callIn_airborne)) > 0)
             c3 = Quote([] call EFUNC(spawn,unit_limit));
         };
-        parameter = "[_currentLocation,_currenttroopsNeeded]";
+        parameter = "[_currentLocation,_currenttroopsSend]";
     };
     class airinterception {
         class conditions {

@@ -135,7 +135,7 @@ GVAR(handle) = [] spawn {
     /*
     {
         private _enemy = _x getVariable[QGVAR(enemy),0];
-        private _troops = _x getVariable[QGVAR(troopsNeeded),0];
+        private _troops = _x getVariable[QGVAR(troopsSend),0];
         
         If ((_enemy - _troops)>0) then {
             for "_i" from 0 to _troops do {
@@ -151,7 +151,7 @@ GVAR(handle) = [] spawn {
             };
         };
         _missingstrenght = _missingstrenght + ((_enemy - _troops) max 0);
-        _x setVariable[QGVAR(troopsNeeded),_troops];
+        _x setVariable[QGVAR(troopsSend),_troops];
     }forEach GVAR(attackpos);
     */
     

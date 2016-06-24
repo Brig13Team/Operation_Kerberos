@@ -14,7 +14,7 @@
 _this params ["_currentLocation"];
 
 private _currentPos = getPos _currentLocation;
-private _currentTroops = _currentLocation getVariable [QGVAR(troopsNeeded),0];
+private _currentTroops = _currentLocation getVariable [QGVAR(troopsSend),0];
 private _position = [_currentPos,200,1] call EFUNC(common,random_pos);
 private _spawnpos = [GVAR(centerpos),(GVAR(definitions) select 0)+500,1] call EFUNC(common,random_pos);
 _spawnpos set [2,400];

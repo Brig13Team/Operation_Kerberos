@@ -14,7 +14,7 @@
 _this params ["_currentLocation"];
 
 private _currentPos = getPos _currentLocation;
-private _currentTroops = _currentLocation getVariable [QGVAR(troopsNeeded),0];
+private _currentTroops = _currentLocation getVariable [QGVAR(troopsSend),0];
 private _spawnpos = [_currentPos,6000,2] call EFUNC(common,random_pos);
 
 CHECKRET((_spawnpos isEqualTo []),0);
