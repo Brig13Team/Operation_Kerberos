@@ -89,60 +89,36 @@ class missions_config {
     };
     class main {
         class scarab : main_base {
-            class task {
-                name = CSTRING(scarab_task);
-                description = CSTRING(scarab_desc);
-                tasktype = "Destroy";
-            };
+            taskDescription = "scarab";
             class sidemissions : side_standard {};
         };
         class tower : main_base {
-            class task {
-                name = CSTRING(tower_task);
-                description = CSTRING(tower_desc);
-                tasktype = "Destroy";
-            };
+            taskDescription = "tower";
             class location : location {
                 distance = 1500;
             };
             class sidemissions : side_standard {};
         };
         class device : main_base {
-            class task {
-                name = CSTRING(device_task);
-                description = CSTRING(device_desc);
-                tasktype = "Interact";
-            };
+            taskDescription = "device";
             class location : location {
                 areas[] = {QGVAR(industrie),QGVAR(military),QGVAR(other)};
             };
             class sidemissions : side_standard {};
         };
         class emp : main_base {
-            class task {
-                name = CSTRING(emp_task);
-                description = CSTRING(emp_desc);
-                tasktype = "Interact";
-            };
+            taskDescription = "emp";
             class location : location {
                 areas[] = {QGVAR(industrie),QGVAR(military),QGVAR(other)};
             };
             class sidemissions : side_standard {};
         };
         class prototype : main_base {
-            class task {
-                name = CSTRING(prototype_task);
-                description = CSTRING(prototype_desc);
-                tasktype = "Move";
-            };
+            taskDescription = "prototype";
             class sidemissions : side_standard {};
         };
         class clear : main_base {
-            class task {
-                name = CSTRING(clear_task);
-                description = CSTRING(clear_desc);
-                tasktype = "Attack";
-            };
+            taskDescription = "clear";
             class location : location {
                 areas[] = {QGVAR(industrie),QGVAR(military),QGVAR(other)};
             };
@@ -150,11 +126,7 @@ class missions_config {
         };
         
         class hostage : main_base {
-            class task {
-                name = CSTRING(hostage_task);
-                description = CSTRING(hostage_desc);
-                tasktype = "Support";
-            };
+            taskDescription = "hostage";
             class location : location {
                 areas[] = {QGVAR(town)};
                 distance = 200;
@@ -162,11 +134,7 @@ class missions_config {
             class sidemissions : side_standard {};
         };
         class kill : main_base {
-            class task {
-                name = CSTRING(kill_task);
-                description = CSTRING(kill_desc);
-                tasktype = "Attack";
-            };
+            taskDescription = "capture";
             class location : location {
                 areas[] = {QGVAR(town)};
                 distance = 200;
@@ -174,11 +142,7 @@ class missions_config {
             class sidemissions : side_standard {};
         };
         class intel : main_base {
-            class task {
-                name = CSTRING(intel_task);
-                description = CSTRING(intel_desc);
-                tasktype = "Search";
-            };
+            taskDescription = "intel";
             class location : location {
                 areas[] = {QGVAR(town)};
                 distance = 200;
@@ -186,11 +150,7 @@ class missions_config {
             class sidemissions : side_standard {};
         };
         class weaponcaches : main_base {
-            class task {
-                name = CSTRING(weaponcaches_task);
-                description = CSTRING(weaponcaches_desc);
-                tasktype = "Search";
-            };
+            taskDescription = "wpncache";
             class location : location {
                 areas[] = {QGVAR(town)};
                 distance = 200;
@@ -198,40 +158,24 @@ class missions_config {
             class sidemissions : side_standard {};
         };
         class dronecommando : main_base {
-            class task {
-                name = CSTRING(dronecommando_task);
-                description = CSTRING(dronecommando_desc);
-                tasktype = "Attack";
-            };
+            taskDescription = "dronecommando";
             armys[] = {{"specops",1},{"droneoperations",1},{"guards",1}};
             class sidemissions : side_standard {};
         };
         class specops : main_base {
-            class task {
-                name = CSTRING(specops_task);
-                description = CSTRING(specops_desc);
-                tasktype = "Search";
-            };
+            taskDescription = "specops";
             armys[] = {{"specops",1}};
             class sidemissions : side_standard {};
         };
         class outpost : main_base {
-            class task {
-                name = CSTRING(outpost_task);
-                description = CSTRING(outpost_desc);
-                tasktype = "Support";
-            };
+            taskDescription = "outpost";
             class location : location {
                 areas[] = {QGVAR(military)};
             };
             class sidemissions : side_standard {};
         };
         class radarsetup : main_base {
-            class task {
-                name = CSTRING(radarsetup_task);
-                description = CSTRING(radarsetup_desc);
-                tasktype = "Move";
-            };
+            taskDescription = "radarsetup";
             class location : location {
                 areas[] = {QGVAR(industrie),QGVAR(military),QGVAR(other)};
             };
