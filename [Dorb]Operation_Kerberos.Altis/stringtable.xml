@@ -575,6 +575,271 @@
             <English>Prepare for new orders.</English>
         </Key>    
 
+        <!--
+            New taskConfigs
+        -->
+        <!-- Capture Mission -->
+        <Key ID="STR_DORB_MISSION_NEW_KILL_TITLE">
+            <Original>Capture Person</Original>
+            <German>Person gefangen nehmen</German>
+            <English>Capture Person</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_KILL_DESC">
+            <Original>Capture %1 in %2.</Original>
+            <German>Nehmen sie %1 in %2 gefangen.</German>
+            <English>Capture %1 in %2.</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_KILL_WIN">
+            <Original>%1 has been captured and returned to base.</Original>
+            <German>%1 wurde gefangen genommen und zur Basis gebracht.</German>
+            <English>%1 has been captured and returned to base.</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_KILL_NEUT">
+            <Original>%1 has been captured and returend to base with critical health.</Original>
+            <German>%1 wurde gefangen genommen und verletzt zur Basis gebracht.</German>
+            <English>%1 has been captured and returend to base with critical health.</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_KILL_LOST">
+            <Original>%1 was killed.</Original>
+            <German>%1 wurde getötet.</German>
+            <English>%1 was killed.</English>
+        </Key>
+        
+        <!-- SCARAB Mission -->
+        <Key ID="STR_DORB_MISSION_NEW_SCARAB_TITLE">
+            <Original>Prevent launch.</Original>
+            <German>Abschuss verhindern</German>
+            <English>Prevent launch</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_SCARAB_DESC">
+            <Original>Prevent the launch of the ballistic missiles.</Original>
+            <German>Verhindern sie den Abschuss der ballistischen Rakteten.</German>
+            <English>Prevent the launch of the ballistic missiles.</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_SCARAB_WIN">
+            <Original>The launch has been prevented.</Original>
+            <German>Der Raktenabschuss wurde verhindert</German>
+            <English>The launch has been prevented.</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_SCARAB_NEUT">
+            <Original>The launch of every rocket could not be prevented.</Original>
+            <German>Der Abschuss aller Raketen konnte nicht verhindert werden.</German>
+            <English>The launch of every rocket could not be prevented.</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_SCARAB_LOST">
+            <Original>The launch could not be prevented.</Original>
+            <German>Der Abschuss konnte nicht verhindert werden.</German>
+            <English>The launch could not be prevented.</English>
+        </Key>
+        
+        <!-- Clear Mission -->
+        <Key ID="STR_DORB_MISSION_NEW_CLEAR_TITLE">
+            <Original>Clear area</Original>
+            <German>Gebiet säubern</German>
+            <English>Clear area</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_CLEAR_DESC">
+            <Original>Clear the area of enemy defense positions.</Original>
+            <German>Räumen sie die feindlcihen Stellungen</German>
+            <English>Clear the area of enemy defense positions.</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_CLEAR_WIN">
+            <Original>The enemy has been overrun.</Original>
+            <German>Der Gegner wurde überrannt.</German>
+            <English>The enemy has been overrun.</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_CLEAR_NEUT">
+            <Original>The enemy defense positions have been destoyed. The enemy is retreating.</Original>
+            <German>Die Gegnerischen Stellungen wurden zerstört. Der Gegner befindet sich auf dem Rückzug.</German>
+            <English>The enemy defense positions have been destoyed. The enemy is retreating.</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_CLEAR_LOST">
+            <Original>The enemy positions could not be cleared.</Original>
+            <German>Die Gegnerischen Stellungen konnten nicht gesäubert werden.</German>
+            <English>The enemy positions could not be cleared.</English>
+        </Key>
+        
+        <!-- Device Mission -->
+        <Key ID="STR_DORB_MISSION_NEW_DEVICE_TITLE">
+            <Original>Deaktivate Device.</Original>
+            <German>Gerät deaktivieren.</German>
+            <English>Deaktivate Device.</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_DEVICE_DESC">
+            <Original>Deaktivate the enemy experimental device.</Original>
+            <German>Deaktiveren Sie das gegnerische experimentelle Gerät.</German>
+            <English>Deaktivate the enemy experimental device.</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_DEVICE_WIN">
+            <Original>The device has been deaktivated.</Original>
+            <German>Das Gerät wurde deaktivert.</German>
+            <English>The device has been deaktivated.</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_DEVICE_NEUT">
+            <Original>The device has been destroyed.</Original>
+            <German>Das Gerät wurde zerstört.</German>
+            <English>The device has been destroyed.</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_DEVICE_LOST">
+            <Original>The device could not be deaktivated.</Original>
+            <German>Das Gerät konnte nicht deaktivert werden.</German>
+            <English>The device could not be deaktivated.</English>
+        </Key>
+        
+        <!-- Hostage Mission -->
+        <Key ID="STR_DORB_MISSION_NEW_HOSTAGE_TITLE">
+            <Original>Free Hostages</Original>
+            <German>Geiselrettung</German>
+            <English>Free Hostages</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_HOSTAGE_DESC">
+            <Original>The enemy is holding %1 hostages. Set them free.</Original>
+            <German>Der Gegner hat %1 Geiseln. Befreien sie diese.</German>
+            <English>The enemy is holding %1 hostages. Set them free.</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_HOSTAGE_WIN">
+            <Original>All hostages have been set free.</Original>
+            <German>Alle Geiseln wurden befreit.</German>
+            <English>All hostages have been set free.</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_HOSTAGE_NEUT">
+            <Original>Not all hostages could be rescured.</Original>
+            <German>Es konnten nicht alle Geiseln befreit werden.</German>
+            <English>Not all hostages could be rescured.</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_HOSTAGE_LOST">
+            <Original>No hostage could be rescued.</Original>
+            <German>Es konnte keine Geisel in Sicherheit gebracht werden.</German>
+            <English>No hostage could be rescued.</English>
+        </Key>
+        
+        <!-- Intel Mission -->
+        <Key ID="STR_DORB_MISSION_NEW_INTEL_TITLE">
+            <Original>Download Intel</Original>
+            <German>Informationen herunterladen</German>
+            <English>Dowload Intel</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_INTEL_DESC">
+            <Original>Download Informations</Original>
+            <German>Laden Sie Informationen herunter.</German>
+            <English>Download Informations</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_INTEL_WIN">
+            <Original>The Intel has been secured.</Original>
+            <German>Die Informationen konnten sichergestellt werden.</German>
+            <English>The Intel has been secured.</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_INTEL_NEUT">
+            <Original>The intel could not be secured completely.</Original>
+            <German>Die Informationen konnten nicht vollständig gesichert werden.</German>
+            <English>The intel could not be secured completely.</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_INTEL_LOST">
+            <Original>The Intel could not be secured.</Original>
+            <German>Die Informationen konnten nicht sichergestellt werden.</German>
+            <English>The Intel could not be secured.</English>
+        </Key>
+        
+        <!-- Prototype Mission -->
+        <Key ID="STR_DORB_MISSION_NEW_PROTOTYPE_TITLE">
+            <Original>Return Prototype</Original>
+            <German>Prototype sichern</German>
+            <English>Return Prototype</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_PROTOTYPE_DESC">
+            <Original>The enemy has stolen our prototype. Return it.</Original>
+            <German>Der Gegner hat unseren Prototypen entwendet. Bringen Sie ihn zurück.</German>
+            <English>The enemy has stolen our prototype. Return it.</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_PROTOTYPE_WIN">
+            <Original>The Prototyp has been secured.</Original>
+            <German>Der Prototyp wurde gesichert.</German>
+            <English>The Prototyp has been secured.</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_PROTOTYPE_NEUT">
+            <Original>The Prototype has been damaged.</Original>
+            <German>Der Prototyp wurde beschädigt.</German>
+            <English>The Prototype has been damaged.</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_PROTOTYPE_LOST">
+            <Original>The Prototype was destroyed.</Original>
+            <German>Der Prototyp wurde zerstört.</German>
+            <English>The Prototype was destroyed.</English>
+        </Key>
+        
+        <!-- Radiotower Mission -->
+        <Key ID="STR_DORB_MISSION_NEW_TOWER_TITLE">
+            <Original>Destroy Tower</Original>
+            <German>Funkturm zerstören</German>
+            <English>Destroy Tower</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_TOWER_DESC">
+            <Original>The enemy is transmitting propaganda with a radiotower. Destroy it.</Original>
+            <German>Der Gegner sendet Propaganda über Funk. Zerstören sie den Funkturm.</German>
+            <English>The enemy is transmitting propaganda with a radiotower. Destroy it.</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_TOWER_WIN">
+            <Original>The tower has been destroyed.</Original>
+            <German>Der Turm wurde zerstört.</German>
+            <English>The tower has been destroyed.</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_TOWER_NEUT">
+            <Original>*********</Original>
+            <German>**********</German>
+            <English>***********</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_TOWER_LOST">
+            <Original>**********</Original>
+            <German>**********</German>
+            <English>***********</English>
+        </Key>
+        
+        
+        <!-- WpnCache Mission -->
+        <Key ID="STR_DORB_MISSION_NEW_WPNCACHE_TITLE">
+            <Original>Destroy Weapons</Original>
+            <German>Waffen zerstören</German>
+            <English>Destroy Weapons</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_WPNCACHE_DESC">
+            <Original>The enemy is hiding weapons in civillian buildings. Locate and destroy the weapons.</Original>
+            <German>Der Gegner hat Waffen in Zivielgebäuden versteckt. Suchen und zerstören sie diese.</German>
+            <English>The enemy is hiding weapons in civillian buildings. Locate and destroy the weapons.</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_WPNCACHE_WIN">
+            <Original>All weapons have been destroyed.</Original>
+            <German>Alle Waffenverstecke wurden zerstört.</German>
+            <English>All weapons have been destroyed.</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_WPNCACHE_NEUT">
+            <Original>Not every weponcache has been destroyed.</Original>
+            <German>Es wurden nicht alle Waffenverstecke gefunden.</German>
+            <English>Not every weponcache has been destroyed.</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_WPNCACHE_LOST">
+            <Original>No weapons could be found and destroyed.</Original>
+            <German>Es wurden keinen Waffenverstecke gefunden und zerstört.</German>
+            <English>No weapons could be found and destroyed.</English>
+        </Key>
+        
+        
+        
+        
+        
+        
+        
+        <Key ID="STR_DORB_MISSION_NEW_SCARAB_TITLE">
+            <Original>Capture Person</Original>
+            <German>Person gefangen nehmen</German>
+            <English>Capture Person</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_SCARAB_DESC">
+            <Original>Capture %1 in %2.</Original>
+            <German>Nehmen sie %1 in %2 gefangen.</German>
+            <English>Capture %1 in %2.</English>
+        </Key>
+        
+        
         
         
         
