@@ -2,7 +2,7 @@
 #include "script_component.hpp"
 
 #define CONFIG_TASK(VAR) class VAR { \
-    icon = '\A3\ui_f\data\igui\cfg\simpleTasks\types\VAR_ca.paa'; \
+    icon = QUOTE(\A3\ui_f\data\igui\cfg\simpleTasks\types\##VAR_ca.paa); \
 }
 
 
