@@ -14,8 +14,8 @@
 */
 #include "script_component.hpp"
 
-private _nextMission  = _this param [0, GVAR(next_mission), "", [""]]];
-private _nextLocation = _this param [1, GVAR(next_location), ["",[]]], ["",[]]];
+private _nextMission  = _this param [0, GVAR(next_mission), [""]];
+private _nextLocation = _this param [1, GVAR(next_location), ["",[]]];
 
 private _distance = getNumber (missionNamespace >> "mission_config" >> "main" >> _nextMission >> "location" >> "distance");
 
@@ -33,10 +33,10 @@ private _army = [_armys select 0, _armys select 1] call BIS_fnc_selectRandomWeig
 */
 
 // create task
-[_nextMission, _nextLocation] call EFUNC(taskmanager,add);
+[_nextMission, _nextLocation] call FUNC(taskmanager_add);
 
 // initialize next mission
 GVAR(current_mission)  = _nextMission;
 GVAR(current_location) = _nextLocation;
-GVAR(next_mission)  = [_nextMission] call _fnc_choose_mission;
-GVAR(next_location) = [_nextLocation] call _fnc_choose_location;
+GVAR(next_mission)  = [_nextMission] call FUNC(taskmanager_choose_mission);
+GVAR(next_location) = [_nextLocation] call FUNC(taskmanager_choose_location);

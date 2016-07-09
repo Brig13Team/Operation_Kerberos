@@ -15,14 +15,16 @@
 #include "script_component.hpp"
 
 
-_this params [["_cfg", missionConfigFile >> "mission_config" >> "main", [missionConfigFile]], ["_oldMission", "", [""]]];
+_this params [["_cfg", missionConfigFile >> "missions_config" >> "main", [missionConfigFile]], ["_oldMission", "", [""]]];
 
 private _mission = [];
 
+for "_i" from 0 to (count _cfg) - 1 do
 {
-    _mission pushBack [configName _x, getNumber (_x >> "propability")];
-} forEach _cfg;
-_mission = _mission - [_oldMission];
+	private _name = configName (_cfg select _i);
+	if (!(_name isEqualTo _oldMission)) then {
+    	_mission pushBack [_name, getNumber ((_cfg select _i) >> "propability")];
+	};
+};
 
-// ([_taskarray,1] call EFUNC(common,sel_array_weighted)) select 0;
-[_mission select 0, _mission select 1] call BIS_fnc_selectRandomWeighted;
+([_mission,1] call EFUNC(common,sel_array_weighted)) select 0

@@ -5,7 +5,7 @@
         Deletes a Task
 
     Parameter(s):
-        NUMBER  - TaskNumber
+        0 : NUMBER  - TaskNumber
 
     Return:
 		-

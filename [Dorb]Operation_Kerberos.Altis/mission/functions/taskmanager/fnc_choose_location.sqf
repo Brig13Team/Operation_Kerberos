@@ -16,9 +16,13 @@
 
 _this params [["_mission", "", [""]], ["_oldPos", ["",[]], ["",[]]]];
 
-private _pos = getArray (missionConfigFile >> "mission_config" >> "main" >> _mission >> "location" >> "areas");
-_pos = _pos - [_oldPos];
+private _pos = getArray (missionConfigFile >> "missions_config" >> "main" >> _mission >> "location" >> "areas");
+private _newPos = [];
 
-_pos apply (missionNamespace getVariable [_x,[]]);
+{
+	private _var = missionNamespace getVariable [_x, [[0,0,0]]];
+	_newPos = _newPos + _var;
+} forEach _pos;
+_newPos = _newPos - _oldPos;
 
-selectRandom selectRandom _pos
+selectRandom _newPos
