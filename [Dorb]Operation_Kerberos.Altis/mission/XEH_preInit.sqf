@@ -15,7 +15,6 @@ PREP(isSidemission);
 
 PREP(taskhandler);
 
-
 PREPS(objects,case_carry);
 PREPS(objects,case_drop);
 PREPS(objects,case_handler);
@@ -26,7 +25,6 @@ PREPS(objects,device_disable);
 PREPS(objects,device_effect_sandstorm);
 PREPS(objects,device_effect_sandstorm_init);
 PREPS(objects,device_init);
-
 
 PREPS(mainmission,create);
 PREPS(mainmission,clear);
@@ -45,5 +43,15 @@ PREPS(mainmission,weaponcaches);
 PREPS(sidemission,convoi);
 PREPS(sidemission,create);
 
+/*
+PREPS(taskmanager,add);
+PREPS(taskmanager,choose_location);
+PREPS(taskmanager,choose_mission);
+PREPS(taskmanager,exists);
+PREPS(taskmanager,init);
+PREPS(taskmanager,remove);
+PREPS(taskmanager,setState);
+PREPS(taskmanager,spawn);
+*/
 
 ADDON = true;
