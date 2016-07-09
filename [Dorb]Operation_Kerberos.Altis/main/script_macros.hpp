@@ -53,6 +53,7 @@ Author:
             Clientinit = QUOTE(call compile ('_fnc_scriptName = ''TRIPLES(PREFIX,var1,clientpreinit)''; scriptName _fnc_scriptName;' + preProcessFileLineNumbers 'var1\XEH_ClientPostInit.sqf')); \
         };
     #define GVAR(var1) DOUBLES(ADDON,var1)
+    #define GVARMAIN(var1) DOUBLES(PREFIX,var1)
     #define QGVAR(var1) QUOTE(GVAR(var1))
     #define EGVAR(var1,var2) TRIPLES(PREFIX,var1,var2)
     #define QEGVAR(var1,var2) QUOTE(EGVAR(var1,var2))
