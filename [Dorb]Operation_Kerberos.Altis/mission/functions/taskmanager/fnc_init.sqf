@@ -28,19 +28,15 @@ private _handle = [{
 
         private _ret  = _args call _func;
         if (_ret in ["Succeeded","Failed"]) then {
-            // _finished pushBack (+_x append _ret);
             _finished pushBack _x;
 
-            (+_x append _ret) spawn {
-                {
-                    private _args = _x select 1;
-                    private _taskID = _args select 0;
-                    private _state = _x select 2;
+            ((+_x) + [_ret]) spawn {
+                _this params ["_func","_args","_state"];
+                _taskNumber = _args;
 
-                    [_taskID, _state] call FUNC(taskmanager_setState);
+                [_taskNumber, _state] call FUNC(taskmanager_setState);
 
-                    ["MISSION_ENDED", [_taskID, _state]] call CBA_fnc_globalEvent;
-                } forEach _this;
+                [QGVAR(FINISHED), [_taskNumber, _state]] call CBA_fnc_globalEvent;
             }
         };
 

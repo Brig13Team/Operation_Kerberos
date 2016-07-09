@@ -14,13 +14,13 @@
 */
 #include "script_component.hpp"
 
-_this params [["_mission", "", [""]], ["_oldPos", ["",[]], ["",[]]]];
+_this params [["_mission", GVAR(next_mission), [""]], ["_oldPos", ["",[]], ["",[]]]];
 
 private _pos = getArray (missionConfigFile >> "missions_config" >> "main" >> _mission >> "location" >> "areas");
 private _newPos = [];
 
 {
-	private _var = missionNamespace getVariable [_x, [[0,0,0]]];
+	private _var = missionNamespace getVariable [_x, [["",[0,0,0]]]];
 	_newPos = _newPos + _var;
 } forEach _pos;
 _newPos = _newPos - _oldPos;

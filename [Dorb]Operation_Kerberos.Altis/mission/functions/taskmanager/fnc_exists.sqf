@@ -5,7 +5,7 @@
         Checks if Task exists
 
     Parameter(s):
-       0 : NUMBER    - TaskNumber
+       NUMBER    - TaskNumber
 
     Return:
        BOOL

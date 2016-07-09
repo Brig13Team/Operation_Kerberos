@@ -15,7 +15,7 @@
 
 _this params [["_number",-1,[0]]];
 
-if ([_number] call EFUNC(taskmanager,exists)) then {
+if ((_number > 0) && {[_number] call EFUNC(taskmanager,exists)}) then {
     [format["%1_%2",QGVAR(task),_number]] call BIS_fnc_deleteTask;
     true
 } else {
