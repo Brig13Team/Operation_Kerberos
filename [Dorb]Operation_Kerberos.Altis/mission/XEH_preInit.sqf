@@ -43,8 +43,10 @@ PREPS(mainmission,weaponcaches);
 PREPS(sidemission,convoi);
 PREPS(sidemission,create);
 
-/*
 PREPS(taskmanager,add);
+PREPS(taskmanager,addChild);
+PREPS(taskmanager,cancel);
+PREPS(taskmanager,cancelAll);
 PREPS(taskmanager,choose_location);
 PREPS(taskmanager,choose_mission);
 PREPS(taskmanager,exists);
@@ -52,6 +54,5 @@ PREPS(taskmanager,init);
 PREPS(taskmanager,remove);
 PREPS(taskmanager,setState);
 PREPS(taskmanager,spawn);
-*/
 
 ADDON = true;

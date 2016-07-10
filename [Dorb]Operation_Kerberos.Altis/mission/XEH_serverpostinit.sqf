@@ -6,6 +6,7 @@
 */
 #include "script_component.hpp"
 GVARMAIN(debug)=false;
+
 /********************
     Events
 ********************/
@@ -94,7 +95,6 @@ If ((_markerpos distance [0,0,0])>1) then {
 };
 */
 
-
 /********************
     End sidemissions
 ********************/
@@ -128,11 +128,15 @@ If ((_markerpos distance [0,0,0])>1) then {
     SETMVAR(GVAR(military),(_return select 2));
     SETMVAR(GVAR(water),(_return select 3));
     SETMVAR(GVAR(other),(_return select 4));
+    SETMVAR(GVAR(base),[ARR_2("HQ",getMarkerPos format [ARR_2("respawn_%1",toLower (str GVARMAIN(playerside)))])]);
 
     [] call EFUNC(headquarter,init);
 
-    uisleep 20;
+    uiSleep 20;
 
+    [] call FUNC(taskmanager_init);
+
+/*
     for "_u" from 0 to 120 do {
         uisleep 5;
         INC(_aufgabennummer);
@@ -141,4 +145,5 @@ If ((_markerpos distance [0,0,0])>1) then {
     };
     ERROR("CORE LOOP CRASHED");
     endMission "End1";
+*/
 };

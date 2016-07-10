@@ -20,8 +20,8 @@ private _pos = getArray (missionConfigFile >> "missions_config" >> "main" >> _mi
 private _newPos = [];
 
 {
-	private _var = missionNamespace getVariable [_x, [["",[0,0,0]]]];
-	_newPos = _newPos + _var;
+    private _var = missionNamespace getVariable [_x, [["",[0,0,0]]]];
+    _newPos = _newPos + _var;
 } forEach _pos;
 _newPos = _newPos - _oldPos;
 

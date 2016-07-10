@@ -55,10 +55,9 @@ class cfgFunctions {
 
 ///// MISSION
 // tasks
+#include "mission\config\CfgTaskDescriptions.hpp"
 #include "mission\config\CfgTaskTypes.hpp"
-#include "mission\config\CfgTaskEnhancements.hpp"
 #include "mission\config\missions_config.hpp"
-#include "mission\config\sideby_config.hpp"
 
 // Interface
 #include "interface\config\define.hpp"

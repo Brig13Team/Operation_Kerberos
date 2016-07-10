@@ -823,22 +823,17 @@
         </Key>
         
         
-        
-        
-        
-        
-        
-        <Key ID="STR_DORB_MISSION_NEW_SCARAB_TITLE">
-            <Original>Capture Person</Original>
-            <German>Person gefangen nehmen</German>
-            <English>Capture Person</English>
+        <!-- RTB -->
+        <Key ID="STR_DORB_MISSION_NEW_RTB_TITLE">
+            <Original>Return To Base</Original>
+            <German>Return To Base</German>
+            <English>Return To Base</English>
         </Key>
-        <Key ID="STR_DORB_MISSION_NEW_SCARAB_DESC">
-            <Original>Capture %1 in %2.</Original>
-            <German>Nehmen sie %1 in %2 gefangen.</German>
-            <English>Capture %1 in %2.</English>
+        <Key ID="STR_DORB_MISSION_NEW_RTB_DESC">
+            <Original>Return to Base!</Original>
+            <German>Kehren Sie zur Basis zurück!</German>
+            <English>Return to Base!</English>
         </Key>
-        
         
         
         

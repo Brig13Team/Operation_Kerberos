@@ -182,4 +182,10 @@ class missions_config {
             class sidemissions : side_standard {};
         };
     };
+    class rtb {
+        class location {
+            areas[] = {QGVAR(base)};
+            distance = 0;
+        };
+    };
 };

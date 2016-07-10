@@ -4,14 +4,14 @@
     description = CSTRING(TRIPLES(NEW,VAR,desc)); \
     title = CSTRING(TRIPLES(NEW,VAR,title)); \
     marker = ""; \
-    tasktype = QUOTE(VAR) \
+    tasktype = QUOTE(VAR); \
 }
 
 #define TASK_DESC2(VAR,VAR2) class VAR { \
     description = CSTRING(TRIPLES(NEW,VAR,desc)); \
     title = CSTRING(TRIPLES(NEW,VAR,title)); \
     marker = ""; \
-    tasktype = QUOTE(VAR2) \
+    tasktype = QUOTE(VAR2); \
 }
 
 
@@ -28,6 +28,8 @@ class CfgTaskDescriptions {
     TASK_DESC2(prototype,Default);
     TASK_DESC2(tower,destroy);
     TASK_DESC2(wpncache,destroy);
+
+    TASK_DESC2(rtb,run);
     
     TASK_DESC(armor);
     TASK_DESC(attack);
@@ -38,7 +40,7 @@ class CfgTaskDescriptions {
     TASK_DESC(exit);
     TASK_DESC(heal);
     TASK_DESC(interact);
-    TASK_DESC(intel);
+    // TASK_DESC(intel);
     TASK_DESC(kill);
     TASK_DESC(map);
     TASK_DESC(meet);
