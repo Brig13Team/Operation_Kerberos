@@ -48,3 +48,8 @@ PREPS(tfr,setFreq);
 PREPS(tfr,setGroup);
 
 ADDON = true;
+
+/// init variables
+GVAR(msg_cur) = [];
+GVAR(msg_cur_ID)=0;
+
