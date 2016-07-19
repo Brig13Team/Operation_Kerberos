@@ -9,6 +9,8 @@ PREP(disp_message);
 PREP(disp_message_global);
 PREP(disp_progressbar);
 PREP(disp_timer);
+PREP(message_global);
+PREP(message);
 
 PREPS(crate,add);
 PREPS(crate,createlists);
@@ -51,5 +53,5 @@ ADDON = true;
 
 /// init variables
 GVAR(msg_cur) = [];
-GVAR(msg_cur_ID)=0;
-
+GVAR(msg_cur_ID) = 0;
+GVAR(msg_waiting) = [];

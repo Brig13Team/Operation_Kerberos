@@ -8,17 +8,17 @@ Author: Dorbedo
 class  RscTitles {
 
 	class GVAR(message_1) {
-		idd = 770009;
+		idd = 770110;
 		x = DORB_GUI_MSG_X;
 		y = DORB_GUI_MSG_Y;
 		w = DORB_GUI_MSG_W;
 		h = DORB_GUI_MSG_H;
 		fade = 1;
 		duration = 15;
-		onLoad = QUOTE(uiNamespace setVariable [ARR_2('GVAR(message_1)', _this select 0)];);
+		onLoad = QUOTE(with missionnameSpace do {disableSerialization; GVAR(msg_cur) - [_this select 0];GVAR(msg_cur) pushBack (_this select 0);};); /// pushbackunique is wrong at this point -> the new control needs to be at the last position
 		class controls {
-			class Background : dorb2_gui_new_RscStructuredText {
-				idc = 770100;
+			class header : dorb2_gui_new_RscStructuredText {
+				idc = 770111;
 				x = DORB_GUI_MSG_X;
 				y = DORB_GUI_MSG_Y;
 				w = DORB_GUI_MSG_W;
@@ -26,14 +26,14 @@ class  RscTitles {
 				text = "TestHeader";
 				shadow = 0;
 				colorBackground[] = DORB_GUI_COL_BACKGROUND;
-				colorText[] = {RAL7074,1};
-				class Attributes {
+				colorText[] = { RAL7047 ,1};
+				class Attributes : Attributes {
 					shadow = 0;
 					align = "center";
 				};
 			};
 			class divider : dorb2_gui_new_RscText {
-				idc = 770101;
+				idc = 770112;
 				x = DORB_GUI_MSG_X;
 				y = (DORB_GUI_MSG_Y + DORB_GUI_MSG_HEAD);
 				w = DORB_GUI_MSG_W;
@@ -41,7 +41,7 @@ class  RscTitles {
 				colorBackground[]	= {RAL6018,1};
 			};
 			class content : dorb2_gui_new_RscStructuredText {
-				idc = 770102;
+				idc = 770113;
 				x = DORB_GUI_MSG_X;
 				y = (DORB_GUI_MSG_Y + DORB_GUI_MSG_HEAD + DORB_GUI_MSG_COL);
 				w = DORB_GUI_MSG_W;
@@ -49,22 +49,23 @@ class  RscTitles {
 				text = "Hier kann Text erscheinen";
 				shadow = 0;
 				colorBackground[] = DORB_GUI_COL_BACKGROUND;
-				colorText[] = {RAL7074,1};
+				colorText[] = {RAL7047,1};
 				size = GUI_TEXT_SIZE_SMALL;
-				class Attributes {
+				class Attributes : Attributes {
 					shadow = 0;
 				};
 			};
 		};
 	};
-	class GVAR(message_2) {onLoad = QUOTE(uiNamespace setVariable [ARR_2('GVAR(message_2)', _this select 0)];);};
-	class GVAR(message_3) {onLoad = QUOTE(uiNamespace setVariable [ARR_2('GVAR(message_3)', _this select 0)];);};
-	class GVAR(message_4) {onLoad = QUOTE(uiNamespace setVariable [ARR_2('GVAR(message_4)', _this select 0)];);};
-	class GVAR(message_5) {onLoad = QUOTE(uiNamespace setVariable [ARR_2('GVAR(message_5)', _this select 0)];);};
-	class GVAR(message_6) {onLoad = QUOTE(uiNamespace setVariable [ARR_2('GVAR(message_6)', _this select 0)];);};
-	class GVAR(message_7) {onLoad = QUOTE(uiNamespace setVariable [ARR_2('GVAR(message_7)', _this select 0)];);};
-	class GVAR(message_8) {onLoad = QUOTE(uiNamespace setVariable [ARR_2('GVAR(message_8)', _this select 0)];);};
-	class GVAR(message_9) {onLoad = QUOTE(uiNamespace setVariable [ARR_2('GVAR(message_9)', _this select 0)];);};
+	class GVAR(message_2) : GVAR(message_1) {
+		idd = 770120;};
+	class GVAR(message_3) : GVAR(message_1) {idd = 770130;};
+	class GVAR(message_4) : GVAR(message_1) {idd = 770140;};
+	class GVAR(message_5) : GVAR(message_1) {idd = 770150;};
+	class GVAR(message_6) : GVAR(message_1) {idd = 770160;};
+	class GVAR(message_7) : GVAR(message_1) {idd = 770170;};
+	class GVAR(message_8) : GVAR(message_1) {idd = 770180;};
+	class GVAR(message_9) : GVAR(message_1) {idd = 770190;};
 	
     class GVAR(disp_msg) {
         duration = 20;

@@ -14,7 +14,7 @@ Example:
 Author:
     Dorbedo
 ------------------------------------------- */
-#include "script_ral_codes.hpp"
+#include "script_RAL_Codes.hpp"
 #ifndef CBA_OFF
     #include "\x\cba\addons\main\script_macros_mission.hpp"
 #else

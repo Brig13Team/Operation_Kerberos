@@ -24,8 +24,8 @@
 #define DORB_GUI_MSG_W (10 * GUI_GRID_W)
 #define DORB_GUI_MSG_H (5 * GUI_GRID_H)
 #define DORB_GUI_MSG_HEAD (1 * GUI_GRID_H)
-#define DORB_GUI_MSG_COL (0.2 * GUI_GRID_H)
-#define DORB_GUI_MSG_TEXT (3.8 * GUI_GRID_H)
+#define DORB_GUI_MSG_COL (0.1 * GUI_GRID_H)
+#define DORB_GUI_MSG_TEXT (3.9 * GUI_GRID_H)
 
 
 
@@ -36,7 +36,7 @@ class dorb2_gui_new_RscStructuredText {
 	idc = -1; 
 	type = 13;  // defined constant
 	style = 0x00;            // defined constant
-	colorBackground[] = { DORB_GUI_COL_BACKGROUND, 1 }; 
+	colorBackground[] = DORB_GUI_COL_BACKGROUND; 
 	size = GUI_TEXT_SIZE_MEDIUM;
 	text = "";
 	class Attributes {
@@ -56,8 +56,8 @@ class dorb2_gui_new_RscText {
 	style = 0x00;
 	font = GUI_FONT_NORMAL;
 	sizeEx = GUI_TEXT_SIZE_MEDIUM;
-	colorBackground[] = { DORB_GUI_COL_BACKGROUND, 1 }; 
-	colorText[] = {RAL7074,1};
+	colorBackground[] = DORB_GUI_COL_BACKGROUND; 
+	colorText[] = {RAL7047,1};
 	text = "";
 	fixedWidth = 0;
 	shadow = 0;
