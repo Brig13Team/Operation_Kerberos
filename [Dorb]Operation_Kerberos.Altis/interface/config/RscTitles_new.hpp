@@ -17,48 +17,58 @@ class  RscTitles {
 		duration = 15;
 		onLoad = QUOTE(with missionnameSpace do {disableSerialization; GVAR(msg_cur) - [_this select 0];GVAR(msg_cur) pushBack (_this select 0);};); /// pushbackunique is wrong at this point -> the new control needs to be at the last position
 		class controls {
-			class header : dorb2_gui_new_RscStructuredText {
+			class background : dorb2_gui_new_RscText {
 				idc = 770111;
 				x = DORB_GUI_MSG_X;
 				y = DORB_GUI_MSG_Y;
 				w = DORB_GUI_MSG_W;
+				h = DORB_GUI_MSG_H;
+				colorBackground[]	= DORB_GUI_COL_BACKGROUND;
+				text = "";
+			};
+			class stripe : dorb2_gui_new_RscText {
+				idc = 770112;
+				x = DORB_GUI_MSG_X;
+				y = DORB_GUI_MSG_Y;
+				w = DORB_GUI_MSG_COL;
+				h = DORB_GUI_MSG_HEAD + DORB_GUI_MSG_TEXT;
+				colorBackground[]	= {RAL6018,1};
+				text = "";
+			};
+			class header : dorb2_gui_new_RscStructuredText {
+				idc = 770113;
+				x = DORB_GUI_MSG_X + DORB_GUI_MSG_COL;
+				y = DORB_GUI_MSG_Y;
+				w = DORB_GUI_MSG_W;
 				h = DORB_GUI_MSG_HEAD;
-				text = "TestHeader";
+				text = "ERROR: No Header";
 				shadow = 0;
-				colorBackground[] = DORB_GUI_COL_BACKGROUND;
+				colorBackground[] = {0,0,0,0};
 				colorText[] = { RAL7047 ,1};
 				class Attributes : Attributes {
 					shadow = 0;
-					align = "center";
+					font = GUI_FONT_BOLD;
 				};
 			};
-			class divider : dorb2_gui_new_RscText {
-				idc = 770112;
-				x = DORB_GUI_MSG_X;
+			class content : dorb2_gui_new_RscStructuredText {
+				idc = 770114;
+				x = DORB_GUI_MSG_X + DORB_GUI_MSG_COL;
 				y = (DORB_GUI_MSG_Y + DORB_GUI_MSG_HEAD);
 				w = DORB_GUI_MSG_W;
-				h = DORB_GUI_MSG_COL;
-				colorBackground[]	= {RAL6018,1};
-			};
-			class content : dorb2_gui_new_RscStructuredText {
-				idc = 770113;
-				x = DORB_GUI_MSG_X;
-				y = (DORB_GUI_MSG_Y + DORB_GUI_MSG_HEAD + DORB_GUI_MSG_COL);
-				w = DORB_GUI_MSG_W;
 				h = DORB_GUI_MSG_TEXT;
-				text = "Hier kann Text erscheinen";
+				text = "ERROR: No Text";
 				shadow = 0;
-				colorBackground[] = DORB_GUI_COL_BACKGROUND;
+				colorBackground[] = {0,0,0,0};
 				colorText[] = {RAL7047,1};
 				size = GUI_TEXT_SIZE_SMALL;
 				class Attributes : Attributes {
 					shadow = 0;
+					font = GUI_FONT_THIN;
 				};
 			};
 		};
 	};
-	class GVAR(message_2) : GVAR(message_1) {
-		idd = 770120;};
+	class GVAR(message_2) : GVAR(message_1) {idd = 770120;};
 	class GVAR(message_3) : GVAR(message_1) {idd = 770130;};
 	class GVAR(message_4) : GVAR(message_1) {idd = 770140;};
 	class GVAR(message_5) : GVAR(message_1) {idd = 770150;};

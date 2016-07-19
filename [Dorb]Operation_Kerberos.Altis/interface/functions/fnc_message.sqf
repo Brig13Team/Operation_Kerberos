@@ -10,6 +10,7 @@
 		2 : STRING - Color
     
 */
+#include "\a3\ui_f\hpp\defineCommonGrids.inc"
 #include "script_component.hpp"
 #define MOVINGTIME 1.4
 CHECK(!hasInterface)
@@ -29,6 +30,9 @@ If (isClass(missionconfigfile>>"CfgMessages">>_title)) then {
 		default {[RAL1013,1]};
 	};
 };
+
+CHECK((_title isEqualTo "")&&(_content isEqualTo ""))
+
 disableSerialization;
 
 GVAR(msg_cur) = GVAR(msg_cur) - [displayNull];
@@ -39,11 +43,37 @@ If (GVAR(msg_cur) isEqualTo []) then {
 	};
 	GVAR(msg_cur_ID)=1;
 	QGVAR(message_1) cutRsc [QGVAR(message_1),"PLAIN"];
-	//cutRsc [QGVAR(message_1),"PLAIN"];
 	private _idd = GVAR(msg_cur) select (count (GVAR(msg_cur)) - 1);
-	(_idd displayCtrl 770111) ctrlSetText _title;
 	(_idd displayCtrl 770112) ctrlSetBackGroundColor _color;
-	(_idd displayCtrl 770113) ctrlSetStructuredText (parseText _content);
+	(_idd displayCtrl 770113) ctrlSetText _title;
+	(_idd displayCtrl 770114) ctrlSetStructuredText (parseText _content);
+	If (_title isEqualTo "") then {
+		/// content & background
+		private _curPos = ctrlPosition(_idd displayCtrl 770111);
+		_curPos set [3,(ctrlPosition(_idd displayCtrl 770114))select 2];
+		(_idd displayCtrl 770111) ctrlSetPosition _curPos;
+		(_idd displayCtrl 770111) ctrlCommit 0;
+		(_idd displayCtrl 770114) ctrlSetPosition _curPos;
+		(_idd displayCtrl 770114) ctrlCommit 0;
+		/// color
+		private _curPos = ctrlPosition(_idd displayCtrl 770112);
+		_curPos set [3,(ctrlPosition(_idd displayCtrl 770114))select 3];
+		(_idd displayCtrl 770112) ctrlSetPosition _curPos;
+		(_idd displayCtrl 770112) ctrlCommit 0;
+	};
+	If (_content isEqualTo "") then {
+		/// background
+		private _curPos = ctrlPosition(_idd displayCtrl 770111);
+		_curPos set [3,(ctrlPosition(_idd displayCtrl 770113))select 3];
+		(_idd displayCtrl 770111) ctrlSetPosition _curPos;
+		(_idd displayCtrl 770111) ctrlCommit 0;
+		/// color
+		private _curPos = ctrlPosition(_idd displayCtrl 770112);
+		_curPos set [3,(ctrlPosition(_idd displayCtrl 770113))select 3];
+		(_idd displayCtrl 770112) ctrlSetPosition _curPos;
+		(_idd displayCtrl 770112) ctrlCommit 0;
+	};
+	
 	
 	[] spawn {
 		disableSerialization;
@@ -51,14 +81,24 @@ If (GVAR(msg_cur) isEqualTo []) then {
 			GVAR(msg_cur) = GVAR(msg_cur) - [displayNull];
 		
 			If !(GVAR(msg_waiting) isEqualTo []) then {
+				(GVAR(msg_waiting) deleteAt 0) params ["_title","_content","_color"];
+				/// change the moving distance
+				private _move = GUI_GRID_H + (call compile (getText(missionconfigfile>>"RscTitles">>QGVAR(message_1)>>"controls">>"background">>"h") ));
+				If ((_content isEqualTo "")||(_title isEqualTo "")) then {
+					If (_content isEqualTo "") then {
+						_move = GUI_GRID_H + (call compile (getText(missionconfigfile>>"RscTitles">>QGVAR(message_1)>>"controls">>"header">>"h") ));
+					}else{
+						_move = GUI_GRID_H + (call compile (getText(missionconfigfile>>"RscTitles">>QGVAR(message_1)>>"controls">>"content">>"h") ));
+					};
+				};
 				/// pushdown the old ones;
 				{
 					private _idd = _x;
 					{
 						private _pos = ctrlPosition (_idd displayCtrl _x);
-						(_idd displayCtrl _x) ctrlSetPosition [_pos select 0,((_pos select 1) + GVAR(msg_move))];
+						(_idd displayCtrl _x) ctrlSetPosition [_pos select 0,((_pos select 1) + _move)];
 						(_idd displayCtrl _x) ctrlCommit MOVINGTIME;
-					}forEach [770111,770112,770113];
+					}forEach [770111,770112,770113,770114];
 				}forEach GVAR(msg_cur);
 				uisleep MOVINGTIME;
 				/// new display
@@ -68,13 +108,37 @@ If (GVAR(msg_cur) isEqualTo []) then {
 					INC(GVAR(msg_cur_ID));
 				};
 				
-				(GVAR(msg_waiting) deleteAt 0) params ["_title","_content","_color"];
 				format[QGVAR(message_%1),GVAR(msg_cur_ID)] cutRsc [format[QGVAR(message_%1),GVAR(msg_cur_ID)],"PLAIN"];
-				//cutRsc [format[QGVAR(message_%1),GVAR(msg_cur_ID)],"PLAIN"];
 				private _idd = GVAR(msg_cur) select (count (GVAR(msg_cur)) - 1);
-				(_idd displayCtrl 770111) ctrlSetText _title;
 				(_idd displayCtrl 770112) ctrlSetBackGroundColor _color;
-				(_idd displayCtrl 770113) ctrlSetStructuredText (parseText _content);
+				(_idd displayCtrl 770113) ctrlSetText _title;
+				(_idd displayCtrl 770114) ctrlSetStructuredText (parseText _content);
+				If (_title isEqualTo "") then {
+					/// content & background
+					private _curPos = ctrlPosition(_idd displayCtrl 770111);
+					_curPos set [3,(ctrlPosition(_idd displayCtrl 770114))select 3];
+					(_idd displayCtrl 770111) ctrlSetPosition _curPos;
+					(_idd displayCtrl 770111) ctrlCommit 0;
+					(_idd displayCtrl 770114) ctrlSetPosition _curPos;
+					(_idd displayCtrl 770114) ctrlCommit 0;
+					/// color
+					private _curPos = ctrlPosition(_idd displayCtrl 770112);
+					_curPos set [3,(ctrlPosition(_idd displayCtrl 770114))select 3];
+					(_idd displayCtrl 770112) ctrlSetPosition _curPos;
+					(_idd displayCtrl 770112) ctrlCommit 0;
+				};
+				If (_content isEqualTo "") then {
+					/// background
+					private _curPos = ctrlPosition(_idd displayCtrl 770111);
+					_curPos set [3,(ctrlPosition(_idd displayCtrl 770113))select 3];
+					(_idd displayCtrl 770111) ctrlSetPosition _curPos;
+					(_idd displayCtrl 770111) ctrlCommit 0;
+					/// color
+					private _curPos = ctrlPosition(_idd displayCtrl 770112);
+					_curPos set [3,(ctrlPosition(_idd displayCtrl 770113))select 3];
+					(_idd displayCtrl 770112) ctrlSetPosition _curPos;
+					(_idd displayCtrl 770112) ctrlCommit 0;
+				};
 			};
 		
 			uisleep 1;

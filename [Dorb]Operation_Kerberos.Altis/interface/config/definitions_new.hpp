@@ -22,10 +22,10 @@
 #define DORB_GUI_MSG_X (safezoneX + 0.5 * GUI_GRID_W)
 #define DORB_GUI_MSG_Y (5 * GUI_GRID_H + safezoneY)
 #define DORB_GUI_MSG_W (10 * GUI_GRID_W)
-#define DORB_GUI_MSG_H (5 * GUI_GRID_H)
+#define DORB_GUI_MSG_H (4 * GUI_GRID_H)
 #define DORB_GUI_MSG_HEAD (1 * GUI_GRID_H)
-#define DORB_GUI_MSG_COL (0.1 * GUI_GRID_H)
-#define DORB_GUI_MSG_TEXT (3.9 * GUI_GRID_H)
+#define DORB_GUI_MSG_COL (0.2 * GUI_GRID_W)
+#define DORB_GUI_MSG_TEXT (3 * GUI_GRID_H)
 
 
 
