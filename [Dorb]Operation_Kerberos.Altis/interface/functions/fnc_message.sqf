@@ -12,7 +12,7 @@
 */
 #include "\a3\ui_f\hpp\defineCommonGrids.inc"
 #include "script_component.hpp"
-#define MOVINGTIME 1.4
+#define MOVINGTIME (5 * _move)
 CHECK(!hasInterface)
 _this params[["_title","",[""]],["_content","",[""]],["_color","",[""]]];
 
@@ -38,9 +38,6 @@ disableSerialization;
 GVAR(msg_cur) = GVAR(msg_cur) - [displayNull];
 
 If (GVAR(msg_cur) isEqualTo []) then {
-	If (isNil QGVAR(msg_move)) then {
-		GVAR(msg_move) = abs(( call compile(getText(missionconfigfile>>"RscTitles">>QGVAR(message_1)>>"h"))  ) + 0.5 *( call compile (getText(missionconfigfile>>"RscTitles">>QGVAR(message_1)>>"controls">>"header">>"h"))  ));
-	};
 	GVAR(msg_cur_ID)=1;
 	QGVAR(message_1) cutRsc [QGVAR(message_1),"PLAIN"];
 	private _idd = GVAR(msg_cur) select (count (GVAR(msg_cur)) - 1);
@@ -83,12 +80,12 @@ If (GVAR(msg_cur) isEqualTo []) then {
 			If !(GVAR(msg_waiting) isEqualTo []) then {
 				(GVAR(msg_waiting) deleteAt 0) params ["_title","_content","_color"];
 				/// change the moving distance
-				private _move = GUI_GRID_H + (call compile (getText(missionconfigfile>>"RscTitles">>QGVAR(message_1)>>"controls">>"background">>"h") ));
+				private _move = 0.5 * GUI_GRID_H + (call compile (getText(missionconfigfile>>"RscTitles">>QGVAR(message_1)>>"controls">>"background">>"h") ));
 				If ((_content isEqualTo "")||(_title isEqualTo "")) then {
 					If (_content isEqualTo "") then {
-						_move = GUI_GRID_H + (call compile (getText(missionconfigfile>>"RscTitles">>QGVAR(message_1)>>"controls">>"header">>"h") ));
+						_move = 0.5 * GUI_GRID_H + (call compile (getText(missionconfigfile>>"RscTitles">>QGVAR(message_1)>>"controls">>"header">>"h") ));
 					}else{
-						_move = GUI_GRID_H + (call compile (getText(missionconfigfile>>"RscTitles">>QGVAR(message_1)>>"controls">>"content">>"h") ));
+						_move = 0.5 * GUI_GRID_H + (call compile (getText(missionconfigfile>>"RscTitles">>QGVAR(message_1)>>"controls">>"content">>"h") ));
 					};
 				};
 				/// pushdown the old ones;
