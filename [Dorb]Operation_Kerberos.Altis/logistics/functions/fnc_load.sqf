@@ -118,8 +118,8 @@ if (!(_logistic_stack isEqualTo [])) then {
         private "_i";
         for [{_i = 0},{_i < (count _last_row)},{_i = _i + 1}] do {
             if (((getModelInfo (_last_row select _i select 0) select 0) == (getModelInfo _cargo select 0)) &&
-            	(!(_last_row select _i select 5)) &&
-            	(((_last_row select _i select 1 select 3 select 2) + 2 * _cargo_height) <= _max_height)
+                (!(_last_row select _i select 5)) &&
+                (((_last_row select _i select 1 select 3 select 2) + 2 * _cargo_height) <= _max_height)
                ) exitWith { _stackable = true; };
         };
 
