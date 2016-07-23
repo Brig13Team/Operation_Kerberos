@@ -49,7 +49,14 @@ _temp = [_task_array, true, [LSTRING(SIDE_SDV_DESCRIPTION), LSTRING(SIDE_SDV_DES
 missionNamespace setVariable [QGVAR(current_sidemission),_temp];
 
 LOG("SCHLEIFE GESTARTET");
-while { (!(_temp isEqualTo "")) AND { ((position _sdv) distance _rescue_point) > 25 } AND {(damage _sdv) != 1} } do { uiSleep 5; _temp = missionNamespace getVariable [QGVAR(current_sidemission),""]; };
+while {(
+        (!(_temp isEqualTo "")) AND 
+        { ((position _sdv) distance _rescue_point) > 25 } AND 
+        {(damage _sdv) != 1}
+    )} do {
+        uiSleep 5;
+        _temp = missionNamespace getVariable [QGVAR(current_sidemission),""];
+};
 LOG("SCHLEIFE ABGEBROCHEN");
 if (_temp isEqualTo "") exitWith {};
 
