@@ -37,20 +37,20 @@ private _arsenalArray = [[],[],[],[]];
         private _weaponType = (_className call bis_fnc_itemType);
         private _weaponTypeCategory = _weaponType select 0;
         if ((_weaponTypeCategory != "VehicleWeapon")) then {
-			private _hinzufuegen = true;
+            private _hinzufuegen = true;
             If (_className in _blacklist) then {_hinzufuegen = false;};
-			
-			If (_hinzufuegen) then {
-				_weaponTypeSpecific = _weaponType select 1;
-				_weaponTypeID = switch (true) do {
-					case (_weaponTypeSpecific in ["Throw"]) : {2};
-					case (_weaponTypeSpecific in ["Backpack"]) : {0};
-					case (_weaponTypeCategory in ["Weapon"]) : {3};
-					case ((_weaponTypeCategory in [])) : {1};
+            
+            If (_hinzufuegen) then {
+                _weaponTypeSpecific = _weaponType select 1;
+                _weaponTypeID = switch (true) do {
+                    case (_weaponTypeSpecific in ["Throw"]) : {2};
+                    case (_weaponTypeSpecific in ["Backpack"]) : {0};
+                    case (_weaponTypeCategory in ["Weapon"]) : {3};
+                    case ((_weaponTypeCategory in [])) : {1};
                     case (_weaponTypeCategory in ["Item","Equipment"]) : {1};
-					case (_weaponTypeCategory in ["Mine"]) : {3};
+                    case (_weaponTypeCategory in ["Mine"]) : {3};
                     default {-1};
-				};
+                };
                 If (_weaponTypeSpecific in ["Headgear","Vest","Uniform"]) then {
                     If ((getText(_class>>"dlc") isEqualTo "")||{getText(_class>>"dlc") in ["Mark"]}) then {
                         private _namestring = [getText(_class>>"model"),"\"] call CBA_fnc_split;
@@ -77,7 +77,7 @@ private _arsenalArray = [[],[],[],[]];
                         };
                     }foreach _magazines;
                 };
-			};
+            };
         };
     };
 } foreach _configArray;
