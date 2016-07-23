@@ -20,8 +20,8 @@ Private _teleporter = [
 ];
 
 for "_i" from 0 to 6 do {
-    Private _ctrl = (findDisplay 600300 displayCtrl (600301 + _i));
-    if (((_teleporter select _i)select 0) isEqualTo "") then {
+    Private _ctrl = (findDisplay 600300) displayCtrl (600301 + _i);
+    if ( ( (_teleporter select _i) select 0 ) isEqualTo "") then {
         _ctrl ctrlSetText "";
         _ctrl ctrlShow false;
         _ctrl ctrlSetEventHandler ["ButtonClick",""];
