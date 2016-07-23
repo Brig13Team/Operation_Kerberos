@@ -51,7 +51,7 @@ missionNamespace setVariable [QGVAR(current_sidemission),_temp];
 LOG("SCHLEIFE GESTARTET");
 while {(
         (!(_temp isEqualTo "")) AND 
-        { ((position _sdv) distance _rescue_point) > 25 } AND 
+        { (( (position _sdv) distance _rescue_point) > 25) } AND 
         {(damage _sdv) != 1}
     )} do {
         uiSleep 5;

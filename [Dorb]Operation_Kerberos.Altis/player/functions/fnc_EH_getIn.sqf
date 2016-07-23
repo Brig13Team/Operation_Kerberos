@@ -32,14 +32,19 @@ if (!(((_turret isEqualTo [0]) || (_position == "driver")))) exitWith {};
     };
 
     if (!_bool) then {
+        if ((_position == "driver") || {isNull driver (vehicle _unit)}) then { (vehicle _unit) engineOn false; };
+        unassignVehicle (vehicle _unit);
+        _unit action ["Eject", vehicle _unit];
+        _unit action ["GetOut", vehicle _unit];
+        if (isPlayer _unit) then { hint format[localize LSTRING(NURPILOTEN),name _unit]; };
+    };
 #else
     if (!((typeOf _unit) in ["B_Pilot_F","B_Helipilot_F"])) then {
+        if ((_position == "driver") || {isNull driver (vehicle _unit)}) then { (vehicle _unit) engineOn false; };
+        unassignVehicle (vehicle _unit);
+        _unit action ["Eject", vehicle _unit];
+        _unit action ["GetOut", vehicle _unit];
+        if (isPlayer _unit) then { hint format[localize LSTRING(NURPILOTEN),name _unit]; };
+    };
 #endif
-
-    if ((_position == "driver") || {isNull driver (vehicle _unit)}) then { (vehicle _unit) engineOn false; };
-    unassignVehicle (vehicle _unit);
-    _unit action ["Eject", vehicle _unit];
-    _unit action ["GetOut", vehicle _unit];
-    if (isPlayer _unit) then { hint format[localize LSTRING(NURPILOTEN),name _unit]; };
-};
 true
