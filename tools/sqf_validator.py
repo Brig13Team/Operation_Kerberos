@@ -116,7 +116,7 @@ def check_sqf_syntax(filepath):
                         if (checkForSemiColumn):
                             if (c not in [' ', '\t', '\n', '/']): # keep reading until no white space or comments
                                 checkForSemiColumn = False
-                                if (c not in [']', ')', '}', ';', ',', '&', '!', '|', '='] and not validKeyWordAfterCode(content, indexOfCharacter)): # , 'f', 'd', 'c', 'e', 'a', 'n', 'i']):
+                                if (c not in [']', ')', '}', ';', ',', '&', '!', '|', '=', 'AND', 'OR'] and not validKeyWordAfterCode(content, indexOfCharacter)): # , 'f', 'd', 'c', 'e', 'a', 'n', 'i']):
                                     print("ERROR: Possible missing semi-column ';' detected at {0} Line number: {1}".format(filepath,lineNumber))
                                     bad_count_file += 1
 
