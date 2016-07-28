@@ -73,7 +73,7 @@ for "_i" from 0 to ((count _cfgVeh)-1) do {
     If (!([_vehicle] call FUNC(getCargoCfg) isEqualTo "")) then {
         private _test1 = [_vehicle, 0, ["ACE_MainActions"], _mainAction] call ace_interact_menu_fnc_addActionToClass;
         private _test2 = [_vehicle, 0, ["ACE_MainActions",QGVAR(action_main)], _loadAction] call ace_interact_menu_fnc_addActionToClass;
-		LOG_3(,_vehicle,_test1,_test2);
+        LOG_3(,_vehicle,_test1,_test2);
     };
     
 };
