@@ -33,34 +33,34 @@
 
 
 class dorb2_gui_new_RscStructuredText {
-	idc = -1; 
-	type = 13;  // defined constant
-	style = 0x00;            // defined constant
-	colorBackground[] = DORB_GUI_COL_BACKGROUND; 
-	size = GUI_TEXT_SIZE_MEDIUM;
-	text = "";
-	class Attributes {
-		font = GUI_FONT_NORMAL;
-		color = "#000000";
-		align = "left";
-		valign = "middle";
-		shadow = 0;
-		shadowColor = "#ff0000";
-		size = 1;
-	};
+    idc = -1; 
+    type = 13;  // defined constant
+    style = 0x00;            // defined constant
+    colorBackground[] = DORB_GUI_COL_BACKGROUND; 
+    size = GUI_TEXT_SIZE_MEDIUM;
+    text = "";
+    class Attributes {
+        font = GUI_FONT_NORMAL;
+        color = "#000000";
+        align = "left";
+        valign = "middle";
+        shadow = 0;
+        shadowColor = "#ff0000";
+        size = 1;
+    };
 };
 class dorb2_gui_new_RscText {
-	access = 0;
-	type = 0;
-	idc = -1;
-	style = 0x00;
-	font = GUI_FONT_NORMAL;
-	sizeEx = GUI_TEXT_SIZE_MEDIUM;
-	colorBackground[] = DORB_GUI_COL_BACKGROUND; 
-	colorText[] = {RAL7047,1};
-	text = "";
-	fixedWidth = 0;
-	shadow = 0;
+    access = 0;
+    type = 0;
+    idc = -1;
+    style = 0x00;
+    font = GUI_FONT_NORMAL;
+    sizeEx = GUI_TEXT_SIZE_MEDIUM;
+    colorBackground[] = DORB_GUI_COL_BACKGROUND; 
+    colorText[] = {RAL7047,1};
+    text = "";
+    fixedWidth = 0;
+    shadow = 0;
 };
 
 

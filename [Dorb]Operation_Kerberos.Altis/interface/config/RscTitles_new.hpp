@@ -7,175 +7,76 @@ Author: Dorbedo
 
 class  RscTitles {
 
-	class GVAR(message_1) {
-		idd = 770110;
-		x = DORB_GUI_MSG_X;
-		y = DORB_GUI_MSG_Y;
-		w = DORB_GUI_MSG_W;
-		h = DORB_GUI_MSG_H;
-		fade = 1;
-		duration = 15;
-		onLoad = QUOTE(with missionnameSpace do {disableSerialization; GVAR(msg_cur) - [_this select 0];GVAR(msg_cur) pushBack (_this select 0);};); /// pushbackunique is wrong at this point -> the new control needs to be at the last position
-		class controls {
-			class background : dorb2_gui_new_RscText {
-				idc = 770111;
-				x = DORB_GUI_MSG_X;
-				y = DORB_GUI_MSG_Y;
-				w = DORB_GUI_MSG_W;
-				h = DORB_GUI_MSG_H;
-				colorBackground[]	= DORB_GUI_COL_BACKGROUND;
-				text = "";
-			};
-			class stripe : dorb2_gui_new_RscText {
-				idc = 770112;
-				x = DORB_GUI_MSG_X;
-				y = DORB_GUI_MSG_Y;
-				w = DORB_GUI_MSG_COL;
-				h = DORB_GUI_MSG_HEAD + DORB_GUI_MSG_TEXT;
-				colorBackground[]	= {RAL6018,1};
-				text = "";
-			};
-			class header : dorb2_gui_new_RscStructuredText {
-				idc = 770113;
-				x = DORB_GUI_MSG_X + DORB_GUI_MSG_COL;
-				y = DORB_GUI_MSG_Y;
-				w = DORB_GUI_MSG_W;
-				h = DORB_GUI_MSG_HEAD;
-				text = "ERROR: No Header";
-				shadow = 0;
-				colorBackground[] = {0,0,0,0};
-				colorText[] = { RAL7047 ,1};
-				class Attributes : Attributes {
-					shadow = 0;
-					font = GUI_FONT_BOLD;
-				};
-			};
-			class content : dorb2_gui_new_RscStructuredText {
-				idc = 770114;
-				x = DORB_GUI_MSG_X + DORB_GUI_MSG_COL;
-				y = (DORB_GUI_MSG_Y + DORB_GUI_MSG_HEAD);
-				w = DORB_GUI_MSG_W;
-				h = DORB_GUI_MSG_TEXT;
-				text = "ERROR: No Text";
-				shadow = 0;
-				colorBackground[] = {0,0,0,0};
-				colorText[] = {RAL7047,1};
-				size = GUI_TEXT_SIZE_SMALL;
-				class Attributes : Attributes {
-					shadow = 0;
-					font = GUI_FONT_THIN;
-				};
-			};
-		};
-	};
-	class GVAR(message_2) : GVAR(message_1) {idd = 770120;};
-	class GVAR(message_3) : GVAR(message_1) {idd = 770130;};
-	class GVAR(message_4) : GVAR(message_1) {idd = 770140;};
-	class GVAR(message_5) : GVAR(message_1) {idd = 770150;};
-	class GVAR(message_6) : GVAR(message_1) {idd = 770160;};
-	class GVAR(message_7) : GVAR(message_1) {idd = 770170;};
-	class GVAR(message_8) : GVAR(message_1) {idd = 770180;};
-	class GVAR(message_9) : GVAR(message_1) {idd = 770190;};
-	
-    class GVAR(disp_msg) {
-        duration = 20;
-        idd = 700100;
-        movingenable = 0;
-        onLoad = QUOTE(uiNamespace setVariable [ARR_2('GVAR(disp_msg)', _this select 0)];);
-        class controlsBackground {
-            class dorb_disp_header : dorb_gui_backgroundBase {
+    class GVAR(message_1) {
+        idd = 770110;
+        x = DORB_GUI_MSG_X;
+        y = DORB_GUI_MSG_Y;
+        w = DORB_GUI_MSG_W;
+        h = DORB_GUI_MSG_H;
+        fade = 1;
+        duration = 15;
+        onLoad = QUOTE(with missionnameSpace do {disableSerialization; GVAR(msg_cur) - [_this select 0];GVAR(msg_cur) pushBack (_this select 0);};); /// pushbackunique is wrong at this point -> the new control needs to be at the last position
+        class controls {
+            class background : dorb2_gui_new_RscText {
+                idc = 770111;
+                x = DORB_GUI_MSG_X;
+                y = DORB_GUI_MSG_Y;
+                w = DORB_GUI_MSG_W;
+                h = DORB_GUI_MSG_H;
+                colorBackground[]   = DORB_GUI_COL_BACKGROUND;
                 text = "";
-                idc = 700101;
-                sizeEx = GUI_H(0.03);
-                style = ST_LEFT;
-                x = safezoneX + safezoneW * 0.05;
-                y = safeZoneY + safezoneH * 0.2;
-                w = GUI_W(0.13);
-                h = GUI_H(0.035);
-                colorText[] = UI_CL_HEADER_TEXT;
-                colorBackground[] = UI_CL_HEADER;
             };
-            class content: dorb_disp_header {
-                idc = 700102;
-                y = safeZoneY + safezoneH * 0.2 + GUI_H(0.040);
-                sizeEx = GUI_H(0.025);
-                colorText[] = UI_CL_BODY_TEXT;
-                colorBackground[] = UI_CL_BODY;
+            class stripe : dorb2_gui_new_RscText {
+                idc = 770112;
+                x = DORB_GUI_MSG_X;
+                y = DORB_GUI_MSG_Y;
+                w = DORB_GUI_MSG_COL;
+                h = DORB_GUI_MSG_HEAD + DORB_GUI_MSG_TEXT;
+                colorBackground[]   = {RAL6018,1};
+                text = "";
+            };
+            class header : dorb2_gui_new_RscStructuredText {
+                idc = 770113;
+                x = DORB_GUI_MSG_X + DORB_GUI_MSG_COL;
+                y = DORB_GUI_MSG_Y;
+                w = DORB_GUI_MSG_W;
+                h = DORB_GUI_MSG_HEAD;
+                text = "ERROR: No Header";
+                shadow = 0;
+                colorBackground[] = {0,0,0,0};
+                colorText[] = { RAL7047 ,1};
+                class Attributes : Attributes {
+                    shadow = 0;
+                    font = GUI_FONT_BOLD;
+                };
+            };
+            class content : dorb2_gui_new_RscStructuredText {
+                idc = 770114;
+                x = DORB_GUI_MSG_X + DORB_GUI_MSG_COL;
+                y = (DORB_GUI_MSG_Y + DORB_GUI_MSG_HEAD);
+                w = DORB_GUI_MSG_W;
+                h = DORB_GUI_MSG_TEXT;
+                text = "ERROR: No Text";
+                shadow = 0;
+                colorBackground[] = {0,0,0,0};
+                colorText[] = {RAL7047,1};
+                size = GUI_TEXT_SIZE_SMALL;
+                class Attributes : Attributes {
+                    shadow = 0;
+                    font = GUI_FONT_THIN;
+                };
             };
         };
     };
-    class GVAR(disp_info) {
-        duration = 20;
-        idd = 700106;
-        movingenable = 0;
-        onLoad = QUOTE(uiNamespace setVariable [ARR_2('GVAR(disp_info)', _this select 0)];);
-        class controlsBackground {
-            class dorb_disp_header : dorb_gui_backgroundBase {
-                text = "";
-                idc = 700109;
-                sizeEx = GUI_H(0.03);
-                style = ST_LEFT;
-                x = safezoneX + safezoneW * 0.05;
-                y = safeZoneY + safezoneH * 0.41;
-                w = GUI_W(0.13);
-                h = GUI_H(0.035);
-                colorText[] = UI_CL_HEADER_TEXT;
-                colorBackground[] = UI_CL_HEADER;
-            };
-            class icon_body: dorb_disp_header {
-                idc = 700107;
-                x = safezoneX + safezoneW * 0.05;
-                y = safeZoneY + safezoneH * 0.26;
-                w = GUI_W(0.13);
-                h = GUI_H(0.15);
-                colorText[] = UI_CL_BODY_TEXT;
-                colorBackground[] = UI_CL_BODY;
-            };
-            class icon : dorb_gui_pictureBase{
-                idc = 700108;
-                text = "";
-                style = 48;
-                x = safezoneX + safezoneW * 0.06;
-                y = safeZoneY + safezoneH * 0.27;
-                w = GUI_W(0.10);
-                h = GUI_H(0.13);
-                colorText[] = UI_CL_HEADER_TEXT;
-                colorBackground[] = UI_CL_BODY;
-            };
-            class content: dorb_disp_header {
-                idc = 700110;
-                sizeEx = GUI_H(0.025);
-                colorText[] = UI_CL_BODY_TEXT;
-                colorBackground[] = UI_CL_BODY;
-                y = safeZoneY + safezoneH * 0.41 + GUI_H(0.040);
-                style = ST_LEFT;
-            };
-            class content2: content {
-                idc = 700111;
-                y = safeZoneY + safezoneH * 0.41 + GUI_H(0.077);
-            };
-            class content3: content {
-                idc = 700112;
-                y = safeZoneY + safezoneH * 0.41 + GUI_H(0.114);
-            };
-            class content4: content {
-                idc = 700113;
-                y = safeZoneY + safezoneH * 0.41 + GUI_H(0.151);
-            };
-            class content5: content {
-                idc = 700114;
-                y = safeZoneY + safezoneH * 0.41 + GUI_H(0.188);
-            };
-            class content6: content {
-                idc = 700115;
-                y = safeZoneY + safezoneH * 0.41 + GUI_H(0.225);
-            };
-            class content7: content {
-                idc = 700116;
-                y = safeZoneY + safezoneH * 0.41 + GUI_H(0.262);
-            };
-        };
-    };
+    class GVAR(message_2) : GVAR(message_1) {idd = 770120;};
+    class GVAR(message_3) : GVAR(message_1) {idd = 770130;};
+    class GVAR(message_4) : GVAR(message_1) {idd = 770140;};
+    class GVAR(message_5) : GVAR(message_1) {idd = 770150;};
+    class GVAR(message_6) : GVAR(message_1) {idd = 770160;};
+    class GVAR(message_7) : GVAR(message_1) {idd = 770170;};
+    class GVAR(message_8) : GVAR(message_1) {idd = 770180;};
+    class GVAR(message_9) : GVAR(message_1) {idd = 770190;};
+    
     class GVAR(disp_timer) {
         duration = 61;
         idd = 700103;

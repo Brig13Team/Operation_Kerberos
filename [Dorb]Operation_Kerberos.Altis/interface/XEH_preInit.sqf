@@ -3,9 +3,7 @@
 ADDON = false;
 
 PREP(disp_blur);
-PREP(disp_info);
 PREP(disp_info_global);
-PREP(disp_message);
 PREP(disp_message_global);
 PREP(disp_progressbar);
 PREP(disp_timer);
