@@ -12,7 +12,7 @@
 */
 #include "script_component.hpp"
 
-_this params ["_group",["_add",false,[true]];
+_this params ["_group",["_add",false,[true]]];
 private _allVehicles = [];
 {
     _allVehicles pushBackUnique _x;
