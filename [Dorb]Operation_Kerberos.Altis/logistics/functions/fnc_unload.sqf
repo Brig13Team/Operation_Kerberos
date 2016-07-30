@@ -8,9 +8,6 @@
         0: OBJECT - vehicle
 */
 #include "script_component.hpp"
-SCRIPT(unload);
-
-#define SPACE_BETWEEN_CARGO 0.1
 
 params ["_vehicle"];
 
@@ -31,6 +28,15 @@ _last_row resize (count _last_row - 1);
 if (_last_row isEqualTo []) then { _logistic_stack resize ((count _logistic_stack) - 1); } else { _logistic_stack set [(count _logistic_stack) - 1, _last_row]; };
 
 private _vehicle_mass = getMass _vehicle;
+
+if (!((_last_cargo select 4) isEqualTo [])) then {
+    private _index = _last_cargo select 4;
+    private _row = _logistic_stack select (_index select 0);
+    private _elem = _row select (_index select 1);
+    _elem set [5,false];
+    _row set [_index select 0, _elem];
+    _logistic_stack set [_index select 0, _row];
+};
 
 private "_cargo_mass";
 if (!((_last_cargo select 0) in (attachedObjects _vehicle))) exitWith {
@@ -55,10 +61,10 @@ detach (_last_cargo select 0);
 _cargo_mass = getMass (_last_cargo select 0);
 (_last_cargo select 0) setPos _detach_point;
 (_last_cargo select 0) setDir (getDir _vehicle);
+(_last_cargo select 0) lock false;
 
 if (isMultiplayer && {!local _vehicle}) then {
-    missionNamespace setVariable [QGVAR(updateSeats_Vehicle),_vehicle];
-    publicVariable QGVAR(updateSeats_Vehicle);
+    [QGVAR(updateSeats_Vehicle),[_vehicle],_vehicle] call CBA_fnc_targetEvent;
 } else {
     [_vehicle] call FUNC(updateSeats);
 };

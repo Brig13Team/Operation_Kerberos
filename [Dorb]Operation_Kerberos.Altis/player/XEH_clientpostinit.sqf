@@ -18,3 +18,12 @@ SETUVAR(EGVAR(interface,respawnTime),nil);
 [] call FUNC(initKnockKnock);
 
 ["init"] spawn FUNC(grouptracker);
+
+waituntil {! isnull player};
+["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;
+[
+    LSTRING(CLAN),
+    [LSTRING(WELCOME1),LSTRING(WELCOME2),LSTRING(WELCOME3),LSTRING(WELCOME4),LSTRING(WELCOME5),LSTRING(WELCOME6)],
+    "data\logo_brig.paa",
+    false
+] call EFUNC(interface,disp_info);

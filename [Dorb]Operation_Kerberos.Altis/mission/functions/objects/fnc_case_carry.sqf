@@ -21,11 +21,8 @@ _carrier forceWalk true;
 _suitcase setVariable [QGVAR(objects_carrier),_carrier,true];
 _carrier setVariable [QGVAR(objects_suitcase),_suitcase];
 
-If (isMultiplayer && !isServer) then {
-    [{
-        _this params ["_suitcase"];
-        [{_this call FUNC(objects_handle); }, 1, [_suitcase]] call CBA_fnc_addPerFrameHandler;
-    }, [_suitcase],0] call EFUNC(events,globalExec);
+If (isMultiplayer) then {
+    [QGVAR(suitcase_handle), [_suitcase]] call CBA_fnc_globalEvent;
 }else{
     [{_this call FUNC(objects_handle); }, 1, [_suitcase]] call CBA_fnc_addPerFrameHandler;
 };

@@ -1312,6 +1312,11 @@
         </Key>
     </Package>
     <Package name="logistics">
+        <Key ID="STR_DORB_LOGISTICS_ACTION_MAIN">
+            <Original>Logistics</Original>
+            <German>Logistik</German>
+            <English>Logistics</English>
+        </Key>
         <Key ID="STR_DORB_LOGISTICS_ACTION_LOAD">
             <Original>Load</Original>
             <German>Einladen</German>
@@ -1336,6 +1341,16 @@
             <Original>View Load</Original>
             <German>Ladung</German>
             <English>View Load</English>
+        </Key>
+        <Key ID="STR_DORB_LOGISTICS_ACTION_EXTEND">
+            <Original>Extend Cargo</Original>
+            <German>Laderaum erweitern</German>
+            <English>Extend Cargo</English>
+        </Key>
+        <Key ID="STR_DORB_LOGISTICS_ACTION_REDUCE">
+            <Original>Reduce Cargo</Original>
+            <German>Laderaum reduzieren</German>
+            <English>Reduce Cargo</English>
         </Key>
         <Key ID="STR_DORB_LOGISTICS_CARGO_INFO">
             <Original>Cargo Info</Original>

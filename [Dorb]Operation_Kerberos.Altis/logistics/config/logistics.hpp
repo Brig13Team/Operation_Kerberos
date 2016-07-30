@@ -25,7 +25,7 @@ class logistics
         class rhsusf_m1025_d_m2 : rhsusf_m1025_w_m2 {};
         class rhsusf_m1025_w_s_m2 : rhsusf_m1025_w_m2 {};
         class rhsusf_m1025_d_s_m2 : rhsusf_m1025_w_m2 {};
-        
+
         class rhsusf_m1025_w_mk19 : rhsusf_m1025_base {
             cargo_point[] = {-0.07,-1.68,-0.96};
             load_point[] = {0,-4,-1.9};
@@ -33,7 +33,7 @@ class logistics
         class rhsusf_m1025_d_Mk19 : rhsusf_m1025_w_mk19 {};
         class rhsusf_m1025_d_s_Mk19 : rhsusf_m1025_w_mk19 {};
         class rhsusf_m1025_w_s_Mk19 : rhsusf_m1025_w_mk19 {};
-        
+
         class rhsusf_m1025_2dr_base {
             max_width = 1.28;
             max_length = 2.07;
@@ -41,13 +41,13 @@ class logistics
             cargo_point[] = {0,-0.7,-0.9};
             load_point[] = {0,-4,-1.88};
             cargo_pos[] = {{1,{0.708984,-1.67847,-0.334061}},{2,{-0.75293,-0.976318,-0.329685}},{3,{0.892578,-2.48169,-0.56284}},{4,{-0.768555,-1.71436,-0.329685}},{5,{0.699463,-1.01538,-0.334057}},{6,{-0.889404,-2.43628,-0.543262}}};
-            
+
         };
         class rhsusf_m998_w_2dr_fulltop : rhsusf_m1025_2dr_base {};
         class rhsusf_m998_d_2dr_fulltop : rhsusf_m1025_2dr_base {};
         class rhsusf_m998_d_s_2dr_fulltop : rhsusf_m1025_2dr_base {};
         class rhsusf_m998_w_s_2dr_fulltop : rhsusf_m1025_2dr_base {};
-        
+
         class rhsusf_m998_w_2dr_halftop : rhsusf_m1025_2dr_base {
             max_height = 2;
         };
@@ -75,21 +75,28 @@ class logistics
         class rhsusf_m998_d_s_4dr : rhsusf_m998_w_4dr_base {};
         class rhsusf_m998_w_s_4dr : rhsusf_m998_w_4dr_base {};
         class rhsusf_m998_w_s_4dr_halftop : rhsusf_m998_w_4dr_base {};
-        
-        
+
+
         /// LKW
-        
-        
-        class rhsusf_HEMTT_A2_base {
-            max_width = 2.13;
-            max_length = 5.5;
-            max_height = 3;
-            cargo_point[] = {0,1.48,0.257};
-            load_point[] = {0,-6,-1.4};
+
+
+        class rhsusf_M977A4_usarmy_wd {
+            max_width = 2.1;
+            max_length = 5.48;
+            max_height = 2;
+            cargo_point[] = {0,-0.25,0.67};
+            load_point[] = {0,-8.5,-1};
         };
-        class rhsusf_M977A2_usarmy_wd : rhsusf_HEMTT_A2_base {};
-        class rhsusf_M977A2_CPK_usarmy_wd : rhsusf_M977A2_usarmy_wd {};
-        
+        class rhsusf_M977A4_usarmy_d : rhsusf_M977A4_usarmy_wd {};
+        class rhsusf_M977A4_BKIT_usarmy_d : rhsusf_M977A4_usarmy_wd {};
+        class rhsusf_M977A4_BKIT_usarmy_wd : rhsusf_M977A4_usarmy_wd {};
+        class rhsusf_M977A4_BKIT_M2_usarmy_wd : rhsusf_M977A4_usarmy_wd {
+            cargo_point[] = {0,1.2,0.31};
+            load_point[] = {0,-7,-1.5};
+        };
+        class rhsusf_M977A4_BKIT_M2_usarmy_d : rhsusf_M977A4_BKIT_M2_usarmy_wd {};
+
+
         class rhsusf_M1078A1P2_Base {
             max_width = 1.42;
             max_length = 4;
@@ -121,10 +128,10 @@ class logistics
         class rhsusf_M1083A1P2_B_M2_wd_fmtv_usarmy : rhsusf_M1078A1P2_Base {};
         class rhsusf_M1083A1P2_B_M2_wd_open_fmtv_usarmy : rhsusf_M1078A1P2_Base {};
         class rhsusf_M1083A1P2_B_wd_open_fmtv_usarmy : rhsusf_M1078A1P2_Base {};
-        
-        
-        
-        
+
+
+
+
         /// offen
         class rhsusf_M1078A1P2_B_d_flatbed_fmtv_usarmy : rhsusf_M1078A1P2_Base {
             max_width = 2.3;
@@ -142,10 +149,10 @@ class logistics
         class rhsusf_M1083A1P2_B_M2_wd_flatbed_fmtv_usarmy : rhsusf_M1078A1P2_B_d_flatbed_fmtv_usarmy {};
         class rhsusf_M1083A1P2_B_wd_flatbed_fmtv_usarmy : rhsusf_M1078A1P2_B_d_flatbed_fmtv_usarmy {};
         class rhsusf_M1083A1P2_wd_flatbed_fmtv_usarmy : rhsusf_M1078A1P2_B_d_flatbed_fmtv_usarmy {};
-        
-        
+
+
         /// HELI
-        
+
         class RHS_UH60M_Base {
             max_width = 1.75;
             max_length = 2.2;
@@ -162,7 +169,21 @@ class logistics
         class RHS_UH60M_MEV2 : RHS_UH60M_Base {};
         class RHS_UH60M_MEV : RHS_UH60M_Base {};
         class RHS_UH60M_MEV_d : RHS_UH60M_Base {};
-        
+
+        class RHS_MELB_MH6M {
+            max_width = 1;
+            max_length = 0.9;
+            max_height = 0.8;
+            cargo_point[] = {0,1,-1.25};
+            load_point[] = {2,1,-1.9};
+        };
+        class RHS_MELB_H6M : RHS_MELB_MH6M {
+            max_width = 0.5;
+            max_length = 0.7;
+            cargo_pos[] = {{0,{0.103516,0.730957,-1.11869}}};
+        };
+
+
         class RHS_CH_47_Base {
             max_width = 1.14;
             max_length = 7.85;
@@ -174,11 +195,26 @@ class logistics
             hatch_close = "_this animateDoor ['ramp_anim', 0];";
             hatch_isopened = "_this doorPhase 'ramp_anim' > 0 and (alive _this)";
             hatch_isclosed = "_this doorPhase 'ramp_anim' == 0 and (alive _this)";
+            class cargo {
+                max_width = 2.3;
+                extend = "_this animate ['hide_cargo',1];_this lockCargo true;";
+                isextended = "(_this animationPhase 'hide_cargo') > 0";
+                reduce = "_this animate ['hide_cargo',0];_this lockCargo false;";
+                isreduced = "(_this animationPhase 'hide_cargo') == 0";
+            };
         };
         class RHS_CH_47F_light : RHS_CH_47_Base {};
         class RHS_CH_47F_10 : RHS_CH_47_Base {};
         class RHS_CH_47F : RHS_CH_47_Base {};
 
+        class RHS_C130J {
+            class cargo {
+                extend = "_this animate ['hide_cargo',1];_this lockCargo true;";
+                isextended = "(_this animationPhase 'hide_cargo') > 0";
+                reduce = "_this animate ['hide_cargo',0];_this lockCargo false;";
+                isreduced = "(_this animationPhase 'hide_cargo') == 0";
+            };
+        };
         class rhsusf_CH53E_USMC {
             max_width = 1.6;
             max_length = 8;
@@ -192,7 +228,7 @@ class logistics
             hatch_isclosed = "(_this animationPhase 'ramp_bottom' == 0) and (_this animationPhase 'ramp_top' == 0) and (alive _this)";
         };
         class rhsusf_CH53E_USMC_D : rhsusf_CH53E_USMC {};
-        
+
         class I_Heli_Transport_02_F {
             max_width = 1.5;
             max_length = 7.2;
@@ -222,8 +258,8 @@ class logistics
         };
         class B_Heli_Transport_03_unarmed_F : B_Heli_Transport_03_unarmed_base_F {};
         class B_Heli_Transport_03_unarmed_green_F : B_Heli_Transport_03_unarmed_base_F {};
-        
-        
+
+
         class rhs_gaz66_Base {
             max_width = 1.2;
             max_length = 3.21;
@@ -236,7 +272,7 @@ class logistics
         class rhs_gaz66_vdv : rhs_gaz66_msv {};
         class rhs_gaz66_vmf : rhs_gaz66_msv {};
         class rhs_gaz66_vv : rhs_gaz66_msv {};
-        
+
         class rhs_gaz66_flat_msv : rhs_gaz66_Base {
             cargo_pos = [];
             max_width = 2;
@@ -244,7 +280,7 @@ class logistics
         class rhs_gaz66_flat_vdv : rhs_gaz66_flat_msv {};
         class rhs_gaz66_flat_vmf : rhs_gaz66_flat_msv {};
         class rhs_gaz66_flat_vv : rhs_gaz66_flat_msv {};
-        
+
         class rhs_gaz66o_msv : rhs_gaz66_Base {
             cargo_point[] = {0,-1.18,-0.155};
             max_height = 3;
@@ -252,8 +288,8 @@ class logistics
         class rhs_gaz66o_vdv : rhs_gaz66o_msv {};
         class rhs_gaz66o_vmf : rhs_gaz66o_msv {};
         class rhs_gaz66o_vv : rhs_gaz66o_msv {};
-        
-        
+
+
         class rhs_gaz66o_flat_msv : rhs_gaz66o_msv {
             cargo_pos = [];
             max_width = 2;
@@ -262,8 +298,8 @@ class logistics
         class rhs_gaz66o_flat_vdv : rhs_gaz66o_flat_msv {};
         class rhs_gaz66o_flat_vmf : rhs_gaz66o_flat_msv {};
         class rhs_gaz66o_flat_vv : rhs_gaz66o_flat_msv {};
-        
-        
+
+
         class RHS_Ural_Base {
             max_width = 1.42;
             max_length = 3.91;
@@ -283,7 +319,7 @@ class logistics
         class RHS_Ural_Civ_01 : RHS_Ural_Base {};
         class RHS_Ural_Civ_02 : RHS_Ural_Base {};
         class RHS_Ural_Civ_03 : RHS_Ural_Base {};
-        
+
         class RHS_Ural_Open_MSV_01 : RHS_Ural_Base {
             max_height = 3;
         };
@@ -298,14 +334,14 @@ class logistics
         class RHS_Ural_Flat_VDV_01 : RHS_Ural_Flat_MSV_01 {};
         class RHS_Ural_Flat_VMF_01 : RHS_Ural_Flat_MSV_01 {};
         class RHS_Ural_Flat_VV_01 : RHS_Ural_Flat_MSV_01 {};
-        
+
         class RHS_Ural_Open_Flat_MSV_01 : RHS_Ural_Flat_MSV_01 {
             max_height = 3;
         };
         class RHS_Ural_Open_Flat_VDV_01 : RHS_Ural_Open_Flat_MSV_01 {};
         class RHS_Ural_Open_Flat_VMF_01 : RHS_Ural_Open_Flat_MSV_01 {};
         class RHS_Ural_Open_Flat_VV_01 : RHS_Ural_Open_Flat_MSV_01 {};
-        
+
         class rhs_ural_open_chdkz : RHS_Ural_Base {
             cargo_point[] = {0,0.36,1.51};
             load_point[] = {0,-5,-0.05};
@@ -314,9 +350,9 @@ class logistics
         class RHS_Ural_Open_Civ_01 : rhs_ural_open_chdkz {};
         class RHS_Ural_Open_Civ_02 : rhs_ural_open_chdkz {};
         class RHS_Ural_Open_Civ_03 : rhs_ural_open_chdkz {};
-        
-        
-        
+
+
+
         class RHS_Mi8mt_Cargo_vdv {
             max_width = 1.3;
             max_length = 4.5;
@@ -332,7 +368,7 @@ class logistics
         class RHS_Mi8mt_Cargo_vv : RHS_Mi8mt_Cargo_vdv {};
         class RHS_Mi8mt_Cargo_vvs : RHS_Mi8mt_Cargo_vdv {};
         class RHS_Mi8mt_Cargo_vvsc : RHS_Mi8mt_Cargo_vdv {};
-        
+
         class C_Van_01_transport_F {
             max_width = 1.78;
             max_length = 3.5;
@@ -346,7 +382,7 @@ class logistics
         class O_G_Van_01_transport_F : C_Van_01_transport_F {};
         class C_Van_01_transport_white_F : C_Van_01_transport_F {};
         class C_Van_01_transport_red_F : C_Van_01_transport_F {};
-            
+
         class C_Offroad_01_F {
             max_width = 1;
             max_length = 2.1;
@@ -374,7 +410,7 @@ class logistics
         class C_Offroad_luxe_F : C_Offroad_01_F {};
         class C_Offroad_default_F : C_Offroad_01_F {};
         class C_Offroad_stripped_F : C_Offroad_01_F {};
-        
+
         class C_Quadbike_01_F {
             max_width = 0.95;
             max_length = 0.5;
@@ -393,7 +429,7 @@ class logistics
         class C_Quadbike_01_blue_F : C_Quadbike_01_F {};
         class C_Quadbike_01_red_F : C_Quadbike_01_F {};
         class C_Quadbike_01_white_F : C_Quadbike_01_F {};
-        
+
         class B_Truck_01_transport_F {
             max_width = 1.35;
             max_length = 5.67;
@@ -405,7 +441,7 @@ class logistics
         class B_Truck_01_covered_F : B_Truck_01_transport_F {
             max_height = 1.5;
         };
-        
+
         class I_Truck_02_transport_F {
             max_width = 1.44;
             max_length = 4.78;
@@ -420,7 +456,7 @@ class logistics
             load_point[] = {0,-5,-2.3};
         };
         class O_Truck_02_covered_F : I_Truck_02_covered_F {};
-        
+
         class O_Truck_03_transport_F {
             max_width = 1.3;
             max_length = 4.96;
@@ -432,7 +468,7 @@ class logistics
         class O_Truck_03_covered_F : O_Truck_03_transport_F {
             max_height = 3;
         };
-        
+
         class B_UGV_01_F {
             max_width = 1.2;
             max_length = 1.1;
@@ -492,12 +528,7 @@ class logistics
             length = 0.4;
             height = 0.35;
         };
-        class rhs_3Ya40_1 {
-            width = 1.1;
-            length = 0.5;
-            height = 0.5;
-        };
-        
+
         class bwa3_democracybox {
             width = 2.55;
             length = 5.8;
@@ -510,7 +541,7 @@ class logistics
             height = 2.73;
         };
         class B_Slingload_01_Medevac_F : B_Slingload_01_Cargo_F {
-            width = 2.7;        
+            width = 2.7;
         };
         class B_Slingload_01_Ammo_F : B_Slingload_01_Cargo_F {};
         class B_Slingload_01_Repair_F : B_Slingload_01_Cargo_F {};
@@ -561,8 +592,8 @@ class logistics
         class Land_Cargo20_sand_F : Land_Cargo20_base {};
         class Land_Cargo20_vr_F : Land_Cargo20_base {};
         class Land_Cargo20_white_F : Land_Cargo20_base {};
-        
-        
+
+
         class CargoBox_V1_F {
             width = 1.54;
             length = 1.54;
@@ -573,6 +604,87 @@ class logistics
             width = 1.6;
             length = 1.6;
             height = 1.68;
+        };
+        class RHS_M119_WD {
+            width = 2;
+            length = 5.1;
+            height = 1.5;
+            offset[] = {0,-1.3,0.8};
+        };
+        class RHS_M119_D : RHS_M119_WD {};
+        class rhs_D30_vdv : RHS_M119_WD {
+            offset[] = {0,0.6,-0.7};
+        };
+        class rhs_D30_at_vdv : rhs_D30_vdv {};
+
+        class FIM92_static {
+            width = 3;
+            length = 3;
+            height = 2;
+            offset[] = {0,0,-0.5};
+        };
+
+        class TOW_static {
+            width = 1.7;
+            length = 1.7;
+            height = 1.2;
+            offset[] = {0,0.5,-0.5};
+        };
+
+        class m2_mg2 {
+            width = 1.2;
+            length = 2;
+            height = 0.7;
+            offset[] = {-0.35,0.6,-0.9};
+        };
+
+        class m2_mg {
+            width = 1.2;
+            length = 1.9;
+            height = 1.5;
+            offset[] = {-0.35,0.6,-1};
+        };
+
+        class mk19_stat {
+            width = 1.2;
+            length = 1.2;
+            height = 0.7;
+            offset[] = {0,0.8,-0.7};
+        };
+
+        class Quadbike_01_F {
+            width = 1.2;
+            length = 2.2;
+            height = 1;
+            offset[] = {0,-0.05,-0.9};
+        };
+
+        class SDV_01_F {
+            width = 2;
+            length = 6.2;
+            height = 1.5;
+            offset[] = {0,-1.1,-1.2};
+        };
+
+        class Boat_Transport_01_F {
+            width = 2.1;
+            length = 4.9;
+            height = 1.5;
+            offset[] = {0,0,-0.5};
+        };
+
+        class rhs_3Ya40_1 {
+            width = 2.5;
+            length = 0.9;
+            height = 0.8;
+            offset[] = {0,0,-0.05};
+        };
+
+        class rhs_7ya37_1 {
+            width = 1.15;
+            length = 0.45;
+            height = 0.55;
+            offset[] = {0,0,0};
         };
     };
 };

@@ -11,7 +11,6 @@ PREP(playeraddaction);
 
 PREP(EH_fired);
 PREP(EH_hit);
-PREP(EH_hitPart);
 PREP(EH_respawn);
 PREP(EH_getIn);
 PREP(EH_seatswitched);

@@ -60,13 +60,14 @@ class cfgFunctions {
 #include "mission\config\missions_config.hpp"
 
 // Interface
+#include "interface\config\RAL_CODES.hpp"
 #include "interface\config\define.hpp"
 #include "interface\config\menu.hpp"
-#include "interface\config\rscTitles.hpp"
+#include "interface\config\definitions_new.hpp"
+#include "interface\config\rscTitles_new.hpp"
 
 // Eventhandlers
 #include "CfgEventHandlers.hpp"
-#include "CfgRemoteExec.hpp"
 
 // Headquarter
 #include "headquarter\config\drones.hpp"

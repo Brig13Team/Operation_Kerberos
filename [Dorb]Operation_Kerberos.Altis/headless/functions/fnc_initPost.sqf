@@ -12,8 +12,8 @@
 #include "script_component.hpp"
 _this params ["_object"];
 
+CHECK(GVAR(istransfering))
 CHECK((!GVARMAIN(HC_enabled))||{!(_object in AllUnits)}||{!(isPlayer _object)})
 
-CHECK(GVAR(transfering))
-GVAR(transfering) = true;
-[FUNC(move), [], HEADLESSDELAY] call EFUNC(common,waitAndExecute);
+GVAR(istransfering) = true;
+[FUNC(transfer), [], HEADLESSDELAY] call EFUNC(common,waitAndExecute);

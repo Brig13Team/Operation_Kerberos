@@ -86,6 +86,6 @@ If (GVARMAIN(mods_TFAR)) then {
     _vehicle setVariable ["tf_side", GVARMAIN(playerSide), true];
 };
 
-["VEHICLE_SPAWNED",[_vehicle]] spawn EFUNC(events,serverEvent);
+["VEHICLE_SPAWNED",[_vehicle]] spawn CBA_fnc_serverEvent;
 
 closeDialog dlg_veh_spawn_idd;
