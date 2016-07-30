@@ -42,7 +42,7 @@ private _type = 0;
         case (_primaryweapon = "SniperRifle") : {_similiSoldier = "B_sniper_F";}; //350000 
         case ((_x getVariable ["ace_medical_medicClass",0])>0) : {_similiSoldier = "B_Medic_F";}; //300000 
         case (_secondaryWeapon = "Launcher") : {
-                private _mag = (getArray(configFile >> "CfgVehicles" >> (secondaryWeapon _x))select 0;
+                private _mag = (getArray(configFile >> "CfgVehicles" >> (secondaryWeapon _x))select 0);
                 private _ammo = getText(configFile >> "CfgVehicles" >> _mag >> "ammo");
                 If (getNumber(configFile >> "CfgVehicles" >> _ammo >> "airlock")>1) then {
                     _similiSoldier = "B_soldier_AA_F"; //200000

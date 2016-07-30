@@ -52,7 +52,7 @@ GVAR(handle) = [] spawn {
             if (_currentAttackPos in _x) exitWith {_found = true;};
         }forEach GVAR(attackpos);
         If !(_found) then {
-            GVAR(attackpos) pushBack ([_curentAttackPos,(GVAR(definitions) select 1)*1.2] call EFUNC(common,create_location);
+            GVAR(attackpos) pushBack ([_curentAttackPos,(GVAR(definitions) select 1)*1.2] call EFUNC(common,create_location));
         };
     }forEach _attackpositions;
 
