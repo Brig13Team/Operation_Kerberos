@@ -71,6 +71,7 @@ class Extended_getIn_EventHandlers {
 //class Extended_handleHeal_EventHandlers {};
 class Extended_hit_EventHandlers {
     #include "player\XEH_hit.hpp"
+    #include "spawn\XEH_hit.hpp"
 };
 class Extended_hitPart_EventHandlers {
     #include "bwpatch\XEH_hitPart.hpp"
