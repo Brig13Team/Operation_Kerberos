@@ -59,6 +59,9 @@ If (((_flyingpos distance [0,0,0])>1)&&(_vehiclewahl isKindOf "Plane_Base_F")) t
         _vehicle setposatl [_spawnpos select 0, _spawnpos select 1, 0.2];
         _vehicle setVectorUP (surfaceNormal [(getPosatl _vehicle) select 0,(getPosatl _vehicle) select 1]);
     };
+    If (isNumber(configFile >> "CfgVehicles" >> _vehiclewahl >> "ace_fastroping_enabled")) then {
+        [_vehicle] call ace_fastroping_fnc_equipFRIES;
+    };
 };
 _vehicle lock 0;
 if ( (getText(configFile >> "CfgVehicles" >> _vehiclewahl >> "vehicleClass"))isEqualTo "Autonomous") then {
@@ -83,6 +86,6 @@ If (GVARMAIN(mods_TFAR)) then {
     _vehicle setVariable ["tf_side", GVARMAIN(playerSide), true];
 };
 
-["VEHICLE_SPAWNED",[_vehicle]] spawn EFUNC(events,serverEvent);
+["VEHICLE_SPAWNED",[_vehicle]] spawn CBA_fnc_serverEvent;
 
 closeDialog dlg_veh_spawn_idd;

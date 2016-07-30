@@ -2,6 +2,6 @@
 #include "script_component.hpp"
 class Air {
     class ADDON {
-        clientgetin = QUOTE([ARR_3((_this select 2),'_this call FUNC(EH_getIn)',_this)] call EFUNC(events,targetExec););
+        clientgetin = QUOTE( [ ARR_3( 'pilotcheck' , _this , (_this select 2) ) ] call CBA_fnc_targetEvent; );
     };
 };

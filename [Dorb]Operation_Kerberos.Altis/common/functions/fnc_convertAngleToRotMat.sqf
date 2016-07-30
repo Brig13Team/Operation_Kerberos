@@ -13,7 +13,6 @@
         ARRAY - RotationMatrix
 */
 #include "script_component.hpp"
-SCRIPT(convertRotMatToAngle);
 _this params [["_Rollwinkel",0,[0]],["_Nickwinkel",0,[0]],["_Gierwinkel",0,[0]]];
 [
     [

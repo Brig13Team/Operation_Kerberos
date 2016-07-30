@@ -35,7 +35,7 @@ _units_filtered = [];
 _units = [] call EFUNC(common,players);
 
 {
-    If (((vehicle _x) isKindOf "Air")&&((vehicle _x) isKindOf "ParachuteBase"))&&{!((vehicle _x) in _units_filtered)} then {
+    If ((((vehicle _x) isKindOf "Air")&&((vehicle _x) isKindOf "ParachuteBase"))&&{!((vehicle _x) in _units_filtered)}) then {
         _units_filtered pushBack _x;
     };
 }forEach _units;

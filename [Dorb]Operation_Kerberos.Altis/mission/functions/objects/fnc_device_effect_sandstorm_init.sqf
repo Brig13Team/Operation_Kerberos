@@ -9,6 +9,7 @@
 SCRIPT(device_effect_sandstorm_init);
 
 If (hasInterface) exitWith {
+    
     [{
         If !(GVAR(sandstormIsActive)) exitWith {
             [_this select 1] call CBA_fnc_removePerFrameHandler;
@@ -19,7 +20,5 @@ If (hasInterface) exitWith {
 };
 
 If (isServer) then {
-    [{
-        [] call FUNC(objects_device_effect_sandstorm_init);
-    }, [],-2] call EFUNC(events,globalExec);
+    [QGVAR(sandstorm),[]] call CBA_fnc_remoteEvent;
 };
