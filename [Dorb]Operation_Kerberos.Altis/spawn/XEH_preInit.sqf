@@ -18,6 +18,9 @@ PREP(defence_macros);
 PREP(gear);
 PREP(group);
 
+PREP(EH_hit);
+PREP(stayInVehicle);
+
 PREP(macro_exec3d);
 PREP(minefield);
 PREP(minefields);
