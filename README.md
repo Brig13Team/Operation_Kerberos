@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://raw.githubusercontent.com/Brig13Team/Operation_Kerberos/develop/extra/logo/Logo_lang_schwarz.jpg" width="480">
+    <img src="https://raw.githubusercontent.com/Brig13Team/Operation_Kerberos/develop/extra/logo/Logo_lang_schwarz.jpg" width="900">
 </p>
 
 <p align="center">
@@ -7,10 +7,10 @@
         <img src="https://img.shields.io/github/issues-raw/Brig13Team/Operation_Kerberos.svg?style=flat-square" alt="Operation Kerberos Issues">
     </a>
     <a href="https://github.com/Brig13Team/Operation_Kerberos/blob/develop/LICENSE.md">
-        <img src="https://img.shields.io/github/issues-raw/Brig13Team/Operation_Kerberos.svg?style=flat-square" alt="Operation Kerberos License">
+        <img src="https://img.shields.io/github/license/Brig13Team/Operation_Kerberos.svg?style=flat-square" alt="Operation Kerberos License">
     </a>
     <a href="https://travis-ci.org/Brig13Team/Operation_Kerberos">
-        <img src="https://img.shields.io/github/issues-raw/Brig13Team/Operation_Kerberos.svg?style=flat-square" alt="Operation Kerberos Build Status">
+        <img src="https://img.shields.io/travis/Brig13Team/Operation_Kerberos/develop.svg?style=flat-square" alt="Operation Kerberos Build Status">
     </a>
 </p>
 
