@@ -4,7 +4,7 @@
 
 <p align="center">
     <a href="https://github.com/Brig13Team/Operation_Kerberos/issues">
-        <img src="https://img.shields.io/github/issues-raw/Brig13Team/Operation_Kerberos.svg?style=flat-square" alt="Operation Kerberos Issues">
+        <img src="https://img.shields.io/badge/license-GPLv2-orange.svg?style=flat-square" alt="Operation Kerberos Issues">
     </a>
     <a href="https://github.com/Brig13Team/Operation_Kerberos/blob/develop/LICENSE.md">
         <img src="https://img.shields.io/github/license/Brig13Team/Operation_Kerberos.svg?style=flat-square" alt="Operation Kerberos License">
