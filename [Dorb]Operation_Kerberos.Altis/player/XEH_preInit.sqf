@@ -7,7 +7,6 @@ PREP(addbriefing);
 PREP(grouptracker);
 PREP(halo);
 PREP(halo_addaction);
-PREP(playeraddaction);
 
 PREP(EH_fired);
 PREP(EH_hit);
