@@ -38,15 +38,6 @@ _this params ["_pos","_rad"];
     _x TILGE;
 } foreach allGroups;
 
-[
-    [],
-    {
-        if(hasInterface) exitWith {};
-        {deleteGroup _x;} foreach allGroups;
-    },
-    [EGVAR(headless,HeadlessClients)]
-] call EFUNC(events,remoteExec);    //Headless remove Groups
-
 
 ISNILS(EGVAR(mission,markerdump),[]);
 EGVAR(mission,markerdump) TILGE;

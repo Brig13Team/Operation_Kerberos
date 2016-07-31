@@ -6,6 +6,7 @@ PREP(cleanup_base);
 PREP(cleanup_full);
 
 PREP(addACEMedicalItems);
+PREP(addACErearmability);
 PREP(addTFR);
 PREP(army_set);
 
@@ -16,6 +17,9 @@ PREP(defence_macros);
 
 PREP(gear);
 PREP(group);
+
+PREP(EH_hit);
+PREP(stayInVehicle);
 
 PREP(macro_exec3d);
 PREP(minefield);

@@ -14,7 +14,7 @@ Example:
 Author:
     Dorbedo
 ------------------------------------------- */
-
+#include "script_RAL_Codes.hpp"
 #ifndef CBA_OFF
     #include "\x\cba\addons\main\script_macros_mission.hpp"
 #else
@@ -53,6 +53,7 @@ Author:
             Clientinit = QUOTE(call compile ('_fnc_scriptName = ''TRIPLES(PREFIX,var1,clientpreinit)''; scriptName _fnc_scriptName;' + preProcessFileLineNumbers 'var1\XEH_ClientPostInit.sqf')); \
         };
     #define GVAR(var1) DOUBLES(ADDON,var1)
+    #define GVARMAIN(var1) DOUBLES(PREFIX,var1)
     #define QGVAR(var1) QUOTE(GVAR(var1))
     #define EGVAR(var1,var2) TRIPLES(PREFIX,var1,var2)
     #define QEGVAR(var1,var2) QUOTE(EGVAR(var1,var2))
@@ -78,6 +79,21 @@ Author:
     #undef CBA_OFF
 #endif
 /* -------------------------------------------
+Macro: PAAPATH(VAR)
+    reurn the path of the picture
+    
+Parameters:
+    VAR - NAME
+
+Author:
+    Dorbedo
+------------------------------------------- */
+#define PAAPATH(VAR1) data\##VAR1.paa
+#define QPICPATH(VAR1) QUOTE(PAAPATH(VAR1))
+#define EPAAPATH(VAR1,VAR2) data\##VAR\##VAR2.paa
+#define QEPAAPATH(VAR1,VAR2) QUOTE(EPAAPATH(VAR1,VAR2))
+
+/* -------------------------------------------
 Macro: FUNCSYS(VAR)
     
 Parameters:
@@ -96,6 +112,8 @@ Author:
 /* -------------------------------------------
 Macro: GUI_*
     Macros for definining the right size of the gui
+    
+    ****OBSOLET****
 
 Parameters:
     GUI_W,GUI_H - 0...1 Size of the Interface
@@ -160,7 +178,7 @@ Example:
 Author:
     Dorbedo
 ------------------------------------------- */
-#define TILGE call TRIPLES(dorb,makro,delete)
+#define TILGE call TRIPLES(dorb,common,DOUBLES(fnc,delete))
 /* -------------------------------------------
 Macro: SCRIPT(VAR)
    Sets name of script
@@ -331,7 +349,7 @@ Example:
 Author:
     iJesuz
 ------------------------------------------- */
-#define MAP(CODE,ARRAY) [CODE,ARRAY] call TRIPLES(dorb,makro,map)
+#define MAP(CODE,ARRAY) ARRAY apply CODE
 
 /* -------------------------------------------
 Macro(s): <PREFIX>POLAR_<POSTFIX>(PHI,RADIUS)
