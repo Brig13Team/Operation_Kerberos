@@ -79,6 +79,21 @@ Author:
     #undef CBA_OFF
 #endif
 /* -------------------------------------------
+Macro: PAAPATH(VAR)
+    reurn the path of the picture
+    
+Parameters:
+    VAR - NAME
+
+Author:
+    Dorbedo
+------------------------------------------- */
+#define PAAPATH(VAR1) data\##VAR1.paa
+#define QPICPATH(VAR1) QUOTE(PAAPATH(VAR1))
+#define EPAAPATH(VAR1,VAR2) data\##VAR\##VAR2.paa
+#define QEPAAPATH(VAR1,VAR2) QUOTE(EPAAPATH(VAR1,VAR2))
+
+/* -------------------------------------------
 Macro: FUNCSYS(VAR)
     
 Parameters:
@@ -97,6 +112,8 @@ Author:
 /* -------------------------------------------
 Macro: GUI_*
     Macros for definining the right size of the gui
+    
+    ****OBSOLET****
 
 Parameters:
     GUI_W,GUI_H - 0...1 Size of the Interface
