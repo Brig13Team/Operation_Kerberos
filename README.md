@@ -4,15 +4,17 @@
 
 <p align="center">
     <a href="https://github.com/Brig13Team/Operation_Kerberos/issues">
-        <img src="https://img.shields.io/badge/license-GPLv2-orange.svg?style=flat-square" alt="Operation Kerberos Issues">
+        <img src="https://img.shields.io/github/issues-raw/Brig13Team/Operation_Kerberos.svg?style=flat-square" alt="Operation Kerberos Issues">
     </a>
     <a href="https://github.com/Brig13Team/Operation_Kerberos/blob/develop/LICENSE.md">
-        <img src="https://img.shields.io/github/license/Brig13Team/Operation_Kerberos.svg?style=flat-square" alt="Operation Kerberos License">
+        <img src="https://img.shields.io/badge/license-GPLv2-red.svg?style=flat-square" alt="Operation Kerberos License">
     </a>
     <a href="https://travis-ci.org/Brig13Team/Operation_Kerberos">
         <img src="https://img.shields.io/travis/Brig13Team/Operation_Kerberos/develop.svg?style=flat-square" alt="Operation Kerberos Build Status">
     </a>
 </p>
+
+<hr>
 
 Dynamische Mission von Dorbedo und iJesuz </br>
 Unterstützt von Maverick (Stellungsdesign), Cypherstalker (Übersetzungen), Kiwa (Spellcheck), Dagobert (Design der Basis).
@@ -20,7 +22,7 @@ Unterstützt von Maverick (Stellungsdesign), Cypherstalker (Übersetzungen), Kiw
 ##Momentane Features:
 
 ###Missionstypen:<ul>
-<li>Informationen sicherstellen<ul>(Ein Objekt (Laptop, Koffer, etc.) mit Informationen  befindet sich in der Stadt</ul></li>
+<li>Informationen sicherstellen<ul>Ein Objekt (Laptop, Koffer, etc.) mit Informationen  befindet sich in der Stadt</ul></li>
 <li>Waffenverstecke vernichten<ul>Es sind mehere Waffendepots in der Stadt versteckt. Der Großteil davon muss zerstört werden</ul></li>
 <li>Komandaten neutralisieren<ul>Es sind mehere Kommandanten in der Stadt -> töten</ul></li>
 <li>Geiseln befreien<ul>Die Journalisten/Wissenschaftler aus der Stadt zur Basis bringen</ul></li>
