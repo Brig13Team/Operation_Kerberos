@@ -15,15 +15,15 @@
 _this params["_host","_caller","_id","_params"];
 _params params[["_althalo",500,[0]],["_altchute",100,[0]]];
 
-if ((count ([]call EFUNC(common,players)))>7) exitWith {[LSTRING(HALO),LSTRING(HALO_DISABLED)] call EFUNC(interface,disp_message);};
+if ((count ([]call EFUNC(common,players)))>7) exitWith {[QGVAR(message),[LSTRING(HALO),LSTRING(HALO_DISABLED)]] call CBA_fnc_localEvent;};
 
 if !(alive _host) exitwith {
-    [LSTRING(HALO),LSTRING(HALO_DISABLED)] call EFUNC(interface,disp_message);
+    [QGVAR(message),[LSTRING(HALO),LSTRING(HALO_DISABLED)]] call CBA_fnc_localEvent;
     _host removeaction _id;
 };
 
 if (vehicle _caller == _caller) then {
-    [LSTRING(HALO),LSTRING(HALO_KLICK)] call EFUNC(interface,disp_message);
+    [QGVAR(message),[LSTRING(HALO),LSTRING(HALO_KLICK)]] call CBA_fnc_localEvent;
     openMap true;
     GVAR(halo_clicked) = false;
     private _handler = [QGVAR(halo_handler),"onMapSingleClick",{GVAR(halo_pos)= _pos;GVAR(halo_clicked) = true;true;}] call BIS_fnc_addStackedEventHandler;

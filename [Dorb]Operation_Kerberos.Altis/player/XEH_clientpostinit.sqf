@@ -10,7 +10,6 @@ CHECK(!hasInterface)
 
 SETUVAR(EGVAR(interface,respawnTime),nil);
 
-[] call FUNC(playeraddaction);
 [] call FUNC(addbriefing);
 [] call FUNC(halo_addaction);
 [] call FUNC(backpack_init);
@@ -21,9 +20,17 @@ SETUVAR(EGVAR(interface,respawnTime),nil);
 
 waituntil {! isnull player};
 ["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;
+
 [
-    LSTRING(CLAN),
-    [LSTRING(WELCOME1),LSTRING(WELCOME2),LSTRING(WELCOME3),LSTRING(WELCOME4),LSTRING(WELCOME5),LSTRING(WELCOME6)],
-    "data\logo_brig.paa",
-    false
-] call EFUNC(interface,disp_info);
+    QEGVAR(interface,message),
+    [
+        ELSTRING(MAIN,NAME),
+        [
+            ELSTRING(MAIN,WELCOME1),
+            ELSTRING(MAIN,WELCOME2),
+            ELSTRING(MAIN,WELCOME3),
+            " ",
+            ELSTRING(MAIN,AUTHOR),
+        ]
+    ]
+] call CBA_fnc_localEvent;

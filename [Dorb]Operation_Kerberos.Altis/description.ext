@@ -3,9 +3,13 @@
     Author: Dorbedo, iJesuz
 
 */
-author = "Dorbedo && iJesuz";
-onLoadName = "Operation Kerberos";
-//OnLoadMission = "";
+#define CBA_OFF
+#include "script_component.hpp"
+
+author = LSTRING(AUTHOR);
+onLoadName = LSTRING(NAME)
+loadScreen = QEPAAPATH(logo,logo_512);
+onLoadMissionTime = 1;
 
 class Header {
     gameType = Coop;
@@ -87,3 +91,6 @@ class cfgFunctions {
 
 //Debrief
 #include "mission\CfgDebriefing.hpp"
+
+// Unit Insignia
+#include "CfgUnitInsignia.hpp"

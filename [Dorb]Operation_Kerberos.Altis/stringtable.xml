@@ -25,15 +25,10 @@
             <Russian>Dorbedo, iJesuz</Russian>
             <Spanish>Dorbedo, iJesuz</Spanish>
         </Key>
-        <Key ID="STR_DORB_MAIN_CLAN">
-            <Original>Brigade 13</Original>
-            <German>Brigade 13</German>
-            <English>Brigade 13</English>
-        </Key>
         <Key ID="STR_DORB_MAIN_WELCOME1">
-            <Original>Welcome to Brigade 13.</Original>
-            <German>Willkommen bei der Brigade 13.</German>
-            <English>Welcome to Brigade 13.</English>
+            <Original>Welcome to Operation Kerberos.</Original>
+            <German>Willkommen bei Operation Kerberos.</German>
+            <English>Welcome to Operation Kerberos.</English>
         </Key>
         <Key ID="STR_DORB_MAIN_WELCOME2">
             <Original>We wish you a good time</Original>
@@ -41,24 +36,9 @@
             <English>We wish you a good time</English>
         </Key>
         <Key ID="STR_DORB_MAIN_WELCOME3">
-            <Original>on our public server.</Original>
-            <German>auf unserem Public-Server.</German>
-            <English>on our public server.</English>
-        </Key>
-        <Key ID="STR_DORB_MAIN_WELCOME4">
-            <Original>Teamspeak: 5.9.83.17</Original>
-            <German>Teamspeak: 5.9.83.17</German>
-            <English>Teamspeak: 5.9.83.17</English> 
-        </Key>
-        <Key ID="STR_DORB_MAIN_WELCOME5">
-            <Original>Website: www.brigade13.de</Original>
-            <German>Webseite: www.brigade13.de</German>
-            <English>Website: www.brigade13.de</English>
-        </Key>
-        <Key ID="STR_DORB_MAIN_WELCOME6">
-            <Original>your 13th Brigade</Original>
-            <German>Eure Brigade 13</German>
-            <English>your 13th Brigade</English>
+            <Original>with our mission.</Original>
+            <German>mit unserer Mission.</German>
+            <English>with our mission.</English>
         </Key>
     </Package>
     <Package name="INTERFACE">
