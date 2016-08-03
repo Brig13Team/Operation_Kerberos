@@ -26,6 +26,8 @@ If !(_this params[["_Army","",[""]]]) then {
     GVARMAIN(side_type) = _Army;
 };
 
+If (!isClass(missionConfigFile >> "unitlists" >> str GVARMAIN(side) >> _Army)) exitWith {ERROR("Army not found");[] call FUNC(_army_set);};
+
 private _path = (missionConfigFile >> "unitlists" >> str GVARMAIN(side) >> GVARMAIN(side_type));
 
 
