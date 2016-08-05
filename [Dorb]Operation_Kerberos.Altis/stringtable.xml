@@ -60,6 +60,21 @@
             <German>Eure Brigade 13</German>
             <English>your 13th Brigade</English>
         </Key>
+        <Key ID="STR_DORB_MAIN_ADVMED">
+            <Original>Advanced ACE-Medical</Original>
+            <German>Erweitertes ACE-Medicsystem</German>
+            <English>Advanced ACE-Medical</English>
+        </Key>
+        <Key ID="STR_DORB_MAIN_ADVMED1">
+            <Original>Medicsystem changed to Advanced.</Original>
+            <German>Es wurde zu ACE-Advanced Medical gewechselt.</German>
+            <English>Medicsystem changed to Advanced.</English>
+        </Key>
+        <Key ID="STR_DORB_MAIN_ADVMED2">
+            <Original>More information in your actions.</Original>
+            <German>Mehr Infromationen im Mausradmenu</German>
+            <English>More information in your actions.</English>
+        </Key>
     </Package>
     <Package name="INTERFACE">
         <Key ID="STR_DORB_INTERFACE_NOTEMPTY">

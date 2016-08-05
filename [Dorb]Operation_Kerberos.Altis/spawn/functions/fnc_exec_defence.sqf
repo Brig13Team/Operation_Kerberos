@@ -44,7 +44,7 @@ _centerpos = ATLToASL _centerpos;
     };
     diag_log [_currentObjectType,_newpos];
     private _vehicle = createVehicle [_currentObjectType,_newpos, [], 0, "CAN_COLLIDE"];
-    _vehicle enableSimulation false;
+    //_vehicle enableSimulation false;
     _vehicle setPosASL _newpos;
     [_vehicle,[_gier,_wank,_nick]] call BIS_fnc_setobjectrotation;
 } forEach _material;
