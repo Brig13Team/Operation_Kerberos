@@ -25,23 +25,7 @@ PREPS(objects,device_disable);
 PREPS(objects,device_effect_sandstorm);
 PREPS(objects,device_effect_sandstorm_init);
 PREPS(objects,device_init);
-
-PREPS(mainmission,create);
-PREPS(mainmission,clear);
-PREPS(mainmission,device);
-PREPS(mainmission,emp);
-PREPS(mainmission,intel);
-PREPS(mainmission,kill);
-PREPS(mainmission,hostage);
-PREPS(mainmission,prototype);
-PREPS(mainmission,scarab);
-PREPS(mainmission,scarab_explode);
-PREPS(mainmission,scarab_launch);
-PREPS(mainmission,tower);
-PREPS(mainmission,weaponcaches);
-
-PREPS(sidemission,convoi);
-PREPS(sidemission,create);
+PREPS(objects,intel_init);
 
 PREPS(taskmanager,add);
 PREPS(taskmanager,addChild);
@@ -54,5 +38,8 @@ PREPS(taskmanager,init);
 PREPS(taskmanager,remove);
 PREPS(taskmanager,setState);
 PREPS(taskmanager,spawn);
+
+PREPS(mainmission,intel);
+PREPS(mainmission,intel_cond);
 
 ADDON = true;

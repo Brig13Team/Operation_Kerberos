@@ -6,7 +6,7 @@
 
     Parameter(s):
         0 : CONFIG  - MissionConfigClass which contains the mission classes
-        1 : STRING  - mission name to be scipted
+        1 : STRING  - mission name to be skipted
 
     Return:
         [STRING,ARRAY]

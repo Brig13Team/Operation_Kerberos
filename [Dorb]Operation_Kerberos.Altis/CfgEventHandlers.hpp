@@ -40,6 +40,7 @@ class Extended_PostInit_EventHandlers {
 class Extended_Init_Eventhandlers {
     #include "spawn\XEH_init.hpp"
     #include "logistics\XEH_init.hpp"
+    #include "mission\XEH_init.hpp"
 };
 class Extended_InitPost_EventHandlers {
     #include "headless\XEH_initPost.hpp"
