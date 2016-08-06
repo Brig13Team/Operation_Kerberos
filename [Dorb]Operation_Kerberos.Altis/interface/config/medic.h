@@ -4,7 +4,7 @@
 
 #define CBA_OFF
 #include "script_component.hpp"
-#include "\a3\ui_f\hpp\defineCommonGrids.inc"
+#include "definecommongrids.hpp"
 
 class GVAR(wounds) {
     idd = 600998;
