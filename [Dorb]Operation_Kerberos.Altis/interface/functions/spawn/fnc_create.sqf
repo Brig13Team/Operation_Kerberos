@@ -62,8 +62,9 @@ if ( (getText(configFile >> "CfgVehicles" >> _vehiclewahl >> "vehicleClass"))isE
     createVehicleCrew _vehicle;
 };
 
-if ((_vehicle isKindOf "B_Truck_01_medical_F") or (_vehicle isKindOf "B_Slingload_01_Medevac_F") or (_vehicle isKindOf "RHS_UH60M_base") or (_vehicle isKindOf "O_Heli_Transport_04_medevac_F") or (_vehicle isKindOf "rhs_gaz66_ap2_base") or (_vehicle isKindOf "Truck_02_medical_base_F") or (_vehicle isKindOf "O_Truck_03_medical_F")) then {
+if ((getNumber (configFile >> "CfgVehicles" >> _vehiclewahl >> "attendant")>0)||(({_vehicle isKindOf _x}count ["B_Truck_01_medical_F","B_Slingload_01_Medevac_F","RHS_UH60M_base","O_Heli_Transport_04_medevac_F","rhs_gaz66_ap2_base","Truck_02_medical_base_F","O_Truck_03_medical_F"])>0)) then {
     SETPVAR(_vehicle,ace_medical_isMedicalFacility,true);
+    _vehicle call EFUNC(spawn,addACEMedicalItems);
 };
 
 if (_vehiclewahl in ["I_MRAP_03_F","I_MRAP_03_gmg_F","I_MRAP_03_hmg_F"]) then {
