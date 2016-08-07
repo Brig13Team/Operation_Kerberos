@@ -1,13 +1,16 @@
 /*
-    Author: Dorbedo
-    
+    Author: Dorbedo, iJesuz
+
     Description:
-        
-    
+
+
 */
 #include "script_component.hpp"
 
+// Init intel actions
+["Land_File1_F", "Land_File2_F", "Land_FilePhotos_F", "Land_Laptop_F", "Land_Laptop_unfolded_F", "Land_SatellitePhone_F", "Land_MobilePhone_smart_F"] call FUNC(objects_intel_init);
 
+// Events
 [QGVAR(earthquake),{
     if (!(vehicle player isKindof 'Air')) then {
         private _rand=(floor(random 4)+1);

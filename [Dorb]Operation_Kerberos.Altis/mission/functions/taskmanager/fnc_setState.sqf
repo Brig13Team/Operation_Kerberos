@@ -24,17 +24,19 @@ if (typeName _number == typeName []) then {
 };
 
 if ((toUpper _state) in ["SUCCEEDED","CANCELED","FAILED"]) then {
-    private _args = _x select 1;
+    {
+        private _taskNumber = _x select 2;
 
-    if (typeName _number == typeName []) then {
-        if (typeName _args == typeName [] && {_args isEqualTo _number}) then {
-            GVAR(conditions) = GVAR(conditions) - [_x];
+        if (typeName _number == typeName []) then {
+            if (typeName _args == typeName [] && {_taskNumber isEqualTo _number}) then {
+                GVAR(conditions) = GVAR(conditions) - [_x];
+            };
+        } else {
+            if (typeName _args == typeName 0 && {_taskNumber == _number}) then {
+                GVAR(conditions) = GVAR(conditions) - [_x];
+            };
         };
-    } else {
-        if (typeName _args == typeName 0 && {_args == _number}) then {
-            GVAR(conditions) = GVAR(conditions) - [_x];
-        };
-    };
-} forEach +GVAR(conditions);
+    } forEach +GVAR(conditions);
+};
 
 [_taskID,nil,nil,nil,_state,nil,false] call BIS_fnc_setTask;

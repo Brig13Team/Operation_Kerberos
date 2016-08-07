@@ -22,7 +22,7 @@ private _type = getText(missionConfigFile >> "CfgTaskDescriptions" >> _configNam
 private _taskID = format["%1_%2", QGVAR(task),GVAR(task_counter)];
 
 // Spawn Task Objects
-private _ret = call compile format ["dorb_mission_fnc_mainmissions_%1",_configName];
+private _ret = [_destination] call (missionNamespace getVariable [format ["dorb_mission_fnc_mainmission_%1",_configName],{}]);
 private _func = _ret select 0;
 private _args = _ret select 1;
 

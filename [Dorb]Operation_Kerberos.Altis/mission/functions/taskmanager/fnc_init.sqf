@@ -26,12 +26,12 @@ private _handle = [{
     {
         private _func = _x select 0;
         private _args = _x select 1;
+        // private _taskNumber = _x select 2;
 
-        private _ret  = _args call _func;
+        private _ret  = _args call (missionNamespace getVariable [_func,{}]);
         if (_ret in ["Succeeded","Canceled","Failed"]) then {
             ((+_x) + [_ret]) spawn {
-                _this params ["_func","_args","_state"];
-                _taskNumber = _args;
+                _this params ["_func","_args","_taskNumber","_state"];
 
                 [_taskNumber, _state] call FUNC(taskmanager_setState);
 

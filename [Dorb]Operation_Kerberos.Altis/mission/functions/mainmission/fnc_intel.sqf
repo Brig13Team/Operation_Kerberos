@@ -25,7 +25,7 @@ private _position = _destination select 1;
 private _radius = getNumber(missionConfigFile >> "missions_config" >> "main" >> "intel" >> "location" >> "distance");
 private _buildings = [_position, _radius] call EFUNC(common,get_buildings);
 private _intel = [];
-for "_i" from 0 to _objs_average do {
+for "_i" from 1 to _objs_average do {
     private _temp = selectRandom _objs;
     private _pos  = selectRandom (selectRandom _buildings);
     // Create Object
@@ -45,4 +45,4 @@ for "_i" from 0 to _objs_average do {
 // Init for Conditional Function
 missionNamespace setVariable [QGVAR(found_intel),0,true];
 
-[FUNC(mainmission_intel_cond),[_objs_average,_pois]]
+["dorb_mission_fnc_mainmission_intel_cond",[_objs_average]]
