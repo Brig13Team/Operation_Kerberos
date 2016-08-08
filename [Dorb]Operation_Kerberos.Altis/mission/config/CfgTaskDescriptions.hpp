@@ -27,10 +27,10 @@ class CfgTaskDescriptions {
     TASK_DESC2(intel,download);
     TASK_DESC2(prototype,Default);
     TASK_DESC2(tower,destroy);
-    TASK_DESC2(wpncache,destroy);
+    TASK_DESC2(weaponcache,destroy);
 
     TASK_DESC2(rtb,run);
-    
+
     TASK_DESC(armor);
     TASK_DESC(attack);
     TASK_DESC(Default);

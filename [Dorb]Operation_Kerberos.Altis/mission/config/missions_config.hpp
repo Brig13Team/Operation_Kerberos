@@ -57,6 +57,15 @@ class missions_config {
             objects[] = {"Land_File1_F","Land_File2_F","Land_FilePhotos_F","Land_Laptop_F","Land_Laptop_unfolded_F","Land_SatellitePhone_F","Land_MobilePhone_smart_F"/*,"Land_Suitcase_F"*/};
             objects_count[] = {1,10};
         };
+        class weaponcache : main_base {
+            taskDescription = "weaponcache";
+            class location : location {
+                areas[] = {QGVAR(town)};
+                distance = 200;
+            };
+            objects[] = {"Box_East_Wps_F","Box_East_WpsSpecial_F","Box_East_Ammo_F","Box_East_Grenades_F","Box_East_Support_F"};
+            objects_count[] = {5,15};
+        };
         /*
         class scarab : main_base {
             taskDescription = "scarab";
@@ -97,13 +106,6 @@ class missions_config {
         };
         class kill : main_base {
             taskDescription = "capture";
-            class location : location {
-                areas[] = {QGVAR(town)};
-                distance = 200;
-            };
-        };
-        class weaponcaches : main_base {
-            taskDescription = "wpncache";
             class location : location {
                 areas[] = {QGVAR(town)};
                 distance = 200;

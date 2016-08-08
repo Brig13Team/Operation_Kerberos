@@ -791,27 +791,37 @@
 
 
         <!-- WpnCache Mission -->
-        <Key ID="STR_DORB_MISSION_NEW_WPNCACHE_TITLE">
+        <Key ID="STR_DORB_MISSION_NEW_WEAPONCACHE_TITLE">
             <Original>Destroy Weapons</Original>
             <German>Waffen zerstören</German>
             <English>Destroy Weapons</English>
         </Key>
-        <Key ID="STR_DORB_MISSION_NEW_WPNCACHE_DESC">
+        <Key ID="STR_DORB_MISSION_NEW_WEAPONCACHE_FOUND_MSG_TITLE">
+            <Original>Weaponcache destroyed</Original>
+            <German>Waffenversteck zerstört</German>
+            <English>Weaponcache destroyed</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_WEAPONCACHE_FOUND_MSG">
+            <Original>An enemy weaponcache was destroyed.</Original>
+            <German>Ein Waffenversteck wurde zerstört.</German>
+            <English>An enemy weaponcache was destroyed.</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_WEAPONCACHE_DESC">
             <Original>The enemy is hiding weapons in civillian buildings. Locate and destroy the weapons.</Original>
             <German>Der Gegner hat Waffen in Zivielgebäuden versteckt. Suchen und zerstören sie diese.</German>
             <English>The enemy is hiding weapons in civillian buildings. Locate and destroy the weapons.</English>
         </Key>
-        <Key ID="STR_DORB_MISSION_NEW_WPNCACHE_WIN">
+        <Key ID="STR_DORB_MISSION_NEW_WEAPONCACHE_WIN">
             <Original>All weapons have been destroyed.</Original>
             <German>Alle Waffenverstecke wurden zerstört.</German>
             <English>All weapons have been destroyed.</English>
         </Key>
-        <Key ID="STR_DORB_MISSION_NEW_WPNCACHE_NEUT">
+        <Key ID="STR_DORB_MISSION_NEW_WEAPONCACHE_NEUT">
             <Original>Not every weponcache has been destroyed.</Original>
             <German>Es wurden nicht alle Waffenverstecke gefunden.</German>
             <English>Not every weponcache has been destroyed.</English>
         </Key>
-        <Key ID="STR_DORB_MISSION_NEW_WPNCACHE_LOST">
+        <Key ID="STR_DORB_MISSION_NEW_WEAPONCACHE_LOST">
             <Original>No weapons could be found and destroyed.</Original>
             <German>Es wurden keinen Waffenverstecke gefunden und zerstört.</German>
             <English>No weapons could be found and destroyed.</English>

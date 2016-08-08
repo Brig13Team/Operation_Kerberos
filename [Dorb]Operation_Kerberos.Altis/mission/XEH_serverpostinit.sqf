@@ -18,7 +18,12 @@ GVARMAIN(debug)=false;
     deleteVehicle _intel;
 }] call CBA_fnc_addEventHandler;
 
-[QGVAR()]
+[QGVAR(weaponcache_destroyed),{
+    _this params ["_cache"];
+
+    GVAR(destroyed_caches) = GVAR(destroyed_caches) + 1;
+    deleteVehicle _cache;
+}] call CBA_fnc_addEventHandler;
 
 [QGVAR(emp),{
     _this params ["_position"];

@@ -41,5 +41,7 @@ PREPS(taskmanager,spawn);
 
 PREPS(mainmission,intel);
 PREPS(mainmission,intel_cond);
+PREPS(mainmission,weaponcache);
+PREPS(mainmission,weaponcache_cond);
 
 ADDON = true;

@@ -17,6 +17,10 @@
     [localize "STR_DORB_MISSION_NEW_INTEL_FOUND_MSG_TITLE", format [localize "STR_DORB_MISSION_NEW_INTEL_FOUND_MSG",_caller]] call EFUNC(interface,message);
 }] call CBA_fnc_addEventHandler;
 
+[QGVAR(weaponcache_destroyed),{
+    ["STR_DORB_MISSION_NEW_WEAPONCACHE_DESTROYED_MSG_TITLE", "STR_DORB_MISSION_NEW_WEAPONCACHE_DESTROYED_MSG"] call EFUNC(interface,message);
+}] call CBA_fnc_addEventHandler;
+
 // Mission Events
 [QGVAR(earthquake),{
     if (!(vehicle player isKindof 'Air')) then {

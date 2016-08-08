@@ -2,7 +2,7 @@
     Author: iJesuz
 
     Description:
-        Mission "Intel"
+        Mission "Weaponcache"
 
     Parameter(s):
         0 : [STRING,ARRAY]  - Destination [Locationname, Position]
@@ -14,26 +14,32 @@
 
 _this params [["_destination",["",[0,0,0]],[["",[]]]]];
 
-private _objs = getArray(missionConfigFile >> "missions_config" >> "main" >> "intel" >> "objects");
-private _objs_count = getArray(missionConfigFile >> "missions_config" >> "main" >> "intel" >> "objects_count");
+private _objs = getArray(missionConfigFile >> "missions_config" >> "main" >> "weaponcache" >> "objects");
+private _objs_count = getArray(missionConfigFile >> "missions_config" >> "main" >> "weaponcache" >> "objects_count");
 private _objs_min = _objs_count select 0;
 private _objs_max = _objs_count select 1;
 private _objs_average = (floor random (_objs_max - 1)) + 1;
 
 // spawn object(s)
 private _position = _destination select 1;
-private _radius = getNumber(missionConfigFile >> "missions_config" >> "main" >> "intel" >> "location" >> "distance");
+private _radius = getNumber(missionConfigFile >> "missions_config" >> "main" >> "weaponcache" >> "location" >> "distance");
 private _buildings = [_position, _radius] call EFUNC(common,get_buildings);
-private _intel = [];
 for "_i" from 1 to _objs_average do {
     private _temp = selectRandom _objs;
     private _pos  = selectRandom (selectRandom _buildings);
     private _obj = [_temp,_pos] call EFUNC(spawn,temp_spawner);
-    _intel pushBack _obj;
+
     #ifdef DEBUG_MODE_FULL
-        private _marker = createMarker [format ["DEBUG_INTEL_MARKER_%1",_i],_pos];
+        private _marker = createMarker [format ["DEBUG_WEAPONCACHE_MARKER_%1",_i],_pos];
         _marker setMarkerType "hd_dot";
     #endif
+
+    _obj addEventHandler ["Killed",{
+            _this params ["_unit","_killer"];
+
+            "Bo_Mk82" createVehicle (getPos _unit);
+            [QGVAR(weaponcache_destroyed),[_unit]] call CBA_fnc_addEventHandler;
+    }]
 };
 
 // TODO: spawn defence units
@@ -42,6 +48,6 @@ for "_i" from 1 to _objs_average do {
 */
 
 // Init for Conditional Function
-GVAR(found_intel) = 0;
+GVAR(destroyed_caches) = 0;
 
-["dorb_mission_fnc_mainmission_intel_cond",[_objs_average]]
+["dorb_mission_fnc_mainmission_weaponcache_cond",[_objs_average]]
