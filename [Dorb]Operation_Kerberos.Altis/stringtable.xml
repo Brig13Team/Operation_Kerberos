@@ -445,7 +445,7 @@
             <German>Deaktivieren</German>
             <English>Disable</English>
         </Key>
-        
+
         <Key ID="STR_DORB_MISSION_SCARAB_TASK">
             <Original>Prevent launch of nuclear missiles within %1 minutes.</Original>
             <German>Verhindern Sie den Abschuss der Atomraketen innerhalb von %1 Minuten.</German>
@@ -553,7 +553,7 @@
             <Original>Prepare for new orders.</Original>
             <German>Bereiten Sie sich auf neue Befehle vor.</German>
             <English>Prepare for new orders.</English>
-        </Key>    
+        </Key>
 
         <!--
             New taskConfigs
@@ -584,7 +584,7 @@
             <German>%1 wurde getötet.</German>
             <English>%1 was killed.</English>
         </Key>
-        
+
         <!-- SCARAB Mission -->
         <Key ID="STR_DORB_MISSION_NEW_SCARAB_TITLE">
             <Original>Prevent launch.</Original>
@@ -611,7 +611,7 @@
             <German>Der Abschuss konnte nicht verhindert werden.</German>
             <English>The launch could not be prevented.</English>
         </Key>
-        
+
         <!-- Clear Mission -->
         <Key ID="STR_DORB_MISSION_NEW_CLEAR_TITLE">
             <Original>Clear area</Original>
@@ -638,7 +638,7 @@
             <German>Die Gegnerischen Stellungen konnten nicht gesäubert werden.</German>
             <English>The enemy positions could not be cleared.</English>
         </Key>
-        
+
         <!-- Device Mission -->
         <Key ID="STR_DORB_MISSION_NEW_DEVICE_TITLE">
             <Original>Deaktivate Device.</Original>
@@ -665,7 +665,7 @@
             <German>Das Gerät konnte nicht deaktivert werden.</German>
             <English>The device could not be deaktivated.</English>
         </Key>
-        
+
         <!-- Hostage Mission -->
         <Key ID="STR_DORB_MISSION_NEW_HOSTAGE_TITLE">
             <Original>Free Hostages</Original>
@@ -692,12 +692,27 @@
             <German>Es konnte keine Geisel in Sicherheit gebracht werden.</German>
             <English>No hostage could be rescued.</English>
         </Key>
-        
+
         <!-- Intel Mission -->
         <Key ID="STR_DORB_MISSION_NEW_INTEL_TITLE">
             <Original>Download Intel</Original>
             <German>Informationen herunterladen</German>
             <English>Dowload Intel</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_INTEL_TAKE">
+            <Original>Take</Original>
+            <German>Nehmen</German>
+            <English>Take</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_INTEL_FOUND_MSG_TITLE">
+            <Original>Information found</Original>
+            <German>Informationen gefunden</German>
+            <English>Information found</English>
+        </Key>
+        <Key ID="STR_DORB_MISSION_NEW_INTEL_FOUND_MSG">
+            <Original>%1 has found some information.</Original>
+            <German>%1 hat Informationen gefunden.</German>
+            <English>%1 has found some information.</English>
         </Key>
         <Key ID="STR_DORB_MISSION_NEW_INTEL_DESC">
             <Original>Download Informations</Original>
@@ -719,7 +734,7 @@
             <German>Die Informationen konnten nicht sichergestellt werden.</German>
             <English>The Intel could not be secured.</English>
         </Key>
-        
+
         <!-- Prototype Mission -->
         <Key ID="STR_DORB_MISSION_NEW_PROTOTYPE_TITLE">
             <Original>Return Prototype</Original>
@@ -746,7 +761,7 @@
             <German>Der Prototyp wurde zerstört.</German>
             <English>The Prototype was destroyed.</English>
         </Key>
-        
+
         <!-- Radiotower Mission -->
         <Key ID="STR_DORB_MISSION_NEW_TOWER_TITLE">
             <Original>Destroy Tower</Original>
@@ -773,8 +788,8 @@
             <German>**********</German>
             <English>***********</English>
         </Key>
-        
-        
+
+
         <!-- WpnCache Mission -->
         <Key ID="STR_DORB_MISSION_NEW_WPNCACHE_TITLE">
             <Original>Destroy Weapons</Original>
@@ -801,8 +816,8 @@
             <German>Es wurden keinen Waffenverstecke gefunden und zerstört.</German>
             <English>No weapons could be found and destroyed.</English>
         </Key>
-        
-        
+
+
         <!-- RTB -->
         <Key ID="STR_DORB_MISSION_NEW_RTB_TITLE">
             <Original>Return To Base</Original>
@@ -814,11 +829,11 @@
             <German>Kehren Sie zur Basis zurück!</German>
             <English>Return to Base!</English>
         </Key>
-        
-        
-        
-        
-        
+
+
+
+
+
         <Key ID="STR_DORB_MISSION_EXAMINE">
             <Original>Interrogate</Original>
             <German>Verhör</German>
@@ -835,11 +850,11 @@
             <German>RTB</German>
             <English>RTB</English>
         </Key>
-    
+
         <Key ID="STR_DORB_MISSION_CLEAR_TASK">
             <Original>Capture %1</Original>
             <German>Erobern sie %1</German>
-            <English>Capture %1</English>                     
+            <English>Capture %1</English>
         </Key>
         <Key ID="STR_DORB_MISSION_CLEAR_TASK_DESC">
             <Original>The enemy has captured the area surrounding %1. Recapture it and clear out all hostile forces in the vincinity.</Original>
@@ -855,7 +870,7 @@
             <Original>Failed</Original>
             <German>Gescheitert</German>
             <English>Failed</English>
-        </Key>    
+        </Key>
         <Key ID="STR_DORB_MISSION_DESTROY">
             <Original>Destroy</Original>
             <German>Zerstören</German>
@@ -1167,7 +1182,7 @@
             <German>Es wurden von den Gegnern %1 Gefangene in %2 gemacht. Befreien sie die Gefangenen und bringen sie diese in die Sicherheitszone.</German>
             <English>The enemy has taken %1 hostages in %2. Free them and escort them back to base.</English>
         </Key>
-        
+
     </Package>
     <Package name="player">
         <Key ID="STR_DORB_PLAYER_BRIEF_SETTING">
@@ -1442,7 +1457,7 @@
             <Original>Close</Original>
             <German>Schliessen</German>
             <Russian>Закрыть</Russian>
-        </Key>        
+        </Key>
         <Key ID="STR_chvd_low">
             <Original>Low</Original>
             <German>Niedrig</German>

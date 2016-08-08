@@ -28,7 +28,6 @@ private _intel = [];
 for "_i" from 1 to _objs_average do {
     private _temp = selectRandom _objs;
     private _pos  = selectRandom (selectRandom _buildings);
-    // Create Object
     private _obj = [_temp,_pos] call EFUNC(spawn,temp_spawner);
     _intel pushBack _obj;
     #ifdef DORB_DEBUG_FULL
@@ -43,6 +42,6 @@ for "_i" from 1 to _objs_average do {
 */
 
 // Init for Conditional Function
-missionNamespace setVariable [QGVAR(found_intel),0,true];
+GVAR(found_intel) = 0;
 
 ["dorb_mission_fnc_mainmission_intel_cond",[_objs_average]]

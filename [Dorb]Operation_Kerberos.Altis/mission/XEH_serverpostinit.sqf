@@ -1,6 +1,6 @@
 /*
     Author: Dorbedo
-    
+
     Description:
         postinit server
 */
@@ -10,6 +10,15 @@ GVARMAIN(debug)=false;
 /********************
     Events
 ********************/
+
+[QGVAR(intel_found),{
+    _this params ["_intel"];
+
+    GVAR(found_intel) = GVAR(found_intel) + 1;
+    deleteVehicle _intel;
+}] call CBA_fnc_addEventHandler;
+
+[QGVAR()]
 
 [QGVAR(emp),{
     _this params ["_position"];
