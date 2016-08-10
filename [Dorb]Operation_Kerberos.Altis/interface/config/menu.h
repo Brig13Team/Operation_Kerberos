@@ -3,4 +3,3 @@
 #include "spawn.h"
 #include "teleport.h"
 #include "tfr.h"
-#include "medic.h"

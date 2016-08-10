@@ -37,10 +37,7 @@ ISNILS(EGVAR(mission,fnc),[]);
 
 [LSTRING(CLAN),[LSTRING(WELCOME1),LSTRING(WELCOME2),LSTRING(WELCOME3),LSTRING(WELCOME4),LSTRING(WELCOME5),LSTRING(WELCOME6)],"data\logo_brig.paa",false] call EFUNC(interface,disp_info);
 [] spawn EFUNC(interface,disp_timer);
-[] spawn {
-    uisleep 15;
-    [LSTRING(ADVMED),[LSTRING(ADVMED1),LSTRING(ADVMED2)],"z\ace\addons\medical\ui\items\packingBandage_x_ca.paa",false] call EFUNC(interface,disp_info);
-};
+
 /*
 [] spawn {
 	SCRIPTIN(initplayerlocal,performance);

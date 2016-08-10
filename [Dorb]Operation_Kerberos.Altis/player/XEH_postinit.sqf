@@ -13,21 +13,21 @@ If (!hasInterface) then {
     ] call CBA_fnc_addEventHandler;
     [
         QGVAR(deadmenswitch),{
-            _this params [["_text",objNull,[objNull]],["_shooter",objNull,[objNull]]];
+            _this params [["_text","",[""]],["_shooter",objNull,[objNull]]];
             diag_log format["DeadManSwitch (%1) - exploding, placed by %2",_text,name _shooter];
         }
     ] call CBA_fnc_addEventHandler;
 }else{
     [
-        QGVAR(teamfire),{
+        QGVAR(deadmenswitch),{
             if (serverCommandAvailable "#logout") then {
-                _this params [["_text",objNull,[objNull]],["_shooter",objNull,[objNull]]];
+                _this params [["_text","",[""]],["_shooter",objNull,[objNull]]];
                 systemchat format["DeadManSwitch (%1) - exploding, placed by %2",_text,name _shooter];
             };
         }
     ] call CBA_fnc_addEventHandler;
     [
-        QGVAR(deadmenswitch),{
+        QGVAR(teamfire),{
             if (serverCommandAvailable "#logout") then {
                 _this params [["_target",objNull,[objNull]],["_shooter",objNull,[objNull]],["_damage",-1,[0]]];
                 systemchat format["Teambeschuss: %1 / %2 beschossen von %3 / %4   Damage=%5",_target,name _target,_shooter,name _shooter,_damage];
