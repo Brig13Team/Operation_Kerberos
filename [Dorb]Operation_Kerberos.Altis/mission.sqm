@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=220;
+		nextID=240;
 	};
 	class Camera
 	{
-		pos[]={11781.234,36.442322,11755.152};
-		dir[]={0.2118451,-0.65702337,0.72356546};
-		up[]={0.18464009,0.75378215,0.63064277};
-		aside[]={0.95976263,-1.2821984e-006,-0.28099558};
+		pos[]={11655.792,49.812759,11866.107};
+		dir[]={-0.01131855,-0.34681237,0.93795687};
+		up[]={-0.0041872333,0.93784624,0.3469784};
+		aside[]={0.99999917,-3.0867682e-007,0.012072654};
 	};
 };
 binarizationWanted=0;
@@ -2511,7 +2511,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="[""cba_diagnostic_enable_perf_loop"",""cba_diagnostic_logging"",""cba_cache_disable"",""cba_diagnostic_disable_xeh_logging"",""Disable_XEH_Logging"",""cba_diagnostic_enable_logging"",""warfxpe"",""blastcore_maincore"",""blastcore_vep"",""BlastcoreTracers"",""BC_Skies_Stratis"",""BC_Skies_Altis"",""Blastcore_Sun"",""Blastcore_SmokeCS"",""WarFXPE"",""Blastcore_VEP"",""ststaminabar"",""st_sthud"",""stnametags"",""stgi"",""st_sthud_usermenu"",""st_interact"",""st_interact_enabler"",""st_map_auto_brightness"",""asr_ai3_main"",""asr_ai3_rhs_c"",""cw_9liners_and_notepad"",""BWA3_EnablePIPOptics"",""jesuzpack_secondprimary"",""asr_ai3_rhs_ru_c"",""asr_ai3_rhs_us_c""]";
+							value="[""cba_diagnostic_enable_perf_loop"",""cba_diagnostic_logging"",""cba_cache_disable"",""cba_diagnostic_disable_xeh_logging"",""Disable_XEH_Logging"",""cba_diagnostic_enable_logging"",""warfxpe"",""blastcore_maincore"",""blastcore_vep"",""BlastcoreTracers"",""BC_Skies_Stratis"",""BC_Skies_Altis"",""Blastcore_Sun"",""Blastcore_SmokeCS"",""WarFXPE"",""Blastcore_VEP"",""ststaminabar"",""st_sthud"",""stnametags"",""stgi"",""st_sthud_usermenu"",""st_interact"",""st_interact_enabler"",""st_map_auto_brightness"",""asr_ai3_main"",""asr_ai3_rhs_c"",""cw_9liners_and_notepad"",""BWA3_EnablePIPOptics"",""asr_ai3_rhs_ru_c"",""asr_ai3_rhs_us_c"",""gcam""]";
 						};
 					};
 				};

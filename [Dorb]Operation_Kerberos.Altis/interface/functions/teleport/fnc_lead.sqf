@@ -15,7 +15,7 @@ if (leader _caller == _caller) exitWith {[LSTRING(TELEPORT),[LSTRING(TELEPORT_LE
 
 _time = GETVAR(_caller,GVAR(respawntime),-1);
 
-if ((_time > 0) && {(_time - time + 300) > 0}) exitWith {[LSTRING(TELEPORT),[format [localize LSTRING(TELEPORT_LEAD_WAIT),floor ((_time - time + 300) / 60),floor ((_time - time + 300) mod 60)]]] call FUNC(disp_info);};
+if ((_time > 0) && {(_time - time + 1200) > 0}) exitWith {[LSTRING(TELEPORT),[format [localize LSTRING(TELEPORT_LEAD_WAIT),floor ((_time - time + 1200) / 60),floor ((_time - time + 1200) mod 60)]]] call FUNC(disp_info);};
 
 if ((vehicle _caller) == _caller) then {
     _nearestEnemy = _caller findNearestEnemy (leader _caller);
