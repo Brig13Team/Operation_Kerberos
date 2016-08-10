@@ -21,7 +21,7 @@ respawn = 3;
 respawnDelay = 5;
 respawnVehicleDelay = 60;
 respawnDialog = 0;
-respawnTemplates[] = {"MenuPosition"};
+respawnTemplates[] = {};
 respawnOnStart = 1;
 aikills = 1;
 

@@ -55,3 +55,13 @@ If (!hasInterface) then {
         [QGVAR(deadmenswitch),["placed",_unit]] call CBA_fnc_globalEvent;
     };
 }] call CBA_fnc_addEventHandler;
+
+{
+    private _action = [QGVAR(intel_take),localize "STR_DORB_MISSION_INTEL_GRAB","",{
+        [LSTRING(INTEL_TASK),LSTRING(INTEL_FOUND),name player] call EFUNC(interface,disp_info_global);
+        deleteVehicle (_target);
+    },{ true }] call ace_interact_menu_fnc_createAction;
+    [_x,0,["ACE_MainActions"],_action] call ace_interact_menu_fnc_addActionToClass;
+} forEach ["Land_Suitcase_F","Land_SatellitePhone_F","Land_Laptop_device_F"];
+
+
