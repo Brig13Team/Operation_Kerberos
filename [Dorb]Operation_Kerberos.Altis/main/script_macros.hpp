@@ -283,7 +283,7 @@ Author:
     iJesuz
 ------------------------------------------- */
 
-#define ISCASVEHICLE(ARG) [ARG, ["RHS_UH1Y_UNARMED"], ["RHS_UH1Y","rhsusf_f22"]] call TRIPLES(PREFIX,makro,iscasvehicle)
+#define ISCASVEHICLE(ARG) [ARG, ["RHS_UH1Y_UNARMED"], ["RHS_UH1Y","rhsusf_f22","B_T_VTOL_01_armed_blue_F","B_T_VTOL_01_armed_F","B_T_VTOL_01_armed_olive_F"]] call TRIPLES(PREFIX,makro,iscasvehicle)
 #define ISCASVEHICLE_C(ARG) (ISCASVEHICLE(ARG))
 
 
