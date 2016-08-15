@@ -1,6 +1,6 @@
 /*
 	Author: Dorbedo
-	
+
 	Description:
 		initplayerlocal
 */
@@ -11,7 +11,7 @@ CHECK(!hasInterface)
 waituntil {! isnull player};
 
 /// BIS - Groupmanagement
-["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;  
+["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;
 ["init"] spawn EFUNC(player,grouptracker);
 
 QEGVAR(mission,endzeit) addPublicVariableEventHandler {[] spawn EFUNC(interface,disp_timer)};
@@ -27,7 +27,6 @@ QEGVAR(mission,endzeit) addPublicVariableEventHandler {[] spawn EFUNC(interface,
 [] call EFUNC(player,addbriefing);
 [] call EFUNC(player,halo_addaction);
 [] call EFUNC(player,backpack_init);
-[] call EFUNC(interface,hud_init);
 [] call EFUNC(player,XEH_respawn);
 
 ISNILS(EGVAR(mission,fnc),[]);

@@ -60,10 +60,9 @@ class cfgFunctions {
 #include "spawn\config\defence_positions.hpp"
 #include "mission\config\sideby_config.hpp"
 #include "logistics\config\logistics.hpp"
-#include "interface\config\hud.hpp"
 
 //Debrief
-class CfgDebriefing {  
+class CfgDebriefing {
 	class End1 {
 		title = "Mission Abgeschlossen";
 		subtitle = "";
@@ -81,4 +80,3 @@ class CfgDebriefing {
 		pictureColor[] = {0.0,0.3,0.6,1};
 	};
 };
-

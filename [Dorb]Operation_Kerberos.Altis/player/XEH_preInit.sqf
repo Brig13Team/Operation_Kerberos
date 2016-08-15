@@ -4,6 +4,7 @@ PREP(addArsenal);
 PREP(addbriefing);
 PREP(grouptracker);
 PREP(halo);
+PREP(assignCurator);
 PREP(halo_addaction);
 PREP(playeraddaction);
 

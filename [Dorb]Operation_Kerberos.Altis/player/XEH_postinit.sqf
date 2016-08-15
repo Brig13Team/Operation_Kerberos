@@ -17,6 +17,24 @@ If (!hasInterface) then {
             diag_log format["DeadManSwitch (%1) - exploding, placed by %2",_text,name _shooter];
         }
     ] call CBA_fnc_addEventHandler;
+    [
+        QGVAR(curator),
+        {
+            _this params ["_targetPlayer","_doAssign"];
+            If (_doAssign) then {
+                If ((count allCurators)==0) exitWith {};
+                private _unassignedCurator = {If (isNull(getAssignedCuratorUnit _x)) exitWith {_x};objNull;}forEach allCurators;
+                If (isNull _unassignedCurator) then {
+                    _targetPlayer assignCurator (allCurators select 0);
+                }else{
+                    _targetPlayer assignCurator _unassignedCurator;
+                };
+                LOG_2(_targetPlayer,_unassignedCurator);
+            }else{
+                unassignCurator (getAssignedCuratorLogic _targetPlayer);
+            };
+        }
+    ] call CBA_fnc_addEventHandler;
 }else{
     [
         QGVAR(deadmenswitch),{
@@ -63,5 +81,3 @@ If (!hasInterface) then {
     },{ true }] call ace_interact_menu_fnc_createAction;
     [_x,0,["ACE_MainActions"],_action] call ace_interact_menu_fnc_addActionToClass;
 } forEach ["Land_Suitcase_F","Land_SatellitePhone_F","Land_Laptop_device_F"];
-
-

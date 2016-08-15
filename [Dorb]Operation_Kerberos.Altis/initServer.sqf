@@ -1,11 +1,18 @@
 /*
 	Author: Dorbedo
-	
+
 	Description:
 		initServer
 */
 #include "script_component.hpp"
 SCRIPT(initServer);
+
+/// RHS Fix for dedicated
+private _rhs_activeTirePressure = profilenamespace getvariable 'rhs_activeTirePressure';
+if (isNil "_rhs_activeTirePressure") then {
+	profilenamespace setvariable ['rhs_activeTirePressure',0];
+};
+
 waituntil{!isNil "DORB_RESPAWNMARKER"};
 
 /// 6h == 12h Ingame

@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=240;
+		nextID=250;
 	};
 	class Camera
 	{
-		pos[]={11655.792,49.812759,11866.107};
-		dir[]={-0.01131855,-0.34681237,0.93795687};
-		up[]={-0.0041872333,0.93784624,0.3469784};
-		aside[]={0.99999917,-3.0867682e-007,0.012072654};
+		pos[]={11490.534,76.480598,11915.762};
+		dir[]={-0.075178005,-0.8690604,0.48896363};
+		up[]={-0.13206588,0.49470621,0.85896736};
+		aside[]={0.98838836,1.6775448e-007,0.1519642};
 	};
 };
 binarizationWanted=0;
@@ -20621,6 +20621,7 @@ class Mission
 					class Attributes
 					{
 						init="this setVariable [""DORB_INGENIEUR"",true,true];";
+						description="Logistik";
 						isPlayable=1;
 					};
 					id=1477;
@@ -20686,6 +20687,25 @@ class Mission
 						};
 						class Attribute3
 						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1.05;
+								};
+							};
+						};
+						class Attribute4
+						{
 							property="ace_isSurrendered";
 							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleSurrender}";
 							class Value
@@ -20703,7 +20723,7 @@ class Mission
 								};
 							};
 						};
-						nAttributes=4;
+						nAttributes=5;
 					};
 				};
 				class Item1
@@ -20718,6 +20738,7 @@ class Mission
 					class Attributes
 					{
 						init="this setVariable [""DORB_INGENIEUR"",true,true];";
+						description="Logistik";
 						isPlayable=1;
 					};
 					id=1478;
@@ -20815,6 +20836,7 @@ class Mission
 					class Attributes
 					{
 						init="this setVariable [""DORB_INGENIEUR"",true,true];";
+						description="Logistik";
 						isPlayable=1;
 					};
 					id=1479;
@@ -20912,6 +20934,7 @@ class Mission
 					class Attributes
 					{
 						init="this setVariable [""DORB_INGENIEUR"",true,true];";
+						description="Logistik";
 						isPlayable=1;
 					};
 					id=1480;
