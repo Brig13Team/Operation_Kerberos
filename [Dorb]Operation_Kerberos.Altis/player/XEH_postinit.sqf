@@ -66,7 +66,7 @@ If (!hasInterface) then {
     if (!_isUnconscious) exitWith {};
     If !(isPlayer _unit) exitWith {};
     If !(local _unit) exitWith {};
-    If ((player getVariable ["ACE_explosives_deadmanInvExplosive", ""])isEqualTo "") then {
+    If !((player getVariable ["ACE_explosives_deadmanInvExplosive", ""])isEqualTo "") then {
         [QGVAR(deadmenswitch),["inInventory",_unit]] call CBA_fnc_globalEvent;
     };
     If !(([player, "DeadManSwitch"] call ACE_Explosives_fnc_getPlacedExplosives)isEqualTo []) then {
@@ -76,7 +76,7 @@ If (!hasInterface) then {
 
 {
     private _action = [QGVAR(intel_take),localize "STR_DORB_MISSION_INTEL_GRAB","",{
-        [LSTRING(INTEL_TASK),LSTRING(INTEL_FOUND),name player] call EFUNC(interface,disp_info_global);
+        [ELSTRING(MISSION,INTEL_TASK),ELSTRING(MISSION,INTEL_FOUND),name player] call EFUNC(interface,disp_info_global);
         deleteVehicle (_target);
     },{ true }] call ace_interact_menu_fnc_createAction;
     [_x,0,["ACE_MainActions"],_action] call ace_interact_menu_fnc_addActionToClass;
