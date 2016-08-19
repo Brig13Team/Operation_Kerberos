@@ -13,9 +13,21 @@ _position = [];
 
 if (leader _caller == _caller) exitWith {[LSTRING(TELEPORT),[LSTRING(TELEPORT_LEAD_FAIL),LSTRING(TELEPORT_LEAD_ISLEADER)]] call FUNC(disp_info);};
 
-_time = GETVAR(_caller,GVAR(respawntime),-1);
+private _serverkey = missionNamespace getVariable [GVARMAIN(missionkeyServer),"ERROR"];
+private _missionkey = missionNamespace getVariable [GVARMAIN(missionkey),"ERROR"];
+private _missiontime = missionNamespace getVariable [QGVARMAIN(missiontime),CBA_missiontime];
 
-if ((_time > 0) && {(_time - time + 1200) > 0}) exitWith {[LSTRING(TELEPORT),[format [localize LSTRING(TELEPORT_LEAD_WAIT),floor ((_time - time + 1200) / 60),floor ((_time - time + 1200) mod 60)]]] call FUNC(disp_info);};
+If ((_serverkey == _missionkey)&&{(_missiontime - CBA_missiontime + 1200) > 0}) exitWith {
+    [LSTRING(TELEPORT),
+        [format [localize LSTRING(TELEPORT_LEAD_WAIT),
+            floor ((_missiontime - CBA_missiontime + 1200) / 60),
+            floor ((_missiontime - CBA_missiontime + 1200) mod 60)]
+        ]
+    ] call FUNC(disp_info);
+
+};
+
+private _isTeleported = false;
 
 if ((vehicle _caller) == _caller) then {
     _nearestEnemy = _caller findNearestEnemy (leader _caller);
@@ -29,6 +41,7 @@ if ((vehicle _caller) == _caller) then {
                 [LSTRING(TELEPORT),[LSTRING(TELEPORT_LEAD_FAIL),LSTRING(TELEPORT_LEAD_NOPLACE)]] call FUNC(disp_info);
             }else{
                 _caller moveInCargo (vehicle (leader _caller));
+                _isTeleported = true;
             };
         }else{
             If (isTouchingGround (leader _caller)) then {
@@ -40,6 +53,7 @@ if ((vehicle _caller) == _caller) then {
                         _caller playActionNow _stance;
                     };
                     _caller setPos _position;
+                    _isTeleported = true;
                 };
             }else{
                 [LSTRING(TELEPORT),[LSTRING(TELEPORT_LEAD_FAIL),LSTRING(TELEPORT_LEAD_INAIR)]] call FUNC(disp_info);
@@ -47,4 +61,8 @@ if ((vehicle _caller) == _caller) then {
         };
     };
 };
-false
+
+if (_isTeleported) then {
+    GVARMAIN(missionkey) = _serverkey;
+    GVARMAIN(missiontime) = CBA_missiontime;
+};

@@ -2,7 +2,7 @@
 SCRIPT(XEH_respawn);
 If(!hasInterface)exitWith{};
 
-if (time > 30) then { SETVAR(player,EGVAR(interface,respawntime),time); };
+GVARMAIN(missiontime) = CBA_missiontime;
 
 ["restart"] spawn FUNC(grouptracker);
 

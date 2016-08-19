@@ -81,3 +81,25 @@ If (!hasInterface) then {
     },{ true }] call ace_interact_menu_fnc_createAction;
     [_x,0,["ACE_MainActions"],_action] call ace_interact_menu_fnc_addActionToClass;
 } forEach ["Land_Suitcase_F","Land_SatellitePhone_F","Land_Laptop_device_F"];
+
+If (isServer) then {
+    /// set the new missionkey
+    GVARMAIN(key) = format ["Missionkey:%1",random(100000)];
+    publicVariable QGVARMAIN(missionkeyServer);
+}else{
+    [
+        {!isNil QGVARMAIN(missionkeyServer)},
+        {
+            GVARMAIN(missionkey) = GVARMAIN(missionkeyServer);
+            private _serverkey = GVARMAIN(missionkeyServer);
+            private _serverkeyLocal = profileNamespace getVariable [QGVARMAIN(missionkeyServer),"NoKey"];
+            If (_serverkey isEqualTo _serverkeyLocal) then {
+                // the client has already been on the server -> possible crash
+                GVARMAIN(missionkey) = "teleport allowed";
+            }else{
+                profileNamespace setVariable [QGVARMAIN(missionkeyServer),_serverkey];
+            };
+
+        }
+    ] call CBA_fnc_waitUntilAndExecute;
+};
