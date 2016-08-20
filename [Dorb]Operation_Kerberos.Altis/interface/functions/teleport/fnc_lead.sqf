@@ -13,8 +13,8 @@ _position = [];
 
 if (leader _caller == _caller) exitWith {[LSTRING(TELEPORT),[LSTRING(TELEPORT_LEAD_FAIL),LSTRING(TELEPORT_LEAD_ISLEADER)]] call FUNC(disp_info);};
 
-private _serverkey = missionNamespace getVariable [GVARMAIN(missionkeyServer),"ERROR"];
-private _missionkey = missionNamespace getVariable [GVARMAIN(missionkey),"ERROR"];
+private _serverkey = missionNamespace getVariable [QGVARMAIN(missionkeyServer),"ERROR"];
+private _missionkey = missionNamespace getVariable [QGVARMAIN(missionkey),"ERROR"];
 private _missiontime = missionNamespace getVariable [QGVARMAIN(missiontime),CBA_missiontime];
 
 If ((_serverkey == _missionkey)&&{(_missiontime - CBA_missiontime + 1200) > 0}) exitWith {
