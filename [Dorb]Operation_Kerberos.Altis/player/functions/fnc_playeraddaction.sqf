@@ -1,13 +1,13 @@
 /*
 	Author: Dorbedo
-	
+
 	Description:
-	
-	
+
+
 */
 #include "script_component.hpp"
 SCRIPT(playeraddaction);
-[["<t color='#FFFF00'>"+localize ELSTRING(interface,TFR_SHORT)+"</t>",{[]call EFUNC(interface,tfr_OpenMenu);},[],0.5,false,true,"","alive _target"]] call CBA_fnc_addPlayerAction;
+//[["<t color='#FFFF00'>"+localize ELSTRING(interface,TFR_SHORT)+"</t>",{[]call EFUNC(interface,tfr_OpenMenu);},[],0.5,false,true,"","alive _target"]] call CBA_fnc_addPlayerAction;
 
 /*
 If ((isClass(configFile >> "CfgPatches" >> "rhsusf_c_weapons"))) then {
