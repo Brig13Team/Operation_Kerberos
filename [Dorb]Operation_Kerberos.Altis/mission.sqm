@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=270;
+		nextID=280;
 	};
 	class Camera
 	{
-		pos[]={11551.126,45.206589,11939.632};
-		dir[]={-0.092887461,-0.32813811,0.94008648};
-		up[]={-0.032270361,0.94461328,0.32658312};
-		aside[]={0.99518901,1.2852252e-007,0.098335035};
+		pos[]={11511.202,54.694546,11904.05};
+		dir[]={0.24670655,-0.26099634,0.9333241};
+		up[]={0.066709593,0.96532381,0.2523773};
+		aside[]={0.96683514,3.6467827e-007,-0.25556126};
 	};
 };
 binarizationWanted=0;
@@ -22229,12 +22229,11 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={11471.625,25.780418,11910.375};
-				angles[]={6.276526,0,6.1954122};
+				position[]={11471.625,25.77947,11910.375};
+				angles[]={6.2765183,0,6.1954126};
 			};
 			id=1499;
 			type="acre_api_basicMissionSetup";
-			atlOffset=0.00094795227;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -22271,7 +22270,7 @@ class Mission
 									"SCALAR"
 								};
 							};
-							value=2;
+							value=0;
 						};
 					};
 				};
@@ -22660,7 +22659,7 @@ class Mission
 									"BOOL"
 								};
 							};
-							value=0;
+							value=1;
 						};
 					};
 				};
