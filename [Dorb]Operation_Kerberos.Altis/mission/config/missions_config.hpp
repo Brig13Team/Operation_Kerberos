@@ -64,7 +64,7 @@ class missions_config {
                 distance = 200;
             };
             objects[] = {"Box_East_Wps_F","Box_East_WpsSpecial_F","Box_East_Ammo_F","Box_East_Grenades_F","Box_East_Support_F"};
-            objects_count[] = {5,15};
+            objects_count[] = {5,10};
         };
         /*
         class scarab : main_base {

@@ -18,7 +18,7 @@ private _objs = getArray(missionConfigFile >> "missions_config" >> "main" >> "in
 private _objs_count = getArray(missionConfigFile >> "missions_config" >> "main" >> "intel" >> "objects_count");
 private _objs_min = _objs_count select 0;
 private _objs_max = _objs_count select 1;
-private _objs_average = (floor random (_objs_max - 1)) + 1;
+private _objs_average = (floor random (_objs_max - _objs_min + 1)) + _objs_min;
 
 // spawn object(s)
 private _position = _destination select 1;

@@ -18,7 +18,7 @@ private _objs = getArray(missionConfigFile >> "missions_config" >> "main" >> "we
 private _objs_count = getArray(missionConfigFile >> "missions_config" >> "main" >> "weaponcache" >> "objects_count");
 private _objs_min = _objs_count select 0;
 private _objs_max = _objs_count select 1;
-private _objs_average = (floor random (_objs_max - 1)) + 1;
+private _objs_average = (floor random (_objs_max - _objs_min + 1)) + _objs_min;
 
 // spawn object(s)
 private _position = _destination select 1;
@@ -38,7 +38,7 @@ for "_i" from 1 to _objs_average do {
             _this params ["_unit","_killer"];
 
             "Bo_Mk82" createVehicle (getPos _unit);
-            [QGVAR(weaponcache_destroyed),[_unit]] call CBA_fnc_addEventHandler;
+            [QGVAR(weaponcache_destroyed),[_unit]] call CBA_fnc_globalEvent;
     }]
 };
 

@@ -36,9 +36,9 @@ private _handle = [{
                 [_taskNumber, _state] call FUNC(taskmanager_setState);
 
                 if (typeName _taskNumber == typeName 0) then {
-                    [QGVAR(FINISHED), [_taskNumber, _state]] call CBA_fnc_globalEvent;
+                    [QGVAR(finished), [_taskNumber, _state]] call CBA_fnc_globalEvent;
                 } else {
-                    [QGVAR(FINISHED_SIDE), [_taskNumber, _state]] call CBA_fnc_globalEvent;
+                    [QGVAR(finished_side), [_taskNumber, _state]] call CBA_fnc_globalEvent;
                 };
             }
         };
