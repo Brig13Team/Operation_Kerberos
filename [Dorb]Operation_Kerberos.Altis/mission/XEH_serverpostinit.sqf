@@ -66,6 +66,17 @@ GVARMAIN(debug)=false;
     [_position] call EFUNC(tfar_addon,disableTFRArea);
 }] call CBA_fnc_addEventHandler;
 
+[QGVAR(hostage_killed),{
+    GVAR(killed_hostages) = GVAR(killed_hostages) + 1;
+}] call CBA_fnc_addEventHandler;
+
+[QGVAR(hostage_rescued),{
+    _this params ["_hostage"];
+
+    GVAR(rescued_hostages) = GVAR(rescued_hostages) + 1;
+    deleteVehicle _hostage;
+}] call CBA_fnc_addEventHandler;
+
 /********************
     Cleanup
 ********************/
@@ -89,9 +100,12 @@ private _markerpos = getMarkerPos "rescue_marker";
 If ((_markerpos distance [0,0,0])>1) then {
     [{
         private _units = (getMarkerPos "rescue_marker") nearEntities [["Man","Ship_F","LandVehicle","Land_Suitcase_F","Air"], 15];
-            {
-                [QGVAR(rescuepoint),[_x],_x] call EFUNC(events,localEvent);
-            }forEach _units;
+        {
+            if (_x getVariable [QGVAR(ISHOSTAGE),false]) then {
+                [QGVAR(hostage_rescued)] call CBA_fnc_globalEvent;
+            };
+            // [QGVAR(rescuepoint),[_x],_x] call EFUNC(events,localEvent);
+        }forEach _units;
     } , 30, [] ] call CBA_fnc_addPerFrameHandler;
 };
 

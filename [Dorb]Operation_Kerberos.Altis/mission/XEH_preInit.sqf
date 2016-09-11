@@ -11,6 +11,8 @@ PREP(registerTask);
 PREP(reward);
 PREP(rtb);
 
+PREP(EH_killed);
+
 PREP(isSidemission);
 
 PREP(taskhandler);
@@ -39,6 +41,12 @@ PREPS(taskmanager,remove);
 PREPS(taskmanager,setState);
 PREPS(taskmanager,spawn);
 
+PREPS(mainmission,device);
+PREPS(mainmission,device_cond);
+PREPS(mainmission,emp);
+PREPS(mainmission,emp_cond);
+PREPS(mainmission,hostage);
+PREPS(mainmission,hostage_cond);
 PREPS(mainmission,intel);
 PREPS(mainmission,intel_cond);
 PREPS(mainmission,weaponcache);

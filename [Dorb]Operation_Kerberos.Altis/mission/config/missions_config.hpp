@@ -84,6 +84,15 @@ class missions_config {
             object = "Land_Device_assembled_F";
             intervall = 10;
         };
+        class hostage : main_base {
+            taskDescription = "hostage";
+            class location : location {
+                areas[] = {QGVAR(town)};
+                distance = 200;
+            };
+            hostages[] = {"C_scientist_F","C_journalist_F","C_man_1 ","C_man_polo_2_F","C_man_polo_3_F","C_man_polo_4_F","C_man_polo_5_F",C_man_polo_6_F};
+            hostages_count[] = {1,5};
+        };
         /*
         class scarab : main_base {
             taskDescription = "scarab";
@@ -101,13 +110,6 @@ class missions_config {
             taskDescription = "clear";
             class location : location {
                 areas[] = {QGVAR(industrie),QGVAR(military),QGVAR(other)};
-            };
-        };
-        class hostage : main_base {
-            taskDescription = "hostage";
-            class location : location {
-                areas[] = {QGVAR(town)};
-                distance = 200;
             };
         };
         class kill : main_base {
