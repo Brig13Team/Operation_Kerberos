@@ -66,6 +66,24 @@ class missions_config {
             objects[] = {"Box_East_Wps_F","Box_East_WpsSpecial_F","Box_East_Ammo_F","Box_East_Grenades_F","Box_East_Support_F"};
             objects_count[] = {5,10};
         };
+        class device : main_base {
+            taskDescription = "device";
+            class location : location {
+                areas[] = {QGVAR(town),QGVAR(industrie)};
+                distance = 250;
+            };
+            object = "Land_Device_assembled_F";
+            intervall = 10;
+        };
+        class emp : main_base {
+            taskDescription = "emp";
+            class location : location {
+                areas[] = {QGVAR(town),QGVAR(industrie)};
+                distance = 250;
+            };
+            object = "Land_Device_assembled_F";
+            intervall = 10;
+        };
         /*
         class scarab : main_base {
             taskDescription = "scarab";
@@ -74,18 +92,6 @@ class missions_config {
             taskDescription = "tower";
             class location : location {
                 distance = 1500;
-            };
-        };
-        class device : main_base {
-            taskDescription = "device";
-            class location : location {
-                areas[] = {QGVAR(industrie),QGVAR(military),QGVAR(other)};
-            };
-        };
-        class emp : main_base {
-            taskDescription = "emp";
-            class location : location {
-                areas[] = {QGVAR(industrie),QGVAR(military),QGVAR(other)};
             };
         };
         class prototype : main_base {

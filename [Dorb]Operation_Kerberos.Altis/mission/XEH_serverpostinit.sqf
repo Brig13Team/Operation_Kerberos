@@ -25,7 +25,13 @@ GVARMAIN(debug)=false;
     deleteVehicle _cache;
 }] call CBA_fnc_addEventHandler;
 
+[QGVAR(earthquake),{
+    GVAR(last_earthquake) = diag_tickTime;
+}] call CBA_fnc_addEventHandler;
+
 [QGVAR(emp),{
+    GVAR(last_emp) = diag_tickTime;
+
     _this params ["_position"];
     private _allVehicles = _position nearEntities [["LandVehicle","Air","Ship_F"],2000];
     {
@@ -58,7 +64,7 @@ GVARMAIN(debug)=false;
         };
     } forEach _allVehicles;
     [_position] call EFUNC(tfar_addon,disableTFRArea);
-}] call EFUNC(events,addEventHandler);
+}] call CBA_fnc_addEventHandler;
 
 /********************
     Cleanup
