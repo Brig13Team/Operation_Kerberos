@@ -26,12 +26,10 @@ for "_i" from 0 to _tries do {
     private _tmp = [_position,_searchradius,0] call FUNC(pos_random);
     if (not (_tmp isEqualTo [])) then {
         if (not (_tmp isFlatEmpty [(_size/2),_precizePos,_maxGradient,_size,0,false] isEqualTo [])) exitWith {
-            systemChat "quick";
             _ret = _tmp;
             breakTo "main";
         };
     };
 };
 
-systemChat "normal";
 _ret

@@ -36,6 +36,4 @@ if (typeName _number == typeName []) then {
     };
 } forEach +GVAR(conditions);
 
-systemChat format ["[DEBUG] _taskID: %1", _taskID];
-
 [_taskID] call BIS_fnc_deleteTask;
