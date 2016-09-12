@@ -2,7 +2,7 @@
     Author: Dorbedo
 
     Description:
-        returns Array with Flat, Empty poisition
+        returns Array with Flat, Empty position
 
     Parameter(s):
         0 :    ARRAY    - Centerpos
@@ -13,7 +13,7 @@
         4 : SCALAR    - Gradient (0.14 == 14%)
 
     Returns:
-    ARRAY : Array with Positions    
+    ARRAY : Array with Positions
 */
 #include "script_component.hpp"
 _this params["_position","_size","_searchradius",["_precizePos",0,[0]],["_maxGradient",0.15,[0]]];

@@ -16,10 +16,11 @@ _this params [["_emp",objNull,[objNull]],["_intervall",-1,[0]]];
 
 if (isNull _emp) exitWith { "" };
 
-if (not alive _emp) exitWith { "Succeeded" };
+if (not (alive _emp)) exitWith { "Succeeded" };
 
-if (GVAR(last_emp) + _intervall >= diag_tickTime) then {
-    QGVAR(emp),getPos _emp] call CBA_fnc_serverevent;
-}
+if (GVAR(last_emp) + _intervall >= CBA_missionTime) then {
+    GVAR(last_emp) = CBA_missionTime;
+    [QGVAR(emp),getPos _emp] call CBA_fnc_serverEvent;
+};
 
 ""

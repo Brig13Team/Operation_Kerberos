@@ -90,7 +90,7 @@ class missions_config {
                 areas[] = {QGVAR(town)};
                 distance = 200;
             };
-            hostages[] = {"C_scientist_F","C_journalist_F","C_man_1 ","C_man_polo_2_F","C_man_polo_3_F","C_man_polo_4_F","C_man_polo_5_F",C_man_polo_6_F};
+            hostages[] = {"C_scientist_F","C_journalist_F","C_man_1","C_man_polo_2_F","C_man_polo_3_F","C_man_polo_4_F","C_man_polo_5_F",C_man_polo_6_F};
             hostages_count[] = {1,5};
         };
         /*

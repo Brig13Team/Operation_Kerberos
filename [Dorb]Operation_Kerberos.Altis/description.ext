@@ -7,7 +7,7 @@
 #include "script_component.hpp"
 
 author = LSTRING(AUTHOR);
-onLoadName = LSTRING(NAME)
+onLoadName = LSTRING(NAME);
 loadScreen = QEPAAPATH(logo,logo_512);
 onLoadMissionTime = 1;
 

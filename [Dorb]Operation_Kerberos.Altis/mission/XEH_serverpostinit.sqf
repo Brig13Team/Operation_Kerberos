@@ -25,13 +25,7 @@ GVARMAIN(debug)=false;
     deleteVehicle _cache;
 }] call CBA_fnc_addEventHandler;
 
-[QGVAR(earthquake),{
-    GVAR(last_earthquake) = diag_tickTime;
-}] call CBA_fnc_addEventHandler;
-
 [QGVAR(emp),{
-    GVAR(last_emp) = diag_tickTime;
-
     _this params ["_position"];
     private _allVehicles = _position nearEntities [["LandVehicle","Air","Ship_F"],2000];
     {
@@ -102,7 +96,7 @@ If ((_markerpos distance [0,0,0])>1) then {
         private _units = (getMarkerPos "rescue_marker") nearEntities [["Man","Ship_F","LandVehicle","Land_Suitcase_F","Air"], 15];
         {
             if (_x getVariable [QGVAR(ISHOSTAGE),false]) then {
-                [QGVAR(hostage_rescued)] call CBA_fnc_globalEvent;
+                [QGVAR(hostage_rescued),[_x]] call CBA_fnc_globalEvent;
             };
             // [QGVAR(rescuepoint),[_x],_x] call EFUNC(events,localEvent);
         }forEach _units;
