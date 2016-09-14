@@ -8,7 +8,7 @@ class EditorData
 	toggles=109;
 	class ItemIDProvider
 	{
-		nextID=1518;
+		nextID=1519;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=310;
+		nextID=330;
 	};
 	class Camera
 	{
-		pos[]={11598.468,66.626144,12012.647};
-		dir[]={0.073335372,-0.47071105,-0.87931794};
-		up[]={0.039127637,0.88224733,-0.46914303};
-		aside[]={-0.99661779,1.9359504e-007,-0.083123133};
+		pos[]={11488.123,91.488876,11890.203};
+		dir[]={0.13576572,-0.65029562,0.74756318};
+		up[]={0.11620633,0.75964081,0.63986892};
+		aside[]={0.98399341,-1.4354446e-006,-0.17869931};
 	};
 };
 binarizationWanted=0;
@@ -95,7 +95,6 @@ addons[]=
 	"A3_Characters_F",
 	"ace_gforces",
 	"ace_parachute",
-	"acre_api",
 	"ace_advanced_fatigue",
 	"ace_advanced_throwing",
 	"ace_map_gestures",
@@ -107,7 +106,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=49;
+		items=48;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -404,46 +403,40 @@ class AddonsMetaData
 		};
 		class Item42
 		{
-			className="acre_api";
-			name="acre_api";
-			author="ACRE2 Team";
-		};
-		class Item43
-		{
 			className="ace_advanced_fatigue";
 			name="ACE3 - Advanced Fatigue";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
-		class Item44
+		class Item43
 		{
 			className="ace_advanced_throwing";
 			name="ACE3 - Advanced Throwing";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
-		class Item45
+		class Item44
 		{
 			className="ace_map_gestures";
 			name="ACE3 - Map Gestures";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
-		class Item46
+		class Item45
 		{
 			className="ace_nightvision";
 			name="ACE3 - Night Vision";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
-		class Item47
+		class Item46
 		{
 			className="ace_ui";
 			name="ACE3 - UI";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
-		class Item48
+		class Item47
 		{
 			className="ace_vehiclelock";
 			name="ACE3 - Vehicle Lock";
@@ -507,7 +500,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=497;
+		items=494;
 		class Item0
 		{
 			dataType="Marker";
@@ -22190,453 +22183,6 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={11445.75,27.886301,11913.25};
-				angles[]={6.2418733,0,6.1822004};
-			};
-			id=1499;
-			type="acre_api_basicMissionSetup";
-			atlOffset=0.0079994202;
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="acre_api_basicMissionSetup_DefaultRadio";
-					expression="_this setVariable ['DefaultRadio',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="ACRE_PRC343";
-						};
-					};
-				};
-				class Attribute1
-				{
-					property="acre_api_basicMissionSetup_BabelSetup";
-					expression="_this setVariable ['BabelSetup',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute2
-				{
-					property="acre_api_basicMissionSetup_RadioSetup";
-					expression="_this setVariable ['RadioSetup',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"BOOL"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute3
-				{
-					property="acre_api_basicMissionSetup_DefaultRadio_Three";
-					expression="_this setVariable ['DefaultRadio_Three',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="";
-						};
-					};
-				};
-				class Attribute4
-				{
-					property="acre_api_basicMissionSetup_DefaultRadio_Four";
-					expression="_this setVariable ['DefaultRadio_Four',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="";
-						};
-					};
-				};
-				class Attribute5
-				{
-					property="acre_api_basicMissionSetup_DefaultRadio_Two";
-					expression="_this setVariable ['DefaultRadio_Two',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="";
-						};
-					};
-				};
-				nAttributes=6;
-			};
-		};
-		class Item489
-		{
-			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={11445.375,27.476563,11899.25};
-				angles[]={6.2511969,0,6.2498641};
-			};
-			id=1501;
-			type="acre_api_nameChannels";
-			atlOffset=0.0030498505;
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="acre_api_nameChannels_Channel_1";
-					expression="_this setVariable ['Channel_1',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="TRUPP1";
-						};
-					};
-				};
-				class Attribute1
-				{
-					property="acre_api_nameChannels_Channel_2";
-					expression="_this setVariable ['Channel_2',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="TRUPP2";
-						};
-					};
-				};
-				class Attribute2
-				{
-					property="acre_api_nameChannels_Channel_3";
-					expression="_this setVariable ['Channel_3',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="TRUPP3";
-						};
-					};
-				};
-				class Attribute3
-				{
-					property="acre_api_nameChannels_Channel_4";
-					expression="_this setVariable ['Channel_4',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="TRUPP4";
-						};
-					};
-				};
-				class Attribute4
-				{
-					property="acre_api_nameChannels_Channel_5";
-					expression="_this setVariable ['Channel_5',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="TRUPP5";
-						};
-					};
-				};
-				class Attribute5
-				{
-					property="acre_api_nameChannels_SideSelect";
-					expression="_this setVariable ['SideSelect',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=1;
-						};
-					};
-				};
-				class Attribute6
-				{
-					property="acre_api_nameChannels_Channel_6";
-					expression="_this setVariable ['Channel_6',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="OPZ";
-						};
-					};
-				};
-				class Attribute7
-				{
-					property="acre_api_nameChannels_Channel_7";
-					expression="_this setVariable ['Channel_7',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="CAS1";
-						};
-					};
-				};
-				class Attribute8
-				{
-					property="acre_api_nameChannels_Channel_8";
-					expression="_this setVariable ['Channel_8',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="CAS2";
-						};
-					};
-				};
-				class Attribute9
-				{
-					property="acre_api_nameChannels_Channel_9";
-					expression="_this setVariable ['Channel_9',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="ARTILLERIE";
-						};
-					};
-				};
-				class Attribute10
-				{
-					property="acre_api_nameChannels_Channel_10";
-					expression="_this setVariable ['Channel_10',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="LOGISTIK";
-						};
-					};
-				};
-				nAttributes=11;
-			};
-		};
-		class Item490
-		{
-			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={11445.625,27.677246,11906.5};
-				angles[]={6.2525272,0,6.2192721};
-			};
-			id=1502;
-			type="acre_api_DifficultySettings";
-			atlOffset=0.004573822;
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="acre_api_DifficultySettings_Interference";
-					expression="_this setVariable ['Interference',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"BOOL"
-								};
-							};
-							value=1;
-						};
-					};
-				};
-				class Attribute1
-				{
-					property="acre_api_DifficultySettings_SignalLoss";
-					expression="_this setVariable ['SignalLoss',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"BOOL"
-								};
-							};
-							value=1;
-						};
-					};
-				};
-				class Attribute2
-				{
-					property="acre_api_DifficultySettings_IgnoreAntennaDirection";
-					expression="_this setVariable ['IgnoreAntennaDirection',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"BOOL"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute3
-				{
-					property="acre_api_DifficultySettings_FullDuplex";
-					expression="_this setVariable ['FullDuplex',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"BOOL"
-								};
-							};
-							value=1;
-						};
-					};
-				};
-				nAttributes=4;
-			};
-		};
-		class Item491
-		{
-			dataType="Logic";
-			class PositionInfo
-			{
 				position[]={11446.75,27.749756,11961.75};
 				angles[]={6.2671871,0,6.253861};
 			};
@@ -22743,7 +22289,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item492
+		class Item489
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -22853,7 +22399,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item493
+		class Item490
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -22964,7 +22510,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item494
+		class Item491
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -22999,7 +22545,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item495
+		class Item492
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -23680,7 +23226,7 @@ class Mission
 				nAttributes=35;
 			};
 		};
-		class Item496
+		class Item493
 		{
 			dataType="Logic";
 			class PositionInfo

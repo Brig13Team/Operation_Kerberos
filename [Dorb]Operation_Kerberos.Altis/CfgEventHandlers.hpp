@@ -26,6 +26,9 @@ class Extended_PostInit_EventHandlers {
     class Dorb_ai_post {
 		Serverinit = "call compile preProcessFileLineNumbers 'ai\XEH_postinit.sqf'";
 	};
+    class dorb_tab_acre {
+        init = "call compile preProcessFileLineNumbers 'tab_acre\XEH_postinit.sqf'";
+    };
 };
 
 class Extended_Init_Eventhandlers {

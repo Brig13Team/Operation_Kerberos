@@ -1,0 +1,8 @@
+
+#define COLOR_DISABLED {0,0,0,0};
+
+#define COLOR_SHORT_DISBLED ;
+#define COLOR_SHORT_FOCUSED ;
+#define COLOR_SHORT_TEXT ;
+
+#define COLOR_DESKTOP {0,0,0,0.8};
