@@ -74,13 +74,17 @@ If (!hasInterface) then {
     };
 }] call CBA_fnc_addEventHandler;
 
-{
-    private _action = [QGVAR(intel_take),localize "STR_DORB_MISSION_INTEL_GRAB","",{
-        [ELSTRING(MISSION,INTEL_TASK),ELSTRING(MISSION,INTEL_FOUND),name player] call EFUNC(interface,disp_info_global);
-        deleteVehicle (_target);
-    },{ true }] call ace_interact_menu_fnc_createAction;
-    [_x,0,["ACE_MainActions"],_action] call ace_interact_menu_fnc_addActionToClass;
-} forEach ["Land_Suitcase_F","Land_SatellitePhone_F","Land_Laptop_device_F"];
+
+If (hasInterface) then {
+    {
+        private _action = [QGVAR(intel_take),localize "STR_DORB_MISSION_INTEL_GRAB","",{
+            [ELSTRING(MISSION,INTEL_TASK),ELSTRING(MISSION,INTEL_FOUND),name player] call EFUNC(interface,disp_info_global);
+            deleteVehicle (_target);
+        },{ true }] call ace_interact_menu_fnc_createAction;
+        [_x,0,["ACE_MainActions"],_action] call ace_interact_menu_fnc_addActionToClass;
+    } forEach ["Land_Suitcase_F","Land_SatellitePhone_F","Land_Laptop_device_F"];
+    [] call FUNC(addColorActions);
+};
 
 If (isServer) then {
     /// set the new missionkey

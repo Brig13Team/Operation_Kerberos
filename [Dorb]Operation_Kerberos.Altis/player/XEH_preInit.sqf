@@ -2,6 +2,7 @@
 
 PREP(addArsenal);
 PREP(addbriefing);
+PREP(addColorActions);
 PREP(grouptracker);
 PREP(halo);
 PREP(assignCurator);

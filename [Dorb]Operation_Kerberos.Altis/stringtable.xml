@@ -951,6 +951,37 @@
             <German>Rucksack auf den Ruecken schnallen</German>
             <English>Move backpack to back</English>
         </Key>
+        <Key ID="STR_DORB_PLAYER_COLOR_MAINMENU">
+            <Original>Team-Managment</Original>
+            <English>Team-Managment</English>
+            <French>Gestion d'Équipe</French>
+            <German>Team-Managment</German>
+        </Key>
+        <Key ID="STR_DORB_PLAYER_COLOR_GREEN">
+            <Original>join Team Green</Original>
+            <English>join Team Green</English>
+            <German>Team Grün beitreten</German>
+        </Key>
+        <Key ID="STR_DORB_PLAYER_COLOR_RED">
+            <Original>join Team Red</Original>
+            <English>join Team Red</English>
+            <German>Team Rot beitreten</German>
+        </Key>
+        <Key ID="STR_DORB_PLAYER_COLOR_BLUE">
+            <Original>join Team Blue</Original>
+            <English>join Team Blue</English>
+            <German>Team Blau beitreten</German>
+        </Key>
+        <Key ID="STR_DORB_PLAYER_COLOR_YELLOW">
+            <Original>join Team Yellow</Original>
+            <English>join Team Yellow</English>
+            <German>Team Gelb beitreten</German>
+        </Key>
+        <Key ID="STR_DORB_PLAYER_COLOR_WHITE">
+            <Original>join Team White</Original>
+            <English>join Team White</English>
+            <German>Team Weiss beitreten</German>
+        </Key>
     </Package>
     <Package name="logistics">
         <Key ID="STR_DORB_LOGISTICS_ACTION_MAIN">
