@@ -8,7 +8,7 @@ class EditorData
 	toggles=109;
 	class ItemIDProvider
 	{
-		nextID=1519;
+		nextID=1520;
 	};
 	class MarkerIDProvider
 	{
@@ -16,11 +16,11 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=330;
+		nextID=350;
 	};
 	class Camera
 	{
-		pos[]={11488.123,91.488876,11890.203};
+		pos[]={11479.81,65.9776,11918.892};
 		dir[]={0.13576572,-0.65029562,0.74756318};
 		up[]={0.11620633,0.75964081,0.63986892};
 		aside[]={0.98399341,-1.4354446e-006,-0.17869931};
@@ -22515,12 +22515,12 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={11468.875,27.5,11961.375};
-				angles[]={6.2405434,0,6.2365508};
+				position[]={11468.875,27.499819,11961.375};
+				angles[]={6.2405472,0,6.2365503};
 			};
 			id=1511;
 			type="ace_nightvision_ModuleSettings";
-			atlOffset=0.022182465;
+			atlOffset=0.022001266;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -22538,7 +22538,7 @@ class Mission
 									"BOOL"
 								};
 							};
-							value=1;
+							value=0;
 						};
 					};
 				};

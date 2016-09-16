@@ -29,48 +29,34 @@ private _defaultRadios = [
 /*
     Channel Names
 */
+
+private _channelnamen = [
+    "BODEN",
+    "OPZ",
+    "LOGISTIK",
+    "CAS/FDC",
+    "TRUPP 1",
+    "TRUPP 2",
+    "TRUPP 3",
+    "TRUPP 4",
+    "TRUPP 5",
+    "TRUPP 6"
+];
+
 ["ACRE_PRC148", "default", QGVAR(COOP)] call acre_api_fnc_copyPreset;
 ["ACRE_PRC152", "default", QGVAR(COOP)] call acre_api_fnc_copyPreset;
 ["ACRE_PRC117F", "default", QGVAR(COOP)] call acre_api_fnc_copyPreset;
 
-["ACRE_PRC152", QGVAR(COOP), 1, "description", "TRUPP 1"] call acre_api_fnc_setPresetChannelField;
-["ACRE_PRC152", QGVAR(COOP), 2, "description", "TRUPP 2"] call acre_api_fnc_setPresetChannelField;
-["ACRE_PRC152", QGVAR(COOP), 3, "description", "TRUPP 3"] call acre_api_fnc_setPresetChannelField;
-["ACRE_PRC152", QGVAR(COOP), 4, "description", "TRUPP 4"] call acre_api_fnc_setPresetChannelField;
-["ACRE_PRC152", QGVAR(COOP), 5, "description", "TRUPP 5"] call acre_api_fnc_setPresetChannelField;
-["ACRE_PRC152", QGVAR(COOP), 6, "description", "OPZ"] call acre_api_fnc_setPresetChannelField;
-["ACRE_PRC152", QGVAR(COOP), 7, "description", "CAS 1"] call acre_api_fnc_setPresetChannelField;
-["ACRE_PRC152", QGVAR(COOP), 8, "description", "CAS 2"] call acre_api_fnc_setPresetChannelField;
-["ACRE_PRC152", QGVAR(COOP), 9, "description", "ARTILLERIE"] call acre_api_fnc_setPresetChannelField;
-["ACRE_PRC152", QGVAR(COOP), 10, "description", "LOGISTIK"] call acre_api_fnc_setPresetChannelField;
-
-["ACRE_PRC148", QGVAR(COOP), 1, "label", "TRUPP 1"] call acre_api_fnc_setPresetChannelField;
-["ACRE_PRC148", QGVAR(COOP), 2, "label", "TRUPP 2"] call acre_api_fnc_setPresetChannelField;
-["ACRE_PRC148", QGVAR(COOP), 3, "label", "TRUPP 3"] call acre_api_fnc_setPresetChannelField;
-["ACRE_PRC148", QGVAR(COOP), 4, "label", "TRUPP 4"] call acre_api_fnc_setPresetChannelField;
-["ACRE_PRC148", QGVAR(COOP), 5, "label", "TRUPP 5"] call acre_api_fnc_setPresetChannelField;
-["ACRE_PRC148", QGVAR(COOP), 6, "label", "OPZ"] call acre_api_fnc_setPresetChannelField;
-["ACRE_PRC148", QGVAR(COOP), 7, "label", "CAS 1"] call acre_api_fnc_setPresetChannelField;
-["ACRE_PRC148", QGVAR(COOP), 8, "label", "CAS 2"] call acre_api_fnc_setPresetChannelField;
-["ACRE_PRC148", QGVAR(COOP), 9, "label", "ARTILLERIE"] call acre_api_fnc_setPresetChannelField;
-["ACRE_PRC148", QGVAR(COOP), 10, "label", "LOGISTIK"] call acre_api_fnc_setPresetChannelField;
-
-["ACRE_PRC117F", QGVAR(COOP), 1, "name", "TRUPP 1"] call acre_api_fnc_setPresetChannelField;
-["ACRE_PRC117F", QGVAR(COOP), 2, "name", "TRUPP 2"] call acre_api_fnc_setPresetChannelField;
-["ACRE_PRC117F", QGVAR(COOP), 3, "name", "TRUPP 3"] call acre_api_fnc_setPresetChannelField;
-["ACRE_PRC117F", QGVAR(COOP), 4, "name", "TRUPP 4"] call acre_api_fnc_setPresetChannelField;
-["ACRE_PRC117F", QGVAR(COOP), 5, "name", "TRUPP 5"] call acre_api_fnc_setPresetChannelField;
-["ACRE_PRC117F", QGVAR(COOP), 6, "name", "OPZ"] call acre_api_fnc_setPresetChannelField;
-["ACRE_PRC117F", QGVAR(COOP), 7, "name", "CAS 1"] call acre_api_fnc_setPresetChannelField;
-["ACRE_PRC117F", QGVAR(COOP), 8, "name", "CAS 2"] call acre_api_fnc_setPresetChannelField;
-["ACRE_PRC117F", QGVAR(COOP), 9, "name", "ARTILLERIE"] call acre_api_fnc_setPresetChannelField;
-["ACRE_PRC117F", QGVAR(COOP), 10, "name", "LOGISTIK"] call acre_api_fnc_setPresetChannelField;
+{
+    private _name = If (isLocalized _x) then {localize _x}else{format ["%1",_x]};
+    ["ACRE_PRC152", QGVAR(COOP), (_forEachIndex + 1), "description",_name] call acre_api_fnc_setPresetChannelField;
+    ["ACRE_PRC148", QGVAR(COOP), (_forEachIndex + 1), "label",_name] call acre_api_fnc_setPresetChannelField;
+    ["ACRE_PRC117F", QGVAR(COOP), (_forEachIndex + 1), "name",_name] call acre_api_fnc_setPresetChannelField;
+} forEach _channelnamen;
 
 ["ACRE_PRC152", QGVAR(COOP)] call acre_api_fnc_setPreset;
 ["ACRE_PRC148", QGVAR(COOP)] call acre_api_fnc_setPreset;
 ["ACRE_PRC117F", QGVAR(COOP)] call acre_api_fnc_setPreset;
-
-
 
 
 
