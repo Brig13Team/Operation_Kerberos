@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=350;
+		nextID=370;
 	};
 	class Camera
 	{
-		pos[]={11479.81,65.9776,11918.892};
-		dir[]={0.13576572,-0.65029562,0.74756318};
-		up[]={0.11620633,0.75964081,0.63986892};
-		aside[]={0.98399341,-1.4354446e-006,-0.17869931};
+		pos[]={11455.924,94.197929,11937.586};
+		dir[]={0.66404861,-0.6935991,0.27953011};
+		up[]={0.63929868,0.72032076,0.26911277};
+		aside[]={0.38801476,-1.5145197e-006,-0.92175329};
 	};
 };
 binarizationWanted=0;
@@ -1087,6 +1087,7 @@ class Mission
 			};
 			id=83;
 			type="MapBoard_altis_F";
+			atlOffset=5.7220459e-005;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -22183,12 +22184,12 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={11446.75,27.749756,11961.75};
-				angles[]={6.2671871,0,6.253861};
+				position[]={11446.75,27.749655,11961.75};
+				angles[]={6.2671809,0,6.2538638};
 			};
 			id=1503;
 			type="ace_advanced_fatigue_moduleSettings";
-			atlOffset=0.0031013489;
+			atlOffset=0.0030002594;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -22263,7 +22264,7 @@ class Mission
 									"SCALAR"
 								};
 							};
-							value=1;
+							value=0.5;
 						};
 					};
 				};
@@ -22550,12 +22551,12 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={11475.125,27.342041,11964.625};
-				angles[]={6.2299027,0,6.2192731};
+				position[]={11475.125,27.34235,11964.625};
+				angles[]={6.2299004,0,6.2192717};
 			};
 			id=1514;
 			type="ace_ui_Module";
-			atlOffset=-0.0033092499;
+			atlOffset=-0.0030002594;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -22592,7 +22593,7 @@ class Mission
 									"BOOL"
 								};
 							};
-							value=1;
+							value=0;
 						};
 					};
 				};
