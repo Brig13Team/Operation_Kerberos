@@ -8,6 +8,9 @@ class Extended_PreInit_EventHandlers {
 };
 
 class Extended_PostInit_EventHandlers {
+    class Dorb_common_client {
+        Clientinit = "call compile preProcessFileLineNumbers 'common\XEH_clientpostinit.sqf'";
+    };
 	class Dorb_Logistics_client {
 		Clientinit = "call compile preProcessFileLineNumbers 'logistics\XEH_clientpostinit.sqf'";
 	};
