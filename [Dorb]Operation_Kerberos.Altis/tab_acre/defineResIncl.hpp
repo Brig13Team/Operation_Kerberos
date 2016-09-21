@@ -1,9 +1,0 @@
-
-// Tablett
-#define IDD_TABLET_MAIN 790000
-#define IDC_TABLET_Background 790001
-// Links
-#define IDC_TABLET_CTRLGROUP 790040
-#define IDD_TABLET_START 790041
-
-#define IDC_TABLET_APP_ACRE 790080

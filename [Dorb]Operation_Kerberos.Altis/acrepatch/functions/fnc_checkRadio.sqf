@@ -27,16 +27,3 @@ private _allItemsToCheck = _allItems select {!(getText(configfile >> "CfgWeapons
         [acre_player, _radioID, _baseName] call acre_lib_fnc_replaceGear;
     };
 } forEach _allItemsToCheck;
-
-LOG("ACRE-Radios replaced");
-
-
-
-
-/// reinit
-
-
-
-
-
-//[_radioId, "initializeComponent", [_baseName, QGVAR(COOP)]] call acre_sys_data_dataEvent;
