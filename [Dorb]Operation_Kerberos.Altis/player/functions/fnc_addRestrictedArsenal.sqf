@@ -30,4 +30,5 @@ GVAR(arsenalList_Full) params ["_addWeapons","_addMagazines","_addItems","_addBa
 [_target,_addMagazines,true,false] call bis_fnc_addVirtualMagazineCargo;
 [_target,_addItems,true,false] call bis_fnc_addVirtualItemCargo;
 [_target,_addBackpacks,true,false] call bis_fnc_addVirtualBackpackCargo;
-[["AmmoboxServer",_target,true],"bis_fnc_arsenal",false] call bis_fnc_mp;
+//[["AmmoboxServer",_target,true],"bis_fnc_arsenal",false] call bis_fnc_mp;
+[_target] call FUNC(addArsenalAction);

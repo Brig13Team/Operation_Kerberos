@@ -1,6 +1,7 @@
 #include "script_component.hpp"
 
 PREP(addArsenal);
+PREP(addArsenalAction);
 PREP(addRestrictedArsenal);
 PREP(addSideRestrictedArsenal);
 PREP(getRestrictedArsenal);

@@ -86,6 +86,58 @@ If (hasInterface) then {
     } forEach ["Land_Suitcase_F","Land_SatellitePhone_F","Land_Laptop_device_F"];
     [] call FUNC(addColorActions);
 
+    [
+        QGVAR(ArsenalAddAction),
+        {
+            private _boxes = missionnamespace getvariable [QGVAR(arsenal_boxes),[]];
+            {
+                if (isnil {_x getvariable "bis_fnc_arsenal_action"}) then {
+                    private _action = _x addaction [
+                        format["<t color='#FFa500' size='1.5'>AA %1</t>",localize "STR_A3_Arsenal"],
+                        {
+                            _box = _this select 0;
+                            _unit = _this select 1;
+                            if !(isNil QEFUNC(acrepatch,ArsenalRemoveRadio)) then {
+                                [] call EFUNC(acrepatch,ArsenalRemoveRadio);
+                            };
+                            ["Open",[nil,_box,_unit]] call bis_fnc_arsenal;
+                        },
+                        [],
+                        6,
+                        true,
+                        false,
+                        "",
+                        "
+                            _cargo = _target getvariable ['bis_addVirtualWeaponCargo_cargo',[[],[],[],[]]];
+                            if ({count _x > 0} count _cargo == 0) then {
+                                _target removeaction (_target getvariable ['bis_fnc_arsenal_action',-1]);
+                                _target setvariable ['bis_fnc_arsenal_action',nil];
+                            };
+                            _condition = _target getvariable ['bis_fnc_arsenal_condition',{true}];
+                            alive _target && {_target distance _this < 5 && {vehicle _this == _this}} && {call _condition}
+                        "
+                    ];
+                    _x setvariable ["bis_fnc_arsenal_action",_action];
+                };
+            } foreach _boxes;
+        }
+    ] call CBA_fnc_addEventHandler;
+    [
+        {[QGVAR(ArsenalAddAction)] call CBA_fnc_localEvent;},
+        [],
+        5
+    ] call CBA_fnc_waitAndExecute;
+    [
+        QGVAR(ArsenalRemoveAction),
+        {
+            _this params [["_box",objNull,[objNull]]];
+            CHECK(isNull _box)
+            [_box,true] call FUNC(addArsenalAction);
+            private _action = _box getVariable ["bis_fnc_arsenal_action",-1];
+            _box removeAction _action;
+            _box setVariable ["bis_fnc_arsenal_action",-1];
+        }
+    ] call CBA_fnc_addEventHandler;
 };
 
 If (isServer) then {
