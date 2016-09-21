@@ -60,6 +60,7 @@ class cfgFunctions {
 #include "spawn\config\defence_positions.hpp"
 #include "mission\config\sideby_config.hpp"
 #include "logistics\config\logistics.hpp"
+#include "player\config\arsenal.hpp"
 
 //Debrief
 class CfgDebriefing {

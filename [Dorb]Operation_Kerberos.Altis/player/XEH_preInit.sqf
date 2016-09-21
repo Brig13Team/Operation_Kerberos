@@ -1,6 +1,11 @@
 #include "script_component.hpp"
 
 PREP(addArsenal);
+PREP(addRestrictedArsenal);
+PREP(addSideRestrictedArsenal);
+PREP(getRestrictedArsenal);
+PREP(getSideRestrictedArsenal);
+
 PREP(addbriefing);
 PREP(addColorActions);
 PREP(grouptracker);

@@ -20,7 +20,8 @@ setTimeMultiplier 2;
 
 //EGVAR(common,PFEH_headless) = [{ [] call EFUNC(common,headless) } , 30, [] ] call CBA_fnc_addPerFrameHandler;
 
-[] spawn EFUNC(mission,core);
+
+[{[] spawn EFUNC(mission,core);}, [], 180] call CBA_fnc_waitAndExecute;
 [] spawn EFUNC(interface,spawn_createlist);
 
 #ifdef DORB_PILOT_WHITELIST_ENABLED

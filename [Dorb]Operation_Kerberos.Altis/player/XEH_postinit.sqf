@@ -1,5 +1,6 @@
 #include "script_component.hpp"
 
+GVAR(postInit) = false;
 
 If (!hasInterface) then {
     [
@@ -84,6 +85,7 @@ If (hasInterface) then {
         [_x,0,["ACE_MainActions"],_action] call ace_interact_menu_fnc_addActionToClass;
     } forEach ["Land_Suitcase_F","Land_SatellitePhone_F","Land_Laptop_device_F"];
     [] call FUNC(addColorActions);
+
 };
 
 If (isServer) then {
@@ -107,3 +109,5 @@ If (isServer) then {
         }
     ] call CBA_fnc_waitUntilAndExecute;
 };
+
+GVAR(postInit) = true;
