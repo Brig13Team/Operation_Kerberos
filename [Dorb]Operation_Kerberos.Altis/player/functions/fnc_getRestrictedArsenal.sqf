@@ -14,8 +14,6 @@
 #define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-hint "generating Arsenal";
-
 If !(isClass(missionConfigFile>>QGVAR(arsenal))) exitWith {[[],[],[],[]]};
 
 private _itemBlacklist = (getArray(missionConfigFile>>QGVAR(arsenal)>> "ItemsBlacklist"));
@@ -85,7 +83,5 @@ private _configArray = (
         } foreach getarray (_x >> "magazines");
     } foreach ("isclass _x" configclasses (configfile >> "cfgweapons" >> _weapon));
 } foreach ["Put","Throw"];
-
-hint "arsenal finished";
 
 GVAR(arsenalList_Full) = [_addWeapons,_addMagazines,_addItems,_addBackpacks];

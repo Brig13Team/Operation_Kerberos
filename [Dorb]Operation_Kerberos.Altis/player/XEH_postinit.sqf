@@ -93,7 +93,7 @@ If (hasInterface) then {
             {
                 if (isnil {_x getvariable "bis_fnc_arsenal_action"}) then {
                     private _action = _x addaction [
-                        format["<t color='#FFa500' size='1.5'>AA %1</t>",localize "STR_A3_Arsenal"],
+                        format["<t color='#FFa500' size='1.5'>%1</t>",localize "STR_A3_Arsenal"],
                         {
                             _box = _this select 0;
                             _unit = _this select 1;

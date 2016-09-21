@@ -107,7 +107,6 @@ switch (_side) do {
             };
         };
     };
-    hintSilent format["%1/%2",_forEachIndex,count _configArray];
 } foreach _configArray;
 {
     private _weapon = _x;
