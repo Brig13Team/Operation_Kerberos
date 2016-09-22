@@ -94,6 +94,27 @@ private _configArray = (
     } foreach ("isclass _x" configclasses (configfile >> "cfgweapons" >> _weapon));
 } foreach ["Put","Throw"];
 
-_addItems pushBackUnique "ItemRadioAcreFlagged";
+{
+    If (isClass(configFile>>"CfgWeapons">>_x)) then {
+        _addItems pushBackUnique _x;
+    };
+} foreach (getArray(missionConfigFile>>QGVAR(arsenal)>> "ItemsWhitelist"));
+{
+    If (isClass(configFile>>"CfgWeapons">>_x)) then {
+        _addWeapons pushBackUnique _x;
+    };
+} foreach (getArray(missionConfigFile>>QGVAR(arsenal)>> "WeaponsWhitelist"));
+{
+    If (isClass(configFile>>"CfgMagazines">>_x)) then {
+        _addMagazines pushBackUnique _x;
+    };
+} foreach (getArray(missionConfigFile>>QGVAR(arsenal)>> "MagazineWhiteList"));
+{
+    If (isClass(configFile>>"CfgVehicles">>_x)) then {
+        _addBackpacks pushBackUnique _x;
+    };
+} foreach (getArray(missionConfigFile>>QGVAR(arsenal)>> "BackpackWhitelist"));
+
+
 
 GVAR(arsenalList_Full) = [_addWeapons,_addMagazines,_addItems,_addBackpacks,_fixWeapons,_fixMagazines,_fixItems,_fixBackpacks];

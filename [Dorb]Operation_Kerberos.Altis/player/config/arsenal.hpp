@@ -14,9 +14,24 @@ class GVAR(arsenal) {
         "launch_O_Titan_F","launch_O_Titan_ghex_F","launch_O_Titan_short_F","launch_O_Titan_short_ghex_F"
     };
     BackpackBlacklist[] = {
-        "B_Respawn_Sleeping_bag_blue_F","B_Respawn_Sleeping_bag_brown_F","B_Respawn_Sleeping_bag_F","B_Respawn_TentA_F","B_Respawn_TentDome_F" //respawn Tents
+        "B_Respawn_Sleeping_bag_blue_F","B_Respawn_Sleeping_bag_brown_F","B_Respawn_Sleeping_bag_F","B_Respawn_TentA_F","B_Respawn_TentDome_F", //respawn Tents
+        "ACRE_testBag"
     };
     MagazineBlackList[] = {
         "BWA3_10Rnd_127x99_G82_Raufoss","BWA3_10Rnd_127x99_G82_Raufoss_Tracer","BWA3_10Rnd_127x99_G82_Raufoss_Tracer_Dim"
     };
+    ItemsWhitelist[] = {
+        "ItemRadioAcreFlagged",
+        "BWA3_acc_LLM01_flash","BWA3_acc_LLM01_flash_underbarrel","BWA3_acc_LLM01_laser","BWA3_acc_LLM01_laser_underbarrel"
+    };
+    WeaponsWhitelist[] = {
+
+    };
+    BackpackWhitelist[] = {
+
+    };
+    MagazineWhitelist[] = {
+        "ACE_SpareBarrel"
+    };
+
 };
