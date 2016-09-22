@@ -75,11 +75,11 @@ switch (_side) do {
                     private _namecount = {_x in _BISModelBlacK} count _namestring;
                     If ( _namecount > 0) then {
                         _hinzufuegen = false;
-                    };
-                    private _namestring = [_className,"_"] call CBA_fnc_split;
-                    private _namecount = {_x in _BISClassBlack} count _namestring;
-                    If ( _namecount > 0) then {
-                        _hinzufuegen = false;
+                    }else{
+                        private _namecount = {((count([_className,_x] call CBA_fnc_split))>1)} count _BISClassBlack;
+                        If ( _namecount > 0) then {
+                            _hinzufuegen = false;
+                        };
                     };
                 }else{
                     if !((getText(_class>>"dlc"))in _dlcs) then {_hinzufuegen = false;};
