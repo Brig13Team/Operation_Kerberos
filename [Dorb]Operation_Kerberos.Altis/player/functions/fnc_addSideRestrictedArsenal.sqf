@@ -32,6 +32,6 @@ private _fix = _target getVariable ["bis_addVirtualWeaponCargo_cargo",[[],[],[],
 		(_fix select _index) pushBackUnique _x;
 	} forEach _x;
 } forEach [_fixItems,_fixWeapons,_fixMagazines,_fixBackpacks];
-_target setVariable ["bis_addVirtualWeaponCargo_cargo",_fix];
+_target setVariable ["bis_addVirtualWeaponCargo_cargo",_fix,true];
 
 [_target] call FUNC(addArsenalAction);

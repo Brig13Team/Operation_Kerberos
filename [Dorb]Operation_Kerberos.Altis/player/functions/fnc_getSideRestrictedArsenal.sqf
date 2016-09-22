@@ -76,7 +76,7 @@ switch (_side) do {
                     If ( _namecount > 0) then {
                         _hinzufuegen = false;
                     };
-                    private _namestring = [_className,"\"] call CBA_fnc_split;
+                    private _namestring = [_className,"_"] call CBA_fnc_split;
                     private _namecount = {_x in _BISClassBlack} count _namestring;
                     If ( _namecount > 0) then {
                         _hinzufuegen = false;
