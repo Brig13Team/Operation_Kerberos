@@ -12,7 +12,7 @@
 */
 #include "script_component.hpp"
 private["_userconfig"];
-
+CHECK(!isMultiplayer)
 isNil {
 	_userconfig = compile preprocessFileLineNumbers "\userconfig\kerberos\dorb_userconfig.sqf";
 };
