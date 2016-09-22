@@ -21,7 +21,7 @@ If (!hasInterface) then {
         {
             disableSerialization;
             private _display = (uinamespace getVariable "RscDisplayGarage");
-		    (_display displayctrl 44146) ctrladdeventhandler ["buttonclick",QUOTE([ARR_2(FUNC(ArsenalRemoveRadio),_this)] call CBA_fnc_directCall;)];
+		    (_display displayctrl 44147) ctrladdeventhandler ["buttonclick",QUOTE([ARR_2(FUNC(ArsenalRemoveRadio),_this)] call CBA_fnc_directCall;)];
         }
     ] call CBA_fnc_addEventHandler;
 };
