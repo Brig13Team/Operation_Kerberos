@@ -23,8 +23,11 @@ class Extended_PostInit_EventHandlers {
     class Dorb_headless_Server {
         Serverinit = "call compile preProcessFileLineNumbers 'headless\XEH_serverpostinit.sqf'";
     };
-    class Dorb_player_post {
-        init = "call compile preProcessFileLineNumbers 'player\XEH_postinit.sqf'";
+    class Dorb_player_Server {
+        Serverinit = "call compile preProcessFileLineNumbers 'player\XEH_serverpostinit.sqf'";
+    };
+    class Dorb_player_Client {
+        Clientinit = "call compile preProcessFileLineNumbers 'player\XEH_Clientpostinit.sqf'";
     };
     class Dorb_ai_post {
 		Serverinit = "call compile preProcessFileLineNumbers 'ai\XEH_postinit.sqf'";
