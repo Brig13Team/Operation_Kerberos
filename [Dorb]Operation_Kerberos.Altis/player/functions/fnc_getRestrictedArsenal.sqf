@@ -28,6 +28,11 @@ private _addWeapons = [];
 private _addBackpacks = [];
 private _addMagazines = [];
 
+private _fixItems = [];
+private _fixWeapons = [];
+private _fixBackpacks = [];
+private _fixMagazines = [];
+
 private _configArray = (
     ("isclass _x" configclasses (configfile >> "cfgweapons")) +
     ("isclass _x && (getText(_x >> 'vehicleClass')=='Backpacks')" configclasses (configfile >> "cfgvehicles")) +
@@ -62,7 +67,12 @@ private _configArray = (
                     case (_weaponTypeSpecific in ["Backpack"]) : {
                         _addBackpacks pushBackUnique _className;
                     };
-                    default {_addItems pushBackUnique _className;};
+                    default {
+                        _addItems pushBackUnique _className;
+                        If (_weaponTypeSpecific in ["Binocular"]) then {
+                            _fixWeapons pushBackUnique _className;
+                        };
+                    };
                 };
             };
         };
@@ -84,4 +94,6 @@ private _configArray = (
     } foreach ("isclass _x" configclasses (configfile >> "cfgweapons" >> _weapon));
 } foreach ["Put","Throw"];
 
-GVAR(arsenalList_Full) = [_addWeapons,_addMagazines,_addItems,_addBackpacks];
+_addItems pushBackUnique "ItemRadioAcreFlagged";
+
+GVAR(arsenalList_Full) = [_addWeapons,_addMagazines,_addItems,_addBackpacks,_fixWeapons,_fixMagazines,_fixItems,_fixBackpacks];

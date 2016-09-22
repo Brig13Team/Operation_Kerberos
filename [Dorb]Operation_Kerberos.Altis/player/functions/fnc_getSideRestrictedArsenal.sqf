@@ -28,6 +28,11 @@ private _addWeapons = [];
 private _addBackpacks = [];
 private _addMagazines = [];
 
+private _fixItems = [];
+private _fixWeapons = [];
+private _fixBackpacks = [];
+private _fixMagazines = [];
+
 private _configArray = (
     ("isclass _x" configclasses (configfile >> "cfgweapons")) +
     ("isclass _x && (getText(_x >> 'vehicleClass')=='Backpacks')" configclasses (configfile >> "cfgvehicles")) +
@@ -65,7 +70,7 @@ switch (_side) do {
             If (_className in _blacklist) then {_hinzufuegen = false;};
 
             If (((_onlyGear)&&{_weaponTypeCategory in ["Equipment"]})||(!_onlyGear)) then {
-                If ((getText(_class>>"dlc") isEqualTo "")||{getText(_class>>"dlc") in ["Mark"]}) then {
+                If ((getText(_class>>"dlc") isEqualTo "")||{getText(_class>>"dlc") in ["Mark","Expansion"]}) then {
                     private _namestring = [getText(_class>>"model"),"\"] call CBA_fnc_split;
                     private _namecount = {_x in _BISModelBlacK} count _namestring;
                     If ( _namecount > 0) then {
@@ -99,7 +104,12 @@ switch (_side) do {
                     case (_weaponTypeSpecific in ["Backpack"]) : {
                         _addBackpacks pushBackUnique _className;
                     };
-                    default {_addItems pushBackUnique _className;};
+                    default {
+                        If (_weaponTypeSpecific in ["Binocular"]) then {
+                            _fixWeapons pushBackUnique _className;
+                        };
+                        _addItems pushBackUnique _className;
+                    };
                 };
             };
         };
@@ -120,4 +130,4 @@ switch (_side) do {
     } foreach ("isclass _x" configclasses (configfile >> "cfgweapons" >> _weapon));
 } foreach ["Put","Throw"];
 
-missionNamespace setVariable [format[QGVAR(arsenalList_%1),str _side],[_addWeapons,_addMagazines,_addItems,_addBackpacks]];
+missionNamespace setVariable [format[QGVAR(arsenalList_%1),str _side],[_addWeapons,_addMagazines,_addItems,_addBackpacks,_fixWeapons,_fixMagazines,_fixItems,_fixBackpacks]];
