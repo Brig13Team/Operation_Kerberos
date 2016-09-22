@@ -9,9 +9,10 @@
     Module Difficulty settings
 */
 private _signalLoss = true; // Default true
+private _signalLoss_Value = 0.5; // Default 1
 private _fullDuplex = true; // Default False
 private _interference = true; // Default true
-private _ignoreAntennaDirection = false; // Default false
+private _ignoreAntennaDirection = true; // Default false
 
 /*
     Module basic mission settings
@@ -66,6 +67,8 @@ private _channelnamen = [
 */
 if(!_signalLoss) then {
 	[0.0] call acre_api_fnc_setLossModelScale;
+}else{
+    [_signalLoss_Value] call acre_api_fnc_setLossModelScale;
 };
 if(_fullDuplex) then {
 	[true] call acre_api_fnc_setFullDuplex;

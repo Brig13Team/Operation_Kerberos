@@ -5,7 +5,7 @@ class EditorData
 	angleGridStep=0.017453292;
 	scaleGridStep=0.1;
 	autoGroupingDist=10;
-	toggles=237;
+	toggles=109;
 	class ItemIDProvider
 	{
 		nextID=1520;
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=410;
+		nextID=500;
 	};
 	class Camera
 	{
 		pos[]={11597.095,31.668783,12007.919};
-		dir[]={0.88618952,-0.37783113,0.26854819};
-		up[]={0.36169219,0.9258182,0.10960659};
-		aside[]={0.29005018,2.4267501e-007,-0.95712131};
+		dir[]={0.95751923,-0.24192551,-0.15759923};
+		up[]={0.23884061,0.97024924,-0.039310422};
+		aside[]={-0.16241692,1.2273013e-006,-0.98683059};
 	};
 };
 binarizationWanted=0;
@@ -2501,12 +2501,12 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={11450.125,27.644043,11961.625};
-				angles[]={6.2671871,0,6.253861};
+				position[]={11450.125,27.643646,11961.625};
+				angles[]={6.2671809,0,6.2538638};
 			};
 			id=235;
 			type="ACE_ModuleCheckPBOs";
-			atlOffset=-0.0016040802;
+			atlOffset=-0.0020008087;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -2543,7 +2543,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="[""cba_diagnostic_enable_perf_loop"",""cba_diagnostic_logging"",""cba_cache_disable"",""cba_diagnostic_disable_xeh_logging"",""Disable_XEH_Logging"",""cba_diagnostic_enable_logging"",""asr_ai3_main"",""asr_ai3_rhs_c"",""BWA3_EnablePIPOptics"",""asr_ai3_rhs_ru_c"",""asr_ai3_rhs_us_c""]";
+							value="[""cba_diagnostic_enable_perf_loop"",""cba_diagnostic_logging"",""cba_cache_disable"",""cba_diagnostic_disable_xeh_logging"",""Disable_XEH_Logging"",""cba_diagnostic_enable_logging"",""asr_ai3_main"",""asr_ai3_rhs_c"",""BWA3_EnablePIPOptics"",""asr_ai3_rhs_ru_c"",""asr_ai3_rhs_us_c"",""st_sthud"",""st_sthud_usermenu""]";
 						};
 					};
 				};
