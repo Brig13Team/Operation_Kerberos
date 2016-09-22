@@ -6,6 +6,7 @@ PREP(addRestrictedArsenal);
 PREP(addSideRestrictedArsenal);
 PREP(getRestrictedArsenal);
 PREP(getSideRestrictedArsenal);
+PREP(checkContainerRestrictions);
 
 PREP(addbriefing);
 PREP(addColorActions);

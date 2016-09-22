@@ -11,13 +11,10 @@
     Return
         none
 */
-#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-_this params ["_side"];
-LOG_1(_side);
-hint "generating Arsenal";
+_this params ["_side",["_onlyGear",false,[true]]];
 
-If !(isClass(missionConfigFile>>QGVAR(arsenal))) exitWith {[[],[],[],[]]};
+If !(isClass(missionConfigFile>>QGVAR(arsenal))) exitWith {GVAR(arsenalList_Full) = [[],[],[],[]]};
 
 private _itemBlacklist = (getArray(missionConfigFile>>QGVAR(arsenal)>> "ItemsBlacklist"));
 private _weaponBlacklist = (getArray(missionConfigFile>>QGVAR(arsenal)>> "WeaponsBlacklist"));
@@ -67,7 +64,7 @@ switch (_side) do {
             private _hinzufuegen = true;
             If (_className in _blacklist) then {_hinzufuegen = false;};
 
-            If !(_weaponTypeSpecific in ["Backpack"]) then {
+            If (((_onlyGear)&&{_weaponTypeCategory in ["Equipment"]})||(!_onlyGear)) then {
                 If ((getText(_class>>"dlc") isEqualTo "")||{getText(_class>>"dlc") in ["Mark"]}) then {
                     private _namestring = [getText(_class>>"model"),"\"] call CBA_fnc_split;
                     private _namecount = {_x in _BISModelBlacK} count _namestring;
@@ -99,7 +96,7 @@ switch (_side) do {
                     case (_weaponTypeCategory in ["Mine"]) : {
                         _addMagazines pushBackUnique _className;
                     };
-                    case ((_weaponTypeSpecific in ["Backpack"])&&(getNumber(_class >> "side")==_sideNumber)) : {
+                    case (_weaponTypeSpecific in ["Backpack"]) : {
                         _addBackpacks pushBackUnique _className;
                     };
                     default {_addItems pushBackUnique _className;};
@@ -123,5 +120,4 @@ switch (_side) do {
     } foreach ("isclass _x" configclasses (configfile >> "cfgweapons" >> _weapon));
 } foreach ["Put","Throw"];
 
-hint "arsenal finished";
 missionNamespace setVariable [format[QGVAR(arsenalList_%1),str _side],[_addWeapons,_addMagazines,_addItems,_addBackpacks]];

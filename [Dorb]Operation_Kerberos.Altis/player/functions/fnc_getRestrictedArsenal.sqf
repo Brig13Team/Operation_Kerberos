@@ -14,7 +14,7 @@
 #define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-If !(isClass(missionConfigFile>>QGVAR(arsenal))) exitWith {[[],[],[],[]]};
+If !(isClass(missionConfigFile>>QGVAR(arsenal))) exitWith {GVAR(arsenalList_Full) = [[],[],[],[]]};
 
 private _itemBlacklist = (getArray(missionConfigFile>>QGVAR(arsenal)>> "ItemsBlacklist"));
 private _weaponBlacklist = (getArray(missionConfigFile>>QGVAR(arsenal)>> "WeaponsBlacklist"));

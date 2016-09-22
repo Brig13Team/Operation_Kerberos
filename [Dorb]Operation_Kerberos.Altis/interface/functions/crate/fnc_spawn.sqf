@@ -57,5 +57,7 @@ _anzahl = GVAR(crate_current) select 3;
     _box addMagazineCargoGlobal [configname (_x),(_anzahl select _foreachindex)];
 }forEach _items;
 
+[QEGVAR(player,cleanCargoRestriction),[_box]] call CBA_fnc_localEvent;
+
 disableSerialization;
 closeDialog 600200;
