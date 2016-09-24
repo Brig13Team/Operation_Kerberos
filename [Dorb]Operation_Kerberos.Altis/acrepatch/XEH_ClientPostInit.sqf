@@ -29,6 +29,8 @@ If (hasInterface) then {
         GVAR(isDataSyncronized) = true;
     }else{
         GVAR(isDataSyncronized) = false;
-        "ACREjipc" addPublicVariableEventHandler {GVAR(isDataSyncronized) = true;};
+        //"ACREjipc" addPublicVariableEventHandler {GVAR(isDataSyncronized) = true;};
+        [{GVAR(isDataSyncronized) = true;},[],45] call CBA_fnc_waitAndExecute;
+
     };
 };
