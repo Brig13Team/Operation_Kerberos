@@ -21,7 +21,13 @@ private _weaponBlacklist = (getArray(missionConfigFile>>QGVAR(arsenal)>> "Weapon
 private _backpackBlacklist = getArray(missionConfigFile>>QGVAR(arsenal)>> "BackpackBlacklist");
 private _magazineBlacklist = getArray(missionConfigFile>>QGVAR(arsenal)>> "MagazineBlackList");
 
+private _ItemsWhitelist = (getArray(missionConfigFile>>QGVAR(arsenal)>> "ItemsWhitelist"));
+private _WeaponsWhitelist = (getArray(missionConfigFile>>QGVAR(arsenal)>> "WeaponsWhitelist"));
+private _MagazineWhiteList = (getArray(missionConfigFile>>QGVAR(arsenal)>> "MagazineWhiteList"));
+private _BackpackWhitelist = (getArray(missionConfigFile>>QGVAR(arsenal)>> "BackpackWhitelist"));
+
 private _blackList = _itemBlacklist + _weaponBlacklist + _backpackBlacklist;
+private _whitelist = _ItemsWhitelist + _WeaponsWhitelist + _MagazineWhiteList + _BackpackWhitelist;
 
 private _addItems = [];
 private _addWeapons = [];
@@ -63,7 +69,7 @@ switch (_side) do {
     private _className = configname _x;
     private _isBase = if (isarray (_x >> "muzzles")) then {(_className call bis_fnc_baseWeapon == _className)} else {true};
     private _scope = if (isnumber (_class >> "scopeArsenal")) then {getnumber (_class >> "scopeArsenal")} else {getnumber (_class >> "scope")};
-    if ((_scope > 1) && {(gettext (_class >> "model") != "")} && _isBase && {gettext (_class >> "displayName") != ""}&&{!(_className in _blacklist)}) then {
+    if (((_scope > 1) && {(gettext (_class >> "model") != "")} && _isBase && {gettext (_class >> "displayName") != ""}&&{!(_className in _blacklist)})||{_className in _whitelist}) then {
         (_className call bis_fnc_itemType) params ["_weaponTypeCategory","_weaponTypeSpecific"];
         if (!(_weaponTypeCategory in ["VehicleWeapon","Magazine"])) then {
             private _hinzufuegen = true;
@@ -85,18 +91,26 @@ switch (_side) do {
                     if !((getText(_class>>"dlc"))in _dlcs) then {_hinzufuegen = false;};
                 };
             };
+            If (_className in _whitelist) then {_hinzufuegen = false;};
 
             If (_hinzufuegen) then {
                 switch (true) do {
                     case (_weaponTypeCategory in ["Weapon"]) : {
                         _addWeapons pushBackUnique _className;
                         private _magazines = getarray(_class >> "magazines");
+                        /// GrenadeLauncher
+                        {
+                            If (isClass (_class >> _x)) then {
+                                _magazines = _magazines + getarray(_class >> _x >> "magazines");
+                            };
+                        } foreach getarray(_class >> "muzzles");
                         {
                             private _scopeMag = if (isnumber (configFile >> "CfgMagazines" >> _x >> "scopeArsenal")) then {getnumber (configFile >> "CfgMagazines" >> _x >> "scopeArsenal")} else {getnumber (configFile >> "CfgMagazines" >> _x >> "scope")};
                             If ((!(_x in _magazineBlacklist))&& (_scope > 1)) then {
                                 _addMagazines pushBackUnique _x;
                             };
                         }foreach _magazines;
+
                     };
                     case (_weaponTypeCategory in ["Mine"]) : {
                         _addMagazines pushBackUnique _className;
@@ -134,22 +148,21 @@ switch (_side) do {
     If (isClass(configFile>>"CfgWeapons">>_x)) then {
         _addItems pushBackUnique _x;
     };
-} foreach (getArray(missionConfigFile>>QGVAR(arsenal)>> "ItemsWhitelist"));
+} foreach _ItemsWhitelist;
 {
     If (isClass(configFile>>"CfgWeapons">>_x)) then {
         _addWeapons pushBackUnique _x;
     };
-} foreach (getArray(missionConfigFile>>QGVAR(arsenal)>> "WeaponsWhitelist"));
+} foreach _WeaponsWhitelist;
 {
     If (isClass(configFile>>"CfgMagazines">>_x)) then {
         _addMagazines pushBackUnique _x;
     };
-} foreach (getArray(missionConfigFile>>QGVAR(arsenal)>> "MagazineWhiteList"));
+} foreach _MagazineWhiteList;
 {
     If (isClass(configFile>>"CfgVehicles">>_x)) then {
         _addBackpacks pushBackUnique _x;
     };
-} foreach (getArray(missionConfigFile>>QGVAR(arsenal)>> "BackpackWhitelist"));
-
+} foreach _BackpackWhitelist;
 
 missionNamespace setVariable [format[QGVAR(arsenalList_%1),str _side],[_addWeapons,_addMagazines,_addItems,_addBackpacks,_fixWeapons,_fixMagazines,_fixItems,_fixBackpacks]];
