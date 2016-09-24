@@ -3,7 +3,7 @@
  *
  */
  #include "script_component.hpp"
-If (!hasInterface) then {
+If (hasInterface) then {
 /*
     [
         QGVARMAIN(arsenalClosed),
@@ -24,4 +24,11 @@ If (!hasInterface) then {
 		    (_display displayctrl 44147) ctrladdeventhandler ["buttonclick",QUOTE([ARR_2(FUNC(ArsenalRemoveRadio),_this)] call CBA_fnc_directCall;)];
         }
     ] call CBA_fnc_addEventHandler;
+
+    If (isServer) then { // self hosted game
+        GVAR(isDataSyncronized) = true;
+    }else{
+        GVAR(isDataSyncronized) = false;
+        "ACREjipc" addPublicVariableEventHandler {GVAR(isDataSyncronized) = true;};
+    };
 };

@@ -74,6 +74,12 @@ GVAR(postInit) = false;
 [
     QGVAR(ArsenalAddAction),
     {
+        If ((!isNil QEGVAR(acrepatch,isDataSyncronized))&&{!EGVAR(acrepatch,isDataSyncronized)}) exitWith {
+            [
+                {EGVAR(acrepatch,isDataSyncronized)},
+                {[QGVAR(ArsenalAddAction)] call CBA_fnc_localEvent;}
+            ] call CBA_fnc_waitUntilAndExecute;
+        };
         private _boxes = missionnamespace getvariable [QGVAR(arsenal_boxes),[]];
         {
             if (isnil {_x getvariable "bis_fnc_arsenal_action"}) then {
@@ -107,11 +113,9 @@ GVAR(postInit) = false;
         } foreach _boxes;
     }
 ] call CBA_fnc_addEventHandler;
-[
-    {[QGVAR(ArsenalAddAction)] call CBA_fnc_localEvent;},
-    [],
-    5
-] call CBA_fnc_waitAndExecute;
+
+[{[QGVAR(ArsenalAddAction)] call CBA_fnc_localEvent;}] call CBA_fnc_execNextFrame;
+
 [
     QGVAR(ArsenalRemoveAction),
     {
