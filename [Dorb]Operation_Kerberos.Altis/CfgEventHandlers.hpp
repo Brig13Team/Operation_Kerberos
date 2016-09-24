@@ -45,6 +45,10 @@ class Extended_Init_Eventhandlers {
 	#include "logistics\XEH_init.hpp"
 };
 
+class Extended_InitPost_Eventhandlers {
+    #include "headless\XEH_initPost.hpp"
+};
+
 class Extended_inventoryClosed_EventHandlers {
     #include "logistics\XEH_InventoryClosed.hpp"
 };
