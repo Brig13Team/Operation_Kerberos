@@ -9,7 +9,7 @@
     Module Difficulty settings
 */
 private _signalLoss = true; // Default true
-private _signalLoss_Value = 0.5; // Default 1
+private _signalLoss_Value = 0.5; // Default 1 -> no effect if signalloss = false
 private _fullDuplex = true; // Default False
 private _interference = true; // Default true
 private _ignoreAntennaDirection = true; // Default false
