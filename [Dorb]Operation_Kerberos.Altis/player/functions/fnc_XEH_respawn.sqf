@@ -1,7 +1,7 @@
 #include "script_component.hpp"
 SCRIPT(XEH_respawn);
 If(!hasInterface)exitWith{};
-
+_this params [["_unit",objNull,[objNull]],"_oldUnit"];
 GVARMAIN(missiontime) = CBA_missiontime;
 
 ["restart"] spawn FUNC(grouptracker);
@@ -18,3 +18,11 @@ ISNILS(EGVAR(mission,intel_obj),[]);
 		[_x] spawn EFUNC(mission,stadt_found_intel);
 	};
 }forEach EGVAR(mission,intel_obj);
+
+If !(isNull _unit) then {
+	[
+		_unit,
+		missionNamespace getVariable QGVAR(respawnLoadout),
+		missionNamespace getVariable QGVAR(Weapons)
+	] call FUNC(setLoadout);
+};

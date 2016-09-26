@@ -15,11 +15,13 @@ PREP(halo);
 PREP(assignCurator);
 PREP(halo_addaction);
 PREP(playeraddaction);
+PREP(setLoadout);
 
 PREP(XEH_fired);
 PREP(XEH_getIn);
 PREP(XEH_hit);
 PREP(XEH_hitPart);
+PREP(XEH_killed);
 PREP(XEH_respawn);
 PREP(XEH_seatSwitched);
 

@@ -61,6 +61,10 @@ class Extended_fired_Eventhandlers {
     #include "player\XEH_fired.hpp"
 };
 
+class Extended_killed_Eventhandlers {
+    #include "player\XEH_killed.hpp"
+};
+
 class Extended_Hit_EventHandlers {
     #include "player\XEH_hit.hpp"
 };

@@ -5,7 +5,7 @@ class EditorData
 	angleGridStep=0.017453292;
 	scaleGridStep=0.1;
 	autoGroupingDist=10;
-	toggles=109;
+	toggles=237;
 	class ItemIDProvider
 	{
 		nextID=1520;
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=510;
+		nextID=580;
 	};
 	class Camera
 	{
-		pos[]={11597.095,31.668783,12007.919};
-		dir[]={0.95751923,-0.24192551,-0.15759923};
-		up[]={0.23884061,0.97024924,-0.039310422};
-		aside[]={-0.16241692,1.2273013e-006,-0.98683059};
+		pos[]={11575.671,45.65078,12001.656};
+		dir[]={0.77624166,-0.58674532,0.23107728};
+		up[]={0.5624184,0.80970508,0.16742578};
+		aside[]={0.2853511,-1.3299141e-006,-0.95853883};
 	};
 };
 binarizationWanted=0;
@@ -1078,7 +1078,6 @@ class Mission
 			};
 			id=83;
 			type="MapBoard_altis_F";
-			atlOffset=5.7220459e-005;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -2855,7 +2854,7 @@ class Mission
 									"BOOL"
 								};
 							};
-							value=1;
+							value=0;
 						};
 					};
 				};
