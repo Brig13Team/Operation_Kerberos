@@ -11,7 +11,6 @@
     Return
         none
 */
-#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 If !(isClass(missionConfigFile>>QGVAR(arsenal))) exitWith {GVAR(arsenalList_Full) = [[],[],[],[]]};

@@ -10,7 +10,7 @@ Author:
 	#define PART main
 #endif
 
-#ifdef DEBUGMODUS_FULL
+#ifdef DEBUG_MODE_FULL
 	#define TRACE_1(MESSAGE,A) ["TRACE",QUOTE(ADDON),QUOTE(PART),PFORMAT_1(MESSAGE,A),THIS_FILE_, __LINE__] call EFUNC(main,debug_putinlog)
 	#define TRACE_2(MESSAGE,A,B) ["TRACE",QUOTE(ADDON),QUOTE(PART),PFORMAT_2(MESSAGE,A,B),THIS_FILE_, __LINE__] call EFUNC(main,debug_putinlog)
 	#define TRACE_3(MESSAGE,A,B,C) ["TRACE",QUOTE(ADDON),QUOTE(PART),PFORMAT_3(MESSAGE,A,B,C),THIS_FILE_, __LINE__] call EFUNC(main,debug_putinlog)
@@ -47,7 +47,7 @@ Author:
 	#define EXPLODE_8_PVT(ARRAY,A,B,C,D,E,F,G,H) ARRAY params [#A,#B,#C,#D,#E,#F,#G,#H]; TRACEV_8(A,B,C,D,E,F,G,H)
 	#define EXPLODE_9(ARRAY,A,B,C,D,E,F,G,H,I) EXPLODE_9_SYS(ARRAY,A,B,C,D,E,F,G,H,I); TRACEV_9(A,B,C,D,E,F,G,H,I)
 	#define EXPLODE_9_PVT(ARRAY,A,B,C,D,E,F,G,H,I) ARRAY params [#A,#B,#C,#D,#E,#F,#G,#H,#I]; TRACEV_9(A,B,C,D,E,F,G,H,I)
-	#define CHECK(CONDITION) if (CONDITION) exitWith {ERROR("CHECK-FAILED");};
+//	#define CHECK(CONDITION) if (CONDITION) exitWith {ERROR("CHECK-FAILED");};
 #else
 	#define TRACE_1(MESSAGE,A) /* disabled */
 	#define TRACE_2(MESSAGE,A,B) /* disabled */

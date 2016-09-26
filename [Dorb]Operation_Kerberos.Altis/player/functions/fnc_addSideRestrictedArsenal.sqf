@@ -5,7 +5,6 @@
 		adds Arsenal to a unit
 		can be called via unit-init
 */
-#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 _this params [["_target",objNull,[objNull]],["_side",west,[west]],["_onlyGear",false,[true]]];
 

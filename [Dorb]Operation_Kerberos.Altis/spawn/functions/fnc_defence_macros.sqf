@@ -13,14 +13,13 @@
 	Returns:
 	ARRAY : Array with Positions
 
-	
-	
+
+
 	Limitations: it can happen that the direction of the makro is turned onto a hill, if the gradient of the terrain behind the hill is high.
-	
-	
-	
+
+
+
 */
-#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 SCRIPT(defence_macros);
 params["_position",["_radius",1000,[0]],["_anzahl_spawnpos",3,[0]],["_isTown",false,[true]]];
@@ -88,9 +87,9 @@ If (EGVAR(main,mods_rds)) then {
 			_gooddirs pushBack _i;
 		};
 	};
-	
+
 	/// choose the best dir
-	
+
 	_bestdir = 0;
 	_bestdir_level = 0;
 	_defencepos = ATLtoASL _x;
@@ -108,15 +107,15 @@ If (EGVAR(main,mods_rds)) then {
 			_bestdir_level = _templevel;
 		};
 	};
-	
-	
+
+
 	// If there is no bestdir (because of terrain) -> randomize
-	
+
 	If (_bestdir == 0) then {_bestdir = random 360;};
-	
-	
+
+
 	/// debug
-	
+
 	if (dorb_debug) then {
 		_mrkr = createMarker [format["defencepos-%1",_x],_x];
 		_mrkr setMarkerShape "ICON";
@@ -124,7 +123,7 @@ If (EGVAR(main,mods_rds)) then {
 		_mrkr setMarkerType "mil_arrow2";
 		_mrkr setMarkerDir _bestdir;
 	};
-	
+
     private _allCfg = "true" configClasses (missionConfigFile >> "defence_positions" >> "terrain");
 
     if ((count _allCfg)<1) exitWith {};
@@ -136,25 +135,5 @@ If (EGVAR(main,mods_rds)) then {
     private _soldiers = getArray(_cfg>>"soldiers");
     LOG_5(_x,_bestdir,_material,_vehicles,_soldiers);
     [_x,_bestdir,_material,_vehicles,_soldiers] call FUNC(exec_defence);
-    
+
 }forEach  _all_spawnpos;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
