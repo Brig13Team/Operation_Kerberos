@@ -5,7 +5,7 @@
 #define CBA_OFF
 #include "script_component.hpp"
 class CAManBase {
-    class ADDON {
+    class DOUBLES(ADDON,SERVER) {
         scope = 2;
         serverkilled = QUOTE(_this call FUNC(EH_killed););
     };

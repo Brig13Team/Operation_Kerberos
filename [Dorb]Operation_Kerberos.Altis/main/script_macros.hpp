@@ -81,7 +81,7 @@ Author:
 /* -------------------------------------------
 Macro: PAAPATH(VAR)
     reurn the path of the picture
-    
+
 Parameters:
     VAR - NAME
 
@@ -95,7 +95,7 @@ Author:
 
 /* -------------------------------------------
 Macro: FUNCSYS(VAR)
-    
+
 Parameters:
     VAR - NAME
 
@@ -103,16 +103,16 @@ Author:
     Dorbedo
 ------------------------------------------- */
 #define SYS_SYSTEM(VAR) (parsingNamespace getVariable 'TRIPLES(PREFIX,SYSTEM,VAR)')
-#define FUNCSYS(VAR) (parsingNamespace getVariable [ARR_2('TRIPLES(PREFIX,SYSTEM,VAR)',COMPILE_FIRST(VAR))])
 #define COMPILE_FIRST(VAR) {parsingNamespace setVariable [ARR_2('TRIPLES(PREFIX,SYSTEM,VAR)',compile getText(missionConfigFile>>'system'>>'VAR'))];parsingNamespace getVariable 'TRIPLES(PREFIX,SYSTEM,VAR)';}
-#define COMPILE_SYS call (parsingNamespace getVariable [ARR_2('TRIPLES(PREFIX,system,compile)',COMPILE_SYS_FIRST)])
 #define COMPILE_SYS_FIRST {parsingNamespace setVariable [ARR_2('TRIPLES(PREFIX,SYSTEM,compile)',compile getText(missionConfigFile>>'system'>>'compile'))];parsingNamespace setVariable [ARR_2('TRIPLES(PREFIX,SYSTEM,compile_sys)',compile getText(missionConfigFile>>'system'>>'compile_sys'))];parsingNamespace getVariable 'TRIPLES(PREFIX,SYSTEM,compile)';}
+#define COMPILE_SYS call (parsingNamespace getVariable [ARR_2('TRIPLES(PREFIX,system,compile)',COMPILE_SYS_FIRST)])
+#define FUNCSYS(VAR) (parsingNamespace getVariable [ARR_2('TRIPLES(PREFIX,SYSTEM,VAR)',COMPILE_FIRST(VAR))])
 
 
 /* -------------------------------------------
 Macro: GUI_*
     Macros for definining the right size of the gui
-    
+
     ****OBSOLET****
 
 Parameters:
@@ -246,12 +246,12 @@ Macro: PREP(VAR)
    adding an header to the function if DEBUG_MODE_NORMAL enabled (COMPONENT WIDE)
 Parameters:
     VAR - Name of file [Indentifier]
-    
+
 Example:
     (begin example)
         #define COMPONENT main
         PREP(test);
-        
+
         Result: PREFIX_main_fnc_test = *compiled function*;
     (end)
 
@@ -267,12 +267,12 @@ Macro: PREPS(VAR1,VAR2)
 Parameters:
     VAR1 - Name of PART
     VAR2 - Name of file [Indentifier]
-    
+
 Example:
     (begin example)
         #define COMPONENT main
         PREPS(player,test);
-        
+
         Result: PREFIX_main_fnc_player_test = *compiled function*;
     (end)
 
@@ -287,12 +287,12 @@ Macro: PREPMAIN(VAR)
    adding an header to the function if DEBUG_MODE_NORMAL enabled (COMPONENT WIDE)
 Parameters:
     VAR - Name of file [Indentifier]
-    
+
 Example:
     (begin example)
         #define COMPONENT main
         PREPMAIN(test);
-        
+
         Result: PREFIX_fnc_test = *compiled function*;
     (end)
 
@@ -425,7 +425,7 @@ Author:
 #define isHeadless (!IsDedicated && !hasInterface)
 
 /* -------------------------------------------
-Macro: 
+Macro:
     Some config helper
 
 Parameters:
