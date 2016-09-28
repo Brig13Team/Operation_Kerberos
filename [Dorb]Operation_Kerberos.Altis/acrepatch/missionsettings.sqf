@@ -138,7 +138,6 @@ FUNC(ACRE_fnc_addRadios) = {
     };
     {
         private _radioType = _x;
-        TRACE_1("", _radioType);
 
         if(!isNil "_radioType") then {
             if(_radioType != "") then {

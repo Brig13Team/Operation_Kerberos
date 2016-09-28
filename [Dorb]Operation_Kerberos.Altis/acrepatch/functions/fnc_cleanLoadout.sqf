@@ -12,7 +12,7 @@
  * Public: Yes
  */
 #include "script_component.hpp"
-
+LOG("Cleaning Respawn loadout");
 _this params [
     ["_loadout", [[],[],[],[],[],[],"","",[],[]], [[]] ]
     ];

@@ -37,4 +37,5 @@ If (hasInterface) then {
         ] call CBA_fnc_waitUntilAndExecute
 
     };
+    [] spawn FUNC(ArsenalRemoveRadio);
 };
