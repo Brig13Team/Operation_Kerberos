@@ -6,15 +6,16 @@
         moves groups to HC
 
     Parameter(s):
-        
+
         0 : Group
 
 */
 #include "script_component.hpp"
 
-CHECK(!(GVARMAIN(HC_enabled)))
+If ((!(GVARMAIN(HC_enabled)))||(GVAR(headlessClients) isEqualTo [])) exitWith {
+    GVAR(istransfering) = false;
+};
 
-CHECK(GVAR(headlessClients) isEqualTo [])
 _this params [["_force",false,[false]]];
 #ifdef DEBUG_MODE_FULL
     LOG_1(GVAR(headlessClients));
@@ -41,9 +42,9 @@ private _loadBalance = ((count _headlessOwnerIDs) > 1);
 {
     private _transfer = !((units _x) isEqualTo []);
     If (_transfer) then {
-        { 
+        {
             /// If forcing is enabled -> ignore the searching for owner
-            if (!_force && { (owner _x) in _headlessOwnerIDs }) exitWith {
+            if (_force && { (owner _x) in _headlessOwnerIDs }) exitWith {
                 _transfer = false;
             };
             If (isPlayer _x) exitWith {
@@ -59,10 +60,10 @@ private _loadBalance = ((count _headlessOwnerIDs) > 1);
     };
     If (_transfer) then {
         private _currentID = _headlessOwnerIDs select _currentHC;
-        private _transferred = _x setGroupOwner _currentID; 
+        private _transferred = _x setGroupOwner _currentID;
         If (_transferred) then {
             _headlessBalance set [_currentHC,(_headlessBalance select _currentHC)+1];
-        }; 
+        };
         If (_loadBalance) then {
             _currentHC = If ((_currentHC + 1)>(count _headlessOwnerIDs -1)) then {0}else{_currentHC + 1};
         };
