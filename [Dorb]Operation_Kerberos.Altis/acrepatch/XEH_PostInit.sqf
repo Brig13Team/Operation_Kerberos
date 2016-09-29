@@ -36,4 +36,4 @@
     LOG_3(_message,_player,_class);
 }] call CBA_fnc_addEventHandler;
 
-acre_server_fnc_masterIdTracker = compile preprocessFileLineNumbers "acrepatch\acre_server_fnc_masterIdTracker.sqf"
+//acre_server_fnc_masterIdTracker = compile preprocessFileLineNumbers "acrepatch\acre_server_fnc_masterIdTracker.sqf"
