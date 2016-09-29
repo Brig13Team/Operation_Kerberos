@@ -20,3 +20,8 @@ class rhs_gaz66_ap2_base {
         init = QUOTE(_this call FUNC(addACEMedicalItems));
     };
 };
+class ACE_bodyBagObject {
+    class ADDON {
+        init = "if (local (_this select 0)) then {deleteVehicle (_this select 0);};";
+    };
+};

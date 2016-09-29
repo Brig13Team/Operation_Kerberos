@@ -28,6 +28,7 @@ class Extended_PostInit_EventHandlers {
     INCLUDE_SERVERPOSTINIT(player);
     INCLUDE_SERVERPOSTINIT(mission);
     INCLUDE_SERVERPOSTINIT(headless);
+    INCLUDE_CLIENTPOSTINIT(common);
     INCLUDE_CLIENTPOSTINIT(logistics);
     INCLUDE_CLIENTPOSTINIT(interface);
     INCLUDE_CLIENTPOSTINIT(player);
