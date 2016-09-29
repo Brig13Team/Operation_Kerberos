@@ -86,6 +86,7 @@ class Extended_inventoryClosed_EventHandlers {
 //class Extended_inventoryOpened_EventHandlers {};
 class Extended_killed_EventHandlers {
     #include "headquarter\XEH_killed.hpp"
+    #include "player\XEH_killed.hpp"
 };
 //class Extended_landedTouchDown_EventHandlers {};
 //class Extended_landedStopped_EventHandlers {};
