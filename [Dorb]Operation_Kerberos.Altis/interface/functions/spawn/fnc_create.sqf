@@ -82,7 +82,7 @@ if (_mode isEqualTo "driver") then {
     player moveInDriver _vehicle;
 };
 
-If (GVARMAIN(mods_TFAR)) then {
+If (ACTIVEMOD_TFAR) then {
     _vehicle setVariable ["tf_side", GVARMAIN(playerSide), true];
 };
 

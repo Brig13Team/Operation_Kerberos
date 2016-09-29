@@ -5,6 +5,8 @@
 #define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
+CHECK(!ACTIVEMOD_ACRE);
+
 ["acre_getRadioId",{
     _this params ["_player","_radio"];
     private _message = "Requesting new Radio";

@@ -526,3 +526,22 @@ Original Author:
     DORB_HASH_POOL pushBack VAR
 #define IS_SERIALIZEDHASH(array) (IS_ARRAY(array) && {(count array) > 0} && {IS_STRING((array select 0))} && {(array select 0) == "ACRE_HASH"})
 ////-------------------//
+
+/* -------------------------------------------
+Macro: ACTIVEMOD_TFAR
+    Checks if the Mod Task Force Radio is loaded
+
+Parameters:
+    none
+
+Example:
+    (begin example)
+        If ACTIVEMOD_TFAR then ...
+    (end)
+
+Author:
+    Dorbedo
+------------------------------------------- */
+#define ACTIVEMOD_TFAR (isClass(configFile >> "CfgPatches" >> "task_force_radio"));
+#define ACTIVEMOD_ACRE (isClass(configFile >> "CfgPatches" >> "acre_main"));
+#define ACTIVEMOD_BW (isClass(configFile >> "CfgPatches" >> "BWA3_Tracked"));

@@ -1,6 +1,6 @@
 /*
     Author: Dorbedo
-    
+
     Description:
         postinit client
 */
@@ -26,4 +26,6 @@ QEGVAR(mission,endzeit) addPublicVariableEventHandler {[] spawn FUNC(disp_timer)
 [] call FUNC(spawn_init);
 [] call FUNC(crate_init);
 
-[["<t color='#FFFF00'>"+localize ELSTRING(interface,TFR_SHORT)+"</t>",{[]call EFUNC(interface,tfr_OpenMenu);},[],0.5,false,true,"","alive _target"]] call CBA_fnc_addPlayerAction;
+If (ACTIVEMOD_TFAR) then {
+    [["<t color='#FFFF00'>"+localize ELSTRING(interface,TFR_SHORT)+"</t>",{[]call EFUNC(interface,tfr_OpenMenu);},[],0.5,false,true,"","alive _target"]] call CBA_fnc_addPlayerAction;
+};
