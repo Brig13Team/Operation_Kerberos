@@ -17,7 +17,8 @@ class Extended_PreInit_EventHandlers {
     INCLUDE_PREINIT(mission);
     INCLUDE_PREINIT(headquarter);
     INCLUDE_PREINIT(spawn);
-    INCLUDE_PREINIT(tfar_addon);
+    //INCLUDE_PREINIT(tfar_addon);
+    INCLUDE_PREINIT(patchacre);
 };
 
 class Extended_PostInit_EventHandlers {
@@ -32,10 +33,13 @@ class Extended_PostInit_EventHandlers {
     INCLUDE_CLIENTPOSTINIT(player);
     INCLUDE_CLIENTPOSTINIT(mission);
     INCLUDE_CLIENTPOSTINIT(headless);
+    INCLUDE_CLIENTPOSTINIT(patchacre);
     INCLUDE_POSTINIT(logistics);
     INCLUDE_POSTINIT(headquarter);
     INCLUDE_POSTINIT(common);
-    INCLUDE_POSTINIT(tfar_addon);
+    //INCLUDE_POSTINIT(tfar_addon);
+    INCLUDE_POSTINIT(patchacre);
+    INCLUDE_POSTINIT(modacre);
 };
 class Extended_Init_Eventhandlers {
     #include "spawn\XEH_init.hpp"
@@ -73,7 +77,7 @@ class Extended_hit_EventHandlers {
     #include "spawn\XEH_hit.hpp"
 };
 class Extended_hitPart_EventHandlers {
-    #include "bwpatch\XEH_hitPart.hpp"
+    #include "patchbw\XEH_hitPart.hpp"
 };
 //class Extended_incomingMissile_EventHandlers {};
 class Extended_inventoryClosed_EventHandlers {
