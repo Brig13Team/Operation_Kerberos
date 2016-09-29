@@ -1,6 +1,6 @@
 /*
     Author: Dorbedo
-    
+
     Description:
         postinit server
 */
@@ -42,7 +42,7 @@
             };
         };
     } forEach _allVehicles;
-    [_position] call EFUNC(tfar_addon,disableTFRArea);
+    [_position] call EFUNC(modtfar,disableTFRArea);
 }] call EFUNC(events,addEventHandler);
 
 /********************

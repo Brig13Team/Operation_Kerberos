@@ -1,6 +1,6 @@
 /*
     Author: Dorbedo
-    
+
     Description:
         init
 */
@@ -11,8 +11,6 @@ GVARMAIN(playerside) = west;
 enableSaving [false, false];
 enableRadio false;
 
-/// Mod-Specific
-tf_no_auto_long_range_radio = true;
 
 ["Initialize"] call BIS_fnc_dynamicGroups;
 
