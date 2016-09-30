@@ -24,4 +24,4 @@ _enableTime = CBA_missionTime + _duration;
         SETVAR(_x,GVAR(TFR_enable),_enableTime);
     };
 } forEach allPlayers;
-[QUOTE(call FUNC(enableTFRtime)),[],(_duration + 2)] call EFUNC(common,waitandexec);
+[QUOTE(call FUNC(enableTFRtime)),[],(_duration + 2)] call CBA_fnc_waitAndExecute;
