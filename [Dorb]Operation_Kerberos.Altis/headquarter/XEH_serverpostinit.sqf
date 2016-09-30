@@ -1,6 +1,6 @@
 /*
     Author: Dorbedo
-    
+
     Description:
         postinit server
 */
@@ -17,8 +17,8 @@
 *       waypoints
 *
 ************************/
-GVAR(WP_deaktivated) = [];
-GVAR(WP_hashes) = [[],0] call CBA_fnc_hashCreate;
+GVAR(WP_deaktivated) = HASH_CREATE;
+GVAR(WP_hashes) = HASH_CREATE;
 
 /*************************
 *
@@ -34,22 +34,8 @@ SETMVAR(GVAR(fdc_firemissions),[]);
 SETMVAR(GVAR(fdc_handle),-1);
 SETMVAR(GVAR(fdc_handle_search),-1);
 
-GVAR(fdc_handle) = [
-    {
-        _this call FUNC(fdc_handle);
-    },
-    INTERVALL_FDC,
-    []
-    ] call CBA_fnc_addPerFrameHandler;
-
-
-GVAR(fdc_handle_search) = [
-    {
-        _this call FUNC(fdc_defend_artypos);
-    },
-    INTERVALL_SEARCH,
-    []
-    ] call CBA_fnc_addPerFrameHandler;
+GVAR(fdc_handle) = [FUNC(fdc_handle),INTERVALL_FDC,[]] call CBA_fnc_addPerFrameHandler;
+GVAR(fdc_handle_search) = [FUNC(fdc_defend_artypos),INTERVALL_SEARCH,[]] call CBA_fnc_addPerFrameHandler;
 
 /*************************
 *
@@ -65,29 +51,11 @@ GVAR(dangerzones) = [(GVAR(definitions) select 2)] call EFUNC(common,matrix_crea
 
 
 GVAR(mission_handles) = [];
-GVAR(mission_handles) pushBack [
-    {
-        _this call FUNC(handle);
-    },
-    INTERVALL_HQ,
-    []
-] call CBA_fnc_addPerFrameHandler;
+GVAR(mission_handles) pushBack [FUNC(handle),INTERVALL_HQ,[]] call CBA_fnc_addPerFrameHandler;
 
-GVAR(mission_handles) pushBack [
-    {
-        _this call FUNC(dangerzone_buffer);
-    },
-    INTERVALL_BUFFER,
-    []
-] call CBA_fnc_addPerFrameHandler;
+GVAR(mission_handles) pushBack [FUNC(dangerzone_buffer),INTERVALL_BUFFER,[]] call CBA_fnc_addPerFrameHandler;
 
-GVAR(mission_handles) pushBack [
-    {
-        _this call FUNC(check_radars);
-    },
-    INTERVALL_RADARS,
-    []
-] call CBA_fnc_addPerFrameHandler;
+GVAR(mission_handles) pushBack [FUNC(check_radars),INTERVALL_RADARS,[]] call CBA_fnc_addPerFrameHandler;
 
 [
     QEGVAR(mission,startMission),
@@ -128,7 +96,7 @@ GVAR(mission_handles) pushBack [
         SETMVAR(GVAR(centerpos),[]);
         SETMVAR(GVAR(support_requests),[]);
         SETMVAR(GVAR(buffer),[]);
-        [QGVAR(dangerzones)] call EFUNC(common,matrix_clear);    
+        [QGVAR(dangerzones)] call EFUNC(common,matrix_clear);
     }
 ] call CBA_fnc_addEventHandler;
 

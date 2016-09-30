@@ -1,9 +1,9 @@
 /*
     Author: Dorbedo
-    
+
     Description:
         test waypoints
-    
+
     Parameter(s):
         none
 
@@ -31,11 +31,11 @@ hint "wegpunkte geloescht";
 hint "wegpunkte fertig";
 
 {
-    [GVAR(wp_hashes),_x,2] call CBA_fnc_hashSet;
+    HASH_SET(GVAR(wp_hashes),_x,2);
 }forEach ["1450_1550","1450_1600","1450_1650","1450_1700","1500_1700","1550_1700","1600_1700","1600_1600","1600_1650"];
 
 {
-    [GVAR(wp_hashes),_x,4] call CBA_fnc_hashSet;
+    HASH_SET(GVAR(wp_hashes),_x,4);
 }forEach ["1500_1600","1500_1650","1550_1600","1550_1650"];
 
 
