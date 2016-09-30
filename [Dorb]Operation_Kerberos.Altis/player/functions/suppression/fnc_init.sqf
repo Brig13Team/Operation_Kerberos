@@ -1,11 +1,11 @@
 /*
     Author: Dorbedo
-    
+
     Description:
         supression fired EH
-    
+
     Parameter(s):
-    
+
 
     Return
         none
@@ -28,13 +28,9 @@ GVAR(suppression_dynamic) = ppEffectCreate ["DynamicBlur", 800];
 GVAR(suppression_dynamic) ppEffectAdjust [0];
 GVAR(suppression_dynamic) ppEffectCommit 0.3;
 GVAR(suppression_dynamic) ppEffectEnable true;
-GVAR(suppression_radial) = ppEffectCreate ["RadialBlur", 1003]; 
+GVAR(suppression_radial) = ppEffectCreate ["RadialBlur", 1003];
 GVAR(suppression_radial) ppEffectAdjust [0, 0, 0, 0];
 GVAR(suppression_radial) ppEffectCommit 0;
 GVAR(suppression_radial) ppEffectEnable true;
 
-GVAR(suppression_handle_effect)=[{[] call FUNC(suppression_handle_effect);}, 0.5, [] ] call CBA_fnc_addPerFrameHandler;
-
-
-
-
+GVAR(suppression_handle_effect)=[FUNC(suppression_handle_effect), 0.5, [] ] call CBA_fnc_addPerFrameHandler;

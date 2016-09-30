@@ -105,7 +105,7 @@ Author:
 #define SYS_SYSTEM(VAR) (parsingNamespace getVariable 'TRIPLES(PREFIX,SYSTEM,VAR)')
 #define COMPILE_FIRST(VAR) {parsingNamespace setVariable [ARR_2('TRIPLES(PREFIX,SYSTEM,VAR)',compile getText(missionConfigFile>>'system'>>'VAR'))];parsingNamespace getVariable 'TRIPLES(PREFIX,SYSTEM,VAR)';}
 #define COMPILE_SYS_FIRST {parsingNamespace setVariable [ARR_2('TRIPLES(PREFIX,SYSTEM,compile)',compile getText(missionConfigFile>>'system'>>'compile'))];parsingNamespace setVariable [ARR_2('TRIPLES(PREFIX,SYSTEM,compile_sys)',compile getText(missionConfigFile>>'system'>>'compile_sys'))];parsingNamespace getVariable 'TRIPLES(PREFIX,SYSTEM,compile)';}
-#define COMPILE_SYS call (parsingNamespace getVariable [ARR_2('TRIPLES(PREFIX,system,compile)',COMPILE_SYS_FIRST)])
+#define COMPILE_SYS call (parsingNamespace getVariable [ARR_2('TRIPLES(PREFIX,SYSTEM,compile)',COMPILE_SYS_FIRST)])
 #define FUNCSYS(VAR) (parsingNamespace getVariable [ARR_2('TRIPLES(PREFIX,SYSTEM,VAR)',COMPILE_FIRST(VAR))])
 
 
@@ -404,7 +404,7 @@ Author:
     iJesuz
 ------------------------------------------- */
 
-#define ISCASVEHICLE(ARG) [ARG, ["RHS_UH1Y_UNARMED"], ["RHS_UH1Y","rhsusf_f22"]] call TRIPLES(PREFIX,makro,iscasvehicle)
+#define ISCASVEHICLE(ARG) [ARG, ["RHS_UH1Y_UNARMED"], ["RHS_UH1Y","rhsusf_f22","B_T_VTOL_01_armed_blue_F","B_T_VTOL_01_armed_F","B_T_VTOL_01_armed_olive_F"]] call TRIPLES(PREFIX,makro,iscasvehicle)
 #define ISCASVEHICLE_C(ARG) (ISCASVEHICLE(ARG))
 
 /* -------------------------------------------
@@ -472,3 +472,76 @@ Author:
 #define SOLDIER_14(TYPE) SOLDIERR_14(TYPE,PRIVATE)
 #define SOLDIERR_15(TYPE,RANK) SOLDIER_SYS(soldier_15,TYPE,RANK,{ARR_3(7,-7,0)})
 #define SOLDIER_15(TYPE) SOLDIERR_15(TYPE,PRIVATE)
+
+/* -------------------------------------------
+Macro: HASH-System
+    Hash system - Original from ACRE2,
+    was modified to make it fit with CBA and own system
+
+Author:
+    Dorbedo
+Original Author:
+    ACRE2(https://github.com/IDI-Systems/acre2)
+------------------------------------------- */
+
+#define HASH_CREATE (call EFUNC(main,HashCreate))
+#define HASH_DELETE(hash) (DORB_HASH_TO_DELETE pushBack hash)
+#define HASH_HASKEY(hash, key) (!(isNil {hash getVariable key}))
+#define HASH_SET(hash, key, val) (hash setVariable [key, val])
+#define HASH_GET(hash, key) (hash getVariable key)
+#define HASH_REM(hash, key) (hash setVariable [key, nil])
+#define HASH_COPY(hash) ([hash] call EFUNC(main,HashCopy))
+#define HASH_KEYS(hash) ([hash] call EFUNC(main,HashKeys))
+
+#define HASHLIST_CREATELIST(keys) []
+#define HASHLIST_CREATEHASH(hashList) HASH_CREATE
+#define HASHLIST_SELECT(hashList, index) (hashList select index)
+#define HASHLIST_SET(hashList, index, value) (hashList set[index, value])
+#define HASHLIST_PUSH(hashList, value) (hashList pushBack value)
+
+#define SERIALIZE(HASH) ([HASH] call EFUNC(main,serialize))
+#define DESERIALIZE(HASH) ([HASH] call EFUNC(main,deserialize))
+
+//------Internal-------//
+#define DORB_HASH_POOL GVARMAIN(HASHPOOL)
+#define DORB_HASH_TO_DELETE GVARMAIN(HASHTODELETE)
+#define DORB_HASH_CREATED_NEW GVARMAIN(HASHCREATEDNEW)
+#define DORB_HASH_CREATED GVARMAIN(HASHCREATED)
+#define DORB_HASH_COLLECTOR_HANDLER GVAR(hashCollector_handler)
+#define DORB_HASH_COLLECTOR_NEXTEXEC GVAR(hashCollector_nextExecution)
+#define DORB_HASH_COLLECTOR_NEXTEXEC_DELAY (6*60)
+#define DORB_HASH_COLLECTOR_SEARCHTIME (0.001)
+#define DORB_HASH_COLLECTOR_NAMESPACES GVAR(hashCollector_namespaces)
+#define DORB_HASH_COLLECTOR_VARIABLES GVAR(hashCollector_variables)
+#define DORB_HASH_COLLECTOR_ARRAYS GVAR(hashCollector_arrays)
+#define DORB_HASH_COLLECTOR_FOUND GVAR(hashCollector_found)
+#define DORB_HASH_COLLECTOR_ID GVAR(hashCollector_ID)
+
+#define DORB_HASH_SYS_TYPE QUOTE(#CBA_HASH#)
+#define DORB_HASH_SYS_LOCATION QUOTE(CBA_NamespaceDummy)
+#define DORB_HASH_SYS_NAME QUOTE(mission_hash)
+#define IS_HASH(hash) (hash isEqualType locationNull && {(text hash) isEqualTo DORB_HASH_SYS_NAME})
+#define DORB_HASH_SYS_CREATE(VAR) private VAR = createLocation [ARR_4(DORB_HASH_SYS_LOCATION, [ARR_3(-10000,-10000,-10000)], 0, 0)]; \
+    VAR setText DORB_HASH_SYS_NAME; \
+    DORB_HASH_POOL pushBack VAR
+#define IS_SERIALIZEDHASH(array) (IS_ARRAY(array) && {(count array) > 0} && {IS_STRING((array select 0))} && {(array select 0) == "ACRE_HASH"})
+////-------------------//
+
+/* -------------------------------------------
+Macro: ACTIVEMOD_TFAR
+    Checks if the Mod Task Force Radio is loaded
+
+Parameters:
+    none
+
+Example:
+    (begin example)
+        If ACTIVEMOD_TFAR then ...
+    (end)
+
+Author:
+    Dorbedo
+------------------------------------------- */
+#define ACTIVEMOD_TFAR (isClass(configFile >> "CfgPatches" >> "task_force_radio"));
+#define ACTIVEMOD_ACRE (isClass(configFile >> "CfgPatches" >> "acre_main"));
+#define ACTIVEMOD_BW (isClass(configFile >> "CfgPatches" >> "BWA3_Tracked"));

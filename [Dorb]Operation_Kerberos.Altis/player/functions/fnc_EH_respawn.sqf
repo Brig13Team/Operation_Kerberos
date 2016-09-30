@@ -2,13 +2,6 @@
 SCRIPT(XEH_respawn);
 If(!hasInterface)exitWith{};
 
-private _respawntime = uiNamespace getVariable QEGVAR(interface,RespawnTime);
-if (isNil "_respawntime") then {
-    uiNamespace setVariable [QEGVAR(interface,RespawnTime),-1];
-} else {
-    uiNamespace setVariable [QEGVAR(interface,RespawnTime),CBA_missionTime];
-};
-
 ["restart"] spawn FUNC(grouptracker);
 
 ISNILS(GVAR(respawn_fnc),[]);
@@ -23,3 +16,11 @@ ISNILS(EGVAR(mission,intel_obj),[]);
         [_x] spawn EFUNC(mission,stadt_found_intel);
     };
 }forEach EGVAR(mission,intel_obj);
+
+If !(isNull _unit) then {
+	[
+		_unit,
+		missionNamespace getVariable QGVAR(respawnLoadout),
+		missionNamespace getVariable QGVAR(Weapons)
+	] call FUNC(setLoadout);
+};

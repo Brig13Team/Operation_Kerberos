@@ -38,8 +38,6 @@ PREP(setRollPitchYaw);
 PREP(setRotMat);
 PREP(setVarArray);
 
-PREP(waitAndExec);
-
 PREPS(matrix,clear);
 PREPS(matrix,create);
 PREPS(matrix,find_peaks);
@@ -49,5 +47,4 @@ PREPS(matrix,value_set);
 
 ADDON = true;
 
-GVAR(waitAndExecArray) = [];
 GVAR(setVarSyncArray) = [];

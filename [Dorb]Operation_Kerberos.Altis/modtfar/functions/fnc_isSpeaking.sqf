@@ -32,4 +32,4 @@ private _nearUnits = (getPos _player) nearEntities ["CAManBase",35];
 } forEach _nearUnits;
 
 
-[{SETMVAR(GVAR(isSpeaking),false);},[],25] call EFUNC(common,waitandExec);
+[{SETMVAR(GVAR(isSpeaking),false);},[],25] call CBA_fnc_waitAndExecute;

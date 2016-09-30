@@ -1,9 +1,9 @@
 /*
     Author: Dorbedo
-    
+
     Description:
         revon
-    
+
     Parameter(s):
         none
 
@@ -37,8 +37,6 @@ if (_currenttroopsSend > 40) then {
 
 
 [_currentPosition,2,_amount] call FUNC(fdc_placeOrder);
-[QUOTE(_this call FUNC(attackpos_remove)),[_currentLocation],200] call EFUNC(common,waitandexec);
+[FUNC(attackpos_remove),[_currentLogic],200] call CBA_fnc_waitAndExecute;
 
 _return;
-
-

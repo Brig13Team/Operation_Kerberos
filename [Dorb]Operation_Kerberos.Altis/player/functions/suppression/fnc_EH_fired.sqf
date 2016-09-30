@@ -1,11 +1,11 @@
 /*
     Author: Dorbedo
-    
+
     Description:
         supression fired EH
-    
+
     Parameter(s):
-    
+
 
     Return
         none
@@ -18,4 +18,4 @@ CHECK((_weapon in ["_throw","_put"])||(isNil "_projectile"))
 private "_hit";
 _hit = getNumber(configfile>>"CfgAmmo">>_ammo>>"hit");
 CHECK(_hit == 0)
-[{_this call FUNC(suppression_handle_fired)}, 0, [_projectile, _hit] ] call CBA_fnc_addPerFrameHandler;    
+[FUNC(suppression_handle_fired), 0, [_projectile, _hit] ] call CBA_fnc_addPerFrameHandler;    
