@@ -15,7 +15,7 @@ _this params[["_newUnit",objNull,[objNull]]];
 LOG_2(_this,_newUnit);
 CHECK(isNull _newUnit)
 If ((vehicle _newUnit) isKindOf "StaticMortar") exitWith {
-    GVAR(fdc_mortars) pushBackUnique _newUnit;
+    HASH_GET(GVAR(FDC),"mortars") pushBack _newUnit;
 };
 
 private _mags = getArtilleryAmmo [_newUnit];
@@ -25,6 +25,6 @@ private _isRocket = ({(getText(configFile>>"CfgMagazines">> _x >> "ammo")) isKin
 //private _isRocket = (_ammo isKindOf "R_230mm_HE");
 
 If (_isRocket) exitWith {
-    GVAR(fdc_rocket) pushBackUnique _newUnit;
+    HASH_GET(GVAR(FDC),"rockets") pushBack _newUnit;
 };
-GVAR(fdc_artilleries) pushBackUnique _newUnit;
+HASH_GET(GVAR(FDC),"artilleries") pushBack _newUnit;

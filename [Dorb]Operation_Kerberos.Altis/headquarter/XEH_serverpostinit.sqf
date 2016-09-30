@@ -25,14 +25,10 @@ GVAR(WP_hashes) = HASH_CREATE;
 *           FDC
 *
 *************************/
-
-
-SETMVAR(GVAR(fdc_mortars),[]);
-SETMVAR(GVAR(fdc_artilleries),[]);
-SETMVAR(GVAR(fdc_rocket),[]);
-SETMVAR(GVAR(fdc_firemissions),[]);
-SETMVAR(GVAR(fdc_handle),-1);
-SETMVAR(GVAR(fdc_handle_search),-1);
+GVAR(FDC) = HASH_CREATE;
+HASH_SET(GVAR(FDC),"mortars",HASH_CREATE);
+HASH_SET(GVAR(FDC),"artilleries",HASH_CREATE);
+HASH_SET(GVAR(FDC),"rocket",HASH_CREATE);
 
 GVAR(fdc_handle) = [FUNC(fdc_handle),INTERVALL_FDC,[]] call CBA_fnc_addPerFrameHandler;
 GVAR(fdc_handle_search) = [FUNC(fdc_defend_artypos),INTERVALL_SEARCH,[]] call CBA_fnc_addPerFrameHandler;
@@ -48,6 +44,8 @@ GVAR(aktive) = false;
 GVAR(definitions) = [2000,125]; // [Radius,size of one field,amount of fields]
 GVAR(definitions) pushBack ((GVAR(definitions) select 0)/(GVAR(definitions) select 1));
 GVAR(dangerzones) = [(GVAR(definitions) select 2)] call EFUNC(common,matrix_create);
+
+GVAR(strategy_memory) = SERIALIZE(GETPRVAR(GVAR(strategy_memory),HASH_CREATE));
 
 
 GVAR(mission_handles) = [];
