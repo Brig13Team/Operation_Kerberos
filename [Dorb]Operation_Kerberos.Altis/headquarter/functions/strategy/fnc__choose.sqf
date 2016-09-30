@@ -1,9 +1,9 @@
 /*
     Author: Dorbedo
-    
+
     Description:
         choosing the strategy from config
-    
+
     Parameter(s):
         none
 
@@ -18,7 +18,7 @@ TRACEV_4(_currenttroopsSend,_cost,_currentLocation,_type,_strengtharray,_groups)
 
 /*
     Strategy memory
-    
+
     [
         [_type,_cost,_strengtharray],
         [_chosenStrategie,_fails,_wins],
@@ -31,11 +31,12 @@ TRACEV_4(_currenttroopsSend,_cost,_currentLocation,_type,_strengtharray,_groups)
 */
 
 // get the history and choose the similar one
-
+/*
 _Strategy_Memory = GETPRVAR(GVAR(strategy_memory),[]);
 If ((!IS_ARRAY(_Strategy_Memory select 0))||{!IS_ARRAY((_Strategy_Memory select 0)select 0)}) then {
     _Strategy_Memory = [];
 };
+*/
 
 private _enemyID = -1;
 {
@@ -54,8 +55,8 @@ private _tankGroups = [];
 private _infanterieGroups = [];
 private _helicoptersGroups = [];
 {
-    
-    
+
+
 } forEach _groups;
 
 
@@ -151,11 +152,3 @@ _newTroops = _parameter call (missionnamespace getVariable [format["%1_%2",QGVAR
 
 SETVAR(_currentLocation,GVAR(troopsSend),_newTroops);
 SETVAR(_currentLocation,GVAR(strategy),_chosenStrategie);
-
-
-
-
-
-
-
-

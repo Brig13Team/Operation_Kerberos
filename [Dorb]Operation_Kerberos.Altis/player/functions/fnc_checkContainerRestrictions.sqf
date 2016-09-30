@@ -1,8 +1,8 @@
 /*
-	Author: Dorbedo
+    Author: Dorbedo
 
-	Description:
-		checks container for restricted Materials
+    Description:
+        checks container for restricted Materials
 
 */
 #include "script_component.hpp"

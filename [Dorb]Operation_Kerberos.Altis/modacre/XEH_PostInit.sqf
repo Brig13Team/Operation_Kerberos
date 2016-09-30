@@ -65,18 +65,18 @@ private _channelnamen = [
     Translate Variables to ACRE
 */
 if(!_signalLoss) then {
-	[0.0] call acre_api_fnc_setLossModelScale;
+    [0.0] call acre_api_fnc_setLossModelScale;
 }else{
     [_signalLoss_Value] call acre_api_fnc_setLossModelScale;
 };
 if(_fullDuplex) then {
-	[true] call acre_api_fnc_setFullDuplex;
+    [true] call acre_api_fnc_setFullDuplex;
 };
 if(!_interference) then {
-	[false] call acre_api_fnc_setInterference;
+    [false] call acre_api_fnc_setInterference;
 };
 if(_ignoreAntennaDirection) then {
-	[true] call acre_api_fnc_ignoreAntennaDirection;
+    [true] call acre_api_fnc_ignoreAntennaDirection;
 };
 
 
@@ -84,29 +84,29 @@ if(_ignoreAntennaDirection) then {
     Mission Modules
 */
 switch (_setupBabel) do {
-	//We don't want the babel system
+    //We don't want the babel system
     case 0: {
-    	[false, _setupRadios] call acre_api_fnc_setupMission;
+        [false, _setupRadios] call acre_api_fnc_setupMission;
     };
     //We want the babel system to be set to one language per side
     case 1: {
-    	[true, _setupRadios] call acre_api_fnc_setupMission;
+        [true, _setupRadios] call acre_api_fnc_setupMission;
     };
     //We need to handle the babel setup via an array, so the bool is set to false
     //Zeus gets ALL Languages, including "Common"
     case 2: {
-    	[false, _setupRadios] call acre_api_fnc_setupMission;
-    	[
-    		[east, "Opfor", "Common"],
-    		[west, "Blufor", "Common"],
-    		[independent, "Indepedent", "Common"],
-    		[civilian, "Civilian", "Common"],
-    		[sideLogic, "Opfor", "Blufor", "Indepedent", "Civilian", "Common"]
-    	] call acre_api_fnc_babelSetupMission;
+        [false, _setupRadios] call acre_api_fnc_setupMission;
+        [
+            [east, "Opfor", "Common"],
+            [west, "Blufor", "Common"],
+            [independent, "Indepedent", "Common"],
+            [civilian, "Civilian", "Common"],
+            [sideLogic, "Opfor", "Blufor", "Indepedent", "Civilian", "Common"]
+        ] call acre_api_fnc_babelSetupMission;
     };
     //This shouldn't be reached.
     default {
-		[false, _setupRadios] call acre_api_fnc_setupMission;
+        [false, _setupRadios] call acre_api_fnc_setupMission;
     };
 };
 FUNC(ACRE_fnc_addRadios) = {
@@ -149,12 +149,12 @@ FUNC(ACRE_fnc_addRadios) = {
 
 
 if(hasInterface) then {
-	if(isNull acre_player) then {
-		_defaultRadios spawn {
-			waituntil { !isNull acre_player };
-			_this call FUNC(ACRE_fnc_addRadios);
-		};
-	} else {
-		_defaultRadios call FUNC(ACRE_fnc_addRadios);
-	};
+    if(isNull acre_player) then {
+        _defaultRadios spawn {
+            waituntil { !isNull acre_player };
+            _this call FUNC(ACRE_fnc_addRadios);
+        };
+    } else {
+        _defaultRadios call FUNC(ACRE_fnc_addRadios);
+    };
 };

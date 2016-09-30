@@ -1,14 +1,14 @@
 /*
-	Author: Dorbedo
+    Author: Dorbedo
 
-	Description:
-		serializes a hash
+    Description:
+        serializes a hash
 
-	Parameter(s):
-		None
+    Parameter(s):
+        None
 
-	Return
-		None
+    Return
+        None
 */
 #include "script_component.hpp"
 #define SELF EFUNC(main,deserialize)

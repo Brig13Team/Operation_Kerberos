@@ -7,7 +7,7 @@
     Parameter(s):
         0 : STRING - Title
         1 : STRING - Message
-		2 : STRING - Color
+        2 : STRING - Color
     
 */
 #include "script_component.hpp"

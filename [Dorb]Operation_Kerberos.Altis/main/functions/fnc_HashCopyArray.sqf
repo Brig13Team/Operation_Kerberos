@@ -1,14 +1,14 @@
 /*
-	Author: Dorbedo
+    Author: Dorbedo
 
-	Description:
-		copys a array
+    Description:
+        copys a array
 
-	Parameter(s):
-		None
+    Parameter(s):
+        None
 
-	Return
-		None
+    Return
+        None
 */
 #include "script_component.hpp"
 

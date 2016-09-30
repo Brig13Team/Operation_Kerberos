@@ -1,8 +1,8 @@
 /*
-	Author: Dorbedo
+    Author: Dorbedo
 
-	Description:
-		adds Arsenalaction to object
+    Description:
+        adds Arsenalaction to object
 
 */
 #include "script_component.hpp"

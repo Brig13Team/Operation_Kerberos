@@ -18,9 +18,9 @@ ISNILS(EGVAR(mission,intel_obj),[]);
 }forEach EGVAR(mission,intel_obj);
 
 If !(isNull _unit) then {
-	[
-		_unit,
-		missionNamespace getVariable QGVAR(respawnLoadout),
-		missionNamespace getVariable QGVAR(Weapons)
-	] call FUNC(setLoadout);
+    [
+        _unit,
+        missionNamespace getVariable QGVAR(respawnLoadout),
+        missionNamespace getVariable QGVAR(Weapons)
+    ] call FUNC(setLoadout);
 };
