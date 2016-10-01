@@ -26,7 +26,8 @@
     If (!(isNil {acre_sys_server_objectIdRelationTable getVariable _class})) then {
         _message = "Assinging existent Radio";
         _oldPlayer = acre_sys_server_objectIdRelationTable getVariable _class;
-        LOG_4(_message,_player,_oldPlayer,_class);
+        _allRadios =  (acre_sys_server_objectIdRelationTable call acre_lib_fnc_fastHashKeys);
+        LOG_5(_message,_player,_oldPlayer,_class,_allRadios);
     };
 }] call CBA_fnc_addEventHandler;
 
@@ -35,5 +36,3 @@
     private _message = "player got new unique Radio";
     LOG_3(_message,_player,_class);
 }] call CBA_fnc_addEventHandler;
-
-//acre_server_fnc_masterIdTracker = compile preprocessFileLineNumbers "acrepatch\acre_server_fnc_masterIdTracker.sqf"
