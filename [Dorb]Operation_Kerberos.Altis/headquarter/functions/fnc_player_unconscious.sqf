@@ -1,9 +1,9 @@
 /*
     Author: Dorbedo
-    
+
     Description:
-        
-    
+
+
     Parameter(s):
         none
 
@@ -18,6 +18,6 @@ _this params ["_player"];
 
 CHECK(_x_coordinate<0)
 
-_value = [_player] call FUNC(player_value);
+_value = [_player] call FUNC(strengthPlayer);
 
 GVAR(buffer) pushBack [_x_coordinate,_y_coordinate,_value];

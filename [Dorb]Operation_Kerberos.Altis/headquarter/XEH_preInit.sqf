@@ -61,27 +61,27 @@ PREPS(waypoints,movementcost);
 PREPS(waypoints,next);
 PREPS(waypoints,test);
 
-
-
-
-
 PREP(EH_killed);
 PREP(handle);
 PREP(killed);
-
-PREP(recon);
-PREP(recon_radars);
 
 PREP(register_POI);
 
 PREP(player_unconscious);
 PREP(player_value);
 
-PREP(strength_ai);
-PREP(strength_player);
+
+PREP(reconRadars);
+PREP(registerPOI);
+PREP(strengthplayer);
+PREP(strengthai);
+PREP(strengthaiupdate);
+
+
+
+
 
 ADDON = true;
 
 
 GVAR(attackpos) = [];
-

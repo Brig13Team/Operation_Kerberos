@@ -39,7 +39,16 @@ GVAR(fdc_handle_search) = [FUNC(fdc_defend_artypos),INTERVALL_SEARCH,[]] call CB
 *
 *************************/
 
-/// init
+/// radars
+GVAR(radars) = CREATE_HASH;
+HASH_SET(GVAR(radars),"objects",[]);
+HASH_SET(GVAR(radars),"targets",[]);
+
+/// POI
+
+
+
+
 GVAR(aktive) = false;
 GVAR(definitions) = [2000,125]; // [Radius,size of one field,amount of fields]
 GVAR(definitions) pushBack ((GVAR(definitions) select 0)/(GVAR(definitions) select 1));
