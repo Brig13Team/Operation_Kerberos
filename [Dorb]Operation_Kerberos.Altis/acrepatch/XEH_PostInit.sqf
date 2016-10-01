@@ -23,7 +23,7 @@
     }else{
         LOG_6(_message,_player,_isLocal,_class,_returnIdNumber,_replacementId);
     };
-    If (_class in (allVariables acre_sys_server_objectIdRelationTable)) then {
+    If (!(isNil {acre_sys_server_objectIdRelationTable getVariable _class})) then {
         _message = "Assinging existent Radio";
         _oldPlayer = acre_sys_server_objectIdRelationTable getVariable _class;
         LOG_4(_message,_player,_oldPlayer,_class);
