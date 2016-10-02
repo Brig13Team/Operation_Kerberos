@@ -6,6 +6,9 @@
 */
 #include "script_component.hpp"
 
+GVAR(handles) = HASH_CREATE;
+private "_handle";
+
 ["medical_onUnconscious", {
     _this params ["_unit", "_status"];
     if ((isplayer _unit)&&(_status)) then {
@@ -17,8 +20,11 @@
 *       waypoints
 *
 ************************/
-GVAR(WP_deaktivated) = HASH_CREATE;
-GVAR(WP_hashes) = HASH_CREATE;
+GVAR(waypoints) = HASH_CREATE;
+HASH_SET(GVAR(waypoints),"deaktivated",[]);
+//HASH_SET(GVAR(waypoints),"deaktivated",[]);
+//GVAR(WP_deaktivated) = HASH_CREATE;
+//GVAR(WP_hashes) = HASH_CREATE;
 
 /*************************
 *
@@ -30,39 +36,37 @@ HASH_SET(GVAR(FDC),"mortars",HASH_CREATE);
 HASH_SET(GVAR(FDC),"artilleries",HASH_CREATE);
 HASH_SET(GVAR(FDC),"rocket",HASH_CREATE);
 
-GVAR(fdc_handle) = [FUNC(fdc_handle),INTERVALL_FDC,[]] call CBA_fnc_addPerFrameHandler;
-GVAR(fdc_handle_search) = [FUNC(fdc_defend_artypos),INTERVALL_SEARCH,[]] call CBA_fnc_addPerFrameHandler;
-
+_handle = [{_this call FUNC(fdc_handle)},INTERVALL_FDC,[]] call CBA_fnc_addPerFrameHandler;
+HASH_SET(GVAR(handles),"fdc_main",_handle);
+_handle = [{_this call FUNC(fdc_defend_artypos)},INTERVALL_SEARCH,[]] call CBA_fnc_addPerFrameHandler;
+HASH_SET(GVAR(handles),"fdc_defend",_handle);
 /*************************
 *
 *       Headquarter
 *
 *************************/
-
 /// radars
 GVAR(radars) = CREATE_HASH;
 HASH_SET(GVAR(radars),"objects",[]);
 HASH_SET(GVAR(radars),"targets",[]);
 
 /// POI
-
-
-
-
-GVAR(aktive) = false;
-GVAR(definitions) = [2000,125]; // [Radius,size of one field,amount of fields]
-GVAR(definitions) pushBack ((GVAR(definitions) select 0)/(GVAR(definitions) select 1));
-GVAR(dangerzones) = [(GVAR(definitions) select 2)] call EFUNC(common,matrix_create);
+GVAR(dangerzones) = HASH_CREATE;
+HASH_SET(GVAR(dangerzones),"definitions",[2000,125,16]);
+HASH_SET(GVAR(dangerzones),"gridsize",125);
+HASH_SET(GVAR(dangerzones),"distance",2000);
 
 GVAR(strategy_memory) = SERIALIZE(GETPRVAR(GVAR(strategy_memory),HASH_CREATE));
 
 
-GVAR(mission_handles) = [];
-GVAR(mission_handles) pushBack [FUNC(handle),INTERVALL_HQ,[]] call CBA_fnc_addPerFrameHandler;
 
-GVAR(mission_handles) pushBack [FUNC(dangerzone_buffer),INTERVALL_BUFFER,[]] call CBA_fnc_addPerFrameHandler;
+_handle = [FUNC(handle),INTERVALL_HQ,[]] call CBA_fnc_addPerFrameHandler;
+HASH_SET(GVAR(handles),"main",_handle);
+_handle = [FUNC(check_radars),INTERVALL_RADARS,[]] call CBA_fnc_addPerFrameHandler;
+HASH_SET(GVAR(handles),"radars",_handle);
 
-GVAR(mission_handles) pushBack [FUNC(check_radars),INTERVALL_RADARS,[]] call CBA_fnc_addPerFrameHandler;
+
+GVAR(attackpos) = [];
 
 [
     QEGVAR(mission,startMission),

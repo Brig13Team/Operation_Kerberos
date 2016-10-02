@@ -61,27 +61,20 @@ PREPS(waypoints,movementcost);
 PREPS(waypoints,next);
 PREPS(waypoints,test);
 
-PREP(EH_killed);
+PREP(dz_convert);
 PREP(handle);
-PREP(killed);
-
-PREP(register_POI);
-
-PREP(player_unconscious);
-PREP(player_value);
-
-
+PREP(killedUnit);
+PREP(MissionCleanUp);
+PREP(MissionInit);
+PREP(onKilled);
+PREP(onUnconscious);
 PREP(reconRadars);
+PREP(registerGroup);
 PREP(registerPOI);
-PREP(strengthplayer);
-PREP(strengthai);
-PREP(strengthaiupdate);
-
-
+PREP(requestRecon);
+PREP(strenghtAi);
+PREP(strenghtPlayer);
 
 
 
 ADDON = true;
-
-
-GVAR(attackpos) = [];

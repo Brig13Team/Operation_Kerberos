@@ -25,5 +25,8 @@ If (((abs((_POI select 0)-(GVAR(centerpos) select 0)))>(GVAR(definitions) select
 private _newPOI = HASH_CREATE;
 _newPOI setPosition _POI;
 _newPOI setSize [50,50];
+_newPOI setRectangular false;
+HASH_SET(_newPOI,"isPOI",true);
+HASH_SET(_newPOI,"isActive",true);
 
-HASH_GET(GVAR(POI),"Positions") pushBack _newPOI;
+HASH_GET(GVAR(POI),"Locations") pushBack _newPOI;
