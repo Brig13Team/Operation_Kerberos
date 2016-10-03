@@ -1,9 +1,9 @@
 /*
     Author: Dorbedo
-    
+
     Description:
         handles AI HQ
-    
+
     Parameter(s):
         none
 
@@ -19,18 +19,42 @@ CHECK(!isNull(GVAR(handle)))
 /// spawn to move it in the ingame sheduler
 GVAR(handle) = [] spawn {
     SCRIPTIN(handle,spawn);
+
+
+    /// Update Waypoints
+    private _deaktivatedWP = HASH_GET(GVAR(waypoints),"deaktivated");
+    {
+        If !(_x in _deaktivatedWP) then {
+            [_x,-1] call FUNC(waypoints_update);
+        };
+    } forEach (HASH_KEYS(GVAR(waypoints)))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /*
     /// backup -> get unregistered Groups
-    
+
     {
         If ((side _x != GVARMAIN(playerside))&&{(_x getVariable [QGVAR(state),""]) isEqualTo ""}) then {
             _x setVariable [QGVAR(state),"idle"];
         };
     }forEach allGroups;
     */
-    
-    
-    
+
+
+
 
     private _attackarray = [QGVAR(dangerzones)] call EFUNC(common,matrix_find_peaks);
     private _attackpositions = [];
@@ -66,22 +90,22 @@ GVAR(handle) = [] spawn {
             _enemy = _enemy + (_x call EFUNC(common,matrix_value_get));
         }forEach [
             [QGVAR(dangerzones),_x_coord,_y_coord],
-            
+
             [QGVAR(dangerzones),_x_coord+1,_y_coord],
             [QGVAR(dangerzones),_x_coord-1,_y_coord],
             [QGVAR(dangerzones),_x_coord,_y_coord+1],
             [QGVAR(dangerzones),_x_coord,_y_coord-1],
-            
+
             [QGVAR(dangerzones),_x_coord+1,_y_coord+1],
             [QGVAR(dangerzones),_x_coord-1,_y_coord-1],
             [QGVAR(dangerzones),_x_coord-1,_y_coord+1],
             [QGVAR(dangerzones),_x_coord+1,_y_coord-1],
-            
+
             [QGVAR(dangerzones),_x_coord+2,_y_coord-2],
             [QGVAR(dangerzones),_x_coord+2,_y_coord+2],
             [QGVAR(dangerzones),_x_coord-2,_y_coord-2],
             [QGVAR(dangerzones),_x_coord-2,_y_coord+2],
-            
+
             [QGVAR(dangerzones),_x_coord-1,_y_coord-2],
             [QGVAR(dangerzones),_x_coord-2,_y_coord-1],
             [QGVAR(dangerzones),_x_coord+1,_y_coord-2],
@@ -90,7 +114,7 @@ GVAR(handle) = [] spawn {
             [QGVAR(dangerzones),_x_coord+2,_y_coord+1],
             [QGVAR(dangerzones),_x_coord-1,_y_coord+2],
             [QGVAR(dangerzones),_x_coord-2,_y_coord+1],
-            
+
             [QGVAR(dangerzones),_x_coord+2,_y_coord],
             [QGVAR(dangerzones),_x_coord-2,_y_coord],
             [QGVAR(dangerzones),_x_coord,_y_coord+2],
@@ -117,7 +141,7 @@ GVAR(handle) = [] spawn {
     private _waitingGroups = [];
     {
         If (side _x != GVARMAIN(playerside)) then {
-            // bored 
+            // bored
             if ((_x getVariable [QGVAR(state),""]) isEqualTo "wait") then {
                 _waitingGroups pushBack _x;
             };
@@ -127,7 +151,7 @@ GVAR(handle) = [] spawn {
             };
         };
     }forEach allGroups;
-    
+
     private _missingstrenght = 0;
     /// move into battle
     TRACEV_2(GVAR(attackpos),_waitingGroups);
@@ -136,7 +160,7 @@ GVAR(handle) = [] spawn {
     {
         private _enemy = _x getVariable[QGVAR(enemy),0];
         private _troops = _x getVariable[QGVAR(troopsSend),0];
-        
+
         If ((_enemy - _troops)>0) then {
             for "_i" from 0 to _troops do {
                 private _curGroup = _waitingGroups deleteAt 0;
@@ -145,7 +169,7 @@ GVAR(handle) = [] spawn {
                 _curGroup setVariable [QGVAR(strength),_x];
                 _curGroup setVariable [QGVAR(state),"attack"];
                 [_curGroup] spawn FUNC(state_change);
-                
+
                 _troops = _troops + (_strength select 1);
                 _i = _i + (_strength select 1);
             };
@@ -154,7 +178,7 @@ GVAR(handle) = [] spawn {
         _x setVariable[QGVAR(troopsSend),_troops];
     }forEach GVAR(attackpos);
     */
-    
+
     //// Let the rest do something too.
     {
         if ((_x getVariable [QGVAR(state),""]) isEqualTo "idle") then {
@@ -165,8 +189,8 @@ GVAR(handle) = [] spawn {
             [_x] spawn FUNC(state_change);
         };
     } forEach _waitingGroups;
-    
-    
+
+
     // remove groups from patroling when the shit hits the fan
     /*
     If (_missingstrenght > 0) then {
@@ -191,8 +215,8 @@ GVAR(handle) = [] spawn {
         } forEach _waitingGroups;
     };
     */
-    
-    
+
+
 
 
 

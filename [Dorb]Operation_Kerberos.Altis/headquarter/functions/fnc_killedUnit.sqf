@@ -37,7 +37,7 @@ private _maxKey = (HASH_GET(GVAR(dangerzones),"distance") * 2)/HASH_GET(GVAR(dan
         HASH_SET(_zoneHash,"enemystrenght",_strenghtEnemy);
     };
 } forEach [
-    [_key,_strengthArray select 1],
+    [_keyX,_keyY,_strengthArray select 1],
     [_keyX-1,_keyY-1,(_strengthArray select 1)*HQ_DANGERMOD],
     [_keyX-1,_keyY+1,(_strengthArray select 1)*HQ_DANGERMOD],
     [_keyX+1,_keyY+1,(_strengthArray select 1)*HQ_DANGERMOD],

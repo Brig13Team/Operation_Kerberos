@@ -2,7 +2,7 @@
     Author: Dorbedo
 
     Description:
-        generates waypoints
+
 
     Parameter(s):
         none
@@ -13,5 +13,7 @@
 #include "script_component.hpp"
 params[["_key","",[""]],["_distance",0,[0]]];
 If (_key isEqualTo "") exitWith {0};
-If (HASH_HASKEY(GVAR(WP_deaktivated),_key)) exitWith {999999};
-(HASH_GET(GVAR(WP_hashes)),_key)*_distance;
+If (HASH_HASHKEY(GVAR(waypoints),_key)) exitWith {
+    _distance * HASH_GET(GVAR(waypoints),_key);
+};
+0;

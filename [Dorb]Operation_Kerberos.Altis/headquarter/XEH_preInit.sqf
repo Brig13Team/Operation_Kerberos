@@ -60,6 +60,7 @@ PREPS(waypoints,generate);
 PREPS(waypoints,movementcost);
 PREPS(waypoints,next);
 PREPS(waypoints,test);
+PREPS(waypoints,updateValue);
 
 PREP(dz_convert);
 PREP(handle);

@@ -1,9 +1,9 @@
 /*
     Author: Dorbedo
-    
+
     Description:
-        generates waypoints
-    
+        deaktivates waypoints
+
     Parameter(s):
         none
 
@@ -12,14 +12,16 @@
 */
 #include "script_component.hpp"
 _this params[
-    ["_start",[],[[]]],
-    ["_target",[],[[]]]
+    ["_key","",[""]],
+    ["_deaktivate",true,[true]];
     ];
-
-    
-    
-    
-[_start,_target]
-
-
-
+CHECK(_key isEqualTo "");
+If (_deaktivate) then {
+    HASH_SET(GVAR(waypoints),_key,999999);
+    HASH_GET(GVAR(waypoints),"deaktivated") pushBack _key;
+}else{
+    HASH_SET(GVAR(waypoints),_key,0);
+    private _deaktivatedWP = HASH_GET(GVAR(waypoints),"deaktivated");
+    _deaktivatedWP = _deaktivatedWP - [_key];
+    HASH_SET(GVAR(waypoints),"deaktivated",_deaktivatedWP);
+};

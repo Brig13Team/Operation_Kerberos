@@ -21,10 +21,6 @@ private "_handle";
 *
 ************************/
 GVAR(waypoints) = HASH_CREATE;
-HASH_SET(GVAR(waypoints),"deaktivated",[]);
-//HASH_SET(GVAR(waypoints),"deaktivated",[]);
-//GVAR(WP_deaktivated) = HASH_CREATE;
-//GVAR(WP_hashes) = HASH_CREATE;
 
 /*************************
 *

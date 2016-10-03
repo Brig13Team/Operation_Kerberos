@@ -30,3 +30,8 @@ HASH_SET(GVAR(dangerzones),"y",[(_center select 1) - _distance,(_center select 1
 HASH_SET(GVAR(groups),"defenceGroups",[]);
 HASH_SET(GVAR(groups),"attackGroups",[]);
 HASH_SET(GVAR(groups),"patrolGroups",[]);
+
+
+HASH_DELETE(GVAR(waypoints));
+GVAR(waypoints) = HASH_CREATE;
+HASH_SET(GVAR(waypoints,"deaktivated",[]));
