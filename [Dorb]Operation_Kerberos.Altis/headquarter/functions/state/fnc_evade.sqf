@@ -2,10 +2,11 @@
     Author: Dorbedo
 
     Description:
-        evades
+        moves to a position by evading enemy contact if possible
 
     Parameter(s):
-        none
+        0 : Group - <GROUP>
+        1 : Statement to be called after finishing the waypoint <STRING>
 
     Returns:
         none

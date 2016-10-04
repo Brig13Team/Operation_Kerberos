@@ -2,7 +2,7 @@
     Author: Dorbedo
 
     Description:
-        attacks Position
+        attacks Position/Object
 
     Parameter(s):
         0 : GROUP -Group

@@ -5,7 +5,10 @@
         sets the group attributes
 
     Parameter(s):
-        0 : GROUP -Group
+        0 : Group - <GROUP>
+        1 : Next state - <STRING>
+        2 : The Target of the state as Object or positions (2D/3D) <OBJECT/ARRAY>
+        3 : Statement to be called after finishing the waypoint <STRING>
 
     Returns:
         none
