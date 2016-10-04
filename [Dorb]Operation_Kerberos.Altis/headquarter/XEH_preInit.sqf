@@ -35,6 +35,7 @@ PREPS(state,defend);
 PREPS(state,evade);
 PREPS(state,idle);
 PREPS(state,retreat);
+PREPS(state,set);
 PREPS(state,wait);
 
 PREPS(strategy,_exec);

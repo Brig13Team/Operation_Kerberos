@@ -13,7 +13,7 @@
 */
 #include "script_component.hpp"
 
-_this params [["_group",grpNull,[grpNull]],["_type","attack",[""]],["_target",objNull]];
+_this params [["_group",grpNull,[grpNull]],["_type","attack",[""]]];
 CHECK((isNull _group)||(!(_type in ["attack","defence","patrol"])));
 
 private _grouphash = HASH_CREATE;
@@ -36,7 +36,6 @@ HASH_GET(GVAR(groups),_key) pushBack _grouphash;
 _group setVariable [QGVAR(grouphash),_grouphash];
 
 HASH_SET(_grouphash,"grouptype",_type);
-HASH_SET(_grouphash,"target",_target);
 HASH_SET(_grouphash,"state",_state);
 
 private _strenghtArray = (_group call FUNC(strengthAI)) params ["_GroupType","_value","_thread"];
