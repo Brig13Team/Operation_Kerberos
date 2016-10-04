@@ -5,7 +5,8 @@
         attacks Position/Object
 
     Parameter(s):
-        0 : GROUP -Group
+        0 : Group - <GROUP>
+        1 : Statement to be called after finishing the waypoint <STRING>
 
     Returns:
         none
