@@ -60,8 +60,6 @@ while { (diag_ticktime < _time) && {!(DORB_HASH_COLLECTOR_NAMESPACES isEqualTo [
         }else{
             If (IS_ARRAY(_value)) then {
                 DORB_HASH_COLLECTOR_ARRAYS pushBack _value;
-            }else{
-                DORB_HASH_COLLECTOR_FOUND pushBack _value;
             };
         };
 
