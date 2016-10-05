@@ -22,7 +22,7 @@ private _grouphash = _group getVariable QGVAR(grouphash);
 
 If !(_state in ["patrol","attack","defend","evade","idle","retreat","wait"]) then {_state = "idle";};
 /// if there is no change in state, do nothing
-If ((HASH_GET(_grouphash,"state") isEqualTo _state)&&(isNil "_target")) exitWith {}:
+If ((HASH_GET(_grouphash,"state") isEqualTo _state)&&(isNil "_target")) exitWith {};
 
 HASH_SET(_grouphash,"state",_state);
 
