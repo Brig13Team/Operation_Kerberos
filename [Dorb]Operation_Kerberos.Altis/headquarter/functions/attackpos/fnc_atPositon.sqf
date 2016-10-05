@@ -1,9 +1,9 @@
 /*
     Author: Dorbedo
-    
+
     Description:
-        return an attackpos
-    
+        return the attackpos at a Position
+
     Parameter(s):
         0:ARRAY - Position to check
 
@@ -11,11 +11,11 @@
         Location
 */
 #include "script_component.hpp"
-_this params [["_position",[],[[]],[2,3]]];
+_this params [["_position",[10000,10000,10000],[[]],[2,3]]];
 private _return = locationNull;
 {
     If (_position in _x) exitWith {
         _return = _x;
     };
-} forEach GVAR(attackpos);
+} forEach (HAS_GET(GVAR(attackpos),"locations"));
 _return;

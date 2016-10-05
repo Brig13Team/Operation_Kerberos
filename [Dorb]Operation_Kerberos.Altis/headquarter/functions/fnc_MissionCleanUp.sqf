@@ -21,7 +21,7 @@
     };
 } forEach HASH_GETKEYS(GVAR(POI));
 
-
+// Dangerzones
 {
     private _value = HASH_GET(GVAR(dangerzones),_x);
     If (IS_HASH(_value)) then {
@@ -29,9 +29,18 @@
     };
 } forEach HASH_GETKEYS(GVAR(dangerzones));
 
+// Groups
 {
     private _value = HASH_GET(GVAR(groups),_x);
     If (IS_HASH(_value)) then {
         HASH_DELETE(_value);
     };
 } forEach HASH_GETKEYS(GVAR(groups));
+
+// Attackpositions
+{
+    private _value = HASH_GET(GVAR(attackpos),_x);
+    If (IS_HASH(_value)) then {
+        HASH_DELETE(_value);
+    };
+} forEach HASH_GETKEYS(GVAR(attackpos));

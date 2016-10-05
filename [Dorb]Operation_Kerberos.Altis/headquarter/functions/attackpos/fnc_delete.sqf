@@ -1,9 +1,9 @@
 /*
     Author: Dorbedo
-    
+
     Description:
         deletes an attackpos;
-    
+
     Parameter(s):
         0:LOCATION - Attackposition
 
@@ -14,11 +14,6 @@
 
 _this params [["_location",locationNull,[locationNull]]];
 
-private _index = GVAR(attackpos) find _location;
-
-If (_index < 0) then {
-    false;
-}else{
-    deleteLocation (GVAR(attackpos) deleteAt _index);
-    true;
-};
+private _allAttackpos = HASH_GET(GVAR(attackPos),"locations");
+_allAttackpos = _allAttackpos - [_location];
+HASH_SET(GVAR(attackPos),"locations",_allAttackpos);

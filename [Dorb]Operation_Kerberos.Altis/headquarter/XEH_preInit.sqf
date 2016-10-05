@@ -6,13 +6,12 @@
 
 ADDON = false;
 
+PREPS(attackpos,add);
+PREPS(attackpos,atPosition);
 PREPS(attackpos,create);
+PREPS(attackpos,delete);
 PREPS(attackpos,reduce);
-PREPS(attackpos,remove);
-PREPS(attackpos,returnLocAtPos);
-
-PREP(dangerzone_buffer);
-PREP(dangerzone_convert);
+PREPS(attackpos,update);
 
 PREPS(drones,attack);
 PREPS(drones,createWaypoint);

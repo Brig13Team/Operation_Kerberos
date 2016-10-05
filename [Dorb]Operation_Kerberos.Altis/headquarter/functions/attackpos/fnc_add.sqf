@@ -2,13 +2,13 @@
     Author: Dorbedo
 
     Description:
-        reduces a attackPos
+        creates a attackPosition
 
     Parameter(s):
-        none
+        0: Position or Group <ARRAY/GROUP>
 
     Returns:
-        none
+        <LOCATION>
 */
 #include "script_component.hpp"
 _this params [["_attackLoc",locationNull,[locationNull]],["_group",grpNull,[grpNull]]];
@@ -16,20 +16,11 @@ CHECK((isNull _attackLoc)||(isNull _group)||{!(IS_HASH(_attackLoc))})
 
 private _enemygroups = HASH_GET(_attackLoc,"enemygroups");
 
-If (_group in _enemygroups) then {
-
-    _enemygroups = _enemygroups - [_group];
+If !(_group in _enemygroups) then {
+    _enemygroups pushBack _group;
     HASH_SET(_attackLoc,"enemygroups",_enemygroups);
 
-    [_attackLoc] call FUNC(attackpos_update);
-    
-
-    private _strenghtArray = (_group call FUNC(strengthAI)) params ["_GroupType","_value","_threat"];
-
-    private _currentType = HASH_GET(_attackLoc,"enemytype");
-    private _currentValue = HASH_GET(_attackLoc,"enemyvalue");
-    private _currentThreat = HASH_GET(_attackLoc,"enemythreat");
-
+    private _strenghtArray = (_group call FUNC(strengthPlayer)) params ["_GroupType","_value","_threat"];
     private _currentType = HASH_GET(_attackLoc,"enemytype");
     private _currentValue = HASH_GET(_attackLoc,"enemyvalue");
     private _currentThreat = HASH_GET(_attackLoc,"enemythreat");
@@ -46,4 +37,6 @@ If (_group in _enemygroups) then {
     HASH_SET(_attackLoc,"enemytype",_GroupType);
     HASH_SET(_attackLoc,"enemyvalue",_value);
     HASH_SET(_attackLoc,"enemythreat",_threat);
+}else{
+    [_attackLoc] call FUNC(attackpos_update);
 };
