@@ -1,9 +1,9 @@
 /*
     Author: Dorbedo
-    
+
     Description:
         returns strenght
-    
+
     Parameter(s):
         none
 
@@ -26,7 +26,7 @@ If (IS_GROUP(_group)) then {
 
 private _vehicles = [];
 
-private _thread = [0,0,0];
+private _threat = [0,0,0];
 private _value = 0;
 private _type = 0;
 {
@@ -38,9 +38,9 @@ private _type = 0;
     private _special = "";
     private _similiSoldier = "";
     switch (true) do {
-        case (leader _x == _x) : {_similiSoldier = "B_Soldier_TL_F";}; // 450000 
-        case (_primaryweapon = "SniperRifle") : {_similiSoldier = "B_sniper_F";}; //350000 
-        case ((_x getVariable ["ace_medical_medicClass",0])>0) : {_similiSoldier = "B_Medic_F";}; //300000 
+        case (leader _x == _x) : {_similiSoldier = "B_Soldier_TL_F";}; // 450000
+        case (_primaryweapon = "SniperRifle") : {_similiSoldier = "B_sniper_F";}; //350000
+        case ((_x getVariable ["ace_medical_medicClass",0])>0) : {_similiSoldier = "B_Medic_F";}; //300000
         case (_secondaryWeapon = "Launcher") : {
                 private _mag = (getArray(configFile >> "CfgVehicles" >> (secondaryWeapon _x))select 0);
                 private _ammo = getText(configFile >> "CfgVehicles" >> _mag >> "ammo");
@@ -52,13 +52,13 @@ private _type = 0;
             };
         default {_similiSoldier = (typeOf _x);}; // rifleman : 100000
     };
-    
-    private _temp = getArray(configFile >> "CfgVehicles" >> _similiSoldier >> "thread");
+
+    private _temp = getArray(configFile >> "CfgVehicles" >> _similiSoldier >> "threat");
     If !(_temp isEqualTo []) then {
-        _thread = [
-            (_thread select 0) max (_temp select 0),
-            (_thread select 1) max (_temp select 1),
-            (_thread select 2) max (_temp select 2),
+        _threat = [
+            (_threat select 0) max (_temp select 0),
+            (_threat select 1) max (_temp select 1),
+            (_threat select 2) max (_temp select 2),
         ];
     };
     private _coef = (getNumber(configFile >> "CfgVehicles" >> _similiSoldier >> "costTurnCoef"))max 0.025;
@@ -68,15 +68,15 @@ private _type = 0;
 
 {
     _type = _type max (getNumber(configFile >> "CfgVehicles" >> (typeOf _x) >> "type"));
-    private _temp = getArray(configFile >> "CfgVehicles" >> (typeOf _x) >> "thread")
+    private _temp = getArray(configFile >> "CfgVehicles" >> (typeOf _x) >> "threat")
     If !(_temp isEqualTo []) then {
-        _thread = [
-            (_thread select 0) max (_temp select 0),
-            (_thread select 1) max (_temp select 1),
-            (_thread select 2) max (_temp select 2),
+        _threat = [
+            (_threat select 0) max (_temp select 0),
+            (_threat select 1) max (_temp select 1),
+            (_threat select 2) max (_temp select 2),
         ];
     };
     _value = _value + getNumber(configFile >> "CfgVehicles" >> (typeOf _x) >> "cost");
 } forEach _vehicles
 
-[_type,_value,_thread];
+[_type,_value,_threat];

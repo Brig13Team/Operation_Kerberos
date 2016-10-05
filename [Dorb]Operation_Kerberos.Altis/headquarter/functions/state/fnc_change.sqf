@@ -18,10 +18,10 @@ _group = _group call CBA_fnc_getGroup;
 
 private _grouphash = _group getVariable "grouphash";
 /// update the strenght if the unit received some losses or if the unit lost the vehicle
-private _strenghtArray = (_group call FUNC(strengthAI)) params ["_GroupType","_value","_thread"];
+private _strenghtArray = (_group call FUNC(strengthAI)) params ["_GroupType","_value","_threat"];
 HASH_SET(_grouphash,"type",_GroupType);
 HASH_SET(_grouphash,"value",_value);
-HASH_SET(_grouphash,"thread",_thread);
+HASH_SET(_grouphash,"threat",_threat);
 
 private _state = HASH_GET(_grouphash,"state");
 

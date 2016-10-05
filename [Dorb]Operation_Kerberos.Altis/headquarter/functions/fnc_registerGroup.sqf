@@ -38,7 +38,7 @@ _group setVariable [QGVAR(grouphash),_grouphash];
 HASH_SET(_grouphash,"grouptype",_type);
 HASH_SET(_grouphash,"state",_state);
 
-private _strenghtArray = (_group call FUNC(strengthAI)) params ["_GroupType","_value","_thread"];
+private _strenghtArray = (_group call FUNC(strengthAI)) params ["_GroupType","_value","_threat"];
 HASH_SET(_grouphash,"type",_GroupType);
 HASH_SET(_grouphash,"value",_value);
-HASH_SET(_grouphash,"thread",_thread);
+HASH_SET(_grouphash,"threat",_threat);
