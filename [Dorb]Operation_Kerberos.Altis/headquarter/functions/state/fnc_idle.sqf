@@ -15,7 +15,7 @@ _this params[["_group",grpNull,[grpNull,objNull]]];
 
 _group = _group call CBA_fnc_getGroup;
 
-((group this) getVariable 'grouphash') setvariable ["target",objNull];
+((group this) getVariable QGVAR(grouphash)) setvariable ["target",objNull];
 
 while {(count (waypoints _group)) > 0} do {
     deleteWaypoint ((waypoints _group) select 0);

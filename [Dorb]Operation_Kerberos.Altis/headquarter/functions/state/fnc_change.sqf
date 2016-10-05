@@ -16,7 +16,7 @@ _this params[["_group",grpNull,[grpNull,objNull]],["_statementFinish","",[""]]];
 
 _group = _group call CBA_fnc_getGroup;
 
-private _grouphash = _group getVariable "grouphash";
+private _grouphash = _group getVariable QGVAR(grouphash);
 /// update the strenght if the unit received some losses or if the unit lost the vehicle
 private _strenghtArray = (_group call FUNC(strengthAI)) params ["_GroupType","_value","_threat"];
 HASH_SET(_grouphash,"type",_GroupType);

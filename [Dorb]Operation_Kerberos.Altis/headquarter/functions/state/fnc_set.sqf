@@ -18,7 +18,7 @@ CHECK(!isServer)
 _this params[["_group",grpNull,[grpNull,objNull]],["_state","",[""]],["_target",nil,[objNull,[]],[2,3]],["_statementFinish","",[""]]];
 
 _group = _group call CBA_fnc_getGroup;
-private _grouphash = _group getVariable "grouphash";
+private _grouphash = _group getVariable QGVAR(grouphash);
 
 If !(_state in ["patrol","attack","defend","evade","idle","retreat","wait"]) then {_state = "idle";};
 /// if there is no change in state, do nothing

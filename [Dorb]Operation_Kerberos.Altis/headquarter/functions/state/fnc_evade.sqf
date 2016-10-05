@@ -16,7 +16,7 @@ _this params[["_group",grpNull,[grpNull,objNull]],["_statementFinish","",[""]]];
 
 _group = _group call CBA_fnc_getGroup;
 
-private _grouphash = _group getVariable "grouphash";
+private _grouphash = _group getVariable QGVAR(grouphash);
 private _target = HASH_GET(_grouphash,"target");
 
 if (IS_OBJECT(_target)) then {_target = getPos _target;};
