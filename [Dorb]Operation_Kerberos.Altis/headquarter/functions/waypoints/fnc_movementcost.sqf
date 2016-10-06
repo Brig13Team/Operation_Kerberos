@@ -1,15 +1,17 @@
 /*
-    Author: Dorbedo
-    
-    Description:
-        generates waypoints
-    
-    Parameter(s):
-        none
-
-    Returns:
-        none
-*/
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      returns the movement costs
+ *
+ *  Parameter(s):
+ *      0 : ARRAY - The starting point
+ *      1 : ARRAY - The target point
+ *
+ *  Returns:
+ *      SCLAR - the movement costs
+ *
+ */
 #include "script_component.hpp"
 
 #define ROADDECRESE 50

@@ -1,16 +1,20 @@
 /*
-    Author: Dorbedo
-
-    Description:
-        sets waypoint value
-
-    Parameter(s):
-        none
-
-    Returns:
-        none
-*/
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      updates the value of a waypoint
+ *
+ *  Parameter(s):
+ *      0 : STRING - The waypoint key
+ *      (optional)
+ *      1 : SCLAR - the value of the waypoint
+ *
+ *  Returns:
+ *      none
+ *
+ */
 #include "script_component.hpp"
+
 _this params[
     ["_key","",[""]],
     ["_value",-1,[0]];

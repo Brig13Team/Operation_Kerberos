@@ -1,16 +1,19 @@
 /*
-    Author: Dorbedo
-
-    Description:
-        deaktivates waypoints
-
-    Parameter(s):
-        none
-
-    Returns:
-        none
-*/
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      deaktivated a waypoint
+ *
+ *  Parameter(s):
+ *      0 : STRING - the key of the waypoint to deaktivate
+ *      1 : BOOL - deaktivate (true) , false to aktivate
+ *
+ *  Returns:
+ *      none
+ *
+ */
 #include "script_component.hpp"
+
 _this params[
     ["_key","",[""]],
     ["_deaktivate",true,[true]];

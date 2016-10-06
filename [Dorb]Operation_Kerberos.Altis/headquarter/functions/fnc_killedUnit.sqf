@@ -1,22 +1,25 @@
 /*
-    Author: Dorbedo
-    v1.0
-
-    Description:
-        ads a vakue to the Dangeraray when a unit(ai) git killed
-
-    Parameter(s):
-        none
-
-    Returns:
-        none
-
-*/
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      handles when a ai unit gets killed
+ *      add a value to the dangerzone
+ *
+ *  Parameter(s):
+ *      0 : OBEJCT - Unit which got killed
+ *      1 : OBEJCT - Killer
+ *      2 : OBEJCT - Unit who pulled the Trigger
+ *
+ *  Returns:
+ *      none
+ *
+ */
 #include "script_component.hpp"
+
 _this params ["_killedUnit","_killer","_instigator"];
 
 
-private _key = (getPos _player) call FUNC(dz_convert);
+private _key = (getPos _killer) call FUNC(dz_convert);
 CHECK(_key isEqualTo "") // not in the area
 
 

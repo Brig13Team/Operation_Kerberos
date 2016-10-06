@@ -1,15 +1,16 @@
 /*
-    Author: Dorbedo
-
-    Description:
-        test waypoints
-
-    Parameter(s):
-        none
-
-    Returns:
-        none
-*/
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      [Description]
+ *
+ *  Parameter(s):
+ *      0 : [TYPE] - [argument name]
+ *
+ *  Returns:
+ *      [TYPE] - [return name]
+ *
+ */
 #include "script_component.hpp"
 
 ISNILS(GVARMAIN(debug_marker),[]);

@@ -1,4 +1,19 @@
 /*
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      Checks the radars and registers the possible targets
+ *
+ *  Parameter(s):
+ *      none
+ *
+ *  Returns:
+ *      none
+ *
+ */
+#include "script_component.hpp"
+
+/*
     Author: Dorbedo
 
     Description:

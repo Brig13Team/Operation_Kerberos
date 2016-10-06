@@ -1,16 +1,18 @@
 /*
-    Author: Dorbedo
-    
-    Description:
-        returns the neares waypoint-key
-    
-    Parameter(s):
-        none
-
-    Returns:
-        none
-*/
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      returns the nearest waypoint
+ *
+ *  Parameter(s):
+ *      0 : ARRAY - the position
+ *
+ *  Returns:
+ *      STRING - the waypoint key
+ *
+ */
 #include "script_component.hpp"
+
 _this params[
     ["_position",[],[[]]]
     ];

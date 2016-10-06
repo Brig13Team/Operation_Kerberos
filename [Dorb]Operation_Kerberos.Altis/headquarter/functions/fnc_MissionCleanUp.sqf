@@ -1,17 +1,17 @@
 /*
-    Author: Dorbedo
-
-    Description:
-        cleansUP between Mainmissions
-
-    Parameter(s):
-        none
-
-    Returns:
-        BOOL
-*/
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      Cleans the mission specific values after the end of a main-mission
+ *
+ *  Parameter(s):
+ *      none
+ *
+ *  Returns:
+ *      none
+ *
+ */
 #include "script_component.hpp"
-
 
 //POI
 {

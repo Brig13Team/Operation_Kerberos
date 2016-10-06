@@ -1,16 +1,18 @@
 /*
-    Author: Dorbedo
-
-    Description:
-        returns strenght
-
-    Parameter(s):
-        none
-
-    Returns:
-        none
-*/
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      returns the strenght of a player or a group of players
+ *
+ *  Parameter(s):
+ *      0 : GROUP/OBJECT - Group of a player or a player himself
+ *
+ *  Returns:
+ *      ARRAY - [type of group, value of group, threat of group]
+ *
+ */
 #include "script_component.hpp"
+
 _this params[["_group",grpNull,[grpNull,[],objNull]]];
 if (isNull _group) exitWith {[0,0,[0,0,0]]};
 private _soldiers = [];

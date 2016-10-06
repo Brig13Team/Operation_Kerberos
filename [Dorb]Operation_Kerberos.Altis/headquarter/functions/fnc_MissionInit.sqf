@@ -1,15 +1,16 @@
 /*
-    Author: Dorbedo
-
-    Description:
-        initializes a new Mainmissions
-
-    Parameter(s):
-        none
-
-    Returns:
-        BOOL
-*/
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      called to initialize a new mainmission
+ *
+ *  Parameter(s):
+ *      0 : ARRAY - Centerposition of the mainarea
+ *
+ *  Returns:
+ *      none
+ *
+ */
 #include "script_component.hpp"
 
 _this params [["_centerPos",[],[[]]]];

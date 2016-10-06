@@ -1,16 +1,20 @@
 /*
-    Author: Dorbedo
-    
-    Description:
-        generates waypoints
-    
-    Parameter(s):
-        none
-
-    Returns:
-        none
-*/
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      generates the waypoints
+ *
+ *  Parameter(s):
+ *      0 : ARRAY/OBJECT - The starting point
+ *      1 : ARRAY/OBJECT - The target point
+ *      2 : BOOL - evade enemys
+ *
+ *  Returns:
+ *      ARRAY - The generated waypoints
+ *
+ */
 #include "script_component.hpp"
+
 _this params[
     ["_start",[],[[],objNull]],
     ["_target",[],[[],objNull]],
@@ -45,7 +49,7 @@ while {_active} do {
     private ["_currentKeyX","_currentKeyY","_nextKey","_nextValue"];
     If (count _waypointsActivated <1) exitWith {ERROR("NO MORE WAYPOINTS");_active = false;};
     _waypointsActivated sort true;
-    
+
     (_waypointsActivated select 0) params ["_currentValue","_currentDistance","_currentWay","_currentWP"];
     //_currentWP = (_waypointsActivated select 0)select 2;
     (_currentWP splitString "_") params ["_currentKeyX","_currentKeyY"];
@@ -57,7 +61,7 @@ while {_active} do {
     if (_nextValue > 0) then {
         private ["_nextPos","_value","_inside"];
         _nextPos = getArray(missionconfigFile >> "maps" >> worldname >> _nextKey >> "position");
-        _value = _currentWay + _currentDistance + (If (_evade) then {[_nextKey,_distance] call FUNC(waypoints_evade)}else{0}); 
+        _value = _currentWay + _currentDistance + (If (_evade) then {[_nextKey,_distance] call FUNC(waypoints_evade)}else{0});
         _inside = 0;
         _inside = ({
                 If ((_x select 3)isEqualTo _nextKey) then {
@@ -86,7 +90,7 @@ while {_active} do {
     if (_nextValue > 0) then {
         private ["_nextPos","_value","_inside"];
         _nextPos = getArray(missionconfigFile >> "maps" >> worldname >> _nextKey >> "position");
-        _value = _currentWay + _currentDistance + (If (_evade) then {[_nextKey,_distance] call FUNC(waypoints_evade)}else{0}); 
+        _value = _currentWay + _currentDistance + (If (_evade) then {[_nextKey,_distance] call FUNC(waypoints_evade)}else{0});
         _inside = 0;
         _inside = ({
                 If ((_x select 3)isEqualTo _nextKey) then {
@@ -115,7 +119,7 @@ while {_active} do {
     if (_nextValue > 0) then {
         private ["_nextPos","_value","_inside"];
         _nextPos = getArray(missionconfigFile >> "maps" >> worldname >> _nextKey >> "position");
-        _value = _currentWay + _currentDistance + (If (_evade) then {[_nextKey,_distance] call FUNC(waypoints_evade)}else{0}); 
+        _value = _currentWay + _currentDistance + (If (_evade) then {[_nextKey,_distance] call FUNC(waypoints_evade)}else{0});
         _inside = 0;
         _inside = ({
                 If ((_x select 3)isEqualTo _nextKey) then {
@@ -144,7 +148,7 @@ while {_active} do {
     if (_nextValue > 0) then {
         private ["_nextPos","_value","_inside"];
         _nextPos = getArray(missionconfigFile >> "maps" >> worldname >> _nextKey >> "position");
-        _value = _currentWay + _currentDistance + (If (_evade) then {[_nextKey,_distance] call FUNC(waypoints_evade)}else{0}); 
+        _value = _currentWay + _currentDistance + (If (_evade) then {[_nextKey,_distance] call FUNC(waypoints_evade)}else{0});
         _inside = 0;
         _inside = ({
                 If ((_x select 3)isEqualTo _nextKey) then {
@@ -176,7 +180,7 @@ while {_active} do {
     if (_nextValue > 0) then {
         private ["_nextPos","_value","_inside"];
         _nextPos = getArray(missionconfigFile >> "maps" >> worldname >> _nextKey >> "position");
-        _value = _currentWay + _currentDistance + (If (_evade) then {[_nextKey,_distance] call FUNC(waypoints_evade)}else{0}); 
+        _value = _currentWay + _currentDistance + (If (_evade) then {[_nextKey,_distance] call FUNC(waypoints_evade)}else{0});
         _inside = 0;
         _inside = ({
                 If ((_x select 3)isEqualTo _nextKey) then {
@@ -205,7 +209,7 @@ while {_active} do {
     if (_nextValue > 0) then {
         private ["_nextPos","_value","_inside"];
         _nextPos = getArray(missionconfigFile >> "maps" >> worldname >> _nextKey >> "position");
-        _value = _currentWay + _currentDistance + (If (_evade) then {[_nextKey,_distance] call FUNC(waypoints_evade)}else{0}); 
+        _value = _currentWay + _currentDistance + (If (_evade) then {[_nextKey,_distance] call FUNC(waypoints_evade)}else{0});
         _inside = 0;
         _inside = ({
                 If ((_x select 3)isEqualTo _nextKey) then {
@@ -234,7 +238,7 @@ while {_active} do {
     if (_nextValue > 0) then {
         private ["_nextPos","_value","_inside"];
         _nextPos = getArray(missionconfigFile >> "maps" >> worldname >> _nextKey >> "position");
-        _value = _currentWay + _currentDistance + (If (_evade) then {[_nextKey,_distance] call FUNC(waypoints_evade)}else{0}); 
+        _value = _currentWay + _currentDistance + (If (_evade) then {[_nextKey,_distance] call FUNC(waypoints_evade)}else{0});
         _inside = 0;
         _inside = ({
                 If ((_x select 3)isEqualTo _nextKey) then {
@@ -263,7 +267,7 @@ while {_active} do {
     if (_nextValue > 0) then {
         private ["_nextPos","_value","_inside"];
         _nextPos = getArray(missionconfigFile >> "maps" >> worldname >> _nextKey >> "position");
-        _value = _currentWay + _currentDistance + (If (_evade) then {[_nextKey,_distance] call FUNC(waypoints_evade)}else{0}); 
+        _value = _currentWay + _currentDistance + (If (_evade) then {[_nextKey,_distance] call FUNC(waypoints_evade)}else{0});
         _inside = 0;
         _inside = ({
                 If ((_x select 3)isEqualTo _nextKey) then {
@@ -311,11 +315,11 @@ while {_active} do {
     if (_currentWpKey isEqualTo _startKey) exitWith {_active=false;};
     _value = 999999999;
     _value2 = 999999999;
-    
+
     (_currentWpKey splitString "_") params ["_currentKeyX","_currentKeyY"];
     _currentKeyX = parseNumber(_currentKeyX);
     _currentKeyY = parseNumber(_currentKeyY);
-    
+
     {
         private ["_curWP"];
         _curWP = _x;
@@ -363,8 +367,3 @@ _return = [_start];
 _return pushBack [_target];
 TRACEV_4(_return,_waypoints,_target,_start);
 _return
-
-
-
-
-

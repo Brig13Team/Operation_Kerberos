@@ -1,15 +1,16 @@
 /*
-    Author: Dorbedo
-
-    Description:
-
-
-    Parameter(s):
-        none
-
-    Returns:
-        none
-*/
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      ACE - unconcoius Event
+ *
+ *  Parameter(s):
+ *      0 : OBJECT - Player who got unconcious
+ *
+ *  Returns:
+ *      none
+ *
+ */
 #include "script_component.hpp"
 
 _this params ["_player"];

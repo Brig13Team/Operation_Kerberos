@@ -1,18 +1,20 @@
 /*
-    Author: Dorbedo
-
-
-    Description:
-        pirmary to register the dead to the HQ
-
-    Parameter(s):
-        0:OBJECT    - killed unit
-        1:OBJECT    - Killer
-
-    Returns:
-        none
-*/
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      killed event
+ *
+ *  Parameter(s):
+ *      0 : OBEJCT - Unit who got killed
+ *      1 : OBEJCT - Killer
+ *      2 : OBEJCT - Unit who pulled the trigger
+ *
+ *  Returns:
+ *      none
+ *
+ */
 #include "script_component.hpp"
+
 _this spawn {
     SCRIPTIN(EH_killed,spawn);
     _this params["_unit","_killer","_instigator"];

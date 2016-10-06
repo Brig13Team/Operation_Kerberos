@@ -1,16 +1,18 @@
 /*
-    Author: Dorbedo
-
-    Description:
-        registers a Point of interest
-
-    Parameter(s):
-        0:OBJECT/POSITION    - the position to be defended
-
-    Returns:
-        BOOL
-*/
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      registers a point of interest
+ *
+ *  Parameter(s):
+ *      0 : OBJECT/POSITION - The position / the position of a object is registered as a POI
+ *
+ *  Returns:
+ *      none
+ *
+ */
 #include "script_component.hpp"
+
 _this params[["_POI",[],[[],objNull],[2,3]]];
 If (_POI isEqualTo []) exitWith {};
 

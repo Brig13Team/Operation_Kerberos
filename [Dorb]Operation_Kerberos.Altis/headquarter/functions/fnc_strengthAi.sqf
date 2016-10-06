@@ -1,17 +1,19 @@
 /*
-    Author: Dorbedo
-
-    Description:
-        updates_strength
-        do not call directly
-
-    Parameter(s):
-        none
-
-    Returns:
-        none
-*/
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      updates the strenght of a AI group
+ *      registers unregistered groups
+ *
+ *  Parameter(s):
+ *      0 : GROUP - The group to register/update
+ *
+ *  Returns:
+ *      ARRAY - [type of group, value of group, threat of group]
+ *
+ */
 #include "script_component.hpp"
+
 _this params[["_group",grpNull,[grpNull]]];
 if (isNull _group) exitWith {[-1,-1]};
 

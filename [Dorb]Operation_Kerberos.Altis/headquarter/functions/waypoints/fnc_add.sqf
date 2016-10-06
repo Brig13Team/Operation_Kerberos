@@ -1,16 +1,28 @@
 /*
-    Author: Dorbedo
-    
-    Description:
-        add waypoints
-    
-    Parameter(s):
-        none
-
-    Returns:
-        none
-*/
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      adds waypoints to a group
+ *
+ *  Parameter(s):
+ *      0 : GROUP - the group
+ *      1 : ARRAY/OBJECT/LOCATION/GROUP - the postion/ a array of poistions
+ *      (Optionals)
+ *      2 : SCALAR - Radius
+ *      3 : STRING - Type of waypoint
+ *      4 : STRING - Combat mode
+ *      5 : STRING - Speed
+ *      6 : STRING - formation
+ *      7 : STRING - statement executed when the waypoint is finished
+ *      8 : ARRAY - timeout
+ *      8 : SCALAR - completetion radius
+ *
+ *  Returns:
+ *      ARRAY - the added waypoints
+ *
+ */
 #include "script_component.hpp"
+
 _this params[
     ["_group",grpNull,[grpNull,objNull]],
     ["_positions",[],[[],objNull,locationNull,grpNull]],

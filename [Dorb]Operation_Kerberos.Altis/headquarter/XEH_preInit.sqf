@@ -55,7 +55,7 @@ PREPS(strategy,tankattack);
 
 PREPS(waypoints,add);
 PREPS(waypoints,deaktivate);
-PREPS(waypoints,evade);
+PREPS(waypoints,costs);
 PREPS(waypoints,generate);
 PREPS(waypoints,movementcost);
 PREPS(waypoints,next);

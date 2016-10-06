@@ -14,20 +14,6 @@
  */
 #include "script_component.hpp"
 
-/*
-    Author: Dorbedo
-
-    Description:
-        registers a group of interest
-
-    Parameter(s):
-        0:Group <GROUP> - the group to be registered
-        1:Type <STRING>
-
-    Returns:
-        BOOL
-*/
-#include "script_component.hpp"
 private _fullCheck = false;
 private _allPlayerGroups = allGroups select {side _x == GVARMAIN(playerside)};
 private _playergrouphashes = HASH_GET(GVAR(groups),"playergroups");
