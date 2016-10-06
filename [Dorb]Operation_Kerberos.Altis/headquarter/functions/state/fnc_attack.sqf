@@ -1,17 +1,19 @@
 /*
-    Author: Dorbedo
-
-    Description:
-        attacks Position/Object
-
-    Parameter(s):
-        0 : Group - <GROUP>
-        1 : Statement to be called after finishing the waypoint <STRING>
-
-    Returns:
-        none
-*/
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      execution of the attack state
+ *
+ *  Parameter(s):
+ *      0 : GROUP/OBJECT - The group/the group of a unit attacks a location
+ *      1 : STRING - The statement wich is called on finishing the state
+ *
+ *  Returns:
+ *      none
+ *
+ */
 #include "script_component.hpp"
+
 _this params[["_group",grpNull,[grpNull,objNull]],["_statementFinish","",[""]]];
 
 _group = _group call CBA_fnc_getGroup;

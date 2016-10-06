@@ -1,17 +1,19 @@
 /*
-    Author: Dorbedo
-
-    Description:
-        retreats to a position at direct way
-
-    Parameter(s):
-        0 : Group - <GROUP>
-        1 : Statement to be called after finishing the waypoint <STRING>
-
-    Returns:
-        none
-*/
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      the group retreates to a position
+ *
+ *  Parameter(s):
+ *      0 : GROUP/OBJECT - The group/the group of a unit
+ *      1 : STRING - The statement wich is called on finishing the state
+ *
+ *  Returns:
+ *      none
+ *
+ */
 #include "script_component.hpp"
+
 _this params[["_group",grpNull,[grpNull,objNull]],["_statementFinish","",[""]]];
 
 _group = _group call CBA_fnc_getGroup;

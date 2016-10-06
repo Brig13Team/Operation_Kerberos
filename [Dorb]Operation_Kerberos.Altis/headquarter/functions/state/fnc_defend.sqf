@@ -1,17 +1,18 @@
 /*
-    Author: Dorbedo
-
-    Description:
-        group defends a Position
-
-    Parameter(s):
-        0 : Group - <GROUP>
-        1 : Statement to be called after finishing the waypoint <STRING>
-
-    Returns:
-        none
-*/
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      execution of the defend state
+ *
+ *  Parameter(s):
+ *      0 : GROUP/OBJECT - The group/the group of a unit defends a location
+ *
+ *  Returns:
+ *      none
+ *
+ */
 #include "script_component.hpp"
+
 _this params[["_group",grpNull,[grpNull,objNull]]];
 
 _group = _group call CBA_fnc_getGroup;

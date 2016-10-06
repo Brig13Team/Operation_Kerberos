@@ -1,19 +1,21 @@
 /*
-    Author: Dorbedo
-
-    Description:
-        sets the group attributes
-
-    Parameter(s):
-        0 : Group - <GROUP>
-        1 : Next state - <STRING>
-        2 : The Target of the state as Object or positions (2D/3D) <OBJECT/ARRAY>
-        3 : Statement to be called after finishing the waypoint <STRING>
-
-    Returns:
-        none
-*/
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      sets the state of a group
+ *
+ *  Parameter(s):
+ *      0 : GROUP/OBJECT - The group/the group of a unit
+ *      1 : STRING - The state in which to change
+ *      2 : ARRAY/OBJECT - The target of the group
+ *      3 : STRING - called on finishing the state
+ *
+ *  Returns:
+ *      none
+ *
+ */
 #include "script_component.hpp"
+
 CHECK(!isServer)
 _this params[["_group",grpNull,[grpNull,objNull]],["_state","",[""]],["_target",nil,[objNull,[]],[2,3]],["_statementFinish","",[""]]];
 

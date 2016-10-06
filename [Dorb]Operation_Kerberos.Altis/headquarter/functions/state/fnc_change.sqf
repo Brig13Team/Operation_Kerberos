@@ -1,16 +1,19 @@
 /*
-    Author: Dorbedo
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      changes the state of a group
+ *
+ *  Parameter(s):
+ *      0 : GROUP/OBJECT - The group/the group changes it's state
+ *      1 : STRING - The statement wich is called on finishing the state
+ *
+ *  Returns:
+ *      none
+ *
+ */
+#include "script_component.hpp"
 
-    Description:
-        changes the state of a group
-
-    Parameter(s):
-        0 : Group - <GROUP>
-        1 : Statement to be called after finishing the waypoint <STRING>
-
-    Returns:
-        none
-*/
 #include "script_component.hpp"
 _this params[["_group",grpNull,[grpNull,objNull]],["_statementFinish","",[""]]];
 
