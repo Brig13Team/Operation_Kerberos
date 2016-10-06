@@ -6,243 +6,244 @@
           "typePriority": 0,
           "suggestions": [{
               "description": "Expands to: (call EFUNC(main,HashCreate))",
-              "snippet": "HASH_CREATE$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
+              "text": "HASH_CREATE",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "Disables the inclusion of CBA_macros",
+              "text": "CBA_OFF",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
               "description": "Expands to:  (DORB_HASH_TO_DELETE pushBack hash)",
               "snippet": "HASH_DELETE(${1:hash})$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
               "description": "Expands to: (!(isNil {hash getVariable key}))",
               "snippet": "HASH_HASKEY(${1:hash},${2:key})$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
               "description": "Expands to: (hash setVariable [key, val])",
               "snippet": "HASH_SET(${1:hash},${2:key},${3:value})$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
               "description": "Expands to: (hash getVariable key)",
               "snippet": "HASH_GET(${1:hash},${2:key})$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
               "description": "Expands to: (hash setVariable [key, nil])",
               "snippet": "HASH_REM(${1:hash},${2:key})$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
               "description": "Expands to: ([hash] call EFUNC(main,HashCopy))",
               "snippet": "HASH_COPY(${1:hash})$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
               "description": "Expands to: ([hash] call EFUNC(main,serialize))",
               "snippet": "SERIALIZE(${1:hash})$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
               "description": "Expands to: ([array] call EFUNC(main,deserialize))",
               "snippet": "DESERIALIZE(${1:array})$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
               "description": "Expands to: (hash isEqualType locationNull && {(text hash) isEqualTo DORB_HASH_SYS_NAME})",
               "snippet": "IS_HASH(${1:hash})$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
-              "description": "Expands to: (IS_ARRAY(array) && {(count array) > 0} && {IS_STRING((array select 0))} && {(array select 0) == "mission_hash"})",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "Expands to: (IS_ARRAY(array) && {(count array) > 0} && {IS_STRING((array select 0))} && {(array select 0) == \"mission_hash\"})",
               "snippet": "IS_SERIALIZEDHASH(${1:array})$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
-              "description": "Expands to: (isClass(configFile >> "CfgPatches" >> "task_force_radio"))",
-              "snippet": "ACTIVEMOD_TFAR$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
-              "description": "Expands to: (isClass(configFile >> "CfgPatches" >> "acre_main"))",
-              "snippet": "ACTIVEMOD_ACRE$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
-              "description": "Expands to: (isClass(configFile >> "CfgPatches" >> "BWA3_Tracked"))",
-              "snippet": "ACTIVEMOD_BW$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "Expands to: (isClass(configFile >> \"CfgPatches\" >> \"task_force_radio\"))",
+              "text": "ACTIVEMOD_TFAR",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "Expands to: (isClass(configFile >> \"CfgPatches\" >> \"acre_main\"))",
+              "text": "ACTIVEMOD_ACRE",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "Expands to: (isClass(configFile >> \"CfgPatches\" >> \"BWA3_Tracked\"))",
+              "text": "ACTIVEMOD_BW",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
               "description": "Expands to: (!IsDedicated && !hasInterface)",
-              "snippet": "isHeadless$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
-              "description": "Expands to: [class, ["RHS_UH1Y_UNARMED"], ["RHS_UH1Y","rhsusf_f22","B_T_VTOL_01_armed_blue_F","B_T_VTOL_01_armed_F","B_T_VTOL_01_armed_olive_F"]] call dorb_makro_iscasvehicle",
+              "text": "isHeadless",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "Expands to: [class, [\"RHS_UH1Y_UNARMED\"], [\"RHS_UH1Y\",\"rhsusf_f22\",\"B_T_VTOL_01_armed_blue_F\",\"B_T_VTOL_01_armed_F\",\"B_T_VTOL_01_armed_olive_F\"]] call dorb_makro_iscasvehicle",
               "snippet": "ISCASVEHICLE(${1:class})$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
-              "description": "Expands to: (isClass(configFile >> "CfgPatches" >> "BWA3_Tracked"))",
-              "snippet": "ACTIVEMOD_BW$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
               "description": "Expands to: ((sin (PHI)) * (RADIUS))",
               "snippet": "POLAR_X(${1:phi},${2:radius})$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
               "description": "Expands to: ((cos (PHI)) * (RADIUS))",
               "snippet": "POLAR_Y(${1:phi},${2:radius})$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
               "description": "Expands to: [POLAR_X(PHI,RADIUS),POLAR_Y(PHI,RADIUS)]",
               "snippet": "POLAR_2D(${1:phi},${2:radius})$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
               "description": "Expands to: [POLAR_X(PHI,RADIUS),POLAR_Y(PHI,RADIUS),0]",
               "snippet": "POLAR_3D(${1:phi},${2:radius})$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
               "description": "Expands to: ((cos (PHI)) * (RADIUS))",
               "snippet": "NPOLAR_X(${1:phi},${2:radius})$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
               "description": "Expands to: ((sin (PHI)) * (RADIUS))",
               "snippet": "NPOLAR_Y(${1:phi},${2:radius})$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
               "description": "Expands to: [NPOLAR_X(PHI,RADIUS),NPOLAR_Y(PHI,RADIUS)]",
               "snippet": "NPOLAR_2D(${1:phi},${2:radius})$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
               "description": "Expands to: [NPOLAR_X(PHI,RADIUS),NPOLAR_Y(PHI,RADIUS),0]",
               "snippet": "NPOLAR_3D(${1:phi},${2:radius})$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
-              "description": "Expands to: namespace getVariable ["name",default]",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "Expands to: namespace getVariable [\"name\",default]",
               "snippet": "GETVAR(${1:namespace},${2:name}),${3:default})$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
-              "description": "Expands to: missionnamespace getVariable ["name",default]",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "Expands to: missionnamespace getVariable [\"name\",default]",
               "snippet": "GETMVAR(${1:name}),${2:default})$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
-              "description": "Expands to: uinamespace getVariable ["name",default]",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "Expands to: uinamespace getVariable [\"name\",default]",
               "snippet": "GETUVAR(${1:name}),${2:default})$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
-              "description": "Expands to: profilenamespace getVariable ["name",default]",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "Expands to: profilenamespace getVariable [\"name\",default]",
               "snippet": "GETPRVAR(${1:name}),${2:default})$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
-              "description": "Expands to: parsingnamespace getVariable ["name",default]",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "Expands to: parsingnamespace getVariable [\"name\",default]",
               "snippet": "GETPAVAR(${1:name}),${2:default})$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
-              "description": "Expands to: namespace setVariable ["name",value]",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "Expands to: namespace setVariable [\"name\",value]",
               "snippet": "SETVAR(${1:namespace},${2:name}),${3:value})$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
-              "description": "Expands to: missionnamespace setVariable ["name",value]",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "Expands to: missionnamespace setVariable [\"name\",value]",
               "snippet": "SETMVAR(${1:name}),${2:value})$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
-              "description": "Expands to: uinamespace setVariable ["name",value]",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "Expands to: uinamespace setVariable [\"name\",value]",
               "snippet": "SETUVAR(${1:name}),${2:value})$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
-              "description": "Expands to: profilenamespace setVariable ["name",value]",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "Expands to: profilenamespace setVariable [\"name\",value]",
               "snippet": "SETPRVAR(${1:name}),${2:value})$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
               "description": "Expands to: \"STR_PREFIX_COMPONENT_name\" ",
               "snippet": "LSTRING(${1:name})$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
               "description": "Expands to: \"STR_PREFIX_component_name\" ",
               "snippet": "ELSTRING(${1:component},${2:name})$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
               "description": "Expands to: \"$STR_PREFIX_COMPONENT_name\" ",
               "snippet": "CSTRING(${1:name})$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
               "description": "Expands to: \"$STR_PREFIX_component_name\" ",
               "snippet": "ECSTRING(${1:component},${2:name})$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
-              "description": "Compiles the file COMPONENT\functions\fnc_functionname.sqf into PREFIX_fnc_functionname",
-              "snippet": "PREPMAIN(${1:functionname}$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
-              "description": "Compiles the file COMPONENT\functions\part\fnc_functionname.sqf into PREFIX_COMPONENT_fnc_part_functionname",
-              "snippet": "PREPS(${1:part},${2:functionname}$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
-              "description": "Compiles the file COMPONENT\functions\fnc_functionname.sqf into PREFIX_COMPONENT_fnc_functionname",
-              "snippet": "PREP(${1:functionname}$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "Compiles the file COMPONENT\\functions\\fnc_functionname.sqf into PREFIX_fnc_functionname",
+              "snippet": "PREPMAIN(${1:functionname})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "Compiles the file COMPONENT\\functions\\part\\fnc_functionname.sqf into PREFIX_COMPONENT_fnc_part_functionname",
+              "snippet": "PREPS(${1:part},${2:functionname})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "Compiles the file COMPONENT\\functions\\fnc_functionname.sqf into PREFIX_COMPONENT_fnc_functionname",
+              "snippet": "PREP(${1:functionname})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
               "description": "Expands to: If (condition) exitWith {};",
-              "snippet": "CHECK(${1:condition}$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
+              "snippet": "CHECK(${1:condition})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
               "description": "Expands to: If (condition) exitWith {return};",
-              "snippet": "CHECKRET(${1:condition},${2:return}$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
+              "snippet": "CHECKRET(${1:condition},${2:return})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
               "description": "Expands to: var1_var2",
-              "snippet": "DOUBLES(${1:var1},${2:var2}$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
+              "snippet": "DOUBLES(${1:var1},${2:var2})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
               "description": "Expands to: var1_var2_var3",
-              "snippet": "TRIPLES(${1:var1},${2:var2},${2:var3}$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
+              "snippet": "TRIPLES(${1:var1},${2:var2},${2:var3})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
               "description": "Expands to: PREFIX_name",
-              "snippet": "GVARMAIN(${1:name}$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
+              "snippet": "GVARMAIN(${1:name})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
               "description": "Expands to: \"PREFIX_name\" ",
-              "snippet": "QGVARMAIN(${1:name}$0",
-              "rightLabel": "BRIG Macro"
-            },
-            {
+              "snippet": "QGVARMAIN(${1:name})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
               "description": "Expands to: PREFIX_SYSTEM_name",
-              "snippet": "FUNCSYS(${1:name}$0",
-              "rightLabel": "BRIG Macro"
+              "snippet": "FUNCSYS(${1:name})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
             }
           ]
         }
