@@ -3,6 +3,15 @@
 #define DEBUG_MODE_FULL
 
 
+// handler max. Intervall for FULL-CHECK
+#define DEF_PLAYERGROUPCHECKINTERVALL 300
+// handler Intervall
+#define INTERVALL_PLAYERGROUPS 60
+
+
+
+
+
 #define ATTACKPOS_DISTANCE 300
 #define HQ_DANGERMOD 0.333
 #define INTERVALL_HQ 30

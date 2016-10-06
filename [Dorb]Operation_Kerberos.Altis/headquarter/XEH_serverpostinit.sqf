@@ -42,6 +42,13 @@ HASH_SET(GVAR(handles),"fdc_defend",_handle);
 *
 *************************/
 GVAR(active) = false;
+
+
+/// groups - player & ai
+GVAR(groups) = HASH_CREATE;
+HASH_SET(GVAR(groups),"playergroups",[]);
+GVAR(playergroups_new) = 0;
+
 /// radars
 GVAR(radars) = CREATE_HASH;
 HASH_SET(GVAR(radars),"objects",[]);
@@ -60,10 +67,12 @@ GVAR(strategy_memory) = SERIALIZE(GETPRVAR(GVAR(strategy_memory),HASH_CREATE));
 GVAR(attackpos) = HASH_CREATE;
 
 /// Handles
-_handle = [FUNC(handle),INTERVALL_HQ,[]] call CBA_fnc_addPerFrameHandler;
+_handle = [{_this call FUNC(handle)},INTERVALL_HQ,[]] call CBA_fnc_addPerFrameHandler;
 HASH_SET(GVAR(handles),"main",_handle);
-_handle = [FUNC(check_radars),INTERVALL_RADARS,[]] call CBA_fnc_addPerFrameHandler;
+_handle = [{_this call FUNC(check_radars)},INTERVALL_RADARS,[]] call CBA_fnc_addPerFrameHandler;
 HASH_SET(GVAR(handles),"radars",_handle);
+_handle = [{_this call FUNC(handlePlayerGroups);},INTERVALL_PLAYERGROUPS,[]] call CBA_fnc_addPerFrameHandler;
+HASH_SET(GVAR(handles),"playergroups",_handle);
 
 /// Events
 

@@ -1,16 +1,17 @@
 /*
-    Author: Dorbedo
-
-    Description:
-        registers a group of interest
-
-    Parameter(s):
-        0:Group <GROUP> - the group to be registered
-        1:Type <STRING>
-
-    Returns:
-        BOOL
-*/
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      registers a new group to the HQ
+ *
+ *  Parameter(s):
+ *      0 : GROUP - the group to register
+ *      1 : STRING - the type of group (attack,defence,patrol)
+ *
+ *  Returns:
+ *      none
+ *
+ */
 #include "script_component.hpp"
 
 _this params [["_group",grpNull,[grpNull]],["_type","attack",[""]]];
@@ -36,6 +37,7 @@ HASH_GET(GVAR(groups),_key) pushBack _grouphash;
 _group setVariable [QGVAR(grouphash),_grouphash];
 
 HASH_SET(_grouphash,"grouptype",_type);
+HASH_SET(_grouphash,"group",_group);
 HASH_SET(_grouphash,"state",_state);
 
 private _strenghtArray = (_group call FUNC(strengthAI)) params ["_GroupType","_value","_threat"];
