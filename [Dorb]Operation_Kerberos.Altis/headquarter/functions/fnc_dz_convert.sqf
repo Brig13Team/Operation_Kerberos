@@ -1,17 +1,19 @@
 /*
-    Author: Dorbedo
-
-    Description:
-        converts the positon into a dangerzone coordinate
-        converts the dangerzine into a coordinate
-
-    Parameter(s):
-        0: position <ARRAY/STRING>
-
-    Returns:
-        dangerszone <STRING/ARRAY>
-*/
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *       converts the positon into a dangerzone coordinate
+ *       converts the dangerzine into a coordinate
+ *
+ *  Parameter(s):
+ *      0 : ARRAY/STRING - Position to convert
+ *
+ *  Returns:
+ *      STRING/ARRAY - converted position
+ *
+ */
 #include "script_component.hpp"
+
 _this params [["_position",[],[[],""],[2,3]]];
 private _return = "";
 
