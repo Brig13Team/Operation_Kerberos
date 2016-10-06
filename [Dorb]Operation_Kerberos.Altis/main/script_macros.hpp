@@ -542,6 +542,6 @@ Example:
 Author:
     Dorbedo
 ------------------------------------------- */
-#define ACTIVEMOD_TFAR (isClass(configFile >> "CfgPatches" >> "task_force_radio"));
-#define ACTIVEMOD_ACRE (isClass(configFile >> "CfgPatches" >> "acre_main"));
-#define ACTIVEMOD_BW (isClass(configFile >> "CfgPatches" >> "BWA3_Tracked"));
+#define ACTIVEMOD_TFAR (isClass(configFile >> "CfgPatches" >> "task_force_radio"))
+#define ACTIVEMOD_ACRE (isClass(configFile >> "CfgPatches" >> "acre_main"))
+#define ACTIVEMOD_BW (isClass(configFile >> "CfgPatches" >> "BWA3_Tracked"))
