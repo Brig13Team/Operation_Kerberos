@@ -1,0 +1,17 @@
+{
+  "name": "language-brigade",
+  "version": "0.0.0",
+  "description": "brigade language support in Atom",
+  "engines": {
+    "atom": "*"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Brig13team/language-brigade.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Brig13team/language-brigade/issues"
+  },
+  "license": "MIT"
+}

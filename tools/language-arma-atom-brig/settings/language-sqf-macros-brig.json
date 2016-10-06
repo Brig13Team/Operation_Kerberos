@@ -1,0 +1,67 @@
+{
+  ".source.sqf, .source.arma.cfg": {
+    "autocomplete": {
+      "symbols": {
+        "macro-brig": {
+          "typePriority": 0,
+          "suggestions": [{
+              "description": "Expands to: (call EFUNC(main,HashCreate))",
+              "snippet": "HASH_CREATE$0",
+              "rightLabel": "BRIG Macro"
+            },
+            {
+              "description": "Expands to:  (DORB_HASH_TO_DELETE pushBack hash)",
+              "snippet": "HASH_DELETE(${1:hash})$0",
+              "rightLabel": "BRIG Macro"
+            },
+            {
+              "description": "Expands to: (!(isNil {hash getVariable key}))",
+              "snippet": "HASH_HASKEY(${1:hash},${2:key})$0",
+              "rightLabel": "BRIG Macro"
+            },
+            {
+              "description": "Expands to: (hash setVariable [key, val])",
+              "snippet": "HASH_SET(${1:hash},${2:key},${3:value})$0",
+              "rightLabel": "BRIG Macro"
+            },
+            {
+              "description": "Expands to: (hash getVariable key)",
+              "snippet": "HASH_GET(${1:hash},${2:key})$0",
+              "rightLabel": "BRIG Macro"
+            },
+            {
+              "description": "Expands to: (hash setVariable [key, nil])",
+              "snippet": "HASH_REM(${1:hash},${2:key})$0",
+              "rightLabel": "BRIG Macro"
+            },
+            {
+              "description": "Expands to: ([hash] call EFUNC(main,HashCopy))",
+              "snippet": "HASH_COPY(${1:hash})$0",
+              "rightLabel": "BRIG Macro"
+            },
+            {
+              "description": "Expands to: ([hash] call EFUNC(main,serialize))",
+              "snippet": "SERIALIZE(${1:hash})$0",
+              "rightLabel": "BRIG Macro"
+            },
+            {
+              "description": "Expands to: ([array] call EFUNC(main,deserialize))",
+              "snippet": "DESERIALIZE(${1:array})$0",
+              "rightLabel": "BRIG Macro"
+            }
+            {
+              "description": "Expands to: (hash isEqualType locationNull && {(text hash) isEqualTo DORB_HASH_SYS_NAME})",
+              "snippet": "IS_HASH(${1:hash})$0",
+              "rightLabel": "BRIG Macro"
+            }
+            {
+              "description": "Expands to: (IS_ARRAY(array) && {(count array) > 0} && {IS_STRING((array select 0))} && {(array select 0) == "ACRE_HASH"})",
+              "snippet": "IS_SERIALIZEDHASH(${1:array})$0",
+              "rightLabel": "BRIG Macro"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
