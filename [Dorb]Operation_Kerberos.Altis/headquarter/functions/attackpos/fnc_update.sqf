@@ -1,16 +1,19 @@
 /*
-    Author: Dorbedo
-
-    Description:
-        updates a attackPos
-
-    Parameter(s):
-        none
-
-    Returns:
-        none
-*/
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      updates the enemystrenght at attacklocation
+ *      doesn't change the attacking values
+ *
+ *  Parameter(s):
+ *      0 : LCOATION - the attacklocation
+ *
+ *  Returns:
+ *      none
+ *
+ */
 #include "script_component.hpp"
+
 _this params [["_attackLoc",locationNull,[locationNull]]];
 CHECK((isNull _attackLoc)||{!(IS_HASH(_attackLoc))})
 

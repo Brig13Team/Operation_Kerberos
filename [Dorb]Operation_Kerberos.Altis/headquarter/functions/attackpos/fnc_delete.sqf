@@ -1,15 +1,16 @@
 /*
-    Author: Dorbedo
-
-    Description:
-        deletes an attackpos;
-
-    Parameter(s):
-        0:LOCATION - Attackposition
-
-    Returns:
-        BOOL
-*/
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      deletes an attacklocation
+ *
+ *  Parameter(s):
+ *      0 : LOCATION - the attacklocation to delete
+ *
+ *  Returns:
+ *      none
+ *
+ */
 #include "script_component.hpp"
 
 _this params [["_location",locationNull,[locationNull]]];

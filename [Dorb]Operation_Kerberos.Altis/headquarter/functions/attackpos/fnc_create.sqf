@@ -1,16 +1,18 @@
 /*
-    Author: Dorbedo
-
-    Description:
-        creates a attackPosition
-
-    Parameter(s):
-        0: Position or Group <ARRAY/GROUP>
-
-    Returns:
-        <LOCATION>
-*/
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      creates an attack poistion at given position
+ *
+ *  Parameter(s):
+ *      0 : ARRAY - The position where to create a attack location
+ *
+ *  Returns:
+ *      none
+ *
+ */
 #include "script_component.hpp"
+
 _this params [["_position",[],[[],grpNull],[2,3]]];
 private _group = grpNull;
 If (IS_GROUP(_position)) then {

@@ -1,16 +1,19 @@
 /*
-    Author: Dorbedo
-
-    Description:
-        creates a attackPosition
-
-    Parameter(s):
-        0: Position or Group <ARRAY/GROUP>
-
-    Returns:
-        <LOCATION>
-*/
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      add a enemygroup to an attackposition
+ *
+ *  Parameter(s):
+ *      0 : LOCATION - the attacklocation
+ *      1 : GROUP - the group
+ *
+ *  Returns:
+ *      none
+ *
+ */
 #include "script_component.hpp"
+
 _this params [["_attackLoc",locationNull,[locationNull]],["_group",grpNull,[grpNull]]];
 CHECK((isNull _attackLoc)||(isNull _group)||{!(IS_HASH(_attackLoc))})
 
@@ -20,7 +23,15 @@ If !(_group in _enemygroups) then {
     _enemygroups pushBack _group;
     HASH_SET(_attackLoc,"enemygroups",_enemygroups);
 
-    private _strenghtArray = (_group call FUNC(strengthPlayer)) params ["_GroupType","_value","_threat"];
+    private _grouphash = _group getVariable QGVAR(grouphash);
+    If (isNil _grouphash) then {
+        [_group] call FUNC(registerPlayerGroup);
+        _grouphash = _group getVariable QGVAR(grouphash);
+    };
+    private _GroupType = HASH_GET(_grouphash,"type");
+    private _value = HASH_GET(_grouphash,"value");
+    private _threat = HASH_GET(_grouphash,"threat");
+
     private _currentType = HASH_GET(_attackLoc,"enemytype");
     private _currentValue = HASH_GET(_attackLoc,"enemyvalue");
     private _currentThreat = HASH_GET(_attackLoc,"enemythreat");
