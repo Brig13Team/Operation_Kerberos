@@ -1,14 +1,14 @@
 /*
-	Author: Dorbedo
+    Author: Dorbedo
 
-	Description:
-		copys a hash
+    Description:
+        copys a hash
 
-	Parameter(s):
-		None
+    Parameter(s):
+        None
 
-	Return
-		None
+    Return
+        None
 */
 #include "script_component.hpp"
 

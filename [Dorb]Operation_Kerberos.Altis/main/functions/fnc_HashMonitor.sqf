@@ -1,14 +1,14 @@
 /*
-	Author: Dorbedo
+    Author: Dorbedo
 
-	Description:
-		monitors the hashes
+    Description:
+        monitors the hashes
 
-	Parameter(s):
-		None
+    Parameter(s):
+        None
 
-	Return
-		None
+    Return
+        None
 */
 #include "script_component.hpp"
 

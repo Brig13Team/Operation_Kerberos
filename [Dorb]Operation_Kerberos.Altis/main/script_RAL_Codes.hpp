@@ -1,7 +1,7 @@
 /*
     Author: Dorbedo
-	
-	Because it's easier for me to find a good color
+    
+    Because it's easier for me to find a good color
 */
 #define RAL9023 0.5098039,0.5098039,0.5098039
 #define RAL9022 0.6117647,0.6117647,0.6117647

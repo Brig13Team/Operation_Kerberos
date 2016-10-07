@@ -1,14 +1,14 @@
 /*
-	Author: Dorbedo
+    Author: Dorbedo
 
-	Description:
-		returns all Keys of a hash
+    Description:
+        returns all Keys of a hash
 
-	Parameter(s):
-		0: HASH <LOCALTION>
+    Parameter(s):
+        0: HASH <LOCALTION>
 
-	Return
-		<ARRAY> Keys
+    Return
+        <ARRAY> Keys
 */
 #include "script_component.hpp"
 
