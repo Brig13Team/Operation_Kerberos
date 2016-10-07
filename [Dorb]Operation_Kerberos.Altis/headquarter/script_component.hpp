@@ -7,7 +7,8 @@
 #define DEF_PLAYERGROUPCHECKINTERVALL 300
 // handler Intervall
 #define INTERVALL_PLAYERGROUPS 60
-
+// handler anti-air
+#define INTERVALL_AA 60
 
 
 
