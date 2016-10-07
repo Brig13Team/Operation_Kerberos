@@ -38,6 +38,14 @@ _handle = [{_this call FUNC(fdc_defend_artypos)},INTERVALL_SEARCH,[]] call CBA_f
 HASH_SET(GVAR(handles),"fdc_defend",_handle);
 /*************************
 *
+*       Anti Air
+*
+*************************/
+GVAR(antiair) = HASH_CREATE;
+HASH_SET(GVAR(antiair),"mobile",[]);
+HASH_SET(GVAR(antiair),"static",[]);
+/*************************
+*
 *       Headquarter
 *
 *************************/
@@ -73,8 +81,13 @@ _handle = [{_this call FUNC(check_radars)},INTERVALL_RADARS,[]] call CBA_fnc_add
 HASH_SET(GVAR(handles),"radars",_handle);
 _handle = [{_this call FUNC(handlePlayerGroups);},INTERVALL_PLAYERGROUPS,[]] call CBA_fnc_addPerFrameHandler;
 HASH_SET(GVAR(handles),"playergroups",_handle);
+_handle = [{_this call FUNC(handleAA);},INTERVALL_AA,[]] call CBA_fnc_addPerFrameHandler;
+HASH_SET(GVAR(handles),"antiair",_handle);
+
+/// Eventhandler
+#include "XEH_initpost.sqf"
+#include "XEH_killed.sqf"
 
 /// Events
-
 [QEGVAR(mission,start),{GVAR(active) = true;_this call FUNC(MissionInit);}] call CBA_fnc_addEventHandler;
 [QEGVAR(mission,end),{GVAR(active) = false;_this call FUNC(MissionCleanUp);}] call CBA_fnc_addEventHandler;

@@ -32,6 +32,7 @@ class Extended_PostInit_EventHandlers {
     INCLUDE_CLIENTPOSTINIT(common);
     INCLUDE_CLIENTPOSTINIT(logistics);
     INCLUDE_CLIENTPOSTINIT(interface);
+    INCLUDE_CLIENTPOSTINIT(headquarter);
     INCLUDE_CLIENTPOSTINIT(player);
     INCLUDE_CLIENTPOSTINIT(mission);
     INCLUDE_CLIENTPOSTINIT(headless);
@@ -87,7 +88,6 @@ class Extended_inventoryClosed_EventHandlers {
 };
 //class Extended_inventoryOpened_EventHandlers {};
 class Extended_killed_EventHandlers {
-    #include "headquarter\XEH_killed.hpp"
     #include "player\XEH_killed.hpp"
 };
 //class Extended_landedTouchDown_EventHandlers {};
