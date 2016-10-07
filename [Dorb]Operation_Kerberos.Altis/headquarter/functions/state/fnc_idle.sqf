@@ -5,7 +5,7 @@
  *      the group idles at current position
  *
  *  Parameter(s):
- *      0 : GROUP/OBJECT - The group/the group of a unit attacks a location
+ *      0 : GROUP/OBJECT - The group/the group of a unit
  *      1 : STRING - The statement wich is called on finishing the state
  *
  *  Returns:
