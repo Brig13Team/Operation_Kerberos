@@ -3,7 +3,7 @@
  *
  */
 #include "script_component.hpp"
-CHECK(!ACTIVEMOD_ACRE);
+
 If (hasInterface) then {
 /*
     [
