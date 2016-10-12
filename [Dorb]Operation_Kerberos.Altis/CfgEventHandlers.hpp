@@ -43,6 +43,7 @@ class Extended_PostInit_EventHandlers {
     INCLUDE_POSTINIT(modtfar);
     INCLUDE_POSTINIT(patchacre);
     INCLUDE_POSTINIT(modacre);
+    INCLUDE_POSTINIT(modasrai);
 };
 class Extended_Init_Eventhandlers {
     #include "spawn\XEH_init.hpp"
