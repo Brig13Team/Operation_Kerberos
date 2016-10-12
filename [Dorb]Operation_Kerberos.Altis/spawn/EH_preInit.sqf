@@ -18,7 +18,7 @@ PREP(defence_macros);
 PREP(gear);
 PREP(group);
 
-PREP(EH_hit);
+PREP(onHit);
 PREP(stayInVehicle);
 
 PREP(macro_exec3d);
