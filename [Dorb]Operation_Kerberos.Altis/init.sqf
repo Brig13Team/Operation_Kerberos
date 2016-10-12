@@ -7,8 +7,6 @@
 #include "script_component.hpp"
 SCRIPT(init);
 
-ace_cookoff_enable = false;
-
 ////// Autodetection of Mods
 GVAR(mods_rds) = (isClass(configFile >> "CfgPatches" >> "RDS_StaticWeapons_Core"));
 GVAR(mods_bwa) = (isClass(configFile >> "CfgPatches" >> "BWA3_Tracked"));

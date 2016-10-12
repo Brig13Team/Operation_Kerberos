@@ -62,6 +62,9 @@ class cfgFunctions {
 #include "logistics\config\logistics.hpp"
 #include "player\config\arsenal.hpp"
 
+// mods
+#include "modace\ace_settings.hpp"
+
 //Debrief
 class CfgDebriefing {
 	class End1 {
