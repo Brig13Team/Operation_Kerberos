@@ -445,7 +445,7 @@
             <German>Deaktivieren</German>
             <English>Disable</English>
         </Key>
-        
+
         <Key ID="STR_DORB_MISSION_SCARAB_TASK">
             <Original>Prevent launch of nuclear missiles within %1 minutes.</Original>
             <German>Verhindern Sie den Abschuss der Atomraketen innerhalb von %1 Minuten.</German>
@@ -553,12 +553,12 @@
             <Original>Prepare for new orders.</Original>
             <German>Bereiten Sie sich auf neue Befehle vor.</German>
             <English>Prepare for new orders.</English>
-        </Key>    
+        </Key>
 
-        
-        
-        
-        
+
+
+
+
         <Key ID="STR_DORB_MISSION_EXAMINE">
             <Original>Interrogate</Original>
             <German>Verhör</German>
@@ -575,11 +575,11 @@
             <German>RTB</German>
             <English>RTB</English>
         </Key>
-    
+
         <Key ID="STR_DORB_MISSION_CLEAR_TASK">
             <Original>Capture %1</Original>
             <German>Erobern sie %1</German>
-            <English>Capture %1</English>                     
+            <English>Capture %1</English>
         </Key>
         <Key ID="STR_DORB_MISSION_CLEAR_TASK_DESC">
             <Original>The enemy has captured the area surrounding %1. Recapture it and clear out all hostile forces in the vincinity.</Original>
@@ -595,7 +595,7 @@
             <Original>Failed</Original>
             <German>Gescheitert</German>
             <English>Failed</English>
-        </Key>    
+        </Key>
         <Key ID="STR_DORB_MISSION_DESTROY">
             <Original>Destroy</Original>
             <German>Zerstören</German>
@@ -907,7 +907,7 @@
             <German>Es wurden von den Gegnern %1 Gefangene in %2 gemacht. Befreien sie die Gefangenen und bringen sie diese in die Sicherheitszone.</German>
             <English>The enemy has taken %1 hostages in %2. Free them and escort them back to base.</English>
         </Key>
-        
+
     </Package>
     <Package name="player">
         <Key ID="STR_DORB_PLAYER_BRIEF_SETTING">
@@ -1135,73 +1135,4 @@
             <English>Completed</English>
         </Key>
     </Package>
-</Project>
-<Project name="CH View Distance">
-    <Package name="Main">
-        <Key ID="STR_chvd_title">
-            <Original>View Distance Settings</Original>
-            <German>Sichtweiteneinstellung</German>
-            <Russian>Настройки Дальности Обзора</Russian>
-        </Key>
-        <Key ID="STR_chvd_foot">
-            <Original>ON FOOT</Original>
-            <German>ZU FUSS</German>
-            <Russian>ПЕШКОМ</Russian>
-        </Key>
-        <Key ID="STR_chvd_car">
-            <Original>IN CAR</Original>
-            <German>IM FAHRZEUG</German>
-            <Russian>В МАШИНЕ</Russian>
-        </Key>
-        <Key ID="STR_chvd_air">
-            <Original>IN AIR</Original>
-            <German>IN DER LUFT</German>
-            <Russian>В ВОЗДУХЕ</Russian>
-        </Key>
-        <Key ID="STR_chvd_view">
-            <Original>VIEW:</Original>
-            <German>GESAMT:</German>
-            <Russian>ОБЩЕЕ:</Russian>
-        </Key>
-        <Key ID="STR_chvd_object">
-            <Original>OBJECT:</Original>
-            <German>OBJEKTE:</German>
-            <Russian>ОБЪЕКТЫ:</Russian>
-        </Key>
-        <Key ID="STR_chvd_terrain">
-            <Original>TERRAIN:</Original>
-            <German>GRAS:</German>
-            <Russian>ЛАНДШАФТ:</Russian>
-        </Key>
-        <Key ID="STR_chvd_sync">
-            <Original>Sync object with view</Original>
-            <German>Synchronisieren</German>
-            <Russian>Синхронизировать</Russian>
-        </Key>
-        <Key ID="STR_chvd_close">
-            <Original>Close</Original>
-            <German>Schliessen</German>
-            <Russian>Закрыть</Russian>
-        </Key>        
-        <Key ID="STR_chvd_low">
-            <Original>Low</Original>
-            <German>Niedrig</German>
-            <Russian>Низкое</Russian>
-        </Key>
-        <Key ID="STR_chvd_standard">
-            <Original>Standard</Original>
-            <German>Standard</German>
-            <Russian>Стандартное</Russian>
-        </Key>
-        <Key ID="STR_chvd_high">
-            <Original>High</Original>
-            <German>Hoch</German>
-            <Russian>Высокое</Russian>
-        </Key>
-        <Key ID="STR_chvd_veryHigh">
-            <Original>Very High</Original>
-            <German>Sehr hoch</German>
-            <Russian>Очень высокое</Russian>
-        </Key>
-    </package>
 </Project>

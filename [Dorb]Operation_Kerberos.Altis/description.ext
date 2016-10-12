@@ -46,13 +46,6 @@ corpseManagerMode = 0;
 ///// Rootdir
 __EXEC (D_ROOTDIR = __FILE__ select [0, count __FILE__ - 15])
 
-///// ADDONS
-// Viewdistance
-#include "CHVD\dialog.hpp"
-class cfgFunctions {
-    #include "CHVD\CfgFunctions.hpp"
-};
-
 //// MAIN
 #include "main\system.hpp"
 #include "modace\ace_settings.hpp"
