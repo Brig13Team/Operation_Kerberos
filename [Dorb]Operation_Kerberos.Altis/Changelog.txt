@@ -4,6 +4,7 @@ Github: https://github.com/Dorbedo/Operation_Kerberos
 
 Version 0.17
 Removed: R3F
+Removed: CVHD
 Removed: AI: Commander
 Removed: Missions: Mainmissions
 Removed: Missions: Sidemissions
@@ -267,7 +268,7 @@ Version 0.06
 
 Added: R3F-Logistik
 Added: Neues Debuglog
-Added: Mörser 
+Added: Mörser
 Added: Artillerie
 Added: Tower
 
