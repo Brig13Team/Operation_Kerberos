@@ -18,18 +18,18 @@ PREP(assignCurator);
 PREP(halo_addaction);
 PREP(setLoadout);
 
-PREP(EH_fired);
-PREP(EH_hit);
-PREP(EH_respawn);
-PREP(EH_killed);
-PREP(EH_getIn);
-PREP(EH_seatswitched);
+PREP(onfired);
+PREP(onhit);
+PREP(onrespawn);
+PREP(onkilled);
+PREP(ongetIn);
+PREP(onseatswitched);
 
 PREPS(backpack,change);
 PREPS(backpack,handle);
 PREPS(backpack,init);
 
-PREPS(suppression,EH_fired);
+PREPS(suppression,onfired);
 PREPS(suppression,handle_effect);
 PREPS(suppression,handle_fired);
 PREPS(suppression,init);

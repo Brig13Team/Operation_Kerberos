@@ -13,7 +13,7 @@ SETUVAR(EGVAR(interface,respawnTime),nil);
 [] call FUNC(addbriefing);
 [] call FUNC(halo_addaction);
 [] call FUNC(backpack_init);
-[] call FUNC(EH_respawn);
+[] call FUNC(onrespawn);
 [] call FUNC(initKnockKnock);
 
 ["init"] spawn FUNC(grouptracker);

@@ -6,6 +6,8 @@
 */
 #include "script_component.hpp"
 
+CHECK(!isServer)
+
 GVAR(postInit) = false;
 #ifdef DORB_PILOT_WHITELIST_ENABLED
     GVAR(reserved_pilot_slot) = true;
