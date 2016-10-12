@@ -1,11 +1,11 @@
 /*
     Author: Dorbedo
-    
+
     Description:
         initialization for logistics
 */
 #include "script_component.hpp"
-CHECK(isHeadless)
+CHECK(!hasInterface)
 CHECK(!isClass(missionconfigFile >> "logistics"))
 
 ISNILS(EGVAR(player,respawn_fnc),[]);
@@ -75,5 +75,5 @@ for "_i" from 0 to ((count _cfgVeh)-1) do {
         private _test2 = [_vehicle, 0, ["ACE_MainActions",QGVAR(action_main)], _loadAction] call ace_interact_menu_fnc_addActionToClass;
         LOG_3(,_vehicle,_test1,_test2);
     };
-    
+
 };
