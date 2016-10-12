@@ -1,0 +1,4 @@
+
+class ace_interaction_enableTeamManagement TURN_OFF;
+
+class ace_interaction_enableMagazinePassing TURN_ON;
