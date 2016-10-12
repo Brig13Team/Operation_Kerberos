@@ -1,6 +1,6 @@
 ﻿Changelog
 
-Github: https://github.com/Dorbedo/Operation_Kerberos
+Github: https://github.com/Brig13Team/Operation_Kerberos
 
 Version 0.17
 Removed: R3F
