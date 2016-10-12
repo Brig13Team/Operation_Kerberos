@@ -3,7 +3,7 @@
 
 */
 #include "script_component.hpp"
-
+CHECK(!isServer)
 [
     QGVAR(changeOwner),
     {_this call FUNC(changeOwner);}

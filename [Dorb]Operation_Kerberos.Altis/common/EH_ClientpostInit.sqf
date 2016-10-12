@@ -1,5 +1,5 @@
 #include "script_component.hpp"
-
+CHECK(!hasInterface)
 GVAR(lastCamWasArsenal) = false;
 ["ace_activeCameraChanged",
     {
