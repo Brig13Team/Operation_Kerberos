@@ -10,7 +10,7 @@
 
 class ADDON {
     Events[] = {"preinit","clientpostinit","postinit"};
-    class dependecies {
+    class dependencies {
         CfgPatches = {"acre_main"};
         CfgComponent = {};
     };

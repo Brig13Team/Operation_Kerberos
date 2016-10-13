@@ -10,7 +10,7 @@
 
 class ADDON {
     Events[] = {"postinit"};
-    class dependecies {
+    class dependencies {
         CfgPatches = {'asr_ai3_main','asr_ai3_cfgammo','asr_ai3_cfgvehicles','asr_ai3_cfgweapons'};
         CfgComponent = {};
     };

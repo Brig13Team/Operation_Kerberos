@@ -10,7 +10,7 @@
 
 class ADDON {
     Events[] = {"preinit","postinit"};
-    class dependecies {
+    class dependencies {
         CfgPatches = {"task_force_radio"};
         CfgComponent = {};
     };

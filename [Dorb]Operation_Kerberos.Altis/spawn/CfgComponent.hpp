@@ -10,7 +10,7 @@
 
 class ADDON {
     Events[] = {"hit","init","preinit"};
-    class dependecies {
+    class dependencies {
         CfgPatches = {"rhsafrf","rhsusaf"};
         CfgComponent = {"common","mission","interface"};
     };

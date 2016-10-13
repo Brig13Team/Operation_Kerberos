@@ -10,7 +10,7 @@
 
 class ADDON {
     Events[] = {"hitpart"};
-    class dependecies {
+    class dependencies {
         CfgPatches = {"BWA3_Tracked"};
         CfgComponent = {};
     };

@@ -10,7 +10,7 @@
 
 class ADDON {
     Events[] = {};
-    class dependecies {
+    class dependencies {
         CfgPatches = {'ace_main'};
         CfgComponent = {};
     };

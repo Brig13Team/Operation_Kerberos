@@ -10,7 +10,7 @@
 
 class ADDON {
     Events[] = {"clientpostinit","fired","getIn","hit","killed","postinit","preinit","seatSwitched","serverpostinit"};
-    class dependecies {
+    class dependencies {
         CfgPatches = {};
         CfgComponent = {"common"};
     };
