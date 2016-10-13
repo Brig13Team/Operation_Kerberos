@@ -9,13 +9,15 @@
 #include "script_component.hpp"
 
 class ADDON {
-    Events[] = {"hit","init","preinit"};
+    Events[] = {"postinit"};
     class dependecies {
-        CfgPatches = {"rhsafrf","rhsusaf"};
+        CfgPatches = {"rhsafrf","CBA_main"};
         CfgComponent = {"common","mission","interface"};
     };
-    #include "config\city_defence.hpp"
-    #include "config\unitlists.hpp"
-    #include "config\gear.hpp"
-    #include "config\defence_positions.hpp"
+};
+
+class Extended_PreInit_EventHandlers {
+    class ADDON {
+        init = "call compile preProcessFileLineNumbers 'main\EH_postinit.sqf';";
+    };
 };

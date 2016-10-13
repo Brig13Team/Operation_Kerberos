@@ -15,3 +15,5 @@ class ADDON {
         CfgComponent = {};
     };
 };
+
+#include "ace_settings.hpp"

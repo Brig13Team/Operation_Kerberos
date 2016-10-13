@@ -14,4 +14,5 @@ class ADDON {
         CfgPatches = {};
         CfgComponent = {"common"};
     };
+    #include "config\arsenal.hpp"
 };

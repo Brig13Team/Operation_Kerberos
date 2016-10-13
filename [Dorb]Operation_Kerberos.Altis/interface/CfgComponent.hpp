@@ -14,4 +14,8 @@ class ADDON {
         CfgPatches = {};
         CfgComponent = {};
     };
+    #include "config\define.hpp"
+    #include "config\menu.hpp"
+    #include "config\definitions_new.hpp"
+    #include "config\rscTitles_new.hpp"
 };

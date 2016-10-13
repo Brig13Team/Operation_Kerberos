@@ -14,4 +14,5 @@ class ADDON {
         CfgPatches = {};
         CfgComponent = {};
     };
+    #include "config\logistics.hpp"
 };

@@ -47,8 +47,8 @@ corpseManagerMode = 0;
 __EXEC (D_ROOTDIR = __FILE__ select [0, count __FILE__ - 15])
 
 //// MAIN
-#include "main\system.hpp"
-#include "modace\ace_settings.hpp"
+
+
 
 ///// MISSION
 // tasks
@@ -58,11 +58,7 @@ __EXEC (D_ROOTDIR = __FILE__ select [0, count __FILE__ - 15])
 #include "mission\config\sideby_config.hpp"
 
 // Interface
-#include "interface\config\RAL_CODES.hpp"
-#include "interface\config\define.hpp"
-#include "interface\config\menu.hpp"
-#include "interface\config\definitions_new.hpp"
-#include "interface\config\rscTitles_new.hpp"
+
 
 // Eventhandlers
 #include "CfgEventHandlers.hpp"
@@ -73,12 +69,9 @@ __EXEC (D_ROOTDIR = __FILE__ select [0, count __FILE__ - 15])
 #include "headquarter\config\strategy.hpp"
 
 // other
-#include "spawn\config\city_defence.hpp"
-#include "spawn\config\unitlists.hpp"
-#include "spawn\config\gear.hpp"
-#include "spawn\config\defence_positions.hpp"
-#include "player\config\arsenal.hpp"
-#include "logistics\config\logistics.hpp"
+
+
+
 
 // Sounds
 #include "CfgSounds.hpp"
