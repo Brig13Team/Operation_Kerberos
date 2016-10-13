@@ -8,10 +8,10 @@
 #define CBA_OFF
 #include "script_component.hpp"
 
-class ADDON {
-    Events[] = {"hitpart"};
+class DOUBLES(CfgComponent,ADDON) {
+    class hitpart {};
     class dependencies {
-        CfgPatches = {"BWA3_Tracked"};
-        CfgComponent = {};
+        CfgPatches[] = {"BWA3_Tracked"};
+        CfgComponents[] = {};
     };
 };

@@ -13,19 +13,24 @@ class DOUBLES(CfgComponent,ADDON) {
         server = 1; // always turned on, if not set
         client = 1; // to turn off, set the paramter to 0
         class dependencies {  // adds aditional restrictions if not set, no dependecies are checked
-            CfgPatches = {};
-            CfgComponent = {};
+            CfgPatches[] = {};
+            CfgComponents[] = {};
             Condition = "true"; // can be used to add some aditional conditions
         };
     };
     class dependencies {
-        CfgPatches = {"CBA_main"};
-        CfgComponent = {};
+        CfgPatches[] = {"CBA_main"};
+        CfgComponents[] = {};
     };
 };
 
+#include "system.hpp"
+
+
+__EXEC (MISSIONROOT = __FILE__ select [0, count __FILE__ - 15]);
+
 class Extended_PreInit_EventHandlers {
     class ADDON {
-        init = "call compile preProcessFileLineNumbers 'main\EH_postinit.sqf';";
+        init = "call compile preProcessFileLineNumbers 'main\EH_preinit.sqf';";
     };
 };

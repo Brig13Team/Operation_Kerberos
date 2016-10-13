@@ -14,9 +14,11 @@ QEGVAR(mission,endzeit) addPublicVariableEventHandler {[] spawn FUNC(disp_timer)
     _this params ["_title","_content"];
     private _text = _content;
     If (_content isEqualType []) then {
-        _text = _content select 0;
+        _text = _content joinString " <br />";
+        /*_text = _content select 0;
         _content deleteAt 0;
         {_text append "\n";_text append str _x;} forEach _content;
+        */
     };
     [_title,_text] spawn FUNC(message);}
 ] call CBA_fnc_addEventHandler;

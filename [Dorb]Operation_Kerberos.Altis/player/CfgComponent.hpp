@@ -8,11 +8,21 @@
 #define CBA_OFF
 #include "script_component.hpp"
 
-class ADDON {
-    Events[] = {"clientpostinit","fired","getIn","hit","killed","postinit","preinit","seatSwitched","serverpostinit"};
-    class dependencies {
-        CfgPatches = {};
-        CfgComponent = {"common"};
+class DOUBLES(CfgComponent,ADDON) {
+    class clientpostinit {
+        server = 0;
     };
-    #include "config\arsenal.hpp"
+    class fired {server = 0;};
+    class getIn {server = 0;};
+    class hit {server = 0;};
+    class killed {server = 0;};
+    class seatSwitched {server = 0;};
+    class postinit {};
+    class preinit {};
+    class serverpostinit {client = 0;};
+    class dependencies {
+        CfgPatches[] = {};
+        CfgComponents[] = {"common"};
+    };
 };
+#include "config\arsenal.hpp"

@@ -75,7 +75,7 @@ private _configArray = (
                 ("isclass _x && (getText(_x >> 'vehicleClass')=='Backpacks')" configclasses (configfile >> "cfgvehicles")) +
                 ("isclass _x" configclasses (configfile >> "cfgglasses"))
             );
-private _cfgPatches = "(
+private _CfgPatches = "(
                 (!((getArray (_x >> 'magazines'))isEqualTo [])) ||
                 (!((getArray (_x >> 'units'))isEqualTo [])) ||
                 (!((getArray (_x >> 'weapons'))isEqualTo []))

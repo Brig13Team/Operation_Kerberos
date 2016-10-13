@@ -8,11 +8,10 @@
 #define CBA_OFF
 #include "script_component.hpp"
 
-class ADDON {
-    Events[] = {};
+class DOUBLES(CfgComponent,ADDON) {
     class dependencies {
-        CfgPatches = {'ace_main'};
-        CfgComponent = {};
+        CfgPatches[] = {'ace_main'};
+        CfgComponents[] = {};
     };
 };
 

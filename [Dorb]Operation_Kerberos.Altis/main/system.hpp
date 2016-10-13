@@ -73,9 +73,4 @@ kick = QUOTE( \
         }; \
     );
 
-components =
-    private _fnc_scriptName = 'components_SyS';
-    scriptName _fnc_scriptName;
-    private _cfg = (missionconfigfile >> 'CfgComponents' >> 'DOUBLES(CFGCOMPONENT,ADDON)');
-
 };

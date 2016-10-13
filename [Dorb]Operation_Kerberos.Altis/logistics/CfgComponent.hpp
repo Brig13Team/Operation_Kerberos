@@ -8,11 +8,15 @@
 #define CBA_OFF
 #include "script_component.hpp"
 
-class ADDON {
-    Events[] = {"clientpostinit","init","inventoryclosed","postinit","preinit"};
+class DOUBLES(CfgComponent,ADDON) {
+    class clientpostinit {server=0;};
+    class init {};
+    class inventoryclosed {};
+    class postinit {};
+    class preinit {};
     class dependencies {
-        CfgPatches = {};
-        CfgComponent = {};
+        CfgPatches[] = {};
+        CfgComponents[] = {};
     };
-    #include "config\logistics.hpp"
 };
+#include "config\logistics.hpp"

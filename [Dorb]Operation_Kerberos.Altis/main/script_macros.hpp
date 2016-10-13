@@ -90,7 +90,7 @@ Author:
 ------------------------------------------- */
 #define PAAPATH(VAR1) data\##VAR1.paa
 #define QPICPATH(VAR1) QUOTE(PAAPATH(VAR1))
-#define EPAAPATH(VAR1,VAR2) data\##VAR\##VAR2.paa
+#define EPAAPATH(VAR1,VAR2) data\##VAR1##\##VAR2##.paa
 #define QEPAAPATH(VAR1,VAR2) QUOTE(EPAAPATH(VAR1,VAR2))
 
 /* -------------------------------------------

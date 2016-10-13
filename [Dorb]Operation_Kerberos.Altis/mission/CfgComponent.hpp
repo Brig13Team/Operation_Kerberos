@@ -9,10 +9,13 @@
 #include "script_component.hpp"
 
 class DOUBLES(CfgComponent,ADDON) {
-    class preinit {};
-    class postinit {};
     class dependencies {
-        CfgPatches[] = {"task_force_radio","CBA_xeh"};
+        CfgPatches[] = {};
         CfgComponents[] = {};
     };
 };
+#include "config\CfgTaskTypes.hpp"
+#include "config\CfgTaskEnhancements.hpp"
+#include "config\missions_config.hpp"
+#include "config\sideby_config.hpp"
+#include "CfgDebriefing.hpp"

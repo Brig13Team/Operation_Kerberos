@@ -131,7 +131,7 @@ waituntil {! isnull player};
 ["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;
 
 [
-    QEGVAR(interface,message),
+    QEGVAR(interface,dispInfo),
     [
         ELSTRING(MAIN,NAME),
         [
@@ -139,7 +139,7 @@ waituntil {! isnull player};
             ELSTRING(MAIN,WELCOME2),
             ELSTRING(MAIN,WELCOME3),
             " ",
-            ELSTRING(MAIN,AUTHOR),
+            ELSTRING(MAIN,AUTHOR)
         ]
     ]
 ] call CBA_fnc_localEvent;

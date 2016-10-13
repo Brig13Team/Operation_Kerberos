@@ -7,7 +7,7 @@
 #include "script_component.hpp"
 
 author = LSTRING(AUTHOR);
-onLoadName = LSTRING(NAME)
+onLoadName = LSTRING(NAME);
 loadScreen = QEPAAPATH(logo,logo_512);
 onLoadMissionTime = 1;
 
@@ -43,41 +43,6 @@ aikills = 1;
 wreckManagerMode = 0;
 corpseManagerMode = 0;
 
-///// Rootdir
-__EXEC (D_ROOTDIR = __FILE__ select [0, count __FILE__ - 15])
-
-//// MAIN
-
-
-
-///// MISSION
-// tasks
-#include "mission\config\CfgTaskTypes.hpp"
-#include "mission\config\CfgTaskEnhancements.hpp"
-#include "mission\config\missions_config.hpp"
-#include "mission\config\sideby_config.hpp"
-
-// Interface
-
-
-// Eventhandlers
-#include "CfgEventHandlers.hpp"
-
-// Headquarter
-#include "headquarter\config\drones.hpp"
-#include "headquarter\config\maps.hpp"
-#include "headquarter\config\strategy.hpp"
-
-// other
-
-
-
-
-// Sounds
+#include "CfgComponents.hpp"
 #include "CfgSounds.hpp"
-
-//Debrief
-#include "mission\CfgDebriefing.hpp"
-
-// Unit Insignia
 #include "CfgUnitInsignia.hpp"

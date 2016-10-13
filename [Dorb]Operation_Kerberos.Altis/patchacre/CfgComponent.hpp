@@ -8,10 +8,12 @@
 #define CBA_OFF
 #include "script_component.hpp"
 
-class ADDON {
-    Events[] = {"preinit","clientpostinit","postinit"};
+class DOUBLES(CfgComponent,ADDON) {
+    class preinit {};
+    class clientpostinit {server = 0;};
+    class postinit {};
     class dependencies {
-        CfgPatches = {"acre_main"};
-        CfgComponent = {};
+        CfgPatches[] = {"acre_main"};
+        CfgComponents[] = {};
     };
 };

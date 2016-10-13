@@ -24,7 +24,7 @@ PREP(HashKeys);
 PREP(HashMonitor);
 PREP(serialize);
 PREP(deserialize);
-
+PREP(getComponents);
 
 
 PREPS(debug,maplog);
@@ -68,3 +68,5 @@ for "_i" from 1 to 5000 do {
     (1/4),
     []
 ] call CBA_fnc_addPerFrameHandler;
+
+[] call FUNC(getComponents);

@@ -8,14 +8,16 @@
 #define CBA_OFF
 #include "script_component.hpp"
 
-class ADDON {
-    Events[] = {"hit","init","preinit"};
+class DOUBLES(CfgComponent,ADDON) {
+    class hit {};
+    class preinit {};
+    class init {};
     class dependencies {
-        CfgPatches = {"rhsafrf","rhsusaf"};
-        CfgComponent = {"common","mission","interface"};
+        CfgPatches[] = {"rhs_main","rhsusf_main"};
+        CfgComponents[] = {"common","mission","interface"};
     };
-    #include "config\city_defence.hpp"
-    #include "config\unitlists.hpp"
-    #include "config\gear.hpp"
-    #include "config\defence_positions.hpp"
 };
+#include "config\city_defence.hpp"
+#include "config\unitlists.hpp"
+#include "config\gear.hpp"
+#include "config\defence_positions.hpp"

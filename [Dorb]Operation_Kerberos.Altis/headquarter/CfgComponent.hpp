@@ -9,10 +9,11 @@
 #include "script_component.hpp"
 
 class DOUBLES(CfgComponent,ADDON) {
-    class preinit {};
-    class postinit {};
     class dependencies {
-        CfgPatches[] = {"task_force_radio","CBA_xeh"};
-        CfgComponents[] = {};
+        CfgPatches[] = {};
+        CfgComponents[] = {"mission"};
     };
 };
+#include "config\drones.hpp"
+#include "config\maps.hpp"
+#include "config\strategy.hpp"

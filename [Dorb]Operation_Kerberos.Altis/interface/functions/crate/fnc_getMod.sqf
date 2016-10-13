@@ -57,7 +57,7 @@ If (_suchkriterium isEqualTo "NichtsGefunden") exitwith {
 /////
 
 _addon = "";
-_cfgPatches = GETMVAR(GVAR(crate_patches),[]);
+_CfgPatches[] = GETMVAR(GVAR(crate_patches),[]);
 
 {
     _array=getarray(_x >> _suchkriterium);
