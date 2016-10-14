@@ -11,7 +11,7 @@
 class DOUBLES(CfgComponent,ADDON) {
     class postinit {};
     class dependencies {
-        CfgPatches[] = {'acre_main'};
+        CfgPatches[] = {"acre_main"};
         CfgComponents[] = {};
     };
 };

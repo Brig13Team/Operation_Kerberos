@@ -10,7 +10,7 @@
 
 class DOUBLES(CfgComponent,ADDON) {
     class dependencies {
-        CfgPatches[] = {'ace_main'};
+        CfgPatches[] = {"ace_main"};
         CfgComponents[] = {};
     };
 };
