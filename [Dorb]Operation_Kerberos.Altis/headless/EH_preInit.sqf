@@ -8,7 +8,7 @@ PREP(transfer);
 
 ADDON = true;
 
-If (isNil QGVARMAIN(HC_enabled)) then {GVARMAIN(HC_enabled)=true;};
+GVAR(HC_enabled)=true;
 
 GVAR(istransfering) = false;
 GVAR(HeadlessClients) = [];

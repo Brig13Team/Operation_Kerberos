@@ -12,7 +12,7 @@
 */
 #include "script_component.hpp"
 
-If ((!(GVARMAIN(HC_enabled)))||(GVAR(headlessClients) isEqualTo [])) exitWith {
+If ((!(GVAR(HC_enabled)))||(GVAR(headlessClients) isEqualTo [])) exitWith {
     GVAR(istransfering) = false;
 };
 
