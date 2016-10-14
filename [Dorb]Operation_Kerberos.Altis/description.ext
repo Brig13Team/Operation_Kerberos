@@ -1,47 +1,12 @@
 /*
-
-    Author: Dorbedo, iJesuz
-
-*/
+ *  Author: Dorbedo, iJesuz
+ *
+ *  Description:
+ *      description.ext
+ *
+ */
 #define CBA_OFF
 #include "script_component.hpp"
-
-author = LSTRING(AUTHOR);
-onLoadName = LSTRING(NAME);
-loadScreen = QEPAAPATH(logo,logo_512);
-onLoadMissionTime = 1;
-
-class Header {
-    gameType = Coop;
-    minPlayers = 1;
-    maxPlayers = 38;
-};
-
-///// ALLGEMEIN
-ShowGPS = 0;
-disabledAI=1;
-saving = 0;
-scriptedPlayer = 1;
-enableDebugConsole = 1;
-//showHUD[] = {true,false,false,false,false,false,false,false};
-//disableChannels[]={2,4,5};
-joinUnassigned = 1;
-
-
-///// RESPAWN
-respawnButton = 1;
-respawn = 3;
-respawnDelay = 5;
-respawnVehicleDelay = 60;
-respawnDialog = 0;
-respawnTemplates[] = {"MenuPosition"};
-respawnOnStart = 0;
-aikills = 1;
-
-
-///// BOHEMA-SACHEN deaktivieren
-wreckManagerMode = 0;
-corpseManagerMode = 0;
 
 #include "CfgComponents.hpp"
 #include "CfgSounds.hpp"

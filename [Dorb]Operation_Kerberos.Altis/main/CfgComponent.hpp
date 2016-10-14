@@ -25,7 +25,7 @@ class DOUBLES(CfgComponent,ADDON) {
 };
 
 #include "system.hpp"
-
+#include "missionsettings.hpp"
 
 __EXEC (MISSIONROOT = __FILE__ select [0, count __FILE__ - 15]);
 

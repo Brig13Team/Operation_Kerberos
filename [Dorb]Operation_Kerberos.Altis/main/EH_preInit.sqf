@@ -70,4 +70,6 @@ for "_i" from 1 to 5000 do {
     []
 ] call CBA_fnc_addPerFrameHandler;
 
+#include "missionsettings.sqf"
+
 [] call FUNC(getComponents);
