@@ -53,7 +53,7 @@ private _cfgArray = [];
 TRACEV_1(_cfgArray);
 private _active_Components = [];
 private _active_Components_cfgs = [];
-private _time = diag_tickTime + 0.8;
+private _time = diag_tickTime + 10;
 
 while {(diag_tickTime < _time)&&((count _cfgArray)>0)} do {
     (_cfgArray deleteAt 0) params ["_cfg","_cfgname","_cfgArray"];

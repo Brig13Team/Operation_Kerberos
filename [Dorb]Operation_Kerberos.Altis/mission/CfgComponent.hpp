@@ -11,7 +11,7 @@
 class DOUBLES(CfgComponent,ADDON) {
     class dependencies {
         CfgPatches[] = {};
-        CfgComponents[] = {};
+        CfgComponents[] = {"spawn"};
     };
 };
 #include "config\CfgTaskTypes.hpp"

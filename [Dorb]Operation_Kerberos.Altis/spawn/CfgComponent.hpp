@@ -14,7 +14,7 @@ class DOUBLES(CfgComponent,ADDON) {
     class init {};
     class dependencies {
         CfgPatches[] = {"rhs_main","rhsusf_main","CBA_ai"};
-        CfgComponents[] = {"common","mission","interface"};
+        CfgComponents[] = {"common","interface"};
     };
 };
 #include "config\city_defence.hpp"

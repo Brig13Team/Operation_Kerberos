@@ -11,7 +11,7 @@
 class DOUBLES(CfgComponent,ADDON) {
     class dependencies {
         CfgPatches[] = {};
-        CfgComponents[] = {"mission"};
+        CfgComponents[] = {"mission","spawn"};
     };
 };
 #include "config\drones.hpp"
