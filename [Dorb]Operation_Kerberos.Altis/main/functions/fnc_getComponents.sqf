@@ -109,6 +109,8 @@ GVAR(Events_all) = [];
                 };
             };
             diag_log text (format["[MissionFile] Component %1 Event %2 is loading - Checks passed",_cfgname,_eventName]);
+        }else{
+            diag_log text (format["[MissionFile] Component %1 Event %2 is NOT loading - Checks failed",_cfgname,_eventName]);
         };
     } forEach _allEvents;
 } forEach _active_Components_cfgs;
