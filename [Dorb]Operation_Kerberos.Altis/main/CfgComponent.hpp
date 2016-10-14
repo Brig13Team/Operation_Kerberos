@@ -19,7 +19,7 @@ class DOUBLES(CfgComponent,ADDON) {
         };
     };
     class dependencies {
-        CfgPatches[] = {"CBA_main"};
+        CfgPatches[] = {"CBA_main","CBA_XEH","CBA_Events","CBA_common"};
         CfgComponents[] = {};
     };
 };

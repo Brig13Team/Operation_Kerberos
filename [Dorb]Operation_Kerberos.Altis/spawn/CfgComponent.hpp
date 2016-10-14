@@ -13,7 +13,7 @@ class DOUBLES(CfgComponent,ADDON) {
     class preinit {};
     class init {};
     class dependencies {
-        CfgPatches[] = {"rhs_main","rhsusf_main"};
+        CfgPatches[] = {"rhs_main","rhsusf_main","CBA_ai"};
         CfgComponents[] = {"common","mission","interface"};
     };
 };
