@@ -14,18 +14,17 @@
 */
 #include "script_component.hpp"
 
-#define VARIABLES_TO_IGNORE ['DORB_HASH_POOL','DORB_HASH_TO_DELETE','DORB_HASH_CREATED_NEW','DORB_HASH_CREATED','DORB_HASH_COLLECTOR_HANDLER','DORB_HASH_COLLECTOR_NEXTEXEC','DORB_HASH_COLLECTOR_NAMESPACES','DORB_HASH_COLLECTOR_VARIABLES','DORB_HASH_COLLECTOR_ARRAYS','DORB_HASH_COLLECTOR_FOUND','DORB_HASH_COLLECTOR_ID']
-
 // init the collecting
 If (DORB_HASH_COLLECTOR_NAMESPACES isEqualTo []) then {
     If (DORB_HASH_COLLECTOR_FOUND isEqualTo []) then {
         DORB_HASH_COLLECTOR_NAMESPACES = [missionNamespace];
-        DORB_HASH_COLLECTOR_VARIABLES = (allVariables missionNamespace) - VARIABLES_TO_IGNORE;
+        DORB_HASH_COLLECTOR_VARIABLES = (allVariables missionNamespace);
         DORB_HASH_COLLECTOR_ARRAYS = [];
         DORB_HASH_COLLECTOR_FOUND = [];
         DORB_HASH_COLLECTOR_ID = 0;
         DORB_HASH_COLLECTOR_NEXTEXEC = diag_tickTime + DORB_HASH_COLLECTOR_NEXTEXEC_DELAY;
         DORB_HASH_CREATED = DORB_HASH_CREATED append DORB_HASH_CREATED_NEW;
+        DORB_HASH_CREATED_NEW = [];
     }else{
         //// deleting old hashes
         private _time = diag_ticktime + DORB_HASH_COLLECTOR_SEARCHTIME;
@@ -44,28 +43,27 @@ while { (diag_ticktime < _time) && {!(DORB_HASH_COLLECTOR_NAMESPACES isEqualTo [
         /// use the next namespace
         DORB_HASH_COLLECTOR_NAMESPACES deleteAt 0;
         if (count DORB_HASH_COLLECTOR_NAMESPACES > 0) then {
-            DORB_HASH_COLLECTOR_VARIABLES = (allVariables (DORB_HASH_COLLECTOR_NAMESPACES select 0)) - VARIABLES_TO_IGNORE;
+            DORB_HASH_COLLECTOR_VARIABLES = (allVariables (DORB_HASH_COLLECTOR_NAMESPACES select 0));
         }else{
             DORB_HASH_COLLECTOR_VARIABLES = [];
         };
     }else{
-        /// check the variables of the current namespace for hashes
-
-        private _value = (DORB_HASH_COLLECTOR_NAMESPACES select 0) getVariable (DORB_HASH_COLLECTOR_VARIABLES deleteAt 0);
-        If (IS_HASH(_value)) then {
-            If !(_x in DORB_HASH_COLLECTOR_FOUND) then {
-                DORB_HASH_COLLECTOR_NAMESPACES pushBackUnique _value;
-                DORB_HASH_COLLECTOR_FOUND pushBack _value;
-            };
-        }else{
-            If (IS_ARRAY(_value)) then {
-                DORB_HASH_COLLECTOR_ARRAYS pushBack _value;
+        private _variable = (DORB_HASH_COLLECTOR_VARIABLES deleteAt 0);
+        If !((tolower _variable) in DORB_HASH_COLLECTOR_IGNORE) then {
+            private _value = (DORB_HASH_COLLECTOR_NAMESPACES select 0) getVariable _variable;
+            If (IS_HASH(_value)) then {
+                If !(_value in DORB_HASH_COLLECTOR_FOUND) then {
+                    DORB_HASH_COLLECTOR_NAMESPACES pushBackUnique _value;
+                    DORB_HASH_COLLECTOR_FOUND pushBack _value;
+                };
+            }else{
+                If (IS_ARRAY(_value)) then {
+                    DORB_HASH_COLLECTOR_ARRAYS pushBack _value;
+                };
             };
         };
-
     };
 };
-/// check the arrays for hashes
 private _time = diag_ticktime + DORB_HASH_COLLECTOR_SEARCHTIME;
 while { (diag_ticktime < _time)&&{!(DORB_HASH_COLLECTOR_ARRAYS isEqualTo [])}} do {
     {

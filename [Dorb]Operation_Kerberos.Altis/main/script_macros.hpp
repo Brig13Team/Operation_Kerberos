@@ -516,6 +516,7 @@ Original Author:
 #define DORB_HASH_COLLECTOR_ARRAYS GVAR(hashCollector_arrays)
 #define DORB_HASH_COLLECTOR_FOUND GVAR(hashCollector_found)
 #define DORB_HASH_COLLECTOR_ID GVAR(hashCollector_ID)
+#define DORB_HASH_COLLECTOR_IGNORE GVAR(hashCollector_ignore)
 
 #define DORB_HASH_SYS_TYPE QUOTE(#CBA_HASH#)
 #define DORB_HASH_SYS_LOCATION QUOTE(CBA_NamespaceDummy)
