@@ -35,7 +35,6 @@ PREP(rotateVectorXY);
 PREP(sel_array_weighted);
 PREP(setRollPitchYaw);
 PREP(setRotMat);
-PREP(setVarArray);
 
 PREPS(matrix,clear);
 PREPS(matrix,create);
@@ -45,5 +44,3 @@ PREPS(matrix,value_get);
 PREPS(matrix,value_set);
 
 ADDON = true;
-
-GVAR(setVarSyncArray) = [];
