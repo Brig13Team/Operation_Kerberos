@@ -1,15 +1,17 @@
 /*
-    Author: Dorbedo
-
-    Description:
-        monitors the hashes
-
-    Parameter(s):
-        None
-
-    Return
-        None
-*/
+ *  Author: Dorbedo
+ *  Original Author: ACRE2 team (https://github.com/IDI-Systems/acre2)
+ *
+ *  Description:
+ *      Monitors the Hash-Pool and the deletion of hashes
+ *
+ *  Parameter(s):
+ *      none
+ *
+ *  Returns:
+ *      none
+ *
+ */
 #include "script_component.hpp"
 
 If !(DORB_HASH_TO_DELETE isEqualTo []) then {

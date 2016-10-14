@@ -1,16 +1,19 @@
 /*
-    Author: Dorbedo
-
-    Description:
-        serializes a hash
-
-    Parameter(s):
-        None
-
-    Return
-        None
-*/
+ *  Author: Dorbedo
+ *  Original Author: ACRE2 team (https://github.com/IDI-Systems/acre2)
+ *
+ *  Description:
+ *      Serializes a hash
+ *
+ *  Parameter(s):
+ *      0 : LOCATION - Hash to serialize
+ *
+ *  Returns:
+ *      ARRAY - serialized Hash
+ *
+ */
 #include "script_component.hpp"
+
 #define SELF EFUNC(main,serialize)
 _this params ["_hash"];
 If (IS_HASH(_hash)) exitWith {

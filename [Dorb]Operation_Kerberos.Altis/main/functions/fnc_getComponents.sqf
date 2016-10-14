@@ -1,5 +1,6 @@
 /*
  *  Author: Dorbedo
+ *  Original Author: ACRE2 team (https://github.com/IDI-Systems/acre2)
  *
  *  Description:
  *      Compiles all Components

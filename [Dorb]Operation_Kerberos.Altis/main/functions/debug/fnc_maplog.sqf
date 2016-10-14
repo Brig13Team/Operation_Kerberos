@@ -1,16 +1,23 @@
 /*
-    Author: Dorbedo
-    
-    Description:
-        writes the called map to the rpt
-    
-    Parameter(s):
-        0: ARRAY - maparray
-        
-    Return
-        None
-*/
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      writes the function map to the rpt
+ *
+ *  Parameter(s):
+ *      0 : STRING - header
+ *      1 : STRING - functionname
+ *      2 : STRING - functionparent
+ *      3 : ARRAY - mapping array
+ *      4 : STRING - filename
+ *      5 : SCALAR - line
+ *
+ *  Returns:
+ *      none
+ *
+ */
 #include "script_component.hpp"
+
 _this params[["_header","",[""]],["_functionname","",[""]],["_functionnameParent","",[""]],["_mapArray",[],[[]]],["_file","",[""]],"_line"];
 private _message = "MAPPED: ";
 {
