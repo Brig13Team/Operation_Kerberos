@@ -41,6 +41,83 @@
             <English>with our mission.</English>
         </Key>
     </Package>
+    <Package name="GUI_SPAWN">
+        <Key ID="STR_DORB_GUI_SPAWN_NOTEMPTY">
+            <Original>Spawn point is not empty</Original>
+            <German>Spawnfläche ist nicht leer</German>
+            <English>Spawn point is not empty</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_SPAWN_VEHICLE_DESC">
+            <Original>Order Vehicle</Original>
+            <German>Fahrzeug bestellen</German>
+            <English>Order Vehicle</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_SPAWN_AIR_DESC">
+            <Original>Order Aircraft</Original>
+            <German>Fluggeraete bestellen</German>
+            <English>Order Aircraft</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_SPAWN_WATER_DESC">
+            <Original>Order Boat</Original>
+            <German>Schiffe bestellen</German>
+            <English>Order Boat</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_SPAWN_DRONES_DESC">
+            <Original>Order Drone</Original>
+            <German>Drohnen bestellen</German>
+            <English>Order Drone</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_SPAWN_LOGISTIC_DESC">
+            <Original>Order Supplies</Original>
+            <German>Versorgung bestellen</German>
+            <English>Order Supplies</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_SPAWN_WD">
+            <Original>Woodland</Original>
+            <German>Wald</German>
+            <English>Woodland</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_SPAWN_D">
+            <Original>Desert</Original>
+            <German>Wüste</German>
+            <English>Desert</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_SPAWN_VEHICLE">
+            <Original>Vehicle Spawn</Original>
+            <German>Fahrzeugspawn</German>
+            <English>Vehicle Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_SPAWN_AIR">
+            <Original>Aircraft Spawn</Original>
+            <German>Luftwaffenspawn</German>
+            <English>Aircraft Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_SPAWN_WATER">
+            <Original>Naval Spawn</Original>
+            <German>Marinespawn</German>
+            <English>Naval Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_SPAWN_DRONES">
+            <Original>Drone Spawn</Original>
+            <German>Drohnenspawn</German>
+            <English>Drone Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_SPAWN_LOGISTIC">
+            <Original>Supply Depot</Original>
+            <German>Versorgungsdepot</German>
+            <English>Supply Depot</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_SPAWN_EMPTY">
+            <Original>Spawn empty</Original>
+            <German>Leer erschaffen</German>
+            <English>Spawn empty</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_SPAWN_DRIVER">
+            <Original>Spawn as driver</Original>
+            <German>Als Fahrer erschaffen</German>
+            <English>Spawn as driver</English>
+        </Key>
+    </Package>
     <Package name="INTERFACE">
         <Key ID="STR_DORB_INTERFACE_NOTEMPTY">
             <Original>Spawn point is not empty</Original>
@@ -1133,6 +1210,100 @@
             <Original>Completed</Original>
             <German>Abgeschlossen</German>
             <English>Completed</English>
+        </Key>
+    </Package>
+    <Package name="Gui">
+        <Key ID="STR_DORB_GUI_SELFACTIONGROUP">
+            <Original>Echidna</Original>
+            <German>Echidna</German>
+            <English>Echidna</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_S">
+            <Original></Original>
+            <German></German>
+            <English></English>
+        </Key>
+    </Package>
+    <Package name="Gui_teleport">
+        <Key ID="STR_DORB_GUI_TELEPORT_TELEPORT">
+            <Original>Teleport</Original>
+            <German>Teleport</German>
+            <English>Teleport</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_TELEPORT_BASE">
+            <Original>Base</Original>
+            <German>Basis</German>
+            <English>Base</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_TELEPORT_VEHICLES">
+            <Original>Vehicles</Original>
+            <German>Fahrzeuge</German>
+            <English>Vehicles</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_TELEPORT_AIR">
+            <Original>Aircraft</Original>
+            <German>Luftwaffe</German>
+            <English>Aircraft</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_TELEPORT_SHOOTING">
+            <Original>Shooting Range</Original>
+            <German>Schießstand</German>
+            <English>Shooting Range</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_TELEPORT_LOGISTIC">
+            <Original>Logistics</Original>
+            <German>Logistik</German>
+            <English>Logistics</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_TELEPORT_MARINE">
+            <Original>Harbour</Original>
+            <German>Hafen</German>
+            <English>Harbour</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_TELEPORT_DEACTIVATED">
+            <Original>Deactivated</Original>
+            <German>Deaktiviert</German>
+            <English>Deactivated</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_TELEPORT_LEADER">
+            <Original>Squadleader</Original>
+            <German>Squadleader</German>
+            <English>Squadleader</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_TELEPORT_LEAD">
+            <Original>Teleport to squad leader</Original>
+            <German>Teleport zum Teamleader</German>
+            <English>Teleport to squad leader</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_TELEPORT_LEAD_FAIL">
+            <Original>Teleport failed</Original>
+            <German>Teleport fehlgeschlagen</German>
+            <English>Teleport failed</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_TELEPORT_LEAD_ISLEADER">
+            <Original>You are the squad leader yourself.</Original>
+            <German>Du bist selbst der Teamleader.</German>
+            <English>You are the squad leader yourself.</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_TELEPORT_LEAD_NEARENEMY">
+            <Original>Enemies nearby.</Original>
+            <German>Gegner in der Nähe</German>
+            <English>Enemies nearby.</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_TELEPORT_LEAD_NOPLACE">
+            <Original>No seat left in the vehicle</Original>
+            <German>Kein Passagier-Platz im Fahrzeug</German>
+            <English>No seat left in the vehicle</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_TELEPORT_LEAD_INAIR">
+            <Original>Squad leader is not touching ground.</Original>
+            <German>Teamleader befindet sich nicht am Boden</German>
+            <English>Squad leader is not touching ground.</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_TELEPORT_LEAD_WAIT">
+            <Original>You have to wait %1 minute(s) and %2 second(s)!</Original>
+            <German>Du musst noch %1 Minute(n) und %2 Sekunde(n) warten!</German>
+            <English>You have to wait %1 minute(s) and %2 second(s)!</English>
         </Key>
     </Package>
 </Project>

@@ -5,7 +5,7 @@ Author: Dorbedo
 #define CBA_OFF
 #include "script_component.hpp"
 
-class  RscTitles {
+class RscTitles3 {
 
     class GVAR(message_1) {
         idd = 770110;
@@ -76,7 +76,7 @@ class  RscTitles {
     class GVAR(message_7) : GVAR(message_1) {idd = 770170;};
     class GVAR(message_8) : GVAR(message_1) {idd = 770180;};
     class GVAR(message_9) : GVAR(message_1) {idd = 770190;};
-    
+
     class GVAR(disp_timer) {
         duration = 61;
         idd = 700103;

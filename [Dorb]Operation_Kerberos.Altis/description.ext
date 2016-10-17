@@ -11,3 +11,5 @@
 #include "CfgComponents.hpp"
 #include "CfgSounds.hpp"
 #include "CfgUnitInsignia.hpp"
+
+__EXEC (MISSION_ROOT = __FILE__ select [0, count __FILE__ - 15]);

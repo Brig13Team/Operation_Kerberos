@@ -29,6 +29,10 @@ class CfgComponents {
     modtfar = 0;
     patchacre = 1;
     patchbw = 1;
+    /// gui
+    gui = 1;
+    gui_spawn = 1;
+    gui_teleport = 1;
 };
 
 #include "main\CfgComponent.hpp"
@@ -46,3 +50,7 @@ class CfgComponents {
 #include "patchbw\CfgComponent.hpp"
 #include "player\CfgComponent.hpp"
 #include "spawn\CfgComponent.hpp"
+
+#include "gui\CfgComponent.hpp"
+#include "gui_spawn\CfgComponent.hpp"
+#include "gui_teleport\CfgComponent.hpp"
