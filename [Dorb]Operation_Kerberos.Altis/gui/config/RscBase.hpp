@@ -99,13 +99,13 @@ class RSC(BaseText) {
 };
 class RSC(BasePicture) : RSC(BaseText) {
     idc = -1;
-    style = "48 + 0x800";
+    style = "48+0x800";
 };
 
 class RSC(BaseShortcut) {
     idc = -1;
     type = 1;
-    style = "48 + 0x800";
+    style = "48+0x800";
     action = "";
     text = "";
 
@@ -316,4 +316,20 @@ class RSC(BaseButton) {
     soundClick[] = {"",0.1,1};
     soundEscape[] = {"",0.1,1};
     onButtonClick = "";
+};
+
+class RSC(BaseEditBox) {
+    access = 0;
+    type = 2;
+    style = "0x40+0x00";
+    colorBackground[] = COLOR_TABLET_BACKGROUND;
+    colorText[] = COLOR_TABLET_MAIN_TEXT;
+    colorSelection[] = COLOR_TABLET_MAIN_TEXT;
+    colorDisabled[] = COLOR_TABLET_BACKGROUND;
+    font = GUI_FONT_NORMAL;
+    sizeEx = IGUI_TEXT_SIZE_MEDIUM;
+    autocomplete = "";
+    text = "";
+    size = IGUI_TEXT_SIZE_MEDIUM;
+    shadow = 0;
 };

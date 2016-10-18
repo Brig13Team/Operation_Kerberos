@@ -3,18 +3,17 @@
 
     Description:
     deletes
-    
-    
+
+
 
 */
+#define INCLUDE_GUI
 #include "script_component.hpp"
-#define SAVE_IDD    600240
-#define SAVE_LIST 600241
-#define SAVE_EDIT 600245
+
 disableSerialization;
 
-private _ctrledit = findDisplay SAVE_IDD displayCtrl SAVE_EDIT;
-private _list = profileNamespace getVariable [GVAR(save_list),[]];
+private _ctrledit = findDisplay IDD_SAVE_DLG displayCtrl IDC_SAVE_EDIT;
+private _list = profileNamespace getVariable [GVAR(list),[]];
 private _name = ctrlText _ctrledit;
 CHECK(_name isEqualTo "")
 private _index = -1;
@@ -26,5 +25,5 @@ private _index = -1;
 
 If (_index >= 0) exitWith {
     _list deleteAt _index;
-    profileNamespace setVariable [GVAR(save_list),_list];
+    profileNamespace setVariable [GVAR(list),_list];
 };
