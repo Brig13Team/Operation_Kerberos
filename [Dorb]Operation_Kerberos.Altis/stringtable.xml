@@ -1306,4 +1306,11 @@
             <English>You have to wait %1 minute(s) and %2 second(s)!</English>
         </Key>
     </Package>
+    <Package name="gui_tfr">
+        <Key ID="STR_DORB_GUI_TFR_SHORT">
+            <Original>TFR Frequencies</Original>
+            <German>TFR - Frequenzübersicht</German>
+            <English>TFR Frequencies</English>
+        </Key>
+    </Package>
 </Project>
