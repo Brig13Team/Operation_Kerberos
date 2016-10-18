@@ -17,22 +17,22 @@ class RSC(BaseScrollbar) {
 };
 
 class RSC(BaseControlsGroup) {
-	type=15;
-	idc=-1;
-	x=0;
-	y=0;
-	w=1;
-	h=1;
-	shadow=0;
-	style=16;
-	class VScrollbar: RSC(BaseScrollbar) {
-		width=0.021;
-		autoScrollEnabled=1;
-	};
-	class HScrollbar: RSC(BaseScrollbar) {
-		height=0.028000001;
-	};
-	class Controls {};
+    type=15;
+    idc=-1;
+    x=0;
+    y=0;
+    w=1;
+    h=1;
+    shadow=0;
+    style=16;
+    class VScrollbar: RSC(BaseScrollbar) {
+        width=0.021;
+        autoScrollEnabled=1;
+    };
+    class HScrollbar: RSC(BaseScrollbar) {
+        height=0.028000001;
+    };
+    class Controls {};
 };
 class RSC(BaseControlsGroupNoScrollbar) : RSC(BaseControlsGroup) {
     class VScrollbar: VScrollbar {

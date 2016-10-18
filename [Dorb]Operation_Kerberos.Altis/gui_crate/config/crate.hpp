@@ -5,7 +5,7 @@
 #define CBA_OFF
 #include "script_component.hpp"
 
-class GVAR(crate) {
+class APP(crate) {
     idd = 600200;
     name = "Kisten-Füller";
     movingEnable = 0;
