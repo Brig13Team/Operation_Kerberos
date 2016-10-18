@@ -3,7 +3,7 @@
 ADDON = false;
 
 PREP(blur);
-PREP(message_global);
+PREP(globalmessage);
 PREP(message);
 PREP(progressbar);
 PREP(timer);

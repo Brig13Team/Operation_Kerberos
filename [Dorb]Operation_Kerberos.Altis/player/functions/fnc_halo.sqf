@@ -1,9 +1,9 @@
 /*
     Author: Dorbedo
-    
+
     Description:
         performes the Halo
-        
+
     Parameter(s):
         (optional)
             Altitude of the startpoint
@@ -30,7 +30,7 @@ if (vehicle _caller == _caller) then {
     waituntil {GVAR(halo_clicked) or !(visiblemap)};
     [QGVAR(halo_handler),"onMapSingleClick"] call BIS_fnc_removeStackedEventHandler;
     if !(GVAR(halo_clicked)) exitwith {
-        [LSTRING(HALO),LSTRING(HALO_ABORT)] call EFUNC(interface,disp_message);
+        [LSTRING(HALO),LSTRING(HALO_ABORT)] call EFUNC(gui,message);
     };
     _caller setpos [GVAR(halo_pos) select 0, GVAR(halo_pos) select 1, _althalo];
     _caller spawn bis_fnc_halo;

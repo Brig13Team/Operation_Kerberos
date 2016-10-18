@@ -1,25 +1,25 @@
 /*
     Author: Dorbedo
-    
+
     Description:
         Erschafft genauere Informationen für Missionsziele
             - Gefangene verhören
             - Nebenmissionen
-        
+
     Parameter:
         0 : STRING        - Modus
-        
+
         (init)
         1 : ARRAY        - Array mit Missionszielen (Objeke oder Positionen)
-        
+
         (check)
             none
-        
+
         (reveal)
         1 : ARRAY        - Array mit parametern
             0 : STRING    - Modus
             1 : SCALAR    - Genauigkeit der Informationen
-        
+
         (random)
         1 : ARRAY        - Array mit parametern
             0 : SCALAR    - Anzahl echte Informationen
@@ -28,7 +28,7 @@
             3 : SCALAR    - Genauigkeit falscher Informationen (Radius des Kreises)
         (destroy)
             none
-        
+
     Return
         nothing
 */
@@ -46,22 +46,22 @@ switch (_option) do {
     case "init":     {
                         GVAR(examine_revealed) = [];
                         GVAR(examine_targetarray) = _paramter;
-                        
+
                         GVAR(examine_targetarray) = GVAR(examine_targetarray) call BIS_fnc_arrayShuffle;
-                        
-                        
+
+
                     };
     case "check":     {
                         Private["_position_rescue","_list"];
                         _position_rescue = getMarkerPos "rescue_marker";
                         _list = _position_rescue nearEntities ["Man", 10];
-                        {                    
+                        {
                             If ((!(GETVAR(_x,GVAR(istarget),false))) && {(side _x == dorb_side)||(captive _x)}) then {
-                                
+
                                 //If ((captive _x)&&(!(_x isKindOf "rhs_infantry_msv_base"))) exitWith {};
                                 If ((typeOf _x in dorb_pow)||(isPlayer _x))exitWith{};
                                 deleteVehicle _x;
-                                [QEGVAR(interface,dispInfo),[LSTRING(EXAMINE),LSTRING(EXAMINE_DESC)],-1] call CBA_fnc_globalEvent;
+                                [QEGVAR(gui,message),[LSTRING(EXAMINE),LSTRING(EXAMINE_DESC)],-1] call CBA_fnc_globalEvent;
                                 ["reveal"] call FUNC(examine);
                             };
                         }forEach _list;
@@ -70,8 +70,8 @@ switch (_option) do {
                         Private["_modus","_genauigkeit","_pos","_marker","_a"];
                         _modus = [_paramter,0,"all",[""]] call BIS_fnc_Param;
                         _genauigkeit = [_paramter,1,50,[0]] call BIS_fnc_Param;
-                        
-                        
+
+
                         switch (_modus) do {
                             case "all" : {
                                 for "_i" from 0 to ((count GVAR(examine_targetarray))-1) do {
@@ -118,7 +118,7 @@ switch (_option) do {
                         _info_falsch = [_paramter,1,0,[0]] call BIS_fnc_Param;
                         _genauigkeit_echt = [_paramter,2,50,[0]] call BIS_fnc_Param;
                         _genauigkeit_falsch = [_paramter,3,50,[0]] call BIS_fnc_Param;
-                        
+
                         for "_i" from 0 to ((count GVAR(examine_targetarray))-1) do {
                             _pos = [getPos(selectRandom GVAR(examine_targetarray)), 300,0] call EFUNC(common,pos_random);
                             _marker = createMarker [format["EXAMINE_Mark_%1",((count GVAR(markerdump))+1)],_pos];
@@ -128,7 +128,7 @@ switch (_option) do {
                             _marker setMarkerSize [_genauigkeit_falsch,_genauigkeit_falsch];
                             GVAR(markerdump) pushBack _marker;
                         };
-                        
+
                         for "_i" from 0 to _info_echt do {
                             ["reveal",["Single",_genauigkeit_echt]] call FUNC(examine);
                         };

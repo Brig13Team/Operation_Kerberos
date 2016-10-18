@@ -8,7 +8,7 @@
 
 CHECK(!hasInterface)
 
-SETUVAR(EGVAR(interface,respawnTime),nil);
+SETUVAR(EGVAR(gui,respawnTime),nil);
 
 [] call FUNC(addbriefing);
 [] call FUNC(halo_addaction);
@@ -131,7 +131,7 @@ waituntil {! isnull player};
 ["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;
 
 [
-    QEGVAR(interface,dispInfo),
+    QEGVAR(gui,dispInfo),
     [
         ELSTRING(MAIN,NAME),
         [

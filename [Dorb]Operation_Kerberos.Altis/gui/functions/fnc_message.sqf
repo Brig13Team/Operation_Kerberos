@@ -19,7 +19,7 @@
 #define MOVINGTIME (5 * _move)
 
 CHECK(!hasInterface)
-_this params[["_title","",[""]],["_content","",[""]],["_color","",[""]]];
+_this params[["_title","",[""]],["_content","",[""]],["_color","",["",[]],[3,4]]];
 
 If (isClass(missionconfigfile>>"CfgMessages">>_title)) then {
     _title = getText(missionconfigfile>>"CfgMessages">>_title>>"title");
@@ -28,11 +28,20 @@ If (isClass(missionconfigfile>>"CfgMessages">>_title)) then {
 }else{
     If (islocalized _title) then {_title = localize _title;};
     If (islocalized _content) then {_content = localize _content;};
-    _color = switch (_color)  do {
-        case "red" : {[RAL3024,1]};
-        case "green" : {[RAL6018,1]};
-        case "blue" : {[RAL5015,1]};
-        default {[RAL1013,1]};
+    If (IS_STRING(_color)) then {
+        _color = switch (_color)  do {
+            case "red" : {[RAL3024,1]};
+            case "green" : {[RAL6018,1]};
+            case "blue" : {[RAL5015,1]};
+            default {[RAL1013,1]};
+        };
+    }else{
+        _color params [["_r",0,[0]],["_g",0,[0]],["_b",0,[0]],["_a",1,[0]]];
+        _r = (_r min 1) max 0;
+        _g = (_g min 1) max 0;
+        _b = (_b min 1) max 0;
+        _a = (_a min 1) max 0;
+        _color = [_r,_g,_b,_a];
     };
 };
 
