@@ -14,7 +14,6 @@ class DOUBLES(CfgComponent,ADDON) {
     };
     class fired {server = 0;};
     class getIn {server = 0;};
-    class hit {server = 0;};
     class killed {server = 0;};
     class seatSwitched {server = 0;};
     class postinit {};

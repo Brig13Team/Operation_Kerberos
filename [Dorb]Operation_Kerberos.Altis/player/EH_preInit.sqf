@@ -19,7 +19,6 @@ PREP(halo_addaction);
 PREP(setLoadout);
 
 PREP(onfired);
-PREP(onhit);
 PREP(onrespawn);
 PREP(onkilled);
 PREP(ongetIn);
