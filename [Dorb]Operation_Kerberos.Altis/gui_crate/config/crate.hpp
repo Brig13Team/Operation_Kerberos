@@ -6,7 +6,7 @@
 #include "script_component.hpp"
 
 class APP(crate) {
-    idd = 600200;
+    idd = IDD_CRATE_DLG;
     name = "Kisten-Füller";
     movingEnable = 0;
     enableSimulation = 1;
@@ -14,8 +14,8 @@ class APP(crate) {
     fadeout = 0;
     duration = 1000000;
     objects[] = {};
-    onLoad = QUOTE( uiNamespace setVariable [ARR_2('GVAR(crateMenu)',_this select 0)]; [ARR_2('GVAR(crateMenu)',true)] call FUNC(disp_blur); [] spawn FUNC(crate_OnLoad););
-    onUnload = QUOTE([ARR_2('GVAR(crateMenu)',false)] call FUNC(disp_blur););
+    onLoad = QUOTE( uiNamespace setVariable [ARR_2('GVAR(crateMenu)',_this select 0)]; [ARR_2('GVAR(crateMenu)',true)] call EFUNC(gui,blur); [] spawn FUNC(OnLoad););
+    onUnload = QUOTE([ARR_2('GVAR(crateMenu)',false)] call FUNC(gui,blur););
 
     controlsBackground[] =  {
         crate_CenterBackground,
@@ -58,168 +58,213 @@ class APP(crate) {
     };
 
     class crate_CenterBackground: dorb_gui_backgroundBase {
-        x = GUI_XW(0,0.1);
-        y = GUI_YH(0,0.2);
-        w = GUI_W(0.118);
-        h = GUI_H(0.53);
+        x = GUI_GRID_CENTER_X;
+        y = GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 3;
+        w = GUI_GRID_CENTER_W * 6;
+        h = GUI_GRID_CENTER_H * 16.5;
+
+//        x = GUI_XW(0,0.1);
+//        y = GUI_YH(0,0.2);
+//        w = GUI_W(0.118);
+//        h = GUI_H(0.53);
         text = "";
         colorBackground[] = UI_CL_BODY;
         colorText[] = UI_CL_BODY_TEXT;
     };
 
     class crate_RightCenterBackground: crate_CenterBackground {
-        x = GUI_XW(0,0.223);
-        w = GUI_W(0.677);
+        x = GUI_GRID_CENTER_X + GUI_GRID_CENTER_W * 6.5;
+        w = GUI_GRID_CENTER_W * 33.5;
+//        x = GUI_XW(0,0.223);
+//        w = GUI_W(0.677);
     };
 
     class crate_BottemLeftBackground: dorb_gui_backgroundBase {
-        x = GUI_XW(0,0.1);
-        y = GUI_YH(0,0.74);
-        w = GUI_W(0.395);
-        h = GUI_H(0.16);
+        x = GUI_GRID_CENTER_X;
+        y = GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 19.8;
+        w = GUI_GRID_CENTER_W * 19.75;
+        h = GUI_GRID_CENTER_H * 5.2;
+//        x = GUI_XW(0,0.1);
+//        y = GUI_YH(0,0.74);
+//        w = GUI_W(0.395);
+//        h = GUI_H(0.16);
         text = "";
         colorBackground[] = UI_CL_BODY;
         colorText[] = UI_CL_BODY_TEXT;
     };
 
-    class crate_BottemRightBackground: dorb_gui_backgroundBase {
-        x = GUI_XW(0,0.505);
-        y = GUI_YH(0,0.74);
-        w = GUI_W(0.395);
-        h = GUI_H(0.16);
-        text = "";
-        colorBackground[] = UI_CL_BODY;
-        colorText[] = UI_CL_BODY_TEXT;
+    class crate_BottemRightBackground: crate_BottemLeftBackground {
+        x = GUI_GRID_CENTER_X + GUI_GRID_CENTER_W * 20.25;
+//        x = GUI_XW(0,0.505);
+//        y = GUI_YH(0,0.74);
+//        w = GUI_W(0.395);
+//        h = GUI_H(0.16);
     };
 
     class crate_HeaderBackground: crate_CenterBackground {
-        x = GUI_XW(0,0.1);
-        y = GUI_YH(0,0.1);
-        w = GUI_W(0.8);
-        h = GUI_H(0.09);
+        x = GUI_GRID_CENTER_X;
+        y = GUI_GRID_CENTER_Y;
+        w = GUI_GRID_CENTER_W * 40;
+        h = GUI_GRID_CENTER_H * 2.7;
+//        x = GUI_XW(0,0.1);
+//        y = GUI_YH(0,0.1);
+//        w = GUI_W(0.8);
+//        h = GUI_H(0.09);
         text = ECSTRING(INTERFACE,CRATE_HEADER);
         colorText[] = UI_CL_HEADER_TEXT;
         colorBackground[] = UI_CL_HEADER;
     };
 
     class crate_spawn : dorb_gui_button {
-        idc = 600206;
-        x = GUI_XW(0,0.525);
-        y = GUI_YH(0,0.755);
-        w = GUI_W(0.14);
-        h = GUI_H(0.06);
+        idc = IDC_CRATE_BTTN_SPAWN;
+        x = GUI_GRID_CENTER_X + GUI_GRID_CENTER_W * 21.25;
+        y = GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 20,47;
+        w = GUI_GRID_CENTER_W * 7;
+        h = GUI_GRID_CENTER_H * 1.875;
+//        x = GUI_XW(0,0.525);
+//        y = GUI_YH(0,0.755);
+//        w = GUI_W(0.14);
+//        h = GUI_H(0.06);
         text = ECSTRING(INTERFACE,CRATE_SPAWN);
-        sizeEx = GUI_H(0.03);
+        sizeEx = GUI_GRID_CENTER_H * 1.5
+//        sizeEx = GUI_H(0.03);
         colorBackground[] = UI_CL_BTN2_foc;
         colorBackgroundActive[] = UI_CL_BTN2_foc;
         colorShadow[] = UI_CL_BTN2;
         colorFocused[] = UI_CL_BTN2_foc;
-        action = QUOTE([true] call FUNC(crate_spawn);false);
+        action = QUOTE([true] call FUNC(spawn);false);
     };
 
     class crate_clear : crate_spawn {
-        idc = 600207;
-        x = GUI_XW(0,0.725);
+        idc = IDC_CRATE_BTTN_CLEAR;
+        x = GUI_GRID_CENTER_X + GUI_GRID_CENTER_W * 31,25;
+//        x = GUI_XW(0,0.725);
         text = ECSTRING(INTERFACE,CRATE_CLEAR);
-        action = QUOTE( GVAR(crate_current) = [ARR_6([],[],[],[],[],[])] ; GVAR(crate_current_boxid) = 0; [] call FUNC(crate_onLoad); false);
+        action = QUOTE( GVAR(current) = [ARR_6([],[],[],[],[],[])] ; GVAR(current_boxid) = 0; [] call FUNC(onLoad); false);
     };
 
     class crate_save : crate_spawn {
-        idc = 600208;
-        y = GUI_YH(0,0.82);
+        idc = IDC_CRATE_BTTN_SAVE;
+        y = GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 22,5;
+//        y = GUI_YH(0,0.82);
         text = ECSTRING(INTERFACE,CRATE_SAVE);
-        action = QUOTE([true] spawn FUNC(crate_save);false);
+        action = QUOTE([true] spawn FUNC(save);false);
     };
 
     class crate_load : crate_clear {
-        idc = 600209;
-        y = GUI_YH(0,0.82);
+        idc = IDC_CRATE_BTTN_LOAD;
+        y = GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 22,5;
+//        y = GUI_YH(0,0.82);
         text = ECSTRING(INTERFACE,CRATE_LOAD);
-        action = QUOTE([false] spawn FUNC(crate_save);false);
+        action = QUOTE([false] spawn FUNC(save);false);
     };
 
     class crate_list_button_add : crate_spawn {
-        idc = 1000;
+        idc = IDC_CRATE_LB_BTTN_ADD;
         text = "+";
         borderSize = 0;
         colorShadow[] = {0,0,0,0};
-        action = QUOTE([true] call FUNC(crate_add);false);
+        action = QUOTE([true] call FUNC(add);false);
     };
 
     class crate_list_button_sub : crate_list_button_add {
-        idc = 1001;
+        idc = IDC_CRATE_LB_BTTN_SUB;
         text = "-";
-        action = QUOTE([false] call FUNC(crate_add);false);
+        action = QUOTE([false] call FUNC(add);false);
     };
 
     class crate_ListBackground: crate_CenterBackground {
-        x = GUI_XW(0,0.233);
-        y = GUI_YH(0,0.21);
-        w = GUI_W(0.657);
-        h = GUI_H(0.51);
+        x = GUI_GRID_CENTER_X + GUI_GRID_CENTER_W * 6.8;
+        y = GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 3.2;
+        w = GUI_GRID_CENTER_W * 32.9;
+        h = GUI_GRID_CENTER_H * 16.1;
+
+//        x = GUI_XW(0,0.233);
+//        y = GUI_YH(0,0.21);
+//        w = GUI_W(0.657);
+//        h = GUI_H(0.51);
         colorText[] = UI_CL_HEADER_TEXT;
         colorBackground[] = UI_CL_CTRL_GRAU2;
     };
 
     class crate_listbox : dorb_gui_listboxN {
-        idc = 600201;
+        idc = IDC_CRATE_LB;
         access = 2;
-        x = GUI_XW(0,0.243);
-        y = GUI_YH(0,0.22);
-        w = GUI_W(0.637);
-        h = GUI_H(0.49);
-        rowHeight = GUI_H(0.035);
-        sizeEx = GUI_H(0.022);
-        columns[] = {GUI_W(0.027),GUI_W(0.09),GUI_W(0.15),GUI_W(0.55)};
+        x = GUI_GRID_CENTER_X + GUI_GRID_CENTER_W * 6.8;
+        y = GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 3.2;
+        w = GUI_GRID_CENTER_W * 32.9;
+        h = GUI_GRID_CENTER_H * 16.1;
+//        x = GUI_XW(0,0.243);
+//        y = GUI_YH(0,0.22);
+//        w = GUI_W(0.637);
+//        h = GUI_H(0.49);
+        rowHeight = GUI_GRID_CENTER_H * 1.1;
+//        rowHeight = GUI_H(0.035);
+        sizeEx = GUI_GRID_CENTER_H * 0.8;
+//        sizeEx = GUI_H(0.022);
+        columns[] = {(GUI_GRID_CENTER_W * 1.35),(GUI_GRID_CENTER_W * 4.5),(GUI_GRID_CENTER_W * 7.5),(GUI_GRID_CENTER_W * 27.5)};
+//        columns[] = {GUI_W(0.027),GUI_W(0.09),GUI_W(0.15),GUI_W(0.55)};
         drawSideArrows = 1;
         idcLeft = 1001;
         idcRight = 1000;
     };
 
     class crate_combo_box : dorb_gui_combo {
-        idc = 600205;
-        x = GUI_XW(0,0.11);
-        y = GUI_YH(0,0.85);
-        w = GUI_W(0.375);
-        h = GUI_H(0.03);
-        sizeEx = GUI_H(0.025);
-        rowHeight = GUI_H(0.025);
-        wholeHeight = GUI_H(0.2);
-        onLBSelChanged = QUOTE(GVAR(crate_current_boxid) = (_this select 1); [ARR_2('changebox',_config)] call FUNC(crate_mass);false);
+        idc = IDC_CRATE_COMBOBOX;
+        x = GUI_GRID_CENTER_X + GUI_GRID_CENTER_W * 0.5;
+        y = GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 23.4;
+        w = GUI_GRID_CENTER_W * 18.75;
+        h = GUI_GRID_CENTER_H * 0.94;
+//        x = GUI_XW(0,0.11);
+//        y = GUI_YH(0,0.85);
+//        w = GUI_W(0.375);
+//        h = GUI_H(0.03);
+//        sizeEx = GUI_H(0.025);
+//        rowHeight = GUI_H(0.025);
+//        wholeHeight = GUI_H(0.2);
+        sizeEx = GUI_GRID_CENTER_H * 0.78;
+        rowHeight = GUI_GRID_CENTER_H * 0.78;
+        wholeHeight = GUI_GRID_CENTER_H * 6.25;
+        onLBSelChanged = QUOTE(GVAR(current_boxid) = (_this select 1); [ARR_2('changebox',_config)] call FUNC(mass);false);
     };
 
     class crate_progessbar : dorb_gui_loadingbarBase {
-        idc = 600204;
-        x = GUI_XW(0,0.11);
-        y = GUI_YH(0,0.78);
-        w = GUI_W(0.375);
-        h = GUI_H(0.03);
+        idc = IDC_CRATE_PROGRESSBAR;
+        x = GUI_GRID_CENTER_X + GUI_GRID_CENTER_W * 0.5;
+        y = GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 21.25;
+        w = GUI_GRID_CENTER_W * 18.75;
+        h = GUI_GRID_CENTER_H * 0.94;
+//        x = GUI_XW(0,0.11);
+//        y = GUI_YH(0,0.78);
+//        w = GUI_W(0.375);
+//        h = GUI_H(0.03);
     };
 
-    #define CRATE_SPALTE1 GUI_XW(0,0.11)
-    #define CRATE_SPALTE2 GUI_XW(0,0.1615)
-    #define CRATE_REIHE1 GUI_YH(0,0.21)
-    #define CRATE_REIHE2 GUI_YH(0,0.2615)
-    #define CRATE_REIHE3 GUI_YH(0,0.313)
-    #define CRATE_REIHE4 GUI_YH(0,0.3645)
-    #define CRATE_REIHE5 GUI_YH(0,0.416)
-    #define CRATE_REIHE6 GUI_YH(0,0.4675)
-    #define CRATE_REIHE7 GUI_YH(0,0.519)
-    #define CRATE_REIHE8 GUI_YH(0,0.5705)
-    #define CRATE_REIHE9 GUI_YH(0,0.622)
-    #define CRATE_REIHE10 GUI_YH(0,0.6735)
+    #define CRATE_SPALTE1 (GUI_GRID_CENTER_X)
+    #define CRATE_SPALTE2 (GUI_GRID_CENTER_X + GUI_GRID_CENTER_W * 3)
+    #define CRATE_REIHE1 (GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 3)
+    #define CRATE_REIHE2 (GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 4,65)
+    #define CRATE_REIHE3 (GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 6.3)
+    #define CRATE_REIHE4 (GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 7.95)
+    #define CRATE_REIHE5 (GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 9.6)
+    #define CRATE_REIHE6 (GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 11.25)
+    #define CRATE_REIHE7 (GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 12.9)
+    #define CRATE_REIHE8 (GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 14.55)
+    #define CRATE_REIHE9 (GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 16.2)
+    #define CRATE_REIHE10 (GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 17.85)
 
-    #define CRATE_BTTN_W GUI_W(0.0465) //GUI_W(0.03488)
-    #define CRATE_BTTN_H GUI_H(0.0465)
+    #define CRATE_BTTN_W (GUI_GRID_CENTER_W * 2.56)
+    #define CRATE_BTTN_H (GUI_GRID_CENTER_H * 1.65)
 
     class crate_button1 : dorb_gui_button {
-        idc = 600211;
+        idc = IDC_CRATE_BTTN1;
         x = CRATE_SPALTE1;
         y = CRATE_REIHE1;
         w = CRATE_BTTN_W;
         h = CRATE_BTTN_H;
         shadow = 0;
-        sizeEx = CRATE_BTTN_W + GUI_W(0.004);
+//        sizeEx = CRATE_BTTN_W + GUI_W(0.004);
+        sizeEx = CRATE_BTTN_W + (GUI_GRID_CENTER_W * 0.2);
         color[] = {0, 1, 0, 1};  //seems nothing to change, but define to avaoid errors
 
         colorBackground[] = UI_CL_CTRL_GRAU4;
@@ -244,7 +289,7 @@ class APP(crate) {
     };
 
     class crate_button2 : crate_button1 {
-        idc = 600212;
+        idc = IDC_CRATE_BTTN2;
         x = CRATE_SPALTE2;
         y = CRATE_REIHE1;
         default=false;
@@ -258,7 +303,7 @@ class APP(crate) {
     };
 
     class crate_button3 : crate_button2 {
-        idc = 600213;
+        idc = IDC_CRATE_BTTN3;
         x = CRATE_SPALTE1;
         y = CRATE_REIHE2;
         toolTip = ECSTRING(INTERFACE,CRATE_BTTN_3);
@@ -266,7 +311,7 @@ class APP(crate) {
     };
 
     class crate_button4 : crate_button2 {
-        idc = 600214;
+        idc = IDC_CRATE_BTTN4;
         x = CRATE_SPALTE2;
         y = CRATE_REIHE2;
         toolTip = ECSTRING(INTERFACE,CRATE_BTTN_4);
@@ -274,7 +319,7 @@ class APP(crate) {
     };
 
     class crate_button5 : crate_button2 {
-        idc = 600215;
+        idc = IDC_CRATE_BTTN5;
         x = CRATE_SPALTE1;
         y = CRATE_REIHE3;
         toolTip = ECSTRING(INTERFACE,CRATE_BTTN_5);
@@ -282,7 +327,7 @@ class APP(crate) {
     };
 
     class crate_button6 : crate_button2 {
-        idc = 600216;
+        idc = IDC_CRATE_BTTN6;
         x = CRATE_SPALTE2;
         y = CRATE_REIHE3;
         toolTip = ECSTRING(INTERFACE,CRATE_BTTN_6);
@@ -290,7 +335,7 @@ class APP(crate) {
     };
 
     class crate_button7 : crate_button2 {
-        idc = 600217;
+        idc = IDC_CRATE_BTTN7;
         x = CRATE_SPALTE1;
         y = CRATE_REIHE4;
         toolTip = ECSTRING(INTERFACE,CRATE_BTTN_7);
@@ -298,7 +343,7 @@ class APP(crate) {
     };
 
     class crate_button8 : crate_button2 {
-        idc = 600218;
+        idc = IDC_CRATE_BTTN8;
         x = CRATE_SPALTE2;
         y = CRATE_REIHE4;
         toolTip = ECSTRING(INTERFACE,CRATE_BTTN_8);
@@ -306,7 +351,7 @@ class APP(crate) {
     };
 
     class crate_button9 : crate_button2 {
-        idc = 600219;
+        idc = IDC_CRATE_BTTN9;
         x = CRATE_SPALTE1;
         y = CRATE_REIHE5;
         toolTip = ECSTRING(INTERFACE,CRATE_BTTN_9);
@@ -314,7 +359,7 @@ class APP(crate) {
     };
 
     class crate_button10 : crate_button2 {
-        idc = 600220;
+        idc = IDC_CRATE_BTTN10;
         x = CRATE_SPALTE2;
         y = CRATE_REIHE5;
         toolTip = ECSTRING(INTERFACE,CRATE_BTTN_10);
@@ -322,7 +367,7 @@ class APP(crate) {
     };
 
     class crate_button11 : crate_button2 {
-        idc = 600221;
+        idc = IDC_CRATE_BTTN11;
         x = CRATE_SPALTE1;
         y = CRATE_REIHE6;
         toolTip = ECSTRING(INTERFACE,CRATE_BTTN_11);
@@ -330,7 +375,7 @@ class APP(crate) {
     };
 
     class crate_button12 : crate_button1 {
-        idc = 600222;
+        idc = IDC_CRATE_BTTN12;
         default=false;
         x = CRATE_SPALTE2;
         y = CRATE_REIHE6;
@@ -339,7 +384,7 @@ class APP(crate) {
     };
 
     class crate_button13 : crate_button1 {
-        idc = 600223;
+        idc = IDC_CRATE_BTTN13;
         default=false;
         x = CRATE_SPALTE1;
         y = CRATE_REIHE7;
@@ -348,7 +393,7 @@ class APP(crate) {
     };
 
     class crate_button14 : crate_button1 {
-        idc = 600224;
+        idc = IDC_CRATE_BTTN14;
         default=false;
         x = CRATE_SPALTE2;
         y = CRATE_REIHE7;
@@ -357,7 +402,7 @@ class APP(crate) {
     };
 
     class crate_button15 : crate_button1 {
-        idc = 600225;
+        idc = IDC_CRATE_BTTN15;
         default=false;
         x = CRATE_SPALTE1;
         y = CRATE_REIHE8;
@@ -366,7 +411,7 @@ class APP(crate) {
     };
 
     class crate_button16 : crate_button2 {
-        idc = 600226;
+        idc = IDC_CRATE_BTTN16;
         x = CRATE_SPALTE2;
         y = CRATE_REIHE8;
         toolTip = ECSTRING(INTERFACE,CRATE_BTTN_16);
@@ -374,7 +419,7 @@ class APP(crate) {
     };
 
     class crate_button17 : crate_button2 {
-        idc = 600227;
+        idc = IDC_CRATE_BTTN17;
         x = CRATE_SPALTE1;
         y = CRATE_REIHE9;
         toolTip = ECSTRING(INTERFACE,CRATE_BTTN_17);
@@ -382,7 +427,7 @@ class APP(crate) {
     };
 
     class crate_button18 : crate_button2 {
-        idc = 600228;
+        idc = IDC_CRATE_BTTN18;
         x = CRATE_SPALTE2;
         y = CRATE_REIHE9;
         toolTip = ECSTRING(INTERFACE,CRATE_BTTN_18);
@@ -390,7 +435,7 @@ class APP(crate) {
     };
 
     class crate_button19 : crate_button2 {
-        idc = 600229;
+        idc = IDC_CRATE_BTTN19;
         x = CRATE_SPALTE1;
         y = CRATE_REIHE10;
         toolTip = ECSTRING(INTERFACE,CRATE_BTTN_19);
@@ -398,7 +443,7 @@ class APP(crate) {
     };
 
     class crate_button20 : crate_button2 {
-        idc = 600230;
+        idc = IDC_CRATE_BTTN20;
         x = CRATE_SPALTE2;
         y = CRATE_REIHE10;
         toolTip = ECSTRING(INTERFACE,CRATE_BTTN_20);
