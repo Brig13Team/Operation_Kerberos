@@ -48,12 +48,15 @@ private _allPositions = HASH_GET(GVAR(spawnpositions),_spawntype);
     };
 } forEach _allPositions;
 
+
+
 private _vehiclelist = HASH_GET(_hash,_spawntype);
 
 /*
  *      Empty the spawn area
  */
-
+[GVAR(curPos)] call FUNC(clearPos);
+/*
 {
     private _veh = _x;
     if (((getText(configFile >> "CfgVehicles" >> (typeOf _veh) >> "vehicleClass"))isEqualTo "Autonomous")) then {
@@ -65,7 +68,7 @@ private _vehiclelist = HASH_GET(_hash,_spawntype);
 } forEach (nearestObjects [GVAR(curPos), ["AllVehicles"], CHECK_RADIUS]);
 
 {deletevehicle _x;} forEach (nearestObjects [GVAR(curPos), ["CraterLong_small","CraterLong","WeaponHolder","GroundWeaponHolder","allDead","Thing"], CHECK_RADIUS]);
-
+*/
 /*
  *      Create the dialog
  */

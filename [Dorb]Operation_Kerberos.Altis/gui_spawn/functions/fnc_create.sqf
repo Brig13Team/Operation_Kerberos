@@ -12,7 +12,7 @@
 #include "script_component.hpp"
 
 _this params[["_mode","",[""]]];
-private _check_radius = 10;
+
 disableSerialization;
 private _selection = lnbCurSelRow IDC_SPAWN_DLG_LIST;
 private _vehiclewahl = lnbData [IDC_SPAWN_DLG_LIST,[_selection,0] ];
@@ -25,7 +25,7 @@ private _spawnpoint = GETVAR(_spawn,GVAR(point),"");
 private _spawnpos = markerPos _spawnpoint;
 private _spawndir = markerDir _spawnpoint;
 
-private _padempty = nearestObjects [_spawnpos, ["LandVehicle","Air"], _check_radius];
+private _padempty = nearestObjects [_spawnpos, ["LandVehicle","Air"], CHECK_RADIUS];
 If (!(_padempty isEqualTo [])) exitWith {hint localize LSTRING(NOTEMPTY);};
 
 private _flyingpos = getMarkerPos "air_flying";

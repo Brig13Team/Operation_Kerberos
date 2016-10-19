@@ -3,6 +3,7 @@
 ADDON = false;
 
 PREP(canOpenMenu);
+PREP(clearPos);
 PREP(create);
 PREP(createlist_west);
 PREP(createlist_east);
