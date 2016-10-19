@@ -39,15 +39,26 @@ If (side _caller == west) then {
 };
 CHECK(_exit)
 
-GVAR(curPos) = [-100000,-100000,-100000];
+GVAR(curPos) = [];
 
 private _allPositions = HASH_GET(GVAR(spawnpositions),_spawntype);
+If (isNil "_allPositions") exitWith {ERROR("Wrong configured spawns - no positions found");};
 {
-    If ((GVAR(curPos) distance _caller)>(_caller distance _x)) then {
-        GVAR(curPos) = _x;
+    private _cur = _x;
+    _cur set[2,(_cur select 2)+1];
+    _pPos = getPos player;
+    _pPos set[2,(_pPos select 2)+1];
+    If ((
+        ((_pPos distance player) < (CHECK_RADIUS + 5))&&
+        ((_pPos distance player) > CHECK_RADIUS))&&
+            {!(lineIntersects [_cur,_pPos,player])}) exitWith {
+                GVAR(curPos) = _x;
     };
 } forEach _allPositions;
 
+If (GVAR(curPos) isEqualTo []) exitWith {
+    ERROR("Opening Spawn Menu not possible -> no spawnpos found after action was executed");
+};
 
 
 private _vehiclelist = HASH_GET(_hash,_spawntype);
