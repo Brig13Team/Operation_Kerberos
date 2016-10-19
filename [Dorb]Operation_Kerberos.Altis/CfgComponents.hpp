@@ -18,6 +18,7 @@ class CfgComponents {
     interface = 1;
     logistics = 1;
     player = 1;
+    teamkilling = 1;
     /// mission specific components
     spawn = 1;
     headquarter = 1;
@@ -53,6 +54,7 @@ class CfgComponents {
 #include "patchbw\CfgComponent.hpp"
 #include "player\CfgComponent.hpp"
 #include "spawn\CfgComponent.hpp"
+#include "teamkilling\CfgComponent.hpp"
 
 #include "gui\CfgComponent.hpp"
 #include "gui_spawn\CfgComponent.hpp"

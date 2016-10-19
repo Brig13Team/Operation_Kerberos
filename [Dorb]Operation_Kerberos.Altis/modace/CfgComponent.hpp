@@ -9,8 +9,12 @@
 #include "script_component.hpp"
 
 class DOUBLES(CfgComponent,ADDON) {
+    class preInit {};
+    class clientPostInit {
+        server=0;
+    };
     class dependencies {
-        CfgPatches[] = {"ace_main"};
+        CfgPatches[] = {"ace_main","ace_medical"};
         CfgComponents[] = {};
     };
 };
