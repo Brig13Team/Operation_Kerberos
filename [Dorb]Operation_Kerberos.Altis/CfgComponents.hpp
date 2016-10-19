@@ -24,12 +24,12 @@ class CfgComponents {
     headquarter = 1;
     mission = 1;
     /// mod specific components
-    modace = 1;
-    modacre = 1;
-    modasrai = 1;
-    modtfar = 0;
-    patchacre = 1;
-    patchbw = 1;
+    mod_ace = 1;
+    mod_acre = 1;
+    mod_asrai = 1;
+    mod_tfar = 0;
+    patch_acre = 1;
+    patch_bw = 1;
     /// gui
     gui = 1;
     gui_spawn = 1;
@@ -46,12 +46,12 @@ class CfgComponents {
 #include "interface\CfgComponent.hpp"
 #include "logistics\CfgComponent.hpp"
 #include "mission\CfgComponent.hpp"
-#include "modace\CfgComponent.hpp"
-#include "modacre\CfgComponent.hpp"
-#include "modasrai\CfgComponent.hpp"
-#include "modtfar\CfgComponent.hpp"
-#include "patchacre\CfgComponent.hpp"
-#include "patchbw\CfgComponent.hpp"
+#include "mod_ace\CfgComponent.hpp"
+#include "mod_acre\CfgComponent.hpp"
+#include "mod_asrai\CfgComponent.hpp"
+#include "mod_tfar\CfgComponent.hpp"
+#include "patch_acre\CfgComponent.hpp"
+#include "patch_bw\CfgComponent.hpp"
 #include "player\CfgComponent.hpp"
 #include "spawn\CfgComponent.hpp"
 #include "teamkilling\CfgComponent.hpp"
