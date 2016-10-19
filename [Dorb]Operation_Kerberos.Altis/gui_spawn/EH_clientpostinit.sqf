@@ -8,26 +8,25 @@
 CHECK(!hasInterface)
 
 GVAR(spawnpositions) = HASH_CREATE;
-GVAR(actionpositions) = HASH_CREATE;
 
 {
     HASH_SET(GVAR(spawnpositions),_x,[]);
-    HASH_SET(GVAR(actionpositions),_x,[]);
 } forEach ["vehicles","drones","air","air_light","boat","logistic"];
 
 {
-    _x params ["_spawntype","_spawnPos","_actionPos"];
+    _x params ["_spawntype","_spawnPos"];
+    _spawnPos set[2,0];
+
     HASH_GET(GVAR(spawnpositions),_spawntype) pushBack _spawnPos;
-    HASH_GET(GVAR(actionpositions),_spawntype) pushBack _actionPos;
 } forEach [
 ///  spawntyp,      spawnposition,                  actionlocation
-    ["vehicles",    getMarkerPos "spawn_vehicles",  getPos fahrzeuge],
-    ["drones",      getMarkerPos "spawn_drones",    getPos drohnen],
-    ["air",         getMarkerPos "spawn_air",       getPos luftfahrzeuge],
-    ["air_light",   getMarkerPos "spawn_air_light", getPos luftfahrzeuge_leicht],
-    ["boat",        getMarkerPos "spawn_boat",      getPos marine],
-    ["logistic",    getMarkerPos "spawn_logistic",  getPos logistik],
-    ["logistic",    getMarkerPos "spawn_logistic2", getPos logistik2]
+    ["vehicles",    getMarkerPos "spawn_vehicles"],
+    ["drones",      getMarkerPos "spawn_drones"],
+    ["air",         getMarkerPos "spawn_air"],
+    ["air_light",   getMarkerPos "spawn_air_light"],
+    ["boat",        getMarkerPos "spawn_boat"],
+    ["logistic",    getMarkerPos "spawn_logistic"],
+    ["logistic",    getMarkerPos "spawn_logistic2"]
 ];
 
 
@@ -59,7 +58,7 @@ GVAR(actionpositions) = HASH_CREATE;
 */
 
 private _id = addMissionEventHandler ["draw3D",{
-    private _root = parsingNamespace getVariable "MISSION_ROOT";
+    private _root = parsingNamespace getVariable ["MISSION_ROOT",""];
     private _zoom = round(([0.5,0.5] distance worldToScreen positionCameraToWorld [0,1.05,1]) * (getResolution select 5));
     if(player distance (getPos fahrzeuge)<15)then{
         private _spawnPos = getPosATL fahrzeuge;
