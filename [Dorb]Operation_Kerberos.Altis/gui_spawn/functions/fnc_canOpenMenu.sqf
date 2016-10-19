@@ -21,6 +21,9 @@ private _spawnpositions = HASH_GET(GVAR(actionpositions),_spawntype);
 
 If (isNil "_spawnpositions") exitWith {false;};
 
+/// TODO - check sight (lineintersects), add distance, remove actionposition
+
+
 (({
     ((_player distance _x)<5);
 } count _spawnpositions)>0);

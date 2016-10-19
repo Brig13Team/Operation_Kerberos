@@ -47,6 +47,8 @@ class RscTitles {
                 class Attributes : Attributes {
                     shadow = 0;
                     font = GUI_FONT_BOLD;
+                    align = "left";
+                    valign = "top";
                 };
             };
             class content : RSC(BaseStructuredText) {

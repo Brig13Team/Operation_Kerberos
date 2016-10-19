@@ -7,11 +7,13 @@
  *  Parameter(s):
  *      0 : STRING - Title
  *      1 : STRING - Content
- *      2 : STRING - Color
+ *      2 : STRING/ARRAY - Color
  *
  *  Returns:
  *      none
  *
+ *      TODO - change the size of the message according to content
+ *              Width of the letters has to be determined -> 
  */
 #define INCLUDE_GUI
 #include "script_component.hpp"
