@@ -74,7 +74,6 @@ addons[]=
 	"ace_advanced_ballistics",
 	"A3_Modules_F_GroupModifiers",
 	"ace_zeus",
-	"ace_sitting",
 	"ace_finger",
 	"ace_repair",
 	"ace_captives",
@@ -90,7 +89,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=44;
+		items=43;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -322,10 +321,10 @@ class AddonsMetaData
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
-		class Item33
+        class Item33
 		{
-			className="ace_sitting";
-			name="ACE3 - Sitting";
+			className="ace_medical_menu";
+			name="ACE3 - Medical Menu";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
@@ -10401,13 +10400,32 @@ class Mission
 				position[]={17373.283,15.494954,19374.42};
 			};
 			id=452;
-			type="ACE_ModuleSitting";
+            type="ace_finger_moduleSettings";
 			class CustomAttributes
 			{
 				class Attribute0
 				{
-					property="ACE_ModuleSitting_enable";
-					expression="_this setVariable ['enable',_value,true];";
+					property="ace_finger_moduleSettings_maxRange";
+					expression="_this setVariable ['maxRange',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=10;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ace_finger_moduleSettings_enabled";
+					expression="_this setVariable ['enabled',_value,true];";
 					class Value
 					{
 						class data
@@ -10423,7 +10441,7 @@ class Mission
 						};
 					};
 				};
-				nAttributes=1;
+				nAttributes=2;
 			};
 		};
 		class Item412
