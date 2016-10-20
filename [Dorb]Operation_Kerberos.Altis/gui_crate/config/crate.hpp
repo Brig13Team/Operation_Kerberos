@@ -110,7 +110,7 @@ class APP(crate) {
 //        y = GUI_YH(0,0.1);
 //        w = GUI_W(0.8);
 //        h = GUI_H(0.09);
-        text = ECSTRING(INTERFACE,CRATE_HEADER);
+        text = CSTRING(HEADER);
         colorText[] = UI_CL_HEADER_TEXT;
         colorBackground[] = UI_CL_HEADER;
     };
@@ -125,7 +125,7 @@ class APP(crate) {
 //        y = GUI_YH(0,0.755);
 //        w = GUI_W(0.14);
 //        h = GUI_H(0.06);
-        text = ECSTRING(INTERFACE,CRATE_SPAWN);
+        text = CSTRING(SPAWN);
         sizeEx = GUI_GRID_CENTER_H * 1.5
 //        sizeEx = GUI_H(0.03);
         colorBackground[] = UI_CL_BTN2_foc;
@@ -139,7 +139,7 @@ class APP(crate) {
         idc = IDC_CRATE_BTTN_CLEAR;
         x = GUI_GRID_CENTER_X + GUI_GRID_CENTER_W * 31,25;
 //        x = GUI_XW(0,0.725);
-        text = ECSTRING(INTERFACE,CRATE_CLEAR);
+        text = CSTRING(CLEAR);
         action = QUOTE( GVAR(current) = [ARR_6([],[],[],[],[],[])] ; GVAR(current_boxid) = 0; [] call FUNC(onLoad); false);
     };
 
@@ -147,7 +147,7 @@ class APP(crate) {
         idc = IDC_CRATE_BTTN_SAVE;
         y = GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 22,5;
 //        y = GUI_YH(0,0.82);
-        text = ECSTRING(INTERFACE,CRATE_SAVE);
+        text = CSTRING(SAVE);
         action = QUOTE([true] spawn FUNC(save);false);
     };
 
@@ -155,7 +155,7 @@ class APP(crate) {
         idc = IDC_CRATE_BTTN_LOAD;
         y = GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 22,5;
 //        y = GUI_YH(0,0.82);
-        text = ECSTRING(INTERFACE,CRATE_LOAD);
+        text = CSTRING(LOAD);
         action = QUOTE([false] spawn FUNC(save);false);
     };
 
@@ -283,7 +283,7 @@ class APP(crate) {
         offsetX = 0;
         offsetY = 0;
 
-        toolTip = ECSTRING(INTERFACE,CRATE_BTTN_1);
+        toolTip = CSTRING(BTTN_1);
         style = ST_PICTURE;
         text = "\A3\ui_f\data\IGUI\Cfg\MPTable\total_ca.paa";
     };
@@ -298,7 +298,7 @@ class APP(crate) {
         colorFocused[] = UI_CL_CTRL_GRAU2;
         colorText[] = UI_CL_CTRL_GRAU4;
         colorTextSelect[] = UI_CL_CTRL_GRAU1;
-        toolTip = ECSTRING(INTERFACE,CRATE_BTTN_2);
+        toolTip = CSTRING(BTTN_2);
         text = "A3\ui_f\data\gui\cfg\Hints\rifle_ca.paa";
     };
 
@@ -306,7 +306,7 @@ class APP(crate) {
         idc = IDC_CRATE_BTTN3;
         x = CRATE_SPALTE1;
         y = CRATE_REIHE2;
-        toolTip = ECSTRING(INTERFACE,CRATE_BTTN_3);
+        toolTip = CSTRING(BTTN_3);
         text = "A3\ui_f\data\gui\cfg\Hints\automatic_ca.paa";
     };
 
@@ -314,7 +314,7 @@ class APP(crate) {
         idc = IDC_CRATE_BTTN4;
         x = CRATE_SPALTE2;
         y = CRATE_REIHE2;
-        toolTip = ECSTRING(INTERFACE,CRATE_BTTN_4);
+        toolTip = CSTRING(BTTN_4);
         text = "A3\ui_f\data\gui\cfg\Hints\sniper_ca.paa";
     };
 
@@ -322,7 +322,7 @@ class APP(crate) {
         idc = IDC_CRATE_BTTN5;
         x = CRATE_SPALTE1;
         y = CRATE_REIHE3;
-        toolTip = ECSTRING(INTERFACE,CRATE_BTTN_5);
+        toolTip = CSTRING(BTTN_5);
         text = "A3\ui_f\data\gui\cfg\Hints\shotguns_ca.paa";
     };
 
@@ -330,7 +330,7 @@ class APP(crate) {
         idc = IDC_CRATE_BTTN6;
         x = CRATE_SPALTE2;
         y = CRATE_REIHE3;
-        toolTip = ECSTRING(INTERFACE,CRATE_BTTN_6);
+        toolTip = CSTRING(BTTN_6);
         text = "A3\ui_f\data\gui\cfg\Hints\launcher_ca.paa";
     };
 
@@ -338,7 +338,7 @@ class APP(crate) {
         idc = IDC_CRATE_BTTN7;
         x = CRATE_SPALTE1;
         y = CRATE_REIHE4;
-        toolTip = ECSTRING(INTERFACE,CRATE_BTTN_7);
+        toolTip = CSTRING(BTTN_7);
         text = "A3\ui_f\data\gui\cfg\Hints\handgun_ca.paa";
     };
 
@@ -346,7 +346,7 @@ class APP(crate) {
         idc = IDC_CRATE_BTTN8;
         x = CRATE_SPALTE2;
         y = CRATE_REIHE4;
-        toolTip = ECSTRING(INTERFACE,CRATE_BTTN_8);
+        toolTip = CSTRING(BTTN_8);
         text = "A3\ui_f\data\gui\cfg\Hints\optics_ca.paa";
     };
 
@@ -354,7 +354,7 @@ class APP(crate) {
         idc = IDC_CRATE_BTTN9;
         x = CRATE_SPALTE1;
         y = CRATE_REIHE5;
-        toolTip = ECSTRING(INTERFACE,CRATE_BTTN_9);
+        toolTip = CSTRING(BTTN_9);
         text = "A3\ui_f\data\gui\cfg\Hints\grenades_ca.paa";
     };
 
@@ -362,7 +362,7 @@ class APP(crate) {
         idc = IDC_CRATE_BTTN10;
         x = CRATE_SPALTE2;
         y = CRATE_REIHE5;
-        toolTip = ECSTRING(INTERFACE,CRATE_BTTN_10);
+        toolTip = CSTRING(BTTN_10);
         text = "A3\ui_f\data\gui\cfg\Hints\ieds_ca.paa";
     };
 
@@ -370,7 +370,7 @@ class APP(crate) {
         idc = IDC_CRATE_BTTN11;
         x = CRATE_SPALTE1;
         y = CRATE_REIHE6;
-        toolTip = ECSTRING(INTERFACE,CRATE_BTTN_11);
+        toolTip = CSTRING(BTTN_11);
         text = "A3\ui_f\data\gui\cfg\Hints\gear_ca.paa";
     };
 
@@ -379,7 +379,7 @@ class APP(crate) {
         default=false;
         x = CRATE_SPALTE2;
         y = CRATE_REIHE6;
-        toolTip = ECSTRING(INTERFACE,CRATE_BTTN_12);
+        toolTip = CSTRING(BTTN_12);
         text = "A3\ui_f\data\gui\Rsc\RscDisplayArsenal\vest_ca.paa";
     };
 
@@ -388,7 +388,7 @@ class APP(crate) {
         default=false;
         x = CRATE_SPALTE1;
         y = CRATE_REIHE7;
-        toolTip = ECSTRING(INTERFACE,CRATE_BTTN_13);
+        toolTip = CSTRING(BTTN_13);
         text = "A3\ui_f\data\gui\Rsc\RscDisplayArsenal\uniform_ca.paa";
     };
 
@@ -397,7 +397,7 @@ class APP(crate) {
         default=false;
         x = CRATE_SPALTE2;
         y = CRATE_REIHE7;
-        toolTip = ECSTRING(INTERFACE,CRATE_BTTN_14);
+        toolTip = CSTRING(BTTN_14);
         text = "A3\ui_f\data\gui\Rsc\RscDisplayArsenal\headgear_ca.paa";
     };
 
@@ -406,7 +406,7 @@ class APP(crate) {
         default=false;
         x = CRATE_SPALTE1;
         y = CRATE_REIHE8;
-        toolTip = ECSTRING(INTERFACE,CRATE_BTTN_15);
+        toolTip = CSTRING(BTTN_15);
         text = "A3\ui_f\data\gui\Rsc\RscDisplayArsenal\radio_ca.paa";
     };
 
@@ -414,7 +414,7 @@ class APP(crate) {
         idc = IDC_CRATE_BTTN16;
         x = CRATE_SPALTE2;
         y = CRATE_REIHE8;
-        toolTip = ECSTRING(INTERFACE,CRATE_BTTN_16);
+        toolTip = CSTRING(BTTN_16);
         text = "A3\ui_f\data\gui\cfg\Hints\map_ca.paa";
     };
 
@@ -422,7 +422,7 @@ class APP(crate) {
         idc = IDC_CRATE_BTTN17;
         x = CRATE_SPALTE1;
         y = CRATE_REIHE9;
-        toolTip = ECSTRING(INTERFACE,CRATE_BTTN_17);
+        toolTip = CSTRING(BTTN_17);
         text = "A3\ui_f\data\gui\cfg\Hints\injury_ca.paa";
     };
 
@@ -430,7 +430,7 @@ class APP(crate) {
         idc = IDC_CRATE_BTTN18;
         x = CRATE_SPALTE2;
         y = CRATE_REIHE9;
-        toolTip = ECSTRING(INTERFACE,CRATE_BTTN_18);
+        toolTip = CSTRING(BTTN_18);
         text = "A3\ui_f\data\gui\cfg\Hints\slots_ca.paa";
     };
 
@@ -438,7 +438,7 @@ class APP(crate) {
         idc = IDC_CRATE_BTTN19;
         x = CRATE_SPALTE1;
         y = CRATE_REIHE10;
-        toolTip = ECSTRING(INTERFACE,CRATE_BTTN_19);
+        toolTip = CSTRING(BTTN_19);
         text = "A3\ui_f\data\gui\cfg\Hints\actionmenu_ca.paa";
     };
 
@@ -446,7 +446,7 @@ class APP(crate) {
         idc = IDC_CRATE_BTTN20;
         x = CRATE_SPALTE2;
         y = CRATE_REIHE10;
-        toolTip = ECSTRING(INTERFACE,CRATE_BTTN_20);
+        toolTip = CSTRING(BTTN_20);
         text = "A3\ui_f\data\gui\cfg\Hints\actionmenu_ca.paa";
     };
 };

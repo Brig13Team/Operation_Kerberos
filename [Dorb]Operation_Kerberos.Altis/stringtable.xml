@@ -1313,4 +1313,166 @@
             <English>TFR Frequencies</English>
         </Key>
     </Package>
+    <Package name="gui_crate">
+        <Key ID="STR_DORB_GUI_CRATE_HEADER">
+            <Original>Crate Filler</Original>
+            <German>Kistenfüller</German>
+            <English>Crate Filler</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_CRATE_SPAWN">
+            <Original>Spawn</Original>
+            <German>Erschaffen</German>
+            <English>Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_CRATE_CLEAR">
+            <Original>Clear</Original>
+            <German>Löschen</German>
+            <English>Clear</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_CRATE_LOAD">
+            <Original>Load</Original>
+            <German>Laden</German>
+            <English>Load</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_CRATE_SAVE">
+            <Original>Save</Original>
+            <German>Speichern</German>
+            <English>Save</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_CRATE_SIZE1">
+            <Original>Small Box</Original>
+            <German>Kleine Kiste</German>
+            <English>Small Box</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_CRATE_SIZE2">
+            <Original>Medium Box</Original>
+            <German>Mittlere Kiste</German>
+            <English>Medium Box</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_CRATE_SIZE3">
+            <Original>Large Box</Original>
+            <German>Große Kiste</German>
+            <English>Large Box</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_CRATE_SIZE4">
+            <Original>Very Large Box</Original>
+            <German>Sehr Große Kiste</German>
+            <English>Very Large Box</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_CRATE_SIZE5">
+            <Original>Supply Crate</Original>
+            <German>Nachschubkiste</German>
+            <English>Supply Crate</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_CRATE_SIZE6">
+            <Original>Cargo Pallet</Original>
+            <German>Frachtpalette</German>
+            <English>Cargo Pallet</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_CRATE_SIZE7">
+            <Original>Shipping Container</Original>
+            <German>Frachtcontainer</German>
+            <English>Shipping Container</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_CRATE_BTTN_1">
+            <Original>Current</Original>
+            <German>Aktuell</German>
+            <English>Current</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_CRATE_BTTN_2">
+            <Original>Rifles</Original>
+            <German>Sturmgewehre</German>
+            <English>Rifles</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_CRATE_BTTN_3">
+            <Original>Automatic Rifles</Original>
+            <German>Maschinengewehre</German>
+            <English>Automatic Rifles</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_CRATE_BTTN_4">
+            <Original>Sniper Rifles</Original>
+            <German>Scharfschützengewehre</German>
+            <English>Sniper Rifles</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_CRATE_BTTN_5">
+            <Original>Other Weapons</Original>
+            <German>Andere Waffen</German>
+            <English>Other Weapons</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_CRATE_BTTN_6">
+            <Original>Launchers</Original>
+            <German>Raktenwerfer</German>
+            <English>Launchers</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_CRATE_BTTN_7">
+            <Original>Pistols</Original>
+            <German>Pistolen</German>
+            <English>Pistols</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_CRATE_BTTN_8">
+            <Original>Attachments</Original>
+            <German>Anbauteile</German>
+            <English>Attachments</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_CRATE_BTTN_9">
+            <Original>Grenades</Original>
+            <German>Granaten</German>
+            <English>Grenades</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_CRATE_BTTN_10">
+            <Original>Explosives</Original>
+            <German>Sprengmittel</German>
+            <English>Explosives</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_CRATE_BTTN_11">
+            <Original>Backpacks</Original>
+            <German>Rucksäcke</German>
+            <English>Backpacks</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_CRATE_BTTN_12">
+            <Original>Vests</Original>
+            <German>Westen</German>
+            <English>Vests</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_CRATE_BTTN_13">
+            <Original>Uniforms</Original>
+            <German>Uniformen</German>
+            <English>Uniforms</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_CRATE_BTTN_14">
+            <Original>Head</Original>
+            <German>Kopf</German>
+            <English>Head</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_CRATE_BTTN_15">
+            <Original>Radios</Original>
+            <German>Funkgeräte</German>
+            <English>Radios</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_CRATE_BTTN_16">
+            <Original>Nav Tools</Original>
+            <German>Orientierungshilfen</German>
+            <English>Nav Tools</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_CRATE_BTTN_17">
+            <Original>Medical Supplies</Original>
+            <German>Sanitätsmaterial</German>
+            <English>Medical Supplies</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_CRATE_BTTN_18">
+            <Original>Items</Original>
+            <German>Gegenstände</German>
+            <English>Items</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_CRATE_BTTN_19">
+            <Original>Other</Original>
+            <German>Sonstiges</German>
+            <English>Other</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_CRATE_BTTN_20">
+            <Original>Other</Original>
+            <German>Sonstiges</German>
+            <English>Other</English>
+        </Key>
+    </Package>
 </Project>
