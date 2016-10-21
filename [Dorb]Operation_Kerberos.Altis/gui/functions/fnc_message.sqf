@@ -13,7 +13,7 @@
  *      none
  *
  *      TODO - change the size of the message according to content
- *              Width of the letters has to be determined -> 
+ *              Width of the letters has to be determined ->
  */
 #define INCLUDE_GUI
 #include "script_component.hpp"
@@ -52,6 +52,8 @@ CHECK((_title isEqualTo "")&&(_content isEqualTo ""))
 disableSerialization;
 
 GVAR(msg_cur) = GVAR(msg_cur) - [displayNull];
+
+[QEGVAR(gui_tablet,addMessage),[_title,_content,_color,dialog]] call CBA_fnc_localEvent;
 
 If (GVAR(msg_cur) isEqualTo []) then {
     GVAR(msg_cur_ID)=1;
