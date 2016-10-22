@@ -14,8 +14,8 @@
 #include "script_component.hpp"
 _this params [
     ["_picture","",[""]],
-    ["_condition",{},{{}}]
-
+    ["_condition",{},[{}]],
+    ["_target",{},[{}]]
 ];
 If (_picture isEqualTo "") exitWith {-1};
 GVAR(lastNotification) = GVAR(lastNotification) + 1;
