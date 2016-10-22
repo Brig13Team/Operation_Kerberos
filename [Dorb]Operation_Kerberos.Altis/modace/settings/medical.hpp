@@ -7,7 +7,7 @@ class ace_medical_bleedingCoefficient SET_VAL(1.2);
 class ace_medical_painCoefficient SET_VAL(1);
 class ace_medical_enableAirway TURN_OFF;
 class ace_medical_enableFractures TURN_OFF;
-class ace_medical_enableAdvancedWounds TURN_OFF;
+class ace_medical_enableAdvancedWounds TURN_ON;
 class ace_medical_enableVehicleCrashes TURN_ON;
 class ace_medical_enableScreams TURN_ON;
 class ace_medical_playerDamageThreshold SET_VAL(1);
