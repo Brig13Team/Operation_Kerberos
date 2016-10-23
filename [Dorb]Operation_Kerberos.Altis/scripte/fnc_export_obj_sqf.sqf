@@ -15,7 +15,7 @@
     };
 */
 
-params[["_centerpos",[0,0,0],[[],objNull],[3,2]],["_radius",25,[0]],["_centerdir",nil,[0]]];
+_this params[["_centerpos",[0,0,0],[[],objNull],[3,2]],["_radius",25,[0]],["_centerdir",nil,[0]]];
 
 hint "Export in progess....";
 
@@ -25,21 +25,110 @@ If (_centerpos isEqualType objNull) then {
 /// set center on ground
 _centerpos set[2,0];
 
-
-if (isNil "_centerpos") then {
+if (isNil "_centerdir") then {
     _centerdir = getDir _centerpos;
+};
+
+private _allObjects = _centerpos nearObjects _radius;
+private _exportarray = [];
+private _centerposASL = ATLtoASL _centerpos;
+
+
+//// FUNKTIONS
+private _fnc_rotVector = {
+    _this params ["_vector","_dir"];
+    _vector params ["_x","_y"];
+    _vector set [0,(cos _dir)*_x - (sin _dir) * _y];
+    _vector set [1,(sin _dir)*_x + (cos _dir) * _y];
+    _vector;
+};
+
+private _fnc_formatRotMat = {
+    _this params ["_Rollwinkel","_Nickwinkel","_Gierwinkel"];
+    [[
+        (cos _Gierwinkel) * (cos _Nickwinkel),
+        (sin _Gierwinkel) * (cos _Nickwinkel),
+        (-1 * (sin _Nickwinkel))
+     ],
+     [
+        (cos _Gierwinkel) * (sin _Nickwinkel) * (sin _Rollwinkel) - (sin _Gierwinkel) * (cos _Rollwinkel),
+        (sin _Gierwinkel) * (sin _Nickwinkel) * (sin _Rollwinkel) + (cos _Gierwinkel) * (cos _Rollwinkel),
+        (cos _Nickwinkel) * (sin _Rollwinkel)
+     ],
+     [
+        (cos _Gierwinkel) * (sin _Nickwinkel) * (cos _Rollwinkel) + (sin _Gierwinkel) * (sin _Rollwinkel),
+        (sin _Gierwinkel) * (sin _Nickwinkel) * (cos _Rollwinkel) - (cos _Gierwinkel) * (sin _Rollwinkel),
+        (cos _Nickwinkel) * (cos _Rollwinkel)
+    ]];
+};
+
+private _fnc_getRollPitchYaw = {
+    _this params ["_VectorDir","_VectorUp",["_Roll",0,[0]],["_Nick",0,[0]],["_Gier",0,[0]]];
+
+    private _VectorDirY = _VectorDir select 1;
+    private _VectorUpZ = _VectorUp select 2;
+
+    if (_VectorDirY == 0) then {_VectorDirY = 0.01;};
+    if (_VectorUpZ == 0) then {_VectorUpZ = 0.01;};
+
+    _Nickwinkel = atan ((_VectorDir select 2) / _VectorDirY);
+    _Rollwinkel = atan ((_VectorUp select 0) / _VectorUpZ);
+    _Gierwinkel = 360 - _objectDir;
+
+    if((_VectorUp select 2) < 0) then {
+        _Rollwinkel = _Rollwinkel - ([1,-1] select (_Rollwinkel < 0)) * 180;
+    };
+    
+    _Rollwinkel = _Rollwinkel - _Roll;
+    _Nickwinkel = _Nickwinkel - _Nick;
+    _Gierwinkel = _Gierwinkel - _Gier;
+    [_Rollwinkel,_Nickwinkel,_Gierwinkel];
+};
+
+private _fnc_ObjGetVDirVup = {
+    _this params [["_object",objNull,[objNull]]];
+
+    private _objectVDir = VectorDir _object;
+    private _objectVUp = VectorUp _object;
+    private _objectDir = getDir _object;
+
+    private _VectorDir = [_objectVDir,_objectDir] call _fnc_rotVector;
+    private _VectorUp = [_objectVUp,_objectDir] call _fnc_rotVector;
+    [_VectorDir,_VectorUp];
+};
+
+
+private _fnc_ObjGetRollPitchYaw = {
+    _this params [["_object",objNull,[objNull]],["_roll",0,[0]],["_nick",0,[0]],["_gier",0,[0]]];
+    ([_object] call _fnc_ObjGetVDirVup) params ["_objectDir","_objectUp"];
+    [_objectDir,_objectUp,_roll,_nick,_gier] call _fnc_getRollPitchYaw;
+};
+
+private _fnc_ObjGetRotMat = {
+    _this params [["_object",objNull,[objNull]],["_roll",0,[0]],["_nick",0,[0]],["_gier",0,[0]]];
+    private _tempRollPitchYaw = [_object] call _fnc_ObjGetRollPitchYaw;
+    [_tempRollPitchYaw] call _fnc_formatRotMat;
 };
 
 
 
 
-private _allObjects = _centerpos nearObjects _radius;
-private _exportarray = [];
+
+
+
+
+
+
+
+
+
+
+
 
 
 /// offset = [position,direction,vectorUp];
 private _fnc_getoffset = {
-    params["_object","_positionASL"];
+    _this params["_object","_positionASL"];
     
     private "_offset";
     private _nextObject = [_object] call _fnc_getObjbelow;
@@ -57,7 +146,7 @@ private _fnc_getoffset = {
 };
 
 private _fnc_getObjbelow = {
-    params["_object"];
+    _this params["_object"];
     private["_objPosASL","_terrainPosASL","_terrainPos","_terrainPosATL","_nextObject"];
     private _objPosASL = getPosASL _object;
     private _terrainPosATL = getPosATL _object;
@@ -76,10 +165,42 @@ private _fnc_getObjbelow = {
     };
 };
 
-private _centerposASL = ATLtoASL _centerpos;
+/// _centerdir _centerposASL _centerpos
+{
+    If ((!(isPlayer _x))&&(!((toLower(format["%1",typeOf _x])) in ["camera","#dynamicsound"]))) then {
+        private _temp = [];
+        private _nextObject = [_x] call _fnc_getObjbelow;
+        If (isNull _nextObject) then {
+            private _currentObject = _x;
+            private _currenttype = typeOf _currentObject;
+            private _currentPos = getPosASL _currentObject;
+            private _currentRotMat = [_currentObject,_house_roll,_house_pitch,_house_yaw] call _fnc_ObjGetRotMat;
+            
+        
+        
+        }else{
+        
+        
+        };
+        private _currentObject = _x;
+        private _currenttype = typeOf _currentObject;
+        private _currentPos = getPosASL _currentObject;
+        private _currentRotMat = [_currentObject,_house_roll,_house_pitch,_house_yaw] call _fnc_ObjGetRotMat;
+        private _temppos = _housePos vectorDiff _currentPos;
+        private _temppos = [_temppos,_house_yaw] call _fnc_rotVector;
+        _temp = [_currenttype,_temppos,_currentRotMat];
+    };
+    If !(_temp isEqualTo []) then {
+        _exportArray pushBack _temp;
+    };
+}forEach _allObjects;
+
+
+
+
 
 {
-    If ((!(isPlayer _x))&&(!((toLower(format["%1",typeOf _x])) in ["Camera","#dynamicsound"]))) then {
+    If ((!(isPlayer _x))&&(!((toLower(format["%1",typeOf _x])) in ["camera","#dynamicsound"]))) then {
         private _temp = [];
         private _nextObject = [_x] call _fnc_getObjbelow;
         If (isNull _nextObject) then {

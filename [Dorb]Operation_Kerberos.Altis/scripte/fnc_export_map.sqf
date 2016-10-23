@@ -28,8 +28,7 @@ hint "Export in progess....";
 #define ROADDISTANCE floor(RASTER/3)
 #define TERRAINDISTANCE floor(RASTER/3)
 
-private ["_positions"];
-_positions = [];
+private _positions = [];
 
 for "_i" from 0 to (worldsize - RASTER_2) step RASTER do {
     for "_j" from 0 to (worldsize - RASTER_2) step RASTER do {

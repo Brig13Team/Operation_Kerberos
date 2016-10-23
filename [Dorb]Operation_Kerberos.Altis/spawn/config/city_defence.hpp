@@ -2216,3 +2216,4 @@ class city_defence {
         };
     };
 };
+#include "city_houses.hpp"

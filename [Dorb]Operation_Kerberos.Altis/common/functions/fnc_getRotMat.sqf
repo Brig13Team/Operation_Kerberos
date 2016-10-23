@@ -21,8 +21,6 @@ private _Rollwinkel = 0;
 private _Gierwinkel = 0;
 private _Nickwinkel = 0;
 
-private _objectVSide = _objectVDir VectorcrossProduct _objectVUp;
-
 private _VectorDir = [_objectVDir,_objectDir] call FUNC(rotateVectorXY);
 private _VectorUp = [_objectVUp,_objectDir] call FUNC(rotateVectorXY);
 
