@@ -15,7 +15,7 @@ class APP(crate) {
     duration = 1000000;
     objects[] = {};
     onLoad = QUOTE( uiNamespace setVariable [ARR_2('GVAR(crateMenu)',_this select 0)]; [ARR_2('GVAR(crateMenu)',true)] call EFUNC(gui,blur); [] spawn FUNC(OnLoad););
-    onUnload = QUOTE([ARR_2('GVAR(crateMenu)',false)] call FUNC(gui,blur););
+    onUnload = QUOTE([ARR_2('GVAR(crateMenu)',false)] call EFUNC(gui,blur););
 
     controlsBackground[] =  {
         crate_CenterBackground,
