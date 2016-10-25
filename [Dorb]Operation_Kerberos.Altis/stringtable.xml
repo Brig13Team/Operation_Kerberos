@@ -1213,7 +1213,7 @@
         </Key>
     </Package>
     <Package name="Gui">
-        <Key ID="STR_DORB_GUI_SELFACTIONGROUP">
+        <Key ID="STR_DORB_GUI_TABLET_SELFACTIONGROUP">
             <Original>Echidna</Original>
             <German>Echidna</German>
             <English>Echidna</English>

@@ -2,6 +2,7 @@
 
 ADDON = false;
 
+PREP(addApp);
 PREP(addMessage);
 PREP(addNotification);
 PREP(canOpenMenu);
@@ -16,3 +17,5 @@ GVAR(newMessage) = false;
 GVAR(allMessages) = [];
 GVAR(lastNotification) = 1;
 GVAR(notifications) = HASH_CREATE;
+
+GVAR(Applications) = [];

@@ -26,3 +26,17 @@
     "", /// new notification picture
     {GVAR(newMessage)}
 ] call FUNC(addNotification);
+
+
+
+
+
+private _ACE_Action = [
+    QGVAR(selfactiongroup),
+    localize LSTRING(SELFACTIONGROUP),
+    QEPAAPATH(logo,logo_512),
+    {[] call FUNC(open);},
+    {[] call FUNC(canOpenMenu);}
+] call ace_interact_menu_fnc_createAction;
+
+[ACE_Player, 1, ["ACE_SelfActions"], _ACE_Action] call ace_interact_menu_fnc_addActionToObject;

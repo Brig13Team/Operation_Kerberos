@@ -32,14 +32,21 @@ GVAR(spawnpositions) = HASH_CREATE;
 
 {
     _x params ["_spawntype","_pic"];
-    private _ACE_Action = [
+    [
+        localize format[LSTRING(%1),_spawntype],
+        format[QEPAAPATH(icon,icon_%1),_pic],
+        {[_spawntype] call FUNC(open);},
+        {[player,_spawntype] call FUNC(canOpenMenu);}
+    ] call EFUNC(gui_tablet,addApp);
+/*    private _ACE_Action = [
         format [QGVAR(%1Action),_spawntype],
         localize format[LSTRING(%1),_spawntype],
         format[QEPAAPATH(icon,icon_%1),_pic],
         {[_spawntype] call FUNC(open);},
         {[player,_spawntype] call FUNC(canOpenMenu);}
     ] call ace_interact_menu_fnc_createAction;
-    [ACE_Player, 1, ["ACE_SelfActions", QGVAR(selfactiongroup)], _ACE_Action] call ace_interact_menu_fnc_addActionToObject;
+    [ACE_Player, 1, ["ACE_SelfActions", QEGVAR(gui_tablet,selfactiongroup)], _ACE_Action] call ace_interact_menu_fnc_addActionToObject;
+*/
 } foreach [
     ["vehicles","tank"],
     ["drones","drone"],
