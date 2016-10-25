@@ -15,19 +15,14 @@
 
 private _allNotifications = HASH_KEYS(GVAR(notifications));
 
+_allNotifications = _allNotifications select { ( [] call (_x select 1) ) };
 
-for "_i" from 0 to 6 do {
+private _string = "";
+private _max = 6 min (count _allNotifications - 1);
 
+for "_i" from 0 to _max do {
+    _string = _string + format[" <img image='%1' />",_allNotifications select _i];
 };
 
-
-
-
-{
-    If (_forEachIndex > 6) exitWith {}
-    private _key = _x;
-    (HASH_GET(GVAR(notifications),_key)) params ["_picture","_condition","_target"];
-
-
-
-} forEach _allNotifications;
+privat _ctrl = (findDisplay IDD_TABLET_MAIN) displayCtrl IDD_TABLET_TOPBAR_NOTIFICATIONS;
+_ctrl ctrlSetStructuredText _string;

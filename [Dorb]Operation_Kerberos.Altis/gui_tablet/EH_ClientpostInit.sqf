@@ -17,3 +17,12 @@
     QGVAR("addMessage"),
     {_this call FUNC(addMessage);}
 ] call CBA_fnc_addEventHandler;
+
+[
+    "", /// add a receiving status (WLAN symbol?)
+    {GVAR(canOpenApps)}
+] call FUNC(addNotification);
+[
+    "", /// new notification picture
+    {GVAR(newMessage)}
+] call FUNC(addNotification);

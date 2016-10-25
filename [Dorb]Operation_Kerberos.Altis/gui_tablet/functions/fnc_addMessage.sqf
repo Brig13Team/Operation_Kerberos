@@ -16,7 +16,7 @@
 #define INCLUDE_GUI
 #include "script_component.hpp"
 
-_this params [["_header","",[""]],["_content","",[""]],["_color",[RAL10001,1],[[]],[4]],["_dialog",false,[true]]];
+_this params [["_header","",[""]],["_content","",[""]],["_color",[RAL1001,1],[[]],[4]],["_dialog",false,[true]]];
 GVAR(newMessage) = _dialog;
 // TODO playSound
 GVAR(allMessages) pushBack [_header,_content,_color,_dialog];

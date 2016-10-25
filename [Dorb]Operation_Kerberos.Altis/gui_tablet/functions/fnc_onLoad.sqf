@@ -15,4 +15,4 @@
 
 
 [] call FUNC(clock);
-[] call FUNC(notifocations);
+[] call FUNC(showNotifications);

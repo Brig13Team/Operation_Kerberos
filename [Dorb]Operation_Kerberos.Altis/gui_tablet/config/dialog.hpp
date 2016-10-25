@@ -54,6 +54,7 @@ class RSC(tabletBase) {
         w = GUI_GRID_CENTER_W * 5;
     };
     class notifications: RSC(BaseStructuredText) {
+        idc = IDC_TABLET_TOPBAR_NOTIFICATIONS;
         x = GUI_GRID_CENTER_X;
         y = GUI_GRID_CENTER_Y - GUI_GRID_CENTER_H * 4.5;
         w = GUI_GRID_CENTER_W * 5;

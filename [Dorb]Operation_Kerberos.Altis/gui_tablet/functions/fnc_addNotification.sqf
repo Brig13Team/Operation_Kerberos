@@ -20,6 +20,6 @@ _this params [
 If (_picture isEqualTo "") exitWith {-1};
 GVAR(lastNotification) = GVAR(lastNotification) + 1;
 private _curNotification = GVAR(lastNotification);
-HASH_SET(GVAR(notifications),format["%1",_curNotification],[_picture,_condition]);
+HASH_SET(GVAR(notifications),format["%1",_curNotification],[_picture,_condition,_target]);
 
 _curNotification;
