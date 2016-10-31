@@ -61,3 +61,17 @@ class RSC(tabletBase) {
         h = GUI_GRID_CENTER_H * 2;
     };
 };
+
+class APP(dialog) : RSC(tabletBase) {
+
+    controlsBackground[] =     {
+        background_Picture,
+        background_Display,
+        background_Header
+    };
+
+    controls[] =    {
+        clock,
+        notifications
+    };
+};
