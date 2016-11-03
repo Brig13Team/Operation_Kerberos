@@ -489,6 +489,7 @@ Original Author:
 #define HASH_HASKEY(hash, key) (!(isNil {hash getVariable key}))
 #define HASH_SET(hash, key, val) (hash setVariable [key, val])
 #define HASH_GET(hash, key) (hash getVariable key)
+#define HASH_GET_DEF(hash, key, default) (hash getVariable [key, default])
 #define HASH_REM(hash, key) (hash setVariable [key, nil])
 #define HASH_COPY(hash) ([hash] call EFUNC(main,HashCopy))
 #define HASH_KEYS(hash) ([hash] call EFUNC(main,HashKeys))
