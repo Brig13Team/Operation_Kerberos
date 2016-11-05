@@ -13,6 +13,8 @@
  */
 #include "script_component.hpp"
 
+GVAR(active) = false;
+
 //POI
 {
     private _value = HASH_GET(GVAR(POI),_x);

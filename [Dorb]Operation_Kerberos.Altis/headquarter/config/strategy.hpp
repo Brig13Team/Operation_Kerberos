@@ -7,90 +7,123 @@
 class strategy {
     //// _tankGroups,_infanterieGroups,_helicoptersGroups
     //// [_airborne,_airinterception,_armored,_cas,_fortifications,_motorized,_drones];
-    
+
     /// simple attack
+
     class infanterie {
-        class conditions {
-            c1 = "(random 1) > 0.5";
-            c2 = QUOTE((count _infanterieGroups) > 0);
-        };
-        parameter = "[_currentLocation,_infanterieGroups]";
+        type[] = {1,0,0};
+        value = 1000000;
+        threat[] = {1,0.8,0.3};
+        condition = "{true}";
+
+        function = QFUNC(strategy_infanterie);
+
+        timeout = -1;
+        finishcondition = "(({alive _x} count (units (_this select 1)))<((_this select 0)*0.3))";
+        parameter[] = {};
     };
-    class tankattack {
-        class conditions {
-            c1 = "(random 1) > 0.5";
-            c2 = QUOTE((count _tankGroups) > 0);
-        };
-        parameter = "[_currentLocation,_tankGroups]";
-    };
-    class helicopter {
-        class conditions {
-            c1 = "(random 1) > 0.5";
-            c2 = QUOTE((count _helicoptersGroups) > 0);
-        };
-        parameter = "[_currentLocation,_helicoptersGroups]";
-    };
-    
-    /// simple support
-    class airborne {
-        class conditions {
-            c1 = "(random 1) > 0.5";
-            c2 = QUOTE((GVAR(callIn_airborne)) > 0)
-            c3 = Quote([] call EFUNC(spawn,unit_limit));
-        };
-        parameter = "[_currentLocation,_currenttroopsSend]";
-    };
-    class airinterception {
-        class conditions {
-            c1 = "(random 1) > 0.5";
-            c2 = QUOTE((GVAR(callIn_airinterception)) > 0);
-        };
-    };
+
     class armored {
-        class conditions {
-            c1 = "(random 1) > 0.5";
-            c2 = QUOTE((GVAR(callIn_armored)) > 0);
-            c3 = Quote([] call EFUNC(spawn,unit_limit));
-        };
+        type[] = {0,1,0};
+        value = 2500000;
+        threat[] = {1,1,0.3};
+        condition = "{true}";
+
+        function = QFUNC(strategy_armored);
+
+        timeout = -1;
+        finishcondition = "(canMove (_this select 0))";
+        parameter[] = {};
+
     };
-    class cas {
-        class conditions {
-            c1 = "(random 1) > 0.5";
-            c2 = QUOTE((GVAR(callIn_cas)) > 0);
-        };
+
+
+    class helicopter {
+        type[] = {0,0,1};
+        value = 3000000;
+        threat[] = {1,1,0.7};
+        condition = QUOTE(['helicopter'] call FUNC(canUseCallIn));
+
+        function = QFUNC(strategy_helicopter);
+
+        timeout = 1000;
+        finishcondition = "(!(alive (_this select 0)))";
+        parameter[] = {};
+
+        onFinish = QFUNC(strategy_helicopter_OnFinish);
+
     };
-    class motorized {
-        class conditions {
-            c1 = "(random 1) > 0.5";
-            c2 = QUOTE((GVAR(callIn_motorized)) > 0);
-            c3 = Quote([] call EFUNC(spawn,unit_limit));
-        };
+
+    class airinterception {
+        type[] = {0,0,1};
+        value = 3000000;
+        threat[] = {0,0,1};
+        condition = QUOTE(['airinterception'] call FUNC(canUseCallIn));
+
+        function = QFUNC(strategy_helicopter);
+
+        timeout = 1000;
+        finishcondition = "(!(alive (_this select 0)))";
+        parameter[] = {};
+
+        onFinish = QFUNC(strategy_helicopter_OnFinish);
+
     };
+
     class drones {
-        class conditions {
-            c1 = "(random 1) > 0.5";
-            c2 = QUOTE((GVAR(callIn_drones)) > 0);
-        };
+        type[] = {0,0,1};
+        value = 2000000;
+        threat[] = {1,1,0};
+        condition = "{true}";
+
+        function = QFUNC(strategy_drones);
+
+        timeout = 1000;
+        finishcondition = "";
+        parameter[] = {};
+
     };
+
     class artillery {
-        class conditions {
-            c1 = "(random 1) > 0.5";
-            c2 = QUOTE('artillery' call EFUNC(headquarter,fdc_ready));
-        };
+        type[] = {0,0,0};
+        value = 2000000;
+        threat[] = {1,1,0};
+        condition = QUOTE('artillery' call EFUNC(headquarter,fdc_ready));
+
+        function = QFUNC(strategy_artillery);
+
+        timeout = 180;
+        finishcondition = "";
+        parameter[] = {};
+
     };
+
     class rocket {
-        class conditions {
-            c1 = "(random 1) > 0.5";
-            c2 = QUOTE('rocket' call EFUNC(headquarter,fdc_ready));
-        };
+        type[] = {0,0,0};
+        value = 2000000;
+        threat[] = {1,1,0};
+        condition = QUOTE('rocket' call EFUNC(headquarter,fdc_ready));
+
+        function = QFUNC(strategy_rocket);
+
+        timeout = 180;
+        finishcondition = "";
+        parameter[] = {};
+
     };
+
     class mortar {
-        class conditions {
-            c1 = "(random 1) > 0.5";
-            c2 = QUOTE('mortar' call EFUNC(headquarter,fdc_ready));
-        };
+        type[] = {0,0,0};
+        value = 2000000;
+        threat[] = {1,1,0};
+        condition = QUOTE('mortar' call EFUNC(headquarter,fdc_ready));
+
+        function = QFUNC(strategy_mortar);
+
+        timeout = 180;
+        finishcondition = "";
+        parameter[] = {};
+
     };
-    
-    /// combined shit
-    
+
 };

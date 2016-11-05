@@ -64,7 +64,7 @@ private _type = 0;
         ];
     };
     private _coef = (getNumber(configFile >> "CfgVehicles" >> _similiSoldier >> "costTurnCoef"))max 0.025;
-    _value = _value + (getNumber(configFile >> "CfgVehicles" >> _similiSoldier >> "cost") * _coef);
+    _value = _value + (([_similiSoldier] call FUNC(getCost)) * _coef);
 }forEach _soldiers;
 
 
@@ -78,7 +78,7 @@ private _type = 0;
             (_threat select 2) max (_temp select 2),
         ];
     };
-    _value = _value + getNumber(configFile >> "CfgVehicles" >> (typeOf _x) >> "cost");
+    _value = _value + ([typeOf _x] call FUNC(getCost));
 } forEach _vehicles
 
 [_type,_value,_threat];

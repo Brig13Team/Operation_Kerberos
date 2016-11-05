@@ -22,7 +22,7 @@ _this spawn {
 
     If (isPlayer _unit) then {
         /// reduce the enemystrenght, if a player was killed
-        private _key = (getPos _player) call FUNC(dz_convert);
+        private _key = (getPos _player) call FUNC(dzconvert);
         private _zoneHash = HASH_GET(GVAR(dangerzones),_key);
         private _unconciousPlayers = HASH_GET(_zoneHash,"unconciousPlayers");
         private _alreadyReduces = false;

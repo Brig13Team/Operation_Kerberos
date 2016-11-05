@@ -22,6 +22,7 @@ private _grouphash = _group getVariable QGVAR(grouphash);
 private _target = HASH_GET(_grouphash,"target");
 
 if (IS_OBJECT(_target)) then {_target = getPos _target;};
+If (IS_LOCATION(_taget)) then {_target = locationPosition _target;};
 
 private _waypoints = [getPos (leader _group),_target] call FUNC(waypoints_generate);
 

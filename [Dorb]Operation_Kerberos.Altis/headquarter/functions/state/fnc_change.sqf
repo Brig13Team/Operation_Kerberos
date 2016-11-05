@@ -33,6 +33,7 @@ switch (_state) do {
             private _formation = selectRandom ["COLUMN","STAG COLUMN","WEDGE","VEE","FILE","DIAMOND"];
             private _position = HAST_GET(_grouphash,"target");
             If (isNil "_position") then {_position = getPos (leader _group)};
+            If (IS_LOCATION(_position)) then {_position = locationPosition _position;};
             [_group, _position, "AWARE", "WHITE", "NORMAL", "NO CHANGE", "", [5,10,15],50] call EFUNC(spawn,patrol_task);
         };
     default {[_group,_statementFinish] call (missionnamespace getVariable [format["%1_%2",QGVAR(fnc_state),_state],{}]);};

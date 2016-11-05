@@ -17,7 +17,7 @@
 #include "script_component.hpp"
 
 CHECK(!isServer)
-_this params[["_group",grpNull,[grpNull,objNull]],["_state","",[""]],["_target",nil,[objNull,[]],[2,3]],["_statementFinish","",[""]]];
+_this params[["_group",grpNull,[grpNull,objNull]],["_state","",[""]],["_target",nil,[objNull,[],locationNull],[2,3]],["_statementFinish","",[""]]];
 
 _group = _group call CBA_fnc_getGroup;
 private _grouphash = _group getVariable QGVAR(grouphash);

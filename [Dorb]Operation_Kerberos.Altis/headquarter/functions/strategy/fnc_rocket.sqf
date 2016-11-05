@@ -1,42 +1,29 @@
 /*
-    Author: Dorbedo
-
-    Description:
-        revon
-
-    Parameter(s):
-        none
-
-    Returns:
-        none
-*/
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      Attacks a position with rockets
+ *
+ *  Parameter(s):
+ *      0 : LOCATION - Attacklocation
+ *
+ *  Returns:
+ *      none
+ *
+ */
 #include "script_component.hpp"
-_this params ["_currentLocation","_currenttroopsSend"];
 
-private _currentPosition = getPosATL _currentLocation;
+_this params ["_attackLoc"];
 
-private _nearUnits = _currentPosition nearEntities [["CAManBase","Car","Tank"], 100];
+private _pos = locationPosition _attackLoc;
 
-private _nearestPos = _currentPosition;
-private _distance = 900;
-private _dir = random(360);
-{
-    If ((side _x == GVARMAIN(playerside))&&{((_x distance2D _currentPosition)< _distance)}) then {
-        _distance = _x distance2D _currentPosition;
-        _nearestPos = getPosATL _x;
-        _dir = getDir _x;
-    };
-} forEach _nearUnits;
+private _nearPlayers = allPlayers select { ((_x distance pos)<300) && ((GVARMAIN(side) knowsAbout _x)>1) && (!((vehicle _x) isKindOf "Air")) };
 
-private _amount = 4;
-private _return = 20;
-if (_currenttroopsSend > 40) then {
-    _return = 80;
-    _amount = 16;
-};
+private _amount = floor((_nearPlayers / 2.5) max 2);
 
+private _target = (selectRandom _nearPlayers);
+private _targetPos = getPosATL _target;
 
-[_currentPosition,2,_amount] call FUNC(fdc_placeOrder);
-[FUNC(attackpos_remove),[_currentLogic],200] call CBA_fnc_waitAndExecute;
+[_targetPos,2,_amount] call FUNC(fdc_placeOrder);
 
-_return;
+_target;

@@ -15,7 +15,7 @@
 
 _this params ["_player"];
 
-private _key = (getPos _player) call FUNC(dz_convert);
+private _key = (getPos _player) call FUNC(dzconvert);
 CHECK(_key isEqualTo "") // not in the area
 
 private _zoneHash = HASH_GET(GVAR(dangerzones),_key);

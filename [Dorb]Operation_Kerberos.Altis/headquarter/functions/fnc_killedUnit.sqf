@@ -19,7 +19,7 @@
 _this params ["_killedUnit","_killer","_instigator"];
 
 
-private _key = (getPos _killer) call FUNC(dz_convert);
+private _key = (getPos _killer) call FUNC(dzconvert);
 CHECK(_key isEqualTo "") // not in the area
 
 

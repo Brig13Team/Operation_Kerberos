@@ -1,9 +1,49 @@
 /*
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      airinterception
+ *
+ *  Parameter(s):
+ *      0 : LOCATION - Attacklocation
+ *
+ *  Returns:
+ *      ARRAY - parameter for check
+ *
+ */
+#include "script_component.hpp"
+
+_this params ["_attackLoc"];
+
+private _pos = locationPosition _attackLoc;
+private _spawnPos = [_pos] call FUNC(ressources_getsavespawnpos);
+
+_spawnPos set [2,3000];
+
+private _plane = ["plane_ai"] call EFUNC(spawn,getUnit);
+private _dir = [_spawnpos, _currentPos] call BIS_fnc_dirTo;
+([_spawnpos,GVARMAIN(side),_plane,_dir,true,true,"FLY"] call EFUNC(spawn,vehicle)) params ["_attackGroup","_attackVeh"];
+
+_attackVeh flyInHeight 600;
+private _wp = _attackGroup addWaypoint [_pos, 0];
+_wp setWaypointLoiterType "CIRCLE";
+_wp setWaypointLoiterRadius 800;
+_wp setWaypointBehaviour "SAD";
+_wp setWaypointTimeout [300,400,500];
+_wp = _attackGroup addWaypoint [_spawnpos, 0];
+
+
+[_attackGroup, _pos, 400] call CBA_fnc_taskAttack;
+
+[_attackVeh,_attackGroup,_spawnpos]
+
+
+/*
     Author: Dorbedo
-    
+
     Description:
         revon
-    
+
     Parameter(s):
         none
 

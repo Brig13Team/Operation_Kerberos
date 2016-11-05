@@ -1,35 +1,47 @@
 /*
-    Author: Dorbedo
-    
-    Description:
-        revon
-    
-    Parameter(s):
-        none
-
-    Returns:
-        none
-*/
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      uses armored-attack
+ *
+ *  Parameter(s):
+ *      0 : LOCATION - Attackposition
+ *      0 : LOCATION - strategyhash
+ *
+ *  Returns:
+ *      none
+ *
+ */
 #include "script_component.hpp"
-_this params ["_currentLocation"];
 
-private _currentPos = getPos _currentLocation;
-private _currentTroops = _currentLocation getVariable [QGVAR(troopsSend),0];
-private _spawnpos = [_currentPos,6000,2] call EFUNC(common,random_pos);
-CHECKRET((_spawnpos isEqualTo []),0);
 
-GVAR(callIn_armored) = GVAR(callIn_armored) - 1;
+_this params ["_currentLocation","_strategyHash"];
 
-private _allTanks = getArray(missionconfigfile >> "unitlists" >> str GVARMAIN(side) >> GVARMAIN(side_type)>> "callIn" >> "armored" >> "units");
-private _TankVehType = selectRandom _allTanks;
-_spawnpos set [2,1500];
-_dir = [_spawnpos, _currentPos] call BIS_fnc_dirTo;
+private _attackgroups = HASH_GET(GVAR(groups),"attackGroups");
+private _availableGroups = [];
 
-([_spawnpos,GVARMAIN(side),_TankVehType,_dir,true,true,"FLY"] call EFUNC(spawn,vehicle)) params ["_tankGroup","_tankVeh"];
+{
+    private _hash = _x getVariable QGVAR(grouphash);
+    private _state = HASH_GET(_hash,"state");
+    private _type = HASH_GET(_hash,"type");
+    If ((_state in ["idle","wait"])&&(_type == 1)) then {
+        _availableGroups pushBack _x;
+    };
+} forEach _attackgroups;
 
-SETVAR(_tankGroup,GVAR(target),_currentPos);
-SETVAR(_tankGroup,GVAR(state),'attack');
-[_tankGroup] call FUNC(state_change);
+//_availableGroups = _availableGroups call BIS_fnc_arrayShuffle;
 
-([_tankGroup] call FUNC(strength_ai)) params ["_type","_cost","_threat"];
-_currentTroops - _cost;
+CHECK(_availableGroups isEqualTo [])
+
+private _chosenOne = selectRandom _availableGroups;
+
+private _statementFinish = QUOTE(this call FUNC(strategy__onFinishSAD););
+
+[_chosenOne,"attack",_currentLocation,_statementFinish] call FUNC(state_set);
+
+private _grouphash = _chosenOne getVariable QGVAR(grouphash);
+HASH_SET(_groupHash,"strategy",_strategyHash);
+
+private _vehicle = vehicle(leader _chosenOne);
+
+[_vehicle];

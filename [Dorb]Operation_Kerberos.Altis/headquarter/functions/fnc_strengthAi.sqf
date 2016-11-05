@@ -35,7 +35,7 @@ private _type = 0;
             (_threat select 2) max (_temp select 2),
         ];
     };
-    _value = _value + getNumber(configFile >> "CfgVehicles" >> (typeOf _x) >> "cost");
+    _value = _value + ([typeOf _x] call FUNC(getCost));
 }forEach _soldiers;
 
 
@@ -49,7 +49,7 @@ private _type = 0;
             (_threat select 2) max (_temp select 2),
         ];
     };
-    _value = _value + getNumber(configFile >> "CfgVehicles" >> (typeOf _x) >> "cost");
+    _value = _value + ([typeOf _x] call FUNC(getCost));
 } forEach _vehicles
 
 [_type,_value,_threat];

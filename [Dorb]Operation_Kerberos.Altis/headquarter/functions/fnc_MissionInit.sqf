@@ -35,4 +35,8 @@ HASH_SET(GVAR(groups),"patrolGroups",[]);
 
 HASH_DELETE(GVAR(waypoints));
 GVAR(waypoints) = HASH_CREATE;
-HASH_SET(GVAR(waypoints,"deaktivated",[]));
+HASH_SET(GVAR(waypoints,"deactivated",[]));
+
+
+
+GVAR(active) = true;

@@ -50,6 +50,10 @@ HASH_SET(GVAR(antiair),"static",[]);
 *
 *************************/
 GVAR(active) = false;
+GVAR(handle) = scriptNull;
+
+/// ressources
+GVAR(ressources_amount) = 0;
 
 
 /// groups - player & ai
