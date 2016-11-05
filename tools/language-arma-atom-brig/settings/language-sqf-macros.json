@@ -35,6 +35,11 @@
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
             }, {
+              "description": "Expands to: (hash getVariable [key, default])",
+              "snippet": "HASH_GET_DEF(${1:hash},${2:key},${3:default})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
               "description": "Expands to: (hash setVariable [key, nil])",
               "snippet": "HASH_REM(${1:hash},${2:key})$0",
               "rightLabel": "BRIG Macro",
