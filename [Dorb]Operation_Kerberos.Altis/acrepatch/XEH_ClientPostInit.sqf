@@ -4,12 +4,7 @@
  */
  #include "script_component.hpp"
 If (hasInterface) then {
-/*
-    [
-        QGVARMAIN(arsenalClosed),
-        {[FUNC(checkRadio),_this] call CBA_fnc_directCall;}
-    ] call CBA_fnc_addEventHandler;
-*/
+
     /// before the player opens the arsenal, we change the ACRE radios to the default ones
     [
         QGVARMAIN(arsenalOpened),

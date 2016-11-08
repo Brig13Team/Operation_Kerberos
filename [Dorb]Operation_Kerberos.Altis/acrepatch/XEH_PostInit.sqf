@@ -29,6 +29,7 @@
         _allRadios =  (acre_sys_server_objectIdRelationTable call acre_lib_fnc_fastHashKeys);
         LOG_5(_message,_player,_oldPlayer,_class,_allRadios);
     };
+    LOG_2(acre_sys_server_radioIDMap,acre_sys_server_masterIdList);
 }] call CBA_fnc_addEventHandler;
 
 ["acre_acknowledgeId",{
