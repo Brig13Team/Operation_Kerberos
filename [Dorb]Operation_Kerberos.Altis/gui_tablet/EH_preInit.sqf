@@ -18,4 +18,8 @@ GVAR(allMessages) = [];
 GVAR(lastNotification) = 1;
 GVAR(notifications) = HASH_CREATE;
 
-GVAR(Applications) = [];
+GVAR(Applications) = HASH_CREATE;
+HASH_SET(GVAR(Applications),"index",1);
+{
+    HASH_SET(GVAR(Applications),_x,[]);
+} forEach ["0","1","-1","2","-2"];

@@ -16,3 +16,5 @@
 
 [] call FUNC(clock);
 [] call FUNC(showNotifications);
+
+["0"] call FUNC(displayPage);

@@ -72,6 +72,69 @@ class APP(dialog) : RSC(tabletBase) {
 
     controls[] =    {
         clock,
-        notifications
+        notifications,
+        Button_1,
+        Button_2,
+        Button_3,
+        Button_4,
+        Button_5,
+        Button_6,
+        Button_7,
+        Button_8,
+        Button_9,
+        Button_10,
+        Button_11,
+        Button_12,
+        Button_13,
+        Button_14,
+        Button_15,
+        Button_16,
+        Button_17,
+        Button_18,
+        Button_19,
+        Button_20,
+        Button_21,
+        Button_22,
+        Button_23,
+        Button_24,
+        Button_25,
+        Button_26,
+        Button_27,
+        Button_28
     };
+
+    class Button_1 : RSC(BaseButton) {
+        idc = IDC_TABLET_BTTN1;
+        x = 0;
+        y = 0;
+        w = 0;
+        h = 0;
+    };
+    class Button_2 : Button_1 {idc = IDC_TABLET_BTTN2;};
+    class Button_3 : Button_1 {idc = IDC_TABLET_BTTN3;};
+    class Button_4 : Button_1 {idc = IDC_TABLET_BTTN4;};
+    class Button_5 : Button_1 {idc = IDC_TABLET_BTTN5;};
+    class Button_6 : Button_1 {idc = IDC_TABLET_BTTN6;};
+    class Button_7 : Button_1 {idc = IDC_TABLET_BTTN7;};
+    class Button_8 : Button_1 {idc = IDC_TABLET_BTTN8;};
+    class Button_9 : Button_1 {idc = IDC_TABLET_BTTN9;};
+    class Button_10 : Button_1 {idc = IDC_TABLET_BTTN10;};
+    class Button_11 : Button_1 {idc = IDC_TABLET_BTTN11;};
+    class Button_12 : Button_1 {idc = IDC_TABLET_BTTN12;};
+    class Button_13 : Button_1 {idc = IDC_TABLET_BTTN13;};
+    class Button_14 : Button_1 {idc = IDC_TABLET_BTTN14;};
+    class Button_15 : Button_1 {idc = IDC_TABLET_BTTN15;};
+    class Button_16 : Button_1 {idc = IDC_TABLET_BTTN16;};
+    class Button_17 : Button_1 {idc = IDC_TABLET_BTTN17;};
+    class Button_18 : Button_1 {idc = IDC_TABLET_BTTN18;};
+    class Button_19 : Button_1 {idc = IDC_TABLET_BTTN19;};
+    class Button_20 : Button_1 {idc = IDC_TABLET_BTTN20;};
+    class Button_21 : Button_1 {idc = IDC_TABLET_BTTN21;};
+    class Button_22 : Button_1 {idc = IDC_TABLET_BTTN22;};
+    class Button_23 : Button_1 {idc = IDC_TABLET_BTTN23;};
+    class Button_24 : Button_1 {idc = IDC_TABLET_BTTN24;};
+    class Button_25 : Button_1 {idc = IDC_TABLET_BTTN25;};
+    class Button_26 : Button_1 {idc = IDC_TABLET_BTTN26;};
+    class Button_27 : Button_1 {idc = IDC_TABLET_BTTN27;};
+    class Button_28 : Button_1 {idc = IDC_TABLET_BTTN28;};
 };
