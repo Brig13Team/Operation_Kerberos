@@ -19,6 +19,7 @@ class CfgComponents {
     logistics = 1;
     player = 1;
     teamkilling = 1;
+    viewrestriction = 1;
     /// mission specific components
     spawn = 1;
     headquarter = 1;
@@ -55,6 +56,7 @@ class CfgComponents {
 #include "player\CfgComponent.hpp"
 #include "spawn\CfgComponent.hpp"
 #include "teamkilling\CfgComponent.hpp"
+#include "viewrestriction\CfgComponent.hpp"
 
 #include "gui\CfgComponent.hpp"
 #include "gui_spawn\CfgComponent.hpp"
