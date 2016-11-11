@@ -58,6 +58,7 @@ class APP(dialog) {
 //        y = GUI_YH(0,0.1);
 //        h = GUI_H(0.055);
         text = "";
+        style = 0x02;
         colorText[] = COLOR_TABLET_HEADER_TEXT;
         colorBackground[] = COLOR_TABLET_HEADER;
     };
@@ -75,26 +76,26 @@ class APP(dialog) {
     };
     class dorb_save_button1 : RSC(BaseButton) {
         idc = IDC_SAVE_BTTN1;
-        x = GUI_XW(0,0.27);
-        w = GUI_W(0.14);
-        y = GUI_YH(0,0.8);
-        h = GUI_H(0.08);
+        x = GUI_GRID_CENTER_X + GUI_GRID_CENTER_W * 5.5;
+        w = GUI_GRID_CENTER_W * 6;
+        y = GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 20.7;
+        h = GUI_GRID_CENTER_H * 2;
         colorBackground[] = COLOR_TABLET_MAIN_BTTN;
         colorBackgroundActive[] = COLOR_TABLET_MAIN_BTTN_SELECTED;
         colorFocused[] = COLOR_TABLET_MAIN_BTTN;
-        text = ECSTRING(INTERFACE,SAVE_CANCEL);
+        text = CSTRING(CANCEL);
         action = QUOTE(GVAR(isopened)=false;closeDialog IDD_SAVE_DLG);
     };
     class dorb_save_button2 : dorb_save_button1 {
         idc = IDC_SAVE_BTTN2;
-        x = GUI_XW(0,0.43);
+        x = GUI_GRID_CENTER_X + GUI_GRID_CENTER_W * 12;
         toolTip = "";
-        text = ECSTRING(INTERFACE,SAVE_DELETE);
+        text = CSTRING(DELETE);
         action = QUOTE([] call FUNC(delete);false);
     };
     class dorb_save_button3 : dorb_save_button1 {
         idc = IDC_SAVE_BTTN3;
-        x = GUI_XW(0,0.59);
+        x = GUI_GRID_CENTER_X + GUI_GRID_CENTER_W * 18.5;
         toolTip = "";
         text = "";
         action = "";
@@ -113,14 +114,14 @@ class APP(dialog) {
         rowHeight = GUI_GRID_CENTER_H * 1.2;
         sizeEx = GUI_GRID_CENTER_H * 1;
         columns[] = {0.02};
-        onLBSelChanged = QUOTE(_this call FUNC(save_select);false);
+        onLBSelChanged = QUOTE(_this call FUNC(select);false);
     };
     class dorb_save_edit : RSC(BaseEditBox) {
         idc = IDC_SAVE_EDIT;
-        x = GUI_XW(0,0.27);
-        y = GUI_YH(0,0.72);
-        w = GUI_W(0.46);
-        h = GUI_H(0.06);
+        x = GUI_GRID_CENTER_X + GUI_GRID_CENTER_W * 5.5;
+        y = GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 18.4;
+        w = GUI_GRID_CENTER_W * 19;
+        h = GUI_GRID_CENTER_H * 2;
         sizeEx = GUI_GRID_CENTER_H * 1;
         text = "";
     };

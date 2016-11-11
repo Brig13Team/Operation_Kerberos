@@ -5,7 +5,7 @@
 #define CBA_OFF
 #include "script_component.hpp"
 
-class APP(crate) {
+class APP(dialog) {
     idd = IDD_CRATE_DLG;
     name = "Kisten-Füller";
     movingEnable = 0;
@@ -111,6 +111,7 @@ class APP(crate) {
 //        w = GUI_W(0.8);
 //        h = GUI_H(0.09);
         text = CSTRING(HEADER);
+        style = 0x02;
         colorText[] = UI_CL_HEADER_TEXT;
         colorBackground[] = UI_CL_HEADER;
     };
@@ -118,7 +119,7 @@ class APP(crate) {
     class crate_spawn : RSC(BaseButton) {
         idc = IDC_CRATE_BTTN_SPAWN;
         x = GUI_GRID_CENTER_X + GUI_GRID_CENTER_W * 21.25;
-        y = GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 20,47;
+        y = GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 20.47;
         w = GUI_GRID_CENTER_W * 7;
         h = GUI_GRID_CENTER_H * 1.875;
 //        x = GUI_XW(0,0.525);
@@ -137,7 +138,7 @@ class APP(crate) {
 
     class crate_clear : crate_spawn {
         idc = IDC_CRATE_BTTN_CLEAR;
-        x = GUI_GRID_CENTER_X + GUI_GRID_CENTER_W * 31,25;
+        x = GUI_GRID_CENTER_X + GUI_GRID_CENTER_W * 31.25;
 //        x = GUI_XW(0,0.725);
         text = CSTRING(CLEAR);
         action = QUOTE( GVAR(current) = [ARR_6([],[],[],[],[],[])] ; GVAR(current_boxid) = 0; [] call FUNC(onLoad); false);
@@ -145,7 +146,7 @@ class APP(crate) {
 
     class crate_save : crate_spawn {
         idc = IDC_CRATE_BTTN_SAVE;
-        y = GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 22,5;
+        y = GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 22.5;
 //        y = GUI_YH(0,0.82);
         text = CSTRING(SAVE);
         action = QUOTE([true] spawn FUNC(save);false);
@@ -153,7 +154,7 @@ class APP(crate) {
 
     class crate_load : crate_clear {
         idc = IDC_CRATE_BTTN_LOAD;
-        y = GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 22,5;
+        y = GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 22.5;
 //        y = GUI_YH(0,0.82);
         text = CSTRING(LOAD);
         action = QUOTE([false] spawn FUNC(save);false);
@@ -207,6 +208,7 @@ class APP(crate) {
         drawSideArrows = 1;
         idcLeft = 1001;
         idcRight = 1000;
+        colorText[] = {RAL9005,1};
     };
 
     class crate_combo_box : RSC(BaseCombobox) {
@@ -243,7 +245,7 @@ class APP(crate) {
     #define CRATE_SPALTE1 (GUI_GRID_CENTER_X)
     #define CRATE_SPALTE2 (GUI_GRID_CENTER_X + GUI_GRID_CENTER_W * 3)
     #define CRATE_REIHE1 (GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 3)
-    #define CRATE_REIHE2 (GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 4,65)
+    #define CRATE_REIHE2 (GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 4.65)
     #define CRATE_REIHE3 (GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 6.3)
     #define CRATE_REIHE4 (GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 7.95)
     #define CRATE_REIHE5 (GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 9.6)
@@ -284,7 +286,7 @@ class APP(crate) {
         offsetY = 0;
 
         toolTip = CSTRING(BTTN_1);
-        style = ST_PICTURE;
+        style = 48;
         text = "\A3\ui_f\data\IGUI\Cfg\MPTable\total_ca.paa";
     };
 

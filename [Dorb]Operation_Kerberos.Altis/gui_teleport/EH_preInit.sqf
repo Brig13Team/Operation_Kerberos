@@ -2,6 +2,7 @@
 
 ADDON = false;
 
+PREP(canOpenMenu);
 PREP(lead);
 PREP(onLoad);
 PREP(teleport);

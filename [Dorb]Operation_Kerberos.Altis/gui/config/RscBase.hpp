@@ -308,8 +308,8 @@ class RSC(BaseListboxN) {
     style = "0x10";
     font = GUI_FONT_NORMAL;
     sizeEx = IGUI_TEXT_SIZE_MEDIUM;
-    colorText[] = {0.098,0.098,0.439,1};
-    colorBackground[] = {0.502,0.502,0.502,1};
+    colorText[] = COLOR_TABLET_MAIN_TEXT;
+    colorBackground[] = {RAL9023,1};
     canDrag = false;
 
     autoScrollSpeed = -1;
@@ -318,15 +318,15 @@ class RSC(BaseListboxN) {
     arrowEmpty = "#(argb,8,8,3)color(1,1,1,1)";
     arrowFull = "#(argb,8,8,3)color(1,1,1,1)";
     columns[] = {0.3, 0.6, 0.7};
-    color[] = {0.502,0.502,0.502,1};
+    color[] = {RAL9023,1};
     colorScrollbar[] = {0.753,0.753,0.753,1};
-    colorSelect[] = {0.502,0.502,0.502,1};
-    colorSelect2[] = {0.502,0.502,0.502,1};
-    colorDisabled[] = {0.502,0.502,0.502,1};
+    colorSelect[] = {RAL9023,1};
+    colorSelect2[] = {RAL9023,1};
+    colorDisabled[] = {RAL9023,1};
     colorSelectBackground[] = {0.863,0.863,0.863,1};
     colorSelectBackground2[] = {0.863,0.863,0.863,1};
 
-    pictureColor[] = {0.502,0.502,0.502,1}; // Picture color
+    pictureColor[] = {RAL9023,1}; // Picture color
     pictureColorSelect[] = {0.301,0.301,0.301,1}; // Selected picture color
     pictureColorDisabled[] = {0.863,0.863,0.863,1}; // Disabled picture color
 
@@ -343,7 +343,7 @@ class RSC(BaseListboxN) {
         arrowEmpty = "#(argb,8,8,3)color(1,1,1,1)";
         arrowFull = "#(argb,8,8,3)color(1,1,1,1)";
         border = "#(argb,8,8,3)color(1,1,1,1)";
-        color[] = {0.502,0.502,0.502,1};
+        color[] = {RAL9023,1};
         colorActive[] = {0.863,0.863,0.863,1};
         colorDisabled[] = {0.863,0.863,0.863,1};
         thumb = "#(argb,8,8,3)color(1,1,1,1)";
@@ -356,7 +356,7 @@ class RSC(BaseListboxN) {
         autoScrollRewind = 0;
         autoScrollSpeed = -1;
         border = "\A3\ui_f\data\gui\cfg\scrollbar\border_ca.paa";
-        color[] = {0.502,0.502,0.502,1};
+        color[] = {RAL9023,1};
         colorActive[] = {0.863,0.863,0.863,1};
         colorDisabled[] = {0.863,0.863,0.863,1};
         height = 0;

@@ -17,22 +17,22 @@ private _mag = [];
 private _daten = [];
 private _cleanupCurrent={
     {
-        private _selection = GVAR(crate_current) select _x;
-        private _selection_value = GVAR(crate_current) select (_x+1);
+        private _selection = GVAR(current) select _x;
+        private _selection_value = GVAR(current) select (_x+1);
         for [{_i = (count _selection_value)},{_i > 0},{_i = _i - 1}] do {
             If ((_selection_value select _i)<1) then {
                 _selection deleteAt _i;
                 _selection_value deleteAt _i;
             };
         };
-        GVAR(crate_current) set [_x,_selection];
-        GVAR(crate_current) set [(_x+1),_selection_value];
+        GVAR(current) set [_x,_selection];
+        GVAR(current) set [(_x+1),_selection_value];
     }forEach [0,2];
 };
 
 If (_buttonid<2) then {
     []call(_cleanupCurrent);
-    _daten = GETMVAR(GVAR(crate_current),[]);
+    _daten = GETMVAR(GVAR(current),[]);
     _items = _daten select 0;
     _mag = _daten select 2;
 }else{
@@ -44,15 +44,15 @@ CHECK(_daten isEqualTo [])
 private _getAnzahl = {
     _this params ["_ziel"];
     private _return=0;
-    if (_ziel in (GVAR(crate_current) select 0)) then {
+    if (_ziel in (GVAR(current) select 0)) then {
         private["_id"];
-        _id=(GVAR(crate_current) select 0) find _ziel;
-        _return=(GVAR(crate_current) select 1)select _id;
+        _id=(GVAR(current) select 0) find _ziel;
+        _return=(GVAR(current) select 1)select _id;
     };
-    if (_ziel in (GVAR(crate_current) select 2)) then {
+    if (_ziel in (GVAR(current) select 2)) then {
         private["_id"];
-        _id=(GVAR(crate_current) select 2) find _ziel;
-        _return=(GVAR(crate_current) select 3)select _id;
+        _id=(GVAR(current) select 2) find _ziel;
+        _return=(GVAR(current) select 3)select _id;
     };
     _return
 };
@@ -64,10 +64,10 @@ private _getConfig = {
 };
 
 for "_i" from 0 to ((count _items) -1) do {
-    _sel pushBack [[[(_items select _i)]call FUNC(crate_getMod),"",gettext ((_items select _i)>>"displayName"),""],[[_items select _i]call(_getAnzahl)],([(_items select _i),[]]call BIS_fnc_configPath)];
+    _sel pushBack [[[(_items select _i)]call FUNC(getMod),"",gettext ((_items select _i)>>"displayName"),""],[[_items select _i]call(_getAnzahl)],([(_items select _i),[]]call BIS_fnc_configPath)];
 };
 for "_i" from 0 to ((count _mag) -1) do {
-    _sel pushBack [[[(_mag select _i)]call FUNC(crate_getMod),"",gettext ((_mag select _i)>>"displayName"),""] ,[[_mag select _i]call(_getAnzahl)] ,([(_mag select _i),[]]call BIS_fnc_configPath) ];
+    _sel pushBack [[[(_mag select _i)]call FUNC(getMod),"",gettext ((_mag select _i)>>"displayName"),""] ,[[_mag select _i]call(_getAnzahl)] ,([(_mag select _i),[]]call BIS_fnc_configPath) ];
 };
 
 lnbClear 600201;

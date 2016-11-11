@@ -3,10 +3,10 @@
 ADDON = false;
 
 PREP(add);
+PREP(canOpenMenu);
 PREP(createlists);
 PREP(filter);
 PREP(getMod);
-PREP(init);
 PREP(keyEvent);
 PREP(mass);
 PREP(OnLoad);

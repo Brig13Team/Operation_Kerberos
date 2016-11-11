@@ -13,7 +13,7 @@
 disableSerialization;
 
 private _ctrledit = findDisplay IDD_SAVE_DLG displayCtrl IDC_SAVE_EDIT;
-private _list = profileNamespace getVariable [GVAR(list),[]];
+private _list = profileNamespace getVariable [QGVAR(list),[]];
 private _name = ctrlText _ctrledit;
 _name = [_name] call CBA_fnc_trim;
 CHECK(_name isEqualTo "");
@@ -27,8 +27,8 @@ private _index = -1;
 
 If (_index >= 0) exitWith {
     _list set [_index,[_name,GVAR(current)]];
-    profileNamespace setVariable [GVAR(list),_list];
+    profileNamespace setVariable [QGVAR(list),_list];
 };
 
 _list pushBack [_name,GVAR(current)];
-profileNamespace setVariable [GVAR(list),_list];
+profileNamespace setVariable [QGVAR(list),_list];

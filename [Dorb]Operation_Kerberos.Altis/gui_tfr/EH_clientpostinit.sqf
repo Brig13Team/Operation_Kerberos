@@ -19,3 +19,11 @@ CHECK(!hasInterface)
         "alive _target"
     ]
 ] call CBA_fnc_addPlayerAction;
+
+[
+    localize (ELSTRING(GUI_TFR,SHORT)),
+    {[]call EFUNC(gui_tfr,OpenMenu);},
+    {true},
+    "\A3\ui_f\data\igui\cfg\simpleTasks\types\radio_ca.paa",
+    3
+] call EFUNC(gui_tablet,addApp);

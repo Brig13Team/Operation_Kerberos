@@ -19,14 +19,14 @@ private _config = (configfile>>(_ctrlList lnbData [_row,1])>>(_ctrlList lnbData 
 private _istMagazin = ((_ctrlList lnbData [_row,1]) isEqualTo "CfgMagazines");
 //Masscheck
 private _multi = missionNamespace getVariable [QGVAR(crate_multi),1];
-If (_mode && (["check",[_config,_multi]]call FUNC(crate_mass))) exitwith {};
+If (_mode && (["check",[_config,_multi]]call FUNC(mass))) exitwith {};
 private _id=0;
 If (_istMagazin) then {_id = 2;};
 Private["_anzahl","_items","_weaponid"];
-If (_config in (GVAR(crate_current) select _id)) then {
+If (_config in (GVAR(current) select _id)) then {
     //Anzahl modifizieren
-    _weaponid = (GVAR(crate_current) select _id) find _config;
-    _anzahl = GVAR(crate_current) select (_id+1);
+    _weaponid = (GVAR(current) select _id) find _config;
+    _anzahl = GVAR(current) select (_id+1);
     If (_mode) then {
         _anzahl set [_weaponid, ((_anzahl select _weaponid)+_multi)];
         _ctrlList lnbsetValue [[_row,0],((_ctrlList lnbValue [_row,0])+_multi)];
@@ -39,13 +39,13 @@ If (_config in (GVAR(crate_current) select _id)) then {
 }else{
     //Item aufnehmen
     if(!_mode) exitwith {};
-    _items = (GVAR(crate_current) select _id);
-    _anzahl = (GVAR(crate_current) select (_id+1));
+    _items = (GVAR(current) select _id);
+    _anzahl = (GVAR(current) select (_id+1));
     _items set [count _items, _config];
     _anzahl set [count _anzahl, 1];
-    GVAR(crate_current) set [_id,_items];
-    GVAR(crate_current) set [(_id+1),_anzahl];
+    GVAR(current) set [_id,_items];
+    GVAR(current) set [(_id+1),_anzahl];
     _ctrlList lnbsetValue [[_row,0],1];
 };
 _ctrlList lnbSetText [ [_row, 3],format["%1",(_ctrlList lnbValue [_row,0])]];
-["displaymass",_config] call FUNC(crate_mass);
+["displaymass",_config] call FUNC(mass);

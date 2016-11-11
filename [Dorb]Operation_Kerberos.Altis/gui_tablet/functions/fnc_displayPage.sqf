@@ -39,19 +39,20 @@ TRACEV_1(_currentApps);
     private _ctrl = (findDisplay IDD_TABLET_MAIN) displayCtrl _idc;
     TRACEV_6(_ctrl,_displayName,_pos_x, _pos_y, _pos_w, _pos_h);
     _ctrl ctrlSetPosition [_pos_x, _pos_y, _pos_w, _pos_h];
-    _ctrl ctrlSetStructuredText (text format[" <img image='%1' /> %2",_picture,_displayName]);
-    //_ctrl ctrlSetText (_displayName);
+    //_ctrl ctrlSetStructuredText (text format[" <img image='%1' /> %2",_picture,_displayName]);
+    _ctrl ctrlSetText (_displayName);
     private _test = call _condition;
     TRACEV_2(_test,_condition);
     If (call _condition) then {
         TRACE("enabled");
         _ctrl ctrlEnable true;
-        _ctrl ctrlAddEventHandler ["onKlick",_function];
+        private _test = _ctrl ctrlAddEventHandler ["Klick",_function];
+        TRACEV_3(_test,_ctrl,_function);
         _ctrl ctrlCommit 0;
     }else{
         TRACE("disabled");
         _ctrl ctrlEnable false;
-        _ctrl ctrlRemoveAllEventHandlers "onKlick";
+        _ctrl ctrlRemoveAllEventHandlers "Klick";
         _ctrl ctrlCommit 0;
     };
 } forEach _currentApps;

@@ -9,8 +9,8 @@
 /// Clear Pad
 
 private _check_radius = 8;
-private _spawnpos = getMarkerPos format["%1_marker",GVAR(crate_currentSpawn)];
-private _spawndir = markerDir format["%1_marker",GVAR(crate_currentSpawn)];
+private _spawnpos = getPos GVAR(currentSpawn);
+private _spawndir = getDir GVAR(currentSpawn);
 
 {if (count crew _x == 0) then {deletevehicle _x};} foreach (nearestObjects [_spawnpos, ["AllVehicles"], _check_radius]);
 {deletevehicle _x;} foreach nearestObjects [_spawnpos,["CraterLong_small","CraterLong","WeaponHolder","GroundWeaponHolder"], _check_radius];
@@ -21,7 +21,7 @@ private _padempty = nearestObjects [_spawnpos, ["LandVehicle","Air"], _check_rad
 
 If (!(_padempty isEqualTo [])) exitWith {hint localize LSTRING(NOTEMPTY);};
 
-private _boxtyp = (GVAR(crate_boxes) select 0) select GVAR(crate_current_boxid);
+private _boxtyp = (GVAR(crate_boxes) select 0) select GVAR(current_boxid);
 private _box = createVehicle [_boxtyp, _spawnpos, [], 0 , "NONE"];
 _box setPosATL _spawnpos;
 _box setDir _spawndir;
@@ -31,8 +31,8 @@ clearItemCargoGlobal _box;
 clearMagazineCargoGlobal _box;
 clearBackpackCargoGlobal _box;
 
-private _items = GVAR(crate_current) select 0;
-private _anzahl = GVAR(crate_current) select 1;
+private _items = GVAR(current) select 0;
+private _anzahl = GVAR(current) select 1;
 
 {
     private _name = ([_x]call BIS_fnc_configPath)select 1;
@@ -51,8 +51,8 @@ private _anzahl = GVAR(crate_current) select 1;
     };
 }forEach _items;
 
-_items = GVAR(crate_current) select 2;
-_anzahl = GVAR(crate_current) select 3;
+_items = GVAR(current) select 2;
+_anzahl = GVAR(current) select 3;
 {
     _box addMagazineCargoGlobal [configname (_x),(_anzahl select _foreachindex)];
 }forEach _items;

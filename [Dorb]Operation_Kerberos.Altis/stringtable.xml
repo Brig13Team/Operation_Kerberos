@@ -92,7 +92,12 @@
             <German>Luftwaffenspawn</German>
             <English>Aircraft Spawn</English>
         </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_WATER">
+        <Key ID="STR_DORB_GUI_SPAWN_AIR_LIGHT">
+            <Original>Aircraft Spawn</Original>
+            <German>Luftwaffenspawn</German>
+            <English>Aircraft Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_SPAWN_BOAT">
             <Original>Naval Spawn</Original>
             <German>Marinespawn</German>
             <English>Naval Spawn</English>
@@ -1473,6 +1478,28 @@
             <Original>Other</Original>
             <German>Sonstiges</German>
             <English>Other</English>
+        </Key>
+    </Package>
+    <Package name="gui_save">
+        <Key ID="STR_DORB_GUI_SAVE_SAVE">
+            <Original>Save</Original>
+            <German>Speichern</German>
+            <English>Save</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_SAVE_LOAD">
+            <Original>Load</Original>
+            <German>Laden</German>
+            <English>Load</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_SAVE_DELETE">
+            <Original>Delete</Original>
+            <German>Löschen</German>
+            <English>Delete</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_SAVE_CANCEL">
+            <Original>Cancel</Original>
+            <German>Abbrechen</German>
+            <English>Cancel</English>
         </Key>
     </Package>
 </Project>

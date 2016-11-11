@@ -84,3 +84,11 @@ private _id = addMissionEventHandler ["draw3D",{
         };
     }forEach GVAR(teleporterlogics);
 }];
+
+[
+    localize LSTRING(TELEPORT),
+    {createDialog QAPP(dialog);},
+    {[] call FUNC(canOpenMenu)},
+    ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QEPAAPATH(icon,icon_teleport)),
+    3
+] call EFUNC(gui_tablet,addApp);

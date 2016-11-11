@@ -13,7 +13,7 @@ class DOUBLES(CfgComponent,ADDON) {
     class preinit {};
     class dependencies {
         CfgPatches[] = {};
-        CfgComponents[] = {"common","gui","gui_save"};
+        CfgComponents[] = {"common","gui"};
     };
 };
 

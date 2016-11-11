@@ -13,7 +13,7 @@
 disableSerialization;
 
 private _ctrledit = findDisplay IDD_SAVE_DLG displayCtrl IDC_SAVE_EDIT;
-private _list = profileNamespace getVariable [GVAR(list),[]];
+private _list = profileNamespace getVariable [QGVAR(list),[]];
 private _name = ctrlText _ctrledit;
 CHECK(_name isEqualTo "")
 private _index = -1;
@@ -25,5 +25,5 @@ private _index = -1;
 
 If (_index >= 0) exitWith {
     _list deleteAt _index;
-    profileNamespace setVariable [GVAR(list),_list];
+    profileNamespace setVariable [QGVAR(list),_list];
 };

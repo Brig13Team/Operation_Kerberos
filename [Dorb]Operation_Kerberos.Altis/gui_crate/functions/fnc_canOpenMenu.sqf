@@ -2,7 +2,7 @@
  *  Author: Dorbedo
  *
  *  Description:
- *      returns if the player can open the vehiclespawn menu
+ *      returns if the player can open the menu
  *
  *  Parameter(s):
  *      0 : OBJECT - player
@@ -12,8 +12,7 @@
  *
  */
 #include "script_component.hpp"
-IF (!isMultiplayer) exitWith {true};
-_this params [["_player",objNull,[objNull]],["_spawntype","",[""]]];
+_this params [["_player",objNull,[objNull]]];
 
 If ((isNull _player)||(!(isPlayer _player))) exitWith {
     TRACE("player != player");
@@ -24,7 +23,7 @@ If !(vehicle player == player) exitWith {
     false;
 };
 
-private _spawnpositions = HASH_GET(GVAR(spawnpositions),_spawntype);
+private _spawnpositions = GVAR(cratelogics);
 
 If ((isNil "_spawnpositions")) exitWith {
     TRACE("spawnposition == nil||null");
@@ -47,8 +46,8 @@ If !(({
 TRACEV_1(_possiblePos);
 
 (({
-    [_x] call FUNC(clearPos);
-    private _cur = _x;
+    //[_x] call FUNC(clearPos);
+    private _cur = getPos _x;
     _cur set[2,(_cur select 2)+1];
     private _pPos = getPos player;
     _pPos set[2,(_pPos select 2)+1];

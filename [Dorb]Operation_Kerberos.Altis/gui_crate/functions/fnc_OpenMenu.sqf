@@ -6,16 +6,22 @@
 
 */
 #include "script_component.hpp"
-GVAR(crate_currentSpawn) = (_this select 3) select 0;
 
-[] call FUNC(crate_createlists);
+GVAR(currentSpawn) = objNull;
+{
+    If ((_x distance player)<(GVAR(currentSpawn) distance _player)) then {
+        GVAR(currentSpawn) = _x;
+    };
+} forEach GVAR(cratelogics);
 
-if (isnil QGVAR(crate_current)) then {
-    GVAR(crate_current) = [[],[],[],[],[],[]];
+[] call FUNC(createlists);
+
+if (isnil QGVAR(current)) then {
+    GVAR(current) = [[],[],[],[],[],[]];
 };
 
-if (isnil QGVAR(crate_current_boxid)) then {
-    GVAR(crate_current_boxid) = 0;
+if (isnil QGVAR(current_boxid)) then {
+    GVAR(current_boxid) = 0;
 };
 
-createDialog QGVAR(crate);
+createDialog QAPP(dialog);

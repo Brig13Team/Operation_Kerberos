@@ -5,10 +5,10 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=129;
+	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=476;
+		nextID=477;
 	};
 	class MarkerIDProvider
 	{
@@ -421,7 +421,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=430;
+		items=431;
 		class Item0
 		{
 			dataType="Marker";
@@ -436,7 +436,7 @@ class Mission
 		class Item1
 		{
 			dataType="Marker";
-			position[]={17384.279,20.853075,19104.184};
+			position[]={17374.934,20.811836,19125.123};
 			name="Crate";
 			text="Crate";
 			type="b_support";
@@ -6940,8 +6940,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={17417.908,20.377077,19102.338};
-						angles[]={6.2618566,1.7872744,6.2591896};
+						position[]={17383.521,20.819757,19118.48};
+						angles[]={0.022662206,5.4088364,6.256525};
 					};
 					side="West";
 					flags=6;
@@ -10251,8 +10251,8 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={17383.773,20.886242,19103.998};
-				angles[]={0,0.06960687,0};
+				position[]={17374.873,20.799648,19125.453};
+				angles[]={0.035984326,0.06960687,0.0053265258};
 			};
 			name="cratespawner1";
 			id=450;
@@ -11920,6 +11920,19 @@ class Mission
 			angle=308.2569;
 			id=475;
 			atlOffset=-20.718237;
+		};
+		class Item430
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={17380.072,20.885063,19118.439};
+				angles[]={0,0.00066322507,0};
+			};
+			name="teleporter5";
+			id=476;
+			type="Logic";
+			atlOffset=-0.024999619;
 		};
 	};
 	class Connections

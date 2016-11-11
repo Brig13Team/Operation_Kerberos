@@ -18,7 +18,7 @@ If (!(ctrlShown _ctrlList)) exitWith {
 
 disableSerialization;
 
-private _list = profileNamespace getVariable [GVAR(list),[]];
+private _list = profileNamespace getVariable [QGVAR(list),[]];
 private _sel = [];
 {
     _sel pushBack [[_x select 0],[_forEachIndex],[]];
