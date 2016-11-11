@@ -5,10 +5,10 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=1;
+	toggles=129;
 	class ItemIDProvider
 	{
-		nextID=475;
+		nextID=476;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={17207.855,45.038177,19141.316};
-		dir[]={0,-0.70710683,0.70710683};
-		up[]={0,0.70710677,0.70710677};
-		aside[]={0.99999994,0,0};
+		pos[]={17340.838,69.766647,19121.941};
+		dir[]={0.61245584,-0.78417718,0.099908039};
+		up[]={0.77394927,0.62053436,0.12625226};
+		aside[]={0.16100064,-8.7893568e-008,-0.98696369};
 	};
 };
 binarizationWanted=0;
@@ -321,77 +321,70 @@ class AddonsMetaData
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
-        class Item33
-		{
-			className="ace_medical_menu";
-			name="ACE3 - Medical Menu";
-			author="ACE-Team";
-			url="http://ace3mod.com/";
-		};
-		class Item34
+		class Item33
 		{
 			className="ace_finger";
 			name="ACE3 - Finger";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
-		class Item35
+		class Item34
 		{
 			className="ace_repair";
 			name="ACE3 - Repair";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
-		class Item36
+		class Item35
 		{
 			className="ace_captives";
 			name="ACE3 - Captives";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
-		class Item37
+		class Item36
 		{
 			className="ace_weather";
 			name="ACE3 - Weather";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
-		class Item38
+		class Item37
 		{
 			className="ace_refuel";
 			name="ACE3 - Refuel";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
-		class Item39
+		class Item38
 		{
 			className="ace_rearm";
 			name="ACE3 - Rearm";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
-		class Item40
+		class Item39
 		{
 			className="ace_map_gestures";
 			name="ACE3 - Map Gestures";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
-		class Item41
+		class Item40
 		{
 			className="ace_microdagr";
 			name="ACE3 - MicroDAGR";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
-		class Item42
+		class Item41
 		{
 			className="ace_nightvision";
 			name="ACE3 - Night Vision";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
-		class Item43
+		class Item42
 		{
 			className="ace_medical_menu";
 			name="ACE3 - Medical Menu";
@@ -428,16 +421,17 @@ class Mission
 	};
 	class Entities
 	{
-		items=429;
+		items=430;
 		class Item0
 		{
 			dataType="Marker";
-			position[]={17422.377,20.22439,19100.223};
-			name="Vehicle";
+			position[]={17422.377,7.0105184e-009,19100.223};
+			name="vehicles";
 			text="Vehicle";
 			type="o_support";
 			colorName="ColorWEST";
 			id=0;
+			atlOffset=-20.22439;
 		};
 		class Item1
 		{
@@ -6946,8 +6940,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={17207.855,20.039616,19166.367};
-						angles[]={6.253861,1.7872744,6.2818484};
+						position[]={17417.908,20.377077,19102.338};
+						angles[]={6.2618566,1.7872744,6.2591896};
 					};
 					side="West";
 					flags=6;
@@ -10400,7 +10394,7 @@ class Mission
 				position[]={17373.283,15.494954,19374.42};
 			};
 			id=452;
-            type="ace_finger_moduleSettings";
+			type="ace_finger_moduleSettings";
 			class CustomAttributes
 			{
 				class Attribute0
@@ -11915,6 +11909,17 @@ class Mission
 				};
 				nAttributes=1;
 			};
+		};
+		class Item429
+		{
+			dataType="Marker";
+			position[]={17408.549,8.0968988e-008,19114.826};
+			name="spawn_vehicles";
+			text="vehicles";
+			type="Empty";
+			angle=308.2569;
+			id=475;
+			atlOffset=-20.718237;
 		};
 	};
 	class Connections

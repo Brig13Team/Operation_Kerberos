@@ -21,8 +21,8 @@ private _string = "";
 private _max = 6 min (count _allNotifications - 1);
 
 for "_i" from 0 to _max do {
-    _string = _string + format[" <img image='%1' />",_allNotifications select _i];
+    _string = _string + format[" <img image='%1' />",(_allNotifications select _i)];
 };
 
-privat _ctrl = (findDisplay IDD_TABLET_MAIN) displayCtrl IDD_TABLET_TOPBAR_NOTIFICATIONS;
-_ctrl ctrlSetStructuredText _string;
+private _ctrl = (findDisplay IDD_TABLET_MAIN) displayCtrl IDC_TABLET_TOPBAR_NOTIFICATIONS;
+_ctrl ctrlSetStructuredText text _string;

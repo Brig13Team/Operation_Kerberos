@@ -5,11 +5,15 @@ ADDON = false;
 PREP(addApp);
 PREP(addMessage);
 PREP(addNotification);
+PREP(canOpenApps);
 PREP(canOpenMenu);
 PREP(clock);
+PREP(displayPage);
 PREP(onLoad);
+PREP(open);
+PREP(registerAppToDisplay);
 PREP(removeNotification);
-PREP(showNotification);
+PREP(showNotifications);
 
 ADDON = true;
 
@@ -22,4 +26,4 @@ GVAR(Applications) = HASH_CREATE;
 HASH_SET(GVAR(Applications),"index",1);
 {
     HASH_SET(GVAR(Applications),_x,[]);
-} forEach ["0","1","-1","2","-2"];
+} forEach ["0","1","2","3","4"];

@@ -109,7 +109,29 @@ class APP(dialog) : RSC(tabletBase) {
         y = 0;
         w = 0;
         h = 0;
+        sizeEx = GUI_GRID_CENTER_H;
+        text = "";
+        colorBackground[] = COLOR_TABLET_MAIN_BTTN;
+        colorBackgroundActive[] = COLOR_TABLET_MAIN_BTTN_SELECTED;
+        colorFocused[] = COLOR_TABLET_MAIN_BTTN;
+        colorText[] = COLOR_TABLET_MAIN_BTTN_TEXT;
     };
+    /*
+    class Button_1 : RSC(BaseShortcutButton) {
+        idc = IDC_TABLET_BTTN1;
+        x = 0;
+        y = 0;
+        w = 0;
+        h = 0;
+        sizeEx = GUI_GRID_CENTER_H;
+        text = "";
+        colorDisabled[] = COLOR_DISABLED;
+        colorBackground[] = COLOR_TABLET_MAIN_BTTN;
+        colorBackground2[] = COLOR_TABLET_MAIN_BTTN;
+        color[] = COLOR_TABLET_MAIN_BTTN;
+        color2[] = COLOR_TABLET_MAIN_BTTN;
+    };
+    */
     class Button_2 : Button_1 {idc = IDC_TABLET_BTTN2;};
     class Button_3 : Button_1 {idc = IDC_TABLET_BTTN3;};
     class Button_4 : Button_1 {idc = IDC_TABLET_BTTN4;};

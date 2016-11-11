@@ -14,7 +14,7 @@
 #include "script_component.hpp"
 
 [
-    QGVAR("addMessage"),
+    QGVAR(addMessage),
     {_this call FUNC(addMessage);}
 ] call CBA_fnc_addEventHandler;
 
@@ -39,4 +39,4 @@ private _ACE_Action = [
     {[] call FUNC(canOpenMenu);}
 ] call ace_interact_menu_fnc_createAction;
 
-[ACE_Player, 1, ["ACE_SelfActions"], _ACE_Action] call ace_interact_menu_fnc_addActionToObject;
+[player, 1, ["ACE_SelfActions"], _ACE_Action] call ace_interact_menu_fnc_addActionToObject;

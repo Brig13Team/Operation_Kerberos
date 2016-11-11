@@ -82,7 +82,7 @@
             <German>Wüste</German>
             <English>Desert</English>
         </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_VEHICLE">
+        <Key ID="STR_DORB_GUI_SPAWN_VEHICLES">
             <Original>Vehicle Spawn</Original>
             <German>Fahrzeugspawn</German>
             <English>Vehicle Spawn</English>

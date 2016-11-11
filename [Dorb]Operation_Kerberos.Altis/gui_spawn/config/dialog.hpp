@@ -163,7 +163,7 @@ class APP(dialog) {
         default = true;
 
     };
-    class spawn_bttn_moveIn : dorb_gui_button {
+    class spawn_bttn_moveIn : RSC(BaseButton) {
         idc = IDC_SPAWN_DLG_MOVEIN;
         x = GUI_GRID_CENTER_X + GUI_GRID_CENTER_W * 27.25;
         y = GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 20;

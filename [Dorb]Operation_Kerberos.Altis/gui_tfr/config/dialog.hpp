@@ -44,7 +44,7 @@ class APP(dialog) {
         dorb_tfr_take,
         dorb_tfr_set
     };
-    class dorb_tfr_body : dorb_gui_backgroundBase {
+    class dorb_tfr_body : RSC(BaseText) {
         x = GUI_GRID_CENTER_X;
         y = GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 5;
         w = GUI_GRID_CENTER_W * 24;
@@ -172,7 +172,7 @@ class APP(dialog) {
 //        y = GUI_YH(0,0.4025);
         text = "";
     };
-    class dorb_tfr_SR_edit : dorb_gui_editBase {
+    class dorb_tfr_SR_edit : RSC(BaseEditBox) {
         idc = IDC_TFR_EDIT;
         x = GUI_GRID_CENTER_X + GUI_GRID_CENTER_W * 28.8;
         y = GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 19.2;
@@ -199,7 +199,7 @@ class APP(dialog) {
 //        y = GUI_YH(0,0.6625);
         text = "";
     };
-    class dorb_tfr_list : dorb_gui_listboxN {
+    class dorb_tfr_list : RSC(BaseListboxN) {
         idc = IDC_TFR_LIST;
         access = 2;
         x = GUI_GRID_CENTER_X + GUI_GRID_CENTER_W * 1;
@@ -217,7 +217,7 @@ class APP(dialog) {
 //        columns[] = {0.0,GUI_W(0.42),GUI_W(0.5)};
         columns[] = {0.0,(GUI_GRID_CENTER_W * 15),(GUI_GRID_CENTER_W * 19)};
     };
-    class dorb_tfr_take : dorb_gui_button {
+    class dorb_tfr_take : RSC(BaseButton) {
         idc = IDC_TFR_TAKE;
         x = GUI_GRID_CENTER_X + GUI_GRID_CENTER_W * 33.5;
         y = GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 10.35;

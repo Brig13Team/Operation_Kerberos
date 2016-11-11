@@ -16,10 +16,10 @@
  *
  */
 #include "script_component.hpp"
-
+LOG_1(_this);
 _this params [
     ["_displayName","",[""]],
-    ["_function",{},[{}]],
+    ["_func",{},[{}]],
     ["_condition",{true},[{}]],
     ["_picture",QPATHTOF(data\ui\icon_empty.paa),[""]],
     ["_size",1,[1]]
@@ -31,7 +31,7 @@ private _ACE_Action = [
     format [QGVAR(Action_%1),HASH_GET(GVAR(Applications),"index")],
     _displayName,
     _picture,
-    _function,
+    _func,
     _condition
 ] call ace_interact_menu_fnc_createAction;
 
@@ -41,4 +41,4 @@ private _ACE_Action = [
 If !(_size in [1,2,3]) then {_size = 1;};
 
 /// register into Display
-[_displayName,_function,_condition,_picture,_size] call FUNC(registerAppToDisplay);
+[_displayName,_func,_condition,_picture,_size] call FUNC(registerAppToDisplay);

@@ -38,13 +38,13 @@ class CfgComponents {
     gui_crate = 1;
     gui_save = 1;
     gui_tfr = 1;
+    gui_tablet = 1;
 };
 
 #include "main\CfgComponent.hpp"
 #include "common\CfgComponent.hpp"
 #include "headless\CfgComponent.hpp"
 #include "headquarter\CfgComponent.hpp"
-#include "interface\CfgComponent.hpp"
 #include "logistics\CfgComponent.hpp"
 #include "mission\CfgComponent.hpp"
 #include "mod_ace\CfgComponent.hpp"
@@ -64,3 +64,4 @@ class CfgComponents {
 #include "gui_crate\CfgComponent.hpp"
 #include "gui_save\CfgComponent.hpp"
 #include "gui_tfr\CfgComponent.hpp"
+#include "gui_tablet\CfgComponent.hpp"

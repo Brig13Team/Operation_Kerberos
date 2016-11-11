@@ -13,18 +13,20 @@
  */
 #include "script_component.hpp"
 
+_this params ["_dialog"];
+
 IF !(dialog) exitWith {
-    [GVAR(clockPFH)] call CBA_fnc_removeEventHandler;
+    [GVAR(clockPFH)] call CBA_fnc_removePerFrameHandler;
     GVAR(clockPFH) = nil;
 };
 
 If ((isNil "_dialog")&&{isNull _dialog}) exitWith {
-    [GVAR(clockPFH)] call CBA_fnc_removeEventHandler;
+    [GVAR(clockPFH)] call CBA_fnc_removePerFrameHandler;
     GVAR(clockPFH) = nil;
 };
 
 if !(isNil QGVAR(clockPFH)) then {
-    [GVAR(clockPFH)] call CBA_fnc_removeEventHandler;
+    [GVAR(clockPFH)] call CBA_fnc_removePerFrameHandler;
     GVAR(clockPFH) = nil;
 };
 

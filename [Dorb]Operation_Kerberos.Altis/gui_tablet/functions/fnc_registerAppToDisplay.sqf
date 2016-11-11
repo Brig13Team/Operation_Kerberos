@@ -15,71 +15,73 @@
  *      none
  *
  */
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-_this params ["_displayName","_function","_condition","_picture","_size"];
+_this params ["_displayName","_function","_condition","_picture","_size",["_Page","0",[""]]];
+LOG_6(_displayName,_func,_condition,_picture,_size,_page);
 
-private _apps = HASH_GET(GVAR(applications),"0");
-
-private _targetKey = "";
-{
-    private _key = _x;
-    private _apps = HASH_GET(GVAR(applications),_key);
-    If ((count _apps) < (28 * 0.6)) exitWith {_targetKey = _key;};
-} forEach ["0","1","-1","2","-2"];
-
-CHECK(_targetKey isEqualTo "")
-/// 14x8
-private _currentPage = HASH_GET(GVAR(Applications),_key);
+private _currentPage = HASH_GET(GVAR(Applications),_page);
 private _usedGrids = [];
 
 {
     private _curSize = _x param [4];
     private _grid = _x param [5];
-    switch _curSize {
+    TRACEV_2(_curSize,_grid);
+    switch _curSize do {
         case 3 : {
-            _usedGrids pushBack format["%1_%2",[(_grid select 0),(_grid select 1)]];
-            _usedGrids pushBack format["%1_%2",[(_grid select 0)+1,(_grid select 1)]];
-            _usedGrids pushBack format["%1_%2",[(_grid select 0),(_grid select 1)+1]];
-            _usedGrids pushBack format["%1_%2",[(_grid select 0)+1,(_grid select 1)+1]];
+            _usedGrids pushBack format["%1_%2",(_grid select 0),(_grid select 1)];
+            _usedGrids pushBack format["%1_%2",(_grid select 0)+1,(_grid select 1)];
+            _usedGrids pushBack format["%1_%2",(_grid select 0),(_grid select 1)+1];
+            _usedGrids pushBack format["%1_%2",(_grid select 0)+1,(_grid select 1)+1];
         };
         case 2 : {
-            _usedGrids pushBack format["%1_%2",[(_grid select 0),(_grid select 1)]];
-            _usedGrids pushBack format["%1_%2",[(_grid select 0)+1,(_grid select 1)]];
+            _usedGrids pushBack format["%1_%2",(_grid select 0),(_grid select 1)];
+            _usedGrids pushBack format["%1_%2",(_grid select 0)+1,(_grid select 1)];
         };
         default {
-            _usedGrids pushBack format["%1_%2",[(_grid select 0),(_grid select 1)]];
+            _usedGrids pushBack format["%1_%2",(_grid select 0),(_grid select 1)];
         };
     };
 } forEach _currentPage;
 
+TRACEV_2(_usedGrids,_currentPage);
 private _grid = [];
 
-for "_i" from 0 to 6 do {
-    for "_j" from 0 to 3 {
-        If ((_size == 3)&&
-            {!(
-                (format["%1_%2",_i,_j] in _usedGrids)||
-                (format["%1_%2",_i+1,_j] in _usedGrids)||
-                (format["%1_%2",_i,_j+1] in _usedGrids)||
-                (format["%1_%2",_i+1,_j+1] in _usedGrids)
-            )}
-        ) then {_grid = [_i,_j]};
-        If ((_size == 2)&&
-            {!(
-                (format["%1_%2",_i,_j] in _usedGrids)||
-                (format["%1_%2",_i+1,_j] in _usedGrids)
-            )}
-        ) then {_grid = [_i,_j]};
-        If ((_size == 1)&&
-            {!(
-                (format["%1_%2",_i,_j] in _usedGrids)
-            )}
-        ) then {_grid = [_i,_j]};
+
+for "_j" from 0 to 4 do {
+    for "_i" from 0 to 7 do {
+        If (_grid isEqualTo []) then {
+            If ((_size == 3)&&
+                {!(
+                    (format["%1_%2",_i,_j] in _usedGrids)||
+                    (format["%1_%2",_i+1,_j] in _usedGrids)||
+                    (format["%1_%2",_i,_j+1] in _usedGrids)||
+                    (format["%1_%2",_i+1,_j+1] in _usedGrids)
+                )}&&
+                {_i<7}&&
+                {_j<4}
+            ) then {_grid = [_i,_j]};
+            If ((_size == 2)&&
+                {!(
+                    (format["%1_%2",_i,_j] in _usedGrids)||
+                    (format["%1_%2",_i+1,_j] in _usedGrids)
+                )}&&
+                {_i<7}
+            ) then {_grid = [_i,_j]};
+            If ((_size == 1)&&
+                {!(
+                    (format["%1_%2",_i,_j] in _usedGrids)
+                )}
+            ) then {_grid = [_i,_j]};
+        };
     };
 };
-
-CHECK(_grid isEqualTo [])
+LOG_1(_grid);
+If (_grid isEqualTo []) exitWith {
+    _page = format["%1",((parseNumber _page)+1)];
+    [_displayName,_func,_condition,_picture,_size,_page] call FUNC(registerAppToDisplay);
+};
 
 private _index = HASH_GET(GVAR(applications),"index");
-HASH_SET(GVAR(Applications),"index",_index);
-HASH_GET(GVAR(Applications),_key) pushBack [_displayName,_function,_condition,_picture,_size,_grid];
+HASH_SET(GVAR(Applications),"index",_index + 1);
+HASH_GET(GVAR(Applications),_page) pushBack [_displayName,_function,_condition,_picture,_size,_grid];

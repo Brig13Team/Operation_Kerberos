@@ -32,12 +32,26 @@ GVAR(spawnpositions) = HASH_CREATE;
 
 {
     _x params ["_spawntype","_pic"];
+    LOG_2(_spawntype,_pic);
     [
         localize format[LSTRING(%1),_spawntype],
+        compile format["['%1'] call %2;",_spawntype,QFUNC(open)],
+        compile format["[player,'%1'] call %2;",_spawntype,QFUNC(canOpenMenu)],
+        //{[_spawntype] call FUNC(open);},
+        //{[player] call FUNC(canOpenMenu);},
         format[QEPAAPATH(icon,icon_%1),_pic],
-        {[_spawntype] call FUNC(open);},
-        {[player,_spawntype] call FUNC(canOpenMenu);}
+        2
     ] call EFUNC(gui_tablet,addApp);
+
+} foreach [
+    ["vehicles","tank"],
+    ["drones","drone"],
+    ["air","heli"],
+    ["air_light","heli"],
+    ["boat","harbour"],
+    ["logistic","logistik"]
+];
+
 /*    private _ACE_Action = [
         format [QGVAR(%1Action),_spawntype],
         localize format[LSTRING(%1),_spawntype],
@@ -47,14 +61,7 @@ GVAR(spawnpositions) = HASH_CREATE;
     ] call ace_interact_menu_fnc_createAction;
     [ACE_Player, 1, ["ACE_SelfActions", QEGVAR(gui_tablet,selfactiongroup)], _ACE_Action] call ace_interact_menu_fnc_addActionToObject;
 */
-} foreach [
-    ["vehicles","tank"],
-    ["drones","drone"],
-    ["air","heli"],
-    ["air_light","heli"],
-    ["boat","harbour"],
-    ["logistic","logistik"]
-];
+
 
 /*
     [["<t size='1.5' shadow='2' color='#FF860F'>"   +localize LSTRING(VEHICLE_DESC) +"</t>",    {_this call FUNC(Open);}, [localize LSTRING(VEHICLE),    fahrzeuge       ], 5, false, true, "","alive _target and (getposatl player distance getposatl fahrzeuge) < 4"]] call CBA_fnc_addPlayerAction;
