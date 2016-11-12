@@ -1,9 +1,9 @@
 /*
-	Author: Dorbedo
+    Author: Dorbedo
 
-	Description:
-		adds Arsenal to a unit
-		can be called via unit-init
+    Description:
+        adds Arsenal to a unit
+        can be called via unit-init
 */
 #include "script_component.hpp"
 SCRIPT(addArsenal);

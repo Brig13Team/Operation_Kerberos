@@ -16,8 +16,8 @@ If ((isNil "_driver")||{isNull _driver}||{_driver == _vehicle}) exitWith {};
 
 
 If (canFire _vehicle) exitWith {
-    If !(_vehicle getVariable [QEGVAR(awaiting_repair),false]) then {
-        _vehicle setVariable [QEGVAR(awaiting_repair),true,true];
+    If !(_vehicle getVariable [QGVAR(awaiting_repair),false]) then {
+        _vehicle setVariable [QGVAR(awaiting_repair),true,true];
         _vehicle allowCrewInImmobile true;
     };
 };

@@ -1,15 +1,17 @@
 /*
-    Author: Dorbedo
-
-    Description:
-        copys a array
-
-    Parameter(s):
-        None
-
-    Return
-        None
-*/
+ *  Author: Dorbedo
+ *  Original Author: ACRE2 team (https://github.com/IDI-Systems/acre2)
+ *
+ *  Description:
+ *      copys a hasharray
+ *
+ *  Parameter(s):
+ *      0 : ARRAY - array to copy
+ *
+ *  Returns:
+ *      ARRAY - Copied array
+ *
+ */
 #include "script_component.hpp"
 
 _this params [["_array",[],[[]]]];

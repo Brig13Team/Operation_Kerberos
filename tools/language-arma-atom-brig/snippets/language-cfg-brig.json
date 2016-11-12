@@ -1,0 +1,9 @@
+{
+  ".source.cfg": {
+    "Brigade Function Header": {
+      "prefix": "header_brigade",
+      "body": "/*\n *  Author: ${1:[Name of Author(s)]}\n *\n *  Description:\n *      ${2:[Description]}\n *\n */\n#include \"script_component.hpp\"\n",
+      "description": "Function Header Brigade"
+    }
+  }
+}

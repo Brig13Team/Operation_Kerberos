@@ -90,7 +90,7 @@ Author:
 ------------------------------------------- */
 #define PAAPATH(VAR1) data\##VAR1.paa
 #define QPICPATH(VAR1) QUOTE(PAAPATH(VAR1))
-#define EPAAPATH(VAR1,VAR2) data\##VAR\##VAR2.paa
+#define EPAAPATH(VAR1,VAR2) data\##VAR1##\##VAR2##.paa
 #define QEPAAPATH(VAR1,VAR2) QUOTE(EPAAPATH(VAR1,VAR2))
 
 /* -------------------------------------------
@@ -517,6 +517,7 @@ Original Author:
 #define DORB_HASH_COLLECTOR_ARRAYS GVAR(hashCollector_arrays)
 #define DORB_HASH_COLLECTOR_FOUND GVAR(hashCollector_found)
 #define DORB_HASH_COLLECTOR_ID GVAR(hashCollector_ID)
+#define DORB_HASH_COLLECTOR_IGNORE GVAR(hashCollector_ignore)
 
 #define DORB_HASH_SYS_TYPE QUOTE(#CBA_HASH#)
 #define DORB_HASH_SYS_LOCATION QUOTE(CBA_NamespaceDummy)

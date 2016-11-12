@@ -13,7 +13,7 @@
 _this params ["_object"];
 
 CHECK(GVAR(istransfering))
-CHECK((!GVARMAIN(HC_enabled))||{!(_object in AllUnits)}||{!(isPlayer _object)})
+CHECK((!GVAR(HC_enabled))||{!(_object in AllUnits)}||{!(isPlayer _object)})
 
 GVAR(istransfering) = true;
 [FUNC(transfer), [], HEADLESSDELAY] call CBA_fnc_waitAndExecute;

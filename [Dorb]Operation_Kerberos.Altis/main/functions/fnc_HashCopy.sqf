@@ -1,15 +1,17 @@
 /*
-    Author: Dorbedo
-
-    Description:
-        copys a hash
-
-    Parameter(s):
-        None
-
-    Return
-        None
-*/
+ *  Author: Dorbedo
+ *  Original Author: ACRE2 team (https://github.com/IDI-Systems/acre2)
+ *
+ *  Description:
+ *      copys a hash
+ *
+ *  Parameter(s):
+ *      0 : LOCATION - Hash to copy
+ *
+ *  Returns:
+ *      LOCATION - copied hash
+ *
+ */
 #include "script_component.hpp"
 
 _this params [["_hash",locationNull,[locationNull,[]]]];

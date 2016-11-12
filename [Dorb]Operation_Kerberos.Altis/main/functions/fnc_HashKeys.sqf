@@ -1,15 +1,17 @@
 /*
-    Author: Dorbedo
-
-    Description:
-        returns all Keys of a hash
-
-    Parameter(s):
-        0: HASH <LOCALTION>
-
-    Return
-        <ARRAY> Keys
-*/
+ *  Author: Dorbedo
+ *  Original Author: ACRE2 team (https://github.com/IDI-Systems/acre2)
+ *
+ *  Description:
+ *      returns all keys of a hash
+ *
+ *  Parameter(s):
+ *      0 : LOCATION - Hash
+ *
+ *  Returns:
+ *      ARRAY - Array with all keys
+ *
+ */
 #include "script_component.hpp"
 
 _this params [["_hash",locationNull,[locationNull]]];

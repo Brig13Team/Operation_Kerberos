@@ -5,10 +5,10 @@
 #define CBA_OFF
 #include "script_component.hpp"
 
-#include "\a3\ui_f\hpp\defineCommon.inc"
-#include "\a3\ui_f\hpp\defineCommonGrids.inc"
-#include "\a3\ui_f\hpp\defineDIKCodes.inc"
-#include "\a3\ui_f\hpp\defineResincl.inc"
+//#include "\a3\ui_f\hpp\defineCommon.inc"
+//#include "\a3\ui_f\hpp\defineCommonGrids.inc"
+//#include "\a3\ui_f\hpp\defineDIKCodes.inc"
+//#include "\a3\ui_f\hpp\defineResincl.inc"
 
 
 /// CI
@@ -33,10 +33,10 @@
 
 
 class dorb2_gui_new_RscStructuredText {
-    idc = -1; 
+    idc = -1;
     type = 13;  // defined constant
     style = 0x00;            // defined constant
-    colorBackground[] = DORB_GUI_COL_BACKGROUND; 
+    colorBackground[] = DORB_GUI_COL_BACKGROUND;
     size = GUI_TEXT_SIZE_MEDIUM;
     text = "";
     class Attributes {
@@ -56,13 +56,9 @@ class dorb2_gui_new_RscText {
     style = 0x00;
     font = GUI_FONT_NORMAL;
     sizeEx = GUI_TEXT_SIZE_MEDIUM;
-    colorBackground[] = DORB_GUI_COL_BACKGROUND; 
+    colorBackground[] = DORB_GUI_COL_BACKGROUND;
     colorText[] = {RAL7047,1};
     text = "";
     fixedWidth = 0;
     shadow = 0;
 };
-
-
-
-
