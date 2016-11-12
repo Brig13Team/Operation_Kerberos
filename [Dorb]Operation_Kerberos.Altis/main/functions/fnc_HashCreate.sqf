@@ -1,15 +1,17 @@
 /*
-    Author: Dorbedo
-
-    Description:
-        creates a hash
-
-    Parameter(s):
-        None
-
-    Return
-        None
-*/
+ *  Author: Dorbedo
+ *  Original Author: ACRE2 team (https://github.com/IDI-Systems/acre2)
+ *
+ *  Description:
+ *      creates a hash
+ *
+ *  Parameter(s):
+ *      none
+ *
+ *  Returns:
+ *      LOCATION - Created Hash
+ *
+ */
 #include "script_component.hpp"
 
 if ((count DORB_HASH_POOL) > 0) exitWith {

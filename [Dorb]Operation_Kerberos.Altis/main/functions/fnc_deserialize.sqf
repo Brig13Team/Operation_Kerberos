@@ -1,16 +1,18 @@
 /*
-    Author: Dorbedo
-
-    Description:
-        serializes a hash
-
-    Parameter(s):
-        None
-
-    Return
-        None
-*/
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      deserializes a hash
+ *
+ *  Parameter(s):
+ *      0 : ARRAY - Hash in array form
+ *
+ *  Returns:
+ *      LOCATION - Hash
+ *
+ */
 #include "script_component.hpp"
+
 #define SELF EFUNC(main,deserialize)
 _this params ["_toDeserialize"];
 If (IS_SERIALIZEDHASH(_toDeserialize)) exitWith {
