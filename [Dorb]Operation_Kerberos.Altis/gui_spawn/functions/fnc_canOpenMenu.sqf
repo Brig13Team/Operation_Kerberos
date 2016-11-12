@@ -12,7 +12,7 @@
  *
  */
 #include "script_component.hpp"
-IF (!isMultiplayer) exitWith {true};
+
 _this params [["_player",objNull,[objNull]],["_spawntype","",[""]]];
 
 If ((isNull _player)||(!(isPlayer _player))) exitWith {
@@ -34,9 +34,9 @@ If ((isNil "_spawnpositions")) exitWith {
 
 Private _possiblePos = [];
 If !(({
-    If (((_player distance2D _x)<(5 + CHECK_RADIUS))&&
-    ((_player distance2D _x)>CHECK_RADIUS)) then {
-        _possiblePos pushBack _x;
+    If (((_player distance2D (_x select 0))<(5 + CHECK_RADIUS))&&
+    ((_player distance2D (_x select 0))>CHECK_RADIUS)) then {
+        _possiblePos pushBack (_x select 0);
         true;
     }else{false;};
 } count _spawnpositions)>0) exitWith {
@@ -47,12 +47,12 @@ If !(({
 TRACEV_1(_possiblePos);
 
 (({
-    [_x] call FUNC(clearPos);
-    private _cur = _x;
+    private _cur =+ _x;
     _cur set[2,(_cur select 2)+1];
     private _pPos = getPos player;
     _pPos set[2,(_pPos select 2)+1];
-    private _intersects = !( lineIntersects [_cur,_pPos,player]);
+    //private _intersects = !( lineIntersects [_cur,_pPos,player]);
+    private _intersects = !( terrainIntersect [_cur,_pPos]);
     TRACEV_3(_intersects,_cur,_pPos);
     _intersects;
 } count _possiblePos)>0);

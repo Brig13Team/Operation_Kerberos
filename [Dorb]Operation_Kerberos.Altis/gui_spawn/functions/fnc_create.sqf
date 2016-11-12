@@ -18,12 +18,10 @@ private _selection = lnbCurSelRow IDC_SPAWN_DLG_LIST;
 private _vehiclewahl = lnbData [IDC_SPAWN_DLG_LIST,[_selection,0] ];
 CHECK(_vehiclewahl isEqualTo "")
 
-private _spawn = GETMVAR(GVAR(current),"");
-//CHECK(IS_OBJECT(_spawn))
+private _spawnpos = GVAR(curPos);
+private _spawndir = GVAR(curDir);
 
-private _spawnpoint = GETVAR(_spawn,GVAR(point),"");
-private _spawnpos = markerPos _spawnpoint;
-private _spawndir = markerDir _spawnpoint;
+[_spawnpos] call FUNC(clearPos);
 
 private _padempty = nearestObjects [_spawnpos, ["LandVehicle","Air"], CHECK_RADIUS];
 If (!(_padempty isEqualTo [])) exitWith {hint localize LSTRING(NOTEMPTY);};
@@ -89,3 +87,4 @@ If (ACTIVEMOD_TFAR) then {
 ["VEHICLE_SPAWNED",[_vehicle]] spawn CBA_fnc_serverEvent;
 
 closeDialog IDD_SPAWN_DLG;
+[] call EFUNC(gui_tablet,close);

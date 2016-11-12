@@ -4,6 +4,8 @@ ADDON = false;
 
 PREP(add);
 PREP(canOpenMenu);
+PREP(clear);
+PREP(clearPos);
 PREP(createlists);
 PREP(filter);
 PREP(getMod);

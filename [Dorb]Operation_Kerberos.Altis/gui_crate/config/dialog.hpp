@@ -141,7 +141,8 @@ class APP(dialog) {
         x = GUI_GRID_CENTER_X + GUI_GRID_CENTER_W * 31.25;
 //        x = GUI_XW(0,0.725);
         text = CSTRING(CLEAR);
-        action = QUOTE( GVAR(current) = [ARR_6([],[],[],[],[],[])] ; GVAR(current_boxid) = 0; [] call FUNC(onLoad); false);
+        action = QUOTE([true] call FUNC(clear);false);
+        //action = QUOTE( GVAR(current) = [ARR_6([],[],[],[],[],[])] ; GVAR(current_boxid) = 0; [] call FUNC(onLoad); false);
     };
 
     class crate_save : crate_spawn {

@@ -40,19 +40,22 @@ TRACEV_1(_currentApps);
     TRACEV_6(_ctrl,_displayName,_pos_x, _pos_y, _pos_w, _pos_h);
     _ctrl ctrlSetPosition [_pos_x, _pos_y, _pos_w, _pos_h];
     //_ctrl ctrlSetStructuredText (text format[" <img image='%1' /> %2",_picture,_displayName]);
-    _ctrl ctrlSetText (_displayName);
+    //_ctrl ctrlSetText (_displayName);
+    _ctrl ctrlSetText _picture;
+    _ctrl ctrlSetTooltip _displayName;
+    _ctrl ctrlSetFontHeight GUI_GRID_TABLET_BTTN_H;
     private _test = call _condition;
     TRACEV_2(_test,_condition);
     If (call _condition) then {
         TRACE("enabled");
         _ctrl ctrlEnable true;
-        private _test = _ctrl ctrlAddEventHandler ["Klick",_function];
+        private _test = _ctrl ctrlAddEventHandler ["ButtonClick",_function];
         TRACEV_3(_test,_ctrl,_function);
         _ctrl ctrlCommit 0;
     }else{
         TRACE("disabled");
         _ctrl ctrlEnable false;
-        _ctrl ctrlRemoveAllEventHandlers "Klick";
+        _ctrl ctrlRemoveAllEventHandlers "ButtonClick";
         _ctrl ctrlCommit 0;
     };
 } forEach _currentApps;

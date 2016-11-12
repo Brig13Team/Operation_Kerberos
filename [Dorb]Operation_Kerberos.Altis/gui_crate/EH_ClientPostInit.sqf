@@ -23,11 +23,15 @@ private _id = addMissionEventHandler ["draw3D",{
     private _root = parsingNamespace getVariable ["MISSION_ROOT",""];
     private _zoom = round(([0.5,0.5] distance worldToScreen positionCameraToWorld [0,1.05,1]) * (getResolution select 5));
     {
-        If ((!isNull _x)&&{(player distance (getPosATL _x))<25}) then {
+        If ((!isNull _x)&&((player distance _x)<25)&&(isNull curatorCamera)&&(vehicle player == player)) then {
             private _spawnPos = getPos _x;
             _spawnPos set[2,1];
             private _sizeicon = ((rad(2*atan(0.422793 * 30) / (player distance _x)))*_zoom*6);
-            drawIcon3D [_root + QEPAAPATH(icon,icon_robot),[1,0.4,0,1],_spawnPos,_sizeicon,_sizeicon,0,localize LSTRING(header),0,(_sizeicon*0.015),"PuristaMedium"];
+            private _color = [RAL3024,0.8];
+            If ([player] call FUNC(canOpenMenu)) then {
+                _color = [RAL6018,0.8];
+            };
+            drawIcon3D [_root + QEPAAPATH(icon,icon_robot),_color,_spawnPos,_sizeicon,_sizeicon,0,localize LSTRING(header),0,(_sizeicon*0.015),"PuristaMedium"];
         };
     }forEach GVAR(cratelogics);
 }];
@@ -36,6 +40,6 @@ private _id = addMissionEventHandler ["draw3D",{
     localize LSTRING(header),
     {[] call FUNC(OpenMenu);},
     {[player] call FUNC(canOpenMenu);},
-    QEPAAPATH(icon,icon_robot),
+    ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QEPAAPATH(icon,icon_robot)),
     3
 ] call EFUNC(gui_tablet,addApp);

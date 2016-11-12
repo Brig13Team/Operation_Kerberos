@@ -14,25 +14,29 @@ class RSC(tabletBase) {
     fadeout = 0;
     duration = 1000000;
     objects[] = {};
-    onLoad = QUOTE( uiNamespace setVariable [ARR_2('GVAR(dialog)',_this select 0)]; [ARR_2('GVAR(dialog)',true)] call EFUNC(gui,blur); [] spawn EFUNC(gui_tablet,OnLoad););
-    onUnload = QUOTE([ARR_2('GVAR(dialog)',false)] call EFUNC(gui,blur););
+    onLoad = QUOTE( uiNamespace setVariable [ARR_2('EGVAR(gui_tablet,dialog)',_this select 0)]; [ARR_2('EGVAR(gui_tablet,dialog)',true)] call EFUNC(gui,blur); [] spawn EFUNC(gui_tablet,OnLoad););
+    onUnload = QUOTE([ARR_2('EGVAR(gui_tablet,dialog)',false)] call EFUNC(gui,blur);[] spawn EFUNC(gui_tablet,OnUnLoad););
 
-    controlsBackground[] =     {
+    controlsBackground[] = {
         background_Picture,
         background_Display,
-        background_Header
+        background_Header,
+        wip
     };
 
-    controls[] =    {
+    controls[] = {
         clock,
         notifications
     };
 
     class background_picture: RSC(BasePicture) {
-        x = GUI_GRID_CENTER_X - GUI_GRID_CENTER_W * 5;
-        y = GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 12.5 - GUI_GRID_CENTER_W * 25 - GUI_GRID_CENTER_H;
-        w = GUI_GRID_CENTER_W * 50;
-        h = GUI_GRID_CENTER_W * 50;
+        idc = IDC_TABLET_Background;
+        style = 48;
+        x = GUI_GRID_CENTER_X - GUI_GRID_CENTER_W * 5.6;
+        y = GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 12.5 - GUI_GRID_CENTER_H * 25.6;
+        w = GUI_GRID_CENTER_W * 51.2;
+        h = GUI_GRID_CENTER_H * 51.2;
+        text = QPICPATH(tablet_background);
     };
     class background_Display: RSC(BaseText) {
         x = GUI_GRID_CENTER_X;
@@ -44,21 +48,37 @@ class RSC(tabletBase) {
         colorText[] = COLOR_TABLET_MAIN_TEXT;
     };
     class background_header: RSC(BaseText) {
-        y = GUI_GRID_CENTER_Y - GUI_GRID_CENTER_H * 4.5;
+        y = GUI_GRID_CENTER_Y - GUI_GRID_CENTER_H * 2;
         h = GUI_GRID_CENTER_H * 2;
+        w = GUI_GRID_CENTER_W * 40;
+        x = GUI_GRID_CENTER_X;
+        colorBackground[] = COLOR_TABLET_TOPBAR_BACKGROUND;
     };
 
     class clock: background_header {
         idc = IDC_TABLET_TOPBAR_CLOCK;
         x = GUI_GRID_CENTER_X + GUI_GRID_CENTER_W * 35;
         w = GUI_GRID_CENTER_W * 5;
+        text = "";
     };
     class notifications: RSC(BaseStructuredText) {
         idc = IDC_TABLET_TOPBAR_NOTIFICATIONS;
         x = GUI_GRID_CENTER_X;
-        y = GUI_GRID_CENTER_Y - GUI_GRID_CENTER_H * 4.5;
+        y = GUI_GRID_CENTER_Y - GUI_GRID_CENTER_H * 2;
         w = GUI_GRID_CENTER_W * 5;
         h = GUI_GRID_CENTER_H * 2;
+        colorBackground[] = COLOR_TABLET_TOPBAR_BACKGROUND;
+        colorText[] = COLOR_TABLET_MAIN_TEXT;
+    };
+    class wip : RSC(BaseText) {
+        x = GUI_GRID_CENTER_X + GUI_GRID_CENTER_W * 15;
+        y = GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 27;
+        w = GUI_GRID_CENTER_W * 10;
+        h = GUI_GRID_CENTER_H * 2;
+        sizeEx = GUI_GRID_CENTER_H * 1.8;
+        text = "Work in Progress";
+        colorBackground[] = COLOR_DISABLED;
+        colorText[] = COLOR_TABLET_MAIN_TEXT;
     };
 };
 
@@ -67,7 +87,8 @@ class APP(dialog) : RSC(tabletBase) {
     controlsBackground[] =     {
         background_Picture,
         background_Display,
-        background_Header
+        background_Header,
+        wip
     };
 
     controls[] =    {
@@ -111,10 +132,13 @@ class APP(dialog) : RSC(tabletBase) {
         h = 0;
         sizeEx = GUI_GRID_CENTER_H;
         text = "";
+        style = "48+0x800";
         colorBackground[] = COLOR_TABLET_MAIN_BTTN;
         colorBackgroundActive[] = COLOR_TABLET_MAIN_BTTN_SELECTED;
         colorFocused[] = COLOR_TABLET_MAIN_BTTN;
         colorText[] = COLOR_TABLET_MAIN_BTTN_TEXT;
+        colorDisabled[] = COLOR_TABLET_MAIN_BTTN_TEXT_DISABLED;
+        colorBackgroundDisabled[] = COLOR_TABLET_MAIN_BTTN_DISABLED;
     };
     /*
     class Button_1 : RSC(BaseShortcutButton) {

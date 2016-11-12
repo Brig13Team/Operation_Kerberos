@@ -12,6 +12,7 @@
             1:OBJECT    - Object where the Data is stored
 
 */
+#define DEBUG_MODE_FULL
 #define INCLUDE_GUI
 #include "script_component.hpp"
 
@@ -40,19 +41,31 @@ If (side _caller == west) then {
 CHECK(_exit)
 
 GVAR(curPos) = [];
+GVAR(curDir) = 0;
 
 private _allPositions = HASH_GET(GVAR(spawnpositions),_spawntype);
+TRACEV_2(_allPositions,_spawntype);
 If (isNil "_allPositions") exitWith {ERROR("Wrong configured spawns - no positions found");};
+/*
 {
-    private _cur = _x;
+    private _cur =+ _x;
     _cur set[2,(_cur select 2)+1];
-    _pPos = getPos player;
+    _pPos = getPos _caller;
     _pPos set[2,(_pPos select 2)+1];
     If ((
-        ((_pPos distance player) < (CHECK_RADIUS + 5))&&
-        ((_pPos distance player) > CHECK_RADIUS))&&
-            {!(lineIntersects [_cur,_pPos,player])}) exitWith {
-                GVAR(curPos) = _x;
+        ((_pPos distance _caller) < (CHECK_RADIUS + 5))&&
+        ((_pPos distance _caller) > CHECK_RADIUS))
+        //&&{!(lineIntersects [_cur,_pPos,player])}
+        ) exitWith {
+                GVAR(curPos) =+ _x;
+    };
+} forEach _allPositions;
+*/
+
+{
+    If ((GVAR(curPos) isEqualTo [])||{((_x select 0) distance _caller)<(GVAR(curPos) distance _caller)}) then {
+        GVAR(curPos) =+ (_x select 0);
+        GVAR(curDir) =+ (_x select 1);
     };
 } forEach _allPositions;
 

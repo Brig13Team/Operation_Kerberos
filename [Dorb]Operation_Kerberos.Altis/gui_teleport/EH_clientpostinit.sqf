@@ -66,7 +66,7 @@ GVAR(teleporterlogics) = [];
 
 for "_i" from 1 to 9 do {
     if !(isNil (format["teleporter%1",_i])) then {
-        [["<t size='1.5' shadow='2' color='#F9FE44'>" +localize LSTRING(TELEPORT) +"</t>", {createDialog QAPP(dialog);}, [], 5, false, true, "",format["alive _target and (getposatl player distance getposatl teleporter%1) < 6",_i]]] call CBA_fnc_addPlayerAction;
+        //[["<t size='1.5' shadow='2' color='#F9FE44'>" +localize LSTRING(TELEPORT) +"</t>", {createDialog QAPP(dialog);}, [], 5, false, true, "",format["alive _target and (getposatl player distance getposatl teleporter%1) < 6",_i]]] call CBA_fnc_addPlayerAction;
         GVAR(teleporterlogics) pushBack (missionNamespace getVariable [format["teleporter%1",_i],objNull]);
     };
 };

@@ -92,6 +92,7 @@ class APP(dialog) {
         //w = GUI_W(0.46);
         //h = GUI_H(0.5);
         text = "";
+        style = 0x02;
         colorBackground[] = UI_CL_BODY;
     };
     class spawn_HeaderBackground: spawn_CenterBackground {
@@ -161,7 +162,7 @@ class APP(dialog) {
         //columns[] = {0.0,GUI_W(0.08),GUI_W(0.14),0.0};
         onLBSelChanged = QUOTE(_this spawn FUNC(select););
         default = true;
-
+        colorText[] = {RAL9005,1};
     };
     class spawn_bttn_moveIn : RSC(BaseButton) {
         idc = IDC_SPAWN_DLG_MOVEIN;

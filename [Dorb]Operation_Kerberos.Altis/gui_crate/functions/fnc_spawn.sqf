@@ -5,6 +5,7 @@
         spawns the cosen box with including items
 
 */
+#define INCLUDE_GUI
 #include "script_component.hpp"
 /// Clear Pad
 
@@ -12,10 +13,7 @@ private _check_radius = 8;
 private _spawnpos = getPos GVAR(currentSpawn);
 private _spawndir = getDir GVAR(currentSpawn);
 
-{if (count crew _x == 0) then {deletevehicle _x};} foreach (nearestObjects [_spawnpos, ["AllVehicles"], _check_radius]);
-{deletevehicle _x;} foreach nearestObjects [_spawnpos,["CraterLong_small","CraterLong","WeaponHolder","GroundWeaponHolder"], _check_radius];
-{deleteVehicle _x;} forEach nearestObjects [_spawnpos,["allDead"], _check_radius];
-{deleteVehicle _x;} forEach nearestObjects [_spawnpos,["Thing"], _check_radius];
+[_spawnpos,_check_radius] call FUNC(clearPos);
 
 private _padempty = nearestObjects [_spawnpos, ["LandVehicle","Air"], _check_radius];
 
@@ -60,4 +58,5 @@ _anzahl = GVAR(current) select 3;
 [QEGVAR(logistics,setContainerWeight),_box] call CBA_fnc_localEvent;
 ["CRATE_SPAWNED",[_box]] spawn CBA_fnc_ServerEvent;
 disableSerialization;
-closeDialog 600200;
+closeDialog IDD_SPAWN_DLG;
+[] call EFUNC(gui_tablet,close);
