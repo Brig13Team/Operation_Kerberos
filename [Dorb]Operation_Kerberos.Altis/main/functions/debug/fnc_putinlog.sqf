@@ -1,20 +1,23 @@
 /*
-    Author: Dorbedo
-    
-    Description:
-        formats the message
-    
-    Parameter(s):
-        0: STRING - ADDON
-        1: STRING - PART
-        2: STRING - MESSAGE
-        3: STRING - FILE
-        4: SCALAR - LINE
-        
-    Return
-        nil
-*/
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      formats the message
+ *
+ *  Parameter(s):
+ *      0 : STRING - header
+ *      1 : STRING - functionname
+ *      2 : STRING - functionparent
+ *      3 : STRING - message to log
+ *      4 : STRING - filename
+ *      5 : SCALAR - line
+ *
+ *  Returns:
+ *      none
+ *
+ */
 #include "script_component.hpp"
+
 _this params[["_header","",[""]],["_functionname","",[""]],["_functionnameParent","",[""]],["_message","",[""]],["_file","",[""]],"_line"];
 
 If (_message isEqualTo "") exitWith {
