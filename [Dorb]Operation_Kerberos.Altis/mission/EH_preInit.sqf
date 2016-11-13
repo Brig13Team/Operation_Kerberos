@@ -11,7 +11,7 @@ PREP(registerTask);
 PREP(reward);
 PREP(rtb);
 
-PREP(EH_killed);
+PREP(onkilled);
 
 PREP(isSidemission);
 
