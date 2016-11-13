@@ -10,6 +10,7 @@ PREP(checkContainerRestrictions);
 
 PREP(addbriefing);
 PREP(addColorActions);
+PREP(getLoadout);
 PREP(grouptracker);
 PREP(halo);
 PREP(assignCurator);

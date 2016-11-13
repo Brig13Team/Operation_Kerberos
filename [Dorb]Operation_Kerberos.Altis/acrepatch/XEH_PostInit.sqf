@@ -37,3 +37,48 @@
     private _message = "player got new unique Radio";
     LOG_3(_message,_player,_class);
 }] call CBA_fnc_addEventHandler;
+
+
+[
+    QGVAR(syncGear),
+    {
+        _this params ["_unit"];
+        ([_unit] call EFUNC(player,getLoadout)) params ["_loadout","_weaponsarray"];
+        If ((local _unit)&&(hasInterface)) then {
+            ERROR_WITH_TITLE("Asnycron Gear","Your Gear got asnycron. Trying to syncronize your gear.");
+        };
+        removeAllWeapons _unit;
+        removeAllItemsWithMagazines _unit;
+        removeAllAssignedItems _unit;
+        removeHeadgear _unit;
+        removeGoggles _unit;
+        removeAllContainers _unit;
+        [
+
+            {_this call EFUNC(player,setLoadout);},
+            [_unit,_loadout,_weaponsarray],
+            5
+        ] call CBA_fnc_waitAndExecute;
+    }
+] call CBA_fnc_addEventHandler;
+
+[
+    {
+        If (ACRE_SERVER_GEAR_DESYNCED) then {
+            If (ACRE_SERVER_DESYNCED_PLAYERS isEqualTo []) then {
+                ACRE_SERVER_GEAR_DESYNCED = false;
+                publicVariable "ACRE_SERVER_GEAR_DESYNCED";
+            }else{
+                private _target = ACRE_SERVER_DESYNCED_PLAYERS deleteAt 0;
+                If !(isNull _target) then {
+                    [
+                        QGVAR(syncGear),
+                        [_target],
+                        _target
+                    ] call CBA_fnc_targetEvent;
+                };
+            };
+        };
+    },
+    60
+] call CBA_fnc_addPerFrameHandler;
