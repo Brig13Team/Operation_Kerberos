@@ -1,13 +1,13 @@
 /*
     Author: Dorbedo
-    
+
     Description:
         Backpack on Chest
         Init
-    
+
     Parameter(s):
         0 : BOOL     - Move to Chest
-    
+
 */
 #include "script_component.hpp"
 SCRIPT(change);
@@ -26,7 +26,7 @@ If (_movetoChest) then {
     SETVAR(player,GVAR(backpack_pack),_backpack);
     SETVAR(player,GVAR(backpack_anim),(animationState player));
     removebackpackglobal player;
-    [{_this call FUNC(backpack_handle);} , 2, [] ] call CBA_fnc_addPerFrameHandler;
+    [FUNC(backpack_handle) , 2, [] ] call CBA_fnc_addPerFrameHandler;
 }else{
     private["_backpackarray","_backpack"];
     _backpackarray = GETVAR(player,GVAR(backpack),[]);

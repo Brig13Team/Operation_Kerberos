@@ -1,0 +1,11 @@
+
+class ace_advanced_ballistics_enabled TURN_ON;
+class ace_advanced_ballistics_simulateForSnipers TURN_ON;
+class ace_advanced_ballistics_simulateForGroupMembers TURN_OFF;
+class ace_advanced_ballistics_simulateForEveryone TURN_OFF;
+class ace_advanced_ballistics_disabledInFullAutoMode TURN_OFF;
+class ace_advanced_ballistics_ammoTemperatureEnabled TURN_ON;
+class ace_advanced_ballistics_barrelLengthInfluenceEnabled TURN_ON;
+class ace_advanced_ballistics_bulletTraceEnabled TURN_ON;
+class ace_advanced_ballistics_simulationInterval SET_VAL(0.0);
+class ace_advanced_ballistics_simulationRadius SET_VAL(3000);

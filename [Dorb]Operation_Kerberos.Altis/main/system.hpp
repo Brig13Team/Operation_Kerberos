@@ -1,7 +1,7 @@
 /*
 
     Author: Dorbedo
-    
+
     Description:
         don't edit unless you realy know how it works
 
@@ -13,20 +13,20 @@
 
 /*
     Name: dorb_system_fnc_compile
-    
+
     Author: Dorbedo - Version 1.0
-    
+
     Description:
         main compiling function
         adds header to functions
         adds functions to functionfviewer
         adds recompilingprevention
-        
+
     Parameter(s):
         0: STRING - path to function file
         1: STRING - functionsname
         2: SCALAR - add the debug-header (default: 0 - MINIMAL; 1: SMALL; 2: MAPPING)
-        
+
     Return
         nil
 */

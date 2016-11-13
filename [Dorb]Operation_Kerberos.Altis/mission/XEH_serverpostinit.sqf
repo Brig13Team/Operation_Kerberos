@@ -1,6 +1,5 @@
 /*
     Author: Dorbedo
-
     Description:
         postinit server
 */
@@ -119,7 +118,6 @@ If ((_markerpos distance [0,0,0])>1) then {
     uisleep 60;
     false
     };
-
 };
 */
 

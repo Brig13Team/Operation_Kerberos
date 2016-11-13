@@ -1,5 +1,4 @@
-class logistics
-{
+class logistics {
     class vehicles {
         class rhsusf_m1025_base {
             max_width = 1.37;

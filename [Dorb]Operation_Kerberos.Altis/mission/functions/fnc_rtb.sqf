@@ -1,13 +1,12 @@
 /*
     Author: Dorbedo
-
     Description:
     Creates Mission "Return to Base".
-    
+
     Parameter(s):
         0 :    ARRAY - Position der letzten AO
         1 : STRING - Taskname
-        
+
     Returns:
     BOOL
 */
@@ -38,7 +37,7 @@ If (taskcancel) then {
 /*
 _sideMission = missionNamespace getVariable [QGVAR(current_sidemission),""];
 if (!(_sideMission isEqualTo "")) then {
-    [_sideMission,"CANCELED",false] call BIS_fnc_taskSetState; 
+    [_sideMission,"CANCELED",false] call BIS_fnc_taskSetState;
     missionNamespace setVariable [QGVAR(current_sidemission),""];
 };
 */

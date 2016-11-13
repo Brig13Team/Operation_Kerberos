@@ -1,9 +1,9 @@
 /*
     Author: Dorbedo
-    
+
     Description:
         creates mainmission
-    
+
 */
 #include "script_component.hpp"
 _this params[["_task","",[""]],["_centerposition",[],[[]]],["_distance",1000,[0]],["_taskID","",[""]],["_location","",[""]]];
@@ -55,7 +55,7 @@ TRACEV_2(_isTown,_location);
 /// workaround for localisation on player
 private _task_name = localize(format[localize LSTRING(TASKNAME_BLANK),toUpper(_task)]);
 private _task_desc = localize(format[localize LSTRING(TASKDESC_BLANK),toUpper(_task)]);
-[_task_name,[_task_desc],_taskpic,true] spawn EFUNC(interface,disp_info_global);
+[_task_name,_task_desc] spawn EFUNC(gui,globalmessage);
 
 #ifdef DEBUG_MODE_FULL
     [_centerposition,"CENTERPOS"] call EFUNC(common,debug_marker_create);
@@ -64,8 +64,7 @@ private _task_desc = localize(format[localize LSTRING(TASKDESC_BLANK),toUpper(_t
 
 /// taskhandler & display finished message
 if (_taskarray call FUNC(taskhandler)) then {
-    [_task_name,[LSTRING(FINISHED)],_taskpic,true] spawn EFUNC(interface,disp_info_global);
+    [_task_name,LSTRING(FINISHED),"green"] spawn EFUNC(gui,globalmessage);
 }else{
-    [_task_name,[LSTRING(FAILED)],_taskpic,true] spawn EFUNC(interface,disp_info_global);
+    [_task_name,LSTRING(FAILED),"red"] spawn EFUNC(gui,globalmessage);
 };
-

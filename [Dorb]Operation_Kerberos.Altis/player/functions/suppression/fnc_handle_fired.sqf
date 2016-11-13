@@ -1,11 +1,11 @@
 /*
     Author: Dorbedo
-    
+
     Description:
         suppression fired EH
-    
+
     Parameter(s):
-    
+
 
     Return
         none
@@ -29,7 +29,7 @@ if ((_projectile distance player) <= _detectionDistance) then {
     if (((_projectile distance player) <= 4.3)&&(((vehicle player) == player) || (isTurnedOut player))) then {
         GVAR(suppression_lastShotAt) = time;
         [] spawn {
-            _rBlur = ppEffectCreate ["RadialBlur", 1002]; 
+            _rBlur = ppEffectCreate ["RadialBlur", 1002];
             _rBlur ppEffectAdjust [0.015, 0.015, 0.2, 0.2];
             _rBlur ppEffectCommit 0;
             _rBlur ppEffectEnable true;
@@ -55,9 +55,8 @@ if ((vehicle player == player) || (isTurnedOut player)) then {
     if (GVAR(suppression_threshold) >= SUPPRESSION_BORDER) then {
         GVAR(suppression_threshold) = GVAR(suppression_threshold) min SUPPRESSION_MAX;
         if !(GVAR(suppression_isSuppressed)) then {
-            [{[]call FUNC(suppression_handle_effect)}, 0.5, [] ] call CBA_fnc_addPerFrameHandler;    
+            [FUNC(suppression_handle_effect), 0.5, [] ] call CBA_fnc_addPerFrameHandler;    
         };
-    }; 
+    };
 };
 [_this select 1] call CBA_fnc_removePerFrameHandler
-

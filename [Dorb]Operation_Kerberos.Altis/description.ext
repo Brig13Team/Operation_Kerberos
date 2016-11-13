@@ -1,96 +1,15 @@
 /*
-
-    Author: Dorbedo, iJesuz
-
-*/
+ *  Author: Dorbedo, iJesuz
+ *
+ *  Description:
+ *      description.ext
+ *
+ */
 #define CBA_OFF
 #include "script_component.hpp"
 
-author = LSTRING(AUTHOR);
-onLoadName = LSTRING(NAME);
-loadScreen = QEPAAPATH(logo,logo_512);
-onLoadMissionTime = 1;
-
-class Header {
-    gameType = Coop;
-    minPlayers = 1;
-    maxPlayers = 38;
-};
-
-///// ALLGEMEIN
-ShowGPS = 0;
-disabledAI=1;
-saving = 0;
-scriptedPlayer = 1;
-enableDebugConsole = 1;
-//showHUD[] = {true,false,false,false,false,false,false,false};
-//disableChannels[]={2,4,5};
-joinUnassigned = 1;
-
-
-///// RESPAWN
-respawnButton = 1;
-respawn = 3;
-respawnDelay = 5;
-respawnVehicleDelay = 60;
-respawnDialog = 0;
-respawnTemplates[] = {"MenuPosition"};
-respawnOnStart = 0;
-aikills = 1;
-
-
-///// BOHEMA-SACHEN deaktivieren
-wreckManagerMode = 0;
-corpseManagerMode = 0;
-
-///// Rootdir
-__EXEC (D_ROOTDIR = __FILE__ select [0, count __FILE__ - 15])
-
-///// ADDONS
-// Viewdistance
-#include "CHVD\dialog.hpp"
-class cfgFunctions {
-    #include "CHVD\CfgFunctions.hpp"
-};
-
-//// MAIN
-#include "main\system.hpp"
-
-
-///// MISSION
-// tasks
-#include "mission\config\CfgTaskDescriptions.hpp"
-#include "mission\config\CfgTaskTypes.hpp"
-#include "mission\config\missions_config.hpp"
-
-// Interface
-// #include "interface\config\RAL_CODES.hpp"
-#include "interface\config\define.hpp"
-#include "interface\config\menu.hpp"
-#include "interface\config\definitions_new.hpp"
-#include "interface\config\rscTitles_new.hpp"
-
-// Eventhandlers
-#include "CfgEventHandlers.hpp"
-
-// Headquarter
-#include "headquarter\config\drones.hpp"
-#include "headquarter\config\maps.hpp"
-#include "headquarter\config\strategy.hpp"
-
-// other
-#include "spawn\config\city_defence.hpp"
-#include "spawn\config\unitlists.hpp"
-#include "spawn\config\gear.hpp"
-#include "spawn\config\defence_positions.hpp"
-#include "player\config\arsenal.hpp"
-#include "logistics\config\logistics.hpp"
-
-// Sounds
+#include "CfgComponents.hpp"
 #include "CfgSounds.hpp"
-
-//Debrief
-#include "mission\CfgDebriefing.hpp"
-
-// Unit Insignia
 #include "CfgUnitInsignia.hpp"
+
+__EXEC (MISSION_ROOT = __FILE__ select [0, count __FILE__ - 15]);

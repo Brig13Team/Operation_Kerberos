@@ -5,8 +5,8 @@
 */
 #define CBA_OFF
 #include "script_component.hpp"
-/*
-class CfgSounds {
+
+class CfgUnitInsignia {
     class GVAR(insignia) {
         displayName = ELSTRING(MAIN,NAME);
         author = ELSTRING(MAIN,AUTHOR);
@@ -14,4 +14,3 @@ class CfgSounds {
         textureVehicle = "";
     };
 };
-*/
