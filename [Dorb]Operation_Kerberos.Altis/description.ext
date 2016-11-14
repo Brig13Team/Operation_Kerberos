@@ -5,11 +5,11 @@
  *      description.ext
  *
  */
-#define CBA_OFF
-#include "script_component.hpp"
+ #define CBA_OFF
+ #include "script_component.hpp"
 
-#include "CfgComponents.hpp"
-#include "CfgSounds.hpp"
-#include "CfgUnitInsignia.hpp"
+ #include "CfgComponents.hpp"
+ #include "CfgSounds.hpp"
+ #include "CfgUnitInsignia.hpp"
 
-__EXEC (MISSION_ROOT = __FILE__ select [0, count __FILE__ - 15]);
+ __EXEC (MISSION_ROOT = __FILE__ select [0, count __FILE__ - 15]);

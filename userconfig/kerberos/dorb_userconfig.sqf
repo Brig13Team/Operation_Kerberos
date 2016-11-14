@@ -1,9 +1,9 @@
 /*
     Operation Kerberos - Userconfig
-		used to restrict some abilities
+        used to restrict some abilities
 
-	example:
-		[
+    example:
+        [
             "123456789",
             "987654321"
         ];

@@ -1,0 +1,5 @@
+
+class ace_mk6mortar_airResistanceEnabled TURN_ON;
+class ace_mk6mortar_allowComputerRangefinder TURN_OFF;
+class ace_mk6mortar_allowCompass TURN_ON;
+class ace_mk6mortar_useAmmoHandling TURN_ON;
