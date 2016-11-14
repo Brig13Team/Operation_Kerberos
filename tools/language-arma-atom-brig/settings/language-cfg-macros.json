@@ -1,0 +1,73 @@
+{
+  ".source.arma.cfg": {
+    "autocomplete": {
+      "symbols": {
+        "macro-brig": {
+          "typePriority": 0,
+          "suggestions": [{
+              "description": "Expands to: \"$STR_PREFIX_COMPONENT_name\"",
+              "text": "CSTRING(${1:name})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "Expands to: \"$STR_PREFIX_component_name\"",
+              "text": "ECSTRING(${1:component},${2:name})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "includes the file COMPONENT\\XEH_preinit.sqf",
+              "text": "INCLUDE_PREINIT(${1:component})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "includes the file COMPONENT\\XEH_Serverpreinit.sqf",
+              "text": "INCLUDE_SERVERPREINIT(${1:component})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "includes the file COMPONENT\\XEH_Clientpreinit.sqf",
+              "text": "INCLUDE_CLIENTPREINIT(${1:component})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "includes the file COMPONENT\\XEH_postinit.sqf",
+              "text": "INCLUDE_POSTINIT(${1:component})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "includes the file COMPONENT\\XEH_Serverpostinit.sqf",
+              "text": "INCLUDE_SERVERPOSTINIT(${1:component})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "includes the file COMPONENT\\XEH_Clientpostinit.sqf",
+              "text": "INCLUDE_CLIENTPOSTINIT(${1:component})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "Expands to: var1_var2",
+              "text": "DOUBLES(${1:var1},${2:var2})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "Expands to: var1_var2_var3",
+              "text": "TRIPLES(${1:var1},${2:var2},${2:var3})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "Expands to: PREFIX_name",
+              "text": "GVARMAIN(${1:name})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "Expands to: \"PREFIX_name\"",
+              "text": "QGVARMAIN(${1:name})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }
+          ]
+        }
+      }
+    }
+  }
+}

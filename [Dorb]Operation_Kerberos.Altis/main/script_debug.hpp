@@ -54,6 +54,7 @@ Author:
     Dorbedo
 ------------------------------------------- */
 #define TRACE_SYS(STRING) ["TRACE",If (isNil "_fnc_scriptname") then {""}else{_fnc_scriptname}, if (isNil "_fnc_scriptNameParent") then {""}else{_fnc_scriptNameParent},STRING,__FILE__, __LINE__] call EFUNC(main,debug_putinlog)
+#define TRACE(MESSAGE) TRACE_SYS(MESSAGE)
 #define TRACE_1(MESSAGE,A) TRACE_SYS(PFORMAT_1(MESSAGE,A))
 #define TRACE_2(MESSAGE,A,B) TRACE_SYS(PFORMAT_2(MESSAGE,A,B))
 #define TRACE_3(MESSAGE,A,B,C) TRACE_SYS(PFORMAT_3(MESSAGE,A,B,C))
@@ -106,7 +107,7 @@ Author:
 /* -------------------------------------------
 Macro: EXPLODE_n(VAR)
     DEPRECATED - Use param/params commands added in Arma 3 1.48
-    
+
 Parameters:
     ARRAY - Array to read from [Array]
     A..H - Names of variables to set from array [Identifier]
@@ -147,6 +148,7 @@ Author:
 #else
 
 #define TRACE_SYS(STRING) /* disabled */
+#define TRACE(MESSAGE) /* disabled */
 #define TRACE_1(MESSAGE,A) /* disabled */
 #define TRACE_2(MESSAGE,A,B) /* disabled */
 #define TRACE_3(MESSAGE,A,B,C) /* disabled */
@@ -173,7 +175,7 @@ Author:
 Macro: LOG(STRING)
     Log a timestamped message into the RPT log.
     Only run if <DEBUG_MODE_NORMAL> or higher is defined.
-    
+
 Parameters:
     MESSAGE - Message to record [String]
 Example:
@@ -189,7 +191,7 @@ Author:
 Macro: LOG_n(VAR)
     Log a timestamped Variable into the RPT log.
     Only run if <DEBUG_MODE_NORMAL> or higher is defined.
-    
+
 Parameters:
     VAR - Variable to record [Any]
 Example:

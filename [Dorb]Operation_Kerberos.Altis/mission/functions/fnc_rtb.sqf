@@ -3,11 +3,11 @@
 
     Description:
     Creates Mission "Return to Base".
-    
+
     Parameter(s):
         0 :    ARRAY - Position der letzten AO
         1 : STRING - Taskname
-        
+
     Returns:
     BOOL
 */
@@ -29,14 +29,14 @@ If (taskcancel) then {
     sleep 30;
 };
 
-[LSTRING(RTB),[LSTRING(RTB_START_1)],"data\icon\icon_base.paa",false] call EFUNC(interface,disp_info_global);
+[QEGVAR(message),[LSTRING(RTB),LSTRING(RTB_START_1)]] call CBA_fnc_globalEvent;
 
 //////////////////////////////////////////////////
 ////// Nebenmissionen beenden                 /////
 //////////////////////////////////////////////////
 _sideMission = missionNamespace getVariable [QGVAR(current_sidemission),""];
 if (!(_sideMission isEqualTo "")) then {
-    [_sideMission,"CANCELED",false] call BIS_fnc_taskSetState; 
+    [_sideMission,"CANCELED",false] call BIS_fnc_taskSetState;
     missionNamespace setVariable [QGVAR(current_sidemission),""];
 };
 
@@ -49,7 +49,7 @@ if (!(_sideMission isEqualTo "")) then {
 #define CONDITION {_a=0;{If (_x distance (_this select 0) < 300) then {_a=_a+1;};} forEach playableUnits;If (_a == (count playableUnits)) then {true}else{false};}
 #define CONDITIONARGS [_position_home]
 #define SUCESSCONDITION {true}
-#define ONSUCESS {LOG('Alle zurückgekehrt');[LSTRING(RTB),[LSTRING(RTB_FINISHED),LSTRING(RTB_FINISHED2)],"data\icon\icon_base.paa",false] call EFUNC(interface,disp_info_global);[_position, 2000] spawn EFUNC(common,cleanup_big);}
+#define ONSUCESS {LOG('Alle zurückgekehrt');[LSTRING(RTB_FINISHED),LSTRING(RTB_FINISHED2)] call EFUNC(gui,globalmessage);[_position, 2000] spawn EFUNC(common,cleanup_big);}
 [INTERVALL,TASK,CONDITION,CONDITIONARGS,SUCESSCONDITION,ONSUCESS] call FUNC(taskhandler);
 
 LOG("Exit RTB");
