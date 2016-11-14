@@ -41,6 +41,38 @@
             <English>with our mission.</English>
         </Key>
     </Package>
+    <Package name="MOD_ACE">
+            <Key ID="STR_DORB_MOD_ACE_COLOR_MAINMENU">
+            <Original>Team-Managment</Original>
+            <English>Team-Managment</English>
+            <German>Team-Managment</German>
+        </Key>
+        <Key ID="STR_DORB_MOD_ACE_COLOR_GREEN">
+            <Original>Join Team Green</Original>
+            <English>Join Team Green</English>
+            <German>Team Grün beitreten</German>
+        </Key>
+        <Key ID="STR_DORB_MOD_ACE_COLOR_RED">
+            <Original>Join Team Red</Original>
+            <English>Join Team Red</English>
+            <German>Team Rot beitreten</German>
+        </Key>
+        <Key ID="STR_DORB_MOD_ACE_COLOR_BLUE">
+            <Original>Join Team Blue</Original>
+            <English>Join Team Blue</English>
+            <German>Team Blau beitreten</German>
+        </Key>
+        <Key ID="STR_DORB_MOD_ACE_COLOR_YELLOW">
+            <Original>Join Team Yellow</Original>
+            <English>Join Team Yellow</English>
+            <German>Team Gelb beitreten</German>
+        </Key>
+        <Key ID="STR_DORB_MOD_ACE_COLOR_WHITE">
+            <Original>Join Team White</Original>
+            <English>Join Team White</English>
+            <German>Team Weiss beitreten</German>
+        </Key>
+    </Package>
     <Package name="GUI_SPAWN">
         <Key ID="STR_DORB_GUI_SPAWN_NOTEMPTY">
             <Original>Spawn point is not empty</Original>
