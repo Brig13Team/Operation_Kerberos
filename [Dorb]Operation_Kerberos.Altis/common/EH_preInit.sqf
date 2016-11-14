@@ -26,6 +26,7 @@ PREP(pos_between);
 PREP(pos_flatempty);
 PREP(pos_mean);
 PREP(pos_random);
+PREP(pos_randomFlatEmpty);
 PREP(pos_relative);
 PREP(pos_square);
 PREP(pos_surrounding);

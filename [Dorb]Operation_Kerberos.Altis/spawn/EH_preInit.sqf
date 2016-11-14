@@ -37,6 +37,7 @@ PREP(unit);
 
 PREP(vehicle);
 
+PREP(temp_spawner);
 
 PREPS(city,fortify);
 PREPS(city,fortify_buildings);

@@ -1,66 +1,40 @@
-    /*
-    Author: Dorbedo
+/*
+    Author: iJesuz
 
     Description:
-        Creates Mission "DEVICE".
+        Mission "Device"
 
     Parameter(s):
-        0 :    ARRAY - Position
+        0 : [STRING,ARRAY]  - Destination [Locationname, Position]
 
-    Returns:
-    BOOL
+    Return:
+        [CODE,ARRAY]    -   [Taskhandler conditional function, its arguments]
 */
 #include "script_component.hpp"
-SCRIPT(device);
-_this params [["_position",[],[[]],[2,3]]];
-TRACEV_1(_position);
-CHECK(_position isEqualTo [])
-/********************
-    create Target
-********************/
-private ["_targets","_spawnposition","_rand","_einheit","_unit"];
-_targets=[];
-_spawnposition=[];
-_rand = 1;
-for "_i" from 1 to _rand do{
-    _einheit = selectRandom EGVAR(spawn,list_device);
-    _spawnposition = [_position,25,200,15,0.15] call EFUNC(common,pos_flatempty);
-    If (_spawnposition isEqualTo []) then {
-        _spawnposition = [_position,25,200,15,0.22] call EFUNC(common,pos_flatempty);
-    };
-    If (_spawnposition isEqualTo []) then {
-        _spawnposition = [_position,200,0] call EFUNC(common,pos_random);
-        _spawnposition = _spawnposition findEmptyPosition [1,100,_einheit];
-        if !(_spawnposition isEqualTo []) then {
-            _unit = createVehicle [_einheit,_spawnposition, [], 0, "NONE"];
-            _targets pushBack _unit;
-        };
-    }else{
-        _unit = createVehicle [_einheit,_spawnposition, [], 0, "NONE"];
-        _targets pushBack _unit;
-    };    
-};
-/********************
-    godmode
-********************/
-{
-    [_x] call FUNC(objects_device_init);
-    #ifdef DEBUG_MODE_FULL
-        [getPos _x,"DEVICE","ColorBlack","hd_destroy"] call EFUNC(common,debug_marker_create);
-    #endif
-} forEach _targets;
 
-/********************
-    taskhandler
-********************/
-GVAR(earthquake_nextIntervall) = CBA_missionTime + 8*60;
-[
-    QUOTE(_this params['_targets'];private '_a';_a = {_x getVariable [ARR_2('GVAR(target_dead)',false)];}count _targets;If (_a == (count _targets)) then {true}else{false};),
-    [_targets],
-    "true",
-    {},
-    {},
-    [],
-    QUOTE(If (isnil 'GVAR(earthquake_nextIntervall)') then {GVAR(earthquake_nextIntervall)=diag_ticktime + 8*60;};If (GVAR(earthquake_nextIntervall)<diag_ticktime) then {[QGVAR(earthquake)] call CBA_fnc_globalEvent;GVAR(earthquake_nextIntervall)=7*60+(floor(random 3))*60;};),
-    []
-]
+_this params [["_destination",["",[0,0,0]],[["",[]]]]];
+
+private _class = getText(missionConfigFile >> "missions_config" >> "main" >> "device" >> "object");
+
+private _position = _destination select 1;
+private _radius = getNumber(missionConfigFile >> "missions_config" >> "main" >> "device" >> "location" >> "distance");
+
+private _tmp = [_position,25,_radius,300,15,0.15] call EFUNC(common,pos_randomFlatEmpty);
+if (not (_tmp isEqualTo [])) then { _position = +_tmp; };
+
+private _obj = [_class,_position] call EFUNC(spawn,temp_spawner);
+#ifdef DEBUG_MODE_FULL
+    private _marker = createMarker ["DEBUG_DEVICE_MARKER",_position];
+    _marker setMarkerType "hd_dot";
+#endif
+
+// TODO: spawn defence units
+/*
+    ...
+*/
+
+GVAR(last_earthquake) = CBA_missionTime;
+
+private _intervall = getNumber(missionConfigFile >> "missions_config" >> "main" >> "device" >> "intervall");
+_intervall = _intervall * 60;
+["dorb_mission_fnc_mainmission_device_cond",[_obj,_intervall]]

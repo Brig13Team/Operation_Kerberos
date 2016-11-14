@@ -11,8 +11,6 @@
     SCALAR
 */
 #include "script_component.hpp"
-SCRIPT(handleDamage_C4);
-
 switch (true) do {
         default { 0 };
         case ( (_this select 4) == "demoCharge_remote_ammo") : {SETVAR((_this select 0),EGVAR(mission,target_dead),true); 1 };
