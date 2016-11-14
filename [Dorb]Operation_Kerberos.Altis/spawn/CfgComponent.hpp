@@ -22,10 +22,16 @@ class DOUBLES(CfgComponent,ADDON) {
     };
     class dependencies {
         CfgPatches[] = {"rhs_main","rhsusf_main","CBA_ai"};
-        CfgComponents[] = {"common","interface"};
+        CfgComponents[] = {"common"};
     };
 };
 #include "config\city_defence.hpp"
 #include "config\unitlists.hpp"
 #include "config\gear.hpp"
 #include "config\defence_positions.hpp"
+
+class CfgCompositions {
+    class houses {
+        #include "config\compositions_houses.hpp"
+    };
+};
