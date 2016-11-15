@@ -24,8 +24,7 @@ TRACEV_2(_taskarray,_task);
 /// choose the army
 private _armys = getArray(missionconfigfile>>"missions_config">>"main">>_task>>"armys");
 private _army = ([_armys,1] call EFUNC(common,sel_array_weighted))select 0;
-//[_army] call EFUNC(spawn,army_set);
-["regular"] call EFUNC(spawn,army_set);
+[_army] call EFUNC(spawn,army_set);
 
 /// choose the position
 private _positiontypes = getArray(missionconfigfile>>"missions_config">>"main">>_task>>"location">>"areas");

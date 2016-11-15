@@ -12,11 +12,9 @@
 */
 #include "script_component.hpp"
 
-SCRIPT(naval_minefield);
-
 private ["_pos", "_mine", "_marker", "_ret"];
 
-params [["_position",[0,0,0],[[]],[3]], ["_radius",100,[0]], ["_count",25,[0]], ["_type",2,[0]]];
+_this params [["_position",[0,0,0],[[]],[3]], ["_radius",100,[0]], ["_count",25,[0]], ["_type",2,[0]]];
 
 _ret = [];
 

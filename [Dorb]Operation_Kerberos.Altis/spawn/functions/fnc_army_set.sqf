@@ -9,31 +9,24 @@
     
 */
 #include "script_component.hpp"
-SCRIPT(choose_army);
-
-If !(_this params[["_Army","",[""]]]) then {
-    private _ArmyArray = [
-        ["regular",1], //mixed
-        //fighting troups
-        ["armored",1],
-        ["infanterie",1],
-        // special troups
-        ["airborne",1],
-        ["specops",1],    // special trained soldiers
-        ["droneoperations",1], // droneoperations
-        //other
-        ["guards",1]
-    ];
-    GVARMAIN(side_type) = [_ArmyArray,1] call EFUNC(common,sel_array_weighted)
-}else{
-    GVARMAIN(side_type) = _Army;
-};
 if (isNil QGVARMAIN(side)) then {
     GVARMAIN(side) = switch (GVARMAIN(playerside)) do {
         case "east" : {"west"};
         default {"east"};
     };
 };
+If !(_this params[["_Army","",[""]]]) then {
+    private _armyPath = (missionConfigFile >> "unitlists" >> str GVARMAIN(side));
+    private _ArmyArray = [];
+    for "_i" from 0 to ((count _armyPath)-1) do {
+        _ArmyArray pushBackUnique (configName (_armyPath select _i));
+    };
+    GVARMAIN(side_type) = selectRandom _ArmyArray;
+}else{
+    GVARMAIN(side_type) = _Army;
+};
+
+If (!isClass(missionConfigFile >> "unitlists" >> str GVARMAIN(side) >> _Army)) exitWith {ERROR("Army not found");[] call FUNC(_army_set);};
 
 private _path = (missionConfigFile >> "unitlists" >> str GVARMAIN(side) >> GVARMAIN(side_type));
 

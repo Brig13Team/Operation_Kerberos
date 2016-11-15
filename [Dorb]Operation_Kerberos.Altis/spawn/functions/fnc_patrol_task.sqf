@@ -5,7 +5,7 @@
     Author: Dorbedo
 
     Description:
-    Spawns Air Patrols
+        Patrols
 
     Parameter(s):
         0 : GROUP/OBJECT - groupleader or group
@@ -23,9 +23,7 @@
 */
 
 #include "script_component.hpp"
-SCRIPT(patrol_task);
-
-params [
+_this params [
     ["_group",grpNull,[grpNull,objNull]],
     ["_centerpos",[],[[]],[2,3]],
     ["_behavior","UNCHANGED",[""]],
@@ -35,7 +33,7 @@ params [
     ["_onComplete","",[""]],
     ["_timeout",[0,0,0],[[]],[3]],
     ["_compRadius", 5, [0]]
-    
+
 ];
 _group = _group call CBA_fnc_getGroup;
 if !(local _group) exitWith {};

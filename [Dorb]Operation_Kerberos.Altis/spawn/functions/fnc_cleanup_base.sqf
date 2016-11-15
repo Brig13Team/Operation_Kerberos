@@ -6,7 +6,6 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(cleanup_small);
 
 {
     _x TILGE;

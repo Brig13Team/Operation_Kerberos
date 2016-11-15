@@ -7,10 +7,12 @@
  */
 #include "script_component.hpp"
 
-["CAManBase", "init", {
-    If(local (_this select 0)) then {
-        _this call FUNC(gear);
-    };
+["rhsusf_M1083A1P2_B_M2_d_Medical_fmtv_usarmy", "init", {
+    _this call EFUNC(mod_ace,addMedicalItems);
+},true,[],true] call CBA_fnc_addClassEventHandler;
+
+["rhs_gaz66_ap2_base", "init", {
+    _this call EFUNC(mod_ace,addMedicalItems);
 },true,[],true] call CBA_fnc_addClassEventHandler;
 
 ["ACE_bodyBagObject", "init", {

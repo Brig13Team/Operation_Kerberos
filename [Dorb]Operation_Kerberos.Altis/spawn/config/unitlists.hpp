@@ -1,18 +1,5 @@
 #include "script_component.hpp"
 class unitlists {
-    class armies {
-        class regular {
-        
-        };
-        class armored {};
-        class infanterie {};
-        class airborne {};
-        class specops {};
-        class droneoperations {};
-        class guards {};
-    
-    
-    };
     class base {
         
         //// parts of max unitamount

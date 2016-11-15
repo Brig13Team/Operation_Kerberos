@@ -1,6 +1,7 @@
 #include "script_component.hpp"
 ADDON = false;
 
+PREP(addRadio);
 PREP(disableTFR);
 PREP(disableTFRArea);
 PREP(enableTFR);

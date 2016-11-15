@@ -1,9 +1,9 @@
 /*
     Author: Dorbedo
-    
+
     Description:
     Big Cleanup
-    
+
 */
 #include "script_component.hpp"
 _this params ["_pos","_rad"];
@@ -13,9 +13,11 @@ _this params ["_pos","_rad"];
 {
     _x TILGE;
 } foreach (_pos nearObjects ["ALL", _rad]);
+
 {
     _x TILGE;
 } forEach allMines;
+
 {
     if (side _x != GVARMAIN(playerside) ) then {
         _x TILGE;
@@ -27,6 +29,7 @@ _this params ["_pos","_rad"];
         _x TILGE;
     };
 } foreach vehicles;
+
 {
     _x TILGE;
 } forEach allDead;
@@ -38,5 +41,3 @@ _this params ["_pos","_rad"];
 
 ISNILS(EGVAR(mission,markerdump),[]);
 EGVAR(mission,markerdump) TILGE;
-
-nil;
