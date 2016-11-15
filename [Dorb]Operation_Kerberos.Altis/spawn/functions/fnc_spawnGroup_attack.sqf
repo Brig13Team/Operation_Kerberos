@@ -18,6 +18,7 @@
 _this params["_centerposition",["_amount",0,[0]],["_radius",600,[0]]];
 
 for "_i" from 0 to _amount do {
+    [] call FUNC(delaySpawn);
     private _spawnpos = [_centerposition,_radius,0] call EFUNC(common,pos_random);
     private _spawnpos = _spawnpos findEmptyPosition [1,40];
     private _grouptype = ["attack"] call FUNC(getGroup);

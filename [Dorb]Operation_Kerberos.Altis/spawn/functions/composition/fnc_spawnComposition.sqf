@@ -14,3 +14,7 @@
  *
  */
 #include "script_component.hpp"
+
+_this params ["_position","_config","_direction"];
+
+[] call FUNC(delaySpawn);

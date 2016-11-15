@@ -7,13 +7,19 @@
     Parameter(s):
         0 : ARRAY             - Position AGL (3D)
         1 : STRING or CONFIG    - Groupname
-        
+
 
     Returns:
     group
 */
 #include "script_component.hpp"
 _this params[["_position",[],[[]],[2,3]],["_type",[],[[],configfile]]];
+
+If ((IS_ARRAY(_type))&&(isClass(missionConfigFile >> (_type select 0)))) exitWith {
+    private _temp = [_position] append _type;
+    _temp call FUNC(groupFromArray);
+};
+
 LOG_2(_position,_type);
 CHECKRET((_position isEqualTo []),grpNull);
 CHECKRET(((IS_STRING(_type))&&{_type isEqualTo ""}),grpNull);
@@ -48,7 +54,7 @@ CHECKRET((_types isEqualTo []),grpNull);
 {
     private ["_spawnpos","_unit"];
     private _isMan = getNumber(configFile >> "CfgVehicles" >> _x >> "isMan") == 1;
-    
+
     If ((count _positions)>(_forEachIndex)) then {
         _spawnpos = [(_position select 0) + ((_positions select (_forEachIndex)) select 0),
                     (_position select 1) + ((_positions select (_forEachIndex)) select 1),
@@ -62,13 +68,13 @@ CHECKRET((_types isEqualTo []),grpNull);
     }else{
         _unit = ([_spawnpos,_group,_x,random(360),true,true,"FORM"] call FUNC(vehicle)) select 1;
     };
-    
+
     if ((count _ranks) > _forEachIndex) then {
         [_unit,(_ranks select (_forEachIndex))] call bis_fnc_setRank;
     }else{
         [_unit,0] call bis_fnc_setRank;
     };
-    
+
 }forEach _types;
 
 #ifdef DEBUG_MODE_FULL

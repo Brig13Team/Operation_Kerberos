@@ -14,6 +14,7 @@ PREP(defence_macros);
 
 PREP(gear);
 PREP(group);
+PREP(groupFromArray);
 
 PREP(macro_exec3d);
 //PREP(mainmission);
@@ -55,6 +56,11 @@ PREPS(composition,spawnHouse);
 PREP(missiontarget);
 PREP(onMissionEnding);
 
-PREPS(mission,"");
+PREPS(mission,device);
+PREPS(mission,hostages);
+PREPS(mission,intel);
+PREPS(mission,kill);
 
 ADDON = true;
+
+GVAR(SpawnLast) = CBA_missiontime;

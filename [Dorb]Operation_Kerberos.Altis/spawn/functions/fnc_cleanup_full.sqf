@@ -1,9 +1,9 @@
 /*
     Author: Dorbedo
-    
+
     Description:
     Big Cleanup
-    
+
 */
 #include "script_component.hpp"
 _this params ["_pos","_rad"];
@@ -41,5 +41,3 @@ _this params ["_pos","_rad"];
 
 ISNILS(EGVAR(mission,markerdump),[]);
 EGVAR(mission,markerdump) TILGE;
-
-nil;

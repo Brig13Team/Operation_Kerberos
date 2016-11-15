@@ -16,6 +16,8 @@
 
 _this params ["_house","_config"];
 
+[] call FUNC(delaySpawn);
+
 private _housetype = getText(_config>>"type");
 
 If !(_housetype isEqualTo (typeOf _house)) exitWith {
@@ -33,22 +35,26 @@ private _objectives = [];
     private _curDir = getNumber(_x>>"dir");
     private _hasCrew = getNumber(_x>>"hascrew")>0;
     private _isSimpleObject = getNumber(_x>>"issimpleobj")>0;
-
     private _object = objNull;
-    If (_isSimpleObject) then {
-        _object = createSimpleObject [getText(configFile>>"CfgVehicles">>_curType>>"model"), [0,0,100]];
-    }else{
-        _object = createVehicle [_curType, [0,0,100], [], 0, "CAN_COLLIDE"];
-    };
     private _targetPos = _house modelToWorld _curPos;
-    _object setPos _targetPos;
-    _object setDir (_curDir + (getDir _house));
-    _object setVectorUp _curVecUp;
-    If (_hasCrew) then {
-        If (isNull _group) then {
-            _group = createGroup GVARMAIN(side);
+
+    If (_curType == "Land_CargoBox_V1_F") then {
+        _objectives pushBack _targetPos;
+    }else{
+        If (_isSimpleObject) then {
+            _object = createSimpleObject [getText(configFile>>"CfgVehicles">>_curType>>"model"), [0,0,100]];
+        }else{
+            _object = createVehicle [_curType, [0,0,100], [], 0, "CAN_COLLIDE"];
         };
-        [_object,_group] call FUNC(crew);
+        _object setPos _targetPos;
+        _object setDir (_curDir + (getDir _house));
+        _object setVectorUp _curVecUp;
+        If (_hasCrew) then {
+            If (isNull _group) then {
+                _group = createGroup GVARMAIN(side);
+            };
+            [_object,_group] call FUNC(crew);
+        };
     };
 } forEach _allObjects;
 
