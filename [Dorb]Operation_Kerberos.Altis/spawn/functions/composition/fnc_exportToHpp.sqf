@@ -71,5 +71,5 @@ If (_isRecursive) exitWith {_output;};
 
 
 copyToClipboard _output;
-uisleep 3;
+If (canSuspend) then {uisleep 3;};
 hint "copied to clipboard";

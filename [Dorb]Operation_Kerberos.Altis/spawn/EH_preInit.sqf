@@ -52,4 +52,9 @@ PREPS(composition,createFromHouse);
 PREPS(composition,exportToHpp);
 PREPS(composition,spawnHouse);
 
+PREP(missiontarget);
+PREP(onMissionEnding);
+
+PREPS(mission,"");
+
 ADDON = true;

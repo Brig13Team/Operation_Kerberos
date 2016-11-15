@@ -13,12 +13,16 @@
  */
 #include "script_component.hpp"
 
-_this params [["_house",objNull,[objNull]]];
+_this params [["_house",objNull,[objNull]],["_isMissiontarget",false,[true]]];
 
 private _housetype = typeOf _house;
+private _allConfigs = [];
 
-private _allConfigs = ((format["getText(_x >> 'type') == '%1'",_housetype]) configClasses (missionConfigFile >> "CfgCompositions" >> "houses"));
-
+IF (_isMissiontarget) then {
+    _allConfigs = ((format["((getText(_x >> 'type') == '%1')&&(getNumber(_x >> 'hasmissiontarget')>0))",_housetype]) configClasses (missionConfigFile >> "CfgCompositions" >> "houses"));
+}else{
+    _allConfigs = ((format["getText(_x >> 'type') == '%1'",_housetype]) configClasses (missionConfigFile >> "CfgCompositions" >> "houses"));
+};
 If (_allConfigs isEqualTo []) exitWith {configNull;};
 
 selectRandom _allConfigs;

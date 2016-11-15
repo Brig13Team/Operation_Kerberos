@@ -1,5 +1,5 @@
 /*
- *  Author: DOrbedo
+ *  Author: Dorbedo
  *
  *  Description:
  *      creates a house-composition
@@ -12,7 +12,6 @@
  *
  */
 #include "script_component.hpp"
-_fnc_scriptname = "";
 
 _this params [["_house",objNull,[objNull]],["_radius",35,[0]]];
 
