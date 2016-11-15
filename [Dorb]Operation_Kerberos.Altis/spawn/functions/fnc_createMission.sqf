@@ -33,3 +33,5 @@ If ((count _nearLoc)>1) exitWith {
 [_centerposition,5] call FUNC(spawnGroup_defence);
 [_centerposition,12] call FUNC(spawnGroup_patrol);
 [_centerposition,12] call FUNC(spawnGroup_attack);
+
+[_centerposition,1500,8] call FUNC(minefields);
