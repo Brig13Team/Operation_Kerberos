@@ -11,3 +11,5 @@
 [QEGVAR(mission,end),{
     _this call FUNC(onMissionEnding);
 }] call CBA_fnc_addEventHandler;
+
+GVAR(targetHouses) = [];
