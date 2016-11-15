@@ -50,6 +50,11 @@
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
             }, {
+              "description": "Expands to: ([hash] call EFUNC(main,HashKeys))",
+              "snippet": "HASH_KEYS(${1:hash})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            },  {
               "description": "Expands to: ([hash] call EFUNC(main,serialize))",
               "snippet": "SERIALIZE(${1:hash})$0",
               "rightLabel": "BRIG Macro",

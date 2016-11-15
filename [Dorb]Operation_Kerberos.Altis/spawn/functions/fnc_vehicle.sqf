@@ -18,7 +18,7 @@
     [_vehicle,_crew,_group]
 */
 #include "script_component.hpp"
-params[
+_this params[
     ["_position",[],[[]],[2,3]],
     ["_group",grpNull,[grpNull,east]],
     ["_unittype","",[""]],
@@ -70,4 +70,4 @@ If (_withcrew) then {
 if (_changeleader) then {
     _group selectLeader (commander _vehicle);
 };
-[_group,_vehicle]
+[_group,_vehicle];
