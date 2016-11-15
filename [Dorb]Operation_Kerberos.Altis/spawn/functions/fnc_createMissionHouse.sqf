@@ -28,16 +28,10 @@ private _possibleBuildings = [];
 
 private _targetHouse = selectRandom _possibleBuildings;
 
-private _targetPositions = _targetHouse call FUNC(composition,spawnHouse);
+private _targetPositions = _targetHouse call FUNC(composition_spawnHouse);
+
+GVAR(targetHouses) pushBack _targetHouse;
 
 private _targetPos = selectRandom _targetPositions;
 
-/*
- *  Create the target
- */
-
-
-
-
-
-//
+_targetPos
