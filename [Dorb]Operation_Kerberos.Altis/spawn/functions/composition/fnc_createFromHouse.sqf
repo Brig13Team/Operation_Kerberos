@@ -6,6 +6,7 @@
  *
  *  Parameter(s):
  *      0 : OBJECT - The House
+ *      1 : SCALAR - Radius
  *
  *  Returns:
  *      HASH - the composition
@@ -27,6 +28,11 @@ private _hash = HASH_CREATE;
 GVAR(tempHash) = _hash;
 
 HASH_SET(_hash,"type",_housetype);
+If (({_x isKindOf "Land_CargoBox_V1_F"}count _nearObjects)>0) then {
+    HASH_SET(_hash,"isobjective",1);
+}else{
+    HASH_SET(_hash,"isobjective",0);
+};
 LOG_1(_nearObjects);
 {
     private _curtypename = toLower (typename _x);
@@ -54,5 +60,4 @@ LOG_1(_nearObjects);
     };
 } forEach _nearObjects;
 
-test = _hash;
 _hash;

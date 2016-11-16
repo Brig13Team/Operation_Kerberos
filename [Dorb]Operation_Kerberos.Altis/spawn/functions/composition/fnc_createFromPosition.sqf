@@ -1,0 +1,123 @@
+/*
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      creates a composition from a position/object
+ *
+ *  Parameter(s):
+ *      0 : OBJECT/ARRAY - the center of the composition
+ *      1 : SCALAR - Radius
+ *      2 : SCALAR - Direction
+ *
+ *  Returns:
+ *      HASH - the composition
+ *
+ */
+#include "script_component.hpp"
+
+_this params [["_center",[],[[],objNull]],["_radius",35,[0]],["_dir",0,[0]]];
+
+CHECK(_center isEqualTo [])
+
+If (IS_OBJECT(_center)) then {
+    _center = getPos _center;
+    _dir = getDir _center;
+};
+private _vectorUp = [0,0,1];
+
+
+private _nearObjects = nearestObjects [_center,["Static","Thing","AllVehicles"],_radius];
+
+private _mainhash = HASH_CREATE;
+GVAR(tempHash) = _mainhash;
+
+If !(isNil QGVAR(exporthelper)) then {
+    deleteVehicle GVAR(exporthelper);
+    deleteVehicle GVAR(exporthelper2);
+};
+_center set[2,0];
+GVAR(exporthelper) = createVehicle ["Sign_Arrow_Direction_F", _center, [], 0, "CAN_COLLIDE"];
+GVAR(exporthelper2) = createVehicle ["Sign_Arrow_Large_F", _center, [], 0, "CAN_COLLIDE"];
+GVAR(exporthelper) setPosATL _center;
+GVAR(exporthelper) setDir _dir;
+GVAR(exporthelper2) setPosATL _center;
+_nearObjects = _nearObjects - GVAR(exporthelper) - GVAR(exporthelper2);
+
+private _fnc_getObjbelow = {
+    _this params ["_object",["_objectsToIgnore",[]]];
+    private _objPosASL = getPosASL _object;
+    private _terrainPosATL = getPosATL _object;
+    _terrainPosATL set [2,0];
+    private _terrainPosASL = ATLtoASL _terrainPos;
+    private _nextObject = lineIntersectsObjs [_objPosASL, _terrainPosASL, objNull, _object, false, 2];
+    _nextObject = _nearObject - _objectsToIgnore;
+    if (_nextObject isEqualTo []) exitWith {_object;};
+    _objectsToIgnore pushBack _object;
+    [_nextObject select 0,] call _fnc_getObjbelow;
+};
+
+_fnc_setObjAtt = {
+    _this params ["_hash","_obj","_relObj"];
+    HASH_SET(_hash,"type",typeOf _obj);
+    private _curPos = getPos _obj;
+    private _curRelPos = _relObj worldToModel _curPos;
+    HASH_SET(_hash,"pos",_curRelPos);
+    private _curDir = (getDir _obj) + (getDir _relObj);
+    HASH_SET(_hash,"dir",_curDir);
+    HASH_SET(_hash,"vecup",vectorUp _obj);
+    private _hasCrew = (count (getArray(configFile >> (typeOf _obj) >> "typicalCargo" ))) > 0;
+    private _isSimpleObject = !((_hasCrew)||(_obj isKindOf "CAManBase"));
+    HASH_SET(_hash,"hascrew",_hasCrew);
+    HASH_SET(_hash,"issimpleobj",_isSimpleObject);
+};
+
+
+
+If (({_x isKindOf "Land_CargoBox_V1_F"}count _nearObjects)>0) then {
+    HASH_SET(_mainhash,"isobjective",1);
+}else{
+    HASH_SET(_mainhash,"isobjective",0);
+};
+
+private _registeredObjects = [];
+private _registeredObjectshashes = [];
+_registeredObjectshashes
+private _time = CBA_missiontime + 120;
+while { ((count _nearObjects)>0)&&(_time < CBA_missiontime)} do {
+    private _curObj = _nearObjects deleteAt 0;
+    private _objBelow = [_curObj] call _fnc_getObjbelow;
+
+    If (_curObj == _objBelow) then {
+        /// register as lowest Object
+        private _tempHash = HASH_CREATE;
+        private _tempKey = format["Obj_%1", count (HASH_KEYS(_mainhash)) ];
+        HASH_SET(_tempHash,_tempKey,_tempHash);
+        [_tempHash,_curObj,GVAR(exporthelper)] call _fnc_setObjAtt;
+        private _index = count _registeredObjects;
+        _registeredObjects set[_index,_curObj];
+        _registeredObjectshashes set [_index,_tempKey];
+    }else{
+        If (_objBelow in _registeredObjects) then {
+            // get the hash of the lowest object
+            private _index = _registeredObjects find _objBelow;
+            private _curHash = _registeredObjectshashes select _index;
+            private _objectshash = HASH_GET(_curHash,"objects");
+            If (isNil "_objectshash") then {
+                _objectshash = HASH_CREATE;
+                HASH_SET(_curHash,"objects",_objectshash);
+            };
+            // register the Object as a sub-object
+            private _tempHash = HASH_CREATE;
+            private _tempKey = format["Obj_%1", count (HASH_KEYS(_objectshash)) ];
+            HASH_SET(_objectshash,_tempKey,_tempHash);
+            [_tempHash,_curObj,_objBelow] call _fnc_setObjAtt;
+            private _index = count _registeredObjects;
+            _registeredObjects set[_index,_curObj];
+            _registeredObjectshashes set [_index,_tempKey];
+        }else{
+            _nearObjects pushBack _curObj;
+        };
+    };
+};
+
+_mainhash;
