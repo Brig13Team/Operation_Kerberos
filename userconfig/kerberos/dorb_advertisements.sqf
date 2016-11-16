@@ -5,7 +5,6 @@
  *      the advertisements
  *
  */
-#include "script_component.hpp"
 
 [
 /*
