@@ -16,7 +16,7 @@
 _this params ["_attackLoc"];
 
 private _pos = locationPosition _attackLoc;
-private _spawnPos = [_pos] call FUNC(ressources_getsavespawnpos);
+private _spawnPos = [_pos,4000,4000,10000] call FUNC(ressources_getsavespawnposair);
 
 _spawnPos set [2,500];
 

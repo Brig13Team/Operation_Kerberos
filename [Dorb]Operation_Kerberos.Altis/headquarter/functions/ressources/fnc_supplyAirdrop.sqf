@@ -15,7 +15,8 @@
 
 private _centerpos = HASH_GET(GVAR(dangerzones),"centerpos");
 
-private _spawnPos = [_centerpos] call FUNC(ressources_getsaveSpawnPos);
+private _spawnPos = [_centerpos,4000,4000,10000] call FUNC(ressources_getsavespawnposair);
+
 _spawnPos set [2,400];
 private _transporttype = ["transporter_airdrop"] call EFUNC(spawn,getUnit);
 
