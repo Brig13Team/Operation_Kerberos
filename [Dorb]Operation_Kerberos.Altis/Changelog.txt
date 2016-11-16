@@ -11,17 +11,16 @@ Removed: Missions: Sidemissions
 Removed: Missions: Rewards
 Added: GPL-License
 Added: bwpatch: bw-vehicle take more dammge from RHS-Weapons
-Added: Common: Eventsystem
 Added: Common: matrix-functions
 Added: Common: rotation-matrix
-Added: Common: waitandexec
-Added: Headquarter: Strategys (learning)
+Added: Headquarter: Strategies
 Added: Headquarter: ai-groups state machine
 Added: Headquarter: poi
 Added: Headquarter: waypoint generation
 Added: Headquarter: FDC - controlls every artillery unit
 Added: Headquarter: Drones - call-in of drones
-Added: Interface: Cratespawn - add 1,10 or 100 items
+Added: Headquarter: various Call-In Supports
+Added: Interface: Cratespawn - add 1,10 or 100 items (modifier Keys)
 Added: Logistics: Weight function
 Added: Logistics: seats blocked if something is loaded
 Added: Missions: Mainmissions
@@ -29,6 +28,8 @@ Added: Missions: Sidemissions
 Added: Spawn: Armys
 Added: tfar: AI can hear you talk
 Added: tfar: posibility to deaktivate the tfar-radios
+Added: ACRE2 support
+Added: View restrictions
 Improved: Interface: Vehiclespawn
 Improved: Main: Macros
 Improved: Scripte: Export of defencepositions
@@ -36,11 +37,13 @@ Improved: Spawn: patrol-waypoint
 Improved: Spawn: spawn-functions
 Changed: Interface: Spawnlists (removed some vanilla vehicles)
 Changed: Interface: Spawnpoints
+Changed: Interface: split of the component
 Changed: Baselocation
 Changed: Spawn: TFR
 Changed: GPS-deaktivated
 Changed: ACE-Medical to advanced
 Changed: ACE-Repair-Settings (Wheels, tracks availlible), ACE-Cargo deaktivated
+Changed: Structure of the mission
 
 Fixed: Player: TK-Logging
 Fixed: Interface: Clear crate-spawnlist

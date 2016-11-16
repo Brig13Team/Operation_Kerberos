@@ -17,7 +17,7 @@
 <hr>
 
 Dynamische Mission von Dorbedo und iJesuz </br>
-Unterstützt von Maverick (Stellungsdesign), Cypherstalker (Übersetzungen), Kiwa (Spellcheck), Dagobert (Design der Basis).
+Unterstützt von Maverick (Stellungsdesign), Cypherstalker (Übersetzungen), Kiwa (Spellcheck).
 
 ##Momentane Features:
 
@@ -34,25 +34,18 @@ Unterstützt von Maverick (Stellungsdesign), Cypherstalker (Übersetzungen), Kiw
 <li>Prototyp<ul>Prototyp finden, bei Bedarf erobern und zurück zur Basis schaffen</ul></li>
 <li>Scarab<ul>Abschuss der Atomraketen verhinden (Fahrzeugcrew töten)</ul></li>
 </ul>
-###Armeen:<ul>
-<li>Reguläre Truppen
-<li>Panzertruppen
-<li>Infanterie
-<li>Luftlandetruppen
-<li>Spezialkräfte
-<li>Drohnenkommando
-</ul>
+###Armeen:
+Diverse Armeen, mit unterschiedlichen Einheitentypen
 ###Gegner:<ul>
-<li>Infanteriepatroullien</li>
-<li>Infanterie in Gebäuden</li>
-<li>Statische Geschütze</li>
-<li>Fahzeugpatroullien</li>
-<li>Wasserpatroullien</li>
+<li>Patroullien</li>
+<li>Angriffstruppen</li>
+<li>Verteidigungstruppen</li>
+<li>Befestigte Stellungen</li>
+<li>Befestigte Haeuser</li>
 <li>ACE-Minenfelder</li>
-<li>Diverse Befestigte Stellungen (Mörser, Militärtürme, Bunker, AA)</li>
 </ul>
 ###Gegnerischer Kommandant[virtuell]:
-Gegnerischer Kommandant hat Befehl über Angriffsstreitkräte und setzt diese zur Verteidigung ein. Zusätzlich hat er die Kontrolle über:<ul>
+Gegnerischer Kommandant hat Befehl über Angriffsstreitkräte und setzt diese zur Verteidigung/dem Angriff ein. Zusätzlich hat er die Kontrolle über:<ul>
 <li>FDC(fire direction center)</li>
 <li>Dronensteuerung</li>
 <li>Air Interception</li>
