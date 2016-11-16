@@ -1,1 +1,1 @@
-class ace_medical_blood_enabledFor SET_VAL(1);
+class ace_medical_blood_enabledFor SET_VAL(0);
