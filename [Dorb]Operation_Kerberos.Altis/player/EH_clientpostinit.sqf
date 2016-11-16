@@ -103,9 +103,25 @@ SETUVAR(EGVAR(gui,respawnTime),nil);
     }
 ] call CBA_fnc_waitUntilAndExecute;
 
+/*
+ * Copy Loadout Action
+ *
+*/
 
 
-
+private _action = [
+    QGVAR(copy_loadout),
+    localize LSTRING(ACTION_COPY_LOADOUT),
+    "",
+    {
+        private _loadout = [_target] call FUNC(getLoadout);
+        [player,_loadout select 0,_loadout select 1] call FUNC(setLoadout);
+    },
+    {
+        [_target,player] call FUNC(canCopyLoadout);
+    }
+] call ace_interact_menu_fnc_createAction;
+["CAManBase",0,["ACE_MainActions"],_action] call ace_interact_menu_fnc_addActionToClass;
 
 
 

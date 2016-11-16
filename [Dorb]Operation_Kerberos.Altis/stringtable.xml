@@ -1144,6 +1144,11 @@
             <German>Anklopfen</German>
             <English>knock</English>
         </Key>
+        <Key ID="STR_DORB_PLAYER_ACTION_COPY_LOADOUT">
+            <Original>copy loadout</Original>
+            <German>Kopiere Ausrüstung</German>
+            <English>copy loadout</English>
+        </Key>
     </Package>
     <Package name="logistics">
         <Key ID="STR_DORB_LOGISTICS_ACTION_MAIN">

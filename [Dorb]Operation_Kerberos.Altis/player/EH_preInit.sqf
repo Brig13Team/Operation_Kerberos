@@ -11,6 +11,7 @@ PREP(getSideRestrictedArsenal);
 PREP(checkContainerRestrictions);
 
 PREP(addbriefing);
+PREP(canCopyLoadout);
 PREP(getLoadout);
 PREP(grouptracker);
 PREP(halo);
