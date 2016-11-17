@@ -3,38 +3,38 @@
 ADDON = false;
 
 PREP(army_set);
+
 PREP(cleanup_base);
 PREP(cleanup_full);
+PREP(createMission);
+PREP(createMissionComposition);
+PREP(createMissionHouse);
 PREP(crew);
 
-PREP(defence_create);
-PREP(defence_macros);
-
-//PREP(exec_housemacro).sqf
-
+PREP(delaySpawn);
 PREP(gear);
 PREP(group);
 PREP(groupFromArray);
 
-PREP(macro_exec3d);
-//PREP(mainmission);
 PREP(minefield);
 PREP(minefields);
-PREP(mission);
+PREP(missiontarget);
 
 PREP(naval_minefield);
 
 PREP(onHit);
+PREP(onMissionEnding);
 
-PREP(patrol_create);
 PREP(Patrol_task);
+
+PREP(spawnGroup_attack);
+PREP(spawnGroup_defence);
+PREP(spawnGroup_patrol);
 
 PREP(stayInVehicle);
 
-PREP(strikeforce_create);
-
-PREP(unit);
 PREP(unit_limit);
+PREP(unit);
 
 PREP(vehicle);
 
@@ -49,13 +49,13 @@ PREPS(city,spawn_explosives);
 PREPS(city,spawn_static);
 PREPS(city,spawn_unit);
 
+PREPS(composition,chooseComposition);
 PREPS(composition,chooseHouse);
 PREPS(composition,createFromHouse);
+PREPS(composition,createFromPosition);
 PREPS(composition,exportToHpp);
+PREPS(composition,spawnComposition);
 PREPS(composition,spawnHouse);
-
-PREP(missiontarget);
-PREP(onMissionEnding);
 
 PREPS(mission,device);
 PREPS(mission,hostages);

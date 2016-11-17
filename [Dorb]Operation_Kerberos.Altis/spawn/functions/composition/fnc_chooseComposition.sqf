@@ -13,12 +13,12 @@
  */
 #include "script_component.hpp"
 
-_this params [["_type" isEqualTo "","",[""]]];
+_this params [["_type","",[""]]];
 
 private _allConfigs = [];
 
 IF (_type isEqualTo "") then {
-    _allConfigs = "(getNumber(_x >> 'isObective') == 0)" configClasses (missionConfigFile >> "CfgCompositions" >> "houses"));
+    _allConfigs = "(getNumber(_x >> 'isObective') == 0)" configClasses (missionConfigFile >> "CfgCompositions" >> "positions");
 }else{
     If (IS_STRING(_type)) then {_type = [_type];};
     private _condition = format["(getNumber(_x >> '%1')>0)",_type deleteAt 0];
@@ -26,7 +26,7 @@ IF (_type isEqualTo "") then {
         _condition = format["%1 && (getNumber(_x >> '%2')>0)",_condition,_type deleteAt 0];
     } forEach _type;
     _condition = format["(%1)",_condition];
-    _allConfigs = _condition configClasses (missionConfigFile >> "CfgCompositions" >> "houses"));
+    _allConfigs = _condition configClasses (missionConfigFile >> "CfgCompositions" >> "positions");
 };
 If (_allConfigs isEqualTo []) exitWith {configNull;};
 
