@@ -24,6 +24,7 @@ class CfgComponents {
     spawn = 1;
     headquarter = 1;
     mission = 1;
+    advertisements = 1;
     /// mod specific components
     mod_ace = 1;
     mod_acre = 1;
@@ -42,6 +43,7 @@ class CfgComponents {
 
 #include "main\CfgComponent.hpp"
 #include "common\CfgComponent.hpp"
+#include "advertisements\CfgComponent.hpp"
 #include "headless\CfgComponent.hpp"
 #include "headquarter\CfgComponent.hpp"
 #include "logistics\CfgComponent.hpp"

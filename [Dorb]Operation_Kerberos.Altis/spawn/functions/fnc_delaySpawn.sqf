@@ -13,7 +13,7 @@
  */
 #include "script_component.hpp"
 
-If (!canSuspend) exitWith {};
+If ((!canSuspend)||(!isMultiplayer)) exitWith {};
 
 waitUntil {(GVAR(SpawnNext) > CBA_missiontime)};
 GVAR(SpawnNext) = CBA_missiontime + 20;
