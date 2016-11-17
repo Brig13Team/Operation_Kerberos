@@ -29,4 +29,5 @@ for "_i" from 0 to _amount do {
         private _group = [_spawnpos, _grouptype] call FUNC(group);
         [_group,"defence"] call EFUNC(headquarter,registerGroup);
         [_group,"defence"] call EFUNC(headquarter,state_set);
+    };
 };

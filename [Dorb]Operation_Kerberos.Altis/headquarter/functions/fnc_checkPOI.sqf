@@ -19,7 +19,7 @@
     If !(_IsstillDefended) then {
         HASH_DELETE(_curLoc);
     };
-} forEach HASH_GET(GVAR(POI),"Locations"))
+} forEach HASH_GET(GVAR(POI),"Locations");
 
-private _allPOI = HASH_GET(GVAR(POI),"Locations")) - [locationNull];
+private _allPOI = HASH_GET(GVAR(POI),"Locations") - [locationNull];
 HASH_SET(GVAR(POI),"locations",_allPOI);

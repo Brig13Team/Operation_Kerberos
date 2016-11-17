@@ -160,7 +160,7 @@ If (
     private _condition = (getText(_x >> "finishcondition"));
     private _function = (getText(_x >> "function"));
 
-    private _parameter = [[_attackPos,_hash] call compile _function)] param [0,[]];
+    private _parameter = [[_attackPos,_hash] call compile _function] param [0,[]];
 
     If (_timeout > 0) then {
         _timeout = _timeout + CBA_missiontime;
