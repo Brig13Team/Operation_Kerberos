@@ -18,10 +18,10 @@ class CfgComponents {
     interface = 1;
     logistics = 1;
     player = 1;
+    spawn = 1;
     teamkilling = 1;
     viewrestriction = 1;
     /// mission specific components
-    spawn = 1;
     headquarter = 1;
     mission = 1;
     advertisements = 1;

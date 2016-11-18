@@ -14,7 +14,7 @@
  */
 #include "script_component.hpp"
 
-_this params [["_house",objNull,[objNull]],["_radius",35,[0]]];
+_this params [["_house",objNull,[objNull]],["_radius",35,[0]],["_author","BrigTeam",[""]]];
 
 CHECK(isNull _house)
 CHECK(!(_house isKindOf "house"))
@@ -60,4 +60,6 @@ LOG_1(_nearObjects);
     };
 } forEach _nearObjects;
 
+
+HASH_SET(_hash,"author",_author);
 _hash;

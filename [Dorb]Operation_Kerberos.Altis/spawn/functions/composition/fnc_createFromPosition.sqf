@@ -14,8 +14,8 @@
  *
  */
 #include "script_component.hpp"
-private _fnc_scriptname = "test";
-_this params [["_center",[],[[],objNull]],["_radius",35,[0]],["_dir",0,[0]]];
+
+_this params [["_center",[],[[],objNull]],["_radius",35,[0]],["_dir",0,[0]],["_author","BrigTeam",[""]]];
 
 CHECK(_center isEqualTo [])
 
@@ -98,7 +98,7 @@ If (({_x isKindOf "Land_CargoBox_V1_F"}count _nearObjects)>0) then {
 }else{
     HASH_SET(_mainhash,"isobjective",0);
 };
-private _helperToIgnore = ["",
+private _helperToIgnore = ["","Logic",
     "Sign_Arrow_Direction_F","Sign_Arrow_Large_F",
     "Sign_Arrow_Large_Pink_F","Sign_Arrow_Direction_Pink_F",
     "Sign_Arrow_Large_Green_F","Sign_Arrow_Direction_Green_F",
@@ -149,5 +149,6 @@ while { ((count _nearObjects)>0)&&(_time > CBA_missiontime)} do {
         };
     };
 };
+HASH_SET(_mainhash,"author",_author);
 test = _mainhash;
 _mainhash;
