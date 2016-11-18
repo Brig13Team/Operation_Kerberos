@@ -53,6 +53,7 @@ PREPS(composition,chooseComposition);
 PREPS(composition,chooseHouse);
 PREPS(composition,createFromHouse);
 PREPS(composition,createFromPosition);
+PREPS(composition,helperRoad);
 PREPS(composition,exportToHpp);
 PREPS(composition,spawnComposition);
 PREPS(composition,spawnHouse);

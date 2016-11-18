@@ -98,8 +98,13 @@ If (({_x isKindOf "Land_CargoBox_V1_F"}count _nearObjects)>0) then {
 }else{
     HASH_SET(_mainhash,"isobjective",0);
 };
-
-_nearObjects = _nearObjects select {(!isPlayer _x)&&(!(_x isKindOf "Animal"))&&(!(typeOf _x in ["","Sign_Arrow_Direction_F","Sign_Arrow_Large_F"]))};
+private _helperToIgnore = ["",
+    "Sign_Arrow_Direction_F","Sign_Arrow_Large_F",
+    "Sign_Arrow_Large_Pink_F","Sign_Arrow_Direction_Pink_F",
+    "Sign_Arrow_Large_Green_F","Sign_Arrow_Direction_Green_F",
+    "Sign_Arrow_Large_Yellow_F","Sign_Arrow_Direction_Yellow_F"
+];
+_nearObjects = _nearObjects select {(!isPlayer _x)&&(!(_x isKindOf "Animal"))&&(!(typeOf _x in _helperToIgnore))};
 
 
 private _registeredObjects = [];
