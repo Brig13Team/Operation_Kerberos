@@ -34,13 +34,17 @@ GVAR(tempHash) = _mainhash;
 If !(isNil QGVAR(exporthelper)) then {
     deleteVehicle GVAR(exporthelper);
     deleteVehicle GVAR(exporthelper2);
+    deleteVehicle GVAR(exporthelper3);
 };
 _center set[2,0];
-GVAR(exporthelper) = createVehicle ["Sign_Arrow_Direction_F", _center, [], 0, "CAN_COLLIDE"];
+GVAR(exporthelper) = ([sideLogic] call CBA_fnc_getSharedGroup) createUnit ["LOGIC", [0, 0, 0], [], 0, "NONE"];
 GVAR(exporthelper2) = createVehicle ["Sign_Arrow_Large_F", _center, [], 0, "CAN_COLLIDE"];
+GVAR(exporthelper3) = createVehicle ["Sign_Arrow_Direction_F", _center, [], 0, "CAN_COLLIDE"];
 GVAR(exporthelper) setPosATL _center;
 GVAR(exporthelper) setDir _dir;
 GVAR(exporthelper2) setPosATL _center;
+GVAR(exporthelper3) setPosATL _center;
+GVAR(exporthelper3) setDir _dir;
 //_nearObjects = _nearObjects - [GVAR(exporthelper)] - [GVAR(exporthelper2)];
 
 private _fnc_getObjbelow = {
@@ -76,9 +80,10 @@ private _fnc_setObjAtt = {
 private _fnc_setObjAttBottom = {
     _this params ["_hash","_obj"];
     HASH_SET(_hash,"type",typeOf _obj);
-    private _curRelPos = GVAR(exportmarker) getPos [GVAR(exportmarker) distance2D _obj,[GVAR(exportmarker),_obj]call BIS_fnc_relativeDirTo];
+    //private _curRelPos = GVAR(exporthelper) getPos [GVAR(exporthelper) distance2D _obj,[GVAR(exporthelper),_obj]call BIS_fnc_relativeDirTo];
+    private _curRelPos = GVAR(exporthelper) worldToModel (getPos _obj);
     HASH_SET(_hash,"pos",_curRelPos);
-    private _curDir = (getDir _obj) + (getDir _relObj);
+    private _curDir = (getDir _obj) + _dir;
     HASH_SET(_hash,"dir",_curDir);
     HASH_SET(_hash,"vecup",vectorUp _obj);
     private _hasCrew = (count (getArray(configFile >> (typeOf _obj) >> "typicalCargo" ))) > 0;

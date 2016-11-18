@@ -38,12 +38,8 @@ private _fnc_spawnRelObj = {
         private _curDir = getNumber(_x>>"dir") + getDir _curRelObj;
         private _hasCrew = getNumber(_x>>"hascrew")>0;
         private _isSimpleObject = getNumber(_x>>"issimpleobj")>0;
-        private ["_curObj","_curVecUp"];
-        If (_curType isKindOf "HouseBase") then {
-            _curVecUp = [0,0,1];
-        }else{
-            _curVecUp = getArray(_curCfg >> "vecup") vectorAdd (vectorUp _curRelObj);
-        };
+        private ["_curObj"];
+        private _curVecUp = getArray(_curCfg >> "vecup") vectorAdd (vectorUp _curRelObj);
 
         If (_curType == "Land_CargoBox_V1_F") then {
             _objectives pushBack _curPos;
@@ -92,7 +88,7 @@ LOG_1(_allClasses);
     private _hasCrew = getNumber(_x>>"hascrew")>0;
     private _isSimpleObject = getNumber(_x>>"issimpleobj")>0;
     private ["_curObj","_curVecUp"];
-    If (_curType isKindOf "HouseBase") then {
+    If (_curType isKindOf "Building") then {
         _curVecUp = [0,0,1];
     }else{
         _curVecUp = getArray(_curCfg >> "vecup") vectorAdd (surfaceNormal _curPos);
