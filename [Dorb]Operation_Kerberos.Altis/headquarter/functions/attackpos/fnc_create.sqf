@@ -35,13 +35,15 @@ If (isNull _attackLoc) then {
     _attackLoc setRectangular true;
     HASH_SET(_attackLoc,"isPOI",false);
 };
-
+#ifdef DEBUG_MODE_FULL
+    [_position,"AttackPosition","ColorRed","mil_flag"] call FUNC(debug_marker_create);
+#endif
 If !(isNull _group) then {
     [_attackLoc,_group] call FUNC(attackpos_add);
 }else{
     HASH_SET(_attackLoc,"enemygroups",[]);
-    HASH_SET(_attackLoc,"enemytype",[0,0,0]);
-    HASH_SET(_attackLoc,"enemyvalue",[0,0,0]);
-    HASH_SET(_attackLoc,"enemythreat",[0,0,0]);
+    HASH_SET(_attackLoc,"enemytype",[ARR_3(0,0,0)]);
+    HASH_SET(_attackLoc,"enemyvalue",[ARR_3(0,0,0)]);
+    HASH_SET(_attackLoc,"enemythreat",[ARR_3(0,0,0)]);
 };
 _attackLoc;

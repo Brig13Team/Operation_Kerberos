@@ -27,6 +27,9 @@ for "_i" from 0 to _amount do {
         ERROR("no spawnposition");
     }else{
         private _group = [_spawnpos, _grouptype] call FUNC(group);
+        #ifdef DEBUG_MODE_FULL
+            [_spawnpos,"AttackGroup","ColorGreen","n_inf"] call FUNC(debug_marker_create);
+        #endif
         [_group,"attack"] call EFUNC(headquarter,registerGroup);
         [_group,"attack"] call EFUNC(headquarter,state_set);
     };

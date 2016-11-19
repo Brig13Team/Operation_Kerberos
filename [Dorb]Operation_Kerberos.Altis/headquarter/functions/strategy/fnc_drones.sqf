@@ -21,12 +21,13 @@ private _nearPlayers = allPlayers select { ((_x distance pos)<500) && ((GVARMAIN
 
 private _weightArray = [];
 {
-    _weightArray pushBack [[_x] call FUNC(strenghtPlayer),_x];
+    _weightArray pushBack [([_x] call FUNC(strenghtPlayer)),_x];
 } forEach _nearPlayers;
 
 private _target = [_weightArray,0] call EFUNC(common,sel_array_weighted);
 
-_attackLoc setVaribale [GVAR(lastAttackRequest),-1];
+HASH_SET(_attackLoc,QGVAR(lastAttackRequest),(-1));
+
 [_target,_attackLoc] call FUNC(drones_requestAirstrike);
 
 _target;

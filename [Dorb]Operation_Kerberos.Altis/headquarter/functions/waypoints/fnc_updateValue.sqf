@@ -17,7 +17,7 @@
 
 _this params[
     ["_key","",[""]],
-    ["_value",-1,[0]];
+    ["_value",-1,[0]]
     ];
 CHECK(_key isEqualTo "");
 

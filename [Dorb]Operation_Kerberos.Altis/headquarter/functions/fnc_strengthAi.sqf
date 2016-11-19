@@ -32,7 +32,7 @@ private _type = 0;
         _threat = [
             (_threat select 0) max (_temp select 0),
             (_threat select 1) max (_temp select 1),
-            (_threat select 2) max (_temp select 2),
+            (_threat select 2) max (_temp select 2)
         ];
     };
     _value = _value + ([typeOf _x] call FUNC(getCost));
@@ -41,15 +41,15 @@ private _type = 0;
 
 {
     _type = _type max (getNumber(configFile >> "CfgVehicles" >> (typeOf _x) >> "type"));
-    private _temp = getArray(configFile >> "CfgVehicles" >> (typeOf _x) >> "threat")
+    private _temp = getArray(configFile >> "CfgVehicles" >> (typeOf _x) >> "threat");
     If !(_temp isEqualTo []) then {
         _threat = [
             (_threat select 0) max (_temp select 0),
             (_threat select 1) max (_temp select 1),
-            (_threat select 2) max (_temp select 2),
+            (_threat select 2) max (_temp select 2)
         ];
     };
     _value = _value + ([typeOf _x] call FUNC(getCost));
-} forEach _vehicles
+} forEach _vehicles;
 
 [_type,_value,_threat];

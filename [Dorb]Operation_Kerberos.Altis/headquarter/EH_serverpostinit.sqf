@@ -28,9 +28,9 @@ GVAR(waypoints) = HASH_CREATE;
 *
 *************************/
 GVAR(FDC) = HASH_CREATE;
-HASH_SET(GVAR(FDC),"mortars",HASH_CREATE);
-HASH_SET(GVAR(FDC),"artilleries",HASH_CREATE);
-HASH_SET(GVAR(FDC),"rocket",HASH_CREATE);
+HASH_SET(GVAR(FDC),"mortars",[]);
+HASH_SET(GVAR(FDC),"artilleries",[]);
+HASH_SET(GVAR(FDC),"rockets",[]);
 
 _handle = [{_this call FUNC(fdc_handle)},INTERVALL_FDC,[]] call CBA_fnc_addPerFrameHandler;
 HASH_SET(GVAR(handles),"fdc_main",_handle);
@@ -68,7 +68,7 @@ HASH_SET(GVAR(radars),"targets",[]);
 
 /// POI
 GVAR(dangerzones) = HASH_CREATE;
-HASH_SET(GVAR(dangerzones),"definitions",[2000,125,16]);
+HASH_SET(GVAR(dangerzones),"definitions",[ARR_3(2000,125,16)]);
 HASH_SET(GVAR(dangerzones),"gridsize",125);
 HASH_SET(GVAR(dangerzones),"distance",2000);
 
@@ -88,9 +88,6 @@ HASH_SET(GVAR(handles),"playergroups",_handle);
 _handle = [{_this call FUNC(handleAA);},INTERVALL_AA,[]] call CBA_fnc_addPerFrameHandler;
 HASH_SET(GVAR(handles),"antiair",_handle);
 
-/// Eventhandler
-#include "XEH_initpost.sqf"
-#include "XEH_killed.sqf"
 
 /// Events
 [QEGVAR(mission,start),{GVAR(active) = true;_this call FUNC(MissionInit);}] call CBA_fnc_addEventHandler;

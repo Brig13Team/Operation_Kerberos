@@ -92,7 +92,7 @@ PREP(registerGroup);
 PREP(registerPlayerGroup);
 PREP(registerPOI);
 PREP(requestRecon);
-PREP(strenghtAi);
-PREP(strenghtPlayer);
+PREP(strengthAi);
+PREP(strengthPlayer);
 
 ADDON = true;

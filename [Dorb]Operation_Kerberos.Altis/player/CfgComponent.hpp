@@ -9,9 +9,7 @@
 #include "script_component.hpp"
 
 class DOUBLES(CfgComponent,ADDON) {
-    class clientpostinit {
-        server = 0;
-    };
+    class clientpostinit {server = 0;};
     class fired {server = 0;};
     class getIn {server = 0;};
     class killed {server = 0;};

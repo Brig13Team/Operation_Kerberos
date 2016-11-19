@@ -1,6 +1,5 @@
 /*
  *  Author: Dorbedo
- *  Original Author: ACRE2 team (https://github.com/IDI-Systems/acre2)
  *
  *  Description:
  *      Compiles all Components
@@ -14,7 +13,7 @@
  */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-_fnc_scriptname = "test";
+
 
 private _configs = "((((configname _x) splitString '_') select 0) isEqualTo 'CfgComponent')" configClasses missionConfigFile;
 
@@ -53,16 +52,16 @@ private _cfgArray = [];
 TRACEV_1(_cfgArray);
 private _active_Components = [];
 private _active_Components_cfgs = [];
-private _time = diag_tickTime + 10;
+private _time = diag_tickTime + 30;
 
 while {(diag_tickTime < _time)&&((count _cfgArray)>0)} do {
-    (_cfgArray deleteAt 0) params ["_cfg","_cfgname","_cfgArray"];
-    TRACEV_1(_cfg);
-    If (({!(_x in _active_Components)} count _cfgArray)<1) then {
+    (_cfgArray deleteAt 0) params ["_cfg","_cfgname","_reqComponents"];
+    TRACEV_5(_cfg,_cfgname,_reqComponents,_active_Components,_cfgArray);
+    If (({!(_x in _active_Components)} count _reqComponents)<1) then {
         _active_Components pushBack _cfgname;
         _active_Components_cfgs pushBack _cfg;
     }else{
-        _cfgArray pushBack ["_cfg","_cfgname","_cfgArray"];
+        _cfgArray pushBack [_cfg,_cfgname,_reqComponents];
     };
 };
 
@@ -79,23 +78,22 @@ GVAR(Events_all) = [];
     _cfgname deleteAt 0; // remove PREFIX
     _cfgname = _cfgname joinString "_";
     private _allEvents = "(!((configname _x) isEqualTo 'dependencies'))" configclasses _cfg;
-    TRACEV_1(_allEvents);
     {
         private _eventName = tolower (configName _x);
         private _eventConfig = _x;
         private _add = true;
         If !([_eventConfig] call _fnc_dependecies_cfgpatches) then {
-            diag_log text (format["[MissionFile] (%1) Event %2 is not loading - CfgPatches failed",_cfgname,_eventName]);
+            diag_log text (format["[MissionFile] (%1) Event %2 is NOT loading - CfgPatches failed",_cfgname,_eventName]);
             _add = false;
         };
-        If (_add && (0 < ({!(_x in _active_Components)} count (getArray(_cfg >> "dependencies" >> "CfgComponents"))))) then {
-            diag_log text (format["[MissionFile] (%1) Event %2 is not loading - CfgComponent failed",_cfgname,_eventName]);
+        If (_add && (0 < ( {!(_x in _active_Components)} count (getArray(_eventConfig >> "dependencies" >> "CfgComponents")) ) ) ) then {
+            diag_log text (format["[MissionFile] (%1) Event %2 is NOT loading - CfgComponent failed",_cfgname,_eventName]);
             _add = false;
         };
-        If (_add && (isText(_cfg >> "dependencies" >> "Condition"))) then {
-            private _condition = call compile (getText(_cfg >> "dependencies" >> "Condition"));
+        If (_add && (isText(_eventConfig >> "dependencies" >> "Condition"))) then {
+            private _condition = call compile (getText(_eventConfig >> "dependencies" >> "Condition"));
             If ((IS_BOOL(_condition))&&{!_condition}) then {
-                diag_log text (format["[MissionFile] (%1) Event %2 is not loading - Condition failed",_cfgname,_eventName]);
+                diag_log text (format["[MissionFile] (%1) Event %2 is NOT loading - Condition failed",_cfgname,_eventName]);
                 _add = false;
             };
         };

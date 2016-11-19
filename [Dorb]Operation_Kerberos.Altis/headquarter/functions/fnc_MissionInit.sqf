@@ -24,8 +24,8 @@ private _center = [
     0];
 
 HASH_SET(GVAR(dangerzones),"centerpos",_center);
-HASH_SET(GVAR(dangerzones),"x",[(_center select 0) - _distance,(_center select 0) + _distance]);
-HASH_SET(GVAR(dangerzones),"y",[(_center select 1) - _distance,(_center select 1) + _distance]);
+HASH_SET(GVAR(dangerzones),"x",[ARR_2((_center select 0) - _distance,(_center select 0) + _distance)]);
+HASH_SET(GVAR(dangerzones),"y",[ARR_2((_center select 1) - _distance,(_center select 1) + _distance)]);
 
 
 HASH_SET(GVAR(groups),"defenceGroups",[]);
@@ -35,7 +35,7 @@ HASH_SET(GVAR(groups),"patrolGroups",[]);
 
 HASH_DELETE(GVAR(waypoints));
 GVAR(waypoints) = HASH_CREATE;
-HASH_SET(GVAR(waypoints,"deactivated",[]));
+HASH_SET(GVAR(waypoints),"deactivated",[]);
 
 
 

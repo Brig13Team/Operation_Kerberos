@@ -150,5 +150,5 @@ while { ((count _nearObjects)>0)&&(_time > CBA_missiontime)} do {
     };
 };
 HASH_SET(_mainhash,"author",_author);
-test = _mainhash;
+
 _mainhash;

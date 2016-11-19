@@ -31,4 +31,9 @@ _newPOI setRectangular false;
 HASH_SET(_newPOI,"isPOI",true);
 HASH_SET(_newPOI,"isActive",true);
 
+#ifdef DEBUG_MODE_FULL
+    [_POI,"POI","ColorRed","mil_flag"] call FUNC(debug_marker_create);
+#endif
+
+
 HASH_GET(GVAR(POI),"Locations") pushBack _newPOI;

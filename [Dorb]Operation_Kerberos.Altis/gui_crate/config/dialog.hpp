@@ -127,7 +127,7 @@ class APP(dialog) {
 //        w = GUI_W(0.14);
 //        h = GUI_H(0.06);
         text = CSTRING(SPAWN);
-        sizeEx = GUI_GRID_CENTER_H * 1.5
+        sizeEx = GUI_GRID_CENTER_H * 1.5;
 //        sizeEx = GUI_H(0.03);
         colorBackground[] = UI_CL_BTN2_foc;
         colorBackgroundActive[] = UI_CL_BTN2_foc;

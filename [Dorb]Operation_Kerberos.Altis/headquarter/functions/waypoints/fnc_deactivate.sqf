@@ -16,7 +16,7 @@
 
 _this params[
     ["_key","",[""]],
-    ["_deaktivate",true,[true]];
+    ["_deaktivate",true,[true]]
     ];
 CHECK(_key isEqualTo "");
 If (_deaktivate) then {

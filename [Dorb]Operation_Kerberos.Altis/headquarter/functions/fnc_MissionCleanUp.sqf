@@ -21,7 +21,7 @@ GVAR(active) = false;
     If (IS_HASH(_value)) then {
         HASH_DELETE(_value);
     };
-} forEach HASH_GETKEYS(GVAR(POI));
+} forEach HASH_KEYS(GVAR(POI));
 
 // Dangerzones
 {
@@ -29,7 +29,7 @@ GVAR(active) = false;
     If (IS_HASH(_value)) then {
         HASH_DELETE(_value);
     };
-} forEach HASH_GETKEYS(GVAR(dangerzones));
+} forEach HASH_KEYS(GVAR(dangerzones));
 
 // Groups
 {
@@ -37,7 +37,7 @@ GVAR(active) = false;
     If (IS_HASH(_value)) then {
         HASH_DELETE(_value);
     };
-} forEach HASH_GETKEYS(GVAR(groups));
+} forEach HASH_KEYS(GVAR(groups));
 
 // Attackpositions
 {
@@ -45,4 +45,4 @@ GVAR(active) = false;
     If (IS_HASH(_value)) then {
         HASH_DELETE(_value);
     };
-} forEach HASH_GETKEYS(GVAR(attackpos));
+} forEach HASH_KEYS(GVAR(attackpos));

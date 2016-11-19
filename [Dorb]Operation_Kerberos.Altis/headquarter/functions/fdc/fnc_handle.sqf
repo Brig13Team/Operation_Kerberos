@@ -16,9 +16,9 @@ If (HASH_GET(GVAR(FDC),"firemissions") isEqualTo []) exitWith {};
 private _current_firemission = HASH_GET(GVAR(FDC),"firemissions") deleteAt 0;
 _current_firemission params ["_position","_type","_shelltype","_amount"];
 
-HASH_SET(GVAR(FDC),"artilleries",HASH_GET(GVAR(FDC),"artilleries") select {alive _x});
-HASH_SET(GVAR(FDC),"mortars",HASH_GET(GVAR(FDC),"mortars") select {alive _x});
-HASH_SET(GVAR(FDC),"rockets",HASH_GET(GVAR(FDC),"rockets") select {alive _x});
+HASH_SET(GVAR(FDC),"artilleries",(HASH_GET(GVAR(FDC),"artilleries") select {alive _x}));
+HASH_SET(GVAR(FDC),"mortars",(HASH_GET(GVAR(FDC),"mortars") select {alive _x}));
+HASH_SET(GVAR(FDC),"rockets",(HASH_GET(GVAR(FDC),"rockets") select {alive _x}));
 
 private _current_artillerys_array = switch(_type) do {
     case 0 : {HASH_GET(GVAR(FDC),"artilleries") call BIS_fnc_arrayShuffle};

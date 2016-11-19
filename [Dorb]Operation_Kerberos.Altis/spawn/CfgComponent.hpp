@@ -13,12 +13,16 @@ class DOUBLES(CfgComponent,ADDON) {
     class preinit {};
     class init {};
     class initTFAR {
-        CfgPatches[] = {};
-        CfgComponents[] = {"mod_tfar"};
+        class dependencies {
+            CfgPatches[] = {};
+            CfgComponents[] = {"mod_tfar"};
+        };
     };
     class initACE {
-        CfgPatches[] = {};
-        CfgComponents[] = {"mod_ace"};
+        class dependencies {
+            CfgPatches[] = {};
+            CfgComponents[] = {"mod_ace"};
+        };
     };
     class dependencies {
         CfgPatches[] = {"rhs_main","rhsusf_main","CBA_ai"};
