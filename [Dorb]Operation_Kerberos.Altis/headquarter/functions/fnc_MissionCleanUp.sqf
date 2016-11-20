@@ -28,8 +28,12 @@ GVAR(active) = false;
     private _value = HASH_GET(GVAR(dangerzones),_x);
     If (IS_HASH(_value)) then {
         HASH_DELETE(_value);
+        HASH_SET(GVAR(dangerzones),_x,nil);
     };
 } forEach HASH_KEYS(GVAR(dangerzones));
+HASH_SET(GVAR(dangerzones),"centerpos",nil);
+HASH_SET(GVAR(dangerzones),"x",nil);
+HASH_SET(GVAR(dangerzones),"y",nil);
 
 // Groups
 {

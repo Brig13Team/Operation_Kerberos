@@ -59,7 +59,7 @@ _group = _group call CBA_fnc_getGroup;
     _waypoint setWaypointCompletionRadius _compRadius;
     _waypoints pushBack _waypoint;
     #ifdef DEBUG_MODE_FULL
-        [_position,"AttackPosition","ColorBlack","Dot"] call FUNC(debug_marker_create);
+        [_position,"AttackPosition","ColorBlack","Dot"] call EFUNC(common,debug_marker_create);
     #endif
 }forEach _positions;
 

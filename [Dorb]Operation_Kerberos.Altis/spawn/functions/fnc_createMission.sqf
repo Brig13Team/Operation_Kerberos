@@ -11,12 +11,13 @@
  *      none
  *
  */
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 _this params [["_centerposition",[],[[]]]];
-
+TRACEV_1(_centerposition);
 private _nearLoc = nearestLocations [_centerposition, ["NameCityCapital","NameCity","NameVillage"], 250];
-
+TRACEV_1(_nearLoc);
 If ((count _nearLoc)>1) exitWith {
     [_centerposition,"",20] call FUNC(createMissionHouse);
 

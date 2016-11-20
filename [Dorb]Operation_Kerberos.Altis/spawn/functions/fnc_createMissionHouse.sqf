@@ -11,27 +11,27 @@
  *      ARRAY - intel-objects
  *
  */
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 _this params [["_centerposition",[],[[]]]];
 
-private _buildings = [_centerposition,280] call EFUNC(common,get_buildings);
-
+private _buildings = _centerposition nearObjects ["HouseBase", 280];
+TRACEV_2(_centerposition,_buildings);
 private _possibleBuildings = [];
 
 {
     private _temp = [_x,true] call FUNC(composition_chooseHouse);
-    If !(_temp isEqualTo []) then {
+    TRACEV_2(_temp,_x);
+    If ((!isNil "_temp")&&{!isNull _temp}&&{!(_temp isEqualTo [])}) then {
         _possibleBuildings pushBack [_x,_temp];
     };
 } forEach _buildings;
-
+TRACEV_1(_possibleBuildings);
 private _targetHouse = selectRandom _possibleBuildings;
 
 private _targetPositions = _targetHouse call FUNC(composition_spawnHouse);
-
+TRACEV_1(_targetPositions);
 GVAR(targetHouses) pushBack _targetHouse;
 
-private _targetPos = selectRandom _targetPositions;
-
-_targetPos
+_targetPositions;

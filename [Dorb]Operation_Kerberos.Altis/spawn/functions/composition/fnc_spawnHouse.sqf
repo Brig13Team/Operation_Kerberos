@@ -12,10 +12,11 @@
  *      ARRAY - Position for Missionobjective, empty if none availlible
  *
  */
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 _this params ["_house","_config"];
-
+TRACEV_3(_this,_house,_config);
 [] call FUNC(delaySpawn);
 
 private _housetype = getText(_config>>"type");

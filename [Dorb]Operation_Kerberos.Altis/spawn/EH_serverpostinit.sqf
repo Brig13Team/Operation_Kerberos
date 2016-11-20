@@ -8,7 +8,7 @@
 #include "script_component.hpp"
 
 [QEGVAR(mission,start),{
-    _this call FUNC(createMissionUnits);
+    _this call FUNC(createMission);
 }] call CBA_fnc_addEventHandler;
 
 [QEGVAR(mission,end),{
@@ -16,7 +16,7 @@
 }] call CBA_fnc_addEventHandler;
 
 [QEGVAR(mission,end),{
-    [GVAR(mission,centerPos),2200] call FUNC(cleanup_full);
+    [EGVAR(mission,centerPos),2200] call FUNC(cleanup_full);
 }] call CBA_fnc_addEventHandler;
 
 

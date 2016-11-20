@@ -11,6 +11,7 @@
  *      ARRAY - intel-objects
  *
  */
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 _this params [["_centerposition",[],[[]]]];
@@ -21,14 +22,19 @@ _this params [["_centerposition",[],[[]]]];
 
 private _targetPositions = [_centerposition] call FUNC(createMissionHouse);
 private _targetPos = selectRandom _targetPositions;
-
+TRACEV_2(_targetPos,_targetPositions);
 private _allobjects = getArray(missionConfigFile >> "missions_config" >> "main" >> "intel" >> "objects");
 private _obj = selectRandom _allobjects;
-
+TRACEV_3(_centerpos,_allObjects,_obj);
 private _curTarget = createVehicle [_obj, _targetPos,[], 0, "CAN_COLLIDE"];
 
 If !(isNil QEFUNC(headquarter,registerPOI)) then {
     [_curTarget] call EFUNC(headquarter,registerPOI);
 };
 
+#ifdef DEBUG_MODE_FULL
+    [(getPos _curTarget),"Intel","ColorBlack","hd_destroy"] call EFUNC(common,debug_marker_create);
+#endif
+
+TRACEV_2(_targetPos,_curTarget);
 [_curTarget];

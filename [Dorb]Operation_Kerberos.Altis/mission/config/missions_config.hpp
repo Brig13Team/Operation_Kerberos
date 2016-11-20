@@ -85,7 +85,7 @@ class missions_config {
         };
         class convoi2 : side_convoi {
             delay_spawn = 1200;
-        };    
+        };
     };
     class main {
         class scarab : main_base {
@@ -148,7 +148,7 @@ class missions_config {
             };
             class sidemissions : side_standard {};
         };
-        
+
         class hostage : main_base {
             class task {
                 name = CSTRING(hostage_task);
@@ -174,17 +174,14 @@ class missions_config {
             class sidemissions : side_standard {};
         };
         class intel : main_base {
-            class task {
-                name = CSTRING(intel_task);
-                description = CSTRING(intel_desc);
-                tasktype = "Search";
-            };
-            class location : location {
-                areas[] = {QGVAR(town)};
-                distance = 200;
-            };
-            class sidemissions : side_standard {};
-        };
+           taskDescription = "intel";
+           class location : location {
+               areas[] = {QGVAR(town)};
+               distance = 200;
+           };
+           objects[] = {"Land_File1_F","Land_File2_F","Land_FilePhotos_F","Land_Laptop_F","Land_Laptop_unfolded_F","Land_SatellitePhone_F","Land_MobilePhone_smart_F"/*,"Land_Suitcase_F"*/};
+           objects_count[] = {1,10};
+       };
         class weaponcaches : main_base {
             class task {
                 name = CSTRING(weaponcaches_task);

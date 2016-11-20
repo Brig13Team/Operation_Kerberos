@@ -9,6 +9,7 @@
 #include "script_component.hpp"
 
 class DOUBLES(CfgComponent,ADDON) {
+    class serverpostInit {client=0;};
     class hit {};
     class preinit {};
     class init {};

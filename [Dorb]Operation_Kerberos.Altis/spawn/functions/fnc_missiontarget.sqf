@@ -22,4 +22,4 @@ private _functionname = format[QFUNC(mission_%1),_missiontype];
 
 If (isNil _functionname) exitWith {[]};
 
-_parameter call _functionname;
+[_centerposition,_parameter] call (missionNamespace getVariable _functionname);

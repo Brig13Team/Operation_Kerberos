@@ -49,7 +49,7 @@ If (_fullCheck) then {
         If (count _temphistory >= 10) then {_temphistory deleteAt 0;};
         _temphistory pushBack _value;
         HASH_SET(_grouphash,"valuehistory",_temphistory);
-        _value = _temphistory call EFUNC(common,arithmeticMean);
+        _value = [_temphistory] call EFUNC(common,arithmeticMean);
         HASH_SET(_grouphash,"value",_value);
 
 

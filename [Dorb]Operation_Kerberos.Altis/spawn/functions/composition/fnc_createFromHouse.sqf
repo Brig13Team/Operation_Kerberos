@@ -29,9 +29,9 @@ GVAR(tempHash) = _hash;
 
 HASH_SET(_hash,"type",_housetype);
 If (({_x isKindOf "Land_CargoBox_V1_F"}count _nearObjects)>0) then {
-    HASH_SET(_hash,"isobjective",1);
+    HASH_SET(_hash,"hasmissiontarget",1);
 }else{
-    HASH_SET(_hash,"isobjective",0);
+    HASH_SET(_hash,"hasmissiontarget",0);
 };
 LOG_1(_nearObjects);
 {

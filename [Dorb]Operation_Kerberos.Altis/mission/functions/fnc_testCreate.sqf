@@ -17,12 +17,12 @@
 _this params [["_centerpos",[]]];
 
 If (_centerpos isEqualTo []) then {
-    private _centerpos = getMarkerPos "testmarker";
+    _centerpos = getMarkerPos "testmarker";
 };
 
 private _return = [_centerpos,"intel"] call EFUNC(spawn,missionTarget);
 TRACEV_1(_return);
 
-[_centerpos,"CENTERPOSITION","ColorBlue","mil_flag"] call FUNC(debug_marker_create);
+[_centerpos,"CENTERPOSITION","ColorBlue","mil_flag"] call EFUNC(common,debug_marker_create);
 
 [QGVAR(start),[_centerpos]] call CBA_fnc_localEvent;

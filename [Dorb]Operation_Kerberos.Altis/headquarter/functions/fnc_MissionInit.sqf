@@ -11,9 +11,11 @@
  *      none
  *
  */
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 _this params [["_centerPos",[],[[]]]];
+TRACEV_1(_centerPos);
 
 private _gridsize = HASH_GET(GVAR(dangerzones),"gridsize");
 private _distance = HASH_GET(GVAR(dangerzones),"distance");

@@ -13,6 +13,7 @@ PREP(crew);
 
 PREP(delaySpawn);
 PREP(gear);
+PREP(getGroup);
 PREP(group);
 PREP(groupFromArray);
 

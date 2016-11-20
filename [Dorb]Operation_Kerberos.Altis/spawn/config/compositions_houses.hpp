@@ -72,7 +72,7 @@ class composition_653264 {
         type = "rhs_Igla_AA_pod_msv";
         dir = 719.622;
     };
-    isobjective = 0;
+    hasmissiontarget = 0;
     class obj_14 {
         pos[] = {9.6879,9.46484,0.00141907};
         issimpleobj = 0;
@@ -244,7 +244,7 @@ class composition_653264 {
     };
 };
 class composition_11369 {
-    isobjective = 0;
+    hasmissiontarget = 0;
     type = "Land_u_Shop_02_V1_F";
     class obj_1 {
         pos[] = {1.05176,-2.70654,-3.28681};
@@ -345,7 +345,7 @@ class composition_186509 {
         type = "Land_BagFence_Corner_F";
         dir = 357.405;
     };
-    isobjective = 0;
+    hasmissiontarget = 0;
     type = "Land_Kiosk_gyros_F";
     class obj_1 {
         pos[] = {-0.21167,-0.296875,-2.18262};
@@ -526,7 +526,7 @@ class composition_371618 {
         type = "rhs_msv_rifleman";
         dir = 183.886;
     };
-    isobjective = 0;
+    hasmissiontarget = 0;
     class obj_14 {
         pos[] = {0.549438,-7.50903,-7.97547};
         issimpleobj = 0;
@@ -3029,7 +3029,7 @@ class composition_8358 {
         type = "Land_BagFence_Long_F";
         dir = 0.262;
     };
-    isobjective = 1;
+    hasmissiontarget = 1;
     class obj_71 {
         pos[] = {6.18994,-11.8164,8.55024};
         issimpleobj = 0;
@@ -4281,7 +4281,7 @@ class composition_523648 {
         type = "rhs_vdv_des_grenadier";
         dir = 225.562;
     };
-    isobjective = 1;
+    hasmissiontarget = 1;
     class obj_14 {
         pos[] = {-3.9375,0.203125,-4.66979};
         issimpleobj = 1;
@@ -4858,5 +4858,57 @@ class composition_523648 {
         hascrew = 0;
         type = "Land_BagFence_Long_F";
         dir = 222.95;
+    };
+};
+class composition_118576 {
+    author = "BrigTeam";
+    hasmissiontarget = 1;
+    type = "Land_i_Shop_01_V3_F";
+    class obj_1 {
+        pos[] = {-1.625,0.875,-3.12056};
+        issimpleobj = 1;
+        vecup[] = {-1.37399e-006,8.3267e-007,1};
+        hascrew = 0;
+        type = "Land_CargoBox_V1_F";
+        dir = 360;
+    };
+};
+class composition_306110 {
+    author = "BrigTeam";
+    hasmissiontarget = 1;
+    type = "Land_i_Shop_01_V1_F";
+    class obj_1 {
+        pos[] = {-1.625,1.625,-3.12056};
+        issimpleobj = 1;
+        vecup[] = {3.69724e-007,-3.40859e-007,1};
+        hascrew = 0;
+        type = "Land_CargoBox_V1_F";
+        dir = 360;
+    };
+};
+class composition_622977 {
+    author = "BrigTeam";
+    hasmissiontarget = 1;
+    type = "Land_i_Shop_01_V1_F";
+    class obj_1 {
+        pos[] = {-1,1.125,-3.12056};
+        issimpleobj = 1;
+        vecup[] = {7.13471e-007,-1.48245e-007,1};
+        hascrew = 0;
+        type = "Land_CargoBox_V1_F";
+        dir = 360;
+    };
+};
+class composition_590078 {
+    author = "BrigTeam";
+    hasmissiontarget = 1;
+    type = "Land_i_Shop_01_V2_F";
+    class obj_1 {
+        pos[] = {-1.26563,-0.173828,-3.06051};
+        issimpleobj = 1;
+        vecup[] = {1.01299e-005,3.54146e-006,1};
+        hascrew = 0;
+        type = "Land_CargoBox_V1_F";
+        dir = 359.999;
     };
 };
