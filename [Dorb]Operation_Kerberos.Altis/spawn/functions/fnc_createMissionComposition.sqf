@@ -14,15 +14,17 @@
  *      ARRAY - objects
  *
  */
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 _this params [["_centerposition",[],[[]]],["_type","isObjective",[""]],["_amount",1,[0]],["_radius",1200,[0]]];
-
+TRACEV_4(_centerposition,_type,_amount,_radius);
 
 private _possibleSpawnpositions = [];
+private _errorcounter = 0;
 
 while {((count _possibleSpawnpositions)<_amount)&&(_errorcounter < (100+_amount))} do {
-    private _tempPos = [_centerposition,_radius,false] call EFUNC(common,pos_random);
+    private _tempPos = [_centerposition,_radius,0] call EFUNC(common,pos_random);
 
     private _spawnpos = [_tempPos,15,_radius,15,0.10] call EFUNC(common,pos_flatempty);
     If (_spawnpos isEqualTo []) then {
@@ -86,9 +88,9 @@ private _allTargetPositions = [];
     #endif
 
     ///// spawn defence
-    private _currentComposition = [_centerposition,_type] call FUNC(chooseComposition);
+    private _currentComposition = [_centerposition,_type] call FUNC(composition_chooseComposition);
 
-    private _curTargetPos = [_x,_currentComposition,_bestdir] call FUNC(spawnComposition);
+    private _curTargetPos = [_x,_currentComposition,_bestdir] call FUNC(composition_spawnComposition);
 
     If !(_curTargetPos isEqualTo []) then {
         _allTargetPositions pushBack _curTargetPos;

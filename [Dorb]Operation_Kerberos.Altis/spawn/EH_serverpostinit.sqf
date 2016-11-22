@@ -21,3 +21,5 @@
 
 
 GVAR(targetHouses) = [];
+
+[] call FUNC(Army_set);

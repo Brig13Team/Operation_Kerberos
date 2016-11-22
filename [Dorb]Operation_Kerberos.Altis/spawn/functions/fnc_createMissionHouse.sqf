@@ -11,7 +11,7 @@
  *      ARRAY - intel-objects
  *
  */
-#define DEBUG_MODE_FULL
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 _this params [["_centerposition",[],[[]]]];
@@ -22,7 +22,7 @@ private _possibleBuildings = [];
 
 {
     private _temp = [_x,true] call FUNC(composition_chooseHouse);
-    TRACEV_2(_temp,_x);
+    //TRACEV_2(_temp,_x);
     If ((!isNil "_temp")&&{!isNull _temp}&&{!(_temp isEqualTo [])}) then {
         _possibleBuildings pushBack [_x,_temp];
     };

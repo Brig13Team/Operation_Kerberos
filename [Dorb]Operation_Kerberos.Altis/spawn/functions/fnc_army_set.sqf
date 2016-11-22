@@ -1,35 +1,37 @@
 /*
     Author: Dorbedo
-    
+
     Description:
         creates the unitslists
-    
+
     Parameter(s):
         0 : SCALAR (opt)    - Number
-    
+
 */
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
+private _fnc_scriptname = "test";
 if (isNil QGVARMAIN(side)) then {
     GVARMAIN(side) = switch (GVARMAIN(playerside)) do {
         case "east" : {"west"};
         default {"east"};
     };
 };
-If !(_this params[["_Army","",[""]]]) then {
-    private _armyPath = (missionConfigFile >> "unitlists" >> str GVARMAIN(side));
-    private _ArmyArray = [];
-    for "_i" from 0 to ((count _armyPath)-1) do {
-        _ArmyArray pushBackUnique (configName (_armyPath select _i));
-    };
-    GVARMAIN(side_type) = selectRandom _ArmyArray;
+
+_this params [["_army","",[""]]];
+If ((_army isEqualTo "")||{!isClass(missionConfigFile >> "unitlists" >> str GVARMAIN(side) >> _army)}) then {
+    private _allArmys = "true" configClasses (missionConfigFile >> "unitlists" >> str GVARMAIN(side));
+    _army = configName (selectRandom(_allArmys));
+    GVARMAIN(side_type) = _army;
+    TRACEV_3(GVARMAIN(side_type),_army,_allArmys);
 }else{
-    GVARMAIN(side_type) = _Army;
+    GVARMAIN(side_type) = _army;
+    TRACEV_2(GVARMAIN(side_type),_army);
 };
 
-If (!isClass(missionConfigFile >> "unitlists" >> str GVARMAIN(side) >> _Army)) exitWith {ERROR("Army not found");[] call FUNC(_army_set);};
+TRACEV_3(GVARMAIN(side),GVARMAIN(playerside),GVARMAIN(side_type));
 
-private _path = (missionConfigFile >> "unitlists" >> str GVARMAIN(side) >> GVARMAIN(side_type));
-
+private _path = (missionConfigFile >> "unitlists" >> str GVARMAIN(side) >> str GVARMAIN(side_type));
 
 GVAR(list_crewmen) = getArray(_path >> "crewmen");
 GVAR(list_divers) = getArray(_path >> "divers");
@@ -84,4 +86,3 @@ GVAR(group_defence) = [];
 for "_i" from 0 to (count _path -1) do {
     GVAR(group_defence) pushBack ["missionConfigFile","unitlists",str GVARMAIN(side),GVARMAIN(side_type),"groups","defence",configName (_path select _i)];
 };
-

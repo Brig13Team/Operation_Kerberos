@@ -41,7 +41,7 @@ If (_fullCheck) then {
         If (count _temphistory >= 10) then {_temphistory deleteAt 0;};
         _temphistory pushBack _GroupType;
         HASH_SET(_grouphash,"typehistory",_temphistory);
-        _GroupType = _temphistory call CBA_fnc_findMax;
+        private _GroupType = _temphistory call CBA_fnc_findMax;
         HASH_SET(_grouphash,"type",_GroupType);
 
 
@@ -49,13 +49,13 @@ If (_fullCheck) then {
         If (count _temphistory >= 10) then {_temphistory deleteAt 0;};
         _temphistory pushBack _value;
         HASH_SET(_grouphash,"valuehistory",_temphistory);
-        _value = [_temphistory] call EFUNC(common,arithmeticMean);
+        private _value = [_temphistory] call EFUNC(common,arithmeticMean);
         HASH_SET(_grouphash,"value",_value);
 
 
         private _temphistory = (HASH_GET(_grouphash,"threathistory"));
         If (count _temphistory >= 10) then {_temphistory deleteAt 0;};
-        _temphistory pushBack _value;
+        _temphistory pushBack _threat;
         HASH_SET(_grouphash,"threathistory",_temphistory);
         private _tempThreatA = [];
         private _tempThreatB = [];
