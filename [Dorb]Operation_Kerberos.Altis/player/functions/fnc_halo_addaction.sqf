@@ -22,11 +22,11 @@ If (isNil "ace_interact_menu_fnc_addActionToObject") then {
         localize LSTRING(HALO),
         "\A3\Air_F_Beta\Parachute_01\Data\UI\Portrait_Parachute_01_CA.paa",
         {
-            _target call FUNC(halo);
+            [_target,ACE_player,-1,[]] spawn FUNC(halo);
         },
         {
             alive _target
         }
     ] call ACE_interact_menu_fnc_createAction;;
-    [halo,0,[QGVAR(Action_Halo)],_action] call ace_interact_menu_fnc_addActionToObject;
+    [halo,0,["ACE_MainActions"],_action] call ace_interact_menu_fnc_addActionToObject;
 };

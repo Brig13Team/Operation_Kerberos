@@ -1,15 +1,15 @@
 /*
     Author: Dorbedo
-    
+
     Description:
         returns the RotationMatrix of an Object
     Parameter(s):
         0 : OBJECT - the object
-    
+
     Return
         ARRAY - RotationMatrix
 */
-#define DEBUG_MODE_FULL
+
 #include "script_component.hpp"
 _this params [["_object",objNull,[objNull]]];
 

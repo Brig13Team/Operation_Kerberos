@@ -20,17 +20,19 @@ private _serverkey = missionNamespace getVariable [QGVARMAIN(missionkeyServer),"
 private _missionkey = missionNamespace getVariable [QGVARMAIN(missionkey),"ERROR"];
 private _missiontime = missionNamespace getVariable [QGVARMAIN(missiontime),CBA_missiontime];
 
-If ((_serverkey == _missionkey)&&{(_missiontime - CBA_missiontime + 1200) > 0}) exitWith {
-    [
-        LSTRING(TELEPORT),
-        format [localize LSTRING(LEAD_WAIT),
-            floor ((_missiontime - CBA_missiontime + 1200) / 60),
-            floor ((_missiontime - CBA_missiontime + 1200) mod 60)
-        ],
-        "red"
-    ] call EFUNC(gui,message);
+#ifdef TELEPORT_TIMEOUT
+    If ((_serverkey == _missionkey)&&{(_missiontime - CBA_missiontime + 1200) > 0}) exitWith {
+        [
+            LSTRING(TELEPORT),
+            format [localize LSTRING(LEAD_WAIT),
+                floor ((_missiontime - CBA_missiontime + 1200) / 60),
+                floor ((_missiontime - CBA_missiontime + 1200) mod 60)
+            ],
+            "red"
+        ] call EFUNC(gui,message);
 
-};
+    };
+#endif
 
 private _isTeleported = false;
 
@@ -66,8 +68,9 @@ if ((vehicle _caller) == _caller) then {
         };
     };
 };
-
-if (_isTeleported) then {
-    GVARMAIN(missionkey) = _serverkey;
-    GVARMAIN(missiontime) = CBA_missiontime;
-};
+#ifdef TELEPORT_TIMEOUT
+    if (_isTeleported) then {
+        GVARMAIN(missionkey) = _serverkey;
+        GVARMAIN(missiontime) = CBA_missiontime;
+    };
+#endif

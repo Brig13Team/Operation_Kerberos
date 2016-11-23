@@ -12,7 +12,7 @@
             1:OBJECT    - Object where the Data is stored
 
 */
-#define DEBUG_MODE_FULL
+
 #define INCLUDE_GUI
 #include "script_component.hpp"
 

@@ -11,7 +11,7 @@
  *      none
  *
  */
-//#define DEBUG_MODE_FULL
+
 #include "script_component.hpp"
 
 
@@ -127,14 +127,15 @@ GVAR(Events_all) = [];
 
 TRACEV_3(GVAR(Events_preinit),GVAR(Events_postinit),GVAR(Events_all));
 
-
+// backup Loop
 [
     {
-        If (GVAR(Events_preinit) isEqualTo []) then {
+        If (GVAR(Events_preinit) isEqualTo []) exitWith {
             (_this select 1) call CBA_fnc_removePerFrameHandler;
         };
         private _current = GVAR(Events_preinit) deleteAt 0;
         [] call compile preprocessFileLineNumbers _current;
+        ERROR("Preinit Backup Loop - compiling error occured");
     },
     0,
     []
@@ -145,7 +146,8 @@ TRACEV_3(GVAR(Events_preinit),GVAR(Events_postinit),GVAR(Events_all));
     {
         [
             {
-                If (GVAR(Events_postinit) isEqualTo []) then {
+                If (GVAR(Events_postinit) isEqualTo []) exitWith {
+                    diag_log "[MissionFile] PostInit compiling finished";
                     (_this select 1) call CBA_fnc_removePerFrameHandler;
                 };
                 private _current = GVAR(Events_postinit) deleteAt 0;
@@ -163,7 +165,8 @@ TRACEV_3(GVAR(Events_preinit),GVAR(Events_postinit),GVAR(Events_all));
     {
         [
             {
-                If (GVAR(Events_all) isEqualTo []) then {
+                If (GVAR(Events_all) isEqualTo []) exitWith {
+                    diag_log "[MissionFile] Events compiling finished";
                     (_this select 1) call CBA_fnc_removePerFrameHandler;
                 };
                 private _current = GVAR(Events_all) deleteAt 0;
@@ -177,23 +180,12 @@ TRACEV_3(GVAR(Events_preinit),GVAR(Events_postinit),GVAR(Events_all));
 ] call CBA_fnc_waitUntilAndExecute;
 
 
+private _time = diag_tickTime + 60;
+while {(diag_tickTime < _time)&&(!(GVAR(Events_preinit) isEqualTo []))} do {
+    private _current = GVAR(Events_preinit) deleteAt 0;
+    [] call compile preprocessFileLineNumbers _current;
+};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
+IF (!(GVAR(Events_preinit) isEqualTo [])) then {
+    diag_log "[MissionFile] PreInit Compiling not finished";
+};

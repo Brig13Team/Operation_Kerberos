@@ -2,7 +2,7 @@
  * Author: Dorbedo
  *
  */
-#define DEBUG_MODE_FULL
+
 #include "script_component.hpp"
 
 CHECK(!ACTIVEMOD_ACRE);

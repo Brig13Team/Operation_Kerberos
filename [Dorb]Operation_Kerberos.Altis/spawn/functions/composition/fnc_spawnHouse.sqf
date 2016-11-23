@@ -12,7 +12,7 @@
  *      ARRAY - Position for Missionobjective, empty if none availlible
  *
  */
-#define DEBUG_MODE_FULL
+
 #include "script_component.hpp"
 
 _this params ["_house","_config"];

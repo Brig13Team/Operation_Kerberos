@@ -11,7 +11,7 @@
  *      CONFIG - the targetConfig
  *
  */
-//#define DEBUG_MODE_FULL
+
 #include "script_component.hpp"
 
 _this params [["_house",objNull,[objNull]],["_isMissiontarget",false,[true]]];

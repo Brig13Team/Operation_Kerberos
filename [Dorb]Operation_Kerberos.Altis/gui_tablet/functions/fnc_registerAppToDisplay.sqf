@@ -15,7 +15,7 @@
  *      none
  *
  */
-#define DEBUG_MODE_FULL
+
 #include "script_component.hpp"
 _this params ["_displayName","_function","_condition","_picture","_size",["_Page","0",[""]]];
 LOG_6(_displayName,_func,_condition,_picture,_size,_page);

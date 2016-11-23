@@ -14,7 +14,7 @@
  *      ARRAY - objects
  *
  */
-#define DEBUG_MODE_FULL
+
 #include "script_component.hpp"
 
 _this params [["_centerposition",[],[[]]],["_type","isObjective",[""]],["_amount",1,[0]],["_radius",1200,[0]]];

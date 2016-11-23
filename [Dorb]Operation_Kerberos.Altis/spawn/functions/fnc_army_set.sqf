@@ -8,7 +8,7 @@
         0 : SCALAR (opt)    - Number
 
 */
-//#define DEBUG_MODE_FULL
+
 #include "script_component.hpp"
 private _fnc_scriptname = "test";
 if (isNil QGVARMAIN(side)) then {

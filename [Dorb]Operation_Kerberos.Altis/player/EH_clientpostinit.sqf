@@ -42,8 +42,8 @@ SETUVAR(EGVAR(gui,respawnTime),nil);
                    private _action = _x addaction [
                        format["<t color='#FFa500' size='1.5'>%1</t>",localize "STR_A3_Arsenal"],
                        {
-                           _box = _this select 0;
-                           _unit = _this select 1;
+                           private _box = _this select 0;
+                           private _unit = _this select 1;
                            if !(isNil QEFUNC(patch_acre,ArsenalRemoveRadio)) then {
                                [] call EFUNC(patch_acre,ArsenalRemoveRadio);
                            };
@@ -73,25 +73,25 @@ SETUVAR(EGVAR(gui,respawnTime),nil);
                         localize "STR_A3_Arsenal",
                         "",
                         {
-                            _box = _target;
-                            _unit = player;
+                            private _box = _target;
+                            private _unit = player;
                             if !(isNil QEFUNC(patch_acre,ArsenalRemoveRadio)) then {
                                 [] call EFUNC(patch_acre,ArsenalRemoveRadio);
                             };
-                            ["Open",[nil,_box,_unit]] call bis_fnc_arsenal;
+                            ["Open",[nil,_box,_unit]] spawn bis_fnc_arsenal;
                         },
                         {
-                            _cargo = _target getvariable ['bis_addVirtualWeaponCargo_cargo',[[],[],[],[]]];
+                            private _cargo = _target getvariable ['bis_addVirtualWeaponCargo_cargo',[[],[],[],[]]];
                             if ({count _x > 0} count _cargo == 0) then {
-                                [_target,0,(_target getvariable ['bis_fnc_arsenal_action',[]])] call ACE_interact_menu_fnc_removeActionFromObject;
-                                _target setvariable ['bis_fnc_arsenal_action',[]];
+                                [_target,0,(_target getvariable ['bis_fnc_arsenal_action',-1])] call ACE_interact_menu_fnc_removeActionFromObject;
+                                _target setvariable ['bis_fnc_arsenal_action',-1];
                             };
-                            _condition = _target getvariable ['bis_fnc_arsenal_condition',{true}];
-                            alive _target && {_target distance _this < 5 && {vehicle _this == _this}} && {call _condition}
+                            private _condition = _target getvariable ['bis_fnc_arsenal_condition',{true}];
+                            alive _target && {(_target distance player) < 5 && {vehicle player == player}} && {call _condition}
                         }
 
                     ] call ACE_interact_menu_fnc_createAction;;
-                    private _createdAction = [_x,0,[QGVAR(Action_Arsenal)],_action] call ace_interact_menu_fnc_addActionToObject;
+                    private _createdAction = [_x,0,["ACE_MainActions"],_action] call ace_interact_menu_fnc_addActionToObject;
                     _x setvariable ["bis_fnc_arsenal_action",_createdAction];
                 };
             };
