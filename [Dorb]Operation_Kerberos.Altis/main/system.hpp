@@ -37,7 +37,12 @@ compile = QUOTE( \
     scriptName _fnc_scriptName; \
     _this params [ARR_3([ARR_3('_path','',[''])],[ARR_3('_funcName','',[''])],[ARR_3('_headertype',0,[1])])]; \
     If (isClass(configFile>>'cfgPatches'>>'cba_cache_disable')) then { \
-        [ARR_4(missionNamespace,_funcName,_path,_headertype)] call (parsingNamespace getVariable 'TRIPLES(PREFIX,SYSTEM,compile_sys)'); \
+        [ARR_5(missionNamespace,_funcName,_path,_headertype,true)] call (parsingNamespace getVariable 'TRIPLES(PREFIX,SYSTEM,compile_sys)'); \
+        with uiNamespace do { \
+            If (isNil 'GVARMAIN(recompile)') then {GVARMAIN(recompile) = [];}; \
+            GVARMAIN(recompile) pushBack [ARR_3(_path,_funcName,_headertype)]; \
+            diag_log format [ARR_2('compiling: %2',[ARR_3(_path,_funcName,_headertype)])]; \
+        }; \
     }else{ \
         private _cache = uiNamespace getVariable _funcName; \
         if (isNil '_cache') then { \
@@ -48,6 +53,15 @@ compile = QUOTE( \
         }; \
     }; \
     nil;);
+
+recompile = QUOTE( \
+    private _fnc_scriptName = 'Recompiling function'; \
+    scriptName _fnc_scriptName; \
+    { \
+        _x params [ARR_3('_path','_funcName','_headertype')]; \
+        [ARR_5(missionNamespace,_funcName,_path,_headertype,true)] call (parsingNamespace getVariable 'TRIPLES(PREFIX,SYSTEM,compile_sys)'); \
+    } forEach (uiNamespace getVariable [ARR_2('GVARMAIN(recompile)',[])]); \
+    );
 
 compile_sys = QUOTE( \
     private _fnc_scriptName = 'Compiling SyS'; \
@@ -60,7 +74,7 @@ compile_sys = QUOTE( \
     _metadata = [ARR_3(_funcName,_pathstring,_headertype)]; \
     If (_recompile) exitWith {_namespace setVariable [ARR_2(_funcName,compile (_headerstring + preprocessFileLineNumbers _pathstring))];}; \
     _cache = uiNamespace getVariable format[ARR_2('%1_meta',_funcName)]; \
-    If (isNil '_cache') exitWith {uiNamespace setVariable [ARR_2(format[ARR_2('%1_meta',_funcName)],compile str _metadata)];_namespace setVariable [ARR_2(_funcName,compilefinal (_headerstring + preprocessFileLineNumbers _pathstring))];}; \
+    If (isNil '_cache') exitWith {uiNamespace setVariable [ARR_2(format[ARR_2('%1_meta',_funcName)],compilefinal str _metadata)];_namespace setVariable [ARR_2(_funcName,compilefinal (_headerstring + preprocessFileLineNumbers _pathstring))];}; \
     If !((((call _cache) select 0) isEqualTo (_metadata select 0))||(((call _cache) select 1) isEqualTo (_metadata select 1))) exitWith {diag_log 'Compiling Violation'; call FUNCSYS(kick);}; \
     _namespace setVariable [ARR_2(_funcName,compilefinal (_headerstring + preprocessFileLineNumbers _pathstring))];);
 

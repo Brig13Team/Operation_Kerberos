@@ -12,9 +12,10 @@ TRIPLES(PREFIX,makro,iscasvehicle) = {
     false
 };
 
+FUNCMAIN(recompile) = FUNCSYS(recompile);
+
 PREP(debug_performance);
 PREP(userconfig);
-
 
 PREP(HashCollector);
 PREP(HashCopy);
