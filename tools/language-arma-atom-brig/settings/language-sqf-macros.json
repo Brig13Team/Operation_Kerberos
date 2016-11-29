@@ -56,12 +56,27 @@
               "descriptionMoreURL": ""
             },  {
               "description": "Expands to: ([hash] call EFUNC(main,serialize))",
-              "snippet": "SERIALIZE(${1:hash})$0",
+              "snippet": "HASH_SERIALIZE(${1:hash})$0",
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
             }, {
               "description": "Expands to: ([array] call EFUNC(main,deserialize))",
-              "snippet": "DESERIALIZE(${1:array})$0",
+              "snippet": "HASH_DESERIALIZE(${1:array})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "Expands to: (count ([hash] call EFUNC(main,HashKeys)))",
+              "snippet": "HASH_SIZE(${1:hash})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "Expands to: ((count ([hash] call EFUNC(main,HashKeys)))<1)",
+              "snippet": "HASH_ISEMPTY(${1:hash})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "Expands to: ([hash] call EFUNC(main,HashGetKeyFromValue))",
+              "snippet": "HASH_GETKEY(${1:hash})$0",
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
             }, {

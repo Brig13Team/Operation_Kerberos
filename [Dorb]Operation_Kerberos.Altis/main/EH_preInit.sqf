@@ -18,6 +18,7 @@ PREP(debug_performance);
 PREP(userconfig);
 
 PREP(HashCollector);
+PREP(HashGetKeyFromValue);
 PREP(HashCopy);
 PREP(HashCopyArray);
 PREP(HashCreate);
