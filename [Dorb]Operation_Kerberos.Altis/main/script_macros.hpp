@@ -453,6 +453,7 @@ Author:
 Macro: HASH-System
     Hash system - Original from ACRE2,
     was modified to make it fit with CBA and own system
+    additional hash macros were created
 
 Author:
     Dorbedo

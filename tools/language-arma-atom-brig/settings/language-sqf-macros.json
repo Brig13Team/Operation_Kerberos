@@ -5,7 +5,7 @@
         "macro-brig": {
           "typePriority": 0,
           "suggestions": [{
-              "description": "Expands to: (call EFUNC(main,HashCreate))",
+              "description": "Creates a new hash",
               "text": "HASH_CREATE",
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
@@ -15,92 +15,92 @@
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
             }, {
-              "description": "Expands to:  (DORB_HASH_TO_DELETE pushBack hash)",
+              "description": "Deletes a hash",
               "snippet": "HASH_DELETE(${1:hash})$0",
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
             }, {
-              "description": "Expands to: (!(isNil {hash getVariable key}))",
+              "description": "Checks if a hash has the provided key",
               "snippet": "HASH_HASKEY(${1:hash},${2:key})$0",
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
             }, {
-              "description": "Expands to: (hash setVariable [key, val])",
+              "description": "Sets a value to a hash",
               "snippet": "HASH_SET(${1:hash},${2:key},${3:value})$0",
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
             }, {
-              "description": "Expands to: (hash getVariable key)",
+              "description": "Returns a value from a hash",
               "snippet": "HASH_GET(${1:hash},${2:key})$0",
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
             }, {
-              "description": "Expands to: (hash getVariable [key, default])",
+              "description": "Returns a value from a hash with default Value",
               "snippet": "HASH_GET_DEF(${1:hash},${2:key},${3:default})$0",
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
             }, {
-              "description": "Expands to: (hash setVariable [key, nil])",
+              "description": "Removes a key from a hash",
               "snippet": "HASH_REM(${1:hash},${2:key})$0",
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
             }, {
-              "description": "Expands to: ([hash] call EFUNC(main,HashCopy))",
+              "description": "Copys a hash into a new hash",
               "snippet": "HASH_COPY(${1:hash})$0",
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
             }, {
-              "description": "Expands to: ([hash] call EFUNC(main,HashKeys))",
+              "description": "returns all keys of a hash",
               "snippet": "HASH_KEYS(${1:hash})$0",
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
             },  {
-              "description": "Expands to: ([hash] call EFUNC(main,serialize))",
+              "description": "Serializes a hash",
               "snippet": "HASH_SERIALIZE(${1:hash})$0",
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
             }, {
-              "description": "Expands to: ([array] call EFUNC(main,deserialize))",
+              "description": "deserializes a hash",
               "snippet": "HASH_DESERIALIZE(${1:array})$0",
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
             }, {
-              "description": "Expands to: (count ([hash] call EFUNC(main,HashKeys)))",
+              "description": "Returns the amount of keys of the hash",
               "snippet": "HASH_SIZE(${1:hash})$0",
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
             }, {
-              "description": "Expands to: ((count ([hash] call EFUNC(main,HashKeys)))<1)",
+              "description": "Checks if a hash is empty",
               "snippet": "HASH_ISEMPTY(${1:hash})$0",
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
             }, {
-              "description": "Expands to: ([hash] call EFUNC(main,HashGetKeyFromValue))",
+              "description": "Checks if a hash has a value and returns the first matching key",
               "snippet": "HASH_GETKEY(${1:hash})$0",
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
             }, {
-              "description": "Expands to: ([hash1,hash2] call EFUNC(main,HashMerge))",
+              "description": "Merges a hash into an other",
               "snippet": "HASH_MERGE(${1:hash1},${2:hash2})$0",
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
             }, {
-              "description": "Expands to: ({hash setVariable [_x,nil];}forEach (allVariables hash))",
+              "description": "Clears all values from a hash",
               "snippet": "HASH_CLEAR(${1:hash})$0",
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
             }, {
-              "description": "Expands to: (!isNil{([HASH,VALUE] call EFUNC(main,HashGetKeyFromValue))})",
-              "snippet": "HASH_CLEAR(${1:hash},${2:hash})$0",
+              "description": "Checks if a hash contains a value",
+              "snippet": "HASH_HASVALUE(${1:hash},${2:hash})$0",
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
             }, {
-              "description": "Expands to: (hash isEqualType locationNull && {(text hash) isEqualTo DORB_HASH_SYS_NAME})",
+              "description": "Checks if a value is a hash",
               "snippet": "IS_HASH(${1:hash})$0",
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
             }, {
-              "description": "Expands to: (IS_ARRAY(array) && {(count array) > 0} && {IS_STRING((array select 0))} && {(array select 0) == \"mission_hash\"})",
+              "description": "Checks if a value is a serialized hash",
               "snippet": "IS_SERIALIZEDHASH(${1:array})$0",
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
