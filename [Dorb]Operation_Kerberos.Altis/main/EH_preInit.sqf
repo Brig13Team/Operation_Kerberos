@@ -23,6 +23,7 @@ PREP(HashCopy);
 PREP(HashCopyArray);
 PREP(HashCreate);
 PREP(HashKeys);
+PREP(HashMerge);
 PREP(HashMonitor);
 PREP(serialize);
 PREP(deserialize);

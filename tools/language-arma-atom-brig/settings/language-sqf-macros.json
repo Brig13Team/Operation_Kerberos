@@ -80,6 +80,11 @@
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
             }, {
+              "description": "Expands to: ([hash1,hash2] call EFUNC(main,HashMerge))",
+              "snippet": "HASH_MERGE(${1:hash1},${2:hash2})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
               "description": "Expands to: (hash isEqualType locationNull && {(text hash) isEqualTo DORB_HASH_SYS_NAME})",
               "snippet": "IS_HASH(${1:hash})$0",
               "rightLabel": "BRIG Macro",

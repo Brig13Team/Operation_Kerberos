@@ -663,8 +663,22 @@ Example:
 Author:
     Dorbedo
 ------------------------------------------- */
-#define HASH_GETKEY(HASH) ([HASH] call EFUNC(main,HashGetKeyFromValue))
+#define HASH_GETKEY(HASH,VALUE) ([HASH,VALUE] call EFUNC(main,HashGetKeyFromValue))
+/* -------------------------------------------
+Macro: HASH_MERGE(hash1, hash2)
+    merges hash2 into hash1
 
+Parameters:
+    0 : HASH
+    1 : HASH
+
+Example:
+    HASH_MERGE(_hash,_otherHash);
+
+Author:
+    Dorbedo
+------------------------------------------- */
+#define HASH_MERGE(PRIMHASH,SECHASH) ([PRIMHASH,SECHASH] call EFUNC(main,HashMerge))
 
 #define HASHLIST_CREATELIST(keys) []
 #define HASHLIST_CREATEHASH(hashList) HASH_CREATE
