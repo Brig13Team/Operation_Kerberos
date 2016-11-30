@@ -85,6 +85,16 @@
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
             }, {
+              "description": "Expands to: ({hash setVariable [_x,nil];}forEach (allVariables hash))",
+              "snippet": "HASH_CLEAR(${1:hash})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "Expands to: (!isNil{([HASH,VALUE] call EFUNC(main,HashGetKeyFromValue))})",
+              "snippet": "HASH_CLEAR(${1:hash},${2:hash})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
               "description": "Expands to: (hash isEqualType locationNull && {(text hash) isEqualTo DORB_HASH_SYS_NAME})",
               "snippet": "IS_HASH(${1:hash})$0",
               "rightLabel": "BRIG Macro",

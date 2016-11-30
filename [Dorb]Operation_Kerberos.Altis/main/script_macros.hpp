@@ -652,6 +652,7 @@ Author:
 /* -------------------------------------------
 Macro: HASH_GETKEY(hash, value)
     returns a key of a hash, which contaions the same value
+    returns nil if no hash is availible
 
 Parameters:
     0 : HASH
@@ -664,6 +665,21 @@ Author:
     Dorbedo
 ------------------------------------------- */
 #define HASH_GETKEY(HASH,VALUE) ([HASH,VALUE] call EFUNC(main,HashGetKeyFromValue))
+/* -------------------------------------------
+Macro: HASH_HASVALUE(hash, value)
+    checks if a hash has the provided value
+
+Parameters:
+    0 : HASH
+    1 : ANY
+
+Example:
+    _key = HASH_HASVALUE(_hash, 999.9)
+
+Author:
+    Dorbedo
+------------------------------------------- */
+#define HASH_HASVALUE(HASH,VALUE) (!isNil{([HASH,VALUE] call EFUNC(main,HashGetKeyFromValue))})
 /* -------------------------------------------
 Macro: HASH_MERGE(hash1, hash2)
     merges hash2 into hash1
@@ -679,6 +695,20 @@ Author:
     Dorbedo
 ------------------------------------------- */
 #define HASH_MERGE(PRIMHASH,SECHASH) ([PRIMHASH,SECHASH] call EFUNC(main,HashMerge))
+/* -------------------------------------------
+Macro: HASH_CLEAR(hash)
+    clears all values of a hash
+
+Parameters:
+    0 : HASH
+
+Example:
+    HASH_CLEAR(_hash);
+
+Author:
+    Dorbedo
+------------------------------------------- */
+#define HASH_CLEAR(HASH) ({HASH setVariable [_x,nil];}forEach (allVariables HASH))
 
 #define HASHLIST_CREATELIST(keys) []
 #define HASHLIST_CREATEHASH(hashList) HASH_CREATE

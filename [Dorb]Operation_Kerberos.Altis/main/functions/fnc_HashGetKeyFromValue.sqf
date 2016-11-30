@@ -16,9 +16,9 @@
 
 _this params ["_hash","_value"];
 
-If !(IS_HASH(_hash)) exitWith {""};
+If !(IS_HASH(_hash)) exitWith {nil};
 
-private _return = "";
+private "_return";
 
 {
     If ((HASH_HASKEY(_hash,_x))&&{HASH_GET(_hash,_x) isEqualTo _value}) exitWith {_return = _x;};
