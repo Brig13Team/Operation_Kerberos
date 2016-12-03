@@ -91,7 +91,7 @@
               "descriptionMoreURL": ""
             }, {
               "description": "Checks if a hash contains a value",
-              "snippet": "HASH_HASVALUE(${1:hash},${2:hash})$0",
+              "snippet": "HASH_HASVALUE(${1:hash},${2:value})$0",
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
             }, {
