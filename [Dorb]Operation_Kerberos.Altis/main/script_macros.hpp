@@ -760,3 +760,20 @@ Author:
 #define ACTIVEMOD_TFAR (isClass(configFile >> "CfgPatches" >> "task_force_radio"))
 #define ACTIVEMOD_ACRE (isClass(configFile >> "CfgPatches" >> "acre_main"))
 #define ACTIVEMOD_BW (isClass(configFile >> "CfgPatches" >> "BWA3_Tracked"))
+
+/* -------------------------------------------
+Macro: DATA_*
+    Some database macros
+
+Parameters:
+    none
+
+Example:
+
+Author:
+    Dorbedo
+------------------------------------------- */
+#define DB_SEND EFUNC(database,sendNoReturn)
+#define DB_SENDRET EFUNC(database,sendWithReturn)
+#define DB_GETSINGLE EFUNC(database,getSingleValue)
+#define DB_GET EFUNC(database,getValue)
