@@ -18,6 +18,6 @@ class DOUBLES(CfgComponent,ADDON) {
     };
     class dependencies {
         CfgPatches[] = {};
-        CfgComponents[] = {"gui","mission"};
+        CfgComponents[] = {"gui","mission","database"};
     };
 };

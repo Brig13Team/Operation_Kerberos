@@ -13,12 +13,16 @@
  */
 #include "script_component.hpp"
 
-If !(isMultiplayer) exitWith {
-    [["Test-Advert", "content"]]
-};
+private _return = ["getAdvertisements"] call DB_get;
 
-private _loadedAdverts = call compile preprocessFileLineNumbers "\userconfig\kerberos\dorb_adverts.sqf";
-if (!isNil "_loadedAdverts") then {
+private _loadedAdverts = []
+
+{
+    _loadedAdverts pushBack [_x,(_return select 1)select _forEachIndex];
+} forEach (_return select 0);
+
+
+if !(_loadedAdverts isEqualTo []) then {
     GVAR(advertisements) = _loadedAdverts;
 };
 
