@@ -19,5 +19,5 @@ CHECK(isNil "_this")
 private _query = [1,GVAR(sessionID)];
 _query append _this;
 _query = _query joinString ":";
-"extDB3" callExtension _query;
+"extdb3" callExtension _query;
 nil;

@@ -17,7 +17,7 @@ _this params ["_key"];
 private _return = "";
 private "_pipe";
 while {true} do {
-    _pipe = "extDB3" callExtension format["5:%1",_key];
+    _pipe = "extdb3" callExtension format["5:%1",_key];
     If (_pipe isEqualTo "") exitWith {};
         _result = _result + _pipe;
 };

@@ -777,3 +777,4 @@ Author:
 #define DB_SENDRET EFUNC(database,sendWithReturn)
 #define DB_GETSINGLE EFUNC(database,getSingleValue)
 #define DB_GET EFUNC(database,getValue)
+#define DB_TIME EFUNC(database,getTime)

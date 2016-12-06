@@ -14,23 +14,23 @@
 #include "script_component.hpp"
 
 
-private _result = "extDB3" callExtension "9:VERSION";
+private _result = "extdb3" callExtension "9:VERSION";
 If (_result isEqualTo "") exitWith {
     ERROR("No extDB3 extension loaded");
     false;
 };
 
 
-_result = "extDB3" callExtension "9:LOCK_STATUS";
-If !(_result isEqualTo ["0"]) exitWith {
+_result = call compile ("extdb3" callExtension "9:LOCK_STATUS");
+If ((_result select 0) == 1) exitWith {
     ERROR("Database is locked");
     false;
 };
 
 // reset the connection
-"extDB3" callExtension "9:RESET";
+"extdb3" callExtension "9:RESET";
 
-_result = call compile ("9:ADD_DATABASE:Kerberos");
+_result = call compile ("extdb3" callExtension "9:ADD_DATABASE:KerberosDB");
 If ((_result select 0) isEqualTo 0) exitWith {
     ERROR("Can not connect to Database");
     false;
@@ -44,7 +44,7 @@ GVAR(sessionID) = str(round(random(999999)));
 If !(isMultiplayer) then {
     GVAR(sessionID) = QUOTE(PREFIX);
 };
-_result = call compile ("extDB3" callExtension (format["9:ADD_DATABASE_PROTOCOL:Kerberos:SQL_CUSTOM:%1:kerberos.ini",GVAR(sessionID)]));
+_result = call compile ("extdb3" callExtension (format["9:ADD_DATABASE_PROTOCOL:KerberosDB:SQL_CUSTOM:%1:kerberos.ini",GVAR(sessionID)]));
 
 If !((_result select 0) isEqualTo 1) exitWith {
     ERROR("Protocols not loaded");

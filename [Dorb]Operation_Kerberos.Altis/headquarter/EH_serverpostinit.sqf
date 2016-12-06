@@ -73,7 +73,7 @@ HASH_SET(GVAR(dangerzones),"gridsize",125);
 HASH_SET(GVAR(dangerzones),"distance",2000);
 
 /// Strategy
-GVAR(strategy_memory) = SERIALIZE(GETPRVAR(GVAR(strategy_memory),HASH_CREATE));
+GVAR(strategy_memory) = HASH_SERIALIZE(GETPRVAR(GVAR(strategy_memory),HASH_CREATE));
 
 /// AttaclPos
 GVAR(attackpos) = HASH_CREATE;

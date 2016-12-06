@@ -26,7 +26,7 @@ if !(_loadedAdverts isEqualTo []) then {
     GVAR(advertisements) = _loadedAdverts;
 };
 
-If !( GVAR(advertisements) == GVAR(lastadvertisements) ) then {
+If !( GVAR(advertisements) isEqualTo GVAR(lastadvertisements) ) then {
     GVAR(lastadvertisements) = GVAR(advertisements);
     publicVariable QGVAR(advertisements);
 };
