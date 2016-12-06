@@ -17,5 +17,6 @@ CHECK(isNil "_this")
 
 private _query = [0,GVAR(sessionID)];
 _query append _this;
+_query = _query joinString ":";
 private _return = call compile ("extDB3" callExtension _query);
 ((_return select 1) select 0)

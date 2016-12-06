@@ -41,7 +41,7 @@ compile = QUOTE( \
         with uiNamespace do { \
             If (isNil 'GVARMAIN(recompile)') then {GVARMAIN(recompile) = [];}; \
             GVARMAIN(recompile) pushBack [ARR_3(_path,_funcName,_headertype)]; \
-            diag_log format [ARR_2('compiling: %2',[ARR_3(_path,_funcName,_headertype)])]; \
+            diag_log format [ARR_2('compiling: %1',[ARR_3(_path,_funcName,_headertype)])]; \
         }; \
     }else{ \
         private _cache = uiNamespace getVariable _funcName; \

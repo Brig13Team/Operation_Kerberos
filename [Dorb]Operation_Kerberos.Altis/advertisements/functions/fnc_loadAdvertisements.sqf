@@ -15,7 +15,7 @@
 
 private _return = ["getAdvertisements"] call DB_get;
 
-private _loadedAdverts = []
+private _loadedAdverts = [];
 
 {
     _loadedAdverts pushBack [_x,(_return select 1)select _forEachIndex];
