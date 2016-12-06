@@ -4,7 +4,7 @@
  */
  #include "script_component.hpp"
 If (hasInterface) then {
-
+    /*
     /// before the player opens the arsenal, we change the ACRE radios to the default ones
     [
         QGVARMAIN(arsenalOpened),
@@ -19,7 +19,7 @@ If (hasInterface) then {
 		    (_display displayctrl 44147) ctrladdeventhandler ["buttonclick",QUOTE([ARR_2(FUNC(ArsenalRemoveRadio),_this)] call CBA_fnc_directCall;)];
         }
     ] call CBA_fnc_addEventHandler;
-
+    */
     If (isServer) then { // self hosted game
         GVAR(isDataSyncronized) = true;
     }else{
@@ -32,5 +32,5 @@ If (hasInterface) then {
         ] call CBA_fnc_waitUntilAndExecute
 
     };
-    [] spawn FUNC(ArsenalRemoveRadio);
+    //[] spawn FUNC(ArsenalRemoveRadio);
 };

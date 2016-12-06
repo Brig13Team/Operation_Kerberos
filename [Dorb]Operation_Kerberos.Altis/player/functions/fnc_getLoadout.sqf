@@ -17,7 +17,7 @@ _this params ["_unit"];
 
 private _loadout = getUnitLoadout _unit;
 If (!isNil QEFUNC(acrepatch,cleanLoadout)) then {
-	_loadout = [_loadout] call EFUNC(acrepatch,cleanLoadout);
+	//_loadout = [_loadout] call EFUNC(acrepatch,cleanLoadout);
 };
 
 private _weaponsarray = [];
