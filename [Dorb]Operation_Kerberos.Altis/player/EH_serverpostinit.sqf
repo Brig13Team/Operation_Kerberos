@@ -9,25 +9,6 @@
 CHECK(!isServer)
 
 GVAR(postInit) = false;
-#ifdef DORB_PILOT_WHITELIST_ENABLED
-    GVAR(reserved_pilot_slot) = true;
-    /*
-    [QGVAR(pilot_whitelist), "onPlayerConnected", {
-        private _userconfig = [] call FUNC(userconfig);
-        If (_uid in _userconfig) then {
-            _owner publicVariableClient QGVAR(reserved_pilot_slot) ;
-        };
-    }] call BIS_fnc_addStackedEventHandler;
-    */
-    IS_WHITELISTED(_uid)
-    [QGVAR(pilot_whitelist), "onPlayerConnected", {
-        ["insertOrUpdatePlayerInfo",_uid,_name] call DB_SEND;
-        private _return = ["isPlayerWhitelisted",_uid] call DB_GETSINGLE;
-        If (IS_ARRAY(_return) && {_return select 0}) then {
-            _owner publicVariableClient QGVAR(reserved_pilot_slot) ;
-        };
-    }] call BIS_fnc_addStackedEventHandler;
-#endif
 
 /// Teleport
 GVARMAIN(key) = format ["Missionkey:%1",random(100000)];

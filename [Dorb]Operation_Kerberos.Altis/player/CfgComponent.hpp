@@ -17,6 +17,14 @@ class DOUBLES(CfgComponent,ADDON) {
     class postinit {};
     class preinit {};
     class serverpostinit {client = 0;};
+    class serverpostinit_whitelist {
+        client = 0;
+        class dependencies {
+            CfgPatches[] = {};
+            CfgComponents[] = {"database"};
+            Condition = "true";
+        };
+    };
     class dependencies {
         CfgPatches[] = {};
         CfgComponents[] = {"common"};
