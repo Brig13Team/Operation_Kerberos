@@ -40,5 +40,5 @@ _fnc_road_array = {
 
 
 {
-	[_x] call _fnc_road_array;
+    [_x] call _fnc_road_array;
 }forEach _list;
