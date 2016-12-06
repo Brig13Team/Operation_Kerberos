@@ -13,4 +13,6 @@ ADDON = false;
 #include "headless\XEH_preInit.sqf"
 #include "acrepatch\XEH_preInit.sqf"
 
+#include "database\EH_preInit.sqf"
+
 ADDON = true;

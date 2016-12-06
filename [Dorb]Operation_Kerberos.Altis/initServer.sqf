@@ -27,6 +27,7 @@ setTimeMultiplier 2;
 #ifdef DORB_PILOT_WHITELIST_ENABLED
 	GVAR(reserved_pilot)=[];
 	GVAR(reserved_pilot_slot) = true;
+    /*
 	[] call FUNC(userconfig);
 	[QGVAR(pilot_whitelist), "onPlayerConnected", {
 		[] call FUNC(userconfig);
@@ -34,6 +35,14 @@ setTimeMultiplier 2;
 			_owner publicVariableClient QGVAR(reserved_pilot_slot) ;
 		};
 	}] call BIS_fnc_addStackedEventHandler;
+    */
+    [QGVAR(pilot_whitelist), "onPlayerConnected", {
+        ["insertOrUpdatePlayerInfo",_uid,_name] call EFUNC(database,sendNoReturn);
+        private _return = ["isPlayerWhitelisted",_uid] call EFUNC(database,getSingleValue);
+        If (IS_ARRAY(_return) && {_return select 0}) then {
+            _owner publicVariableClient QEGVAR(main,reserved_pilot_slot) ;
+        };
+    }] call BIS_fnc_addStackedEventHandler;
 #endif
 
 
