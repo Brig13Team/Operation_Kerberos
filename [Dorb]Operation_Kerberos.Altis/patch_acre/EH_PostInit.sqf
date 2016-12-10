@@ -36,6 +36,9 @@ CHECK(!ACTIVEMOD_ACRE);
     LOG_3(_message,_player,_class);
 }] call CBA_fnc_addEventHandler;
 
+ACRE_SERVER_GEAR_DESYNCED = false;
+ACRE_SERVER_DESYNCED_PLAYERS = [];
+
 [
     QGVAR(syncGear),
     {

@@ -15,7 +15,6 @@ TRIPLES(PREFIX,makro,iscasvehicle) = {
 FUNCMAIN(recompile) = FUNCSYS(recompile);
 
 PREP(debug_performance);
-PREP(userconfig);
 
 PREP(HashCollector);
 PREP(HashGetKeyFromValue);

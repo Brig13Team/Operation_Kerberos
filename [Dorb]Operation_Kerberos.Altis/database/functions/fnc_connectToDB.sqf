@@ -36,8 +36,9 @@ If ((_result select 0) isEqualTo 0) exitWith {
     false;
 };
 
-private _time = (call compile ("extDB2" callExtension "9:LOCAL_TIME")) select 1;
-LOG(Format[ARR_2("Connected to Database: %1",_time)]);
+//private _time = (call compile ("extDB2" callExtension "9:LOCAL_TIME")) select 1;
+//LOG(Format[ARR_2("Connected to Database: %1",_time)]);
+LOG("Connected to Database");
 
 // Security
 GVAR(sessionID) = str(round(random(999999)));

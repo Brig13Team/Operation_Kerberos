@@ -29,12 +29,14 @@ SETUVAR(EGVAR(gui,respawnTime),nil);
 [
     QGVAR(ArsenalAddAction),
     {
+        /*
         If ((!isNil QEGVAR(patchacre,isDataSyncronized))&&{!EGVAR(patchacre,isDataSyncronized)}) exitWith {
             [
                 {EGVAR(patchacre,isDataSyncronized)},
                 {[QGVAR(ArsenalAddAction)] call CBA_fnc_localEvent;}
             ] call CBA_fnc_waitUntilAndExecute;
         };
+        */
         private _boxes = missionnamespace getvariable [QGVAR(arsenal_boxes),[]];
         {
             If (isNil "ace_interact_menu_fnc_addActionToObject") then {
