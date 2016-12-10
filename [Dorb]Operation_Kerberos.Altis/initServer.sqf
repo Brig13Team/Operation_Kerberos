@@ -37,6 +37,7 @@ setTimeMultiplier 2;
 	}] call BIS_fnc_addStackedEventHandler;
     */
     [QGVAR(pilot_whitelist), "onPlayerConnected", {
+        If (([_uid, "HC"] call CBA_fnc_find)>-1) exitWith {}; /// Ignore Headless CLients
         ["insertOrUpdatePlayerInfo",_uid,_name] call EFUNC(database,sendNoReturn);
         private _return = ["isPlayerWhitelisted",_uid] call EFUNC(database,getSingleValue);
         If (IS_ARRAY(_return) && {_return select 0}) then {

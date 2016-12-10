@@ -62,6 +62,8 @@
     }
 ] call CBA_fnc_addEventHandler;
 
+ACRE_SERVER_GEAR_DESYNCED = false;
+ACRE_SERVER_DESYNCED_PLAYERS = [];
 [
     {
         If (ACRE_SERVER_GEAR_DESYNCED) then {

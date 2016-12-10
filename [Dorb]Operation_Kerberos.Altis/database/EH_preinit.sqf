@@ -16,6 +16,3 @@ PREP(sendNoReturn);
 PREP(sendWithReturn);
 
 GVAR(initialized) = false;
-
-call FUNC(connectToDB);
-["constructTablePlayers"] call FUNC(sendNoReturn);

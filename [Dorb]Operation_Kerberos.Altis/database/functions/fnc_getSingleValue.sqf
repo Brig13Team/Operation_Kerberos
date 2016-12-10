@@ -12,9 +12,9 @@
  *
  */
 #include "script_component.hpp"
-
+CHECK(!GVAR(initialized))
 CHECK(isNil "_this")
-
+TRACEV_1(_this);
 private _query = [0,GVAR(sessionID)];
 _query append _this;
 _query = _query joinString ":";

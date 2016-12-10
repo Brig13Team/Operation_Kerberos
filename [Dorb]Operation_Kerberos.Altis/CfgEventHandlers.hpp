@@ -41,6 +41,9 @@ class Extended_PostInit_EventHandlers {
     class dorb_modasrai {
         init = "call compile preProcessFileLineNumbers 'modasrai\XEH_postinit.sqf'";
     };
+    class dorb_database {
+        Serverinit = "[] spawn compile preProcessFileLineNumbers 'database\EH_postinit.sqf'";
+    };
 };
 
 class Extended_Init_Eventhandlers {

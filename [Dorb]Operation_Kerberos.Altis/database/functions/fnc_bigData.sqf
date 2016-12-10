@@ -12,7 +12,8 @@
  *
  */
 #include "script_component.hpp"
-
+CHECK(!GVAR(initialized))
+TRACEV_1(_this);
 _this params ["_key"];
 private _return = "";
 private "_pipe";
