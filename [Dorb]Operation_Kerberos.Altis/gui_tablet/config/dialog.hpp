@@ -36,7 +36,7 @@ class RSC(tabletBase) {
         y = GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 12.5 - GUI_GRID_CENTER_H * 25.6;
         w = GUI_GRID_CENTER_W * 51.2;
         h = GUI_GRID_CENTER_H * 51.2;
-        text = QPICPATH(tablet_background);
+        text = QPAAPATH(tablet_background);
     };
     class background_Display: RSC(BaseText) {
         x = GUI_GRID_CENTER_X;
