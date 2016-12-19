@@ -127,7 +127,7 @@ If (GETVAR(GVAR(commander_logic),GVAR(commander_ai),false)) then {
 	};
 };
 // Artypos
-If (GETVAR(GVAR(commander_logic),GVAR(commander_art),[])) then {
+If (GETVAR(GVAR(commander_logic),GVAR(commander_art),false)) then {
 	for "_i" from 0 to 3 do {
 		private["_spawnposition","_unit","_temp"];
 		_spawnposition=[];
