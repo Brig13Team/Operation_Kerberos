@@ -35,12 +35,14 @@ private _canNotFly = {
     _return = true;
     If ((typeOf player) in ["B_Pilot_F","B_Helipilot_F"]) then {_return = false;};
     If (GETVAR(player,GVARMAIN(ISPILOT),false)) then {_return = false;};
+    If !(missionNamespace getVariable [QEGVAR(player,whitelistenabled),false]) then {_return = false;};
     _return
 };
 
 private _vclass = getText(configFile >> "CfgVehicles" >> _vehiclewahl >> "vehicleClass");
+
 CHECK((_vehiclewahl isKindOf "Air")&&(!(_vehiclewahl isKindOf "UAV"))&&(call _canNotFly))
-if((_vclass in ["rhs_vehclass_ifv","rhs_vehclass_tank","rhs_vehclass_artillery","Armored","BWA3_VehClass_Tracked_Tropen","BWA3_VehClass_Tracked_Fleck","BWA3_VehClass_Wheeled_Tropen","BWA3_VehClass_Wheeled_Fleck"]) && {typeOf player != "B_Crew_F"}) exitWith {};
+if ((_vclass in ["rhs_vehclass_ifv","rhs_vehclass_tank","rhs_vehclass_artillery","Armored","BWA3_VehClass_Tracked_Tropen","BWA3_VehClass_Tracked_Fleck","BWA3_VehClass_Wheeled_Tropen","BWA3_VehClass_Wheeled_Fleck"]) && {typeOf player != "B_Crew_F"} &&{missionNamespace getVariable [QEGVAR(player,whitelistenabled),false]}) exitWith {};
 
 private "_vehicle";
 
@@ -75,8 +77,8 @@ if (_mode isEqualTo "driver") then {
         {deleteVehicle _x;}forEach (crew _vehicle);
     };
     If (
-            (RETDEF(EGVAR(player,whitelistenabled),false))&&
-            ((isNil QEGVAR(player,reserved_pilot_slot))&&ISCASVEHICLE_C(_vehiclewahl))
+            (missionNamespace getVariable [QEGVAR(player,whitelistenabled),false])&&
+            {(isNil QEGVAR(player,reserved_pilot_slot))&&ISCASVEHICLE_C(_vehiclewahl)}
         ) exitWith {};
     player moveInDriver _vehicle;
 };
