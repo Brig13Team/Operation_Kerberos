@@ -15,7 +15,7 @@ If (isNil format[QGVAR(arsenalList_%1),str _side]) exitWith {
         GVAR(arsenalList_script) = false;
         [_side,_onlyGear] spawn FUNC(getSideRestrictedArsenal);
     };
-    [{(!(isNil format[QGVAR(arsenalList_%1),(_this select 1)]))&&((!isNil QGVAR(postInit))&&{GVAR(postInit)})},FUNC(addSideRestrictedArsenal),[_target,_side]] call CBA_fnc_waitUntilAndExecute;
+    [{(!(isNil format[QGVAR(arsenalList_%1),(_this select 1)]))&&((!isNil QGVAR(postInit))&&{GVAR(postInit)})},FUNC(addSideRestrictedArsenal),_this] call CBA_fnc_waitUntilAndExecute;
 };
 (missionNamespace getVariable format[QGVAR(arsenalList_%1),str _side]) params ["_addWeapons","_addMagazines","_addItems","_addBackpacks",["_fixWeapons",[],[[]]],["_fixMagazines",[],[[]]],["_fixItems",[],[[]]],["_fixBackpacks",[],[[]]]];
 
