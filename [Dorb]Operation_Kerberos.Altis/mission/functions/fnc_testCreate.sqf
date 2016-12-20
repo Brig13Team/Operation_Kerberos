@@ -15,7 +15,7 @@
 #include "script_component.hpp"
 
 _this params [["_centerpos",[]]];
-
+[] call EFUNC(spawn,army_set);
 If (_centerpos isEqualTo []) then {
     _centerpos = getMarkerPos "testmarker";
 };

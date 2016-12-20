@@ -13,6 +13,7 @@
  */
 #include "script_component.hpp"
 
+LOG_1(_this);
 _this params [["_type","",[""]]];
 
 private _allConfigs = [];
