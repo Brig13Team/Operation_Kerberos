@@ -14,6 +14,7 @@
  *      none
  *
  */
+ #define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 CHECK(!isServer)
@@ -21,7 +22,7 @@ _this params[["_group",grpNull,[grpNull,objNull]],["_state","",[""]],["_target",
 
 _group = _group call CBA_fnc_getGroup;
 private _grouphash = _group getVariable QGVAR(grouphash);
-
+TRACEV_5(_group,_state,_target,_statementFinish,_grouphash);
 If !(_state in ["patrol","attack","defend","evade","idle","retreat","wait"]) then {_state = "idle";};
 /// if there is no change in state, do nothing
 If ((HASH_GET(_grouphash,"state") isEqualTo _state)&&(isNil "_target")) exitWith {};

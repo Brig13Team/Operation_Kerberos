@@ -26,9 +26,9 @@ private _errorcounter = 0;
 while {((count _possibleSpawnpositions)<_amount)&&(_errorcounter < (100+_amount))} do {
     private _tempPos = [_centerposition,_radius,0] call EFUNC(common,pos_random);
 
-    private _spawnpos = [_tempPos,15,_radius,15,0.10] call EFUNC(common,pos_flatempty);
+    private _spawnpos = [_tempPos,15,_radius,20,0.05] call EFUNC(common,pos_flatempty);
     If (_spawnpos isEqualTo []) then {
-        _spawnpos = [_tempPos,15,_radius,15,0.2] call EFUNC(common,pos_flatempty);
+        _spawnpos = [_tempPos,15,_radius,20,0.15] call EFUNC(common,pos_flatempty);
     };
     If (!(_spawnpos isEqualTo [])) then {
         If (({((_spawnpos distance2D _x)<30)} count _possibleSpawnpositions)<1) then {
@@ -88,7 +88,7 @@ private _allTargetPositions = [];
     #endif
 
     ///// spawn defence
-    private _currentComposition = [_centerposition,_type] call FUNC(composition_chooseComposition);
+    private _currentComposition = [_type,_centerposition] call FUNC(composition_chooseComposition);
 
     private _curTargetPos = [_x,_currentComposition,_bestdir] call FUNC(composition_spawnComposition);
 

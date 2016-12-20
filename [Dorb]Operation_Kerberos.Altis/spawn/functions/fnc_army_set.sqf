@@ -31,8 +31,8 @@ If ((_army isEqualTo "")||{!isClass(missionConfigFile >> "unitlists" >> str GVAR
 
 TRACEV_3(GVARMAIN(side),GVARMAIN(playerside),GVARMAIN(side_type));
 
-private _path = (missionConfigFile >> "unitlists" >> str GVARMAIN(side) >> str GVARMAIN(side_type));
-
+private _path = (missionConfigFile >> "unitlists" >> str GVARMAIN(side) >> GVARMAIN(side_type));
+TRACEV_1(_path);
 GVAR(list_crewmen) = getArray(_path >> "crewmen");
 GVAR(list_divers) = getArray(_path >> "divers");
 GVAR(list_soldiers) = getArray(_path >> "soldiers");

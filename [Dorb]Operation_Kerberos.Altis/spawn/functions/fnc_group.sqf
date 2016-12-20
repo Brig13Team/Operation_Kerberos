@@ -15,14 +15,14 @@
 #include "script_component.hpp"
 _this params[["_position",[],[[]],[2,3]],["_type",[],[[],configfile]]];
 
-If ((IS_ARRAY(_type))&&(isClass(missionConfigFile >> (_type select 0)))) exitWith {
+If ((IS_ARRAY(_type))&&{isClass(missionConfigFile >> (_type select 0))}) exitWith {
     private _temp = [_position] append _type;
     _temp call FUNC(groupFromArray);
 };
 
 LOG_2(_position,_type);
 CHECKRET((_position isEqualTo []),grpNull);
-CHECKRET(((IS_STRING(_type))&&{_type isEqualTo ""}),grpNull);
+//CHECKRET(((IS_STRING(_type))&&{_type isEqualTo ""}),grpNull);
 private["_types","_ranks","_positions","_group"];
 private _types = [];
 private _ranks = [];

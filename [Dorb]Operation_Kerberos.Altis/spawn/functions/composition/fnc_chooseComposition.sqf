@@ -14,7 +14,7 @@
 #include "script_component.hpp"
 
 LOG_1(_this);
-_this params [["_type","",[""]]];
+_this params [["_type","",[""]],["_position",[],[[]],[2,3]]];
 
 private _allConfigs = [];
 

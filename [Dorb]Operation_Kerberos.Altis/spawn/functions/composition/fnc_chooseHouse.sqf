@@ -24,7 +24,7 @@ IF (_isMissiontarget) then {
 }else{
     _allConfigs = ((format["getText(_x >> 'type') == '%1'",_housetype]) configClasses (missionConfigFile >> "CfgCompositions" >> "houses"));
 };
-TRACEV_4(_house,_housetype,_isMissiontarget,_allConfigs);
+//TRACEV_4(_house,_housetype,_isMissiontarget,_allConfigs);
 If (_allConfigs isEqualTo []) exitWith {configNull;};
 
 selectRandom _allConfigs;

@@ -17,7 +17,7 @@
 */
 #include "script_component.hpp"
 _this params[["_position",[],[[]],[2,3]],["_group",grpNull,[grpNull]],["_type","",[""]],["_special","NONE",[""]],["_direction",(random 360),[0]]];
-TRACEV_4(_position,_group,_type,_direction);
+//TRACEV_4(_position,_group,_type,_direction);
 CHECKRET(((_position isEqualTo [])||(isNull _group)||(_type isEqualTo "")),objNull);
 private _unit = _group createUnit [_type,_position, [], 0, _special];
 _unit setDir _direction;

@@ -12,7 +12,7 @@
  *      none
  *
  */
-#include "script_component.hpp"
+#define DEBUG_MODE_FULL
 
 #include "script_component.hpp"
 _this params[["_group",grpNull,[grpNull,objNull]],["_statementFinish","",[""]]];

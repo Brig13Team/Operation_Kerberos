@@ -1,30 +1,20 @@
-/*
- *  Author: Dorbedo
- *
- *  Description:
- *      Script macros which are used inside this mission/addon
- *      Contains new macros and modified CBA macros
- *
- */
+/* -------------------------------------------
+Macro: CBA_OFF
+    turns off the including of CBA because of compatibility issues during description.ext
+    If CBA_OFF is defined, some important MAKROS are copied out of CBA
+Parameters:
+    none
+
+Example:
+    (begin example)
+        CBA_OFF
+        #include "script_component.hpp"
+    (end)
+
+Author:
+    Dorbedo
+------------------------------------------- */
 #include "script_RAL_Codes.hpp"
- /*
-  *  Macro:
-  *      CBA_OFF
-  *
-  *  Description:
-  *      turns of the inclusion of CBA-Macros
-  *      this is needed to use macros inside the missionconfigfile
-  *
-  *  Parameters:
-  *      none
-  *
-  *  Example:
-  *      #define CBA_OFF
-  *      #include "script_component.hpp"
-  *
-  *  Author: Dorbedo
-  *
-  */
 #ifndef CBA_OFF
     #include "\x\cba\addons\main\script_macros_mission.hpp"
 #else
@@ -53,75 +43,86 @@
     #define ARR_7(ARG1,ARG2,ARG3,ARG4,ARG5,ARG6,ARG7) ARG1, ARG2, ARG3, ARG4, ARG5, ARG6, ARG7
     #define ARR_8(ARG1,ARG2,ARG3,ARG4,ARG5,ARG6,ARG7,ARG8) ARG1, ARG2, ARG3, ARG4, ARG5, ARG6, ARG7, ARG8
 
+    #define GUI_DIM(Var1) (Var1*0.9*(safeZoneW min safeZoneH))
+    #define GUI_DIM2(Var1) (0.5-(safeZoneW min safeZoneH)*(0.45+0.09*Var1))
+    #define GUI_W(Var1) GUI_DIM(Var1)
+    #define GUI_H(Var1) GUI_DIM(Var1)
+    #define GUI_X(Var1) GUI_DIM2(Var1)
+    #define GUI_Y(Var1) GUI_DIM2(Var1)
+    #define GUI_XW(Var1,Var2) ( GUI_DIM2(Var1) + GUI_DIM(Var2) )
+    #define GUI_YH(Var1,Var2) ( GUI_DIM2(Var1) + GUI_DIM(Var2) )
+
     #undef CBA_OFF
 #endif
+
+/* Temp Fix for RETNIL */
+//#define RETNIL(VARIABLE) (If (isNil{VARIABLE}) then {nil}else{VARIABLE})
+//#define RETDEF(VARIABLE,DEFAULT_VALUE) (If (isNil{VARIABLE}) then {DEFAULT_VALUE}else{VARIABLE})
+
+#define RETDEF(VARIABLE,DEFAULT_VALUE) ([VARIABLE,DEFAULT_VALUE] select isNil{VARIABLE})
+#define RETNIL(VARIABLE) ([VARIABLE,nil] select isNil{VARIABLE})
+
 /*
- *  Macro:
- *      PAAPATH(var)
- *      QPAAPATH(var)
- *      EPAAPATH(var,var2)
- *      QEPAAPATH(var,var2)
- *
- *  Description:
- *      used as a shortcut for picturefiles
- *
- *  Parameters:
- *      none
- *
- *  Example:
- *      // returns "data/clan.paa"
- *      QPATH(clan)
- *
- *  Author: Dorbedo
- *
- */
+    test = ([_apple,NIL] select (isNil{_apple}));
+    test = (If (isNil{_apple}) then {nil}else{_apple});
+
+
+    EDIT:
+Speed:
+_juice = (If (isNil{_apple}) then {nil}else{_apple}); // 0.0028 msec
+_juice = ([_apple,nil] select (isNil{_apple})); // 0.0022 msec
+_juice = ([_apple] param [0]) // 0.0015 msec
+*/
+/* -------------------------------------------
+Macro: PAAPATH(VAR)
+    reurn the path of the picture
+
+Parameters:
+    VAR - NAME
+
+Author:
+    Dorbedo
+------------------------------------------- */
 #define PAAPATH(VAR1) data\##VAR1.paa
 #define QPAAPATH(VAR1) QUOTE(PAAPATH(VAR1))
 #define EPAAPATH(VAR1,VAR2) data\##VAR1##\##VAR2##.paa
 #define QEPAAPATH(VAR1,VAR2) QUOTE(EPAAPATH(VAR1,VAR2))
 
-/*
- *  Macro:
- *      SYS_SYSTEM(VAR), COMPILE_FIRST(VAR), COMPILE_SYS_FIRST(VAR), COMPILE_SYS, FUNCSYS(VAR)
- *
- *  Description:
- *      internal macros for compiling
- *      called from missionconfigfile to prevent manipulation through modifications
- *
- *  Parameters:
- *      none
- *
- *  Example:
- *      none
- *
- *  Author: Dorbedo
- *
- */
+/* -------------------------------------------
+Macro: FUNCSYS(VAR)
+
+Parameters:
+    VAR - NAME
+
+Author:
+    Dorbedo
+------------------------------------------- */
 #define SYS_SYSTEM(VAR) (parsingNamespace getVariable 'TRIPLES(PREFIX,SYSTEM,VAR)')
 #define COMPILE_FIRST(VAR) {parsingNamespace setVariable [ARR_2('TRIPLES(PREFIX,SYSTEM,VAR)',compile getText(missionConfigFile>>'system'>>'VAR'))];parsingNamespace getVariable 'TRIPLES(PREFIX,SYSTEM,VAR)';}
 #define COMPILE_SYS_FIRST {parsingNamespace setVariable [ARR_2('TRIPLES(PREFIX,SYSTEM,compile)',compile getText(missionConfigFile>>'system'>>'compile'))];parsingNamespace setVariable [ARR_2('TRIPLES(PREFIX,SYSTEM,compile_sys)',compile getText(missionConfigFile>>'system'>>'compile_sys'))];parsingNamespace getVariable 'TRIPLES(PREFIX,SYSTEM,compile)';}
 #define COMPILE_SYS call (parsingNamespace getVariable [ARR_2('TRIPLES(PREFIX,SYSTEM,compile)',COMPILE_SYS_FIRST)])
 #define FUNCSYS(VAR) (parsingNamespace getVariable [ARR_2('TRIPLES(PREFIX,SYSTEM,VAR)',COMPILE_FIRST(VAR))])
 
-/*
- *  Macro:
- *      GUI_*
- *
- *      ***** OBSOLETE *****
- *
- *  Description:
- *      should be removed after the gui has been reworked
- *
- *  Parameters:
- *      none
- *
- *  Example:
- *      text
- *
- *  Author: Dorbedo
- *
- */
 
+/* -------------------------------------------
+Macro: GUI_*
+    Macros for definining the right size of the gui
+
+    ****OBSOLET****
+
+Parameters:
+    GUI_W,GUI_H - 0...1 Size of the Interface
+    GUI_X,GUI_H - 0...1 Position of the Interface
+    GUI_XW,GUI_YW - (0...1,0...1) Position and Size
+Example:
+    x = GUI_XW(0,0.1);
+    y = GUI_YH(0,0.2);
+    w = GUI_W(0.118);
+    h = GUI_H(0.53);
+
+Author:
+    Dorbedo
+------------------------------------------- */
 #define GUI_DIM(Var1) (Var1*0.9*(safeZoneW min safeZoneH))
 #define GUI_DIM2(Var1) (0.5-(safeZoneW min safeZoneH)*(0.45+0.09*Var1))
 
@@ -131,80 +132,64 @@
 #define GUI_Y(Var1) GUI_DIM2(Var1)
 #define GUI_XW(Var1,Var2) GUI_DIM2(Var1)+GUI_DIM(Var2)
 #define GUI_YH(Var1,Var2) GUI_DIM2(Var1)+GUI_DIM(Var2)
+/* -------------------------------------------
+Macro: CHECK()
+    Checks Condition - Exit if true
 
-/*
- *  Macro:
- *      CHECK(VAR)
- *
- *  Description:
- *      Exits the scope if the check failed
- *
- *  Parameters:
- *      VAR - Boolean
- *
- *  Example:
- *      CHECK(isServer)
- *
- *  Author: Dorbedo
- *
- */
+    Hint: no ';' after CHECK()
+
+Parameters:
+    CODE - Condition to Check
+
+Example:
+    (begin example)
+        // if is server exit
+        CHECK(isServer)
+    (end)
+
+Author:
+    Dorbedo
+------------------------------------------- */
 #define CHECK(CONDITION) if (CONDITION) exitWith {};
-
-/*
- *  Macro:
- *      CHECKRET(CONDITION,RETURN)
- *
- *  Description:
- *      exits the scope and return a value if the check failed
- *
- *  Parameters:
- *      CONDITION - Boolean
- *      RETURN - any
- *
- *  Example:
- *      CHECKRET(isAlive,objNull)
- *
- *  Author: Dorbedo
- *
- */
 #define CHECKRET(CONDITION,RETURN) if (CONDITION) exitWith {RETURN;};
-/*
- *  Macro:
- *      TILGE
- *
- *  Description:
- *      deletes marker,objects, vehicles(incl. crew),arrays (with including the other things)
- *      shortcurt for a call of a function
- *
- *  Parameters:
- *      none
- *
- *  Example:
- *      [obj1,"marker1",group1] TILGE;
- *
- *  Author: Dorbedo
- *
- */
+/* -------------------------------------------
+Macro: TILGE
+    deletes:
+        - Marker
+        - Objects (vehicles incl Crew)
+        - Groups
+        - Arrays including these
+
+Parameters:
+    none
+
+Example:
+    (begin example)
+        [veh1  ,  group1  ,  [ "Marker1" , "marker2" ]  ,  [ [ Veh2 ] , soldier1 ] , [ group2 ] ]     TILGE;
+        [soldier3,soldier4] TILGE;
+        "marker3" TILGE;
+    (end)
+
+Author:
+    Dorbedo
+------------------------------------------- */
 #define TILGE call TRIPLES(dorb,common,DOUBLES(fnc,delete))
-/*
- *  Macro:
- *      SCRIPT(VAR)
- *
- *  Description:
- *      sets the scriptname of a script
- *      adds the _fnc_scriptname private
- *
- *  Parameters:
- *      VAR - name of the script
- *
- *  Example:
- *      #define ADDON dorb_test
- *      SCRIPT(greatScript)
- *      hint _fnc_scriptname; // "dorb_test_fnc_greatSCript"
- *
- *  Author: Dorbedo
- *
- */
+/* -------------------------------------------
+Macro: SCRIPT(VAR)
+   Sets name of script
+   Overrides CBA "SCRIPT"
+   adds _fnc_scriptName due to compatibility with BIS-System
+Parameters:
+    NAME - Name of script [Indentifier]
+
+Example:
+    (begin example)
+        SCRIPT(boom);
+    (end)
+
+Author:
+    Dorbedo
+------------------------------------------- */
 #ifdef PART
     #define SCRIPT(NAME) \
     private _fnc_scriptName = QUOTE(DOUBLES(ADDON,TRIPLES(fnc,PART,NAME))); \
@@ -214,25 +199,22 @@
     private _fnc_scriptName = QUOTE(TRIPLES(ADDON,fnc,NAME)); \
     scriptName _fnc_scriptName
 #endif
-/*
- *  Macro:
- *      SCRIPTIN(VAR,VAR2)
- *
- *      ***** OBSOLETE *****
- *
- *  Description:
- *      does the same as SCRIPT, but adds another value
- *      ***** should be removed due to beeing useless
- *
- *  Parameters:
- *      none
- *
- *  Example:
- *      text
- *
- *  Author: Dorbedo
- *
- */
+
+/* -------------------------------------------
+Macro: SCRIPTIN(VAR)
+   Sets name of an inner script
+   adds _fnc_scriptName due to compatibility with BIS-System
+Parameters:
+    NAME - Name of script [Indentifier]
+
+Example:
+    (begin example)
+        SCRIPTIN(boom);
+    (end)
+
+Author:
+    Dorbedo
+------------------------------------------- */
 #ifdef PART
     #define SCRIPTIN(NAME,NAME2) \
     private _fnc_scriptName = QUOTE(TRIPLES(ADDON,fnc,TRIPLES(fnc,NAME,NAME2))); \
@@ -243,23 +225,7 @@
     scriptName _fnc_scriptName
 #endif
 
-/*
- *  Macro:
- *      INCLUDE_HEADER
- *
- *  Description:
- *      adds a header to the function when compiling
- *      should not be used
- *
- *  Parameters:
- *      none
- *
- *  Example:
- *      none
- *
- *  Author: Dorbedo
- *
- */
+
 #define INCLUDE_HEADER 0
 #ifdef DEBUG_MODE_NORMAL
     #define INCLUDE_HEADER 1
@@ -267,77 +233,69 @@
 #ifdef DEBUG_MODE_FULL
     #define INCLUDE_HEADER 2
 #endif
-/*
- *  Macro:
- *      PATHTO_SYS_LONG(var1,var2,var3,var4)
- *
- *  Description:
- *      if the functionpath is longer then expected (used in component-parts)
- *
- *  Parameters:
- *      none
- *
- *  Example:
- *      none
- *
- *  Author: Dorbedo
- *
- */
 #define PATHTO_SYS_LONG(var1,var2,var3,var4) ##var1\##var2\##var3\##var4.sqf
-/*
- *  Macro:
- *      PREP(NAME)
- *
- *  Description:
- *      compiles a function, located inside the COMPONENT/functions
- *      saves the compiled function inside missionnamespace
- *      functionfiles are named "fnc_NAME.sqf"
- *
- *  Parameters:
- *      NAME - the name of the function
- *
- *  Example:
- *      text
- *
- *  Author: Dorbedo
- *
- */
+/* -------------------------------------------
+Macro: PREP(VAR)
+   compiling functions
+   file: COMPONENT\functions\fnc_VAR.sqf
+   adding an header to the function if DEBUG_MODE_NORMAL enabled (COMPONENT WIDE)
+Parameters:
+    VAR - Name of file [Indentifier]
+
+Example:
+    (begin example)
+        #define COMPONENT main
+        PREP(test);
+
+        Result: PREFIX_main_fnc_test = *compiled function*;
+    (end)
+
+Author:
+    Dorbedo
+------------------------------------------- */
 #define PREP(var1) ['PATHTO_SYS(COMPONENT,functions,DOUBLES(fnc,var1))', 'TRIPLES(ADDON,fnc,var1)',INCLUDE_HEADER] COMPILE_SYS
-/*
- *  Macro:
- *      PREPS(PART,NAME)
- *
- *  Description:
- *      compiles the function of a part of a component
- *
- *  Parameters:
- *      PART - the partname
- *      NAME - functionname
- *
- *  Example:
- *      PREPS(debug,putinlog) // PREFIX_COMPONENT_fnc_debug_putinlog = compile "COMPONENT/functions/debug/putinlog.sqf";
- *
- *  Author: Dorbedo
- *
- */
+/* -------------------------------------------
+Macro: PREPS(VAR1,VAR2)
+   compiling functions
+   file: COMPONENT\functions\VAR1\fnc_VAR2.sqf
+   adding an header to the function if DEBUG_MODE_NORMAL enabled (COMPONENT WIDE)
+Parameters:
+    VAR1 - Name of PART
+    VAR2 - Name of file [Indentifier]
+
+Example:
+    (begin example)
+        #define COMPONENT main
+        PREPS(player,test);
+
+        Result: PREFIX_main_fnc_player_test = *compiled function*;
+    (end)
+
+Author:
+    Dorbedo
+------------------------------------------- */
 #define PREPS(var1,var2) ['PATHTO_SYS_LONG(COMPONENT,functions,var1,DOUBLES(fnc,var2))', 'TRIPLES(ADDON,fnc,DOUBLES(var1,var2))',INCLUDE_HEADER] COMPILE_SYS
-/*
- *  Macro:
- *      PREPMAIN
- *
- *  Description:
- *      same as PREP, but without the component inside the functionname
- *
- *  Parameters:
- *      none
- *
- *  Example:
- *      PREPMAIN(test) - PREFIX_fnc_test = compile "COMPONENT/functions/fnc_test.sqf";
- *
- *  Author: Dorbedo
- *
- */
+/* -------------------------------------------
+Macro: PREPMAIN(VAR)
+   compiling functions
+   file: COMPONENT\functions\fnc_VAR.sqf
+   adding an header to the function if DEBUG_MODE_NORMAL enabled (COMPONENT WIDE)
+Parameters:
+    VAR - Name of file [Indentifier]
+
+Example:
+    (begin example)
+        #define COMPONENT main
+        PREPMAIN(test);
+
+        Result: PREFIX_fnc_test = *compiled function*;
+    (end)
+
+Author:
+    Dorbedo
+------------------------------------------- */
 #define PREPMAIN(var1) ['PATHTO_SYS(COMPONENT,functions,DOUBLES(fnc,var1))', 'TRIPLES(PREFIX,fnc,var1)',INCLUDE_HEADER] COMPILE_SYS
+
 
 #ifndef STRING_MACROS_GUARD
     #define STRING_MACROS_GUARD
@@ -347,24 +305,7 @@
     #define ECSTRING(var1,var2) QUOTE(TRIPLES($STR,DOUBLES(PREFIX,var1),var2))
 #endif
 
-/*
- *  Macro:
- *
- *
- *  Description:
- *      wrapper for getvariable - used for faster writing
- *      copy of ACE3
- *
- *  Parameters:
- *      none
- *
- *  Example:
- *      none
- *
- *  Author:
- *      ACE3-Team
- *
- */
+//// Variablen - Copy of ACE3-macros
 
 #define GETVAR_SYS(var1,var2) getVariable [ARR_2(QUOTE(var1),var2)]
 #define SETVAR_SYS(var1,var2) setVariable [ARR_2(QUOTE(var1),var2)]
@@ -386,55 +327,50 @@
 #define GETGVAR(var1,var2) GETMVAR(GVAR(var1),var2)
 #define GETEGVAR(var1,var2,var3) GETMVAR(EGVAR(var1,var2),var3)
 
-/*
- *  Macro:
- *      MAP(CODE,ARRAY)
- *
- *      ***** OBSOLETE *****
- *
- *  Description:
- *      executes code on every array element
- *
- *  Parameters:
- *      CODE - the code to be executed
- *      ARRAY - the array
- *
- *  Example:
- *      MAP("_this + 1",[2,3,4]) // [3,4,5]
- *
- *  Author:
- *      iJesuz
- *
- */
+/* -------------------------------------------
+Macro(s): MAP(CODE,ARRAY)
+    executes code on every array element
+
+Parameters:
+    0 : STRING/CODE
+    1 : ARRAY
+
+Example:
+    (begin example)
+        MAP("_this+1",[2,3,4]);
+            ==> [3,4,5]
+    (end)
+
+Author:
+    iJesuz
+------------------------------------------- */
 #define MAP(CODE,ARRAY) ARRAY apply CODE
 
-/*
- *  Macro:
- *      *POLAR_*(PHI,RADIUS)
- *
- *  Description:
- *       prefix:
- *          non: arma-like polarcoordinates
- *              (angle between y-axis and radius)
- *          "N": normal polarcoordinates
- *              (angle between x-axis and radius)
- *          postfix:
- *              "X": x-value
- *              "Y": y-value
- *              "2D": 2D coordinate
- *              "3D": 3D coordinate (z = 0)
- *
- *  Parameters:
- *      PHI - Number
- *      RADIUS - Number
- *
- *  Example:
- *      text
- *
- *  Author:
- *      iJesuz
- *
- */
+/* -------------------------------------------
+Macro(s): <PREFIX>POLAR_<POSTFIX>(PHI,RADIUS)
+    prefix:
+        non: arma-like polarcoordinates
+             (angle between y-axis and radius)
+        "N": normal polarcoordinates
+             (angle between x-axis and radius)
+    postfix:
+        "X": x-value
+        "Y": y-value
+        "2D": 2D coordinate
+        "3D": 3D coordinate (z = 0)
+
+Parameters:
+    0 : NUMBER
+    1 : NUMBER
+
+Example:
+    (begin example)
+        POLAR_3D(35,1)
+    (end)
+
+Author:
+    iJesuz
+------------------------------------------- */
 #define POLAR_X(PHI,RADIUS) ((sin (PHI)) * (RADIUS))
 #define POLAR_Y(PHI,RADIUS) ((cos (PHI)) * (RADIUS))
 #define POLAR_2D(PHI,RADIUS) [POLAR_X(PHI,RADIUS),POLAR_Y(PHI,RADIUS)]
@@ -443,58 +379,59 @@
 #define NPOLAR_Y(PHI,RADIUS) POLAR_X(PHI,RADIUS)
 #define NPOLAR_2D(PHI,RADIUS) [NPOLAR_X(PHI,RADIUS),NPOLAR_Y(PHI,RADIUS)]
 #define NPOLAR_3D(PHI,RADIUS) [NPOLAR_X(PHI,RADIUS),NPOLAR_Y(PHI,RADIUS),0]
-/*
- *  Macro:
- *      ISCASVEHICLE(VEH)
- *
- *  Description:
- *      the vehicles is a cas vehicle
- *
- *  Parameters:
- *      VEH - the classname of the vehicles
- *
- *  Example:
- *      If (ISCASVEHICLE("plane_x")) exitWith {};
- *
- *  Author:
- *      iJesuz
- *
- */
+
+/* -------------------------------------------
+Macro(s):
+    ISCASVEHICLE(VAR)
+
+    check if air-vehicle is a CAS vehicle
+
+Parameters:
+    CONFIGNAME - the type of the vehicle
+
+Example:
+    (begin example)
+        ISCASVEHICLE('B_Heli_Attack_01_F')
+        ISCASVEHICLE_C('B_Plane_CAS_01_F')
+    (end)
+
+Author:
+    iJesuz
+------------------------------------------- */
+
 #define ISCASVEHICLE(ARG) [ARG, ["RHS_UH1Y_UNARMED"], ["RHS_UH1Y","rhsusf_f22","B_T_VTOL_01_armed_blue_F","B_T_VTOL_01_armed_F","B_T_VTOL_01_armed_olive_F"]] call TRIPLES(PREFIX,makro,iscasvehicle)
 #define ISCASVEHICLE_C(ARG) (ISCASVEHICLE(ARG))
-/*
- *  Macro:
- *      isHeadless
- *
- *  Description:
- *      function called on a headless CLient
- *
- *  Parameters:
- *      none
- *
- *  Example:
- *      CHECK(isHeadless)
- *
- *  Author: Dorbedo
- *
- */
+
+/* -------------------------------------------
+Macro: isHeadless
+    Checks if function is called by HeadlessClient
+
+Parameters:
+    none
+
+Example:
+    (begin example)
+        CHECK(isHC)
+    (end)
+
+Author:
+    Dorbedo
+------------------------------------------- */
 #define isHeadless (!IsDedicated && !hasInterface)
-/*
- *  Macro:
- *
- *
- *  Description:
- *      come config helper
- *
- *  Parameters:
- *      none
- *
- *  Example:
- *      none
- *
- *  Author: Dorbedo
- *
- */
+
+/* -------------------------------------------
+Macro:
+    Some config helper
+
+Parameters:
+    none
+
+Example:
+    none
+
+Author:
+    Dorbedo
+------------------------------------------- */
 #define SOLDIER_SYS(VAR1,VAR2,VAR3,VAR4) class VAR1 { \
                             vehicle = QUOTE(VAR2); \
                             rank = QUOTE(VAR3); \
@@ -530,6 +467,7 @@
 #define SOLDIER_14(TYPE) SOLDIERR_14(TYPE,PRIVATE)
 #define SOLDIERR_15(TYPE,RANK) SOLDIER_SYS(soldier_15,TYPE,RANK,{ARR_3(7,-7,0)})
 #define SOLDIER_15(TYPE) SOLDIERR_15(TYPE,PRIVATE)
+
 /* -------------------------------------------
 Macro: HASH-System
     Hash system - Original from ACRE2,
