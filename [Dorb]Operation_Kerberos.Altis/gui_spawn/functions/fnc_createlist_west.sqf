@@ -18,13 +18,14 @@ private _spawnlist_static = [];
 private _spawnlist_support = [];
 private _spawnlist_tanks = [];
 
-[QGVAR(loadingScreen)] call bis_fnc_startloadingscreen;
-private _progressStep = 1/(count _cfgvehicles);
-
 private _cfgvehicles = configFile >> "cfgvehicles";
 
+private _loadingScreenID = ["Spawnlist"] call EFUNC(gui,startLoadingScreen);
+private _progressStep = 1/(count _cfgvehicles);
+
+
 for "_i" from 0 to (count _cfgvehicles)-1  do {
-    progressloadingscreen (_i * _progressStep);
+    [_loadingScreenID,(_i * _progressStep)] call EFUNC(gui,progressLoadingScreen);
     private _vehicle    = _cfgvehicles select _i;
     if (isClass _vehicle) then {
         private _class        = configName(_vehicle);
@@ -215,7 +216,7 @@ for "_i" from 0 to (count _cfgvehicles)-1  do {
     };
 };
 
-[QGVAR(loadingScreen)] call bis_fnc_endLoadingScreen;
+[_loadingScreenID] call EFUNC(gui,endLoadingScreen);
 
 private _drohnenliste   = _spawnlist_drone;
 private _luftliste_CAS  = _spawnlist_heli_CAS + _spawnlist_planes + _spawnlist_heli_log;

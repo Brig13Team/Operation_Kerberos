@@ -14,7 +14,16 @@ GVAR(currentSpawn) = objNull;
     };
 } forEach GVAR(cratelogics);
 
-[] call FUNC(createlists);
+If ((missionNamespace getVariable [QGVAR(crate_items),[]]) isEqualTo []) exitWith {
+    [
+        {!((missionNamespace getVariable [QGVAR(crate_items),[]]) isEqualTo [])},
+        FUNC(OpenMenu),
+        _this
+    ] call CBA_fnc_waitUntilAndExecute;
+    [] spawn FUNC(createlists);
+};
+
+//[] call FUNC(createlists);
 
 if (isnil QGVAR(current)) then {
     GVAR(current) = [[],[],[],[],[],[]];

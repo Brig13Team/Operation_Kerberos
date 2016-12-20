@@ -44,6 +44,10 @@ private _configArray = (
     ("isclass _x && (getText(_x >> 'vehicleClass')=='Backpacks')" configclasses (configfile >> "cfgvehicles")) +
     ("isclass _x" configclasses (configfile >> "cfgglasses"))
 );
+
+private _loadingScreenStep = 1/(count _configArray);
+private _loadingScreenID = ["Arsenal"] call EFUNC(gui,startLoadingScreen);
+
 private _dlcs = [];
 private _BISClassBlack = [];
 private _BISModelBlacK = [];
@@ -128,6 +132,7 @@ switch (_side) do {
             };
         };
     };
+    [_loadingScreenID,(_forEachIndex * _loadingScreenStep)] call EFUNC(gui,progressLoadingScreen);
 } foreach _configArray;
 {
     private _weapon = _x;
@@ -164,5 +169,5 @@ switch (_side) do {
         _addBackpacks pushBackUnique _x;
     };
 } foreach _BackpackWhitelist;
-
+[_loadingScreenID] call EFUNC(gui,endLoadingScreen);
 missionNamespace setVariable [format[QGVAR(arsenalList_%1),str _side],[_addWeapons,_addMagazines,_addItems,_addBackpacks,_fixWeapons,_fixMagazines,_fixItems,_fixBackpacks]];

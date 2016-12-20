@@ -18,3 +18,4 @@ class DOUBLES(CfgComponent,ADDON) {
 };
 
 #include "rsc_base.hpp"
+#include "config\RscSpecific.hpp"

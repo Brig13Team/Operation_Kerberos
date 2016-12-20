@@ -474,3 +474,150 @@ class RSC(BaseLoadingbar) {
     w = 1;
     h = 0.03;
 };
+
+#define NOISE(NUMBER) class strip##NUMBER : stripe1 {idc = IDC_LOADING_NOISE0##NUMBER ;}
+#define NOISEW(NUMBER) class strip##NUMBER : stripe1 {idc = IDC_LOADING_NOISE0##NUMBER ;colorBackground[] = {ARR_2(RAL9010,0.35)};}
+
+class RSC(BaseNoise) : RSC(BaseControlsGroupNoScrollbar) {
+    idc = IDC_LOADING_NOISE;
+    x = "safezoneXAbs";
+    y = "safezoneY";
+    w = "safezoneWAbs";
+    h = "safezoneH";
+    class controls {
+        class stripe1 : RSC(BaseText) {
+            idc = IDC_LOADING_NOISE1;
+            x = 0;
+            y = 0;
+            w = 0;
+            h = 0;
+            colorBackground[] = {RAL9004,0.35};
+        };
+        NOISE(01);
+        NOISE(02);
+        NOISE(03);
+        NOISE(04);
+        NOISE(05);
+        NOISE(06);
+        NOISE(07);
+        NOISE(08);
+        NOISE(09);
+        NOISE(10);
+        NOISE(11);
+        NOISE(12);
+        NOISE(13);
+        NOISE(14);
+        NOISE(15);
+        NOISE(16);
+        NOISE(17);
+        NOISE(18);
+        NOISE(19);
+        NOISE(20);
+        NOISE(21);
+        NOISE(22);
+        NOISE(23);
+        NOISE(24);
+        NOISE(25);
+        NOISE(26);
+        NOISE(27);
+        NOISE(28);
+        NOISE(29);
+        NOISEW(30);
+        NOISEW(31);
+        NOISEW(32);
+        NOISEW(33);
+        NOISEW(34);
+        NOISEW(35);
+        NOISEW(36);
+        NOISEW(37);
+        NOISEW(38);
+        NOISEW(39);
+        NOISEW(40);
+        NOISEW(41);
+        NOISEW(42);
+        NOISEW(43);
+        NOISEW(44);
+        NOISEW(45);
+        NOISEW(46);
+        NOISEW(47);
+        NOISEW(48);
+        NOISEW(49);
+        NOISEW(50);
+    };
+};
+
+class RSC(loadingScreen) {
+    idd = IDD_LOADING;
+    onLoad = QUOTE(_this call FUNC(onLoadLoadingScreen););
+    class controlsBackground {
+        class black : RSC(BaseText) {
+            colorBackground[] = COLOR_LOADING_BACKGROUND;
+            x = safezoneXAbs;
+            y = safezoneY;
+            w = safezoneWAbs;
+            h = safezoneH;
+        };
+    };
+    class controls {
+        class noise : RSC(BaseNoise) {};
+        class progress : RSC(BaseLoadingbar) {
+            idc = IDD_LOADING_PROGRESS;
+            x = GUI_GRID_CENTER_X + GUI_GRID_CENTER_W * 12;
+            y = GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 25;
+            w = GUI_GRID_CENTER_W * 16;
+            h = GUI_GRID_CENTER_H * 1;
+            colorFrame[] = COLOR_LOADING_PROGRESS;
+            colorBar[] = COLOR_LOADING_PROGRESSFRAME;
+            texture = "#(argb,8,8,3)color(0.34,0.65,0.22,1)";
+        };
+        class backgroundcircle : RSC(BasePicture) {
+            colorBackground[] = COLOR_LOADING_BACKGROUND;
+            colorText[] = COLOR_LOADING_CIRCLEIN;
+            x = GUI_GRID_CENTER_X + GUI_GRID_CENTER_W * 10;
+            y = GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 5;
+            w = GUI_GRID_CENTER_W * 20;
+            h = GUI_GRID_CENTER_H * 20;
+            text = QPAAPATH(loading_backIn);
+        };
+        class circle : backgroundcircle {
+            idc = IDD_LOADING_CIRCLE;
+            colorText[] = COLOR_LOADING_CIRCLE;
+            text = QPAAPATH(loading_circle);
+        };
+        class backgroundLogo : backgroundcircle {
+            x = GUI_GRID_CENTER_X + GUI_GRID_CENTER_W * 13;
+            y = GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 8;
+            w = GUI_GRID_CENTER_W * 14;
+            h = GUI_GRID_CENTER_H * 14;
+            colorBackground[] = COLOR_LOADING_BACKGROUND;
+            colorText[] = COLOR_LOADING_LOGO;
+            text = QEPAAPATH(logo,logo_512w);
+        };
+        class title : RSC(BaseText) {
+            idc = IDD_LOADING_TITLE;
+            colorText[] = COLOR_LOADING_TITLE;
+            colorBackground[] = COLOR_DISABLED;
+            x = GUI_GRID_CENTER_X;
+            y = GUI_GRID_CENTER_Y;
+            w = GUI_GRID_CENTER_W * 40;
+            h = GUI_GRID_CENTER_H * 5;
+            style = 0x02;
+            text = "L o a d i n g  . . .";
+            sizeEx = GUI_GRID_CENTER_H * 4;
+            font = FONT_THIN;
+        };
+        class description : RSC(BaseText) {
+            idc = IDD_LOADING_DESCRIPTION;
+            colorText[] = COLOR_LOADING_TITLE;
+            colorBackground[] = COLOR_DISABLED;
+            x = GUI_GRID_CENTER_X + GUI_GRID_CENTER_W * 12;
+            y = GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 25;
+            w = GUI_GRID_CENTER_W * 16;
+            h = GUI_GRID_CENTER_H * 1;
+            sizeEx = GUI_GRID_CENTER_H * 0.92;
+            //font = FONT_BOLD;
+            style = 0x02;
+            text = "";
+        };
+    };
+};

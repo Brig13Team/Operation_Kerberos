@@ -38,6 +38,11 @@ private _configArray = (
     ("isclass _x" configclasses (configfile >> "cfgglasses"))
 );
 
+private _loadingScreenStep = 1/(count _configArray);
+
+
+private _loadingScreenID = ["Arsenal"] call EFUNC(gui,startLoadingScreen);
+
 {
     private _class = _x;
     private _className = configname _x;
@@ -77,6 +82,7 @@ private _configArray = (
         };
     };
     hintSilent format["%1/%2",_forEachIndex,count _configArray];
+    [_loadingScreenID,(_forEachIndex * _loadingScreenStep)] call EFUNC(gui,progressLoadingScreen);
 } foreach _configArray;
 {
     private _weapon = _x;
@@ -114,6 +120,6 @@ private _configArray = (
     };
 } foreach (getArray(missionConfigFile>>QGVAR(arsenal)>> "BackpackWhitelist"));
 
-
+[_loadingScreenID] call EFUNC(gui,endLoadingScreen);
 
 GVAR(arsenalList_Full) = [_addWeapons,_addMagazines,_addItems,_addBackpacks,_fixWeapons,_fixMagazines,_fixItems,_fixBackpacks];
