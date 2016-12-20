@@ -75,7 +75,7 @@ private _id = addMissionEventHandler ["draw3D",{
     private _root = parsingNamespace getVariable "MISSION_ROOT";
     private _zoom = round(([0.5,0.5] distance worldToScreen positionCameraToWorld [0,1.05,1]) * (getResolution select 5));
     {
-        If ((!isNull _x)&&{(player distance (getPosATL _x))<25}) then {
+        If ((!isNull _x)&&(isNull curatorCamera)&&{(player distance (getPosATL _x))<25}) then {
             private _spawnPos = getPos _x;
             _spawnPos set[2,1.5];
             private _sizeicon = ((rad(2*atan(0.422793 * 30) / (player distance _x)))*_zoom*6);
