@@ -1,14 +1,14 @@
 /*
     Author: Dorbedo
-    
+
     Description:
         Spawns Minefields at random locatuions
-    
+
     Parameter(s):
         0 : ARRAY    - Position
         1 : SCALAR    - Spawnradius
         2 : SCALAR    - Count
-    
+
     Return
     BOOL
 */
@@ -44,7 +44,7 @@ _spawnanzahl = (count _spawnpos) min _anzahl;
 
 for "_i" from 0 to _spawnanzahl do {
     (_spawnpos select _i) call FUNC(minefield);
-    If (dorb_debug) then {
+#ifdef DEBUG_MODE_FULL
         _mrkr = createMarker [format["minepos-%1",((_spawnpos select _i) select 0)],((_spawnpos select _i) select 0)];
         _mrkr setMarkerShape "ICON";
         _mrkr setMarkerColor "ColorBlue";
@@ -53,7 +53,7 @@ for "_i" from 0 to _spawnanzahl do {
         }else{
             _mrkr setMarkerType "Minefield";
         };
-    };
+#endif
 };
 
 true;

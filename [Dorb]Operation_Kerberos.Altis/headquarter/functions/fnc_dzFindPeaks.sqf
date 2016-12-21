@@ -25,8 +25,8 @@ for "_i" from 0 to MAXIMACOUNT do {
 };
 
 private _fnc_getValue = {
-    _this params ["_x","_y"];
-    private _curKey = format["%1_%2",x,y];
+    _this params ["_xVal","_yVal"];
+    private _curKey = format["%1_%2",_xVal,_yVal];
     private _zoneHash = HASH_GET(GVAR(dangerzones),_curKey);
     If (isNil "_zoneHash") exitWith {0};
     private _value = HASH_GET(_zoneHash,"enemystrenght");

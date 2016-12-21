@@ -56,11 +56,8 @@ Author:
 #endif
 
 /* Temp Fix for RETNIL */
-//#define RETNIL(VARIABLE) (If (isNil{VARIABLE}) then {nil}else{VARIABLE})
-//#define RETDEF(VARIABLE,DEFAULT_VALUE) (If (isNil{VARIABLE}) then {DEFAULT_VALUE}else{VARIABLE})
-
-#define RETDEF(VARIABLE,DEFAULT_VALUE) ([VARIABLE,DEFAULT_VALUE] select isNil{VARIABLE})
-#define RETNIL(VARIABLE) ([VARIABLE,nil] select isNil{VARIABLE})
+#define RETNIL(VARIABLE) (If (isNil{VARIABLE}) then {nil}else{VARIABLE})
+#define RETDEF(VARIABLE,DEFAULT_VALUE) (If (isNil{VARIABLE}) then {DEFAULT_VALUE}else{VARIABLE})
 
 /*
     test = ([_apple,NIL] select (isNil{_apple}));

@@ -11,7 +11,7 @@
  *      none
  *
  */
-
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 _this params[["_POI",[],[[],objNull],[2,3]]];
@@ -30,15 +30,16 @@ If (isNil "_centerpos") exitWith {
     ] call CBA_fnc_waitUntilAndExecute;
 };
 
-private _distance = HASH_GET(GVAR(dangerzones),"distance");
-private _xMin = HASH_GET(GVAR(dangerzones),"x");
-private _yMin = HASH_GET(GVAR(dangerzones),"y");
+private _xMin = HASH_GET(GVAR(dangerzones),"x") select 0;
+private _xMax = HASH_GET(GVAR(dangerzones),"x") select 1;
+private _yMin = HASH_GET(GVAR(dangerzones),"y") select 0;
+private _yMax = HASH_GET(GVAR(dangerzones),"y") select 1;
 
 If (
         ((_POI select 0) < _xMin)||
-        ((_POI select 0) > (_xMin + _distance))||
+        ((_POI select 0) > _xMax)||
         ((_POI select 1) < _yMin)||
-        ((_POI select 1) > (_yMin + _distance))
+        ((_POI select 1) > _yMax)
     ) exitWith {};
 
 

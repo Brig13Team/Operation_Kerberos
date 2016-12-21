@@ -16,7 +16,8 @@
 private _attackgroups = HASH_GET(GVAR(groups),"attackGroups");
 private _patrolgroups = HASH_GET(GVAR(groups),"patrolGroups");
 
-If ((count _attackgroups) < 5) then {
+If (((count _attackgroups) < 5)&&((count _patrolgroups)>0)) then {
+    LOG("Changing patrolgroups into attackgroups");
     private _groupToMove = selectRandom _patrolgroups;
     _patrolgroups = _patrolgroups - [_groupToMove];
     HASH_SET(GVAR(groups),"patrolGroups",_patrolgroups);
