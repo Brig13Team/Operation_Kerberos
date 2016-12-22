@@ -15,7 +15,6 @@ class CfgComponents {
     /// main components
     common = 1;
     headless = 1;
-    interface = 1;
     logistics = 1;
     player = 1;
     spawn = 1;

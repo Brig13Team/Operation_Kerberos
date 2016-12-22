@@ -92,7 +92,7 @@ class APP(dialog) {
 //        y = GUI_YH(0,0.1);
 //        h = GUI_H(0.09);
 //        w = GUI_W(0.8);
-        text = ECSTRING(INTERFACE,TFR_HEADER);
+        text = ECSTRING(gui_tfr,HEADER);
         colorText[] = UI_CL_HEADER_TEXT;
         colorBackground[] = UI_CL_HEADER;
     };
@@ -105,13 +105,13 @@ class APP(dialog) {
 //        h = GUI_H(0.06);
         sizeEx = GUI_GRID_CENTER_H * 2;
 //        sizeEx = GUI_H(0.035);
-        text = ECSTRING(INTERFACE,TFR_FREQ_SQUAD);
+        text = ECSTRING(gui_tfr,FREQ_SQUAD);
         colorBackground[]=UI_CL_HEADER2;
     };
     class dorb_tfr_frequenzen_neu : dorb_tfr_frequenzen {
         y = GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 15.1;
 //        y = GUI_YH(0,0.465);
-        text = ECSTRING(INTERFACE,TFR_FREQ_NEW);
+        text = ECSTRING(gui_tfr,FREQ_NEW);
     };
     class dorb_tfr_SR_name : dorb_tfr_body {
         x = GUI_GRID_CENTER_X + GUI_GRID_CENTER_W * 24.8;
@@ -227,8 +227,8 @@ class APP(dialog) {
 //        y = GUI_YH(0,0.32125);
 //        w = GUI_W(0.11);
 //        h = GUI_H(0.08);
-        text = ECSTRING(INTERFACE,TFR_TAKE);
-        toolTip = ECSTRING(INTERFACE,TFR_TAKE_TOOLTIP);
+        text = ECSTRING(gui_tfr,TAKE);
+        toolTip = ECSTRING(gui_tfr,TAKE_TOOLTIP);
         sizeEx = GUI_GRID_CENTER_H * 1.2;
 //        sizeEx = GUI_H(0.03);
         colorBackground[] = UI_CL_CTRL_WEINROT1;
@@ -240,8 +240,8 @@ class APP(dialog) {
         idc = IDC_TFR_SET;
         y = GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 20.45;
 //        y = GUI_YH(0,0.58375);
-        text = ECSTRING(INTERFACE,TFR_SET);
-        toolTip = ECSTRING(INTERFACE,TFR_SET_TOOLTIP);
+        text = ECSTRING(gui_tfr,SET);
+        toolTip = ECSTRING(gui_tfr,SET_TOOLTIP);
         action = QUOTE([] call FUNC(setGroup););
     };
 };
