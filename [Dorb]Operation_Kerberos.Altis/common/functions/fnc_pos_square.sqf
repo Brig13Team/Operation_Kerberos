@@ -1,27 +1,28 @@
 /*
-    Author: Dorbedo
-
-    Description:
-        returns Array with Positions from a Square
-
-    Parameter(s):
-        0 :    ARRAY    - Centerpos
-        1 : SCALAR     - Step
-        2 : SCALAR    - lenght in X
-        3 : SCALAR    - lenght in Y
-
-    Returns:
-    ARRAY : Array with Positions
-
-*/
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      returns array with positions from a square
+ *
+ *  Parameter(s):
+ *      0 : ARRAY - centerposition
+ *      0 : SCALAR - step
+ *      0 : SCALAR - lenght in x direction
+ *      0 : SCALAR - lenght in y direction
+ *
+ *  Returns:
+ *      ARRAY - [[_position,_step,_sideX,_sideY],_positions]
+ *
+ */
 #include "script_component.hpp"
+
 _this params[["_position",[],[[]],[2,3]],["_step",30,[0]],["_sideX",600,[0]],["_sideY",-1,[0]]];
-CHECKRET((_position isEqualTo []),[]);
-If ((_step < 10)||(_sideX < 21)) exitWith {[_position]};
+If (_position isEqualTo []) exitWIth {[];};
+If ((_step < 3)||(_sideX < 10)) exitWith {[_position]};
 If (_sideY < 0) then {_sideY=_sideX;};
-private ["_startpos","_return"];
-_startpos = [((_position select 0)-(_sideX*0.5)),((_position select 1)-(_sideY*0.5)),0];
-_return = [];
+
+private _startpos = [((_position select 0)-(_sideX*0.5)),((_position select 1)-(_sideY*0.5)),0];
+private _return = [];
 
 for "_i" from 0 to (floor(_sideX/_step)) do {
     for "_j" from 0 to (floor(_sideY/_step)) do {
@@ -30,9 +31,3 @@ for "_i" from 0 to (floor(_sideX/_step)) do {
 };
 
 [[_position,_step,_sideX,_sideY],_return];
-
-
-
-
-
-
