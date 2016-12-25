@@ -16,6 +16,7 @@ class CfgComponents {
     common = 1;
     headless = 1;
     logistics = 1;
+    grouptracker = 1;
     player = 1;
     spawn = 1;
     teamkilling = 1;
@@ -45,6 +46,7 @@ class CfgComponents {
 #include "main\CfgComponent.hpp"
 #include "common\CfgComponent.hpp"
 #include "advertisements\CfgComponent.hpp"
+#include "grouptracker\CfgComponent.hpp"
 #include "headless\CfgComponent.hpp"
 #include "headquarter\CfgComponent.hpp"
 #include "logistics\CfgComponent.hpp"

@@ -16,7 +16,7 @@ SETUVAR(EGVAR(gui,respawnTime),nil);
 [] call FUNC(onrespawn);
 [] call FUNC(initKnockKnock);
 
-["init"] spawn FUNC(grouptracker);
+//["init"] spawn FUNC(grouptracker);
 
 /*
  * Arsenal Restrictions
