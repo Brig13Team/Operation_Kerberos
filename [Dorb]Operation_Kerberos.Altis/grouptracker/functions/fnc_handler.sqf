@@ -14,6 +14,10 @@
 #include "script_component.hpp"
 
 If !(GVAR(active)) exitWith {[_this select 1] spawn FUNC(terminate);};
+If !(GVAR(handleID)<0) exitWith {
+    DEC(GVAR(handleID));
+};
+GVAR(handleID) = 3;
 
 
 // get the groups to track
@@ -58,3 +62,5 @@ private _delayAmount = ;
     };
 
 } forEach _groupsToTrack;
+
+GVAR(handleID) = -1;

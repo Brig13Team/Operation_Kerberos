@@ -25,6 +25,6 @@ If !(isNil QGVAR(handler)) then {
 
 GVAR(active) = true;
 GVAR(handler) = [
-    {[] call FUNC(handler);},
+    {[] spawn FUNC(handler);},
     GVAR(Intervall)
 ] call CBA_fnc_addPerFrameHandler;
