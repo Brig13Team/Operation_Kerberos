@@ -43,15 +43,6 @@ Author:
     #define ARR_7(ARG1,ARG2,ARG3,ARG4,ARG5,ARG6,ARG7) ARG1, ARG2, ARG3, ARG4, ARG5, ARG6, ARG7
     #define ARR_8(ARG1,ARG2,ARG3,ARG4,ARG5,ARG6,ARG7,ARG8) ARG1, ARG2, ARG3, ARG4, ARG5, ARG6, ARG7, ARG8
 
-    #define GUI_DIM(Var1) (Var1*0.9*(safeZoneW min safeZoneH))
-    #define GUI_DIM2(Var1) (0.5-(safeZoneW min safeZoneH)*(0.45+0.09*Var1))
-    #define GUI_W(Var1) GUI_DIM(Var1)
-    #define GUI_H(Var1) GUI_DIM(Var1)
-    #define GUI_X(Var1) GUI_DIM2(Var1)
-    #define GUI_Y(Var1) GUI_DIM2(Var1)
-    #define GUI_XW(Var1,Var2) ( GUI_DIM2(Var1) + GUI_DIM(Var2) )
-    #define GUI_YH(Var1,Var2) ( GUI_DIM2(Var1) + GUI_DIM(Var2) )
-
     #undef CBA_OFF
 #endif
 
@@ -98,8 +89,8 @@ Author:
 #define COMPILE_FIRST(VAR) {parsingNamespace setVariable [ARR_2('TRIPLES(PREFIX,SYSTEM,VAR)',compile getText(missionConfigFile>>'system'>>'VAR'))];parsingNamespace getVariable 'TRIPLES(PREFIX,SYSTEM,VAR)';}
 #define COMPILE_SYS_FIRST {parsingNamespace setVariable [ARR_2('TRIPLES(PREFIX,SYSTEM,compile)',compile getText(missionConfigFile>>'system'>>'compile'))];parsingNamespace setVariable [ARR_2('TRIPLES(PREFIX,SYSTEM,compile_sys)',compile getText(missionConfigFile>>'system'>>'compile_sys'))];parsingNamespace getVariable 'TRIPLES(PREFIX,SYSTEM,compile)';}
 #define COMPILE_SYS call (parsingNamespace getVariable [ARR_2('TRIPLES(PREFIX,SYSTEM,compile)',COMPILE_SYS_FIRST)])
-#define FUNCSYS(VAR) (parsingNamespace getVariable [ARR_2('TRIPLES(PREFIX,SYSTEM,VAR)',COMPILE_FIRST(VAR))])
-
+#define FUNCSYS(VAR) {call (parsingNamespace getVariable [ARR_2('TRIPLES(PREFIX,SYSTEM,VAR)',COMPILE_FIRST(VAR))]);}
+#define COMPILE_CHECK ([] call compile getText(missionConfigFile>>'system'>>'compile_check'))
 
 /* -------------------------------------------
 Macro: GUI_*
@@ -122,13 +113,12 @@ Author:
 ------------------------------------------- */
 #define GUI_DIM(Var1) (Var1*0.9*(safeZoneW min safeZoneH))
 #define GUI_DIM2(Var1) (0.5-(safeZoneW min safeZoneH)*(0.45+0.09*Var1))
-
 #define GUI_W(Var1) GUI_DIM(Var1)
 #define GUI_H(Var1) GUI_DIM(Var1)
 #define GUI_X(Var1) GUI_DIM2(Var1)
 #define GUI_Y(Var1) GUI_DIM2(Var1)
-#define GUI_XW(Var1,Var2) GUI_DIM2(Var1)+GUI_DIM(Var2)
-#define GUI_YH(Var1,Var2) GUI_DIM2(Var1)+GUI_DIM(Var2)
+#define GUI_XW(Var1,Var2) ( GUI_DIM2(Var1) + GUI_DIM(Var2) )
+#define GUI_YH(Var1,Var2) ( GUI_DIM2(Var1) + GUI_DIM(Var2) )
 /* -------------------------------------------
 Macro: CHECK()
     Checks Condition - Exit if true
@@ -222,13 +212,17 @@ Author:
     scriptName _fnc_scriptName
 #endif
 
-
-#define INCLUDE_HEADER 0
-#ifdef DEBUG_MODE_NORMAL
+#ifndef INCLUDE_HEADER
     #define INCLUDE_HEADER 1
 #endif
-#ifdef DEBUG_MODE_FULL
+#ifdef DEBUG_MODE_NORMAL
     #define INCLUDE_HEADER 2
+#endif
+#ifdef DEBUG_MODE_FULL
+    #define INCLUDE_HEADER 3
+#endif
+#ifdef DEBUG_MODE_OFF
+    #define INCLUDE_HEADER 0
 #endif
 #define PATHTO_SYS_LONG(var1,var2,var3,var4) ##var1\##var2\##var3\##var4.sqf
 /* -------------------------------------------

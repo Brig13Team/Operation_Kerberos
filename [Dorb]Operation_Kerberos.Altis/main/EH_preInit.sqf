@@ -1,4 +1,7 @@
 #include "script_component.hpp"
+
+COMPILE_CHECK;
+
 ADDON = false;
 
 TRIPLES(PREFIX,makro,iscasvehicle) = {
@@ -14,7 +17,10 @@ TRIPLES(PREFIX,makro,iscasvehicle) = {
 
 FUNCMAIN(recompile) = FUNCSYS(recompile);
 
+PREP(addMapToLog);
+PREP(addToLog);
 PREP(debug_performance);
+PREP(getComponents);
 
 PREP(HashCollector);
 PREP(HashGetKeyFromValue);
@@ -26,13 +32,6 @@ PREP(HashMerge);
 PREP(HashMonitor);
 PREP(serialize);
 PREP(deserialize);
-PREP(getComponents);
-
-
-PREPS(debug,maplog);
-PREPS(debug,putinlog);
-PREPS(debug,show);
-PREPS(debug,write);
 
 ADDON = true;
 
