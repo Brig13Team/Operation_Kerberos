@@ -788,3 +788,17 @@ Author:
 #define DB_GETSINGLE EFUNC(database,getSingleValue)
 #define DB_GET EFUNC(database,getValue)
 #define DB_TIME EFUNC(database,getTime)
+/* -------------------------------------------
+Macro: LINKFUNC()
+    recompiling helper
+
+Parameters:
+    none
+
+Example:
+
+Author:
+    Dorbedo
+------------------------------------------- */
+#define LINKFUNC(VAR1) FUNC(VAR1)
+#define LINKEFUNC(VAR1,VAR2) EFUNC(VAR1,VAR2)

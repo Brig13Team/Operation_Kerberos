@@ -14,6 +14,7 @@
 
 #include "script_component.hpp"
 
+private _PreinitStartTime = diag_tickTime;
 
 private _configs = "((((configname _x) splitString '_') select 0) isEqualTo 'CfgComponent')" configClasses missionConfigFile;
 
@@ -147,7 +148,7 @@ TRACEV_3(GVAR(Events_preinit),GVAR(Events_postinit),GVAR(Events_all));
         [
             {
                 If (GVAR(Events_postinit) isEqualTo []) exitWith {
-                    diag_log text "[MissionFile] PostInit compiling finished";
+                    diag_log text "[MissionFile] (System) PostInit compiling finished";
                     (_this select 1) call CBA_fnc_removePerFrameHandler;
                 };
                 private _current = GVAR(Events_postinit) deleteAt 0;
@@ -166,7 +167,7 @@ TRACEV_3(GVAR(Events_preinit),GVAR(Events_postinit),GVAR(Events_all));
         [
             {
                 If (GVAR(Events_all) isEqualTo []) exitWith {
-                    diag_log text "[MissionFile] Events compiling finished";
+                    diag_log text "[MissionFile] (System) Events compiling finished";
                     (_this select 1) call CBA_fnc_removePerFrameHandler;
                 };
                 private _current = GVAR(Events_all) deleteAt 0;
@@ -187,5 +188,7 @@ while {(diag_tickTime < _time)&&(!(GVAR(Events_preinit) isEqualTo []))} do {
 };
 
 IF (!(GVAR(Events_preinit) isEqualTo [])) then {
-    diag_log text "[MissionFile] PreInit Compiling not finished";
+    diag_log text "[MissionFile] (System) PreInit Compiling not finished";
+}else{
+    diag_log text format["[MissionFile] (System) PreInit Compiling finished in: %1",(diag_ticktime - _PreinitStartTime)];
 };

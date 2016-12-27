@@ -284,6 +284,16 @@
               "snippet": "FUNCSYS(${1:name})$0",
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
+            }, {
+              "description": "Expands to: FUNC(Function) or {_this call FUNC(Function)}",
+              "snippet": "LINKFUNC(${1:Function})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "Expands to: EFUNC(Component,Function) or {_this call EFUNC(Component,Function)}",
+              "snippet": "ELINKFUNC(${1:Component},${2:Function})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
             }
           ]
         }

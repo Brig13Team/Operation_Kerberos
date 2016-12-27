@@ -42,19 +42,19 @@ GVAR(loggingHandler) = _this spawn {
 
         // Logging
         private _lines = [_message,"\n"] call CBA_fnc_split;
-        _fileName = [_fileName,"\fnc"] call CBA_fnc_split;
-        _fileName = "fnc" + (_fileName select ((count _fileName)-1));
+        _fileName = [_fileName,"\"] call CBA_fnc_split;
+        _fileName = (_fileName select ((count _fileName)-1));
         If (IS_ARRAY(_scriptName)) then {
-            diag_log text format["[MissionFile] (%1) - %2: ~/%3:%4 [%5]  %6<<%7",_componentName,_logLevel,_fileName,_line,_frameNumber,(_scriptName select 0),(_scriptName select 1)];
+            diag_log text format["[MissionFile] (%1) - %2: ~\%3:%4 [%5]  %6<<%7",_componentName,_logLevel,_fileName,_line,_frameNumber,(_scriptName select 0),(_scriptName select 1)];
         }else{
-            diag_log text format["[MissionFile] (%1) - %2: ~/%3:%4 [%5]  %6",_componentName,_logLevel,_fileName,_line,_frameNumber,_scriptName];
+            diag_log text format["[MissionFile] (%1) - %2: ~\%3:%4 [%5]  %6",_componentName,_logLevel,_fileName,_line,_frameNumber,_scriptName];
         };
 
         {
             diag_log text format["              %1",_x];
         } forEach _lines;
         If (isServer&&hasinterface&&_logLevel in ["ERROR","WARNING","TRACE"]) then {
-            systemchat format["[MissionFile] (%1) - %2: ~/%3:%4 [%5]",_componentName,_logLevel,_fileName,_line,_frameNumber];
+            systemchat format["[MissionFile] (%1) - %2: ~\%3:%4 [%5]",_componentName,_logLevel,_fileName,_line,_frameNumber];
             {systemChat _x; nil } count _lines;
         };
     };

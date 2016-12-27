@@ -10,7 +10,7 @@
 */
 
 #include "script_component.hpp"
-private _fnc_scriptname = "test";
+
 if (isNil QGVARMAIN(side)) then {
     GVARMAIN(side) = switch (GVARMAIN(playerside)) do {
         case "east" : {"west"};

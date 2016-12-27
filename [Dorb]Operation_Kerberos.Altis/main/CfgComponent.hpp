@@ -9,12 +9,12 @@
 #include "script_component.hpp"
 
 class DOUBLES(CfgComponent,ADDON) {
-    class postinit {
+    class postinitServer { // Name can be anything -> include postinit or preinit or prestart into any of these to use a specific init-point
         server = 1; // always turned on, if not set
-        client = 1; // to turn off, set the paramter to 0
+        client = 0; // to turn off, set the paramter to 0
         class dependencies {  // adds aditional restrictions if not set, no dependecies are checked
             CfgPatches[] = {};
-            CfgComponents[] = {};
+            CfgComponents[] = {}; // missioncomponents -> the COMPONENT name - e.g. "main"
             Condition = "true"; // can be used to add some aditional conditions
         };
     };
@@ -23,6 +23,8 @@ class DOUBLES(CfgComponent,ADDON) {
         CfgComponents[] = {};
     };
 };
+
+// COMPONENT specific configs can be added here -> they are directly integrated as a class into the missionConfigFile
 
 #include "system.hpp"
 #include "missionsettings.hpp"

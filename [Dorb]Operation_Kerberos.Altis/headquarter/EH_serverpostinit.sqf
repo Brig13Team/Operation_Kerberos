@@ -32,9 +32,9 @@ HASH_SET(GVAR(FDC),"mortars",[]);
 HASH_SET(GVAR(FDC),"artilleries",[]);
 HASH_SET(GVAR(FDC),"rockets",[]);
 
-_handle = [{_this call FUNC(fdc_handle)},INTERVALL_FDC,[]] call CBA_fnc_addPerFrameHandler;
+_handle = [LINKFUNC(fdc_handle),INTERVALL_FDC,[]] call CBA_fnc_addPerFrameHandler;
 HASH_SET(GVAR(handles),"fdc_main",_handle);
-_handle = [{_this call FUNC(fdc_defend_artypos)},INTERVALL_SEARCH,[]] call CBA_fnc_addPerFrameHandler;
+_handle = [LINKFUNC(fdc_defend_artypos),INTERVALL_SEARCH,[]] call CBA_fnc_addPerFrameHandler;
 HASH_SET(GVAR(handles),"fdc_defend",_handle);
 /*************************
 *
@@ -66,7 +66,7 @@ GVAR(radars) = CREATE_HASH;
 HASH_SET(GVAR(radars),"objects",[]);
 HASH_SET(GVAR(radars),"targets",[]);
 
-/// POI
+/// dangerzones
 GVAR(dangerzones) = HASH_CREATE;
 HASH_SET(GVAR(dangerzones),"definitions",[ARR_3(2000,125,16)]);
 HASH_SET(GVAR(dangerzones),"gridsize",125);
@@ -78,14 +78,18 @@ GVAR(strategy_memory) = HASH_SERIALIZE(GETPRVAR(GVAR(strategy_memory),HASH_CREAT
 /// AttaclPos
 GVAR(attackpos) = HASH_CREATE;
 
+/// POI
+GVAR(POI) = HASH_CREATE;
+HASH_SET(GVAR(POI),"locations",[]);
+
 /// Handles
-_handle = [{_this call FUNC(handle)},INTERVALL_HQ,[]] call CBA_fnc_addPerFrameHandler;
+_handle = [LINKFUNC(handle),INTERVALL_HQ,[]] call CBA_fnc_addPerFrameHandler;
 HASH_SET(GVAR(handles),"main",_handle);
-_handle = [{_this call FUNC(check_radars)},INTERVALL_RADARS,[]] call CBA_fnc_addPerFrameHandler;
+_handle = [LINKFUNC(check_radars),INTERVALL_RADARS,[]] call CBA_fnc_addPerFrameHandler;
 HASH_SET(GVAR(handles),"radars",_handle);
-_handle = [{_this call FUNC(handlePlayerGroups);},INTERVALL_PLAYERGROUPS,[]] call CBA_fnc_addPerFrameHandler;
+_handle = [LINKFUNC(handlePlayerGroups),INTERVALL_PLAYERGROUPS,[]] call CBA_fnc_addPerFrameHandler;
 HASH_SET(GVAR(handles),"playergroups",_handle);
-_handle = [{_this call FUNC(handleAA);},INTERVALL_AA,[]] call CBA_fnc_addPerFrameHandler;
+_handle = [LINKFUNC(handleAA),INTERVALL_AA,[]] call CBA_fnc_addPerFrameHandler;
 HASH_SET(GVAR(handles),"antiair",_handle);
 
 

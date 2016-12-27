@@ -14,7 +14,7 @@
  *
  */
 #include "script_component.hpp"
-private _fnc_scriptname = "test";
+
 _this params ["_position","_config","_direction"];
 
 [] call FUNC(delaySpawn);
