@@ -7,10 +7,22 @@
 */
 #include "script_component.hpp"
 
+private _objectsToDelete = [];
 {
-    _x TILGE;
+    _objectsToDelete pushBackUnique _x;
 } foreach nearestObjects [(getmarkerpos GVARMAIN(RESPAWNMARKER)),["CraterLong_small","CraterLong","WeaponHolder","GroundWeaponHolder"], 1500];
 
 {
-    _x TILGE;
+    _objectsToDelete pushBackUnique _x;
 } foreach nearestObjects [(getmarkerpos GVARMAIN(AIRFIELD)),["CraterLong_small","CraterLong","WeaponHolder","GroundWeaponHolder"], 1500];
+
+[
+    {
+        _this params ["_objectsToDelete"];
+        {
+            _x call EFUNC(common,delete);
+        }forEach _objectsToDelete;
+    },
+    10,
+    [_objectsToDelete]
+] call CBA_fnc_waitAndExecute;
