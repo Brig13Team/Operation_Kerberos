@@ -13,7 +13,7 @@
  */
 #include "script_component.hpp"
 
-private _return = ["getAdvertisements"] call DB_get;
+private _return = ["getAdvertisements"] call DB_GET;
 
 private _loadedAdverts = [];
 

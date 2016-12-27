@@ -2,7 +2,7 @@
   ".source.sqf": {
     "Brigade Function Header": {
       "prefix": "header_brigade",
-      "body": "/*\n *  Author: ${1:[Name of Author(s)]}\n *\n *  Description:\n *      ${2:[Description]}\n *\n *  Parameter(s):\n *      0 : ${3:[TYPE]} - ${4:[argument name]}\n *\n *  Returns:\n *      ${5:[TYPE]} - ${6:[return name]}\n *\n */\n#include \"script_component.hpp\"\n",
+      "body": "/*\n *  Author: ${1:[Name of Author(s)]}\n *\n *  Description:\n *      ${2:[Description]}\n *\n *  Parameter(s):\n *      0 : ${3:[TYPE]} - ${4:[argument name]}\n *\n *  Returns:\n *      ${5:[TYPE]} - ${6:[return name]}\n *\n */\n//#define DEBUG_MODE_FULL\n#include \"script_component.hpp\"\n",
       "description": "Function Header Brigade"
     }
   }

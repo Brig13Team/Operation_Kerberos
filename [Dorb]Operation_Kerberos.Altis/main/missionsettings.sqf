@@ -12,7 +12,7 @@ enableSaving [false, false];
 enableRadio false;
 enableSentences false;
 
-If (GVARMAIN(playerside) == west) then {
+If ((GVARMAIN(playerside) == west)&&(missionName == "[Dorb]Operation_Kerberos" )) then {
     GVARMAIN(respawnmarker) = "respawn_west";
     GVARMAIN(side) = east;
     CIVILIAN setFriend [WEST, 1];
@@ -29,7 +29,7 @@ If (GVARMAIN(playerside) == west) then {
     INDEPENDENT setFriend [WEST, 0];
     INDEPENDENT setFriend [EAST, 1];
 };
-If (GVARMAIN(playerside) == east) then {
+If ((GVARMAIN(playerside) == east)&&(missionName == "[Dorb]Operation_Kerberos" )) then {
     GVARMAIN(respawnmarker) = "respawn_east";
     GVARMAIN(side) = west;
     CIVILIAN setFriend [EAST, 1];
