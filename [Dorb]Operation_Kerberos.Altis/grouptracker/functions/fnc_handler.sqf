@@ -11,6 +11,7 @@
  *      none
  *
  */
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 If !(GVAR(active)) exitWith {[_this select 1] spawn FUNC(terminate);};
@@ -22,28 +23,32 @@ GVAR(handleID) = 3;
 
 // get the groups to track
 private _groupsToTrack = [] call FUNC(getGroups);
+LOG_1(_groupsToTrack);
 // delete the old groups
 private _groupsToDelete = _groupsToTrack - GVAR(lastGroupsToTrack);
 GVAR(lastGroupsToTrack) = _groupsToTrack;
 {
-    private _groupHash = _curGroup getVariable QGVAR(groupHash);
-    [_grouphash] call FUNC(deleteMarker);
-    HASH_DELETE(_groupHash);
+    private _groupHash = _x getVariable QGVAR(groupHash);
+    If (!isNil "_groupHash") then {
+        [_grouphash] call FUNC(deleteMarker);
+        HASH_DELETE(_groupHash);
+    };
 } forEach _groupsToDelete;
-
-private _delayAmount = ;
 
 {
     private _curGroup = _x;
+    LOG_1(_curGroup);
     // check for grouphash
     private _groupHash = _curGroup getVariable QGVAR(groupHash);
+    LOG_1(_groupHash);
     If (isNil "_groupHash") then {
-        [_curGroup] call FUNC(initGroup);
+        _groupHash = [_curGroup] call FUNC(initGroup);
     };
+    LOG_1(_groupHash);
     // update the group
-    If (alive (leader _x)) then {
+    If (alive (leader _curGroup)) then {
         HASH_GET(_groupHash,"positions") pushBack (getPos (leader _curGroup));
-        private _symbol = [_curGroup] call FUNC(getSymbol)
+        private _symbol = [_curGroup] call FUNC(getSymbol);
         HASH_GET(_groupHash,"symbol") pushBack (_symbol);
         //HASH_GET(_groupHash,"color") pushBack ([_curGroup] call FUNC(getColor));
         HASH_GET(_groupHash,"size") pushBack ([_curGroup,_symbol] call FUNC(getSize));
@@ -54,7 +59,7 @@ private _delayAmount = ;
         HASH_GET(_groupHash,"size") pushBack "";
     };
     // set the current properties
-    private _positions = HASH_GET(_groupHash,_curGroup);
+    private _positions = HASH_GET(_groupHash,"positions");
     If ((count _positions)>((GVAR(delayAmount) max 0)+1)) then {
         [_curGroup,false] call FUNC(update);
     }else{

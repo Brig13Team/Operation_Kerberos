@@ -17,7 +17,7 @@ _this params ["_group","_symbol"];
 if (!alive (leader _group)) exitWith {"Empty";};
 if ((count (units _group)) < 2) exitWith {"Empty";};
 
-if (_marker in ["art","armor","plane","air" ]) exitWith {
+if (_symbol in ["art","armor","plane","air" ]) exitWith {
     private _vehicles = [];
     {
         if ( (!((vehicle _x) isKindOf "Man")) && { !((vehicle _x) in _vehicles) } ) then { _vehicles pushBack (vehicle _x); };
@@ -28,7 +28,7 @@ if (_marker in ["art","armor","plane","air" ]) exitWith {
     if ((count _vehicles) >= 3) then { _ret = "group_3"; };
     _ret
 };
-if (_marker in ["inf","mech_inf","motor_inf","recon","maint","support"]) exitWith {
+if (_symbol in ["inf","mech_inf","motor_inf","recon","maint","support"]) exitWith {
     private _ret = "Empty";
     if ((count units _group) >=  2) then { _ret = "group_1"; };
     if ((count units _group) >=  9) then { _ret = "group_2"; };

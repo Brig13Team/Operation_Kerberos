@@ -32,3 +32,4 @@ private _value = switch (true) do {
 HASH_SET(_groupHash,"prefix",_value);
 _value = [_group] call FUNC(getColor);
 HASH_SET(_groupHash,"color",_value);
+_groupHash;

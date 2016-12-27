@@ -16,7 +16,7 @@
 _this params ["_group"];
 private _leader = leader _group;
 if (!alive _leader) exitWith {"unknown"};
-_post = switch (true) do {
+switch (true) do {
     case ((typeOf vehicle _leader) in ["rhsusf_M1083A1P2_B_M2_d_MHQ_fmtv_usarmy"]): {"hq"};
     case (getText(configFile >> "cfgVehicles" >> typeOf _leader >> "vehicleclass") in ["MenSniper","MenRecon"]) : {"recon"};
     case (getNumber(configFile >> "CfgVehicles" >> typeOf _leader >> "engineer") == 1): {"maint"};

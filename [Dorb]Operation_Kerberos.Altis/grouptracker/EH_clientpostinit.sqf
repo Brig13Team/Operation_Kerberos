@@ -17,7 +17,7 @@ GVAR(delayAmount) = 3; // Amount of old positions to be displayed before the cur
  *    If you set the intervall to 5 and the delayAmount to 3, the grouptracker only shows the positions 15 secondes before
  *
  */
-GVAR(showAI) = true; // shows Groups witch are not led by a player
+GVAR(AiIsVisible) = true; // shows Groups witch are not led by a player
 
 
 // Initializing
@@ -25,6 +25,7 @@ GVAR(active) = false;
 GVAR(lastGroupsToTrack) = [];
 GVAR(grouphashes) = [];
 GVAR(allMarker) = [];
+GVAR(handleID) = -1;
 
 // delay the spawn
 [
