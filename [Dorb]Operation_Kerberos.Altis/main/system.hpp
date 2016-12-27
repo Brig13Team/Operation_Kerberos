@@ -41,8 +41,8 @@ class system {
         _this params [ARR_3([ARR_3('_path','',[''])],[ARR_3('_funcName','',[''])],[ARR_3('_headertype',0,[1])])]; \
         If (isClass(configFile>>'cfgPatches'>>'cba_cache_disable')) then { \
             [ARR_5(missionNamespace,_funcName,_path,_headertype,true)] call (parsingNamespace getVariable 'TRIPLES(PREFIX,SYSTEM,compile_sys)'); \
-            with missionNamespace do { \
-                If (isNil 'GVARMAIN(recompileCache)') then {GVARMAIN(recompile) = [];}; \
+            with parsingNamespace do { \
+                If (isNil 'GVARMAIN(recompileCache)') then {GVARMAIN(recompileCache) = [];}; \
                 GVARMAIN(recompileCache) pushBackUnique [ARR_3(_path,_funcName,_headertype)]; \
                 diag_log text format [ARR_2('[MissionFile] (System) compiling: %1',[ARR_3(_path,_funcName,_headertype)])]; \
             }; \
@@ -64,7 +64,7 @@ class system {
             _x params [ARR_3('_path','_funcName','_headertype')]; \
             diag_log text format [ARR_2('[MissionFile] (System) recompiling: %1',[ARR_3(_path,_funcName,_headertype)])]; \
             [ARR_5(missionNamespace,_funcName,_path,_headertype,true)] call (parsingNamespace getVariable 'TRIPLES(PREFIX,SYSTEM,compile_sys)'); \
-        } forEach (missionNamespace getVariable [ARR_2('GVARMAIN(recompileCache)',[])]); \
+        } forEach (parsingNamespace getVariable [ARR_2('GVARMAIN(recompileCache)',[])]); \
         );
 
     compile_sys = QUOTE( \
@@ -74,7 +74,7 @@ class system {
         private _headerstring = switch (_headertype) do { \
             case 2 : {format [ARR_2('private _fnc_scriptNameParent = If (!isNil ''_fnc_scriptName'') then {_fnc_scriptName}else{''%1''};private _fnc_scriptName = ''%1'';scriptName _fnc_scriptName;',_funcName)];}; \
             case 3 : {format [ARR_2('private _fnc_scriptNameParent = If (!isNil ''_fnc_scriptName'') then {_fnc_scriptName}else{''%1''};private _fnc_scriptName = ''%1'';scriptName _fnc_scriptName; private _fnc_scriptMap = if !(isnil ''_fnc_scriptMap'') then {_fnc_scriptMap + [''%1'']} else {[''%1'']};',_funcName)];}; \
-            case 0 : {""}; \
+            case 0 : {''''}; \
             default {format [ARR_2('private _fnc_scriptName = ''%1'';scriptName _fnc_scriptName;',_funcName)];};}; \
         If (_recompile) exitWith {_namespace setVariable [ARR_2(_funcName,compile (_headerstring + preprocessFileLineNumbers _pathstring))];}; \
         private _metadata = [ARR_3(_funcName,_pathstring,_headertype)]; \

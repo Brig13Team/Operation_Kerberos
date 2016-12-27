@@ -33,7 +33,7 @@ GVAR(handle) = [] spawn {
     /// create new attacklocaltions
     private _size = (HASH_GET(GVAR(dangerzones),"gridsize")) * 2;
     {
-        /// should be chaned in a later Version
+        /// should be changed in a later Version
         private _curPos = _x;
         private _curAttackLoc = [_position] call FUNC(attackpos_create);
         private _players = allPlayers select {(_x distance _curPos)<_size};

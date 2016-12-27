@@ -11,11 +11,12 @@
  *      none
  *
  */
-
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 private _PreinitStartTime = diag_tickTime;
 
+parsingNamespace setVariable [QGVARMAIN(recompileCache),[]];
 private _configs = "((((configname _x) splitString '_') select 0) isEqualTo 'CfgComponent')" configClasses missionConfigFile;
 
 private _fnc_dependecies_CfgPatches = {

@@ -1,6 +1,6 @@
 #define COMPONENT headquarter
 
-
+#define DEBUG_MODE_FULL
 
 
 // handler max. Intervall for FULL-CHECK

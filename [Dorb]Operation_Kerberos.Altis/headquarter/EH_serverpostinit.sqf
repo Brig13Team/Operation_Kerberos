@@ -77,6 +77,7 @@ GVAR(strategy_memory) = HASH_SERIALIZE(GETPRVAR(GVAR(strategy_memory),HASH_CREAT
 
 /// AttaclPos
 GVAR(attackpos) = HASH_CREATE;
+HASH_SET(GVAR(attackpos),"Locations",[]);
 
 /// POI
 GVAR(POI) = HASH_CREATE;

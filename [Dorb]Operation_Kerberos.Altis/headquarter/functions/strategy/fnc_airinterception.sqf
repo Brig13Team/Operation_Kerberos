@@ -14,7 +14,7 @@
 #include "script_component.hpp"
 
 _this params ["_attackLoc"];
-
+TRACEV_1(_attackLoc);
 private _pos = locationPosition _attackLoc;
 
 private _spawnPos = [_pos,10000,10000,15000] call FUNC(ressources_getsavespawnposair);

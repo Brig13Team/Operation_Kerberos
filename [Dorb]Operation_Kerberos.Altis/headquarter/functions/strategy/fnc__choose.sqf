@@ -154,12 +154,12 @@ If (
     private _hash = HASH_CREATE;
     HASH_GET(_attackPos,"strategies") pushBack _hash;
 
-    HASH_SET(_hash,"strategytype",className _x);
+    HASH_SET(_hash,"strategytype",configName _x);
 
-    private _timeout = (getText(_x >> "timeout"));
+    private _timeout = (getNumber(_x >> "timeout"));
     private _condition = (getText(_x >> "finishcondition"));
     private _function = (getText(_x >> "function"));
-
+    TRACEV_4(configName _x,_attackPos,_hash,_function);
     private _parameter = [[_attackPos,_hash] call compile _function] param [0,[]];
 
     If (_timeout > 0) then {
@@ -192,5 +192,6 @@ If (
 
 
 If ((_again)&&{_passing > 0}) then {
+    TRACEV_3(_attackPos,_curValue,_passing);
     [_attackPos,true,_curValue,_passing] call FUNC(strategy__choose);
 };

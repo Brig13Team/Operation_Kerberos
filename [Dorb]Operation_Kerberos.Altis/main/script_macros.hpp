@@ -26,8 +26,10 @@ Author:
     #define CSTRING(var1) QUOTE(TRIPLES($STR,ADDON,var1))
     #define ECSTRING(var1,var2) QUOTE(TRIPLES($STR,DOUBLES(PREFIX,var1),var2))
     #define FUNC(var1) TRIPLES(ADDON,fnc,var1)
+    #define QFUNC(var1) QUOTE(FUNC(var1))
     #define FUNCMAIN(var1) TRIPLES(PREFIX,fnc,var1)
     #define EFUNC(var1,var2) TRIPLES(DOUBLES(PREFIX,var1),fnc,var2)
+    #define QEFUNC(var1,var2) QUOTE(EFUNC(var1,var2))
     #define GVAR(var1) DOUBLES(ADDON,var1)
     #define GVARMAIN(var1) DOUBLES(PREFIX,var1)
     #define QGVAR(var1) QUOTE(GVAR(var1))
@@ -562,7 +564,7 @@ Example:
 Author:
     Dorbedo
 ------------------------------------------- */
-#define HASH_GET_DEF(hash, key, default) (hash getVariable [key, default])
+#define HASH_GET_DEF(hash, key, default) ([hash getVariable key] param [0,default])
 /* -------------------------------------------
 Macro: HASH_REM(hash, key)
     removes the key from a hash

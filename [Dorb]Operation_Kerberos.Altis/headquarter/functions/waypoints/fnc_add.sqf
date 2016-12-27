@@ -21,6 +21,7 @@
  *      ARRAY - the added waypoints
  *
  */
+#define DEBUG_MODE_OFF
 #include "script_component.hpp"
 
 _this params[
@@ -59,7 +60,7 @@ _group = _group call CBA_fnc_getGroup;
     _waypoint setWaypointCompletionRadius _compRadius;
     _waypoints pushBack _waypoint;
     #ifdef DEBUG_MODE_FULL
-        [_position,"AttackPosition","ColorBlack","Dot"] call EFUNC(common,debug_marker_create);
+        [_position,"Waypoint","ColorBlack","Dot"] call EFUNC(common,debug_marker_create);
     #endif
 }forEach _positions;
 

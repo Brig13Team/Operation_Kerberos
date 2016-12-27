@@ -21,7 +21,7 @@
         None
 
 */
-
+#define DEBUG_MODE_OFF
 #include "script_component.hpp"
 _this params [
     ["_group",grpNull,[grpNull,objNull]],
@@ -61,7 +61,7 @@ _pos = switch (true) do {
 
 CHECK((_pos isEqualTo []))
 
-_statement = QUOTE(if (((group _this) getVariable ['EGVAR(headquarter,state)','patrol'])isEqualTo 'patrol') then {[this] call FUNC(patrol_task);}else{[this] call EFUNC(headquarter,state_change);};);
+_statement = QUOTE(if (((group this) getVariable [ARR_2('EGVAR(headquarter,state)','patrol')])isEqualTo 'patrol') then {[this] call FUNC(patrol_task);}else{[this] call EFUNC(headquarter,state_change);};);
 TRACEV_1(_statement);
 _onComplete = _onComplete + _statement;
 

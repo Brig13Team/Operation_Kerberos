@@ -12,6 +12,7 @@
  *      none
  *
  */
+ #define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 private _fullCheck = false;
@@ -41,7 +42,7 @@ If (_fullCheck) then {
         If (count _temphistory >= 10) then {_temphistory deleteAt 0;};
         _temphistory pushBack _GroupType;
         HASH_SET(_grouphash,"typehistory",_temphistory);
-        private _GroupType = _temphistory call CBA_fnc_findMax;
+        private _GroupType = (_temphistory call CBA_fnc_findMax) select 0;
         HASH_SET(_grouphash,"type",_GroupType);
 
 
@@ -65,11 +66,19 @@ If (_fullCheck) then {
             _tempThreatB pushBack (_x select 1);
             _tempThreatC pushBack (_x select 2);
         } forEach _temphistory;
-        private _tempThreatA = _tempThreatA call CBA_fnc_findMax;
-        private _tempThreatB = _tempThreatB call CBA_fnc_findMax;
-        private _tempThreatC = _tempThreatC call CBA_fnc_findMax;
+        private _tempThreatA = (_tempThreatA call CBA_fnc_findMax) select 0;
+        private _tempThreatB = (_tempThreatB call CBA_fnc_findMax) select 0;
+        private _tempThreatC = (_tempThreatC call CBA_fnc_findMax) select 0;
         _threat = [_tempThreatA,_tempThreatB,_tempThreatC];
         HASH_SET(_grouphash,"threat",_threat);
+        #ifdef DEBUG_MODE_FULL
+            If !(isNil "dorb_grouptestvalue") then {
+                dorb_grouptestvalue params ["_GroupType","_value","_threat"];
+                HASH_SET(_grouphash,"type",_GroupType);
+                HASH_SET(_grouphash,"value",_value);
+                HASH_SET(_grouphash,"threat",_threat);
+            };
+        #endif
     } forEach _allPlayerGroups;
 
     HASH_SET(GVAR(groups),"playergroups",GVAR(playergroups_new));

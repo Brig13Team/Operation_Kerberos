@@ -16,7 +16,7 @@
 #include "script_component.hpp"
 
 _this params ["_attackVeh","_attackGroup","_spawnpos"];
-
+TRACEV_3(_attackVeh,_attackGroup,_spawnpos);
 If (canMove _attackVeh) then {
     [_attackGroup] call CBA_fnc_clearWaypoints;
     [_attackGroup,_spawnPos,200,"MOVE","SAFE","WHITE","FULL"] call CBA_fnc_addWaypoint;

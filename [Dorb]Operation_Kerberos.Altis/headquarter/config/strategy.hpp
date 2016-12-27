@@ -14,7 +14,7 @@ class strategy {
         type[] = {1,0,0};
         value = 1000000;
         threat[] = {1,0.8,0.3};
-        condition = "{true}";
+        condition = "true";
 
         function = QFUNC(strategy_infanterie);
 
@@ -27,7 +27,7 @@ class strategy {
         type[] = {0,1,0};
         value = 2500000;
         threat[] = {1,1,0.3};
-        condition = "{true}";
+        condition = "true";
 
         function = QFUNC(strategy_armored);
 
@@ -42,7 +42,7 @@ class strategy {
         type[] = {0,0,1};
         value = 3000000;
         threat[] = {1,1,0.7};
-        condition = QUOTE(['helicopter'] call FUNC(canUseCallIn));
+        condition = QUOTE(['helicopter'] call FUNC(ressources_canUseCallIn));
 
         function = QFUNC(strategy_helicopter);
 
@@ -58,7 +58,7 @@ class strategy {
         type[] = {0,0,1};
         value = 3000000;
         threat[] = {0,0,1};
-        condition = QUOTE(['airinterception'] call FUNC(canUseCallIn));
+        condition = QUOTE(['airinterception'] call FUNC(ressources_canUseCallIn));
 
         function = QFUNC(strategy_helicopter);
 
@@ -74,7 +74,7 @@ class strategy {
         type[] = {0,0,1};
         value = 2000000;
         threat[] = {1,1,0};
-        condition = "{true}";
+        condition = "true";
 
         function = QFUNC(strategy_drones);
 
