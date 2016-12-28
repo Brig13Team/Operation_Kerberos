@@ -12,7 +12,7 @@
  *      none
  *
  */
- #define DEBUG_MODE_FULL
+#define DEBUG_MODE_OFF
 #include "script_component.hpp"
 
 _this params [["_group",grpNull,[grpNull]],["_type","attack",[""]]];
@@ -39,7 +39,10 @@ switch _type do {
         };
 };
 private _grouphash = HASH_CREATE;
+TRACEV_3(_groupHash,_key,_state);
 HASH_GET(GVAR(groups),_key) pushBack _grouphash;
+private _test = HASH_GET(GVAR(groups),_key);
+TRACEV_1(_test);
 _group setVariable [QGVAR(grouphash),_grouphash];
 TRACEV_3(_group,_type,_grouphash);
 HASH_SET(_grouphash,"grouptype",_type);

@@ -22,7 +22,9 @@ private _enemyThreat = HASH_GET(_attackPos,"enemythreat"); /// [0,0,0] - combine
 
 private _curValue = _enemyValue apply {_x * (_failedattacks * 0.2 + 1 + (missionNamespace getVariable [QGVAR(playermalus),0]) )};
 If (_again) then {
-    _curValue = _lastValue
+    TRACEV_3(_again,_curValue,_lastValue);
+    _curValue = _lastValue;
+    _again = false;
 };
 
 private _chosenStrategies = [];
@@ -69,6 +71,7 @@ If ((_enemyType select 1)>0) then {
     /// posible strategies against air
     private _strategyCfgs = "(((getArray(_x >> 'threat')) select 1) > 0)" configClasses (missionConfigFile >> "strategy");
     private _possibleStrategys = [];
+    TRACEV_1(_strategyCfgs);
     {
         //// check additional condition - e.g. all Support used
         private _condition = (getText(_x>>"condition"));
@@ -96,7 +99,7 @@ If ((_enemyType select 1)>0) then {
     _curValue set[2,    ((_curValue select 2) - (_tempValue * (_tempthreat select 2))) max 0    ];
     _curValue set[1,    ((_curValue select 1) - (_tempValue * (_tempthreat select 1))) max 0    ];
     _curValue set[0,    ((_curValue select 0) - (_tempValue * (_tempthreat select 0))) max 0    ];
-
+    TRACEV_5(_strategyToAdd,_tempValue,_tempthreat,_temptype,_curValue);
     _chosenStrategies pushBack _strategyToAdd;
 };
 
@@ -145,46 +148,57 @@ If (
     ) then {
     _again = true;
     _passing = _passing - 1;
+    TRACE("Choosing again");
+    TRACEV_3(_curValue,_again,_passing);
 };
 
 
 //// register the strategies and execute them
 
 {
-    private _hash = HASH_CREATE;
-    HASH_GET(_attackPos,"strategies") pushBack _hash;
+    private _strategyhash = HASH_CREATE;
+    HASH_GET(_attackPos,"strategies") pushBack _strategyhash;
 
-    HASH_SET(_hash,"strategytype",configName _x);
+    HASH_SET(_strategyhash,"strategytype",configName _x);
 
     private _timeout = (getNumber(_x >> "timeout"));
     private _condition = (getText(_x >> "finishcondition"));
     private _function = (getText(_x >> "function"));
-    TRACEV_4(configName _x,_attackPos,_hash,_function);
-    private _parameter = [[_attackPos,_hash] call compile _function] param [0,[]];
 
+    private _parameter = [];
+    If !(_function isEqualTo "") then {
+        If !(isNil _function) then {
+            _parameter = [_attackPos,_strategyhash] call (missionNamespace getVariable _function);
+        }else{
+            _parameter = [_attackPos,_strategyhash] call compile _function;
+        };
+    };
+    //private _parameter = [[_attackPos,_strategyhash] call compile _function] param [0,[]];
+    TRACEV_5(configName _x,_attackPos,_strategyhash,_function,_parameter);
+    TRACEV_3(_timeout,_condition,_parameter);
     If (_timeout > 0) then {
         _timeout = _timeout + CBA_missiontime;
-        HASH_SET(_hash,"timeout",_timeout);
+        HASH_SET(_strategyhash,"timeout",_timeout);
     }else{
-        HASH_SET(_hash,"timeout",-1);
+        HASH_SET(_strategyhash,"timeout",-1);
     };
     If (_condition isEqualTo "") then {
-        HASH_SET(_hash,"finishcondition",{true});
-        HASH_SET(_hash,"parameter",[]);
+        HASH_SET(_strategyhash,"finishcondition",{true});
+        HASH_SET(_strategyhash,"parameter",[]);
     }else{
-        HASH_SET(_hash,"finishcondition", compile _condition);
-        HASH_SET(_hash,"parameter",_parameter);
+        HASH_SET(_strategyhash,"finishcondition", compile _condition);
+        HASH_SET(_strategyhash,"parameter",_parameter);
     };
 
     If !((getText(_x >> "onfinish")) isEqualTo "") then {
-        HASH_SET(_hash,"onfinish",(getText(_x >> "onfinish")));
+        HASH_SET(_strategyhash,"onfinish",(getText(_x >> "onfinish")));
     };
     /*
     If !((getText(_x >> "onsuc")) isEqualTo "") then {
-        HASH_SET(_hash,"function",(getText(_x >> "function")));
+        HASH_SET(_strategyhash,"function",(getText(_x >> "function")));
     };
     If !((getText(_x >> "function")) isEqualTo "") then {
-        HASH_SET(_hash,"onfinish",(getText(_x >> "function")));
+        HASH_SET(_strategyhash,"onfinish",(getText(_x >> "function")));
     };
     */
 

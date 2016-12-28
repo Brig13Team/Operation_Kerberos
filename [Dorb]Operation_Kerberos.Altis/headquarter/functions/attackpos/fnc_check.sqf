@@ -16,14 +16,15 @@
 private _return = [];
 
 {
-    private _hash = _x;
-    private _strategys = HASH_GET_DEF(_hash,"strategies",[]);
+    private _attackLocation = _x;
+    private _strategys = HASH_GET_DEF(_attackLocation,"strategies",[]);
     If (_strategys isEqualTo []) then {
-        _return pushBack _hash;
+        _return pushBack _attackLocation;
     }else{
-        If !(({[_x] call FUNC(strategy_checkisworking);}count _strategys)>0) then {
-            HASH_SET(_hash,"strategies",[]);
-            _return pushBack _hash;
+        If !(({[_x] call FUNC(strategy__checkisworking);}count _strategys)>0) then {
+            TRACE("No more working Strategies");
+            HASH_SET(_attackLocation,"strategies",[]);
+            _return pushBack _attackLocation;
         };
     };
 } forEach HASH_GET(GVAR(attackpos),"Locations");

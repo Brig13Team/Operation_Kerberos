@@ -20,7 +20,7 @@ If (
     ) then {
 
     private _callinType = selectRandom ["infanterie","airdrop","mounted","sniper","tanks"];
-
+    TRACE(FORMAT_1("Calling in Units: %1",_callinType));
     private _costs = switch (_callinType) do {
         case "infanterie" : {
             [] call FUNC(ressources_supplyInfanterie);

@@ -38,6 +38,9 @@ If (isNull _attackLoc) then {
 #ifdef DEBUG_MODE_FULL
     [_position,"AttackPosition","ColorRed","mil_flag"] call EFUNC(common,debug_marker_create);
 #endif
+
+HASH_SET(_attackLoc,"strategies",[]);
+
 If !(isNull _group) then {
     [_attackLoc,_group] call FUNC(attackpos_add);
 }else{

@@ -20,7 +20,7 @@ _group = _group call CBA_fnc_getGroup;
 
 private _grouphash = _group getVariable QGVAR(grouphash);
 private _target = HASH_GET(_grouphash,"target");
-If (IS_LOCATION(_taget)) then {_target = locationPosition _target;};
+If (IS_LOCATION(_target)) then {_target = locationPosition _target;};
 
 private["_statement","_waypoints"];
 if (IS_OBJECT(_target)) then {

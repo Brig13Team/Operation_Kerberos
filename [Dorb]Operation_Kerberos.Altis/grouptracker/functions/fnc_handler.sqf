@@ -11,7 +11,7 @@
  *      none
  *
  */
-#define DEBUG_MODE_FULL
+#define DEBUG_MODE_OFF
 #include "script_component.hpp"
 
 If !(GVAR(active)) exitWith {[_this select 1] spawn FUNC(terminate);};

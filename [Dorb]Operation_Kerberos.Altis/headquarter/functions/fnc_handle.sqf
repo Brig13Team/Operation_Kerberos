@@ -35,14 +35,19 @@ GVAR(handle) = [] spawn {
     {
         /// should be changed in a later Version
         private _curPos = _x;
+        TRACE(FORMAT_1("Creating new attackposition at position: %1",getPos _x));
         private _curAttackLoc = [_position] call FUNC(attackpos_create);
         private _players = allPlayers select {(_x distance _curPos)<_size};
         private _groups = [];
-        {_groups pushBackUnique (group _x);} forEach _players;
-        {[_curAttackLoc,_x] call FUNC(attackpos_add);} forEach _groups;
+        {
+            _groups pushBackUnique (group _x);
+        } forEach _players;
+        {
+            [_curAttackLoc,_x] call FUNC(attackpos_add);
+        } forEach _groups;
     } forEach _attackPosToCreate;
 
-    /// check for
+    /// calling supplys -
     [] call FUNC(ressources_supply);
 
     /// check the attackpositions
@@ -53,6 +58,7 @@ GVAR(handle) = [] spawn {
 
 
     {
+        TRACE(FORMAT_1("Choosing new strategie: %1",_x));
         [_x] call FUNC(strategy__choose);
     } forEach _newAttackPos;
 
@@ -63,11 +69,12 @@ GVAR(handle) = [] spawn {
 
     /// Move defending Units of already destroyed POI to other POI
     {
-        private _group = _x;
-        private _grouphash = _group getVariable QGVAR(grouphash);
-        If ((HASH_GET_DEF(_grouphash,"state",""))in["idle"]) then {
+        private _grouphash = _x;
+        private _group = _grouphash getVariable "group";
+        If ((HASH_GET(_grouphash,"state"))in["idle"]) then {
             private _allPOI = (HASH_GET(GVAR(POI),"Locations")) select {HASH_GET_DEF(_x,"isActive",false)};
             CHECK(_allPOI isEqualTo [])
+            TRACE("Moving defence groups to other POI");
             [_group,"defend",(selectRandom _allPOI)] call FUNC(state_set);
         };
     } forEach (HASH_GET(GVAR(groups),"defenceGroups"));
@@ -76,13 +83,16 @@ GVAR(handle) = [] spawn {
     private _waitingGroups = [];
     {
         If (side _x != GVARMAIN(playerside)) then {
-            // bored
-            if ((_x getVariable [QGVAR(state),""]) isEqualTo "wait") then {
-                _waitingGroups pushBack _x;
-            };
-            // Veteran
-            if ((_x getVariable [QGVAR(state),""]) isEqualTo "idle") then {
-                _waitingGroups pushBack _x;
+            private _grouphash = _x getVariable QGVAR(grouphash);
+            If !(isNil "_grouphash") then {
+                // bored
+                if ((_grouphash getVariable [QGVAR(state),""]) isEqualTo "wait") then {
+                    _waitingGroups pushBack _x;
+                };
+                // Veteran
+                if ((_grouphash getVariable [QGVAR(state),""]) isEqualTo "idle") then {
+                    _waitingGroups pushBack _x;
+                };
             };
         };
     }forEach allGroups;

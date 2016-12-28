@@ -1,4 +1,4 @@
-#define DEBUG_MODE_OFF
+#define DEBUG_MODE_MINIMAL
 
 #define COMPONENT grouptracker
 

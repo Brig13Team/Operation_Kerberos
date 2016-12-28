@@ -59,6 +59,9 @@ GVAR(ressources_amount) = 0;
 /// groups - player & ai
 GVAR(groups) = HASH_CREATE;
 HASH_SET(GVAR(groups),"playergroups",[]);
+HASH_SET(GVAR(groups),"defenceGroups",[]);
+HASH_SET(GVAR(groups),"patrolGroups",[]);
+HASH_SET(GVAR(groups),"attackGroups",[]);
 GVAR(playergroups_new) = 0;
 
 /// radars

@@ -19,7 +19,7 @@ class strategy {
         function = QFUNC(strategy_infanterie);
 
         timeout = -1;
-        finishcondition = "(({alive _x} count (units (_this select 1)))<((_this select 0)*0.3))";
+        finishcondition = "(({alive _x} count (units (_this select 1)))<=((_this select 0)*0.3))";
         parameter[] = {};
     };
 

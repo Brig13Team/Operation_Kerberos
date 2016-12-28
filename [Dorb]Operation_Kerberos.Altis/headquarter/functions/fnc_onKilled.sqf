@@ -71,7 +71,7 @@ _this spawn {
                 };
                 private _groupsarray = HASH_GET(GVAR(groups),_key);
                 _groupsarray = _groupsarray - [_group];
-                HASH_SET(GVAR(groups),_groupsarray);
+                HASH_SET(GVAR(groups),_key,_groupsarray);
                 HASH_DELETE(_grouphash);
             };
 
