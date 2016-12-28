@@ -23,9 +23,10 @@ _this params [["_centerposition",[],[[]]]];
 private _targetPositions = [_centerposition] call FUNC(createMissionHouse);
 private _targetPos = selectRandom _targetPositions;
 TRACEV_2(_targetPos,_targetPositions);
-private _allobjects = getArray(missionConfigFile >> "missions_config" >> "main" >> "intel" >> "objects");
-private _obj = selectRandom _allobjects;
-TRACEV_3(_centerpos,_allObjects,_obj);
+
+private _obj = ["intel"] call FUNC(getMissionObject);
+
+TRACEV_2(_centerpos,_obj);
 private _curTarget = createVehicle [_obj, _targetPos,[], 0, "CAN_COLLIDE"];
 
 If !(isNil QEFUNC(headquarter,registerPOI)) then {

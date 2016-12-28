@@ -20,10 +20,10 @@ private _grouphash = _group getVariable QGVAR(grouphash);
 
 private _target = HASH_GET(_grouphash,"target");
 
-CHECK((isNil _target)||{isNull _target})
+CHECK((isNil "_target")||{isNull _target})
 
 private _strategy = HASH_GET_DEF(_grouphash,"strategy",locationNull);
-CHECK(isNull _strategy)
+CHECK((isNil "_strategy")||{isNull _strategy})
 
 HASH_DELETE(_strategy);
 HASH_SET(_grouphash,"strategy",locationNull);

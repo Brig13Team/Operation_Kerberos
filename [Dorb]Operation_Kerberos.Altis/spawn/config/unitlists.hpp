@@ -7,6 +7,61 @@
  */
 #define CBA_OFF
 #include "script_component.hpp"
+class GVAR(unitlists) {
+    class base {
+        class mission {
+            weaponcache[] = {"Box_IND_Wps_F","Box_IND_WpsSpecial_F","Box_IND_WpsLaunch_F","Box_IND_Ammo_F","Box_IND_Grenades_F","Box_IND_Support_F"};
+            pow[] = {"C_scientist_F","C_journalist_F"};
+            intel[] = {"Land_Suitcase_F","Land_SatellitePhone_F","Land_Laptop_device_F"};
+            tower[] = {"Land_TTowerBig_1_F","Land_TTowerBig_2_F"};
+            radar[] = {"rhs_p37","rhs_prv13"};
+            device[] = {"Land_Device_assembled_F"};
+            emp[] = {"rhs_typhoon_vdv"};
+        };
+    };
+    class base_east : base {
+        class mission: mission {
+            prototyp[] = {"B_MBT_01_TUSK_F","B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F"};
+            commander[] = {"rhs_vdv_officer"};
+            hq_mobile[] = {"rhs_gaz66_r142_vdv"};
+        };
+        attack_uavs[] = {"O_UAV_02_F"};
+        recon_uavs[] = {"rhs_pchela1t_vvs","O_UAV_01_F"};
+        static[] = {"RHS_NSV_TriPod_VDV","RHS_AGS30_TriPod_VDV","rhs_Igla_AA_pod_vdv","rhs_KORD_high_VDV","rhs_KORD_VDV","rhs_Metis_9k115_2_vdv"};
+        static_high[] = {"rhs_KORD_high_VDV"};
+        static_aa[] = {"rhs_Igla_AA_pod_vdv"};
+        art_mortar[] = {"rhs_2b14_82mm_vdv"};
+        art_shells[] = {"rhs_2s3_tv","rhs_D30_vdv"};
+        art_rocket[] = {"RHS_BM21_VDV_01"};
+
+
+        trucks[] = {};
+        cars[] = {};
+        
+
+
+        class callIn : callIn {
+            helicopter_cas[] = {"RHS_Ka52_UPK23_vvs","rhs_ka60_grey"};
+            helicopter_transport[] = {"rhs_Mi8mt_vdv","rhs_Mi8mt_Cargo_vdv","rhs_Mi8MTV3_vdv","rhs_Mi8MTV3_UPK23_vdv","rhs_Mi8MTV3_FAB_vdv","rhs_Mi8AMT_vdv"};
+
+            planeAI[] = {"RHS_T50_vvs_054","RHS_T50_vvs_053","RHS_T50_vvs_052"};
+            planeCAS[] = {"RHS_Su25SM_KH29_vvs","RHS_Su25SM_CAS_vvs","RHS_Su25SM_vvs"};
+
+
+        };
+    };
+    class east {
+        class regular : base_east {};
+        class armored : regular {};
+        class infanterie : regular {};
+        class airborne : regular {};
+        class specops : regular {};
+        class droneoperations : regular {};
+        class guards  : regular {};
+    };
+};
+
+
 class unitlists {
     class base {
 
@@ -201,6 +256,9 @@ class unitlists {
                         SOLDIER_12(rhs_vdv_rifleman);
                         SOLDIER_13(rhs_vdv_rifleman);
                     };
+                    class E_Reg_Att_04 {
+                        SOLDIER_1(rhs_t90a_tv);
+                    };
                 };
                 class defence {
                     class E_Reg_def_01 {
@@ -226,6 +284,16 @@ class unitlists {
                         SOLDIER_5(rhs_vdv_strelok_rpg_assist);
                         SOLDIER_6(rhs_vdv_strelok_rpg_assist);
                     };
+                };
+            };
+            class callIn : callIn {
+                class helicopter {
+                    amount = 0;
+                    units[] = {"RHS_Ka52_UPK23_vvs","rhs_ka60_grey"};
+                };
+                class airinterception {
+                    amount = 0;
+                    units[] = {"RHS_T50_vvs_054"};
                 };
             };
         };

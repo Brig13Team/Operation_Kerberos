@@ -14,7 +14,7 @@
 #include "script_component.hpp"
 
 _this params ["_strategy"];
-If (isNil "_strategy") exitWith {false};
+If ((isNil "_strategy")||{isNull _strategy}) exitWith {false};
 //// Check for Timeout
 
 private _timeout = HASH_GET_DEF(_strategy,"timeout",-1);

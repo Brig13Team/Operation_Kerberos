@@ -14,6 +14,7 @@ PREP(crew);
 PREP(delaySpawn);
 PREP(gear);
 PREP(getGroup);
+PREP(getUnit);
 PREP(group);
 PREP(groupFromArray);
 

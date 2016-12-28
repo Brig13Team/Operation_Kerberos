@@ -70,8 +70,9 @@ GVAR(handle) = [] spawn {
     /// Move defending Units of already destroyed POI to other POI
     {
         private _grouphash = _x;
-        private _group = _grouphash getVariable "group";
-        If ((HASH_GET(_grouphash,"state"))in["idle"]) then {
+        private _group = HASH_GET(_grouphash,"group");
+        If (isNil "_grouphash") then {WARNING("Grouphash is Nil");TRACEV_3(_x,_grouphash,_group);};
+        If ((HASH_GET(_grouphash,"state")) in ["idle"]) then {
             private _allPOI = (HASH_GET(GVAR(POI),"Locations")) select {HASH_GET_DEF(_x,"isActive",false)};
             CHECK(_allPOI isEqualTo [])
             TRACE("Moving defence groups to other POI");
@@ -83,19 +84,19 @@ GVAR(handle) = [] spawn {
     private _waitingGroups = [];
     {
         If (side _x != GVARMAIN(playerside)) then {
-            private _grouphash = _x getVariable QGVAR(grouphash);
+            private _grouphash = HASH_GET(_x,QGVAR(grouphash));
             If !(isNil "_grouphash") then {
                 // bored
-                if ((_grouphash getVariable [QGVAR(state),""]) isEqualTo "wait") then {
+                if ((HASH_GET_DEF(_grouphash,QGVAR(state),"NOSTATE")) isEqualTo "wait") then {
                     _waitingGroups pushBack _x;
                 };
                 // Veteran
-                if ((_grouphash getVariable [QGVAR(state),""]) isEqualTo "idle") then {
+                if ((HASH_GET_DEF(_grouphash,QGVAR(state),"NOSTATE")) isEqualTo "idle") then {
                     _waitingGroups pushBack _x;
                 };
             };
         };
-    }forEach allGroups;
+    } forEach allGroups;
 
 
 };

@@ -33,7 +33,8 @@ if (IS_OBJECT(_target)) then {
 }else{
     If (IS_LOCATION(_target)) then {
         _waypoints = [getPos (leader _group),locationPosition _target] call FUNC(waypoints_generate);
-        _statement = QUOTE(If (isNull (((group this) getVariable 'GVAR(grouphash)') getvariable 'target')) exitWith {[ARR_3(this,'idle',objNull)] call FUNC(state_set);};);
+        //_statement = QUOTE(If (isNull (((group this) getVariable 'GVAR(grouphash)') getvariable 'target')) exitWith {[ARR_3(this,'idle',objNull)] call FUNC(state_set);};);
+        _statement = QUOTE(If (isNull ([(group this) getVariable 'GVAR(grouphash)'] param [ARR_2(0,locationNull)])) exitWith {[ARR_3(this,'idle',objNull)] call FUNC(state_set);};);
     }else{
         _waypoints = [getPos (leader _group),_target] call FUNC(waypoints_generate);
         _statement = "";

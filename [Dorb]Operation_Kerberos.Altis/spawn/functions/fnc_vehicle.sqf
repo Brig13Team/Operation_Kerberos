@@ -65,9 +65,11 @@ if (_simulation == "airplanex") then {
     _vehicle setVelocity [100 * (sin _direction), 100 * (cos _direction), 0];
 };
 If (_withcrew) then {
-    _group = [_vehicle,_group] call FUNC(crew);
+    [_vehicle,_group] call FUNC(crew);
 };
 if (_changeleader) then {
-    _group selectLeader (commander _vehicle);
+    If (!(_vehicle isKindOf "Air")) then {
+        _group selectLeader (commander _vehicle);
+    };
 };
 [_group,_vehicle];

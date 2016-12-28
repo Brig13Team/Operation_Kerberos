@@ -21,17 +21,17 @@ private _attackgroups = HASH_GET(GVAR(groups),"attackGroups");
 private _availableGroups = [];
 
 {
-    private _hash = _x getVariable QGVAR(grouphash);
+    private _hash = _x;
     private _state = HASH_GET(_hash,"state");
     private _type = HASH_GET(_hash,"type");
     If ((_state in ["idle","wait"])&&(_type == 1)) then {
-        _availableGroups pushBack _x;
+        _availableGroups pushBack (HASH_GET(_hash,"group"));
     };
 } forEach _attackgroups;
 
 //_availableGroups = _availableGroups call BIS_fnc_arrayShuffle;
 
-CHECK(_availableGroups isEqualTo [])
+If (_availableGroups isEqualTo []) exitWith {WARNING("No Armoured Group found");[objNull];};
 
 private _chosenOne = selectRandom _availableGroups;
 

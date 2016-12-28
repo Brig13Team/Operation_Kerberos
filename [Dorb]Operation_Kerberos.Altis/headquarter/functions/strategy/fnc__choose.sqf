@@ -19,7 +19,7 @@ private _failedattacks = HASH_GET_DEF(_attackPos,"failedattacks",0);
 private _enemyType = HASH_GET(_attackPos,"enemytype"); /// [0,0,0] - amount of specific groups
 private _enemyValue = HASH_GET(_attackPos,"enemyvalue"); /// [0,0,0] - value of each type
 private _enemyThreat = HASH_GET(_attackPos,"enemythreat"); /// [0,0,0] - combined threat
-
+TRACEV_4(_failedattacks,_enemyType,_enemyValue,_enemyThreat);
 private _curValue = _enemyValue apply {_x * (_failedattacks * 0.2 + 1 + (missionNamespace getVariable [QGVAR(playermalus),0]) )};
 If (_again) then {
     TRACEV_3(_again,_curValue,_lastValue);
@@ -49,6 +49,7 @@ If ((_enemyType select 2)>0) then {
             }else{
                 _temp = 1 / (abs((_curValue select 2) - ((_tempthreat select 2) * (_tempValue)))+1);
             };
+            _temp = _temp * 1000000;
             _possibleStrategys pushBack [_temp,_x];
         };
     } forEach _strategyCfgs;
@@ -86,10 +87,13 @@ If ((_enemyType select 1)>0) then {
             }else{
                 _temp = 1 / (abs((_curValue select 1) - ((_tempthreat select 1) * (_tempValue)))+1);
             };
+            _temp = _temp * 1000000;
+            TRACEV_4(configname _x,_temp,_tempValue,_tempthreat);
             _possibleStrategys pushBack [_temp,_x];
         };
     } forEach _strategyCfgs;
     /// select the strategy (weighted)
+    TRACEV_1(_possibleStrategys);
     private _strategyToAdd = ([_possibleStrategys,0,false] call EFUNC(common,sel_array_weighted)) select 1;
     private _tempValue = (getNumber(_strategyToAdd>>"value"));
     private _tempthreat = (getArray(_strategyToAdd>>"threat"));
@@ -123,6 +127,7 @@ If ((_enemyType select 0)>0) then {
             }else{
                 _temp = 1 / (abs((_curValue select 0) - ((_tempthreat select 0) * (_tempValue)))+1);
             };
+            _temp = _temp * 1000000;
             _possibleStrategys pushBack [_temp,_x];
         };
     } forEach _strategyCfgs;
