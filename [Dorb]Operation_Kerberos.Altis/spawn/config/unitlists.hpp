@@ -35,9 +35,9 @@ class GVAR(unitlists) {
         art_rocket[] = {"RHS_BM21_VDV_01"};
 
 
-        trucks[] = {};
-        cars[] = {};
-        
+        trucks[] = {"RHS_Ural_VDV_01","RHS_Ural_Open_VDV_01","rhs_gaz66_vdv","rhs_gaz66o_vdv"};
+        cars[] = {"rhs_tigr_VDV","rhs_tigr_ffv_vdv","rhs_tigr_3camo_vdv","rhs_tigr_ffv_3camo_vdv"};
+        tanks[] = {"rhs_t72ba_tv","rhs_t72bb_tv","rhs_t72bc_tv","rhs_t72bd_tv"};
 
 
         class callIn : callIn {
@@ -47,7 +47,107 @@ class GVAR(unitlists) {
             planeAI[] = {"RHS_T50_vvs_054","RHS_T50_vvs_053","RHS_T50_vvs_052"};
             planeCAS[] = {"RHS_Su25SM_KH29_vvs","RHS_Su25SM_CAS_vvs","RHS_Su25SM_vvs"};
 
+            group_infantry[] = {{"configfile","CfgGroups","East","rhs_faction_vdv","rhs_group_rus_vdv_infantry","rhs_group_rus_vdv_infantry_fireteam"},{"configfile","CfgGroups","East","rhs_faction_vdv","rhs_group_rus_vdv_infantry","rhs_group_rus_vdv_infantry_MANEUVER"},{"configfile","CfgGroups","East","rhs_faction_vdv","rhs_group_rus_vdv_infantry","rhs_group_rus_vdv_infantry_section_AA"},{"configfile","CfgGroups","East","rhs_faction_vdv","rhs_group_rus_vdv_infantry","rhs_group_rus_vdv_infantry_section_AT"},{"configfile","CfgGroups","East","rhs_faction_vdv","rhs_group_rus_vdv_infantry","rhs_group_rus_vdv_infantry_section_mg"},{"configfile","CfgGroups","East","rhs_faction_vdv","rhs_group_rus_vdv_infantry","rhs_group_rus_vdv_infantry_squad"},{"configfile","CfgGroups","East","rhs_faction_vdv","rhs_group_rus_vdv_infantry","rhs_group_rus_vdv_infantry_squad_2mg"}};
+        };
 
+
+        class groups {
+            class patrol {
+                class E_Reg_Pat_01 {
+                    SOLDIERR_1(rhs_vdv_sergeant,SERGEANT);
+                    SOLDIERR_2(rhs_vdv_junior_sergeant,CORPORAL);
+                    SOLDIER_3(rhs_vdv_rifleman);
+                    SOLDIER_4(rhs_vdv_rifleman);
+                    SOLDIER_5(rhs_vdv_grenadier_rpg);
+                    SOLDIER_6(rhs_vdv_grenadier);
+                };
+                class E_Reg_Pat_02 {
+                    SOLDIERR_1(rhs_vdv_sergeant,SERGEANT);
+                    SOLDIERR_2(rhs_vdv_junior_sergeant,CORPORAL);
+                    SOLDIER_3(rhs_vdv_marksman);
+                    SOLDIER_4(rhs_vdv_marksman);
+                    SOLDIER_5(rhs_vdv_medic);
+                };
+                class E_Reg_Pat_03 {
+                    SOLDIERR_1(rhs_vdv_junior_sergeant,CORPORAL);
+                    SOLDIER_2(rhs_vdv_medic);
+                    SOLDIER_3(rhs_vdv_machinegunner);
+                    SOLDIER_4(rhs_vdv_machinegunner_assistant);
+                    SOLDIER_5(rhs_vdv_grenadier_rpg);
+                    SOLDIER_6(rhs_vdv_aa);
+                };
+                class E_Reg_Pat_04 {
+                    SOLDIERR_1(rhs_vdv_sergeant,SERGEANT);
+                    SOLDIERR_2(rhs_vdv_junior_sergeant,CORPORAL);
+                    SOLDIER_3(rhs_vdv_LAT);
+                    SOLDIER_4(rhs_vdv_LAT);
+                    SOLDIER_5(rhs_vdv_medic);
+                    SOLDIER_6(rhs_vdv_grenadier);
+                };
+            };
+            class strikeforce {
+                class E_Reg_Att_01 {
+                    SOLDIERR_1(rhs_vdv_sergeant,SERGEANT);
+                    SOLDIERR_2(rhs_vdv_junior_sergeant,CORPORAL);
+                    SOLDIER_3(rhs_vdv_LAT);
+                    SOLDIER_4(rhs_vdv_LAT);
+                    SOLDIER_5(rhs_vdv_medic);
+                    SOLDIER_6(rhs_vdv_grenadier);
+                    SOLDIER_7(rhs_vdv_grenadier);
+                };
+                class E_Reg_Att_02 {
+                    SOLDIERR_1(rhs_vdv_junior_sergeant,CORPORAL);
+                    SOLDIER_2(rhs_vdv_medic);
+                    SOLDIER_3(rhs_vdv_machinegunner);
+                    SOLDIER_4(rhs_vdv_machinegunner_assistant);
+                    SOLDIER_5(rhs_vdv_grenadier_rpg);
+                    SOLDIER_6(rhs_vdv_grenadier_rpg);
+                    SOLDIER_7(rhs_vdv_aa);
+                };
+                class E_Reg_Att_03 {
+                    SOLDIER_1(rhs_btr80a_vdv);
+                    SOLDIERR_2(rhs_vdv_junior_sergeant,CORPORAL);
+                    SOLDIER_3(rhs_vdv_rifleman);
+                    SOLDIER_4(rhs_vdv_rifleman);
+                    SOLDIER_5(rhs_vdv_rifleman);
+                    SOLDIER_6(rhs_vdv_grenadier);
+                    SOLDIER_7(rhs_vdv_grenadier);
+                    SOLDIER_8(rhs_vdv_grenadier_rpg);
+                    SOLDIER_9(rhs_vdv_grenadier_rpg);
+                    SOLDIER_10(rhs_vdv_medic);
+                    SOLDIER_11(rhs_vdv_medic);
+                    SOLDIER_12(rhs_vdv_rifleman);
+                    SOLDIER_13(rhs_vdv_rifleman);
+                };
+                class E_Reg_Att_04 {
+                    SOLDIER_1(rhs_t90a_tv);
+                };
+            };
+            class defence {
+                class E_Reg_def_01 {
+                    SOLDIERR_1(rhs_vdv_junior_sergeant,CORPORAL);
+                    SOLDIER_2(rhs_vdv_medic);
+                    SOLDIER_3(rhs_vdv_machinegunner);
+                    SOLDIER_4(rhs_vdv_machinegunner_assistant);
+                    SOLDIER_5(rhs_vdv_grenadier_rpg);
+                };
+                class E_Reg_def_02 {
+                    SOLDIERR_1(rhs_vdv_sergeant,SERGEANT);
+                    SOLDIERR_2(rhs_vdv_junior_sergeant,CORPORAL);
+                    SOLDIER_3(rhs_vdv_at);
+                    SOLDIER_4(rhs_vdv_at);
+                    SOLDIER_5(rhs_vdv_LAT);
+                    SOLDIER_6(rhs_vdv_rifleman);
+                };
+                class E_Reg_def_03 {
+                    SOLDIERR_1(rhs_vdv_junior_sergeant,CORPORAL);
+                    SOLDIER_2(rhs_vdv_medic);
+                    SOLDIER_3(rhs_vdv_aa);
+                    SOLDIER_4(rhs_vdv_aa);
+                    SOLDIER_5(rhs_vdv_strelok_rpg_assist);
+                    SOLDIER_6(rhs_vdv_strelok_rpg_assist);
+                };
+            };
         };
     };
     class east {
@@ -58,6 +158,9 @@ class GVAR(unitlists) {
         class specops : regular {};
         class droneoperations : regular {};
         class guards  : regular {};
+    };
+    class base_west : base {
+
     };
 };
 
