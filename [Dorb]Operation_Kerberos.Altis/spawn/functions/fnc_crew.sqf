@@ -20,8 +20,12 @@ If (IS_SIDE(_gruppe)) then {
     _gruppe addVehicle _vehicle;
 };
 Private ["_crewmen","_unit"];
+
+private _list_crewmen = ["crewmen"] call EFUNC(spawn,getUnit);
+private _list_soldiers = ["soldiers"] call EFUNC(spawn,getUnit);
+
 for "_i" from 1 to (_vehicle emptyPositions "Driver") do {
-    _crewmen = selectRandom GVAR(list_crewmen);
+    _crewmen = selectRandom _list_crewmen;
     _unit = _gruppe createUnit [_crewmen, [0,0,500], [], 0, "NONE"];
     _unit assignAsDriver _vehicle;
     _unit moveinDriver _vehicle;
@@ -29,7 +33,7 @@ for "_i" from 1 to (_vehicle emptyPositions "Driver") do {
 };
 
 for "_i" from 1 to (_vehicle emptyPositions "Gunner") do {
-    _crewmen = selectRandom GVAR(list_crewmen);
+    _crewmen = selectRandom _list_crewmen;
     _unit = _gruppe createUnit [_crewmen, [0,0,500], [], 0, "NONE"];
     _unit assignAsGunner _vehicle;
     _unit moveinGunner _vehicle;
@@ -37,7 +41,7 @@ for "_i" from 1 to (_vehicle emptyPositions "Gunner") do {
 };
 
 for "_i" from 1 to (_vehicle emptyPositions "Commander") do {
-    _crewmen = selectRandom GVAR(list_crewmen);
+    _crewmen = selectRandom _list_crewmen;
     _unit = _gruppe createUnit [_crewmen, [0,0,500], [], 0, "NONE"];
     _unit assignAsCommander _vehicle;
     _unit moveinCommander _vehicle;
@@ -49,7 +53,7 @@ If (_withCargo) exitWith {
     _platzanzahl = _vehicle emptyPositions "cargo";
     _group2 = createGroup GVARMAIN(side);
     for "_i" from 0 to (_platzanzahl - 1) do {
-        _crewmen = selectRandom GVAR(list_soldiers);
+        _crewmen = selectRandom _list_soldiers;
         _unit = _group2 createUnit [_crewmen, [0,0,500], [], 0, "NONE"];
         _unit assignAsCargo _vehicle;
         _unit moveInCargo _vehicle;
