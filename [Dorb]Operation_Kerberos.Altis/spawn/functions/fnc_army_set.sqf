@@ -23,10 +23,8 @@ If ((_army isEqualTo "")||{!isClass(missionConfigFile >> "unitlists" >> str GVAR
     private _allArmys = "true" configClasses (missionConfigFile >> "unitlists" >> str GVARMAIN(side));
     _army = configName (selectRandom(_allArmys));
     GVARMAIN(side_type) = _army;
-    TRACEV_3(GVARMAIN(side_type),_army,_allArmys);
 }else{
     GVARMAIN(side_type) = _army;
-    TRACEV_2(GVARMAIN(side_type),_army);
 };
 
 TRACEV_3(GVARMAIN(side),GVARMAIN(playerside),GVARMAIN(side_type));
