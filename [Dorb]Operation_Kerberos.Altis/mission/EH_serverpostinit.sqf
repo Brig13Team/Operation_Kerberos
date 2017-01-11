@@ -30,7 +30,7 @@ GVARMAIN(debug)=false;
     {
         switch (true) do {
             case (_x isKindOf 'Air') then {
-                private _damagecount = (floor(random 4)) max 1;
+                private _damagecount = (floor(random 6)) max 1;
                 private _hitpoints = ["HitEngine","HitEngine2","HitEngine3","HitBatteries","HitLight","HitHydraulics","HitHStabilizerL1",
                     "HitHStabilizerR1","HitVStabilizer1","HitPitotTube","HitStaticPort","HitStarter1","HitStarter2","HitStarter3",
                     "HitAvionics","HitMissiles"] call BIS_fnc_arrayShuffle;
@@ -73,16 +73,8 @@ GVARMAIN(debug)=false;
 /********************
     Cleanup
 ********************/
-[{
-    If ((count allDead)>20) then {
-        private _allDead = allDead;
-        private _anzahl = floor(((count allDead)/3)*2);
-        _allDead resize _anzahl;
-        {_x TILGE;}forEach _allDead;
-    };
-} , 180, [] ] call CBA_fnc_addPerFrameHandler;
 
-[{[] spawn EFUNC(common,cleanup_small);} , 900, [] ] call CBA_fnc_addPerFrameHandler;
+[LINKEFUNC(spawn,cleanup_base) , 900, [] ] call CBA_fnc_addPerFrameHandler;
 
 
 /********************
@@ -97,7 +89,7 @@ If ((_markerpos distance [0,0,0])>1) then {
             if (_x getVariable [QGVAR(ISHOSTAGE),false]) then {
                 [QGVAR(hostage_rescued),[_x]] call CBA_fnc_globalEvent;
             };
-            // [QGVAR(rescuepoint),[_x],_x] call EFUNC(events,localEvent);
+            // [QGVAR(rescuepoint),[_x],_x] call CBA_fnc_localEvent;
         }forEach _units;
     } , 30, [] ] call CBA_fnc_addPerFrameHandler;
 };
@@ -138,7 +130,7 @@ If ((_markerpos distance [0,0,0])>1) then {
         } forEach _val;
         nil;
     }
-] call EFUNC(events,addEventHandler);
+] call CBA_fnc_addEventHandler;
 
 /********************
     Missionloop
@@ -146,30 +138,21 @@ If ((_markerpos distance [0,0,0])>1) then {
 
 [] spawn {
     SCRIPTIN(XEH_SERVERPOSTINIT,taskloop);
+    
+    [] call EFUNC(common,setCfgLocations);
+    HASH_SET(GVAR(locations),"HQ",(getMarkerPos format [ARR_2("respawn_%1",toLower (str GVARMAIN(playerside)))]));
 
-    private _aufgabennummer=0;
-    private _return = [] call EFUNC(common,get_cfglocations);
-    SETMVAR(GVAR(town),(_return select 0));
-    SETMVAR(GVAR(industrie),(_return select 1));
-    SETMVAR(GVAR(military),(_return select 2));
-    SETMVAR(GVAR(water),(_return select 3));
-    SETMVAR(GVAR(other),(_return select 4));
-    SETMVAR(GVAR(base),[ARR_2("HQ",getMarkerPos format [ARR_2("respawn_%1",toLower (str GVARMAIN(playerside)))])]);
 
-    [] call EFUNC(headquarter,init);
+    GVAR(town) = HASH_GET(GVAR(locations),"city");
+    GVAR(industrie) = HASH_GET(GVAR(locations),"industrie");
+    GVAR(military) = HASH_GET(GVAR(locations),"military");
+    GVAR(water) = HASH_GET(GVAR(locations),"water");
+    GVAR(other) = HASH_GET(GVAR(locations),"other");
+    GVAR(base) = HASH_GET(GVAR(locations),"HQ");
+    //SETMVAR(GVAR(base),[ARR_2("HQ",getMarkerPos format [ARR_2("respawn_%1",toLower (str GVARMAIN(playerside)))])]);
 
     uiSleep 20;
 
     [] call FUNC(taskmanager_init);
 
-/*
-    for "_u" from 0 to 120 do {
-        uisleep 5;
-        INC(_aufgabennummer);
-        TRACEV_1(_aufgabennummer);
-        [FORMAT_1("MAINTASK%1",_aufgabennummer)] call FUNC(choose_main);
-    };
-    ERROR("CORE LOOP CRASHED");
-    endMission "End1";
-*/
 };

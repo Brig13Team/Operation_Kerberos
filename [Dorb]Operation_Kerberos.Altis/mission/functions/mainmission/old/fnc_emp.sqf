@@ -41,7 +41,7 @@ for "_i" from 1 to _rand do{
         _unit lock 3;
         SETPVAR(_unit,ACE_vehicleLock_lockpickStrength,-1);
         _targets pushBack _unit;
-    };    
+    };
 };
 /********************
     godmode
@@ -64,6 +64,6 @@ GVAR(emp_nextIntervall)= CBA_missionTime + 8*60;
     {},
     {},
     [],
-    QUOTE(If (GVAR(emp_nextIntervall)<CBA_missionTime) then {{[QGVAR(emp),getPos _x] call EFUNC(events,serverEvent)} forEach (_this select 0);GVAR(emp_nextIntervall) = CBA_missionTime + 10*60 + 60*(floor(random 10));};),
+    QUOTE(If (GVAR(emp_nextIntervall)<CBA_missionTime) then {{[QGVAR(emp),getPos _x] call CBA_fnc_serverEvent} forEach (_this select 0);GVAR(emp_nextIntervall) = CBA_missionTime + 10*60 + 60*(floor(random 10));};),
     [_targets]
 ]

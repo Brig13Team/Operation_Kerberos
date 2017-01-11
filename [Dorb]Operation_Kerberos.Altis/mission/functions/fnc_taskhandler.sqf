@@ -93,18 +93,18 @@ while {!_taskhandling} do {
 /// resets the canceled state of the task
 If (_cancel) exitwith {
     If (_isTask) then {[_task,"CANCELED",false] spawn BIS_fnc_taskSetState;};
-    ["MISSION_ENDED",[_task,"CANCELED"]] call EFUNC(events,globalEvent);
+    ["MISSION_ENDED",[_task,"CANCELED"]] call CBA_fnc_globalEvent;
     false
 };
 /// Checks if task is Sucess
 If (_args call _conditionSucess) then {
     _args call _onSucess;
     If (_isTask) then {[_task,"SUCCEEDED",false] spawn BIS_fnc_taskSetState;};
-    ["MISSION_ENDED",[_task,"SUCCEEDED"]] call EFUNC(events,globalEvent);
+    ["MISSION_ENDED",[_task,"SUCCEEDED"]] call CBA_fnc_globalEvent;
     true
 }else{
     _args call _onFailure;
     If (_isTask) then {[_task,"FAILED",false] spawn BIS_fnc_taskSetState;};
-    ["MISSION_ENDED",[_task,"FAILED"]] call EFUNC(events,globalEvent);
+    ["MISSION_ENDED",[_task,"FAILED"]] call CBA_fnc_globalEvent;
     false
 };

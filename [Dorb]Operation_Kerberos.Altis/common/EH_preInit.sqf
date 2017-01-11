@@ -37,6 +37,7 @@ PREP(rotateVectorXY);
 PREP(sel_array_weighted);
 PREP(setRollPitchYaw);
 PREP(setRotMat);
+PREP(setCfgLocations);
 
 PREPS(matrix,clear);
 PREPS(matrix,create);

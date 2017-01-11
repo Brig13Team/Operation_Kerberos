@@ -32,7 +32,7 @@ If (taskcancel) then {
 //////////////////////////////////////////////////
 ////// Nebenmissionen beenden                 /////
 //////////////////////////////////////////////////
-["MISSION_ENDSEC",_taskID] call EFUNC(events,localEvent);
+["MISSION_ENDSEC",_taskID] call CBA_fnc_localEvent;
 
 /*
 _sideMission = missionNamespace getVariable [QGVAR(current_sidemission),""];

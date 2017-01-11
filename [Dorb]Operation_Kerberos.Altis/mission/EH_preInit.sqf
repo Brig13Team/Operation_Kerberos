@@ -36,6 +36,7 @@ PREPS(taskmanager,cancelAll);
 PREPS(taskmanager,choose_location);
 PREPS(taskmanager,choose_mission);
 PREPS(taskmanager,exists);
+PREPS(taskmanager,handle);
 PREPS(taskmanager,init);
 PREPS(taskmanager,remove);
 PREPS(taskmanager,setState);
