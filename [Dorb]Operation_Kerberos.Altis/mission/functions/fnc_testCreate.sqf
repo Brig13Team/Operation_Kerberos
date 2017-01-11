@@ -25,4 +25,4 @@ TRACEV_1(_return);
 
 [_centerpos,"CENTERPOSITION","ColorBlue","mil_flag"] call EFUNC(common,debug_marker_create);
 
-[QGVAR(start),[_centerpos]] call CBA_fnc_localEvent;
+[QGVAR(prepare),[_centerpos]] call CBA_fnc_localEvent;

@@ -6,6 +6,7 @@ PREP(army_set);
 
 PREP(cleanup_base);
 PREP(cleanup_full);
+PREP(createMinefields);
 PREP(createMission);
 PREP(createMissionComposition);
 PREP(createMissionHouse);
@@ -32,6 +33,7 @@ PREP(Patrol_task);
 PREP(spawnGroup_attack);
 PREP(spawnGroup_defence);
 PREP(spawnGroup_patrol);
+PREP(spawnMinefieldACE);
 
 PREP(stayInVehicle);
 
@@ -68,3 +70,4 @@ PREPS(mission,kill);
 ADDON = true;
 
 GVAR(SpawnLast) = CBA_missiontime;
+GVAR(targetHouses) = [];

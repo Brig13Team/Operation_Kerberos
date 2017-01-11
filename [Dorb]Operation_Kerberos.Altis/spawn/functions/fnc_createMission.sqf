@@ -35,4 +35,6 @@ If ((count _nearLoc)>1) exitWith {
 [_centerposition,12] call FUNC(spawnGroup_patrol);
 [_centerposition,12] call FUNC(spawnGroup_attack);
 
-[_centerposition,1500,8] call FUNC(minefields);
+[_centerposition,1500,8] call FUNC(createMinefields);
+
+[QEGVAR(mission,start),[_centerposition]] call CBA_fnc_localEvent;
