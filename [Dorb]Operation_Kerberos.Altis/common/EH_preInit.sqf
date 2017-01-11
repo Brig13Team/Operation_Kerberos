@@ -30,6 +30,7 @@ PREP(pos_random);
 PREP(pos_relative);
 PREP(pos_square);
 PREP(pos_surrounding);
+PREP(pos_randomFlatEmpty);
 
 PREP(rotateVectorXY);
 

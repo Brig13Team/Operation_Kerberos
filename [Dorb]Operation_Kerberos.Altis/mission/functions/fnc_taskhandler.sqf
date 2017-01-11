@@ -32,19 +32,18 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(taskhandler);
-params[
-        ["_intervall",30,[0]],
-        ["_task","",[0,""]],
-        ["_condition",{true},[{},""]],
-        ["_conditionArgs",[],[[]]],
-        ["_conditionSucess",{true},[{},""]],
-        ["_onSucess",{},[{},""]],
-        ["_onFailure",{},[{},""]],
-        ["_args",[],[[]]],
-        ["_afterCheck",{},[{},""]],
-        ["_afterCheckArgs",[],[[]]]
-    ];
+_this params[
+    ["_intervall",30,[0]],
+    ["_task","",[0,""]],
+    ["_condition",{true},[{},""]],
+    ["_conditionArgs",[],[[]]],
+    ["_conditionSucess",{true},[{},""]],
+    ["_onSucess",{},[{},""]],
+    ["_onFailure",{},[{},""]],
+    ["_args",[],[[]]],
+    ["_afterCheck",{},[{},""]],
+    ["_afterCheckArgs",[],[[]]]
+];
 TRACEV_7(_intervall,_task,_condition,_conditionArgs,_conditionSucess,_onSucess,_onFailure);
 TRACEV_3(_args,_afterCheck,_afterCheckArgs);
 private _cancel=false;
@@ -53,7 +52,7 @@ private "_isTask";
 If (IS_SCALAR(_task)) then {
     _isTask=true;
 }else{
-    If (_task isEqualTo "") then {_isTask=false;}else{_isTask=true;};
+    _isTask = If (_task isEqualTo "") then {false}else{true};
 };
 if (IS_STRING(_condition)) then {
     _condition = compile _condition;
@@ -71,8 +70,11 @@ if (IS_STRING(_afterCheck)) then {
     _afterCheck = compile _afterCheck;
 };
 ISNILS(taskcancel,false);
+
+If (_isTask) then {[_task] call FUNC(registertask);};
+
 /// set intervall
-_intervall = (_intervall max 3)min 120;
+_intervall = (_intervall max 3) min 120;
 
 private _taskhandling=false;
 while {!_taskhandling} do {
@@ -91,15 +93,18 @@ while {!_taskhandling} do {
 /// resets the canceled state of the task
 If (_cancel) exitwith {
     If (_isTask) then {[_task,"CANCELED",false] spawn BIS_fnc_taskSetState;};
+    ["MISSION_ENDED",[_task,"CANCELED"]] call EFUNC(events,globalEvent);
     false
 };
 /// Checks if task is Sucess
 If (_args call _conditionSucess) then {
     _args call _onSucess;
     If (_isTask) then {[_task,"SUCCEEDED",false] spawn BIS_fnc_taskSetState;};
+    ["MISSION_ENDED",[_task,"SUCCEEDED"]] call EFUNC(events,globalEvent);
     true
 }else{
     _args call _onFailure;
     If (_isTask) then {[_task,"FAILED",false] spawn BIS_fnc_taskSetState;};
+    ["MISSION_ENDED",[_task,"FAILED"]] call EFUNC(events,globalEvent);
     false
 };

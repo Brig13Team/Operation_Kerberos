@@ -9,8 +9,10 @@
 #include "script_component.hpp"
 
 class DOUBLES(CfgComponent,ADDON) {
-    class preInit {};
-    //class serverpostInit {client=0;};
+    class clientpostinit {server = 0;};
+    class serverpostinit {client = 0;};
+    class preinit {};
+    class serverkilled {client=0;};
     class dependencies {
         CfgPatches[] = {};
         CfgComponents[] = {"spawn"};

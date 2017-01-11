@@ -1,74 +1,56 @@
-    /*
-    Author: Dorbedo
+/*
+    Author: iJesuz
 
     Description:
-        Creates Mission "POW".
+        Mission "Hostage"
 
     Parameter(s):
-        0 :    ARRAY - Position
-
-    Returns:
-    BOOL
+        0 : [STRING,ARRAY]  - Destination [Locationname, Position]
+<
+    Return:
+        [CODE,ARRAY]    -   [Taskhandler conditional function, its arguments]
 */
 #include "script_component.hpp"
-SCRIPT(hostage);
-_this params [["_position",[],[[]],[2,3]]];
-TRACEV_1(_position);
-CHECK(_position isEqualTo [])
-/********************
-    create Target
-********************/
-private ["_rad","_gebaeudepos_arr","_rand","_targets"];
-_targets = [];
-_rad = 800;
-_gebaeudepos_arr = [];
-_gebaeudepos_arr = [_position,_rad] call EFUNC(common,get_buildings);
 
-_rand = ((floor(random 2)) + 2);
+_this params [["_destination",["",[0,0,0]],[["",[]]]]];
 
-for "_i" from 1 to _rand do{
-    private["_einheit","_spawngebaeude","_spawnposition","_unit","_gruppe"];
-    _gruppe = createGroup civilian;
-    _einheit = selectRandom EGVAR(spawn,list_pow);
-    _spawngebaeude = selectRandom _gebaeudepos_arr;
-    _spawnposition = selectRandom _spawngebaeude;
-    If !(_spawnposition isEqualTo []) then {
-        _unit = [_spawnposition,_gruppe,_einheit] call EFUNC(spawn,unit);
-        SETPVAR(_unit,GVAR(istarget),true);
-        _targets pushBack _unit;
-    };
-};
-/********************
-    manipulate pows
-********************/
-GVAR(rescue_counter) = 0;
-{
-    _x setCaptive true;
-    removeAllAssignedItems _x;
-    removeallweapons _x;
-    removeHeadgear _x;
-    removeBackpack _x;
-    _x setunitpos "UP";
-    _x setBehaviour "Careless";
-    dostop _x;
-    _x playmove "amovpercmstpsnonwnondnon_amovpercmstpssurwnondnon";
-    _x disableAI "MOVE";
+private _hostages = getArray(missionConfigFile >> "missions_config" >> "main" >> "hostage" >> "hostages");
+private _hostages_count = getArray(missionConfigFile >> "missions_config" >> "main" >> "hostage" >> "hostages_count");
+private _hostages_min = _hostages_count select 0;
+private _hostages_max = _hostages_count select 1;
+private _hostages_average = (floor random (_hostages_max - _hostages_min + 1)) + _hostages_min;
+
+// spawn object(s)
+private _position = _destination select 1;
+private _radius = getNumber(missionConfigFile >> "missions_config" >> "main" >> "hostage" >> "location" >> "distance");
+private _buildings = [_position, _radius] call EFUNC(common,get_buildings);
+// private _hostage_array = [];
+for "_i" from 1 to _hostages_average do {
+    private _temp = selectRandom _hostages;
+    private _pos  = selectRandom (selectRandom _buildings);
+    private _obj = [_temp,_pos] call EFUNC(spawn,temp_spawner);
+    // _hostage_array pushBack _obj;
+
     #ifdef DEBUG_MODE_FULL
-        [getPos _x,format["RESCUE %1",(name _x)]] call EFUNC(common,debug_marker_create);
+        private _marker = createMarker [format ["DEBUG_HOSTAGE_MARKER_%1",_i],_pos];
+        _marker setMarkerType "hd_dot";
     #endif
-    [
-        _x,
-        QGVAR(rescuepoint),
-        {INC(GVAR(rescue_counter)); moveOut (_this select 0); uisleep 0.3; deleteVehicle (_this select 0);}
-    ] call BIS_fnc_addScriptedEventHandler;
-}forEach _targets;
 
-/********************
-    taskhandler
-********************/
+    _obj setVariable [QGVAR(ISTARGET),true];
+    _obj setVariable [QGVAR(ISHOSTAGE),true];
+    removeAllAssignedItems _obj;
+    removeAllWeapons _obj;
+    removeBackpack _obj;
+    [_obj,true] call ace_captives_fnc_setHandcuffed;
+};
 
-[
-    QUOTE(params['_targets'];private '_a';_a={alive _x}count _targets;If((GVAR(rescue_counter)==count _targets)||(_a==0)) then {true}else{false};),
-    [_targets],
-    QUOTE(If (GVAR(rescue_counter)>0) then {true}else{false};)
-]
+// TODO: spawn defence units
+/*
+    ...
+*/
+
+// Init for Conditional Function
+GVAR(rescued_hostages) = 0;
+GVAR(killed_hostages) = 0;
+
+["dorb_mission_fnc_mainmission_hostage_cond",[_hostages_average]]

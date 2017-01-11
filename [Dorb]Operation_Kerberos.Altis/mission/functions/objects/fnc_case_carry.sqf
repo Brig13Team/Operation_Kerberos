@@ -2,14 +2,13 @@
     Author: Dorbedo
     
     Description:
-        init function
+        carry function
     
 */
 #include "script_component.hpp"
-
 CHECK(!hasinterface)
 
-params["_suitcase","_carrier"];
+_this params["_suitcase","_carrier"];
 
 _carrier action ["SwitchWeapon", _carrier, _carrier, 100];
 

@@ -9,8 +9,7 @@
 
 */
 #include "script_component.hpp"
-SCRIPT(choose);
-params [["_taskMAIN",format["NOTNUMMER%1",random 1000000],[""]],["_positionMain",[],[[]],[2,3]]];
+params [["_taskMAIN","",[""]],["_positionMain",[],[[]],[2,3]],"_taskID"];
 TRACEV_1(_taskID);
 
 CHECK(_positionMain isEqualTo [])
