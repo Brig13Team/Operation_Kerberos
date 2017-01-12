@@ -13,9 +13,9 @@
  */
 #include "script_component.hpp"
 
-_this params [["_centerposition",[],[[]]]];
+_this params [["_centerposition",[],[[]]],["_radius",300,[0]]];
 
-private _targetPositions = [_centerposition,"device"] call FUNC(createMissionComposition);
+private _targetPositions = [_centerposition,"device",1,_radius] call FUNC(createMissionComposition);
 private _targetPos = selectRandom _targetPositions;
 
 private _obj = getArray(missionConfigFile >> "missions_config" >> "main" >> "device" >> "object");

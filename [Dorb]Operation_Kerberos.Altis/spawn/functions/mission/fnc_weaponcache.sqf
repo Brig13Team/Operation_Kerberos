@@ -2,7 +2,7 @@
  *  Author: Dorbedo
  *
  *  Description:
- *      spawns the intel
+ *      spawns the weaponcaches
  *
  *  Parameter(s):
  *      0 : ARRAY - centerposition
@@ -16,14 +16,17 @@
 
 _this params [["_centerposition",[],[[]]],["_amount",1,[0]]];
 
-private _intelObjects = [];
+/*
+ *  Create the target
+ */
+private _wpnCache = [];
 for "_i" from 0 to _amount do {
 
     private _targetPositions = [_centerposition] call FUNC(createMissionHouse);
     private _targetPos = selectRandom _targetPositions;
     TRACEV_2(_targetPos,_targetPositions);
 
-    private _obj = ["intel"] call FUNC(getMissionObject);
+    private _obj = ["weaponcache"] call FUNC(getMissionObject);
 
     TRACEV_2(_centerpos,_obj);
     private _curTarget = createVehicle [_obj, _targetPos,[], 0, "CAN_COLLIDE"];
@@ -33,11 +36,11 @@ for "_i" from 0 to _amount do {
     };
 
     #ifdef DEBUG_MODE_FULL
-        [(getPos _curTarget),"Intel","ColorBlack","hd_destroy"] call EFUNC(common,debug_marker_create);
+        [(getPos _curTarget),"weaponcache","ColorBlack","hd_destroy"] call EFUNC(common,debug_marker_create);
     #endif
 
     TRACEV_2(_targetPos,_curTarget);
-    _intelObjects pushBack _curTarget;
+    _wpnCache pushBack _curTarget;
 };
 //[_curTarget];
-_intelObjects;
+_wpnCache;

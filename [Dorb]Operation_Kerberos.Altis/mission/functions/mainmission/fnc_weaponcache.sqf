@@ -20,6 +20,16 @@ private _objs_min = _objs_count select 0;
 private _objs_max = _objs_count select 1;
 private _objs_average = (floor random (_objs_max - _objs_min + 1)) + _objs_min;
 
+private _wpnCaches = [_destination,_objs_average] call EFUNC(spawn,mission_weaponcache);
+{
+    _x addEventHandler ["Killed",{
+            _this params ["_unit","_killer"];
+
+            "Bo_Mk82" createVehicle (getPos _unit);
+            [QGVAR(weaponcache_destroyed),[_unit]] call CBA_fnc_globalEvent;
+    }]
+} forEach _wpnCaches;
+/*
 // spawn object(s)
 private _position = _destination select 1;
 private _radius = getNumber(missionConfigFile >> "missions_config" >> "main" >> "weaponcache" >> "location" >> "distance");
@@ -41,10 +51,6 @@ for "_i" from 1 to _objs_average do {
             [QGVAR(weaponcache_destroyed),[_unit]] call CBA_fnc_globalEvent;
     }]
 };
-
-// TODO: spawn defence units
-/*
-    ...
 */
 
 // Init for Conditional Function

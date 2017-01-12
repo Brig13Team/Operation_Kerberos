@@ -21,4 +21,8 @@ switch _grouptype do {
         private _allObjects = getArray(missionConfigFile >> "unitlists" >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "mission" >> "intel");
         selectRandom _allObjects;
     };
+    case "weaponcache" : {
+        private _allObjects = getArray(missionConfigFile >> "unitlists" >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "mission" >> "weaponcache");
+        selectRandom _allObjects;
+    };
 };

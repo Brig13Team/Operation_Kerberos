@@ -20,6 +20,9 @@ private _objs_min = _objs_count select 0;
 private _objs_max = _objs_count select 1;
 private _objs_average = (floor random (_objs_max - _objs_min + 1)) + _objs_min;
 
+private _intel = [_destination,_objs_average] call EFUNC(spawn,mission_intel);
+
+/*
 // spawn object(s)
 private _position = _destination select 1;
 private _radius = getNumber(missionConfigFile >> "missions_config" >> "main" >> "intel" >> "location" >> "distance");
@@ -35,10 +38,6 @@ for "_i" from 1 to _objs_average do {
         _marker setMarkerType "hd_dot";
     #endif
 };
-
-// TODO: spawn defence units
-/*
-    ...
 */
 
 // Init for Conditional Function

@@ -20,6 +20,10 @@ private _hostages_min = _hostages_count select 0;
 private _hostages_max = _hostages_count select 1;
 private _hostages_average = (floor random (_hostages_max - _hostages_min + 1)) + _hostages_min;
 
+
+private _objects = [_destination,_hostages_average] call EFUNC(spawn,mission_hostages);
+
+/*
 // spawn object(s)
 private _position = _destination select 1;
 private _radius = getNumber(missionConfigFile >> "missions_config" >> "main" >> "hostage" >> "location" >> "distance");
@@ -43,7 +47,7 @@ for "_i" from 1 to _hostages_average do {
     removeBackpack _obj;
     [_obj,true] call ace_captives_fnc_setHandcuffed;
 };
-
+*/
 // TODO: spawn defence units
 /*
     ...

@@ -19,6 +19,9 @@ private _class = getText(missionConfigFile >> "missions_config" >> "main" >> "em
 private _position = _destination select 1;
 private _radius = getNumber(missionConfigFile >> "missions_config" >> "main" >> "emp" >> "location" >> "distance");
 
+private _obj = [_destination,_radius] call EFUNC(spawn,mission_emp);
+
+/*
 private _tmp = [_position,25,_radius,300,15,0.15] call EFUNC(common,pos_randomFlatEmpty);
 if (not (_tmp isEqualTo [])) then { _position = +_tmp; };
 
@@ -27,7 +30,7 @@ private _obj = [_class,_position] call EFUNC(spawn,temp_spawner);
     private _marker = createMarker ["DEBUG_EMP_MARKER",_position];
     _marker setMarkerType "hd_dot";
 #endif
-
+*/
 // TODO: spawn defence units
 /*
     ...

@@ -28,6 +28,7 @@ private _possibleBuildings = [];
     };
 } forEach _buildings;
 TRACEV_1(_possibleBuildings);
+_possibleBuildings = _possibleBuildings - GVAR(targetHouses);
 private _targetHouse = selectRandom _possibleBuildings;
 
 private _targetPositions = _targetHouse call FUNC(composition_spawnHouse);
