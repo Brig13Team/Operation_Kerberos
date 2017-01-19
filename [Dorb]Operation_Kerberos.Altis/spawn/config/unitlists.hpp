@@ -50,7 +50,7 @@ class GVAR(unitlists) {
         crewmen[] = {"rhs_vdv_officer_armored","rhs_vdv_combatcrew","rhs_vdv_crew","rhs_vdv_armoredcrew",
                     "rhs_vdv_crew_commander","rhs_vdv_driver","rhs_vdv_driver_armored"};
 
-        class callIn : callIn {
+        class callIn {
             helicopter_cas[] = {"RHS_Ka52_UPK23_vvs","rhs_ka60_grey"};
             helicopter_transport[] = {"rhs_Mi8mt_vdv","rhs_Mi8mt_Cargo_vdv","rhs_Mi8MTV3_vdv","rhs_Mi8MTV3_UPK23_vdv","rhs_Mi8MTV3_FAB_vdv","rhs_Mi8AMT_vdv"};
 

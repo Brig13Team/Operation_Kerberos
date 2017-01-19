@@ -46,3 +46,9 @@ If ((GVARMAIN(playerside) == east)&&(missionName == "[Dorb]Operation_Kerberos" )
     INDEPENDENT setFriend [WEST, 1];
     INDEPENDENT setFriend [EAST, 0];
 };
+// prevent some crashes
+If (isNil QGVARMAIN(respawnmarker)||{(getMarkerPos GVARMAIN(respawnmarker)) isEqualTo [0,0,0]}) then {
+    ERROR("No respawn placed");
+    GVARMAIN(respawnmarker) = "crashmarker";
+    createMarkerLocal [GVARMAIN(respawnmarker), [-10000,-10000]];
+};

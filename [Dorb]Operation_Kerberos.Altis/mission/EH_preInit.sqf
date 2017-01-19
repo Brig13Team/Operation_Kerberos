@@ -5,10 +5,10 @@ ADDON = false;
 PREP(choose_main);
 PREP(choose_side);
 
-PREP(examine);
+//PREP(examine);
 
 PREP(registerTask);
-PREP(reward);
+//PREP(reward);
 PREP(rtb);
 
 PREP(onkilled);
@@ -23,7 +23,7 @@ PREPS(objects,case_handler);
 PREPS(objects,device_canDisable);
 PREPS(objects,device_damage_C4);
 PREPS(objects,device_damage_disable);
-PREPS(objects,device_disable);
+PREPS(objects,device_dodisable);
 PREPS(objects,device_effect_sandstorm);
 PREPS(objects,device_effect_sandstorm_init);
 PREPS(objects,device_init);

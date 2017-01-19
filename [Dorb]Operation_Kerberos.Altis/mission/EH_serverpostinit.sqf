@@ -138,7 +138,7 @@ If ((_markerpos distance [0,0,0])>1) then {
 
 [] spawn {
     SCRIPTIN(XEH_SERVERPOSTINIT,taskloop);
-    
+
     [] call EFUNC(common,setCfgLocations);
     HASH_SET(GVAR(locations),"HQ",(getMarkerPos format [ARR_2("respawn_%1",toLower (str GVARMAIN(playerside)))]));
 
@@ -153,6 +153,6 @@ If ((_markerpos distance [0,0,0])>1) then {
 
     uiSleep 20;
 
-    [] call FUNC(taskmanager_init);
+//    [] call FUNC(taskmanager_init);
 
 };
