@@ -13,22 +13,6 @@
  */
 #include "script_component.hpp"
 
-/*
-    Author: Dorbedo
-
-    Description:
-    spawns an group
-
-    Parameter(s):
-        0 : ARRAY             - Position AGL (3D)
-        1 : STRING or CONFIG    - Groupname
-
-
-    Returns:
-    group
-*/
-#include "script_component.hpp"
-
 _this params [
     ["_centerPos",[],[]],
     ["_types",[],[]],

@@ -1,14 +1,17 @@
 /*
-    Author: Dorbedo
-
-    Description:
-        creates the unitslists
-
-    Parameter(s):
-        0 : SCALAR (opt)    - Number
-
-*/
-
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      chooses the army
+ *
+ *  Parameter(s):
+ *      0 : STRING  - armytype (optional)
+ *
+ *  Returns:
+ *      none
+ *
+ */
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 if (isNil QGVARMAIN(side)) then {
@@ -26,5 +29,3 @@ If ((_army isEqualTo "")||{!isClass(missionConfigFile >> "unitlists" >> str GVAR
 }else{
     GVARMAIN(side_type) = _army;
 };
-
-TRACEV_3(GVARMAIN(side),GVARMAIN(playerside),GVARMAIN(side_type));

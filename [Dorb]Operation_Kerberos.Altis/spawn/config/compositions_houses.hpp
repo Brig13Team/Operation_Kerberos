@@ -4912,3 +4912,48 @@ class composition_590078 {
         dir = 359.999;
     };
 };
+class composition_737013 {
+    author = "BrigTeam";
+    type = "Land_i_House_Small_01_V3_F";
+    class obj_1 {
+        pos[] = {0.261475,-2.35724,0.546448};
+        issimpleobj = 0;
+        vecup[] = {-0.00594343,-0.000209286,0.999982};
+        hascrew = 0;
+        type = "rhs_KORD_high_MSV";
+        dir = 181.023;
+    };
+    class obj_2 {
+        pos[] = {-3.35437,0.143066,-0.30579};
+        issimpleobj = 1;
+        vecup[] = {-0.000236086,-2.31011e-005,1};
+        hascrew = 0;
+        type = "Land_CargoBox_V1_F";
+        dir = 0.00131678;
+    };
+    hasmissiontarget = 1;
+    class obj_3 {
+        pos[] = {1.396,3.14301,0.583445};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Shoot_House_Panels_F";
+        dir = 91;
+    };
+    class obj_4 {
+        pos[] = {3.12952,1.50153,-1.04144};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_rifleman";
+        dir = 179;
+    };
+    class obj_5 {
+        pos[] = {-2.479,-2.80701,-1.0417};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_arifleman";
+        dir = 180;
+    };
+};

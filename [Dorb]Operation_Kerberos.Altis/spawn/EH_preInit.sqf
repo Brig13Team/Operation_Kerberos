@@ -13,14 +13,13 @@ PREP(createMissionHouse);
 PREP(crew);
 
 PREP(delaySpawn);
+
 PREP(gear);
 PREP(getGroup);
 PREP(getUnit);
 PREP(group);
 PREP(groupFromArray);
 
-PREP(minefield);
-PREP(minefields);
 PREP(missiontarget);
 
 PREP(naval_minefield);
@@ -37,7 +36,7 @@ PREP(spawnMinefieldACE);
 
 PREP(stayInVehicle);
 
-PREP(unit_limit);
+PREP(unitLimit);
 PREP(unit);
 
 PREP(vehicle);
@@ -58,6 +57,9 @@ PREPS(composition,chooseHouse);
 PREPS(composition,createFromHouse);
 PREPS(composition,createFromPosition);
 PREPS(composition,helperRoad);
+PREPS(composition,issimpleobject);
+PREPS(composition,exportHouse);
+PREPS(composition,exportPosition);
 PREPS(composition,exportToHpp);
 PREPS(composition,spawnComposition);
 PREPS(composition,spawnHouse);
@@ -66,6 +68,10 @@ PREPS(mission,device);
 PREPS(mission,hostages);
 PREPS(mission,intel);
 PREPS(mission,kill);
+
+PREPS(fallback,createBuildingsLib);
+PREPS(fallback,spawnDoorMines);
+PREPS(fallback,spawnExplosives);
 
 ADDON = true;
 

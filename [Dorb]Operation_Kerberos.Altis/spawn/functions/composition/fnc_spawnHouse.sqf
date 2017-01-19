@@ -20,6 +20,8 @@ TRACEV_3(_this,_house,_config);
 [] call FUNC(delaySpawn);
 
 private _housetype = getText(_config>>"type");
+private _housePos = getPosWorld _house;
+private _houseDir = getDir _house;
 
 If !(_housetype isEqualTo (typeOf _house)) exitWith {
     ERROR("Housetype does not match config");
@@ -37,7 +39,8 @@ private _objectives = [];
     private _hasCrew = getNumber(_x>>"hascrew")>0;
     private _isSimpleObject = getNumber(_x>>"issimpleobj")>0;
     private _object = objNull;
-    private _targetPos = _house modelToWorld _curPos;
+    //private _targetPos = _house modelToWorld _curPos;
+    private _targetPos = _housePos vectorAdd ([_curPos,-1 * _houseDir] call BIS_fnc_rotateVector2D);
 
     If (_curType == "Land_CargoBox_V1_F") then {
         _objectives pushBack _targetPos;
@@ -47,7 +50,8 @@ private _objectives = [];
         }else{
             _object = createVehicle [_curType, [0,0,100], [], 0, "CAN_COLLIDE"];
         };
-        _object setPos _targetPos;
+        //_object setPos _targetPos;
+        _object setPosWorld _targetPos;
         _object setDir (_curDir + (getDir _house));
         _object setVectorUp _curVecUp;
         If (_hasCrew) then {

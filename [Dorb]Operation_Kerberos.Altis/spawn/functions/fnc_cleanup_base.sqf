@@ -23,6 +23,6 @@ private _objectsToDelete = [];
             _x call EFUNC(common,delete);
         }forEach _objectsToDelete;
     },
-    10,
-    [_objectsToDelete]
+    [_objectsToDelete],
+    10
 ] call CBA_fnc_waitAndExecute;
