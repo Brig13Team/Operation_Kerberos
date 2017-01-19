@@ -30,4 +30,3 @@ class DOUBLES(CfgComponent,ADDON) {
         CfgComponents[] = {"common"};
     };
 };
-#include "config\arsenal.hpp"

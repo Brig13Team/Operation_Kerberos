@@ -73,6 +73,13 @@
             <German>Team Weiss beitreten</German>
         </Key>
     </Package>
+    <Package name="GUI_ARSENAL">
+        <Key ID="STR_DORB_GUI_ARSENAL_NOTEMPTY">
+            <Original>open arsenal</Original>
+            <German>Arsenal öffnen</German>
+            <English>open arsenal</English>
+        </Key>
+    </Package>
     <Package name="GUI_SPAWN">
         <Key ID="STR_DORB_GUI_SPAWN_NOTEMPTY">
             <Original>Spawn point is not empty</Original>

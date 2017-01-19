@@ -1,6 +1,6 @@
 #define CBA_OFF
 #include "script_component.hpp"
-class GVAR(arsenal) {
+class GVARMAIN(arsenal) {
     ItemsBlacklist[] = {
         "NVGogglesB_blk_F","NVGogglesB_grn_F","NVGogglesB_gry_F","O_NVGoggles_ghex_F","O_NVGoggles_hex_F","O_NVGoggles_urb_F",
         "optic_Nightstalker","optic_tws","optic_tws_mg",

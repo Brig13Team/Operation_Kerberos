@@ -12,22 +12,15 @@
         none
 */
 #include "script_component.hpp"
-_this params ["_side",["_onlyGear",false,[true]]];
 
-If !(isClass(missionConfigFile>>QGVAR(arsenal))) exitWith {GVAR(arsenalList_Full) = [[],[],[],[]]};
+If !(isClass(missionConfigFile>>QGVARMAIN(arsenal))) exitWith {GVAR(arsenalList_Full) = [[],[],[],[]]};
 
-private _itemBlacklist = (getArray(missionConfigFile>>QGVAR(arsenal)>> "ItemsBlacklist"));
-private _weaponBlacklist = (getArray(missionConfigFile>>QGVAR(arsenal)>> "WeaponsBlacklist"));
-private _backpackBlacklist = getArray(missionConfigFile>>QGVAR(arsenal)>> "BackpackBlacklist");
-private _magazineBlacklist = getArray(missionConfigFile>>QGVAR(arsenal)>> "MagazineBlackList");
-
-private _ItemsWhitelist = (getArray(missionConfigFile>>QGVAR(arsenal)>> "ItemsWhitelist"));
-private _WeaponsWhitelist = (getArray(missionConfigFile>>QGVAR(arsenal)>> "WeaponsWhitelist"));
-private _MagazineWhiteList = (getArray(missionConfigFile>>QGVAR(arsenal)>> "MagazineWhiteList"));
-private _BackpackWhitelist = (getArray(missionConfigFile>>QGVAR(arsenal)>> "BackpackWhitelist"));
+private _itemBlacklist = (getArray(missionConfigFile>>QGVARMAIN(arsenal)>> "ItemsBlacklist"));
+private _weaponBlacklist = (getArray(missionConfigFile>>QGVARMAIN(arsenal)>> "WeaponsBlacklist"));
+private _backpackBlacklist = getArray(missionConfigFile>>QGVARMAIN(arsenal)>> "BackpackBlacklist");
+private _magazineBlacklist = getArray(missionConfigFile>>QGVARMAIN(arsenal)>> "MagazineBlackList");
 
 private _blackList = _itemBlacklist + _weaponBlacklist + _backpackBlacklist;
-private _whitelist = _ItemsWhitelist + _WeaponsWhitelist + _MagazineWhiteList + _BackpackWhitelist;
 
 private _addItems = [];
 private _addWeapons = [];
@@ -46,75 +39,31 @@ private _configArray = (
 );
 
 private _loadingScreenStep = 1/(count _configArray);
+
+
 private _loadingScreenID = ["Arsenal"] call EFUNC(gui,startLoadingScreen);
-
-private _dlcs = [];
-private _BISClassBlack = [];
-private _BISModelBlacK = [];
-private _sideNumber = -1;
-
-switch (_side) do {
-    case west : {
-        _dlcs = ["RHS_USAF","bwa3"];
-        _BISClassBlack = ["_O_","_OG_","_I_","_IG_"];
-        _BISModelBlacK = ["OPFOR","INDEP"];
-        _sideNumber = 0;
-    };
-    case east : {
-        _dlcs = ["RHS_AFRF"];
-        _BISClassBlack = ["_B_","_BG_","_I_","_IG_"];
-        _BISModelBlacK = ["BLUFOR","INDEP"];
-        _sideNumber = 1;
-    };
-};
 
 {
     private _class = _x;
     private _className = configname _x;
     private _isBase = if (isarray (_x >> "muzzles")) then {(_className call bis_fnc_baseWeapon == _className)} else {true};
     private _scope = if (isnumber (_class >> "scopeArsenal")) then {getnumber (_class >> "scopeArsenal")} else {getnumber (_class >> "scope")};
-    if (((_scope > 1) && {(gettext (_class >> "model") != "")} && _isBase && {gettext (_class >> "displayName") != ""}&&{!(_className in _blacklist)})||{_className in _whitelist}) then {
+    if ((_scope > 1) && {(gettext (_class >> "model") != "")} && _isBase && {gettext (_class >> "displayName") != ""}&&{!(_className in _blacklist)}) then {
         (_className call bis_fnc_itemType) params ["_weaponTypeCategory","_weaponTypeSpecific"];
         if (!(_weaponTypeCategory in ["VehicleWeapon","Magazine"])) then {
             private _hinzufuegen = true;
             If (_className in _blacklist) then {_hinzufuegen = false;};
-
-            If (((_onlyGear)&&{_weaponTypeCategory in ["Equipment"]})||(!_onlyGear)) then {
-                If ((getText(_class>>"dlc") isEqualTo "")||{getText(_class>>"dlc") in ["Mark","Expansion"]}) then {
-                    private _namestring = [getText(_class>>"model"),"\"] call CBA_fnc_split;
-                    private _namecount = {_x in _BISModelBlacK} count _namestring;
-                    If ( _namecount > 0) then {
-                        _hinzufuegen = false;
-                    }else{
-                        private _namecount = {((count([_className,_x] call CBA_fnc_split))>1)} count _BISClassBlack;
-                        If ( _namecount > 0) then {
-                            _hinzufuegen = false;
-                        };
-                    };
-                }else{
-                    if !((getText(_class>>"dlc"))in _dlcs) then {_hinzufuegen = false;};
-                };
-            };
-            If (_className in _whitelist) then {_hinzufuegen = false;};
-
             If (_hinzufuegen) then {
                 switch (true) do {
                     case (_weaponTypeCategory in ["Weapon"]) : {
                         _addWeapons pushBackUnique _className;
                         private _magazines = getarray(_class >> "magazines");
-                        /// GrenadeLauncher
-                        {
-                            If (isClass (_class >> _x)) then {
-                                _magazines = _magazines + getarray(_class >> _x >> "magazines");
-                            };
-                        } foreach getarray(_class >> "muzzles");
                         {
                             private _scopeMag = if (isnumber (configFile >> "CfgMagazines" >> _x >> "scopeArsenal")) then {getnumber (configFile >> "CfgMagazines" >> _x >> "scopeArsenal")} else {getnumber (configFile >> "CfgMagazines" >> _x >> "scope")};
                             If ((!(_x in _magazineBlacklist))&& (_scope > 1)) then {
                                 _addMagazines pushBackUnique _x;
                             };
                         }foreach _magazines;
-
                     };
                     case (_weaponTypeCategory in ["Mine"]) : {
                         _addMagazines pushBackUnique _className;
@@ -123,15 +72,16 @@ switch (_side) do {
                         _addBackpacks pushBackUnique _className;
                     };
                     default {
+                        _addItems pushBackUnique _className;
                         If (_weaponTypeSpecific in ["Binocular"]) then {
                             _fixWeapons pushBackUnique _className;
                         };
-                        _addItems pushBackUnique _className;
                     };
                 };
             };
         };
     };
+    hintSilent format["%1/%2",_forEachIndex,count _configArray];
     [_loadingScreenID,(_forEachIndex * _loadingScreenStep)] call EFUNC(gui,progressLoadingScreen);
 } foreach _configArray;
 {
@@ -153,21 +103,23 @@ switch (_side) do {
     If (isClass(configFile>>"CfgWeapons">>_x)) then {
         _addItems pushBackUnique _x;
     };
-} foreach _ItemsWhitelist;
+} foreach (getArray(missionConfigFile>>QGVARMAIN(arsenal)>> "ItemsWhitelist"));
 {
     If (isClass(configFile>>"CfgWeapons">>_x)) then {
         _addWeapons pushBackUnique _x;
     };
-} foreach _WeaponsWhitelist;
+} foreach (getArray(missionConfigFile>>QGVARMAIN(arsenal)>> "WeaponsWhitelist"));
 {
     If (isClass(configFile>>"CfgMagazines">>_x)) then {
         _addMagazines pushBackUnique _x;
     };
-} foreach _MagazineWhiteList;
+} foreach (getArray(missionConfigFile>>QGVARMAIN(arsenal)>> "MagazineWhiteList"));
 {
     If (isClass(configFile>>"CfgVehicles">>_x)) then {
         _addBackpacks pushBackUnique _x;
     };
-} foreach _BackpackWhitelist;
+} foreach (getArray(missionConfigFile>>QGVARMAIN(arsenal)>> "BackpackWhitelist"));
+
 [_loadingScreenID] call EFUNC(gui,endLoadingScreen);
-missionNamespace setVariable [format[QGVAR(arsenalList_%1),str _side],[_addWeapons,_addMagazines,_addItems,_addBackpacks,_fixWeapons,_fixMagazines,_fixItems,_fixBackpacks]];
+
+GVAR(arsenalList_Full) = [_addWeapons,_addMagazines,_addItems,_addBackpacks,_fixWeapons,_fixMagazines,_fixItems,_fixBackpacks];

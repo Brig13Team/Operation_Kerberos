@@ -9,13 +9,14 @@
 _this params [["_container",objNull,[objNull]]];
 CHECK(isNull _container)
 
-If !(isClass(missionConfigFile>>QGVAR(arsenal))) exitWith {};
+If !(isClass(missionConfigFile>>QGVARMAIN(arsenal))) exitWith {};
+
+// exit if the restricted Arsenal was not chosen
+If ((isNil QEGVAR(gui_arsenal,fullArsenal))||{GVAR(fullArsenal)}) exitWith {};
 
 
 
-
-
-private _blacklist = (getArray(missionConfigFile>>QGVAR(arsenal)>> "ItemsBlacklist"));
+private _blacklist = (getArray(missionConfigFile>>QGVARMAIN(arsenal)>> "ItemsBlacklist"));
 private _inventoryToCheck = getItemCargo _container;
 If (({_x in _blacklist} count (_inventoryToCheck select 0))>0) then {
     clearItemCargoGlobal _container;
@@ -26,7 +27,7 @@ If (({_x in _blacklist} count (_inventoryToCheck select 0))>0) then {
     } forEach (_inventoryToCheck select 0);
 };
 
-_blacklist = getArray(missionConfigFile>>QGVAR(arsenal)>> "BackpackBlacklist");
+_blacklist = getArray(missionConfigFile>>QGVARMAIN(arsenal)>> "BackpackBlacklist");
 _inventoryToCheck = getBackpackCargo _container;
 If (({_x in _blacklist} count (_inventoryToCheck select 0))>0) then {
     clearBackpackCargoGlobal _container;
@@ -37,7 +38,7 @@ If (({_x in _blacklist} count (_inventoryToCheck select 0))>0) then {
     } forEach (_inventoryToCheck select 0);
 };
 
-_blacklist = (getArray(missionConfigFile>>QGVAR(arsenal)>> "WeaponsBlacklist"));
+_blacklist = (getArray(missionConfigFile>>QGVARMAIN(arsenal)>> "WeaponsBlacklist"));
 _inventoryToCheck = getWeaponCargo _container;
 If (({_x in _blacklist} count (_inventoryToCheck select 0))>0) then {
     clearWeaponCargoGlobal _container;
@@ -48,7 +49,7 @@ If (({_x in _blacklist} count (_inventoryToCheck select 0))>0) then {
     } forEach (_inventoryToCheck select 0);
 };
 
-_blacklist = getArray(missionConfigFile>>QGVAR(arsenal)>> "MagazineBlackList");
+_blacklist = getArray(missionConfigFile>>QGVARMAIN(arsenal)>> "MagazineBlackList");
 _inventoryToCheck = getMagazineCargo _container;
 If (({_x in _blacklist} count (_inventoryToCheck select 0))>0) then {
     clearMagazineCargoGlobal _container;
