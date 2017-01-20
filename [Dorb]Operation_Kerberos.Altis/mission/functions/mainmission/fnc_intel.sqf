@@ -14,33 +14,14 @@
 
 _this params [["_destination",["",[0,0,0]],[["",[]]]]];
 
-private _objs = getArray(missionConfigFile >> "missions_config" >> "main" >> "intel" >> "objects");
-private _objs_count = getArray(missionConfigFile >> "missions_config" >> "main" >> "intel" >> "objects_count");
-private _objs_min = _objs_count select 0;
-private _objs_max = _objs_count select 1;
-private _objs_average = (floor random (_objs_max - _objs_min + 1)) + _objs_min;
+private _min = getArray(missionConfigFile >> "missions_config" >> "main" >> "intel" >> "objectsamount_min");
+private _max = getArray(missionConfigFile >> "missions_config" >> "main" >> "intel" >> "objectsamount_max");
+private _amount = (floor random (_max - _min + 1)) + _min;
 
-private _intel = [_destination,_objs_average] call EFUNC(spawn,mission_intel);
-
-/*
-// spawn object(s)
 private _position = _destination select 1;
-private _radius = getNumber(missionConfigFile >> "missions_config" >> "main" >> "intel" >> "location" >> "distance");
-private _buildings = [_position, _radius] call EFUNC(common,get_buildings);
-private _intel = [];
-for "_i" from 1 to _objs_average do {
-    private _temp = selectRandom _objs;
-    private _pos  = selectRandom (selectRandom _buildings);
-    private _obj = [_temp,_pos] call EFUNC(spawn,temp_spawner);
-    _intel pushBack _obj;
-    #ifdef DEBUG_MODE_FULL
-        private _marker = createMarker [format ["DEBUG_INTEL_MARKER_%1",_i],_pos];
-        _marker setMarkerType "hd_dot";
-    #endif
-};
-*/
+private _intel = [_position,"intel",_amount] call EFUNC(spawn,spawnMissionTarget);
 
 // Init for Conditional Function
 GVAR(found_intel) = 0;
 
-["dorb_mission_fnc_mainmission_intel_cond",[_objs_average]]
+[QFUNC(mainmission_intel_cond),[_amount]]

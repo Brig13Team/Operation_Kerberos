@@ -24,16 +24,13 @@ private _armys = getArray (missionConfigFile >> "mission_config" >> "main" >> _n
 private _army = [_armys select 0, _armys select 1] call BIS_fnc_selectRandomWeighted;
 [_army] call EFUNC(spawn,army_set);
 
-/*
-// spawn mission object
-// WARNING: DORB_MISSION_FNC_MAINMISSION_CREATE HAS TO BE REWRITTEN A LITTLE BIT TO FIT WITH THIS ARGUMENTS!!!
-[_nextMission,_nextLocation select 1, _distance] call FUNC(mainmission_create);
-
-// ...
-*/
 
 // create task
 [_nextMission, _nextLocation] call FUNC(taskmanager_add);
+
+[_nextMission,_nextLocation,_distance] call EFUNC(spawn,createMission);
+
+
 
 // initialize next mission
 GVAR(current_mission)  = _nextMission;

@@ -13,8 +13,8 @@ class missions_config {
             areas[] = {QGVAR(town),QGVAR(industrie),QGVAR(military),QGVAR(other)};
             distance = 800;
         };
-        objects[] = {};
-        objects_count[] = {};
+        objectsamount_min = 1;
+        objectsamount_max = 1;
         probability = 1;
         armys[] = {{"regular",1},{"armored",1},{"infanterie",1},{"airborne",1},{"specops",1},{"droneoperations",1},{"guards",1}};
         class sidemissions {
@@ -54,8 +54,8 @@ class missions_config {
                 areas[] = {QGVAR(town)};
                 distance = 200;
             };
-            objects[] = {"Land_File1_F","Land_File2_F","Land_FilePhotos_F","Land_Laptop_F","Land_Laptop_unfolded_F","Land_SatellitePhone_F","Land_MobilePhone_smart_F"/*,"Land_Suitcase_F"*/};
-            objects_count[] = {1,10};
+            objectsamount_min = 2;
+            objectsamount_max = 10;
         };
         class weaponcache : main_base {
             taskDescription = "weaponcache";
@@ -63,8 +63,8 @@ class missions_config {
                 areas[] = {QGVAR(town)};
                 distance = 200;
             };
-            objects[] = {"Box_East_Wps_F","Box_East_WpsSpecial_F","Box_East_Ammo_F","Box_East_Grenades_F","Box_East_Support_F"};
-            objects_count[] = {5,10};
+            objectsamount_min = 5;
+            objectsamount_max = 10;
         };
         class device : main_base {
             taskDescription = "device";
@@ -72,7 +72,6 @@ class missions_config {
                 areas[] = {QGVAR(town),QGVAR(industrie)};
                 distance = 250;
             };
-            object = "Land_Device_assembled_F";
             intervall = 10;
         };
         class emp : main_base {
@@ -81,7 +80,6 @@ class missions_config {
                 areas[] = {QGVAR(town),QGVAR(industrie)};
                 distance = 250;
             };
-            object = "Land_Device_assembled_F";
             intervall = 10;
         };
         class hostage : main_base {
@@ -90,28 +88,51 @@ class missions_config {
                 areas[] = {QGVAR(town)};
                 distance = 200;
             };
-            hostages[] = {"C_scientist_F","C_journalist_F","C_man_1","C_man_polo_2_F","C_man_polo_3_F","C_man_polo_4_F","C_man_polo_5_F",C_man_polo_6_F};
-            hostages_count[] = {1,5};
-        };
-        /*
-        class scarab : main_base {
-            taskDescription = "scarab";
-        };
-        class tower : main_base {
-            taskDescription = "tower";
-            class location : location {
-                distance = 1500;
-            };
-        };
-        class prototype : main_base {
-            taskDescription = "prototype";
+            objectsamount_min = 0;
+            objectsamount_max = 5;
         };
         class clear : main_base {
             taskDescription = "clear";
             class location : location {
                 areas[] = {QGVAR(industrie),QGVAR(military),QGVAR(other)};
             };
+            clearradius = 750;
+            // the amount of units which can remain in a area
+            unitamount = 10;
         };
+        class capture : main_base {
+            taskDescription = "capture";
+            class location : location {
+                areas[] = {QGVAR(town)};
+                distance = 200;
+            };
+            objectsamount_min = 1;
+            objectsamount_max = 3;
+        };
+
+        class scarab : main_base {
+            taskDescription = "scarab";
+            class location : location {
+                areas[] = {QGVAR(industrie),QGVAR(military),QGVAR(other)};
+            };
+            objectsamount_min = 1;
+            objectsamount_max = 3;
+        };
+
+        class radiotower : main_base {
+            taskDescription = "radiotower";
+            class location : location {
+                areas[] = {QGVAR(industrie),QGVAR(military),QGVAR(other)};
+                distance = 1500;
+            };
+            objectsamount_min = 1;
+            objectsamount_max = 3;
+        };
+        /*
+        class prototype : main_base {
+            taskDescription = "prototype";
+        };
+
         class kill : main_base {
             taskDescription = "capture";
             class location : location {
