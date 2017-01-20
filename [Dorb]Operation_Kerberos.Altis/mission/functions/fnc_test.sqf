@@ -20,7 +20,7 @@ If (_centerpos isEqualTo []) then {
     private _centerpos = getMarkerPos "testmarker";
 };
 
-private _return = [_centerpos,"intel"] call EFUNC(spawn,missionTarget);
+private _return = [_centerpos,"intel"] call EFUNC(spawn,CreatemissionTarget);
 TRACEV_1(_return);
 
 

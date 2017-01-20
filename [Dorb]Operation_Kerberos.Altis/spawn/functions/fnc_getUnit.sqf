@@ -62,13 +62,15 @@ switch _grouptype do {
     case "rdrones" : {
         getArray(_cfg >> "recon_uavs");
     };
+
+
     case "crewmen" : {
         getArray(_cfg >> "crewmen");
     };
     case "soldiers" : {
-        getArray(_cfg >> "crewmen");
+        getArray(_cfg >> "soldiers");
     };
 
 
-
+    default {ERROR(FORMAT_1("Missing entrie: %1",_this))};
 };

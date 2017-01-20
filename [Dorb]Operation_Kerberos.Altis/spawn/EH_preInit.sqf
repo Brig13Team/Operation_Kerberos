@@ -20,7 +20,7 @@ PREP(getUnit);
 PREP(group);
 PREP(groupFromArray);
 
-PREP(missiontarget);
+PREP(createMissionTarget);
 
 PREP(naval_minefield);
 
@@ -77,3 +77,4 @@ ADDON = true;
 
 GVAR(SpawnLast) = CBA_missiontime;
 GVAR(targetHouses) = [];
+GVAR(usedHouses) = [];

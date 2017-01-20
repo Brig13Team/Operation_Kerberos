@@ -25,4 +25,5 @@ switch _grouptype do {
         private _allObjects = getArray(missionConfigFile >> "unitlists" >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "mission" >> "weaponcache");
         selectRandom _allObjects;
     };
+    default {ERROR(FORMAT_1("Missing entrie: %1",_this))};
 };
