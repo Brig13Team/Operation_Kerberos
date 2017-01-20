@@ -2,7 +2,7 @@
  *  Author: Dorbedo
  *
  *  Description:
- *      spawns the device
+ *      spawns the dronecommando
  *
  *  Parameter(s):
  *      0 : ARRAY - centerposition
@@ -16,10 +16,10 @@
 _this params [["_centerposition",[],[[]]],["_parameter",[]]];
 _parameter params [["_radius",300,[0]]];
 
-private _targetPositions = [_centerposition,"device",1,_radius] call FUNC(createMissionComposition);
+private _targetPositions = [_centerposition,"dronecommando",1,_radius] call FUNC(createMissionComposition);
 private _targetPos = selectRandom _targetPositions;
 
-private _obj = ["device"] call FUNC(getMissionObj);
+private _obj = ["dronecommando"] call FUNC(getMissionObj);
 
 private _curTarget = createVehicle [_obj, _targetPos,[], 0, "CAN_COLLIDE"];
 

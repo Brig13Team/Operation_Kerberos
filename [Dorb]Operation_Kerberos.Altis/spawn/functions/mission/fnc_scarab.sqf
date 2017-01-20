@@ -2,32 +2,28 @@
  *  Author: Dorbedo
  *
  *  Description:
- *      spawns the weaponcaches
+ *      spawns the scarabs
  *
  *  Parameter(s):
  *      0 : ARRAY - centerposition
  *
  *  Returns:
- *      ARRAY - intel-objects
+ *      ARRAY - objects
  *
  */
-
 #include "script_component.hpp"
 
 _this params [["_centerposition",[],[[]]],["_parameter",[]]];
-_parameter params [["_amount",3,[0]]];
+_parameter params [["_radius",300,[0]],["_amount",3,[0]]];
 
-/*
- *  Create the target
- */
-private _wpnCache = [];
+private _targets = [];
 for "_i" from 0 to _amount do {
 
-    private _targetPositions = [_centerposition] call FUNC(createMissionHouse);
+    private _targetPositions = [_centerposition,"scarab",1,_radius] call FUNC(createMissionComposition);
     private _targetPos = selectRandom _targetPositions;
     TRACEV_2(_targetPos,_targetPositions);
 
-    private _obj = ["weaponcache"] call FUNC(getMissionObject);
+    private _obj = ["scarab"] call FUNC(getMissionObject);
 
     TRACEV_2(_centerpos,_obj);
     private _curTarget = createVehicle [_obj, _targetPos,[], 0, "CAN_COLLIDE"];
@@ -37,10 +33,10 @@ for "_i" from 0 to _amount do {
     };
 
     #ifdef DEBUG_MODE_FULL
-        [(getPos _curTarget),"weaponcache","ColorBlack","hd_destroy"] call EFUNC(common,debug_marker_create);
+        [(getPos _curTarget),"scarab","ColorBlack","hd_destroy"] call EFUNC(common,debug_marker_create);
     #endif
 
     TRACEV_2(_targetPos,_curTarget);
-    _wpnCache pushBack _curTarget;
+    _targets pushBack _curTarget;
 };
-_wpnCache;
+_targets;

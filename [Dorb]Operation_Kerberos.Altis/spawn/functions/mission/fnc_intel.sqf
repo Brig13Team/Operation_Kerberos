@@ -14,7 +14,8 @@
 
 #include "script_component.hpp"
 
-_this params [["_centerposition",[],[[]]],["_amount",1,[0]]];
+_this params [["_centerposition",[],[[]]],["_parameter",[]]];
+_parameter params [["_amount",3,[0]]];
 
 private _intelObjects = [];
 for "_i" from 0 to _amount do {

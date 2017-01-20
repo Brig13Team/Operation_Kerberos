@@ -64,14 +64,27 @@ PREPS(composition,exportToHpp);
 PREPS(composition,spawnComposition);
 PREPS(composition,spawnHouse);
 
+PREPS(mission,capture);
+PREPS(mission,clear);
 PREPS(mission,device);
+PREPS(mission,dronecommand);
+PREPS(mission,emp);
 PREPS(mission,hostages);
 PREPS(mission,intel);
-PREPS(mission,kill);
+PREPS(mission,prototype);
+PREPS(mission,radiotower);
+PREPS(mission,scarab);
+PREPS(mission,specops);
+PREPS(mission,weaponcache);
 
 PREPS(fallback,createBuildingsLib);
+PREPS(fallback,fortifyBuildings);
+PREPS(fallback,patrolBuildings);
+PREPS(fallback,roadsInArea);
 PREPS(fallback,spawnDoorMines);
 PREPS(fallback,spawnExplosives);
+PREPS(fallback,spawnStatic);
+PREPS(fallback,spawnUnit);
 
 ADDON = true;
 
