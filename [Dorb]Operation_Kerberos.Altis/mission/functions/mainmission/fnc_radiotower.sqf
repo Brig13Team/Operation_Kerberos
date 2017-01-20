@@ -25,6 +25,12 @@ private _radius = getNumber(missionConfigFile >> "missions_config" >> "main" >> 
 
 private _objects = [_position,"radiotower",[_radius,_amount]] call EFUNC(spawn,spawnMissionTarget);
 
+{
+    _x setdamage 0;
+    _unit setVariable [GVAR(isAlive),true];
+    _x addEventHandler ["HandleDamage", LINKFUNC(objects_onHandleDamageC4)];
+} forEach _objects;
+
 GVAR(tower_destroyed) = 0;
 
 [QFUNC(mainmission_radiotower_cond),_objects]

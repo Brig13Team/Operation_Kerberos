@@ -16,11 +16,13 @@ _this params [["_device",objNull,[objNull]],["_intervall",0,[0]]];
 
 if (isNull _device) exitWith { "" };
 
-if (not (alive _device)) exitWith { "Succeeded" };
+if !(_device getVariable [QGVAR(isActive),true]) exitWith { "Succeeded" };
+if (!(alive _device)) exitWith { "Failed" };
 
 if (GVAR(last_earthquake) + _intervall <= CBA_missionTime) then {
     GVAR(last_earthquake) = CBA_missionTime;
-    [QGVAR(earthquake)] call CBA_fnc_globalEvent;
+    private _strenght = (floor(random 4)+1);
+    [QGVAR(earthquake),_strenght] call CBA_fnc_globalEvent;
 };
 
 ""

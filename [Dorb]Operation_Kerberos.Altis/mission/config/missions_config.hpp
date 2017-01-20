@@ -74,13 +74,8 @@ class missions_config {
             };
             intervall = 10;
         };
-        class emp : main_base {
+        class emp : device {
             taskDescription = "emp";
-            class location : location {
-                areas[] = {QGVAR(town),QGVAR(industrie)};
-                distance = 250;
-            };
-            intervall = 10;
         };
         class hostage : main_base {
             taskDescription = "hostage";
@@ -128,30 +123,38 @@ class missions_config {
             objectsamount_min = 1;
             objectsamount_max = 3;
         };
-        /*
+        class dronecommando : main_base {
+            taskDescription = "dronecommando";
+            armys[] = {{"specops",1},{"droneoperations",1},{"guards",1}};
+        };
         class prototype : main_base {
             taskDescription = "prototype";
+            class location : location {
+                areas[] = {QGVAR(industrie),QGVAR(military),QGVAR(other)};
+                distance = 1500;
+            };
+            objectsamount_min = 1;
+            objectsamount_max = 1;
         };
-
+        class specops : main_base {
+            taskDescription = "specops";
+            armys[] = {{"specops",1}};
+            clearradius = 750;
+            // the amount of units which can remain in a area
+            unitamount = 10;
+        };
+        /*
+        class outpost : main_base {
+            taskDescription = "outpost";
+            class location : location {
+                areas[] = {QGVAR(military)};
+            };
+        };
         class kill : main_base {
             taskDescription = "capture";
             class location : location {
                 areas[] = {QGVAR(town)};
                 distance = 200;
-            };
-        };
-        class dronecommando : main_base {
-            taskDescription = "dronecommando";
-            armys[] = {{"specops",1},{"droneoperations",1},{"guards",1}};
-        };
-        class specops : main_base {
-            taskDescription = "specops";
-            armys[] = {{"specops",1}};
-        };
-        class outpost : main_base {
-            taskDescription = "outpost";
-            class location : location {
-                areas[] = {QGVAR(military)};
             };
         };
         class radarsetup : main_base {

@@ -16,7 +16,10 @@
 
 _this params [["_towers",[],[[]]]];
 
-private _living_towers = {alive _x} count _towers;
+private _living_towers = {
+    (alive _x)||
+    (_x getVariable[QGVAR(isAlive),true])
+} count _towers;
 
 If (_living_towers < 1) exitWith { "Succeeded" };
 ""

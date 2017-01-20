@@ -23,8 +23,6 @@ private _wpnCaches = [_position,"weaponcache",_amount] call EFUNC(spawn,spawnMis
 {
     _x addEventHandler ["Killed",{
             _this params ["_unit","_killer"];
-
-            "Bo_Mk82" createVehicle (getPos _unit);
             [QGVAR(weaponcache_destroyed),[_unit]] call CBA_fnc_globalEvent;
     }]
 } forEach _wpnCaches;

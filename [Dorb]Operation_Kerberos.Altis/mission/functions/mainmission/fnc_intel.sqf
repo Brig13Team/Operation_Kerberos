@@ -21,6 +21,11 @@ private _amount = (floor random (_max - _min + 1)) + _min;
 private _position = _destination select 1;
 private _intel = [_position,"intel",_amount] call EFUNC(spawn,spawnMissionTarget);
 
+{
+    _x setVariable [QGVAR(rescueEvent),QGVAR(intel_found)];
+} forEach _intel;
+
+
 // Init for Conditional Function
 GVAR(found_intel) = 0;
 

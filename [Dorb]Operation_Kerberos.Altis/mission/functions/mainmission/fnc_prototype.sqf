@@ -25,6 +25,13 @@ private _radius = getNumber(missionConfigFile >> "missions_config" >> "main" >> 
 
 private _objects = [_position,"prototype",[_radius,_amount]] call EFUNC(spawn,spawnMissionTarget);
 
+{
+    _x setVariable [QGVAR(rescueEvent),QGVAR(prototype_rescued)];
+    _x addEventHandler ["Killed",LINKFUNC(onPrototypeKilled)];
+} forEach _objects;
+
+
+
 GVAR(rescued_prototype) = 0;
 GVAR(killed_prototype) = 0;
 

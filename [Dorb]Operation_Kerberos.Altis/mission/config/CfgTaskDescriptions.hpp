@@ -1,33 +1,33 @@
 #define CBA_OFF
 #include "script_component.hpp"
 #define TASK_DESC(VAR) class VAR { \
-    description = CSTRING(TRIPLES(NEW,VAR,desc)); \
-    title = CSTRING(TRIPLES(NEW,VAR,title)); \
+    description = CSTRING(TRIPLES(NEW,VAR,DESC)); \
+    title = CSTRING(TRIPLES(NEW,VAR,TITLE)); \
     marker = ""; \
     tasktype = QUOTE(VAR); \
 }
 
 #define TASK_DESC2(VAR,VAR2) class VAR { \
-    description = CSTRING(TRIPLES(NEW,VAR,desc)); \
-    title = CSTRING(TRIPLES(NEW,VAR,title)); \
+    description = CSTRING(TRIPLES(NEW,VAR,DESC)); \
+    title = CSTRING(TRIPLES(NEW,VAR,TITLE)); \
     marker = ""; \
     tasktype = QUOTE(VAR2); \
 }
 
 
 class CfgTaskDescriptions {
+    TASK_DESC2(intel,download);
+    TASK_DESC2(weaponcache,destroy);
+    TASK_DESC2(device,interact);
+    TASK_DESC2(emp,interact);
+    TASK_DESC2(hostage,heal);
+    TASK_DESC2(clear,target);
     TASK_DESC2(capture,target);
     TASK_DESC2(scarab,kill);
-    TASK_DESC2(device,interact);
-    class emp : device {};
-    /*
-    TASK_DESC2(emp,interact);
-    */
-    TASK_DESC2(hostage,heal);
-    TASK_DESC2(intel,download);
+    TASK_DESC2(radiotower,destroy);
+    TASK_DESC2(dronecommando,destroy);
     TASK_DESC2(prototype,Default);
-    TASK_DESC2(tower,destroy);
-    TASK_DESC2(weaponcache,destroy);
+    TASK_DESC2(specops,target);
 
     TASK_DESC2(rtb,run);
 

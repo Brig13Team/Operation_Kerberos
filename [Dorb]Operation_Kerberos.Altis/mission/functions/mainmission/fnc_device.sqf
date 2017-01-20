@@ -19,6 +19,8 @@ private _radius = getNumber(missionConfigFile >> "missions_config" >> "main" >> 
 
 private _obj = [_position,"device",_radius] call EFUNC(spawn,spawnMissionTarget);
 
+[_obj] call FUNC(objects_device_init);
+
 GVAR(last_earthquake) = CBA_missionTime;
 
 private _intervall = getNumber(missionConfigFile >> "missions_config" >> "main" >> "device" >> "intervall");

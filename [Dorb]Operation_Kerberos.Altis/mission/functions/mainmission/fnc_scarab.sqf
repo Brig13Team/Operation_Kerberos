@@ -21,14 +21,9 @@ private _radius = getNumber(missionConfigFile >> "missions_config" >> "main" >> 
 
 private _objects = [_position,"scarab",_radius] call EFUNC(spawn,spawnMissionTarget);
 
-
-
 {
-    _x addEventHandler ["Killed", {
-        [getPos _x] call FUNC(objects_nuke);
-    }];
+    _x addEventHandler ["Killed", {[getPos (_this select 0)] call FUNC(objects_nuke);}];
 } forEach _objects;
-
 
 GVAR(scarab_timer) = CBA_missionTime + 60 * 60;
 GVAR(scarab_waiting) = true;

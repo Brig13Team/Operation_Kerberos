@@ -18,7 +18,11 @@ private _min = getArray(missionConfigFile >> "missions_config" >> "main" >> "hos
 private _max = getArray(missionConfigFile >> "missions_config" >> "main" >> "hostage" >> "objectsamount_max");
 private _amount = (floor random (_max - _min + 1)) + _min;
 
-[_position,"hostage",_radius] call EFUNC(spawn,spawnMissionTarget);
+private _hostages = [_position,"hostage",_radius] call EFUNC(spawn,spawnMissionTarget);
+{
+    _x setVariable [QGVAR(rescueEvent),QGVAR(hostage_rescued)];
+    _x addEventHandler ["Killed", LINKFUNC(onHostageKilled)];
+} forEach _hostages;
 
 // Init for Conditional Function
 GVAR(rescued_hostages) = 0;

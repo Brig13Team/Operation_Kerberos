@@ -14,3 +14,5 @@ CHECK(!ACTIVEMOD_TFAR);
 }, Player] call TFAR_fnc_addEventHandler;
 
 [QGVAR(setWhispering),{[] call FUNC(setWhispering);}] call CBA_fnc_addEventHandler;
+
+[QGVAR(disableArea),LINKFUNC(disableArea)] call CBA_fnc_addEventHandler;
