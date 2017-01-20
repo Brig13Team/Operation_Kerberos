@@ -164,158 +164,158 @@
     </Package>
     <Package name="MISSIONS">
         <!-- Intel -->
-        <Key ID="STR_DORB_MISSION_NEW_INTEL_DESC">
+        <Key ID="STR_DORB_MISSION_INTEL_DESC">
             <English></English>
             <German>Der Feind in diesem Gebiet besitzt wichtige Informationen, welche uns einen entscheidenen Vorteil im Verlauf des Konfliktes verschaffen können. Ihre Aufgabe ist es diese Informationen zu sichern.</German>
         </Key>
-        <Key ID="STR_DORB_MISSION_NEW_INTEL_TITLE">
+        <Key ID="STR_DORB_MISSION_INTEL_TITLE">
             <English></English>
             <German>Informationen sicherstellen</German>
         </Key>
-        <Key ID="STR_DORB_MISSION_NEW_INTEL_FOUND_MSG_TITLE">
+        <Key ID="STR_DORB_MISSION_INTEL_FOUND_MSG_TITLE">
             <English></English>
             <German>Informationen gesichert</German>
         </Key>
-        <Key ID="STR_DORB_MISSION_NEW_INTEL_FOUND_MSG">
+        <Key ID="STR_DORB_MISSION_INTEL_FOUND_MSG">
             <English></English>
             <German>%1 konnte Informationen sicherstellen</German>
         </Key>
         <!-- weaponcaches -->
-        <Key ID="STR_DORB_MISSION_NEW_WEAPONCACHE_DESC">
+        <Key ID="STR_DORB_MISSION_WEAPONCACHE_DESC">
             <English></English>
             <German>In diesem Bereich befinden sich feindliche Waffenverstecke. Finden und zerstören sie diese.</German>
         </Key>
-        <Key ID="STR_DORB_MISSION_NEW_WEAPONCACHE_TITLE">
+        <Key ID="STR_DORB_MISSION_WEAPONCACHE_TITLE">
             <English></English>
             <German>Waffenverstecke zerstören</German>
         </Key>
-        <Key ID="STR_DORB_MISSION_NEW_WEAPONCACHE_DESTROYED_MSG_TITLE">
+        <Key ID="STR_DORB_MISSION_WEAPONCACHE_DESTROYED_MSG_TITLE">
             <English></English>
             <German>Waffenversteck</German>
         </Key>
-        <Key ID="STR_DORB_MISSION_NEW_WEAPONCACHE_DESTROYED_MSG">
+        <Key ID="STR_DORB_MISSION_WEAPONCACHE_DESTROYED_MSG">
             <English></English>
             <German>Ein Waffenversteck wurde zerstört.</German>
         </Key>
         <!-- device -->
-        <Key ID="STR_DORB_MISSION_NEW_DEVICE_DESC">
+        <Key ID="STR_DORB_MISSION_DEVICE_DESC">
             <English></English>
             <German>Der Feind besitzt eine neuartige Technologie, welche es ihm ermöglicht Erdbeben hervorzurufen. Finden sie diese Maschine und deaktivieren sie diese.</German>
         </Key>
-        <Key ID="STR_DORB_MISSION_NEW_DEVICE_TITLE">
+        <Key ID="STR_DORB_MISSION_DEVICE_TITLE">
             <English></English>
             <German>Erdbebengerät ausschalten</German>
         </Key>
         <!-- emp -->
-        <Key ID="STR_DORB_MISSION_NEW_EMP_DESC">
+        <Key ID="STR_DORB_MISSION_EMP_DESC">
             <English></English>
             <German>Der Feind verfügt über ein Gerät, welches einen elektromagnetischen Impuls aussenden kann. Deaktiveren sie dieses Gerät</German>
         </Key>
-        <Key ID="STR_DORB_MISSION_NEW_EMP_TITLE">
+        <Key ID="STR_DORB_MISSION_EMP_TITLE">
             <English></English>
             <German>EMP deaktivieren</German>
         </Key>
         <!-- hostages -->
-        <Key ID="STR_DORB_MISSION_NEW_HOSTAGES_DESC">
+        <Key ID="STR_DORB_MISSION_HOSTAGES_DESC">
             <English></English>
             <German>Der Feind hat einige unserer Wissenschaftler gefangen genommen. Befreien sie diese und bringen sie sie zurück in Sicherheit</German>
         </Key>
-        <Key ID="STR_DORB_MISSION_NEW_HOSTAGES_TITLE">
+        <Key ID="STR_DORB_MISSION_HOSTAGES_TITLE">
             <English></English>
             <German>Gefangene befreien</German>
         </Key>
-        <Key ID="STR_DORB_MISSION_NEW_HOSTAGE_KILLED_MSG_TITLE">
+        <Key ID="STR_DORB_MISSION_HOSTAGE_KILLED_MSG_TITLE">
             <English></English>
             <German>Gefangener getötet</German>
         </Key>
-        <Key ID="STR_DORB_MISSION_NEW_HOSTAGE_KILLED_MSG">
+        <Key ID="STR_DORB_MISSION_HOSTAGE_KILLED_MSG">
             <English></English>
             <German>%1 wurde auf der Flucht getötet.</German>
         </Key>
-        <Key ID="STR_DORB_MISSION_NEW_HOSTAGE_RESCUED_MSG_TITLE">
+        <Key ID="STR_DORB_MISSION_HOSTAGE_RESCUED_MSG_TITLE">
             <English></English>
             <German>Gefangener befreit</German>
         </Key>
-        <Key ID="STR_DORB_MISSION_NEW_HOSTAGE_RESCUED_MSG">
+        <Key ID="STR_DORB_MISSION_HOSTAGE_RESCUED_MSG">
             <English></English>
             <German>%1 konnte befreit werden und befindet sich nun in Sicherheit.</German>
         </Key>
         <!-- clear -->
-        <Key ID="STR_DORB_MISSION_NEW_CLEAR_DESC">
+        <Key ID="STR_DORB_MISSION_CLEAR_DESC">
             <English></English>
             <German>Schlagen sie die Feindlichen Kräfte in diesem Gebiet zurück</German>
         </Key>
-        <Key ID="STR_DORB_MISSION_NEW_CLEAR_TITLE">
+        <Key ID="STR_DORB_MISSION_CLEAR_TITLE">
             <English></English>
             <German>Gebiet befreien</German>
         </Key>
         <!-- capture -->
-        <Key ID="STR_DORB_MISSION_NEW_CAPTURE_DESC">
+        <Key ID="STR_DORB_MISSION_CAPTURE_DESC">
             <English></English>
             <German>Nehmen sie den oder die Befehlshaber der Region gefangen und bringen sie diese zum Verhör in die Basis.</German>
         </Key>
-        <Key ID="STR_DORB_MISSION_NEW_CAPTURE_TITLE">
+        <Key ID="STR_DORB_MISSION_CAPTURE_TITLE">
             <English></English>
             <German>Offizier gefangen nehmen</German>
         </Key>
         <!-- scarab -->
-        <Key ID="STR_DORB_MISSION_NEW_SCARAB_DESC">
+        <Key ID="STR_DORB_MISSION_SCARAB_DESC">
             <English></English>
             <German>Der Feind hat Mittelstreckenrakten in Stellung gebracht um unsere Flotte anzugreifen. Verhindern sie unter allen umständen den Abschuss der Atomraketen.</German>
         </Key>
-        <Key ID="STR_DORB_MISSION_NEW_SCARAB_TITLE">
+        <Key ID="STR_DORB_MISSION_SCARAB_TITLE">
             <English></English>
             <German>Abschuss verhindern</German>
         </Key>
         <!-- radiotower -->
-        <Key ID="STR_DORB_MISSION_NEW_RADIOTOWER_DESC">
+        <Key ID="STR_DORB_MISSION_RADIOTOWER_DESC">
             <English></English>
             <German>Durch die Funkmasten in diesem Gebiet steuert der Feind einen großen Teil seiner Truppen. Zerstören Sie diese Funkmasten.</German>
         </Key>
-        <Key ID="STR_DORB_MISSION_NEW_RADIOTOWER_TITLE">
+        <Key ID="STR_DORB_MISSION_RADIOTOWER_TITLE">
             <English></English>
             <German>Funktürme vernichten</German>
         </Key>
         <!-- dronecommando -->
-        <Key ID="STR_DORB_MISSION_NEW_DRONECOMMANDO_DESC">
+        <Key ID="STR_DORB_MISSION_DRONECOMMANDO_DESC">
             <English></English>
             <German>In diesem Bereich befindet sich ein vorgelagertes Drohnenkommando. Vernichten Sie dieses um die Schlagkraft der Drohnenangriffe zu reduzieren.</German>
         </Key>
-        <Key ID="STR_DORB_MISSION_NEW_DRONECOMMANDO_TITLE">
+        <Key ID="STR_DORB_MISSION_DRONECOMMANDO_TITLE">
             <English></English>
             <German>Dronenkommando neutralisieren</German>
         </Key>
         <!-- prototype -->
-        <Key ID="STR_DORB_MISSION_NEW_PROTOTYPE_DESC">
+        <Key ID="STR_DORB_MISSION_PROTOTYPE_DESC">
             <English></English>
             <German>Der Feind hat einen Prototypen gestohlen. Erobern sie diesen und bringen sie Ihn zurück.</German>
         </Key>
-        <Key ID="STR_DORB_MISSION_NEW_PROTOTYPE_TITLE">
+        <Key ID="STR_DORB_MISSION_PROTOTYPE_TITLE">
             <English></English>
             <German>Prototypen erobern</German>
         </Key>
-        <Key ID="STR_DORB_MISSION_NEW_PROTOTYPE_KILLED_MSG_TITLE">
+        <Key ID="STR_DORB_MISSION_PROTOTYPE_KILLED_MSG_TITLE">
             <English></English>
             <German>Prototyp zerstört</German>
         </Key>
-        <Key ID="STR_DORB_MISSION_NEW_PROTOTYPE_KILLED_MSG">
+        <Key ID="STR_DORB_MISSION_PROTOTYPE_KILLED_MSG">
             <English></English>
             <German>Ein Prototyp wurde zerstört.</German>
         </Key>
-        <Key ID="STR_DORB_MISSION_NEW_PROTOTYPE_RESCUED_MSG_TITLE">
+        <Key ID="STR_DORB_MISSION_PROTOTYPE_RESCUED_MSG_TITLE">
             <English></English>
             <German>Prototyp gesichert</German>
         </Key>
-        <Key ID="STR_DORB_MISSION_NEW_PROTOTYPE_RESCUED_MSG">
+        <Key ID="STR_DORB_MISSION_PROTOTYPE_RESCUED_MSG">
             <English></English>
             <German>Ein Prototyp wurde gesichert. Er steht nun zu Ihrer Verfügung.</German>
         </Key>
         <!-- specops -->
-        <Key ID="STR_DORB_MISSION_NEW_SPECOPS_DESC">
+        <Key ID="STR_DORB_MISSION_SPECOPS_DESC">
             <English></English>
             <German>Feindliche Spezielkräfte wurden in diesem Bereich gesichtet. Säubern sie den Bereich.</German>
         </Key>
-        <Key ID="STR_DORB_MISSION_NEW_SPECOPS_TITLE">
+        <Key ID="STR_DORB_MISSION_SPECOPS_TITLE">
             <English></English>
             <German>Spezialkräfte vernichten.</German>
         </Key>
@@ -346,99 +346,6 @@
             <English>Disable</English>
         </Key>
 
-        <Key ID="STR_DORB_MISSION_SCARAB_TASK">
-            <Original>Prevent launch of nuclear missiles within %1 minutes.</Original>
-            <German>Verhindern Sie den Abschuss der Atomraketen innerhalb von %1 Minuten.</German>
-            <English>Prevent launch of nuclear missiles within %1 minutes.</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_SCARAB_DESC">
-            <Original>Mobile nuclear missile launchers are being erected at %1. Prevent the launch of the %2 missiles on our fleet. We known that the enemy has a limited amount of rocket specialists. Killing the crew should prevent the launch.</Original>
-            <German>Es wurden von den Gegnern mobile Atomraketen in %1 in Stellung gebracht. Verhindern Sie, dass der Gegner die %2 Raketen auf unsere Flotte abschießt. Wir wissen aus zuverlässiger Quelle, dass der Gegner nur Begrenzt Fachpersonal zum Raketenabschuss in der Region stationiert hat. Schalten Sie die Besatzungen aus um den Abschuss zu verhindern.</German>
-            <English>Mobile nuclear missile launchers are being erected at %1. Prevent the launch of the %2 missiles on our fleet. We known that the enemy has a limited amount of rocket specialists. Killing the crew should prevent the launch.</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_TOWER_TASK">
-            <Original>task tower</Original>
-        </Key>
-        <Key ID="STR_DORB_MISSION_TOWER_DESC">
-            <Original>desc tower</Original>
-        </Key>
-        <Key ID="STR_DORB_MISSION_DEVICE_TASK">
-            <Original>device task</Original>
-        </Key>
-        <Key ID="STR_DORB_MISSION_DEVICE_DESC">
-            <Original>device desc</Original>
-        </Key>
-        <Key ID="STR_DORB_MISSION_EMP_TASK">
-            <Original>emp</Original>
-        </Key>
-        <Key ID="STR_DORB_MISSION_EMP_DESC">
-            <Original>emp</Original>
-        </Key>
-        <Key ID="STR_DORB_MISSION_PROTOTYPE_TASK">
-            <Original>proto</Original>
-        </Key>
-        <Key ID="STR_DORB_MISSION_PROTOTYPE_DESC">
-            <Original>proto</Original>
-        </Key>
-        <Key ID="STR_DORB_MISSION_CLEAR_TASK">
-            <Original>clear</Original>
-        </Key>
-        <Key ID="STR_DORB_MISSION_CLEAR_DESC">
-            <Original>clear</Original>
-        </Key>
-        <Key ID="STR_DORB_MISSION_HOSTAGE_TASK">
-            <Original>hostage</Original>
-        </Key>
-        <Key ID="STR_DORB_MISSION_HOSTAGE_DESC">
-            <Original>hostages</Original>
-        </Key>
-        <Key ID="STR_DORB_MISSION_KILL_TASK">
-            <Original>kill</Original>
-        </Key>
-        <Key ID="STR_DORB_MISSION_KILL_DESC">
-            <Original>kill</Original>
-        </Key>
-        <Key ID="STR_DORB_MISSION_INTEL_TASK">
-            <Original>intel</Original>
-        </Key>
-        <Key ID="STR_DORB_MISSION_INTEL_DESC">
-            <Original>intel</Original>
-        </Key>
-        <Key ID="STR_DORB_MISSION_KILL_KILLED">
-            <Original>%1 was killed.</Original>
-            <Original>%1 wurde getötet.</Original>
-            <Original>%1 was killed.</Original>
-        </Key>
-        <Key ID="STR_DORB_MISSION_WEAPONCACHES_TASK">
-            <Original>weaponcahce</Original>
-        </Key>
-        <Key ID="STR_DORB_MISSION_WEAPONCACHES_DESC">
-            <Original>wpncahce</Original>
-        </Key>
-        <Key ID="STR_DORB_MISSION_DRONECOMMANDO_TASK">
-            <Original>drone</Original>
-        </Key>
-        <Key ID="STR_DORB_MISSION_DRONECOMMANDO_DESC">
-            <Original>drone</Original>
-        </Key>
-        <Key ID="STR_DORB_MISSION_SPECOPS_TASK">
-            <Original>specops</Original>
-        </Key>
-        <Key ID="STR_DORB_MISSION_SPECOPS_DESC">
-            <Original>specosp</Original>
-        </Key>
-        <Key ID="STR_DORB_MISSION_OUTPOST_TASK">
-            <Original>outpost</Original>
-        </Key>
-        <Key ID="STR_DORB_MISSION_OUTPOST_DESC">
-            <Original>outpost</Original>
-        </Key>
-        <Key ID="STR_DORB_MISSION_RADARSETUP_TASK">
-            <Original>radar</Original>
-        </Key>
-        <Key ID="STR_DORB_MISSION_RADARSETUP_DESC">
-            <Original>radar</Original>
-        </Key>
         <Key ID="STR_DORB_MISSION_RTB_START_1">
             <Original>Return to base.</Original>
             <German>Kehren sie zur Basis zurück.</German>
@@ -454,11 +361,6 @@
             <German>Bereiten Sie sich auf neue Befehle vor.</German>
             <English>Prepare for new orders.</English>
         </Key>
-
-
-
-
-
         <Key ID="STR_DORB_MISSION_EXAMINE">
             <Original>Interrogate</Original>
             <German>Verhör</German>
@@ -474,338 +376,6 @@
             <Original>RTB</Original>
             <German>RTB</German>
             <English>RTB</English>
-        </Key>
-
-        <Key ID="STR_DORB_MISSION_CLEAR_TASK">
-            <Original>Capture %1</Original>
-            <German>Erobern sie %1</German>
-            <English>Capture %1</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_CLEAR_TASK_DESC">
-            <Original>The enemy has captured the area surrounding %1. Recapture it and clear out all hostile forces in the vincinity.</Original>
-            <German>Der Feind hat die Position um %1 eingenommen. Erobern Sie diese zurück und befreien sie das Umland von Feindkräften.</German>
-            <English>The enemy has captured the area surrounding %1. Recapture it and clear out all hostile forces in the vincinity.</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_FINISHED">
-            <Original>Finished</Original>
-            <German>Abgeschlossen</German>
-            <English>Finished</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_FAILED">
-            <Original>Failed</Original>
-            <German>Gescheitert</German>
-            <English>Failed</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_DESTROY">
-            <Original>Destroy</Original>
-            <German>Zerstören</German>
-            <English>Destroy</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_DEFEND">
-            <Original>Defend</Original>
-            <German>Verteidigen</German>
-            <English>Defend</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_CLEAR">
-            <Original>Capture</Original>
-            <German>Erobern</German>
-            <English>Capture</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_CAPTURE">
-            <Original>Capture</Original>
-            <German>Erobern</German>
-            <English>Capture</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_FIND">
-            <Original>Search</Original>
-            <German>Suchen</German>
-            <English>Search</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_RESCUE">
-            <Original>Rescue</Original>
-            <German>Retten</German>
-            <English>Rescue</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_KILL">
-            <Original>Neutralize</Original>
-            <German>Neutralisieren</German>
-            <English>Neutralize</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_SIDE_SIDEMISSION">
-            <Original>Side mission</Original>
-            <German>Nebenmission</German>
-            <English>Side mission</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_SIDE_FINISHED">
-            <Original>finished</Original>
-            <German>abgeschlossen</German>
-            <English>finished</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_SIDE_FAILED">
-            <Original>failed</Original>
-            <German>fehlgeschlagen</German>
-            <English>failed</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_SIDE_SDV_INFORMATION_DOWNLOADED">
-            <Original>Information was successfully downloaded from the SDV!</Original>
-            <German>Informationen wurden vom Computer des SDV runtergeladen!</German>
-            <English>Information was successfully downloaded from the SDV!</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_SIDE_SDV_NO_INTEL_FOUND">
-            <Original>No information was found inside the SDV.</Original>
-            <German>Es wurden keine Informationen gefunden.</German>
-            <English>No information was found inside the SDV.</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_SIDE_SDV_DESCRIPTION">
-            <Original>One of our submarines carrying confidential information has sunk. Find it, and return the data back to base.</Original>
-            <German>Eines unserer U-Boote ist gesunken. An Bord befanden sich sensible Informationen. Bergen Sie diese und bringen Sie sie zurück zur Basis.</German>
-            <English>One of our submarines carrying confidential information has sunk. Find it, and return the data back to base.</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_SIDE_SDV_DESCRIPTION_SHORT">
-            <Original>sunken sub</Original>
-            <German>gesunkenes U-Boot</German>
-            <English>sunken sub</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_SIDE_SDV_MARKER">
-            <Original>recover</Original>
-            <German>bergen</German>
-            <English>recover</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_SIDE_SDV_TAKE_INTEL">
-            <Original>Take Data</Original>
-            <German>Informationen aufnehmen</German>
-            <English>Take Data</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_SIDE_SUPPLIES_DESCRIPTION">
-            <Original>An enemy unit has occupied a city and is terrorising it. Free the city before they can establish a stable defence and deliver some supplies for the surviving civilians in town. You have about 60 minutes to fulfill the task.</Original>
-            <German>Eine kleine feindliche Einheit hat eine Stadt besetzt und terrorisiert die Einwohner. Befreien Sie die Stadt bevor eine standfeste Verteidigung errichtet werden kann und liefern sie Unterstützung für die wenigen Bürger, die der Besatzung nicht zum Opfer fiehlen!</German>
-            <English>An enemy unit has occupied a city and is terrorising it. Free the city before they can establish a stable defence and deliver some supplies for the surviving civilians in town. You have about 60 minutes to fulfill the task.</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_SIDE_SUPPLIES_DESCRIPTION_SHORT">
-            <Original>Supplies</Original>
-            <German>Unterstützungslieferung</German>
-            <English>Supplies</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_SIDE_SUPPLIES_MARKER">
-            <Original>deliver</Original>
-            <German>Liefern</German>
-            <English>deliver</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_SIDE_AIRCRAFT_INTEL_DROP">
-            <Original>release</Original>
-            <German>Loslassen</German>
-            <English>release</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_SIDE_AIRCRAFT_INTEL_TAKE">
-            <Original>take</Original>
-            <German>Nehmen</German>
-            <English>take</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_SIDE_AIRCRAFT_DESCRIPTION_BLUFOR">
-            <Original>One of our planes has crashed with an agent carrying secret information onboard! Find the intel and bring it back to base.</Original>
-            <German>Eines unserer Flugzeuge ist abgestürzt! An Bord war einer unserer Geheimagenten mit streng geheimen Informationen. Finden Sie die Informationen und bringen Sie diese zurück zur Basis!</German>
-            <English>One of our planes has crashed with an agent carrying secret information onboard! Find the intel and bring it back to base.</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_SIDE_AIRCRAFT_DESCRIPTION_OPFOR">
-            <Original>An enemy helicopter has crashed! Locate the wrackage, and if there is any intel onboard, bring them back to base.</Original>
-            <German>Ein feindlicher Helikopter ist abgestürzt! Suchen Sie ihn und prüfen Sie ob sich Informationen an Bord befinden. Bringen Sie diese ggf. zurück zur Basis!</German>
-            <English>An enemy helicopter has crashed! Locate the wrackage, and if there is any intel onboard, bring them back to base.</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_SIDE_AIRCRAFT_DESCRIPTION_SHORT">
-            <Original>crashed aircraft</Original>
-            <German>abgestürztes Flugobjekt</German>
-            <English>crashed aircraft</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_SIDE_AIRCRAFT_SEARCH_INTEL">
-            <Original>search intel</Original>
-            <German>Informationen suchen</German>
-            <English>search intel</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_SIDE_UEBERLAEUFER_DESCRIPTION_1">
-            <Original>We have intel about an enemy defector. Check the given location and escort him to our base!</Original>
-            <German>Wir haben Informationen über einen feindlichen Überläufer erhalten. Gehen Sie diesen nach und leiten Sie Maßnahmen ein!</German>
-            <English>We have intel about an enemy defector. Check the given location and escort him to our base!</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_SIDE_UEBERLAEUFER_DESCRIPTION_2">
-            <Original>We have intel about an enemy defector. Check the given location and escort him to our base! According to the available information, he is afraid of flying.</Original>
-            <German>Wir haben Informationen über einen feindlichen Überläufer erhalten. Gehen Sie diesen nach und leiten Sie Maßnahmen ein! Unserem Informanten zu Folge leidet der Überläufer unter Flugangst!</German>
-            <English>We have intel about an enemy defector. Check the given location and escort him to our base! According to the available information, he is afraid of flying.</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_SIDE_UEBERLAEUFER_DESCRIPTION_3">
-            <Original>We have intel about an enemy defector. He is afraid of Americans, so avoid intimidating him. Check the given location and escort him to our base!</Original>
-            <German>Wir haben Informationen über einen feindlichen Überläufer erhalten. Gehen Sie diesen nach und leiten Sie Maßnahmen ein! Unserem Informanten zu Folge hat der Überläufer Angst vor Amerikanern. Schüchtern Sie ihn also nicht ein!</German>
-            <English>We have intel about an enemy defector. He is afraid of Americans, so avoid intimidating him. Check the given location and escort him to our base!</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_SIDE_UEBERLAEUFER_DESCRIPTION_4">
-            <Original>We have intel about an enemy defector. His mental condition is very unstable, so be careful with him! Check the given location and escort him to our base!</Original>
-            <German>Wir haben Informationen über einen feindlichen Überläufer erhalten. Gehen Sie diesen nach und leiten Sie Maßnahmen ein! Unserem Informanten zu Folge ist der Zustand des Informanten sehr instabil. Gehen Sie vorsichtig vor!</German>
-            <English>We have intel about an enemy defector. His mental condition is very unstable, so be careful with him! Check the given location and escort him to our base!</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_SIDE_UEBERLAEUFER_DESCRIPTION_SHORT">
-            <Original>defector</Original>
-            <German>Überläufer</German>
-            <English>defector</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_SIDE_UEBERLAEUFER_MARKER">
-            <Original>find</Original>
-            <German>finden</German>
-            <English>find</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_SIDE_UEBERLAEUFER_VERHOERT">
-            <Original>The defector was interrogated successfully!</Original>
-            <German>Überläufer wurde erfolgreich verhört!</German>
-            <English>The defector was interrogated successfully!</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_SIDE_UEBERLAEUFER_NICHT_VERHOERT">
-            <Original>We were unable to interrogate the defector successfully!</Original>
-            <German>Überläufer konnte nicht erfolgreich verhört werden!</German>
-            <English>We were unable to interrogate the defector successfully!</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_DEF">
-            <Original>Defend</Original>
-            <German>Verteidigen</German>
-            <English>Defend</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_DEF_TASK">
-            <Original>Defend %1</Original>
-            <German>Verteidigen Sie %1</German>
-            <English>Defend %1</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_DEF_TASK_DESC">
-            <Original>The enemy is trying to capture a key position. Move to %1 and prepare for the assault.</Original>
-            <German>Der Feind versucht die strategisch wichtige Positionen zu erobern. Begeben sie sich nach %1 und bereiten Sie sich auf einen Angriff vor.</German>
-            <English>The enemy is trying to capture a key position. Move to %1 and prepare for the assault.</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_DEF_ATT1">
-            <Original>The enemy is preparing their attack.</Original>
-            <German>Der Feind bereitet den Angriff vor.</German>
-            <English>The enemy is preparing their attack.</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_DEF_ATT2">
-            <Original>Get prepared</Original>
-            <German>Machen Sie sich bereit.</German>
-            <English>Get prepared</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_DEF_ATT_IN">
-            <Original>The enemy will attack in %1 minutes.</Original>
-            <German>Der Feind greift in %1 Minuten an</German>
-            <English>The enemy will attack in %1 minutes.</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_DEF_ATT_INB">
-            <Original>The enemy will attack in one minute.</Original>
-            <German>Der Feind greift in einer Minute an.</German>
-            <English>The enemy will attack in one minute.</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_DEF_WAVE_DEFENDED">
-            <Original>The wave has been fought back.</Original>
-            <German>Die Welle wurde zurückgeschlagen.</German>
-            <English>The wave has been fought back.</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_DEF_WAVE_NEW">
-            <Original>The enemy is preparing for a new attack. They will arrive soon.</Original>
-            <German>Der Feind bereitet einen neuen Angriff vor. Er wird bald hier sein.</German>
-            <English>The enemy is preparing for a new attack. They will arrive soon.</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_PROTO_TASK">
-            <Original>Return our prototype</Original>
-            <German>Bringen Sie unseren Prototyp zurück</German>
-            <English>Return our prototype</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_PROTO_TASK_DESC">
-            <Original>Hostile forces have seized one of our prototypes. The last known location was at %1. Return it immediately.</Original>
-            <German>Die Gegner haben einen Prototyp von uns entwendet. Er befindet sich in %1. Bringen Sie ihn zurück.</German>
-            <English>Hostile forces have seized one of our prototypes. The last known location was at %1. Return it immediately.</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_DEST_DEV_TASK">
-            <Original>Destroy the device</Original>
-            <German>Zerstören sie das Gerät</German>
-            <English>Destroy the device</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_DEST_DEV_TASK_DESC">
-            <Original>The enemy got his hands on a novel device that might be a threat to us. Destroy it.</Original>
-            <German>Die Feinde haben ein neuartiges Geraet, welches uns gefaehrlich werden kann. Zerstoeren Sie es.</German>
-            <English>The enemy got his hands on a novel device that might be a threat to us. Destroy it.</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_DEST_KOM_TASK">
-            <Original>Destroy communications infrastructure</Original>
-            <German>Kommunikation zerstören</German>
-            <English>Destroy communications infrastructure</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_DEST_KOM_TASK_DESC">
-            <Original>A communications device has been erected at %1. Destroy it.</Original>
-            <German>Bei %1 wurde eine Kommunikationsstation eingerichtet. Vernichten Sie diese.</German>
-            <English>A communications device has been erected at %1. Destroy it.</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_DEST_WPN_TASK">
-            <Original>Destroy hidden weapons</Original>
-            <German>Waffenverstecke vernichten</German>
-            <English>Destroy hidden weapons</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_DEST_WPN_TASK_DESC">
-            <Original>The enemy has placed more than half a dozend weapon caches at %1. Search and destroy the majority.</Original>
-            <German>Die Feinde haben in %1 über ein halbes Duzend Waffenverstecke angelegt. Suchen und zerstoeren sie den Großteil dieser Verstecke.</German>
-            <English>The enemy has placed more than half a dozend weapon caches at %1. Search and destroy the majority.</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_INTEL_TASK">
-            <Original>Find Intel</Original>
-            <German>Informationen finden</German>
-            <English>Find Intel</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_INTEL_TASK_DESC">
-            <Original>Our agents at the secret service have briefed us on the location of secret documents. The could provide the critical advantage we need, so go out and locate them at %1.</Original>
-            <German>Unsere Freunde vom Geheimdienst haben uns mitgeteilt, dass sich in %1 geheime Informationen befinden. Diese koennten uns moeglicherweise einen Vorteil verschaffen. Finden sie die Informationen.</German>
-            <English>Our agents at the secret service have briefed us on the location of secret documents. The could provide the critical advantage we need, so go out and locate them at %1.</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_INTEL_GRAB">
-            <Original>Secure Intel</Original>
-            <German>Informationen sichern</German>
-            <English>Secure Intel</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_INTEL_FOUND">
-            <Original>%1 has secured the intel.</Original>
-            <German>%1 hat die Informationen sichergestellt.</German>
-            <English>%1 has secured the intel.</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_KILL_TASK">
-            <Original>Eliminate Leadership</Original>
-            <German>Führung ausschalten</German>
-            <English>Eliminate Leadership</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_KILL_TASK_DESC">
-            <Original>Kill %1. Hostile operations will be slowed down immensely. Last known location is %2.</Original>
-            <German>Töten Sie %1. Wir können dadurch die feindlichen Operationen erheblich verlangsamen. Der letzte bekannte Aufenthaltsort ist %2.</German>
-            <English>Kill %1. Hostile operations will be slowed down immensely. Last known location is %2.</English>
-        </Key>
-
-        <Key ID="STR_DORB_MISSION_KILL_CONV_TASK">
-            <Original>Stop the enemy convoy</Original>
-            <German>Stoppen Sie den feindlichen Konvoi</German>
-            <English>Stop the enemy convoy</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_KILL_CONV_TASK_DESC">
-            <Original>The enemy is transferring armored vehicles from %1 to %2. Avoid the arrival of any vehicle.</Original>
-            <German>Der Gegner verlegt gepanzerte Fahrzeuge von %1 nach %2. Verhindern sie, dass auch nur ein Fahrzeug ankommt.</German>
-            <English>The enemy is transferring armored vehicles from %1 to %2. Avoid the arrival of any vehicle.</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_RESC_CONV_TASK">
-            <Original>Stop prisoners convoy</Original>
-            <German>Stoppen Sie den Gefangenentransport</German>
-            <English>Stop prisoners convoy</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_RESC_CONV_TASK_DESC">
-            <Original>The enemy is transferring %1 prisoners from %2 to %3. Free them and escort them back to base.</Original>
-            <German>Der Gegner transportiert %1 Gefangene von %2 nach %3. Befreien Sie die Gefangenen und bringen Sie diese in Sicherheit.</German>
-            <English>The enemy is transferring %1 prisoners from %2 to %3. Free them and escort them back to base.</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_RESC_TASK">
-            <Original>Free Hostages</Original>
-            <German>Befreien sie die Gefangenen.</German>
-            <English>Free Hostages</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_RESC_TASK_DESC">
-            <Original>The enemy has taken %1 hostages in %2. Free them and escort them back to base.</Original>
-            <German>Es wurden von den Gegnern %1 Gefangene in %2 gemacht. Befreien sie die Gefangenen und bringen sie diese in die Sicherheitszone.</German>
-            <English>The enemy has taken %1 hostages in %2. Free them and escort them back to base.</English>
         </Key>
 
     </Package>

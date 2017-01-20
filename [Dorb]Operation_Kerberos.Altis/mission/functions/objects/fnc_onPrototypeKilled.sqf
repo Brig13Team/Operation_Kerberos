@@ -22,8 +22,8 @@ If (isServer) then {
     [
         QEGVAR(gui,message),
         [
-            localize LSTRING(NEW_PROTOTYPE_KILLED_MSG_TITLE),
-            localize LSTRING(NEW_PROTOTYPE_KILLED_MSG),
+            localize LSTRING(PROTOTYPE_KILLED_MSG_TITLE),
+            localize LSTRING(PROTOTYPE_KILLED_MSG),
             "red"
         ]
     ] call CBA_fnc_localEvent;

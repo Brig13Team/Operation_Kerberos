@@ -22,7 +22,7 @@ If (isServer) then {
 }else{
     _this params ["_intel","_caller"];
     [
-        localize LSTRING(NEW_INTEL_FOUND_MSG_TITLE),
-        format [localize LSTRING(NEW_INTEL_FOUND_MSG),_caller],
+        localize LSTRING(INTEL_FOUND_MSG_TITLE),
+        format [localize LSTRING(INTEL_FOUND_MSG),_caller],
     ] call EFUNC(interface,message);
 };

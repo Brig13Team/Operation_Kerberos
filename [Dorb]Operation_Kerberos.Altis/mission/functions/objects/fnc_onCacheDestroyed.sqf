@@ -23,8 +23,8 @@ If (isServer) then {
     deleteVehicle _cache;
 }else{
     [
-        localize LSTRING(NEW_WEAPONCACHE_DESTROYED_MSG_TITLE),
-        localize LSTRING(NEW_WEAPONCACHE_DESTROYED_MSG),
+        localize LSTRING(WEAPONCACHE_DESTROYED_MSG_TITLE),
+        localize LSTRING(WEAPONCACHE_DESTROYED_MSG),
         "green"
     ] call EFUNC(interface,message);
 };

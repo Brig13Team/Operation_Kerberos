@@ -23,8 +23,8 @@ If (isServer) then {
     [
         QEGVAR(gui,message),
         [
-            localize LSTRING(NEW_PROTOTYPE_RESCUED_MSG_TITLE),
-            localize LSTRING(NEW_PROTOTYPE_RESCUED_MSG),
+            localize LSTRING(PROTOTYPE_RESCUED_MSG_TITLE),
+            localize LSTRING(PROTOTYPE_RESCUED_MSG),
             "green"
         ]
     ] call CBA_fnc_localEvent;

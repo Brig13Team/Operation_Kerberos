@@ -1,15 +1,15 @@
 #define CBA_OFF
 #include "script_component.hpp"
 #define TASK_DESC(VAR) class VAR { \
-    description = CSTRING(TRIPLES(NEW,VAR,DESC)); \
-    title = CSTRING(TRIPLES(NEW,VAR,TITLE)); \
+    description = CSTRING(DOUBLES(VAR,DESC)); \
+    title = CSTRING(DOUBLES(VAR,TITLE)); \
     marker = ""; \
     tasktype = QUOTE(VAR); \
 }
 
 #define TASK_DESC2(VAR,VAR2) class VAR { \
-    description = CSTRING(TRIPLES(NEW,VAR,DESC)); \
-    title = CSTRING(TRIPLES(NEW,VAR,TITLE)); \
+    description = CSTRING(DOUBLES(VAR,DESC)); \
+    title = CSTRING(DOUBLES(VAR,TITLE)); \
     marker = ""; \
     tasktype = QUOTE(VAR2); \
 }
