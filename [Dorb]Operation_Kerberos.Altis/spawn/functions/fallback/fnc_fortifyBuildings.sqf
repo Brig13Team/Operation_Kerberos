@@ -32,7 +32,7 @@ _allGarages = _allHouses select {(typeOf _x) in ["Land_i_Garage_V1_F","Land_i_Ga
 _allHouses = _allHouses - _allGarages;
 
 If (_civilianCars < 0) then {
-    _civilianCars = (floor(((count _garages)-1)/3);
+    _civilianCars = floor(((count _garages)-1)/3);
 };
 
 _allGarages = _allGarages call BIS_fnc_arrayShuffle;

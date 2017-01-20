@@ -15,7 +15,7 @@
     ARRAY - spawned Units
 */
 #include "script_component.hpp"
-_this params[["_spawnposarray",[],[[]]];
+_this params[["_spawnposarray",[],[[]]]];
 CHECK(_spawnposarray isEqualTo [])
 Private["_spawnedunit","_spawnedunits","_typ","_gruppe","_dir","_position"];
 
