@@ -41,16 +41,9 @@ PREP(unit);
 
 PREP(vehicle);
 
-
-PREPS(city,fortify);
-PREPS(city,fortify_buildings);
-PREPS(city,fortify_roads);
-PREPS(city,fortify_roads_defence);
-PREPS(city,patrol_building);
-PREPS(city,roads);
-PREPS(city,spawn_explosives);
-PREPS(city,spawn_static);
-PREPS(city,spawn_unit);
+PREPS(water,createPatrols);
+PREPS(water,minefield);
+PREPS(water,patrol);
 
 PREPS(composition,chooseComposition);
 PREPS(composition,chooseHouse);
