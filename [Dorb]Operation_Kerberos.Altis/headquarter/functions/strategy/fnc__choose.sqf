@@ -33,7 +33,7 @@ private _chosenStrategies = [];
 /// get some AA - strategie
 If ((_enemyType select 2)>0) then {
     /// posible strategies against air
-    private _strategyCfgs = "(((getArray(_x >> 'threat')) select 2) > 0)" configClasses (missionConfigFile >> "strategy");
+    private _strategyCfgs = configProperties [(missionConfigFile >> "strategy"),"(((getArray(_x >> 'threat')) select 2) > 0)",true];
     private _possibleStrategys = [];
     {
         //// check additional condition - e.g. all Support used
@@ -70,7 +70,7 @@ If ((_enemyType select 2)>0) then {
 /// get some AT - strategie
 If ((_enemyType select 1)>0) then {
     /// posible strategies against air
-    private _strategyCfgs = "(((getArray(_x >> 'threat')) select 1) > 0)" configClasses (missionConfigFile >> "strategy");
+    private _strategyCfgs = configProperties [(missionConfigFile >> "strategy"),"(((getArray(_x >> 'threat')) select 1) > 0)" ,true];
     private _possibleStrategys = [];
     TRACEV_1(_strategyCfgs);
     {
@@ -111,7 +111,7 @@ If ((_enemyType select 1)>0) then {
 /// attack the rest with infanterie
 If ((_enemyType select 0)>0) then {
     /// posible strategies against air
-    private _strategyCfgs = "(((getArray(_x >> 'threat')) select 0) > 0)" configClasses (missionConfigFile >> "strategy");
+    private _strategyCfgs = configProperties [(missionConfigFile >> "strategy"),"(((getArray(_x >> 'threat')) select 0) > 0)",true];
     private _possibleStrategys = [];
     {
         //// check additional condition - e.g. all Support used

@@ -15,7 +15,7 @@
 
 _this params ["_targetPos"];
 
-private _towns = "(getText (_x >> 'type') in ['NameCityCapital','NameCity','NameVillage'])" configClasses (configFile >> "CfgWorlds" >> worldName >> "Names");
+private _towns = configProperties [(configFile >> "CfgWorlds" >> worldName >> "Names"),"(getText (_x >> 'type') in ['NameCityCapital','NameCity','NameVillage'])",true];
 
 _towns = _towns call BIS_fnc_arrayShuffle;
 

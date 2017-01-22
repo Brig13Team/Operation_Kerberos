@@ -16,7 +16,7 @@
 private _mainHash = HASH_CREATE;
 GVAR(exportHash) = _mainHash;
 
-private _allPossibleBuildings = "((configName _x) isKindOf 'House') && (getNumber (_x >> 'scope') > 0)" configClasses (configFile >> "CfgVehicles");
+private _allPossibleBuildings = configProperties [(configFile >> "CfgVehicles"),"((configName _x) isKindOf 'House') && (getNumber (_x >> 'scope') > 0)",true];
 private _buildingsarray = [];
 private _helper = createVehicle ["Sign_Arrow_Large_F",[0,0,0],[],0,"CAN_COLLIDE"];
 

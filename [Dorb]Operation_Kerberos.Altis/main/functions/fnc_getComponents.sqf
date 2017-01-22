@@ -17,7 +17,7 @@
 private _PreinitStartTime = diag_tickTime;
 
 parsingNamespace setVariable [QGVARMAIN(recompileCache),[]];
-private _configs = "((((configname _x) splitString '_') select 0) isEqualTo 'CfgComponent')" configClasses missionConfigFile;
+private _configs = configProperties [missionConfigFile,"((((configname _x) splitString '_') select 0) isEqualTo 'CfgComponent')",true];
 
 private _fnc_dependecies_CfgPatches = {
     _this params ["_config"];
@@ -49,7 +49,7 @@ private _cfgArray = [];
             diag_log text (format["[MissionFile] (%1) Component is NOT loading - disabled via CfgComponents",_cfgname]);
         };
     };
-} forEach ("((((configname _x) splitString '_') select 0) isEqualTo 'CfgComponent')" configClasses missionConfigFile);
+} forEach (configProperties [missionConfigFile,"((((configname _x) splitString '_') select 0) isEqualTo 'CfgComponent')",true]);
 
 TRACEV_1(_cfgArray);
 private _active_Components = [];
@@ -79,7 +79,7 @@ GVAR(Events_all) = [];
     _cfgname deleteAt 0; // remove CfgComponens
     _cfgname deleteAt 0; // remove PREFIX
     _cfgname = _cfgname joinString "_";
-    private _allEvents = "(!((configname _x) isEqualTo 'dependencies'))" configclasses _cfg;
+    private _allEvents = configProperties [_cfg,"(!((configname _x) isEqualTo 'dependencies'))",true];
     {
         private _eventName = tolower (configName _x);
         private _eventConfig = _x;

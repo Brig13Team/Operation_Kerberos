@@ -45,5 +45,5 @@ private _allVehicles = _position nearEntities [["LandVehicle","Air","Ship_F"],20
     };
 } forEach _allVehicles;
 
-[QEGVAR(mod_tfar,disableArea)[_position]] call CBA_fnc_globalEvent;
-[QEGVAR(mod_acre,disableArea)[_position]] call CBA_fnc_globalEvent;
+[QEGVAR(mod_tfar,disableArea),[_position]] call CBA_fnc_globalEvent;
+[QEGVAR(mod_acre,disableArea),[_position]] call CBA_fnc_globalEvent;

@@ -26,7 +26,7 @@ private _group = grpNull;
 private _fnc_spawnRelObj = {
     private _fnc_scriptname = "testinner";
     _this params ["_curRelObj","_curCfg"];
-    private _classes = "isClass(_x)" configClasses _curCfg;
+    private _classes = configProperties [_curCfg, "isClass(_x)", true];
 
     {
         private _curCfg = _x;
@@ -74,7 +74,7 @@ private _fnc_spawnRelObj = {
 
 
 
-private _allClasses = "isClass(_x)" configClasses _config;
+private _allClasses = configProperties [_config, "isClass(_x)", true];
 //LOG_1(_allClasses);
 
 {

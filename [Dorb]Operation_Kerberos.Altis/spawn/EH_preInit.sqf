@@ -10,30 +10,28 @@ PREP(createMinefields);
 PREP(createMission);
 PREP(createMissionComposition);
 PREP(createMissionHouse);
+PREP(createMissionTarget);
 PREP(crew);
 
 PREP(delaySpawn);
 
 PREP(gear);
 PREP(getGroup);
+PREP(getMissionObjects)
 PREP(getUnit);
 PREP(group);
 PREP(groupFromArray);
 
-PREP(createMissionTarget);
-
-PREP(naval_minefield);
-
 PREP(onHit);
 PREP(onMissionEnding);
+PREP(onMissionStart);
 
-PREP(Patrol_task);
+PREP(patrol_task);
 
 PREP(spawnGroup_attack);
 PREP(spawnGroup_defence);
 PREP(spawnGroup_patrol);
 PREP(spawnMinefieldACE);
-
 PREP(stayInVehicle);
 
 PREP(unitLimit);
@@ -41,21 +39,26 @@ PREP(unit);
 
 PREP(vehicle);
 
-PREPS(water,createPatrols);
-PREPS(water,minefield);
-PREPS(water,patrol);
-
 PREPS(composition,chooseComposition);
 PREPS(composition,chooseHouse);
 PREPS(composition,createFromHouse);
 PREPS(composition,createFromPosition);
 PREPS(composition,helperRoad);
-PREPS(composition,issimpleobject);
 PREPS(composition,exportHouse);
 PREPS(composition,exportPosition);
 PREPS(composition,exportToHpp);
+PREPS(composition,issimpleobject);
 PREPS(composition,spawnComposition);
 PREPS(composition,spawnHouse);
+
+PREPS(fallback,createBuildingsLib);
+PREPS(fallback,fortifyBuildings);
+PREPS(fallback,patrolBuildings);
+PREPS(fallback,roadsInArea);
+PREPS(fallback,spawnDoorMines);
+PREPS(fallback,spawnExplosives);
+PREPS(fallback,spawnStatic);
+PREPS(fallback,spawnUnit);
 
 PREPS(mission,capture);
 PREPS(mission,clear);
@@ -70,14 +73,12 @@ PREPS(mission,scarab);
 PREPS(mission,specops);
 PREPS(mission,weaponcache);
 
-PREPS(fallback,createBuildingsLib);
-PREPS(fallback,fortifyBuildings);
-PREPS(fallback,patrolBuildings);
-PREPS(fallback,roadsInArea);
-PREPS(fallback,spawnDoorMines);
-PREPS(fallback,spawnExplosives);
-PREPS(fallback,spawnStatic);
-PREPS(fallback,spawnUnit);
+PREPS(sidemission,artillery);
+PREPS(sidemission,radar);
+
+PREPS(water,createPatrols);
+PREPS(water,minefield);
+PREPS(water,patrol);
 
 ADDON = true;
 

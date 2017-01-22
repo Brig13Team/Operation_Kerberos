@@ -27,7 +27,7 @@ If !(_housetype isEqualTo (typeOf _house)) exitWith {
     ERROR("Housetype does not match config");
 };
 
-Private _allObjects = "isClass(_x)" configClasses _config;
+Private _allObjects = configProperties [_config,"isClass(_x)",true];
 private _group = grpNull;
 private _objectives = [];
 {

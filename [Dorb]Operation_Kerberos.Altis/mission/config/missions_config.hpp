@@ -17,7 +17,7 @@ class missions_config {
                 areas_maxDistance = 2500;
             };
             type = "";
-            probability = 1;
+            probability = -1;
             spawn_fnc = "";
             spawn_delay = 600;
             task_fnc = "";
@@ -62,18 +62,19 @@ class missions_config {
                 areas[] = {}; /// empty array leads to position of Main Target
                 distance = 600;
             };
-            probability = 0.8;
             spawn_delay = 1;
             spawn_fnc = QEFUNC(spawn,sidemission_radar);
             task_delay = 1;
             task_fnc = QEFUNC(mission,sidemission_targetsAlive);
         };
+        /*
         class rtb {
             class location {
                 areas[] = {QGVAR(base)};
                 distance = 0;
             };
         };
+        */
     };
 
     class main_base {
@@ -91,27 +92,28 @@ class missions_config {
         objectsamount_max = 1;
         probability = 1;
         armys[] = {{"regular",1},{"armored",1},{"infanterie",1},{"airborne",1},{"specops",1},{"droneoperations",1},{"guards",1}};
-        class sidemissions {
-              class artillery : artillery_base {
-                  probability = 0.8;
-              };
-              class artillery2 : artillery_base {
-                  probability = 0.2;
-              };
-              class radar : radar_base {
-                  probability = 0.8;
-              };
-              /*
-              class convoi : convoi_base {
-                  probability = 0.8;
-              };
-              */
+        class sidemissions : side {
+            class artillery : artillery_base {
+                probability = 0.8;
+            };
+            class artillery2 : artillery_base {
+                probability = 0.2;
+            };
+            class radar : radar_base {
+                probability = 0.8;
+            };
+            /*
+            class convoi : convoi_base {
+                probability = 0.8;
+            };
+            */
         };
     };
 
     class main {
         class intel : main_base {
             taskDescription = "intel";
+            class sidemissions : sidemissions {};
             class location : location {
                 areas[] = {QGVAR(town)};
                 distance = 200;
@@ -121,6 +123,7 @@ class missions_config {
         };
         class weaponcache : main_base {
             taskDescription = "weaponcache";
+            class sidemissions : sidemissions {};
             class location : location {
                 areas[] = {QGVAR(town)};
                 distance = 200;
@@ -130,6 +133,7 @@ class missions_config {
         };
         class device : main_base {
             taskDescription = "device";
+            class sidemissions : sidemissions {};
             class location : location {
                 areas[] = {QGVAR(town),QGVAR(industrie)};
                 distance = 250;
@@ -141,6 +145,7 @@ class missions_config {
         };
         class hostage : main_base {
             taskDescription = "hostage";
+            class sidemissions : sidemissions {};
             class location : location {
                 areas[] = {QGVAR(town)};
                 distance = 200;
@@ -150,6 +155,7 @@ class missions_config {
         };
         class clear : main_base {
             taskDescription = "clear";
+            class sidemissions : sidemissions {};
             class location : location {
                 areas[] = {QGVAR(industrie),QGVAR(military),QGVAR(other)};
             };
@@ -159,6 +165,7 @@ class missions_config {
         };
         class capture : main_base {
             taskDescription = "capture";
+            class sidemissions : sidemissions {};
             class location : location {
                 areas[] = {QGVAR(town)};
                 distance = 200;
@@ -169,6 +176,7 @@ class missions_config {
 
         class scarab : main_base {
             taskDescription = "scarab";
+            class sidemissions : sidemissions {};
             class location : location {
                 areas[] = {QGVAR(industrie),QGVAR(military),QGVAR(other)};
             };
@@ -178,6 +186,7 @@ class missions_config {
 
         class radiotower : main_base {
             taskDescription = "radiotower";
+            class sidemissions : sidemissions {};
             class location : location {
                 areas[] = {QGVAR(industrie),QGVAR(military),QGVAR(other)};
                 distance = 1500;
@@ -187,10 +196,13 @@ class missions_config {
         };
         class dronecommando : main_base {
             taskDescription = "dronecommando";
+            class sidemissions : sidemissions {};
+            class location : location {};
             armys[] = {{"specops",1},{"droneoperations",1},{"guards",1}};
         };
         class prototype : main_base {
             taskDescription = "prototype";
+            class sidemissions : sidemissions {};
             class location : location {
                 areas[] = {QGVAR(industrie),QGVAR(military),QGVAR(other)};
                 distance = 1500;
@@ -200,6 +212,8 @@ class missions_config {
         };
         class specops : main_base {
             taskDescription = "specops";
+            class sidemissions : sidemissions {};
+            class location : location {};
             armys[] = {{"specops",1}};
             clearradius = 750;
             // the amount of units which can remain in a area

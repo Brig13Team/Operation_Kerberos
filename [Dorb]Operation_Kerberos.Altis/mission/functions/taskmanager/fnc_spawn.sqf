@@ -17,7 +17,7 @@
 private _nextMission  = _this param [0, GVAR(next_mission), [""]];
 private _nextLocation = _this param [1, GVAR(next_location), ["",[]]];
 
-private _distance = getNumber (missionNamespace >> "mission_config" >> "main" >> _nextMission >> "location" >> "distance");
+private _distance = getNumber (missionConfigFile >> "mission_config" >> "main" >> _nextMission >> "location" >> "distance");
 
 // set army
 private _armys = getArray (missionConfigFile >> "mission_config" >> "main" >> _nextMission >> "armys");
@@ -31,7 +31,7 @@ private _curMainTaskID = [_nextMission, _nextLocation] call FUNC(taskmanager_add
 [_nextMission,_nextLocation,_distance] call EFUNC(spawn,createMission);
 
 // setUp the sidemissions
-private _allSideMissions = "(getNumber(_x >> 'probability') > (random 1))" configClasses (missionNamespace >> "mission_config" >> "main" >> _nextMission >> "sidemissions");
+private _allSideMissions = configProperties [(missionConfigFile >> "mission_config" >> "main" >> _nextMission >> "sidemissions"), "(getNumber(_x >> 'probability') > (random 1))", true];
 {
     private _delaySpawn = abs(getNumber(missionConfigFile >> "mission_config" >> "side" >> configName _x >> "spawn_delay")) + 5;
     [

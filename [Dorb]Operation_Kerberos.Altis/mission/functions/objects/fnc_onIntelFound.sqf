@@ -15,14 +15,15 @@
 #include "script_component.hpp"
 
 If (isHeadless) exitWith {};
+
+_this params ["_intel","_caller"];
+
 If (isServer) then {
-    _this params ["_intel"];
     GVAR(found_intel) = GVAR(found_intel) + 1;
     deleteVehicle _intel;
 }else{
-    _this params ["_intel","_caller"];
     [
         localize LSTRING(INTEL_FOUND_MSG_TITLE),
-        format [localize LSTRING(INTEL_FOUND_MSG),_caller],
-    ] call EFUNC(interface,message);
+        format [localize LSTRING(INTEL_FOUND_MSG),_caller]
+    ] call EFUNC(gui,message);
 };

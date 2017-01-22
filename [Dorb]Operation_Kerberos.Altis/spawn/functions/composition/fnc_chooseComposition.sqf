@@ -19,7 +19,7 @@ _this params [["_type","",[""]],["_position",[],[[]],[2,3]]];
 private _allConfigs = [];
 
 IF (_type isEqualTo "") then {
-    _allConfigs = "(getNumber(_x >> 'isObective') == 0)" configClasses (missionConfigFile >> "CfgCompositions" >> "positions");
+    _allConfigs = configProperties [(missionConfigFile >> "CfgCompositions" >> "positions"),"(getNumber(_x >> 'isObective') == 0)",true];
 }else{
     If (IS_STRING(_type)) then {_type = [_type];};
     private _condition = format["(getNumber(_x >> '%1')>0)",_type deleteAt 0];
@@ -27,7 +27,7 @@ IF (_type isEqualTo "") then {
         _condition = format["%1 && (getNumber(_x >> '%2')>0)",_condition,_type deleteAt 0];
     } forEach _type;
     _condition = format["(%1)",_condition];
-    _allConfigs = _condition configClasses (missionConfigFile >> "CfgCompositions" >> "positions");
+    _allConfigs = configProperties [(missionConfigFile >> "CfgCompositions" >> "positions"),_condition,true];
 };
 If (_allConfigs isEqualTo []) exitWith {configNull;};
 

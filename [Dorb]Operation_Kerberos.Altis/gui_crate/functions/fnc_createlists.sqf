@@ -145,7 +145,7 @@ private _step1 = (count _configArray);
                 };
             };
         } foreach getarray (_x >> "magazines");
-    } foreach ("isclass _x" configclasses (configfile >> "cfgweapons" >> _weapon));
+    } foreach (configProperties [(configfile >> "cfgweapons" >> _weapon),"isclass _x",true]);
 } foreach [ID_GRANATEN,ID_SPRENGSTOFF];
 
 private _patches=[];

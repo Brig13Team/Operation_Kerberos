@@ -20,9 +20,9 @@ private _housetype = typeOf _house;
 private _allConfigs = [];
 
 IF (_isMissiontarget) then {
-    _allConfigs = ((format["((getText(_x >> 'type') == '%1')&&(getNumber(_x >> 'hasmissiontarget')>0))",_housetype]) configClasses (missionConfigFile >> "CfgCompositions" >> "houses"));
+    _allConfigs = configProperties [(missionConfigFile >> "CfgCompositions" >> "houses"),(format["((getText(_x >> 'type') == '%1')&&(getNumber(_x >> 'hasmissiontarget')>0))",_housetype]),true];
 }else{
-    _allConfigs = ((format["getText(_x >> 'type') == '%1'",_housetype]) configClasses (missionConfigFile >> "CfgCompositions" >> "houses"));
+    _allConfigs = configProperties [(missionConfigFile >> "CfgCompositions" >> "houses"),(format["getText(_x >> 'type') == '%1'",_housetype]),true];
 };
 //TRACEV_4(_house,_housetype,_isMissiontarget,_allConfigs);
 If (_allConfigs isEqualTo []) exitWith {configNull;};
