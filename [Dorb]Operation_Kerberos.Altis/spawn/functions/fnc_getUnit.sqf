@@ -71,6 +71,15 @@ switch _grouptype do {
         getArray(_cfg >> "soldiers");
     };
 
+    case "boat" : {
+        private _allUnits = getArray(_cfg >> "boats");
+        selectRandom _allUnits;
+    };
+    case "diver" : {
+        private _allUnits = getArray(_cfg >> "divers");
+        selectRandom _allUnits;
+    };
+
 
     default {ERROR(FORMAT_1("Missing entrie: %1",_this))};
 };

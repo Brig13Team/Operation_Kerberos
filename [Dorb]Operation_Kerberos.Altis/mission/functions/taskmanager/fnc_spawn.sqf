@@ -1,5 +1,5 @@
 /*
-    Author: iJesuz
+    Author: iJesuz,Dorbedo
 
     Description:
         Create new Mission
@@ -26,10 +26,20 @@ private _army = [_armys select 0, _armys select 1] call BIS_fnc_selectRandomWeig
 
 
 // create task
-[_nextMission, _nextLocation] call FUNC(taskmanager_add);
+private _curMainTaskID = [_nextMission, _nextLocation] call FUNC(taskmanager_add);
 
 [_nextMission,_nextLocation,_distance] call EFUNC(spawn,createMission);
 
+// setUp the sidemissions
+private _allSideMissions = "(getNumber(_x >> 'probability') > (random 1))" configClasses (missionNamespace >> "mission_config" >> "main" >> _nextMission >> "sidemissions");
+{
+    private _delaySpawn = abs(getNumber(missionConfigFile >> "mission_config" >> "side" >> configName _x >> "spawn_delay")) + 5;
+    [
+        LINKFUNC(taskmanager_spawnSide),
+        [_x,_nextMission,_nextLocation,_curMainTaskID],
+        _delaySpawn
+    ] call CBA_fnc_waitAndExecute;
+} forEach _allSideMissions;
 
 
 // initialize next mission

@@ -16,6 +16,7 @@
 
 
 class CfgTaskDescriptions {
+    // mainmissions
     TASK_DESC2(intel,download);
     TASK_DESC2(weaponcache,destroy);
     TASK_DESC2(device,interact);
@@ -29,8 +30,17 @@ class CfgTaskDescriptions {
     TASK_DESC2(prototype,Default);
     TASK_DESC2(specops,target);
 
+    // sidemissions
+    TASK_DESC2(artillery,target);
+    TASK_DESC2(ugv,target);
+    TASK_DESC2(convoi,target);
+    TASK_DESC2(radar,target);
+
+
+
     TASK_DESC2(rtb,run);
 
+    // Vanilla
     TASK_DESC(armor);
     TASK_DESC(attack);
     TASK_DESC(Default);

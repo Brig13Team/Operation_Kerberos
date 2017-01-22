@@ -45,5 +45,18 @@ switch _type do {
         private _allObjects = getArray(missionConfigFile >> "unitlists" >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "mission" >> "hq_mobile");
         selectRandom _allObjects;
     };
+    case "radar" : {
+        private _allObjects = getArray(missionConfigFile >> "unitlists" >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "mission" >> "radar");
+        selectRandom _allObjects;
+    };
+    case "artillery" : {
+        private _allObjects = getArray(missionConfigFile >> "unitlists" >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "mission" >> "art_shells");
+        selectRandom _allObjects;
+    };
+    case "rockets" : {
+        private _allObjects = getArray(missionConfigFile >> "unitlists" >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "mission" >> "art_rocket");
+        selectRandom _allObjects;
+    };
+
     default {ERROR(FORMAT_1("Missing entrie: %1",_this))};
 };

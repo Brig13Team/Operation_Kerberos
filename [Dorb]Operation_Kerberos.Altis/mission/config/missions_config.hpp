@@ -2,6 +2,80 @@
 #include "script_component.hpp"
 
 class missions_config {
+    class side {
+        class side_base {
+            class task {
+                name = "";
+                description = "";
+                tasktype = "";
+                taskmarker = "";
+            };
+            class location {
+                areas[] = {QGVAR(town),QGVAR(industrie),QGVAR(military),QGVAR(other)};
+                distance = 500;
+                areas_minDistance = 500;
+                areas_maxDistance = 2500;
+            };
+            type = "";
+            probability = 1;
+            spawn_fnc = "";
+            spawn_delay = 600;
+            task_fnc = "";
+            task_delay = 300;
+            markerOnSpot = 1;
+        };
+        class artillery_base : side_base {
+            type = "artillery";
+            class location : location {
+                areas[] = {QGVAR(industrie),QGVAR(military),QGVAR(other)};
+                distance = 500;
+                areas_minDistance = 3000;
+                areas_maxDistance = 25000;
+            };
+            spawn_fnc = QEFUNC(spawn,sidemission_artillery);
+            spawn_delay = 0;
+            task_fnc = QEFUNC(mission,sidemission_targetsAlive);
+            task_delay = 1800;
+            markerOnSpot = 0;
+        };
+        class ugv_base : side_base {
+            type = "ugv";
+            class location : location {
+                areas[] = {QGVAR(water),QGVAR(military),QGVAR(other)};
+                distance = 500;
+            };
+        };
+        class convoi_base : side_base {
+            type = "convoi";
+            class location : location {
+                areas[] = {QGVAR(water),QGVAR(military),QGVAR(other)};
+                distance = 200;
+            };
+            spawn_delay = 600;
+            spawn_fnc = QEFUNC(spawn,sidemission_convoi);
+            task_delay = 60;
+            task_fnc = QEFUNC(mission,sidemission_convoi);
+        };
+        class radar_base : side_base {
+            type = "radar";
+            class location {
+                areas[] = {}; /// empty array leads to position of Main Target
+                distance = 600;
+            };
+            probability = 0.8;
+            spawn_delay = 1;
+            spawn_fnc = QEFUNC(spawn,sidemission_radar);
+            task_delay = 1;
+            task_fnc = QEFUNC(mission,sidemission_targetsAlive);
+        };
+        class rtb {
+            class location {
+                areas[] = {QGVAR(base)};
+                distance = 0;
+            };
+        };
+    };
+
     class main_base {
         class task {
             name = "";
@@ -18,33 +92,21 @@ class missions_config {
         probability = 1;
         armys[] = {{"regular",1},{"armored",1},{"infanterie",1},{"airborne",1},{"specops",1},{"droneoperations",1},{"guards",1}};
         class sidemissions {
-              class artillery {
+              class artillery : artillery_base {
                   probability = 0.8;
               };
-              class radar {
+              class artillery2 : artillery_base {
+                  probability = 0.2;
+              };
+              class radar : radar_base {
                   probability = 0.8;
               };
-              class convoi {
+              /*
+              class convoi : convoi_base {
                   probability = 0.8;
               };
+              */
         };
-    };
-    class side_base {
-        class task {
-            name = "";
-            description = "";
-            tasktype = "";
-            taskmarker = "";
-        };
-        class location {
-            areas[] = {QGVAR(town),QGVAR(industrie),QGVAR(military),QGVAR(other)};
-            distance = 500;
-            areas_minDistance = 500;
-            areas_maxDistance = 2500;
-        };
-        delay_spawn = 600;
-        delay_reveal = 300;
-        probability = 1;
     };
 
     class main {
@@ -166,49 +228,5 @@ class missions_config {
         */
     };
 
-    class side {
-        class artillery : side_base {
-            type = "artillery";
-            class location : location {
-                areas[] = {QGVAR(industrie),QGVAR(military),QGVAR(other)};
-                distance = 500;
-                areas_minDistance = 3000;
-                areas_maxDistance = 25000;
-            };
-            delay_spawn = 0;
-            delay_reveal = 1800; // delay until the mission is revealed
-        };
-        class ugv : side_base {
-            type = "ugv";
-            class location : location {
-                areas[] = {QGVAR(water),QGVAR(military),QGVAR(other)};
-                distance = 500;
-            };
-        };
-        class convoi : side_base {
-            type = "convoi";
-            class location : location {
-                areas[] = {QGVAR(water),QGVAR(military),QGVAR(other)};
-                distance = 200;
-            };
-            delay_spawn = 600;
-            delay_reveal = 60;
-        };
-        class radar : side_base {
-            type = "radar";
-            class location {
-                areas[] = {}; /// empty array leads to position of Main Target
-                distance = 600;
-            };
-            delay_spawn = 1;
-            delay_reveal = 1;
-            probability = 0.8;
-        };
-        class rtb {
-            class location {
-                areas[] = {QGVAR(base)};
-                distance = 0;
-            };
-        };
-    };
+
 };

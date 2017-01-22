@@ -18,6 +18,7 @@ class GVAR(unitlists) {
             radar[] = {"rhs_p37","rhs_prv13"};
             device[] = {"Land_Device_assembled_F"};
             emp[] = {"rhs_typhoon_vdv"};
+            scarab[] = {"rhs_9k79"};
         };
     };
     class base_east : base {
@@ -35,11 +36,11 @@ class GVAR(unitlists) {
         art_shells[] = {"rhs_2s3_tv","rhs_D30_vdv"};
         art_rocket[] = {"RHS_BM21_VDV_01"};
 
-
         trucks[] = {"RHS_Ural_VDV_01","RHS_Ural_Open_VDV_01","rhs_gaz66_vdv","rhs_gaz66o_vdv"};
         cars[] = {"rhs_tigr_VDV","rhs_tigr_ffv_vdv","rhs_tigr_3camo_vdv","rhs_tigr_ffv_3camo_vdv"};
         tanks[] = {"rhs_t72ba_tv","rhs_t72bb_tv","rhs_t72bc_tv","rhs_t72bd_tv"};
         divers[] = {"O_diver_f","O_diver_exp_f","O_diver_TL_f","O_diver_f","O_diver_exp_f","O_diver_f"};
+        boats[] = {"O_Boat_Armed_01_hmg_F"};
 
         soldiers[] = {"rhs_vdv_aa","rhs_vdv_arifleman","rhs_vdv_at","rhs_vdv_efreitor","rhs_vdv_engineer",
                     "rhs_vdv_grenadier","rhs_vdv_grenadier_rpg","rhs_vdv_junior_sergeant","rhs_vdv_LAT",
