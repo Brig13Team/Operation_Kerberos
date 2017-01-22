@@ -15,6 +15,6 @@
 
 _this params["_unit","_killer"];
 
-if (_unit getVariable ["DORB_MISSION_ISHOSTAGE",false]) exitWith {
+if (_unit getVariable [QEGVAR(mission,ishostage),false]) exitWith {
     [QGVAR(hostage_killed),[_unit,_killer]] call CBA_fnc_globalEvent;
 };

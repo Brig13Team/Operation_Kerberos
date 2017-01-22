@@ -18,7 +18,7 @@
 _this params [
     ["_configName","",[""]],
     ["_parent",-1,[0]],
-    ["_destination",["",[0,0,0]],[[]],
+    ["_destination",["",[0,0,0]],[[]]],
     ["_func",{},[{}]],
     "_args"
 ];
