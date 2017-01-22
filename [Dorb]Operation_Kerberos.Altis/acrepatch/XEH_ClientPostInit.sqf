@@ -33,4 +33,35 @@ If (hasInterface) then {
 
     };
     //[] spawn FUNC(ArsenalRemoveRadio);
+    QGVAR(isGearSyncing) = false;
+    [
+        QGVAR(syncGear),
+        {
+            If (isNil QGVAR(isGearSyncing)) then {
+                GVAR(isGearSyncing) = false;
+            };
+            CHECK(GVAR(isGearSyncing))
+            GVAR(isGearSyncing) = true;
+            _this params ["_unit"];
+            ([_unit] call EFUNC(player,getLoadout)) params ["_loadout","_weaponsarray"];
+            If ((local _unit)&&(hasInterface)) then {
+                ERROR_WITH_TITLE("Asnycron Gear","Your Gear got asnycron. Trying to syncronize your gear.");
+            };
+            removeAllWeapons _unit;
+            removeAllItemsWithMagazines _unit;
+            removeAllAssignedItems _unit;
+            removeHeadgear _unit;
+            removeGoggles _unit;
+            removeAllContainers _unit;
+            [
+
+                {
+                    _this call EFUNC(player,setLoadout);
+                    GVAR(isGearSyncing) = false;
+                },
+                [_unit,_loadout,_weaponsarray],
+                5
+            ] call CBA_fnc_waitAndExecute;
+        }
+    ] call CBA_fnc_addEventHandler;
 };
