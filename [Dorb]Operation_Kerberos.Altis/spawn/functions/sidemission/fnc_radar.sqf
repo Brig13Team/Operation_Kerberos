@@ -18,7 +18,7 @@
 _this params [["_locationArray",[],[[]]],["_distance",500,[0]]];
 
 
-private _positions = ["isObjective"] call FUNC(createMissionComposition);
+private _positions = ([(_locationArray select 1),"isObjective",1,_distance] call FUNC(createMissionComposition)) select 0;
 private _chosenPos = selectRandom _positions;
 
 private _radarType = ["radar"] call FUNC(getMissionObject);

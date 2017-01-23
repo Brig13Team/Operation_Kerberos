@@ -128,6 +128,6 @@ private _allClasses = configProperties [_config, "isClass(_x)", true];
 } forEach _allClasses;
 
 
-
+TRACEV_1(_objectives);
 
 _objectives

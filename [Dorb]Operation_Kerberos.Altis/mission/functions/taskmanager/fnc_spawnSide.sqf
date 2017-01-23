@@ -27,7 +27,7 @@ _this params [
 CHECK((isNull _SideCfg)||(_MainLocation isEqualTo [])||(_ParentID < 0))
 
 If !([_ParentID] call FUNC(taskmanager_exists)) exitWith {
-    ERROR("Maintask not found")
+    ERROR("Maintask not found");
 };
 
 private _spawnFnc = getText(_SideCfg >> "spawn_fnc");
@@ -56,7 +56,7 @@ If (_posTypes isEqualTo []) then {
         If ((_distance >= _area_distanceMin)&&(_distance <= _area_distanceMax)) then {
             _possibleLocations pushBack _x;
         };
-    } forEach _allLocations
+    } forEach _allLocations;
     _chosenLocation = selectRandom _possibleLocations;
 };
 

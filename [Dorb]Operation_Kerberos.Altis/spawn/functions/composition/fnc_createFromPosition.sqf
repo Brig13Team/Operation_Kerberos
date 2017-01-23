@@ -13,10 +13,15 @@
  *      HASH - the composition
  *
  */
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-_this params [["_center",[],[[],objNull]],["_radius",35,[0]],["_dir",0,[0]],["_author","BrigTeam",[""]]];
-
+_this params [
+    ["_center",[],[[],objNull]],
+    ["_radius",35,[0]],
+    ["_dir",0,[0]],
+    ["_author","BrigTeam",[""]]
+];
 CHECK(_center isEqualTo [])
 
 If (IS_OBJECT(_center)) then {

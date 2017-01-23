@@ -320,6 +320,31 @@
             <German>Spezialkräfte vernichten.</German>
         </Key>
 
+        <!-- sisdemissions -->
+        <!-- artillery -->
+        <Key ID="STR_DORB_MISSION_ARTILLERY_DESC">
+            <English></English>
+            <German>Der Feind hat eine starke Artillerieeinheit in das Gebiet verlegt. Suchen und Zerstören Sie diese um dem Feind die Feuerunterstützung zu nehmen.</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_ARTILLERY_TITLE">
+            <English></English>
+            <German>Artilleriestellung neutralisieren</German>
+        </Key>
+        <!-- specops -->
+        <Key ID="STR_DORB_MISSION_RADAR_DESC">
+            <English></English>
+            <German>Nach Informationen durch unsere Aufklärung besitzt der Feind ein starkes Radar. Neutralisieren sie die feindliche Radaraufklärung.</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_RADAR_TITLE">
+            <English></English>
+            <German>Radar ausschalten</German>
+        </Key>
+
+
+
+
+
+
         <Key ID="STR_DORB_MISSION_OBJECTS_DEVICE_DISABLE">
             <English>Deactivate</English>
             <German>Deaktivieren</German>

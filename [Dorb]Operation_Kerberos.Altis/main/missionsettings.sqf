@@ -12,8 +12,10 @@ enableSaving [false, false];
 enableRadio false;
 enableSentences false;
 
+GVARMAIN(rescuemarker) = "rescue_marker";
 If ((GVARMAIN(playerside) == west)&&(missionName == "[Dorb]Operation_Kerberos" )) then {
     GVARMAIN(respawnmarker) = "respawn_west";
+    GVARMAIN(AIRFIELD) = "airfield";
     GVARMAIN(side) = east;
     CIVILIAN setFriend [WEST, 1];
 
@@ -31,6 +33,7 @@ If ((GVARMAIN(playerside) == west)&&(missionName == "[Dorb]Operation_Kerberos" )
 };
 If ((GVARMAIN(playerside) == east)&&(missionName == "[Dorb]Operation_Kerberos" )) then {
     GVARMAIN(respawnmarker) = "respawn_east";
+    GVARMAIN(AIRFIELD) = "airfield";
     GVARMAIN(side) = west;
     CIVILIAN setFriend [EAST, 1];
 
@@ -45,10 +48,4 @@ If ((GVARMAIN(playerside) == east)&&(missionName == "[Dorb]Operation_Kerberos" )
     INDEPENDENT setFriend [CIVILIAN, 1];
     INDEPENDENT setFriend [WEST, 1];
     INDEPENDENT setFriend [EAST, 0];
-};
-// prevent some crashes
-If (isNil QGVARMAIN(respawnmarker)||{(getMarkerPos GVARMAIN(respawnmarker)) isEqualTo [0,0,0]}) then {
-    ERROR("No respawn placed");
-    GVARMAIN(respawnmarker) = "crashmarker";
-    createMarkerLocal [GVARMAIN(respawnmarker), [-10000,-10000]];
 };

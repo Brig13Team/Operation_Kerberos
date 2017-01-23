@@ -14,7 +14,7 @@
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-private _units = (getMarkerPos "rescue_marker") nearEntities [["Man","Ship_F","LandVehicle","Land_Suitcase_F","Air"], 15];
+private _units = (getMarkerPos GVARMAIN(rescuemarker)) nearEntities [["Man","Ship_F","LandVehicle","Land_Suitcase_F","Air"], 15];
 {
     private _event = _x getVariable [QGVAR(rescueEvent),""];
     If !(_event isEqualTo "") then {

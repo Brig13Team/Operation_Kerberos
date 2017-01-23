@@ -15,7 +15,9 @@
 
 [LINKFUNC(objects_handlerRescue), 30, [] ] call CBA_fnc_addPerFrameHandler;
 
-If ((( getMarkerPos "rescue_marker") distance [0,0,0])>1) then {ERROR("No Rescue-Marker Found")};
+If ((getMarkerPos GVARMAIN(rescuemarker)) isEqualTo [0,0,0]) then {
+    ERROR("No Rescue-Marker Found")
+};
 
 /********************
     Cleanup
@@ -23,32 +25,6 @@ If ((( getMarkerPos "rescue_marker") distance [0,0,0])>1) then {ERROR("No Rescue
 
 [LINKEFUNC(spawn,cleanup_base) , 900, [] ] call CBA_fnc_addPerFrameHandler;
 
-
-/********************
-    rescue point
-********************/
-
-
-
-
-/********************
-    End sidemissions
-********************/
-
-[
-    "MISSION_ENDSEC",
-    {
-        _this params [['_event'],'',['']];
-        private _val = [GVAR(allTasks),_event] call CBA_fnc_hashGet;
-        {
-            private _state = [_x] call BIS_fnc_taskState;
-            If !(_state in ['CANCELED','SUCCEEDED','FAILED']) then {
-                [_x,'CANCELED',false] spawn BIS_fnc_taskSetState;
-            };
-        } forEach _val;
-        nil;
-    }
-] call CBA_fnc_addEventHandler;
 
 /********************
     Missionloop

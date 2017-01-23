@@ -1,3 +1,4 @@
+#include "compositions_positions2.hpp"
 class composition_617497 {
     author = "Dorbedo";
     class obj_6 {

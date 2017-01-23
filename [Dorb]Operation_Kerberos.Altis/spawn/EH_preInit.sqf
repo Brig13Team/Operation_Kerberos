@@ -1,3 +1,4 @@
+
 #include "script_component.hpp"
 
 ADDON = false;
@@ -17,7 +18,7 @@ PREP(delaySpawn);
 
 PREP(gear);
 PREP(getGroup);
-PREP(getMissionObjects)
+PREP(getMissionObject);
 PREP(getUnit);
 PREP(group);
 PREP(groupFromArray);

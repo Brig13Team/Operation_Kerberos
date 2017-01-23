@@ -16,7 +16,7 @@
 _this params [["_grouptype","",[""]]];
 CHECK(_grouptype isEqualTo "")
 
-private _cfg = (missionConfigFile >> "unitlists" >> str GVARMAIN(side) >> GVARMAIN(side_type));
+private _cfg = (missionConfigFile >> QGVAR(unitlists) >> str GVARMAIN(side) >> GVARMAIN(side_type));
 
 switch _grouptype do {
     // air

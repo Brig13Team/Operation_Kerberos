@@ -99,11 +99,11 @@ private _allTargetPositions = [];
     private _currentComposition = [_type,_centerposition] call FUNC(composition_chooseComposition);
 
     private _curTargetPos = [_x,_currentComposition,_bestdir] call FUNC(composition_spawnComposition);
-
+    TRACEV_1(_curTargetPos);
     If !(_curTargetPos isEqualTo []) then {
         _allTargetPositions pushBack _curTargetPos;
     };
 
 }forEach _possibleSpawnpositions;
-
+TRACEV_1(_allTargetPositions);
 _allTargetPositions;
