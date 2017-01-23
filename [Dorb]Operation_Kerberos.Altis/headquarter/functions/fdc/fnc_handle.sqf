@@ -10,12 +10,13 @@
         1 : SCALAR  - Handle
 
 */
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 If (HASH_GET(GVAR(FDC),"firemissions") isEqualTo []) exitWith {};
 private _current_firemission = HASH_GET(GVAR(FDC),"firemissions") deleteAt 0;
 _current_firemission params ["_position","_type","_shelltype","_amount"];
-
+TRACEV_4(_position,_type,_shelltype,_amount);
 HASH_SET(GVAR(FDC),"artilleries",(HASH_GET(GVAR(FDC),"artilleries") select {alive _x}));
 HASH_SET(GVAR(FDC),"mortars",(HASH_GET(GVAR(FDC),"mortars") select {alive _x}));
 HASH_SET(GVAR(FDC),"rockets",(HASH_GET(GVAR(FDC),"rockets") select {alive _x}));
@@ -34,6 +35,7 @@ private _unit = {
 
 If((isNil "_unit")||{(!(IS_OBJECT(_unit)))}) exitwith {
     HASH_GET(GVAR(FDC),"firemissions") pushBack _current_firemission;
+    [LINKFUNC(fdc_handle),[],10] call CBA_fnc_waitAndExecute;
 };
 
 SETVAR(_unit,GVAR(fdc_ready),false);
@@ -41,3 +43,4 @@ TRACE_5("ArtilleryOrder = %1 - [%2,%3,%4]",_unit,_position,_shelltype,_amount);
 ///// Add fired Eventhandler -> removes status
 _unit addEventHandler ["Fired",{(_this select 0) setVariable [ARR_2(QGVAR(fdc_ready),true)];(_this select 0) removeAllEventHandlers "Fired";}];
 _unit commandArtilleryFire [_position,_shelltype,_amount];
+[] spawn FUNC(fdc_handle);

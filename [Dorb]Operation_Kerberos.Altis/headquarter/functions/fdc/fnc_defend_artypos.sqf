@@ -10,7 +10,7 @@
 private _newcommands = [];
 private _fnc_searchArea = {
     _this params["_unit","_min","_max","_type"];
-    TRACEV_4(_unit,_min,_max,_type);
+    //TRACEV_4(_unit,_min,_max,_type);
     private _targetpos = [];
     {
         if (((_x distance _unit)<_max)&&{(GVARMAIN(side) knowsAbout _x)>1})exitwith {

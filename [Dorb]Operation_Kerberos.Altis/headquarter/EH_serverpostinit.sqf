@@ -31,6 +31,8 @@ GVAR(FDC) = HASH_CREATE;
 HASH_SET(GVAR(FDC),"mortars",[]);
 HASH_SET(GVAR(FDC),"artilleries",[]);
 HASH_SET(GVAR(FDC),"rockets",[]);
+HASH_SET(GVAR(FDC),"firemissions",[]);
+
 
 _handle = [LINKFUNC(fdc_handle),INTERVALL_FDC,[]] call CBA_fnc_addPerFrameHandler;
 HASH_SET(GVAR(handles),"fdc_main",_handle);
