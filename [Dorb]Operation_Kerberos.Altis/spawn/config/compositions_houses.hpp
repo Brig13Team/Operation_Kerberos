@@ -4957,3 +4957,1161 @@ class composition_737013 {
         dir = 180;
     };
 };
+class composition_638981 {
+    author = "Bonecrusher";
+    type = "Land_d_Windmill01_F";
+    class obj_1 {
+        pos[] = {0.421387,0.0921783,1.23313};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_recon_marksman_asval";
+        dir = 0;
+    };
+    class obj_2 {
+        pos[] = {-1.81152,0.788284,0.766501};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_recon_marksman_asval";
+        dir = 0;
+    };
+    hasmissiontarget = 0;
+    class obj_3 {
+        pos[] = {-1.52856,-0.311897,-2.27083};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_recon_rifleman_ak103";
+        dir = 76.5516;
+    };
+};
+class composition_221465 {
+    class obj_6 {
+        pos[] = {3.89355,2.51708,-2.88084};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_strelok_rpg_assist";
+        dir = 264.798;
+    };
+    class obj_7 {
+        pos[] = {5.7356,4.1006,-2.88084};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_aa";
+        dir = 339.868;
+    };
+    class obj_8 {
+        pos[] = {6.11719,4.82767,0.991329};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_efreitor";
+        dir = 163.598;
+    };
+    author = "Bonecrusher";
+    type = "Land_d_Shop_01_V1_F";
+    class obj_1 {
+        pos[] = {2.72046,-1.11094,1.72714};
+        issimpleobj = 1;
+        vecup[] = {3.01685e-005,0.000130841,1};
+        hascrew = 0;
+        type = "Land_CargoBox_V1_F";
+        dir = 360;
+    };
+    class obj_2 {
+        pos[] = {1.77783,1.86036,2.28306};
+        issimpleobj = 0;
+        vecup[] = {0.00523743,-0.00703855,0.999961};
+        hascrew = 1;
+        type = "rhs_KORD_VDV";
+        dir = 311.689;
+    };
+    hasmissiontarget = 1;
+    class obj_3 {
+        pos[] = {1.70459,-2.9698,-1.29429};
+        issimpleobj = 0;
+        vecup[] = {-0.00171309,0.0020026,0.999997};
+        hascrew = 1;
+        type = "rhs_KORD_high_VDV";
+        dir = 180.334;
+    };
+    class obj_4 {
+        pos[] = {-0.501465,-2.80022,-2.88084};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_at";
+        dir = 171.999;
+    };
+    class obj_5 {
+        pos[] = {1.89624,-4.83431,1.50643};
+        issimpleobj = 0;
+        vecup[] = {0.000109203,-0.0708445,0.997487};
+        hascrew = 1;
+        type = "rhs_Kornet_9M133_2_vdv";
+        dir = 272.035;
+    };
+};
+class composition_319033 {
+    class obj_6 {
+        pos[] = {2.31055,-5.47121,-0.245232};
+        issimpleobj = 0;
+        vecup[] = {0.00491371,-0.00590395,0.999971};
+        hascrew = 0;
+        type = "rhs_gaz66_ammo_vdv";
+        dir = 630.201;
+    };
+    class obj_7 {
+        pos[] = {-4.70435,-4.50156,-0.930771};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_mflora_aa";
+        dir = 548.107;
+    };
+    class obj_9 {
+        pos[] = {10.4197,2.90172,-0.558977};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_mflora_machinegunner_assistant";
+        dir = 543.516;
+    };
+    author = "Bonecrusher";
+    type = "Land_d_Stone_HouseSmall_V1_F";
+    class obj_1 {
+        pos[] = {2.23096,-2.11958,-0.596653};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_mflora_efreitor";
+        dir = 650.944;
+    };
+    class obj_2 {
+        pos[] = {-3.8833,-0.649887,1.45114};
+        issimpleobj = 0;
+        vecup[] = {0.0649455,0.197779,0.978093};
+        hascrew = 0;
+        type = "rhs_D30_at_vdv";
+        dir = 638.404;
+    };
+    hasmissiontarget = 0;
+    class obj_3 {
+        pos[] = {-4.47583,-1.6348,-0.219061};
+        issimpleobj = 0;
+        vecup[] = {0.0615937,0.00158632,0.9981};
+        hascrew = 1;
+        type = "rhs_vdv_rifleman";
+        dir = 622.554;
+    };
+    class obj_4 {
+        pos[] = {4.54468,2.60474,-0.573034};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_mflora_machinegunner";
+        dir = 503.348;
+    };
+    class obj_5 {
+        pos[] = {-5.15552,-1.05589,-0.800491};
+        issimpleobj = 1;
+        vecup[] = {-0.0238462,0.000825486,-0.999715};
+        hascrew = 0;
+        type = "WeaponHolderSimulated";
+        dir = 417.401;
+    };
+};
+class composition_901460 {
+    class obj_6 {
+        pos[] = {0.665527,-3.71338,8.35127};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_arifleman";
+        dir = 0;
+    };
+    class obj_7 {
+        pos[] = {11.3506,1.48651,0.436806};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_driver_armored";
+        dir = 97.4503;
+    };
+    class obj_8 {
+        pos[] = {-3.91577,-10.7781,0.378016};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_machinegunner_assistant";
+        dir = 278.765;
+    };
+    class obj_10 {
+        pos[] = {3.59717,-0.127563,12.2245};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_strelok_rpg_assist";
+        dir = 230.964;
+    };
+    class obj_9 {
+        pos[] = {-3.81494,-10.0544,4.32301};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_machinegunner";
+        dir = 180.578;
+    };
+    class obj_11 {
+        pos[] = {13.4417,1.14401,0.412054};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_officer_armored";
+        dir = 258.73;
+    };
+    author = "Bonecrusher";
+    class obj_12 {
+        pos[] = {8.87695,9.37772,4.32572};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_grenadier";
+        dir = 101.834;
+    };
+    class obj_13 {
+        pos[] = {-8.86084,-9.86472,4.32337};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_grenadier_rpg";
+        dir = 309.513;
+    };
+    class obj_20 {
+        pos[] = {1.875,-15.0748,1.8633};
+        issimpleobj = 0;
+        vecup[] = {7.7816e-005,0.000772929,1};
+        hascrew = 1;
+        type = "RHS_ZU23_VDV";
+        dir = 181.837;
+    };
+    class obj_21 {
+        pos[] = {-11.1899,9.69852,5.60382};
+        issimpleobj = 0;
+        vecup[] = {0.000785736,0.00835455,0.999965};
+        hascrew = 1;
+        type = "RHS_NSV_TriPod_VDV";
+        dir = 185.378;
+    };
+    class obj_15 {
+        pos[] = {10.1619,-2.00336,9.9417};
+        issimpleobj = 0;
+        vecup[] = {0.000185125,-0.00165003,0.999998};
+        hascrew = 1;
+        type = "rhs_KORD_high_VDV";
+        dir = 61.2847;
+    };
+    class obj_22 {
+        pos[] = {-15.2444,1.29739,4.32572};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_engineer";
+        dir = 0;
+    };
+    type = "Land_WIP_F";
+    class obj_16 {
+        pos[] = {9.54565,-10.3543,4.32352};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_efreitor";
+        dir = 138.294;
+    };
+    class obj_23 {
+        pos[] = {-11.6042,10.7985,2.01071};
+        issimpleobj = 0;
+        vecup[] = {-0.00630335,0.0075694,0.999951};
+        hascrew = 1;
+        type = "rhs_KORD_high_VDV";
+        dir = 116.518;
+    };
+    class obj_30 {
+        pos[] = {19.3953,0.0631104,4.32572};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_at";
+        dir = 126.358;
+    };
+    class obj_17 {
+        pos[] = {14.7366,-0.43457,0.508406};
+        issimpleobj = 1;
+        vecup[] = {0.0104233,-0.0114099,0.999881};
+        hascrew = 0;
+        type = "rhs_7ya37_1_single";
+        dir = 0.00648393;
+    };
+    class obj_24 {
+        pos[] = {12.8872,-9.69354,0.345952};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_at";
+        dir = 158.372;
+    };
+    class obj_1 {
+        pos[] = {-0.868652,-3.00952,0.423132};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_aa";
+        dir = 0;
+    };
+    class obj_18 {
+        pos[] = {5.83691,9.97366,9.54046};
+        issimpleobj = 0;
+        vecup[] = {1.25455e-006,-0.00161621,0.999999};
+        hascrew = 1;
+        type = "RHS_AGS30_TriPod_VDV";
+        dir = 40.5784;
+    };
+    class obj_25 {
+        pos[] = {-11.1458,8.30542,9.64279};
+        issimpleobj = 0;
+        vecup[] = {-0.0017746,0.00889588,0.999959};
+        hascrew = 1;
+        type = "rhs_KORD_VDV";
+        dir = 168.089;
+    };
+    class obj_2 {
+        pos[] = {5.823,0.766693,0.485031};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_machinegunner_assistant";
+        dir = 309.823;
+    };
+    class obj_19 {
+        pos[] = {1.74219,14.8974,2.17973};
+        issimpleobj = 0;
+        vecup[] = {0.00438859,-0.00164365,0.999989};
+        hascrew = 1;
+        type = "RHS_ZU23_VDV";
+        dir = 0.000434791;
+    };
+    class obj_26 {
+        pos[] = {16.9507,-3.72565,1.68891};
+        issimpleobj = 1;
+        vecup[] = {0.00144598,-0.00242873,0.999996};
+        hascrew = 0;
+        type = "Box_FIA_Ammo_F";
+        dir = 0.00036773;
+    };
+    hasmissiontarget = 0;
+    class obj_3 {
+        pos[] = {-6.97705,3.49377,0.378889};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_arifleman";
+        dir = 42.7765;
+    };
+    class obj_27 {
+        pos[] = {10.1289,3.63437,13.8573};
+        issimpleobj = 0;
+        vecup[] = {-0.00450828,-0.00584013,0.999973};
+        hascrew = 1;
+        type = "rhs_Igla_AA_pod_vdv";
+        dir = 0.000129399;
+    };
+    class obj_4 {
+        pos[] = {0.241943,1.29163,8.35936};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_grenadier_alt";
+        dir = 269.648;
+    };
+    class obj_28 {
+        pos[] = {-16.4749,-6.95212,4.32572};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_efreitor";
+        dir = 0;
+    };
+    class obj_5 {
+        pos[] = {2.73218,7.41098,4.32572};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_engineer";
+        dir = 117.514;
+    };
+    class obj_29 {
+        pos[] = {-11.7476,1.92053,15.065};
+        issimpleobj = 0;
+        vecup[] = {0.0181646,-0.06906,0.997447};
+        hascrew = 0;
+        type = "RHS_Mi24V_vdv";
+        dir = 0.159903;
+    };
+};
+class composition_112725 {
+    class obj_7 {
+        pos[] = {5.55591,-3.24304,-2.80849};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_aa";
+        dir = 287.843;
+    };
+    class obj_8 {
+        pos[] = {-6.61841,-0.558044,-2.80849};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_recon_machinegunner_assistant";
+        dir = 264.934;
+    };
+    class obj_10 {
+        pos[] = {-9.95776,3.2514,-1.49595};
+        issimpleobj = 0;
+        vecup[] = {1.06617e-005,-8.64895e-005,1};
+        hascrew = 1;
+        type = "rhs_KORD_high_VDV";
+        dir = 306.683;
+    };
+    class obj_9 {
+        pos[] = {9.50415,-0.0844421,-1.87207};
+        issimpleobj = 1;
+        vecup[] = {-7.95543e-007,1.2561e-006,1};
+        hascrew = 0;
+        type = "Land_CargoBox_V1_F";
+        dir = 360;
+    };
+    class obj_11 {
+        pos[] = {-11.2119,-2.6705,-1.49595};
+        issimpleobj = 0;
+        vecup[] = {5.42473e-005,-6.71863e-005,1};
+        hascrew = 1;
+        type = "rhs_KORD_high_VDV";
+        dir = 275.059;
+    };
+    author = "Bonecrusher";
+    class obj_12 {
+        pos[] = {-6.6521,-6.22659,13.4535};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Communication_F";
+        dir = 0;
+    };
+    type = "Land_Chapel_V1_F";
+    class obj_1 {
+        pos[] = {-3.29175,-0.991089,-2.80849};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_recon_arifleman";
+        dir = 257.72;
+    };
+    class obj_2 {
+        pos[] = {-3.28003,-3.03879,-2.07207};
+        issimpleobj = 1;
+        vecup[] = {-2.59906e-008,-3.68772e-008,1};
+        hascrew = 0;
+        type = "Land_CargoBox_V1_F";
+        dir = 360;
+    };
+    hasmissiontarget = 1;
+    class obj_3 {
+        pos[] = {-2.46655,3.25336,-2.80849};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_at";
+        dir = 8.25867;
+    };
+    class obj_4 {
+        pos[] = {4.79492,0.262604,-1.53104};
+        issimpleobj = 0;
+        vecup[] = {0.00932943,0.00017318,0.999956};
+        hascrew = 1;
+        type = "RHS_NSV_TriPod_VDV";
+        dir = 268.885;
+    };
+    class obj_5 {
+        pos[] = {5.0271,-1.57242,-2.80849};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_officer";
+        dir = 132.626;
+    };
+};
+class composition_63111 {
+    class obj_6 {
+        pos[] = {5.88403,-1.09508,-1.74795};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Concrete_SmallWall_4m_F";
+        dir = 0;
+    };
+    class obj_7 {
+        pos[] = {-6.8313,-0.386887,-1.40862};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_at";
+        dir = 201.112;
+    };
+    class obj_8 {
+        pos[] = {2.93506,6.5016,0.0348091};
+        issimpleobj = 0;
+        vecup[] = {5.40324e-006,-0.000105661,1};
+        hascrew = 1;
+        type = "rhs_D30_at_vdv";
+        dir = 358.589;
+    };
+    class obj_10 {
+        pos[] = {6.10254,6.84279,-1.40862};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_officer_armored";
+        dir = 0;
+    };
+    class obj_9 {
+        pos[] = {-8.03052,3.77052,-1.40862};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_medic";
+        dir = 256.704;
+    };
+    class obj_11 {
+        pos[] = {9.85596,-1.10931,-1.74795};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Concrete_SmallWall_4m_F";
+        dir = 0;
+    };
+    author = "Bonecrusher";
+    class obj_12 {
+        pos[] = {8.7002,6.51175,0.0348067};
+        issimpleobj = 0;
+        vecup[] = {8.70617e-006,-0.000107442,1};
+        hascrew = 1;
+        type = "rhs_D30_at_vdv";
+        dir = 358.589;
+    };
+    class obj_13 {
+        pos[] = {-7.52319,7.93907,-1.40862};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_recon_arifleman";
+        dir = 327.622;
+    };
+    class obj_14 {
+        pos[] = {13.4854,0.233597,-1.40862};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_recon_marksman_vss";
+        dir = 170.558;
+    };
+    class obj_15 {
+        pos[] = {13.9241,2.73535,-1.11462};
+        issimpleobj = 0;
+        vecup[] = {-0.484037,-0.821173,0.302295};
+        hascrew = 1;
+        type = "rhs_KORD_high_VDV";
+        dir = 117.707;
+    };
+    type = "Land_u_Shed_Ind_F";
+    class obj_1 {
+        pos[] = {1.88208,-1.0751,-1.74795};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Concrete_SmallWall_4m_F";
+        dir = 0;
+    };
+    class obj_2 {
+        pos[] = {-2.11987,-1.05219,-1.74795};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Concrete_SmallWall_4m_F";
+        dir = 0;
+    };
+    hasmissiontarget = 0;
+    class obj_3 {
+        pos[] = {-3.64502,-0.188934,-1.40862};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_recon_efreitor";
+        dir = 165.38;
+    };
+    class obj_5 {
+        pos[] = {5.10864,0.173126,-1.40862};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_recon_grenadier";
+        dir = 179.116;
+    };
+};
+class composition_647163 {
+    class obj_6 {
+        pos[] = {2.7373,1.466,2.49582};
+        issimpleobj = 0;
+        vecup[] = {-0.00598626,-0.00774229,0.999952};
+        hascrew = 1;
+        type = "RHS_NSV_TriPod_VDV";
+        dir = 45.6594;
+    };
+    class obj_7 {
+        pos[] = {-2.63867,-2.90716,-1.64108};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_strelok_rpg_assist";
+        dir = 0;
+    };
+    author = "Bonecrusher";
+    type = "Land_d_Stone_HouseBig_V1_F";
+    class obj_1 {
+        pos[] = {-0.435059,0.951897,1.21892};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_machinegunner";
+        dir = 149.847;
+    };
+    class obj_2 {
+        pos[] = {-0.791016,-0.34417,-1.64108};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_machinegunner";
+        dir = 298.923;
+    };
+    hasmissiontarget = 1;
+    class obj_3 {
+        pos[] = {0.265625,-2.34608,1.21892};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_at";
+        dir = 125.321;
+    };
+    class obj_4 {
+        pos[] = {-2.02979,0.342514,1.95534};
+        issimpleobj = 1;
+        vecup[] = {-1.83968e-005,6.65035e-006,1};
+        hascrew = 0;
+        type = "Land_CargoBox_V1_F";
+        dir = 1.00384e-005;
+    };
+    class obj_5 {
+        pos[] = {3.41113,-0.657593,1.21892};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_efreitor";
+        dir = 83.0631;
+    };
+};
+class composition_600964 {
+    class obj_6 {
+        pos[] = {3.36035,-1.03255,2.72898};
+        issimpleobj = 0;
+        vecup[] = {2.71747e-005,9.79654e-006,1};
+        hascrew = 1;
+        type = "rhs_Igla_AA_pod_vdv";
+        dir = 88.5654;
+    };
+    class obj_7 {
+        pos[] = {-3.56738,0.386429,2.78465};
+        issimpleobj = 0;
+        vecup[] = {0.000658983,0.00289365,0.999995};
+        hascrew = 1;
+        type = "rhs_KORD_high_VDV";
+        dir = 259.398;
+    };
+    class obj_8 {
+        pos[] = {-3.07251,4.45115,1.1979};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_sergeant";
+        dir = 0;
+    };
+    class obj_10 {
+        pos[] = {3.30811,-4.54229,2.36492};
+        issimpleobj = 0;
+        vecup[] = {-9.91559e-008,-1.31926e-007,1};
+        hascrew = 1;
+        type = "RHS_AGS30_TriPod_VDV";
+        dir = 129.15;
+    };
+    class obj_9 {
+        pos[] = {-1.41772,4.85067,-2.3071};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_efreitor";
+        dir = 143.829;
+    };
+    class obj_11 {
+        pos[] = {-1.7207,4.03844,6.332};
+        issimpleobj = 0;
+        vecup[] = {7.18151e-005,0.000323492,1};
+        hascrew = 1;
+        type = "RHS_ZU23_VDV";
+        dir = 360;
+    };
+    author = "Bonecrusher";
+    type = "Land_Unfinished_Building_01_F";
+    class obj_1 {
+        pos[] = {-1.20117,0.409897,1.93432};
+        issimpleobj = 1;
+        vecup[] = {-6.70374e-006,-1.30506e-005,1};
+        hascrew = 0;
+        type = "Land_CargoBox_V1_F";
+        dir = 360;
+    };
+    class obj_2 {
+        pos[] = {-0.381592,-2.25613,1.38095};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_marksman";
+        dir = 185.517;
+    };
+    hasmissiontarget = 1;
+    class obj_3 {
+        pos[] = {-0.644775,3.13019,1.1979};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_machinegunner";
+        dir = 94.2828;
+    };
+    class obj_5 {
+        pos[] = {-3.05005,0.00888824,-2.2971};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_LAT";
+        dir = 215.437;
+    };
+};
+class composition_681618 {
+    class obj_7 {
+        pos[] = {-4.57349,-4.88482,0.406421};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_at";
+        dir = 177.192;
+    };
+    class obj_8 {
+        pos[] = {-2.53125,6.21409,0.937674};
+        issimpleobj = 0;
+        vecup[] = {0.000817452,7.54015e-005,1};
+        hascrew = 1;
+        type = "rhs_Kornet_9M133_2_vdv";
+        dir = 356.513;
+    };
+    author = "Bonecrusher";
+    type = "Land_d_House_Big_02_V1_F";
+    class obj_1 {
+        pos[] = {1.8186,-2.93019,-0.545068};
+        issimpleobj = 0;
+        vecup[] = {-0.150975,0.0504185,0.987251};
+        hascrew = 1;
+        type = "rhs_Kornet_9M133_2_vdv";
+        dir = 180.71;
+    };
+    class obj_2 {
+        pos[] = {-2.15063,-2.89231,1.52483};
+        issimpleobj = 0;
+        vecup[] = {-0.00429573,0.00411954,0.999982};
+        hascrew = 1;
+        type = "rhs_Metis_9k115_2_vdv";
+        dir = 140.383;
+    };
+    hasmissiontarget = 0;
+    class obj_3 {
+        pos[] = {2.32642,3.4215,2.07482};
+        issimpleobj = 0;
+        vecup[] = {0.00669846,-0.00477845,0.999966};
+        hascrew = 1;
+        type = "rhs_KORD_high_VDV";
+        dir = 0.0331608;
+    };
+    class obj_4 {
+        pos[] = {-4.9729,0.969666,-3.03997};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_efreitor";
+        dir = 46.451;
+    };
+    class obj_5 {
+        pos[] = {-4.37109,-3.32606,-3.03997};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_at";
+        dir = 190.076;
+    };
+};
+class composition_736391 {
+    class obj_6 {
+        pos[] = {2.23047,6.41943,-0.51079};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_efreitor";
+        dir = 179.915;
+    };
+    class obj_7 {
+        pos[] = {1.69824,8.32764,-2.17079};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_at";
+        dir = 290.227;
+    };
+    class obj_8 {
+        pos[] = {-4.93506,8.38965,1.98564};
+        issimpleobj = 1;
+        vecup[] = {-2.10713e-005,1.64925e-006,1};
+        hascrew = 0;
+        type = "Land_CargoBox_V1_F";
+        dir = 360;
+    };
+    class obj_10 {
+        pos[] = {-4.57813,10.4468,-0.892828};
+        issimpleobj = 0;
+        vecup[] = {-0.0224486,-0.170683,0.98507};
+        hascrew = 1;
+        type = "rhs_KORD_VDV";
+        dir = 109.053;
+    };
+    class obj_9 {
+        pos[] = {0.414551,10.4868,2.52588};
+        issimpleobj = 0;
+        vecup[] = {0.00563676,0.0075321,0.999956};
+        hascrew = 1;
+        type = "RHS_NSV_TriPod_VDV";
+        dir = 235.652;
+    };
+    author = "Bonecrusher";
+    type = "Land_d_House_Big_01_V1_F";
+    class obj_1 {
+        pos[] = {0.19873,0.725586,-1.36725};
+        issimpleobj = 0;
+        vecup[] = {-0.0128096,0.0303099,0.999458};
+        hascrew = 1;
+        type = "rhs_Kornet_9M133_2_vdv";
+        dir = 182.267;
+    };
+    class obj_2 {
+        pos[] = {0.746582,-0.214844,1.7566};
+        issimpleobj = 0;
+        vecup[] = {0.00130985,-0.000128043,0.999999};
+        hascrew = 1;
+        type = "rhs_Kornet_9M133_2_vdv";
+        dir = 167.026;
+    };
+    hasmissiontarget = 1;
+    class obj_3 {
+        pos[] = {-1.57666,0.37207,1.24921};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_engineer";
+        dir = 168.98;
+    };
+    class obj_4 {
+        pos[] = {-3.5542,0.0507813,2.22417};
+        issimpleobj = 0;
+        vecup[] = {0.000124194,0.00584389,0.999983};
+        hascrew = 1;
+        type = "rhs_Metis_9k115_2_vdv";
+        dir = 178.606;
+    };
+    class obj_5 {
+        pos[] = {-2.87061,4.76953,1.24921};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_at";
+        dir = 0;
+    };
+};
+class composition_1919 {
+    class obj_6 {
+        pos[] = {-2.94238,-5.20361,2.1319};
+        issimpleobj = 0;
+        vecup[] = {-0.00439813,-0.00881412,0.999951};
+        hascrew = 1;
+        type = "RHS_NSV_TriPod_VDV";
+        dir = 32.1307;
+    };
+    class obj_7 {
+        pos[] = {-2.98926,5.73926,2.44155};
+        issimpleobj = 0;
+        vecup[] = {0.00201272,0.00202086,0.999996};
+        hascrew = 1;
+        type = "rhs_KORD_high_VDV";
+        dir = 268.662;
+    };
+    class obj_8 {
+        pos[] = {-4.20752,-5.73047,-2.65494};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_at";
+        dir = 265.075;
+    };
+    author = "Bonecrusher";
+    type = "Land_i_House_Big_01_V3_F";
+    class obj_1 {
+        pos[] = {-3.01904,-0.651367,-1.06851};
+        issimpleobj = 0;
+        vecup[] = {0.00219754,0.00218429,0.999995};
+        hascrew = 1;
+        type = "rhs_KORD_high_VDV";
+        dir = 272.593;
+    };
+    class obj_2 {
+        pos[] = {0.70166,-4.24414,0.855064};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_recon_rifleman_scout_akm";
+        dir = 303.327;
+    };
+    hasmissiontarget = 1;
+    class obj_3 {
+        pos[] = {-3.13086,2.0459,-2.56494};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_at";
+        dir = 80.0084;
+    };
+    class obj_4 {
+        pos[] = {2.98242,-5.14453,1.59148};
+        issimpleobj = 1;
+        vecup[] = {-9.13734e-006,5.99893e-006,1};
+        hascrew = 0;
+        type = "Land_CargoBox_V1_F";
+        dir = 0.000326498;
+    };
+    class obj_5 {
+        pos[] = {-2.75439,5.42041,-1.28675};
+        issimpleobj = 0;
+        vecup[] = {-0.00844209,0.00109687,0.999964};
+        hascrew = 1;
+        type = "RHS_NSV_TriPod_VDV";
+        dir = 87.6768;
+    };
+};
+class composition_184427 {
+    class obj_6 {
+        pos[] = {-3.41699,3.01807,-2.62327};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_grenadier_rpg";
+        dir = 26.7149;
+    };
+    class obj_7 {
+        pos[] = {-1.12939,-4.90137,-2.71858};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_at";
+        dir = 175.755;
+    };
+    class obj_8 {
+        pos[] = {-7.65332,0.291992,-2.88253};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_medic";
+        dir = 190.755;
+    };
+    author = "Bonecrusher";
+    type = "Land_i_House_Big_02_V1_F";
+    class obj_1 {
+        pos[] = {-0.977051,3.18945,0.784062};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_grenadier_rpg";
+        dir = 0;
+    };
+    class obj_2 {
+        pos[] = {-2.354,-2.9292,0.784062};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_at";
+        dir = 171.66;
+    };
+    hasmissiontarget = 1;
+    class obj_3 {
+        pos[] = {3.65137,0.998535,1.52048};
+        issimpleobj = 1;
+        vecup[] = {-1.82552e-005,5.62475e-006,1};
+        hascrew = 0;
+        type = "Land_CargoBox_V1_F";
+        dir = 0.00233534;
+    };
+    class obj_4 {
+        pos[] = {-3.53027,-1.65576,-1.34612};
+        issimpleobj = 0;
+        vecup[] = {-0.00256758,0.00912054,0.999955};
+        hascrew = 1;
+        type = "RHS_NSV_TriPod_VDV";
+        dir = 168.303;
+    };
+    class obj_5 {
+        pos[] = {-3.59375,0.813477,-1.88686};
+        issimpleobj = 1;
+        vecup[] = {-1.80777e-005,5.41103e-006,1};
+        hascrew = 0;
+        type = "Land_CargoBox_V1_F";
+        dir = 0.00233697;
+    };
+};
+class composition_217095 {
+    class obj_6 {
+        pos[] = {-1.04688,-5.36914,4.47277};
+        issimpleobj = 0;
+        vecup[] = {4.77719e-007,-5.71826e-007,1};
+        hascrew = 1;
+        type = "RHS_AGS30_TriPod_VDV";
+        dir = 205.77;
+    };
+    class obj_7 {
+        pos[] = {4.53027,-5.63184,3.30575};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_efreitor";
+        dir = 146.378;
+    };
+    author = "Bonecrusher";
+    type = "Land_i_House_Small_03_V1_F";
+    class obj_1 {
+        pos[] = {0.158203,-5.16943,-0.314263};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_at";
+        dir = 174.294;
+    };
+    class obj_2 {
+        pos[] = {-0.731934,4.13379,3.30575};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_grenadier_rpg";
+        dir = 0;
+    };
+    hasmissiontarget = 0;
+    class obj_3 {
+        pos[] = {2.39697,0.744629,4.83682};
+        issimpleobj = 0;
+        vecup[] = {4.64917e-005,5.12853e-005,1};
+        hascrew = 1;
+        type = "rhs_Igla_AA_pod_vdv";
+        dir = 0.00106684;
+    };
+    class obj_4 {
+        pos[] = {-3.43652,0.60498,4.83684};
+        issimpleobj = 0;
+        vecup[] = {-5.86982e-005,-1.13396e-005,1};
+        hascrew = 1;
+        type = "rhs_Igla_AA_pod_vdv";
+        dir = 359.998;
+    };
+    class obj_5 {
+        pos[] = {2.54297,-3.90527,4.83683};
+        issimpleobj = 0;
+        vecup[] = {-2.35341e-005,-4.99951e-006,1};
+        hascrew = 1;
+        type = "rhs_Igla_AA_pod_vdv";
+        dir = 185.89;
+    };
+};
+class composition_256101 {
+    class obj_6 {
+        pos[] = {-3.65918,2.86768,0.079689};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_machinegunner";
+        dir = 270.096;
+    };
+    author = "Bonecrusher";
+    type = "Land_i_Addon_04_V1_F";
+    class obj_1 {
+        pos[] = {0.966064,0.567383,0.783587};
+        issimpleobj = 0;
+        vecup[] = {0.00619734,0.00285828,0.999977};
+        hascrew = 1;
+        type = "rhs_2b14_82mm_vdv";
+        dir = 181.639;
+    };
+    class obj_2 {
+        pos[] = {-0.477539,2.27979,0.079689};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_grenadier_rpg";
+        dir = 170.523;
+    };
+    hasmissiontarget = 0;
+    class obj_3 {
+        pos[] = {2.1062,-1.17822,0.079689};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_efreitor";
+        dir = 162.681;
+    };
+    class obj_4 {
+        pos[] = {-2.50073,0.625,0.783587};
+        issimpleobj = 0;
+        vecup[] = {0.00582255,0.00356046,0.999977};
+        hascrew = 1;
+        type = "rhs_2b14_82mm_vdv";
+        dir = 174.942;
+    };
+    class obj_5 {
+        pos[] = {-3.64941,-1.26807,0.0796885};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_at";
+        dir = 214.949;
+    };
+};

@@ -75,6 +75,17 @@ class logistics {
         class rhsusf_m998_w_s_4dr : rhsusf_m998_w_4dr_base {};
         class rhsusf_m998_w_s_4dr_halftop : rhsusf_m998_w_4dr_base {};
 
+        class rhsusf_mrzr4_d {
+            max_width = 1.13;
+            max_length = 0.73;
+            max_height = 0.75;
+            cargo_point[] = {0,-1,-0.46};
+            load_point[] = {0,-3,0};
+            cargo_pos[] = {{3,{0.895508,-1.92554,1.22625}},{4,{-0.886475,-1.88013,1.24583}}};
+        };
+        class rhsusf_mrzr4_d_mud : rhsusf_mrzr4_d {};
+        class rhsusf_mrzr4_w : rhsusf_mrzr4_d {};
+        class rhsusf_mrzr4_w_mud : rhsusf_mrzr4_d {};
 
         /// LKW
 
@@ -297,6 +308,44 @@ class logistics {
         class rhs_gaz66o_flat_vdv : rhs_gaz66o_flat_msv {};
         class rhs_gaz66o_flat_vmf : rhs_gaz66o_flat_msv {};
         class rhs_gaz66o_flat_vv : rhs_gaz66o_flat_msv {};
+
+        class rhs_kamaz5350_flatbed_vv {
+            max_width = 2.2;
+            max_length = 4.8;
+            max_height = 2;
+            cargo_point[] = {0.1,1.5,-0.97};
+            load_point[] = {0,-5,-2.4};
+        };
+        class rhs_kamaz5350_flatbed_msv : rhs_kamaz5350_flatbed_vv {};
+        class rhs_kamaz5350_flatbed_vdv : rhs_kamaz5350_flatbed_vv {};
+        class rhs_kamaz5350_flatbed_vmf : rhs_kamaz5350_flatbed_vv {};
+
+        class rhs_kamaz5350_flatbed_cover_vv : rhs_kamaz5350_flatbed_vv {
+            max_height = 1.2;
+        };
+        class rhs_kamaz5350_flatbed_cover_msv : rhs_kamaz5350_flatbed_vv {};
+        class rhs_kamaz5350_flatbed_cover_vdv : rhs_kamaz5350_flatbed_vv {};
+        class rhs_kamaz5350_flatbed_cover_vmf : rhs_kamaz5350_flatbed_vv {};
+
+        class rhs_kamaz5350_open_vv : rhs_kamaz5350_flatbed_vv {
+            max_width = 1.67;
+            cargo_pos[] = {{0,{0.117004,3.22742,0.245492}},{1,{0.815247,3.15942,-0.579831}},{2,{-0.83429,0.503296,-0.538451}},{3,{0.880432,0.422363,-0.396436}},{4,{-0.872314,-0.24707,-0.489408}},{5,{0.992188,-0.306519,-0.44793}},{6,{-0.793274,-0.909424,-0.584747}},{7,{0.890259,-0.874756,-0.473645}},{8,{-0.796936,-1.60449,-0.542113}},{9,{0.973083,-1.49652,-0.420503}},{10,{-0.918396,-2.20251,-0.497662}},{11,{0.939758,-2.15607,-0.407388}},{12,{-0.800903,-2.79846,-0.610168}},{13,{1.03931,-2.7251,-0.554942}},{14,{1.10852,1.07581,-0.552835}},{15,{-0.893738,1.00439,-0.584005}},{16,{-0.800903,-2.79846,-0.610168}}};
+        };
+        class rhs_kamaz5350_open_msv : rhs_kamaz5350_flatbed_vv {};
+        class rhs_kamaz5350_open_vdv : rhs_kamaz5350_flatbed_vv {};
+        class rhs_kamaz5350_open_vmf : rhs_kamaz5350_flatbed_vv {};
+
+        class rhs_kamaz5350_vv : rhs_kamaz5350_open_vv {
+            max_height = 1.2;
+            cargo_pos[] = {{0,{0.117004,3.22742,0.24549}},{1,{0.815247,3.15942,-0.579832}},{2,{-0.795349,1.17615,-0.509953}},{3,{0.984741,1.13953,-0.449052}},{4,{-0.83429,0.503296,-0.538452}},{5,{0.880432,0.422363,-0.396437}},{6,{-0.872314,-0.24707,-0.489408}},{7,{0.992188,-0.306519,-0.447931}},{8,{-0.793274,-0.909424,-0.584748}},{9,{0.890259,-0.874634,-0.473646}},{10,{-0.796936,-1.60449,-0.542113}},{11,{0.973083,-1.49646,-0.420503}},{12,{-0.918396,-2.20245,-0.497662}},{13,{0.939758,-2.15607,-0.407389}},{14,{-0.800903,-2.7984,-0.610169}},{15,{1.03931,-2.7251,-0.554943}}};
+        };
+        class rhs_kamaz5350_msv : rhs_kamaz5350_vv {};
+        class rhs_kamaz5350_vdv : rhs_kamaz5350_vv {};
+        class rhs_kamaz5350_vmf : rhs_kamaz5350_vv {};
+
+
+
+
 
 
         class RHS_Ural_Base {
@@ -656,6 +705,13 @@ class logistics {
             length = 2.2;
             height = 1;
             offset[] = {0,-0.05,-0.9};
+        };
+
+        class rhs_mrzr4 {
+            width = 1.6;
+            length = 3.7;
+            height = 2.1;
+            offset[] = {-0.02,0,-0.55};
         };
 
         class SDV_01_F {
