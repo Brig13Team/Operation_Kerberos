@@ -17,4 +17,7 @@
 _this params ["_house","_caller","_door"];
 
 ((_house animationPhase (_door + "_rot")) < 0.1)
-//&&{("DemoCharge_Remote_Ammo" in (magazines _caller))}
+&&{
+    ("DemoCharge_Remote_Mag" in (magazines _caller))||
+    ("rhsusf_m112_mag" in (magazines _caller))
+}

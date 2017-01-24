@@ -20,4 +20,4 @@ _this params ["_house","_caller","_door"];
 
 _house setVariable [format[QGVAR(%1),_door],nil,true];
 
-_caller addMagazineCargoGlobal ["DemoCharge_Remote_Ammo",1];
+_caller addMagazineGlobal GVAR(removedMagazine);

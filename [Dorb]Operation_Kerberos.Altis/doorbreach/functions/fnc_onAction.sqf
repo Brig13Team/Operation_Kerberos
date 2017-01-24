@@ -18,8 +18,19 @@
 _this params ["_house","_caller","_door"];
 TRACEV_1(_this);
 _house setVariable [format[QGVAR(%1),_door],true,true];
-//CHECK(!("DemoCharge_Remote_Ammo" in (magazines _caller)))
-_caller removeMagazineGlobal "DemoCharge_Remote_Ammo";
+GVAR(removedMagazine) = switch (true) do {
+    case ("DemoCharge_Remote_Mag" in (magazines _caller)) : {
+        _caller removeMagazineGlobal "DemoCharge_Remote_Mag";
+        "DemoCharge_Remote_Mag"
+    };
+    case ("rhsusf_m112_mag" in (magazines _caller)) : {
+        _caller removeMagazineGlobal "rhsusf_m112_mag";
+        "rhsusf_m112_mag"
+    };
+    default {""};
+};
+CHECK(GVAR(removedMagazine) isEqualTo "")
+
 [
     5,
     _this,
