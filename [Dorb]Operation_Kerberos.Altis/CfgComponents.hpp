@@ -22,6 +22,7 @@ class CfgComponents {
     teamkilling = 1;
     viewrestriction = 1;
     database = 1;
+    doorbreach = 1;
     /// mission specific components
     headquarter = 1;
     mission = 1;
@@ -63,6 +64,7 @@ class CfgComponents {
 #include "teamkilling\CfgComponent.hpp"
 #include "viewrestriction\CfgComponent.hpp"
 #include "database\CfgComponent.hpp"
+#include "doorbreach\CfgComponent.hpp"
 
 #include "gui\CfgComponent.hpp"
 #include "gui_spawn\CfgComponent.hpp"
