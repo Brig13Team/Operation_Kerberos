@@ -1,9 +1,9 @@
 /*
     Author: iJesuz
-    
+
     Description:
         Displays cargo information
-        
+
     Parameter(s):
         0 : OBJECT - vehicle
 
@@ -34,7 +34,7 @@ if (count _logisticStack > 0) then {
     _leereLadeflaeche = getNumber(missionConfigFile >> "logistics" >> "vehicles" >> typeOf _vehicle >> "max_length");
 };
 
-[QGVAR(message),[LSTRING(CARGO_INFO),[
+[QEGVAR(gui,message),[LSTRING(CARGO_INFO),[
     format [localize LSTRING(VEHICLE_MASS),_leermasse],
     format [localize LSTRING(CARGO_MASS),_ladungsmasse],
     format [localize LSTRING(FULL_MASS),_gesamtmasse],

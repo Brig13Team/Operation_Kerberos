@@ -1,13 +1,13 @@
 /*
     Author: Dorbedo
-    
+
     Description:
         Checks if a object can be loaded
-        
+
     Parameter(s):
         0 : OBJECT - Target
         1 : OBJECT - Unit
-        
+
     Returns:
         BOOL
 */
@@ -15,7 +15,7 @@
 _this params ["_target","_cargo"];
 
 If ((typeOf _cargo in ["RHS_M119_WD","RHS_M119_WD","rhs_D30_vdv","rhs_D30_at_vdv"])&&{(_cargo doorPhase 'fold_arty' == 0)}) exitWith {false};
-
+If (!((_cargo getVariable [QGVAR(aceactions),[]]) isEqualTo [])) exitWith {};
 private _cargo_class = [_cargo] call FUNC(getCargoCfg);
 If ((_cargo_class isEqualTo "")||{!(isNull (attachedTo _cargo))}) exitWith {false};
 
@@ -68,7 +68,7 @@ if (((_max_width - _row_width >= _cargo_width + SPACE_BETWEEN_CARGO) && (_left_l
 if (!(((_row_length < _cargo_length + SPACE_BETWEEN_CARGO) || (_max_width < _cargo_width)) && ((_row_length < _cargo_width + SPACE_BETWEEN_CARGO) || (_max_width < _cargo_length)))) exitWith { true };
 
 /// STACKING
-private _stackable = false; 
+private _stackable = false;
 for [{_i = 0},{_i < (count _last_row)},{_i = _i + 1}] do {
     if (((getModelInfo (_last_row select _i select 0) select 0) == (getModelInfo _cargo select 0)) && (!(_last_row select _i select 5)) && (((_last_row select _i select 1 select 3 select 2) + 2 * _cargo_height) <= _max_height)) exitWith { _stackable = true; };
 };

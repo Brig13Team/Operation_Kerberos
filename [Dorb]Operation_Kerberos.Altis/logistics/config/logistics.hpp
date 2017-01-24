@@ -94,15 +94,15 @@ class logistics {
             max_width = 2.1;
             max_length = 5.48;
             max_height = 2;
-            cargo_point[] = {0,-0.25,0.67};
-            load_point[] = {0,-8.5,-1};
+            cargo_point[] = {0,1.41,0.67};
+            load_point[] = {0,-7,-1};
         };
         class rhsusf_M977A4_usarmy_d : rhsusf_M977A4_usarmy_wd {};
         class rhsusf_M977A4_BKIT_usarmy_d : rhsusf_M977A4_usarmy_wd {};
         class rhsusf_M977A4_BKIT_usarmy_wd : rhsusf_M977A4_usarmy_wd {};
         class rhsusf_M977A4_BKIT_M2_usarmy_wd : rhsusf_M977A4_usarmy_wd {
-            cargo_point[] = {0,1.2,0.31};
-            load_point[] = {0,-7,-1.5};
+            cargo_point[] = {0,1.2,-0.04};
+            load_point[] = {0,-7,-1.8};
         };
         class rhsusf_M977A4_BKIT_M2_usarmy_d : rhsusf_M977A4_BKIT_M2_usarmy_wd {};
 
@@ -526,6 +526,42 @@ class logistics {
         };
         class O_UGV_01_F : B_UGV_01_F {};
         class I_UGV_01_F : B_UGV_01_F {};
+
+
+        // IFV
+        class RHS_M2A2_wd {
+            max_width = 0.9;
+            max_length = 1.3;
+            max_height = 1.3;
+            cargo_point[] = {0,0,-1.1};
+            load_point[] = {0,-4,-1.6};
+            cargo_pos[] = {{0,{0.642151,-0.273621,-1.01262}},{1,{-0.624023,-0.203247,-1.00966}},{2,{0.558777,-0.813904,-1.01216}},{3,{-0.659851,-0.766724,-1.01118}},{4,{0.627747,-1.3692,-1.01182}},{5,{-0.586182,-1.33112,-1.00088}}};
+            hatch_open = "_this animateDoor ['ramp', 1];_this setVariable ['ramp_handler',1,true]";
+            hatch_close = "_this animateDoor ['ramp', 0];_this setVariable ['ramp_handler',0,true]";
+            hatch_isclosed = "(_this doorPhase 'ramp') < 0.1";
+            hatch_isopened = "(_this doorPhase 'ramp') > 0.9";
+        };
+        class RHS_M2A2 : RHS_M2A2_wd {}
+        class RHS_M2A2_BUSKI_WD : RHS_M2A2_wd {};
+        class RHS_M2A2_BUSKI : RHS_M2A2_wd {}
+        class RHS_M6_wd : RHS_M2A2_wd {};
+        class RHS_M6 : RHS_M2A2_wd {};
+
+        class RHS_M2A3_wd : RHS_M2A2_wd {
+            cargo_point[] = {0,-1,-1.1};
+            load_point[] = {0,-4.5,-1.6};
+        };
+        class RHS_M2A3 : RHS_M2A3_wd {};
+        class RHS_M2A3_BUSKI_wd : RHS_M2A2_wd {};
+        class RHS_M2A3_BUSKI : RHS_M2A3_wd {};
+        class RHS_M2A3_BUSKIII_wd : RHS_M2A2_wd {};
+        class RHS_M2A3_BUSKIII : RHS_M2A3_wd {};
+
+
+
+
+
+
     };
 
     class cargos {

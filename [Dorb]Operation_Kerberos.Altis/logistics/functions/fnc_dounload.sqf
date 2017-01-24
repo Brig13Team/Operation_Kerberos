@@ -1,12 +1,12 @@
 /*
     Author: Dorbedo
-    
+
     Description:
         unloads Object
-        
+
     Parameter(s):
         0 : OBJECT - Target
-        
+
     Returns:
         BOOL
 */
@@ -28,7 +28,8 @@ If (!(_anim isEqualTo "")) then {
 };
 private _unloadcondition = {true};
 If !(_isdrop) then {
-    _unloadcondition = {(((getPos player) distance GVAR(isloading_pos))<1)};
+    //_unloadcondition = {(((getPos player) distance GVAR(isloading_pos))<1)};
+    _unloadcondition = {((getPos((_this select 0) select 0) distance ((_this select 0)select 1))) < 0.5}
 };
 [
     LOADTIME,
@@ -36,5 +37,6 @@ If !(_isdrop) then {
     {(_this select 0) call FUNC(unload);SETVAR(player,GVAR(isloading),false);},
     {SETVAR(player,GVAR(isloading),false);},
     "",
-    { if (!((getPos (_this select 0 select 0)) isEqualTo (_this select 0 select 1))) exitWith { false }; true }
+    _unloadcondition
+    //{ if (((getPos (_this select 0 select 0)) distance (_this select 0 select 1))>0.5) exitWith { false }; true }
 ] call ace_common_fnc_progressBar;

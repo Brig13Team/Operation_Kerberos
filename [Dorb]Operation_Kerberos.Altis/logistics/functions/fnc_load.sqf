@@ -9,8 +9,9 @@
         1: OBJECT - vehicle
 
 */
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-
+TRACEV_1(_this);
 _this params ["_vehicle","_cargo"];
 private _vehicle_class = typeOf _vehicle;
 private _cargo_class = [_cargo] call FUNC(getCargoCfg);
