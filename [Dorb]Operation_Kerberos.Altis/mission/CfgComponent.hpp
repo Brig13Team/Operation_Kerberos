@@ -17,6 +17,10 @@ class DOUBLES(CfgComponent,ADDON) {
         CfgPatches[] = {};
         CfgComponents[] = {"spawn"};
     };
+    class features {
+        mainmissions = CSTRING(FEATURES_MAINMISSIONS);
+        sidemissions = CSTRING(FEATURES_SIDEMISSIONS);
+    };
 };
 #include "config\CfgTaskTypes.hpp"
 #include "config\CfgTaskEnhancements.hpp"

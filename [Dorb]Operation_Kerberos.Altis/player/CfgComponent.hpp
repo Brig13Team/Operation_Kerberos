@@ -29,4 +29,9 @@ class DOUBLES(CfgComponent,ADDON) {
         CfgPatches[] = {};
         CfgComponents[] = {"common"};
     };
+    class features {
+        backpack = CSTRING(FEATURES_BACKPACK);
+        copyloadout = CSTRING(FEATURES_COPYLOADOUT);
+        halo = CSTRING(FEATURES_HALO);
+    };
 };

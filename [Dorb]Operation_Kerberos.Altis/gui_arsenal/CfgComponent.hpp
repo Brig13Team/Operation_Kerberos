@@ -15,5 +15,9 @@ class DOUBLES(CfgComponent,ADDON) {
         CfgPatches[] = {};
         CfgComponents[] = {"common","gui"};
     };
+    class features {
+        restrictions = CSTRING(FEATURES_RESTRICTIONS);
+        local = CSTRING(FEATURES_LOCAL);
+    };
 };
 #include "config\arsenal.hpp"

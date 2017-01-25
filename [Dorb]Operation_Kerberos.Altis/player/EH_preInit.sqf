@@ -4,7 +4,6 @@ ADDON = false;
 
 PREP(checkContainerRestrictions);
 
-PREP(addbriefing);
 PREP(canCopyLoadout);
 PREP(getLoadout);
 PREP(grouptracker);

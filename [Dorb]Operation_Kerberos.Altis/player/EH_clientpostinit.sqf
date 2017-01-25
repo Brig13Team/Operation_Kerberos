@@ -10,7 +10,6 @@ CHECK(!hasInterface)
 
 SETUVAR(EGVAR(gui,respawnTime),nil);
 
-[] call FUNC(addbriefing);
 [] call FUNC(halo_addaction);
 [] call FUNC(backpack_init);
 [] call FUNC(onrespawn);

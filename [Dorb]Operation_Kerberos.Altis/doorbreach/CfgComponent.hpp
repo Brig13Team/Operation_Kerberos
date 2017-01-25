@@ -17,4 +17,7 @@ class DOUBLES(CfgComponent,ADDON) {
         CfgPatches[] = {};
         CfgComponents[] = {"main"};
     };
+    class features {
+        doorbreach = CSTRING(FEATURES_DOORBREACH);
+    };
 };

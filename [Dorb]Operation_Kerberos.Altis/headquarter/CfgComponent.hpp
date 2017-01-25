@@ -18,6 +18,9 @@ class DOUBLES(CfgComponent,ADDON) {
         CfgPatches[] = {};
         CfgComponents[] = {"mission","spawn"};
     };
+    class features {
+        hq = CSTRING(FEATURES_HQ);
+    };
 };
 #include "config\drones.hpp"
 #include "config\maps.hpp"

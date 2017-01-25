@@ -20,4 +20,7 @@ class DOUBLES(CfgComponent,ADDON) {
         CfgPatches[] = {};
         CfgComponents[] = {"main"};
     };
+    class features {
+        common = CSTRING(FEATURES_COMMON);
+    };
 };

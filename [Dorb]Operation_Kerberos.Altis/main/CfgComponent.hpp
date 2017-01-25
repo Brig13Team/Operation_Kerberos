@@ -18,9 +18,17 @@ class DOUBLES(CfgComponent,ADDON) {
             Condition = "true"; // can be used to add some aditional conditions
         };
     };
+    class postInitClient {
+        server = 0;
+    };
     class dependencies {
         CfgPatches[] = {"CBA_main","CBA_XEH","CBA_Events","CBA_common"};
         CfgComponents[] = {};
+    };
+    class features {
+        compiling = CSTRING(FEATURES_COMPILING);
+        hashes = CSTRING(FEATURES_HASHES);
+        debug = CSTRING(FEATURES_DEBUG);
     };
 };
 

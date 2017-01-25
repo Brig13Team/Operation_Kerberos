@@ -18,4 +18,7 @@ class DOUBLES(CfgComponent,ADDON) {
         CfgComponents[] = {"main"};
         Condition = "false"; /// deaktivated for now
     };
+    class features {
+        caching = CSTRING(FEATURES_CACHING);
+    };
 };

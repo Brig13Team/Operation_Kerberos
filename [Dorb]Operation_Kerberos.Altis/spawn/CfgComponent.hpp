@@ -35,6 +35,16 @@ class DOUBLES(CfgComponent,ADDON) {
         CfgPatches[] = {"rhs_main","rhsusf_main","CBA_ai"};
         CfgComponents[] = {"common"};
     };
+    class features {
+        compositions = CSTRING(FEATURES_COMPOSITIONS);
+        fallback = CSTRING(FEATURES_FALLBACK);
+        mission = CSTRING(FEATURES_MISSION);
+        water = CSTRING(FEATURES_WATER);
+        patrols = CSTRING(FEATURES_PATROLS);
+        strikeforce = CSTRING(FEATURES_STRIKEFORCE);
+        guards = CSTRING(FEATURES_GUARDS);
+        minefields = CSTRING(FEATURES_MINEFIELDS);
+    };
 };
 #include "config\city_defence.hpp"
 #include "config\unitlists.hpp"

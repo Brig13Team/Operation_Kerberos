@@ -18,5 +18,11 @@ class DOUBLES(CfgComponent,ADDON) {
         CfgPatches[] = {};
         CfgComponents[] = {"common"};
     };
+    class features {
+        loading = CSTRING(FEATURES_LOADING);
+        stacks = CSTRING(FEATURES_STACKS);
+        drop = CSTRING(FEATURES_DROP);
+        weight = CSTRING(FEATURES_WEIGHT);
+    };
 };
 #include "config\logistics.hpp"

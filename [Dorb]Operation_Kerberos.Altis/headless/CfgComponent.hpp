@@ -17,4 +17,7 @@ class DOUBLES(CfgComponent,ADDON) {
         CfgPatches[] = {"CBA_xeh","CBA_Events"};
         CfgComponents[] = {"common"};
     };
+    class features {
+        list = CSTRING(FEATURES_LIST);
+    };
 };

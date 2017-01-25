@@ -25,6 +25,17 @@
             <Russian>Dorbedo, iJesuz</Russian>
             <Spanish>Dorbedo, iJesuz</Spanish>
         </Key>
+        <Key ID="STR_DORB_MAIN_SUPPORTER">
+            <English>Maverick2044, Cypherstalker, Kiwa, Dagobert</English>
+            <Czech>Maverick2044, Cypherstalker, Kiwa, Dagobert</Czech>
+            <French>Maverick2044, Cypherstalker, Kiwa, Dagobert</French>
+            <German>Maverick2044, Cypherstalker, Kiwa, Dagobert</German>
+            <Italian>Maverick2044, Cypherstalker, Kiwa, Dagobert</Italian>
+            <Polish>Maverick2044, Cypherstalker, Kiwa, Dagobert</Polish>
+            <Portuguese>Maverick2044, Cypherstalker, Kiwa, Dagobert</Portuguese>
+            <Russian>Maverick2044, Cypherstalker, Kiwa, Dagobert</Russian>
+            <Spanish>Maverick2044, Cypherstalker, Kiwa, Dagobert</Spanish>
+        </Key>
         <Key ID="STR_DORB_MAIN_WELCOME1">
             <Original>Welcome to Operation Kerberos.</Original>
             <German>Willkommen bei Operation Kerberos.</German>
@@ -165,178 +176,178 @@
     <Package name="MISSIONS">
         <!-- Intel -->
         <Key ID="STR_DORB_MISSION_INTEL_DESC">
-            <English></English>
+
             <German>Der Feind in diesem Gebiet besitzt wichtige Informationen, welche uns einen entscheidenen Vorteil im Verlauf des Konfliktes verschaffen können. Ihre Aufgabe ist es diese Informationen zu sichern.</German>
         </Key>
         <Key ID="STR_DORB_MISSION_INTEL_TITLE">
-            <English></English>
+
             <German>Informationen sicherstellen</German>
         </Key>
         <Key ID="STR_DORB_MISSION_INTEL_FOUND_MSG_TITLE">
-            <English></English>
+
             <German>Informationen gesichert</German>
         </Key>
         <Key ID="STR_DORB_MISSION_INTEL_FOUND_MSG">
-            <English></English>
+
             <German>%1 konnte Informationen sicherstellen</German>
         </Key>
         <!-- weaponcaches -->
         <Key ID="STR_DORB_MISSION_WEAPONCACHE_DESC">
-            <English></English>
+
             <German>In diesem Bereich befinden sich feindliche Waffenverstecke. Finden und zerstören sie diese.</German>
         </Key>
         <Key ID="STR_DORB_MISSION_WEAPONCACHE_TITLE">
-            <English></English>
+
             <German>Waffenverstecke zerstören</German>
         </Key>
         <Key ID="STR_DORB_MISSION_WEAPONCACHE_DESTROYED_MSG_TITLE">
-            <English></English>
+
             <German>Waffenversteck</German>
         </Key>
         <Key ID="STR_DORB_MISSION_WEAPONCACHE_DESTROYED_MSG">
-            <English></English>
+
             <German>Ein Waffenversteck wurde zerstört.</German>
         </Key>
         <!-- device -->
         <Key ID="STR_DORB_MISSION_DEVICE_DESC">
-            <English></English>
+
             <German>Der Feind besitzt eine neuartige Technologie, welche es ihm ermöglicht Erdbeben hervorzurufen. Finden sie diese Maschine und deaktivieren sie diese.</German>
         </Key>
         <Key ID="STR_DORB_MISSION_DEVICE_TITLE">
-            <English></English>
+
             <German>Erdbebengerät ausschalten</German>
         </Key>
         <!-- emp -->
         <Key ID="STR_DORB_MISSION_EMP_DESC">
-            <English></English>
+
             <German>Der Feind verfügt über ein Gerät, welches einen elektromagnetischen Impuls aussenden kann. Deaktiveren sie dieses Gerät</German>
         </Key>
         <Key ID="STR_DORB_MISSION_EMP_TITLE">
-            <English></English>
+
             <German>EMP deaktivieren</German>
         </Key>
         <!-- hostages -->
         <Key ID="STR_DORB_MISSION_HOSTAGES_DESC">
-            <English></English>
+
             <German>Der Feind hat einige unserer Wissenschaftler gefangen genommen. Befreien sie diese und bringen sie sie zurück in Sicherheit</German>
         </Key>
         <Key ID="STR_DORB_MISSION_HOSTAGES_TITLE">
-            <English></English>
+
             <German>Gefangene befreien</German>
         </Key>
         <Key ID="STR_DORB_MISSION_HOSTAGE_KILLED_MSG_TITLE">
-            <English></English>
+
             <German>Gefangener getötet</German>
         </Key>
         <Key ID="STR_DORB_MISSION_HOSTAGE_KILLED_MSG">
-            <English></English>
+
             <German>%1 wurde auf der Flucht getötet.</German>
         </Key>
         <Key ID="STR_DORB_MISSION_HOSTAGE_RESCUED_MSG_TITLE">
-            <English></English>
+
             <German>Gefangener befreit</German>
         </Key>
         <Key ID="STR_DORB_MISSION_HOSTAGE_RESCUED_MSG">
-            <English></English>
+
             <German>%1 konnte befreit werden und befindet sich nun in Sicherheit.</German>
         </Key>
         <!-- clear -->
         <Key ID="STR_DORB_MISSION_CLEAR_DESC">
-            <English></English>
+
             <German>Schlagen sie die Feindlichen Kräfte in diesem Gebiet zurück</German>
         </Key>
         <Key ID="STR_DORB_MISSION_CLEAR_TITLE">
-            <English></English>
+
             <German>Gebiet befreien</German>
         </Key>
         <!-- capture -->
         <Key ID="STR_DORB_MISSION_CAPTURE_DESC">
-            <English></English>
+
             <German>Nehmen sie den oder die Befehlshaber der Region gefangen und bringen sie diese zum Verhör in die Basis.</German>
         </Key>
         <Key ID="STR_DORB_MISSION_CAPTURE_TITLE">
-            <English></English>
+
             <German>Offizier gefangen nehmen</German>
         </Key>
         <!-- scarab -->
         <Key ID="STR_DORB_MISSION_SCARAB_DESC">
-            <English></English>
+
             <German>Der Feind hat Mittelstreckenrakten in Stellung gebracht um unsere Flotte anzugreifen. Verhindern sie unter allen umständen den Abschuss der Atomraketen.</German>
         </Key>
         <Key ID="STR_DORB_MISSION_SCARAB_TITLE">
-            <English></English>
+
             <German>Abschuss verhindern</German>
         </Key>
         <!-- radiotower -->
         <Key ID="STR_DORB_MISSION_RADIOTOWER_DESC">
-            <English></English>
+
             <German>Durch die Funkmasten in diesem Gebiet steuert der Feind einen großen Teil seiner Truppen. Zerstören Sie diese Funkmasten.</German>
         </Key>
         <Key ID="STR_DORB_MISSION_RADIOTOWER_TITLE">
-            <English></English>
+
             <German>Funktürme vernichten</German>
         </Key>
         <!-- dronecommando -->
         <Key ID="STR_DORB_MISSION_DRONECOMMANDO_DESC">
-            <English></English>
+
             <German>In diesem Bereich befindet sich ein vorgelagertes Drohnenkommando. Vernichten Sie dieses um die Schlagkraft der Drohnenangriffe zu reduzieren.</German>
         </Key>
         <Key ID="STR_DORB_MISSION_DRONECOMMANDO_TITLE">
-            <English></English>
+
             <German>Dronenkommando neutralisieren</German>
         </Key>
         <!-- prototype -->
         <Key ID="STR_DORB_MISSION_PROTOTYPE_DESC">
-            <English></English>
+
             <German>Der Feind hat einen Prototypen gestohlen. Erobern sie diesen und bringen sie Ihn zurück.</German>
         </Key>
         <Key ID="STR_DORB_MISSION_PROTOTYPE_TITLE">
-            <English></English>
+
             <German>Prototypen erobern</German>
         </Key>
         <Key ID="STR_DORB_MISSION_PROTOTYPE_KILLED_MSG_TITLE">
-            <English></English>
+
             <German>Prototyp zerstört</German>
         </Key>
         <Key ID="STR_DORB_MISSION_PROTOTYPE_KILLED_MSG">
-            <English></English>
+
             <German>Ein Prototyp wurde zerstört.</German>
         </Key>
         <Key ID="STR_DORB_MISSION_PROTOTYPE_RESCUED_MSG_TITLE">
-            <English></English>
+
             <German>Prototyp gesichert</German>
         </Key>
         <Key ID="STR_DORB_MISSION_PROTOTYPE_RESCUED_MSG">
-            <English></English>
+
             <German>Ein Prototyp wurde gesichert. Er steht nun zu Ihrer Verfügung.</German>
         </Key>
         <!-- specops -->
         <Key ID="STR_DORB_MISSION_SPECOPS_DESC">
-            <English></English>
+
             <German>Feindliche Spezielkräfte wurden in diesem Bereich gesichtet. Säubern sie den Bereich.</German>
         </Key>
         <Key ID="STR_DORB_MISSION_SPECOPS_TITLE">
-            <English></English>
+
             <German>Spezialkräfte vernichten.</German>
         </Key>
 
         <!-- sisdemissions -->
         <!-- artillery -->
         <Key ID="STR_DORB_MISSION_ARTILLERY_DESC">
-            <English></English>
+
             <German>Der Feind hat eine starke Artillerieeinheit in das Gebiet verlegt. Suchen und Zerstören Sie diese um dem Feind die Feuerunterstützung zu nehmen.</German>
         </Key>
         <Key ID="STR_DORB_MISSION_ARTILLERY_TITLE">
-            <English></English>
+
             <German>Artilleriestellung neutralisieren</German>
         </Key>
         <!-- specops -->
         <Key ID="STR_DORB_MISSION_RADAR_DESC">
-            <English></English>
+
             <German>Nach Informationen durch unsere Aufklärung besitzt der Feind ein starkes Radar. Neutralisieren sie die feindliche Radaraufklärung.</German>
         </Key>
         <Key ID="STR_DORB_MISSION_RADAR_TITLE">
-            <English></English>
+
             <German>Radar ausschalten</German>
         </Key>
 
@@ -644,7 +655,7 @@
         <Key ID="STR_DORB_GUI_S">
             <Original></Original>
             <German></German>
-            <English></English>
+
         </Key>
     </Package>
     <Package name="Gui_teleport">
@@ -963,6 +974,154 @@
             <Original>Cancel</Original>
             <German>Abbrechen</German>
             <English>Cancel</English>
+        </Key>
+    </Package>
+    <Package name="doorbreach">
+        <Key ID="STR_DORB_DOORBREACH_PLACE_CHARGE">
+            <German>Sprengladung platzieren</German>
+            <English>place charge</English>
+        </Key>
+        <Key ID="STR_DORB_DOORBREACH_PLACING_CHARGE">
+            <German>Sprengladung wird platziert</German>
+            <English>placing charge</English>
+        </Key>
+    </Package>
+    <Package name="features">
+        <Key ID="STR_DORB_MAIN_FEATURES">
+            <German>Missionsbestandteile</German>
+            <English>Mission-Features</English>
+        </Key>
+        <Key ID="STR_DORB_ADVERTISEMENTS_FEATURES_ADVERTISEMENTS">
+            <German>In einem definierbaren Abstand wird Werbung eingeblendet. Dies kann beispielsweise zur Ankündigung von Events genutzt werden.</German>
+        </Key>
+        <Key ID="STR_DORB_CACHING_FEATURES_CACHING">
+            <German>Einheiten, welche nicht in Reichweite von Spielern sind, werden deaktiviert. Dadurch kann Netzwerktraffic gespart werden.</German>
+        </Key>
+        <Key ID="STR_DORB_COMMON_FEATURES_COMMON">
+            <German>Verschiedene globale Funktionen finden sich in diesem Component</German>
+        </Key>
+        <Key ID="STR_DORB_DATABASE_FEATURES_WHITELIST">
+            <German>Eine Datenbankanbindung zu ExtDB3 wurde angelegt um die Whitelist zu verwalten. Mittels dieser Whitelist können Spielerabhängig Optionen beschränkt bzw. freigegeben werde.</German>
+        </Key>
+        <Key ID="STR_DORB_DOORBREACH_FEATURES_DOORBREACH">
+            <German>Ein Aufsprengen von Türen mittels Sprengladung ist möglich. Dazu wird mittels ACE-Aktion die Sprengladung an der Tür angebracht und automatisch nach ca.10 Sekunden gezündet. Die Tür öffnet sich dann automatisch mit einem kleinen Knalleffekt.</German>
+        </Key>
+        <Key ID="STR_DORB_GROUPTRACKER_FEATURES_BFT">
+            <German>Die einzelnen Gruppen werden auf der Karte dargestellt. Der Grouptracker ist seitenabhängig und kompatibel mit der BIS Gruppenverwaltung.</German>
+        </Key>
+        <Key ID="STR_DORB_GROUPTRACKER_FEATURES_DELAY">
+            <German>Es ist möglich den Grouptracker mit einem Delay auszustatten, wodurch er die Echtzeit verliert.</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_FEATURES_MESSAGES">
+            <German>Ein eigenes Messaging-System wurde implementiert. Die Nachrichten werden in kleinen Kästen dargestellt, welche langsam ausgeblendet werden. Durch dieses Feature können mehrere Nachrichten parallel dargestellt werden.</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_FEATURES_LOADING">
+            <German>Ein eigener animierter Ladebildschirm wurde kreiert.</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_FEATURES_TIMER">
+            <German>Ein Timer kann eingeblendet werden, um einen Zeitdruck visuell darzustellen.</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARSENAL_FEATURES_RESTRICTIONS">
+            <German>Ein Beschränktes Arsenal wurde hinzugefügt. Dabei ist es möglich eine White- und Blacklist zu definieren. Das Öffnen des Arsenals wurde auf ACE-Actionen umgelegt.</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARSENAL_FEATURES_LOCAL">
+            <German>Die Netzwerksyncronisierung der Arsenalliste wurde ausgeschaltet. Durch diese Anpassung wird die Liste auf den jeweiligen CLient generiert, wodurch der Netzwerktraffic reduziert wird.</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_CRATE_FEATURES_SPAWN">
+            <German>Ein Kistenspawner ist verfügbar. An diesem Kistenspawner können mittels eines Interfaces Kisten befüllt werden. Durch diese Modifikation ist es möglich für Logistiker aus einem virtuell Kisten zu befüllen. Es kann durch Tastendruck in 10er bzw. 100er Schritten Material in Kisten gefüllt werden.</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_SAVE_FEATURES_SAVE">
+            <German>Ein generische Speichern Dialog ist erstellt, welche für die Speicherung von verschiedensten Sachen genutzt werden kann. Die Daten werden im Profilenamespace gespeichert und sind somit global für das Profil verfügbar.</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_SPAWN_FEATURES_VEHICLESPAWN">
+            <German>Fahrzeugspawner sind verfügbar, an welchen verschiedene Fahrzeuge erstellt werden können. Die Fahrzeugspawns werden durch ein Symbol dargestellt, welches sich bei Verfügbarkeit grün färbt.</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_SPAWN_FEATURES_SIDE">
+            <German>Die Fahrzeugspawns verfügen über die für die Spielerseite verfügbaren Fahrzeuge.</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_TABLET_FEATURES_TABLET">
+            <German>Das virtuelle Tablett verfügt über die Möglichkeit weitere Apps zu installieren, welche dann innerhalb dieses Tablets aufgerufen werden können. Das hinzufügen der kann innerhalb einer Mission erfolgen.</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_TELEPORT_FEATURES_TELEPORT">
+            <German>Ein einfacher Teleporter ist verfügbar, um zwischen verschiedenen Punkten schnell hin und herzuspringen-</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_TFR_FEATURES_LIST">
+            <German>Eine Funkgeräteüberischt für Task Force Radio Arrowhead</German>
+        </Key>
+        <Key ID="STR_DORB_HEADLESS_FEATURES_HEADLESSCLIENTS">
+            <German>Headlessclients bekommen automatisch KI einheiten zugewiesen, welche die dann steuern. Nach Disconnts und verbinden neuer HCs werden die Gruppen neu auf die HCs verteilt.</German>
+        </Key>
+        <Key ID="STR_DORB_HEADQUARTER_FEATURES_HQ">
+            <German>Ein vitueller Gegnerischer Stratege kämpft gegen die Spieler.</German>
+        </Key>
+        <Key ID="STR_DORB_LOGISTICS_FEATURES_LOADING">
+            <German>Es ist möglich Kisten in Fahrzeuge zu verladen. Dabei passen nur Kisten in die jeweiligen Fahrzeuge, welche auch eine genügend große Ladefläche aufweisen können.</German>
+        </Key>
+        <Key ID="STR_DORB_LOGISTICS_FEATURES_STACKS">
+            <German>Die verladnene Kisten werden wenn möglich gestapelt</German>
+        </Key>
+        <Key ID="STR_DORB_LOGISTICS_FEATURES_DROP">
+            <German>Ein Fallschirmabwurf von Material mittels Helicopter ist möglich</German>
+        </Key>
+        <Key ID="STR_DORB_LOGISTICS_FEATURES_WEIGHT">
+            <German>Das Gewicht von Materialkisten wird abhängig von dem Material innerhalb dieser Kiste gesetzt</German>
+        </Key>
+        <Key ID="STR_DORB_MAIN_FEATURES_COMPILING">
+            <German>Ein eigenes Compiling-System wurd erstellt</German>
+        </Key>
+        <Key ID="STR_DORB_MAIN_FEATURES_HASHES">
+            <German>Das Hash-System von ACRE2 wurde für die Missionen angepasst und um weitere Funktionen erweitert</German>
+        </Key>
+        <Key ID="STR_DORB_MAIN_FEATURES_DEBUG">
+            <German>Ein eigenes Debugging wurde geschrieben, welches ein schnelles Logging von Fehlern ermöglicht.</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_FEATURES_MAINMISSIONS">
+            <German>Viele verschiedene Hauptmissionen wurden erstellt. Diese werden zufällig nacheinander auf der Karte platziert.</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_FEATURES_SIDEMISSIONS">
+            <German>Die Hauptmissionen wurden um Nebenmissionen erweitert, welche bei erfüllen Vorteile bringen bzw. Nachteile verhindern.</German>
+        </Key>
+        <Key ID="STR_DORB_PATCH_BW_FEATURES_EH">
+            <German>Die BW-Mod Fahrzeuge wurden leichter penetrierbar für RHS-Waffen gemacht.</German>
+        </Key>
+        <Key ID="STR_DORB_PLAYER_FEATURES_BACKPACK">
+            <German>Es gibt die Möglichkeit sich seinen Rucksack auf die Brust zu schnallen um so mit Rucksack einen Fallschirmsprung zu absolvieren.</German>
+        </Key>
+        <Key ID="STR_DORB_PLAYER_FEATURES_COPYLOADOUT">
+            <German>Innerhalb der Basis gibt es die möglichkeit unkompliziert das Loadout eines Spielers zu kopieren. Dies soll den Einstieg für neue Spieler erleichtern.</German>
+        </Key>
+        <Key ID="STR_DORB_PLAYER_FEATURES_HALO">
+            <German>Ein Halo-Sprung ist bei geringer Spieleranzahl verfügbar umd ie Möglichkeit zu schaffen schnell in das Einsatzgebiet zu verlegen.</German>
+        </Key>
+        <Key ID="STR_DORB_SPAWN_FEATURES_COMPOSITIONS">
+            <German>Es werden verschiedene vorgefertigte Stellungen per Zufall im Einsatzgebiet platziert. Diese Stellungen werden immer optimal ausgerichtet um eine möglichst hohe Effektivität zu gewährleisten. Auch werden per Zufall Häuser befestigt. Dabei wird aus für den Haustyp (Farbe des Hauses hat keinen Einfluss) verfügbaren Stellungen eine ausgewählt. Verschiedene Stellungen verfügen über die Möglichkeit zum Platzieren von Missionzielen.</German>
+        </Key>
+        <Key ID="STR_DORB_SPAWN_FEATURES_FALLBACK">
+            <German>Stadthäuser können mit Einheiten bestückt werden. Dabei gibt es auch die Möglichkeit, das statische Geschütze platziert werden. Die so platzierten Einheiten werden je nach Haustyp optimal ausgerichtet um eine möglichst große Kampfkraft zu entfalten. Des weiteren werden in Türschwellen Stolperdrathminen platziertm welche für unvorsichtige Spieler zum Verhängniss werden können.</German>
+        </Key>
+        <Key ID="STR_DORB_SPAWN_FEATURES_MISSION">
+            <German>Die Missionsziele werden durch Einheiten geschützt oder aber innerhalb von vorgefertigten Stellungen platziert.</German>
+        </Key>
+        <Key ID="STR_DORB_SPAWN_FEATURES_WATER">
+            <German>Wenn sich im Bereich des Missionszieles Wasser befindet, werden dort je nach Menge der mit Wasser bedeckten Fläche Patroulien platziert.</German>
+        </Key>
+        <Key ID="STR_DORB_SPAWN_FEATURES_PATROLS">
+            <German>Im Einsatzgebiet patroulieren kleinere Einheiten und versuchen mögliche Feinde aufzuklären.</German>
+        </Key>
+        <Key ID="STR_DORB_SPAWN_FEATURES_STRIKEFORCE">
+            <German>Innherhalb des Einsatzgebietes befinden sich Angriffstreitkräfte, welche bei Bedarf auf erkannte Feinde vorrücken um diese zu bekämpfen.</German>
+        </Key>
+        <Key ID="STR_DORB_SPAWN_FEATURES_GUARDS">
+            <German>Um wichtige Positionen werden Sicherungseinheiten eingesetzt, deren Aufgabe ist, diese Positionen zu verteidigen. Falls eine Position aufgegeben werden muss, werden diese Einheiten andere Schlüsselpositionen verstärken.</German>
+        </Key>
+        <Key ID="STR_DORB_SPAWN_FEATURES_MINEFIELDS">
+            <German>Im Bereich von Wäldern werden Anti-Personenminen platziert. Auch können in offenem Gelände Anit-Personen und Anti-Fahrzeug Minen platziert werden.</German>
+        </Key>
+        <Key ID="STR_DORB_TEAMKILLING_FEATURES_LOGGING">
+            <German>Teambeschuss wird registriert um Spielverderbern das Handwerk zu legen.</German>
+        </Key>
+        <Key ID="STR_DORB_VIEWRESTRICTION_FEATURES_RESTRICTION">
+            <German>Eine modifizierte Kopie der Viewrestriction von ACEX.</German>
         </Key>
     </Package>
 </Project>
