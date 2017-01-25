@@ -67,10 +67,10 @@ class CfgComponents {
 #include "doorbreach\CfgComponent.hpp"
 
 #include "gui\CfgComponent.hpp"
+#include "gui_tablet\CfgComponent.hpp"
 #include "gui_spawn\CfgComponent.hpp"
 #include "gui_teleport\CfgComponent.hpp"
 #include "gui_crate\CfgComponent.hpp"
 #include "gui_save\CfgComponent.hpp"
 #include "gui_tfr\CfgComponent.hpp"
-#include "gui_tablet\CfgComponent.hpp"
 #include "gui_arsenal\CfgComponent.hpp"

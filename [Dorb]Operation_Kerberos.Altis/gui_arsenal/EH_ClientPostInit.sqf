@@ -37,7 +37,7 @@ If !(IS_BOOL(GVAR(fullArsenal))) then {
 
 
 [
-    localize LSTRING(header),
+    localize "str_a3_cfghints_learn_arsenal0",
     {[] call FUNC(OpenMenu);},
     {[player] call FUNC(canOpenMenu);},
     "\A3\ui_f\data\logos\arsenal_1024_ca.paa",

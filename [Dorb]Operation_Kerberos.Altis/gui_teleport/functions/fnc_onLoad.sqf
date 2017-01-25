@@ -9,9 +9,12 @@
 #include "script_component.hpp"
 
 disableSerialization;
+_this params ["_dialog"];
+
+[_dialog] call EFUNC(gui_tablet,initHeader);
 
 for "_i" from 0 to 6 do {
-    Private _ctrl = (findDisplay IDD_TELEPORT_DLG) displayCtrl (IDD_TELEPORT_BTTN1 + _i);
+    Private _ctrl = _dialog displayCtrl (IDD_TELEPORT_BTTN1 + _i);
     private _key = format["button_%1",(1 + _i)];
     private _hash = HASH_GET(GVAR(teleporter),_key);
     private _name = HASH_GET(_hash,"name");

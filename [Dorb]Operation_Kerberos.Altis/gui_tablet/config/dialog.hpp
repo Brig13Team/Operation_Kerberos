@@ -8,20 +8,20 @@
 class RSC(tabletBase) {
     idd = IDD_TABLET_MAIN;
     name = "Echnida";
+
     movingEnable = 0;
     enableSimulation = 1;
     fadein = 0;
     fadeout = 0;
     duration = 1000000;
     objects[] = {};
-    onLoad = QUOTE( uiNamespace setVariable [ARR_2('EGVAR(gui_tablet,dialog)',_this select 0)]; [ARR_2('EGVAR(gui_tablet,dialog)',true)] call EFUNC(gui,blur); [] spawn EFUNC(gui_tablet,OnLoad););
-    onUnload = QUOTE([ARR_2('EGVAR(gui_tablet,dialog)',false)] call EFUNC(gui,blur);[] spawn EFUNC(gui_tablet,OnUnLoad););
+    onLoad = QUOTE( uiNamespace setVariable [ARR_2('EGVAR(gui_tablet,dialog)',_this select 0)]; [ARR_2('EGVAR(gui_tablet,dialog)',true)] call EFUNC(gui,blur); _this spawn EFUNC(gui_tablet,OnLoad););
+    onUnload = QUOTE([ARR_2('EGVAR(gui_tablet,dialog)',false)] call EFUNC(gui,blur);_this call EFUNC(gui_tablet,OnUnLoad););
 
     controlsBackground[] = {
         background_Picture,
         background_Display,
-        background_Header,
-        wip
+        background_Header
     };
 
     controls[] = {
@@ -32,10 +32,14 @@ class RSC(tabletBase) {
     class background_picture: RSC(BasePicture) {
         idc = IDC_TABLET_Background;
         style = 48;
-        x = GUI_GRID_CENTER_X - GUI_GRID_CENTER_W * 5.6;
-        y = GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 12.5 - GUI_GRID_CENTER_H * 25.6;
-        w = GUI_GRID_CENTER_W * 51.2;
-        h = GUI_GRID_CENTER_H * 51.2;
+        //x = GUI_GRID_CENTER_X - GUI_GRID_CENTER_W * 5.6;
+        //y = GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 12.5 - GUI_GRID_CENTER_H * 25.6;
+        //w = GUI_GRID_CENTER_W * 51.2;
+        //h = GUI_GRID_CENTER_H * 51.2;
+        x = GUI_GRID_CENTER_X - GUI_GRID_CENTER_W * 11.72;
+        y = GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 12.5 - GUI_GRID_CENTER_H * 30.9;
+        w = GUI_GRID_CENTER_W * 63.4;
+        h = GUI_GRID_CENTER_H * 62.1;
         text = QPAAPATH(tablet_background);
     };
     class background_Display: RSC(BaseText) {
@@ -87,8 +91,7 @@ class APP(dialog) : RSC(tabletBase) {
     controlsBackground[] =     {
         background_Picture,
         background_Display,
-        background_Header,
-        wip
+        background_Header
     };
 
     controls[] =    {

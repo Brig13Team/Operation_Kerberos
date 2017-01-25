@@ -79,7 +79,7 @@ GVAR(Events_all) = [];
     _cfgname deleteAt 0; // remove CfgComponens
     _cfgname deleteAt 0; // remove PREFIX
     _cfgname = _cfgname joinString "_";
-    private _allEvents = configProperties [_cfg,"(!((configname _x) isEqualTo 'dependencies'))",true];
+    private _allEvents = configProperties [_cfg,"(!((configname _x) in ['dependencies','features']))",true];
     {
         private _eventName = tolower (configName _x);
         private _eventConfig = _x;
