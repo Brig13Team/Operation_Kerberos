@@ -14,7 +14,7 @@ CHECK(!hasInterface)
  */
 
 GVAR(fullArsenal) = false;
-GVAR(allowedradius) = 5;
+GVAR(allowedradius) = 10;
 GVAR(allowedPositions) = [
     getMarkerPos "arsenalTest",
     getmarkerpos GVARMAIN(RESPAWNMARKER)
