@@ -6657,3 +6657,277 @@ class composition_886482 {
         dir = 266.333;
     };
 };
+class composition_732107 {
+    class obj_6 {
+        pos[] = {-13.6709,9.49599,-0.093967};
+        issimpleobj = 1;
+        vecup[] = {0.00053507,7.83514e-005,1};
+        hascrew = 0;
+        type = "rhs_bmp2k_vdv";
+        dir = 1.55478;
+    };
+    class obj_7 {
+        pos[] = {-10.0959,-14.5656,0.00143909};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "rhs_vdv_flora_medic";
+        dir = 359.992;
+    };
+    class obj_8 {
+        pos[] = {18.1909,1.09317,0.00143909};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "rhs_vdv_driver_armored";
+        dir = 144.474;
+    };
+    class obj_10 {
+        pos[] = {-17.4033,-9.43896,0.00143909};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "rhs_vdv_flora_at";
+        dir = 78.9908;
+    };
+    class obj_9 {
+        pos[] = {11.5945,-14.5098,0};
+        issimpleobj = 1;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        class objects {
+            class obj_6 {
+                pos[] = {6.91211,-4.36844,1.85511};
+                issimpleobj = 1;
+                vecup[] = {2.07228e-005,1.14826e-005,1};
+                hascrew = 0;
+                type = "rhs_Igla_AA_pod_vdv";
+                dir = 361.417;
+            };
+            class obj_7 {
+                pos[] = {0.985596,3.3447,-0.747444};
+                issimpleobj = 0;
+                vecup[] = {0,0,1};
+                hascrew = 0;
+                type = "rhs_vdv_arifleman";
+                dir = 83.1387;
+            };
+            class obj_0 {
+                pos[] = {0.0202637,-0.659836,-3.27229};
+                issimpleobj = 0;
+                vecup[] = {0,0,1};
+                hascrew = 0;
+                type = "rhs_vdv_aa";
+                dir = 195.382;
+            };
+            class obj_1 {
+                pos[] = {-2.43018,-2.20766,-3.27229};
+                issimpleobj = 0;
+                vecup[] = {0,0,1};
+                hascrew = 0;
+                type = "rhs_vdv_strelok_rpg_assist";
+                dir = 136.179;
+            };
+            class obj_2 {
+                pos[] = {6.30347,5.39891,-0.794143};
+                issimpleobj = 0;
+                vecup[] = {0,0,1};
+                hascrew = 0;
+                type = "rhs_vdv_at";
+                dir = 6.4985;
+            };
+            class obj_3 {
+                pos[] = {6.64355,3.46613,-0.767673};
+                issimpleobj = 1;
+                vecup[] = {-0.000205299,0.00166378,0.999998};
+                hascrew = 0;
+                type = "rhs_Kornet_9M133_2_vdv";
+                dir = 80.7413;
+            };
+            class obj_4 {
+                pos[] = {-3.00537,-4.91016,-0.779724};
+                issimpleobj = 1;
+                vecup[] = {-0.00133906,0.00244236,0.999996};
+                hascrew = 0;
+                type = "rhs_KORD_high_VDV";
+                dir = 213.228;
+            };
+            class obj_5 {
+                pos[] = {-2.52832,-5.41641,-3.15187};
+                issimpleobj = 0;
+                vecup[] = {0,0,1};
+                hascrew = 0;
+                type = "rhs_vdv_officer";
+                dir = 299.382;
+            };
+        };
+        type = "Land_Cargo_HQ_V2_F";
+        dir = 1.41721;
+    };
+    class obj_11 {
+        pos[] = {-19.0049,-6.79243,0.00143909};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "rhs_vdv_flora_machinegunner";
+        dir = 265.022;
+    };
+    author = "Bonecrusher";
+    class obj_12 {
+        pos[] = {4.13037,20.7547,-0.125678};
+        issimpleobj = 1;
+        vecup[] = {-2.20907e-006,-5.59399e-005,1};
+        hascrew = 0;
+        type = "RHS_ZU23_VDV";
+        dir = 0.000176841;
+    };
+    class obj_13 {
+        pos[] = {-14.9854,-15.3207,0};
+        issimpleobj = 1;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        class objects {
+            class obj_0 {
+                pos[] = {-0.376465,1.61479,0.543192};
+                issimpleobj = 1;
+                vecup[] = {-9.51124e-006,2.0679e-005,1};
+                hascrew = 0;
+                type = "rhs_Igla_AA_pod_vdv";
+                dir = 271.564;
+            };
+        };
+        type = "Land_BagBunker_Tower_F";
+        dir = 0.416301;
+    };
+    class obj_20 {
+        pos[] = {16.4565,-29.2809,0};
+        issimpleobj = 1;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        class objects {
+            class obj_0 {
+                pos[] = {-1.24365,-0.842056,-0.55952};
+                issimpleobj = 0;
+                vecup[] = {0,0,1};
+                hascrew = 0;
+                type = "rhs_vdv_flora_marksman";
+                dir = 180.135;
+            };
+            class obj_1 {
+                pos[] = {1.2251,-1.33403,-0.591762};
+                issimpleobj = 1;
+                vecup[] = {-0.00281871,1.03122e-005,0.999996};
+                hascrew = 0;
+                type = "rhs_KORD_high_VDV";
+                dir = 153.655;
+            };
+        };
+        type = "Land_Cargo_Patrol_V1_F";
+        dir = 0;
+    };
+    isobjective = 1;
+    class obj_14 {
+        pos[] = {20.9167,-2.16051,0};
+        issimpleobj = 1;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BarGate_F";
+        dir = 271.268;
+    };
+    class obj_21 {
+        pos[] = {29.3308,-15.8096,-2.38419e-006};
+        issimpleobj = 1;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Razorwire_F";
+        dir = 330.176;
+    };
+    class obj_15 {
+        pos[] = {-23.7097,-7.21581,-3.33786e-006};
+        issimpleobj = 1;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Razorwire_F";
+        dir = 86.5122;
+    };
+    class obj_22 {
+        pos[] = {35.4075,-6.92987,-2.38419e-006};
+        issimpleobj = 1;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Razorwire_F";
+        dir = 271.577;
+    };
+    class obj_16 {
+        pos[] = {25.4971,3.30109,-0.122882};
+        issimpleobj = 1;
+        vecup[] = {-0.000105479,1.36577e-006,1};
+        hascrew = 0;
+        type = "rhs_D30_at_vdv";
+        dir = 92.0196;
+    };
+    class obj_17 {
+        pos[] = {23.28,-12.315,-0.0685024};
+        issimpleobj = 1;
+        vecup[] = {0.000491504,-0.000164519,1};
+        hascrew = 0;
+        type = "rhs_Kornet_9M133_2_vdv";
+        dir = 88.9029;
+    };
+    class obj_1 {
+        pos[] = {0,0,0.0305443};
+        issimpleobj = 1;
+        vecup[] = {-5.77414e-006,-2.5386e-006,1};
+        hascrew = 0;
+        type = "Land_CargoBox_V1_F";
+        dir = 359.999;
+    };
+    class obj_18 {
+        pos[] = {-18.1982,-21.206,0.00143909};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "rhs_vdv_flora_efreitor";
+        dir = 128.424;
+    };
+    class obj_2 {
+        pos[] = {-0.279785,11.0502,0.00476646};
+        issimpleobj = 1;
+        vecup[] = {-0.00547249,0.00566646,0.999969};
+        hascrew = 0;
+        type = "rhs_gaz66_vdv";
+        dir = 88.8225;
+    };
+    class obj_19 {
+        pos[] = {8.64722,-26.908,-0.0868201};
+        issimpleobj = 1;
+        vecup[] = {-0.00103039,0.00837526,0.999964};
+        hascrew = 0;
+        type = "rhs_sprut_vdv";
+        dir = 319.967;
+    };
+    class obj_3 {
+        pos[] = {8.58423,-9.90495,0.00143909};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "rhs_vdv_sergeant";
+        dir = 273.439;
+    };
+    class obj_4 {
+        pos[] = {9.70752,11.7185,0.00143862};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "rhs_vdv_armoredcrew";
+        dir = 211.68;
+    };
+    class obj_5 {
+        pos[] = {4.5813,-15.8176,0.00143909};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "rhs_vdv_at";
+        dir = 256.923;
+    };
+};

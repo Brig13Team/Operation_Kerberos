@@ -29,6 +29,13 @@ If ((getMarkerPos GVARMAIN(rescuemarker)) isEqualTo [0,0,0]) then {
 /********************
     Missionloop
 ********************/
+GVAR(next_mission)  = "";
+GVAR(next_location) = [];
+GVAR(task_counter)  = 0;
+GVAR(conditions)    = [];
+
+
+
 
 [] spawn {
     SCRIPTIN(XEH_SERVERPOSTINIT,taskloop);
@@ -47,6 +54,6 @@ If ((getMarkerPos GVARMAIN(rescuemarker)) isEqualTo [0,0,0]) then {
 
     uiSleep 20;
 
-//    [] call FUNC(taskmanager_init);
+    [] call FUNC(taskmanager_init);
 
 };

@@ -41,8 +41,16 @@ switch _type do {
         private _allObjects = getArray(missionConfigFile >> QGVAR(unitlists) >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "mission" >> "emp");
         selectRandom _allObjects;
     };
+    case "radiotower" : {
+        private _allObjects = getArray(missionConfigFile >> QGVAR(unitlists) >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "mission" >> "tower");
+        selectRandom _allObjects;
+    };
     case "dronecommando" : {
         private _allObjects = getArray(missionConfigFile >> QGVAR(unitlists) >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "mission" >> "hq_mobile");
+        selectRandom _allObjects;
+    };
+    case "scarab" : {
+        private _allObjects = getArray(missionConfigFile >> QGVAR(unitlists) >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "mission" >> "scarab");
         selectRandom _allObjects;
     };
     case "radar" : {

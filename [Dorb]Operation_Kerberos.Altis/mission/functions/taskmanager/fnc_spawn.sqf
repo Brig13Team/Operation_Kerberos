@@ -21,8 +21,9 @@ private _distance = getNumber (missionConfigFile >> "mission_config" >> "main" >
 
 // set army
 private _armys = getArray (missionConfigFile >> "mission_config" >> "main" >> _nextMission >> "armys");
-private _army = [_armys select 0, _armys select 1] call BIS_fnc_selectRandomWeighted;
-[_army] call EFUNC(spawn,army_set);
+private _army = [_armys,1] call EFUNC(common,sel_array_weighted);
+//private _army = [_armys select 0, _armys select 1] call BIS_fnc_selectRandomWeighted;
+[_army select 0] call EFUNC(spawn,army_set);
 
 
 // create task
@@ -41,9 +42,9 @@ private _allSideMissions = configProperties [(missionConfigFile >> "mission_conf
     ] call CBA_fnc_waitAndExecute;
 } forEach _allSideMissions;
 
-[QEGVAR(mission,start),[_nextLocation select 1,_missiontype]] call CBA_fnc_localEvent;
+[QEGVAR(mission,start),[_nextLocation select 1,_nextMission]] call CBA_fnc_localEvent;
 // initialize next mission
 GVAR(current_mission)  = _nextMission;
 GVAR(current_location) = _nextLocation;
-GVAR(next_mission)  = [_nextMission] call FUNC(taskmanager_choose_mission);
-GVAR(next_location) = [_nextLocation] call FUNC(taskmanager_choose_location);
+GVAR(next_mission)  = [nil,_nextMission] call FUNC(taskmanager_choose_mission);
+GVAR(next_location) = [GVAR(next_mission),_nextLocation] call FUNC(taskmanager_choose_location);

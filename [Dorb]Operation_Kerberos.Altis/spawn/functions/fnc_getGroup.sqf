@@ -21,19 +21,19 @@ private _cfg = (missionConfigFile >> QGVAR(unitlists) >> str GVARMAIN(side) >> G
 switch _grouptype do {
     case "defence" : {
         private _allConfigs = configProperties [(_cfg >> "defence"), "true", true];
-        private _addition = [(getArray(_cfg >> "groups_defence")),configNull] call BIS_fnc_configPath;
+        private _addition = (getArray(_cfg >> "groups_defence")) apply {[_x,configfile] call BIS_fnc_configPath};
         _allConfigs append _addition;
         selectRandom _allConfigs;
     };
     case "attack" : {
-        private _allConfigs = configProperties [(_cfg >> "strikeforce"), "true", true];;
-        private _addition = [(getArray(_cfg >> "groups_attack")),configNull] call BIS_fnc_configPath;
+        private _allConfigs = configProperties [(_cfg >> "strikeforce"), "true", true];
+        private _addition = (getArray(_cfg >> "groups_attack")) apply {[_x,configfile] call BIS_fnc_configPath};
         _allConfigs append _addition;
         selectRandom _allConfigs;
     };
     case "patrol" : {
         private _allConfigs = configProperties [(_cfg >> "patrol"), "true", true];
-        private _addition = [(getArray(_cfg >> "groups_patrol")),configNull] call BIS_fnc_configPath;
+        private _addition = (getArray(_cfg >> "groups_patrol")) apply {[_x,configfile] call BIS_fnc_configPath};
         _allConfigs append _addition;
         selectRandom _allConfigs;
     };

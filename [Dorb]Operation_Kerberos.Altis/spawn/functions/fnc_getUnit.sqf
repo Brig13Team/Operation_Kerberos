@@ -79,6 +79,9 @@ switch _grouptype do {
         private _allUnits = getArray(_cfg >> "divers");
         selectRandom _allUnits;
     };
+    case "divers" : {
+        getArray(_cfg >> "divers");
+    };
     case "civvehicle" : {
         private _allUnits = getArray(_cfg >> "civ_cars");
         selectRandom _allUnits;

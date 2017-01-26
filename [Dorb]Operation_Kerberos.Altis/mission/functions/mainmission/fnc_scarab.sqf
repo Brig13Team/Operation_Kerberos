@@ -14,12 +14,11 @@
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-_this params [["_destination",["",[0,0,0]],[["",[]]]]];
+_this params [["_destination","",[""]],["_position",[],[[]]]];
 
-private _position = _destination select 1;
 private _radius = getNumber(missionConfigFile >> "missions_config" >> "main" >> "scarab" >> "location" >> "distance");
 
-private _objects = [_position,"scarab",_radius] call EFUNC(spawn,spawnMissionTarget);
+private _objects = [_position,"scarab",_radius] call EFUNC(spawn,createMissionTarget);
 
 {
     _x addEventHandler ["Killed", {[getPos (_this select 0)] call FUNC(objects_nuke);}];

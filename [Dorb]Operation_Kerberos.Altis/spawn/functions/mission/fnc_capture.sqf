@@ -22,7 +22,7 @@ for "_i" from 0 to _amount do {
     private _targetPositions = [_centerposition] call FUNC(createMissionHouse);
     private _targetPos = selectRandom _targetPositions;
 
-    private _obj = ["capture"] call FUNC(getMissionObj);
+    private _obj = ["capture"] call FUNC(getMissionObject);
 
     private _group = createGroup GVARMAIN(side);
     private _curTarget = _group createUnit [_obj, _targetPos, [], 0, "CAN_COLLIDE"];

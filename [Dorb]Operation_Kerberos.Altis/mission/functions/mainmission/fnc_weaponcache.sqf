@@ -12,14 +12,15 @@
 */
 #include "script_component.hpp"
 
-_this params [["_destination",["",[0,0,0]],[["",[]]]]];
+_this params [["_destination","",[""]],["_position",[],[[]]]];
 
-private _min = getArray(missionConfigFile >> "missions_config" >> "main" >> "weaponcache" >> "objectsamount_min");
-private _max = getArray(missionConfigFile >> "missions_config" >> "main" >> "weaponcache" >> "objectsamount_max");
-private _amount = (floor random (_max - _min + 1)) + _min;
+private _min = getNumber(missionConfigFile >> "missions_config" >> "main" >> "weaponcache" >> "objectsamount_min");
+private _max = getNumber(missionConfigFile >> "missions_config" >> "main" >> "weaponcache" >> "objectsamount_max");
+TRACEV_4(_max,_min,_destination,_position);
+private _amount = (floor (random ((_max - _min) + 1))) + _min;
 
-private _position = _destination select 1;
-private _wpnCaches = [_position,"weaponcache",_amount] call EFUNC(spawn,spawnMissionTarget);
+
+private _wpnCaches = [_position,"weaponcache",_amount] call EFUNC(spawn,createMissionTarget);
 {
     _x addEventHandler ["Killed",{
             _this params ["_unit","_killer"];

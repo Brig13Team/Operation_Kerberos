@@ -12,12 +12,12 @@
 */
 #include "script_component.hpp"
 
-_this params [["_destination",["",[0,0,0]],[["",[]]]]];
+_this params [["_destination","",[""]],["_position",[],[[]]]];
 
-private _position = _destination select 1;
+
 private _radius = getNumber(missionConfigFile >> "missions_config" >> "main" >> "device" >> "location" >> "distance");
 
-private _obj = [_position,"device",_radius] call EFUNC(spawn,spawnMissionTarget);
+private _obj = [_position,"device",_radius] call EFUNC(spawn,createMissionTarget);
 
 [_obj] call FUNC(objects_device_init);
 

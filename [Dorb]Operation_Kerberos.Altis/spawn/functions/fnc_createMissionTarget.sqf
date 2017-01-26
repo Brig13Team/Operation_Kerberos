@@ -19,7 +19,7 @@ _this params [["_centerposition",[],[[]]],["_missiontype","",[""]],["_parameter"
 CHECK((_centerposition isEqualTo [])||(_missiontype isEqualTo ""))
 
 private _functionname = format[QFUNC(mission_%1),_missiontype];
-
+If (count _centerposition <3) then {_centerposition set[2,0];};
 If (isNil _functionname) exitWith {
     ERROR(FORMAT_1("MISSION MISSING: %1",_missiontype));
     []

@@ -64,7 +64,7 @@ PREPS(fallback,spawnUnit);
 PREPS(mission,capture);
 PREPS(mission,clear);
 PREPS(mission,device);
-PREPS(mission,dronecommand);
+PREPS(mission,dronecommando);
 PREPS(mission,emp);
 PREPS(mission,hostages);
 PREPS(mission,intel);

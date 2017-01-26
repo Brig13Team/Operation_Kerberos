@@ -19,8 +19,8 @@ _parameter params [["_radius",300,[0]],["_amount",3,[0]]];
 private _targets = [];
 for "_i" from 0 to _amount do {
 
-    private _targetPositions = [_centerposition,"radiotower",1,_radius] call FUNC(createMissionComposition);
-    private _targetPos = selectRandom _targetPositions;
+    private _targetPositions = [_centerposition,["radiotower","isObjective"],1,_radius] call FUNC(createMissionComposition);
+    private _targetPos = selectRandom (_targetPositions select 0);
     TRACEV_2(_targetPos,_targetPositions);
 
     private _obj = ["radiotower"] call FUNC(getMissionObject);

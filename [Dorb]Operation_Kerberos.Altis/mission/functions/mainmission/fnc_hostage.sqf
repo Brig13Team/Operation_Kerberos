@@ -12,13 +12,14 @@
 */
 #include "script_component.hpp"
 
-_this params [["_destination",["",[0,0,0]],[["",[]]]]];
+_this params [["_destination","",[""]],["_position",[],[[]]]];
 
-private _min = getArray(missionConfigFile >> "missions_config" >> "main" >> "hostage" >> "objectsamount_min");
-private _max = getArray(missionConfigFile >> "missions_config" >> "main" >> "hostage" >> "objectsamount_max");
-private _amount = (floor random (_max - _min + 1)) + _min;
+private _min = getNumber(missionConfigFile >> "missions_config" >> "main" >> "hostage" >> "objectsamount_min");
+private _max = getNumber(missionConfigFile >> "missions_config" >> "main" >> "hostage" >> "objectsamount_max");
+TRACEV_4(_max,_min,_destination,_position);
+private _amount = (floor (random ((_max - _min) + 1))) + _min;
 
-private _hostages = [_position,"hostage",_radius] call EFUNC(spawn,spawnMissionTarget);
+private _hostages = [_position,"hostage",[_amount,_radius]] call EFUNC(spawn,createMissionTarget);
 {
     _x setVariable [QGVAR(rescueEvent),QGVAR(hostage_rescued)];
     _x addEventHandler ["Killed", LINKFUNC(onHostageKilled)];

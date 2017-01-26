@@ -14,12 +14,12 @@
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-_this params [["_destination",["",[0,0,0]],[["",[]]]]];
+_this params [["_destination","",[""]],["_position",[],[[]]]];
 
-private _position = _destination select 1;
+
 private _distance = getNumber(missionConfigFile >> "missions_config" >> "main" >> "clear" >> "location" >> "distance");
 
-[_position,"clear",_distance] call EFUNC(spawn,spawnMissionTarget);
+[_position,"clear",_distance] call EFUNC(spawn,createMissionTarget);
 
 private _clearradius = getNumber(missionConfigFile >> "missions_config" >> "main" >> "clear" >> "radius");
 private _unitamount = getNumber(missionConfigFile >> "missions_config" >> "main" >> "clear" >> "unitamount");

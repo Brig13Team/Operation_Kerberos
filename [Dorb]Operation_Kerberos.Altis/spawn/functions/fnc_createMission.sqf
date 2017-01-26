@@ -16,6 +16,7 @@
 
 _this params [["_centerposition",[],[[]]]];
 TRACEV_1(_centerposition);
+If (count _centerposition <3) then {_centerposition set[2,0];};
 private _nearLoc = nearestLocations [_centerposition, ["NameCityCapital","NameCity","NameVillage"], 250];
 TRACEV_1(_nearLoc);
 If ((count _nearLoc)>1) then {
@@ -41,7 +42,7 @@ If ((count _nearLoc)>1) then {
             [_centerposition,1] call FUNC(spawnGroup_attack);
         };
     };
-    [_centerposition,1500,8] call FUNC(createMinefields);
+    [_centerposition,1500,0,8] call FUNC(spawnMinefieldACE);
 };
 
 _centerposition;
