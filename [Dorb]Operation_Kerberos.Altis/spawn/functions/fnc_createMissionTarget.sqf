@@ -20,6 +20,11 @@ CHECK((_centerposition isEqualTo [])||(_missiontype isEqualTo ""))
 
 private _functionname = format[QFUNC(mission_%1),_missiontype];
 
-If (isNil _functionname) exitWith {[]};
+If (isNil _functionname) exitWith {
+    ERROR(FORMAT_1("MISSION MISSING: %1",_missiontype));
+    []
+};
+
+[QEGVAR(mission,init),[_centerPosition,_missiontype]] call CBA_fnc_localEvent;
 
 [_centerposition,_parameter] call (missionNamespace getVariable _functionname);

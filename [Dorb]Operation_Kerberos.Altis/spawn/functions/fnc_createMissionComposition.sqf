@@ -17,7 +17,7 @@
 
 #include "script_component.hpp"
 
-_this params [["_centerposition",[],[[]]],["_type","isObjective",[""]],["_amount",1,[0]],["_radius",1200,[0]]];
+_this params [["_centerposition",[],[[]]],["_type","isObjective",[""]],["_amount",1,[0]],["_radius",1500,[0]]];
 TRACEV_4(_centerposition,_type,_amount,_radius);
 
 private _possibleSpawnpositions = [];

@@ -81,6 +81,7 @@ while {(_amountDefHouses > 0)&&(count _allHouses > 0)} do {
                 _tempStaticPos pushBack _spawnpos;
             };
         } forEach _soldierPositions;
+        GVAR(usedHouses) pushBack _curHouse;
         [_tempStaticPos] call FUNC(fallback_spawnStatic);
         [_tempSoldierPos] call FUNC(fallback_spawnUnit);
         DEC(_amountDefHouses);

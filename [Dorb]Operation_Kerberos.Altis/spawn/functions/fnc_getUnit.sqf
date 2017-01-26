@@ -79,7 +79,14 @@ switch _grouptype do {
         private _allUnits = getArray(_cfg >> "divers");
         selectRandom _allUnits;
     };
-
+    case "civvehicle" : {
+        private _allUnits = getArray(_cfg >> "civ_cars");
+        selectRandom _allUnits;
+    };
+    case "civcar" : {
+        private _allUnits = getArray(_cfg >> "civ_smallcars");
+        selectRandom _allUnits;
+    };
 
     default {ERROR(FORMAT_1("Missing entrie: %1",_this))};
 };

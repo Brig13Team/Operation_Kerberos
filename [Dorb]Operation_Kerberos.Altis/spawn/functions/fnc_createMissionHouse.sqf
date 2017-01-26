@@ -17,6 +17,7 @@
 _this params [["_centerposition",[],[[]]]];
 
 private _buildings = _centerposition nearObjects ["HouseBase", 280];
+_buildings = _buildings - (missionNamespace getVariable [QGVAR(usedHouses),[]]);
 TRACEV_2(_centerposition,_buildings);
 private _possibleBuildings = [];
 

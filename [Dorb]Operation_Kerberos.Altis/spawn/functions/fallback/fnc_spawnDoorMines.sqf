@@ -17,7 +17,7 @@
 _this params ["_centerposition","_radius","_spawnamount"];
 
 private _buildings = _centerposition nearObjects ["HouseBase", _radius];
-
+_buildings = _buildings - (missionNamespace getVariable [QGVAR(usedHouses),[]]);
 _buildings = _buildings call BIS_fnc_arrayShuffle;
 
 private _errorCounter = 5000;
@@ -56,7 +56,7 @@ while {(_errorCounter > 0)&&(_spawnamount>0)} do {
 
         [_minesArray,2] call FUNC(fallback_spawnExplosives);
         DEC(_spawnamount);
-        
+
         #ifdef DEBUG_MODE_FULL
             [getPos _curbuilding,format["doormines-%1",_spawnamount],"ColorRed","Minefield",0] call EFUNC(common,debug_marker_create);
         #endif

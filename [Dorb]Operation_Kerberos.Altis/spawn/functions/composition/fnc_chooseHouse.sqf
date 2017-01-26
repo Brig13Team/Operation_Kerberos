@@ -16,6 +16,7 @@
 
 _this params [["_house",objNull,[objNull]],["_isMissiontarget",false,[true]]];
 
+If (isNull _house) exitWith {configNull;};
 private _housetype = typeOf _house;
 private _allConfigs = [];
 

@@ -27,8 +27,8 @@ private _army = [_armys select 0, _armys select 1] call BIS_fnc_selectRandomWeig
 
 // create task
 private _curMainTaskID = [_nextMission, _nextLocation] call FUNC(taskmanager_add);
-
-[_nextMission,_nextLocation,_distance] call EFUNC(spawn,createMission);
+// spawn all the missionthings
+[_nextLocation select 1] call EFUNC(spawn,createMission);
 
 // setUp the sidemissions
 private _allSideMissions = configProperties [(missionConfigFile >> "mission_config" >> "main" >> _nextMission >> "sidemissions"), "(getNumber(_x >> 'probability') > (random 1))", true];
@@ -41,7 +41,7 @@ private _allSideMissions = configProperties [(missionConfigFile >> "mission_conf
     ] call CBA_fnc_waitAndExecute;
 } forEach _allSideMissions;
 
-
+[QEGVAR(mission,start),[_nextLocation select 1,_missiontype]] call CBA_fnc_localEvent;
 // initialize next mission
 GVAR(current_mission)  = _nextMission;
 GVAR(current_location) = _nextLocation;
