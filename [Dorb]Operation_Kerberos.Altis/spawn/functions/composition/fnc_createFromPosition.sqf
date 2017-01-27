@@ -27,6 +27,7 @@ CHECK(_center isEqualTo [])
 If (IS_OBJECT(_center)) then {
     _dir = getDir _center;
     _center = getPos _center;
+    _center set[2,0];
 };
 private _vectorUp = [0,0,1];
 
@@ -50,7 +51,6 @@ GVAR(exporthelper) setDir _dir;
 GVAR(exporthelper2) setPosATL _center;
 GVAR(exporthelper3) setPosATL _center;
 GVAR(exporthelper3) setDir _dir;
-//_nearObjects = _nearObjects - [GVAR(exporthelper)] - [GVAR(exporthelper2)];
 
 private _fnc_getObjbelow = {
     _this params [["_object",objNull,[objNull]],["_objectsToIgnore",[],[[]]]];
@@ -69,15 +69,26 @@ private _fnc_getObjbelow = {
 
 private _fnc_setObjAtt = {
     _this params ["_hash","_obj","_relObj"];
+    private _relObjDir = getDir _relObj;
+    private _relObjPos = getPosWorld _relObj;
+    private _relObjVecUp = vectorUp _relObj;
     HASH_SET(_hash,"type",typeOf _obj);
-    private _curPos = If (surfaceIsWater (getPos _obj)) then {getPosASL _obj}else{getPosATL _obj};
-    private _curRelPos = _relObj worldToModel _curPos;
+    // get the position acording to the relative object
+    private _objPos = getPosWorld _obj;
+    _objPos = [_objPos,_relObjDir] call BIS_fnc_rotateVector2D;
+    private _curRelPos = _objPos vectorDiff _relObjPos;
     HASH_SET(_hash,"pos",_curRelPos);
-    private _curDir = (getDir _obj) + (getDir _relObj);
+    // dir and vector
+    private _curDir = (getDir _obj) - (getDir _relObj);
     HASH_SET(_hash,"dir",_curDir);
-    HASH_SET(_hash,"vecup",vectorUp _obj);
-    private _hasCrew = (count (getArray(configFile >> (typeOf _obj) >> "typicalCargo" ))) > 0;
-    private _isSimpleObject = !((_hasCrew)||(_obj isKindOf "CAManBase"));
+    private _vecUp = vectorUp _obj;
+    _vecUp = [_vecUp,_relObjDir] call BIS_fnc_rotateVector2D;
+    _vecUp = _vecUp vectorAdd _relObjVecUp;
+    HASH_SET(_hash,"vecup",_vecUp);
+
+    // object properties
+    private _hasCrew = [_obj] call FUNC(composition_hasCrew);
+    private _isSimpleObject = [_obj] call FUNC(composition_isSimpleObject);
     HASH_SET(_hash,"hascrew",_hasCrew);
     HASH_SET(_hash,"issimpleobj",_isSimpleObject);
 };
@@ -85,14 +96,22 @@ private _fnc_setObjAtt = {
 private _fnc_setObjAttBottom = {
     _this params ["_hash","_obj"];
     HASH_SET(_hash,"type",typeOf _obj);
-    //private _curRelPos = GVAR(exporthelper) getPos [GVAR(exporthelper) distance2D _obj,[GVAR(exporthelper),_obj]call BIS_fnc_relativeDirTo];
-    private _curRelPos = GVAR(exporthelper) worldToModel (getPos _obj);
+    // get the position of the Object
+    private _objPos = getPosWorld _obj;
+    // rotate acording to centerdir
+    _objPos = [_objPos,_dir] call BIS_fnc_rotateVector2D;
+    // relativ to centerpos
+    private _curRelPos = _objPos vectorDiff _center;
     HASH_SET(_hash,"pos",_curRelPos);
-    private _curDir = (getDir _obj) + _dir;
+    // direction of the object
+    private _curDir = (getDir _obj) - _dir; // rotate counterClockwise
     HASH_SET(_hash,"dir",_curDir);
-    HASH_SET(_hash,"vecup",vectorUp _obj);
-    private _hasCrew = (count (getArray(configFile >> (typeOf _obj) >> "typicalCargo" ))) > 0;
-    private _isSimpleObject = !((_hasCrew)||(_obj isKindOf "CAManBase"));
+    private _vecUp = vectorUp _obj;
+    _vecUp = [_vecUp,_dir] call BIS_fnc_rotateVector2D;
+    HASH_SET(_hash,"vecup",_vecUp);
+    // object properties
+    private _hasCrew = [_obj] call FUNC(composition_hasCrew);
+    private _isSimpleObject = [_obj] call FUNC(composition_isSimpleObject);
     HASH_SET(_hash,"hascrew",_hasCrew);
     HASH_SET(_hash,"issimpleobj",_isSimpleObject);
 };
@@ -109,7 +128,12 @@ private _helperToIgnore = ["","Logic",
     "Sign_Arrow_Large_Green_F","Sign_Arrow_Direction_Green_F",
     "Sign_Arrow_Large_Yellow_F","Sign_Arrow_Direction_Yellow_F"
 ];
-_nearObjects = _nearObjects select {(!isPlayer _x)&&(!(_x isKindOf "Animal"))&&(!(typeOf _x in _helperToIgnore))};
+// remove things we don't want
+_nearObjects = _nearObjects select {
+    (!isPlayer _x)&&
+    (!(_x isKindOf "Animal"))&&
+    (!(typeOf _x in _helperToIgnore))
+};
 
 
 private _registeredObjects = [];

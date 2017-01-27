@@ -17,5 +17,6 @@ _this params [["_centerpos",EGVAR(mission,centerPos),[[]]]];
 
 GVAR(targetHouses) = [];
 GVAR(usedHouses) = [];
+GVAR(spawnedCompositions) = [];
 
 [_centerpos,2200] call FUNC(cleanup_full);

@@ -23,18 +23,23 @@ TRACEV_4(_centerposition,_type,_amount,_radius);
 private _possibleSpawnpositions = [];
 private _errorcounter = 0;
 
-while {((count _possibleSpawnpositions)<_amount)&&(_errorcounter < (100+_amount))} do {
+while {((count _possibleSpawnpositions)<_amount)&&(_errorcounter < (300+_amount))} do {
     // random position inside radius, not in water
     private _tempPos = [_centerposition,_radius,0] call EFUNC(common,pos_random);
     // get a flat position
-    private _spawnpos = [_tempPos,15,_radius,20,0.05] call EFUNC(common,pos_flatempty);
-    If (_spawnpos isEqualTo []) then {
-        _spawnpos = [_tempPos,15,_radius,20,0.15] call EFUNC(common,pos_flatempty);
+    private _spawnpos = [_tempPos,30,_radius,20,0.05] call EFUNC(common,pos_flatempty);
+
+    // fallback search
+    If ((_spawnpos isEqualTo [])&&(_errorcounter > 200)) then {
+        _spawnpos = [_tempPos,30,_radius,20,0.15] call EFUNC(common,pos_flatempty);
     };
+
     // if no position was found exit
     If (!(_spawnpos isEqualTo [])) then {
         // _spawnpos is not too close to other positions
-        If (({((_spawnpos distance2D _x)<30)} count _possibleSpawnpositions)<1) then {
+        If ((({((_spawnpos distance2D _x)<60)} count _possibleSpawnpositions)<1)&&
+            {({((_spawnpos distance2D _x)<60)} count GVAR(spawnedCompositions))<1})
+         then {
             // spawnposition is not on a road
             private _checkpos = ([_spawnpos,3,10] call EFUNC(common,pos_square)) select 1;
             private _isOnRoad = ({isOnRoad _x;} count _checkpos)>0;
@@ -99,6 +104,7 @@ private _allTargetPositions = [];
     private _currentComposition = [_type,_centerposition] call FUNC(composition_chooseComposition);
 
     private _curTargetPos = [_x,_currentComposition,_bestdir] call FUNC(composition_spawnComposition);
+    GVAR(spawnedCompositions) pushBack _x;
     TRACEV_1(_curTargetPos);
     If !(_curTargetPos isEqualTo []) then {
         _allTargetPositions pushBack _curTargetPos;
