@@ -55,7 +55,7 @@ class CfgCompositions {
     };
     class positions {
         #include "config\compositions_positions.hpp"
-        #include "config\defence_positions2.hpp"
+        #include "config\compositions_positions2.hpp"
     };
     #include "config\compositions_housepositions.hpp"
 };
