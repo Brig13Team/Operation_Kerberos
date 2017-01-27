@@ -33,7 +33,7 @@ If (hasInterface) then {
 
     };
     //[] spawn FUNC(ArsenalRemoveRadio);
-    QGVAR(isGearSyncing) = false;
+    GVAR(isGearSyncing) = false;
     [
         QGVAR(syncGear),
         {
