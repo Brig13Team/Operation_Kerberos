@@ -33,6 +33,7 @@ If (hasInterface) then {
 
     };
     //[] spawn FUNC(ArsenalRemoveRadio);
+    /*
     GVAR(isGearSyncing) = false;
     [
         QGVAR(syncGear),
@@ -64,4 +65,5 @@ If (hasInterface) then {
             ] call CBA_fnc_waitAndExecute;
         }
     ] call CBA_fnc_addEventHandler;
+    */
 };

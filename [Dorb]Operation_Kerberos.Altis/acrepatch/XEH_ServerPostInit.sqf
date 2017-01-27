@@ -7,7 +7,7 @@
  */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-
+/*
 If (isNil "ACRE_SERVER_GEAR_DESYNCED") then {
     ACRE_SERVER_GEAR_DESYNCED = false;
     ACRE_SERVER_DESYNCED_PLAYERS = [];
@@ -33,3 +33,4 @@ If (isNil "ACRE_SERVER_GEAR_DESYNCED") then {
     },
     60
 ] call CBA_fnc_addPerFrameHandler;
+*/
