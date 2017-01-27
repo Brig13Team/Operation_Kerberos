@@ -142,7 +142,7 @@ private _allClasses = configProperties [_config, "isClass(_x)", true];
     private _checkPos1 = _relPos vectorAdd [0,0,30];
     private _checkPos2 = _relPos vectorAdd [0,0,-30];
 
-    ((lineIntersectsSurfaces[_checkPos1,_checkPos2]) select 0) params ["_spawnPos","_surfaceNormal"];
+    ((lineIntersectsSurfaces[_checkPos1,_checkPos2,objNull,objNull,false]) select 0) params ["_spawnPos","_surfaceNormal"];
 
     // normalize the area
 
