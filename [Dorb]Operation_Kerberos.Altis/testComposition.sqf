@@ -24,14 +24,14 @@ If (isNil QGVAR(test_composition)) then {
 
 
 private _type = "clear";
-If (_town) then {_type = "hostages"};
+If (_town) then {_type = "hostage"};
 
 
 ([_type] call EFUNC(mission,taskmanager_choose_location)) params ["_locName","_locPos"];
 TRACEV_2(_locName,_locPos);
 GVAR(test_composition) = _locPos;
 If (_town) then {
-
+    [_locPos] call EFUNC(spawn,createMissionHouse);
 }else{
     [_locPos,"",1] call EFUNC(spawn,createMissionComposition);
 };

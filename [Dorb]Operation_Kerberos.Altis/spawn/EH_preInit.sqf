@@ -88,3 +88,4 @@ GVAR(SpawnLast) = CBA_missiontime;
 GVAR(targetHouses) = [];
 GVAR(usedHouses) = [];
 GVAR(spawnedCompositions) = [];
+GVAR(cleanUpDump) = [];

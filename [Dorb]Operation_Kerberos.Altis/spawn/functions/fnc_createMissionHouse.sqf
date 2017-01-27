@@ -14,7 +14,7 @@
 
 #include "script_component.hpp"
 
-_this params [["_centerposition",[],[[]]]];
+_this params [["_centerposition",[],[[]]],["_type","",[""]],["_amount",1,[0]]];
 TRACEV_2(_this,_centerposition);
 private _buildings = _centerposition nearObjects ["House", 280];
 _buildings = _buildings - (missionNamespace getVariable [QGVAR(usedHouses),[]]);
@@ -23,7 +23,7 @@ If (_buildings isEqualTo []) exitWith {ERROR(FORMAT_1("No Buildings found around
 private _possibleBuildings = [];
 private _targetPositions = [];
 {
-    private _temp = [_x,true] call FUNC(composition_chooseHouse);
+    private _temp = [_x,_type] call FUNC(composition_chooseHouse);
     //TRACEV_2(_temp,_x);
     If ((!isNil "_temp")&&{!isNull _temp}&&{!(_temp isEqualTo [])}) then {
         _possibleBuildings pushBack [_x,_temp];
@@ -43,11 +43,17 @@ If (_possibleBuildings isEqualTo []) then {
     } forEach _buildings;
 }else{
     _possibleBuildings = _possibleBuildings - GVAR(targetHouses);
-    private _targetHouse = selectRandom _possibleBuildings;
-    TRACEV_2(_targetHouse,_possibleBuildings);
-    _targetPositions = _targetHouse call FUNC(composition_spawnHouse);
-    TRACEV_1(_targetPositions);
-    GVAR(targetHouses) pushBack _targetHouse;
+    _possibleBuildings = _possibleBuildings call BIS_fnc_arrayShuffle;
+    while {((count _possibleBuildings) > 0)&&(_amount > 0)} do {
+        private _targetHouse = _possibleBuildings deleteAt 0;
+        #ifdef DEBUG_MODE_FULL
+            [getPos (_targetHouse select 0),format["house-%1",(_targetHouse select 0)],"ColorBlue","mil_box",0] call EFUNC(common,debug_marker_create);
+        #endif
+        _tempPos = _targetHouse call FUNC(composition_spawnHouse);
+        _targetPositions append _tempPos;
+        GVAR(targetHouses) pushBack _targetHouse;
+        DEC(_amount);
+    };
 };
 
 _targetPositions;

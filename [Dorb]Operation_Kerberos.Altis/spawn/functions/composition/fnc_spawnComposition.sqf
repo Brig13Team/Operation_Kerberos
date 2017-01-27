@@ -51,6 +51,9 @@ private _fnc_setObject = {
             _curObj setFuel 0.1;
             (driver _curObj) disableAI "PATH";
         };
+        case (_curObj isKindOf "CamoNet_BLUFOR_F"): {
+            _curObj setDammage 0;
+        };
     };
 };
 
@@ -103,6 +106,7 @@ private _fnc_spawnRelObj = {
             }else{
                 If (_isSimpleObject) then {
                     _curObj = createSimpleObject [_curType, [0,0,0]];
+                    GVAR(cleanUpDump) pushBack _curObj;
                     _curObj setPosWorld _spawnPos;
                     _curObj setDir _spawnDir;
                     _curObj setVectorUp _spawnVecUp;
@@ -191,6 +195,7 @@ private _allClasses = configProperties [_config, "isClass(_x)", true];
         }else{
             If (_isSimpleObject) then {
                 _curObj = createSimpleObject [_curType, [0,0,0]];
+                GVAR(cleanUpDump) pushBack _curObj;
                 _curObj setPosWorld _spawnPos;
                 _curObj setDir _spawnDir;
                 _curObj setVectorUp _spawnVecUp;

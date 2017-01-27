@@ -20,7 +20,7 @@ _parameter params [["_amount",3,[0]]];
 private _intelObjects = [];
 for "_i" from 0 to _amount do {
 
-    private _targetPositions = [_centerposition] call FUNC(createMissionHouse);
+    private _targetPositions = [_centerposition,"intel"] call FUNC(createMissionHouse);
     private _targetPos = selectRandom _targetPositions;
     TRACEV_2(_targetPos,_targetPositions);
 

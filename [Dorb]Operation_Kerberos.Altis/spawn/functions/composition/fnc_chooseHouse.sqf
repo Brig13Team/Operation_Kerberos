@@ -14,13 +14,13 @@
 
 #include "script_component.hpp"
 
-_this params [["_house",objNull,[objNull]],["_isMissiontarget",false,[true]]];
+_this params [["_house",objNull,[objNull]],["_missionTargetType","",[""]]];
 
 If (isNull _house) exitWith {configNull;};
 private _housetype = typeOf _house;
 private _allConfigs = [];
 
-IF (_isMissiontarget) then {
+If !(_missionTargetType isEqualTo [""]) then {
     _allConfigs = configProperties [(missionConfigFile >> "CfgCompositions" >> "houses"),(format["((getText(_x >> 'type') == '%1')&&(getNumber(_x >> 'hasmissiontarget')>0))",_housetype]),true];
 }else{
     _allConfigs = configProperties [(missionConfigFile >> "CfgCompositions" >> "houses"),(format["getText(_x >> 'type') == '%1'",_housetype]),true];

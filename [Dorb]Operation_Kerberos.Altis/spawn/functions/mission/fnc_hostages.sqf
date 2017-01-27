@@ -19,7 +19,7 @@ _parameter params [["_amount",3,[0]],["_radius",150,[0]]];
 private _targets = [];
 
 for "_i" from 0 to _amount do {
-    private _targetPositions = [_centerposition] call FUNC(createMissionHouse);
+    private _targetPositions = [_centerposition,"hostage"] call FUNC(createMissionHouse);
     private _targetPos = selectRandom _targetPositions;
 
     private _obj = ["hostage"] call FUNC(getMissionObject);

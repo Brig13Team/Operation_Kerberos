@@ -7,7 +7,7 @@
 */
 #include "script_component.hpp"
 _this params ["_pos","_rad"];
-
+TRACEV_2(_pos,_rad);
 [] call FUNC(cleanup_base);
 
 private _objectsToDelete = [];
@@ -39,6 +39,11 @@ private _objectsToDelete = [];
 {
     _x call EFUNC(common,delete);
 } foreach allGroups;
+
+{
+    _x call EFUNC(common,delete);
+} foreach (missionNamespace getVariable [QGVAR(cleanUpDump),[]]);
+GVAR(cleanUpDump) = [];
 
 [
     {
