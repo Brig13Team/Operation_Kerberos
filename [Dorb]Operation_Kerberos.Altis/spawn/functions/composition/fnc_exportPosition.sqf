@@ -88,7 +88,7 @@ private _fnc_setObjAtt = {
 
     // object properties
     private _hasCrew = [_obj] call FUNC(composition_hasCrew);
-    private _isSimpleObject = [_obj] call FUNC(composition_isSimpleObject);
+    private _isSimpleObject = [_obj,true] call FUNC(composition_isSimpleObject);
     HASH_SET(_hash,"hascrew",_hasCrew);
     HASH_SET(_hash,"issimpleobj",_isSimpleObject);
 };

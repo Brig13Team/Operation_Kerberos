@@ -13,5 +13,16 @@
  */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-_this params [["_curObj",objNull,[objNull]]];
-(({_curObj isKindOf _x} count ["CAManBase","Static","LandVehicle","Air","Ship"])<1);
+_this params [["_curObj",objNull,[objNull]],["_isStacked",false,[true]]];
+
+If (({_curObj isKindOf _x} count ["CAManBase","Static","LandVehicle","Air","Ship"])>0) exitWith {false;};
+
+/*
+ * TODO:    the lower objects should be less likely simpleObjects to prevent AI moving through walls.
+ *          the objects on top should be simpleObjects if there is no restriction
+ */
+
+
+
+
+true;
