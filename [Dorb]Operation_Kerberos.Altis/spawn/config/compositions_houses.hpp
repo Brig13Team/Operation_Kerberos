@@ -1,4865 +1,569 @@
-class composition_653264 {
-    author = "doubleK";
+class composition_732853 {
     class obj_6 {
-        pos[] = {7.17456,-2.51904,0.00141716};
+        pos[] = {2.04495,4.22314,0.397209};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_msv_sergeant";
+        dir = 359.622;
+    };
+    class obj_37 {
+        pos[] = {18.2635,-0.523438,8.769};
+        issimpleobj = 0;
+        vecup[] = {0,-0.00300962,0.999995};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 360.337;
+    };
+    class obj_44 {
+        pos[] = {-17.5303,0.00927734,12.3145};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_msv_emr_marksman";
+        dir = 359.622;
+    };
+    class obj_51 {
+        pos[] = {-16.8611,-8.95801,12.3292};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_msv_emr_marksman";
+        dir = 607.409;
+    };
+    class obj_7 {
+        pos[] = {7.04181,-0.289551,0.465674};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_msv_strelok_rpg_assist";
+        dir = 359.622;
+    };
+    class obj_38 {
+        pos[] = {16.5637,8.75488,8.70704};
+        issimpleobj = 0;
+        vecup[] = {0.0112458,0.00827141,0.999903};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 449.786;
+    };
+    class obj_45 {
+        pos[] = {15.8867,-8.3418,12.595};
+        issimpleobj = 0;
+        vecup[] = {0.0209891,0.0156096,0.999658};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 630.07;
+    };
+    class obj_52 {
+        pos[] = {18.1726,-11.4756,8.75635};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 538.923;
+    };
+    class obj_8 {
+        pos[] = {-8.55426,-2.43848,0.352498};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
         type = "rhs_msv_machinegunner";
-        dir = 412.556;
-    };
-    class obj_7 {
-        pos[] = {-6.66873,3.73584,3.74455};
-        issimpleobj = 0;
-        vecup[] = {0.00606186,-0.0191809,0.999798};
-        hascrew = 1;
-        type = "rhs_Igla_AA_pod_msv";
-        dir = 719.621;
-    };
-    class obj_8 {
-        pos[] = {0.615051,7.84277,-0.154131};
-        issimpleobj = 0;
-        vecup[] = {-0.0108035,-0.0131023,0.999856};
-        hascrew = 1;
-        type = "RHS_ZU23_MSV";
-        dir = 404.807;
-    };
-    class obj_10 {
-        pos[] = {9.79971,0.330566,0.0013504};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_msv_emr_marksman";
         dir = 359.622;
     };
-    class obj_9 {
-        pos[] = {-8.33508,-1.90869,0.00137091};
+    class obj_10 {
+        pos[] = {1.6077,2.64209,14.0532};
         issimpleobj = 0;
-        vecup[] = {0,0,1};
+        vecup[] = {-0.0253243,-0.0160793,0.99955};
         hascrew = 1;
-        type = "rhs_msv_at";
-        dir = 644.622;
+        type = "RHS_ZU23_MSV";
+        dir = 458.621;
     };
-    class obj_11 {
-        pos[] = {3.25668,-9.73145,-0.106579};
+    class obj_39 {
+        pos[] = {12.8968,-8.76172,13.7815};
         issimpleobj = 0;
-        vecup[] = {-0.00337555,-0.000538948,0.999994};
-        hascrew = 1;
-        type = "rhs_KORD_high_MSV";
-        dir = 537.722;
-    };
-    class obj_12 {
-        pos[] = {-3.48511,9.98877,-0.106352};
-        issimpleobj = 0;
-        vecup[] = {0.00178013,-0.000819051,0.999998};
-        hascrew = 1;
-        type = "rhs_KORD_high_MSV";
-        dir = 710.868;
-    };
-    class obj_13 {
-        pos[] = {8.5737,-8.43799,0.00139046};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_msv_strelok_rpg_assist";
-        dir = 374.622;
-    };
-    class obj_20 {
-        pos[] = {12.8389,-8.84717,3.81442};
-        issimpleobj = 0;
-        vecup[] = {0.0211241,0.0156713,0.999654};
+        vecup[] = {0.021041,0.0156489,0.999656};
         hascrew = 1;
         type = "rhs_Igla_AA_pod_msv";
         dir = 719.622;
     };
-    hasmissiontarget = 0;
-    class obj_14 {
-        pos[] = {9.6879,9.46484,0.00141907};
+    class obj_46 {
+        pos[] = {-16.6493,10.5288,9.92844};
         issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_msv_emr_marksman";
-        dir = 359.622;
-    };
-    class obj_21 {
-        pos[] = {15.0213,8.04102,-0.111811};
-        issimpleobj = 0;
-        vecup[] = {0.00855382,0.00768017,0.999934};
+        vecup[] = {0.000897611,0.00115061,0.999999};
         hascrew = 1;
         type = "rhs_KORD_high_MSV";
-        dir = 445.539;
+        dir = 627.654;
     };
-    class obj_15 {
-        pos[] = {-13.6115,1.91699,-0.148638};
+    class obj_53 {
+        pos[] = {19.4319,-8.41162,9.92527};
         issimpleobj = 0;
-        vecup[] = {0.004106,-0.00606913,0.999973};
+        vecup[] = {-0.00168262,-0.000128277,0.999999};
         hascrew = 1;
-        type = "RHS_ZU23_MSV";
-        dir = 597.688;
+        type = "rhs_KORD_high_MSV";
+        dir = 451.208;
     };
-    class obj_22 {
-        pos[] = {-17.5298,0.125,0.00139427};
+    class obj_60 {
+        pos[] = {22.1496,-6.89307,8.75324};
         issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_msv_emr_marksman";
-        dir = 359.622;
+        vecup[] = {0.000690285,0.00077204,0.999999};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 449.781;
     };
-    type = "Land_WIP_F";
-    class obj_16 {
-        pos[] = {13.5752,-5.25732,0.00137901};
+    class obj_9 {
+        pos[] = {3.32098,-9.70947,9.92835};
         issimpleobj = 0;
-        vecup[] = {0,0,1};
+        vecup[] = {-0.00338886,-0.000820286,0.999994};
         hascrew = 1;
-        type = "rhs_msv_strelok_rpg_assist";
-        dir = 374.622;
+        type = "rhs_KORD_high_MSV";
+        dir = 537.756;
     };
-    class obj_23 {
-        pos[] = {-10.3682,-14.5332,0.00137711};
+    class obj_11 {
+        pos[] = {-3.55103,9.96582,9.94825};
+        issimpleobj = 0;
+        vecup[] = {0.00175771,-0.000811182,0.999998};
+        hascrew = 1;
+        type = "rhs_KORD_high_MSV";
+        dir = 710.872;
+    };
+    class obj_47 {
+        pos[] = {14.9535,-10.4346,12.6439};
+        issimpleobj = 0;
+        vecup[] = {0.0259526,0.00469454,0.999652};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 675.283;
+    };
+    class obj_54 {
+        pos[] = {22.8087,4.03906,4.75784};
+        issimpleobj = 0;
+        vecup[] = {-0.00605938,-0.00387548,0.999974};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 449.317;
+    };
+    class obj_61 {
+        pos[] = {-10.2419,-14.6016,17.6092};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
         type = "rhs_msv_emr_marksman";
         dir = 474.607;
     };
-    class obj_30 {
-        pos[] = {19.376,-8.54004,-0.10581};
+    author = "DoubleK";
+    class obj_12 {
+        pos[] = {-6.6933,3.69189,13.7327};
         issimpleobj = 0;
-        vecup[] = {-0.00170455,-0.000106613,0.999999};
+        vecup[] = {0.00606971,-0.0191822,0.999798};
+        hascrew = 1;
+        type = "rhs_Igla_AA_pod_msv";
+        dir = 719.621;
+    };
+    class obj_48 {
+        pos[] = {20.3877,-0.574707,8.76938};
+        issimpleobj = 0;
+        vecup[] = {0,-0.00300962,0.999995};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 360.337;
+    };
+    class obj_55 {
+        pos[] = {-17.5005,10.7764,12.3268};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_msv_emr_marksman";
+        dir = 359.622;
+    };
+    class obj_62 {
+        pos[] = {22.856,-9.88721,4.64986};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 449.781;
+    };
+    class obj_13 {
+        pos[] = {9.7973,0.395508,12.3198};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_msv_emr_marksman";
+        dir = 359.622;
+    };
+    class obj_20 {
+        pos[] = {11.118,6.07715,12.7545};
+        issimpleobj = 0;
+        vecup[] = {-0.000488281,0.0224966,0.999747};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 450.06;
+    };
+    class obj_49 {
+        pos[] = {-17.2813,-9.87646,9.92732};
+        issimpleobj = 0;
+        vecup[] = {3.94435e-005,0.00209374,0.999998};
         hascrew = 1;
         type = "rhs_KORD_high_MSV";
-        dir = 451.195;
+        dir = 598.114;
+    };
+    class obj_56 {
+        pos[] = {19.8714,-11.4482,8.75635};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 538.923;
+    };
+    class obj_63 {
+        pos[] = {-10.9374,-14.8813,17.5125};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_HBarrierTower_F";
+        dir = 359.622;
+    };
+    class obj_70 {
+        pos[] = {27.1393,-6.104,4.7424};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 538.217;
+    };
+    class obj_14 {
+        pos[] = {6.66354,11.7305,8.79415};
+        issimpleobj = 0;
+        vecup[] = {0,-0.00223762,0.999997};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 718.034;
+    };
+    class obj_21 {
+        pos[] = {11.3941,-5.88721,12.6495};
+        issimpleobj = 0;
+        vecup[] = {0,0.0173557,0.999849};
+        hascrew = 0;
+        type = "Land_BagFence_Corner_F";
+        dir = 540.007;
+    };
+    class obj_57 {
+        pos[] = {22.8225,7.74951,4.75708};
+        issimpleobj = 0;
+        vecup[] = {-0.00610837,0.0037025,0.999974};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 449.314;
+    };
+    class obj_64 {
+        pos[] = {22.1008,-9.20654,8.75502};
+        issimpleobj = 0;
+        vecup[] = {0.000690285,0.00077204,0.999999};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 449.781;
+    };
+    class obj_71 {
+        pos[] = {28.7004,0.738281,6.75915};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 451.017;
+    };
+    class obj_15 {
+        pos[] = {0.56366,7.84717,14.1328};
+        issimpleobj = 0;
+        vecup[] = {-0.0105895,-0.012551,0.999865};
+        hascrew = 1;
+        type = "RHS_ZU23_MSV";
+        dir = 404.81;
+    };
+    class obj_22 {
+        pos[] = {14.696,3.11865,9.94435};
+        issimpleobj = 0;
+        vecup[] = {0.0107116,0.00439373,0.999933};
+        hascrew = 1;
+        type = "rhs_KORD_high_MSV";
+        dir = 445.525;
+    };
+    class obj_58 {
+        pos[] = {22.9048,-7.57373,4.74288};
+        issimpleobj = 0;
+        vecup[] = {0.00886983,0.6864,0.72717};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 450.086;
+    };
+    class obj_65 {
+        pos[] = {-11.5435,-14.8887,17.6092};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_msv_emr_marksman";
+        dir = 607.409;
+    };
+    type = "Land_WIP_F";
+    class obj_16 {
+        pos[] = {11.0928,0.37793,12.7314};
+        issimpleobj = 0;
+        vecup[] = {-0.0135533,0.00262923,0.999905};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 450.058;
+    };
+    class obj_23 {
+        pos[] = {5.74463,11.5229,12.7346};
+        issimpleobj = 0;
+        vecup[] = {0.0226944,-0.00185853,0.999741};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 375.153;
+    };
+    class obj_30 {
+        pos[] = {13.5765,-6.1333,12.6208};
+        issimpleobj = 0;
+        vecup[] = {0.0117841,-0.000345031,0.999931};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 719.368;
+    };
+    class obj_59 {
+        pos[] = {21.162,11.6392,4.74359};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 359.622;
+    };
+    class obj_66 {
+        pos[] = {21.8552,-11.0322,8.75813};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Corner_F";
+        dir = 449.122;
     };
     class obj_17 {
-        pos[] = {-11.0008,-9.68701,1.92324};
+        pos[] = {11.0759,-2.37109,12.6696};
         issimpleobj = 0;
-        vecup[] = {-1,-2.98111e-008,-3.19685e-008};
+        vecup[] = {-0.0101662,-0.0151943,0.999833};
         hascrew = 0;
-        type = "Land_WoodenWall_01_m_8m_F";
-        dir = 719.622;
+        type = "Land_BagFence_Long_F";
+        dir = 450.069;
     };
     class obj_24 {
-        pos[] = {-11.5793,-14.8125,0.00137711};
+        pos[] = {9.62521,9.52881,12.2432};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
         type = "rhs_msv_emr_marksman";
-        dir = 607.409;
+        dir = 359.622;
+    };
+    class obj_31 {
+        pos[] = {-13.6239,1.82715,14.1112};
+        issimpleobj = 0;
+        vecup[] = {0.00407875,-0.00612909,0.999973};
+        hascrew = 1;
+        type = "RHS_ZU23_MSV";
+        dir = 597.687;
+    };
+    class obj_67 {
+        pos[] = {24.8253,-6.11816,4.7424};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 538.217;
     };
     class obj_1 {
-        pos[] = {1.31348,-2.38672,0.00135231};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_msv_machinegunner";
-        dir = 434.622;
-    };
-    class obj_18 {
-        pos[] = {14.7159,3.02197,-0.111645};
-        issimpleobj = 0;
-        vecup[] = {0.0104792,0.00493941,0.999933};
-        hascrew = 1;
-        type = "rhs_KORD_high_MSV";
-        dir = 445.492;
-    };
-    class obj_25 {
-        pos[] = {-16.9199,-8.84668,0.00138283};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_msv_emr_marksman";
-        dir = 607.409;
-    };
-    class obj_2 {
-        pos[] = {1.62259,2.63037,-0.147415};
-        issimpleobj = 0;
-        vecup[] = {-0.0268268,-0.0159376,0.999513};
-        hascrew = 1;
-        type = "RHS_ZU23_MSV";
-        dir = 458.574;
-    };
-    class obj_19 {
-        pos[] = {-13.4941,7.60791,-0.151417};
-        issimpleobj = 0;
-        vecup[] = {0.00383328,-0.00566068,0.999977};
-        hascrew = 1;
-        type = "RHS_ZU23_MSV";
-        dir = 655.991;
-    };
-    class obj_26 {
-        pos[] = {-16.5798,10.6392,-0.106663};
-        issimpleobj = 0;
-        vecup[] = {0.000847326,0.00122319,0.999999};
-        hascrew = 1;
-        type = "rhs_KORD_high_MSV";
-        dir = 627.583;
-    };
-    class obj_3 {
-        pos[] = {-2.88791,-2.50977,0.0013895};
+        pos[] = {-0.55426,-2.43848,0.42626};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
         type = "rhs_msv_at";
-        dir = 644.622;
-    };
-    class obj_27 {
-        pos[] = {-11.1743,-16.4312,-0.259617};
-        issimpleobj = 0;
-        vecup[] = {0.00602677,0.250215,0.968172};
-        hascrew = 1;
-        type = "rhs_KORD_high_MSV";
-        dir = 539.217;
-    };
-    class obj_4 {
-        pos[] = {-3.53726,2.58496,0.00137901};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_msv_sergeant";
         dir = 359.622;
-    };
-    class obj_28 {
-        pos[] = {-17.346,-9.7627,-0.106382};
-        issimpleobj = 0;
-        vecup[] = {5.44572e-005,0.00206233,0.999998};
-        hascrew = 1;
-        type = "rhs_KORD_high_MSV";
-        dir = 598.118;
-    };
-    class obj_5 {
-        pos[] = {2.07278,4.20947,0.00138092};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_msv_sergeant";
-        dir = 359.622;
-    };
-    class obj_29 {
-        pos[] = {-17.429,10.8911,0.0013237};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_msv_emr_marksman";
-        dir = 359.622;
-    };
-};
-class composition_11369 {
-    hasmissiontarget = 0;
-    type = "Land_u_Shop_02_V1_F";
-    class obj_1 {
-        pos[] = {1.05176,-2.70654,-3.28681};
-        issimpleobj = 0;
-        vecup[] = {0.00117994,-0.00120461,0.999998};
-        hascrew = 1;
-        type = "rhs_KORD_high_MSV";
-        dir = 90.8964;
-    };
-    class obj_2 {
-        pos[] = {2.97839,-1.66016,-3.68884};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_HBarrier_3_F";
-        dir = 89.1256;
-    };
-    class obj_3 {
-        pos[] = {3.74194,2.6189,-3.31987};
-        issimpleobj = 0;
-        vecup[] = {-0.00573598,0,0.999984};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_Long_F";
-        dir = 269.753;
-    };
-    class obj_4 {
-        pos[] = {-5.78955,-3.021,-3.63645};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_F";
-        dir = 269.848;
-    };
-    author = "Maverick";
-};
-class composition_186509 {
-    class obj_6 {
-        pos[] = {1.9458,-1.05664,-2.0785};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 268.582;
-    };
-    class obj_7 {
-        pos[] = {1.953,-1.07886,-1.68246};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 268.582;
-    };
-    class obj_8 {
-        pos[] = {-2.04297,3.24146,-2.07855};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Corner_F";
-        dir = 266.36;
-    };
-    class obj_10 {
-        pos[] = {2.17603,2.61938,-2.07611};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_msv_rifleman";
-        dir = 0;
-    };
-    class obj_9 {
-        pos[] = {-0.404541,3.21729,-2.07855};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_End_F";
-        dir = 0;
-    };
-    class obj_11 {
-        pos[] = {3.0592,1.89038,-2.07855};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Corner_F";
-        dir = 90.2295;
-    };
-    class obj_12 {
-        pos[] = {1.36804,3.37061,-2.07855};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 179.757;
-    };
-    class obj_13 {
-        pos[] = {3.15918,3.3877,-2.07855};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Corner_F";
-        dir = 357.405;
-    };
-    hasmissiontarget = 0;
-    type = "Land_Kiosk_gyros_F";
-    class obj_1 {
-        pos[] = {-0.21167,-0.296875,-2.18262};
-        issimpleobj = 0;
-        vecup[] = {-0.000490675,1.76637e-005,1};
-        hascrew = 1;
-        type = "rhs_KORD_high_MSV";
-        dir = 181.311;
-    };
-    class obj_2 {
-        pos[] = {0.56311,-1.88647,-2.0785};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0;
-    };
-    class obj_3 {
-        pos[] = {0.602905,-1.87915,-1.68903};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0;
-    };
-    class obj_4 {
-        pos[] = {-1.86511,-1.79517,-2.1756};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Corner_F";
-        dir = 182.217;
-    };
-    class obj_5 {
-        pos[] = {-1.91956,-1.79907,-1.79918};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Corner_F";
-        dir = 182.217;
-    };
-    author = "Maverick";
-};
-class composition_371618 {
-    class obj_6 {
-        pos[] = {-3.51208,-1.16602,-7.97647};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 0;
-    };
-    class obj_37 {
-        pos[] = {11.0874,5.02832,-7.97399};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_msv_officer";
-        dir = 199.84;
-    };
-    class obj_44 {
-        pos[] = {11.5533,-9.20142,-7.97647};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 179.563;
-    };
-    class obj_7 {
-        pos[] = {-4.11108,0.621094,9.74853};
-        issimpleobj = 0;
-        vecup[] = {0.00608042,0.00310147,0.999977};
-        hascrew = 1;
-        type = "rhs_2b14_82mm_msv";
-        dir = 179.353;
-    };
-    class obj_38 {
-        pos[] = {-9.88049,7.35181,-7.97399};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_msv_grenadier";
-        dir = 0;
-    };
-    class obj_45 {
-        pos[] = {12.6692,-8.52393,-7.97647};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 272.6;
-    };
-    class obj_8 {
-        pos[] = {-3.98389,2.65332,-7.97647};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0;
-    };
-    class obj_10 {
-        pos[] = {-5.34961,1.10791,-7.97647};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 271.673;
-    };
-    class obj_39 {
-        pos[] = {10.61,-6.42212,-8.08124};
-        issimpleobj = 0;
-        vecup[] = {-0.00287227,0.00134735,0.999995};
-        hascrew = 1;
-        type = "rhs_KORD_high_MSV";
-        dir = 179.662;
-    };
-    class obj_46 {
-        pos[] = {-15.1719,6.44922,-7.97547};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagBunker_Small_F";
-        dir = 90.9272;
-    };
-    class obj_9 {
-        pos[] = {-5.29382,-1.06982,-7.97647};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Corner_F";
-        dir = 178.546;
-    };
-    class obj_11 {
-        pos[] = {0.851685,6.9585,-8.08146};
-        issimpleobj = 0;
-        vecup[] = {0.0012639,-0.00243477,0.999996};
-        hascrew = 1;
-        type = "rhs_KORD_high_MSV";
-        dir = 357.012;
-    };
-    class obj_47 {
-        pos[] = {-15.0425,6.44141,-7.97399};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_msv_marksman";
-        dir = 266.103;
-    };
-    class obj_12 {
-        pos[] = {0.565796,-7.42334,-7.97547};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_Long_F";
-        dir = 0;
-    };
-    class obj_48 {
-        pos[] = {17.4889,7.84814,-7.97399};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_msv_rifleman";
-        dir = 124.84;
-    };
-    class obj_13 {
-        pos[] = {0.673218,-7.4458,-7.97547};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_Long_F";
-        dir = 0;
-    };
-    class obj_20 {
-        pos[] = {6.42029,-6.67017,-7.97399};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_msv_rifleman";
-        dir = 183.886;
-    };
-    hasmissiontarget = 0;
-    class obj_14 {
-        pos[] = {0.549438,-7.50903,-7.97547};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_Long_F";
-        dir = 0;
-    };
-    class obj_21 {
-        pos[] = {9.32336,0.95459,-8.00043};
-        issimpleobj = 1;
-        vecup[] = {-7.11186e-007,2.16058e-006,1};
-        hascrew = 0;
-        type = "Land_CampingTable_F";
-        dir = 0.00040788;
-    };
-    class obj_15 {
-        pos[] = {0.873779,-7.49292,-7.97548};
-        issimpleobj = 0;
-        vecup[] = {-0.000345267,-0.000345055,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_Long_F";
-        dir = 0;
-    };
-    class obj_22 {
-        pos[] = {5.52466,7.98657,-7.97547};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_Long_F";
-        dir = 179.3;
-    };
-    type = "Land_Offices_01_V1_F";
-    class obj_16 {
-        pos[] = {4.21692,-6.42651,-7.97399};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_msv_grenadier_rpg";
-        dir = 185.092;
-    };
-    class obj_23 {
-        pos[] = {9.79736,0.788086,-7.22528};
-        issimpleobj = 1;
-        vecup[] = {0.0121317,0.679537,-0.73354};
-        hascrew = 0;
-        type = "Land_Laptop_unfolded_F";
-        dir = 181.023;
-    };
-    class obj_30 {
-        pos[] = {7.52698,-8.41406,-7.97647};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 83.8728;
-    };
-    class obj_17 {
-        pos[] = {5.30676,-6.01685,-8.08143};
-        issimpleobj = 0;
-        vecup[] = {-0.00185646,0.00196479,0.999996};
-        hascrew = 1;
-        type = "rhs_KORD_high_MSV";
-        dir = 179.938;
-    };
-    class obj_24 {
-        pos[] = {9.46619,2.81592,-7.97538};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_Long_F";
-        dir = 94.5527;
-    };
-    class obj_31 {
-        pos[] = {-8.5946,7.40112,-7.97399};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_msv_rifleman";
-        dir = 357.792;
-    };
-    class obj_1 {
-        pos[] = {0.320557,-1.07983,-7.97647};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Corner_F";
-        dir = 88.3389;
     };
     class obj_18 {
-        pos[] = {5.64612,-6.10205,-7.97398};
+        pos[] = {11.1125,3.2749,12.7468};
         issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_msv_sergeant";
-        dir = 180.032;
-    };
-    class obj_25 {
-        pos[] = {8.6449,6.06689,-7.97677};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Round_F";
-        dir = 145.375;
-    };
-    class obj_32 {
-        pos[] = {-8.76172,-7.5022,-7.97677};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Round_F";
-        dir = 334.784;
-    };
-    class obj_2 {
-        pos[] = {0.244873,1.24707,-7.97647};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
+        vecup[] = {-0.00446182,-0.00585911,0.999973};
         hascrew = 0;
         type = "Land_BagFence_Long_F";
-        dir = 269.548;
+        dir = 450.062;
     };
-    class obj_19 {
-        pos[] = {-4.33679,8.03589,-7.97547};
+    class obj_25 {
+        pos[] = {16.5594,0.933594,8.76398};
         issimpleobj = 0;
-        vecup[] = {0,0,1};
+        vecup[] = {0,-0.00223762,0.999997};
         hascrew = 0;
-        type = "Land_Shoot_House_Wall_Long_F";
-        dir = 179.3;
+        type = "Land_BagFence_Long_F";
+        dir = 449.781;
     };
-    class obj_26 {
-        pos[] = {10.1262,3.3811,-7.97677};
+    class obj_32 {
+        pos[] = {14.9702,8.13867,9.8997};
         issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Round_F";
-        dir = 331.669;
-    };
-    class obj_33 {
-        pos[] = {8.31653,-8.09229,-7.97399};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_msv_rifleman";
-        dir = 183.724;
-    };
-    class obj_40 {
-        pos[] = {11.0795,-5.81689,-7.97399};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_msv_marksman";
-        dir = 178.869;
-    };
-    class obj_3 {
-        pos[] = {-1.27161,-1.16504,-7.97647};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_End_F";
-        dir = 174.269;
-    };
-    class obj_27 {
-        pos[] = {9.70251,4.5564,-8.07544};
-        issimpleobj = 0;
-        vecup[] = {1.85264e-005,-1.28435e-005,1};
-        hascrew = 1;
-        type = "rhs_Igla_AA_pod_msv";
-        dir = 63.0131;
-    };
-    class obj_34 {
-        pos[] = {11.4153,-2.10303,-8.08131};
-        issimpleobj = 0;
-        vecup[] = {-0.00196409,-0.00229804,0.999995};
+        vecup[] = {0.00987589,0.00665443,0.999929};
         hascrew = 1;
         type = "rhs_KORD_high_MSV";
-        dir = 89.2119;
-    };
-    class obj_41 {
-        pos[] = {13.031,-5.47241,4.66432};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_Long_F";
-        dir = 269.163;
-    };
-    class obj_4 {
-        pos[] = {-1.19861,0.615234,1.01974};
-        issimpleobj = 0;
-        vecup[] = {0.00607952,0.00310262,0.999977};
-        hascrew = 1;
-        type = "rhs_2b14_82mm_msv";
-        dir = 179.353;
-    };
-    class obj_28 {
-        pos[] = {-9.52734,-5.57886,-8.07544};
-        issimpleobj = 0;
-        vecup[] = {-1.91244e-005,1.23608e-005,1};
-        hascrew = 1;
-        type = "rhs_Igla_AA_pod_msv";
-        dir = 240.88;
-    };
-    class obj_35 {
-        pos[] = {7.61499,-9.15796,-7.97647};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Corner_F";
-        dir = 175.948;
-    };
-    class obj_42 {
-        pos[] = {8.44922,11.375,-7.97399};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_msv_rifleman";
-        dir = 274.84;
-    };
-    class obj_5 {
-        pos[] = {-1.04724,2.64136,-7.97647};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0;
-    };
-    class obj_29 {
-        pos[] = {-10.2401,-4.55664,-7.97677};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Round_F";
-        dir = 145.375;
-    };
-    class obj_36 {
-        pos[] = {10.9729,-5.73145,-7.97547};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagBunker_Small_F";
-        dir = 0;
-    };
-    class obj_43 {
-        pos[] = {11.948,-8.32324,-7.97399};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_msv_grenadier";
-        dir = 178.519;
-    };
-    author = "Maverick";
-};
-class composition_8358 {
-    class obj_94 {
-        pos[] = {4.05176,13.907,-0.111073};
-        issimpleobj = 0;
-        vecup[] = {0.00438235,-0.000340631,0.99999};
-        hascrew = 1;
-        type = "O_HMG_01_high_F";
-        dir = 0.26253;
-    };
-    class obj_2 {
-        pos[] = {3.84814,3.72607,-0.136681};
-        issimpleobj = 0;
-        vecup[] = {-0.0196532,-0.0263359,0.99946};
-        hascrew = 1;
-        type = "RHS_ZU23_VDV";
-        dir = 50.8654;
-    };
-    class obj_78 {
-        pos[] = {6.86572,-11.7524,4.34879};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_86 {
-        pos[] = {6.87549,12.1055,4.43721};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_199 {
-        pos[] = {-4.26807,17.5356,0.312204};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_279 {
-        pos[] = {-14.9111,-14.1243,-0.000161171};
-        issimpleobj = 0;
-        vecup[] = {-0.0037822,-0.000597775,0.999993};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_Long_F";
-        dir = 91.1933;
-    };
-    class obj_287 {
-        pos[] = {-17.1421,11.5598,0.000384331};
-        issimpleobj = 1;
-        vecup[] = {-0.00146608,0,0.999999};
-        hascrew = 0;
-        type = "rhs_mags_crate";
-        dir = 0.262;
-    };
-    class obj_295 {
-        pos[] = {12.0054,-17.1816,-0.000750542};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_359 {
-        pos[] = {24.5718,-6.0918,0.551764};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_367 {
-        pos[] = {26.8062,2.26611,0};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_Long_F";
-        dir = 180.835;
-    };
-    class obj_375 {
-        pos[] = {22.8965,-15.8379,0.000419617};
-        issimpleobj = 0;
-        vecup[] = {0,-0.00150472,0.999999};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 89.8479;
-    };
-    class obj_383 {
-        pos[] = {29.1245,-0.30127,4.43379};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_Long_F";
-        dir = 270.784;
-    };
-    class obj_391 {
-        pos[] = {27.4658,13.062,-2.38419e-006};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Razorwire_F";
-        dir = 207.238;
-    };
-    class obj_87 {
-        pos[] = {8.03662,-11.3896,1.74225};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_Long_Prone_F";
-        dir = 0.262;
-    };
-    class obj_95 {
-        pos[] = {-8.18994,12.1304,8.18754};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    type = "Land_WIP_F";
-    class obj_3 {
-        pos[] = {2.52783,5.92114,0.0111351};
-        issimpleobj = 0;
-        vecup[] = {-0.0101402,-0.0219186,0.999708};
-        hascrew = 0;
-        type = "Land_BagFence_Round_F";
-        dir = 166.698;
-    };
-    class obj_79 {
-        pos[] = {6.8374,11.8103,0.016016};
-        issimpleobj = 0;
-        vecup[] = {0.0113412,0.008148,0.999902};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_288 {
-        pos[] = {-19.0078,-8.2356,12.2658};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 269.43;
-    };
-    class obj_296 {
-        pos[] = {-7.76855,-19.6299,15.5353};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_368 {
-        pos[] = {20.8481,-17.1577,-0.000857353};
-        issimpleobj = 0;
-        vecup[] = {0,-0.00150472,0.999999};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_376 {
-        pos[] = {27.1631,-6.08716,0.309853};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_384 {
-        pos[] = {29.0806,-2.31494,7.95985};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 89.3792;
-    };
-    class obj_392 {
-        pos[] = {29.1436,-5.12866,4.32319};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_F";
-        dir = 268.832;
-    };
-    class obj_88 {
-        pos[] = {6.99756,12.0632,0.425099};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 0.262;
-    };
-    class obj_96 {
-        pos[] = {-13.8447,-4.77222,-0.000420094};
-        issimpleobj = 1;
-        vecup[] = {0.00822041,-0.0105064,0.999911};
-        hascrew = 0;
-        type = "rhs_mags_crate";
-        dir = 313.274;
-    };
-    class obj_4 {
-        pos[] = {6.25,2.6167,-0.0173397};
-        issimpleobj = 0;
-        vecup[] = {-0.00668456,-0.00980847,0.99993};
-        hascrew = 0;
-        type = "Land_BagFence_Round_F";
-        dir = 280.66;
-    };
-    class obj_289 {
-        pos[] = {-16.8745,12.0713,4.43797};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_297 {
-        pos[] = {-19.0137,-9.71313,8.28735};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 272.162;
-    };
-    class obj_369 {
-        pos[] = {21.9243,-16.3625,-0.112454};
-        issimpleobj = 0;
-        vecup[] = {7.73099e-005,-0.00152915,0.999999};
-        hascrew = 1;
-        type = "O_HMG_01_high_F";
-        dir = 128.755;
-    };
-    class obj_377 {
-        pos[] = {27.2061,-6.08301,0.0236559};
-        issimpleobj = 0;
-        vecup[] = {0.0165143,0.0331294,0.999315};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_385 {
-        pos[] = {29.0718,-2.61597,8.71944};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 89.1341;
-    };
-    class obj_393 {
-        pos[] = {26.8818,-14.4839,0.0232067};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Timbers_F";
-        dir = 299.093;
-    };
-    class obj_89 {
-        pos[] = {8.08594,-11.4109,0.764261};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_97 {
-        pos[] = {-8.41943,12.1013,4.36038};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_5 {
-        pos[] = {1.65381,6.53247,0.00143909};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_grenadier";
-        dir = 189.78;
-    };
-    class obj_298 {
-        pos[] = {-18.2935,11.1248,0.00138474};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_marksman";
-        dir = 310.523;
-    };
-    class obj_378 {
-        pos[] = {22.9131,-17.1382,-0.000188828};
-        issimpleobj = 0;
-        vecup[] = {0,-0.00150472,0.999999};
-        hascrew = 0;
-        type = "Land_BagFence_Corner_F";
-        dir = 88.1617;
-    };
-    class obj_386 {
-        pos[] = {29.1348,-3.17944,4.45265};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_F";
-        dir = 272.617;
-    };
-    class obj_394 {
-        pos[] = {29.3496,-8.98145,-2.38419e-006};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Razorwire_F";
-        dir = 89.866;
-    };
-    class obj_6 {
-        pos[] = {-0.855957,-7.15845,0.000630379};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_PortableLight_double_F";
-        dir = 286.569;
-    };
-    class obj_98 {
-        pos[] = {-5.40234,13.7834,-0.116464};
-        issimpleobj = 0;
-        vecup[] = {0.00845282,0.0120519,0.999892};
-        hascrew = 1;
-        type = "O_HMG_01_high_F";
-        dir = 0.269151;
-    };
-    class obj_100 {
-        pos[] = {10.1621,-11.3748,-0.000507832};
-        issimpleobj = 0;
-        vecup[] = {0.00142318,-0.00241691,0.999996};
-        hascrew = 0;
-        type = "Land_BagFence_End_F";
-        dir = 0.262;
-    };
-    class obj_299 {
-        pos[] = {-17.7158,12.0393,12.4153};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_379 {
-        pos[] = {-27.4839,6.09155,0};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_IronPipes_F";
-        dir = 250.49;
-    };
-    class obj_387 {
-        pos[] = {20.501,-19.071,-2.38419e-006};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Razorwire_F";
-        dir = 0.262;
-    };
-    class obj_7 {
-        pos[] = {-3.87793,-6.60596,0.00143909};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_medic";
-        dir = 0.262;
-    };
-    class obj_99 {
-        pos[] = {-8.66943,12.0637,0.317728};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 0.262;
-    };
-    class obj_101 {
-        pos[] = {9.11572,-11.7766,8.52507};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_388 {
-        pos[] = {28.9668,-4.94434,-2.14577e-005};
-        issimpleobj = 0;
-        vecup[] = {-0.000845728,0,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_F";
-        dir = 91.6865;
-    };
-    class obj_8 {
-        pos[] = {-3.32031,-9.31177,0.00140715};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_rifleman";
-        dir = 274.887;
-    };
-    class obj_102 {
-        pos[] = {10.375,-10.5645,-0.0015583};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_PortableLight_double_F";
-        dir = 321.517;
-    };
-    class obj_110 {
-        pos[] = {9.38916,11.8623,0.396597};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_389 {
-        pos[] = {28.9902,-4.97559,8.44235};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 90.2982;
-    };
-    class obj_9 {
-        pos[] = {-0.900879,9.90015,0.00743914};
-        issimpleobj = 0;
-        vecup[] = {0.00836488,-0.00580794,0.999948};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 91.2428;
-    };
-    class obj_103 {
-        pos[] = {-8.85693,12.093,12.3735};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_111 {
-        pos[] = {9.37744,11.8691,0.00032568};
-        issimpleobj = 0;
-        vecup[] = {-0.0121481,0.0134375,0.999836};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_F";
-        dir = 0.262;
-    };
-    class obj_200 {
-        pos[] = {-17.915,-2.19067,0.00139952};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_grenadier";
-        dir = 269.854;
-    };
-    class obj_104 {
-        pos[] = {5.09521,14.106,-0.00137758};
-        issimpleobj = 0;
-        vecup[] = {0.00436716,-0.000345052,0.99999};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 270.798;
-    };
-    class obj_112 {
-        pos[] = {9.55859,11.7446,0.314578};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_120 {
-        pos[] = {1.34912,15.4109,0.320349};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 0.262;
-    };
-    class obj_121 {
-        pos[] = {-13.8311,-6.96216,-0.000284195};
-        issimpleobj = 1;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "rhs_mags_crate";
-        dir = 272.008;
-    };
-    class obj_201 {
-        pos[] = {14.1094,-11.2993,1.65681};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_Long_Prone_F";
-        dir = 0.262;
-    };
-    class obj_105 {
-        pos[] = {11.4888,9.68115,0.428406};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 90.9512;
-    };
-    class obj_113 {
-        pos[] = {9.4458,11.8928,0.0333252};
-        issimpleobj = 0;
-        vecup[] = {0.0226734,-0.00209927,0.999741};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_114 {
-        pos[] = {10.623,10.8613,0.00149345};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_marksman";
-        dir = 41.0017;
-    };
-    class obj_122 {
-        pos[] = {1.28906,15.4382,0.00306845};
-        issimpleobj = 0;
-        vecup[] = {0.00436716,-0.000345052,0.99999};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 0.262;
-    };
-    class obj_130 {
-        pos[] = {-13.9282,-7.28003,0.000328064};
-        issimpleobj = 1;
-        vecup[] = {0,-0.00221664,0.999998};
-        hascrew = 0;
-        type = "rhs_mags_crate";
-        dir = 225.795;
-    };
-    class obj_202 {
-        pos[] = {14.0913,-11.3201,0.00111866};
-        issimpleobj = 0;
-        vecup[] = {0.00142318,-0.00241691,0.999996};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_210 {
-        pos[] = {-14.0566,12.0874,8.43089};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_106 {
-        pos[] = {11.5186,9.68799,-0.0348015};
-        issimpleobj = 0;
-        vecup[] = {-0.000345267,0.0225019,0.999747};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 90.6832;
-    };
-    class obj_107 {
-        pos[] = {-0.535156,15.0356,4.57179};
-        issimpleobj = 0;
-        vecup[] = {-2.07556e-005,0.000463241,1};
-        hascrew = 1;
-        type = "rhs_Igla_AA_pod_vdv";
-        dir = 0.268876;
-    };
-    class obj_115 {
-        pos[] = {11.2954,-10.1677,-0.00323582};
-        issimpleobj = 0;
-        vecup[] = {0.00142318,-0.00241691,0.999996};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 273.595;
-    };
-    class obj_10 {
-        pos[] = {-1.12695,9.94702,0.000307083};
-        issimpleobj = 1;
-        vecup[] = {-0.00146608,0,0.999999};
-        hascrew = 0;
-        type = "rhs_launcher_crate";
-        dir = 110.377;
-    };
-    class obj_123 {
-        pos[] = {-7.0957,13.793,0.351748};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 270.757;
-    };
-    class obj_131 {
-        pos[] = {-11.2192,11.0095,0.0014329};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_at";
-        dir = 0.262;
-    };
-    class obj_203 {
-        pos[] = {-8.47266,-16.2573,-0.00180054};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Round_F";
-        dir = 309.804;
-    };
-    class obj_211 {
-        pos[] = {-14.0674,12.1042,4.4033};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_108 {
-        pos[] = {5.15918,14.1536,0.336481};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 271.555;
-    };
-    class obj_116 {
-        pos[] = {5.52246,14.1785,0.374672};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 270.267;
-    };
-    class obj_11 {
-        pos[] = {1.99365,-9.85889,-0.118211};
-        issimpleobj = 0;
-        vecup[] = {0.0012511,-0.0114217,0.999934};
-        hascrew = 1;
-        type = "O_HMG_01_high_F";
-        dir = 182.719;
-    };
-    class obj_124 {
-        pos[] = {-6.59619,-14.0386,0.000167847};
-        issimpleobj = 0;
-        vecup[] = {0,-0.0050271,0.999987};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_Long_F";
-        dir = 269.992;
-    };
-    class obj_132 {
-        pos[] = {11.1821,11.0476,-0.00028038};
-        issimpleobj = 1;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "rhs_mags_crate";
-        dir = 90.829;
-    };
-    class obj_140 {
-        pos[] = {11.5127,11.8196,0.00353241};
-        issimpleobj = 0;
-        vecup[] = {0.0180686,0.0224187,0.999585};
-        hascrew = 0;
-        type = "Land_BagFence_Corner_F";
-        dir = 0.262;
-    };
-    class obj_204 {
-        pos[] = {6.13525,-17.1604,-0.000750542};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_212 {
-        pos[] = {14.1831,12.0488,0.34576};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 0.262;
-    };
-    class obj_220 {
-        pos[] = {17.0244,8.30444,0.000258446};
-        issimpleobj = 0;
-        vecup[] = {0.0113412,0.008148,0.999902};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_Long_F";
-        dir = 270.335;
-    };
-    class obj_300 {
-        pos[] = {12.7261,-17.2114,0.331615};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_109 {
-        pos[] = {13.6221,-6.42554,0.336414};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 0.262;
-    };
-    class obj_117 {
-        pos[] = {9.63965,11.832,0.0150652};
-        issimpleobj = 0;
-        vecup[] = {0.0106808,0.00454101,0.999933};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_12 {
-        pos[] = {-7.51318,6.76733,0.000190258};
-        issimpleobj = 1;
-        vecup[] = {0.00823757,-0.00581176,0.999949};
-        hascrew = 0;
-        type = "rhs_launcher_crate";
-        dir = 181.558;
-    };
-    class obj_125 {
-        pos[] = {9.72266,12.1086,4.39466};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_20 {
-        pos[] = {3.62109,-10.8425,0.00144291};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_grenadier";
-        dir = 181.245;
-    };
-    class obj_133 {
-        pos[] = {12.8936,-9.01489,0.0210686};
-        issimpleobj = 1;
-        vecup[] = {0.0211693,0.0153723,0.999658};
-        hascrew = 0;
-        type = "rhs_mags_crate";
-        dir = 0.262;
-    };
-    class obj_141 {
-        pos[] = {3.55176,16.0215,0.345249};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Round_F";
-        dir = 177.701;
-    };
-    class obj_205 {
-        pos[] = {14.3701,11.2639,0.00143909};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_at";
-        dir = 0.262;
-    };
-    class obj_213 {
-        pos[] = {-12.5957,-13.7542,0.00321007};
-        issimpleobj = 0;
-        vecup[] = {-0.0335758,0.0035538,0.99943};
-        hascrew = 1;
-        type = "O_GMG_01_F";
-        dir = 269.241;
-    };
-    class obj_221 {
-        pos[] = {15.8145,-11.344,0.678734};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_End_F";
-        dir = 0.262;
-    };
-    class obj_301 {
-        pos[] = {-14.9644,-15.907,-0.00102425};
-        issimpleobj = 0;
-        vecup[] = {-0.00138107,0,0.999999};
-        hascrew = 0;
-        type = "Land_BagFence_End_F";
-        dir = 89.3972;
-    };
-    class obj_118 {
-        pos[] = {9.78906,-11.7461,4.53308};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_13 {
-        pos[] = {0.300293,10.4158,-0.000367165};
-        issimpleobj = 1;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "rhs_mags_crate";
-        dir = 0.262;
-    };
-    class obj_126 {
-        pos[] = {-7.1499,13.8694,-0.000338554};
-        issimpleobj = 0;
-        vecup[] = {0,0.000345267,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 270.854;
-    };
-    class obj_21 {
-        pos[] = {-3.44531,-10.9026,9.29832e-005};
-        issimpleobj = 1;
-        vecup[] = {0.00124485,-0.0114146,0.999934};
-        hascrew = 0;
-        type = "Land_CargoBox_V1_F";
-        dir = 0.262;
-    };
-    class obj_134 {
-        pos[] = {-6.8457,14.1758,0.0171719};
-        issimpleobj = 0;
-        vecup[] = {0.00844308,0.0120491,0.999892};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 269.464;
-    };
-    class obj_142 {
-        pos[] = {11.5298,11.8745,0.349974};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Corner_F";
-        dir = 0.262;
-    };
-    class obj_150 {
-        pos[] = {-11.0796,12.085,4.38746};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_206 {
-        pos[] = {-17.7964,-4.23633,0.000364304};
-        issimpleobj = 1;
-        vecup[] = {-0.00146608,0,0.999999};
-        hascrew = 0;
-        type = "rhs_mags_crate";
-        dir = 311.388;
-    };
-    class obj_214 {
-        pos[] = {-18.1826,-4.34717,0.00143909};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_grenadier";
-        dir = 268.658;
-    };
-    class obj_222 {
-        pos[] = {-19.0015,-1.18677,8.35919};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 269.239;
-    };
-    class obj_230 {
-        pos[] = {-19.0137,-2.08691,0.358918};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 89.8205;
-    };
-    class obj_302 {
-        pos[] = {-19,10.1943,4.42529};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 272.072;
-    };
-    class obj_310 {
-        pos[] = {-10.7202,-19.03,0.000499725};
-        issimpleobj = 1;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "rhs_mags_crate";
-        dir = 0.262;
-    };
-    class obj_119 {
-        pos[] = {5.50146,14.2893,-0.000339508};
-        issimpleobj = 0;
-        vecup[] = {0,0.000345267,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 271.605;
-    };
-    class obj_14 {
-        pos[] = {-8.27979,6.73193,0.00143909};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_medic";
-        dir = 177.493;
-    };
-    class obj_127 {
-        pos[] = {-6.74121,-14.0815,0};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_Long_F";
-        dir = 270.755;
-    };
-    class obj_22 {
-        pos[] = {8.11279,-8.05811,-0.0309486};
-        issimpleobj = 0;
-        vecup[] = {0.0051171,-0.0451757,0.998966};
-        hascrew = 1;
-        type = "O_HMG_01_F";
-        dir = 182.326;
-    };
-    class obj_135 {
-        pos[] = {-3.30859,15.4016,0.00306845};
-        issimpleobj = 0;
-        vecup[] = {0.00436716,-0.000345052,0.99999};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 0.262;
-    };
-    class obj_30 {
-        pos[] = {11.5503,-1.52637,0.0220299};
-        issimpleobj = 0;
-        vecup[] = {-0.0103348,-0.0150799,0.999833};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 90.5131;
-    };
-    class obj_143 {
-        pos[] = {3.58154,16.0681,-0.00665045};
-        issimpleobj = 0;
-        vecup[] = {0.00436335,-0.000348867,0.99999};
-        hascrew = 0;
-        type = "Land_BagFence_Round_F";
-        dir = 181.238;
-    };
-    class obj_151 {
-        pos[] = {-6.41162,-15.0913,11.517};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 90.08;
-    };
-    class obj_207 {
-        pos[] = {-17.9253,3.94019,0.0014658};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_grenadier";
-        dir = 264.191;
-    };
-    class obj_215 {
-        pos[] = {-15.4243,-10.5876,0.000267029};
-        issimpleobj = 1;
-        vecup[] = {0,-0.00221664,0.999998};
-        hascrew = 0;
-        type = "rhs_launcher_crate";
-        dir = 206.946;
-    };
-    class obj_223 {
-        pos[] = {-14.6997,12.085,0.380793};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 0.262;
-    };
-    class obj_231 {
-        pos[] = {-16.0083,-10.5471,0.00613594};
-        issimpleobj = 1;
-        vecup[] = {-0.000767945,0.000767945,0.999999};
-        hascrew = 0;
-        type = "rhs_mags_crate";
-        dir = 0.262;
-    };
-    class obj_303 {
-        pos[] = {-18.979,10.8154,0.415459};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_End_F";
-        dir = 271.396;
-    };
-    class obj_311 {
-        pos[] = {-19.0693,10.7683,12.4775};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 270.868;
-    };
-    class obj_15 {
-        pos[] = {-0.594238,-10.7002,0.000110626};
-        issimpleobj = 1;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "rhs_mags_crate";
-        dir = 0.262;
-    };
-    class obj_128 {
-        pos[] = {-6.74805,14.1521,0.298813};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 269.586;
-    };
-    class obj_23 {
-        pos[] = {-10.9727,3.3396,-0.149477};
-        issimpleobj = 0;
-        vecup[] = {0.0234421,-0.015361,0.999607};
-        hascrew = 1;
-        type = "RHS_ZU23_VDV";
-        dir = 304.233;
-    };
-    class obj_136 {
-        pos[] = {14.0596,-8.14282,-0.0112057};
-        issimpleobj = 0;
-        vecup[] = {0.0211617,0.015375,0.999658};
-        hascrew = 0;
-        type = "Land_BagBunker_Small_F";
-        dir = 271.647;
-    };
-    class obj_31 {
-        pos[] = {2.12451,-11.4099,1.74385};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_Long_Prone_F";
-        dir = 0.262;
-    };
-    class obj_144 {
-        pos[] = {0.869629,-16.1333,0.001441};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_aa";
-        dir = 183.725;
-    };
-    class obj_152 {
-        pos[] = {-5.19092,16,0.327469};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Round_F";
-        dir = 190.123;
-    };
-    class obj_208 {
-        pos[] = {-17.9014,-4.43848,0.00140524};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_grenadier";
-        dir = 271.693;
-    };
-    class obj_160 {
-        pos[] = {15.3813,-7.38989,0.371943};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 91.4609;
-    };
-    class obj_216 {
-        pos[] = {-18.7085,1.54199,-0.000547886};
-        issimpleobj = 0;
-        vecup[] = {-0.0063005,0.00762699,0.999951};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_F";
-        dir = 88.047;
-    };
-    class obj_224 {
-        pos[] = {-19.064,-0.149414,12.3065};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 270.084;
-    };
-    class obj_232 {
-        pos[] = {-19.0908,2.76782,12.3741};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 270.84;
-    };
-    class obj_240 {
-        pos[] = {9.05762,-17.1702,-0.000750542};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_304 {
-        pos[] = {-19.0117,-10.2798,4.41948};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 89.6051;
-    };
-    class obj_312 {
-        pos[] = {18.7539,-11.5107,0.282788};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_320 {
-        pos[] = {22.6538,3.18286,6.77109e-005};
-        issimpleobj = 0;
-        vecup[] = {-0.00610837,-0.00379775,0.999974};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_F";
-        dir = 247.287;
-    };
-    class obj_16 {
-        pos[] = {8.46533,-6.60596,0.00143909};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_medic";
-        dir = 0.262;
-    };
-    class obj_129 {
-        pos[] = {-3.28711,15.3577,0.329123};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 0.262;
-    };
-    class obj_24 {
-        pos[] = {5.19141,-10.2378,-0.011178};
-        issimpleobj = 0;
-        vecup[] = {0.0104209,-0.0114087,0.999881};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 271.348;
-    };
-    class obj_137 {
-        pos[] = {11.603,-10.8005,-0.040287};
-        issimpleobj = 0;
-        vecup[] = {0.0211617,0.015375,0.999658};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 143.26;
-    };
-    class obj_32 {
-        pos[] = {-9.84424,-6.27368,0.00142956};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_rifleman";
-        dir = 86.6937;
-    };
-    class obj_145 {
-        pos[] = {12.3838,-10.4844,-0.000314236};
-        issimpleobj = 1;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "rhs_mags_crate";
-        dir = 56.393;
-    };
-    class obj_40 {
-        pos[] = {11.5093,3.81274,0.489498};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 89.9675;
-    };
-    class obj_153 {
-        pos[] = {-13.3672,9.96021,-0.00028038};
-        issimpleobj = 1;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "rhs_mags_crate";
-        dir = 89.384;
-    };
-    class obj_209 {
-        pos[] = {-18.3799,1.72778,0.00144005};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_at";
-        dir = 268.781;
-    };
-    class obj_161 {
-        pos[] = {1.55518,16.9255,5.62668e-005};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_PortableLight_double_F";
-        dir = 182.513;
-    };
-    class obj_217 {
-        pos[] = {-10.6548,-15.5266,-0.149776};
-        issimpleobj = 0;
-        vecup[] = {0.000194082,0.00429468,0.999991};
-        hascrew = 1;
-        type = "RHS_ZU23_VDV";
-        dir = 182.862;
-    };
-    class obj_225 {
-        pos[] = {-14.7363,12.0806,12.439};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_233 {
-        pos[] = {-15.71,11.2144,0.00143909};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_at";
-        dir = 0.262;
-    };
-    class obj_241 {
-        pos[] = {17.3735,-8.71851,0.00196362};
-        issimpleobj = 1;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "rhs_launcher_crate";
-        dir = 274.638;
-    };
-    class obj_305 {
-        pos[] = {-18.9873,-10.3528,0.453484};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 89.179;
-    };
-    class obj_313 {
-        pos[] = {18.8701,-11.5347,-0.000999451};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 178.989;
-    };
-    class obj_321 {
-        pos[] = {22.3408,6.11548,0};
-        issimpleobj = 0;
-        vecup[] = {-0.00606921,0.00376634,0.999974};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_Long_F";
-        dir = 269.259;
-    };
-    class obj_234 {
-        pos[] = {-18.4849,-5.15479,-0.00125122};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_PortableLight_double_F";
-        dir = 89.0332;
-    };
-    class obj_17 {
-        pos[] = {6.08008,8.9436,-0.000256062};
-        issimpleobj = 1;
-        vecup[] = {-0.0121472,0.0134376,0.999836};
-        hascrew = 0;
-        type = "rhs_mags_crate";
-        dir = 275.504;
-    };
-    class obj_25 {
-        pos[] = {-9.93555,6.11694,-0.0226498};
-        issimpleobj = 0;
-        vecup[] = {0.00980868,-0.0195279,0.999761};
-        hascrew = 0;
-        type = "Land_BagFence_Round_F";
-        dir = 183.916;
-    };
-    class obj_138 {
-        pos[] = {11.5923,-10.8472,0.341137};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 143.405;
-    };
-    class obj_33 {
-        pos[] = {1.13428,-11.7554,4.55074};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_146 {
-        pos[] = {14.0771,-8.09106,0.0014534};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_marksman";
-        dir = 86.5087;
-    };
-    class obj_41 {
-        pos[] = {-0.0458984,12.1299,12.4531};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_154 {
-        pos[] = {-5.29248,16.1133,-0.00656414};
-        issimpleobj = 0;
-        vecup[] = {0.00844737,0.0120421,0.999892};
-        hascrew = 0;
-        type = "Land_BagFence_Round_F";
-        dir = 183.565;
-    };
-    class obj_162 {
-        pos[] = {-0.145996,17.1467,-6.67572e-005};
-        issimpleobj = 1;
-        vecup[] = {0,0.000349066,1};
-        hascrew = 0;
-        type = "rhs_mags_crate";
-        dir = 0.262;
-    };
-    class obj_218 {
-        pos[] = {8.69482,15.8057,-2.38419e-006};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Razorwire_F";
-        dir = 0.262;
-    };
-    class obj_170 {
-        pos[] = {-15.7959,7.01196,-0.00028038};
-        issimpleobj = 1;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "rhs_launcher_crate";
-        dir = 178.969;
-    };
-    class obj_226 {
-        pos[] = {-17.0127,-9.60864,-0.000425339};
-        issimpleobj = 0;
-        vecup[] = {-0.00077204,0.00077204,0.999999};
-        hascrew = 0;
-        type = "Land_BagBunker_Small_F";
-        dir = 90.691;
-    };
-    class obj_242 {
-        pos[] = {-19.0146,4.04419,4.35026};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 90.4907;
-    };
-    class obj_250 {
-        pos[] = {15.4351,12.1511,4.32964};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_306 {
-        pos[] = {-18.9976,10.3792,8.3504};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 271.375;
-    };
-    class obj_314 {
-        pos[] = {-21.3784,-1.54248,0};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Obstacle_Ramp_F";
-        dir = 271.873;
-    };
-    class obj_322 {
-        pos[] = {-14.2495,-18.2625,-0.101422};
-        issimpleobj = 0;
-        vecup[] = {-0.0405995,-0.0103137,0.999122};
-        hascrew = 1;
-        type = "O_HMG_01_high_F";
-        dir = 178.524;
-    };
-    class obj_330 {
-        pos[] = {-13.9063,-19.3496,0.32418};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 0.262;
-    };
-    class obj_171 {
-        pos[] = {-1.86279,-17.2129,0.369706};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_227 {
-        pos[] = {-19.001,1.78638,8.2587};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 269.285;
-    };
-    class obj_235 {
-        pos[] = {-19.0869,-3.07324,12.3653};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 269.93;
-    };
-    class obj_18 {
-        pos[] = {4.14648,-10.2251,0.105576};
-        issimpleobj = 1;
-        vecup[] = {0.0012396,-0.0114141,0.999934};
-        hascrew = 0;
-        type = "rhs_mags_crate";
-        dir = 318.83;
-    };
-    class obj_26 {
-        pos[] = {11.5542,0.915039,0.480406};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 90.4077;
-    };
-    class obj_139 {
-        pos[] = {-12.2109,10.4536,-0.000471592};
-        issimpleobj = 1;
-        vecup[] = {-0.00626569,0.00766177,0.999951};
-        hascrew = 0;
-        type = "rhs_mags_crate";
-        dir = 268.424;
-    };
-    class obj_34 {
-        pos[] = {0.39209,-11.8284,8.4924};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_147 {
-        pos[] = {4.21094,15.7568,-0.112106};
-        issimpleobj = 0;
-        vecup[] = {3.10731e-006,0.000437551,1};
-        hascrew = 1;
-        type = "O_GMG_01_high_F";
-        dir = 31.6077;
-    };
-    class obj_42 {
-        pos[] = {-2.55176,-11.8311,8.51307};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_155 {
-        pos[] = {-16.5923,-1.91675,-0.000445366};
-        issimpleobj = 1;
-        vecup[] = {-0.00146608,0,0.999999};
-        hascrew = 0;
-        type = "rhs_launcher_crate";
-        dir = 275.913;
-    };
-    class obj_50 {
-        pos[] = {-4.02979,11.6741,-0.000647545};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_PortableLight_double_F";
-        dir = 182.635;
-    };
-    class obj_163 {
-        pos[] = {4.03906,-16.5769,9.53674e-007};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_PortableLight_double_F";
-        dir = 0.262;
-    };
-    class obj_219 {
-        pos[] = {-18.853,-1.98608,0.698658};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_F";
-        dir = 89.6337;
-    };
-    class obj_243 {
-        pos[] = {-18.9971,-4.30347,0.398069};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 91.0109;
-    };
-    class obj_251 {
-        pos[] = {16,11.395,0.00441408};
-        issimpleobj = 1;
-        vecup[] = {-0.0121472,0.0134376,0.999836};
-        hascrew = 0;
-        type = "rhs_mags_crate";
-        dir = 0.262;
-    };
-    class obj_307 {
-        pos[] = {-15.2729,-15.4556,15.78};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 270.122;
-    };
-    class obj_315 {
-        pos[] = {-10.6523,-19.6663,15.7824};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_323 {
-        pos[] = {22.1929,-6.90625,0.00305271};
-        issimpleobj = 1;
-        vecup[] = {0.000698392,0.000698131,1};
-        hascrew = 0;
-        type = "rhs_mags_crate";
-        dir = 268.916;
-    };
-    class obj_331 {
-        pos[] = {-15.2402,-18.3445,15.7814};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 271.897;
-    };
-    class obj_51 {
-        pos[] = {2.62939,12.2473,0.0117249};
-        issimpleobj = 0;
-        vecup[] = {0.00836488,-0.00580794,0.999948};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_164 {
-        pos[] = {13.9751,-10.0061,-0.113655};
-        issimpleobj = 0;
-        vecup[] = {0.00142708,-0.00243407,0.999996};
-        hascrew = 1;
-        type = "O_HMG_01_high_F";
-        dir = 184.737;
-    };
-    class obj_172 {
-        pos[] = {6.88037,-15.949,-0.096858};
-        issimpleobj = 0;
-        vecup[] = {0.000191253,-0.00052091,1};
-        hascrew = 1;
-        type = "O_static_AT_F";
-        dir = 181.964;
-    };
-    class obj_228 {
-        pos[] = {-18.9922,1.82227,4.34706};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 272.82;
-    };
-    class obj_180 {
-        pos[] = {-1.4043,17.5422,0.330989};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_236 {
-        pos[] = {15.4731,-11.6541,0.479447};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_19 {
-        pos[] = {0.378418,-11.3213,0.761137};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_End_F";
-        dir = 184.173;
-    };
-    class obj_27 {
-        pos[] = {11.5195,1.30933,-0.0188675};
-        issimpleobj = 0;
-        vecup[] = {-0.0153474,0.0118386,0.999812};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 89.4225;
-    };
-    class obj_35 {
-        pos[] = {-4.13232,-11.1152,0.00144386};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_grenadier";
-        dir = 169.225;
-    };
-    class obj_148 {
-        pos[] = {-11.0449,12.0542,0.342465};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 0.262;
-    };
-    class obj_43 {
-        pos[] = {0.508301,12.1323,8.47505};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_156 {
-        pos[] = {13.5171,-9.91309,0.422199};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 1.5693;
-    };
-    class obj_244 {
-        pos[] = {-17.9014,7.6897,0.0862885};
-        issimpleobj = 1;
-        vecup[] = {-0.00626569,0.00766177,0.999951};
-        hascrew = 0;
-        type = "rhs_mags_crate";
-        dir = 265.279;
-    };
-    class obj_252 {
-        pos[] = {-17.8911,-8.11255,0.00140238};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_grenadier";
-        dir = 271.769;
-    };
-    class obj_260 {
-        pos[] = {15.9199,12.0176,7.08492};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_Prone_F";
-        dir = 0.262;
-    };
-    class obj_308 {
-        pos[] = {-19.0313,-10.5381,12.2587};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 270.141;
-    };
-    class obj_316 {
-        pos[] = {15.5581,-16.1465,0.00144291};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_aa";
-        dir = 171.358;
-    };
-    class obj_324 {
-        pos[] = {15.6191,-17.2192,0.328332};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_332 {
-        pos[] = {-23.2549,-5.302,0};
-        issimpleobj = 1;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Pipes_large_F";
-        dir = 92.2644;
-    };
-    class obj_340 {
-        pos[] = {23.8784,2.30957,0};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_F";
-        dir = 0.262;
-    };
-    class obj_44 {
-        pos[] = {11.5117,4.08984,-0.00509453};
-        issimpleobj = 0;
-        vecup[] = {-0.00198341,0.00271863,0.999994};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 89.8822;
-    };
-    class obj_157 {
-        pos[] = {-11.7646,12.1323,12.3775};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_52 {
-        pos[] = {3.25537,12.0986,8.50917};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_165 {
-        pos[] = {12.3315,-11.3608,0.689564};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_End_F";
-        dir = 180.444;
-    };
-    class obj_60 {
-        pos[] = {-4.39307,12.2598,0.0117249};
-        issimpleobj = 0;
-        vecup[] = {0.00836488,-0.00580794,0.999948};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_173 {
-        pos[] = {-3.83057,16.8411,5.62668e-005};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_PortableLight_double_F";
-        dir = 181.849;
-    };
-    class obj_229 {
-        pos[] = {-6.3999,-17.999,15.517};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 89.8152;
-    };
-    class obj_181 {
-        pos[] = {13.0308,11.8137,0.352501};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_237 {
-        pos[] = {-18.998,-4.00024,8.42268};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 270.832;
-    };
-    class obj_28 {
-        pos[] = {2.18604,-11.3713,0.00104141};
-        issimpleobj = 0;
-        vecup[] = {0.00129158,-0.0114093,0.999934};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_36 {
-        pos[] = {3.85645,-11.416,0.738595};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_End_F";
-        dir = 0.262;
-    };
-    class obj_149 {
-        pos[] = {-11.0327,12.0833,8.40611};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_245 {
-        pos[] = {19.4868,-0.0463867,-1.62125e-005};
-        issimpleobj = 0;
-        vecup[] = {0,-0.00300962,0.999995};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_Long_F";
-        dir = 181.094;
-    };
-    class obj_253 {
-        pos[] = {-17.064,-9.74878,0.00144386};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_marksman";
-        dir = 266.486;
-    };
-    class obj_261 {
-        pos[] = {-19.0801,-5.9834,12.3878};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 270.162;
-    };
-    class obj_309 {
-        pos[] = {-18.9888,11.1208,0.421226};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_End_F";
-        dir = 270.394;
-    };
-    class obj_317 {
-        pos[] = {19.0625,12.2039,-0.00117064};
-        issimpleobj = 0;
-        vecup[] = {0.0087821,-0.00839317,0.999926};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_Long_F";
-        dir = 181.554;
-    };
-    class obj_325 {
-        pos[] = {-14.2192,-18.7734,0.00144005};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_marksman";
-        dir = 217.692;
-    };
-    class obj_333 {
-        pos[] = {22.7271,-7.26147,0.297814};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 91.6259;
-    };
-    class obj_341 {
-        pos[] = {21.0732,-11.5098,0.329646};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_37 {
-        pos[] = {-1.45166,-11.7634,4.56471};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_45 {
-        pos[] = {3.24072,-11.832,8.53084};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_158 {
-        pos[] = {-5.67627,16.0154,-0.112007};
-        issimpleobj = 0;
-        vecup[] = {2.77623e-006,0.000438159,1};
-        hascrew = 1;
-        type = "O_GMG_01_high_F";
-        dir = 324.841;
-    };
-    class obj_53 {
-        pos[] = {-4.34229,-11.7224,4.32144};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_166 {
-        pos[] = {0.213867,-17.1997,-0.000750542};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_61 {
-        pos[] = {-4.43848,12.2773,0.508892};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_174 {
-        pos[] = {-2.73438,-17.1953,-0.000750542};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_182 {
-        pos[] = {-1.42529,17.5586,-0.00100327};
-        issimpleobj = 0;
-        vecup[] = {0,0.000345267,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_238 {
-        pos[] = {-18.9658,-4.16553,4.3803};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 270.036;
-    };
-    class obj_190 {
-        pos[] = {-4.7002,-17.2241,0.375809};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_29 {
-        pos[] = {11.5259,-1.57617,0.528502};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 92.117;
-    };
-    class obj_246 {
-        pos[] = {-3.74561,-19.365,-2.38419e-006};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Razorwire_F";
-        dir = 0.262;
-    };
-    class obj_254 {
-        pos[] = {15.7251,11.8049,0.0162325};
-        issimpleobj = 0;
-        vecup[] = {0.011601,0.0293405,0.999502};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_262 {
-        pos[] = {-15.0654,-13.0098,15.593};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 269.098;
-    };
-    class obj_270 {
-        pos[] = {4.32129,-19.2786,-2.38419e-006};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Razorwire_F";
-        dir = 0.262;
-    };
-    class obj_318 {
-        pos[] = {19.3413,11.8555,0};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_Long_F";
-        dir = 181.931;
-    };
-    class obj_326 {
-        pos[] = {20.6021,-11.4314,0.662152};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 0.262;
-    };
-    class obj_334 {
-        pos[] = {-13.9463,-19.3655,-0.0240164};
-        issimpleobj = 0;
-        vecup[] = {-0.0249124,0.00048813,0.99969};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 0.262;
-    };
-    class obj_342 {
-        pos[] = {21.106,-11.5032,-0.000999451};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_350 {
-        pos[] = {22.7256,-9.62305,0.312121};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 91.7659;
-    };
-    author = "Floid";
-    class obj_38 {
-        pos[] = {1.76221,11.6169,-0.000739574};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_PortableLight_double_F";
-        dir = 177.688;
-    };
-    class obj_46 {
-        pos[] = {-2.33838,12.125,8.42959};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_159 {
-        pos[] = {16.9497,1.34692,0.000206947};
-        issimpleobj = 0;
-        vecup[] = {0.0113412,0.008148,0.999902};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_F";
-        dir = 91.6862;
-    };
-    class obj_54 {
-        pos[] = {2.61133,12.283,0.500203};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_167 {
-        pos[] = {12.6079,-11.71,4.5013};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_62 {
-        pos[] = {9.47266,9.02515,0.00041008};
-        issimpleobj = 1;
-        vecup[] = {-0.0121472,0.0134376,0.999836};
-        hascrew = 0;
-        type = "rhs_launcher_crate";
-        dir = 70.369;
-    };
-    class obj_175 {
-        pos[] = {3.18262,-17.1709,-0.000750542};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_70 {
-        pos[] = {11.5249,6.76685,0.44483};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 89.7702;
-    };
-    class obj_183 {
-        pos[] = {1.56201,17.5823,-0.00100327};
-        issimpleobj = 0;
-        vecup[] = {0,0.000345267,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_191 {
-        pos[] = {3.98584,17.5498,-0.00098896};
-        issimpleobj = 0;
-        vecup[] = {0,0.000345267,1};
-        hascrew = 0;
-        type = "Land_BagFence_End_F";
-        dir = 0.262;
-    };
-    class obj_239 {
-        pos[] = {-19.0239,3.93384,0.359021};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 89.5529;
-    };
-    class obj_247 {
-        pos[] = {-17.7935,-8.07129,0.00143909};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_at";
-        dir = 268.471;
-    };
-    class obj_255 {
-        pos[] = {-14.917,-12.363,-0.00100708};
-        issimpleobj = 0;
-        vecup[] = {-0.00138107,0,0.999999};
-        hascrew = 0;
-        type = "Land_BagFence_End_F";
-        dir = 272.925;
-    };
-    class obj_263 {
-        pos[] = {-18.1216,8.33301,0.0051403};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_PortableLight_double_F";
-        dir = 92.9502;
-    };
-    class obj_271 {
-        pos[] = {-17.8955,-9.71558,0.00144196};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_at";
-        dir = 266.814;
-    };
-    class obj_319 {
-        pos[] = {14.9668,-17.1719,-0.000750542};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_327 {
-        pos[] = {23.3638,3.33569,-0.000881195};
-        issimpleobj = 0;
-        vecup[] = {0.00892991,-0.00847087,0.999924};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_F";
-        dir = 87.5765;
-    };
-    class obj_335 {
-        pos[] = {12.4038,-19.1753,-2.38419e-006};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Razorwire_F";
-        dir = 0.262;
-    };
-    class obj_343 {
-        pos[] = {21.8564,10.0283,0};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_Long_F";
-        dir = 256.909;
-    };
-    class obj_351 {
-        pos[] = {23.9434,-6.09814,0};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_F";
-        dir = 0.262;
-    };
-    class obj_39 {
-        pos[] = {5.98828,-10.4556,0.000320911};
-        issimpleobj = 1;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "rhs_mags_crate";
-        dir = 240.061;
-    };
-    class obj_47 {
-        pos[] = {4.00732,-11.7458,4.40323};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_55 {
-        pos[] = {-5.59277,11.4111,0.00273514};
-        issimpleobj = 1;
-        vecup[] = {-0.00195477,0.00553265,0.999983};
-        hascrew = 0;
-        type = "rhs_mags_crate";
-        dir = 0.262;
-    };
-    class obj_168 {
-        pos[] = {1.04395,-17.1858,0.370534};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_63 {
-        pos[] = {-13.1655,2.66089,0.00307274};
-        issimpleobj = 0;
-        vecup[] = {0.0221113,-0.00732886,0.999729};
-        hascrew = 0;
-        type = "Land_BagFence_Round_F";
-        dir = 84.6226;
-    };
-    class obj_176 {
-        pos[] = {12.6089,12.1331,4.36266};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    hasmissiontarget = 1;
-    class obj_71 {
-        pos[] = {6.18994,-11.8164,8.55024};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_184 {
-        pos[] = {1.48096,17.5913,0.326729};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_192 {
-        pos[] = {13.1177,12.187,3.151};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_Long_Prone_F";
-        dir = 179.886;
-    };
-    class obj_248 {
-        pos[] = {-19.0308,4.64478,8.48606};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 270.242;
-    };
-    class obj_256 {
-        pos[] = {9.77197,-17.2183,0.365026};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_264 {
-        pos[] = {-13.9419,16.0569,-2.38419e-006};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Razorwire_F";
-        dir = 0.262;
-    };
-    class obj_272 {
-        pos[] = {-15.0352,-13.7507,8.00687};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_Long_F";
-        dir = 91.4149;
-    };
-    class obj_280 {
-        pos[] = {-15.0273,-14.0012,4.97822};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_Long_F";
-        dir = 90.8388;
-    };
-    class obj_328 {
-        pos[] = {20.6724,-11.4282,-0.000824451};
-        issimpleobj = 0;
-        vecup[] = {0,0.00169146,0.999999};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 0.262;
-    };
-    class obj_336 {
-        pos[] = {23.9351,1.0603,0.108394};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_F";
-        dir = 0.262;
-    };
-    class obj_344 {
-        pos[] = {22.8145,-7.70166,-0.00218582};
-        issimpleobj = 0;
-        vecup[] = {0.000690285,0.000690534,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 92.536;
-    };
-    class obj_352 {
-        pos[] = {22.6797,-10.103,-0.0017004};
-        issimpleobj = 0;
-        vecup[] = {0.000690285,0.000690534,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 90.4612;
-    };
-    class obj_360 {
-        pos[] = {24.5967,-6.09326,0.0236549};
-        issimpleobj = 0;
-        vecup[] = {0.0165143,0.0331294,0.999315};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_48 {
-        pos[] = {-2.94824,12.094,12.4847};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_56 {
-        pos[] = {9.80615,8.07397,0.824112};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_PortableLight_double_F";
-        dir = 232.572;
-    };
-    class obj_169 {
-        pos[] = {12.1743,12.1975,1.06217};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_Prone_F";
-        dir = 0.262;
-    };
-    class obj_64 {
-        pos[] = {5.92871,-11.366,-0.00152588};
-        issimpleobj = 0;
-        vecup[] = {0.00142318,-0.00241691,0.999996};
-        hascrew = 0;
-        type = "Land_BagFence_End_F";
-        dir = 182.657;
-    };
-    class obj_177 {
-        pos[] = {16.9678,4.33447,0.000259399};
-        issimpleobj = 0;
-        vecup[] = {0.0113412,0.008148,0.999902};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_Long_F";
-        dir = 270.989;
-    };
-    class obj_72 {
-        pos[] = {11.4917,6.84204,-0.0348148};
-        issimpleobj = 0;
-        vecup[] = {-0.000345267,0.0225019,0.999747};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 89.6121;
-    };
-    class obj_185 {
-        pos[] = {-14.1172,-10.5776,0.000152588};
-        issimpleobj = 1;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "rhs_launcher_crate";
-        dir = 141.707;
-    };
-    class obj_80 {
-        pos[] = {12.6113,-5.83228,0.00680923};
-        issimpleobj = 0;
-        vecup[] = {0.0211617,0.015375,0.999658};
-        hascrew = 0;
-        type = "Land_BagFence_Corner_F";
-        dir = 0.262;
-    };
-    class obj_193 {
-        pos[] = {-7.00146,16.7979,-0.0020256};
-        issimpleobj = 0;
-        vecup[] = {0,0.000349066,1};
-        hascrew = 0;
-        type = "Land_BagFence_Round_F";
-        dir = 117.46;
-    };
-    class obj_249 {
-        pos[] = {15.6187,11.7981,0.367732};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_257 {
-        pos[] = {19.8955,-0.332275,0.00143909};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_medic";
-        dir = 264.551;
-    };
-    class obj_265 {
-        pos[] = {-16.7808,-11.1519,0.00144005};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_grenadier";
-        dir = 194.047;
-    };
-    class obj_273 {
-        pos[] = {-19.0112,7.41235,4.41645};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 272.108;
-    };
-    class obj_281 {
-        pos[] = {-16.8193,-11.8188,12.3067};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_329 {
-        pos[] = {-13.8672,-19.1909,-1.50384};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_Stand_F";
-        dir = 0.262;
-    };
-    class obj_337 {
-        pos[] = {-13.5967,-19.6704,3.42857};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_345 {
-        pos[] = {21.7798,-10.4258,0.00143433};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_at";
-        dir = 156.191;
-    };
-    class obj_353 {
-        pos[] = {17.9961,-17.1753,-0.000750542};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_361 {
-        pos[] = {21.2847,-13.8411,0.000162125};
-        issimpleobj = 1;
-        vecup[] = {0,-0.00150091,0.999999};
-        hascrew = 0;
-        type = "rhs_mags_crate";
-        dir = 0.262;
-    };
-    class obj_49 {
-        pos[] = {2.82764,12.1384,12.5284};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_57 {
-        pos[] = {-5.09033,-11.8127,8.52413};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_65 {
-        pos[] = {-5.19873,12.1113,8.4208};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_178 {
-        pos[] = {12.9453,11.8403,0.0162315};
-        issimpleobj = 0;
-        vecup[] = {0.011601,0.0293405,0.999502};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_73 {
-        pos[] = {-5.91162,12.0784,12.4203};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_186 {
-        pos[] = {3.96826,-17.2129,0.358447};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_81 {
-        pos[] = {12.5991,-5.86401,0.302477};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Corner_F";
-        dir = 0.262;
-    };
-    class obj_194 {
-        pos[] = {-6.89063,16.8577,0.305015};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Round_F";
-        dir = 119.889;
-    };
-    class obj_258 {
-        pos[] = {-19.0874,5.70117,12.4478};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 270.427;
-    };
-    class obj_266 {
-        pos[] = {-17.0762,10.7065,0.0014348};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_grenadier";
-        dir = 0.262;
-    };
-    class obj_274 {
-        pos[] = {-19.0068,7.51367,8.33459};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 271.661;
-    };
-    class obj_282 {
-        pos[] = {-16.8545,-11.8035,4.43701};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 0.262;
-    };
-    class obj_290 {
-        pos[] = {-16.8818,12.1208,8.28726};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_338 {
-        pos[] = {-13.9307,-19.4648,1.43051e-006};
-        issimpleobj = 0;
-        vecup[] = {0,-0.0050271,0.999987};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_F";
-        dir = 0.262;
-    };
-    class obj_346 {
-        pos[] = {23.3218,6.323,-0.000974178};
-        issimpleobj = 0;
-        vecup[] = {0.00892991,-0.00847087,0.999924};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_Long_F";
-        dir = 270.079;
-    };
-    class obj_354 {
-        pos[] = {24.229,-6.36255,-2.86102e-006};
-        issimpleobj = 0;
-        vecup[] = {-0.000488281,0,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_F";
-        dir = 0.262;
-    };
-    class obj_362 {
-        pos[] = {23.2212,10.2871,-0.000871658};
-        issimpleobj = 0;
-        vecup[] = {0.00892991,-0.00847087,0.999924};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_Long_F";
-        dir = 268.163;
-    };
-    class obj_58 {
-        pos[] = {2.34375,12.6741,-0.000352383};
-        issimpleobj = 1;
-        vecup[] = {0.00844737,0.0120421,0.999892};
-        hascrew = 0;
-        type = "rhs_mags_crate";
-        dir = 0.262;
-    };
-    class obj_66 {
-        pos[] = {7.50342,10.8352,0.00143528};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_at";
-        dir = 0.262;
-    };
-    class obj_179 {
-        pos[] = {5.01953,17.1116,-0.00098896};
-        issimpleobj = 0;
-        vecup[] = {0,0.000349066,1};
-        hascrew = 0;
-        type = "Land_BagFence_Round_F";
-        dir = 221.014;
-    };
-    class obj_74 {
-        pos[] = {-3.9751,12.8271,0.000484467};
-        issimpleobj = 1;
-        vecup[] = {0.00844737,0.0120421,0.999892};
-        hascrew = 0;
-        type = "rhs_mags_crate";
-        dir = 0.262;
-    };
-    class obj_187 {
-        pos[] = {4.94092,17.28,0.343081};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Round_F";
-        dir = 220.283;
-    };
-    class obj_82 {
-        pos[] = {-8.30029,10.8669,0.00143623};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_at";
-        dir = 0.262;
-    };
-    class obj_195 {
-        pos[] = {2.82617,17.6443,0.35672};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_End_F";
-        dir = 180.802;
-    };
-    class obj_90 {
-        pos[] = {8.20508,11.4294,0.00143909};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_at";
-        dir = 0.262;
-    };
-    class obj_259 {
-        pos[] = {-7.22607,-18.5588,0.00144005};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_marksman";
-        dir = 142.916;
-    };
-    class obj_267 {
-        pos[] = {16.1001,12.1694,1.02106};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_Prone_F";
-        dir = 0.262;
-    };
-    class obj_275 {
-        pos[] = {-17.8862,9.91895,-0.11292};
-        issimpleobj = 0;
-        vecup[] = {-0.00150621,6.05121e-006,0.999999};
-        hascrew = 1;
-        type = "O_HMG_01_high_F";
-        dir = 268.5;
-    };
-    class obj_283 {
-        pos[] = {-16.9512,-11.7217,8.50611};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_291 {
-        pos[] = {-19.0215,8.37622,0.389106};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 90.7197;
-    };
-    class obj_339 {
-        pos[] = {-13.9375,-19.4866,0};
-        issimpleobj = 0;
-        vecup[] = {-0.00138107,0,0.999999};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_F";
-        dir = 0.262;
-    };
-    class obj_347 {
-        pos[] = {16.7944,15.9585,-2.38419e-006};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Razorwire_F";
-        dir = 0.262;
-    };
-    class obj_355 {
-        pos[] = {22.0703,12.1599,-0.00124311};
-        issimpleobj = 0;
-        vecup[] = {0.0087821,-0.00839317,0.999926};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_F";
-        dir = 0.262;
-    };
-    class obj_363 {
-        pos[] = {-22.019,15.9343,-2.38419e-006};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Razorwire_F";
-        dir = 0.262;
-    };
-    class obj_371 {
-        pos[] = {26.7891,-6.12573,0};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_Long_F";
-        dir = 0.262;
-    };
-    class obj_59 {
-        pos[] = {5.30518,12.0203,0.561029};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_End_F";
-        dir = 0.262;
-    };
-    class obj_67 {
-        pos[] = {6.88135,11.3015,0.00142145};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_at";
-        dir = 0.262;
-    };
-    class obj_75 {
-        pos[] = {6.50293,11.8752,0.0333252};
-        issimpleobj = 0;
-        vecup[] = {0.0226734,-0.00209927,0.999741};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_188 {
-        pos[] = {13.0894,11.9758,7.12311};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_Long_Prone_F";
-        dir = 179.224;
-    };
-    class obj_83 {
-        pos[] = {8.02295,-11.0996,0.00144386};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_grenadier";
-        dir = 178.44;
-    };
-    class obj_196 {
-        pos[] = {14.3843,10.761,-0.120612};
-        issimpleobj = 0;
-        vecup[] = {-0.0121545,0.0134438,0.999836};
-        hascrew = 1;
-        type = "O_HMG_01_high_F";
-        dir = 360.26;
-    };
-    class obj_91 {
-        pos[] = {-9.38672,-10.667,0.00142765};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_officer_armored";
-        dir = 78.2007;
-    };
-    class obj_268 {
-        pos[] = {-19.001,-6.87183,8.46519};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 271.427;
-    };
-    class obj_276 {
-        pos[] = {-18.9536,-7.86353,4.4046};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 270.531;
-    };
-    class obj_284 {
-        pos[] = {-18.9858,-8.02832,0.439318};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 90.5864;
-    };
-    class obj_292 {
-        pos[] = {-17.0317,12.0884,0.369805};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 0.262;
-    };
-    class obj_348 {
-        pos[] = {22.9839,-8.29932,-0.292357};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_Long_F";
-        dir = 269.596;
-    };
-    class obj_356 {
-        pos[] = {22.9878,-10.4268,0};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_F";
-        dir = 271.162;
-    };
-    class obj_364 {
-        pos[] = {22.8965,-13.5728,0.373044};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 90.8008;
-    };
-    class obj_372 {
-        pos[] = {21.52,-17.1243,0.343335};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_380 {
-        pos[] = {28.0112,-5.4126,0.00143909};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_aa";
-        dir = 109.069;
+        dir = 445.519;
     };
     class obj_68 {
-        pos[] = {-5.53027,-11.7896,4.56424};
+        pos[] = {-11.2413,-16.2744,19.1967};
         issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_End_F";
-        dir = 0.262;
-    };
-    class obj_76 {
-        pos[] = {6.52734,11.8726,0.389713};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_189 {
-        pos[] = {15.3428,-9.06665,0.38262};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 88.2506;
-    };
-    class obj_84 {
-        pos[] = {5.5293,13.1426,-0.000834465};
-        issimpleobj = 0;
-        vecup[] = {0,0.000345267,1};
-        hascrew = 0;
-        type = "Land_BagFence_End_F";
-        dir = 264.471;
-    };
-    class obj_197 {
-        pos[] = {-5.16162,-17.2275,-0.000845909};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 0.262;
-    };
-    class obj_92 {
-        pos[] = {-8.89697,11.1365,0.0014348};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
+        vecup[] = {-0.000542702,-2.37873e-005,1};
         hascrew = 1;
-        type = "rhs_vdv_des_at";
-        dir = 0.262;
-    };
-    class obj_269 {
-        pos[] = {16.1025,12.2395,3.12381};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_Prone_F";
-        dir = 0.262;
-    };
-    class obj_277 {
-        pos[] = {-18.3389,9.20166,0.00143909};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_grenadier";
-        dir = 262.797;
-    };
-    class obj_285 {
-        pos[] = {-16.9478,-11.8176,0.448442};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 0.262;
-    };
-    class obj_293 {
-        pos[] = {-20.5688,6.67017,0.936};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Scaffolding_F";
-        dir = 0.262;
-    };
-    class obj_349 {
-        pos[] = {24.4214,2.14746,0};
-        issimpleobj = 0;
-        vecup[] = {-0.000845728,0,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_F";
-        dir = 0.262;
-    };
-    class obj_357 {
-        pos[] = {18.5742,-17.1575,0.320743};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_365 {
-        pos[] = {22.9141,-13.575,0.00130272};
-        issimpleobj = 0;
-        vecup[] = {0,-0.00150472,0.999999};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 90.1278;
-    };
-    class obj_373 {
-        pos[] = {-25.3223,10.0752,-2.38419e-006};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Razorwire_F";
-        dir = 277.706;
-    };
-    class obj_381 {
-        pos[] = {29.0527,0.289307,8.66379};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 90.6592;
-    };
-    class obj_1 {
-        pos[] = {-2.24463,-2.05225,0.00144577};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_medic";
-        dir = 224.75;
-    };
-    class obj_69 {
-        pos[] = {-0.894043,13.2839,0.0101357};
-        issimpleobj = 0;
-        vecup[] = {0.00844308,0.0120491,0.999892};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 269.39;
-    };
-    class obj_77 {
-        pos[] = {6.84766,11.7336,0.315041};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_85 {
-        pos[] = {11.2227,8.03247,-0.00028038};
-        issimpleobj = 1;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "rhs_launcher_crate";
-        dir = 185.372;
-    };
-    class obj_198 {
-        pos[] = {-4.27783,17.532,-0.00100327};
-        issimpleobj = 0;
-        vecup[] = {0,0.000345267,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 0.262;
-    };
-    class obj_93 {
-        pos[] = {-6.46436,-12.9258,11.444};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 91.1102;
-    };
-    class obj_278 {
-        pos[] = {-17.8174,-10.231,0.0014019};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_at";
-        dir = 264.206;
-    };
-    class obj_286 {
-        pos[] = {-12.9404,-16.5112,-0.00180054};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Round_F";
-        dir = 42.56;
-    };
-    class obj_294 {
-        pos[] = {-19.0757,8.59521,12.4801};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 271.709;
-    };
-    class obj_358 {
-        pos[] = {19.0537,-16.5518,0.000197411};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_PortableLight_double_F";
-        dir = 0.262;
-    };
-    class obj_366 {
-        pos[] = {26.7373,2.25,0};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_Long_F";
-        dir = 180.326;
-    };
-    class obj_374 {
-        pos[] = {22.9229,-15.7729,0.385301};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 90.0105;
-    };
-    class obj_382 {
-        pos[] = {29.0718,0.383789,7.89416};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 91.8362;
-    };
-    class obj_390 {
-        pos[] = {28.9707,-5.10229,-0.000999451};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 90.113;
-    };
-};
-class composition_523648 {
-    class obj_6 {
-        pos[] = {-2.38037,1.08789,-3.91221};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 222.362;
-    };
-    class obj_37 {
-        pos[] = {-5.74316,-2.64209,-4.64321};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_marksman";
-        dir = 201.25;
-    };
-    class obj_44 {
-        pos[] = {-5.75439,-3.41895,-4.64565};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 223.274;
-    };
-    class obj_51 {
-        pos[] = {-6.92334,0.875977,-4.66899};
-        issimpleobj = 0;
-        vecup[] = {-0.0157001,-0.0319498,0.999366};
-        hascrew = 1;
-        type = "O_HMG_01_F";
-        dir = 403.701;
-    };
-    class obj_87 {
-        pos[] = {-7.05078,5.80566,-4.30302};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 404.776;
-    };
-    class obj_94 {
-        pos[] = {-6.36719,6.88477,-5.31742};
-        issimpleobj = 0;
-        vecup[] = {-0.187791,-0.437162,0.879559};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 492.376;
-    };
-    class obj_107 {
-        pos[] = {-1.23535,10.8828,-4.64321};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_grenadier";
-        dir = 450.302;
-    };
-    class obj_114 {
-        pos[] = {-7.79443,8.98145,-4.17542};
-        issimpleobj = 0;
-        vecup[] = {-0.187791,-0.437163,0.879559};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 313.248;
-    };
-    class obj_7 {
-        pos[] = {1.09033,2.43359,-4.66932};
-        issimpleobj = 1;
-        vecup[] = {6.33419e-006,4.73559e-006,1};
-        hascrew = 0;
-        type = "ACE_medicalSupplyCrate";
-        dir = 315.751;
-    };
-    class obj_38 {
-        pos[] = {-0.927246,-6.26855,-4.34594};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 403.047;
-    };
-    class obj_45 {
-        pos[] = {5.4541,3.90918,-4.64321};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_at";
-        dir = 488.977;
-    };
-    class obj_52 {
-        pos[] = {-2.12646,6.95508,-4.64465};
-        issimpleobj = 1;
-        vecup[] = {-2.61029e-006,-7.40235e-006,1};
-        hascrew = 0;
-        type = "rhs_launcher_crate";
-        dir = 231.995;
-    };
-    class obj_88 {
-        pos[] = {-7.15967,5.7002,-3.11048};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 397.809;
-    };
-    class obj_95 {
-        pos[] = {-8.21338,5.00879,-4.64608};
-        issimpleobj = 0;
-        vecup[] = {-0.000345267,-0.000913445,1};
-        hascrew = 0;
-        type = "Land_BagFence_End_F";
-        dir = 521.037;
-    };
-    class obj_108 {
-        pos[] = {-0.400391,11.2695,-4.64595};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Round_F";
-        dir = 261.118;
-    };
-    class obj_115 {
-        pos[] = {-7.97412,-9.46484,-4.64595};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Round_F";
-        dir = 445.498;
-    };
-    class obj_8 {
-        pos[] = {2.22363,-1.54004,-4.64283};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_medic";
-        dir = 402.178;
-    };
-    class obj_10 {
-        pos[] = {-2.38135,-2.16064,-4.64321};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_grenadier";
-        dir = 201.25;
-    };
-    class obj_39 {
-        pos[] = {-0.94873,-6.31104,-4.64565};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 223.272;
-    };
-    class obj_46 {
-        pos[] = {-5.771,-3.40723,-4.17702};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 220.696;
-    };
-    class obj_53 {
-        pos[] = {-4.39307,5.87012,-4.64565};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 401.105;
-    };
-    class obj_60 {
-        pos[] = {7.18604,-2.84033,-4.64321};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_marksman";
-        dir = 201.25;
-    };
-    class obj_89 {
-        pos[] = {-7.17285,5.7373,-3.84977};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 402.615;
-    };
-    class obj_96 {
-        pos[] = {-2.75928,-9.05762,-5.03359};
-        issimpleobj = 0;
-        vecup[] = {0.191984,0.444245,0.875094};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 313.594;
-    };
-    class obj_109 {
-        pos[] = {-3.13916,10.6846,-4.71313};
-        issimpleobj = 0;
-        vecup[] = {8.13003e-006,-1.77287e-005,1};
-        hascrew = 1;
-        type = "rhs_Kornet_9M133_2_vdv";
-        dir = 405.207;
-    };
-    class obj_116 {
-        pos[] = {-5.88086,11.335,-4.64595};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Round_F";
-        dir = 539.923;
-    };
-    class obj_9 {
-        pos[] = {-0.243164,2.75195,-4.66689};
-        issimpleobj = 0;
-        vecup[] = {0.017922,0.0274853,0.999462};
-        hascrew = 1;
-        type = "O_HMG_01_F";
-        dir = 224.7;
-    };
-    class obj_11 {
-        pos[] = {-1.8999,-2.9541,-4.64547};
-        issimpleobj = 0;
-        vecup[] = {0,-0.00109178,0.999999};
-        hascrew = 0;
-        type = "Land_BagFence_Round_F";
-        dir = 348.574;
-    };
-    class obj_47 {
-        pos[] = {3.30469,5.87598,-4.64565};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 402.63;
-    };
-    class obj_54 {
-        pos[] = {-4.49365,5.86523,-4.33702};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 404.018;
-    };
-    class obj_61 {
-        pos[] = {5.81494,5.64111,-4.64681};
-        issimpleobj = 0;
-        vecup[] = {-0.00269662,0,0.999996};
-        hascrew = 0;
-        type = "Land_BagFence_Round_F";
-        dir = 261.539;
-    };
-    class obj_97 {
-        pos[] = {5.25146,-8.34717,-4.71312};
-        issimpleobj = 0;
-        vecup[] = {-5.85426e-006,-8.28368e-006,1};
-        hascrew = 1;
-        type = "rhs_Kornet_9M133_2_vdv";
-        dir = 535.339;
-    };
-    author = "Floid";
-    class obj_12 {
-        pos[] = {-3.56348,0.046875,-4.64713};
-        issimpleobj = 0;
-        vecup[] = {0.000845734,-0.0020712,0.999997};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 495.99;
-    };
-    class obj_48 {
-        pos[] = {3.20801,5.98926,-4.64198};
-        issimpleobj = 0;
-        vecup[] = {-0.00269662,0,0.999996};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 402.21;
-    };
-    class obj_55 {
-        pos[] = {-5.3457,5.1582,-4.64207};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_medic";
-        dir = 225.797;
-    };
-    class obj_62 {
-        pos[] = {-5.86377,5.12988,-4.64321};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_marksman";
-        dir = 398.198;
-    };
-    class obj_98 {
-        pos[] = {6.48291,-7.49023,-4.64565};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 316.768;
-    };
-    class obj_13 {
-        pos[] = {1.8877,3.17822,-4.66976};
-        issimpleobj = 1;
-        vecup[] = {-0.000219354,-0.000547352,1};
-        hascrew = 0;
-        type = "rhs_mags_crate";
-        dir = 493.299;
-    };
-    class obj_20 {
-        pos[] = {1.42334,-4.98926,-4.35468};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 492.734;
-    };
-    class obj_49 {
-        pos[] = {6.34326,-2.64453,-4.64653};
-        issimpleobj = 0;
-        vecup[] = {-0.00269662,0,0.999996};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 493.701;
-    };
-    class obj_56 {
-        pos[] = {-7.3916,1.25293,-4.64321};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_officer_armored";
-        dir = 494.039;
-    };
-    class obj_63 {
-        pos[] = {-5.07275,6.05713,-4.63328};
-        issimpleobj = 0;
-        vecup[] = {-0.0111397,-0.00621402,0.999919};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 401.602;
-    };
-    class obj_70 {
-        pos[] = {-8.14014,-1.55322,-4.64465};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_F";
-        dir = 492.966;
-    };
-    class obj_99 {
-        pos[] = {-4.63672,-8.74805,-4.64321};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_grenadier";
-        dir = 225.562;
-    };
-    hasmissiontarget = 1;
-    class obj_14 {
-        pos[] = {-3.9375,0.203125,-4.66979};
-        issimpleobj = 1;
-        vecup[] = {0.000755155,-0.00162228,0.999998};
-        hascrew = 0;
-        type = "rhs_mags_crate";
-        dir = 314.419;
-    };
-    class obj_21 {
-        pos[] = {-0.0390625,5.24463,-4.64321};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_marksman";
-        dir = 402.966;
-    };
-    class obj_57 {
-        pos[] = {-5.98291,-4.64941,-4.64465};
-        issimpleobj = 1;
-        vecup[] = {1.44334e-005,4.25577e-006,1};
-        hascrew = 0;
-        type = "rhs_launcher_crate";
-        dir = 420.68;
-    };
-    class obj_64 {
-        pos[] = {-7.1792,-3.58887,-4.655};
-        issimpleobj = 0;
-        vecup[] = {-0.0100601,0.00198331,0.999947};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 222.967;
-    };
-    class obj_71 {
-        pos[] = {-8.21045,1.61426,-4.64196};
-        issimpleobj = 0;
-        vecup[] = {-0.010018,0.0018325,0.999948};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 313.936;
-    };
-    class obj_15 {
-        pos[] = {-1.05078,-4.63916,-4.75677};
-        issimpleobj = 0;
-        vecup[] = {-2.60687e-006,2.33451e-006,1};
-        hascrew = 1;
-        type = "O_HMG_01_high_F";
-        dir = 222.473;
-    };
-    class obj_22 {
-        pos[] = {4.83545,-2.16797,-4.64321};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_aa";
-        dir = 201.25;
-    };
-    class obj_58 {
-        pos[] = {1.10449,-7.3125,-3.87948};
-        issimpleobj = 0;
-        vecup[] = {0.189329,0.445224,0.875174};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 493.568;
-    };
-    class obj_65 {
-        pos[] = {-2.73145,-7.38965,-3.86019};
-        issimpleobj = 0;
-        vecup[] = {0.189329,0.445224,0.875174};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 492.464;
-    };
-    class obj_72 {
-        pos[] = {-8.26709,-1.33008,-4.64231};
-        issimpleobj = 0;
-        vecup[] = {-0.010018,0.0018325,0.999948};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 313.277;
-    };
-    type = "Land_Unfinished_Building_02_F";
-    class obj_16 {
-        pos[] = {-3.91943,2.84717,-4.66979};
-        issimpleobj = 1;
-        vecup[] = {-0.000141083,0.000473663,1};
-        hascrew = 0;
-        type = "rhs_mags_crate";
-        dir = 312.776;
-    };
-    class obj_23 {
-        pos[] = {5.43896,-0.978516,-4.64321};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_at";
-        dir = 500.001;
-    };
-    class obj_30 {
-        pos[] = {-3.26563,-4.90039,-4.32474};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 313.316;
-    };
-    class obj_59 {
-        pos[] = {-7.23584,-2.56201,-4.64502};
-        issimpleobj = 1;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_CargoBox_V1_F";
-        dir = 312.246;
-    };
-    class obj_66 {
-        pos[] = {-7.29541,3.4834,-4.64321};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_marksman";
-        dir = 312.567;
-    };
-    class obj_73 {
-        pos[] = {6.48096,-5.27246,-4.64565};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 311.076;
-    };
-    class obj_80 {
-        pos[] = {-6.47656,5.90039,-4.64565};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 402.633;
-    };
-    class obj_100 {
-        pos[] = {-8.34424,-5.39453,-4.64565};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 313.192;
-    };
-    class obj_17 {
-        pos[] = {1.60693,4.74902,-4.64652};
-        issimpleobj = 0;
-        vecup[] = {-0.0024414,0,0.999997};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 491.982;
-    };
-    class obj_24 {
-        pos[] = {1.96729,-5.2666,-4.64474};
-        issimpleobj = 1;
-        vecup[] = {-0.000200113,-0.000401655,1};
-        hascrew = 0;
-        type = "rhs_mags_crate";
-        dir = 496.892;
-    };
-    class obj_31 {
-        pos[] = {-4.896,-3.57861,-4.66171};
-        issimpleobj = 0;
-        vecup[] = {-0.0123186,-0.00231565,0.999921};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 221.629;
-    };
-    class obj_67 {
-        pos[] = {8.15039,0.65625,-4.64565};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 492.492;
-    };
-    class obj_74 {
-        pos[] = {-5.66895,5.59521,-4.6464};
-        issimpleobj = 0;
-        vecup[] = {0.00133688,-0.00209981,0.999997};
-        hascrew = 0;
-        type = "Land_BagFence_End_F";
-        dir = 406.041;
-    };
-    class obj_81 {
-        pos[] = {-8.05615,3.62012,-4.64602};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 314.052;
-    };
-    class obj_101 {
-        pos[] = {2.68066,-9.91699,-4.64565};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 402.631;
-    };
-    class obj_1 {
-        pos[] = {-0.190918,1.07813,-3.91572};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 221.895;
-    };
-    class obj_18 {
-        pos[] = {1.1167,-4.94971,-4.64567};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 491.178;
-    };
-    class obj_25 {
-        pos[] = {-2.87646,-4.94531,-4.64566};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 310.919;
-    };
-    class obj_32 {
-        pos[] = {3.17041,5.21338,-4.6432};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_at";
-        dir = 408.878;
-    };
-    class obj_68 {
-        pos[] = {-5.82813,5.75049,-5.92344};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_Long_Prone_F";
-        dir = 220.793;
-    };
-    class obj_75 {
-        pos[] = {8.15186,-2.16797,-4.64565};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 493.173;
-    };
-    class obj_82 {
-        pos[] = {-8.06299,3.62402,-4.37102};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 315.965;
-    };
-    class obj_102 {
-        pos[] = {-7.85254,6.90625,-3.9258};
-        issimpleobj = 0;
-        vecup[] = {-0.185185,-0.438122,0.879634};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 313.2;
+        type = "rhs_KORD_high_MSV";
+        dir = 538.003;
     };
     class obj_2 {
-        pos[] = {1.53076,1.0791,-4.64575};
+        pos[] = {1.44574,-2.43848,0.448111};
         issimpleobj = 0;
-        vecup[] = {0,-0.00109178,0.999999};
-        hascrew = 0;
-        type = "Land_BagFence_End_F";
-        dir = 403.92;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_msv_strelok_rpg_assist";
+        dir = 359.622;
     };
     class obj_19 {
-        pos[] = {1.40576,-4.90918,-4.64565};
+        pos[] = {9.37845,11.7339,8.76488};
         issimpleobj = 0;
-        vecup[] = {0,0,1};
+        vecup[] = {0.0106302,0.00465763,0.999933};
         hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 492.609;
+        type = "Land_BagFence_Long_F";
+        dir = 718.034;
     };
     class obj_26 {
-        pos[] = {-5.63232,1.2373,-4.79509};
+        pos[] = {8.73337,11.1968,12.6708};
         issimpleobj = 0;
-        vecup[] = {-0.000470022,-0.00137178,0.999999};
-        hascrew = 1;
-        type = "RHS_ZU23_VDV";
-        dir = 224.491;
+        vecup[] = {0.0178164,0.0226172,0.999585};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 360.87;
     };
     class obj_33 {
-        pos[] = {5.09717,-3.51514,-4.64565};
+        pos[] = {-10.8968,-9.06299,13.8084};
         issimpleobj = 0;
-        vecup[] = {0,0,1};
+        vecup[] = {0.0098926,0.00312637,0.999946};
         hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 223.195;
+        type = "Land_GH_Stairs_F";
+        dir = 359.622;
     };
     class obj_40 {
-        pos[] = {6.41113,-0.501953,-4.64718};
+        pos[] = {-13.5433,7.51807,14.1479};
         issimpleobj = 0;
-        vecup[] = {-0.00269662,0,0.999996};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 492.798;
+        vecup[] = {0.00413338,-0.00577715,0.999975};
+        hascrew = 1;
+        type = "RHS_ZU23_MSV";
+        dir = 655.998;
     };
     class obj_69 {
-        pos[] = {7.37646,-3.54541,-4.64565};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 226.844;
-    };
-    class obj_76 {
-        pos[] = {0.148926,8.48633,-4.64565};
+        pos[] = {27.0583,1.93457,6.75917};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 0;
         type = "Land_BagFence_Long_F";
-        dir = 493.368;
+        dir = 359.622;
     };
-    class obj_83 {
-        pos[] = {8.13672,3.52588,-4.64565};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 492.711;
-    };
-    class obj_90 {
-        pos[] = {-8.17627,4.4707,-4.64404};
-        issimpleobj = 0;
-        vecup[] = {-0.00153589,-0.000838104,0.999998};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 313.244;
-    };
-    class obj_103 {
-        pos[] = {-3.50635,-10.1621,-4.64565};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 405.259;
-    };
-    class obj_110 {
-        pos[] = {-6.41748,8.93652,-5.04606};
-        issimpleobj = 0;
-        vecup[] = {-0.187791,-0.437162,0.879559};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 493.548;
-    };
+    hasmissiontarget = 0;
     class obj_3 {
-        pos[] = {-0.469727,1.10889,-4.6462};
+        pos[] = {-3.00818,-1.43848,0.399296};
         issimpleobj = 0;
-        vecup[] = {0.000845734,-0.0020712,0.999997};
-        hascrew = 0;
-        type = "Land_BagFence_End_F";
-        dir = 401.128;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_msv_machinegunner";
+        dir = 359.622;
     };
     class obj_27 {
-        pos[] = {5.6958,1.21289,-4.66975};
-        issimpleobj = 1;
-        vecup[] = {-0.00254531,0.000568645,0.999997};
+        pos[] = {11.1439,8.896,12.7034};
+        issimpleobj = 0;
+        vecup[] = {-0.000488281,0.0224966,0.999747};
         hascrew = 0;
-        type = "rhs_mags_crate";
-        dir = 313.872;
+        type = "Land_BagFence_Long_F";
+        dir = 450.06;
     };
     class obj_34 {
-        pos[] = {4.15039,-4.70703,-4.64465};
-        issimpleobj = 1;
-        vecup[] = {1.22878e-005,1.50239e-005,1};
+        pos[] = {16.5567,6.63281,8.75221};
+        issimpleobj = 0;
+        vecup[] = {0.0112458,0.00827141,0.999903};
         hascrew = 0;
-        type = "rhs_launcher_crate";
-        dir = 415.52;
+        type = "Land_BagFence_Long_F";
+        dir = 449.786;
     };
     class obj_41 {
-        pos[] = {-3.89648,-5.14307,-4.64474};
-        issimpleobj = 1;
-        vecup[] = {0.000177148,0.000412375,1};
-        hascrew = 0;
-        type = "rhs_mags_crate";
-        dir = 313.645;
-    };
-    class obj_77 {
-        pos[] = {6.20947,5.94336,-4.64565};
+        pos[] = {15.5712,-6.39404,12.599};
         issimpleobj = 0;
-        vecup[] = {0,0,1};
+        vecup[] = {0.0117841,-0.000345031,0.999931};
         hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 401.298;
-    };
-    class obj_84 {
-        pos[] = {-8.26123,-2.6543,-4.64512};
-        issimpleobj = 0;
-        vecup[] = {-0.0100186,0.00182689,0.999948};
-        hascrew = 0;
-        type = "Land_BagFence_End_F";
-        dir = 312.727;
-    };
-    class obj_91 {
-        pos[] = {1.04004,-9.04395,-4.15616};
-        issimpleobj = 0;
-        vecup[] = {0.189329,0.445224,0.875174};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 492.409;
-    };
-    class obj_104 {
-        pos[] = {3.63184,-9.89648,-4.64565};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_End_F";
-        dir = 223.647;
-    };
-    class obj_111 {
-        pos[] = {-8.33496,-7.42725,-4.64565};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 313.049;
+        type = "Land_BagFence_Corner_F";
+        dir = 359.622;
     };
     class obj_4 {
-        pos[] = {1.11084,-1.99414,-4.66979};
-        issimpleobj = 1;
-        vecup[] = {-0.000102739,0.000486249,1};
-        hascrew = 0;
-        type = "rhs_mags_crate";
-        dir = 317.534;
+        pos[] = {-3.55377,2.56152,0.357622};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_msv_sergeant";
+        dir = 359.622;
     };
     class obj_28 {
-        pos[] = {-0.109375,5.84375,-4.64565};
+        pos[] = {16.5649,3.83057,8.75259};
         issimpleobj = 0;
-        vecup[] = {0,0,1};
+        vecup[] = {0.0112458,0.00827141,0.999903};
         hascrew = 0;
         type = "Land_BagFence_Long_F";
-        dir = 401.638;
+        dir = 449.786;
     };
     class obj_35 {
-        pos[] = {3.85889,4.96582,-4.64321};
+        pos[] = {10.8061,10.8867,12.6423};
         issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_aa";
-        dir = 409.803;
+        vecup[] = {0.0179828,-0.00182629,0.999837};
+        hascrew = 0;
+        type = "Land_BagFence_Corner_F";
+        dir = 361.128;
     };
     class obj_42 {
-        pos[] = {-5.64209,-3.53662,-4.6448};
+        pos[] = {15.311,11.7202,8.69798};
         issimpleobj = 0;
-        vecup[] = {0.00133688,-0.00209981,0.999997};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_Long_F";
-        dir = 402.724;
-    };
-    class obj_78 {
-        pos[] = {7.0166,4.95605,-4.64193};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_marksman";
-        dir = 440.065;
-    };
-    class obj_85 {
-        pos[] = {2.79736,-8.53516,-4.64321};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_grenadier";
-        dir = 224.543;
-    };
-    class obj_92 {
-        pos[] = {7.88623,5.13477,-4.64565};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 474.207;
-    };
-    class obj_105 {
-        pos[] = {-6.97363,-8.30859,-4.71312};
-        issimpleobj = 0;
-        vecup[] = {-6.93608e-006,8.08109e-006,1};
-        hascrew = 1;
-        type = "rhs_Kornet_9M133_2_vdv";
-        dir = 265.877;
-    };
-    class obj_112 {
-        pos[] = {-5.6001,-10.0225,-4.64565};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
+        vecup[] = {0.0106302,0.00465763,0.999933};
         hascrew = 0;
         type = "Land_BagFence_Long_F";
-        dir = 227.071;
+        dir = 360.489;
     };
     class obj_5 {
-        pos[] = {-2.30859,1.07031,-4.64706};
+        pos[] = {4.45529,-0.963867,1.10699};
         issimpleobj = 0;
-        vecup[] = {0.000845734,-0.0020712,0.999997};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 400.153;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_msv_at";
+        dir = 359.622;
     };
     class obj_29 {
-        pos[] = {-3.22363,-4.92334,-4.64565};
+        pos[] = {12.9091,11.6909,8.72639};
         issimpleobj = 0;
-        vecup[] = {0,0,1};
+        vecup[] = {0.0106302,0.00465763,0.999933};
         hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 312.002;
-    };
-    class obj_36 {
-        pos[] = {-2.29639,5.88721,-4.74952};
-        issimpleobj = 0;
-        vecup[] = {0.127906,-0.0158217,0.99166};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 405.136;
+        type = "Land_BagFence_Long_F";
+        dir = 540.349;
     };
     class obj_43 {
-        pos[] = {0.157715,7.23535,-4.64565};
+        pos[] = {12.7168,-11.4199,12.7064};
         issimpleobj = 0;
-        vecup[] = {0,0,1};
+        vecup[] = {0.0270365,0.000913157,0.999634};
         hascrew = 0;
-        type = "Land_BagFence_End_F";
-        dir = 313.879;
+        type = "Land_BagFence_Long_F";
+        dir = 538.567;
     };
     class obj_50 {
-        pos[] = {6.36133,2.83789,-4.6473};
-        issimpleobj = 0;
-        vecup[] = {-0.00269662,0,0.999996};
-        hascrew = 0;
-        type = "Land_BagFence_Long_F";
-        dir = 493.583;
-    };
-    class obj_79 {
-        pos[] = {-4.84717,7.17188,-4.64475};
-        issimpleobj = 1;
-        vecup[] = {0.00042986,-0.000202442,1};
-        hascrew = 0;
-        type = "rhs_mags_crate";
-        dir = 430.971;
-    };
-    class obj_86 {
-        pos[] = {-8.19775,3.87109,-4.64468};
-        issimpleobj = 0;
-        vecup[] = {-0.000345267,-0.000913445,1};
-        hascrew = 0;
-        type = "Land_Shoot_House_Wall_F";
-        dir = 313.251;
-    };
-    class obj_93 {
-        pos[] = {-7.36865,5.94922,-4.63787};
-        issimpleobj = 0;
-        vecup[] = {-0.0111397,-0.00621402,0.999919};
-        hascrew = 0;
-        type = "Land_BagFence_Short_F";
-        dir = 401.222;
-    };
-    class obj_106 {
-        pos[] = {5.95166,-9.51025,-4.64595};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_BagFence_Round_F";
-        dir = 356.03;
-    };
-    class obj_113 {
-        pos[] = {-3.13916,11.6113,-4.64565};
+        pos[] = {18.8651,11.6553,4.74359};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 0;
         type = "Land_BagFence_Long_F";
-        dir = 222.95;
+        dir = 359.622;
     };
 };
+
 class composition_118576 {
     author = "BrigTeam";
     hasmissiontarget = 1;
@@ -6113,5 +1817,3697 @@ class composition_256101 {
         hascrew = 1;
         type = "rhs_vdv_flora_at";
         dir = 214.949;
+    };
+};
+class composition_889904 {
+    class obj_6 {
+        pos[] = {-1.47107,-1.57471,-1.65345};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Corner_F";
+        dir = 182.217;
+    };
+    class obj_7 {
+        pos[] = {1.94702,-1.04614,-1.66322};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 268.582;
+    };
+    class obj_8 {
+        pos[] = {-1.78345,2.87183,-1.5564};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Corner_F";
+        dir = 266.36;
+    };
+    class obj_10 {
+        pos[] = {2.18359,2.44434,-1.97606};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_msv_rifleman";
+        dir = 0;
+    };
+    class obj_9 {
+        pos[] = {-0.968384,3.24048,-1.56784};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_End_F";
+        dir = 0;
+    };
+    class obj_11 {
+        pos[] = {2.82532,2.27661,-1.5564};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Corner_F";
+        dir = 90.2295;
+    };
+    author = "Maverick";
+    class obj_12 {
+        pos[] = {1.35754,3.37207,-1.56322};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 179.757;
+    };
+    class obj_13 {
+        pos[] = {2.78503,3.13501,-1.5564};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Corner_F";
+        dir = 357.405;
+    };
+    type = "Land_Kiosk_gyros_F";
+    class obj_1 {
+        pos[] = {-0.21167,-0.296875,-0.388582};
+        issimpleobj = 0;
+        vecup[] = {-0.000490675,1.76637e-005,1};
+        hascrew = 1;
+        type = "rhs_KORD_high_MSV";
+        dir = 181.311;
+    };
+    class obj_2 {
+        pos[] = {0.606812,-1.89478,-1.26872};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0;
+    };
+    hasmissiontarget = 0;
+    class obj_3 {
+        pos[] = {-1.52551,-1.57861,-1.27704};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Corner_F";
+        dir = 182.217;
+    };
+    class obj_4 {
+        pos[] = {1.95422,-1.06836,-1.26718};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 268.582;
+    };
+    class obj_5 {
+        pos[] = {0.567017,-1.9021,-1.65819};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0;
+    };
+};
+class composition_547217 {
+    author = "Maverick";
+    type = "Land_u_Shop_02_V1_F";
+    class obj_1 {
+        pos[] = {1.052,-2.70752,-1.08267};
+        issimpleobj = 0;
+        vecup[] = {0.00155713,-0.00180117,0.999997};
+        hascrew = 1;
+        type = "rhs_KORD_high_MSV";
+        dir = 90.8973;
+    };
+    class obj_2 {
+        pos[] = {3.01855,-2.77368,-2.24088};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_HBarrier_3_F";
+        dir = 89.1256;
+    };
+    hasmissiontarget = 0;
+    class obj_3 {
+        pos[] = {3.73999,2.61963,-0.995194};
+        issimpleobj = 0;
+        vecup[] = {-0.00573598,0,0.999984};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_Long_F";
+        dir = 269.753;
+    };
+    class obj_5 {
+        pos[] = {-5.88501,-3.02075,-1.50402};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_F";
+        dir = 269.848;
+    };
+};
+class composition_669302 {
+    class obj_6 {
+        pos[] = {0.550171,-7.51685,-5.38495};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_Long_F";
+        dir = 0;
+    };
+    class obj_37 {
+        pos[] = {-10.0839,-4.83862,10.2639};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Round_F";
+        dir = 145.375;
+    };
+    class obj_44 {
+        pos[] = {11.5428,-9.19995,-6.64617};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 179.563;
+    };
+    class obj_7 {
+        pos[] = {5.30676,-6.01685,-5.47244};
+        issimpleobj = 0;
+        vecup[] = {-0.00185116,0.0019442,0.999996};
+        hascrew = 1;
+        type = "rhs_KORD_high_MSV";
+        dir = 179.938;
+    };
+    class obj_38 {
+        pos[] = {-8.86975,-7.19849,10.2639};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Round_F";
+        dir = 334.784;
+    };
+    class obj_45 {
+        pos[] = {10.973,-5.17603,10.8102};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagBunker_Small_F";
+        dir = 0;
+    };
+    class obj_8 {
+        pos[] = {6.42029,-6.69922,-3.15915};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_msv_rifleman";
+        dir = 183.886;
+    };
+    class obj_10 {
+        pos[] = {0.0739746,-0.70166,10.2656};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Corner_F";
+        dir = 88.3389;
+    };
+    class obj_39 {
+        pos[] = {13.0387,-5.47144,6.33984};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_Long_F";
+        dir = 269.163;
+    };
+    class obj_46 {
+        pos[] = {12.6711,-8.51343,-6.64617};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 272.6;
+    };
+    class obj_9 {
+        pos[] = {0.874023,-7.50122,6.336};
+        issimpleobj = 0;
+        vecup[] = {-0.000345267,-0.000345055,1};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_Long_F";
+        dir = 0;
+    };
+    class obj_11 {
+        pos[] = {-0.708252,-1.13184,10.2542};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_End_F";
+        dir = 174.269;
+    };
+    class obj_47 {
+        pos[] = {-15.0425,6.44141,9.87779};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_msv_marksman";
+        dir = 266.103;
+    };
+    author = "Maverick";
+    class obj_12 {
+        pos[] = {0.260376,1.25122,10.2639};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 269.548;
+    };
+    class obj_48 {
+        pos[] = {-14.6165,6.44019,10.8102};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagBunker_Small_F";
+        dir = 90.9272;
+    };
+    class obj_13 {
+        pos[] = {-4.33765,8.0437,-5.38495};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_Long_F";
+        dir = 179.3;
+    };
+    class obj_20 {
+        pos[] = {-4.91467,-0.824707,10.2656};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Corner_F";
+        dir = 178.546;
+    };
+    class obj_14 {
+        pos[] = {-1.04333,2.62573,10.2639};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0;
+    };
+    class obj_21 {
+        pos[] = {9.32336,0.95459,-6.67892};
+        issimpleobj = 1;
+        vecup[] = {7.75908e-006,-1.91904e-005,1};
+        hascrew = 0;
+        type = "Land_CampingTable_F";
+        dir = 359.992;
+    };
+    class obj_15 {
+        pos[] = {-1.19861,0.615234,10.5817};
+        issimpleobj = 0;
+        vecup[] = {0.00607567,0.00310084,0.999977};
+        hascrew = 1;
+        type = "rhs_2b14_82mm_msv";
+        dir = 179.353;
+    };
+    class obj_22 {
+        pos[] = {-5.33398,1.11133,10.2639};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 271.673;
+    };
+    type = "Land_Offices_01_V1_F";
+    class obj_16 {
+        pos[] = {-3.50159,-1.16748,10.2588};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 0;
+    };
+    class obj_23 {
+        pos[] = {9.45837,2.81543,6.33968};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_Long_F";
+        dir = 94.5527;
+    };
+    class obj_30 {
+        pos[] = {7.98267,-8.89575,-6.63936};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Corner_F";
+        dir = 175.948;
+    };
+    class obj_17 {
+        pos[] = {5.5238,7.99438,-5.38495};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_Long_F";
+        dir = 179.3;
+    };
+    class obj_24 {
+        pos[] = {9.79724,0.785156,-7.0692};
+        issimpleobj = 1;
+        vecup[] = {0.012318,0.679537,-0.733537};
+        hascrew = 0;
+        type = "Land_Laptop_unfolded_F";
+        dir = 181.039;
+    };
+    class obj_31 {
+        pos[] = {10.6099,-6.42212,6.25208};
+        issimpleobj = 0;
+        vecup[] = {-0.00285432,0.00135205,0.999995};
+        hascrew = 1;
+        type = "rhs_KORD_high_MSV";
+        dir = 179.642;
+    };
+    class obj_1 {
+        pos[] = {0.67395,-7.45361,-1.48495};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_Long_F";
+        dir = 0;
+    };
+    class obj_18 {
+        pos[] = {-3.97998,2.6377,10.2639};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0;
+    };
+    class obj_25 {
+        pos[] = {9.49829,3.84229,-7.05899};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_msv_rifleman";
+        dir = 46.5827;
+    };
+    class obj_32 {
+        pos[] = {11.0874,5.02832,-7.05899};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_msv_officer";
+        dir = 199.84;
+    };
+    class obj_2 {
+        pos[] = {0.566528,-7.43115,2.41505};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_Long_F";
+        dir = 0;
+    };
+    class obj_19 {
+        pos[] = {-4.11108,0.621094,10.5817};
+        issimpleobj = 0;
+        vecup[] = {0.00607566,0.00310084,0.999977};
+        hascrew = 1;
+        type = "rhs_2b14_82mm_msv";
+        dir = 179.353;
+    };
+    class obj_26 {
+        pos[] = {7.52661,-8.42456,-6.64617};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 83.8728;
+    };
+    class obj_33 {
+        pos[] = {11.955,2.63403,-7.05899};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_msv_rifleman";
+        dir = 332.447;
+    };
+    class obj_40 {
+        pos[] = {9.70251,4.5564,11.4089};
+        issimpleobj = 0;
+        vecup[] = {1.87706e-005,-1.31166e-005,1};
+        hascrew = 1;
+        type = "rhs_Igla_AA_pod_msv";
+        dir = 63.0131;
+    };
+    hasmissiontarget = 0;
+    class obj_3 {
+        pos[] = {4.21692,-6.42651,-3.15899};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_msv_grenadier_rpg";
+        dir = 185.092;
+    };
+    class obj_27 {
+        pos[] = {11.4155,-2.10303,6.2522};
+        issimpleobj = 0;
+        vecup[] = {-0.0017979,-0.00239221,0.999996};
+        hascrew = 1;
+        type = "rhs_KORD_high_MSV";
+        dir = 89.2082;
+    };
+    class obj_34 {
+        pos[] = {-9.88049,7.35181,-7.05899};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_msv_grenadier";
+        dir = 0;
+    };
+    class obj_41 {
+        pos[] = {-9.52734,-5.57886,11.4089};
+        issimpleobj = 0;
+        vecup[] = {-1.93286e-005,1.25201e-005,1};
+        hascrew = 1;
+        type = "rhs_Igla_AA_pod_msv";
+        dir = 240.88;
+    };
+    class obj_4 {
+        pos[] = {5.64612,-6.10205,0.826848};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_msv_sergeant";
+        dir = 180.032;
+    };
+    class obj_28 {
+        pos[] = {-8.5946,7.36133,-7.05899};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_msv_rifleman";
+        dir = 357.792;
+    };
+    class obj_35 {
+        pos[] = {8.80115,5.78491,10.2639};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Round_F";
+        dir = 145.375;
+    };
+    class obj_42 {
+        pos[] = {11.0795,-5.81689,9.87779};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_msv_marksman";
+        dir = 178.869;
+    };
+    class obj_5 {
+        pos[] = {0.851807,6.9585,-5.47249};
+        issimpleobj = 0;
+        vecup[] = {0.00130192,-0.00243683,0.999996};
+        hascrew = 1;
+        type = "rhs_KORD_high_MSV";
+        dir = 357.012;
+    };
+    class obj_29 {
+        pos[] = {8.32776,-8.09155,-7.07092};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_msv_rifleman";
+        dir = 183.724;
+    };
+    class obj_36 {
+        pos[] = {10.0018,3.67847,10.2639};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Round_F";
+        dir = 331.669;
+    };
+    class obj_43 {
+        pos[] = {11.9478,-8.29907,-7.07092};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_msv_grenadier";
+        dir = 178.519;
+    };
+};
+class composition_636975 {
+    class obj_94 {
+        pos[] = {-0.466309,15.0378,6.55551};
+        issimpleobj = 0;
+        vecup[] = {-5.52126e-006,0.000393333,1};
+        hascrew = 1;
+        type = "rhs_Igla_AA_pod_vdv";
+        dir = 0.266924;
+    };
+    class obj_2 {
+        pos[] = {1.68408,6.52466,4.32572};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_grenadier";
+        dir = 189.78;
+    };
+    class obj_78 {
+        pos[] = {-8.25049,10.9045,8.35434};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_at";
+        dir = 0.262;
+    };
+    class obj_86 {
+        pos[] = {12.3359,-10.541,0.615515};
+        issimpleobj = 1;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "rhs_mags_crate";
+        dir = 56.393;
+    };
+    class obj_199 {
+        pos[] = {16.979,1.28271,10.0196};
+        issimpleobj = 0;
+        vecup[] = {0.0113412,0.008148,0.999902};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_F";
+        dir = 91.6862;
+    };
+    class obj_279 {
+        pos[] = {-17.0005,-11.6609,9.25858};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_287 {
+        pos[] = {-19.0449,-0.0627441,13.1983};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 270.084;
+    };
+    class obj_295 {
+        pos[] = {19.395,11.7747,5.99978};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_Long_F";
+        dir = 181.931;
+    };
+    class obj_359 {
+        pos[] = {24.5547,-6.20605,9.24531};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_367 {
+        pos[] = {21.4458,-17.2388,5.07728};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_375 {
+        pos[] = {26.8159,2.15137,9.90382};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_Long_F";
+        dir = 180.835;
+    };
+    class obj_383 {
+        pos[] = {27.9863,-5.54077,8.22976};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_aa";
+        dir = 109.069;
+    };
+    class obj_391 {
+        pos[] = {28.9458,-5.24536,8.6426};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 90.113;
+    };
+    class obj_87 {
+        pos[] = {5.58301,14.2676,5.44263};
+        issimpleobj = 0;
+        vecup[] = {0,0.000345267,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 271.605;
+    };
+    class obj_95 {
+        pos[] = {-13.8623,-6.89893,5.64752};
+        issimpleobj = 1;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "rhs_mags_crate";
+        dir = 272.008;
+    };
+    type = "Land_WIP_F";
+    class obj_3 {
+        pos[] = {-3.90674,-6.33203,4.3255};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_medic";
+        dir = 0.262;
+    };
+    class obj_79 {
+        pos[] = {7.97266,-11.1362,8.33939};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_grenadier";
+        dir = 178.44;
+    };
+    class obj_288 {
+        pos[] = {-19.0386,-9.6272,9.07818};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 272.162;
+    };
+    class obj_296 {
+        pos[] = {-18.9365,10.4727,9.13774};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 271.375;
+    };
+    class obj_368 {
+        pos[] = {21.8496,-16.4626,5.93811};
+        issimpleobj = 0;
+        vecup[] = {8.08189e-005,-0.00153081,0.999999};
+        hascrew = 1;
+        type = "O_HMG_01_high_F";
+        dir = 128.753;
+    };
+    class obj_376 {
+        pos[] = {-15.3081,-18.2712,16.2017};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 271.897;
+    };
+    class obj_384 {
+        pos[] = {29.1309,-0.434082,6.10929};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_Long_F";
+        dir = 270.784;
+    };
+    class obj_392 {
+        pos[] = {28.9658,-5.1189,8.85763};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 90.2982;
+    };
+    class obj_88 {
+        pos[] = {5.60352,14.157,5.81769};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 270.267;
+    };
+    class obj_96 {
+        pos[] = {-7.0708,13.9058,5.44281};
+        issimpleobj = 0;
+        vecup[] = {0,0.000345267,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 270.854;
+    };
+    class obj_4 {
+        pos[] = {-3.36279,-9.29663,0.393974};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_rifleman";
+        dir = 274.887;
+    };
+    class obj_289 {
+        pos[] = {-17.1079,-9.6709,12.3299};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_marksman";
+        dir = 266.486;
+    };
+    class obj_297 {
+        pos[] = {-18.6245,-5.08032,13.4285};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_PortableLight_double_F";
+        dir = 89.0332;
+    };
+    class obj_369 {
+        pos[] = {26.7622,-6.2561,5.99869};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_Long_F";
+        dir = 0.262;
+    };
+    class obj_377 {
+        pos[] = {-13.6924,-19.6235,16.2468};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_385 {
+        pos[] = {29.1162,-3.3125,6.12815};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_F";
+        dir = 272.617;
+    };
+    class obj_393 {
+        pos[] = {27.1855,-14.7168,0.500282};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Timbers_F";
+        dir = 299.093;
+    };
+    class obj_89 {
+        pos[] = {6.91064,11.6899,9.09182};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_97 {
+        pos[] = {-7.0166,13.8291,5.79493};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 270.757;
+    };
+    class obj_5 {
+        pos[] = {-0.867676,9.89795,0.78281};
+        issimpleobj = 0;
+        vecup[] = {0.00836488,-0.00580794,0.999948};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 91.2428;
+    };
+    class obj_298 {
+        pos[] = {20.5605,-11.5264,1.4088};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 0.262;
+    };
+    class obj_378 {
+        pos[] = {27.189,-6.20923,8.67382};
+        issimpleobj = 0;
+        vecup[] = {0.0165143,0.0331294,0.999315};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_386 {
+        pos[] = {29.1162,-5.26196,5.99869};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_F";
+        dir = 268.832;
+    };
+    class obj_394 {
+        pos[] = {29.2529,-10.845,0.755067};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Razorwire_F";
+        dir = 89.866;
+    };
+    class obj_6 {
+        pos[] = {-7.48193,6.80151,0.818921};
+        issimpleobj = 1;
+        vecup[] = {0.00823757,-0.00581176,0.999949};
+        hascrew = 0;
+        type = "rhs_launcher_crate";
+        dir = 181.558;
+    };
+    class obj_98 {
+        pos[] = {-5.2002,15.718,1.12487};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Round_F";
+        dir = 190.123;
+    };
+    class obj_100 {
+        pos[] = {0.79834,-16.187,4.31845};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_aa";
+        dir = 183.725;
+    };
+    class obj_299 {
+        pos[] = {22.6548,3.07153,6.00944};
+        issimpleobj = 0;
+        vecup[] = {-0.00610837,-0.00379775,0.999974};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_F";
+        dir = 247.287;
+    };
+    class obj_379 {
+        pos[] = {27.146,-6.21313,8.96083};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_387 {
+        pos[] = {29.0581,0.247314,8.31447};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 91.8362;
+    };
+    class obj_395 {
+        pos[] = {28.9321,7.37744,24.0729};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_marksman";
+        dir = 86.1809;
+    };
+    class obj_7 {
+        pos[] = {1.94922,-9.86816,2.00268};
+        issimpleobj = 0;
+        vecup[] = {0.00125169,-0.0114227,0.999934};
+        hascrew = 1;
+        type = "O_HMG_01_high_F";
+        dir = 182.718;
+    };
+    class obj_99 {
+        pos[] = {-5.26514,15.824,0.792312};
+        issimpleobj = 0;
+        vecup[] = {0.00844737,0.0120421,0.999892};
+        hascrew = 0;
+        type = "Land_BagFence_Round_F";
+        dir = 183.565;
+    };
+    class obj_101 {
+        pos[] = {-9.95508,5.83594,12.6883};
+        issimpleobj = 0;
+        vecup[] = {0.00980868,-0.0195279,0.999761};
+        hascrew = 0;
+        type = "Land_BagFence_Round_F";
+        dir = 183.916;
+    };
+    class obj_388 {
+        pos[] = {29.0542,-2.45239,8.38017};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 89.3792;
+    };
+    class obj_8 {
+        pos[] = {6.12158,8.91553,0.64947};
+        issimpleobj = 1;
+        vecup[] = {-0.0121472,0.0134376,0.999836};
+        hascrew = 0;
+        type = "rhs_mags_crate";
+        dir = 275.504;
+    };
+    class obj_102 {
+        pos[] = {-8.13281,12.155,9.05051};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_110 {
+        pos[] = {11.5376,0.859375,13.2449};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 90.4077;
+    };
+    class obj_389 {
+        pos[] = {29.0386,0.152588,9.0841};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 90.6592;
+    };
+    class obj_9 {
+        pos[] = {4.1001,-10.2441,0.750497};
+        issimpleobj = 1;
+        vecup[] = {0.0012396,-0.0114141,0.999934};
+        hascrew = 0;
+        type = "rhs_mags_crate";
+        dir = 318.83;
+    };
+    class obj_103 {
+        pos[] = {-11.0225,12.1228,5.23257};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_111 {
+        pos[] = {9.70264,11.7739,8.76195};
+        issimpleobj = 0;
+        vecup[] = {0.0106808,0.00454101,0.999933};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_200 {
+        pos[] = {9.51367,11.833,12.6496};
+        issimpleobj = 0;
+        vecup[] = {0.0226734,-0.00209927,0.999741};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_104 {
+        pos[] = {11.5039,1.25732,12.7572};
+        issimpleobj = 0;
+        vecup[] = {-0.0153474,0.0118386,0.999812};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 89.4225;
+    };
+    class obj_112 {
+        pos[] = {11.499,-1.63892,13.2246};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 92.117;
+    };
+    class obj_120 {
+        pos[] = {-15.7632,7.08398,4.74194};
+        issimpleobj = 1;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "rhs_launcher_crate";
+        dir = 178.969;
+    };
+    class obj_121 {
+        pos[] = {11.5093,3.75366,13.2329};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 89.9675;
+    };
+    class obj_201 {
+        pos[] = {-18.9839,1.92261,5.19899};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 272.82;
+    };
+    class obj_105 {
+        pos[] = {11.5234,-1.5896,12.7195};
+        issimpleobj = 0;
+        vecup[] = {-0.0103348,-0.0150799,0.999833};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 90.5131;
+    };
+    class obj_113 {
+        pos[] = {4.28369,15.7373,6.646};
+        issimpleobj = 0;
+        vecup[] = {2.25325e-006,0.000438149,1};
+        hascrew = 1;
+        type = "O_GMG_01_high_F";
+        dir = 31.6071;
+    };
+    class obj_114 {
+        pos[] = {9.62109,11.687,9.06272};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_122 {
+        pos[] = {0.0170898,12.1118,13.2297};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_130 {
+        pos[] = {3.19092,-11.8628,13.2719};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_202 {
+        pos[] = {-15.6582,11.2859,4.32572};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_at";
+        dir = 0.262;
+    };
+    class obj_210 {
+        pos[] = {8.9834,-17.2271,4.73494};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_106 {
+        pos[] = {12.8442,-11.4431,1.44111};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_End_F";
+        dir = 180.444;
+    };
+    class obj_107 {
+        pos[] = {-13.3213,10.021,4.59651};
+        issimpleobj = 1;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "rhs_mags_crate";
+        dir = 89.384;
+    };
+    class obj_115 {
+        pos[] = {11.5142,4.03418,12.7525};
+        issimpleobj = 0;
+        vecup[] = {-0.00198341,0.00271863,0.999994};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 89.8822;
+    };
+    class obj_10 {
+        pos[] = {8.43701,-6.31104,4.32553};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_medic";
+        dir = 0.262;
+    };
+    class obj_123 {
+        pos[] = {-0.0673828,17.147,5.29451};
+        issimpleobj = 1;
+        vecup[] = {0,0.000349066,1};
+        hascrew = 0;
+        type = "rhs_mags_crate";
+        dir = 0.262;
+    };
+    class obj_131 {
+        pos[] = {14.0444,-11.4011,0.758002};
+        issimpleobj = 0;
+        vecup[] = {0.00142318,-0.00241691,0.999996};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_203 {
+        pos[] = {13.0938,11.7507,9.06044};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_211 {
+        pos[] = {13.123,11.946,9.21982};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_Long_Prone_F";
+        dir = 179.224;
+    };
+    class obj_108 {
+        pos[] = {13.9297,-10.0701,1.96536};
+        issimpleobj = 0;
+        vecup[] = {0.00143313,-0.00243678,0.999996};
+        hascrew = 1;
+        type = "O_HMG_01_high_F";
+        dir = 184.735;
+    };
+    class obj_116 {
+        pos[] = {0.341797,-11.8459,13.2333};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_11 {
+        pos[] = {-3.49512,-10.887,1.10694};
+        issimpleobj = 1;
+        vecup[] = {0.00124485,-0.0114146,0.999934};
+        hascrew = 0;
+        type = "Land_CargoBox_V1_F";
+        dir = 0.262;
+    };
+    class obj_124 {
+        pos[] = {-2.60156,-11.8352,13.2538};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_132 {
+        pos[] = {3.1084,-17.2009,4.73591};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_140 {
+        pos[] = {-12.8213,2.71802,12.6953};
+        issimpleobj = 0;
+        vecup[] = {0.0221113,-0.00732886,0.999729};
+        hascrew = 0;
+        type = "Land_BagFence_Round_F";
+        dir = 84.6226;
+    };
+    class obj_204 {
+        pos[] = {-17.9355,1.81323,8.33986};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_at";
+        dir = 268.781;
+    };
+    class obj_212 {
+        pos[] = {-17.8301,-7.98999,4.32572};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_at";
+        dir = 268.471;
+    };
+    class obj_220 {
+        pos[] = {17.0146,4.27124,9.99484};
+        issimpleobj = 0;
+        vecup[] = {0.0113412,0.008148,0.999902};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_Long_F";
+        dir = 270.989;
+    };
+    class obj_300 {
+        pos[] = {20.6309,-11.5234,0.745818};
+        issimpleobj = 0;
+        vecup[] = {0,0.00169146,0.999999};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 0.262;
+    };
+    class obj_109 {
+        pos[] = {12.2104,12.168,3.14487};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_Prone_F";
+        dir = 0.262;
+    };
+    class obj_117 {
+        pos[] = {0.13916,-17.2163,4.7364};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_12 {
+        pos[] = {5.15088,-10.2559,0.785007};
+        issimpleobj = 0;
+        vecup[] = {0.0104209,-0.0114087,0.999881};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 271.348;
+    };
+    class obj_125 {
+        pos[] = {0.969238,-17.2061,5.10755};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_20 {
+        pos[] = {5.94092,-10.4829,0.632515};
+        issimpleobj = 1;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "rhs_mags_crate";
+        dir = 240.061;
+    };
+    class obj_133 {
+        pos[] = {-10.856,3.46436,14.0842};
+        issimpleobj = 0;
+        vecup[] = {0.0231563,-0.0173871,0.999581};
+        hascrew = 1;
+        type = "RHS_ZU23_VDV";
+        dir = 310.552;
+    };
+    class obj_141 {
+        pos[] = {12.6636,12.0652,5.21584};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_205 {
+        pos[] = {13.6079,-6.48999,12.9409};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 0.262;
+    };
+    class obj_213 {
+        pos[] = {10.4077,-10.6929,13.394};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_PortableLight_double_F";
+        dir = 321.517;
+    };
+    class obj_221 {
+        pos[] = {-17.8154,-4.15503,8.61152};
+        issimpleobj = 1;
+        vecup[] = {-0.00146608,0,0.999999};
+        hascrew = 0;
+        type = "rhs_mags_crate";
+        dir = 311.388;
+    };
+    class obj_301 {
+        pos[] = {23.3975,3.21436,2.00931};
+        issimpleobj = 0;
+        vecup[] = {0.00892991,-0.00847087,0.999924};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_F";
+        dir = 87.5765;
+    };
+    class obj_118 {
+        pos[] = {-5.54053,11.4365,12.5865};
+        issimpleobj = 1;
+        vecup[] = {-0.00195477,0.00553265,0.999983};
+        hascrew = 0;
+        type = "rhs_mags_crate";
+        dir = 0.262;
+    };
+    class obj_13 {
+        pos[] = {-8.24854,6.76953,4.32572};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_medic";
+        dir = 177.493;
+    };
+    class obj_126 {
+        pos[] = {3.96436,-16.7231,5.40027};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_PortableLight_double_F";
+        dir = 0.262;
+    };
+    class obj_21 {
+        pos[] = {2.07568,-11.4465,3.78038};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_Long_Prone_F";
+        dir = 0.262;
+    };
+    class obj_134 {
+        pos[] = {6.80811,-15.9807,5.27786};
+        issimpleobj = 0;
+        vecup[] = {0.000169029,-0.000576212,1};
+        hascrew = 1;
+        type = "O_static_AT_F";
+        dir = 181.977;
+    };
+    class obj_142 {
+        pos[] = {-14.165,-10.5132,4.74194};
+        issimpleobj = 1;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "rhs_launcher_crate";
+        dir = 141.707;
+    };
+    class obj_150 {
+        pos[] = {1.64697,17.5593,5.44119};
+        issimpleobj = 0;
+        vecup[] = {0,0.000345267,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_206 {
+        pos[] = {11.5176,9.63403,13.1166};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 90.9512;
+    };
+    class obj_214 {
+        pos[] = {-18.9795,-4.073,5.21846};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 270.036;
+    };
+    class obj_222 {
+        pos[] = {5.9624,-19.3655,0.755067};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Razorwire_F";
+        dir = 0.262;
+    };
+    class obj_230 {
+        pos[] = {9.69775,-17.2786,5.1006};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_302 {
+        pos[] = {18.813,-11.6057,8.75635};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 178.989;
+    };
+    class obj_310 {
+        pos[] = {-14.019,-19.4058,2.00313};
+        issimpleobj = 0;
+        vecup[] = {0,-0.0050271,0.999987};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_F";
+        dir = 0.262;
+    };
+    class obj_119 {
+        pos[] = {9.73975,-11.8066,9.27454};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_14 {
+        pos[] = {0.888184,-11.3892,1.53565};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_End_F";
+        dir = 184.173;
+    };
+    class obj_127 {
+        pos[] = {-2.80908,-17.1982,4.73689};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_22 {
+        pos[] = {2.69336,12.217,0.766501};
+        issimpleobj = 0;
+        vecup[] = {0.00836488,-0.00580794,0.999948};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_135 {
+        pos[] = {1.6377,17.0464,6.10592};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_PortableLight_double_F";
+        dir = 182.513;
+    };
+    class obj_30 {
+        pos[] = {6.44043,-11.4409,0.759239};
+        issimpleobj = 0;
+        vecup[] = {0.00142318,-0.00241691,0.999996};
+        hascrew = 0;
+        type = "Land_BagFence_End_F";
+        dir = 182.657;
+    };
+    class obj_143 {
+        pos[] = {4.86475,16.866,5.44131};
+        issimpleobj = 0;
+        vecup[] = {0,0.000349066,1};
+        hascrew = 0;
+        type = "Land_BagFence_Round_F";
+        dir = 221.014;
+    };
+    class obj_151 {
+        pos[] = {-5.14014,-11.8054,13.2648};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_207 {
+        pos[] = {9.45703,11.8027,13.0141};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_215 {
+        pos[] = {-18.8579,-1.90039,6.69844};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_F";
+        dir = 89.6337;
+    };
+    class obj_223 {
+        pos[] = {11.5508,-10.8372,12.7239};
+        issimpleobj = 0;
+        vecup[] = {0.0211617,0.015375,0.999658};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 143.26;
+    };
+    class obj_231 {
+        pos[] = {-17.8638,-10.1497,0.341532};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_at";
+        dir = 264.206;
+    };
+    class obj_303 {
+        pos[] = {18.7056,-11.6121,9.04014};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_311 {
+        pos[] = {-8.77393,-15.99,15.7463};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Round_F";
+        dir = 309.804;
+    };
+    class obj_15 {
+        pos[] = {8.07568,-8.0957,1.54916};
+        issimpleobj = 0;
+        vecup[] = {0.00514118,-0.0452072,0.998964};
+        hascrew = 1;
+        type = "O_HMG_01_F";
+        dir = 182.351;
+    };
+    class obj_128 {
+        pos[] = {-1.9375,-17.22,5.1072};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_23 {
+        pos[] = {-2.25342,-2.0603,12.1689};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_medic";
+        dir = 224.75;
+    };
+    class obj_136 {
+        pos[] = {-2.88525,12.0891,13.2854};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_31 {
+        pos[] = {6.93359,11.2698,0.356901};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_at";
+        dir = 0.262;
+    };
+    class obj_144 {
+        pos[] = {-17.9297,4.02173,0.435499};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_grenadier";
+        dir = 264.191;
+    };
+    class obj_152 {
+        pos[] = {-1.31982,17.533,5.7732};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_208 {
+        pos[] = {9.06641,-11.8342,13.2665};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_160 {
+        pos[] = {4.79004,17.032,5.78531};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Round_F";
+        dir = 220.283;
+    };
+    class obj_216 {
+        pos[] = {12.8525,-9.07397,12.5434};
+        issimpleobj = 1;
+        vecup[] = {0.0211693,0.0153723,0.999658};
+        hascrew = 0;
+        type = "rhs_mags_crate";
+        dir = 0.262;
+    };
+    class obj_224 {
+        pos[] = {14.0405,-8.15552,12.2121};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_marksman";
+        dir = 86.5087;
+    };
+    class obj_232 {
+        pos[] = {13.4878,-8.17896,13.1884};
+        issimpleobj = 0;
+        vecup[] = {0.0211617,0.015375,0.999658};
+        hascrew = 0;
+        type = "Land_BagBunker_Small_F";
+        dir = 271.647;
+    };
+    class obj_240 {
+        pos[] = {-19.001,8.4624,1.21408};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 90.7197;
+    };
+    class obj_304 {
+        pos[] = {15.5444,-17.3062,5.06294};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_312 {
+        pos[] = {-18.248,8.43384,13.4035};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_PortableLight_double_F";
+        dir = 92.9502;
+    };
+    class obj_320 {
+        pos[] = {-14.0283,-19.4189,6.00032};
+        issimpleobj = 0;
+        vecup[] = {-0.00138107,0,0.999999};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_F";
+        dir = 0.262;
+    };
+    class obj_16 {
+        pos[] = {2.13916,-11.4016,0.780923};
+        issimpleobj = 0;
+        vecup[] = {0.00129158,-0.0114093,0.999934};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_129 {
+        pos[] = {14.4336,10.6951,2.07778};
+        issimpleobj = 0;
+        vecup[] = {-0.0121713,0.0134398,0.999836};
+        hascrew = 1;
+        type = "O_HMG_01_high_F";
+        dir = 360.26;
+    };
+    class obj_24 {
+        pos[] = {-3.96191,11.8137,1.48435};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_PortableLight_double_F";
+        dir = 182.635;
+    };
+    class obj_137 {
+        pos[] = {2.89111,12.1072,13.2808};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_32 {
+        pos[] = {-1.08154,9.9519,8.78194};
+        issimpleobj = 1;
+        vecup[] = {-0.00146608,0,0.999999};
+        hascrew = 0;
+        type = "rhs_launcher_crate";
+        dir = 110.377;
+    };
+    class obj_145 {
+        pos[] = {3.89404,-17.2466,5.09498};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_40 {
+        pos[] = {-9.43506,-10.624,0.353618};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_officer_armored";
+        dir = 78.2007;
+    };
+    class obj_153 {
+        pos[] = {-6.79736,-14.05,10.0123};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_Long_F";
+        dir = 270.755;
+    };
+    class obj_209 {
+        pos[] = {-8.7998,12.1208,13.2325};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_161 {
+        pos[] = {-18.1167,-4.35425,0.404499};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_grenadier";
+        dir = 271.693;
+    };
+    class obj_217 {
+        pos[] = {-18.9995,4.12378,5.19915};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 90.4907;
+    };
+    class obj_225 {
+        pos[] = {15.4897,12.0703,5.21709};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_233 {
+        pos[] = {11.5396,-10.8835,13.1063};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 143.405;
+    };
+    class obj_241 {
+        pos[] = {16.1387,12.1919,5.25392};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_Prone_F";
+        dir = 0.262;
+    };
+    class obj_305 {
+        pos[] = {-23.2783,-5.1958,0};
+        issimpleobj = 1;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Pipes_large_F";
+        dir = 92.2644;
+    };
+    class obj_313 {
+        pos[] = {23.373,6.20264,2.03484};
+        issimpleobj = 0;
+        vecup[] = {0.00892991,-0.00847087,0.999924};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_Long_F";
+        dir = 270.079;
+    };
+    class obj_321 {
+        pos[] = {-18.2422,11.2083,12.3255};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_marksman";
+        dir = 310.523;
+    };
+    class obj_234 {
+        pos[] = {-16.8315,-11.0752,4.32554};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_grenadier";
+        dir = 194.047;
+    };
+    class obj_17 {
+        pos[] = {-9.87256,-6.22876,0.349361};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_rifleman";
+        dir = 86.6937;
+    };
+    class obj_25 {
+        pos[] = {2.67529,12.2527,1.25534};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_138 {
+        pos[] = {-18.0879,-2.11011,0.427834};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_grenadier";
+        dir = 269.854;
+    };
+    class obj_33 {
+        pos[] = {-0.828125,13.3032,0.780218};
+        issimpleobj = 0;
+        vecup[] = {0.00844308,0.0120491,0.999892};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 269.39;
+    };
+    class obj_146 {
+        pos[] = {-1.34082,17.5493,5.4412};
+        issimpleobj = 0;
+        vecup[] = {0,0.000345267,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_41 {
+        pos[] = {-8.8457,11.177,0.437573};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_at";
+        dir = 0.262;
+    };
+    class obj_154 {
+        pos[] = {1.56592,17.5688,5.76892};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_162 {
+        pos[] = {14.2437,11.9878,1.20694};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 0.262;
+    };
+    class obj_218 {
+        pos[] = {-12.1392,16.053,0.755067};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Razorwire_F";
+        dir = 0.262;
+    };
+    class obj_170 {
+        pos[] = {12.1968,-6.15088,12.9356};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Corner_F";
+        dir = 0.262;
+    };
+    class obj_226 {
+        pos[] = {-15.0229,-12.8569,4.73338};
+        issimpleobj = 0;
+        vecup[] = {-0.00138107,0,0.999999};
+        hascrew = 0;
+        type = "Land_BagFence_End_F";
+        dir = 272.925;
+    };
+    class obj_242 {
+        pos[] = {-16.9683,12.1677,1.16856};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 0.262;
+    };
+    class obj_250 {
+        pos[] = {13.4912,-9.97021,13.0682};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 1.5693;
+    };
+    class obj_306 {
+        pos[] = {14.0454,-19.2993,0.755067};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Razorwire_F";
+        dir = 0.262;
+    };
+    class obj_314 {
+        pos[] = {-16.8691,-11.7585,13.0589};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_322 {
+        pos[] = {-19.0225,8.68896,13.2806};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 271.709;
+    };
+    class obj_330 {
+        pos[] = {-14.3325,-18.1975,9.98475};
+        issimpleobj = 0;
+        vecup[] = {-0.0405876,-0.0103288,0.999123};
+        hascrew = 1;
+        type = "O_HMG_01_high_F";
+        dir = 178.522;
+    };
+    class obj_171 {
+        pos[] = {6.59521,11.8262,13.0721};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_227 {
+        pos[] = {19.894,-0.423584,4.32572};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_medic";
+        dir = 264.551;
+    };
+    class obj_235 {
+        pos[] = {-14.9893,-14.0579,2.00615};
+        issimpleobj = 0;
+        vecup[] = {-0.0037822,-0.000597775,0.999993};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_Long_F";
+        dir = 91.1933;
+    };
+    class obj_18 {
+        pos[] = {1.81885,11.7302,1.43549};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_PortableLight_double_F";
+        dir = 177.688;
+    };
+    class obj_26 {
+        pos[] = {2.40234,12.6631,0.618486};
+        issimpleobj = 1;
+        vecup[] = {0.00844737,0.0120421,0.999892};
+        hascrew = 0;
+        type = "rhs_mags_crate";
+        dir = 0.262;
+    };
+    class obj_139 {
+        pos[] = {-5.60303,16.041,6.64589};
+        issimpleobj = 0;
+        vecup[] = {1.54728e-006,0.000438151,1};
+        hascrew = 1;
+        type = "O_GMG_01_high_F";
+        dir = 324.84;
+    };
+    class obj_34 {
+        pos[] = {-3.91602,12.845,0.670515};
+        issimpleobj = 1;
+        vecup[] = {0.00844737,0.0120421,0.999892};
+        hascrew = 0;
+        type = "rhs_mags_crate";
+        dir = 0.262;
+    };
+    class obj_147 {
+        pos[] = {-3.75049,16.9866,6.10596};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_PortableLight_double_F";
+        dir = 181.849;
+    };
+    class obj_42 {
+        pos[] = {5.94971,2.6731,12.7083};
+        issimpleobj = 0;
+        vecup[] = {-0.00668456,-0.00980847,0.99993};
+        hascrew = 0;
+        type = "Land_BagFence_Round_F";
+        dir = 280.66;
+    };
+    class obj_155 {
+        pos[] = {4.79297,12.0352,13.2998};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_End_F";
+        dir = 0.262;
+    };
+    class obj_50 {
+        pos[] = {5.62354,12.554,5.43373};
+        issimpleobj = 0;
+        vecup[] = {0,0.000345267,1};
+        hascrew = 0;
+        type = "Land_BagFence_End_F";
+        dir = 264.471;
+    };
+    class obj_163 {
+        pos[] = {13.1528,12.157,5.24524};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_Long_Prone_F";
+        dir = 179.886;
+    };
+    class obj_219 {
+        pos[] = {-17.0269,10.7844,0.389321};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_grenadier";
+        dir = 0.262;
+    };
+    class obj_243 {
+        pos[] = {-18.2964,9.2854,4.32572};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_grenadier";
+        dir = 262.797;
+    };
+    class obj_251 {
+        pos[] = {17.334,-8.7981,8.75694};
+        issimpleobj = 1;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "rhs_launcher_crate";
+        dir = 274.638;
+    };
+    class obj_307 {
+        pos[] = {-19.0483,5.79541,13.2701};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 270.427;
+    };
+    class obj_323 {
+        pos[] = {22.1616,-7.00781,8.60952};
+        issimpleobj = 1;
+        vecup[] = {0.000698392,0.000698131,1};
+        hascrew = 0;
+        type = "rhs_mags_crate";
+        dir = 268.916;
+    };
+    class obj_331 {
+        pos[] = {22.1411,12.0483,2.09519};
+        issimpleobj = 0;
+        vecup[] = {0.0087821,-0.00839317,0.999926};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_F";
+        dir = 0.262;
+    };
+    class obj_51 {
+        pos[] = {6.93018,12.0637,5.22075};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_164 {
+        pos[] = {3.50244,17.5547,5.43154};
+        issimpleobj = 0;
+        vecup[] = {0,0.000345267,1};
+        hascrew = 0;
+        type = "Land_BagFence_End_F";
+        dir = 0.262;
+    };
+    class obj_172 {
+        pos[] = {-4.19336,17.5356,5.44122};
+        issimpleobj = 0;
+        vecup[] = {0,0.000345267,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_228 {
+        pos[] = {16.1357,12.1218,3.15208};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_Prone_F";
+        dir = 0.262;
+    };
+    class obj_180 {
+        pos[] = {-18.708,1.64014,2.12229};
+        issimpleobj = 0;
+        vecup[] = {-0.0063005,0.00762699,0.999951};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_F";
+        dir = 88.047;
+    };
+    class obj_236 {
+        pos[] = {-19.02,-7.95654,1.21753};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 90.5864;
+    };
+    class obj_19 {
+        pos[] = {3.24121,-11.415,1.50915};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_End_F";
+        dir = 0.262;
+    };
+    class obj_27 {
+        pos[] = {-4.32959,12.2615,0.825523};
+        issimpleobj = 0;
+        vecup[] = {0.00836488,-0.00580794,0.999948};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_35 {
+        pos[] = {7.05859,12.0352,1.19833};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 0.262;
+    };
+    class obj_148 {
+        pos[] = {11.5078,6.79468,12.7173};
+        issimpleobj = 0;
+        vecup[] = {-0.000345267,0.0225019,0.999747};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 89.6121;
+    };
+    class obj_43 {
+        pos[] = {-0.643066,-10.6975,9.47052};
+        issimpleobj = 1;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "rhs_mags_crate";
+        dir = 0.262;
+    };
+    class obj_156 {
+        pos[] = {6.5708,11.8289,12.7163};
+        issimpleobj = 0;
+        vecup[] = {0.0226734,-0.00209927,0.999741};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_244 {
+        pos[] = {-18.9639,7.50562,5.22647};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 272.108;
+    };
+    class obj_252 {
+        pos[] = {-16.8174,12.1357,5.24668};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_260 {
+        pos[] = {15.6816,11.7231,9.04645};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_308 {
+        pos[] = {22.3667,6.02051,6.01652};
+        issimpleobj = 0;
+        vecup[] = {-0.00606921,0.00376634,0.999974};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_Long_F";
+        dir = 269.259;
+    };
+    class obj_316 {
+        pos[] = {18.5967,15.814,0.755067};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Razorwire_F";
+        dir = 0.262;
+    };
+    class obj_324 {
+        pos[] = {21.9097,9.93066,5.99978};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_Long_F";
+        dir = 256.909;
+    };
+    class obj_332 {
+        pos[] = {17.9219,-17.2732,4.73346};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_340 {
+        pos[] = {21.7324,-10.5813,8.33838};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_at";
+        dir = 156.191;
+    };
+    class obj_44 {
+        pos[] = {7.98779,-11.4382,3.76509};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_Long_Prone_F";
+        dir = 0.262;
+    };
+    class obj_157 {
+        pos[] = {-4.7749,-17.2183,5.11377};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_52 {
+        pos[] = {9.54736,-11.3992,0.754884};
+        issimpleobj = 0;
+        vecup[] = {0.00142318,-0.00241691,0.999996};
+        hascrew = 0;
+        type = "Land_BagFence_End_F";
+        dir = 0.262;
+    };
+    class obj_165 {
+        pos[] = {-15.4722,-10.5171,0.752941};
+        issimpleobj = 1;
+        vecup[] = {0,-0.00221664,0.999998};
+        hascrew = 0;
+        type = "rhs_launcher_crate";
+        dir = 206.946;
+    };
+    class obj_60 {
+        pos[] = {11.252,-10.21,0.7599};
+        issimpleobj = 0;
+        vecup[] = {0.00142318,-0.00241691,0.999996};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 273.595;
+    };
+    class obj_173 {
+        pos[] = {-6.55029,16.7029,5.74831};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Round_F";
+        dir = 119.889;
+    };
+    class obj_229 {
+        pos[] = {11.1895,11.5408,12.6222};
+        issimpleobj = 0;
+        vecup[] = {0.0180686,0.0224187,0.999585};
+        hascrew = 0;
+        type = "Land_BagFence_Corner_F";
+        dir = 0.262;
+    };
+    class obj_181 {
+        pos[] = {-4.18359,17.5393,5.75442};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_237 {
+        pos[] = {-16.9907,-11.7427,1.19589};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 0.262;
+    };
+    class obj_28 {
+        pos[] = {-4.375,12.2793,1.32317};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_36 {
+        pos[] = {8.03857,-11.4646,1.5296};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_149 {
+        pos[] = {14.061,-11.3755,3.67109};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_Long_Prone_F";
+        dir = 0.262;
+    };
+    class obj_245 {
+        pos[] = {-18.9795,1.88062,9.11123};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 269.285;
+    };
+    class obj_253 {
+        pos[] = {17.0894,8.24072,9.96164};
+        issimpleobj = 0;
+        vecup[] = {0.0113412,0.008148,0.999902};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_Long_F";
+        dir = 270.335;
+    };
+    class obj_261 {
+        pos[] = {-18.9663,10.3418,1.2022};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_End_F";
+        dir = 271.396;
+    };
+    class obj_309 {
+        pos[] = {-19.0879,-5.89673,13.2187};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 270.162;
+    };
+    class obj_317 {
+        pos[] = {-19.04,-8.14258,13.0618};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 269.43;
+    };
+    class obj_325 {
+        pos[] = {-6.49756,-17.9758,16.2648};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 89.8152;
+    };
+    class obj_333 {
+        pos[] = {-19.0601,-10.4517,13.0415};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 270.141;
+    };
+    class obj_341 {
+        pos[] = {21.0576,-11.6152,8.75635};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_37 {
+        pos[] = {2.5957,5.58105,12.7023};
+        issimpleobj = 0;
+        vecup[] = {-0.0101402,-0.0219186,0.999708};
+        hascrew = 0;
+        type = "Land_BagFence_Round_F";
+        dir = 166.698;
+    };
+    class obj_45 {
+        pos[] = {-4.18311,-11.0964,8.33928};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_grenadier";
+        dir = 169.225;
+    };
+    class obj_158 {
+        pos[] = {-5.22949,-17.2053,4.73226};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 0.262;
+    };
+    class obj_53 {
+        pos[] = {-8.60596,12.1047,1.16936};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 0.262;
+    };
+    class obj_166 {
+        pos[] = {-6.65332,16.655,5.44131};
+        issimpleobj = 0;
+        vecup[] = {0,0.000349066,1};
+        hascrew = 0;
+        type = "Land_BagFence_Round_F";
+        dir = 117.46;
+    };
+    class obj_61 {
+        pos[] = {0.571289,12.1116,9.24697};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_174 {
+        pos[] = {6.14014,-11.8606,13.2915};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_182 {
+        pos[] = {15.1997,-11.394,1.42604};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_End_F";
+        dir = 0.262;
+    };
+    class obj_238 {
+        pos[] = {11.207,11.5955,12.9671};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Corner_F";
+        dir = 0.262;
+    };
+    class obj_190 {
+        pos[] = {-17.8657,7.77124,0.764502};
+        issimpleobj = 1;
+        vecup[] = {-0.00626569,0.00766177,0.999951};
+        hascrew = 0;
+        type = "rhs_mags_crate";
+        dir = 265.279;
+    };
+    class obj_29 {
+        pos[] = {9.51416,8.98169,0.835874};
+        issimpleobj = 1;
+        vecup[] = {-0.0121472,0.0134376,0.999836};
+        hascrew = 0;
+        type = "rhs_launcher_crate";
+        dir = 70.369;
+    };
+    class obj_246 {
+        pos[] = {-18.9873,-1.10034,9.23982};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 269.239;
+    };
+    class obj_254 {
+        pos[] = {15.3506,-7.47144,12.9646};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 91.4609;
+    };
+    class obj_262 {
+        pos[] = {-19.0322,-10.281,1.20719};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 89.179;
+    };
+    class obj_270 {
+        pos[] = {12.6514,-17.2852,5.0667};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_318 {
+        pos[] = {23.7988,2.13965,5.73668};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_F";
+        dir = 0.262;
+    };
+    class obj_326 {
+        pos[] = {24.1992,-6.46948,1.99885};
+        issimpleobj = 0;
+        vecup[] = {-0.000488281,0,1};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_F";
+        dir = 0.262;
+    };
+    class obj_334 {
+        pos[] = {23.916,-6.2041,5.99869};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_F";
+        dir = 0.262;
+    };
+    class obj_342 {
+        pos[] = {-19.0063,10.8621,13.2613};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 270.868;
+    };
+    class obj_350 {
+        pos[] = {22.9365,-10.5325,5.99784};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_F";
+        dir = 271.162;
+    };
+    author = "Floid";
+    class obj_38 {
+        pos[] = {3.57227,-10.8591,8.33978};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_grenadier";
+        dir = 181.245;
+    };
+    class obj_46 {
+        pos[] = {11.2598,7.98096,4.74194};
+        issimpleobj = 1;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "rhs_launcher_crate";
+        dir = 185.372;
+    };
+    class obj_159 {
+        pos[] = {12.2085,-6.1189,12.6392};
+        issimpleobj = 0;
+        vecup[] = {0.0211617,0.015375,0.999658};
+        hascrew = 0;
+        type = "Land_BagFence_Corner_F";
+        dir = 0.262;
+    };
+    class obj_54 {
+        pos[] = {-5.33887,13.8079,2.02131};
+        issimpleobj = 0;
+        vecup[] = {0.00845935,0.0120714,0.999891};
+        hascrew = 1;
+        type = "O_HMG_01_high_F";
+        dir = 0.268693;
+    };
+    class obj_167 {
+        pos[] = {14.4219,11.198,4.32572};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_at";
+        dir = 0.262;
+    };
+    class obj_62 {
+        pos[] = {9.41211,11.8523,2.05327};
+        issimpleobj = 0;
+        vecup[] = {-0.0121481,0.0134375,0.999836};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_F";
+        dir = 0.262;
+    };
+    class obj_175 {
+        pos[] = {6.06104,-17.2041,4.73542};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_70 {
+        pos[] = {-8.3623,12.1272,5.22212};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_183 {
+        pos[] = {-14.6362,12.1536,1.19427};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 0.262;
+    };
+    class obj_191 {
+        pos[] = {10.6729,10.8125,12.2282};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_marksman";
+        dir = 41.0017;
+    };
+    class obj_239 {
+        pos[] = {-13.9995,12.1389,9.25722};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_247 {
+        pos[] = {-18.9844,-7.77075,5.20389};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 270.531;
+    };
+    class obj_255 {
+        pos[] = {-11.7075,12.1733,13.2179};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_263 {
+        pos[] = {-18.9961,4.73877,9.31676};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 270.242;
+    };
+    class obj_271 {
+        pos[] = {-17.9917,-9.62476,8.33985};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_at";
+        dir = 266.814;
+    };
+    class obj_319 {
+        pos[] = {24.4302,2.03931,1.99799};
+        issimpleobj = 0;
+        vecup[] = {-0.000845728,0,1};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_F";
+        dir = 0.262;
+    };
+    class obj_327 {
+        pos[] = {-17.6587,12.1077,13.219};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_335 {
+        pos[] = {-14.0347,-19.3027,8.77985};
+        issimpleobj = 0;
+        vecup[] = {-0.0249124,0.00048813,0.99969};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 0.262;
+    };
+    class obj_343 {
+        pos[] = {22.7637,-7.80908,8.75342};
+        issimpleobj = 0;
+        vecup[] = {0.000690285,0.000690534,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 92.536;
+    };
+    class obj_351 {
+        pos[] = {23.8896,2.20386,9.90382};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_F";
+        dir = 0.262;
+    };
+    class obj_39 {
+        pos[] = {0.348145,10.4141,9.65652};
+        issimpleobj = 1;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "rhs_mags_crate";
+        dir = 0.262;
+    };
+    class obj_47 {
+        pos[] = {4.11572,13.8882,1.95401};
+        issimpleobj = 0;
+        vecup[] = {0.00437716,-0.000333923,0.99999};
+        hascrew = 1;
+        type = "O_HMG_01_high_F";
+        dir = 0.263897;
+    };
+    class obj_55 {
+        pos[] = {5.17773,14.0859,0.745554};
+        issimpleobj = 0;
+        vecup[] = {0.00436716,-0.000345052,0.99999};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 270.798;
+    };
+    class obj_168 {
+        pos[] = {11.5405,6.71924,13.1987};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 89.7702;
+    };
+    class obj_63 {
+        pos[] = {-2.27539,12.1174,9.22536};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_176 {
+        pos[] = {3.4707,17.6025,5.78925};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_End_F";
+        dir = 180.802;
+    };
+    class obj_71 {
+        pos[] = {-6.65234,-14.0159,2.03057};
+        issimpleobj = 0;
+        vecup[] = {0,-0.0050271,0.999987};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_Long_F";
+        dir = 269.992;
+    };
+    class obj_184 {
+        pos[] = {9.94385,8.13184,14.1733};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_PortableLight_double_F";
+        dir = 232.572;
+    };
+    class obj_192 {
+        pos[] = {-19.0142,-4.23169,1.21542};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 91.0109;
+    };
+    class obj_248 {
+        pos[] = {-16.8975,-11.7288,5.18446};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 0.262;
+    };
+    class obj_256 {
+        pos[] = {15.4238,-11.741,9.23683};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_264 {
+        pos[] = {-6.5249,-12.907,16.1785};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 91.1102;
+    };
+    class obj_272 {
+        pos[] = {15.3096,-9.14111,13.0103};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 88.2506;
+    };
+    class obj_280 {
+        pos[] = {-16.8247,12.1853,9.09553};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_328 {
+        pos[] = {22.9541,-8.40381,5.99874};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_Long_F";
+        dir = 269.596;
+    };
+    class obj_336 {
+        pos[] = {-10.6826,-15.4666,17.1658};
+        issimpleobj = 0;
+        vecup[] = {-0.000142493,0.000969668,0.999999};
+        hascrew = 1;
+        type = "RHS_ZU23_VDV";
+        dir = 180.14;
+    };
+    class obj_344 {
+        pos[] = {21.0249,-11.6218,9.087};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_352 {
+        pos[] = {-12.7764,-16.2361,15.7463};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Round_F";
+        dir = 42.56;
+    };
+    class obj_360 {
+        pos[] = {22.8364,-13.6843,4.73841};
+        issimpleobj = 0;
+        vecup[] = {0,-0.00150472,0.999999};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 90.1278;
+    };
+    class obj_48 {
+        pos[] = {-13.8662,-4.70898,0.636515};
+        issimpleobj = 1;
+        vecup[] = {0.00822041,-0.0105064,0.999911};
+        hascrew = 0;
+        type = "rhs_mags_crate";
+        dir = 313.274;
+    };
+    class obj_56 {
+        pos[] = {1.08447,-11.7764,9.29173};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_169 {
+        pos[] = {-10.9756,12.1208,9.25153};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_64 {
+        pos[] = {3.95801,-11.78,9.14437};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_177 {
+        pos[] = {-16.6006,-1.84106,8.75794};
+        issimpleobj = 1;
+        vecup[] = {-0.00146608,0,0.999999};
+        hascrew = 0;
+        type = "rhs_launcher_crate";
+        dir = 275.913;
+    };
+    class obj_72 {
+        pos[] = {-6.66406,14.1917,1.10546};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 269.586;
+    };
+    class obj_185 {
+        pos[] = {-19.021,-2.01514,1.19946};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 89.8205;
+    };
+    class obj_80 {
+        pos[] = {-5.13574,12.1167,9.24051};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_193 {
+        pos[] = {-2.10498,-19.415,0.755067};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Razorwire_F";
+        dir = 0.262;
+    };
+    hasmissiontarget = 1;
+    class obj_249 {
+        pos[] = {-20.542,3.8501,3.63029};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Scaffolding_F";
+        dir = 0.262;
+    };
+    class obj_257 {
+        pos[] = {-18.9966,-3.91431,9.27349};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 270.832;
+    };
+    class obj_265 {
+        pos[] = {-15.105,-13.9341,6.98417};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_Long_F";
+        dir = 90.8388;
+    };
+    class obj_273 {
+        pos[] = {-18.9399,10.2876,5.21414};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 272.072;
+    };
+    class obj_281 {
+        pos[] = {-15.1118,-13.6833,10.0129};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_Long_F";
+        dir = 91.4149;
+    };
+    class obj_329 {
+        pos[] = {-7.30029,-18.5825,15.3289};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_marksman";
+        dir = 142.916;
+    };
+    class obj_337 {
+        pos[] = {23.291,10.1675,2.06943};
+        issimpleobj = 0;
+        vecup[] = {0.00892991,-0.00847087,0.999924};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_Long_F";
+        dir = 268.163;
+    };
+    class obj_345 {
+        pos[] = {-20.2168,15.9673,0.755067};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Razorwire_F";
+        dir = 0.262;
+    };
+    class obj_353 {
+        pos[] = {22.6665,-9.73022,9.06922};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 91.7659;
+    };
+    class obj_361 {
+        pos[] = {-15.3276,-15.3818,16.2003};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 270.122;
+    };
+    class obj_49 {
+        pos[] = {8.25781,11.3916,4.32572};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_at";
+        dir = 0.262;
+    };
+    class obj_57 {
+        pos[] = {3.78662,3.73022,14.1082};
+        issimpleobj = 0;
+        vecup[] = {-0.0302886,-0.0216014,0.999308};
+        hascrew = 1;
+        type = "RHS_ZU23_VDV";
+        dir = 45.3038;
+    };
+    class obj_65 {
+        pos[] = {-4.3916,-11.7185,9.06215};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_178 {
+        pos[] = {-5.84863,12.0872,13.2458};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_73 {
+        pos[] = {-13.9609,-7.21655,0.614514};
+        issimpleobj = 1;
+        vecup[] = {0,-0.00221664,0.999998};
+        hascrew = 0;
+        type = "rhs_mags_crate";
+        dir = 225.795;
+    };
+    class obj_186 {
+        pos[] = {-18.2021,-4.26416,4.32572};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_grenadier";
+        dir = 268.658;
+    };
+    class obj_81 {
+        pos[] = {-12.1626,10.5093,0.692502};
+        issimpleobj = 1;
+        vecup[] = {-0.00626569,0.00766177,0.999951};
+        hascrew = 0;
+        type = "rhs_mags_crate";
+        dir = 268.424;
+    };
+    class obj_194 {
+        pos[] = {12.5586,-11.7834,9.24294};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_258 {
+        pos[] = {11.9312,-17.2522,4.73445};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_266 {
+        pos[] = {-18.9644,10.647,1.2056};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_End_F";
+        dir = 270.394;
+    };
+    class obj_274 {
+        pos[] = {-19.0127,-6.78589,9.28582};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 271.427;
+    };
+    class obj_282 {
+        pos[] = {19.1328,12.1101,2.12213};
+        issimpleobj = 0;
+        vecup[] = {0.0087821,-0.00839317,0.999926};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_Long_F";
+        dir = 181.554;
+    };
+    class obj_290 {
+        pos[] = {-14.6792,12.1353,13.2611};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_338 {
+        pos[] = {-13.9941,-19.2871,9.12905};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 0.262;
+    };
+    class obj_346 {
+        pos[] = {-15.2998,-12.9302,16.2245};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 269.098;
+    };
+    class obj_354 {
+        pos[] = {22.6328,-10.217,8.75029};
+        issimpleobj = 0;
+        vecup[] = {0.000690285,0.000690534,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 90.4612;
+    };
+    class obj_362 {
+        pos[] = {22.8188,-13.6819,5.11016};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 90.8008;
+    };
+    class obj_370 {
+        pos[] = {-14.3574,-18.7341,15.3289};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_marksman";
+        dir = 217.692;
+    };
+    class obj_58 {
+        pos[] = {-1.50146,-11.7727,9.30555};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_66 {
+        pos[] = {1.43213,15.4026,1.07464};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 0.262;
+    };
+    class obj_179 {
+        pos[] = {10.4966,15.6982,0.755067};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Razorwire_F";
+        dir = 0.262;
+    };
+    class obj_74 {
+        pos[] = {-3.20459,15.3706,1.10368};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 0.262;
+    };
+    class obj_187 {
+        pos[] = {-14.0103,12.1558,5.22943};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_82 {
+        pos[] = {3.60986,15.6829,1.10531};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Round_F";
+        dir = 177.701;
+    };
+    class obj_195 {
+        pos[] = {13.0088,11.7776,8.72439};
+        issimpleobj = 0;
+        vecup[] = {0.011601,0.0293405,0.999502};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_90 {
+        pos[] = {9.77734,12.054,5.21292};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_259 {
+        pos[] = {15.7881,11.7295,8.69355};
+        issimpleobj = 0;
+        vecup[] = {0.011601,0.0293405,0.999502};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_267 {
+        pos[] = {19.4858,-0.132813,10.0266};
+        issimpleobj = 0;
+        vecup[] = {0,-0.00300962,0.999995};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_Long_F";
+        dir = 181.094;
+    };
+    class obj_275 {
+        pos[] = {-19.0562,-10.2078,5.1742};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 89.6051;
+    };
+    class obj_283 {
+        pos[] = {-17.8403,10.0005,9.96167};
+        issimpleobj = 0;
+        vecup[] = {-0.00151027,8.45623e-006,0.999999};
+        hascrew = 1;
+        type = "O_HMG_01_high_F";
+        dir = 268.501;
+    };
+    class obj_291 {
+        pos[] = {-16.5015,-9.53442,13.2944};
+        issimpleobj = 0;
+        vecup[] = {-0.00077204,0.00077204,0.999999};
+        hascrew = 0;
+        type = "Land_BagBunker_Small_F";
+        dir = 90.691;
+    };
+    class obj_339 {
+        pos[] = {22.6924,-7.37573,9.04764};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 91.6259;
+    };
+    class obj_347 {
+        pos[] = {18.5,-17.2581,5.05486};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_355 {
+        pos[] = {-7.854,-19.6118,16.2823};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_363 {
+        pos[] = {20.7739,-17.269,4.7331};
+        issimpleobj = 0;
+        vecup[] = {0,-0.00150472,0.999999};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_371 {
+        pos[] = {22.8228,-15.9539,4.72992};
+        issimpleobj = 0;
+        vecup[] = {0,-0.00150472,0.999999};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 89.8479;
+    };
+    class obj_59 {
+        pos[] = {5.24219,14.1331,1.08306};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 271.555;
+    };
+    class obj_67 {
+        pos[] = {1.37207,15.4302,0.757628};
+        issimpleobj = 0;
+        vecup[] = {0.00436716,-0.000345052,0.99999};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 0.262;
+    };
+    class obj_75 {
+        pos[] = {-11.1685,11.0996,0.423612};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_at";
+        dir = 0.262;
+    };
+    class obj_188 {
+        pos[] = {-12.6587,-13.696,5.4886};
+        issimpleobj = 0;
+        vecup[] = {-0.0335658,0.00349978,0.999431};
+        hascrew = 1;
+        type = "O_GMG_01_F";
+        dir = 269.209;
+    };
+    class obj_83 {
+        pos[] = {3.62061,15.731,0.753312};
+        issimpleobj = 0;
+        vecup[] = {0.00436335,-0.000348867,0.99999};
+        hascrew = 0;
+        type = "Land_BagFence_Round_F";
+        dir = 181.238;
+    };
+    class obj_196 {
+        pos[] = {11.5474,9.64063,12.6533};
+        issimpleobj = 0;
+        vecup[] = {-0.000345267,0.0225019,0.999747};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 90.6832;
+    };
+    class obj_91 {
+        pos[] = {11.2329,10.9961,4.59651};
+        issimpleobj = 1;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "rhs_mags_crate";
+        dir = 90.829;
+    };
+    class obj_268 {
+        pos[] = {-15.0225,-15.2747,4.73328};
+        issimpleobj = 0;
+        vecup[] = {-0.00138107,0,0.999999};
+        hascrew = 0;
+        type = "Land_BagFence_End_F";
+        dir = 89.3972;
+    };
+    class obj_276 {
+        pos[] = {-22.2729,-1.37695,0.448905};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Obstacle_Ramp_F";
+        dir = 271.873;
+    };
+    class obj_284 {
+        pos[] = {15.4849,-16.2712,4.31717};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_aa";
+        dir = 171.358;
+    };
+    class obj_292 {
+        pos[] = {14.8926,-17.2559,4.73396};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_348 {
+        pos[] = {21.2217,-13.9385,4.59152};
+        issimpleobj = 1;
+        vecup[] = {0,-0.00150091,0.999999};
+        hascrew = 0;
+        type = "rhs_mags_crate";
+        dir = 0.262;
+    };
+    class obj_356 {
+        pos[] = {-13.9961,-19.1228,12.5238};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_Stand_F";
+        dir = 0.262;
+    };
+    class obj_364 {
+        pos[] = {26.7466,2.1355,5.99869};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_Long_F";
+        dir = 180.326;
+    };
+    class obj_372 {
+        pos[] = {22.8354,-15.8823,5.11905};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 90.0105;
+    };
+    class obj_380 {
+        pos[] = {22.1431,-19.2322,0.755067};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Razorwire_F";
+        dir = 0.262;
+    };
+    class obj_68 {
+        pos[] = {3.31836,12.0654,9.25783};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_76 {
+        pos[] = {-6.76172,14.2161,0.824377};
+        issimpleobj = 0;
+        vecup[] = {0.00844308,0.0120491,0.999892};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 269.464;
+    };
+    class obj_189 {
+        pos[] = {-19.0093,4.01343,1.20879};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 89.5529;
+    };
+    class obj_84 {
+        pos[] = {-6.14795,-11.7415,9.29514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_End_F";
+        dir = 0.262;
+    };
+    class obj_197 {
+        pos[] = {16.0522,11.3215,0.74247};
+        issimpleobj = 1;
+        vecup[] = {-0.0121472,0.0134376,0.999836};
+        hascrew = 0;
+        type = "rhs_mags_crate";
+        dir = 0.262;
+    };
+    class obj_92 {
+        pos[] = {6.81641,-11.7998,9.09009};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_269 {
+        pos[] = {15.9551,11.9709,9.21577};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_Prone_F";
+        dir = 0.262;
+    };
+    class obj_277 {
+        pos[] = {-18.959,7.60718,9.14378};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 271.661;
+    };
+    class obj_285 {
+        pos[] = {-16.0562,-10.4739,12.6085};
+        issimpleobj = 1;
+        vecup[] = {-0.000767945,0.000767945,0.999999};
+        hascrew = 0;
+        type = "rhs_mags_crate";
+        dir = 0.262;
+    };
+    class obj_293 {
+        pos[] = {-19.0645,2.86206,13.2188};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 270.84;
+    };
+    class obj_349 {
+        pos[] = {18.9785,-16.7686,5.3985};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_PortableLight_double_F";
+        dir = 0.262;
+    };
+    class obj_357 {
+        pos[] = {24.5796,-6.20752,8.71687};
+        issimpleobj = 0;
+        vecup[] = {0.0165143,0.0331294,0.999315};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_365 {
+        pos[] = {-10.7383,-19.6331,16.2027};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_373 {
+        pos[] = {-27.7061,6.04028,0.695528};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_IronPipes_F";
+        dir = 250.49;
+    };
+    class obj_381 {
+        pos[] = {26.0151,13.7803,0.755067};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Razorwire_F";
+        dir = 207.238;
+    };
+    class obj_1 {
+        pos[] = {-0.76416,-7.20239,1.49704};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_PortableLight_double_F";
+        dir = 286.569;
+    };
+    class obj_69 {
+        pos[] = {7.55322,10.8005,8.37435};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_at";
+        dir = 0.262;
+    };
+    class obj_77 {
+        pos[] = {-3.22559,15.4146,0.777734};
+        issimpleobj = 0;
+        vecup[] = {0.00436716,-0.000345052,0.99999};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 0.262;
+    };
+    class obj_85 {
+        pos[] = {6.90088,11.7666,8.79228};
+        issimpleobj = 0;
+        vecup[] = {0.0113412,0.008148,0.999902};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 0.262;
+    };
+    class obj_198 {
+        pos[] = {-18.04,-8.03003,0.36525};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_grenadier";
+        dir = 271.769;
+    };
+    class obj_93 {
+        pos[] = {-10.9814,12.1062,1.1792};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Short_F";
+        dir = 0.262;
+    };
+    class obj_278 {
+        pos[] = {-17.0889,11.6379,8.61252};
+        issimpleobj = 1;
+        vecup[] = {-0.00146608,0,0.999999};
+        hascrew = 0;
+        type = "rhs_mags_crate";
+        dir = 0.262;
+    };
+    class obj_286 {
+        pos[] = {-6.49609,-15.0662,16.2551};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 90.08;
+    };
+    class obj_294 {
+        pos[] = {-19.0815,-2.98657,13.2268};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 269.93;
+    };
+    class obj_358 {
+        pos[] = {-10.8071,-18.981,15.6005};
+        issimpleobj = 1;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "rhs_mags_crate";
+        dir = 0.262;
+    };
+    class obj_366 {
+        pos[] = {-24.9844,11.8962,0.755067};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_Razorwire_F";
+        dir = 277.706;
+    };
+    class obj_374 {
+        pos[] = {22.5854,-16.8672,4.73535};
+        issimpleobj = 0;
+        vecup[] = {0,-0.00150472,0.999999};
+        hascrew = 0;
+        type = "Land_BagFence_Corner_F";
+        dir = 88.1617;
+    };
+    class obj_382 {
+        pos[] = {28.9468,-5.07715,2.00181};
+        issimpleobj = 0;
+        vecup[] = {-0.000845728,0,1};
+        hascrew = 0;
+        type = "Land_Shoot_House_Wall_F";
+        dir = 91.6865;
+    };
+    class obj_390 {
+        pos[] = {29.0439,-2.75317,9.13975};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 0;
+        type = "Land_BagFence_Long_F";
+        dir = 89.1341;
     };
 };

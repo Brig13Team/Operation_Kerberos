@@ -18,7 +18,7 @@
 
 _this params [
     ["_center",[],[[],objNull]],
-    ["_radius",35,[0]],
+    ["_radius",40,[0]],
     ["_dir",0,[0]],
     ["_author","BrigTeam",[""]]
 ];

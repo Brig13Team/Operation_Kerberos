@@ -46,10 +46,8 @@ class DOUBLES(CfgComponent,ADDON) {
         minefields = CSTRING(FEATURES_MINEFIELDS);
     };
 };
-#include "config\city_defence.hpp"
 #include "config\unitlists.hpp"
 #include "config\gear.hpp"
-#include "config\defence_positions.hpp"
 
 class CfgCompositions {
     class houses {
@@ -57,6 +55,7 @@ class CfgCompositions {
     };
     class positions {
         #include "config\compositions_positions.hpp"
+        #include "config\defence_positions2.hpp"
     };
     #include "config\compositions_housepositions.hpp"
 };
