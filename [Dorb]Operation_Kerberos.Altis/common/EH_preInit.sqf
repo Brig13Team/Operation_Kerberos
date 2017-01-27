@@ -10,6 +10,7 @@ PREP(convertRotMatToAngle);
 
 PREP(debug_marker_clean);
 PREP(debug_marker_create);
+PREP(delete);
 
 PREP(get_buildings);
 PREP(get_cfg_subclasses);

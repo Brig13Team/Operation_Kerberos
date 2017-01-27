@@ -19,7 +19,7 @@ private _max = getNumber(missionConfigFile >> "missions_config" >> "main" >> "ho
 TRACEV_4(_max,_min,_destination,_position);
 private _amount = (floor (random ((_max - _min) + 1))) + _min;
 
-private _hostages = [_position,"hostage",[_amount,_radius]] call EFUNC(spawn,createMissionTarget);
+private _hostages = [_position,"hostage",[_amount]] call EFUNC(spawn,createMissionTarget);
 {
     _x setVariable [QGVAR(rescueEvent),QGVAR(hostage_rescued)];
     _x addEventHandler ["Killed", LINKFUNC(onHostageKilled)];

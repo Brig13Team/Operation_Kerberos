@@ -26,9 +26,11 @@ CHECK(_center isEqualTo [])
 
 If (IS_OBJECT(_center)) then {
     _dir = getDir _center;
-    _center = getPos _center;
-    _center set[2,0];
+    _center = getPosWorld _center;
 };
+_center set[2,0];
+private _centerATL =+ _center;
+_center = ATLtoASL _center;
 private _vectorUp = [0,0,1];
 
 
@@ -42,14 +44,14 @@ If !(isNil QGVAR(exporthelper)) then {
     deleteVehicle GVAR(exporthelper2);
     deleteVehicle GVAR(exporthelper3);
 };
-_center set[2,0];
+
 GVAR(exporthelper) = ([sideLogic] call CBA_fnc_getSharedGroup) createUnit ["LOGIC", [0, 0, 0], [], 0, "NONE"];
 GVAR(exporthelper2) = createVehicle ["Sign_Arrow_Large_F", _center, [], 0, "CAN_COLLIDE"];
 GVAR(exporthelper3) = createVehicle ["Sign_Arrow_Direction_F", _center, [], 0, "CAN_COLLIDE"];
-GVAR(exporthelper) setPosATL _center;
+GVAR(exporthelper) setPosATL _centerATL;
 GVAR(exporthelper) setDir _dir;
-GVAR(exporthelper2) setPosATL _center;
-GVAR(exporthelper3) setPosATL _center;
+GVAR(exporthelper2) setPosATL _centerATL;
+GVAR(exporthelper3) setPosATL _centerATL;
 GVAR(exporthelper3) setDir _dir;
 
 private _fnc_getObjbelow = {
@@ -75,8 +77,8 @@ private _fnc_setObjAtt = {
     HASH_SET(_hash,"type",typeOf _obj);
     // get the position acording to the relative object
     private _objPos = getPosWorld _obj;
-    _objPos = [_objPos,_relObjDir] call BIS_fnc_rotateVector2D;
     private _curRelPos = _objPos vectorDiff _relObjPos;
+    _curRelPos = [_curRelPos,_relObjDir] call BIS_fnc_rotateVector2D;
     HASH_SET(_hash,"pos",_curRelPos);
     // dir and vector
     private _curDir = (getDir _obj) - (getDir _relObj);
@@ -98,16 +100,10 @@ private _fnc_setObjAttBottom = {
     HASH_SET(_hash,"type",typeOf _obj);
     // get the position of the Object
     private _objPos = getPosWorld _obj;
-    // rotate acording to centerdir
-    _objPos = [_objPos,_dir] call BIS_fnc_rotateVector2D;
     // relativ to centerpos
     private _curRelPos = _objPos vectorDiff _center;
-    // get the height of the object (difference between object center and terrain level)
-    private _helperPos =+ _curRelPos;
-    _helperPos set [2,0];
-    GVAR(exporthelper) setPosATL _helperPos;
-    private _height = (getPosWorld GVAR(exporthelper)) select 2;
-    _curRelPos = _curRelPos vectorAdd [0,0,-1 * _height];
+    // rotate acording to centerdir
+    _curRelPos = [_curRelPos,_dir] call BIS_fnc_rotateVector2D;
     HASH_SET(_hash,"pos",_curRelPos);
     // direction of the object
     private _curDir = (getDir _obj) - _dir; // rotate counterClockwise

@@ -13,10 +13,11 @@
  *      ARRAY - Position for Missionobjective, empty if none availlible
  *
  */
+#define DEBUG_MODE_OFF
 #include "script_component.hpp"
 
 _this params ["_centerPos","_config","_centerDir"];
-
+TRACEV_3(_centerPos,_config,_centerDir);
 // put the centerpos on the ground
 _centerPos set[2,0];
 _centerPos = ATLToASL _centerPos;
@@ -28,7 +29,7 @@ private _group = grpNull;
 
 private _fnc_setObject = {
     _this params ["_curObj"];
-    TRACEV_1(_curObj);
+    //TRACEV_1(_curObj);
     switch (true) do {
         case (_curObj isKindOf "StaticWeapon"): {
             // prevent the static units from looking north by default
@@ -48,7 +49,7 @@ private _fnc_setObject = {
             // lock the vehicles and remove the most of the fuel
             _curObj lock 1;
             _curObj setFuel 0.1;
-            _curObj disableAI "PATH";
+            (driver _curObj) disableAI "PATH";
         };
     };
 };
@@ -76,11 +77,15 @@ private _fnc_spawnRelObj = {
         // rotate the vector acording to objectdir
         private _relPos = [_curPos,-1 * _curRelObjDir] call BIS_fnc_rotateVector2D;
         // get the relative Position
-        private _relPos = _relPos vectorAdd _curRelObjPos;
+        TRACEV_4(_relPos,_curRelObjPos,_curType,typeOf _curRelObj);
+        private _spawnPos = _relPos vectorAdd _curRelObjPos;
 
         // vectorUp
         private _spawnVecUp = [_curVecUp,-1 * _curRelObjDir] call BIS_fnc_rotateVector2D;
         _spawnVecUp = _spawnVecUp vectorAdd _curRelObjVecUp;
+
+        TRACEV_7(_curType,_curPos,_curDir,_curVecUp,_curRelObjPos,_curRelObjDir,_curRelObjVecUp);
+        TRACEV_3(_spawnPos,_spawnDir,_spawnVecUp);
 
         // spawn the objects
         private ["_curObj"];
@@ -108,7 +113,7 @@ private _fnc_spawnRelObj = {
                     _curObj setVectorUp _spawnVecUp;
                 };
             };
-            TRACEV_1(_curObj);
+            //TRACEV_1(_curObj);
             _curObj call _fnc_setObject;
             If (isClass(_curCfg >> "objects")) then {
                 [_curObj,(_curCfg >> "objects")] call _fnc_spawnRelObj;
@@ -136,7 +141,7 @@ private _allClasses = configProperties [_config, "isClass(_x)", true];
     // rotate the vector acording to centerdir
     private _relPos = [_curPos,-1 * _centerDir] call BIS_fnc_rotateVector2D;
     // get the relative Position
-    TRACEV_3(_centerPos,_curPos,_relPos);
+    //TRACEV_3(_centerPos,_curPos,_relPos);
     private _relPos = _relPos vectorAdd _centerPos;
 
     private _checkPos1 = _relPos vectorAdd [0,0,30];
@@ -150,10 +155,10 @@ private _allClasses = configProperties [_config, "isClass(_x)", true];
 
 
     // add the height of the Object
-    //TRACEV_4(_checkPos1,_checkPos2,_spawnPos,_surfaceNormal);
     If !((_curPos select 2) == 0) then {
 
         private _height = (_curPos select 2); // ATL-ASL = 5m (VA)
+        //TRACEV_5(_checkPos1,_checkPos2,_spawnPos,_surfaceNormal,_height);
         private _heightVec = _surfaceNormal vectorMultiply _height;
         _spawnPos = _spawnPos vectorAdd _heightVec;
         //TRACEV_3(_height,_heightVec,_spawnPos);
@@ -197,7 +202,7 @@ private _allClasses = configProperties [_config, "isClass(_x)", true];
                 _curObj setVectorUp _spawnVecUp;
             };
         };
-        TRACEV_1(_curObj);
+        //TRACEV_1(_curObj);
         _curObj call _fnc_setObject;
 
         If (isClass(_curCfg >> "objects")) then {
@@ -209,6 +214,6 @@ private _allClasses = configProperties [_config, "isClass(_x)", true];
 } forEach _allClasses;
 
 
-TRACEV_1(_objectives);
+//TRACEV_1(_objectives);
 
 _objectives

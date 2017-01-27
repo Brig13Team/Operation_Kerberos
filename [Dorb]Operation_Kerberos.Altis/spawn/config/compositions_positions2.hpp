@@ -1,511 +1,1387 @@
-class composition_781775 {
-    isobjective = 0;
-    artillery = 1;
+class composition_590962 {
     class obj_6 {
-        pos[] = {4.00012,11.325,0.0305429};
-        issimpleobj = 1;
-        vecup[] = {1.81468e-005,9.76727e-006,1};
-        hascrew = 0;
-        type = "Land_CargoBox_V1_F";
-        dir = 197.002;
+        pos[] = {10.1175,4.56258,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = -358.793;
+    };
+    class obj_37 {
+        pos[] = {22.6192,7.99922,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrierBig_F";
+        dir = -269.141;
+    };
+    class obj_44 {
+        pos[] = {-10.8059,-23.1854,4.905};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        class objects {
+            class obj_0 {
+                pos[] = {1.41377,-0.939308,1.02724};
+                issimpleobj = 0;
+                vecup[] = {-0.00216872,0.000915435,2};
+                hascrew = 1;
+                type = "rhs_KORD_high_VDV";
+                dir = 167.724;
+            };
+            class obj_1 {
+                pos[] = {-0.992866,-0.997425,1.02705};
+                issimpleobj = 0;
+                vecup[] = {-0.00157501,0.00250675,2};
+                hascrew = 1;
+                type = "rhs_KORD_high_VDV";
+                dir = 202.776;
+            };
+        };
+        type = "Land_Cargo_Patrol_V1_F";
+        dir = -359.252;
+    };
+    class obj_51 {
+        pos[] = {26.3795,-2.37686,1.30393};
+        issimpleobj = 0;
+        vecup[] = {-0.00047844,-0.0092398,0.999957};
+        hascrew = 1;
+        type = "RHS_NSV_TriPod_VDV";
+        dir = -357.934;
     };
     class obj_7 {
-        pos[] = {3.74988,-12.175,0.0305343};
+        pos[] = {9.12986,7.02547,1.36245};
         issimpleobj = 1;
-        vecup[] = {-2.12083e-005,-2.41877e-006,1};
+        vecup[] = {-3.53039e-008,-4.57696e-007,1};
         hascrew = 0;
-        type = "Land_CargoBox_V1_F";
-        dir = 359.996;
+        type = "B_Slingload_01_Fuel_F";
+        dir = -268.334;
+    };
+    class obj_38 {
+        pos[] = {19.4943,-14.4027,2.17914};
+        issimpleobj = 0;
+        vecup[] = {0.00049096,0.00228622,0.999997};
+        hascrew = 1;
+        type = "rhs_zsu234_aa";
+        dir = -266.997;
+    };
+    class obj_45 {
+        pos[] = {15.3353,-20.1918,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = -180.795;
+    };
+    class obj_52 {
+        pos[] = {15.2141,22.0675,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrierBig_F";
+        dir = -269.141;
     };
     class obj_8 {
-        pos[] = {-12.875,0.324951,9.53674e-007};
-        issimpleobj = 1;
-        vecup[] = {1.06331e-005,-8.57436e-006,1};
-        hascrew = 0;
-        type = "CargoNet_01_box_F";
-        dir = 0.00144878;
+        pos[] = {-1.61279,-10.9545,0.00143909};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_recon_efreitor";
+        dir = -153.27;
     };
     class obj_10 {
-        pos[] = {-7.125,12.075,0};
+        pos[] = {12.6424,1.06236,1.32431};
         issimpleobj = 1;
-        vecup[] = {-5.9893e-007,-8.04152e-008,1};
+        vecup[] = {-4.07438e-007,-3.57529e-006,1};
         hascrew = 0;
         type = "Land_Cargo20_military_green_F";
-        dir = 87.0001;
+        dir = -178.701;
+    };
+    class obj_39 {
+        pos[] = {18.9741,15.2383,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrierBig_F";
+        dir = -323.919;
+    };
+    class obj_46 {
+        pos[] = {8.84405,23.8964,1.08381};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_PortableLight_double_F";
+        dir = -180.674;
+    };
+    class obj_53 {
+        pos[] = {-24.4396,12.5044,1.08381};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_PortableLight_double_F";
+        dir = -44.4879;
+    };
+    class obj_60 {
+        pos[] = {-7.43917,-27.5531,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = -358.534;
     };
     class obj_9 {
-        pos[] = {-12.875,2.19995,9.53674e-007};
+        pos[] = {-8.89424,-8.17321,0.541755};
         issimpleobj = 1;
-        vecup[] = {-3.52999e-006,8.65692e-007,1};
+        vecup[] = {8.2474e-006,-7.43808e-006,1};
         hascrew = 0;
-        type = "CargoNet_01_barrels_F";
-        dir = 0.000468775;
+        type = "Land_WaterBarrel_F";
+        dir = -169.703;
     };
     class obj_11 {
-        pos[] = {-11.25,-9.92505,0};
-        issimpleobj = 1;
-        vecup[] = {7.69489e-008,-6.45242e-007,1};
-        hascrew = 0;
-        type = "Land_Cargo20_military_green_F";
-        dir = 3.32429e-005;
+        pos[] = {0.8932,-12.8126,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = -174.104;
     };
-    author = "BrigTeam";
+    class obj_47 {
+        pos[] = {-23.6874,-9.58988,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrierBig_F";
+        dir = -87.0008;
+    };
+    class obj_54 {
+        pos[] = {-27.1163,-6.05998,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = -175.578;
+    };
+    class obj_61 {
+        pos[] = {-0.548448,-28.9757,4.05028};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_BarGate_F";
+        dir = -359.357;
+    };
+    author = "Bonecrusher";
     class obj_12 {
-        pos[] = {-11,-14.925,9.53674e-007};
+        pos[] = {-8.76383,-9.25311,0.422728};
         issimpleobj = 1;
-        vecup[] = {-4.71308e-009,-3.92413e-008,1};
+        vecup[] = {-0.000118284,-0.00024111,1};
         hascrew = 0;
-        type = "Land_Cargo20_military_green_F";
-        dir = 360;
+        type = "Land_MetalBarrel_F";
+        dir = -61.9251;
+    };
+    class obj_48 {
+        pos[] = {-0.919776,26.2883,4.05028};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_BarGate_F";
+        dir = -359.357;
+    };
+    class obj_55 {
+        pos[] = {11.2574,25.4281,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = -180.674;
+    };
+    class obj_62 {
+        pos[] = {26.5468,11.0945,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = -357.719;
     };
     class obj_13 {
-        pos[] = {2.75,19.2,4.76837e-007};
-        issimpleobj = 1;
-        vecup[] = {2.11604e-008,1.94384e-007,1};
-        hascrew = 0;
-        type = "Land_Cargo20_military_green_F";
-        dir = 360;
+        pos[] = {-11.051,-6.68701,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = -358.534;
     };
     class obj_20 {
-        pos[] = {-4.23938,-23.6313,4.76837e-007};
-        issimpleobj = 1;
-        vecup[] = {0,0,1};
+        pos[] = {-14.9264,-9.73479,1.75174};
+        issimpleobj = 0;
+        vecup[] = {0.0007321,0.000571946,1};
         hascrew = 0;
-        type = "Land_Rampart_F";
-        dir = 91;
+        type = "RHS_Ural_Fuel_VDV_01";
+        dir = -270.991;
     };
+    class obj_49 {
+        pos[] = {5.71528,25.3633,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = -180.674;
+    };
+    class obj_56 {
+        pos[] = {-10.5333,-26.1745,1.08381};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_PortableLight_double_F";
+        dir = -358.534;
+    };
+    class obj_63 {
+        pos[] = {20.8735,-20.1236,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = -180.795;
+    };
+    class obj_70 {
+        pos[] = {26.896,-13.6248,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = -252.922;
+    };
+    isobjective = 1;
     class obj_14 {
-        pos[] = {14.75,-12.675,0.0305457};
+        pos[] = {-9.20422,-9.85148,0.404812};
         issimpleobj = 1;
-        vecup[] = {-6.59024e-006,4.52378e-007,1};
+        vecup[] = {-0.000200137,0.000271424,1};
+        hascrew = 0;
+        type = "Land_BarrelTrash_grey_F";
+        dir = -352.43;
+    };
+    class obj_21 {
+        pos[] = {-8.4119,15.8129,1.30336};
+        issimpleobj = 0;
+        vecup[] = {-0.000737681,0.00970527,0.999953};
+        hascrew = 1;
+        type = "RHS_NSV_TriPod_VDV";
+        dir = -180.108;
+    };
+    class obj_57 {
+        pos[] = {27.0936,7.33961,0.00143909};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_recon_efreitor";
+        dir = -279.983;
+    };
+    class obj_64 {
+        pos[] = {-16.8008,-23.9161,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrierBig_F";
+        dir = -87.0008;
+    };
+    class obj_71 {
+        pos[] = {-12.9811,-27.4264,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = -358.534;
+    };
+    class obj_15 {
+        pos[] = {-9.93268,-9.67337,0.404811};
+        issimpleobj = 1;
+        vecup[] = {-0.000234762,0.000230715,1};
+        hascrew = 0;
+        type = "Land_BarrelEmpty_grey_F";
+        dir = -358.539;
+    };
+    class obj_22 {
+        pos[] = {17.3472,4.67289,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrierBig_F";
+        dir = -180.674;
+    };
+    class obj_58 {
+        pos[] = {28.11,-2.73297,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = -268.549;
+    };
+    class obj_65 {
+        pos[] = {27.983,-8.35299,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = -268.549;
+    };
+    class obj_72 {
+        pos[] = {24.7516,-18.1225,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = -236.346;
+    };
+    class obj_16 {
+        pos[] = {-5.60798,13.7586,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = -89.1834;
+    };
+    class obj_23 {
+        pos[] = {14.9618,11.5038,1.3692};
+        issimpleobj = 1;
+        vecup[] = {0.000515713,0.00220354,0.999997};
+        hascrew = 0;
+        type = "B_Slingload_01_Ammo_F";
+        dir = -359.209;
+    };
+    class obj_30 {
+        pos[] = {18.1762,10.6649,1.22007};
+        issimpleobj = 1;
+        vecup[] = {-2.71629e-005,1.63336e-005,1};
+        hascrew = 0;
+        type = "Land_ToiletBox_F";
+        dir = -269.068;
+    };
+    class obj_59 {
+        pos[] = {28.2963,2.90202,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = -268.549;
+    };
+    class obj_66 {
+        pos[] = {-29.2848,-0.0885045,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = -86.4088;
+    };
+    class obj_17 {
+        pos[] = {13.804,7.23722,0.507674};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_Pallets_F";
+        dir = -4.48843;
+    };
+    class obj_24 {
+        pos[] = {-19.1542,-0.628201,1.74877};
+        issimpleobj = 0;
+        vecup[] = {-0.0184703,-0.000351867,0.999829};
+        hascrew = 1;
+        type = "RHS_BM21_VDV_01";
+        dir = -88.326;
+    };
+    class obj_31 {
+        pos[] = {21.0319,-5.15861,2.17915};
+        issimpleobj = 0;
+        vecup[] = {0.000260767,0.00232361,0.999997};
+        hascrew = 1;
+        type = "rhs_zsu234_aa";
+        dir = -272.713;
+    };
+    class obj_67 {
+        pos[] = {-25.8526,14.0946,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrierBig_F";
+        dir = -222.992;
+    };
+    class obj_1 {
+        pos[] = {0.078567,-2.07767,0.762858};
+        issimpleobj = 1;
+        vecup[] = {-1.532e-005,-1.70815e-005,1};
+        hascrew = 0;
+        type = "Land_CargoBox_V1_F";
+        dir = -359.356;
+    };
+    class obj_18 {
+        pos[] = {4.0741,-16.3353,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = -87.3046;
+    };
+    class obj_25 {
+        pos[] = {-18.2844,-6.46621,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrierBig_F";
+        dir = -358.534;
+    };
+    class obj_32 {
+        pos[] = {3.66419,21.7342,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = -269.445;
+    };
+    class obj_68 {
+        pos[] = {-28.8937,6.96126,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrierBig_F";
+        dir = -268.753;
+    };
+    class obj_2 {
+        pos[] = {4.43021,3.74351,0.00143909};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_recon_arifleman";
+        dir = -357.558;
+    };
+    class obj_19 {
+        pos[] = {6.98467,-15.6619,1.36245};
+        issimpleobj = 1;
+        vecup[] = {2.68646e-007,2.93932e-009,1};
+        hascrew = 0;
+        type = "B_Slingload_01_Fuel_F";
+        dir = 0.6427;
+    };
+    class obj_26 {
+        pos[] = {0.197916,-19.6621,1.95279};
+        issimpleobj = 0;
+        vecup[] = {0.000202861,0.00146975,0.999999};
+        hascrew = 1;
+        type = "rhs_t90a_tv";
+        dir = -178.841;
+    };
+    class obj_33 {
+        pos[] = {-0.325734,22.3063,0.00143862};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_recon_rifleman";
+        dir = -359.357;
+    };
+    class obj_40 {
+        pos[] = {-15.5311,-18.8602,1.08381};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_PortableLight_double_F";
+        dir = -117.913;
+    };
+    class obj_69 {
+        pos[] = {-29.3428,-4.47778,0.798342};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_3_F";
+        dir = -90.0247;
+    };
+    class obj_3 {
+        pos[] = {-4.22283,8.56158,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = -130.591;
+    };
+    class obj_27 {
+        pos[] = {18.1985,8.47706,1.22007};
+        issimpleobj = 1;
+        vecup[] = {-2.73869e-005,1.6486e-005,1};
+        hascrew = 0;
+        type = "Land_ToiletBox_F";
+        dir = -269.067;
+    };
+    class obj_34 {
+        pos[] = {-9.42992,20.6002,1.09847};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        class objects {
+            class obj_0 {
+                pos[] = {-2.2904,-3.74962,-0.740343};
+                issimpleobj = 0;
+                vecup[] = {0,0,2};
+                hascrew = 1;
+                type = "rhs_vdv_at";
+                dir = -178.683;
+            };
+            class obj_1 {
+                pos[] = {2.23321,-2.30682,-0.740343};
+                issimpleobj = 0;
+                vecup[] = {0,0,2};
+                hascrew = 1;
+                type = "rhs_vdv_arifleman";
+                dir = 101.973;
+            };
+            class obj_2 {
+                pos[] = {0.936388,-3.60695,-0.740343};
+                issimpleobj = 0;
+                vecup[] = {0,0,2};
+                hascrew = 1;
+                type = "rhs_vdv_grenadier_rpg";
+                dir = -178.683;
+            };
+        };
+        type = "Land_BagBunker_Large_F";
+        dir = -180.674;
+    };
+    class obj_41 {
+        pos[] = {-5.25687,-24.0241,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = -87.3046;
+    };
+    class obj_4 {
+        pos[] = {-9.09357,-4.05182,1.3043};
+        issimpleobj = 0;
+        vecup[] = {-0.00452082,-0.00617561,0.999971};
+        hascrew = 1;
+        type = "RHS_NSV_TriPod_VDV";
+        dir = -321.325;
+    };
+    class obj_28 {
+        pos[] = {-14.6396,-14.3814,1.75169};
+        issimpleobj = 0;
+        vecup[] = {0.000731922,0.000583177,1};
+        hascrew = 0;
+        type = "RHS_Ural_Fuel_VDV_01";
+        dir = -270.991;
+    };
+    class obj_35 {
+        pos[] = {9.31827,21.0731,4.905};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        class objects {
+            class obj_0 {
+                pos[] = {1.49815,-1.48286,-0.55952};
+                issimpleobj = 0;
+                vecup[] = {0,0,2};
+                hascrew = 1;
+                type = "rhs_vdv_flora_efreitor";
+                dir = -178.764;
+            };
+            class obj_1 {
+                pos[] = {-1.16695,-1.66076,-0.55952};
+                issimpleobj = 0;
+                vecup[] = {0,0,2};
+                hascrew = 1;
+                type = "rhs_vdv_flora_machinegunner";
+                dir = -151.785;
+            };
+        };
+        type = "Land_Cargo_Patrol_V1_F";
+        dir = -180.593;
+    };
+    class obj_42 {
+        pos[] = {7.8806,-23.378,1.09847};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        class objects {
+            class obj_0 {
+                pos[] = {-0.59194,-1.99992,2.41983};
+                issimpleobj = 0;
+                vecup[] = {3.81702e-007,1.60646e-007,2};
+                hascrew = 1;
+                type = "RHS_AGS30_TriPod_VDV";
+                dir = 176.439;
+            };
+            class obj_1 {
+                pos[] = {-0.584135,-3.93702,-0.740343};
+                issimpleobj = 0;
+                vecup[] = {0,0,2};
+                hascrew = 1;
+                type = "rhs_vdv_recon_rifleman_akms";
+                dir = 188.013;
+            };
+            class obj_2 {
+                pos[] = {3.28668,-2.90377,-0.740343};
+                issimpleobj = 0;
+                vecup[] = {0,0,2};
+                hascrew = 1;
+                type = "rhs_vdv_recon_efreitor";
+                dir = 99.7534;
+            };
+            class obj_3 {
+                pos[] = {-1.01123,0.944557,-0.740343};
+                issimpleobj = 0;
+                vecup[] = {0,0,2};
+                hascrew = 1;
+                type = "rhs_vdv_recon_medic";
+                dir = 276.358;
+            };
+        };
+        type = "Land_BagBunker_Large_F";
+        dir = -358.534;
+    };
+    class obj_5 {
+        pos[] = {-10.0959,2.49622,0.00143862};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_recon_rifleman";
+        dir = -298.451;
+    };
+    class obj_29 {
+        pos[] = {-18.9742,7.93233,1.74915};
+        issimpleobj = 0;
+        vecup[] = {-0.0182119,-0.000279891,0.999834};
+        hascrew = 1;
+        type = "RHS_BM21_VDV_01";
+        dir = -88.3262;
+    };
+    class obj_36 {
+        pos[] = {14.2134,-17.9113,1.30446};
+        issimpleobj = 0;
+        vecup[] = {0.00411205,-0.00772872,0.999961};
+        hascrew = 1;
+        type = "RHS_NSV_TriPod_VDV";
+        dir = -39.4827;
+    };
+    class obj_43 {
+        pos[] = {-18.2256,17.3637,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrierBig_F";
+        dir = -180.674;
+    };
+    class obj_50 {
+        pos[] = {-20.3178,-16.9665,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrierBig_F";
+        dir = -141.778;
+    };
+};
+class composition_477841 {
+    class obj_6 {
+        pos[] = {9.74506,-10.4458,3.8754};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        class objects {
+            class obj_6 {
+                pos[] = {6.91192,-4.36847,3.41263};
+                issimpleobj = 0;
+                vecup[] = {2.21708e-005,8.18845e-006,2};
+                hascrew = 1;
+                type = "rhs_Igla_AA_pod_vdv";
+                dir = -1.4172;
+            };
+            class obj_7 {
+                pos[] = {-3.40364,3.43567,-0.747444};
+                issimpleobj = 0;
+                vecup[] = {0,0,2};
+                hascrew = 1;
+                type = "rhs_vdv_arifleman";
+                dir = 308.73;
+            };
+            class obj_0 {
+                pos[] = {-2.43028,-2.20751,-3.27229};
+                issimpleobj = 0;
+                vecup[] = {0,0,2};
+                hascrew = 1;
+                type = "rhs_vdv_strelok_rpg_assist";
+                dir = 133.344;
+            };
+            class obj_1 {
+                pos[] = {0.0202324,-0.659858,-3.27229};
+                issimpleobj = 0;
+                vecup[] = {0,0,2};
+                hascrew = 1;
+                type = "rhs_vdv_aa";
+                dir = 192.548;
+            };
+            class obj_2 {
+                pos[] = {-3.00658,-4.92377,0.843236};
+                issimpleobj = 0;
+                vecup[] = {-0.00167766,-0.00613856,1.99998};
+                hascrew = 1;
+                type = "rhs_KORD_high_VDV";
+                dir = 210.299;
+            };
+            class obj_3 {
+                pos[] = {6.30346,5.39901,-0.79414};
+                issimpleobj = 0;
+                vecup[] = {0,0,2};
+                hascrew = 1;
+                type = "rhs_vdv_at";
+                dir = 3.66407;
+            };
+            class obj_4 {
+                pos[] = {0.194789,-3.52018,-3.27229};
+                issimpleobj = 0;
+                vecup[] = {0,0,2};
+                hascrew = 1;
+                type = "rhs_vdv_officer";
+                dir = -1.41721;
+            };
+            class obj_5 {
+                pos[] = {6.64323,3.46615,-0.240127};
+                issimpleobj = 0;
+                vecup[] = {-0.000300316,0.00188663,2};
+                hascrew = 1;
+                type = "rhs_Kornet_9M133_2_vdv";
+                dir = 77.9085;
+            };
+        };
+        type = "Land_Cargo_HQ_V2_F";
+        dir = 1.41721;
+    };
+    class obj_37 {
+        pos[] = {21.5742,11.821,0.419312};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_BagFence_Long_F";
+        dir = 0;
+    };
+    class obj_44 {
+        pos[] = {24.4612,8.11841,1.46986};
+        issimpleobj = 0;
+        vecup[] = {-0.000107702,5.46335e-006,1};
+        hascrew = 1;
+        type = "rhs_D30_at_vdv";
+        dir = 92.0196;
+    };
+    class obj_51 {
+        pos[] = {26.6923,10.5771,0.419312};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_BagFence_Long_F";
+        dir = 242.137;
+    };
+    class obj_7 {
+        pos[] = {-4.95319,-14.5396,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = 0;
+    };
+    class obj_38 {
+        pos[] = {-17.9239,17.0605,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = 90.7291;
+    };
+    class obj_45 {
+        pos[] = {6.02386,-24.9546,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = 230.537;
+    };
+    class obj_52 {
+        pos[] = {15.5334,-26.8257,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = 0;
+    };
+    class obj_8 {
+        pos[] = {-1.07452,-16.3733,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = 230.537;
+    };
+    class obj_10 {
+        pos[] = {-14.0241,10.7715,2.1102};
+        issimpleobj = 0;
+        vecup[] = {0.00053507,7.83514e-005,1};
+        hascrew = 1;
+        type = "rhs_bmp2k_vdv";
+        dir = 1.55478;
+    };
+    class obj_39 {
+        pos[] = {0.707458,24.9158,0.419312};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_BagFence_Long_F";
+        dir = 271.971;
+    };
+    class obj_46 {
+        pos[] = {19.0712,-19.1758,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = 270.445;
+    };
+    class obj_53 {
+        pos[] = {19.0646,-24.7058,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = 270.445;
+    };
+    class obj_9 {
+        pos[] = {-8.31281,15.1643,2.18501};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        class objects {
+            class obj_0 {
+                pos[] = {0.508158,-0.589886,0.0967193};
+                issimpleobj = 0;
+                vecup[] = {0,0,2};
+                hascrew = 1;
+                type = "rhs_vdv_flora_sergeant";
+                dir = 105.852;
+            };
+            class obj_1 {
+                pos[] = {-0.0742885,-3.02769,-2.18357};
+                issimpleobj = 0;
+                vecup[] = {0,0,2};
+                hascrew = 1;
+                type = "rhs_vdv_flora_machinegunner";
+                dir = -178.673;
+            };
+        };
+        type = "Land_HBarrierTower_F";
+        dir = 182.019;
+    };
+    class obj_11 {
+        pos[] = {-10.4769,-14.552,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = 0;
+    };
+    class obj_47 {
+        pos[] = {24.7062,11.8237,0.419312};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_BagFence_Long_F";
+        dir = 0;
+    };
+    class obj_54 {
+        pos[] = {29.8286,-10.1909,0.755067};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_Razorwire_F";
+        dir = 330.176;
+    };
+    author = "Bonecrusher";
+    class obj_12 {
+        pos[] = {-18.1368,0.363525,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = 90.7291;
+    };
+    class obj_48 {
+        pos[] = {15.4235,-23.2168,4.905};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        class objects {
+            class obj_0 {
+                pos[] = {-1.24365,-0.842041,-0.55952};
+                issimpleobj = 0;
+                vecup[] = {0,0,2};
+                hascrew = 1;
+                type = "rhs_vdv_flora_marksman";
+                dir = 180.135;
+            };
+            class obj_1 {
+                pos[] = {1.22522,-1.3335,1.02713};
+                issimpleobj = 0;
+                vecup[] = {-0.00278179,0.000314281,2};
+                hascrew = 1;
+                type = "rhs_KORD_high_VDV";
+                dir = 153.655;
+            };
+        };
+        type = "Land_Cargo_Patrol_V1_F";
+        dir = 0;
+    };
+    class obj_55 {
+        pos[] = {34.4868,-0.38623,0.755067};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_Razorwire_F";
+        dir = 271.577;
+    };
+    class obj_13 {
+        pos[] = {7.26923,16.4841,0.00143909};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_driver_armored";
+        dir = 139.291;
+    };
+    class obj_20 {
+        pos[] = {-20.0406,-1.9751,0.00143909};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_machinegunner";
+        dir = 265.022;
+    };
+    class obj_49 {
+        pos[] = {26.9645,5.72217,0.419312};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_BagFence_Long_F";
+        dir = 303.159;
+    };
+    isobjective = 1;
+    class obj_14 {
+        pos[] = {8.63397,16.4595,0.00143862};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_armoredcrew";
+        dir = 211.68;
+    };
+    class obj_21 {
+        pos[] = {2.44012,-20.6799,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = 230.537;
+    };
+    class obj_15 {
+        pos[] = {-16.0045,-10.5229,2.2118};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        class objects {
+            class obj_0 {
+                pos[] = {-0.553469,-1.14419,0.569636};
+                issimpleobj = 0;
+                vecup[] = {0,0,2};
+                hascrew = 1;
+                type = "rhs_vdv_flora_medic";
+                dir = 270.69;
+            };
+            class obj_1 {
+                pos[] = {-0.846041,-2.5775,0.569636};
+                issimpleobj = 0;
+                vecup[] = {0,0,2};
+                hascrew = 1;
+                type = "rhs_vdv_flora_efreitor";
+                dir = 263.588;
+            };
+            class obj_2 {
+                pos[] = {-0.376488,1.61474,2.10071};
+                issimpleobj = 0;
+                vecup[] = {-9.7217e-006,2.02226e-005,2};
+                hascrew = 1;
+                type = "rhs_Igla_AA_pod_vdv";
+                dir = 270.733;
+            };
+        };
+        type = "Land_BagBunker_Tower_F";
+        dir = 0.416301;
+    };
+    class obj_22 {
+        pos[] = {19.6567,6.9502,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = 271.921;
+    };
+    class obj_16 {
+        pos[] = {-18.0428,5.91357,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = 90.7291;
+    };
+    class obj_23 {
+        pos[] = {8.91058,18.9294,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = 0;
+    };
+    class obj_30 {
+        pos[] = {19.2263,11.9663,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = 254.659;
+    };
+    class obj_17 {
+        pos[] = {-2.21222,18.8625,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = 0;
+    };
+    class obj_24 {
+        pos[] = {14.8918,15.0935,2.18501};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        class objects {
+            class obj_0 {
+                pos[] = {-0.609651,-1.30926,0.0967188};
+                issimpleobj = 0;
+                vecup[] = {0,0,2};
+                hascrew = 1;
+                type = "rhs_vdv_flora_aa";
+                dir = -109.662;
+            };
+            class obj_1 {
+                pos[] = {-0.167041,-1.86609,0.0967193};
+                issimpleobj = 0;
+                vecup[] = {0,0,2};
+                hascrew = 1;
+                type = "rhs_vdv_flora_LAT";
+                dir = -182.177;
+            };
+        };
+        type = "Land_HBarrierTower_F";
+        dir = 182.177;
+    };
+    class obj_31 {
+        pos[] = {3.17084,22.6445,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = 0;
+    };
+    class obj_1 {
+        pos[] = {-1.03577,4.81738,0.762857};
+        issimpleobj = 1;
+        vecup[] = {-9.50514e-006,-1.47895e-006,1};
         hascrew = 0;
         type = "Land_CargoBox_V1_F";
         dir = 359.999;
     };
-    class obj_21 {
-        pos[] = {4.80688,-23.5011,-3.33786e-006};
-        issimpleobj = 1;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Rampart_F";
-        dir = 91;
-    };
-    class obj_15 {
-        pos[] = {15.1251,12.7,0.0305433};
-        issimpleobj = 1;
-        vecup[] = {1.14504e-005,3.3689e-007,1};
-        hascrew = 0;
-        type = "Land_CargoBox_V1_F";
-        dir = 177.998;
-    };
-    class obj_22 {
-        pos[] = {-21.75,-11.8,0.0305419};
-        issimpleobj = 1;
-        vecup[] = {-1.05702e-005,-4.32744e-006,1};
-        hascrew = 0;
-        type = "Land_CargoBox_V1_F";
-        dir = 0.00109465;
-    };
-    class obj_16 {
-        pos[] = {-7.75,19.2,-4.76837e-007};
-        issimpleobj = 1;
-        vecup[] = {4.20596e-007,3.25049e-006,1};
-        hascrew = 0;
-        type = "Land_Cargo20_military_green_F";
-        dir = 360;
-    };
-    class obj_23 {
-        pos[] = {22.75,-11,0.00143909};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "rhs_vdv_engineer";
-        dir = 89;
-    };
-    class obj_30 {
-        pos[] = {22,-17.5,0.00143909};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "rhs_vdv_engineer";
-        dir = 124;
-    };
-    class obj_17 {
-        pos[] = {-22.375,0.947754,-0.125526};
-        issimpleobj = 1;
-        vecup[] = {-1.99143e-005,-0.000965915,0.999999};
-        hascrew = 0;
-        type = "RHS_ZU23_VDV";
-        dir = 0.00268003;
-    };
-    class obj_24 {
-        pos[] = {-5.11438,25.1187,4.76837e-007};
-        issimpleobj = 1;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Rampart_F";
-        dir = 91;
-    };
-    class obj_31 {
-        pos[] = {-15.9894,25.8687,0.375};
-        issimpleobj = 1;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Rampart_F";
-        dir = 91;
-    };
-    class obj_1 {
-        pos[] = {-3.22192,-1.94824,-2.38419e-006};
-        issimpleobj = 1;
-        vecup[] = {2.4955e-006,-1.17492e-005,1};
-        hascrew = 0;
-        type = "CargoNet_01_box_F";
-        dir = 0.000905762;
-    };
     class obj_18 {
-        pos[] = {12.625,19.2,4.76837e-007};
-        issimpleobj = 1;
-        vecup[] = {3.63493e-008,-8.24152e-008,1};
-        hascrew = 0;
-        type = "Land_Cargo20_military_green_F";
-        dir = 360;
+        pos[] = {19.8049,-0.780029,4.05028};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_BarGate_F";
+        dir = 271.268;
     };
     class obj_25 {
-        pos[] = {2.51062,25.6187,0.125};
-        issimpleobj = 1;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Rampart_F";
-        dir = 91;
-    };
-    class obj_32 {
-        pos[] = {-22.7528,-23.7969,0};
-        issimpleobj = 1;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        class objects {
-            class obj_0 {
-                pos[] = {-0.75,-1.07495,-0.55952};
-                issimpleobj = 0;
-                vecup[] = {0,0,1};
-                hascrew = 0;
-                type = "rhs_vdv_arifleman";
-                dir = 183;
-            };
-        };
-        type = "Land_Cargo_Patrol_V3_F";
-        dir = 0;
-    };
-    class obj_2 {
-        pos[] = {-4.22827,1.45728,0};
-        issimpleobj = 1;
-        vecup[] = {-2.48359e-006,-1.03989e-005,1};
-        hascrew = 0;
-        type = "CargoNet_01_box_F";
-        dir = 360;
-    };
-    class obj_19 {
-        pos[] = {-20.125,11.5751,0.0305371};
-        issimpleobj = 1;
-        vecup[] = {-1.0555e-005,1.55438e-005,1};
-        hascrew = 0;
-        type = "Land_CargoBox_V1_F";
-        dir = 83.998;
-    };
-    class obj_26 {
-        pos[] = {-17.25,19.45,9.53674e-007};
-        issimpleobj = 1;
-        vecup[] = {-4.72337e-008,1.42442e-007,1};
-        hascrew = 0;
-        type = "Land_Cargo20_military_green_F";
-        dir = 360;
-    };
-    class obj_33 {
-        pos[] = {22.443,24.8199,0};
-        issimpleobj = 1;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        class objects {
-            class obj_0 {
-                pos[] = {-0.924072,-1.47534,-0.55952};
-                issimpleobj = 0;
-                vecup[] = {0,0,1};
-                hascrew = 0;
-                type = "rhs_vdv_arifleman";
-                dir = 183;
-            };
-        };
-        type = "Land_Cargo_Patrol_V1_F";
-        dir = 183;
-    };
-    class obj_3 {
-        pos[] = {5.75,-1.92712,-0.125628};
-        issimpleobj = 1;
-        vecup[] = {-2.62079e-005,-0.000966822,0.999999};
-        hascrew = 0;
-        type = "RHS_ZU23_VDV";
-        dir = 0.00123658;
-    };
-    class obj_27 {
-        pos[] = {-12.4894,-23.3813,4.76837e-007};
-        issimpleobj = 1;
-        vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Rampart_F";
-        dir = 91;
-    };
-    class obj_34 {
-        pos[] = {-24.7007,23.1732,0.00143909};
+        pos[] = {19.4474,-8.18457,0.740514};
         issimpleobj = 0;
         vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = 270.445;
+    };
+    class obj_32 {
+        pos[] = {22.2441,-7.49756,0.534058};
+        issimpleobj = 0;
+        vecup[] = {-2.80247e-006,5.64903e-006,1};
+        hascrew = 1;
+        type = "rhs_Kornet_9M133_2_vdv";
+        dir = 88.9082;
+    };
+    class obj_2 {
+        pos[] = {7.54852,-5.08765,0.00143909};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_sergeant";
+        dir = 273.439;
+    };
+    class obj_19 {
+        pos[] = {-16.7796,-10.3579,0.00143909};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_at";
+        dir = 266.907;
+    };
+    class obj_26 {
+        pos[] = {-17.9771,11.5046,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = 90.7291;
+    };
+    class obj_33 {
+        pos[] = {19.4357,-13.6479,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = 92.504;
+    };
+    class obj_40 {
+        pos[] = {-24.7076,-4.12817,0.755066};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_Razorwire_F";
+        dir = 86.5122;
+    };
+    class obj_3 {
+        pos[] = {-4.31818,-9.86011,2.72425};
+        issimpleobj = 0;
+        vecup[] = {0.000867955,-0.00103928,0.999999};
         hascrew = 0;
-        type = "rhs_vdv_aa";
+        type = "rhs_sprut_vdv";
+        dir = 269.664;
+    };
+    class obj_27 {
+        pos[] = {20.9189,-5.42163,0.414283};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_BagFence_Short_F";
+        dir = 0;
+    };
+    class obj_34 {
+        pos[] = {22.8925,-6.19507,0.419312};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_BagFence_Round_F";
+        dir = 229.722;
+    };
+    class obj_41 {
+        pos[] = {24.8002,4.49707,0.419312};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_BagFence_Long_F";
         dir = 0;
     };
     class obj_4 {
-        pos[] = {-9.375,-0.925049,-9.53674e-007};
-        issimpleobj = 1;
-        vecup[] = {-6.60876e-006,1.69476e-007,1};
-        hascrew = 0;
-        type = "O_CargoNet_01_ammo_F";
-        dir = 359.999;
+        pos[] = {3.54559,-11.0002,0.00143909};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_at";
+        dir = 256.923;
     };
     class obj_28 {
-        pos[] = {15.0106,-23.3813,4.76837e-007};
-        issimpleobj = 1;
+        pos[] = {21.8679,4.4646,0.419312};
+        issimpleobj = 0;
         vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Rampart_F";
-        dir = 91;
+        hascrew = 1;
+        type = "Land_BagFence_Long_F";
+        dir = 0;
+    };
+    class obj_35 {
+        pos[] = {-14.3587,19.0288,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = 0;
+    };
+    class obj_42 {
+        pos[] = {3.09467,25.5706,1.86336};
+        issimpleobj = 0;
+        vecup[] = {-1.64252e-005,-0.000897137,0.999999};
+        hascrew = 1;
+        type = "RHS_ZU23_VDV";
+        dir = 0.0026517;
     };
     class obj_5 {
-        pos[] = {-9.625,2.19995,4.76837e-007};
-        issimpleobj = 1;
-        vecup[] = {-3.7749e-007,-2.81622e-008,1};
+        pos[] = {-0.733826,13.665,1.58811};
+        issimpleobj = 0;
+        vecup[] = {-0.00547249,0.00566645,0.999969};
         hascrew = 0;
-        type = "O_CargoNet_01_ammo_F";
-        dir = 6.58955e-005;
+        type = "rhs_gaz66_vdv";
+        dir = 88.8225;
     };
     class obj_29 {
-        pos[] = {12.1356,25.1187,4.76837e-007};
-        issimpleobj = 1;
+        pos[] = {20.7285,-8.9519,0.414283};
+        issimpleobj = 0;
         vecup[] = {0,0,1};
-        hascrew = 0;
-        type = "Land_Rampart_F";
-        dir = 91;
+        hascrew = 1;
+        type = "Land_BagFence_Short_F";
+        dir = 0;
+    };
+    class obj_36 {
+        pos[] = {22.7001,-8.38403,0.419312};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_BagFence_Round_F";
+        dir = 317.75;
+    };
+    class obj_43 {
+        pos[] = {5.70697,24.9141,0.419312};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_BagFence_Long_F";
+        dir = 271.971;
+    };
+    class obj_50 {
+        pos[] = {10.0746,-26.8379,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = 0;
     };
 };
-class composition_813263 {
+class composition_37414 {
     class obj_6 {
-        pos[] = {-5046.63,-1600.98,1.46987};
-        issimpleobj = 0;
-        vecup[] = {5.8424e-006,-0.000105285,1};
-        hascrew = 1;
-        type = "rhs_D30_msv";
-        dir = -1.66953;
+        pos[] = {5.9683,-3.54084,0.272358};
+        issimpleobj = 1;
+        vecup[] = {-0.00053462,-0.000488899,1};
+        hascrew = 0;
+        type = "rhs_mags_crate";
+        dir = -47.4299;
     };
     class obj_7 {
-        pos[] = {-5059.85,-1601.22,1.46987};
-        issimpleobj = 0;
-        vecup[] = {2.13225e-006,-0.000107411,1};
-        hascrew = 1;
-        type = "rhs_D30_msv";
-        dir = -1.66953;
+        pos[] = {-6.79953,-1.90775,0.272421};
+        issimpleobj = 1;
+        vecup[] = {-0.000178344,0.000417542,1};
+        hascrew = 0;
+        type = "rhs_mags_crate";
+        dir = 66.4544;
     };
     class obj_8 {
-        pos[] = {-5044.08,-1590.08,0.684912};
-        issimpleobj = 1;
-        vecup[] = {2.98846e-006,-9.59976e-006,1};
-        hascrew = 0;
-        type = "Land_WaterTank_F";
-        dir = -3.31192;
+        pos[] = {-5.23331,-5.13694,0.419312};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_BagFence_Round_F";
+        dir = 26.8078;
     };
     class obj_10 {
-        pos[] = {-5040.27,-1593.21,1.21};
+        pos[] = {-6.81654,-3.0877,0.419312};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
-        type = "Land_HBarrierBig_F";
-        dir = -89.8969;
+        type = "Land_BagFence_Long_F";
+        dir = 63.0345;
     };
     class obj_9 {
-        pos[] = {-5046.58,-1584.02,0.69};
+        pos[] = {5.95034,-4.30012,0.419312};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
-        type = "Land_Cargo_House_V1_F";
-        dir = 88.3365;
+        type = "Land_BagFence_Long_F";
+        dir = -46.5445;
     };
     class obj_11 {
-        pos[] = {-5066.36,-1596.45,1.21};
+        pos[] = {0.859382,7.70465,0.00143909};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
-        type = "Land_HBarrierBig_F";
-        dir = -89.8969;
+        type = "rhs_vdv_des_medic";
+        dir = 150.53;
     };
-    author = "Maverick";
+    author = "Floid";
     class obj_12 {
-        pos[] = {-5066.05,-1589.79,0.780005};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        class objects {
-            class obj_0 {
-                pos[] = {-5075.12,-1610.13,5.74008};
-                issimpleobj = 0;
-                vecup[] = {0,0,2};
-                hascrew = 1;
-                type = "rhs_Flag_Russia_F";
-                dir = -90;
-            };
-        };
-        type = "Land_HBarrierWall_corridor_F";
-        dir = 0.103081;
+        pos[] = {-3.38596,8.68129,0.191622};
+        issimpleobj = 1;
+        vecup[] = {3.96053e-006,4.18664e-007,1};
+        hascrew = 0;
+        type = "ACE_medicalSupplyCrate";
+        dir = 150.703;
     };
     class obj_13 {
-        pos[] = {-5061.68,-1584.34,4.905};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        class objects {
-            class obj_0 {
-                pos[] = {1642.97,-4991.14,1.02723};
-                issimpleobj = 0;
-                vecup[] = {-0.00112829,-0.00266676,2};
-                hascrew = 1;
-                type = "rhs_KORD_high_MSV";
-                dir = 88.5524;
-            };
-        };
-        type = "Land_Cargo_Patrol_V1_F";
-        dir = 181.549;
+        pos[] = {-1.78003,9.3635,0.284054};
+        issimpleobj = 1;
+        vecup[] = {2.43484e-006,-8.33608e-007,1};
+        hascrew = 0;
+        type = "Box_East_AmmoOrd_F";
+        dir = -87.3008;
     };
-    class obj_20 {
-        pos[] = {-5043.59,-1607.39,1.21};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrierBig_F";
-        dir = 0.103081;
-    };
-    artillerie = 1;
-    class obj_14 {
-        pos[] = {-5052.3,-1607.71,1.21};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrierBig_F";
-        dir = 0.103081;
-    };
-    class obj_21 {
-        pos[] = {-5066.09,-1604.97,1.21};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrierBig_F";
-        dir = -89.8969;
-    };
-    class obj_15 {
-        pos[] = {-5052.69,-1579.67,1.21};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrierBig_F";
-        dir = 0.103081;
-    };
-    class obj_22 {
-        pos[] = {-5066.65,-1583.2,1.21};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        class objects {
-            class obj_0 {
-                pos[] = {0.0633545,0.0678711,2.136};
-                issimpleobj = 0;
-                vecup[] = {0,0,2};
-                hascrew = 1;
-                type = "Land_HBarrierBig_F";
-                dir = 0;
-            };
-        };
-        type = "Land_HBarrierBig_F";
-        dir = -89.8969;
-    };
-    class obj_16 {
-        pos[] = {-5040,-1601.74,1.21};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrierBig_F";
-        dir = -89.8969;
-    };
-    class obj_23 {
-        pos[] = {-5043.96,-1579.45,1.21};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrierBig_F";
-        dir = 0.103081;
-    };
-    class obj_17 {
-        pos[] = {-5040.55,-1584.71,1.21};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrierBig_F";
-        dir = -89.8969;
-    };
+    isobjective = 1;
     class obj_1 {
-        pos[] = {-5053.09,-1591.89,1.46987};
-        issimpleobj = 0;
-        vecup[] = {6.143e-006,-0.000105603,1};
-        hascrew = 1;
-        type = "rhs_D30_msv";
-        dir = -1.66958;
-    };
-    class obj_18 {
-        pos[] = {-5060.9,-1607.94,1.21};
+        pos[] = {-0.029619,2.48755,2.06994};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
-        type = "Land_HBarrierBig_F";
-        dir = 0.103081;
+        type = "CamoNet_OPFOR_big_F";
+        dir = 25.0499;
     };
     class obj_2 {
-        pos[] = {-5060.36,-1589.96,0.702106};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_1_F";
-        dir = 181.063;
-    };
-    class obj_19 {
-        pos[] = {-5061.16,-1579.85,1.21};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        class objects {
-            class obj_0 {
-                pos[] = {-5078.5,-1593.86,2.20657};
-                issimpleobj = 0;
-                vecup[] = {0,0,2};
-                hascrew = 1;
-                type = "Land_HBarrierBig_F";
-                dir = 0;
-            };
-        };
-        type = "Land_HBarrierBig_F";
-        dir = 0.103081;
+        pos[] = {-0.183116,1.34165,0.762857};
+        issimpleobj = 1;
+        vecup[] = {8.29095e-006,-1.09523e-005,1};
+        hascrew = 0;
+        type = "Land_CargoBox_V1_F";
+        dir = 272.697;
     };
     class obj_3 {
-        pos[] = {-5061.44,-1591.49,0.798342};
+        pos[] = {4.12794,-4.92373,0.00143909};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_rifleman";
+        dir = 129.486;
+    };
+    class obj_4 {
+        pos[] = {-4.72418,-4.50934,0.00143909};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_des_rifleman";
+        dir = 198.769;
+    };
+    class obj_5 {
+        pos[] = {3.84576,-5.74558,0.419312};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_BagFence_Round_F";
+        dir = -9.30315;
+    };
+    dronecommando=1;
+};
+class composition_80947 {
+    class obj_6 {
+        pos[] = {-8.41297,4.64932,0.798342};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
         class objects {
             class obj_0 {
-                pos[] = {-5103.12,-1677.15,1.23313};
+                pos[] = {-0.022985,-0.0214906,1.23313};
                 issimpleobj = 0;
                 vecup[] = {0,0,2};
                 hascrew = 1;
@@ -514,294 +1390,696 @@ class composition_813263 {
             };
         };
         type = "Land_HBarrier_3_F";
-        dir = 1.32357;
-    };
-    class obj_4 {
-        pos[] = {-5060.3,-1588.36,0.702106};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_1_F";
-        dir = 181.063;
-    };
-    class obj_5 {
-        pos[] = {-5044.1,-1592.23,0.68491};
-        issimpleobj = 1;
-        vecup[] = {-6.65865e-006,1.08143e-005,1};
-        hascrew = 0;
-        type = "Land_WaterTank_F";
-        dir = 177.763;
-    };
-};
-class composition_25675 {
-    class obj_6 {
-        pos[] = {0.983398,-5.3576,0.867072};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_1_F";
-        dir = 270.001;
-    };
-    class obj_37 {
-        pos[] = {8.54492,13.7589,0.740514};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_5_F";
-        dir = 0;
-    };
-    class obj_44 {
-        pos[] = {4.4751,-16.0406,0.798342};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_3_F";
-        dir = 359.964;
-    };
-    class obj_51 {
-        pos[] = {7.22949,16.9315,0.740514};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_5_F";
-        dir = 286.001;
-    };
-    class obj_87 {
-        pos[] = {-20.1689,16.7524,1.21};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrierBig_F";
-        dir = 31.0014;
-    };
-    class obj_94 {
-        pos[] = {-4.56641,-29.1679,1.21};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrierBig_F";
-        dir = 271.002;
+        dir = 5.06549;
     };
     class obj_7 {
-        pos[] = {4.33887,-3.38031,0.798342};
+        pos[] = {9.0014,4.91771,0.684912};
+        issimpleobj = 1;
+        vecup[] = {5.02343e-006,2.51543e-008,1};
+        hascrew = 0;
+        type = "Land_WaterTank_F";
+        dir = 0.430916;
+    };
+    class obj_8 {
+        pos[] = {-7.07935,7.69028,0.702106};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_1_F";
+        dir = 184.805;
+    };
+    class obj_10 {
+        pos[] = {12.5937,1.54667,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrierBig_F";
+        dir = -86.155;
+    };
+    class obj_9 {
+        pos[] = {-0.360161,-12.1379,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrierBig_F";
+        dir = 3.845;
+    };
+    class obj_11 {
+        pos[] = {6.8936,11.1248,0.69};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_Cargo_House_V1_F";
+        dir = 92.0784;
+    };
+    author = "Maverick";
+    class obj_12 {
+        pos[] = {-13.6531,0.0176324,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrierBig_F";
+        dir = -86.155;
+    };
+    class obj_13 {
+        pos[] = {-8.19475,11.7992,4.905};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        class objects {
+            class obj_0 {
+                pos[] = {1.38938,-1.4908,1.02705};
+                issimpleobj = 0;
+                vecup[] = {-0.00165333,-0.00243008,2};
+                hascrew = 1;
+                type = "rhs_KORD_high_MSV";
+                dir = 88.5449;
+            };
+        };
+        type = "Land_Cargo_Patrol_V1_F";
+        dir = 185.291;
+    };
+    class obj_20 {
+        pos[] = {-13.9375,-8.50738,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrierBig_F";
+        dir = -86.155;
+    };
+    isobjective = 0;
+    class obj_14 {
+        pos[] = {12.3093,-6.97834,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrierBig_F";
+        dir = -86.155;
+    };
+    class obj_21 {
+        pos[] = {-7.37887,16.2457,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        class objects {
+            class obj_0 {
+                pos[] = {-0.122803,-0.0786133,4.5944};
+                issimpleobj = 0;
+                vecup[] = {0,0,2};
+                hascrew = 1;
+                type = "Land_HBarrierBig_F";
+                dir = 0;
+            };
+        };
+        type = "Land_HBarrierBig_F";
+        dir = 3.845;
+    };
+    class obj_15 {
+        pos[] = {-12.9117,6.6469,0.780005};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        class objects {
+            class obj_0 {
+                pos[] = {-1.82031,-1.52637,7.09652};
+                issimpleobj = 0;
+                vecup[] = {0,0,2};
+                hascrew = 1;
+                type = "rhs_Flag_Russia_F";
+                dir = -90;
+            };
+        };
+        type = "Land_HBarrierWall_corridor_F";
+        dir = 3.845;
+    };
+    class obj_22 {
+        pos[] = {9.81345,15.5185,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrierBig_F";
+        dir = 3.845;
+    };
+    class obj_16 {
+        pos[] = {-8.95693,-11.8034,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrierBig_F";
+        dir = 3.845;
+    };
+    class obj_23 {
+        pos[] = {-13.0801,13.2585,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        class objects {
+            class obj_0 {
+                pos[] = {0.0634766,0.0678711,4.49121};
+                issimpleobj = 0;
+                vecup[] = {0,0,2};
+                hascrew = 1;
+                type = "Land_HBarrierBig_F";
+                dir = 0;
+            };
+        };
+        type = "Land_HBarrierBig_F";
+        dir = -86.155;
+    };
+    class obj_17 {
+        pos[] = {8.35792,-12.3896,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrierBig_F";
+        dir = 3.845;
+    };
+    class obj_1 {
+        pos[] = {-0.107852,3.69622,1.46987};
+        issimpleobj = 0;
+        vecup[] = {-1.38174e-006,-0.000105706,1};
+        hascrew = 1;
+        type = "rhs_D30_msv";
+        dir = 2.07241;
+    };
+    class obj_18 {
+        pos[] = {1.08644,15.8667,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrierBig_F";
+        dir = 3.845;
+    };
+    class obj_2 {
+        pos[] = {5.74346,-5.78782,1.46987};
+        issimpleobj = 0;
+        vecup[] = {2.24437e-006,-0.00010781,1};
+        hascrew = 1;
+        type = "rhs_D30_msv";
+        dir = 2.07237;
+    };
+    class obj_19 {
+        pos[] = {12.8668,10.0475,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrierBig_F";
+        dir = -86.155;
+    };
+    class obj_3 {
+        pos[] = {-7.46148,-5.16411,1.46987};
+        issimpleobj = 0;
+        vecup[] = {-1.35122e-006,-0.000105688,1};
+        hascrew = 1;
+        type = "rhs_D30_msv";
+        dir = 2.07241;
+    };
+    class obj_4 {
+        pos[] = {8.84172,2.77858,0.684912};
+        issimpleobj = 1;
+        vecup[] = {-4.70583e-006,1.18298e-007,1};
+        hascrew = 0;
+        type = "Land_WaterTank_F";
+        dir = 181.505;
+    };
+    class obj_5 {
+        pos[] = {-7.24187,6.09847,0.702106};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_1_F";
+        dir = 184.805;
+    };
+};
+class composition_961514 {
+    class obj_6 {
+        pos[] = {-5.21131,0.161073,0.702106};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_1_F";
+        dir = -356.562;
+    };
+    class obj_37 {
+        pos[] = {-17.0053,4.12536,0.754406};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_Razorwire_F";
+        dir = -115.592;
+    };
+    class obj_44 {
+        pos[] = {-3.224,22.4904,0.702106};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_1_F";
+        dir = -71.5923;
+    };
+    class obj_51 {
+        pos[] = {8.82499,22.8002,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = -356.593;
+    };
+    class obj_87 {
+        pos[] = {29.4294,22.6465,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_Big_F";
+        dir = -116.59;
+    };
+    class obj_7 {
+        pos[] = {-4.76803,-2.31007,0.798342};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
         type = "Land_HBarrier_3_F";
-        dir = 359.969;
+        dir = -86.5923;
     };
     class obj_38 {
-        pos[] = {1.44434,-9.7973,12.8862};
+        pos[] = {17.3945,5.64001,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = -55.5923;
+    };
+    class obj_45 {
+        pos[] = {0.938803,23.1423,4.05028};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_BarGate_F";
+        dir = -356.593;
+    };
+    class obj_52 {
+        pos[] = {5.48243,23.8482,0.702106};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_1_F";
+        dir = -251.593;
+    };
+    class obj_88 {
+        pos[] = {-26.7051,25.864,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_Big_F";
+        dir = -235.591;
+    };
+    class obj_8 {
+        pos[] = {0.502543,6.28838,1.3187};
+        issimpleobj = 0;
+        vecup[] = {-0.000951291,-0.00897322,0.999959};
+        hascrew = 1;
+        type = "rhs_KORD_MSV";
+        dir = -356.589;
+    };
+    class obj_10 {
+        pos[] = {0.336971,-0.292516,12.8862};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
         class objects {
             class obj_6 {
-                pos[] = {-3937.35,-5062.22,6.53579};
+                pos[] = {-5.98804,4.52832,4.31764};
                 issimpleobj = 0;
-                vecup[] = {-2.74178e-005,-7.82507e-006,2};
-                hascrew = 1;
-                type = "rhs_Igla_AA_pod_msv";
-                dir = -180;
-            };
-            class obj_7 {
-                pos[] = {-3928.76,-5059.66,1.68875};
-                issimpleobj = 0;
-                vecup[] = {0.00311179,1.9837e-007,1.99999};
+                vecup[] = {-3.67667e-007,-5.06344e-007,2};
                 hascrew = 1;
                 type = "O_GMG_01_high_F";
-                dir = 89.9984;
+                dir = -90.0006;
+            };
+            class obj_7 {
+                pos[] = {-3.55347,-3.53516,6.53579};
+                issimpleobj = 0;
+                vecup[] = {-1.79837e-005,-9.5762e-006,2};
+                hascrew = 1;
+                type = "rhs_Igla_AA_pod_msv";
+                dir = -179.998;
             };
             class obj_0 {
-                pos[] = {-3927.5,-5054.69,4.31677};
+                pos[] = {-2.64649,3.95679,1.49691};
                 issimpleobj = 0;
-                vecup[] = {2.13133e-007,1.78568e-006,2};
+                vecup[] = {-0.00375661,-0.239458,1.9709};
                 hascrew = 1;
                 type = "O_HMG_01_high_F";
-                dir = -270;
+                dir = 0.435211;
             };
             class obj_1 {
-                pos[] = {-3936.44,-5054.72,1.49717};
+                pos[] = {5.03394,-0.97363,1.68875};
                 issimpleobj = 0;
-                vecup[] = {-0.00493857,-0.239157,1.97097};
+                vecup[] = {0.00311519,-1.03773e-006,1.99999};
                 hascrew = 1;
-                type = "O_HMG_01_high_F";
-                dir = 0.467712;
+                type = "O_GMG_01_high_F";
+                dir = -269.994;
             };
             class obj_2 {
-                pos[] = {-3929.35,-5061.69,5.00471};
-                issimpleobj = 0;
-                vecup[] = {0,0,2};
-                hascrew = 1;
-                type = "rhs_vdv_flora_officer_armored";
-                dir = 31.9079;
-            };
-            class obj_3 {
-                pos[] = {-3935.42,-5053.77,5.00471};
+                pos[] = {-5.59107,3.9226,2.47987};
                 issimpleobj = 0;
                 vecup[] = {0,0,2};
                 hascrew = 1;
                 type = "rhs_vdv_flora_medic";
-                dir = -245.311;
+                dir = -105;
+            };
+            class obj_3 {
+                pos[] = {-5.57154,4.29467,2.47987};
+                issimpleobj = 0;
+                vecup[] = {0,0,2};
+                hascrew = 1;
+                type = "rhs_vdv_flora_officer_armored";
+                dir = -105;
             };
             class obj_4 {
-                pos[] = {-3939.84,-5056.66,4.31749};
+                pos[] = {-6.0415,2.02392,4.31749};
                 issimpleobj = 0;
-                vecup[] = {-1.25434e-006,-1.65263e-006,2};
+                vecup[] = {5.91507e-007,1.33261e-006,2};
                 hascrew = 1;
                 type = "O_HMG_01_high_F";
-                dir = -90;
+                dir = -90.0002;
             };
             class obj_5 {
-                pos[] = {-3939.78,-5054.16,4.31764};
+                pos[] = {6.29272,3.99854,4.31677};
                 issimpleobj = 0;
-                vecup[] = {-5.73095e-007,-7.00516e-007,2};
+                vecup[] = {-1.35623e-006,-6.83184e-006,2};
                 hascrew = 1;
-                type = "O_GMG_01_high_F";
-                dir = -90.0005;
+                type = "O_HMG_01_high_F";
+                dir = -269.999;
             };
         };
         type = "Land_Cargo_Tower_V2_F";
-        dir = 270;
-    };
-    class obj_45 {
-        pos[] = {-16.1299,-6.41803,0.754406};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_Razorwire_F";
-        dir = 241.001;
-    };
-    class obj_52 {
-        pos[] = {-16.9976,7.34082,0.00143909};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_flora_machinegunner_assistant";
-        dir = 207.284;
-    };
-    class obj_88 {
-        pos[] = {-25.2559,7.74915,1.21};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_Big_F";
-        dir = 31.0017;
-    };
-    class obj_95 {
-        pos[] = {5.77295,-29.0731,1.21};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_Big_F";
-        dir = 271.002;
-    };
-    class obj_8 {
-        pos[] = {-0.27002,-5.96814,0.421095};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_BagFence_Corner_F";
-        dir = 270.001;
-    };
-    class obj_10 {
-        pos[] = {-4.05664,-4.84564,0.702106};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_1_F";
-        dir = 0.030794;
+        dir = -86.5928;
     };
     class obj_39 {
-        pos[] = {6.46631,13.709,5.98218};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_LampHalogen_F";
-        dir = 90;
-    };
-    class obj_46 {
-        pos[] = {-5.44141,16.8853,0.740514};
+        pos[] = {-16.93,7.92056,0.740514};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
         type = "Land_HBarrier_5_F";
-        dir = 255.001;
+        dir = -294.593;
     };
-    class obj_53 {
-        pos[] = {17.6616,-6.30798,0.755066};
+    class obj_46 {
+        pos[] = {-4.22315,23.4054,5.98218};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
-        type = "Land_Razorwire_F";
-        dir = 302.001;
+        type = "Land_LampHalogen_F";
+        dir = -266.593;
+    };
+    class obj_53 {
+        pos[] = {-6.44648,23.6654,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = -355.593;
     };
     class obj_60 {
-        pos[] = {-19.771,4.01495,0.798342};
+        pos[] = {5.98691,24.6397,1.08381};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_PortableLight_single_F";
+        dir = -206.593;
+    };
+    class obj_9 {
+        pos[] = {-0.538613,-6.56969,0.702111};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_1_F";
+        dir = -356.593;
+    };
+    class obj_11 {
+        pos[] = {5.24879,4.32167,0.702106};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_1_F";
+        dir = -356.562;
+    };
+    class obj_47 {
+        pos[] = {6.74708,22.8738,5.98218};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_LampHalogen_F";
+        dir = -266.593;
+    };
+    class obj_54 {
+        pos[] = {-3.01908,24.3548,0.702106};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_1_F";
+        dir = -281.593;
+    };
+    class obj_61 {
+        pos[] = {-18.2019,17.4255,0.00143909};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_machinegunner";
+        dir = -238.591;
+    };
+    author = "McSeby";
+    class obj_12 {
+        pos[] = {3.60775,5.94111,0.798342};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
         type = "Land_HBarrier_3_F";
-        dir = 62;
+        dir = 3.3757;
     };
-    class obj_89 {
-        pos[] = {-22.8706,12.3889,4.905};
+    class obj_48 {
+        pos[] = {21.6688,9.3075,0.755067};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
-        class objects {
-            class obj_0 {
-                pos[] = {-7149.81,3042.23,-0.55952};
-                issimpleobj = 0;
-                vecup[] = {0,0,2};
-                hascrew = 1;
-                type = "rhs_vdv_flora_grenadier_rpg";
-                dir = 128.999;
-            };
-            class obj_1 {
-                pos[] = {-7153.27,3042.31,1.06221};
-                issimpleobj = 0;
-                vecup[] = {-1.14741e-006,-6.88682e-007,2};
-                hascrew = 1;
-                type = "O_HMG_01_high_F";
-                dir = -91.0012;
-            };
-        };
-        type = "Land_Cargo_Patrol_V2_F";
-        dir = 119.002;
+        type = "Land_Razorwire_F";
+        dir = -54.5923;
     };
-    class obj_96 {
-        pos[] = {-27.1045,14.7058,1.21};
+    class obj_55 {
+        pos[] = {-1.88001,-24.5569,1.21};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
         type = "Land_HBarrier_Big_F";
-        dir = 121.002;
+        dir = -355.591;
     };
-    class obj_9 {
-        pos[] = {2.15234,-5.84045,0.421095};
+    class obj_62 {
+        pos[] = {-3.48238,25.1997,1.08381};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
-        type = "Land_BagFence_Corner_F";
-        dir = 8.43101e-006;
+        type = "Land_PortableLight_single_F";
+        dir = -146.592;
     };
-    class obj_11 {
-        pos[] = {-0.319824,-6.67621,0.489293};
+    class obj_13 {
+        pos[] = {-3.0188,6.3256,0.798342};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
-        type = "Land_BagFence_End_F";
-        dir = 45;
+        type = "Land_HBarrier_3_F";
+        dir = -176.61;
     };
-    class obj_47 {
-        pos[] = {14.1733,-9.41064,5.98219};
+    class obj_20 {
+        pos[] = {-4.05377,-6.3587,0.798342};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_3_F";
+        dir = 3.37158;
+    };
+    class obj_49 {
+        pos[] = {-20.8038,11.8768,0.754407};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_Razorwire_F";
+        dir = -115.592;
+    };
+    class obj_56 {
+        pos[] = {-20.02,14.7564,0.798342};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_3_F";
+        dir = -294.593;
+    };
+    class obj_63 {
+        pos[] = {-15.5438,20.8407,0.00143909};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_medic";
+        dir = -356.593;
+    };
+    class obj_70 {
+        pos[] = {-4.95082,26.7522,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = -101.592;
+    };
+    device = 1;
+    class obj_14 {
+        pos[] = {-4.86,4.97732,0.702106};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_1_F";
+        dir = -356.562;
+    };
+    class obj_21 {
+        pos[] = {0.387908,7.49728,0.0578637};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_BagFence_Round_F";
+        dir = -179.592;
+    };
+    class obj_57 {
+        pos[] = {21.7173,12.1429,0.798327};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_3_F";
+        dir = -55.5923;
+    };
+    class obj_64 {
+        pos[] = {17.49,19.3576,0.00143909};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_machinegunner";
+        dir = -135.592;
+    };
+    class obj_71 {
+        pos[] = {16.6252,22.4442,0.798327};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_3_F";
+        dir = -356.593;
+    };
+    class obj_15 {
+        pos[] = {4.69216,-5.29873,0.702106};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_1_F";
+        dir = -356.562;
+    };
+    class obj_22 {
+        pos[] = {8.78648,-7.00479,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = -54.5924;
+    };
+    class obj_58 {
+        pos[] = {20.1792,14.6286,0.00143909};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_medic";
+        dir = -217.257;
+    };
+    class obj_65 {
+        pos[] = {-21.0089,16.7963,0.702106};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_1_F";
+        dir = -102.59;
+    };
+    class obj_72 {
+        pos[] = {-13.9223,24.2776,0.798342};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_3_F";
+        dir = -355.593;
+    };
+    class obj_16 {
+        pos[] = {-5.4636,-4.72564,0.702106};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_1_F";
+        dir = -356.562;
+    };
+    class obj_23 {
+        pos[] = {-10.282,-5.8568,0.740514};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_5_F";
+        dir = -295.593;
+    };
+    class obj_30 {
+        pos[] = {-6.81266,-12.851,0.798327};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_3_F";
+        dir = -295.593;
+    };
+    class obj_59 {
+        pos[] = {18.8564,16.4335,0.00143909};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_machinegunner_assistant";
+        dir = -177.898;
+    };
+    class obj_66 {
+        pos[] = {21.9145,15.7093,0.798342};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_3_F";
+        dir = -298.589;
+    };
+    class obj_73 {
+        pos[] = {14.4008,24.0578,0.755067};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_Razorwire_F";
+        dir = -355.591;
+    };
+    class obj_80 {
+        pos[] = {-5.46917,29.6384,1.03996};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_Sign_WarningMilitaryArea_F";
+        dir = -191.592;
+    };
+    class obj_17 {
+        pos[] = {2.99134,-6.70477,0.798342};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_3_F";
+        dir = 3.37158;
+    };
+    class obj_24 {
+        pos[] = {13.0665,-0.66298,5.98219};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
         class objects {
             class obj_0 {
-                pos[] = {-8132.29,-3304.94,-5.18384};
+                pos[] = {0.104079,-0.128507,-5.18384};
                 issimpleobj = 0;
                 vecup[] = {0,0,2};
                 hascrew = 1;
@@ -810,596 +2088,120 @@ class composition_25675 {
             };
         };
         type = "Land_LampHalogen_F";
-        dir = 210.001;
-    };
-    class obj_54 {
-        pos[] = {-15.668,10.3615,0.00143909};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_flora_medic";
-        dir = 0;
-    };
-    class obj_61 {
-        pos[] = {-20.3823,1.09387,0.754407};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_Razorwire_F";
-        dir = 241.001;
-    };
-    class obj_97 {
-        pos[] = {29.1221,14.8301,1.21};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_Big_F";
-        dir = 240.003;
-    };
-    author = "McSeby";
-    class obj_12 {
-        pos[] = {2.30762,-6.47394,0.489294};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_BagFence_End_F";
-        dir = 135.001;
-    };
-    class obj_48 {
-        pos[] = {-11.8589,-13.8286,0.755067};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_Razorwire_F";
-        dir = 241.001;
-    };
-    class obj_55 {
-        pos[] = {10.2778,-15.9956,0.740514};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_5_F";
-        dir = 302;
-    };
-    class obj_62 {
-        pos[] = {17.3975,10.83,0.00143909};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_flora_machinegunner";
-        dir = 221.001;
-    };
-    class obj_98 {
-        pos[] = {0.67334,-34.1506,1.21};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_Big_F";
-        dir = 1.00138;
-    };
-    class obj_13 {
-        pos[] = {6.07324,-4.89935,0.702106};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_1_F";
-        dir = 0.030794;
-    };
-    class obj_20 {
-        pos[] = {-0.195801,-10.5609,0.421095};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_BagFence_Corner_F";
-        dir = 180.001;
-    };
-    class obj_49 {
-        pos[] = {-8.8252,-15.983,0.740514};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_5_F";
-        dir = 61;
-    };
-    class obj_56 {
-        pos[] = {13.2515,-13.6359,0.755727};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_Razorwire_F";
-        dir = 302.001;
-    };
-    class obj_63 {
-        pos[] = {-6.13037,19.7355,1.03996};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_Sign_WarningMilitaryArea_F";
-        dir = 165.001;
-    };
-    class obj_70 {
-        pos[] = {16.3525,13.8671,0.798327};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_3_F";
-        dir = 0;
-    };
-    device = 1;
-    class obj_14 {
-        pos[] = {-3.43555,-7.27295,0.798342};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_3_F";
-        dir = 270.001;
-    };
-    class obj_21 {
-        pos[] = {2.25488,-10.4141,0.421095};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_BagFence_Corner_F";
-        dir = 90;
-    };
-    class obj_57 {
-        pos[] = {-18.1069,6.78754,0.00143909};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_flora_machinegunner";
-        dir = 118.002;
-    };
-    class obj_64 {
-        pos[] = {14.0361,15.3456,0.755067};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_Razorwire_F";
-        dir = 1.00141;
-    };
-    class obj_71 {
-        pos[] = {-16.4536,13.8953,0.702106};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_1_F";
-        dir = 164.002;
-    };
-    class obj_15 {
-        pos[] = {0.972656,-8.09735,0.762859};
-        issimpleobj = 1;
-        vecup[] = {1.04043e-005,8.47441e-006,1};
-        hascrew = 0;
-        type = "Land_CargoBox_V1_F";
-        dir = 179.998;
-    };
-    class obj_22 {
-        pos[] = {0.986328,-11.1784,0.793072};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_1_F";
-        dir = 270.001;
-    };
-    class obj_58 {
-        pos[] = {-11.6328,15.519,0.755067};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_Razorwire_F";
-        dir = 1.00141;
-    };
-    class obj_65 {
-        pos[] = {18.9224,8.77521,0.00143909};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_flora_machinegunner_assistant";
-        dir = 247.001;
-    };
-    class obj_72 {
-        pos[] = {-20.8794,5.99255,0.702106};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_1_F";
-        dir = 254.003;
-    };
-    class obj_16 {
-        pos[] = {5.23193,-7.33221,0.798342};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_3_F";
-        dir = 270.001;
-    };
-    class obj_23 {
-        pos[] = {6.05078,-9.73773,0.702106};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_1_F";
-        dir = 0.030794;
-    };
-    class obj_30 {
-        pos[] = {-4.08252,-14.5673,0.702106};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_1_F";
-        dir = 0.030794;
-    };
-    class obj_59 {
-        pos[] = {-14.25,13.8817,0.798342};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_3_F";
-        dir = 1;
-    };
-    class obj_66 {
-        pos[] = {-17.2188,12.0782,0.798342};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_3_F";
-        dir = 299.003;
-    };
-    class obj_73 {
-        pos[] = {22.168,1.05347,0.755067};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_Razorwire_F";
-        dir = 302.001;
-    };
-    class obj_80 {
-        pos[] = {22.0327,7.4585,0.798342};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_3_F";
-        dir = 58.0033;
-    };
-    class obj_17 {
-        pos[] = {-0.359375,-9.9342,0.489291};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_BagFence_End_F";
-        dir = 315;
-    };
-    class obj_24 {
-        pos[] = {-3.53174,-12.1147,0.798342};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_3_F";
-        dir = 270.001;
+        dir = -146.592;
     };
     class obj_31 {
-        pos[] = {-6.75098,13.7151,0.740514};
+        pos[] = {-9.46957,-11.1564,0.754407};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
-        type = "Land_HBarrier_5_F";
-        dir = 1.00001;
+        type = "Land_Razorwire_F";
+        dir = -115.592;
     };
     class obj_67 {
-        pos[] = {20.1494,6.25525,0.00143909};
+        pos[] = {-19.8026,18.3343,0.798342};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
-        type = "rhs_vdv_flora_medic";
-        dir = 126.043;
+        type = "Land_HBarrier_3_F";
+        dir = -57.5898;
     };
     class obj_74 {
-        pos[] = {22.0479,3.88666,0.798327};
+        pos[] = {-11.2125,25.7563,0.755067};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
-        type = "Land_HBarrier_3_F";
-        dir = 301;
+        type = "Land_Razorwire_F";
+        dir = -355.591;
     };
     class obj_81 {
-        pos[] = {-4.94629,-22.7587,0.798327};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_3_F";
-        dir = 61;
-    };
-    class obj_1 {
-        pos[] = {1.03223,-2.01837,0.0578637};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_BagFence_Round_F";
-        dir = 177.001;
-    };
-    class obj_18 {
-        pos[] = {2.32422,-9.68878,0.489291};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_BagFence_End_F";
-        dir = 225.001;
-    };
-    class obj_25 {
-        pos[] = {5.20801,-12.0845,0.798342};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_3_F";
-        dir = 270.001;
-    };
-    class obj_32 {
-        pos[] = {5.146,14.6064,0.702106};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_1_F";
-        dir = 105;
-    };
-    class obj_68 {
-        pos[] = {-19.7666,7.59961,0.798342};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_3_F";
-        dir = 299.003;
-    };
-    class obj_75 {
-        pos[] = {-7.69922,-21.2249,0.754407};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_Razorwire_F";
-        dir = 241.001;
-    };
-    class obj_82 {
-        pos[] = {23.2471,5.90686,0.702106};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_1_F";
-        dir = 283.002;
-    };
-    class obj_2 {
-        pos[] = {-0.418457,-2.51611,0.409662};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_BagFence_End_F";
-        dir = 315.003;
-    };
-    class obj_19 {
-        pos[] = {-4.12109,-9.67438,0.702106};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_1_F";
-        dir = 0.030794;
-    };
-    class obj_26 {
-        pos[] = {-3.46436,12.7336,0.702106};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_1_F";
-        dir = 285;
-    };
-    class obj_33 {
-        pos[] = {-4.51611,13.5876,5.98218};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_LampHalogen_F";
-        dir = 90;
-    };
-    class obj_40 {
-        pos[] = {-2.57813,-16.1139,0.798342};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_3_F";
-        dir = 359.964;
-    };
-    class obj_69 {
-        pos[] = {8.06348,19.7803,1.03996};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_Sign_WarningMilitaryArea_F";
-        dir = 195;
-    };
-    class obj_76 {
-        pos[] = {8.79834,-20.8594,0.755067};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_Razorwire_F";
-        dir = 302.001;
-    };
-    class obj_83 {
-        pos[] = {-1.99512,-24.2765,0.798342};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_3_F";
-        dir = 179.002;
-    };
-    class obj_90 {
-        pos[] = {22.1436,16.5869,1.21};
+        pos[] = {-25.2732,18.8099,1.21};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
         type = "Land_HBarrier_Big_F";
-        dir = 150.006;
+        dir = -325.591;
     };
-    class obj_3 {
-        pos[] = {2.60889,-2.5224,0.409662};
+    class obj_1 {
+        pos[] = {-0.0333325,1.43249,0.762849};
+        issimpleobj = 1;
+        vecup[] = {1.81681e-005,4.28076e-006,1};
+        hascrew = 0;
+        type = "Land_CargoBox_V1_F";
+        dir = -176.596;
+    };
+    class obj_18 {
+        pos[] = {1.93182,6.90032,0.409662};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
         type = "Land_BagFence_End_F";
-        dir = 225.001;
+        dir = -131.592;
     };
-    class obj_27 {
-        pos[] = {5.14844,12.6874,0.702106};
+    class obj_25 {
+        pos[] = {11.8951,-4.82582,0.755727};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
-        type = "Land_HBarrier_1_F";
-        dir = 255.001;
+        type = "Land_Razorwire_F";
+        dir = -54.5923;
     };
-    class obj_34 {
-        pos[] = {6.08936,-14.5359,0.702106};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_1_F";
-        dir = 0.030794;
-    };
-    class obj_41 {
-        pos[] = {5.60254,15.4264,1.08381};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_PortableLight_single_F";
-        dir = 150;
-    };
-    class obj_77 {
-        pos[] = {19.3496,11.8568,0.798342};
+    class obj_32 {
+        pos[] = {1.18937,-14.8132,0.798342};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
         type = "Land_HBarrier_3_F";
-        dir = 58.0033;
+        dir = -177.591;
     };
-    class obj_84 {
-        pos[] = {3.1582,-24.2419,0.798342};
+    class obj_68 {
+        pos[] = {23.0345,14.0883,0.702106};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_1_F";
+        dir = -73.5907;
+    };
+    class obj_75 {
+        pos[] = {19.4975,20.2594,0.798342};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
         type = "Land_HBarrier_3_F";
-        dir = 179.002;
+        dir = -298.589;
     };
-    class obj_91 {
-        pos[] = {25.041,12.2482,4.905};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        class objects {
-            class obj_0 {
-                pos[] = {-6420.59,-4728.32,-0.55952};
-                issimpleobj = 0;
-                vecup[] = {0,0,2};
-                hascrew = 1;
-                type = "rhs_vdv_flora_grenadier_rpg";
-                dir = -165.002;
-            };
-            class obj_1 {
-                pos[] = {-6417.4,-4728.68,1.06222};
-                issimpleobj = 0;
-                vecup[] = {-7.01615e-007,-1.80348e-006,2};
-                hascrew = 1;
-                type = "O_HMG_01_high_F";
-                dir = 89.9982;
-            };
-        };
-        type = "Land_Cargo_Patrol_V2_F";
-        dir = 238.002;
-    };
-    class obj_4 {
-        pos[] = {1.22119,-3.21814,1.31823};
-        issimpleobj = 0;
-        vecup[] = {0.00149361,-0.00895743,0.999959};
-        hascrew = 1;
-        type = "rhs_KORD_MSV";
-        dir = 0.00341183;
-    };
-    class obj_28 {
-        pos[] = {0.652344,13.6317,4.05028};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_BarGate_F";
-        dir = 0;
-    };
-    class obj_35 {
-        pos[] = {-3.8833,15.4228,1.08381};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_PortableLight_single_F";
-        dir = 210.001;
-    };
-    class obj_42 {
-        pos[] = {-16.2803,-2.62512,0.740514};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_5_F";
-        dir = 62;
-    };
-    class obj_78 {
-        pos[] = {18.4839,13.6084,0.702106};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_1_F";
-        dir = 13.0037;
-    };
-    class obj_85 {
-        pos[] = {-3.94971,-24.5198,0.702106};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_1_F";
-        dir = 44.0016;
-    };
-    class obj_92 {
-        pos[] = {27.5508,7.77356,1.21};
+    class obj_82 {
+        pos[] = {27.4415,15.6959,1.21};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
         type = "Land_HBarrierBig_F";
-        dir = 150.005;
+        dir = -206.587;
     };
-    class obj_5 {
-        pos[] = {-2.29883,-3.39038,0.798342};
+    class obj_2 {
+        pos[] = {4.26439,1.94336,0.798342};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
         type = "Land_HBarrier_3_F";
-        dir = 179.983;
+        dir = -86.5923;
     };
-    class obj_29 {
-        pos[] = {-3.37061,14.6069,0.702106};
+    class obj_19 {
+        pos[] = {-1.0898,7.08657,0.409662};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
-        type = "Land_HBarrier_1_F";
-        dir = 75;
+        type = "Land_BagFence_End_F";
+        dir = -41.5902;
     };
-    class obj_36 {
-        pos[] = {0.943359,-16.1156,0.702111};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_1_F";
-        dir = 0;
-    };
-    class obj_43 {
-        pos[] = {-12.5005,-9.14709,5.98218};
+    class obj_26 {
+        pos[] = {-13.5446,1.18548,5.98218};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
         class objects {
             class obj_0 {
-                pos[] = {-318.976,-2316.62,-5.18387};
+                pos[] = {-0.0170944,-0.0442571,-5.18387};
                 issimpleobj = 0;
                 vecup[] = {0,0,2};
                 hascrew = 1;
@@ -1408,340 +2210,450 @@ class composition_25675 {
             };
         };
         type = "Land_LampHalogen_F";
-        dir = 330;
+        dir = -26.5926;
     };
-    class obj_50 {
-        pos[] = {18.1191,-2.86157,0.740514};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_5_F";
-        dir = 301;
-    };
-    class obj_79 {
-        pos[] = {6.27295,-22.3383,0.798342};
+    class obj_33 {
+        pos[] = {-3.95691,-14.5415,0.798342};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
         type = "Land_HBarrier_3_F";
-        dir = 302;
+        dir = -177.591;
     };
-    class obj_86 {
-        pos[] = {5.10596,-24.4039,0.702106};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_1_F";
-        dir = 134.002;
-    };
-    class obj_93 {
-        pos[] = {0.561523,-29.3235,2.49144};
+    class obj_40 {
+        pos[] = {-1.70474,-19.7317,2.49144};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
         type = "Land_Cargo_Patrol_V2_ruins_F";
-        dir = 359.001;
+        dir = 2.40851;
     };
-};
-class composition_945590 {
-    class obj_6 {
-        pos[] = {-955.872,-7000.63,0.419312};
+    class obj_69 {
+        pos[] = {7.70044,26.0454,0.740514};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
-        type = "Land_BagFence_Round_F";
-        dir = -192.364;
+        type = "Land_HBarrier_5_F";
+        dir = -70.5923;
     };
-    class obj_7 {
-        pos[] = {-952.171,-7013.9,0.00143909};
+    class obj_76 {
+        pos[] = {-16.993,22.6537,0.798342};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
-        type = "rhs_vdv_des_medic";
-        dir = -32.5306;
+        type = "Land_HBarrier_3_F";
+        dir = -57.5898;
     };
-    class obj_8 {
-        pos[] = {-957.896,-7002.19,0.419312};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_BagFence_Long_F";
-        dir = -229.605;
-    };
-    class obj_10 {
-        pos[] = {-946.773,-7000.75,0.419312};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_BagFence_Round_F";
-        dir = -156.253;
-    };
-    class obj_9 {
-        pos[] = {-945.037,-7003.89,0.272421};
-        issimpleobj = 1;
-        vecup[] = {0.000200382,-0.000407425,1};
-        hascrew = 0;
-        type = "rhs_mags_crate";
-        dir = -116.606;
-    };
-    class obj_11 {
-        pos[] = {-945.083,-7002.72,0.419312};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_BagFence_Long_F";
-        dir = -120.026;
-    };
-    author = "Floid";
-    class obj_12 {
-        pos[] = {-947.88,-7014.65,0.191624};
-        issimpleobj = 1;
-        vecup[] = {-1.5231e-006,-1.42933e-005,1};
-        hascrew = 0;
-        type = "ACE_medicalSupplyCrate";
-        dir = -32.3572;
-    };
-    class obj_13 {
-        pos[] = {-949.447,-7015.42,0.284054};
-        issimpleobj = 1;
-        vecup[] = {-2.47588e-006,7.02422e-007,1};
-        hascrew = 0;
-        type = "Box_East_AmmoOrd_F";
-        dir = -270.361;
-    };
-    dronecommando = 1;
-    class obj_1 {
-        pos[] = {-951.797,-7007.94,0.762862};
-        issimpleobj = 1;
-        vecup[] = {-1.12019e-005,-2.74421e-006,1};
-        hascrew = 0;
-        type = "Land_CargoBox_V1_F";
-        dir = 4.63959;
-    };
-    class obj_2 {
-        pos[] = {-951.562,-7008.65,2.06994};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "CamoNet_OPFOR_big_F";
-        dir = -158.011;
-    };
-    class obj_3 {
-        pos[] = {-956.247,-7001.45,0.00143909};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_rifleman";
-        dir = -53.5744;
-    };
-    class obj_4 {
-        pos[] = {-957.874,-7002.95,0.272386};
-        issimpleobj = 1;
-        vecup[] = {0.000278701,0.000510236,1};
-        hascrew = 0;
-        type = "rhs_mags_crate";
-        dir = -230.502;
-    };
-    class obj_5 {
-        pos[] = {-947.248,-7001.41,0.00143909};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_des_rifleman";
-        dir = 15.7082;
-    };
-};
-class composition_405766 {
-    class obj_6 {
-        pos[] = {246.268,-147.553,2.18501};
+    class obj_83 {
+        pos[] = {25.2021,20.3118,4.905};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
         class objects {
             class obj_0 {
-                pos[] = {0.165649,-1.97144,1.61939};
+                pos[] = {-1.43196,-0.982832,-0.55952};
                 issimpleobj = 0;
-                vecup[] = {0.0234262,0.161489,1.9866};
+                vecup[] = {0,0,2};
                 hascrew = 1;
-                type = "rhs_KORD_high_VDV";
-                dir = 177.331;
+                type = "rhs_vdv_flora_grenadier_rpg";
+                dir = -165.002;
+            };
+            class obj_1 {
+                pos[] = {1.76397,-1.34974,1.06221};
+                issimpleobj = 0;
+                vecup[] = {-2.73209e-006,-8.90184e-007,2};
+                hascrew = 1;
+                type = "O_HMG_01_high_F";
+                dir = 89.996;
             };
         };
-        type = "Land_HBarrierTower_F";
-        dir = -355.833;
+        type = "Land_Cargo_Patrol_V2_F";
+        dir = -118.591;
+    };
+    class obj_3 {
+        pos[] = {3.95806,-2.79926,0.798342};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_3_F";
+        dir = -86.5923;
+    };
+    class obj_27 {
+        pos[] = {-13.1823,-3.52601,0.755067};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_Razorwire_F";
+        dir = -115.592;
+    };
+    class obj_34 {
+        pos[] = {3.12404,-15.0908,0.702106};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_1_F";
+        dir = -222.591;
+    };
+    class obj_41 {
+        pos[] = {3.51236,-19.7913,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_Big_F";
+        dir = -85.5906;
+    };
+    class obj_77 {
+        pos[] = {18.7374,22.0592,0.702106};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_1_F";
+        dir = -343.589;
+    };
+    class obj_84 {
+        pos[] = {-22.6164,23.2996,4.905};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        class objects {
+            class obj_0 {
+                pos[] = {1.59664,-0.858438,-0.55952};
+                issimpleobj = 0;
+                vecup[] = {0,0,2};
+                hascrew = 1;
+                type = "rhs_vdv_flora_grenadier_rpg";
+                dir = 229.799;
+            };
+            class obj_1 {
+                pos[] = {-1.86722,-0.774928,1.06221};
+                issimpleobj = 0;
+                vecup[] = {-1.70928e-006,-7.63362e-007,2};
+                hascrew = 1;
+                type = "O_HMG_01_high_F";
+                dir = -91.0008;
+            };
+        };
+        type = "Land_Cargo_Patrol_V2_F";
+        dir = -237.591;
+    };
+    class obj_4 {
+        pos[] = {4.93881,-0.506818,0.702106};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_1_F";
+        dir = -356.562;
+    };
+    class obj_28 {
+        pos[] = {7.02055,-11.772,0.755067};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_Razorwire_F";
+        dir = -54.5923;
+    };
+    class obj_35 {
+        pos[] = {-5.92251,-14.6683,0.702106};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_1_F";
+        dir = -312.591;
+    };
+    class obj_42 {
+        pos[] = {-6.81436,-19.2717,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrierBig_F";
+        dir = -85.5909;
+    };
+    class obj_78 {
+        pos[] = {-16.1212,24.4222,0.702106};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_1_F";
+        dir = -192.591;
+    };
+    class obj_85 {
+        pos[] = {22.5676,24.8149,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_Big_F";
+        dir = -206.587;
+    };
+    class obj_5 {
+        pos[] = {-4.38426,2.51745,0.798342};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_3_F";
+        dir = -86.5923;
+    };
+    class obj_29 {
+        pos[] = {4.41174,-13.0981,0.798342};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_3_F";
+        dir = -54.5924;
+    };
+    class obj_36 {
+        pos[] = {16.733,2.22701,0.755066};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_Razorwire_F";
+        dir = -54.5923;
+    };
+    class obj_43 {
+        pos[] = {5.37083,21.9325,0.702106};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_1_F";
+        dir = -101.592;
+    };
+    class obj_50 {
+        pos[] = {-17.9742,15.6264,0.00143909};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_flora_machinegunner_assistant";
+        dir = -145.797;
+    };
+    class obj_79 {
+        pos[] = {8.70224,28.8395,1.03996};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_Sign_WarningMilitaryArea_F";
+        dir = -161.593;
+    };
+    class obj_86 {
+        pos[] = {-19.6602,27.4949,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrierBig_F";
+        dir = -325.591;
+    };
+};
+class composition_956288 {
+    class obj_6 {
+        pos[] = {-10.47,-9.60493,1.19346};
+        issimpleobj = 0;
+        vecup[] = {-1.26403e-008,-7.2038e-009,1};
+        hascrew = 1;
+        type = "RHS_AGS30_TriPod_VDV";
+        dir = -342.894;
     };
     class obj_37 {
-        pos[] = {221.042,-108.211,1.21};
+        pos[] = {26.4802,21.6402,1.21};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
         type = "Land_HBarrier_Big_F";
-        dir = -84.7526;
+        dir = -177.8;
+    };
+    class obj_44 {
+        pos[] = {-31.4537,-21.9399,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_Big_F";
+        dir = -179.006;
     };
     class obj_7 {
-        pos[] = {253.996,-148.966,1.21};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_Big_F";
-        dir = -174.636;
-    };
-    class obj_38 {
-        pos[] = {284.931,-112.13,1.21};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_Big_F";
-        dir = -84.7526;
-    };
-    class obj_8 {
-        pos[] = {238.627,-147.939,1.21};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_Big_F";
-        dir = -173.042;
-    };
-    class obj_10 {
-        pos[] = {262.862,-117.361,0.00143862};
+        pos[] = {9.57484,10.5577,0.00143909};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
         type = "rhs_vdv_arifleman";
-        dir = -355.833;
+        dir = -293.232;
     };
-    class obj_9 {
-        pos[] = {270.404,-135.451,3.8754};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        class objects {
-            class obj_6 {
-                pos[] = {-5302.04,-1915.74,1.08954};
-                issimpleobj = 0;
-                vecup[] = {0.00153645,6.6167e-006,2};
-                hascrew = 1;
-                type = "RHS_ZU23_VDV";
-                dir = -86.6907;
-            };
-            class obj_7 {
-                pos[] = {-5301.03,-1914.17,-3.27229};
-                issimpleobj = 0;
-                vecup[] = {0,0,2};
-                hascrew = 1;
-                type = "rhs_vdv_efreitor";
-                dir = -91.904;
-            };
-            class obj_8 {
-                pos[] = {-5295.73,-1914.61,-3.27229};
-                issimpleobj = 0;
-                vecup[] = {0,0,2};
-                hascrew = 1;
-                type = "rhs_vdv_machinegunner";
-                dir = -91.904;
-            };
-            class obj_0 {
-                pos[] = {-5294.99,-1913.16,-0.240166};
-                issimpleobj = 0;
-                vecup[] = {-3.14897e-005,0.00136156,2};
-                hascrew = 1;
-                type = "rhs_Kornet_9M133_2_vdv";
-                dir = 87.9892;
-            };
-            class obj_1 {
-                pos[] = {-5296.14,-1912.32,-3.27229};
-                issimpleobj = 0;
-                vecup[] = {0,0,2};
-                hascrew = 1;
-                type = "rhs_vdv_strelok_rpg_assist";
-                dir = -91.904;
-            };
-            class obj_2 {
-                pos[] = {-5300.5,-1911.74,-3.27229};
-                issimpleobj = 0;
-                vecup[] = {0,0,2};
-                hascrew = 1;
-                type = "rhs_vdv_junior_sergeant";
-                dir = -91.904;
-            };
-            class obj_3 {
-                pos[] = {-5302.23,-1910.38,-0.239812};
-                issimpleobj = 0;
-                vecup[] = {-2.77279e-005,-0.000130893,2};
-                hascrew = 1;
-                type = "rhs_Kornet_9M133_2_vdv";
-                dir = 15.4392;
-            };
-            class obj_4 {
-                pos[] = {-5294.56,-1909.62,0.839095};
-                issimpleobj = 0;
-                vecup[] = {-0.000995786,-0.00243728,2};
-                hascrew = 1;
-                type = "rhs_KORD_high_VDV";
-                dir = 54.897;
-            };
-            class obj_5 {
-                pos[] = {-5298.59,-1915.11,-3.27229};
-                issimpleobj = 0;
-                vecup[] = {0,0,2};
-                hascrew = 1;
-                type = "rhs_vdv_machinegunner_assistant";
-                dir = -91.904;
-            };
-        };
-        type = "Land_Cargo_HQ_V2_F";
-        dir = -263.929;
-    };
-    class obj_11 {
-        pos[] = {262.329,-149.596,1.21};
+    class obj_38 {
+        pos[] = {-34.3773,0.0994616,1.21};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
         type = "Land_HBarrier_Big_F";
-        dir = -174.749;
+        dir = -87.9169;
+    };
+    class obj_45 {
+        pos[] = {-34.5321,-16.8135,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_Big_F";
+        dir = -87.9169;
+    };
+    class obj_8 {
+        pos[] = {6.85179,13.832,0.00143909};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_arifleman";
+        dir = -358.998;
+    };
+    class obj_10 {
+        pos[] = {-16.2809,-0.851541,0.690002};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_Cargo_House_V2_F";
+        dir = -95.3863;
+    };
+    class obj_39 {
+        pos[] = {26.0535,-22.5803,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_Big_F";
+        dir = -177.914;
+    };
+    class obj_9 {
+        pos[] = {0.584968,15.6814,0.00143862};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_efreitor";
+        dir = -43.8796;
+    };
+    class obj_11 {
+        pos[] = {2.39489,-16.803,1.86318};
+        issimpleobj = 0;
+        vecup[] = {-4.17485e-005,-0.000958372,1};
+        hascrew = 1;
+        type = "RHS_ZU23_VDV";
+        dir = -358.994;
     };
     author = "Dorbedo";
     class obj_12 {
-        pos[] = {252.978,-113.373,1.95374};
-        issimpleobj = 0;
-        vecup[] = {-0.000277813,-0.00145362,0.999999};
-        hascrew = 1;
-        type = "rhs_t90a_tv";
-        dir = 4.16669;
-    };
-    class obj_13 {
-        pos[] = {230.526,-140.776,1.46987};
-        issimpleobj = 0;
-        vecup[] = {5.52414e-006,0.000105229,1};
-        hascrew = 1;
-        type = "rhs_D30_vdv";
-        dir = -175.58;
-    };
-    class obj_20 {
-        pos[] = {224.057,-139.811,1.86337};
-        issimpleobj = 0;
-        vecup[] = {-8.90001e-005,-0.000936736,1};
-        hascrew = 1;
-        type = "RHS_ZU23_VDV";
-        dir = 4.16306;
-    };
-    isobjective = 1;
-    class obj_14 {
-        pos[] = {261.856,-113.351,0.00143909};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "rhs_vdv_arifleman";
-        dir = -355.833;
-    };
-    class obj_21 {
-        pos[] = {272.124,-116.004,12.8862};
+        pos[] = {16.6066,-7.76192,3.8754};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
         class objects {
             class obj_0 {
-                pos[] = {-27.5568,15.9407,-8.24333};
+                pos[] = {-1.85525,2.20374,-0.239867};
+                issimpleobj = 0;
+                vecup[] = {0.00039801,-0.000126135,2};
+                hascrew = 1;
+                type = "rhs_Kornet_9M133_2_vdv";
+                dir = 15.4342;
+            };
+            class obj_1 {
+                pos[] = {5.38517,-0.576767,-0.239906};
+                issimpleobj = 0;
+                vecup[] = {0.00144229,-2.6992e-005,2};
+                hascrew = 1;
+                type = "rhs_Kornet_9M133_2_vdv";
+                dir = 87.9805;
+            };
+            class obj_2 {
+                pos[] = {5.8149,2.96376,0.83907};
+                issimpleobj = 0;
+                vecup[] = {-0.00117171,-0.00243703,2};
+                hascrew = 1;
+                type = "rhs_KORD_high_VDV";
+                dir = 54.8984;
+            };
+            class obj_3 {
+                pos[] = {-1.66782,-3.16251,1.08935};
+                issimpleobj = 0;
+                vecup[] = {0.000796966,-0.000157171,2};
+                hascrew = 1;
+                type = "RHS_ZU23_VDV";
+                dir = -86.6982;
+            };
+        };
+        type = "Land_Cargo_HQ_V2_F";
+        dir = -267.094;
+    };
+    class obj_13 {
+        pos[] = {-0.71127,18.4435,0.00143862};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "rhs_vdv_machinegunner";
+        dir = -40.3753;
+    };
+    class obj_20 {
+        pos[] = {9.75075,21.8889,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_Big_F";
+        dir = -177.8;
+    };
+    isobjective = 1;
+    class obj_14 {
+        pos[] = {4.35239,18.7026,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_Big_F";
+        dir = -87.2153;
+    };
+    class obj_21 {
+        pos[] = {9.32414,-22.3316,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_Big_F";
+        dir = -177.914;
+    };
+    class obj_15 {
+        pos[] = {-13.921,-13.8323,0.690002};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_Cargo_House_V2_F";
+        dir = -153.743;
+    };
+    class obj_22 {
+        pos[] = {-14.2709,21.7056,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_Big_F";
+        dir = -177.8;
+    };
+    class obj_16 {
+        pos[] = {-8.7863,18.5096,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_Big_F";
+        dir = -268.562;
+    };
+    class obj_23 {
+        pos[] = {-14.433,-21.9848,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_Big_F";
+        dir = -176.206;
+    };
+    class obj_30 {
+        pos[] = {29.5115,8.15636,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_Big_F";
+        dir = -87.9169;
+    };
+    class obj_17 {
+        pos[] = {17.2504,11.7508,12.8862};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        class objects {
+            class obj_0 {
+                pos[] = {2.70761,1.34591,-8.24333};
                 issimpleobj = 0;
                 vecup[] = {0,0,2};
                 hascrew = 1;
@@ -1749,289 +2661,283 @@ class composition_405766 {
                 dir = -0.488913;
             };
             class obj_1 {
-                pos[] = {-33.9181,19.5964,5.51233};
+                pos[] = {-3.65402,5.00172,5.51229};
                 issimpleobj = 0;
-                vecup[] = {0.000134838,2.75394e-006,2};
+                vecup[] = {-0.000218467,-0.000104142,2};
                 hascrew = 1;
                 type = "rhs_Kornet_9M133_2_vdv";
-                dir = 1.84318;
+                dir = 1.84482;
             };
             class obj_2 {
-                pos[] = {-26.1115,11.5474,6.59143};
+                pos[] = {4.15285,-3.04524,6.59122};
                 issimpleobj = 0;
-                vecup[] = {-0.00277859,-0.00121784,2};
+                vecup[] = {-0.00275748,5.38388e-005,2};
                 hascrew = 1;
                 type = "rhs_KORD_high_VDV";
-                dir = 132.232;
+                dir = 132.23;
             };
             class obj_3 {
-                pos[] = {-25.7634,18.0671,6.59133};
+                pos[] = {4.50032,3.47237,6.59132};
                 issimpleobj = 0;
-                vecup[] = {0.000820944,-0.00266032,2};
+                vecup[] = {0.000575067,-0.00260222,2};
                 hascrew = 1;
                 type = "rhs_KORD_high_VDV";
-                dir = 36.6901;
+                dir = 36.7113;
             };
             class obj_4 {
-                pos[] = {-33.7555,11.3481,6.84878};
+                pos[] = {-3.46934,-3.27924,6.8529};
                 issimpleobj = 0;
-                vecup[] = {-0.000568472,0.0459504,1.99894};
+                vecup[] = {0.00750033,0.0321365,1.99946};
                 hascrew = 1;
                 type = "RHS_ZU23_VDV";
-                dir = 179.482;
+                dir = 179.494;
             };
         };
         type = "Land_Cargo_Tower_V3_F";
-        dir = -355.344;
+        dir = -358.509;
     };
-    class obj_15 {
-        pos[] = {226.878,-129.711,1.46987};
-        issimpleobj = 0;
-        vecup[] = {0.00010558,-5.82615e-006,1};
-        hascrew = 1;
-        type = "rhs_D30_vdv";
-        dir = -85.1527;
-    };
-    class obj_22 {
-        pos[] = {232.491,-113.682,12.8862};
+    class obj_24 {
+        pos[] = {-22.4504,11.8814,12.8862};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
         class objects {
             class obj_0 {
-                pos[] = {-3342.15,-7096.93,5.51233};
+                pos[] = {-3.39151,-3.90944,5.51231};
                 issimpleobj = 0;
-                vecup[] = {-3.3307e-005,6.4225e-005,2};
+                vecup[] = {3.51632e-005,3.45338e-005,2};
                 hascrew = 1;
                 type = "rhs_Kornet_9M133_2_vdv";
-                dir = -178.195;
+                dir = -178.209;
             };
             class obj_1 {
-                pos[] = {-3334.62,-7089.69,5.51203};
-                issimpleobj = 0;
-                vecup[] = {-0.000326153,-0.00178857,2};
-                hascrew = 1;
-                type = "rhs_Kornet_9M133_2_vdv";
-                dir = -82.9916;
-            };
-            class obj_2 {
-                pos[] = {-3336.12,-7092.79,5.00471};
-                issimpleobj = 0;
-                vecup[] = {0,0,2};
-                hascrew = 1;
-                type = "rhs_vdv_strelok_rpg_assist";
-                dir = -180.529;
-            };
-            class obj_3 {
-                pos[] = {-3334.79,-7095.52,6.59136};
-                issimpleobj = 0;
-                vecup[] = {-0.00267009,-0.00035606,2};
-                hascrew = 1;
-                type = "rhs_KORD_high_VDV";
-                dir = 135.973;
-            };
-            class obj_4 {
-                pos[] = {-3341.9,-7088.23,6.5358};
-                issimpleobj = 0;
-                vecup[] = {2.46731e-006,-6.78416e-006,2};
-                hascrew = 1;
-                type = "rhs_Igla_AA_pod_vdv";
-                dir = 2.5332;
-            };
-            class obj_5 {
-                pos[] = {-3334.84,-7091.05,-8.24333};
+                pos[] = {3.91163,1.97202,-8.24333};
                 issimpleobj = 0;
                 vecup[] = {0,0,2};
                 hascrew = 1;
                 type = "rhs_vdv_marksman";
                 dir = 84.9307;
             };
+            class obj_2 {
+                pos[] = {2.6402,0.229484,5.00471};
+                issimpleobj = 0;
+                vecup[] = {0,0,2};
+                hascrew = 1;
+                type = "rhs_vdv_strelok_rpg_assist";
+                dir = 121.871;
+            };
+            class obj_3 {
+                pos[] = {4.13312,3.32764,5.51203};
+                issimpleobj = 0;
+                vecup[] = {-0.000325219,-0.00178828,2};
+                hascrew = 1;
+                type = "rhs_Kornet_9M133_2_vdv";
+                dir = -82.9916;
+            };
+            class obj_4 {
+                pos[] = {3.96478,-2.49838,6.59132};
+                issimpleobj = 0;
+                vecup[] = {-0.00280554,-0.000433455,2};
+                hascrew = 1;
+                type = "rhs_KORD_high_VDV";
+                dir = 135.95;
+            };
+            class obj_5 {
+                pos[] = {-3.14465,4.79341,6.5358};
+                issimpleobj = 0;
+                vecup[] = {2.26672e-006,-4.70232e-006,2};
+                hascrew = 1;
+                type = "rhs_Igla_AA_pod_vdv";
+                dir = 2.53363;
+            };
         };
         type = "Land_Cargo_Tower_V3_F";
-        dir = -175.304;
-    };
-    class obj_16 {
-        pos[] = {230.279,-147.526,1.21};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_Big_F";
-        dir = -175.841;
-    };
-    class obj_23 {
-        pos[] = {241.201,-104.324,1.21};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_Big_F";
-        dir = -174.636;
-    };
-    class obj_30 {
-        pos[] = {279.019,-150.768,1.21};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_Big_F";
-        dir = -174.749;
-    };
-    class obj_17 {
-        pos[] = {270.687,-150.138,1.21};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_Big_F";
-        dir = -174.636;
-    };
-    class obj_24 {
-        pos[] = {265.196,-105.467,1.21};
-        issimpleobj = 0;
-        vecup[] = {0,0,1};
-        hascrew = 1;
-        type = "Land_HBarrier_Big_F";
-        dir = -174.636;
+        dir = -178.468;
     };
     class obj_31 {
-        pos[] = {218.844,-141.666,1.21};
+        pos[] = {29.3567,-8.75661,1.21};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
         type = "Land_HBarrier_Big_F";
-        dir = -84.7526;
+        dir = -87.9169;
     };
     class obj_1 {
-        pos[] = {251.998,-128.934,0.762857};
+        pos[] = {-2.06325,-3.5626,0.762856};
         issimpleobj = 1;
-        vecup[] = {-2.97759e-005,-1.55669e-005,1};
+        vecup[] = {-2.40088e-005,-5.25014e-006,1};
         hascrew = 0;
         type = "Land_CargoBox_V1_F";
-        dir = 4.16669;
+        dir = 0.998535;
     };
     class obj_18 {
-        pos[] = {246.5,-107.818,1.21};
+        pos[] = {-6.82477,-21.1773,2.18501};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
-        type = "Land_HBarrier_Big_F";
-        dir = -265.398;
+        class objects {
+            class obj_0 {
+                pos[] = {0.224976,-1.9707,1.6086};
+                issimpleobj = 0;
+                vecup[] = {-0.00440621,0.162972,1.98662};
+                hascrew = 1;
+                type = "rhs_KORD_high_VDV";
+                dir = 184.795;
+            };
+        };
+        type = "Land_HBarrierTower_F";
+        dir = -358.998;
     };
     class obj_25 {
-        pos[] = {219.37,-133.409,1.21};
+        pos[] = {-27.1705,-4.43405,1.46987};
         issimpleobj = 0;
-        vecup[] = {0,0,1};
+        vecup[] = {0.000105774,2.92858e-008,1};
         hascrew = 1;
-        type = "Land_HBarrier_Big_F";
-        dir = -84.6983;
+        type = "rhs_D30_vdv";
+        dir = -88.3169;
     };
     class obj_32 {
-        pos[] = {282.518,-145.77,1.21};
+        pos[] = {-22.6458,21.7848,1.21};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
         type = "Land_HBarrier_Big_F";
-        dir = -84.6983;
+        dir = -177.914;
     };
     class obj_2 {
-        pos[] = {243.267,-135.797,1.19346};
+        pos[] = {-6.05403,-2.21938,0.00143909};
         issimpleobj = 0;
-        vecup[] = {-7.85198e-009,-1.38161e-009,1};
+        vecup[] = {0,0,1};
         hascrew = 1;
-        type = "RHS_AGS30_TriPod_VDV";
-        dir = -339.73;
+        type = "rhs_vdv_machinegunner_assistant";
+        dir = -179.294;
     };
     class obj_19 {
-        pos[] = {259.63,-108.351,1.21};
+        pos[] = {0.969623,-22.162,1.21};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
         type = "Land_HBarrier_Big_F";
-        dir = -84.051;
+        dir = -177.8;
     };
     class obj_26 {
-        pos[] = {283.08,-137.148,1.21};
+        pos[] = {-22.9176,-15.2804,1.46987};
         issimpleobj = 0;
-        vecup[] = {0,0,1};
+        vecup[] = {-1.96223e-007,0.000105686,1};
         hascrew = 1;
-        type = "Land_HBarrier_Big_F";
-        dir = -84.7526;
+        type = "rhs_D30_vdv";
+        dir = -178.743;
     };
     class obj_33 {
-        pos[] = {232.843,-103.782,1.21};
+        pos[] = {-22.7912,-22.0339,1.21};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
         type = "Land_HBarrier_Big_F";
-        dir = -174.749;
+        dir = -179.006;
+    };
+    class obj_40 {
+        pos[] = {-34.0652,8.26859,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_Big_F";
+        dir = -87.9169;
     };
     class obj_3 {
-        pos[] = {255.715,-143.694,1.86333};
+        pos[] = {-10.0359,6.53716,1.95425};
         issimpleobj = 0;
-        vecup[] = {-6.90035e-005,-0.000933147,1};
+        vecup[] = {-0.000984572,-0.00104846,0.999999};
         hascrew = 1;
-        type = "RHS_ZU23_VDV";
-        dir = -355.833;
+        type = "rhs_t90a_tv";
+        dir = -323.439;
     };
     class obj_27 {
-        pos[] = {219.932,-124.787,1.21};
+        pos[] = {18.1053,21.7193,1.21};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
         type = "Land_HBarrier_Big_F";
-        dir = -84.7526;
+        dir = -177.914;
     };
     class obj_34 {
-        pos[] = {220.695,-116.648,1.21};
+        pos[] = {-29.4295,-14.6737,1.86332};
+        issimpleobj = 0;
+        vecup[] = {-5.69806e-006,-0.00096121,0.999999};
+        hascrew = 1;
+        type = "RHS_ZU23_VDV";
+        dir = 0.99765;
+    };
+    class obj_41 {
+        pos[] = {-34.4629,-8.5405,1.21};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
         type = "Land_HBarrier_Big_F";
-        dir = -84.7526;
+        dir = -87.8626;
     };
     class obj_4 {
-        pos[] = {239.588,-139.827,0.69};
+        pos[] = {6.45561,11.0128,0.00143909};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
-        type = "Land_Cargo_House_V2_F";
-        dir = -150.579;
+        type = "rhs_vdv_junior_sergeant";
+        dir = -326.654;
     };
     class obj_28 {
-        pos[] = {283.606,-128.891,1.21};
+        pos[] = {17.699,-22.4107,1.21};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
         type = "Land_HBarrier_Big_F";
-        dir = -84.6983;
+        dir = -177.8;
     };
     class obj_35 {
-        pos[] = {273.528,-106.098,1.21};
+        pos[] = {29.8236,16.325,1.21};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
         type = "Land_HBarrier_Big_F";
-        dir = -174.749;
+        dir = -87.9169;
+    };
+    class obj_42 {
+        pos[] = {-31.0003,21.9544,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_Big_F";
+        dir = -177.8;
     };
     class obj_5 {
-        pos[] = {237.948,-126.736,0.69};
+        pos[] = {-1.00197,-12.7618,0.00143909};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
-        type = "Land_Cargo_House_V2_F";
-        dir = -92.222;
+        type = "rhs_vdv_strelok_rpg_assist";
+        dir = -134.063;
     };
     class obj_29 {
-        pos[] = {221.635,-146.954,1.21};
+        pos[] = {29.4259,-0.483602,1.21};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
         type = "Land_HBarrier_Big_F";
-        dir = -175.841;
+        dir = -87.8626;
     };
     class obj_36 {
-        pos[] = {284.168,-120.27,1.21};
+        pos[] = {29.2711,-17.3966,1.21};
         issimpleobj = 0;
         vecup[] = {0,0,1};
         hascrew = 1;
         type = "Land_HBarrier_Big_F";
-        dir = -84.7526;
+        dir = -87.8626;
+    };
+    class obj_43 {
+        pos[] = {-34.1837,16.7124,1.21};
+        issimpleobj = 0;
+        vecup[] = {0,0,1};
+        hascrew = 1;
+        type = "Land_HBarrier_Big_F";
+        dir = -87.9169;
     };
 };

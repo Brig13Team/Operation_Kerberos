@@ -51,5 +51,7 @@ private _objectsToDelete = [];
     10
 ] call CBA_fnc_waitAndExecute;
 
+[] call EFUNC(common,debug_marker_clean);
+
 ISNILS(EGVAR(mission,markerdump),[]);
 EGVAR(mission,markerdump) TILGE;
