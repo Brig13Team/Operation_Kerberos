@@ -24,3 +24,7 @@ If (isNil QGVARMAIN(rescuemarker)||{(getMarkerPos GVARMAIN(rescuemarker)) isEqua
     GVARMAIN(rescuemarker) = QGVAR(crashmarker3);
     createMarkerLocal [GVARMAIN(rescuemarker), [-10000,-10000]];
 };
+If (isNil QGVARMAIN(side)) then {
+    GVARMAIN(playerside) = west;
+    GVARMAIN(side) = east;
+};
