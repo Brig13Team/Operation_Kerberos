@@ -20,4 +20,4 @@ GVAR(next_location) = [GVAR(next_mission)] call FUNC(taskmanager_choose_location
 GVAR(task_counter)  = 0;
 GVAR(conditions)    = [];
 
-GVAR(PFH_handle) = [LINKFUNC(taskmanager_handle), DELAY, []] call CBA_fnc_addPerFrameHandler;
+GVAR(PFH_handle) = [FUNC(taskmanager_handle), DELAY, []] call CBA_fnc_addPerFrameHandler;

@@ -18,6 +18,6 @@ class DOUBLES(CfgComponent,ADDON) {
         CfgComponents[] = {"common"};
     };
     class features {
-        list = CSTRING(FEATURES_LIST);
+        HEADLESSCLIENTS = CSTRING(FEATURES_HEADLESSCLIENTS);
     };
 };

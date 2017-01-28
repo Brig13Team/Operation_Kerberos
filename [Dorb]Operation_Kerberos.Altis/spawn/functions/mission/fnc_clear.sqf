@@ -16,6 +16,6 @@
 _this params [["_centerposition",[],[[]]],["_parameter",[]]];
 _parameter params [["_distance",500,[0]]];
 
-[_centerposition,5,_distance] call FUNC(spawnGroup_defence);
+[_centerposition,4,_distance] call FUNC(spawnGroup_defence);
 
 []

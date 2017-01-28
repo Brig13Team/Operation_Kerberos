@@ -21,7 +21,7 @@ private _distance = getNumber(missionConfigFile >> "missions_config" >> "main" >
 
 [_position,"clear",_distance] call EFUNC(spawn,createMissionTarget);
 
-private _clearradius = getNumber(missionConfigFile >> "missions_config" >> "main" >> "clear" >> "radius");
+private _clearradius = getNumber(missionConfigFile >> "missions_config" >> "main" >> "clear" >> "clearradius");
 private _unitamount = getNumber(missionConfigFile >> "missions_config" >> "main" >> "clear" >> "unitamount");
 
 [QFUNC(mainmission_clear_cond),[_position,_clearradius,_unitamount]]

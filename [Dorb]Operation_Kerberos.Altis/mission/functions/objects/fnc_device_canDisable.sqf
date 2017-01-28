@@ -7,4 +7,4 @@
 */
 #include "script_component.hpp"
 _this params ["_target"];
-_target getVariable [QGVAR(active),false];
+_target getVariable [QGVAR(isActive),false];

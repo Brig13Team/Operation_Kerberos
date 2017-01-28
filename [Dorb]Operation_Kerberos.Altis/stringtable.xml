@@ -227,11 +227,11 @@
             <German>EMP deaktivieren</German>
         </Key>
         <!-- hostages -->
-        <Key ID="STR_DORB_MISSION_HOSTAGES_DESC">
+        <Key ID="STR_DORB_MISSION_HOSTAGE_DESC">
 
             <German>Der Feind hat einige unserer Wissenschaftler gefangen genommen. Befreien sie diese und bringen sie sie zurück in Sicherheit</German>
         </Key>
-        <Key ID="STR_DORB_MISSION_HOSTAGES_TITLE">
+        <Key ID="STR_DORB_MISSION_HOSTAGE_TITLE">
 
             <German>Gefangene befreien</German>
         </Key>

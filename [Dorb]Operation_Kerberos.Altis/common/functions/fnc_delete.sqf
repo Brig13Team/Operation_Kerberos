@@ -16,8 +16,7 @@ switch (typeName _delete) do {
     };
     case "OBJECT" : {
         If (vehicle _delete != _delete) then {
-            unassignVehicle (vehicle _delete);
-            _delete setPos [0,0,0];
+            unassignVehicle _delete;
         }else{
             if ({_x != _delete} count (crew _delete) > 0) then {
                 (crew _delete) call EFUNC(COMPONENT,delete);;

@@ -13,6 +13,10 @@
  */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
+#ifndef DELAY
+    #define DELAY 30
+#endif
+
 
 private _x2 = _x;
 {
@@ -21,6 +25,7 @@ private _x2 = _x;
     // private _taskNumber = _x select 2;
 
     private _ret  = _args call (missionNamespace getVariable [_func,{}]);
+    TRACEV_3(_ret,_args,_func);
     if (_ret in ["Succeeded","Canceled","Failed"]) then {
         ((+_x) + [_ret]) spawn {
             _this params ["_func","_args","_taskNumber","_state"];

@@ -25,7 +25,7 @@ class GVAR(unitlists) {
     };
     class base_east : base {
         class mission: mission {
-            prototyp[] = {"B_MBT_01_TUSK_F","B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F"};
+            prototype[] = {"B_MBT_01_TUSK_F","B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F"};
             commander[] = {"rhs_vdv_officer"};
             hq_mobile[] = {"rhs_gaz66_r142_vdv"};
         };

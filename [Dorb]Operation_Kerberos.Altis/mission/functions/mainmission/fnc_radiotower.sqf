@@ -28,10 +28,10 @@ private _objects = [_position,"radiotower",[_radius,_amount]] call EFUNC(spawn,c
 
 {
     _x setdamage 0;
-    _unit setVariable [GVAR(isAlive),true];
+    _x setVariable [QGVAR(isAlive),true];
     _x addEventHandler ["HandleDamage", LINKFUNC(objects_onHandleDamageC4)];
 } forEach _objects;
 
 GVAR(tower_destroyed) = 0;
 
-[QFUNC(mainmission_radiotower_cond),_objects]
+[QFUNC(mainmission_radiotower_cond),[_objects]]

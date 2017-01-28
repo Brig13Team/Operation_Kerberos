@@ -26,5 +26,5 @@ private _objects = [_position,"scarab",_radius] call EFUNC(spawn,createMissionTa
 
 GVAR(scarab_timer) = CBA_missionTime + 60 * 60;
 GVAR(scarab_waiting) = true;
-
-[QFUNC(mainmission_scarab_cond),[_objects]]
+If !(IS_ARRAY(_objects)) then {_objects = [_objects]};
+[QFUNC(mainmission_scarab_cond),_objects]

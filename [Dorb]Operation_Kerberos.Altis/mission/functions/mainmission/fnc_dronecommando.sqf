@@ -28,4 +28,4 @@ private _objects = [_position,"dronecommando",[_radius,_amount]] call EFUNC(spaw
 
 GVAR(tower_destroyed) = 0;
 
-[QFUNC(mainmission_dronecommando_cond),_objects]
+[QFUNC(mainmission_dronecommando_cond),[_objects]]

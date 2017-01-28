@@ -2,38 +2,41 @@
  *  Author: Dorbedo
  *
  *  Description:
- *      spawns the capture-targets
+ *      spawns the hostages
  *
  *  Parameter(s):
  *      0 : ARRAY - centerposition
  *
  *  Returns:
- *      ARRAY - targets
+ *      ARRAY - hostages
  *
  */
 #include "script_component.hpp"
 
 _this params [["_centerposition",[],[[]]],["_parameter",[]]];
-_parameter params [["_amount",1,[0]]];
-TRACEV_3(_centerposition,_parameter,_amount);
+_parameter params [["_amount",3,[0]],["_radius",150,[0]]];
+TRACEV_4(_centerposition,_parameter,_radius,_amount);
 private _targets = [];
 
-for "_i" from 1 to _amount do {
-    private _targetPositions = ([_centerposition,"capture"] call FUNC(createMissionHouse));
+for "_i" from 0 to _amount do {
+    private _targetPositions = ([_centerposition,"hostage"] call FUNC(createMissionHouse));
     private _targetPos = selectRandom _targetPositions;
-    TRACEV_2(_targetPositions,_targetPos);
-    private _obj = ["capture"] call FUNC(getMissionObject);
 
-    private _group = createGroup GVARMAIN(side);
+    private _obj = ["hostage"] call FUNC(getMissionObject);
     private _spawnPos =+ _targetPos;
     _spawnPos resize 3;
+    private _group = createGroup civilian;
     private _curTarget = _group createUnit [_obj, _spawnPos, [], 0, "CAN_COLLIDE"];
-    _curTarget setPosASL _targetPos;
+    _curTarget setPosASL _spawnPos;
     private _spawnDir = random (360);
     _curTarget setDir _spawnDir;
 
 
-    _curTarget allowFleeing 0;
+    _curTarget setVariable [QEGVAR(mission,ISTARGET),true];
+    removeAllAssignedItems _curTarget;
+    removeAllWeapons _curTarget;
+    removeBackpack _curTarget;
+    [_curTarget,true] call ace_captives_fnc_setHandcuffed;
 
     If !(isNil QEFUNC(headquarter,registerPOI)) then {
         [_curTarget] call EFUNC(headquarter,registerPOI);

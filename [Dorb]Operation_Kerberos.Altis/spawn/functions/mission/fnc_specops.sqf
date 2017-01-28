@@ -15,7 +15,7 @@
 
 _this params [["_centerposition",[],[[]]],["_parameter",[]]];
 _parameter params [["_distance",500,[0]]];
-
-[_centerposition,5,_distance] call FUNC(spawnGroup_defence);
+TRACEV_3(_centerposition,_parameter,_distance);
+[_centerposition,4,_distance] call FUNC(spawnGroup_defence);
 
 []

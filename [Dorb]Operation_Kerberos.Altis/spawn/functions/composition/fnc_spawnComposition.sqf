@@ -94,7 +94,7 @@ private _fnc_spawnRelObj = {
         private ["_curObj"];
         If (_curType == "Land_CargoBox_V1_F") then {
             // the object is a Mission target
-            _objectives pushBack _curPos;
+            _objectives pushBack _spawnPos;
         }else{
             If ((_curType isKindOf "CAManBase")) then {
                 If (isNull _group) then {_group = createGroup GVARMAIN(side);};
@@ -183,7 +183,7 @@ private _allClasses = configProperties [_config, "isClass(_x)", true];
     private "_curObj";
     If (_curType == "Land_CargoBox_V1_F") then {
         // the object is a Mission target
-        _objectives pushBack _curPos;
+        _objectives pushBack _spawnPos;
     }else{
         If ((_curType isKindOf "CAManBase")) then {
             If (isNull _group) then {_group = createGroup GVARMAIN(side);};

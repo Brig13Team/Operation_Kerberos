@@ -16,12 +16,12 @@
     "Land_Laptop_unfolded_F",
     "Land_SatellitePhone_F",
     "Land_MobilePhone_smart_F"
-] call FUNC(initACEAction_Intel);
+] call FUNC(objects_initACEAction_Intel);
 
 [
     "rhs_typhoon_vdv",
     "Land_Device_assembled_F"
-] call FUNC(initACEAction_Device);
+] call FUNC(objects_initACEAction_Device);
 
 
 // Mission Events

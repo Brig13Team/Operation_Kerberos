@@ -44,6 +44,8 @@ PREPS(objects,initACEAction_Device);
 PREPS(objects,initACEAction_Intel);
 PREPS(objects,nuke);
 PREPS(objects,onCacheDestroyed);
+PREPS(objects,onCommanderCaptured);
+PREPS(objects,onCommanderKilled);
 PREPS(objects,onEarthquake);
 PREPS(objects,onEMP);
 PREPS(objects,onHandleDamageC4);
@@ -52,6 +54,7 @@ PREPS(objects,onHostageRescued);
 PREPS(objects,onIntelFound);
 PREPS(objects,onPrototypeKilled);
 PREPS(objects,onPrototypeReturned);
+PREPS(objects,onWeaponCacheDestroyed);
 
 PREPS(sidemission,clearArea);
 PREPS(sidemission,targetsAlive);

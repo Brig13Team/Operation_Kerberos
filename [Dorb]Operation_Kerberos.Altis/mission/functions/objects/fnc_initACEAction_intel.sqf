@@ -15,7 +15,7 @@
         GVAR(intel_init_security) pushback _x;
         private _action = [
             QGVAR(intel_take),
-            localize LSTRING(INTEL_GRAB),
+            localize LSTRING(OBJECTS_INTEL_GRAB),
             "",
             {
                 [QGVAR(intel_found),[_target,profileName]] call CBA_fnc_globalEvent;

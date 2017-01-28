@@ -36,4 +36,4 @@ private _objects = [_position,"prototype",[_radius,_amount]] call EFUNC(spawn,cr
 GVAR(rescued_prototype) = 0;
 GVAR(killed_prototype) = 0;
 
-[QFUNC(mainmission_prototype_cond),_objects]
+[QFUNC(mainmission_prototype_cond),[count _objects]]

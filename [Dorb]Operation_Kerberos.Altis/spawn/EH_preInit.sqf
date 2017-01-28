@@ -67,7 +67,7 @@ PREPS(mission,clear);
 PREPS(mission,device);
 PREPS(mission,dronecommando);
 PREPS(mission,emp);
-PREPS(mission,hostages);
+PREPS(mission,hostage);
 PREPS(mission,intel);
 PREPS(mission,prototype);
 PREPS(mission,radiotower);

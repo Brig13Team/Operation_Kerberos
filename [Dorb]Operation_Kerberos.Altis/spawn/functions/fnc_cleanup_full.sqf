@@ -47,10 +47,7 @@ GVAR(cleanUpDump) = [];
 
 [
     {
-        _this params ["_objectsToDelete"];
-        {
-            _x call EFUNC(common,delete);
-        }forEach _objectsToDelete;
+        _this call EFUNC(common,delete);
     },
     [_objectsToDelete],
     10

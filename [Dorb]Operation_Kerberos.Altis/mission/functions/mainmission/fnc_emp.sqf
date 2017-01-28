@@ -25,4 +25,5 @@ GVAR(last_emp) = CBA_missionTime;
 
 private _intervall = getNumber(missionConfigFile >> "missions_config" >> "main" >> "emp" >> "intervall");
 _intervall = _intervall * 60;
+
 [QFUNC(mainmission_emp_cond),[_obj,_intervall]]

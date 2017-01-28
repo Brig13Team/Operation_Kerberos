@@ -1330,7 +1330,6 @@ class composition_37414 {
         type = "Box_East_AmmoOrd_F";
         dir = -87.3008;
     };
-    isobjective = 1;
     class obj_1 {
         pos[] = {-0.029619,2.48755,2.06994};
         issimpleobj = 0;
@@ -1372,6 +1371,7 @@ class composition_37414 {
         dir = -9.30315;
     };
     dronecommando=1;
+    isobjective = 0;
 };
 class composition_80947 {
     class obj_6 {

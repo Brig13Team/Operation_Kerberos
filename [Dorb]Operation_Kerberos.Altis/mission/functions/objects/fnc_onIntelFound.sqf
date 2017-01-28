@@ -13,15 +13,14 @@
  */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-
-If (isHeadless) exitWith {};
-
+TRACE("INTEL FOUND");
 _this params ["_intel","_caller"];
 
 If (isServer) then {
     GVAR(found_intel) = GVAR(found_intel) + 1;
     deleteVehicle _intel;
-}else{
+};
+If (hasInterface) then {
     [
         localize LSTRING(INTEL_FOUND_MSG_TITLE),
         format [localize LSTRING(INTEL_FOUND_MSG),_caller]

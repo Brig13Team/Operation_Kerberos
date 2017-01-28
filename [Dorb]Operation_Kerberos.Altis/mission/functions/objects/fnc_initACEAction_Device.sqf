@@ -8,11 +8,11 @@
 #include "script_component.hpp"
 
 {
-    If (isNil QGVAR(intel_init_security)) then {
-        GVAR(intel_init_security) = [];
+    If (isNil QGVAR(intel_device_security)) then {
+        GVAR(intel_device_security) = [];
     };
-    If !(_x in GVAR(intel_init_security)) then {
-        GVAR(intel_init_security) pushback _x;
+    If !(_x in GVAR(intel_device_security)) then {
+        GVAR(intel_device_security) pushback _x;
         private _action = [
             QGVAR(device_disable),
             localize LSTRING(OBJECTS_DEVICE_DISABLE),

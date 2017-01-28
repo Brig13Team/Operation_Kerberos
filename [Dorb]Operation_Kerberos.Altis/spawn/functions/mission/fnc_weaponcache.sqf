@@ -16,7 +16,7 @@
 
 _this params [["_centerposition",[],[[]]],["_parameter",[]]];
 _parameter params [["_amount",3,[0]]];
-
+TRACEV_3(_centerposition,_parameter,_amount);
 /*
  *  Create the target
  */
@@ -30,8 +30,12 @@ for "_i" from 0 to _amount do {
     private _obj = ["weaponcache"] call FUNC(getMissionObject);
 
     TRACEV_2(_centerpos,_obj);
-    private _curTarget = createVehicle [_obj, _targetPos,[], 0, "CAN_COLLIDE"];
-
+    private _spawnPos =+ _targetPos;
+    _spawnPos resize 3;
+    private _curTarget = createVehicle [_obj, _spawnPos,[], 0, "CAN_COLLIDE"];
+    _curTarget setPosASL _spawnPos;
+    private _spawnDir = random (360);
+    _curTarget setDir _spawnDir;
     If !(isNil QEFUNC(headquarter,registerPOI)) then {
         [_curTarget] call EFUNC(headquarter,registerPOI);
     };

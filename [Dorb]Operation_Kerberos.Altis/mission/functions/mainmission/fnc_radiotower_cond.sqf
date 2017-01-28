@@ -15,11 +15,9 @@
 #include "script_component.hpp"
 
 _this params [["_towers",[],[[]]]];
-
-private _living_towers = {
-    (alive _x)||
-    (_x getVariable[QGVAR(isAlive),true])
-} count _towers;
-
+TRACEV_1(_towers);
+private _living_towers = {alive _x} count _towers;
+private _testVar = _towers select {alive _x};
+TRACEV_2(_living_towers,_testVar);
 If (_living_towers < 1) exitWith { "Succeeded" };
 ""
