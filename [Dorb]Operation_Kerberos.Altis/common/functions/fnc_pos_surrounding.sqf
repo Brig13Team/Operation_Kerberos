@@ -5,9 +5,9 @@
     returns Array with Positions sourrounding a centerpos
 
     Parameter(s):
-        0 :    ARRAY    - Centerpos
-        1 : SCALAR     - Radius
-        2 : SCALAR    - Step        
+        0 : ARRAY   - Centerpos
+        1 : SCALAR  - Radius
+        2 : SCALAR  - Step        
 
     Returns:
     ARRAY : Array with Positions

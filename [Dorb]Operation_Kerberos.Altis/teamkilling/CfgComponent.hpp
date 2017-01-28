@@ -14,4 +14,7 @@ class DOUBLES(CfgComponent,ADDON) {
         CfgPatches[] = {"ace_common"};
         CfgComponents[] = {"main"};
     };
+    class features {
+        logging = CSTRING(FEATURES_LOGGING);
+    };
 };

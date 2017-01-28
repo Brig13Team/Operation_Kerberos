@@ -1,20 +1,24 @@
 /*
-    Author: Dorbedo
-    
-    Description:
-        returns if fdc is ready
-    
-    Parameter(s):
-        0 : OBJECT    - Artillery to register
-    
-*/
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      returns if the fdc can use supporttype
+ *
+ *  Parameter(s):
+ *      0 : STRING - Supporttype
+ *
+ *  Returns:
+ *      BOOL - can use supporttype
+ *
+ */
 #include "script_component.hpp"
-SCRIPT(ready);
-_this params ["_type"];
-private _return = switch (_type) do {
-    case "artillery" : {(count GVAR(fdc_artilleries)>0)};
-    case "mortar" : {(count GVAR(fdc_mortars)>0)};
-    case "rocket" : {(count GVAR(fdc_rocket)>0)};
-    default {((count GVAR(fdc_artilleries)>0)||(count GVAR(fdc_mortars)>0)||(count GVAR(fdc_rocket)<0))};
+
+_this params [["_supporttype","",[""]]];
+
+switch (_supporttype) do {
+    case "artillery";
+    case "artilleries" : {(count (HASH_GET(GVAR(FDC),"artilleries") select {alive _x})) > 0};
+    case "mortars" : {(count (HASH_GET(GVAR(FDC),"mortars") select {alive _x})) > 0};
+    case "rockets" : {(count (HASH_GET(GVAR(FDC),"rockets") select {alive _x})) > 0};
+    default {false};
 };
-_return;

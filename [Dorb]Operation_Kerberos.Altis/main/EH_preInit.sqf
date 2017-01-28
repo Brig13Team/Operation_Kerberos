@@ -1,4 +1,7 @@
 #include "script_component.hpp"
+
+COMPILE_CHECK;
+
 ADDON = false;
 
 TRIPLES(PREFIX,makro,iscasvehicle) = {
@@ -12,25 +15,24 @@ TRIPLES(PREFIX,makro,iscasvehicle) = {
     false
 };
 
-PREP(debug_performance);
-PREP(userconfig);
+FUNCMAIN(recompile) = FUNCSYS(recompile);
 
+PREP(addMapToLog);
+PREP(addToFeatureList);
+PREP(addToLog);
+PREP(debug_performance);
+PREP(getComponents);
 
 PREP(HashCollector);
+PREP(HashGetKeyFromValue);
 PREP(HashCopy);
 PREP(HashCopyArray);
 PREP(HashCreate);
 PREP(HashKeys);
+PREP(HashMerge);
 PREP(HashMonitor);
 PREP(serialize);
 PREP(deserialize);
-PREP(getComponents);
-
-
-PREPS(debug,maplog);
-PREPS(debug,putinlog);
-PREPS(debug,show);
-PREPS(debug,write);
 
 ADDON = true;
 
@@ -48,7 +50,7 @@ DORB_HASH_COLLECTOR_FOUND = [];
 DORB_HASH_COLLECTOR_IGNORE = [QUOTE(DORB_HASH_POOL),QUOTE(DORB_HASH_TO_DELETE),QUOTE(DORB_HASH_CREATED_NEW),QUOTE(DORB_HASH_CREATED),QUOTE(DORB_HASH_COLLECTOR_HANDLER),QUOTE(DORB_HASH_COLLECTOR_NEXTEXEC),QUOTE(DORB_HASH_COLLECTOR_NAMESPACES),QUOTE(DORB_HASH_COLLECTOR_VARIABLES),QUOTE(DORB_HASH_COLLECTOR_ARRAYS),QUOTE(DORB_HASH_COLLECTOR_FOUND),QUOTE(DORB_HASH_COLLECTOR_ID),QUOTE(DORB_HASH_COLLECTOR_IGNORE)] apply {toLower _x};
 
 
-for "_i" from 1 to 5000 do {
+for "_i" from 1 to 500 do {
     DORB_HASH_SYS_CREATE(_newHash);
 };
 

@@ -1,6 +1,5 @@
 /*
     Author: Dorbedo
-
     Description:
     Creates Mission "Return to Base".
 
@@ -12,10 +11,9 @@
     BOOL
 */
 #include "script_component.hpp"
-SCRIPT(rtb);
-params["_position", "_taskID"];
-private["_position_home", "_player", "_tasks", "_data", "_taskVar"];
-_position_home = getMarkerPos GVARMAIN(RESPAWNMARKER);
+_this params["_position", "_taskID"];
+private ["_position_home", "_player", "_tasks", "_data", "_taskVar"];
+private _position_home = getMarkerPos GVARMAIN(RESPAWNMARKER);
 
 //////////////////////////////////////////////////
 ////// Nachricht anzeigen                      /////
@@ -29,27 +27,40 @@ If (taskcancel) then {
     sleep 30;
 };
 
-[QEGVAR(message),[LSTRING(RTB),LSTRING(RTB_START_1)]] call CBA_fnc_globalEvent;
+[LSTRING(RTB),[LSTRING(RTB_START_1)],"data\icon\icon_base.paa",false] call EFUNC(interface,disp_info_global);
 
 //////////////////////////////////////////////////
 ////// Nebenmissionen beenden                 /////
 //////////////////////////////////////////////////
+["MISSION_ENDSEC",_taskID] call CBA_fnc_localEvent;
+
+/*
 _sideMission = missionNamespace getVariable [QGVAR(current_sidemission),""];
 if (!(_sideMission isEqualTo "")) then {
     [_sideMission,"CANCELED",false] call BIS_fnc_taskSetState;
     missionNamespace setVariable [QGVAR(current_sidemission),""];
 };
+*/
 
 //////////////////////////////////////////////////
 ////// Überprüfung + Ende                      /////
 //////////////////////////////////////////////////
+private _taskarray = [
+    15,
+    "",
+    {
+        private _allPlayers = call EFUNC(common,players);
+        private _a = {(_x distance (_this select 0)) < 300} count _allPlayers;
+        If (_a == (count _allPlayers)) then {true}else{false};
+    },
+    [_position_home],
+    {true},
+    {
+        [LSTRING(RTB),[LSTRING(RTB_FINISHED),LSTRING(RTB_FINISHED2)],"data\icon\icon_base.paa",false] call EFUNC(interface,disp_info_global);
+        [_position, 2000] spawn EFUNC(common,cleanup_big);
+    }
+];
 
-#define INTERVALL 15
-#define TASK ""
-#define CONDITION {_a=0;{If (_x distance (_this select 0) < 300) then {_a=_a+1;};} forEach playableUnits;If (_a == (count playableUnits)) then {true}else{false};}
-#define CONDITIONARGS [_position_home]
-#define SUCESSCONDITION {true}
-#define ONSUCESS {LOG('Alle zurückgekehrt');[LSTRING(RTB_FINISHED),LSTRING(RTB_FINISHED2)] call EFUNC(gui,globalmessage);[_position, 2000] spawn EFUNC(common,cleanup_big);}
-[INTERVALL,TASK,CONDITION,CONDITIONARGS,SUCESSCONDITION,ONSUCESS] call FUNC(taskhandler);
-
-LOG("Exit RTB");
+_taskarray call FUNC(taskhandler);
+[LSTRING(RTB),[LSTRING(RTB_FINISHED),LSTRING(RTB_FINISHED2)],"data\icon\icon_base.paa",false] call EFUNC(interface,disp_info_global);
+[_position, 2000] spawn EFUNC(common,cleanup_big);

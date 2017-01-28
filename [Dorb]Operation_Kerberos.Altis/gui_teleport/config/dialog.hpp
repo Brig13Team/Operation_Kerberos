@@ -5,7 +5,7 @@
 #define CBA_OFF
 #include "script_component.hpp"
 
-class APP(dialog) {
+class APP(dialog) : RSC(tabletBase) {
     idd = IDD_TELEPORT_DLG;
     name = "Teleporter";
 
@@ -15,15 +15,20 @@ class APP(dialog) {
     fadeout = 0;
     duration = 1000000;
     objects[] = {};
-    onLoad = QUOTE(uiNamespace setVariable [ARR_2('GVAR(teleportMenu)', _this select 0)]; [ARR_2('GVAR(teleportMenu)',true)] call EFUNC(gui,blur); [] spawn FUNC(onLoad););
-    onUnload = QUOTE([ARR_2('GVAR(teleportMenu)',false)] call EFUNC(gui,blur););
+    onLoad = QUOTE(uiNamespace setVariable [ARR_2('GVAR(teleportMenu)', _this select 0)]; [ARR_2('GVAR(teleportMenu)',true)] call EFUNC(gui,blur); _this spawn FUNC(onLoad););
+    onUnload = QUOTE([ARR_2('GVAR(teleportMenu)',false)] call EFUNC(gui,blur);_this call EFUNC(gui_tablet,OnUnLoad););
 
     controlsBackground[] = {
+        background_Picture,
+        background_Display,
+        background_Header,
         teleport_CenterBackground,
         teleport_HeaderBackground
 
     };
     controls[] =    {
+        clock,
+        notifications,
         teleport_bttn1,
         teleport_bttn2,
         teleport_bttn3,

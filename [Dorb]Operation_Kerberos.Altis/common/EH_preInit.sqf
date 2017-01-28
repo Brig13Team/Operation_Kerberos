@@ -1,14 +1,17 @@
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 ADDON = false;
 
 PREP(arithmeticMean);
 
+PREP(create_location);
 PREP(convertAngleToRotMat);
 PREP(convertRotMatToAngle);
 
 PREP(debug_marker_clean);
 PREP(debug_marker_create);
+PREP(delete);
 
 PREP(get_buildings);
 PREP(get_cfg_subclasses);
@@ -29,12 +32,14 @@ PREP(pos_random);
 PREP(pos_relative);
 PREP(pos_square);
 PREP(pos_surrounding);
+PREP(pos_randomFlatEmpty);
 
 PREP(rotateVectorXY);
 
 PREP(sel_array_weighted);
 PREP(setRollPitchYaw);
 PREP(setRotMat);
+PREP(setCfgLocations);
 
 PREPS(matrix,clear);
 PREPS(matrix,create);

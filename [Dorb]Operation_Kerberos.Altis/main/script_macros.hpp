@@ -26,32 +26,10 @@ Author:
     #define CSTRING(var1) QUOTE(TRIPLES($STR,ADDON,var1))
     #define ECSTRING(var1,var2) QUOTE(TRIPLES($STR,DOUBLES(PREFIX,var1),var2))
     #define FUNC(var1) TRIPLES(ADDON,fnc,var1)
+    #define QFUNC(var1) QUOTE(FUNC(var1))
     #define FUNCMAIN(var1) TRIPLES(PREFIX,fnc,var1)
     #define EFUNC(var1,var2) TRIPLES(DOUBLES(PREFIX,var1),fnc,var2)
-    #define INCLUDE_PREINIT(var1) \
-        class DOUBLES(PREFIX,var1) {\
-            init = QUOTE(call compile ('_fnc_scriptName = ''TRIPLES(PREFIX,var1,preinit)''; scriptName _fnc_scriptName;' + preProcessFileLineNumbers 'var1\XEH_PreInit.sqf')); \
-        };
-    #define INCLUDE_POSTINIT(var1) \
-        class DOUBLES(PREFIX,var1) {\
-            init = QUOTE(call compile ('_fnc_scriptName = ''TRIPLES(PREFIX,var1,postinit)''; scriptName _fnc_scriptName;' + preProcessFileLineNumbers 'var1\XEH_PostInit.sqf')); \
-        };
-    #define INCLUDE_SERVERPREINIT(var1) \
-        class TRIPLES(PREFIX,var1,server) {\
-            Serverinit = QUOTE(call compile ('_fnc_scriptName = ''TRIPLES(PREFIX,var1,serverpreinit)''; scriptName _fnc_scriptName;' + preProcessFileLineNumbers 'var1\XEH_ServerPreInit.sqf')); \
-        };
-    #define INCLUDE_SERVERPOSTINIT(var1) \
-        class TRIPLES(PREFIX,var1,server) {\
-            Serverinit = QUOTE(call compile ('_fnc_scriptName = ''TRIPLES(PREFIX,var1,serverpostinit)''; scriptName _fnc_scriptName;' + preProcessFileLineNumbers 'var1\XEH_ServerPostInit.sqf')); \
-        };
-    #define INCLUDE_CLIENTPREINIT(var1) \
-        class TRIPLES(PREFIX,var1,client) {\
-            Clientinit = QUOTE(call compile ('_fnc_scriptName = ''TRIPLES(PREFIX,var1,clientpreinit)''; scriptName _fnc_scriptName;' + preProcessFileLineNumbers 'var1\XEH_ClientPreInit.sqf')); \
-        };
-    #define INCLUDE_CLIENTPOSTINIT(var1) \
-        class TRIPLES(PREFIX,var1,client) {\
-            Clientinit = QUOTE(call compile ('_fnc_scriptName = ''TRIPLES(PREFIX,var1,clientpreinit)''; scriptName _fnc_scriptName;' + preProcessFileLineNumbers 'var1\XEH_ClientPostInit.sqf')); \
-        };
+    #define QEFUNC(var1,var2) QUOTE(EFUNC(var1,var2))
     #define GVAR(var1) DOUBLES(ADDON,var1)
     #define GVARMAIN(var1) DOUBLES(PREFIX,var1)
     #define QGVAR(var1) QUOTE(GVAR(var1))
@@ -67,17 +45,24 @@ Author:
     #define ARR_7(ARG1,ARG2,ARG3,ARG4,ARG5,ARG6,ARG7) ARG1, ARG2, ARG3, ARG4, ARG5, ARG6, ARG7
     #define ARR_8(ARG1,ARG2,ARG3,ARG4,ARG5,ARG6,ARG7,ARG8) ARG1, ARG2, ARG3, ARG4, ARG5, ARG6, ARG7, ARG8
 
-    #define GUI_DIM(Var1) (Var1*0.9*(safeZoneW min safeZoneH))
-    #define GUI_DIM2(Var1) (0.5-(safeZoneW min safeZoneH)*(0.45+0.09*Var1))
-    #define GUI_W(Var1) GUI_DIM(Var1)
-    #define GUI_H(Var1) GUI_DIM(Var1)
-    #define GUI_X(Var1) GUI_DIM2(Var1)
-    #define GUI_Y(Var1) GUI_DIM2(Var1)
-    #define GUI_XW(Var1,Var2) ( GUI_DIM2(Var1) + GUI_DIM(Var2) )
-    #define GUI_YH(Var1,Var2) ( GUI_DIM2(Var1) + GUI_DIM(Var2) )
-
     #undef CBA_OFF
 #endif
+
+/* Temp Fix for RETNIL */
+#define RETNIL(VARIABLE) (If (isNil{VARIABLE}) then {nil}else{VARIABLE})
+#define RETDEF(VARIABLE,DEFAULT_VALUE) (If (isNil{VARIABLE}) then {DEFAULT_VALUE}else{VARIABLE})
+
+/*
+    test = ([_apple,NIL] select (isNil{_apple}));
+    test = (If (isNil{_apple}) then {nil}else{_apple});
+
+
+    EDIT:
+Speed:
+_juice = (If (isNil{_apple}) then {nil}else{_apple}); // 0.0028 msec
+_juice = ([_apple,nil] select (isNil{_apple})); // 0.0022 msec
+_juice = ([_apple] param [0]) // 0.0015 msec
+*/
 /* -------------------------------------------
 Macro: PAAPATH(VAR)
     reurn the path of the picture
@@ -89,7 +74,7 @@ Author:
     Dorbedo
 ------------------------------------------- */
 #define PAAPATH(VAR1) data\##VAR1.paa
-#define QPICPATH(VAR1) QUOTE(PAAPATH(VAR1))
+#define QPAAPATH(VAR1) QUOTE(PAAPATH(VAR1))
 #define EPAAPATH(VAR1,VAR2) data\##VAR1##\##VAR2##.paa
 #define QEPAAPATH(VAR1,VAR2) QUOTE(EPAAPATH(VAR1,VAR2))
 
@@ -106,8 +91,8 @@ Author:
 #define COMPILE_FIRST(VAR) {parsingNamespace setVariable [ARR_2('TRIPLES(PREFIX,SYSTEM,VAR)',compile getText(missionConfigFile>>'system'>>'VAR'))];parsingNamespace getVariable 'TRIPLES(PREFIX,SYSTEM,VAR)';}
 #define COMPILE_SYS_FIRST {parsingNamespace setVariable [ARR_2('TRIPLES(PREFIX,SYSTEM,compile)',compile getText(missionConfigFile>>'system'>>'compile'))];parsingNamespace setVariable [ARR_2('TRIPLES(PREFIX,SYSTEM,compile_sys)',compile getText(missionConfigFile>>'system'>>'compile_sys'))];parsingNamespace getVariable 'TRIPLES(PREFIX,SYSTEM,compile)';}
 #define COMPILE_SYS call (parsingNamespace getVariable [ARR_2('TRIPLES(PREFIX,SYSTEM,compile)',COMPILE_SYS_FIRST)])
-#define FUNCSYS(VAR) (parsingNamespace getVariable [ARR_2('TRIPLES(PREFIX,SYSTEM,VAR)',COMPILE_FIRST(VAR))])
-
+#define FUNCSYS(VAR) {call (parsingNamespace getVariable [ARR_2('TRIPLES(PREFIX,SYSTEM,VAR)',COMPILE_FIRST(VAR))]);}
+#define COMPILE_CHECK ([] call compile getText(missionConfigFile>>'system'>>'compile_check'))
 
 /* -------------------------------------------
 Macro: GUI_*
@@ -130,13 +115,12 @@ Author:
 ------------------------------------------- */
 #define GUI_DIM(Var1) (Var1*0.9*(safeZoneW min safeZoneH))
 #define GUI_DIM2(Var1) (0.5-(safeZoneW min safeZoneH)*(0.45+0.09*Var1))
-
 #define GUI_W(Var1) GUI_DIM(Var1)
 #define GUI_H(Var1) GUI_DIM(Var1)
 #define GUI_X(Var1) GUI_DIM2(Var1)
 #define GUI_Y(Var1) GUI_DIM2(Var1)
-#define GUI_XW(Var1,Var2) GUI_DIM2(Var1)+GUI_DIM(Var2)
-#define GUI_YH(Var1,Var2) GUI_DIM2(Var1)+GUI_DIM(Var2)
+#define GUI_XW(Var1,Var2) ( GUI_DIM2(Var1) + GUI_DIM(Var2) )
+#define GUI_YH(Var1,Var2) ( GUI_DIM2(Var1) + GUI_DIM(Var2) )
 /* -------------------------------------------
 Macro: CHECK()
     Checks Condition - Exit if true
@@ -230,13 +214,17 @@ Author:
     scriptName _fnc_scriptName
 #endif
 
-
-#define INCLUDE_HEADER 0
-#ifdef DEBUG_MODE_NORMAL
+#ifndef INCLUDE_HEADER
     #define INCLUDE_HEADER 1
 #endif
-#ifdef DEBUG_MODE_FULL
+#ifdef DEBUG_MODE_NORMAL
     #define INCLUDE_HEADER 2
+#endif
+#ifdef DEBUG_MODE_FULL
+    #define INCLUDE_HEADER 3
+#endif
+#ifdef DEBUG_MODE_OFF
+    #define INCLUDE_HEADER 0
 #endif
 #define PATHTO_SYS_LONG(var1,var2,var3,var4) ##var1\##var2\##var3\##var4.sqf
 /* -------------------------------------------
@@ -477,32 +465,269 @@ Author:
 Macro: HASH-System
     Hash system - Original from ACRE2,
     was modified to make it fit with CBA and own system
+    additional hash macros were created
 
 Author:
     Dorbedo
 Original Author:
     ACRE2(https://github.com/IDI-Systems/acre2)
 ------------------------------------------- */
+/* -------------------------------------------
+Macro: HASH_CREATE
+    Creates a new hash
 
+Parameters:
+    none
+
+Example:
+    _hash = HASH_CREATE;
+
+Author:
+    ACRE2-Team
+------------------------------------------- */
 #define HASH_CREATE (call EFUNC(main,HashCreate))
+/* -------------------------------------------
+Macro: HASH_DELETE(hash)
+    deletes a hash
+    the hash is not deleted instant. it' possible to receive the values for a short timeperiod
+
+Parameters:
+    0 : HASH
+
+Example:
+    HASH_DELETE(_hash);
+
+Author:
+    ACRE2-Team
+------------------------------------------- */
 #define HASH_DELETE(hash) (DORB_HASH_TO_DELETE pushBack hash)
+/* -------------------------------------------
+Macro: HASH_HASKEY(hash,key)
+    checks if a hash has a defined key
+
+Parameters:
+    0 : HASH
+    1 : STRING
+
+Example:
+    If !(HASH_HASKEY(_hash,"s")) then {....};
+
+Author:
+    ACRE2-Team
+------------------------------------------- */
 #define HASH_HASKEY(hash, key) (!(isNil {hash getVariable key}))
+/* -------------------------------------------
+Macro: HASH_SET(hash, key, val)
+    sets a hash value
+
+Parameters:
+    0 : HASH
+    1 : STRING
+    2 : ANY
+
+Example:
+    HASH_SET(_hash, "status", 10);
+
+Author:
+    ACRE2-Team
+------------------------------------------- */
 #define HASH_SET(hash, key, val) (hash setVariable [key, val])
+/* -------------------------------------------
+Macro: HASH_GET(hash, key)
+    returns a value from a hash
+    can return nil
+
+Parameters:
+    0 : HASH
+    1 : STRING
+
+Example:
+    _value = HASH_GET(_hash, "key");
+
+Author:
+    ACRE2-Team
+------------------------------------------- */
 #define HASH_GET(hash, key) (hash getVariable key)
-#define HASH_GET_DEF(hash, key, default) (hash getVariable [key, default])
+/* -------------------------------------------
+Macro: HASH_GET_DEF(hash, key, default)
+    returns a value from a hash
+    use to define a default value, if the key has no value
+
+Parameters:
+    0 : HASH
+    1 : STRING
+    2 : ANY
+
+Example:
+    _hash = HASH_GET(_hash, "key", []);
+
+Author:
+    Dorbedo
+------------------------------------------- */
+#define HASH_GET_DEF(hash, key, default) ([hash getVariable key] param [0,default])
+/* -------------------------------------------
+Macro: HASH_REM(hash, key)
+    removes the key from a hash
+
+Parameters:
+    0 : HASH
+    1 : STRING
+
+Example:
+    HASH_REM(_hash, "remove");
+
+Author:
+    ACRE2-Team
+------------------------------------------- */
 #define HASH_REM(hash, key) (hash setVariable [key, nil])
+/* -------------------------------------------
+Macro: HASH_COPY(hash)
+    copys a hash into a new one
+
+Parameters:
+    0 : HASH
+
+Example:
+    _newhash = HASH_COPY(_oldhash);
+
+Author:
+    ACRE2-Team
+------------------------------------------- */
 #define HASH_COPY(hash) ([hash] call EFUNC(main,HashCopy))
+/* -------------------------------------------
+Macro: HASH_KEYS(hash)
+    returns all keys from a hash
+
+Parameters:
+    0 : HASH
+
+Example:
+    _allKeys = HASH_KEYS(_hash);
+
+Author:
+    ACRE2-Team
+------------------------------------------- */
 #define HASH_KEYS(hash) ([hash] call EFUNC(main,HashKeys))
+/* -------------------------------------------
+Macro: HASH_SERIALIZE(hash)
+
+Parameters:
+    0 : HASH
+
+Example:
+    _hash = HASH_CREATE;
+
+Author:
+    ACRE2-Team
+------------------------------------------- */
+#define HASH_SERIALIZE(HASH) ([HASH] call EFUNC(main,serialize))
+/* -------------------------------------------
+Macro: HASH_DESERIALIZE(ARRAY)
+
+Parameters:
+    0 : ARRAY (serialized hash)
+
+Example:
+    _hash = HASH_DESERIALIZE(_array);
+
+Author:
+    Dorbedo
+------------------------------------------- */
+#define HASH_DESERIALIZE(ARRAY) ([ARRAY] call EFUNC(main,deserialize))
+/* -------------------------------------------
+Macro: HASH_SIZE(HASH)
+    returns the amount of keys in a hash
+
+Parameters:
+    0 : HASH
+
+Example:
+    _size = HASH_SIZE(_hash);
+
+Author:
+    Dorbedo
+------------------------------------------- */
+#define HASH_SIZE(HASH) (count HASH_KEYS)
+/* -------------------------------------------
+Macro: HASH_ISEMPTY(HASH)
+    checks if a hash is empty
+
+Parameters:
+    0 : HASH
+
+Example:
+    IF (HASH_ISEMPTY(_hash)) then {};
+
+Author:
+    Dorbedo
+------------------------------------------- */
+#define HASH_ISEMPTY(HASH) ((count HASH_KEYS)<1)
+/* -------------------------------------------
+Macro: HASH_GETKEY(hash, value)
+    returns a key of a hash, which contaions the same value
+    returns nil if no hash is availible
+
+Parameters:
+    0 : HASH
+    1 : ANY
+
+Example:
+    _key = HASH_GETKEY(_hash, 999.9)
+
+Author:
+    Dorbedo
+------------------------------------------- */
+#define HASH_GETKEY(HASH,VALUE) ([HASH,VALUE] call EFUNC(main,HashGetKeyFromValue))
+/* -------------------------------------------
+Macro: HASH_HASVALUE(hash, value)
+    checks if a hash has the provided value
+
+Parameters:
+    0 : HASH
+    1 : ANY
+
+Example:
+    _key = HASH_HASVALUE(_hash, 999.9)
+
+Author:
+    Dorbedo
+------------------------------------------- */
+#define HASH_HASVALUE(HASH,VALUE) (!isNil{([HASH,VALUE] call EFUNC(main,HashGetKeyFromValue))})
+/* -------------------------------------------
+Macro: HASH_MERGE(hash1, hash2)
+    merges hash2 into hash1
+
+Parameters:
+    0 : HASH
+    1 : HASH
+
+Example:
+    HASH_MERGE(_hash,_otherHash);
+
+Author:
+    Dorbedo
+------------------------------------------- */
+#define HASH_MERGE(PRIMHASH,SECHASH) ([PRIMHASH,SECHASH] call EFUNC(main,HashMerge))
+/* -------------------------------------------
+Macro: HASH_CLEAR(hash)
+    clears all values of a hash
+
+Parameters:
+    0 : HASH
+
+Example:
+    HASH_CLEAR(_hash);
+
+Author:
+    Dorbedo
+------------------------------------------- */
+#define HASH_CLEAR(HASH) ({HASH setVariable [_x,nil];}forEach (allVariables HASH))
 
 #define HASHLIST_CREATELIST(keys) []
 #define HASHLIST_CREATEHASH(hashList) HASH_CREATE
 #define HASHLIST_SELECT(hashList, index) (hashList select index)
 #define HASHLIST_SET(hashList, index, value) (hashList set[index, value])
 #define HASHLIST_PUSH(hashList, value) (hashList pushBack value)
-
-#define SERIALIZE(HASH) ([HASH] call EFUNC(main,serialize))
-#define DESERIALIZE(HASH) ([HASH] call EFUNC(main,deserialize))
-
 //------Internal-------//
 #define DORB_HASH_POOL GVARMAIN(HASHPOOL)
 #define DORB_HASH_TO_DELETE GVARMAIN(HASHTODELETE)
@@ -547,3 +772,35 @@ Author:
 #define ACTIVEMOD_TFAR (isClass(configFile >> "CfgPatches" >> "task_force_radio"))
 #define ACTIVEMOD_ACRE (isClass(configFile >> "CfgPatches" >> "acre_main"))
 #define ACTIVEMOD_BW (isClass(configFile >> "CfgPatches" >> "BWA3_Tracked"))
+
+/* -------------------------------------------
+Macro: DATA_*
+    Some database macros
+
+Parameters:
+    none
+
+Example:
+
+Author:
+    Dorbedo
+------------------------------------------- */
+#define DB_SEND EFUNC(database,sendNoReturn)
+#define DB_SENDRET EFUNC(database,sendWithReturn)
+#define DB_GETSINGLE EFUNC(database,getSingleValue)
+#define DB_GET EFUNC(database,getValue)
+#define DB_TIME EFUNC(database,getTime)
+/* -------------------------------------------
+Macro: LINKFUNC()
+    recompiling helper
+
+Parameters:
+    none
+
+Example:
+
+Author:
+    Dorbedo
+------------------------------------------- */
+#define LINKFUNC(VAR1) FUNC(VAR1)
+#define LINKEFUNC(VAR1,VAR2) EFUNC(VAR1,VAR2)

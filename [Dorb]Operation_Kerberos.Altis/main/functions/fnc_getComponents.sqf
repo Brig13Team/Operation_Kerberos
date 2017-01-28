@@ -1,6 +1,5 @@
 /*
  *  Author: Dorbedo
- *  Original Author: ACRE2 team (https://github.com/IDI-Systems/acre2)
  *
  *  Description:
  *      Compiles all Components
@@ -12,11 +11,13 @@
  *      none
  *
  */
-//#define DEBUG_MODE_FULL
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-_fnc_scriptname = "test";
 
-private _configs = "((((configname _x) splitString '_') select 0) isEqualTo 'CfgComponent')" configClasses missionConfigFile;
+private _PreinitStartTime = diag_tickTime;
+
+parsingNamespace setVariable [QGVARMAIN(recompileCache),[]];
+private _configs = configProperties [missionConfigFile,"((((configname _x) splitString '_') select 0) isEqualTo 'CfgComponent')",true];
 
 private _fnc_dependecies_CfgPatches = {
     _this params ["_config"];
@@ -48,21 +49,21 @@ private _cfgArray = [];
             diag_log text (format["[MissionFile] (%1) Component is NOT loading - disabled via CfgComponents",_cfgname]);
         };
     };
-} forEach ("((((configname _x) splitString '_') select 0) isEqualTo 'CfgComponent')" configClasses missionConfigFile);
+} forEach (configProperties [missionConfigFile,"((((configname _x) splitString '_') select 0) isEqualTo 'CfgComponent')",true]);
 
 TRACEV_1(_cfgArray);
 private _active_Components = [];
 private _active_Components_cfgs = [];
-private _time = diag_tickTime + 10;
+private _time = diag_tickTime + 30;
 
 while {(diag_tickTime < _time)&&((count _cfgArray)>0)} do {
-    (_cfgArray deleteAt 0) params ["_cfg","_cfgname","_cfgArray"];
-    TRACEV_1(_cfg);
-    If (({!(_x in _active_Components)} count _cfgArray)<1) then {
+    (_cfgArray deleteAt 0) params ["_cfg","_cfgname","_reqComponents"];
+    TRACEV_5(_cfg,_cfgname,_reqComponents,_active_Components,_cfgArray);
+    If (({!(_x in _active_Components)} count _reqComponents)<1) then {
         _active_Components pushBack _cfgname;
         _active_Components_cfgs pushBack _cfg;
     }else{
-        _cfgArray pushBack ["_cfg","_cfgname","_cfgArray"];
+        _cfgArray pushBack [_cfg,_cfgname,_reqComponents];
     };
 };
 
@@ -71,6 +72,7 @@ TRACEV_3(_active_Components,_active_Components_cfgs,_cfgArray);
 GVAR(Events_preinit) = [];
 GVAR(Events_postinit) = [];
 GVAR(Events_all) = [];
+GVAR(FeatureList) = [];
 
 {
     private _cfg = _x;
@@ -78,24 +80,23 @@ GVAR(Events_all) = [];
     _cfgname deleteAt 0; // remove CfgComponens
     _cfgname deleteAt 0; // remove PREFIX
     _cfgname = _cfgname joinString "_";
-    private _allEvents = "(!((configname _x) isEqualTo 'dependencies'))" configclasses _cfg;
-    TRACEV_1(_allEvents);
+    private _allEvents = configProperties [_cfg,"(!((configname _x) in ['dependencies','features']))",true];
     {
         private _eventName = tolower (configName _x);
         private _eventConfig = _x;
         private _add = true;
         If !([_eventConfig] call _fnc_dependecies_cfgpatches) then {
-            diag_log text (format["[MissionFile] (%1) Event %2 is not loading - CfgPatches failed",_cfgname,_eventName]);
+            diag_log text (format["[MissionFile] (%1) Event %2 is NOT loading - CfgPatches failed",_cfgname,_eventName]);
             _add = false;
         };
-        If (_add && (0 < ({!(_x in _active_Components)} count (getArray(_cfg >> "dependencies" >> "CfgComponents"))))) then {
-            diag_log text (format["[MissionFile] (%1) Event %2 is not loading - CfgComponent failed",_cfgname,_eventName]);
+        If (_add && (0 < ( {!(_x in _active_Components)} count (getArray(_eventConfig >> "dependencies" >> "CfgComponents")) ) ) ) then {
+            diag_log text (format["[MissionFile] (%1) Event %2 is NOT loading - CfgComponent failed",_cfgname,_eventName]);
             _add = false;
         };
-        If (_add && (isText(_cfg >> "dependencies" >> "Condition"))) then {
-            private _condition = call compile (getText(_cfg >> "dependencies" >> "Condition"));
+        If (_add && (isText(_eventConfig >> "dependencies" >> "Condition"))) then {
+            private _condition = call compile (getText(_eventConfig >> "dependencies" >> "Condition"));
             If ((IS_BOOL(_condition))&&{!_condition}) then {
-                diag_log text (format["[MissionFile] (%1) Event %2 is not loading - Condition failed",_cfgname,_eventName]);
+                diag_log text (format["[MissionFile] (%1) Event %2 is NOT loading - Condition failed",_cfgname,_eventName]);
                 _add = false;
             };
         };
@@ -125,18 +126,23 @@ GVAR(Events_all) = [];
             diag_log text (format["[MissionFile] (%1) Event %2 is NOT loading - Checks failed",_cfgname,_eventName]);
         };
     } forEach _allEvents;
+    If ((isClass (_cfg >> "features"))&&(hasInterface)) then {
+        private _allFeatures = configProperties [_cfg >> "features","isText(_x)",true];
+        GVAR(FeatureList) pushBack [_allFeatures,_cfgname];
+    };
 } forEach _active_Components_cfgs;
 
 TRACEV_3(GVAR(Events_preinit),GVAR(Events_postinit),GVAR(Events_all));
 
-
+// backup Loop
 [
     {
-        If (GVAR(Events_preinit) isEqualTo []) then {
+        If (GVAR(Events_preinit) isEqualTo []) exitWith {
             (_this select 1) call CBA_fnc_removePerFrameHandler;
         };
         private _current = GVAR(Events_preinit) deleteAt 0;
         [] call compile preprocessFileLineNumbers _current;
+        ERROR("Preinit Backup Loop - compiling error occured");
     },
     0,
     []
@@ -147,7 +153,8 @@ TRACEV_3(GVAR(Events_preinit),GVAR(Events_postinit),GVAR(Events_all));
     {
         [
             {
-                If (GVAR(Events_postinit) isEqualTo []) then {
+                If (GVAR(Events_postinit) isEqualTo []) exitWith {
+                    diag_log text "[MissionFile] (System) PostInit compiling finished";
                     (_this select 1) call CBA_fnc_removePerFrameHandler;
                 };
                 private _current = GVAR(Events_postinit) deleteAt 0;
@@ -165,7 +172,8 @@ TRACEV_3(GVAR(Events_preinit),GVAR(Events_postinit),GVAR(Events_all));
     {
         [
             {
-                If (GVAR(Events_all) isEqualTo []) then {
+                If (GVAR(Events_all) isEqualTo []) exitWith {
+                    diag_log text "[MissionFile] (System) Events compiling finished";
                     (_this select 1) call CBA_fnc_removePerFrameHandler;
                 };
                 private _current = GVAR(Events_all) deleteAt 0;
@@ -179,23 +187,14 @@ TRACEV_3(GVAR(Events_preinit),GVAR(Events_postinit),GVAR(Events_all));
 ] call CBA_fnc_waitUntilAndExecute;
 
 
+private _time = diag_tickTime + 60;
+while {(diag_tickTime < _time)&&(!(GVAR(Events_preinit) isEqualTo []))} do {
+    private _current = GVAR(Events_preinit) deleteAt 0;
+    [] call compile preprocessFileLineNumbers _current;
+};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
+IF (!(GVAR(Events_preinit) isEqualTo [])) then {
+    diag_log text "[MissionFile] (System) PreInit Compiling not finished";
+}else{
+    diag_log text format["[MissionFile] (System) PreInit Compiling finished in: %1",(diag_ticktime - _PreinitStartTime)];
+};

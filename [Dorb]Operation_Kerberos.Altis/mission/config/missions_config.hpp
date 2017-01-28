@@ -1,23 +1,82 @@
 #define CBA_OFF
 #include "script_component.hpp"
+
 class missions_config {
-    class side_base {
-        class task {
-            name = "";
-            description = "";
-            tasktype = "";
-            taskmarker = "";
+    class side {
+        class side_base {
+            class task {
+                name = "";
+                description = "";
+                tasktype = "";
+                taskmarker = "";
+            };
+            class location {
+                areas[] = {QGVAR(town),QGVAR(industrie),QGVAR(military),QGVAR(other)};
+                distance = 500;
+                areas_minDistance = 500;
+                areas_maxDistance = 2500;
+            };
+            type = "";
+            probability = -1;
+            spawn_fnc = "";
+            spawn_delay = 600;
+            task_fnc = "";
+            task_delay = 300;
+            markerOnSpot = 1;
         };
-        class location {
-            areas[] = {QGVAR(town),QGVAR(industrie),QGVAR(military),QGVAR(other)};
-            distance = 500;
-            areas_minDistance = 500;
-            areas_maxDistance = 2500;
+        class artillery_base : side_base {
+            type = "artillery";
+            class location : location {
+                areas[] = {QGVAR(industrie),QGVAR(military),QGVAR(other)};
+                distance = 500;
+                areas_minDistance = 3000;
+                areas_maxDistance = 25000;
+            };
+            spawn_fnc = QEFUNC(spawn,sidemission_artillery);
+            spawn_delay = 0;
+            task_fnc = QEFUNC(mission,sidemission_targetsAlive);
+            task_delay = 1800;
+            markerOnSpot = 0;
         };
-        delay_spawn = 600;
-        delay_reveal = 300;
-        probability = 1;
+        class ugv_base : side_base {
+            type = "ugv";
+            class location : location {
+                areas[] = {QGVAR(water),QGVAR(military),QGVAR(other)};
+                distance = 500;
+            };
+        };
+        class convoi_base : side_base {
+            type = "convoi";
+            class location : location {
+                areas[] = {QGVAR(water),QGVAR(military),QGVAR(other)};
+                distance = 200;
+            };
+            spawn_delay = 600;
+            spawn_fnc = QEFUNC(spawn,sidemission_convoi);
+            task_delay = 60;
+            task_fnc = QEFUNC(mission,sidemission_convoi);
+        };
+        class radar_base : side_base {
+            type = "radar";
+            class location {
+                areas[] = {}; /// empty array leads to position of Main Target
+                distance = 600;
+            };
+            spawn_delay = 1;
+            spawn_fnc = QEFUNC(spawn,sidemission_radar);
+            task_delay = 1;
+            task_fnc = QEFUNC(mission,sidemission_targetsAlive);
+        };
+        /*
+        class rtb {
+            class location {
+                areas[] = {QGVAR(base)};
+                distance = 0;
+            };
+        };
+        */
     };
+
     class main_base {
         class task {
             name = "";
@@ -29,213 +88,159 @@ class missions_config {
             areas[] = {QGVAR(town),QGVAR(industrie),QGVAR(military),QGVAR(other)};
             distance = 800;
         };
+        objectsamount_min = 1;
+        objectsamount_max = 1;
         probability = 1;
         armys[] = {{"regular",1},{"armored",1},{"infanterie",1},{"airborne",1},{"specops",1},{"droneoperations",1},{"guards",1}};
-        class sidemissions {};
-    };
-    class side_arty : side_base {
-        type = "artillery";
-        class location : location {
-            areas[] = {QGVAR(industrie),QGVAR(military),QGVAR(other)};
-            distance = 500;
-            areas_minDistance = 3000;
-            areas_maxDistance = 25000;
-        };
-        delay_spawn = 0;
-        delay_reveal = 1800; // delay until the mission is revealed
-    };
-    class side_ugv : side_base {
-        type = "ugv";
-        class location : location {
-            areas[] = {QGVAR(water),QGVAR(military),QGVAR(other)};
-            distance = 500;
+        class sidemissions : side {
+            class artillery : artillery_base {
+                probability = 0.8;
+            };
+            class artillery2 : artillery_base {
+                probability = 0.2;
+            };
+            class radar : radar_base {
+                probability = 0.8;
+            };
+            /*
+            class convoi : convoi_base {
+                probability = 0.8;
+            };
+            */
         };
     };
-    class side_convoi : side_base {
-        type = "convoi";
-        class location : location {
-            areas[] = {QGVAR(water),QGVAR(military),QGVAR(other)};
-            distance = 200;
-        };
-        delay_spawn = 600;
-        delay_reveal = 60;
-    };
-    class side_radar : side_base {
-        type = "radar";
-        class location {
-            areas[] = {}; /// empty array leads to position of Main Target
-            distance = 600;
-        };
-        delay_spawn = 1;
-        delay_reveal = 1;
-        probability = 0.8;
-    };
-    class side_standard {
-        class artillery : side_arty {
-            probability = 0.8;
-        };
-        class radar1 : side_radar {
-            probability = 0.8;
-        };
-        class radar2 : side_radar {
-            probability = 0.6;
-        };
-        class convoi1 : side_convoi {
-            probability = 0.8;
-        };
-        class convoi2 : side_convoi {
-            delay_spawn = 1200;
-        };    
-    };
+
     class main {
-        class scarab : main_base {
-            class task {
-                name = CSTRING(scarab_task);
-                description = CSTRING(scarab_desc);
-                tasktype = "Destroy";
-            };
-            class sidemissions : side_standard {};
-        };
-        class tower : main_base {
-            class task {
-                name = CSTRING(tower_task);
-                description = CSTRING(tower_desc);
-                tasktype = "Destroy";
-            };
+        class intel : main_base {
+            taskDescription = "intel";
+            class sidemissions : sidemissions {};
             class location : location {
-                distance = 1500;
+                areas[] = {QGVAR(town)};
+                distance = 200;
             };
-            class sidemissions : side_standard {};
+            objectsamount_min = 2;
+            objectsamount_max = 10;
+        };
+        class weaponcache : main_base {
+            taskDescription = "weaponcache";
+            class sidemissions : sidemissions {};
+            class location : location {
+                areas[] = {QGVAR(town)};
+                distance = 200;
+            };
+            objectsamount_min = 5;
+            objectsamount_max = 10;
         };
         class device : main_base {
-            class task {
-                name = CSTRING(device_task);
-                description = CSTRING(device_desc);
-                tasktype = "Interact";
-            };
+            taskDescription = "device";
+            class sidemissions : sidemissions {};
             class location : location {
-                areas[] = {QGVAR(industrie),QGVAR(military),QGVAR(other)};
+                areas[] = {QGVAR(town),QGVAR(industrie)};
+                distance = 250;
             };
-            class sidemissions : side_standard {};
+            intervall = 10;
         };
-        class emp : main_base {
-            class task {
-                name = CSTRING(emp_task);
-                description = CSTRING(emp_desc);
-                tasktype = "Interact";
-            };
+        class emp : device {
+            taskDescription = "emp";
+        };
+        class hostage : main_base {
+            taskDescription = "hostage";
+            class sidemissions : sidemissions {};
             class location : location {
-                areas[] = {QGVAR(industrie),QGVAR(military),QGVAR(other)};
+                areas[] = {QGVAR(town)};
+                distance = 200;
             };
-            class sidemissions : side_standard {};
-        };
-        class prototype : main_base {
-            class task {
-                name = CSTRING(prototype_task);
-                description = CSTRING(prototype_desc);
-                tasktype = "Move";
-            };
-            class sidemissions : side_standard {};
+            objectsamount_min = 0;
+            objectsamount_max = 5;
         };
         class clear : main_base {
-            class task {
-                name = CSTRING(clear_task);
-                description = CSTRING(clear_desc);
-                tasktype = "Attack";
-            };
+            taskDescription = "clear";
+            class sidemissions : sidemissions {};
             class location : location {
                 areas[] = {QGVAR(industrie),QGVAR(military),QGVAR(other)};
             };
-            class sidemissions : side_standard {};
+            clearradius = 750;
+            // the amount of units which can remain in a area
+            unitamount = 10;
         };
-        
-        class hostage : main_base {
-            class task {
-                name = CSTRING(hostage_task);
-                description = CSTRING(hostage_desc);
-                tasktype = "Support";
-            };
+        class capture : main_base {
+            taskDescription = "capture";
+            class sidemissions : sidemissions {};
             class location : location {
                 areas[] = {QGVAR(town)};
                 distance = 200;
             };
-            class sidemissions : side_standard {};
+            objectsamount_min = 1;
+            objectsamount_max = 3;
         };
-        class kill : main_base {
-            class task {
-                name = CSTRING(kill_task);
-                description = CSTRING(kill_desc);
-                tasktype = "Attack";
-            };
+
+        class scarab : main_base {
+            taskDescription = "scarab";
+            class sidemissions : sidemissions {};
             class location : location {
-                areas[] = {QGVAR(town)};
-                distance = 200;
+                areas[] = {QGVAR(industrie),QGVAR(military),QGVAR(other)};
             };
-            class sidemissions : side_standard {};
+            objectsamount_min = 1;
+            objectsamount_max = 3;
         };
-        class intel : main_base {
-            class task {
-                name = CSTRING(intel_task);
-                description = CSTRING(intel_desc);
-                tasktype = "Search";
-            };
+
+        class radiotower : main_base {
+            taskDescription = "radiotower";
+            class sidemissions : sidemissions {};
             class location : location {
-                areas[] = {QGVAR(town)};
-                distance = 200;
+                areas[] = {QGVAR(industrie),QGVAR(military),QGVAR(other)};
+                distance = 1500;
             };
-            class sidemissions : side_standard {};
-        };
-        class weaponcaches : main_base {
-            class task {
-                name = CSTRING(weaponcaches_task);
-                description = CSTRING(weaponcaches_desc);
-                tasktype = "Search";
-            };
-            class location : location {
-                areas[] = {QGVAR(town)};
-                distance = 200;
-            };
-            class sidemissions : side_standard {};
+            objectsamount_min = 1;
+            objectsamount_max = 3;
         };
         class dronecommando : main_base {
-            class task {
-                name = CSTRING(dronecommando_task);
-                description = CSTRING(dronecommando_desc);
-                tasktype = "Attack";
-            };
+            taskDescription = "dronecommando";
+            class sidemissions : sidemissions {};
+            class location : location {};
             armys[] = {{"specops",1},{"droneoperations",1},{"guards",1}};
-            class sidemissions : side_standard {};
+        };
+        class prototype : main_base {
+            taskDescription = "prototype";
+            class sidemissions : sidemissions {};
+            class location : location {
+                areas[] = {QGVAR(industrie),QGVAR(military),QGVAR(other)};
+                distance = 1500;
+            };
+            objectsamount_min = 1;
+            objectsamount_max = 1;
         };
         class specops : main_base {
-            class task {
-                name = CSTRING(specops_task);
-                description = CSTRING(specops_desc);
-                tasktype = "Search";
-            };
+            taskDescription = "specops";
+            class sidemissions : sidemissions {};
+            class location : location {};
             armys[] = {{"specops",1}};
-            class sidemissions : side_standard {};
+            clearradius = 750;
+            // the amount of units which can remain in a area
+            unitamount = 10;
         };
+        /*
         class outpost : main_base {
-            class task {
-                name = CSTRING(outpost_task);
-                description = CSTRING(outpost_desc);
-                tasktype = "Support";
-            };
+            taskDescription = "outpost";
             class location : location {
                 areas[] = {QGVAR(military)};
             };
-            class sidemissions : side_standard {};
+        };
+        class kill : main_base {
+            taskDescription = "capture";
+            class location : location {
+                areas[] = {QGVAR(town)};
+                distance = 200;
+            };
         };
         class radarsetup : main_base {
-            class task {
-                name = CSTRING(radarsetup_task);
-                description = CSTRING(radarsetup_desc);
-                tasktype = "Move";
-            };
+            taskDescription = "radarsetup";
             class location : location {
                 areas[] = {QGVAR(industrie),QGVAR(military),QGVAR(other)};
             };
-            class sidemissions : side_standard {};
         };
+        */
     };
+
+
 };

@@ -21,13 +21,14 @@ CHECK((vehicle player) isKindOf "ParachuteBase")
 
 if (!(((_turret isEqualTo [0]) || (_position == "driver")))) exitWith {};
 
-#ifdef DORB_PILOT_WHITELIST_ENABLED
+If (RETDEF(EGVAR(player,whitelistenabled),false)) then {
+
     private "_bool";
     _bool = true;
 
     if (!((typeOf _unit) in ["B_Pilot_F","B_Helipilot_F"])) then { _bool = false; };
     if ISCASVEHICLE_C(typeOf vehicle _unit) then {
-        if ( !((getPlayerUID _unit in (["_SP_AI_","_SP_PLAYER_"])) || (!isNil QEGVAR(main,reserved_pilot_slot))) ) then { _bool = false; };
+        if ( !((getPlayerUID _unit in (["_SP_AI_","_SP_PLAYER_"])) || (!isNil QEGVAR(player,reserved_pilot_slot))) ) then { _bool = false; };
         if (!(_unit getVariable ["DORB_ISCASPILOT",false])) then { _bool = false };
     };
 
@@ -38,7 +39,7 @@ if (!(((_turret isEqualTo [0]) || (_position == "driver")))) exitWith {};
         _unit action ["GetOut", vehicle _unit];
         if (isPlayer _unit) then { hint format[localize LSTRING(NURPILOTEN),name _unit]; };
     };
-#else
+}else{
     if (!((typeOf _unit) in ["B_Pilot_F","B_Helipilot_F"])) then {
         if ((_position == "driver") || {isNull driver (vehicle _unit)}) then { (vehicle _unit) engineOn false; };
         unassignVehicle (vehicle _unit);
@@ -46,5 +47,5 @@ if (!(((_turret isEqualTo [0]) || (_position == "driver")))) exitWith {};
         _unit action ["GetOut", vehicle _unit];
         if (isPlayer _unit) then { hint format[localize LSTRING(NURPILOTEN),name _unit]; };
     };
-#endif
+};
 true

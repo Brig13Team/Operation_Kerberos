@@ -13,7 +13,7 @@ onLoadName = LSTRING(NAME);
 onLoadMission = LSTRING(NAME);
 loadScreen = QEPAAPATH(logo,logo_512);
 
-author = LSTRING(AUTHOR);
+author = CSTRING(AUTHOR);
 overviewPicture = QEPAAPATH(logo,logo_512);
 overviewText = "";
 overviewTextLocked = "";

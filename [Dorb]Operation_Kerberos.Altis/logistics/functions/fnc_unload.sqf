@@ -102,3 +102,4 @@ If (_aceActions select 0) then {
 If (_aceActions select 1) then {
     (_last_cargo select 0) setVariable ["ACE_dragging_canCarry",true,true];
 };
+(_last_cargo select 0) setVariable [QGVAR(aceactions),[]];

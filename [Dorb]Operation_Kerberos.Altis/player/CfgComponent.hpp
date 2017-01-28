@@ -9,9 +9,7 @@
 #include "script_component.hpp"
 
 class DOUBLES(CfgComponent,ADDON) {
-    class clientpostinit {
-        server = 0;
-    };
+    class clientpostinit {server = 0;};
     class fired {server = 0;};
     class getIn {server = 0;};
     class killed {server = 0;};
@@ -19,9 +17,21 @@ class DOUBLES(CfgComponent,ADDON) {
     class postinit {};
     class preinit {};
     class serverpostinit {client = 0;};
+    class serverpostinit_whitelist {
+        client = 0;
+        class dependencies {
+            CfgPatches[] = {};
+            CfgComponents[] = {"database"};
+            Condition = "true";
+        };
+    };
     class dependencies {
         CfgPatches[] = {};
         CfgComponents[] = {"common"};
     };
+    class features {
+        backpack = CSTRING(FEATURES_BACKPACK);
+        copyloadout = CSTRING(FEATURES_COPYLOADOUT);
+        halo = CSTRING(FEATURES_HALO);
+    };
 };
-#include "config\arsenal.hpp"

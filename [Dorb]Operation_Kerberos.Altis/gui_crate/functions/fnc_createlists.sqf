@@ -68,7 +68,7 @@ for "_i" from 0 to 17 do {
     _daten pushback [[],[]];
 };
 
-[QGVAR(crate_loading)] call bis_fnc_startloadingscreen;
+private _loadingScreenID = ["Crate Spawn"] call EFUNC(gui,startLoadingScreen);
 
 private _configArray = (
                 ("isclass _x" configclasses (configfile >> "cfgweapons")) +
@@ -124,7 +124,7 @@ private _step1 = (count _configArray);
             }foreach _magazines;
         };
     };
-    progressloadingscreen (_foreachindex * _progressStep);
+    [_loadingScreenID,(_foreachindex * _progressStep)] call EFUNC(gui,progressLoadingScreen);
 } foreach _configArray;
 
 {
@@ -145,7 +145,7 @@ private _step1 = (count _configArray);
                 };
             };
         } foreach getarray (_x >> "magazines");
-    } foreach ("isclass _x" configclasses (configfile >> "cfgweapons" >> _weapon));
+    } foreach (configProperties [(configfile >> "cfgweapons" >> _weapon),"isclass _x",true]);
 } foreach [ID_GRANATEN,ID_SPRENGSTOFF];
 
 private _patches=[];
@@ -154,10 +154,10 @@ private _patches=[];
     _configname = configname _x;
     _namearr = _configname splitString "_";
     If (!((_namearr select 0) in ["A3","A3Data","a3"])) then {_patches pushback _x;};
-    progressloadingscreen ((_foreachindex + _step1) * _progressStep);
+    [_loadingScreenID,((_foreachindex + _step1) * _progressStep)] call EFUNC(gui,progressLoadingScreen);
 }foreach _cfgPatches;
 
 SETMVAR(GVAR(crate_patches),_patches);
 SETMVAR(GVAR(crate_items),_daten);
-[QGVAR(crate_loading)] call bis_fnc_endLoadingScreen;
+[_loadingScreenID] call EFUNC(gui,endLoadingScreen);
 true;

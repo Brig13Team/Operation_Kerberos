@@ -14,6 +14,9 @@ class DOUBLES(CfgComponent,ADDON) {
         CfgPatches[] = {"task_force_radio"};
         CfgComponents[] = {"common","gui"};
     };
+    class features {
+        list = CSTRING(FEATURES_LIST);
+    };
 };
 
 #include "config\dialog.hpp"

@@ -11,7 +11,14 @@
 class DOUBLES(CfgComponent,ADDON) {
     class preinit {};
     class clientpostinit {server = 0;};
-    class postinit {};
+    class postinit {
+        class dependencies {
+            CfgPatches[] = {};
+            CfgComponents[] = {};
+            Condition = "false";
+            // diable the Loadout-Cleaning
+        };
+    };
     class dependencies {
         CfgPatches[] = {"acre_main"};
         CfgComponents[] = {};

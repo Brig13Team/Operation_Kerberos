@@ -2,15 +2,9 @@
 
 ADDON = false;
 
-PREP(addArsenal);
-PREP(addArsenalAction);
-PREP(addRestrictedArsenal);
-PREP(addSideRestrictedArsenal);
-PREP(getRestrictedArsenal);
-PREP(getSideRestrictedArsenal);
 PREP(checkContainerRestrictions);
 
-PREP(addbriefing);
+PREP(canCopyLoadout);
 PREP(getLoadout);
 PREP(grouptracker);
 PREP(halo);
@@ -32,7 +26,5 @@ PREPS(suppression,onfired);
 PREPS(suppression,handle_effect);
 PREPS(suppression,handle_fired);
 PREPS(suppression,init);
-
-
 
 ADDON = true;

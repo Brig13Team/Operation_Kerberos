@@ -1,23 +1,23 @@
 /*
     Author: iJesuz
-    
+
     Description:
-    
+
     Parameter(s):
-    
+
 */
 #include "script_component.hpp"
 SCRIPT(init);
 
 params [["_mode","",[""]],["_args",[],[[]]]];
 
-switch (_mode) do { 
+switch (_mode) do {
     case "start":
     {
         private ["_commander","_adrones","_rdrones","_avail_adrones","_avail_rdrones","_handle","_side"];
         _commander = _args param [0,objNull,[objNull]];
-        _adrones = getArray (missionConfigFile >> "unitlists" >> "east" >> "east_basic" >> "attack_uavs");
-        _rdrones = getArray (missionConfigFile >> "unitlists" >> "east" >> "east_basic" >> "recon_uavs");
+        _adrones = ["adrones"] call EFUNC(spawn,getUnit);
+        _rdrones = ["rdrones"] call EFUNC(spawn,getUnit);
         _avail_adrones = [];
         _avail_rdrones = [];
 
@@ -30,7 +30,7 @@ switch (_mode) do {
         if (playersNumber GVARMAIN(playerside)  >= 20) then { _avail_adrones pushBack (selectRandom _rdrones); };
         if (playersNumber GVARMAIN(playerside)  >= 30) then { _avail_adrones pushBack (selectRandom _rdrones); };
         if (playersNumber GVARMAIN(playerside)  >= 40) then { _avail_adrones pushBack (selectRandom _rdrones); };
-        
+
         SETVAR(missionNamespace,GVAR(commander),_commander);
         SETVAR(missionNamespace,GVAR(requestedAirstrikes),[]);
         SETVAR(missionNamespace,GVAR(requestedReconnaissances),[]);

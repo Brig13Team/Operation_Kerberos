@@ -10,13 +10,11 @@ CHECK(!hasInterface)
 
 SETUVAR(EGVAR(gui,respawnTime),nil);
 
-[] call FUNC(addbriefing);
 [] call FUNC(halo_addaction);
 [] call FUNC(backpack_init);
 [] call FUNC(onrespawn);
 [] call FUNC(initKnockKnock);
 
-["init"] spawn FUNC(grouptracker);
 
 /*
  * Arsenal Restrictions
@@ -26,86 +24,31 @@ SETUVAR(EGVAR(gui,respawnTime),nil);
     QGVAR(cleanCargoRestriction),
     FUNC(checkContainerRestrictions)
 ] call CBA_fnc_addEventHandler;
-[
-    QGVAR(ArsenalAddAction),
-    {
-        If ((!isNil QEGVAR(patchacre,isDataSyncronized))&&{!EGVAR(patchacre,isDataSyncronized)}) exitWith {
-            [
-                {EGVAR(patchacre,isDataSyncronized)},
-                {[QGVAR(ArsenalAddAction)] call CBA_fnc_localEvent;}
-            ] call CBA_fnc_waitUntilAndExecute;
-        };
-        private _boxes = missionnamespace getvariable [QGVAR(arsenal_boxes),[]];
-        {
-            if (isnil {_x getvariable "bis_fnc_arsenal_action"}) then {
-                private _action = _x addaction [
-                    format["<t color='#FFa500' size='1.5'>%1</t>",localize "STR_A3_Arsenal"],
-                    {
-                        _box = _this select 0;
-                        _unit = _this select 1;
-                        if !(isNil QEFUNC(patchacre,ArsenalRemoveRadio)) then {
-                            [] call EFUNC(patchacre,ArsenalRemoveRadio);
-                        };
-                        ["Open",[nil,_box,_unit]] call bis_fnc_arsenal;
-                    },
-                    [],
-                    6,
-                    true,
-                    false,
-                    "",
-                    "
-                        _cargo = _target getvariable ['bis_addVirtualWeaponCargo_cargo',[[],[],[],[]]];
-                        if ({count _x > 0} count _cargo == 0) then {
-                            _target removeaction (_target getvariable ['bis_fnc_arsenal_action',-1]);
-                            _target setvariable ['bis_fnc_arsenal_action',nil];
-                        };
-                        _condition = _target getvariable ['bis_fnc_arsenal_condition',{true}];
-                        alive _target && {_target distance _this < 5 && {vehicle _this == _this}} && {call _condition}
-                    "
-                ];
-                _x setvariable ["bis_fnc_arsenal_action",_action];
-            };
-        } foreach _boxes;
-    }
-] call CBA_fnc_addEventHandler;
 
-[{[QGVAR(ArsenalAddAction)] call CBA_fnc_localEvent;}] call CBA_fnc_execNextFrame;
+// backwards compatibility
+FUNC(addArsenal) = EFUNC(gui_arsenal,addArsenal);
 
-[
-    QGVAR(ArsenalRemoveAction),
-    {
-        _this params [["_box",objNull,[objNull]]];
-        CHECK(isNull _box)
-        [_box,true] call FUNC(addArsenalAction);
-        private _action = _box getVariable ["bis_fnc_arsenal_action",-1];
-        _box removeAction _action;
-        _box setVariable ["bis_fnc_arsenal_action",-1];
-    }
-] call CBA_fnc_addEventHandler;
+
 
 /*
- * Teleport
+ * Copy Loadout Action
  *
 */
-[
-    {!isNil QGVARMAIN(missionkeyServer)},
+
+
+private _action = [
+    QGVAR(copy_loadout),
+    localize LSTRING(ACTION_COPY_LOADOUT),
+    "",
     {
-        GVARMAIN(missionkey) = GVARMAIN(missionkeyServer);
-        private _serverkey = GVARMAIN(missionkeyServer);
-        private _serverkeyLocal = profileNamespace getVariable [QGVARMAIN(missionkeyServer),"NoKey"];
-        If (_serverkey isEqualTo _serverkeyLocal) then {
-            // the client has already been on the server -> possible crash
-            GVARMAIN(missionkey) = "teleport allowed";
-        }else{
-            profileNamespace setVariable [QGVARMAIN(missionkeyServer),_serverkey];
-        };
-
+        private _loadout = [_target] call FUNC(getLoadout);
+        [player,_loadout select 0,_loadout select 1] call FUNC(setLoadout);
+    },
+    {
+        [_target,player] call FUNC(canCopyLoadout);
     }
-] call CBA_fnc_waitUntilAndExecute;
-
-
-
-
+] call ace_interact_menu_fnc_createAction;
+["CAManBase",0,["ACE_MainActions"],_action] call ace_interact_menu_fnc_addActionToClass;
 
 
 

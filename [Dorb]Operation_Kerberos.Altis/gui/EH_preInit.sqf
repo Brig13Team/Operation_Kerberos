@@ -8,6 +8,13 @@ PREP(message);
 PREP(progressbar);
 PREP(timer);
 
+PREP(onLoadLoadingscreen);
+PREP(progressLoadingScreen);
+PREP(startLoadingScreen);
+PREP(endLoadingScreen);
+PREP(noise);
+PREP(noise_square);
+
 ADDON = true;
 
 /// init variables

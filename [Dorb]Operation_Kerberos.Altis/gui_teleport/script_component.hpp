@@ -3,3 +3,4 @@
 #include "..\script_mission.hpp"
 
 #define CHECK_RADIUS 10
+#define TELEPORT_TIMEOUT

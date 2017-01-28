@@ -18,36 +18,18 @@ _this params ["_dialog"];
 
 If !(canSuspend) exitWith {[_dialog] spawn FUNC(clock);};
 
-IF !(dialog) exitWith {
-    If (!isNil QGVAR(clockPFH)) then {
-        [GVAR(clockPFH)] call CBA_fnc_removePerFrameHandler;
-    };
-    LOG("no Dialog opened");
-    GVAR(clockPFH) = nil;
-};
+private _clockPFH = _dialog getVariable QGVAR(clockPFH);
 
-If ((isNil "_dialog")&&{isNull _dialog}) exitWith {
-    If (!isNil QGVAR(clockPFH)) then {
-        [GVAR(clockPFH)] call CBA_fnc_removePerFrameHandler;
-    };
-    LOG("no Dialog given");
-    GVAR(clockPFH) = nil;
-};
-
-if !(isNil QGVAR(clockPFH)) then {
-    [GVAR(clockPFH)] call CBA_fnc_removePerFrameHandler;
-    GVAR(clockPFH) = nil;
+if !(isNil "_clockPFH") then {
+    [_clockPFH] call CBA_fnc_removePerFrameHandler;
+    _dialog getVariable [QGVAR(clockPFH),nil];
 };
 
 
-GVAR(clockPFH) = [
-    {
-        disableSerialization;
-        private _time = format["%1:%2",floor daytime,floor((daytime mod 1)*60)];
-        private _control = (findDisplay IDD_TABLET_MAIN) displayCtrl (IDC_TABLET_TOPBAR_CLOCK);
-        _control ctrlSetText _time;
-        _control ctrlCommit 0;
-    },
+private _clockPFH = [
+    LINKFUNC(clockPFH),
     1,
-    [_dialog]
+    _dialog
 ] call CBA_fnc_addPerFrameHandler;
+
+_dialog setVariable [QGVAR(clockPFH),_clockPFH];

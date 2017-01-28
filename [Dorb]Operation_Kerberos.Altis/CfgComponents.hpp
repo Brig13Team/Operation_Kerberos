@@ -15,15 +15,18 @@ class CfgComponents {
     /// main components
     common = 1;
     headless = 1;
-    interface = 1;
     logistics = 1;
+    grouptracker = 1;
     player = 1;
+    spawn = 1;
     teamkilling = 1;
     viewrestriction = 1;
+    database = 1;
+    doorbreach = 1;
     /// mission specific components
-    spawn = 1;
     headquarter = 1;
     mission = 1;
+    advertisements = 1;
     /// mod specific components
     mod_ace = 1;
     mod_acre = 1;
@@ -37,12 +40,15 @@ class CfgComponents {
     gui_teleport = 1;
     gui_crate = 1;
     gui_save = 1;
-    gui_tfr = 1;
+    gui_tfr = 0;
     gui_tablet = 1;
+    gui_arsenal = 1;
 };
 
 #include "main\CfgComponent.hpp"
 #include "common\CfgComponent.hpp"
+#include "advertisements\CfgComponent.hpp"
+#include "grouptracker\CfgComponent.hpp"
 #include "headless\CfgComponent.hpp"
 #include "headquarter\CfgComponent.hpp"
 #include "logistics\CfgComponent.hpp"
@@ -57,11 +63,14 @@ class CfgComponents {
 #include "spawn\CfgComponent.hpp"
 #include "teamkilling\CfgComponent.hpp"
 #include "viewrestriction\CfgComponent.hpp"
+#include "database\CfgComponent.hpp"
+#include "doorbreach\CfgComponent.hpp"
 
 #include "gui\CfgComponent.hpp"
+#include "gui_tablet\CfgComponent.hpp"
 #include "gui_spawn\CfgComponent.hpp"
 #include "gui_teleport\CfgComponent.hpp"
 #include "gui_crate\CfgComponent.hpp"
 #include "gui_save\CfgComponent.hpp"
 #include "gui_tfr\CfgComponent.hpp"
-#include "gui_tablet\CfgComponent.hpp"
+#include "gui_arsenal\CfgComponent.hpp"

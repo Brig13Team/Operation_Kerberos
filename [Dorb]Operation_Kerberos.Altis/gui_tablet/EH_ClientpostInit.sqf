@@ -34,7 +34,7 @@
 private _ACE_Action = [
     QGVAR(selfactiongroup),
     localize LSTRING(SELFACTIONGROUP),
-    QEPAAPATH(logo,logo_512),
+    (parsingNamespace getVariable ["MISSION_ROOT",""]) + QEPAAPATH(logo,logo_512),
     {[] call FUNC(open);},
     {[] call FUNC(canOpenMenu);}
 ] call ace_interact_menu_fnc_createAction;

@@ -1,9 +1,9 @@
 /*
     Author: Dorbedo
-    
+
     Description:
         AO orte + Sortierung
-    
+
 */
 #include "script_component.hpp"
 
@@ -26,8 +26,8 @@ If (worldName == "Altis") then {
         _ort         = _cfgOrte select _i;
         _name         = getText(_ort >> "name");
         _position    = getArray(_ort >> "position");
-        _typ        = getText(_ort >> "type");    
-        If (_position distance (getmarkerpos GVARMAIN(RESPAWNMARKER)) > 2500) then {
+        _typ        = getText(_ort >> "type");
+        If ((_position distance (getmarkerpos GVARMAIN(RESPAWNMARKER)) > 2000)&&(_position distance (getmarkerpos GVARMAIN(AIRFIELD)) > 2000)) then {
             If ((_typ in ["NameCityCapital","NameCity","NameVillage"])and(_name != "Sagonisi")) exitWith {
                 _loc_civ pushBack [_name,_position];
             };
@@ -62,8 +62,8 @@ If (worldName == "australia") then {
         _ort         = _cfgOrte select _i;
         _name         = getText(_ort >> "name");
         _position    = getArray(_ort >> "position");
-        _typ        = getText(_ort >> "type");    
-        If (_position distance (getmarkerpos GVARMAIN(RESPAWNMARKER)) > 2500) then {
+        _typ        = getText(_ort >> "type");
+        If ((_position distance (getmarkerpos GVARMAIN(RESPAWNMARKER)) > 2000)&&(_position distance (getmarkerpos GVARMAIN(AIRFIELD)) > 2000)) then {
             If ((_typ in ["NameCityCapital","NameCity","NameVillage"])and(_name != "Sagonisi")) exitWith {
                 _loc_civ pushBack [_name,_position];
             };
@@ -99,8 +99,8 @@ If (worldName == "pja305") then {
         _ort         = _cfgOrte select _i;
         _name         = getText(_ort >> "name");
         _position    = getArray(_ort >> "position");
-        _typ        = getText(_ort >> "type");    
-        If (_position distance (getmarkerpos GVARMAIN(RESPAWNMARKER)) > 2500) then {
+        _typ        = getText(_ort >> "type");
+        If ((_position distance (getmarkerpos GVARMAIN(RESPAWNMARKER)) > 2000)&&(_position distance (getmarkerpos GVARMAIN(AIRFIELD)) > 2000)) then {
             If ((_typ in ["NameCityCapital","NameCity","NameVillage"])and(!(_name in ["Bafata","Waku Kungo"]))) exitWith {
                 _loc_civ pushBack [_name,_position];
             };
@@ -160,8 +160,8 @@ If (worldName == "Panthera3") then {
         _ort         = _cfgOrte select _i;
         _name         = getText(_ort >> "name");
         _position    = getArray(_ort >> "position");
-        _typ        = getText(_ort >> "type");    
-        If (_position distance (getmarkerpos GVARMAIN(RESPAWNMARKER)) > 2000) then {
+        _typ        = getText(_ort >> "type");
+        If ((_position distance (getmarkerpos GVARMAIN(RESPAWNMARKER)) > 2000)&&(_position distance (getmarkerpos GVARMAIN(AIRFIELD)) > 2000)) then {
             If (((_typ in ["NameCityCapital","NameCity","NameVillage","FlatAreaCitySmall","CityCenter"])and(!((configName _ort) in ["dino2","dino13","dino3","dino6","vatra"])))||((configName _ort) in ["TaffGrove","klavze","kneza","cavepredil",
                                                                                                                                                             "bovec","Tolmin","kranjskagora","dovje",
                                                                                                                                                             "mojstrana","lesce","begunje","Studor",
@@ -169,7 +169,7 @@ If (worldName == "Panthera3") then {
                                                                                                                                                             "fisher","smugden","zelezniki","drazgose",
                                                                                                                                                             "kranjskagora","kropa","ribcevlaz","idrsko","suzid",
                                                                                                                                                             "bdobrava","breg","bohbistrica"
-                                                                                                                                                            
+
                                                                                                                                                             ])) exitWith {
                 _loc_civ pushBack [_name,_position];
             };
@@ -208,19 +208,19 @@ ISNILS(GVARMAIN(loc_debug),false);
 If (GVARMAIN(loc_debug)) then {
     private "_mrkr";
     {
-        [_x select 1,_x select 0,"ColorCIV","mil_flag"] call FUNC(debug_marker_create);
+        [_x select 1,_x select 0,"ColorCIV","mil_flag"] call EFUNC(common,debug_marker_create);
     }forEach _loc_civ;
     {
-        [_x select 1,_x select 0,"ColorBlue","mil_flag"] call FUNC(debug_marker_create);
+        [_x select 1,_x select 0,"ColorBlue","mil_flag"] call EFUNC(common,debug_marker_create);
     }forEach _loc_water;
     {
-        [_x select 1,_x select 0,"ColorYellow","mil_flag"] call FUNC(debug_marker_create);
+        [_x select 1,_x select 0,"ColorYellow","mil_flag"] call EFUNC(common,debug_marker_create);
     }forEach _loc_ind;
     {
-        [_x select 1,_x select 0,"ColorOrange","mil_flag"] call FUNC(debug_marker_create);
+        [_x select 1,_x select 0,"ColorOrange","mil_flag"] call EFUNC(common,debug_marker_create);
     }forEach _loc_mil;
     {
-        [_x select 1,_x select 0,"ColorRed","mil_flag"] call FUNC(debug_marker_create);
+        [_x select 1,_x select 0,"ColorRed","mil_flag"] call EFUNC(common,debug_marker_create);
     }forEach _loc_sonst;
 };
 

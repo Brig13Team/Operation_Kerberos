@@ -1,26 +1,27 @@
-    /*
-    Author: Dorbedo
-
-    Description:
-        Creates Mission "CLEAR".
-
-    Parameter(s):
-        0 :    ARRAY - Position
-
-    Returns:
-    BOOL
-*/
+/*
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      Mission Clear
+ *
+ *  Parameter(s):
+ *      0 : [STRING,ARRAY]  - Destination [Locationname, Position]
+ *
+ *  Returns:
+ *      [CODE,ARRAY] - [Taskhandler conditional function, its arguments]
+ *
+ */
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-SCRIPT(clear);
-_this params [["_position",[],[[]],[2,3]]];
-TRACEV_1(_position);
-CHECK(_position isEqualTo [])
 
-/********************
-    taskhandler
-********************/
+_this params [["_destination","",[""]],["_position",[],[[]]]];
 
-[
-    QUOTE(private '_a';_a = {(((side _x)!=GVARMAIN(playerside))&&((_x distance (_this select 0))<2500))}count allUnits;If (_a < 15) then {true}else{false};),
-    [_position]
-]
+
+private _distance = getNumber(missionConfigFile >> "missions_config" >> "main" >> "clear" >> "location" >> "distance");
+
+[_position,"clear",_distance] call EFUNC(spawn,createMissionTarget);
+
+private _clearradius = getNumber(missionConfigFile >> "missions_config" >> "main" >> "clear" >> "clearradius");
+private _unitamount = getNumber(missionConfigFile >> "missions_config" >> "main" >> "clear" >> "unitamount");
+
+[QFUNC(mainmission_clear_cond),[_position,_clearradius,_unitamount]]

@@ -2,7 +2,7 @@
  * Author: Dorbedo
  *
  */
-#define DEBUG_MODE_FULL
+
 #include "script_component.hpp"
 
 CHECK(!ACTIVEMOD_ACRE);
@@ -35,6 +35,9 @@ CHECK(!ACTIVEMOD_ACRE);
     private _message = "player got new unique Radio";
     LOG_3(_message,_player,_class);
 }] call CBA_fnc_addEventHandler;
+
+ACRE_SERVER_GEAR_DESYNCED = false;
+ACRE_SERVER_DESYNCED_PLAYERS = [];
 
 [
     QGVAR(syncGear),

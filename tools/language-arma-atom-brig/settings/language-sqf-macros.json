@@ -5,7 +5,7 @@
         "macro-brig": {
           "typePriority": 0,
           "suggestions": [{
-              "description": "Expands to: (call EFUNC(main,HashCreate))",
+              "description": "Creates a new hash",
               "text": "HASH_CREATE",
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
@@ -15,57 +15,92 @@
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
             }, {
-              "description": "Expands to:  (DORB_HASH_TO_DELETE pushBack hash)",
+              "description": "Deletes a hash",
               "snippet": "HASH_DELETE(${1:hash})$0",
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
             }, {
-              "description": "Expands to: (!(isNil {hash getVariable key}))",
+              "description": "Checks if a hash has the provided key",
               "snippet": "HASH_HASKEY(${1:hash},${2:key})$0",
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
             }, {
-              "description": "Expands to: (hash setVariable [key, val])",
+              "description": "Sets a value to a hash",
               "snippet": "HASH_SET(${1:hash},${2:key},${3:value})$0",
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
             }, {
-              "description": "Expands to: (hash getVariable key)",
+              "description": "Returns a value from a hash",
               "snippet": "HASH_GET(${1:hash},${2:key})$0",
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
             }, {
-              "description": "Expands to: (hash getVariable [key, default])",
+              "description": "Returns a value from a hash with default Value",
               "snippet": "HASH_GET_DEF(${1:hash},${2:key},${3:default})$0",
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
             }, {
-              "description": "Expands to: (hash setVariable [key, nil])",
+              "description": "Removes a key from a hash",
               "snippet": "HASH_REM(${1:hash},${2:key})$0",
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
             }, {
-              "description": "Expands to: ([hash] call EFUNC(main,HashCopy))",
+              "description": "Copys a hash into a new hash",
               "snippet": "HASH_COPY(${1:hash})$0",
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
             }, {
-              "description": "Expands to: ([hash] call EFUNC(main,serialize))",
-              "snippet": "SERIALIZE(${1:hash})$0",
+              "description": "returns all keys of a hash",
+              "snippet": "HASH_KEYS(${1:hash})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            },  {
+              "description": "Serializes a hash",
+              "snippet": "HASH_SERIALIZE(${1:hash})$0",
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
             }, {
-              "description": "Expands to: ([array] call EFUNC(main,deserialize))",
-              "snippet": "DESERIALIZE(${1:array})$0",
+              "description": "deserializes a hash",
+              "snippet": "HASH_DESERIALIZE(${1:array})$0",
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
             }, {
-              "description": "Expands to: (hash isEqualType locationNull && {(text hash) isEqualTo DORB_HASH_SYS_NAME})",
+              "description": "Returns the amount of keys of the hash",
+              "snippet": "HASH_SIZE(${1:hash})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "Checks if a hash is empty",
+              "snippet": "HASH_ISEMPTY(${1:hash})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "Checks if a hash has a value and returns the first matching key",
+              "snippet": "HASH_GETKEY(${1:hash})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "Merges a hash into an other",
+              "snippet": "HASH_MERGE(${1:hash1},${2:hash2})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "Clears all values from a hash",
+              "snippet": "HASH_CLEAR(${1:hash})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "Checks if a hash contains a value",
+              "snippet": "HASH_HASVALUE(${1:hash},${2:value})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "Checks if a value is a hash",
               "snippet": "IS_HASH(${1:hash})$0",
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
             }, {
-              "description": "Expands to: (IS_ARRAY(array) && {(count array) > 0} && {IS_STRING((array select 0))} && {(array select 0) == \"mission_hash\"})",
+              "description": "Checks if a value is a serialized hash",
               "snippet": "IS_SERIALIZEDHASH(${1:array})$0",
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
@@ -247,6 +282,16 @@
             }, {
               "description": "Expands to: PREFIX_SYSTEM_name",
               "snippet": "FUNCSYS(${1:name})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "Expands to: FUNC(Function) or {_this call FUNC(Function)}",
+              "snippet": "LINKFUNC(${1:Function})$0",
+              "rightLabel": "BRIG Macro",
+              "descriptionMoreURL": ""
+            }, {
+              "description": "Expands to: EFUNC(Component,Function) or {_this call EFUNC(Component,Function)}",
+              "snippet": "ELINKFUNC(${1:Component},${2:Function})$0",
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
             }

@@ -1,16 +1,16 @@
 /*
     Author: Dorbedo
-    
+
     Description:
         Returns the logistics config entry of an configclass
-        
+
     Parameter(s):
         0 : OBJECT - Target
-        
+
     Returns:
         STRING
 */
-#define DEBUG_MODE_FULL
+
 #include "script_component.hpp"
 _this params[["_object",objNull,[objNull,""]]];
 
