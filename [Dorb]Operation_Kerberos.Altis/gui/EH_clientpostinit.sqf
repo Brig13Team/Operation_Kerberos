@@ -20,9 +20,3 @@ QEGVAR(mission,endzeit) addPublicVariableEventHandler {[] spawn FUNC(timer)};
         _this spawn FUNC(message);
     };
 }] call CBA_fnc_addEventHandler;
-
-[
-    LINKFUNC(handleNotifications),
-    15,
-    []
-] call CBA_fnc_addPerFrameHandler;

@@ -120,12 +120,14 @@ class RscTitles {
     };
     class APP(notification_1) {
         duration = 20;
+        fadein = 0;
+        fadeout = 0;
         idd = IDC_NOTIFICATION_1;
         movingenable = 0;
-        onLoad = QUOTE(uinamespace setVariable ['APP(notification_1)',_this select 0]);
+        onLoad = QUOTE(uinamespace setVariable [ARR_2('APP(notification_1)',_this select 0)]);
         class controls {
-            class background : RSC(BasePicture) {
-                idc = IDC_NOTIFICATION_IMG;
+            class background : RSC(BaseText) {
+                idc = IDC_NOTIFICATION_BACKGROUND;
                 x = GUI_NOTIFICATION_X;
                 y = GUI_NOTIFICATION_Y;
                 w = GUI_NOTIFICATION_W;
@@ -133,10 +135,76 @@ class RscTitles {
                 colorBackground[] = COLOR_MSG_BACKGROUND;
                 text = "";
             };
+            class picture : RSC(BasePicture) {
+                idc = IDC_NOTIFICATION_IMG;
+                x = GUI_NOTIFICATION_X;
+                y = GUI_NOTIFICATION_Y;
+                w = GUI_NOTIFICATION_W;
+                h = GUI_NOTIFICATION_H;
+                colorBackground[] = COLOR_MSG_BACKGROUND;
+                text = "A3\ui_f\data\gui\cfg\Hints\grenades_ca.paa";
+                colorText[] = COLOR_FONT;
+            };
         };
     };
-    class APP(notification_2) : APP(notification_1) {idd = IDC_NOTIFICATION_2;onLoad = QUOTE(uinamespace setVariable ['APP(notification_2)',_this select 0]);};
-    class APP(notification_3) : APP(notification_1) {idd = IDC_NOTIFICATION_3;onLoad = QUOTE(uinamespace setVariable ['APP(notification_3)',_this select 0]);};
-    class APP(notification_4) : APP(notification_1) {idd = IDC_NOTIFICATION_4;onLoad = QUOTE(uinamespace setVariable ['APP(notification_4)',_this select 0]);};
-    class APP(notification_5) : APP(notification_1) {idd = IDC_NOTIFICATION_5;onLoad = QUOTE(uinamespace setVariable ['APP(notification_5)',_this select 0]);};
+    class APP(notification_2) : APP(notification_1) {
+        idd = IDC_NOTIFICATION_2;
+        onLoad = QUOTE(uinamespace setVariable [ARR_2('APP(notification_2)',_this select 0)]);
+        class controls : controls {
+            class background : background {
+                x = GUI_NOTIFICATION_X + GUI_NOTIFICATION_W;
+            };
+            class picture : picture {
+                x = GUI_NOTIFICATION_X + GUI_NOTIFICATION_W;
+            };
+        };
+    };
+    class APP(notification_3) : APP(notification_1) {
+        idd = IDC_NOTIFICATION_3;
+        onLoad = QUOTE(uinamespace setVariable [ARR_2('APP(notification_3)',_this select 0)]);
+        class controls : controls {
+            class background : background {
+                x = GUI_NOTIFICATION_X + GUI_NOTIFICATION_W * 2;
+            };
+            class picture : picture {
+                x = GUI_NOTIFICATION_X + GUI_NOTIFICATION_W * 2;
+            };
+        };
+    };
+    class APP(notification_4) : APP(notification_1) {
+        idd = IDC_NOTIFICATION_4;
+        onLoad = QUOTE(uinamespace setVariable [ARR_2('APP(notification_4)',_this select 0)]);
+        class controls : controls {
+            class background : background {
+                x = GUI_NOTIFICATION_X + GUI_NOTIFICATION_W * 3;
+            };
+            class picture : picture {
+                x = GUI_NOTIFICATION_X + GUI_NOTIFICATION_W * 3;
+            };
+        };
+    };
+    class APP(notification_5) : APP(notification_1) {
+        idd = IDC_NOTIFICATION_5;
+        onLoad = QUOTE(uinamespace setVariable [ARR_2('APP(notification_5)',_this select 0)]);
+        class controls : controls {
+            class background : background {
+                x = GUI_NOTIFICATION_X + GUI_NOTIFICATION_W * 4;
+            };
+            class picture : picture {
+                x = GUI_NOTIFICATION_X + GUI_NOTIFICATION_W * 4;
+            };
+        };
+    };
+    class APP(notification_6) : APP(notification_1) {
+        idd = IDC_NOTIFICATION_6;
+        onLoad = QUOTE(uinamespace setVariable [ARR_2('APP(notification_6)',_this select 0)]);
+        class controls : controls {
+            class background : background {
+                x = GUI_NOTIFICATION_X + GUI_NOTIFICATION_W * 5;
+            };
+            class picture : picture {
+                x = GUI_NOTIFICATION_X + GUI_NOTIFICATION_W * 5;
+            };
+        };
+    };
 };

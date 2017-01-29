@@ -16,9 +16,9 @@ PREP(noise);
 PREP(noise_square);
 
 PREP(addNotification);
-PREP(handleNotification);
+PREP(handleNotifications);
 PREP(removeAllNotifications);
-PREP(removeNotifications);
+PREP(removeNotification);
 
 
 ADDON = true;

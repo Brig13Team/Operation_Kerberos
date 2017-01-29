@@ -35,9 +35,15 @@ GVAR(interface) = [];
             HASH_GET(GVAR(spawnpositions),_spawntype) pushBack [ARR_2(_spawnPos,_spawnDir)];
         };
         GVAR(interface) pushBack [_spawnPos,_picture,(localize format[LSTRING(%1),_spawntype]),_spawntype];
+        [
+            format[QGVAR(interface_%1),_spawnLogic],
+            (parsingNamespace getVariable ["MISSION_ROOT",""]) + format["data\icon\icon_%1.paa",_picture],
+            FUNC(canOpenMenu),
+            [player,_spawntype]
+        ] call EFUNC(gui,addNotification);
     };
 } forEach [
-///  spawntyp,      spawnposition,      picture
+//   spawntyp,      spawnposition,      picture
     ["vehicles",    spawn_vehicles,     "tank"],
     ["drones",      spawn_drones,       "drone"],
     ["air",         spawn_air,          "heli"],
@@ -47,6 +53,7 @@ GVAR(interface) = [];
     ["logistic",    spawn_logistic2,    "logistic"]
 ];
 
+/*
 private _id = addMissionEventHandler ["draw3D",{
     private _root = parsingNamespace getVariable ["MISSION_ROOT",""];
     private _zoom = round(([0.5,0.5] distance worldToScreen positionCameraToWorld [0,1.05,1]) * (getResolution select 5));
@@ -65,3 +72,4 @@ private _id = addMissionEventHandler ["draw3D",{
         };
     } forEach GVAR(interface);
 }];
+*/
