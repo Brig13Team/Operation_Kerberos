@@ -118,4 +118,25 @@ class RscTitles {
             };
         };
     };
+    class APP(notification_1) {
+        duration = 20;
+        idd = IDC_NOTIFICATION_1;
+        movingenable = 0;
+        onLoad = QUOTE(uinamespace setVariable ['APP(notification_1)',_this select 0]);
+        class controls {
+            class background : RSC(BasePicture) {
+                idc = IDC_NOTIFICATION_IMG;
+                x = GUI_NOTIFICATION_X;
+                y = GUI_NOTIFICATION_Y;
+                w = GUI_NOTIFICATION_W;
+                h = GUI_NOTIFICATION_H;
+                colorBackground[] = COLOR_MSG_BACKGROUND;
+                text = "";
+            };
+        };
+    };
+    class APP(notification_2) : APP(notification_1) {idd = IDC_NOTIFICATION_2;onLoad = QUOTE(uinamespace setVariable ['APP(notification_2)',_this select 0]);};
+    class APP(notification_3) : APP(notification_1) {idd = IDC_NOTIFICATION_3;onLoad = QUOTE(uinamespace setVariable ['APP(notification_3)',_this select 0]);};
+    class APP(notification_4) : APP(notification_1) {idd = IDC_NOTIFICATION_4;onLoad = QUOTE(uinamespace setVariable ['APP(notification_4)',_this select 0]);};
+    class APP(notification_5) : APP(notification_1) {idd = IDC_NOTIFICATION_5;onLoad = QUOTE(uinamespace setVariable ['APP(notification_5)',_this select 0]);};
 };

@@ -15,9 +15,16 @@ PREP(endLoadingScreen);
 PREP(noise);
 PREP(noise_square);
 
+PREP(addNotification);
+PREP(handleNotification);
+PREP(removeAllNotifications);
+PREP(removeNotifications);
+
+
 ADDON = true;
 
 /// init variables
 GVAR(msg_cur) = [];
 GVAR(msg_cur_ID) = 0;
 GVAR(msg_waiting) = [];
+GVAR(notifications) = HASH_CREATE;
