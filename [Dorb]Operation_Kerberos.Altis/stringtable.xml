@@ -1124,4 +1124,18 @@
             <German>Eine modifizierte Kopie der Viewrestriction von ACEX.</German>
         </Key>
     </Package>
+    <Package name="babel">
+        <Key ID="STR_DORB_MOD_ACRE_ARAB">
+            <German>Arabisch</German>
+            <English>Arabic</English>
+        </Key>
+        <Key ID="STR_DORB_MOD_ACRE_ENGLISH">
+            <German>Englisch</German>
+            <English>english</English>
+        </Key>
+        <Key ID="STR_DORB_MOD_ACRE_GERMAN">
+            <German>Deutsch</German>
+            <English>German</English>
+        </Key>
+    </Package>
 </Project>
