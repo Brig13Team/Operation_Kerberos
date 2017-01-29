@@ -1127,7 +1127,7 @@
     <Package name="babel">
         <Key ID="STR_DORB_MOD_ACRE_ARAB">
             <German>Arabisch</German>
-            <English>Arabic</English>
+            <English>arabic</English>
         </Key>
         <Key ID="STR_DORB_MOD_ACRE_ENGLISH">
             <German>Englisch</German>
@@ -1135,7 +1135,7 @@
         </Key>
         <Key ID="STR_DORB_MOD_ACRE_GERMAN">
             <German>Deutsch</German>
-            <English>German</English>
+            <English>german</English>
         </Key>
     </Package>
 </Project>
