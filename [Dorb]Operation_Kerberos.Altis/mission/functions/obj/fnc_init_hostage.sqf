@@ -16,13 +16,13 @@
 
 _this params [["_hostage",objNull,[[],objNull]]];
 
-CHECK(isNull)
-
 If (IS_ARRAY(_hostage)) exitWith {
     {
         _this call FUNC(obj_init_hostage);
     } forEach _hostage;
 };
+CHECK(isNull _hostage)
+
 _hostage setVariable [QGVAR(isActive),true];
 _hostage setVariable [QGVAR(rescueEvent),QGVAR(hostage_captured)];
 

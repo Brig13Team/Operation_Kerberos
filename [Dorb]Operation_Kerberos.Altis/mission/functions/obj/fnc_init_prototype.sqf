@@ -16,13 +16,13 @@
 
 _this params [["_prototype",objNull,[[],objNull]]];
 
-CHECK(isNull)
-
 If (IS_ARRAY(_prototype)) exitWith {
     {
         _this call FUNC(obj_init_prototype);
     } forEach _prototype;
 };
+CHECK(isNull _prototype)
+
 _prototype setVariable [QGVAR(isActive),true];
 _prototype setVariable [QGVAR(rescueEvent),QGVAR(prototype_returned)];
 

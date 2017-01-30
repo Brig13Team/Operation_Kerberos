@@ -30,3 +30,5 @@
 [
     "Land_Suitcase_F"
 ] call FUNC(obj_initACEAction_case);
+
+[] call FUNC(obj_initACEAction_DataTerminal);

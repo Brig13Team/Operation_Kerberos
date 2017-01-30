@@ -16,13 +16,12 @@
 
 _this params [["_commander",objNull,[[],objNull]]];
 
-CHECK(isNull)
-
 If (IS_ARRAY(_commander)) exitWith {
     {
         _this call FUNC(obj_initcommander);
     } forEach _commander;
 };
+CHECK(isNull _commander)
 
 _commander setVariable [QGVAR(isActive),true];
 _commander setVariable [QGVAR(rescueEvent),QGVAR(commander_captured)];

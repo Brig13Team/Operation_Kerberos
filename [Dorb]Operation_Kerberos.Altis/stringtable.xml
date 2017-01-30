@@ -1185,5 +1185,24 @@
         <Key ID="STR_DORB_MISSION_OBJ_PROTOTYPE_CAPTURED_MSG">
             <German>Ein Prototyp wurde gesichert. Er steht nun zu Ihrer Verfügung.</German>
         </Key>
+        <!-- dataterminal -->
+        <Key ID="STR_DORB_MISSION_OBJ_DATATERMINAL_ACTIVATE">
+            <German>Terminal Aktivieren</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_DATATERMINAL_DEACTIVATE">
+            <German>Terminal Deaktivieren</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_DATATERMINAL_DOWNLOAD">
+            <German>Beginne Daten herunterzuladen</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_DATATERMINAL_DOWNLOADING">
+            <German>Am herunterladen</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_DATATERMINAL_DOWNLOAD_MSG_TITLE">
+            <German>Download gestartet</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_DATATERMINAL_CAPTURED_MSG">
+            <German>Ein Download wurde gestartet. Bleiben Sie bis zum Abschluss in der Nähe.</German>
+        </Key>
     </Package>
 </Project>

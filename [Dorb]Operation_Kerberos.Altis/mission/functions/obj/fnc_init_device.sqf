@@ -16,11 +16,11 @@
 
 _this params [["_device",objNull,[[],objNull]]];
 
-CHECK(isNull)
-
 If (IS_ARRAY(_device)) exitWith {
     {
         _this call FUNC(obj_init_device);
     } forEach _device;
 };
+CHECK(isNull _device)
+
 _device setVariable [QGVAR(isActive),true,true];
