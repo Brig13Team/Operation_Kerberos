@@ -9,8 +9,11 @@
 #include "script_component.hpp"
 
 [LINKEFUNC(spawn,cleanup_base) , 900, [] ] call CBA_fnc_addPerFrameHandler;
-[LINKFUNC(objects_handlerRescue), 30, [] ] call CBA_fnc_addPerFrameHandler;
-If ((getMarkerPos GVARMAIN(rescuemarker)) isEqualTo [0,0,0]) then {ERROR("No Rescue-Marker Found")};
+If ((getMarkerPos GVARMAIN(rescuemarker)) isEqualTo [0,0,0]) then {
+    ERROR("No Rescue-Marker Found")
+}else{
+    [LINKFUNC(handleRescuePoint), 30, [] ] call CBA_fnc_addPerFrameHandler;
+};
 
 /********************
     ServerEvents

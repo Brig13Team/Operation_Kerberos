@@ -3,6 +3,8 @@
 ADDON = false;
 
 PREP(rtb);
+PREP(handleRescuePoint);
+PREP(onKilled);
 PREP(testCreate);
 PREP(test);
 
@@ -31,31 +33,6 @@ PREPS(mainmission,specops_cond);
 PREPS(mainmission,weaponcache_cond);
 PREPS(mainmission,weaponcache);
 
-PREPS(objects,case_carry);
-PREPS(objects,case_drop);
-PREPS(objects,case_handler);
-PREPS(objects,device_canDisable);
-PREPS(objects,device_doDisable);
-PREPS(objects,device_effect_sandstorm_init);
-PREPS(objects,device_effect_sandstorm);
-PREPS(objects,device_init);
-PREPS(objects,handlerRescue);
-PREPS(objects,initACEAction_Device);
-PREPS(objects,initACEAction_Intel);
-PREPS(objects,nuke);
-PREPS(objects,onCacheDestroyed);
-PREPS(objects,onCommanderCaptured);
-PREPS(objects,onCommanderKilled);
-PREPS(objects,onEarthquake);
-PREPS(objects,onEMP);
-PREPS(objects,onHandleDamageC4);
-PREPS(objects,onHostageKilled);
-PREPS(objects,onHostageRescued);
-PREPS(objects,onIntelFound);
-PREPS(objects,onPrototypeKilled);
-PREPS(objects,onPrototypeReturned);
-PREPS(objects,onWeaponCacheDestroyed);
-
 PREPS(sidemission,clearArea);
 PREPS(sidemission,targetsAlive);
 
@@ -81,13 +58,25 @@ PREPS(obj,disableSandstorm);
 PREPS(obj,doCarry);
 PREPS(obj,doDisable);
 PREPS(obj,doDrop);
+PREPS(obj,effectEarthquake);
 PREPS(obj,effectSandstorm);
 PREPS(obj,handleCarry);
+PREPS(obj,init_commander);
+PREPS(obj,init_device);
+PREPS(obj,init_hostage);
+PREPS(obj,init_prototype);
 PREPS(obj,initACEAction_case);
 PREPS(obj,initACEAction_device);
 PREPS(obj,initACEAction_secureIntel);
-PREPS(obj,onEarthquake);
+PREPS(obj,onCommanderCaptured);
+PREPS(obj,onCommanderKilled);
+PREPS(obj,onHostageKilled);
+PREPS(obj,onHostageRescued);
 PREPS(obj,onIntelFound);
+PREPS(obj,onPrototypeKilled);
+PREPS(obj,onPrototypeReturned);
+PREPS(obj,onWeaponCacheDestroyed);
+PREPS(obj,spawnEMP);
 PREPS(obj,spawnNuke);
 
 ADDON = true;
