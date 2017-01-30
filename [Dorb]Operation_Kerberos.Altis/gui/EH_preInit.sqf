@@ -15,6 +15,11 @@ PREP(endLoadingScreen);
 PREP(noise);
 PREP(noise_square);
 
+PREP(handleTimer);
+PREP(setTimer);
+PREP(stopTimer);
+
+
 ADDON = true;
 
 /// init variables
