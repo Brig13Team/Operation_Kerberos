@@ -1124,4 +1124,27 @@
             <German>Eine modifizierte Kopie der Viewrestriction von ACEX.</German>
         </Key>
     </Package>
+
+    <Package name="mission_obj">
+        <Key ID="STR_DORB_MISSION_OBJ_DEVICE_DISABLE">
+            <English>deactivate</English>
+            <German>Deaktivieren</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_DEVICE_DEACTIVATING">
+            <English>deactivating</English>
+            <German>deaktiviere</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_CASE_CARRY">
+            <English>carray</English>
+            <German>tragen</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_CASE_DROP">
+            <English>drop</English>
+            <German>ablegen</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_INTEL_GRAB">
+            <English>secure</English>
+            <German>sichern</German>
+        </Key>
+    </Package>
 </Project>

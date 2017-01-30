@@ -73,4 +73,21 @@ PREPS(taskmanager,setState);
 PREPS(taskmanager,spawn);
 PREPS(taskmanager,spawnSide);
 
+PREPS(obj,canCarry);
+PREPS(obj,canDisable);
+PREPS(obj,canDrop);
+PREPS(obj,createSandstorm);
+PREPS(obj,disableSandstorm);
+PREPS(obj,doCarry);
+PREPS(obj,doDisable);
+PREPS(obj,doDrop);
+PREPS(obj,effectSandstorm);
+PREPS(obj,handleCarry);
+PREPS(obj,initACEAction_case);
+PREPS(obj,initACEAction_device);
+PREPS(obj,initACEAction_secureIntel);
+PREPS(obj,onEarthquake);
+PREPS(obj,onIntelFound);
+PREPS(obj,spawnNuke);
+
 ADDON = true;

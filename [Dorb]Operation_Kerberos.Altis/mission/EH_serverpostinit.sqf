@@ -8,23 +8,14 @@
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
+[LINKEFUNC(spawn,cleanup_base) , 900, [] ] call CBA_fnc_addPerFrameHandler;
+[LINKFUNC(objects_handlerRescue), 30, [] ] call CBA_fnc_addPerFrameHandler;
+If ((getMarkerPos GVARMAIN(rescuemarker)) isEqualTo [0,0,0]) then {ERROR("No Rescue-Marker Found")};
+
 /********************
     ServerEvents
 ********************/
 [QGVAR(emp),LINKFUNC(onEMP)] call CBA_fnc_addEventHandler;
-
-[LINKFUNC(objects_handlerRescue), 30, [] ] call CBA_fnc_addPerFrameHandler;
-
-If ((getMarkerPos GVARMAIN(rescuemarker)) isEqualTo [0,0,0]) then {
-    ERROR("No Rescue-Marker Found")
-};
-
-/********************
-    Cleanup
-********************/
-
-[LINKEFUNC(spawn,cleanup_base) , 900, [] ] call CBA_fnc_addPerFrameHandler;
-
 
 /********************
     Missionloop
