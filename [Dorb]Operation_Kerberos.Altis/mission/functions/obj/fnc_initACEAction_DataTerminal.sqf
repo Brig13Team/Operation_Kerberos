@@ -53,9 +53,9 @@
 
     private _action = [
         QGVAR(dataTerminal_download),
-        localize LSTRING(OBJ_DATATERMINAL_DOWNLOAD),
+        localize LSTRING(OBJ_DATATERMINAL_TRIANGULATE),
         "",
-        LINKFUNC(obj_doDownload),
+        LINKFUNC(obj_doTriangulate),
         {
             (_target animationSourcePhase "Antenna_source")>=3
         }

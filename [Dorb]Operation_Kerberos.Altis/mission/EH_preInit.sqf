@@ -4,6 +4,7 @@ ADDON = false;
 
 PREP(rtb);
 PREP(handleRescuePoint);
+PREP(getAllMissionTargets);
 PREP(onKilled);
 PREP(testCreate);
 PREP(test);
@@ -59,8 +60,10 @@ PREPS(obj,doCarry);
 PREPS(obj,doDisable);
 PREPS(obj,doDownload);
 PREPS(obj,doDrop);
+PREPS(obj,doTriangulate);
 PREPS(obj,effectEarthquake);
 PREPS(obj,effectSandstorm);
+PREPS(obj,effectTriangulation);
 PREPS(obj,handleCarry);
 PREPS(obj,init_commander);
 PREPS(obj,init_device);
@@ -80,5 +83,6 @@ PREPS(obj,onPrototypeReturned);
 PREPS(obj,onWeaponCacheDestroyed);
 PREPS(obj,spawnEMP);
 PREPS(obj,spawnNuke);
+PREPS(obj,triangulate);
 
 ADDON = true;

@@ -1192,17 +1192,23 @@
         <Key ID="STR_DORB_MISSION_OBJ_DATATERMINAL_DEACTIVATE">
             <German>Terminal Deaktivieren</German>
         </Key>
-        <Key ID="STR_DORB_MISSION_OBJ_DATATERMINAL_DOWNLOAD">
-            <German>Beginne Daten herunterzuladen</German>
+        <Key ID="STR_DORB_MISSION_OBJ_DATATERMINAL_TRIANGULATE">
+            <German>Starte Triangulation</German>
         </Key>
-        <Key ID="STR_DORB_MISSION_OBJ_DATATERMINAL_DOWNLOADING">
-            <German>Am herunterladen</German>
+        <Key ID="STR_DORB_MISSION_OBJ_DATATERMINAL_TRIANGULATING">
+            <German>trianguliere</German>
         </Key>
-        <Key ID="STR_DORB_MISSION_OBJ_DATATERMINAL_DOWNLOAD_MSG_TITLE">
-            <German>Download gestartet</German>
+        <Key ID="STR_DORB_MISSION_OBJ_TRIANGULATE_MISSING_MSG_TITLE">
+            <German>Triangulation fehlgeschlagen</German>
         </Key>
-        <Key ID="STR_DORB_MISSION_OBJ_DATATERMINAL_CAPTURED_MSG">
-            <German>Ein Download wurde gestartet. Bleiben Sie bis zum Abschluss in der Nähe.</German>
+        <Key ID="STR_DORB_MISSION_OBJ_TRIANGULATE_MISSING_MSG">
+            <German>Die Triangulation ist fehlgeschlagen. Es befinden sich nicht ausreichend Sender im Bereich.</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_TRIANGULATE_MOVED_MSG_TITLE">
+            <German>Triangulation abgebrochen</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_TRIANGULATE_MOVED_MSG">
+            <German>Die Triangulation wurde abgebrochen. Die Empfänger wurden bewegt.</German>
         </Key>
     </Package>
 </Project>
