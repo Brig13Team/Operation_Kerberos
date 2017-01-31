@@ -16,7 +16,6 @@
 
 _this params [["_destination","",[""]],["_position",[],[[]]]];
 
-
 private _distance = getNumber(missionConfigFile >> "missions_config" >> "main" >> "clear" >> "location" >> "distance");
 
 [_position,"clear",_distance] call EFUNC(spawn,createMissionTarget);

@@ -29,9 +29,10 @@ private _army = [_armys,1] call EFUNC(common,sel_array_weighted);
 // create task
 TRACEV_2(_nextMission,_nextLocation);
 private _curMainTaskID = [_nextMission, _nextLocation] call FUNC(taskmanager_add);
+
+/*
 // spawn all the missionthings
 [_nextLocation select 1] call EFUNC(spawn,createMission);
-/*
 // setUp the sidemissions
 private _allSideMissions = configProperties [(missionConfigFile >> "mission_config" >> "main" >> _nextMission >> "sidemissions"), "(getNumber(_x >> 'probability') > (random 1))", true];
 {
@@ -43,6 +44,7 @@ private _allSideMissions = configProperties [(missionConfigFile >> "mission_conf
     ] call CBA_fnc_waitAndExecute;
 } forEach _allSideMissions;
 */
+
 [QEGVAR(mission,start),[_nextLocation select 1,_nextMission]] call CBA_fnc_localEvent;
 // initialize next mission
 GVAR(current_mission)  = _nextMission;

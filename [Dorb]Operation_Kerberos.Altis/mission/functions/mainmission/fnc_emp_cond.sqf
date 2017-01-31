@@ -16,8 +16,8 @@ _this params [["_emp",objNull,[objNull]],["_intervall",-1,[0]]];
 
 if (isNull _emp) exitWith { "" };
 
-if !(_device getVariable [QGVAR(isActive),true]) exitWith { "Succeeded" };
-if (!(alive _device)) exitWith { "Failed" };
+if !(_emp getVariable [QGVAR(isActive),true]) exitWith { "Succeeded" };
+if (!(alive _emp)) exitWith { "Failed" };
 
 if (GVAR(last_emp) + _intervall >= CBA_missionTime) then {
     GVAR(last_emp) = CBA_missionTime;

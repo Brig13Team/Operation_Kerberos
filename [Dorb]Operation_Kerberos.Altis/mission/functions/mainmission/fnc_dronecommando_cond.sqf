@@ -17,9 +17,12 @@
 _this params [["_dronecommandos",[],[[]]]];
 
 private _living_dronecommandos = {
-    (alive _x)&&
+    (alive _x) &&
     (!(_x getVariable [QGVAR(active),false]))
 } count _dronecommandos;
 
+TRACEV_2(_dronecommandos,_living_dronecommandos);
+
 If (_living_dronecommandos < 1) exitWith { "Succeeded" };
+
 ""

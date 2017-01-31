@@ -14,12 +14,11 @@
 
 _this params [["_destination","",[""]],["_position",[],[[]]]];
 
-
 private _radius = getNumber(missionConfigFile >> "missions_config" >> "main" >> "device" >> "location" >> "distance");
 
 private _obj = [_position,"device",_radius] call EFUNC(spawn,createMissionTarget);
 
-[_obj] call FUNC(objects_device_init);
+[_obj] call FUNC(obj_init_device);
 
 GVAR(last_earthquake) = CBA_missionTime;
 

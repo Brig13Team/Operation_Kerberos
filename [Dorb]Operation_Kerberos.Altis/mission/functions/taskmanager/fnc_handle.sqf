@@ -19,6 +19,7 @@
 
 
 private _x2 = _x;
+private _conditions = [];
 {
     private _func = _x select 0;
     private _args = _x select 1;
@@ -38,7 +39,10 @@ private _x2 = _x;
                 [QGVAR(finished_side), [_taskNumber, _state]] call CBA_fnc_globalEvent;
             };
         }
+    } else {
+        _conditions pushBack _x;
     };
 
     _x2 set [2, diag_tickTime + DELAY];
 } forEach +GVAR(conditions);
+GVAR(conditions) = +_conditions;

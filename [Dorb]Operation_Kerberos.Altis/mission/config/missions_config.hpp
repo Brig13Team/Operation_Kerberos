@@ -150,7 +150,7 @@ class missions_config {
                 areas[] = {QGVAR(town)};
                 distance = 200;
             };
-            objectsamount_min = 0;
+            objectsamount_min = 1;
             objectsamount_max = 5;
         };
         class clear : main_base {

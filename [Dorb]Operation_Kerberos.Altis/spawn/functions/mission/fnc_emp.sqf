@@ -16,7 +16,7 @@
 _this params [["_centerposition",[],[[]]],["_parameter",[]]];
 _parameter params [["_radius",300,[0]]];
 TRACEV_3(_centerposition,_parameter,_radius);
-private _targetPositions = ([_centerposition,["emp","isObjective"],1,_radius] call FUNC(createMissionComposition));
+private _targetPositions = [_centerposition,["emp","isObjective"],1,_radius] call FUNC(createMissionComposition);
 private _targetPos = selectRandom (_targetPositions select 0);
 
 private _obj = ["emp"] call FUNC(getMissionObject);

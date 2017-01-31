@@ -15,7 +15,6 @@
 #include "script_component.hpp"
 
 If (isServer) then {
-    _this params ["_commander"];
     GVAR(commander_killed) = GVAR(commander_killed) + 1;
 };
 If (hasInterface) then {

@@ -12,11 +12,11 @@
 */
 #include "script_component.hpp"
 
-_this params [["_hostages",-1,[0]]];
+_this params [["_hostages",[],[[]]], ["_amount",-1,[0]]];
 
-if ((GVAR(killed_hostages) + GVAR(rescued_hostages)) < _hostages) exitWith { "" };
+if (({ alive _x } count _hostages) > 0) exitWith { "" };
 
-if (GVAR(rescued_hostages) > _hostages*0.66) exitWith { "Succeeded" };
-if (GVAR(killed_hostages) >= _hostages*0.66) exitWith { "Failed" };
+if (GVAR(rescued_hostages) > _amount*0.66) exitWith { "Succeeded" };
+if (GVAR(killed_hostages) >= _amount*0.66) exitWith { "Failed" };
 
 "Canceled"
