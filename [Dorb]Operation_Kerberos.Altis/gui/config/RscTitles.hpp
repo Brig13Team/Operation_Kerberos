@@ -118,4 +118,65 @@ class RscTitles {
             };
         };
     };
+    class APP(loadingbar) {
+        duration = 1e+011;
+        idd = IDD_LOADINGBAR;
+        movingenable = 0;
+        onLoad = QUOTE(uiNamespace setVariable [ARR_2('GVAR(loadingbar)', _this select 0)];);
+        class controls {
+            class backGround : RSC(BaseText) {
+                idc = -1;
+                x = GUI_LOADINGBAR_X;
+                y = GUI_LOADINGBAR_Y;
+                w = GUI_LOADINGBAR_W;
+                h = GUI_LOADINGBAR_H;
+            };
+            class header : RSC(BaseText) {
+                idc = IDC_LOADINGBAR_HEADER;
+                x = GUI_LOADINGBAR_HEADER_X;
+                y = GUI_LOADINGBAR_HEADER_Y;
+                w = GUI_LOADINGBAR_HEADER_W;
+                h = GUI_LOADINGBAR_HEADER_H;
+                sizeEx = 1.2 * GUI_GRID_H;
+                text = CSTRING(LOADINGBAR);
+            };
+            class symbol : RSC(BasePicture) {
+                idc = IDC_LOADINGBAR_SYMBOL;
+                x = GUI_LOADINGBAR_SYMBOL_X;
+                y = GUI_LOADINGBAR_SYMBOL_Y;
+                w = GUI_LOADINGBAR_SYMBOL_W;
+                h = GUI_LOADINGBAR_SYMBOL_H;
+                text = "a3\ui_f\data\igui\cfg\simpletasks\types\download_ca.paa";
+            };
+            class progress : RSC(BaseLoadingbar) {
+                idc = IDC_LOADINGBAR_BAR;
+                x = GUI_LOADINGBAR_BAR_X;
+                y = GUI_LOADINGBAR_BAR_Y;
+                w = GUI_LOADINGBAR_BAR_W;
+                h = GUI_LOADINGBAR_BAR_H;
+                colorFrame[] = COLOR_BACKGROUND;
+                texture = QPAAPATH(progressbar_texture);
+            };
+            class arrow : RSC(BasePicture) {
+                idc = IDC_LOADINGBAR_ARROW;
+                x = GUI_LOADINGBAR_ARROW_X;
+                y = GUI_LOADINGBAR_ARROW_Y;
+                w = GUI_LOADINGBAR_ARROW_W;
+                h = GUI_LOADINGBAR_ARROW_H;
+                text = "a3\ui_f\data\gui\rsc\rscdisplaydlccontentbrowser\platform_ca.paa";
+            };
+            class state : RSC(BaseText) {
+                idc = IDC_LOADINGBAR_STATE;
+                x = GUI_LOADINGBAR_STATE_X;
+                y = GUI_LOADINGBAR_STATE_Y;
+                w = GUI_LOADINGBAR_STATE_W;
+                h = GUI_LOADINGBAR_STATE_H;
+                sizeEx = 0.6  * GUI_GRID_H;
+                text = "0 %";
+                style = "0x01";
+                colorText[] = COLOR_BACKGROUND;
+                colorBackground[] = COLOR_DISABLED;
+            };
+        };
+    };
 };

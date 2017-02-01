@@ -15,6 +15,11 @@ PREP(endLoadingScreen);
 PREP(noise);
 PREP(noise_square);
 
+PREP(getGradient);
+PREP(endLoadingBar);
+PREP(progressLoadingBar);
+PREP(startLoadingBar);
+
 ADDON = true;
 
 /// init variables
