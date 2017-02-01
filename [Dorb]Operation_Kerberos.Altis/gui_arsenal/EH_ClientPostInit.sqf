@@ -14,7 +14,7 @@ CHECK(!hasInterface)
  */
 
 GVAR(fullArsenal) = false;
-GVAR(allowedradius) = 10;
+GVAR(allowedradius) = 12;
 GVAR(allowedPositions) = [
     getMarkerPos "arsenalTest",
     getmarkerpos GVARMAIN(RESPAWNMARKER)
@@ -44,6 +44,12 @@ If !(IS_BOOL(GVAR(fullArsenal))) then {
     2
 ] call EFUNC(gui_tablet,addApp);
 
+[
+    QGVAR(Arsenal),
+    "\A3\ui_f\data\logos\arsenal_1024_ca.paa",
+    FUNC(canOpenMenu),
+    [player]
+] call EFUNC(gui,addNotification);
 
 [
     QGVAR(ArsenalAddAction),

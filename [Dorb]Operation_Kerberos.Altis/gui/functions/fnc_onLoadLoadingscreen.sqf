@@ -1,14 +1,14 @@
 /*
- *  Author: [Name of Author(s)]
+ *  Author: Dorbedo
  *
  *  Description:
- *      [Description]
+ *      OnLoading of the Loadingscreen Display-Event
  *
  *  Parameter(s):
- *      0 : [TYPE] - [argument name]
+ *      0 : DISPLAY - Loading-Display
  *
  *  Returns:
- *      [TYPE] - [return name]
+ *      none
  *
  */
 #define INCLUDE_GUI

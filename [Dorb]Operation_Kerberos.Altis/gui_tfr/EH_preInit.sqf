@@ -2,6 +2,7 @@
 
 ADDON = false;
 
+PREP(canOpenMenu);
 PREP(onOpen);
 PREP(OpenMenu);
 PREP(setFreq);

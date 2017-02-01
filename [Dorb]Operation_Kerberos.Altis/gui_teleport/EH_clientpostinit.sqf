@@ -71,6 +71,12 @@ for "_i" from 1 to 9 do {
     };
 };
 
+[
+    QGVAR(teleporterIcon),
+    (parsingNamespace getVariable ["MISSION_ROOT",""]) + QEPAAPATH(icon,icon_teleport),
+    FUNC(canOpenMenu)
+] call EFUNC(gui,addNotification);
+
 private _id = addMissionEventHandler ["draw3D",{
     private _root = parsingNamespace getVariable "MISSION_ROOT";
     private _zoom = round(([0.5,0.5] distance worldToScreen positionCameraToWorld [0,1.05,1]) * (getResolution select 5));
