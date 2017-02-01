@@ -1,14 +1,14 @@
 /*
- *  Author: [Name of Author(s)]
+ *  Author: Dorbedo
  *
  *  Description:
- *      [Description]
+ *      Shows the square noise
  *
  *  Parameter(s):
- *      0 : [TYPE] - [argument name]
+ *      0 : DISPLAY - the display to show the noise
  *
  *  Returns:
- *      [TYPE] - [return name]
+ *      none
  *
  */
 #define INCLUDE_GUI
