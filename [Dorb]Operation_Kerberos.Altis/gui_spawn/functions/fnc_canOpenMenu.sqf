@@ -11,6 +11,7 @@
  *      BOOL - is allowed to open the list
  *
  */
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 _this params [["_player",objNull,[objNull]],["_spawntype","",[""]]];
