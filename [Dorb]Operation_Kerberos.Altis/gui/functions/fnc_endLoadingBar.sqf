@@ -1,14 +1,14 @@
 /*
- *  Author: [Name of Author(s)]
+ *  Author: Dorbedo
  *
  *  Description:
- *      [Description]
+ *      hides the loading-bar
  *
  *  Parameter(s):
- *      0 : [TYPE] - [argument name]
+ *      none
  *
  *  Returns:
- *      [TYPE] - [return name]
+ *      none
  *
  */
 //#define DEBUG_MODE_FULL

@@ -10,7 +10,7 @@
  *      2 : SCALAR - Max Value
  *
  *  Returns:
- *      [TYPE] - [return name]
+ *      none
  *
  */
 //#define DEBUG_MODE_FULL

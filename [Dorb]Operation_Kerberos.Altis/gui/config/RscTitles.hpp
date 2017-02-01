@@ -155,7 +155,6 @@ class RscTitles {
                 w = GUI_LOADINGBAR_BAR_W;
                 h = GUI_LOADINGBAR_BAR_H;
                 colorFrame[] = COLOR_BACKGROUND;
-                //texture = "a3\ui_f\data\gui\rsccommon\rscprogress\progressbar_ca.paa";
                 texture = QPAAPATH(progressbar_texture);
             };
             class arrow : RSC(BasePicture) {
@@ -172,8 +171,6 @@ class RscTitles {
                 y = GUI_LOADINGBAR_STATE_Y;
                 w = GUI_LOADINGBAR_STATE_W;
                 h = GUI_LOADINGBAR_STATE_H;
-                //size = 0.18 * GUI_GRID_H;
-                //sizeEx = 0.8;
                 sizeEx = 0.6  * GUI_GRID_H;
                 text = "0 %";
                 style = "0x01";

@@ -2,13 +2,13 @@
  *  Author: Dorbedo
  *
  *  Description:
- *      [Description]
+ *      Opens the loading-bar and changes the title
  *
  *  Parameter(s):
- *      0 : [TYPE] - [argument name]
+ *      0 : STRING - the title (optional)
  *
  *  Returns:
- *      [TYPE] - [return name]
+ *      none
  *
  */
 //#define DEBUG_MODE_FULL
