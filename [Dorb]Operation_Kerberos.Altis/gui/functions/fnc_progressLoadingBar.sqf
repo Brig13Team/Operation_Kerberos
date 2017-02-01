@@ -32,7 +32,7 @@ if (!isNull _display) then {
     _ctrl = _display displayCtrl IDC_LOADINGBAR_STATE;
     _ctrl ctrlSetText (format["%1 ",floor(_progress * 100)] + "%");
     _ctrl ctrlSetPosition [
-        (GUI_LOADINGBAR_STATE_X + ((GUI_LOADINGBAR_W - GUI_LOADINGBAR_STATE_W) * _progress)),
+        (GUI_LOADINGBAR_STATE_X + (GUI_LOADINGBAR_BAR_W * _progress)),
         GUI_LOADINGBAR_STATE_Y
     ];
     _ctrl ctrlCommit 0;
