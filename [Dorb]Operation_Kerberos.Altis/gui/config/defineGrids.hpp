@@ -30,6 +30,11 @@
 #define GUI_MSG_COL (0.2 * GUI_GRID_W)
 #define GUI_MSG_TEXT (3 * GUI_GRID_H)
 
+#define GUI_NOTIFICATION_X (safezoneX + 0.5 * GUI_GRID_W)
+#define GUI_NOTIFICATION_Y (safezoneY + safezoneH - 3 * GUI_GRID_H)
+#define GUI_NOTIFICATION_H (2 * GUI_GRID_H)
+#define GUI_NOTIFICATION_W (2 * GUI_GRID_W)
+
 #define GUI_LOADINGBAR_HEADER_X (safezoneX + 0.5 * GUI_GRID_W)
 #define GUI_LOADINGBAR_HEADER_Y (safezoneY + safezoneH - 10.5 * GUI_GRID_H)
 #define GUI_LOADINGBAR_HEADER_H (1.5 * GUI_GRID_H)
