@@ -74,12 +74,6 @@ GVAR(postInit) = false;
 [
     QGVAR(ArsenalAddAction),
     {
-        If ((!isNil QEGVAR(acrepatch,isDataSyncronized))&&{!EGVAR(acrepatch,isDataSyncronized)}) exitWith {
-            [
-                {EGVAR(acrepatch,isDataSyncronized)},
-                {[QGVAR(ArsenalAddAction)] call CBA_fnc_localEvent;}
-            ] call CBA_fnc_waitUntilAndExecute;
-        };
         private _boxes = missionnamespace getvariable [QGVAR(arsenal_boxes),[]];
         {
             if (isnil {_x getvariable "bis_fnc_arsenal_action"}) then {
@@ -88,9 +82,6 @@ GVAR(postInit) = false;
                     {
                         _box = _this select 0;
                         _unit = _this select 1;
-                        if !(isNil QEFUNC(acrepatch,ArsenalRemoveRadio)) then {
-                            [] call EFUNC(acrepatch,ArsenalRemoveRadio);
-                        };
                         ["Open",[nil,_box,_unit]] call bis_fnc_arsenal;
                     },
                     [],

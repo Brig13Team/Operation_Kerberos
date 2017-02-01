@@ -32,9 +32,6 @@ class Extended_PostInit_EventHandlers {
     class Dorb_ai_post {
 		Serverinit = "call compile preProcessFileLineNumbers 'ai\XEH_postinit.sqf'";
 	};
-    class dorb_acrepatch_client {
-        Clientinit = "call compile preProcessFileLineNumbers 'acrepatch\XEH_Clientpostinit.sqf'";
-    };
     class dorb_acrepatch {
         init = "call compile preProcessFileLineNumbers 'acrepatch\XEH_postinit.sqf'";
     };

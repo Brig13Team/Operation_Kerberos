@@ -5,7 +5,17 @@
 #define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-#include "MissionSettings.sqf"
+private _interference = ["acre_sys_core_interference",true,false,"client"] call CBA_Settings_fnc_set;
+// Full duplex
+private _fullDuplex = ["acre_sys_core_fullDuplex",true,false,"client"] call CBA_Settings_fnc_set;
+// Antena direction
+private _ignoreAntennaDirection = ["acre_sys_core_ignoreAntennaDirection",true,false,"client"] call CBA_Settings_fnc_set;
+// Terrain loss
+private _terrainLoss = ["acre_sys_core_terrainLoss",0.5,false,"client"] call CBA_Settings_fnc_set;
+// Reveal to AI
+private _revealToAI = ["acre_sys_core_revealToAI",true,false,"client"] call CBA_Settings_fnc_set;
+
+LOG_5(_interference,_fullDuplex,_ignoreAntennaDirection,_terrainLoss,_revealToAI);
 
 ["acre_getRadioId",{
     _this params ["_player","_radio"];
@@ -37,3 +47,17 @@
     private _message = "player got new unique Radio";
     LOG_3(_message,_player,_class);
 }] call CBA_fnc_addEventHandler;
+
+/*
+// Interference
+["acre_sys_core_interference",true,true,"mission"] call CBA_Settings_fnc_set;
+// Full duplex
+["acre_sys_core_fullDuplex",true,true,"mission"] call CBA_Settings_fnc_set;
+// Antena direction
+["acre_sys_core_ignoreAntennaDirection",true,true,"mission"] call CBA_Settings_fnc_set;
+// Terrain loss
+["acre_sys_core_terrainLoss",0.5,true,"mission"] call CBA_Settings_fnc_set;
+// Reveal to AI
+["acre_sys_core_revealToAI",true,true,"mission"] call CBA_Settings_fnc_set;
+*/
+#include "MissionSettings_basic.sqf"
