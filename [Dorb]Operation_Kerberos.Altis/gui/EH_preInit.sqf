@@ -15,6 +15,10 @@ PREP(endLoadingScreen);
 PREP(noise);
 PREP(noise_square);
 
+PREP(handleTimer);
+PREP(setTimer);
+PREP(stopTimer);
+
 PREP(addNotification);
 PREP(handleNotifications);
 PREP(removeAllNotifications);

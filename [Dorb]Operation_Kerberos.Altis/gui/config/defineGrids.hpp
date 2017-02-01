@@ -30,6 +30,19 @@
 #define GUI_MSG_COL (0.2 * GUI_GRID_W)
 #define GUI_MSG_TEXT (3 * GUI_GRID_H)
 
+#define GUI_TIMER_BACK_X (safezoneX + 0.5 * GUI_GRID_W)
+#define GUI_TIMER_BACK_Y (safezoneY + safezoneH - 5.5 * GUI_GRID_H)
+#define GUI_TIMER_BACK_H (2 * GUI_GRID_H)
+#define GUI_TIMER_BACK_W (4 * GUI_GRID_W)
+#define GUI_TIMER_PIC_X GUI_TIMER_BACK_X
+#define GUI_TIMER_PIC_Y GUI_TIMER_BACK_Y
+#define GUI_TIMER_PIC_H (2 * GUI_GRID_H)
+#define GUI_TIMER_PIC_W (2 * GUI_GRID_W)
+#define GUI_TIMER_TEXT_X (GUI_TIMER_BACK_X + GUI_TIMER_PIC_W * 0.9)
+#define GUI_TIMER_TEXT_Y GUI_TIMER_BACK_Y
+#define GUI_TIMER_TEXT_H (2 * GUI_GRID_H)
+#define GUI_TIMER_TEXT_W (1.8 * GUI_GRID_W)
+
 #define GUI_NOTIFICATION_X (safezoneX + 0.5 * GUI_GRID_W)
 #define GUI_NOTIFICATION_Y (safezoneY + safezoneH - 3 * GUI_GRID_H)
 #define GUI_NOTIFICATION_H (2 * GUI_GRID_H)

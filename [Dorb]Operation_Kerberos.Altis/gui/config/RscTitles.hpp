@@ -80,21 +80,40 @@ class RscTitles {
 
     class APP(timer) {
         duration = 61;
+        fadein = 0;
+        fadeout = 0;
         idd = IDD_TIMER;
         movingenable = 0;
         onLoad = QUOTE(uiNamespace setVariable [ARR_2('GVAR(timer)', _this select 0)];);
-        class controlsBackground {
-            class header : RSC(BaseText) {
+        class controls {
+            class background : RSC(BaseText) {
+                idc = IDC_TIMER_BACKGROUND;
+                x = GUI_TIMER_BACK_X;
+                y = GUI_TIMER_BACK_Y;
+                w = GUI_TIMER_BACK_W;
+                h = GUI_TIMER_BACK_H;
+                colorBackground[] = COLOR_MSG_BACKGROUND;
                 text = "";
-                idc = IDD_TIMER_TEXT;
-                sizeEx = GUI_GRID_H;
-                style = ST_CENTER;
-                x = safeZoneX + safeZoneW - (safeZoneW * 0.032);
-                y = safeZoneY + safezoneH * 0.19;
-                w = GUI_GRID_W * 1.2;
-                h = GUI_GRID_H * 1.2;
-                colorText[] = UI_CL_BODY_TEXT;
-                colorBackground[] = UI_CL_BODY;
+            };
+            class picture : RSC(BasePicture) {
+                idc = IDC_TIMER_PICTURE;
+                x = GUI_TIMER_PIC_X;
+                y = GUI_TIMER_PIC_Y;
+                w = GUI_TIMER_PIC_W;
+                h = GUI_TIMER_PIC_H;
+                colorBackground[] = COLOR_DISABLED;
+                text = "A3\ui_f\data\gui\cfg\cursors\wait_gs.paa"
+                colorText[] = COLOR_FONT;
+            };
+            class text : RSC(BaseText) {
+                idc = IDC_TIMER_TEXT;
+                x = GUI_TIMER_TEXT_X;
+                y = GUI_TIMER_TEXT_Y;
+                w = GUI_TIMER_TEXT_W;
+                h = GUI_TIMER_TEXT_H;
+                colorBackground[] = COLOR_DISABLED;
+                text = "";
+                style = 0x01;
             };
         };
     };
@@ -268,4 +287,5 @@ class RscTitles {
             };
         };
     };
+    
 };
