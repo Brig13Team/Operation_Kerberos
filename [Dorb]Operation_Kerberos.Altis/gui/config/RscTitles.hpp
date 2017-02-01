@@ -118,4 +118,53 @@ class RscTitles {
             };
         };
     };
+    class APP(loadingbar) {
+        duration = 1e+011;
+        idd = IDD_LOADINGBAR;
+        movingenable = 0;
+        onLoad = QUOTE(uiNamespace setVariable [ARR_2('GVAR(loadingbar)', _this select 0)];);
+        class controls {
+            class backGround : RSC(BaseText) {
+                idc = -1;
+                x = GUI_LOADINGBAR_X;
+                y = GUI_LOADINGBAR_Y;
+                w = GUI_LOADINGBAR_W;
+                h = GUI_LOADINGBAR_H;
+            };
+            class header : RSC(BaseText) {
+                idc = IDC_LOADINGBAR_HEADER;
+                x = GUI_LOADINGBAR_HEADER_X;
+                y = GUI_LOADINGBAR_HEADER_Y;
+                w = GUI_LOADINGBAR_HEADER_W;
+                h = GUI_LOADINGBAR_HEADER_H;
+                size = 0.8 * GUI_GRID_H;
+                text = CSTRING(LOADINGBAR);
+            };
+            class progress : RSC(BaseLoadingbar) {
+                idc = IDC_LOADINGBAR_BAR;
+                x = GUI_LOADINGBAR_BAR_X;
+                y = GUI_LOADINGBAR_BAR_Y;
+                w = GUI_LOADINGBAR_BAR_W;
+                h = GUI_LOADINGBAR_BAR_H;
+            };
+            class arrow : RSC(BasePicture) {
+                idc = IDC_LOADINGBAR_ARROW;
+                x = GUI_LOADINGBAR_ARROW_X;
+                y = GUI_LOADINGBAR_ARROW_Y;
+                w = GUI_LOADINGBAR_ARROW_W;
+                h = GUI_LOADINGBAR_ARROW_H;
+                text = "a3\ui_f\data\gui\rsc\rscdisplayarcademap\icon_sidebar_show_down.paa";
+            };
+            class state : RSC(BaseText) {
+                idc = IDC_LOADINGBAR_STATE;
+                x = GUI_LOADINGBAR_STATE_X;
+                y = GUI_LOADINGBAR_STATE_Y;
+                w = GUI_LOADINGBAR_STATE_W;
+                h = GUI_LOADINGBAR_STATE_H;
+                size = 0.6 * GUI_GRID_H;
+                text = "0 %";
+                style = "0x02+0x0c";
+            };
+        };
+    };
 };
