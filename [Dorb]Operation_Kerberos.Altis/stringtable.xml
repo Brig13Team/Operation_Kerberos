@@ -652,10 +652,9 @@
             <German>Echidna</German>
             <English>Echidna</English>
         </Key>
-        <Key ID="STR_DORB_GUI_S">
-            <Original></Original>
-            <German></German>
-
+        <Key ID="STR_DORB_GUI_LOADINGBAR">
+            <German>Am Herunterladen</German>
+            <German>Downloading</German>
         </Key>
     </Package>
     <Package name="Gui_teleport">
