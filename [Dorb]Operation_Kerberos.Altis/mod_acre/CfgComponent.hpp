@@ -9,7 +9,9 @@
 #include "script_component.hpp"
 
 class DOUBLES(CfgComponent,ADDON) {
-    class postinit {};
+    class postInit_babel {};
+    class postInit_Basic {};
+    class postInitServer_settings {client = 0;};
     class dependencies {
         CfgPatches[] = {"acre_main"};
         CfgComponents[] = {};
