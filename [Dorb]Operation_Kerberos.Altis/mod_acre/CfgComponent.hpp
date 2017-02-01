@@ -11,7 +11,7 @@
 class DOUBLES(CfgComponent,ADDON) {
     class postInit_babel {};
     class postInit_Basic {};
-    class postInit_settings {};
+    class postInitServer_settings {client = 0;};
     class dependencies {
         CfgPatches[] = {"acre_main"};
         CfgComponents[] = {};

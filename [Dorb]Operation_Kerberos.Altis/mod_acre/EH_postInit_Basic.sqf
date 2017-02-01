@@ -15,7 +15,7 @@
 #include "script_component.hpp"
 
 acre_api_basicMissionSetup = true;
-
+acre_player setVariable ["acre_api_basicMissionSetup", true, true];
 // diable the basic mission setup
 CHECK(true)
 
