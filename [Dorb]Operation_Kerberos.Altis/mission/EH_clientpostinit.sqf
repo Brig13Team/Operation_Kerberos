@@ -12,12 +12,8 @@
     "Land_File1_F",
     "Land_File2_F",
     "Land_FilePhotos_F",
-    "Land_Laptop_F",
-    "Land_Laptop_device_F",
-    "Land_Laptop_unfolded_F",
     "Land_SatellitePhone_F",
     "Land_MobilePhone_smart_F"
-
 ] call FUNC(obj_initACEAction_secureIntel);
 
 [
@@ -31,4 +27,13 @@
     "Land_Suitcase_F"
 ] call FUNC(obj_initACEAction_case);
 
-[] call FUNC(obj_initACEAction_DataTerminal);
+[
+    "Land_Laptop_F",
+    "Land_Laptop_device_F",
+    "Land_Laptop_unfolded_F",
+    "Land_Laptop_unfolded_scripted_F"
+] call FUNC(obj_initACEAction_Laptop);
+
+[
+    "Land_DataTerminal_01_F"
+] call FUNC(obj_initACEAction_DataTerminal);

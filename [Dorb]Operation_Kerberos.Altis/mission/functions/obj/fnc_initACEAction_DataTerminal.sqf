@@ -66,4 +66,4 @@
         ["ACE_MainActions"],
         _action
     ] call ace_interact_menu_fnc_addActionToClass;
-} forEach ["Land_DataTerminal_01_F"];
+} forEach _this;

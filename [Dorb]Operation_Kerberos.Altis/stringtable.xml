@@ -1210,5 +1210,21 @@
         <Key ID="STR_DORB_MISSION_OBJ_TRIANGULATE_MOVED_MSG">
             <German>Die Triangulation wurde abgebrochen. Die Empfänger wurden bewegt.</German>
         </Key>
+        <!-- Laptop -->
+        <Key ID="STR_DORB_MISSION_OBJ_LAPTOP_DOWNLOAD">
+            <German>Download starten</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_LAPTOP_DOWNLOAD_PREPARE">
+            <German>Download wird vorbereitet</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_LAPTOP_DOWNLOAD_CANCEL_MSG_TITLE">
+            <German>Download abgebrochen</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_LAPTOP_DOWNLOAD_CANCEL_MSG">
+            <German>Der Download wurde abgebrochen.</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_LAPTOP_UPLOAD">
+            <German>Upload starten</German>
+        </Key>
     </Package>
 </Project>
