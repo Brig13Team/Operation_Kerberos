@@ -4,7 +4,6 @@
  */
 #define DEBUG_MODE_FULL
 #include "script_component.hpp"
-
 private _interference = ["acre_sys_core_interference",true,false,"client"] call CBA_Settings_fnc_set;
 // Full duplex
 private _fullDuplex = ["acre_sys_core_fullDuplex",true,false,"client"] call CBA_Settings_fnc_set;
@@ -14,8 +13,9 @@ private _ignoreAntennaDirection = ["acre_sys_core_ignoreAntennaDirection",true,f
 private _terrainLoss = ["acre_sys_core_terrainLoss",0.5,false,"client"] call CBA_Settings_fnc_set;
 // Reveal to AI
 private _revealToAI = ["acre_sys_core_revealToAI",true,false,"client"] call CBA_Settings_fnc_set;
-
 LOG_5(_interference,_fullDuplex,_ignoreAntennaDirection,_terrainLoss,_revealToAI);
+
+#include "ChannelNames.sqf"
 
 ["acre_getRadioId",{
     _this params ["_player","_radio"];
