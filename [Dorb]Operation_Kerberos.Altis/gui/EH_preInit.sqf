@@ -20,6 +20,10 @@ PREP(handleNotifications);
 PREP(removeAllNotifications);
 PREP(removeNotification);
 
+PREP(getGradient);
+PREP(endLoadingBar);
+PREP(progressLoadingBar);
+PREP(startLoadingBar);
 
 ADDON = true;
 
