@@ -19,7 +19,7 @@ If ((getMarkerPos GVARMAIN(rescuemarker)) isEqualTo [0,0,0]) then {
     ServerEvents
 ********************/
 [QGVAR(emp),LINKFUNC(onEMP)] call CBA_fnc_addEventHandler;
-
+[QGVAR(effectDownload_Server),LINKFUNC(obj_effectDownloadServer)] call CBA_fnc_addEventHandler;
 /********************
     Missionloop
 ********************/

@@ -23,6 +23,7 @@ _this params["_laptop","_caller"];
     [_laptop,_caller],
     {
         _args spawn FUNC(obj_effectDownload);
+        [QGVAR(download_Server)]
     },
     {
         [LSTRING(OBJ_LAPTOP_DOWNLOAD_CANCEL_MSG_TITLE),LSTRING(OBJ_LAPTOP_DOWNLOAD_CANCEL_MSG)] call EFUNC(gui,Message);

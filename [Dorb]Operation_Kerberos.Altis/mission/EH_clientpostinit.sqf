@@ -6,7 +6,7 @@
 
 */
 #include "script_component.hpp"
-
+CHECK(!hasInterface)
 // Initialization Stuff
 [
     "Land_File1_F",
@@ -37,3 +37,5 @@
 [
     "Land_DataTerminal_01_F"
 ] call FUNC(obj_initACEAction_DataTerminal);
+
+[QGVAR(effectDownload_Client),LINKFUNC(obj_effectDownloadServer)] call CBA_fnc_addEventHandler;
