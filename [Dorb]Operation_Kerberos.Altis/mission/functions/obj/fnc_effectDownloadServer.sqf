@@ -24,6 +24,7 @@ If (
 
 
 _laptop setVariable [QGVAR(DownloadStart),CBA_missiontime];
+TRACE("Download started");
 private _handlerID = [
     {
         _this params ["_args","_handler"];
@@ -63,3 +64,7 @@ private _handlerID = [
     [_laptop,_caller]
 ] call CBA_fnc_addPerFrameHandler;
 _laptop setVariable [QGVAR(DownloadHandler),_handlerID];
+[
+   QGVAR(effectDownload_Client),
+   [_laptop,_caller]
+] call CBA_fnc_globalEvent;

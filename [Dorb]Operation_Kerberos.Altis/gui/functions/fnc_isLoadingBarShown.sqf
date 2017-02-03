@@ -15,5 +15,5 @@
 #define INCLUDE_GUI
 #include "script_component.hpp"
 
-private _display = uiNamespace getvariable QGVAR(loadingbar);
+private _display = uiNamespace getvariable [QGVAR(loadingbar),displayNull];
 (!isNull _display);

@@ -17,12 +17,12 @@
 _this params ["_laptop","_caller"];
 
 // exit if the download has already started
-If ((_laptop getVariable [QGVAR(DownloadHandler),-1])<0) exitWith {};
+If !((_laptop getVariable [QGVAR(DownloadHandlerC),-1])<0) exitWith {};
 
 private _handlerID = [
     {
         _this params ["_args","_handler"];
-        _args params [["_laptop",objNull,[objNull]]];
+        _args params [["_laptop",objNull,[objNull]],["_caller",objNull,[objNull]]];
         If (isNull _laptop) exitWith {
             ERROR("The Download Object has been deleted.");
             [_handler] call CBA_fnc_removePerFrameHandler;
@@ -44,11 +44,11 @@ private _handlerID = [
 
          If (_progress > _downloadTime) exitWith {
              LOG("Download finished");
-             [_handler] call CBA_fnc_removePerFrameHandler
+             [_handler] call CBA_fnc_removePerFrameHandler;
              [] call EFUNC(gui,endLoadingBar);
          };
     },
     1,
-    [_laptop]
+    [_laptop,_caller]
 ] call CBA_fnc_addPerFrameHandler;
-_laptop setVariable [QGVAR(DownloadHandler),_handlerID];
+_laptop setVariable [QGVAR(DownloadHandlerC),_handlerID];
