@@ -1221,8 +1221,11 @@
         <Key ID="STR_DORB_MISSION_OBJ_LAPTOP_DOWNLOAD_CANCEL_MSG">
             <German>Der Download wurde abgebrochen.</German>
         </Key>
-        <Key ID="STR_DORB_MISSION_OBJ_LAPTOP_UPLOAD">
-            <German>Upload starten</German>
+        <Key ID="STR_DORB_MISSION_OBJ_LAPTOP_DOWNLOAD_FINISHED_MSG_TITLE">
+            <German>Download abgeschlossen</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_LAPTOP_DOWNLOAD_FINISHED_MSG">
+            <German>Der Download ist komplett.</German>
         </Key>
     </Package>
     <Package name="babel">

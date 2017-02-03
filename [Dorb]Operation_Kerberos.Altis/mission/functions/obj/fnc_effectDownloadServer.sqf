@@ -27,30 +27,39 @@ _laptop setVariable [QGVAR(DownloadStart),CBA_missiontime];
 private _handlerID = [
     {
         _this params ["_args","_handler"];
-        _args params ["_laptop"];
-        private _nearPlayers = {(_x distance2D _laptop) < 10} count allPlayers;
+        _args params [["_laptop",objNull,[objNull]],"_caller"];
+        If (isNull _laptop) exitWith {
+            ERROR("The Download Object has been deleted.");
+            [_handler] call CBA_fnc_removePerFrameHandler;
+        };
+        private _nearPlayers = {(_x distance2D _laptop) < DOWNLOAD_MAX_DISTANCE} count allPlayers;
         If (_nearPlayers <1) exitWith {};
         private _progress = _laptop getVariable [QGVAR(DownloadProgress),0];
         private _downloadTime = _laptop getVariable [QGVAR(DownloadTime),600];
-        private _curState = _progress * _
 
+        /*
+         * TODO:    do some amazing math to make the download look amazing.
+         *          for now it's only time related
+         */
+
+         _progress = _progress + 1;
+         _laptop setVariable [QGVAR(DownloadProgress),_progress,true];
+
+         If (_progress > _downloadTime) exitWith {
+             LOG("Download finished");
+             [LSTRING(OBJ_LAPTOP_DOWNLOAD_FINISHED_MSG_TITLE),LSTRING(OBJ_LAPTOP_DOWNLOAD_FINISHED_MSG)] call EFUNC(gui,globalMessage);
+             [_handler] call CBA_fnc_removePerFrameHandler
+         };
+
+         // JIP Update
+         If ((floor(_progress))mod 10 == 0) then {
+             [
+                QGVAR(effectDownload_Client),
+                [_laptop,_caller]
+             ] call CBA_fnc_globalEvent;
+         };
     },
     1,
-    [_laptop]
+    [_laptop,_caller]
 ] call CBA_fnc_addPerFrameHandler;
 _laptop setVariable [QGVAR(DownloadHandler),_handlerID];
-
-
-
-_object setVariable [QGVAR(isDownload),true,true];
-_object setVariable [QGVAR(DownloadProgress),-1,true];
-_object setVariable [QGVAR(DownloadTime),_downloadtime];
-_object setVariable [QGVAR(onDownloadFinish),_onFinish];
-_object setVariable [QGVAR(onDownloadFinishParams),_parameter];
-
-
-
-
-
-
-["herunterladen","herunterladend"] call EFUNC(gui,globalMessage);

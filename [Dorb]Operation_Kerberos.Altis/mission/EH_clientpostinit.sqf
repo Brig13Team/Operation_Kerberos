@@ -38,4 +38,4 @@ CHECK(!hasInterface)
     "Land_DataTerminal_01_F"
 ] call FUNC(obj_initACEAction_DataTerminal);
 
-[QGVAR(effectDownload_Client),LINKFUNC(obj_effectDownloadServer)] call CBA_fnc_addEventHandler;
+[QGVAR(effectDownload_Client),LINKFUNC(obj_effectDownloadClient)] call CBA_fnc_addEventHandler;
