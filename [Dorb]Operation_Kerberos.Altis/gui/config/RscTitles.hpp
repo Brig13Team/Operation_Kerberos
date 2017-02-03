@@ -145,23 +145,25 @@ class RscTitles {
         movingenable = 0;
         onLoad = QUOTE(uinamespace setVariable [ARR_2('APP(notification_1)',_this select 0)]);
         class controls {
-            class background : RSC(BaseText) {
+            class background : RSC(BasePicture) {
                 idc = IDC_NOTIFICATION_BACKGROUND;
                 x = GUI_NOTIFICATION_X;
                 y = GUI_NOTIFICATION_Y;
                 w = GUI_NOTIFICATION_W;
                 h = GUI_NOTIFICATION_H;
-                colorBackground[] = COLOR_MSG_BACKGROUND;
-                text = "";
+                colorBackground[] = COLOR_DISABLED;
+                colorText[] = COLOR_MSG_BACKGROUND;
+                text = QEPAAPATH(texture,notification_tex);
+                style = "48";
             };
             class picture : RSC(BasePicture) {
                 idc = IDC_NOTIFICATION_IMG;
-                x = GUI_NOTIFICATION_X;
+                x = GUI_NOTIFICATION_PIC_X;
                 y = GUI_NOTIFICATION_Y;
-                w = GUI_NOTIFICATION_W;
+                w = GUI_NOTIFICATION_PIC_W;
                 h = GUI_NOTIFICATION_H;
                 colorBackground[] = COLOR_MSG_BACKGROUND;
-                text = "A3\ui_f\data\gui\cfg\Hints\grenades_ca.paa";
+                text = "";
                 colorText[] = COLOR_FONT;
             };
         };
@@ -171,10 +173,10 @@ class RscTitles {
         onLoad = QUOTE(uinamespace setVariable [ARR_2('APP(notification_2)',_this select 0)]);
         class controls : controls {
             class background : background {
-                x = GUI_NOTIFICATION_X + GUI_NOTIFICATION_W;
+                x = GUI_NOTIFICATION_X + GUI_NOTIFICATION_NEXT_X;
             };
             class picture : picture {
-                x = GUI_NOTIFICATION_X + GUI_NOTIFICATION_W;
+                x = GUI_NOTIFICATION_PIC_X + GUI_NOTIFICATION_NEXT_X;
             };
         };
     };
@@ -183,10 +185,10 @@ class RscTitles {
         onLoad = QUOTE(uinamespace setVariable [ARR_2('APP(notification_3)',_this select 0)]);
         class controls : controls {
             class background : background {
-                x = GUI_NOTIFICATION_X + GUI_NOTIFICATION_W * 2;
+                x = GUI_NOTIFICATION_X + GUI_NOTIFICATION_NEXT_X * 2;
             };
             class picture : picture {
-                x = GUI_NOTIFICATION_X + GUI_NOTIFICATION_W * 2;
+                x = GUI_NOTIFICATION_PIC_X + GUI_NOTIFICATION_NEXT_X * 2;
             };
         };
     };
@@ -195,10 +197,10 @@ class RscTitles {
         onLoad = QUOTE(uinamespace setVariable [ARR_2('APP(notification_4)',_this select 0)]);
         class controls : controls {
             class background : background {
-                x = GUI_NOTIFICATION_X + GUI_NOTIFICATION_W * 3;
+                x = GUI_NOTIFICATION_X + GUI_NOTIFICATION_NEXT_X * 3;
             };
             class picture : picture {
-                x = GUI_NOTIFICATION_X + GUI_NOTIFICATION_W * 3;
+                x = GUI_NOTIFICATION_PIC_X + GUI_NOTIFICATION_NEXT_X * 3;
             };
         };
     };
@@ -207,10 +209,10 @@ class RscTitles {
         onLoad = QUOTE(uinamespace setVariable [ARR_2('APP(notification_5)',_this select 0)]);
         class controls : controls {
             class background : background {
-                x = GUI_NOTIFICATION_X + GUI_NOTIFICATION_W * 4;
+                x = GUI_NOTIFICATION_X + GUI_NOTIFICATION_NEXT_X * 4;
             };
             class picture : picture {
-                x = GUI_NOTIFICATION_X + GUI_NOTIFICATION_W * 4;
+                x = GUI_NOTIFICATION_PIC_X + GUI_NOTIFICATION_NEXT_X * 4;
             };
         };
     };
@@ -219,10 +221,10 @@ class RscTitles {
         onLoad = QUOTE(uinamespace setVariable [ARR_2('APP(notification_6)',_this select 0)]);
         class controls : controls {
             class background : background {
-                x = GUI_NOTIFICATION_X + GUI_NOTIFICATION_W * 5;
+                x = GUI_NOTIFICATION_X + GUI_NOTIFICATION_NEXT_X * 5;
             };
             class picture : picture {
-                x = GUI_NOTIFICATION_X + GUI_NOTIFICATION_W * 5;
+                x = GUI_NOTIFICATION_PIC_X + GUI_NOTIFICATION_NEXT_X * 5;
             };
         };
     };
@@ -263,7 +265,7 @@ class RscTitles {
                 w = GUI_LOADINGBAR_BAR_W;
                 h = GUI_LOADINGBAR_BAR_H;
                 colorFrame[] = COLOR_BACKGROUND;
-                texture = QPAAPATH(progressbar_texture);
+                texture = QEPAAPATH(texture\progressbar_texture);
             };
             class arrow : RSC(BasePicture) {
                 idc = IDC_LOADINGBAR_ARROW;
@@ -287,5 +289,5 @@ class RscTitles {
             };
         };
     };
-    
+
 };

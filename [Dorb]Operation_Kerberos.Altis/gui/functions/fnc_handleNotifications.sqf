@@ -14,6 +14,7 @@
 #define DEBUG_MODE_OFF
 #define INCLUDE_GUI
 #include "script_component.hpp"
+
 disableSerialization;
 private _notifications = [];
 
@@ -26,23 +27,46 @@ private _notifications = [];
 
 TRACEV_1(_notifications);
 
-CHECK(_notifications isEqualTo [])
+If (_notifications isEqualTo []) exitWith {
+    private _display = uiNamespace getvariable [QAPP(notification_1),displayNull];
+    if (!isNull _display) then {
+        for "_i" from 1 to 6 do {
+            (format[QAPP(notification_%1),_i]) cutText ["","PLAIN",0];
+        };
+    };
+};
+
+// faster notification update, if you are near by modifing the PFH
+If (_notifications isEqualTo []) exitWith {
+    if ((_delay < NOTIFICATION_SHOW_DELAY)&&{(uiNamespace getVariable [QGVAR(lastNotificationHandle),diag_tickTime])<diag_tickTime}) then {
+        _x set [1,NOTIFICATION_SHOW_DELAY];
+    };
+};
+uiNamespace setVariable [QGVAR(lastNotificationHandle),diag_tickTime];
+If (_delay > 1) then {
+    _x set [1,1];
+};
+
+
+// resize the amount of notifications
 
 If ((count _notifications) > 6) then {
     _notifications resize 6;
 };
 
-
+private _index = 1;
 {
     //(IDC_NOTIFICATION_1 + _forEachIndex) cutRsc [format[QAPP(notification_%1),_forEachIndex + 1],"PLAIN"];
     (format[QAPP(notification_%1),_forEachIndex + 1]) cutRsc [format[QAPP(notification_%1),_forEachIndex + 1],"PLAIN",0];
     private _display = uiNamespace getvariable [(format[QAPP(notification_%1),_forEachIndex + 1]),displayNull];
-    TRACEV_1(_display);
     if (!isNull _display) then {
         private _ctrl = _display displayCtrl IDC_NOTIFICATION_IMG;
-        TRACEV_1(_ctrl);
         _ctrl ctrlSetText _x;
         _ctrl ctrlCommit 0;
-        TRACEV_1(ctrlText _ctrl);
     };
+    _index = _forEachIndex;
 } forEach _notifications;
+TRACEV_2(_index,_notifications);
+for "_i" from (_index+2) to 6 do {
+    (format[QAPP(notification_%1),_i]) cutText ["","PLAIN",0];
+};

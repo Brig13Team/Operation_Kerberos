@@ -30,7 +30,7 @@ If (isNil QGVAR(notification_handlerID)) then {
     TRACE("ADDING PFH");
     GVAR(notification_handlerID) = [
         FUNC(handleNotifications),
-        15,
+        NOTIFICATION_SHOW_DELAY,
         []
     ] call CBA_fnc_addPerFrameHandler;
 };
