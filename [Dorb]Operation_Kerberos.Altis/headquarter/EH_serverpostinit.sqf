@@ -54,6 +54,24 @@ HASH_SET(GVAR(antiair),"static",[]);
 GVAR(active) = false;
 GVAR(handle) = scriptNull;
 
+/*************************
+*
+*       Drones
+*
+*************************/
+GVAR(drones_isActive) = false;
+GVAR(drones_attackIntervall) = 600;
+GVAR(drones_lastAttackRequest) = CBA_missiontime;
+GVAR(drones_reconIntervall) = 600;
+GVAR(drones_lastReconRequest) = CBA_missiontime;
+GVAR(drones_requestedAirstrikes) = [];
+GVAR(drones_requestedReconnaissances) = [];
+GVAR(drones_availableAttackDrones) = [];
+GVAR(drones_availableReconDrones) = [];
+
+GVAR(drones_handle) = [LINKFUNC(drones_handle),10,[]] call CBA_fnc_addPerFrameHandler;
+
+
 /// ressources
 GVAR(ressources_amount) = 0;
 
@@ -102,3 +120,6 @@ HASH_SET(GVAR(handles),"antiair",_handle);
 /// Events
 [QEGVAR(mission,start),{GVAR(active) = true;_this call FUNC(MissionInit);}] call CBA_fnc_addEventHandler;
 [QEGVAR(mission,end),{GVAR(active) = false;_this call FUNC(MissionCleanUp);}] call CBA_fnc_addEventHandler;
+
+[QEGVAR(mission,start),LINKFUNC(drones_onMissionStart)] call CBA_fnc_addEventHandler;
+[QEGVAR(mission,end),LINKFUNC(drones_onMissionEnd)] call CBA_fnc_addEventHandler;

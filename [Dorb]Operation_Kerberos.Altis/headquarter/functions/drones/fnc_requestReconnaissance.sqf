@@ -1,8 +1,8 @@
 /*
     Author: iJesuz
-    
+
     Description:
-    
+
     Parameter(s):
         0 : OBJECT/ARRAY - target
         1 : OBJECT - caller
@@ -10,18 +10,15 @@
 
     Returns:
         BOOLEAN
-    
+
 */
 #include "script_component.hpp"
 SCRIPT(requestReconnaissance);
 
-private ["_lastRequest"];
 params[["_target",objNull,[objNull,[]]],["_caller",objNull,[objNull]],["_code",{},[{}]]];
 
-_lastRequest = GETVAR(_caller,GVAR(lastReconRequest),-1);
-
-if ((lastReconRequest != -1) && ((lastReconRequest + 600) >= serverTime)) exitWith { false };
-SETVAR(_caller,GVAR(lastAttackRequest),serverTime);
+if !([] call FUNC(drones_canDoReconnaissance)) exitWith {false};
+GVAR(drones_lastReconRequest) = CBA_missiontime;
 
 _task = [
     _target,
@@ -30,9 +27,6 @@ _task = [
     _code
 ];
 
-_requestedReconnaissances = GETMVAR(GVAR(requestedReconnaissances),[]);
-_requestedReconnaissances pushBack _task;
-
-SETMVAR(missionNamespace,GVAR(requestedReconnaissances),_requestedReconnaissances);
+GVAR(drones_requestedReconnaissances) pushBack _task;
 
 true

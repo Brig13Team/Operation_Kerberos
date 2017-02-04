@@ -15,10 +15,14 @@ PREPS(attackpos,reduce);
 PREPS(attackpos,update);
 
 PREPS(drones,attack);
+PREPS(drones,canDoAirstrike);
+PREPS(drones,canDoReconnaissance);
 PREPS(drones,createWaypoint);
 PREPS(drones,doAirstrike);
 PREPS(drones,doReconnaissance);
-PREPS(drones,init);
+PREPS(drones,handle);
+PREPS(drones,onMissionEnd);
+PREPS(drones,onMissionStart);
 PREPS(drones,requestAirstrike);
 PREPS(drones,requestReconnaissance);
 PREPS(drones,scan);
