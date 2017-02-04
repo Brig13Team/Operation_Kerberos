@@ -20,9 +20,18 @@ _this params[
     ["_target",[],[[],objNull]],
     ["_evade",false,[true]]
     ];
-private ["_startKey","_targetKey"];
-_startKey = [_start] call FUNC(waypoints_next);
-_targetKey = [_target] call FUNC(waypoints_next);
+
+If (IS_OBJECT(_start)) then {_start = getPos _start;};
+If (IS_OBJECT(_target)) then {_target = getPos _target;};
+
+// fallback if map is not registered
+If !(isClass(missionconfigFile >> "maps" >> worldname)) exitWith {
+    ERROR("Waypoints for this map are not availlible");
+    [_start,_target]
+};
+
+private _startKey = [_start] call FUNC(waypoints_next);
+private _targetKey = [_target] call FUNC(waypoints_next);
 
 If (_startKey isEqualTo _targetKey) exitWith {
     [_start,_target]
