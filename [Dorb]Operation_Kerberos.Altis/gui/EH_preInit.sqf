@@ -5,8 +5,6 @@ ADDON = false;
 PREP(blur);
 PREP(globalmessage);
 PREP(message);
-PREP(progressbar);
-PREP(timer);
 
 PREP(onLoadLoadingscreen);
 PREP(progressLoadingScreen);

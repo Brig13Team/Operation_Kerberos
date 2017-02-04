@@ -92,7 +92,7 @@ class RscTitles {
                 y = GUI_TIMER_BACK_Y;
                 w = GUI_TIMER_BACK_W;
                 h = GUI_TIMER_BACK_H;
-                colorBackground[] = COLOR_MSG_BACKGROUND;
+                colorBackground[] = COLOR_BACKGROUND_HUD;
                 text = "";
             };
             class picture : RSC(BasePicture) {
@@ -117,26 +117,7 @@ class RscTitles {
             };
         };
     };
-    class APP(progressbar) {
-        duration = 1e+011;
-        idd = IDD_PROGRESSBAR;
-        movingenable = 0;
-        onLoad = QUOTE(uiNamespace setVariable [ARR_2('GVAR(progressbar)', _this select 0)];);
-        class controls {
-            class Progress {
-                idc = IDC_PROGRESSBAR_BAR;
-                type = 8;
-                style = 0;
-                colorFrame[] = UI_CL_BODY_TEXT;
-                colorBar[] = UI_CL_BODY;
-                texture = "#(argb,8,8,3)color(1,1,1,1)";
-                x = GUI_GRID_X + GUI_GRID_WAbs * 0.1;
-                y = GUI_GRID_Y;
-                w = GUI_GRID_WAbs * 0.8;
-                h = GUI_GRID_H * 0.5;
-            };
-        };
-    };
+
     class APP(notification_1) {
         duration = 20;
         fadein = 0;
@@ -152,7 +133,7 @@ class RscTitles {
                 w = GUI_NOTIFICATION_W;
                 h = GUI_NOTIFICATION_H;
                 colorBackground[] = COLOR_DISABLED;
-                colorText[] = COLOR_MSG_BACKGROUND;
+                colorText[] = COLOR_BACKGROUND_HUD;
                 text = QEPAAPATH(texture,notification_tex);
                 style = "48";
             };
@@ -162,7 +143,7 @@ class RscTitles {
                 y = GUI_NOTIFICATION_Y;
                 w = GUI_NOTIFICATION_PIC_W;
                 h = GUI_NOTIFICATION_H;
-                colorBackground[] = COLOR_MSG_BACKGROUND;
+                colorBackground[] = COLOR_DISABLED;
                 text = "";
                 colorText[] = COLOR_FONT;
             };
@@ -240,6 +221,7 @@ class RscTitles {
                 y = GUI_LOADINGBAR_Y;
                 w = GUI_LOADINGBAR_W;
                 h = GUI_LOADINGBAR_H;
+                colorBackground[] = COLOR_BACKGROUND_HUD;
             };
             class header : RSC(BaseText) {
                 idc = IDC_LOADINGBAR_HEADER;
@@ -247,6 +229,7 @@ class RscTitles {
                 y = GUI_LOADINGBAR_HEADER_Y;
                 w = GUI_LOADINGBAR_HEADER_W;
                 h = GUI_LOADINGBAR_HEADER_H;
+                colorBackground[] = COLOR_BACKGROUND_HUD;
                 sizeEx = 1.2 * GUI_GRID_H;
                 text = CSTRING(LOADINGBAR);
             };
@@ -264,7 +247,7 @@ class RscTitles {
                 y = GUI_LOADINGBAR_BAR_Y;
                 w = GUI_LOADINGBAR_BAR_W;
                 h = GUI_LOADINGBAR_BAR_H;
-                colorFrame[] = COLOR_BACKGROUND;
+                colorFrame[] = COLOR_BACKGROUND_HUD;
                 texture = QEPAAPATH(texture\progressbar_texture);
             };
             class arrow : RSC(BasePicture) {
@@ -284,7 +267,7 @@ class RscTitles {
                 sizeEx = 0.6  * GUI_GRID_H;
                 text = "0 %";
                 style = "0x01";
-                colorText[] = COLOR_BACKGROUND;
+                colorText[] = COLOR_BACKGROUND_HUD;
                 colorBackground[] = COLOR_DISABLED;
             };
         };
