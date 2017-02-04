@@ -9,6 +9,4 @@
 
 CHECK(!isServer)
 
-["CAManBase", "killed", {
-    _this call FUNC(onkilled);
-},true,[],true] call CBA_fnc_addClassEventHandler;
+["CAManBase", "killed", LINKFUNC(onKilled),true,[],true] call CBA_fnc_addClassEventHandler;

@@ -27,6 +27,7 @@ PREP(removeAllNotifications);
 PREP(removeNotification);
 
 PREP(getGradient);
+PREP(isLoadingBarShown);
 PREP(endLoadingBar);
 PREP(progressLoadingBar);
 PREP(startLoadingBar);
