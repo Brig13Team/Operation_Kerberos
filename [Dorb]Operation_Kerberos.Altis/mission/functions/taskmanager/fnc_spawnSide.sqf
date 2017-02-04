@@ -17,6 +17,9 @@
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
+// TODO: everything !!
+
+/*
 _this params [
     ["_SideCfg",configNull,[configNull]],
     ["_MainType","",[""]],
@@ -74,3 +77,4 @@ If !(_showTaskMarker) then {
     [_taskType,_ParentID,_chosenLocation,(missionNamespace getVariable [_taskFnc,{true}]),_parameter],
     _taskDelay
 ] call CBA_fnc_waitAndExecute;
+*/

@@ -1,8 +1,8 @@
 /*
-    Author: iJesuz,Dorbedo
+    Author: iJesuz, Dorbedo
 
     Description:
-        Create new Mission
+        create new mission
 
     Parameter(s):
         0 : STRING          - next mission's name
@@ -14,40 +14,32 @@
 */
 #include "script_component.hpp"
 
-private _nextMission  = _this param [0, GVAR(next_mission), [""]];
-private _nextLocation = _this param [1, GVAR(next_location), ["",[]]];
+private _mission = _this param [0, "", [""]];
+private _location = _this param [1, [], ["",[]]];
+
+if (!(THIS_GET("next_mission") isEqualTo "")) then { _mission = THIS_GET("next_mission"); };
+if (_mission isEqualTo "") exitWith { -1 };
+if (!(THIS_GET("next_location") isEqualTo [])) then { _location = THIS_GET("next_location"); };
+if (_location isEqualTo []) exitWith { -1 };
 
 private _distance = getNumber (missionConfigFile >> "mission_config" >> "main" >> _nextMission >> "location" >> "distance");
 
 // set army
-private _armys = getArray (missionConfigFile >> "mission_config" >> "main" >> _nextMission >> "armys");
-private _army = [_armys,1] call EFUNC(common,sel_array_weighted);
-//private _army = [_armys select 0, _armys select 1] call BIS_fnc_selectRandomWeighted;
-[_army select 0] call EFUNC(spawn,army_set);
+private _init = {
+    _this params ["_name"];
 
+    private _armys = getArray (missionConfigFile >> "mission_config" >> "main" >> _name >> "armys");
+    private _army = [_armys,1] call EFUNC(common,sel_array_weighted);
+    // private _army = [_armys select 0, _armys select 1] call BIS_fnc_selectRandomWeighted;
+    [_army select 0] call EFUNC(spawn,army_set);
+};
+
+// spawn army and defence stuff
+private _post = {
+    _this params ["_name", "_location"]
+    // [_location select 1] call EFUNC(spawn,createMission);
+};
 
 // create task
 TRACEV_2(_nextMission,_nextLocation);
-private _curMainTaskID = [_nextMission, _nextLocation] call FUNC(taskmanager_add);
-
-/*
-// spawn all the missionthings
-[_nextLocation select 1] call EFUNC(spawn,createMission);
-// setUp the sidemissions
-private _allSideMissions = configProperties [(missionConfigFile >> "mission_config" >> "main" >> _nextMission >> "sidemissions"), "(getNumber(_x >> 'probability') > (random 1))", true];
-{
-    private _delaySpawn = abs(getNumber(missionConfigFile >> "mission_config" >> "side" >> configName _x >> "spawn_delay")) + 5;
-    [
-        LINKFUNC(taskmanager_spawnSide),
-        [_x,_nextMission,_nextLocation,_curMainTaskID],
-        _delaySpawn
-    ] call CBA_fnc_waitAndExecute;
-} forEach _allSideMissions;
-*/
-
-[QEGVAR(mission,start),[_nextLocation select 1,_nextMission]] call CBA_fnc_localEvent;
-// initialize next mission
-GVAR(current_mission)  = _nextMission;
-GVAR(current_location) = _nextLocation;
-GVAR(next_mission)  = [nil,_nextMission] call FUNC(taskmanager_choose_mission);
-GVAR(next_location) = [GVAR(next_mission),_nextLocation] call FUNC(taskmanager_choose_location);
+[_nextMission, _nextLocation, _pre, _post] call FUNC(taskmanager_add);

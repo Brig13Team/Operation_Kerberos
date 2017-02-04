@@ -22,8 +22,10 @@ private _amount = (floor (random ((_max - _min) + 1))) + _min;
 
 private _intel = [_position,"intel",_amount] call EFUNC(spawn,createMissionTarget);
 
+_amount = 0;
 {
     _x setVariable [QGVAR(rescueEvent),QGVAR(intel_found)];
+    _amount = _amount + 1;
 } forEach _intel;
 
 

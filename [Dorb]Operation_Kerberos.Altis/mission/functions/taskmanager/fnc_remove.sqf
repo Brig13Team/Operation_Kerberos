@@ -2,10 +2,10 @@
     Author: iJesuz
 
     Description:
-        Deletes a Task
+        delete the task(s)
 
     Parameter(s):
-        0 : NUMBER OR [NUMBER,NUMBER]  - TaskNumber
+        0 : STRING  - task(s) to remove
 
     Return:
         -
@@ -13,27 +13,16 @@
 */
 #include "script_component.hpp"
 
-_this params [["_number",-1,[0,[]]]];
+_this params [["_name", "", ["",[]]]];
 
-private "_taskID";
-if (typeName _number == typeName []) then {
-    _taskID = format ["%1_%2_side_%3",QGVAR(task),_number select 0,_number select 1];
-} else {
-    _taskID = format ["%1_%2",QGVAR(task),_number];
+if (THIS_HASKEY(_name)) then {
+    private _mission = THIS_GET(_name);
+    THIS_SET("missions", THIS_GET("missions") - [_name]);
+
+    {
+        [_name,_x] call func(taskmanager_removeChild);
+    } forEach HASH_GET(_mission,"sidemissions");
+
+    THIS_REM(_name);
+    [_name] call BIS_fnc_deleteTask;
 };
-
-{
-    private _args = _x select 1;
-
-    if (typeName _number == typeName []) then {
-        if (typeName _args == typeName [] && {_args isEqualTo _number}) then {
-            GVAR(conditions) = GVAR(conditions) - [_x];
-        };
-    } else {
-        if (typeName _args == typeName 0 && {_args == _number}) then {
-            GVAR(conditions) = GVAR(conditions) - [_x];
-        };
-    };
-} forEach +GVAR(conditions);
-
-[_taskID] call BIS_fnc_deleteTask;

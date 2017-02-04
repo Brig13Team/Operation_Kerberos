@@ -1,48 +1,35 @@
 /*
- *  Author: iJesuz, Dorbedo
- *
- *  Description:
- *      Taskmanager Handle
- *
- *  Parameter(s):
- *      none
- *
- *  Returns:
- *      none
- *
+    Author: iJesuz, Dorbedo
+
+    Description:
+        taskmanager handle
+
+    Parameter(s):
+        -
+
+    Returns:
+        -
+
  */
-//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-#ifndef DELAY
-    #define DELAY 30
-#endif
 
+// copy is needed because FUNC(taskmanager_setState) modifies the global state
+private _missions = +THIS_GET("missions");
 
-private _x2 = _x;
-private _conditions = [];
-{
-    private _func = _x select 0;
-    private _args = _x select 1;
-    // private _taskNumber = _x select 2;
+for "_i" from (count _missions) - 1 do {
+    if (THIS_HASKEY(_x)) then {
+        private _mission = THIS_GET(_x);
+        private _fnc = HASH_GET(_mission, "condition_fnc");
 
-    private _ret  = _args call (missionNamespace getVariable [_func,{}]);
-    TRACEV_3(_ret,_args,_func);
-    if (_ret in ["Succeeded","Canceled","Failed"]) then {
-        ((+_x) + [_ret]) spawn {
-            _this params ["_func","_args","_taskNumber","_state"];
-
-            [_taskNumber, _state] call FUNC(taskmanager_setState);
-
-            if (typeName _taskNumber == typeName 0) then {
-                [QGVAR(finished), [_taskNumber, _state]] call CBA_fnc_globalEvent;
-            } else {
-                [QGVAR(finished_side), [_taskNumber, _state]] call CBA_fnc_globalEvent;
-            };
-        }
-    } else {
-        _conditions pushBack _x;
+        private _ret = [_mission] call (missionNamespace getVariable [_fnc, {}]);
+        if (_ret in ["Succeeded","Canceled","Failed"]) then {
+            [_x, _state] call FUNC(taskmanager_setState);
+        } else {
+            // TODO: handle sidemissions
+        };
     };
+};
 
-    _x2 set [2, diag_tickTime + DELAY];
-} forEach +GVAR(conditions);
-GVAR(conditions) = +_conditions;
+[{
+    [] call FUNC(taskmanager_handle);
+}, [], CHECK_INTERVALL] call CBA_fnc_waitAndExecute;

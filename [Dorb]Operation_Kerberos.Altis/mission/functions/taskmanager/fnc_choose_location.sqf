@@ -2,11 +2,11 @@
     Author: iJesuz
 
     Description:
-        Choose mission location
+        choose mission location
 
     Parameter(s):
         0 : STRING          - Mission name
-        1 : [STRING,ARRAY]  - [Locatoin Name, Position]
+        1 : [STRING,ARRAY]  - (optional) not this location: [Location Name, Position]
 
     Return:
         [STRING,ARRAY]
@@ -23,6 +23,6 @@ private _newPos = [];
     private _var = missionNamespace getVariable [_x, [["",[0,0,0]]]];
     _newPos = _newPos + _var;
 } forEach _pos;
-_newPos = _newPos - _oldPos;
 
+_newPos = _newPos - _oldPos;
 selectRandom _newPos

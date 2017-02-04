@@ -2,11 +2,11 @@
     Author: iJesuz, Dorbedo
 
     Description:
-        Choose mission
+        choose mission
 
     Parameter(s):
         0 : CONFIG  - MissionConfigClass which contains the mission classes
-        1 : STRING  - mission name to be skipted
+        1 : STRING  - (optional) mission not to be choosen
 
     Return:
         [STRING,ARRAY]
@@ -26,5 +26,5 @@ for "_i" from 0 to (count _cfg) - 1 do
         _mission pushBack [_name, getNumber ((_cfg select _i) >> "probability")];
     };
 };
-TRACEV_2(_mission,count _cfg);
+
 ([_mission,1] call EFUNC(common,sel_array_weighted)) select 0

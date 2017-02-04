@@ -8,6 +8,7 @@ PREP(onKilled);
 PREP(testCreate);
 PREP(test);
 
+/*
 PREPS(mainmission,capture_cond);
 PREPS(mainmission,capture);
 PREPS(mainmission,clear_cond);
@@ -32,21 +33,21 @@ PREPS(mainmission,specops);
 PREPS(mainmission,specops_cond);
 PREPS(mainmission,weaponcache_cond);
 PREPS(mainmission,weaponcache);
+*/
 
 PREPS(sidemission,clearArea);
 PREPS(sidemission,targetsAlive);
 
 PREPS(taskmanager,add);
 PREPS(taskmanager,addChild);
-PREPS(taskmanager,cancel);
-PREPS(taskmanager,cancelAll);
 PREPS(taskmanager,choose_location);
 PREPS(taskmanager,choose_mission);
-PREPS(taskmanager,exists);
 PREPS(taskmanager,handle);
 PREPS(taskmanager,init);
 PREPS(taskmanager,remove);
+PREPS(taskmanager,removeChild);
 PREPS(taskmanager,setState);
+PREPS(taskmanager,setStateChild);
 PREPS(taskmanager,spawn);
 PREPS(taskmanager,spawnSide);
 
