@@ -17,7 +17,7 @@
 // init the collecting
 If (DORB_HASH_COLLECTOR_NAMESPACES isEqualTo []) then {
     If (DORB_HASH_COLLECTOR_FOUND isEqualTo []) then {
-        DORB_HASH_COLLECTOR_NAMESPACES = [missionNamespace];
+        DORB_HASH_COLLECTOR_NAMESPACES = [missionNamespace] + allGroups;
         DORB_HASH_COLLECTOR_VARIABLES = (allVariables missionNamespace);
         DORB_HASH_COLLECTOR_ARRAYS = [];
         DORB_HASH_COLLECTOR_FOUND = [];

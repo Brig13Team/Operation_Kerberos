@@ -647,7 +647,7 @@ Example:
 Author:
     Dorbedo
 ------------------------------------------- */
-#define HASH_SIZE(HASH) (count HASH_KEYS)
+#define HASH_SIZE(HASH) (count HASH_KEYS(HASH))
 /* -------------------------------------------
 Macro: HASH_ISEMPTY(HASH)
     checks if a hash is empty
@@ -661,7 +661,7 @@ Example:
 Author:
     Dorbedo
 ------------------------------------------- */
-#define HASH_ISEMPTY(HASH) ((count HASH_KEYS)<1)
+#define HASH_ISEMPTY(HASH) ((count HASH_KEYS(HASH))<1)
 /* -------------------------------------------
 Macro: HASH_GETKEY(hash, value)
     returns a key of a hash, which contaions the same value
