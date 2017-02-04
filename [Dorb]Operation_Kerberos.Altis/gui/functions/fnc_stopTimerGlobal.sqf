@@ -19,9 +19,14 @@ GVAR(timer_code) = {};
 GVAR(timer_parameter) = [];
 GVAR(timer_finish) = -1;
 
+publicVariable QGVAR(timer_code);
+publicVariable QGVAR(timer_parameter);
+publicVariable QGVAR(timer_finish);
+
+
 If !(isNil QGVAR(timer_handle)) then {
-    [GVAR(timer_handle)] call CBA_fnc_removePerFrameHandler;
     GVAR(timer_handle) = nil;
+    [GVAR(timer_handle)] call CBA_fnc_removePerFrameHandler;
 };
 CHECK(!hasInterface)
-QAPP(timer) cutRsc ["","PLAIN"];
+QAPP(timer) cutText ["","PLAIN"];

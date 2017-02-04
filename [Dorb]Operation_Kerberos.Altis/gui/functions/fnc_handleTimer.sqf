@@ -14,16 +14,27 @@
 //#define DEBUG_MODE_FULL
 #define INCLUDE_GUI
 #include "script_component.hpp"
-disableSerialization;
+
 private _difference = GVAR(timer_finish) - CBA_missiontime;
 
 If (_difference <= 0) exitWith {
-    IDD_TIMER cutText ["","PLAIN"];
-    uiNamespace setvariable [QGVAR(timer),nil];
-    [this select 1] call CBA_fnc_removePerFrameHandler;
     GVAR(timer_handle) = nil;
-    GVAR(timer_parameter) call GVAR(timer_code);
+    [_this select 1] call CBA_fnc_removePerFrameHandler;
+
+    [GVAR(timer_parameter),GVAR(timer_code)] params [["_params",[],[[]]],["_function",{true},[{},""]]];
+    If (IS_STRING(_function)) then {
+        [_function,_parameter] call CBA_fnc_localEvent;
+    }else{
+        _params call _function;
+    };
+
+    if (hasInterface) then {
+        IDD_TIMER cutText ["","PLAIN"];
+        uiNamespace setvariable [QGVAR(timer),nil];
+    };
 };
+
+CHECK(!hasInterface)
 
 QAPP(timer) cutRsc [QAPP(timer),"PLAIN"];
 disableSerialization;

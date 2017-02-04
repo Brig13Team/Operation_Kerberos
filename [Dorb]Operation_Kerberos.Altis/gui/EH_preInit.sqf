@@ -17,7 +17,9 @@ PREP(noise_square);
 
 PREP(handleTimer);
 PREP(setTimer);
+PREP(setTimerGlobal);
 PREP(stopTimer);
+PREP(stopTimerGlobal);
 
 PREP(addNotification);
 PREP(handleNotifications);

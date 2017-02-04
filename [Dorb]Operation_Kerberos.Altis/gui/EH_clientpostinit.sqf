@@ -7,8 +7,8 @@
 #include "script_component.hpp"
 CHECK(!hasInterface)
 
-QEGVAR(mission,endzeit) addPublicVariableEventHandler {[] spawn FUNC(timer)};
-[] spawn FUNC(timer);
+// notification
+uiNamespace setVariable [QGVAR(lastNotificationHandle),CBA_missiontime];
 
 [QGVAR(message),{
     If (IS_ARRAY(_this select 1)) then {
@@ -20,6 +20,10 @@ QEGVAR(mission,endzeit) addPublicVariableEventHandler {[] spawn FUNC(timer)};
     };
 }] call CBA_fnc_addEventHandler;
 
-If ((!(isNil QGVAR(timer_finish)))&&{isNil QGVAR(timer_handle)}) then {
-    GVAR(timer_handle) = [LINKFUNC(handleTimer),10,[]] call CBA_fnc_addPerFrameHandler;
-};
+[QGVAR(showTimer),{
+    If ((!(isNil QGVAR(timer_finish)))&&{isNil QGVAR(timer_handle)}) then {
+        GVAR(timer_handle) = [LINKFUNC(handleTimer),10,[]] call CBA_fnc_addPerFrameHandler;
+    };
+}] call CBA_fnc_addEventHandler;
+
+[QGVAR(showTimer)] call CBA_fnc_localEvent;

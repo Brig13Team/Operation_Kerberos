@@ -46,7 +46,10 @@
 #define GUI_NOTIFICATION_X (safezoneX + 0.5 * GUI_GRID_W)
 #define GUI_NOTIFICATION_Y (safezoneY + safezoneH - 3 * GUI_GRID_H)
 #define GUI_NOTIFICATION_H (2 * GUI_GRID_H)
-#define GUI_NOTIFICATION_W (2 * GUI_GRID_W)
+#define GUI_NOTIFICATION_W (4 * GUI_GRID_W)
+#define GUI_NOTIFICATION_NEXT_X (3 * GUI_GRID_W)
+#define GUI_NOTIFICATION_PIC_X (safezoneX + 1.5 * GUI_GRID_W)
+#define GUI_NOTIFICATION_PIC_W (2 * GUI_GRID_W)
 
 #define GUI_LOADINGBAR_HEADER_X (safezoneX + 0.5 * GUI_GRID_W)
 #define GUI_LOADINGBAR_HEADER_Y (safezoneY + safezoneH - 10.5 * GUI_GRID_H)
