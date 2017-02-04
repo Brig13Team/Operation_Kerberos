@@ -74,7 +74,7 @@ class strategy {
         type[] = {0,0,1};
         value = 2000000;
         threat[] = {1,1,0};
-        condition = "true";
+        condition = QUOTE(['drones'] call FUNC(ressources_canUseCallIn));
 
         function = QFUNC(strategy_drones);
 

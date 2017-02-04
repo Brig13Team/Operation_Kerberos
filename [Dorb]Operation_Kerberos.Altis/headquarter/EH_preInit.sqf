@@ -91,6 +91,7 @@ PREP(registerAA);
 PREP(registerGroup);
 PREP(registerPlayerGroup);
 PREP(registerPOI);
+PREP(registerRadar);
 PREP(requestRecon);
 PREP(strengthAi);
 PREP(strengthPlayer);
