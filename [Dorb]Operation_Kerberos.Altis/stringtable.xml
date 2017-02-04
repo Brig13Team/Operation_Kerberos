@@ -1123,6 +1123,111 @@
             <German>Eine modifizierte Kopie der Viewrestriction von ACEX.</German>
         </Key>
     </Package>
+    <Package name="mission_obj">
+        <Key ID="STR_DORB_MISSION_OBJ_DEVICE_DISABLE">
+            <English>deactivate</English>
+            <German>Deaktivieren</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_DEVICE_DEACTIVATING">
+            <English>deactivating</English>
+            <German>deaktiviere</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_CASE_CARRY">
+            <English>carray</English>
+            <German>tragen</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_CASE_DROP">
+            <English>drop</English>
+            <German>ablegen</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_INTEL_GRAB">
+            <English>secure</English>
+            <German>sichern</German>
+        </Key>
+        <!-- commander -->
+        <Key ID="STR_DORB_MISSION_OBJ_COMMANDER_KILLED_MSG_TITLE">
+            <German>Komandant getötet</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_COMMANDER_KILLED_MSG">
+            <German>Der feindliche Kommandant %1 wurde getötet.</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_COMMANDER_CAPTURED_MSG_TITLE">
+            <German>Komandant gefangen</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_COMMANDER_CAPTURED_MSG">
+            <German>Der feindliche Kommandant %1 wurde gefangengenommen.</German>
+        </Key>
+        <!-- hostage -->
+        <Key ID="STR_DORB_MISSION_OBJ_HOSTAGE_KILLED_MSG_TITLE">
+            <German>Gefanger getötet</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_HOSTAGE_KILLED_MSG">
+            <German>Eine Geisel wurde von %1 getötet.</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_HOSTAGE_CAPTURED_MSG_TITLE">
+            <German>Gefanger befreit</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_HOSTAGE_CAPTURED_MSG">
+            <German>Ein Gefangener wurde befreit.</German>
+        </Key>
+        <!-- prototype -->
+        <Key ID="STR_DORB_MISSION_OBJ_PROTOTYPE_KILLED_MSG_TITLE">
+            <German>Prototyp zerstört</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_PROTOTYPE_KILLED_MSG">
+            <German>Ein Prototyp wurde vernichtet.</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_PROTOTYPE_CAPTURED_MSG_TITLE">
+            <German>Prototyp gesichert</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_PROTOTYPE_CAPTURED_MSG">
+            <German>Ein Prototyp wurde gesichert. Er steht nun zu Ihrer Verfügung.</German>
+        </Key>
+        <!-- dataterminal -->
+        <Key ID="STR_DORB_MISSION_OBJ_DATATERMINAL_ACTIVATE">
+            <German>Terminal Aktivieren</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_DATATERMINAL_DEACTIVATE">
+            <German>Terminal Deaktivieren</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_DATATERMINAL_TRIANGULATE">
+            <German>Starte Triangulation</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_DATATERMINAL_TRIANGULATING">
+            <German>trianguliere</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_TRIANGULATE_MISSING_MSG_TITLE">
+            <German>Triangulation fehlgeschlagen</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_TRIANGULATE_MISSING_MSG">
+            <German>Die Triangulation ist fehlgeschlagen. Es befinden sich nicht ausreichend Sender im Bereich.</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_TRIANGULATE_MOVED_MSG_TITLE">
+            <German>Triangulation abgebrochen</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_TRIANGULATE_MOVED_MSG">
+            <German>Die Triangulation wurde abgebrochen. Die Empfänger wurden bewegt.</German>
+        </Key>
+        <!-- Laptop -->
+        <Key ID="STR_DORB_MISSION_OBJ_LAPTOP_DOWNLOAD">
+            <German>Download starten</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_LAPTOP_DOWNLOAD_PREPARE">
+            <German>Download wird vorbereitet</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_LAPTOP_DOWNLOAD_CANCEL_MSG_TITLE">
+            <German>Download abgebrochen</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_LAPTOP_DOWNLOAD_CANCEL_MSG">
+            <German>Der Download wurde abgebrochen.</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_LAPTOP_DOWNLOAD_FINISHED_MSG_TITLE">
+            <German>Download abgeschlossen</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_LAPTOP_DOWNLOAD_FINISHED_MSG">
+            <German>Der Download ist komplett.</German>
+        </Key>
+    </Package>
     <Package name="babel">
         <Key ID="STR_DORB_MOD_ACRE_ARAB">
             <German>Arabisch</German>
