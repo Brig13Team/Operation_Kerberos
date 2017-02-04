@@ -15,8 +15,8 @@
 
 private _centerpos = HASH_GET(GVAR(dangerzones),"centerpos");
 
-private _spawnPos = [_centerpos] call FUNC(ressources_getsaveSpawnPos);
 private _transporttype = ["transporter_mounted"] call EFUNC(spawn,getUnit);
+private _spawnPos = [_centerpos,_transporttype] call FUNC(ressources_getsaveSpawnPos);
 
 ([_spawnPos,GVARMAIN(side),_transporttype] call EFUNC(spawn,vehicle)) params ["_transportGroup","_transportVehicle"];
 

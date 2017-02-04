@@ -37,5 +37,11 @@ switch _grouptype do {
         _allConfigs append _addition;
         selectRandom _allConfigs;
     };
+    case "mechanized" : {
+        private _allConfigs = configProperties [(_cfg >> "mechanized"), "true", true];
+        private _addition = (getArray(_cfg >> "groups_mechanized")) apply {[_x,configfile] call BIS_fnc_configPath};
+        _allConfigs append _addition;
+        selectRandom _allConfigs;
+    };
     default {configNull};
 };

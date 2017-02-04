@@ -13,7 +13,7 @@
  */
 #include "script_component.hpp"
 
-_this params ["_targetPos"];
+_this params ["_targetPos",["_vehicletype","",[""]]];
 
 private _towns = configProperties [(configFile >> "CfgWorlds" >> worldName >> "Names"),"(getText (_x >> 'type') in ['NameCityCapital','NameCity','NameVillage'])",true];
 
@@ -33,6 +33,13 @@ private _return = [];
 
 If ((count (_return nearRoads 50))>0) then {
     _return = getPos ((_return nearRoads 50) select 0);
+};
+
+If ((!(_vehicletype isEqualTo ""))&&{isClass(configfile>>"CfgVehicles">>_vehicletype)}) then {
+    private _temp = _return findEmptyPosition [0,30,_vehicletype];
+    If !(_temp isEqualTo []) then {
+        _return = _temp;
+    };
 };
 
 _return;
