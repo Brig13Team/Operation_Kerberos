@@ -32,6 +32,8 @@ If !(isClass(configFile >> "CfgAcreComponents" >> _antenna)) exitWith {
     ERROR(FORMAT_1("WRONG ANTENNA: %1",_antenna));
 };
 _object setVariable [QGVAR(isActive),true,true];
-GVAR(jammer) pushBack [_object,_antenna,_antennaDir,_offset,_mW,_f];
+private _jammerID = (missionNamespace getVariable [QGVAR(jammerID),0]) + 1;
+GVAR(jammerID) = _jammerID;
+GVAR(jammer) pushBack [_object,_jammerID,_antenna,_antennaDir,_offset,_mW,_f];
 
 publicVariable QGVAR(jammer);

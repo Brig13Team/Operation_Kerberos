@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=1120;
+		nextID=1180;
 	};
 	class Camera
 	{
-		pos[]={16655.779,136.11612,18953.332};
-		dir[]={0.58250952,-0.44703597,-0.67891395};
-		up[]={0.29117343,0.8944512,-0.33936217};
-		aside[]={-0.75896418,-5.026377e-007,-0.65119237};
+		pos[]={14768.645,42.91,16604.838};
+		dir[]={0,-0.70710683,0.70710683};
+		up[]={0,0.70710677,0.70710677};
+		aside[]={0.99999994,0,0};
 	};
 };
 binarizationWanted=0;
@@ -5186,7 +5186,7 @@ class Mission
 		class Item53
 		{
 			dataType="Marker";
-			position[]={14762.875,0,16708.25};
+			position[]={14774.75,0,16668.125};
 			name="arsenalTest";
 			text="arsenalTest";
 			type="mil_circle";
@@ -5196,7 +5196,7 @@ class Mission
 		class Item54
 		{
 			dataType="Marker";
-			position[]={14729.75,17.91,16699.875};
+			position[]={14739.125,17.91,16684.125};
 			name="marker_59";
 			type="mil_arrow2";
 			id=1714;
@@ -5206,16 +5206,134 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={14738.75,19.350166,16684};
+				position[]={14738.75,19.350498,16684};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
+				init="[this] call dorb_mod_acre_jammer_fnc_addJammer;";
 			};
 			id=1716;
 			type="rhs_gaz66_ap2_vv";
-			atlOffset=-0.00033187866;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="rhs_decalArmy_type";
+					expression="_this setVariable ['rhs_decalArmy_type', _value];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="Army";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="rhs_decalNumber_type";
+					expression="_this setVariable ['rhs_decalNumber_type', _value];[_this,[['Number', cTrucksGaz4NumberPlaces, _value]]] call rhs_fnc_decalsInit";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="Default";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="rhs_decalArmy";
+					expression="if(parseNumber _value >= 0)then{ [_this, [ [ 'Label', cTrucksGazRightArmyPlaces,  _this getVariable ['rhs_decalArmy_type','Army'],call compile _value] ] ] call rhs_fnc_decalsInit};";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="-1";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="rhs_decalPlatoon_type";
+					expression="_this setVariable ['rhs_decalPlatoon_type', _value];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="Army";
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="rhs_decalPlatoon";
+					expression="if(parseNumber _value >= 0)then{ [_this, [ [ 'Label', cTrucksGazRightPlatoonPlaces,  _this getVariable ['rhs_decalPlatoon_type','Army'],call compile _value] ] ] call rhs_fnc_decalsInit};";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="-1";
+						};
+					};
+				};
+				class Attribute5
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="[[[[""FirstAidKit"",""Medikit""],[20,1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=6;
+			};
 		};
 		class Item56
 		{

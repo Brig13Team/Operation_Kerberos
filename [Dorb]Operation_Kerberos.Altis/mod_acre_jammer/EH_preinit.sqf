@@ -10,9 +10,12 @@ PREP(handleSignalReturn);
 PREP(isJammerActive);
 PREP(removeJammer);
 PREP(setJammer);
+PREP(updateJammer);
 
 ADDON = true;
 
 If (isNil QGVAR(jammer)) then {
     GVAR(jammer) = [];
 };
+
+GVAR(jammer_lastCheck) = HASH_CREATE;

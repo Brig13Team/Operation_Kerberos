@@ -23,7 +23,7 @@ if (_count == 0) then {
             private _rxAntenna = _x;
             _count = _count + 1;
             private _id = format["%1_%2_%3_%4", _transmitterClass, (_txAntenna select 0), _receiverClass, (_rxAntenna select 0)];
-            [_id,_transmitterClass,_rxAntennas,_txAntennas,_f,_mw] call FUNC(setJammer);
+            [_id,_transmitterClass,_rxAntennas,_txAntennas,_f,_mw] call FUNC(updateJammer);
             [
                 "process_signal",
                 [
