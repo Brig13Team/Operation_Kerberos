@@ -46,7 +46,7 @@ private _configArray = (
 );
 
 private _loadingScreenStep = 1/(count _configArray);
-private _loadingScreenID = ["Arsenal"] call EFUNC(gui,startLoadingScreen);
+private _loadingScreenID = [localize LSTRING(CREATE_LIST)] call EFUNC(gui,startLoadingScreen);
 
 private _dlcs = [];
 private _BISClassBlack = [];

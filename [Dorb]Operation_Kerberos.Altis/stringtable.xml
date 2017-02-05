@@ -86,9 +86,12 @@
     </Package>
     <Package name="GUI_ARSENAL">
         <Key ID="STR_DORB_GUI_ARSENAL_NOTEMPTY">
-            <Original>open arsenal</Original>
             <German>Arsenal öffnen</German>
             <English>open arsenal</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARSENAL_CREATE_LIST">
+            <German>Erstelle Arsenallisten</German>
+            <English>creating arsenal lists</English>
         </Key>
     </Package>
     <Package name="GUI_SPAWN">

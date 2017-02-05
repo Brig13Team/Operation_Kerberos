@@ -6,10 +6,12 @@ PREP(canOpenMenu);
 PREP(OpenMenu);
 
 PREP(addArsenal);
-PREP(addArsenalAction);
+PREP(addArsenalArea);
 PREP(addRestrictedArsenal);
 PREP(addSideRestrictedArsenal);
+PREP(createLocalArsenal);
 PREP(getRestrictedArsenal);
 PREP(getSideRestrictedArsenal);
+PREP(removeArsenal);
 
 ADDON = true;
