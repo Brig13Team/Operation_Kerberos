@@ -5,7 +5,7 @@
         choose mission location
 
     Parameter(s):
-        0 : STRING          - Mission name
+        0 : STRING          - mission name
         1 : [STRING,ARRAY]  - (optional) not this location: [Location Name, Position]
 
     Return:
@@ -14,7 +14,7 @@
 */
 #include "script_component.hpp"
 
-_this params [["_mission", GVAR(next_mission), [""]], ["_oldPos", ["",[]], ["",[]]]];
+_this params [["_mission"], ["_oldPos", ["",[]], ["",[]]]];
 
 private _pos = getArray (missionConfigFile >> "missions_config" >> "main" >> _mission >> "location" >> "areas");
 private _newPos = [];
