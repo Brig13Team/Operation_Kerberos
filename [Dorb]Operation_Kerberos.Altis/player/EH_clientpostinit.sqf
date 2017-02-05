@@ -25,10 +25,6 @@ SETUVAR(EGVAR(gui,respawnTime),nil);
     FUNC(checkContainerRestrictions)
 ] call CBA_fnc_addEventHandler;
 
-// backwards compatibility
-FUNC(addArsenal) = EFUNC(gui_arsenal,addArsenal);
-
-
 
 /*
  * Copy Loadout Action
