@@ -18,7 +18,7 @@ If (isNil format[QGVAR(arsenalList_%1),str _side]) exitWith {
     [
         {(!(isNil format[QGVAR(arsenalList_%1),(_this select 1)]))&&((!isNil QGVAR(postInit))&&{GVAR(postInit)})},
         FUNC(addSideRestrictedArsenal),
-        _this
+        [_target,_side,_onlyGear]
     ] call CBA_fnc_waitUntilAndExecute;
 };
 (missionNamespace getVariable format[QGVAR(arsenalList_%1),str _side]) params ["_addWeapons","_addMagazines","_addItems","_addBackpacks",["_fixWeapons",[],[[]]],["_fixMagazines",[],[[]]],["_fixItems",[],[[]]],["_fixBackpacks",[],[[]]]];
@@ -36,5 +36,3 @@ private _fix = _target getVariable ["bis_addVirtualWeaponCargo_cargo",[[],[],[],
     } forEach _x;
 } forEach [_fixItems,_fixWeapons,_fixMagazines,_fixBackpacks];
 _target setVariable ["bis_addVirtualWeaponCargo_cargo",_fix,true];
-
-[_target] call FUNC(addArsenalAction);

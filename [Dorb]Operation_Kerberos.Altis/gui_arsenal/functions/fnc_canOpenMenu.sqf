@@ -18,7 +18,7 @@ If ((isNull _player)||(!(isPlayer _player))) exitWith {
     TRACE("player != player");
     false;
 };
-If !(vehicle player == player) exitWith {
+If !(vehicle _player == _player) exitWith {
     TRACE("vehicle player != player");
     false;
 };
