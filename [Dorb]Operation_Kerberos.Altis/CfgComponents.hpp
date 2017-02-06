@@ -43,6 +43,7 @@ class CfgComponents {
     gui_tfr = 0;
     gui_tablet = 1;
     gui_arsenal = 1;
+    gui_acre = 1;
 };
 
 #include "main\CfgComponent.hpp"
@@ -74,3 +75,4 @@ class CfgComponents {
 #include "gui_save\CfgComponent.hpp"
 #include "gui_tfr\CfgComponent.hpp"
 #include "gui_arsenal\CfgComponent.hpp"
+#include "gui_acre\CfgComponent.hpp"
