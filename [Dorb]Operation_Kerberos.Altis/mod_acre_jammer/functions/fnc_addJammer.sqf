@@ -25,7 +25,7 @@ _this params [
     ["_antennaDir",[0,0,1],[[]],[3]],
     ["_offset",[0,0,2.5],[[]],[3]],
     ["_mW",20000,[0]],
-    ["_f",[],[[]],[2]]  // jammed frequencies [min,max] - if not given, everything is jammed
+    ["_f",[0,500],[[]],[2]]  // jammed frequencies [min,max] - if not given, everything is jammed
 ];
 
 If !(isClass(configFile >> "CfgAcreComponents" >> _antenna)) exitWith {

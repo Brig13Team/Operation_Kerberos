@@ -15,4 +15,4 @@
 #include "script_component.hpp"
 
 // setting up the jammer
-[FUNC(getSignal)] call acre_api_fnc_setCustomSignalFunc;
+[LINKFUNC(getSignal)] call acre_api_fnc_setCustomSignalFunc;

@@ -19,9 +19,6 @@ _args params ["_transmitterClass", "_receiverClass"];
 
 if (count _result > 0) then {
     _result params ["_id", "_signal"];
-    private _jammerval = (missionNamespace getVariable [(_id + "_jammer"), 0]);
-    TRACEV_2(_id,_signal,_jammerval);
-    _signal = _signal  - (missionNamespace getVariable [(_id + "_jammer"), 0]);
 
     private _maxSignal = (missionNamespace getVariable [_transmitterClass + "_best_signal", -992]);
     private _currentAntenna = missionNamespace getVariable [_transmitterClass + "_best_ant", ""];

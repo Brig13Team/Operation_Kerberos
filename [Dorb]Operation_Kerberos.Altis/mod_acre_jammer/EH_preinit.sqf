@@ -3,14 +3,12 @@
 ADDON = false;
 
 PREP(addJammer);
-PREP(getJammedSignal);
+PREP(getJammer);
 PREP(getSignal);
 PREP(handleJammerReturn);
 PREP(handleSignalReturn);
 PREP(isJammerActive);
 PREP(removeJammer);
-PREP(setJammer);
-PREP(updateJammer);
 
 ADDON = true;
 

@@ -15,21 +15,31 @@
 #include "script_component.hpp"
 
 params ["_args", "_result"];
-_args params ["_transmitterClass","_id"];
-if (count _result > 0) then {
-    _result params ["_jammerID", "_signal"];
-    //missionNamespace setVariable [_id, -992 + (abs _signal)];
-    private _value = 0;
-    private _jammerconst = missionNamespace getVariable ["JAMMERCONST",992];
-    If ((missionNamespace getVariable ["JAMMERABS",-1])<0) then {
-        _value = abs(_jammerconst + _signal);
-    }else{
-        _value = JAMMERABS;
-    };
-    _value = _value max (missionNamespace getVariable [(_id + "_next"),0]);
-    missionNamespace setVariable [(_id + "_next"), _value];
-    TRACEV_5(_id,_signal,_value,JAMMERABS,_jammerconst);
-};
+_args params ["_id","_transmitterClass","_receiverClass"];
 
-private _count = missionNamespace getVariable [(_transmitterClass + "_running_count_jammer"), 0];
-missionNamespace setVariable [(_transmitterClass + "_running_count_jammer"), _count - 1];
+TRACEV_3(_result,_transmitterClass,_id);
+
+
+
+missionNamespace setVariable [_transmitterClass + "_running_count_jammer", (missionNamespace getVariable [_transmitterClass + "_running_count_jammer", 0])-1];
+
+if (count _result > 0) then {
+    _result params ["_id", "_signal"];
+    // get the current jammer value
+    _signal = (_signal + 992) max 0;
+    private _maxSignal = (missionNamespace getVariable [_transmitterClass + "_jammer_signal", 0]);
+    private _currentJammer = missionNamespace getVariable [_transmitterClass + "_jammer_id", ""];
+    // check if you can update a value or the new value is stronger
+    TRACEV_4(_id,_currentJammer,_signal,_maxSignal);
+    if (_id == _currentJammer || {(_id != _currentJammer && {_signal > _maxSignal})}) then {
+        missionNamespace setVariable [_transmitterClass + "_jammer_signal", _signal];
+        missionNamespace setVariable [_transmitterClass + "_jammer_id", _id];
+        TRACE("setting values");
+        if (_maxSignal >= 500) then {
+            _Px = (((_maxSignal / 992) min 1) max 0);
+            missionNamespace setVariable [_transmitterClass + "_jammer_px", _Px];
+        } else {
+            missionNamespace setVariable [_transmitterClass + "_jammer_px", 0];
+        };
+    };
+};
