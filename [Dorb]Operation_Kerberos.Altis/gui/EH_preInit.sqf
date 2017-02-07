@@ -6,6 +6,8 @@ PREP(blur);
 PREP(globalmessage);
 PREP(message);
 
+PREP(bttn);
+
 PREP(onLoadLoadingscreen);
 PREP(progressLoadingScreen);
 PREP(startLoadingScreen);
