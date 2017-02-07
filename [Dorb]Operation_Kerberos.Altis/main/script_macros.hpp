@@ -14,7 +14,6 @@ Example:
 Author:
     Dorbedo
 ------------------------------------------- */
-#include "script_RAL_Codes.hpp"
 #ifndef CBA_OFF
     #include "\x\cba\addons\main\script_macros_mission.hpp"
 #else
@@ -52,17 +51,6 @@ Author:
 #define RETNIL(VARIABLE) (If (isNil{VARIABLE}) then {nil}else{VARIABLE})
 #define RETDEF(VARIABLE,DEFAULT_VALUE) (If (isNil{VARIABLE}) then {DEFAULT_VALUE}else{VARIABLE})
 
-/*
-    test = ([_apple,NIL] select (isNil{_apple}));
-    test = (If (isNil{_apple}) then {nil}else{_apple});
-
-
-    EDIT:
-Speed:
-_juice = (If (isNil{_apple}) then {nil}else{_apple}); // 0.0028 msec
-_juice = ([_apple,nil] select (isNil{_apple})); // 0.0022 msec
-_juice = ([_apple] param [0]) // 0.0015 msec
-*/
 /* -------------------------------------------
 Macro: PAAPATH(VAR)
     reurn the path of the picture
@@ -87,12 +75,11 @@ Parameters:
 Author:
     Dorbedo
 ------------------------------------------- */
-#define SYS_SYSTEM(VAR) (parsingNamespace getVariable 'TRIPLES(PREFIX,SYSTEM,VAR)')
-#define COMPILE_FIRST(VAR) {parsingNamespace setVariable [ARR_2('TRIPLES(PREFIX,SYSTEM,VAR)',compile getText(missionConfigFile>>'system'>>'VAR'))];parsingNamespace getVariable 'TRIPLES(PREFIX,SYSTEM,VAR)';}
-#define COMPILE_SYS_FIRST {parsingNamespace setVariable [ARR_2('TRIPLES(PREFIX,SYSTEM,compile)',compile getText(missionConfigFile>>'system'>>'compile'))];parsingNamespace setVariable [ARR_2('TRIPLES(PREFIX,SYSTEM,compile_sys)',compile getText(missionConfigFile>>'system'>>'compile_sys'))];parsingNamespace getVariable 'TRIPLES(PREFIX,SYSTEM,compile)';}
-#define COMPILE_SYS call (parsingNamespace getVariable [ARR_2('TRIPLES(PREFIX,SYSTEM,compile)',COMPILE_SYS_FIRST)])
-#define FUNCSYS(VAR) {call (parsingNamespace getVariable [ARR_2('TRIPLES(PREFIX,SYSTEM,VAR)',COMPILE_FIRST(VAR))]);}
-#define COMPILE_CHECK ([] call compile getText(missionConfigFile>>'system'>>'compile_check'))
+#define SYS_SYSTEM(VAR) TRIPLES(PREFIX,system,VAR)
+#define FUNCSYS(VAR) (parsingNamespace getVariable 'SYS_SYSTEM(VAR)')
+#define INIT_COMPILE_SYSTEM ([] call compile getText(missionConfigFile >>'CfgComponents'>>'system'>>'SYS_SYSTEM(compile_system)'))
+#define COMPILE_SYS call (parsingNamespace getVariable [ARR_2('SYS_SYSTEM(compile)',{false})])
+
 
 /* -------------------------------------------
 Macro: GUI_*

@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 
-COMPILE_CHECK;
+INIT_COMPILE_SYSTEM;
 
 ADDON = false;
 
