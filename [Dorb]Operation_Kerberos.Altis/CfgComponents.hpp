@@ -12,6 +12,7 @@
 #include "script_component.hpp"
 
 class CfgComponents {
+    #include "main\system.hpp"
     /// main components
     common = 1;
     headless = 1;

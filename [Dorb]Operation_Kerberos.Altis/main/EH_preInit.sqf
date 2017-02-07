@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 
-COMPILE_CHECK;
+INIT_COMPILE_SYSTEM;
 
 ADDON = false;
 
@@ -16,6 +16,7 @@ TRIPLES(PREFIX,makro,iscasvehicle) = {
 };
 
 FUNCMAIN(recompile) = FUNCSYS(recompile);
+FUNCMAIN(recompileComponent) = FUNCSYS(recompilecomponent);
 
 PREP(addMapToLog);
 PREP(addToFeatureList);
