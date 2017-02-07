@@ -60,11 +60,30 @@ class system {
     recompile = QUOTE( \
         private _fnc_scriptName = 'Recompiling function'; \
         scriptName _fnc_scriptName; \
+        systemChat 'recompiling started'; \
         { \
             _x params [ARR_3('_path','_funcName','_headertype')]; \
             diag_log text format [ARR_2('[MissionFile] (System) recompiling: %1',[ARR_3(_path,_funcName,_headertype)])]; \
             [ARR_5(missionNamespace,_funcName,_path,_headertype,true)] call (parsingNamespace getVariable 'TRIPLES(PREFIX,SYSTEM,compile_sys)'); \
         } forEach (parsingNamespace getVariable [ARR_2('GVARMAIN(recompileCache)',[])]); \
+        systemChat 'recompiling finished'; \
+        );
+
+    recompilecomponent = QUOTE( \
+        private _fnc_scriptName = 'Recompiling function'; \
+        scriptName _fnc_scriptName; \
+        _this params [[ARR_3('_componentName','',[''])]]; \
+        If (_componentName isEqualTo '') exitWith {}; \
+        private _searchString = _componentName + '_fnc_'; \
+        systemChat format[ARR_2('recompiling component: %1 started',_componentName)]; \
+        { \
+            _x params [ARR_3('_path','_funcName','_headertype')]; \
+            If ((_funcName find _searchString)==0) then { \
+                diag_log text format [ARR_2('[MissionFile] (System) recompiling: %1',[ARR_3(_path,_funcName,_headertype)])]; \
+                [ARR_5(missionNamespace,_funcName,_path,_headertype,true)] call (parsingNamespace getVariable 'TRIPLES(PREFIX,SYSTEM,compile_sys)'); \
+            }; \
+        } forEach (parsingNamespace getVariable [ARR_2('GVARMAIN(recompileCache)',[])]); \
+        systemChat format[ARR_2('recompiling component: %1 finished',_componentName)]; \
         );
 
     compile_sys = QUOTE( \
