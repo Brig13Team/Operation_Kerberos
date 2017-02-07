@@ -6,11 +6,11 @@
 
     Note(s):
         - A hash is a mission if it has the following keys:
-          - type (STRING)
-          - location ([STRING,POSITION])
-          - state (STRING)
-          - condition (function name) (STRING)
-          - arguments (ANY)
+          - type (STRING)                         -- set by FUNC(taskmanager___spawn)
+          - location ([STRING,POSITION])          -- set by FUNC(mainmission___spawn)
+          - state (STRING)                        -- set by FUNC(mainmission___spawn)
+          - condition (function name) (STRING)    -- set by FUNC(mainmission___<type>)
+          - <arguments> (for condition) (ANY)     -- set by FUNC(mainmission___<type>)
         Internally a mission becomes a taskhandler too and gets
         the key BIS_taskID (STRING).
 

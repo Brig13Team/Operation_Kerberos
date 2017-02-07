@@ -20,6 +20,10 @@ HASH_SET(_taskhandler, "missions", []);
 
 {
     private _mission = HASH_GET(_taskhandler, _x);
+
+    private _taskID = HASH_GET(_mission, "BIS_taskID");
     HASH_SET(_mission, "state", "Canceled");
+    [HASH_GET(_mission,"BIS_taskID"),nil,nil,nil,_state,nil,false] call BIS_fnc_setTask;
+
     [_mission] call FUNC(taskhandler___cancelAll);
 } forEach _missions;

@@ -16,5 +16,5 @@
 _this params [["_name", "", ["",[]]], ["_state", "Assigned", [""]]];
 
 if (THIS_HASKEY(_name)) then {
-    [__THIS, _name, _state] call FUNC(taskhandler___setState);
+    [__THIS, THIS_GET(_name), _state] call FUNC(taskmanager___setState);
 };

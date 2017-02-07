@@ -10,6 +10,8 @@ PREP(test);
 
 PREPS(mainmission,__chooseLocation);
 PREPS(mainmission,__spawn);
+PREPS(mainmission,capture);
+PREPS(mainmission,condition_twoCounters);
 /*
 PREPS(mainmission,capture_cond);
 PREPS(mainmission,capture);

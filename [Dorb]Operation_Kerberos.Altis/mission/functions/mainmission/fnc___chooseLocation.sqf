@@ -14,7 +14,7 @@
 */
 #include "script_component.hpp"
 
-_this params [["_mission"], ["_oldPos", ["",[]], ["",[]]]];
+_this params ["_mission", ["_oldPos", ["",[]], ["",[]]]];
 
 private _pos = getArray (missionConfigFile >> "missions_config" >> "main" >> _mission >> "location" >> "areas");
 private _newPos = [];

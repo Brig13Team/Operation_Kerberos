@@ -12,6 +12,6 @@
 */
 #include "script_component.hpp"
 
-_this params [["_mission"]];
+_this params ["_mission"];
 
 [__THIS, _mission] call FUNC(taskmanager___add);

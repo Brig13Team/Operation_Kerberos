@@ -2,6 +2,8 @@
 
 #define CHECK_INTERVALL     30
 
+#define DEBUG_MODE_FULL
+
 #define __THIS              GVAR(master)
 #define THIS_GET(key)       HASH_GET(__THIS,key)
 #define THIS_SET(key,value) HASH_SET(__THIS,key,value)

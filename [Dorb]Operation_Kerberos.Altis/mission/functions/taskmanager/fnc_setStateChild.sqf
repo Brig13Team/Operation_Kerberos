@@ -19,6 +19,6 @@ _this params [["_parent", "", ["",[]]], ["_child", "", ["",[]]], ["_state", "Ass
 if (THIS_HASKEY(_parent)) then {
     private _mission = THIS_GET(_parent);
     if (HASH_HASKEY(_mission, _child)) then {
-        [_mission, _child, _state] call FUNC(taskmanager___setState);
+        [_mission, HASH_GET(_mission, _child), _state] call FUNC(taskmanager___setState);
     };
 };

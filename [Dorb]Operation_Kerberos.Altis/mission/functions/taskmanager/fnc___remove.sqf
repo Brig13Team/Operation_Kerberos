@@ -16,7 +16,7 @@
 
 _this params ["_taskhandler", "_name"];
 
-HASH_SET(_taskhandler, HASH_GET(_taskhandler, "missions") - [_name]);
+HASH_SET(_taskhandler, "missions", HASH_GET(_taskhandler, "missions") - [_name]);
 
 private _mission = HASH_GET(_taskhandler, _name);
 {
