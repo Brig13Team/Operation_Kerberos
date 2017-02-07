@@ -17,7 +17,7 @@
 /*
     Name: dorb_system_fnc_compile
 
-    Author: Dorbedo - Version 1.0
+    Author: Dorbedo - Version 2.0
 
     Description:
         main compiling function
@@ -56,7 +56,20 @@ class system {
             }; \
         }; \
         nil;);
+/*
+    Name: dorb_system_fnc_recompile
 
+    Author: Dorbedo - Version 2.0
+
+    Description:
+        recompiles all functions
+
+    Parameter(s):
+        none
+
+    Return
+        nil
+*/
     SYS_SYSTEM(recompile) = QUOTE( \
         private _fnc_scriptName = 'recompiling functions'; \
         scriptName _fnc_scriptName; \
@@ -68,7 +81,20 @@ class system {
         } forEach (parsingNamespace getVariable [ARR_2('GVARMAIN(recompileCache)',[])]); \
         systemChat 'recompiling finished'; \
         );
+/*
+    Name: dorb_system_fnc_recompileComponent
 
+    Author: Dorbedo - Version 2.0
+
+    Description:
+        recompiles given COMPONENT
+
+    Parameter(s):
+        0: STRING - Function Componentname with prefix - "PREFIX_COMPONENT"
+
+    Return
+        nil
+*/
     SYS_SYSTEM(recompilecomponent) = QUOTE( \
         private _fnc_scriptName = 'recompiling component functions'; \
         scriptName _fnc_scriptName; \
