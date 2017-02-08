@@ -7,6 +7,7 @@ PREP(globalmessage);
 PREP(message);
 
 PREP(bttn);
+PREP(bttn2);
 
 PREP(onLoadLoadingscreen);
 PREP(progressLoadingScreen);
