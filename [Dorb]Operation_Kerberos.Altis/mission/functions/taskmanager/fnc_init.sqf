@@ -11,6 +11,9 @@
           - state (STRING)                        -- set by FUNC(mainmission___spawn)
           - condition (function name) (STRING)    -- set by FUNC(mainmission___<type>)
           - <arguments> (for condition) (ANY)     -- set by FUNC(mainmission___<type>)
+        A mission can have the following optional keys:
+          - event_callback (function name) (STRING) -- set by FUNC(mainmission___<type>)
+          - <event_arguments> (for event) (ANY)   -- set by FUNC(mainmission___<type>)
         Internally a mission becomes a taskhandler too and gets
         the key BIS_taskID (STRING).
 
