@@ -2,13 +2,13 @@
  *  Author: iJesuz
  *
  *  Description:
- *      conditional function for missions
+ *      condition with two counters
  *
  *  Parameter(s):
  *      0 : HASH    - mission hash
  *
  *  Returns:
- *      -
+ *      STRING
  */
 #include "script_component.hpp"
 

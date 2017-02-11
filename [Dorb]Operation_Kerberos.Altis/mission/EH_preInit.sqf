@@ -8,25 +8,32 @@ PREP(onKilled);
 PREP(testCreate);
 PREP(test);
 
+// helper funcitons
 PREPS(mainmission,__chooseLocation);
+PREPS(mainmission,__device_condition);
+PREPS(mainmission,__device_event);
+PREPS(mainmission,__device);
+PREPS(mainmission,__getAmount);
+PREPS(mainmission,__getRadius);
 PREPS(mainmission,__spawn);
+PREPS(mainmission,__spawnTargets);
+// abstract missions
+PREPS(mainmission,_oneCounter_condition);
+PREPS(mainmission,_oneCounter);
+PREPS(mainmission,_twoCounters_condition);
+PREPS(mainmission,_twoCounters);
+// missions
 PREPS(mainmission,capture);
-PREPS(mainmission,condition_twoCounters);
+PREPS(mainmission,device);
+PREPS(mainmission,emp);
+PREPS(mainmission,hostage);
+PREPS(mainmission,intel);
+PREPS(mainmission,weaponcache);
 /*
-PREPS(mainmission,capture_cond);
-PREPS(mainmission,capture);
 PREPS(mainmission,clear_cond);
 PREPS(mainmission,clear);
-PREPS(mainmission,device_cond);
-PREPS(mainmission,device);
 PREPS(mainmission,dronecommando_cond);
 PREPS(mainmission,dronecommando);
-PREPS(mainmission,emp_cond);
-PREPS(mainmission,emp);
-PREPS(mainmission,hostage_cond);
-PREPS(mainmission,hostage);
-PREPS(mainmission,intel_cond);
-PREPS(mainmission,intel);
 PREPS(mainmission,prototype_cond);
 PREPS(mainmission,prototype);
 PREPS(mainmission,radiotower_cond);
@@ -35,8 +42,6 @@ PREPS(mainmission,scarab_cond);
 PREPS(mainmission,scarab);
 PREPS(mainmission,specops);
 PREPS(mainmission,specops_cond);
-PREPS(mainmission,weaponcache_cond);
-PREPS(mainmission,weaponcache);
 */
 
 PREPS(sidemission,clearArea);
