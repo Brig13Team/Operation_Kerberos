@@ -16,6 +16,7 @@
  *
  */
 #define DEBUG_MODE_FULL
+#define INCLUDE_GUI
 #include "script_component.hpp"
 _this params ["_displayName","_function","_condition","_picture","_size","_parameter",["_Page","0",[""]]];
 LOG_6(_displayName,_func,_condition,_picture,_size,_page);
@@ -85,8 +86,7 @@ If (_grid isEqualTo []) exitWith {
         [_displayName,_func,_condition,_picture,_size,_parameter,_page] call FUNC(registerApp);
     };
 };
-private _colorArray = [];
 
 private _index = HASH_GET(GVAR(applications),"index");
 HASH_SET(GVAR(Applications),"index",_index + 1);
-HASH_GET(GVAR(Applications),_page) pushBack [_displayName,_function,_condition,_picture,_size,_parameter,_grid,_colorArray];
+HASH_GET(GVAR(Applications),_page) pushBack [_displayName,_function,_condition,_picture,_size,_parameter,_grid];

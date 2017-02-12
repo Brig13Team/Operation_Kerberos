@@ -20,7 +20,7 @@ for "_i" from 0 to 10 do {
     [
         format["Test%1",_i],
         {hint "klick";},
-        {true},
+        {false},
         ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QEPAAPATH(icon,icon_tank)),
         (floor(random 3)+1),
         []

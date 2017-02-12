@@ -84,7 +84,7 @@ _ctrlBackground ctrlCommit 0;
         _ctrlBackground ctrlCommit 0;
         TRACEV_2(_currentApps,_curX);
         {
-            _x params ["_displayName","_function","_condition","_picture","_size","_parameter","_grid","_colorArray"];
+            _x params ["_displayName","_function","_condition","_picture","_size","_parameter","_grid"];
             TRACEV_6(_displayName,_function,_condition,_picture,_size,_grid);
             private _pos_x = _curX + (_grid select 0) * (GUI_ECHIDNA_METRO_BTTN_W + GUI_ECHIDNA_METRO_BTTN_DIST);
             private _pos_y = GUI_ECHIDNA_METRO_BTTN_Y + (_grid select 1) * (GUI_ECHIDNA_METRO_BTTN_H + GUI_ECHIDNA_METRO_BTTN_DIST);
@@ -106,6 +106,8 @@ _ctrlBackground ctrlCommit 0;
             _ctrl ctrlSetText _picture;
             _ctrl ctrlSetTooltip _displayName;
             _ctrl ctrlSetFontHeight GUI_ECHIDNA_METRO_BTTN_H;
+
+
             #ifdef DEBUG_MODE_FULL
                 private _conditionTest = call _condition;
                 TRACEV_2(_conditionTest,_condition);

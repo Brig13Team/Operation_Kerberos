@@ -33,10 +33,10 @@ If (vehicle ace_player == ace_player) then {
 }else{
     _ctrl ctrlSetText QEPAAPATH(echidna,background_vehicle);
     _ctrl ctrlSetPosition [
-        GUI_ECHIDNA_X - GUI_ECHIDNA_W * 3.65,
-        GUI_ECHIDNA_Y - GUI_ECHIDNA_H * 6.65,
-        GUI_ECHIDNA_WAbs + GUI_ECHIDNA_W * 7,
-        GUI_ECHIDNA_HAbs + GUI_ECHIDNA_H * 17
+        GUI_ECHIDNA_X - GUI_ECHIDNA_W * 3.35,
+        GUI_ECHIDNA_Y - GUI_ECHIDNA_H * 6.6,
+        GUI_ECHIDNA_WAbs + GUI_ECHIDNA_W * 6.7,
+        GUI_ECHIDNA_HAbs + GUI_ECHIDNA_H * 14.55
     ];
     _ctrl ctrlSetBackgroundColor [1,1,1,0];
     _ctrl ctrlSetTextColor [1,1,1,1];
