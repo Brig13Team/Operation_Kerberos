@@ -8,6 +8,7 @@ PREP(message);
 
 PREP(bttn);
 PREP(bttn2);
+PREP(listbox);
 
 PREP(onLoadLoadingscreen);
 PREP(progressLoadingScreen);
