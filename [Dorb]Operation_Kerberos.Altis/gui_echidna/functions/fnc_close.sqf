@@ -17,3 +17,4 @@
 CHECK(!dialog)
 
 closeDialog IDD_ECHNIDA_MAIN;
+false;

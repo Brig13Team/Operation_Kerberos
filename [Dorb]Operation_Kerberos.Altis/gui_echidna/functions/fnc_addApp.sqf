@@ -22,7 +22,8 @@ _this params [
     ["_func",{},[{}]],
     ["_condition",{true},[{}]],
     ["_picture",QPATHTOF(data\ui\icon_empty.paa),[""]],
-    ["_size",1,[1]]
+    ["_size",1,[1]],
+    ["_parameter",[],[[]]]
 ];
 
 //// add Action
@@ -41,4 +42,4 @@ private _ACE_Action = [
 If !(_size in [1,2,3]) then {_size = 1;};
 
 /// register into Display
-[_displayName,_func,_condition,_picture,_size] call FUNC(registerApp);
+[_displayName,_func,_condition,_picture,_size,_parameter] call FUNC(registerApp);

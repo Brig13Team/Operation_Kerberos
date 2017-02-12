@@ -15,14 +15,15 @@
 #include "script_component.hpp"
 
 
-for "_i" from 0 to 20 do {
+for "_i" from 0 to 10 do {
 
     [
         format["Test%1",_i],
         {hint "klick";},
         {true},
         ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QEPAAPATH(icon,icon_tank)),
-        (floor(random 3)+1)
+        (floor(random 3)+1),
+        []
     ] call EFUNC(gui_echidna,addApp);
 
 };

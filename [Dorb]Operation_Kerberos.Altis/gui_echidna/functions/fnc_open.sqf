@@ -17,3 +17,4 @@
 CHECK(!([] call FUNC(canOpenMenu)))
 
 createDialog QAPP(dialog);
+false;

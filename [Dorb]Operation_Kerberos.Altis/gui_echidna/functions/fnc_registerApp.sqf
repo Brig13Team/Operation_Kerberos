@@ -17,7 +17,7 @@
  */
 #define DEBUG_MODE_FULL
 #include "script_component.hpp"
-_this params ["_displayName","_function","_condition","_picture","_size",["_Page","0",[""]]];
+_this params ["_displayName","_function","_condition","_picture","_size","_parameter",["_Page","0",[""]]];
 LOG_6(_displayName,_func,_condition,_picture,_size,_page);
 
 private _currentPage = HASH_GET(GVAR(Applications),_page);
@@ -25,7 +25,7 @@ private _usedGrids = [];
 
 {
     private _curSize = _x param [4];
-    private _grid = _x param [5];
+    private _grid = _x param [6];
     TRACEV_2(_curSize,_grid);
     switch _curSize do {
         case 3 : {
@@ -76,12 +76,17 @@ for "_j" from 0 to 4 do {
         };
     };
 };
-LOG_1(_grid);
 If (_grid isEqualTo []) exitWith {
     _page = format["%1",((parseNumber _page)+1)];
-    [_displayName,_func,_condition,_picture,_size,_page] call FUNC(registerApp);
+    TRACEV_1(_page);
+    If ((parseNumber _page) > 10) then {
+        ERROR("No more pages");
+    }else{
+        [_displayName,_func,_condition,_picture,_size,_parameter,_page] call FUNC(registerApp);
+    };
 };
+private _colorArray = [];
 
 private _index = HASH_GET(GVAR(applications),"index");
 HASH_SET(GVAR(Applications),"index",_index + 1);
-HASH_GET(GVAR(Applications),_page) pushBack [_displayName,_function,_condition,_picture,_size,_grid];
+HASH_GET(GVAR(Applications),_page) pushBack [_displayName,_function,_condition,_picture,_size,_parameter,_grid,_colorArray];
