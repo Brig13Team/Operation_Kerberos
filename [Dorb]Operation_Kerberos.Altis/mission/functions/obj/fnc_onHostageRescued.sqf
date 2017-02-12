@@ -18,7 +18,7 @@
 If (isServer) then {
     _this params ["_hostage"];
 
-    private _mission = _commander getVariable QGVAR(mission);
+    private _mission = _hostage getVariable QGVAR(mission);
     HASH_SET(_mission, "obj_counter_1", HASH_GET(_mission, "obj_counter_1") + 1);
 
     deleteVehicle _hostage;

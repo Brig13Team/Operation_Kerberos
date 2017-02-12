@@ -15,7 +15,6 @@
 _this params ["_mission"];
 
 private _objs = HASH_GET(_mission, "objects");
-private _name = HASH_GET(_mission, "name");
 
 if (({ alive _x } count _objs) > 0) exitWith { "" };
 

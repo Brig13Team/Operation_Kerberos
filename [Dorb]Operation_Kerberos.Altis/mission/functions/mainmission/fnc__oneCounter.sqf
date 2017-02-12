@@ -20,4 +20,4 @@ private _objs = _this call FUNC(mainmission___spawnTargets);
 HASH_SET(_mission, "objects", _objs);
 HASH_SET(_mission, "obj_counter_total", count _objs);
 HASH_SET(_mission, "obj_counter", 0);
-HASH_SET(_mission, "condition", QFUNC(mainmission___oneCounter_condition));
+HASH_SET(_mission, "condition", QFUNC(mainmission__oneCounter_condition));

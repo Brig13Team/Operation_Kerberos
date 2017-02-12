@@ -17,7 +17,7 @@ _this params ["_mission"];
 [_mission] call FUNC(mainmission___device);
 
 // init device event
-HASH_SET(_mission, "event_callback",  FUNC(mainmission___device_event));
+HASH_SET(_mission, "event_callback",  QFUNC(mainmission___device_event));
 HASH_SET(_mission, "event_name",      QGVAR(earthquake));
 HASH_SET(_mission, "event_parameter", { floor( random 4) + 1 });
 HASH_SET(_mission, "event_last",      CBA_missionTime);

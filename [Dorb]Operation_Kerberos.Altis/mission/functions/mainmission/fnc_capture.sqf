@@ -15,6 +15,7 @@
 _this params ["_mission"];
 
 [_mission, {
-    _this setVariable [QGVAR(rescueEvent), QGVAR(commander_captured)];
-    _this addEventHandler ["Killed", LINKFUNC(obj_onCommanderKilled)];
-}] call FUNC(mainmission___twoCounters);
+    _this params ["_obj"];
+    _obj setVariable [QGVAR(rescueEvent), QGVAR(commander_captured)];
+    _obj addEventHandler ["Killed", LINKFUNC(obj_onCommanderKilled)];
+}] call FUNC(mainmission__twoCounters);

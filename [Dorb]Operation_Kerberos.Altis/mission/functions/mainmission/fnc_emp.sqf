@@ -14,11 +14,7 @@
 
 _this params ["_mission"];
 
-[_mission, QGVAR(earthquake), {
-    _this params ["_mission"];
-    private _obj = HASH_GET(_mission, "object");
-    getPos _obj
-}] call FUNC(mainmission___device);
+[_mission] call FUNC(mainmission___device);
 
 // init device event
 HASH_SET(_mission, "event_callback",  QFUNC(mainmission___device_event));

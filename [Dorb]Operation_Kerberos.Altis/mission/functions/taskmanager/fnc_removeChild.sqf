@@ -15,9 +15,7 @@
 
 _this params [["_parent", "", [""]], ["_child", "", [""]]];
 
-if (THIS_HASKEY(_parent)) then {
-    private _mission = THIS_GET(_parent);
-    if (HASH_GET(_mission, "_child")) then {
-        [_mission, _child] call FUNC(taskmanager___remove);
-    }
-};
+if !THIS_HASKEY(_parent) exitWith { -2 };
+if !HASH_HASKEY(THIS_GET(_parent),_child) exitWith { -2 };
+
+[THIS_GET(_parent), _child] call FUNC(taskmanager___remove);

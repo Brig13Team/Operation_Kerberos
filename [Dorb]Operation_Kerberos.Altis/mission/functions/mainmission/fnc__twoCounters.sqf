@@ -21,4 +21,4 @@ HASH_SET(_mission, "objects", _objs);
 HASH_SET(_mission, "obj_counter_total", count _objs);
 HASH_SET(_mission, "obj_counter_1", 0); // _event_1's counter
 HASH_SET(_mission, "obj_counter_2", 0); // _event_2's counter
-HASH_SET(_mission, "condition", QFUNC(mainmission___twoCounters_condition));
+HASH_SET(_mission, "condition", QFUNC(mainmission__twoCounters_condition));

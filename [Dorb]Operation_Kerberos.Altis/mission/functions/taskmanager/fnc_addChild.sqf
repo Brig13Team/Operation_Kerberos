@@ -15,6 +15,10 @@
 
 _this params [["_parent", "", [""]], "_mission"];
 
-if (THIS_HASKEY(_parent)) then {
-    [THIS_GET(_parent), _mission] call FUNC(taskmanager___add);
-};
+if !(HASH_HASKEY(_mission,"type") &&
+     HASH_HASKEY(_mission,"location") &&
+     HASH_HASKEY(_mission,"state") &&
+     HASH_HASKEY(_mission,"condition")) exitWith { -1 };
+if !(THIS_HASKEY(_parent)) exitWith { -2 };
+
+[THIS_GET(_parent), _mission] call FUNC(taskmanager___add);

@@ -15,5 +15,6 @@
 _this params ["_mission"];
 
 [_mission, {
-    _this setVariable [QGVAR(rescueEvent), QGVAR(intel_found)];
-}] call FUNC(mainmission___oneCounter);
+    _this params ["_intel"];
+    _intel setVariable [QGVAR(rescueEvent), QGVAR(intel_found)];
+}] call FUNC(mainmission__oneCounter);

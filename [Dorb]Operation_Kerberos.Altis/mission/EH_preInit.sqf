@@ -5,6 +5,7 @@ ADDON = false;
 PREP(rtb);
 PREP(handleRescuePoint);
 PREP(onKilled);
+PREP(spawn);
 PREP(testCreate);
 PREP(test);
 
@@ -60,8 +61,10 @@ PREPS(taskmanager,remove);
 PREPS(taskmanager,removeChild);
 PREPS(taskmanager,setState);
 PREPS(taskmanager,setStateChild);
+/*
 PREPS(taskmanager,spawn);
 PREPS(taskmanager,spawnSide);
+*/
 
 PREPS(obj,canCarry);
 PREPS(obj,canDisable);

@@ -15,7 +15,8 @@
 _this params ["_mission"];
 
 [_mission, {
-    _this addEventHandler ["Killed", {
+    _this params ["_cache"];
+    _cache addEventHandler ["Killed", {
         [QGVAR(weaponcache_destroyed), _this] call CBA_fnc_globalEvent;
     }];
-}] call FUNC(mainmission___oneCounter);
+}] call FUNC(mainmission__oneCounter);

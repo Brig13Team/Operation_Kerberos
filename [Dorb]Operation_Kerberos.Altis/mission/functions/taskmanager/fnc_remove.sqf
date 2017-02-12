@@ -14,6 +14,5 @@
 
 _this params [["_name", "", [""]]];
 
-if (THIS_HASKEY(_name)) then {
-    [__THIS, _name] call FUNC(taskhandler___remove);
-};
+if !THIS_HASKEY(_name) exitWith { -2 };
+[__THIS, _name] call FUNC(taskhandler___remove);
