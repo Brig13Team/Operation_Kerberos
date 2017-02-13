@@ -16,15 +16,15 @@
 #include "script_component.hpp"
 disableSerialization;
 
-private _idc = IDC_ECHNIDA_METRO_BTTN1;
-private _display = (findDisplay IDD_ECHNIDA_MAIN);
-private _ctrlGroup = _display displayCtrl IDC_ECHNIDA_METRO_SIDE_GRP;
+private _idc = IDC_ECHIDNA_METRO_BTTN1;
+private _display = (findDisplay IDD_ECHIDNA_MAIN);
+private _ctrlGroup = _display displayCtrl IDC_ECHIDNA_METRO_SIDE_GRP;
 
 If !((ctrlPosition _ctrlGroup) isEqualTo [0,0,0,0]) exitWith {
     [] call FUNC(hideMetro);
 };
 // Background
-_ctrl = _display displayCtrl IDC_ECHNIDA_METRO_BACK;
+_ctrl = _display displayCtrl IDC_ECHIDNA_METRO_BACK;
 _ctrl ctrlSetPosition [
     GUI_ECHIDNA_X,
     GUI_ECHIDNA_Y,
@@ -41,18 +41,19 @@ _ctrlGroup ctrlSetPosition [
     GUI_ECHIDNA_METRO_H
 ];
 _ctrlGroup ctrlCommit 0;
-private _ctrlBackground = _ctrlGroup controlsGroupCtrl IDC_ECHNIDA_METRO_SIDE_BACK;
+private _ctrlBackground = _ctrlGroup controlsGroupCtrl IDC_ECHIDNA_METRO_SIDE_BACK;
 _ctrlBackground ctrlSetPosition [0, 0, GUI_ECHIDNA_METRO_SIDE, GUI_ECHIDNA_METRO_H];
 _ctrlBackground ctrlCommit 0;
-private _ctrl = _ctrlGroup controlsGroupCtrl IDC_ECHNIDA_METRO_SIDE_SHUTDOWN;
+private _ctrl = _ctrlGroup controlsGroupCtrl IDC_ECHIDNA_METRO_SIDE_SHUTDOWN;
 _ctrl ctrlSetPosition [0, GUI_ECHIDNA_METRO_H - GUI_ECHIDNA_METRO_SIDE - GUI_ECHIDNA_METRO_BTTN_DIST, GUI_ECHIDNA_METRO_SIDE,GUI_ECHIDNA_METRO_SIDE];
 _ctrl ctrlAddEventHandler ["ButtonClick",EFUNC(gui_echidna,close)];
 _ctrl ctrlSetText ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QEPAAPATH(echidna,shutdown));
+_ctrl ctrlSetTooltip (localize LSTRING(SHUTDOWN));
 _ctrl ctrlCommit 0;
 TRACEV_2(_ctrlBackground,_ctrlGroup);
 
 // metro surface
-private _ctrlGroup = _display displayCtrl IDC_ECHNIDA_METRO_GRP;
+private _ctrlGroup = _display displayCtrl IDC_ECHIDNA_METRO_GRP;
 _ctrlGroup ctrlSetPosition [
     GUI_ECHIDNA_X + GUI_ECHIDNA_METRO_SIDE,
     GUI_ECHIDNA_Y,
@@ -60,7 +61,7 @@ _ctrlGroup ctrlSetPosition [
     GUI_ECHIDNA_METRO_H
 ];
 _ctrlGroup ctrlCommit 0;
-private _ctrlBackground = _ctrlGroup controlsGroupCtrl IDC_ECHNIDA_METRO_BACK_HELPER;
+private _ctrlBackground = _ctrlGroup controlsGroupCtrl IDC_ECHIDNA_METRO_BACK_HELPER;
 _ctrlBackground ctrlSetPosition [
     0,
     0,
@@ -74,7 +75,7 @@ _ctrlBackground ctrlCommit 0;
     private _currentApps = HASH_GET_DEF(GVAR(Applications),_x,[]);
     If !(_currentApps isEqualTo []) then {
         private _curX = GUI_ECHIDNA_METRO_BTTN_X + (GUI_ECHIDNA_METRO_BTTN_W * 3 + GUI_ECHIDNA_METRO_BTTN_DIST + GUI_ECHIDNA_METRO_ROW_DIST) * _forEachIndex;
-        private _ctrlBackground = _ctrlGroup controlsGroupCtrl IDC_ECHNIDA_METRO_BACK_HELPER;
+        private _ctrlBackground = _ctrlGroup controlsGroupCtrl IDC_ECHIDNA_METRO_BACK_HELPER;
         _ctrlBackground ctrlSetPosition [
             0,
             0,

@@ -46,6 +46,7 @@ class CfgComponents {
     gui_arsenal = 1;
     gui_acre = 1;
     gui_echidna = 1;
+    gui_mail = 1;
 };
 
 #include "main\CfgComponent.hpp"
@@ -79,3 +80,4 @@ class CfgComponents {
 #include "gui_arsenal\CfgComponent.hpp"
 #include "gui_acre\CfgComponent.hpp"
 #include "gui_echidna\CfgComponent.hpp"
+#include "gui_mail\CfgComponent.hpp"

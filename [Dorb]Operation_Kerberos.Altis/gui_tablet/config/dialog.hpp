@@ -7,7 +7,7 @@
 
 class RSC(tabletBase) {
     idd = IDD_TABLET_MAIN;
-    name = "Echnida";
+    name = "Echidna";
 
     movingEnable = 0;
     enableSimulation = 1;

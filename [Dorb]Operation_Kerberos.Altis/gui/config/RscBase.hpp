@@ -303,63 +303,56 @@ class RSC(BaseSwitch) : RSC(BaseControlsGroup) {
 };
 
 class RSC(BaseListbox) {
-    access=0;
-    idc=5;
-    type=5;
+    access = 0;
+    idc = 5;
+    type = 5;
     style="0x00 + 0x10";
-    default=0;
-    enable=1;
-    show=1;
-    fade=0;
-    blinkingPeriod=0;
-    x="1 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
-    y="11 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
-    w="10 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-    h="3 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-    colorBackground[]={0.2,0.2,0.2,1};
-    colorSelectBackground[]={1,0.5,0,1};
-    colorSelectBackground2[]={0,0,0,1};
-    sizeEx="(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-    font="RobotoCondensed";
-    shadow=0;
-    colorText[]={1,1,1,1};
-    colorDisabled[]={1,1,1,0.5};
-    colorSelect[]={1,1,1,1};
-    colorSelect2[]={1,1,1,1};
-    colorShadow[]={0,0,0,0.5};
-    colorPicture[]={1,0.5,0,1};
-    colorPictureSelected[]={1,1,1,1};
-    colorPictureDisabled[]={1,1,1,0.5};
-    colorPictureRight[]={1,0.5,0,1};
-    colorPictureRightSelected[]={1,1,1,1};
-    colorPictureRightDisabled[]={1,1,1,0.5};
-    tooltip="CT_LISTBOX";
-    tooltipColorShade[]={0,0,0,1};
-    tooltipColorText[]={1,1,1,1};
-    tooltipColorBox[]={1,1,1,1};
-    period=1;
-    rowHeight="1.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-    itemSpacing=0;
-    maxHistoryDelay=1;
-    canDrag=1;
-    soundSelect[]=
-    {
-        "\A3\ui_f\data\sound\RscListbox\soundSelect",
-        0.090000004,
-        1
+    default = 0;
+    enable = 1;
+    show = 1;
+    fade = 0;
+    blinkingPeriod = 0;
+    x = 0;
+    y = 0;
+    w = 0;
+    h = 0;
+    colorBackground[] = {0.2,0.2,0.2,1};
+    colorSelectBackground[] = {1,0.5,0,1};
+    colorSelectBackground2[] = {0,0,0,1};
+    sizeEx = (pixelH * pixelGrid * 3);
+    font = FONT_DEFAULT;
+    shadow = 0;
+    colorText[] = {1,1,1,1};
+    colorDisabled[] = {1,1,1,0.5};
+    colorSelect[] = {1,1,1,1};
+    colorSelect2[] = {1,1,1,1};
+    colorShadow[] = {0,0,0,0.5};
+    colorPicture[] = {1,0.5,0,1};
+    colorPictureSelected[] = {1,1,1,1};
+    colorPictureDisabled[] = {1,1,1,0.5};
+    colorPictureRight[] = {1,0.5,0,1};
+    colorPictureRightSelected[] = {1,1,1,1};
+    colorPictureRightDisabled[] = {1,1,1,0.5};
+    tooltip = "";
+    tooltipColorShade[] = {0,0,0,1};
+    tooltipColorText[] = {1,1,1,1};
+    tooltipColorBox[] = {1,1,1,1};
+    period = 1;
+    rowHeight  =  (pixelH * pixelGrid * 4);
+    itemSpacing = 0;
+    maxHistoryDelay = 1;
+    canDrag = 0;
+    soundSelect[] = {"\A3\ui_f\data\sound\RscListbox\soundSelect",0.090000004,1};
+    class ListScrollBar {
+        width = 0;
+        height = 0;
+        scrollSpeed = 0.0099999998;
+        arrowEmpty = "\A3\ui_f\data\gui\cfg\scrollbar\arrowEmpty_ca.paa";
+        arrowFull = "\A3\ui_f\data\gui\cfg\scrollbar\arrowFull_ca.paa";
+        border = "\A3\ui_f\data\gui\cfg\scrollbar\border_ca.paa";
+        thumb = "\A3\ui_f\data\gui\cfg\scrollbar\thumb_ca.paa";
+        color[] = {1,1,1,1};
     };
-    class ListScrollBar
-    {
-        width=0;
-        height=0;
-        scrollSpeed=0.0099999998;
-        arrowEmpty="\A3\ui_f\data\gui\cfg\scrollbar\arrowEmpty_ca.paa";
-        arrowFull="\A3\ui_f\data\gui\cfg\scrollbar\arrowFull_ca.paa";
-        border="\A3\ui_f\data\gui\cfg\scrollbar\border_ca.paa";
-        thumb="\A3\ui_f\data\gui\cfg\scrollbar\thumb_ca.paa";
-        color[]={1,1,1,1};
-    };
-
 };
 
 class RSC(BaseListboxN) {

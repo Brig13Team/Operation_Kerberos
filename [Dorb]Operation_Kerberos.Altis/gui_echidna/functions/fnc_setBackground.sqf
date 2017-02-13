@@ -18,7 +18,7 @@
 disableSerialization;
 _this params [["_display",controlNull]];
 TRACEV_1(_display);
-private _ctrl = _display displayCtrl IDC_ECHNIDA_BACKGROUND_DEVICE;
+private _ctrl = _display displayCtrl IDC_ECHIDNA_BACKGROUND_DEVICE;
 
 If (vehicle ace_player == ace_player) then {
     _ctrl ctrlSetText QEPAAPATH(echidna,background_tablet);

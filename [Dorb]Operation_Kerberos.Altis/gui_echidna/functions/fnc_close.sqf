@@ -16,5 +16,5 @@
 
 CHECK(!dialog)
 
-closeDialog IDD_ECHNIDA_MAIN;
+closeDialog IDD_ECHIDNA_MAIN;
 false;

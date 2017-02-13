@@ -11,7 +11,7 @@
  *      none
  *
  */
-//#define DEBUG_MODE_FULL
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 disableSerialization;
 _this params ["_dialog","_PFH_ID"];
@@ -26,6 +26,6 @@ private _time = format["%1:%2",
     date select 1,
     date select 0
 ];
-private _control = _dialog displayCtrl (IDC_ECHNIDA_TASKBAR_CLOCK);
+private _control = _dialog displayCtrl (IDC_ECHIDNA_TASKBAR_CLOCK);
 _control ctrlSetText _time;
 _control ctrlCommit 0;

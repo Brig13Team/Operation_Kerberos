@@ -16,16 +16,16 @@
 #include "script_component.hpp"
 disableSerialization;
 
-private _display = (findDisplay IDD_ECHNIDA_MAIN);
+private _display = (findDisplay IDD_ECHIDNA_MAIN);
 
-private _ctrlBackground = _display displayCtrl IDC_ECHNIDA_METRO_BACK;
+private _ctrlBackground = _display displayCtrl IDC_ECHIDNA_METRO_BACK;
 _ctrlBackground ctrlSetPosition [0,0,0,0];
 _ctrlBackground ctrlCommit 0;
 
 
-private _ctrlGroup = _display displayCtrl IDC_ECHNIDA_METRO_SIDE_GRP;
-private _ctrlBackground = _ctrlGroup controlsGroupCtrl IDC_ECHNIDA_METRO_BACK_SIDE;
-private _ctrl = _ctrlGroup controlsGroupCtrl IDC_ECHNIDA_METRO_SIDE_SHUTDOWN;
+private _ctrlGroup = _display displayCtrl IDC_ECHIDNA_METRO_SIDE_GRP;
+private _ctrlBackground = _ctrlGroup controlsGroupCtrl IDC_ECHIDNA_METRO_BACK_SIDE;
+private _ctrl = _ctrlGroup controlsGroupCtrl IDC_ECHIDNA_METRO_SIDE_SHUTDOWN;
 _ctrlBackground ctrlSetPosition [0, 0, 0, 0];
 _ctrlBackground ctrlCommit 0;
 _ctrl ctrlSetPosition [0,0,0,0];
@@ -33,8 +33,8 @@ _ctrl ctrlRemoveAllEventHandlers "ButtonClick";
 _ctrlGroup ctrlsetPosition [0,0,0,0];
 _ctrlGroup ctrlCommit 0;
 
-private _ctrlGroup = _display displayCtrl IDC_ECHNIDA_METRO_GRP;
-private _ctrlBackground = _ctrlGroup controlsGroupCtrl IDC_ECHNIDA_METRO_BACK_HELPER;
+private _ctrlGroup = _display displayCtrl IDC_ECHIDNA_METRO_GRP;
+private _ctrlBackground = _ctrlGroup controlsGroupCtrl IDC_ECHIDNA_METRO_BACK_HELPER;
 _ctrlBackground ctrlSetPosition [0, 0, 0, 0];
 _ctrlBackground ctrlCommit 0;
 {

@@ -22,7 +22,7 @@ TRACEV_1(_currentApps);
 {
     _x params ["_displayName","_function","_condition","_picture","_size","_grid"];
     TRACEV_6(_displayName,_function,_condition,_picture,_size,_grid);
-    private _idc = _forEachIndex + IDC_ECHNIDA_METRO_BTTN1;
+    private _idc = _forEachIndex + IDC_ECHIDNA_METRO_BTTN1;
     private _pos_x = GUI_ECHIDNA_METRO_BTTN_X + (_grid select 0) * GUI_GRID_TABLET_BTTN_W;
     private _pos_y = GUI_ECHIDNA_METRO_BTTN_Y + (_grid select 1) * GUI_GRID_TABLET_BTTN_H;
     private _pos_w = GUI_GRID_TABLET_BTTN_W - GUI_GRID_TABLET_BTTN_DIS_W;

@@ -11,6 +11,7 @@
  *      [TYPE] - [return name]
  *
  */
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 disableSerialization;
@@ -33,3 +34,4 @@ private _clockPFH = [
 ] call CBA_fnc_addPerFrameHandler;
 
 _dialog setVariable [QGVAR(clockPFH),_clockPFH];
+TRACEV_1(_dialog);

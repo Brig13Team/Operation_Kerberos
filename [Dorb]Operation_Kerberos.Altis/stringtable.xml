@@ -1245,4 +1245,28 @@
             <English>german</English>
         </Key>
     </Package>
+    <Package name="gui_mail">
+        <Key ID="STR_DORB_GUI_MAIL_INBOX">
+            <German>Posteingang</German>
+            <English>inbox</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_MAIL_SENDER">
+            <German>Leitstand</German>
+            <English>High Command</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_MAIL_APPNAME">
+            <German>E-Mail</German>
+            <English>E-Mail</English>
+        </Key>
+    </Package>
+    <Package name="gui_Echidna">
+        <Key ID="STR_DORB_GUI_ECHIDNA_SELFACTIONGROUP">
+            <German>Echidna</German>
+            <English>echidna</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ECHIDNA_SHUTDOWN">
+            <German>Ausschalten</German>
+            <English>shutdown</English>
+        </Key>
+    </Package>
 </Project>
