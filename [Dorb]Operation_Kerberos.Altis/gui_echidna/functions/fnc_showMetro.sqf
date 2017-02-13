@@ -102,10 +102,12 @@ _ctrlBackground ctrlCommit 0;
             //private _ctrl = _display displayCtrl _idc;
             private _ctrl = _ctrlGroup controlsGroupCtrl _idc;
             TRACEV_6(_ctrl,_displayName,_pos_x, _pos_y, _pos_w, _pos_h);
-            _ctrl ctrlSetPosition [_pos_x, _pos_y, _pos_w, _pos_h];
+            ["changepos",[_ctrl,[_pos_x, _pos_y, _pos_w, _pos_h]]] call FUNC(MetroBttn);
+            //_ctrl ctrlSetPosition [_pos_x, _pos_y, _pos_w, _pos_h];
             _ctrl ctrlSetText _picture;
             _ctrl ctrlSetTooltip _displayName;
-            _ctrl ctrlSetFontHeight GUI_ECHIDNA_METRO_BTTN_H;
+            _ctrl ctrlSetFontHeight (GUI_ECHIDNA_METRO_BTTN_H * 0.1);
+            _ctrl ctrlSetTextColor [1,1,1,1];
 
 
             #ifdef DEBUG_MODE_FULL

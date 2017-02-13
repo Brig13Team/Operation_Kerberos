@@ -218,7 +218,127 @@ class APP(dialog) : RSC(BaseEchnida) {
                     QUOTE((missionNamespace getvariable [ARR_2('TRIPLES(GVAR(METRO_BUTTON),VAR,RGB_G)',0.25098)])), \
                     QUOTE((missionNamespace getvariable [ARR_2('TRIPLES(GVAR(METRO_BUTTON),VAR,RGB_B)',1)])),0.7}
 
+            #define COLOR_HELPER_PIC(NUMBER) colorBackground[] = {0,0,0,1}; \
+                    colorText[]={ \
+                    QUOTE((missionNamespace getvariable [ARR_2('TRIPLES(GVAR(METRO_BUTTON),NUMBER,RGB_R)',0.666667)])), \
+                    QUOTE((missionNamespace getvariable [ARR_2('TRIPLES(GVAR(METRO_BUTTON),NUMBER,RGB_G)',0.25098)])), \
+                    QUOTE((missionNamespace getvariable [ARR_2('TRIPLES(GVAR(METRO_BUTTON),NUMBER,RGB_B)',1)])),1} \
 
+
+
+            #define BUTTON_HELPER(NUMBER,COLOR) class TRIPLES(button,NUMBER,background) : RSC(BasePicture) { \
+                idc = -(IDC_ECHNIDA_METRO_BTTN + NUMBER); \
+                x = 0;y = 0;w = 0;h = 0; \
+                text = QEPAAPATH(buttons,button_256_normal); \
+                shadow = 0; \
+                style = "48"; \
+                colorShadow[] = COLOR_DISABLED; \
+                font = FONT_DEFAULT; \
+                COLOR_HELPER_PIC(NUMBER); \
+            }; \
+            class DOUBLES(button,NUMBER) : RSC(BaseButton) { \
+                idc = IDC_ECHNIDA_METRO_BTTN + NUMBER; \
+                x = 0;y = 0;w = 0;h = 0; \
+                sizeEx = GUI_ECHIDNA_H * 0.7; \
+                text = ""; \
+                style = "48+0x800"; \
+                colorBackground[]= COLOR_DISABLED; \
+                colorBackgroundActive[]= COLOR_DISABLED; \
+                colorFocused[]= COLOR_DISABLED; \
+                colorBackgroundDisabled[]= COLOR_DISABLED; \
+                colorText[] = COLOR_ECHIDNA_METRO_BTTN_DEFAULT_TEXT; \
+                colorDisabled[] = COLOR_ECHIDNA_METRO_BTTN_DEFAULT_TEXT_DISABLED; \
+                shadow = 0; \
+                colorShadow[] = COLOR_DISABLED; \
+                offsetX = 0; \
+                offsetY = 0; \
+                offsetPressedX = 0; \
+                offsetPressedY = 0; \
+            }
+
+            BUTTON_HELPER(1,1);
+            BUTTON_HELPER(2,2);
+            BUTTON_HELPER(3,3);
+            BUTTON_HELPER(4,4);
+            BUTTON_HELPER(5,5);
+            BUTTON_HELPER(6,6);
+            BUTTON_HELPER(7,7);
+            BUTTON_HELPER(8,8);
+            BUTTON_HELPER(9,9);
+            BUTTON_HELPER(10,10);
+            BUTTON_HELPER(11,11);
+            BUTTON_HELPER(12,12);
+            BUTTON_HELPER(13,13);
+            BUTTON_HELPER(14,14);
+            BUTTON_HELPER(15,15);
+            BUTTON_HELPER(16,16);
+            BUTTON_HELPER(17,17);
+            BUTTON_HELPER(18,18);
+            BUTTON_HELPER(19,19);
+            BUTTON_HELPER(20,20);
+            BUTTON_HELPER(21,21);
+            BUTTON_HELPER(22,22);
+            BUTTON_HELPER(23,23);
+            BUTTON_HELPER(24,24);
+            BUTTON_HELPER(25,25);
+            BUTTON_HELPER(26,1);
+            BUTTON_HELPER(27,2);
+            BUTTON_HELPER(28,3);
+            BUTTON_HELPER(29,4);
+            BUTTON_HELPER(30,5);
+            BUTTON_HELPER(31,6);
+            BUTTON_HELPER(32,7);
+            BUTTON_HELPER(33,8);
+            BUTTON_HELPER(34,9);
+            BUTTON_HELPER(35,10);
+            BUTTON_HELPER(36,11);
+            BUTTON_HELPER(37,12);
+            BUTTON_HELPER(38,13);
+            BUTTON_HELPER(39,14);
+            BUTTON_HELPER(40,15);
+            BUTTON_HELPER(41,16);
+            BUTTON_HELPER(42,17);
+            BUTTON_HELPER(43,18);
+            BUTTON_HELPER(44,19);
+            BUTTON_HELPER(45,20);
+            BUTTON_HELPER(46,21);
+            BUTTON_HELPER(47,22);
+            BUTTON_HELPER(48,23);
+            BUTTON_HELPER(49,24);
+            BUTTON_HELPER(50,25);
+            BUTTON_HELPER(51,1);
+            BUTTON_HELPER(52,2);
+            BUTTON_HELPER(53,3);
+            BUTTON_HELPER(54,4);
+            BUTTON_HELPER(55,5);
+            BUTTON_HELPER(56,6);
+            BUTTON_HELPER(57,7);
+            BUTTON_HELPER(58,8);
+            BUTTON_HELPER(59,9);
+            BUTTON_HELPER(60,10);
+            BUTTON_HELPER(61,11);
+            BUTTON_HELPER(62,12);
+            BUTTON_HELPER(63,13);
+            BUTTON_HELPER(64,14);
+            BUTTON_HELPER(65,15);
+            BUTTON_HELPER(66,16);
+            BUTTON_HELPER(67,17);
+            BUTTON_HELPER(68,18);
+            BUTTON_HELPER(69,19);
+            BUTTON_HELPER(70,20);
+            BUTTON_HELPER(71,21);
+            BUTTON_HELPER(72,22);
+            BUTTON_HELPER(73,23);
+            BUTTON_HELPER(74,24);
+            BUTTON_HELPER(75,25);
+            BUTTON_HELPER(76,1);
+            BUTTON_HELPER(77,2);
+            BUTTON_HELPER(78,3);
+            BUTTON_HELPER(79,4);
+            BUTTON_HELPER(80,5);
+
+
+            /*
             class Button_1 : RSC(BaseButton) {
                 idc = IDC_ECHNIDA_METRO_BTTN1;
                 x = 0;
@@ -227,11 +347,7 @@ class APP(dialog) : RSC(BaseEchnida) {
                 h = 0;
                 sizeEx = GUI_ECHIDNA_H;
                 text = "";
-                style = "48+0x800";/*
-                colorBackground[] = COLOR_ECHIDNA_METRO_BTTN_DEFAULT_BACKGROUND;
-                colorBackgroundActive[] = COLOR_ECHIDNA_METRO_BTTN_DEFAULT_BACKGROUND;
-                colorFocused[] = COLOR_ECHIDNA_METRO_BTTN_DEFAULT_TEXT;
-                */
+                style = "48+0x800";
                 COLOR_HELPER(1);
                 colorText[] = COLOR_ECHIDNA_METRO_BTTN_DEFAULT_TEXT;
                 colorDisabled[] = COLOR_ECHIDNA_METRO_BTTN_DEFAULT_TEXT_DISABLED;
@@ -320,7 +436,7 @@ class APP(dialog) : RSC(BaseEchnida) {
             class Button_78 : Button_1 {idc=IDC_ECHNIDA_METRO_BTTN78; COLOR_HELPER(3);};
             class Button_79 : Button_1 {idc=IDC_ECHNIDA_METRO_BTTN79; COLOR_HELPER(4);};
             class Button_80 : Button_1 {idc=IDC_ECHNIDA_METRO_BTTN80; COLOR_HELPER(5);};
-
+            */
         };
     };
 };

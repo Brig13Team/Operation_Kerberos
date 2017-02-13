@@ -20,8 +20,8 @@ for "_i" from 0 to 10 do {
     [
         format["Test%1",_i],
         {hint "klick";},
-        {false},
-        ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QEPAAPATH(icon,icon_tank)),
+        {true},
+        ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QEPAAPATH(icon,icon_ifv)),
         (floor(random 3)+1),
         []
     ] call EFUNC(gui_echidna,addApp);

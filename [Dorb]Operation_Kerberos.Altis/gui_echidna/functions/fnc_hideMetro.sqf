@@ -40,7 +40,8 @@ _ctrlBackground ctrlCommit 0;
 {
     private _idc = _x;
     private _ctrl = _ctrlGroup controlsGroupCtrl _idc;
-    _ctrl ctrlSetPosition [0, 0, 0, 0];
+    ["hide",[_ctrl]] call FUNC(MetroBttn);
+    //_ctrl ctrlSetPosition [0, 0, 0, 0];
     _ctrl ctrlSetText "";
     _ctrl ctrlSetTooltip "";
     _ctrl ctrlEnable false;

@@ -12,6 +12,7 @@ PREP(clockPFH);
 //PREP(displayPage);
 PREP(hideMetro);
 PREP(initHeader);
+PREP(MetroBttn);
 PREP(onLoad);
 PREP(onUnLoad);
 PREP(open);
