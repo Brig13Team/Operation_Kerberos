@@ -1,14 +1,14 @@
 /*
- *  Author: [Name of Author(s)]
+ *  Author: Dorbedo
  *
  *  Description:
- *      [Description]
+ *      Anomation for the metro button
  *
  *  Parameter(s):
- *      0 : [TYPE] - [argument name]
+ *      0 : STRING - dialog Eventhandler
  *
  *  Returns:
- *      [TYPE] - [return name]
+ *      none
  *
  */
 #define INCLUDE_GUI
