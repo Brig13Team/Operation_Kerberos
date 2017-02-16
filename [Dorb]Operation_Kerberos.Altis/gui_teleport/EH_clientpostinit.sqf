@@ -97,7 +97,7 @@ private _id = addMissionEventHandler ["draw3D",{
     {[] call FUNC(canOpenMenu)},
     ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QEPAAPATH(icon,icon_teleport)),
     3
-] call EFUNC(gui_tablet,addApp);
+] call EFUNC(gui_echidna,addApp);
 
 
 /*
@@ -105,16 +105,24 @@ private _id = addMissionEventHandler ["draw3D",{
  *
 */
 [
-    {!isNil QGVARMAIN(missionkeyServer)},
+    {!isNil QGVARMAIN(missionkey)},
     {
-        GVARMAIN(missionkey) = GVARMAIN(missionkeyServer);
-        private _serverkey = GVARMAIN(missionkeyServer);
-        private _serverkeyLocal = profileNamespace getVariable [QGVARMAIN(missionkeyServer),"NoKey"];
-        If (_serverkey isEqualTo _serverkeyLocal) then {
-            // the client has already been on the server -> possible crash
-            GVARMAIN(missionkey) = "teleport allowed";
+        // the missionkey transfered from the Server
+        private _serverkey = GVARMAIN(missionkey);
+        // prevent just to just disconnect and reconnect to get a free teleport
+        private _localKey = uiNamespace getVariable [QGVARMAIN(missionkey),""]
+        // check if the player was already on the server -> he has the same key as the server
+        // if he doen't have the variable, he is new, or has cleared his profileNamespace, so no free teleport
+        If (_localKey isEqualTo "") then {
+            _localKey = profileNamespace getVariable [QGVARMAIN(missionkey),"no free teleport"];
+        };
+        If (_serverkey isEqualTo _localKey) then {
+            // the client has already been on the server -> possible gamecrash. gets a free teleport to group up with squad
+            GVAR(freeTeleport) = true;
         }else{
-            profileNamespace setVariable [QGVARMAIN(missionkeyServer),_serverkey];
+            GVAR(freeTeleport) = false;
+            profileNamespace setVariable [QGVARMAIN(missionkey),_serverkey];
+            uiNamespace setVariable [QGVARMAIN(missionkey),_serverkey];
         };
 
     }
