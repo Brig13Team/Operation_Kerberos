@@ -90,4 +90,4 @@ If (ACTIVEMOD_TFAR) then {
 ["VEHICLE_SPAWNED",[_vehicle]] spawn CBA_fnc_serverEvent;
 
 closeDialog IDD_SPAWN_DLG;
-[] call EFUNC(gui_tablet,close);
+[] call EFUNC(gui_echidna,close);

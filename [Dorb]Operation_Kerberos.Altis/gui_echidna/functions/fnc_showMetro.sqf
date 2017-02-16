@@ -17,7 +17,7 @@
 disableSerialization;
 
 private _idc = IDC_ECHIDNA_METRO_BTTN1;
-private _display = (findDisplay IDD_ECHIDNA_MAIN);
+private _display = uiNamespace getVariable [QEGVAR(gui_Echidna,dialog),(findDisplay IDD_ECHIDNA_MAIN)];
 private _ctrlGroup = _display displayCtrl IDC_ECHIDNA_METRO_SIDE_GRP;
 
 If !((ctrlPosition _ctrlGroup) isEqualTo [0,0,0,0]) exitWith {

@@ -16,7 +16,7 @@
 #include "script_component.hpp"
 disableSerialization;
 
-private _display = (findDisplay IDD_ECHIDNA_MAIN);
+private _display = uiNamespace getVariable [QEGVAR(gui_Echidna,dialog),(findDisplay IDD_ECHIDNA_MAIN)];
 
 private _ctrlBackground = _display displayCtrl IDC_ECHIDNA_METRO_BACK;
 _ctrlBackground ctrlSetPosition [0,0,0,0];

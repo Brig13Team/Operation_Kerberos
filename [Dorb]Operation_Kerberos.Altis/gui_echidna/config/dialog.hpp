@@ -15,8 +15,8 @@ class RSC(BaseEchidna) {
     fadeout = 0;
     duration = 1000000;
     objects[] = {};
-    onLoad = QUOTE( uiNamespace setVariable [ARR_2('EGVAR(gui_Echidna,dialog)',_this select 0)]; [ARR_2('EGVAR(gui_Echidna,dialog)',true)] call EFUNC(gui,blur); _this spawn EFUNC(gui_echidna,OnLoad););
-    onUnload = QUOTE([ARR_2('EGVAR(gui_Echidna,dialog)',false)] call EFUNC(gui,blur);_this call EFUNC(gui_Echidna,OnUnLoad););
+    onLoad = QUOTE(uiNamespace setVariable [ARR_2('EGVAR(gui_Echidna,dialog)',_this select 0)]; [ARR_2('GVAR(dialog)',true)] call EFUNC(gui,blur); _this spawn EFUNC(gui_echidna,OnLoad););
+    onUnload = QUOTE([ARR_2('GVAR(dialog)',false)] call EFUNC(gui,blur);_this call EFUNC(gui_Echidna,OnUnLoad););
 
     controlsBackground[] = {};
 

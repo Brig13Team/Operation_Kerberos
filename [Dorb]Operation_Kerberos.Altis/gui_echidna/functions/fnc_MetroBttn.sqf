@@ -17,7 +17,8 @@
 
 _this params ["_event","_params"];
 _params params ["_ctrlBttn"];
-private _ctrlGroup = (findDisplay IDD_ECHIDNA_MAIN) displayCtrl IDC_ECHIDNA_METRO_GRP;
+private _display = uiNamespace getVariable [QEGVAR(gui_Echidna,dialog),(findDisplay IDD_ECHIDNA_MAIN)];
+private _ctrlGroup = _display displayCtrl IDC_ECHIDNA_METRO_GRP;
 private _ctrlIDC = parseNumber ((str _ctrlBttn) select [9]);
 private _ctrlPicture = _ctrlGroup controlsGroupCtrl (-_ctrlIDC);
 TRACEV_4(_event,_ctrlBttn,_ctrlIDC,_ctrlPicture);

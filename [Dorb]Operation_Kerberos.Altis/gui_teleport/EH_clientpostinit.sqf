@@ -110,7 +110,7 @@ private _id = addMissionEventHandler ["draw3D",{
         // the missionkey transfered from the Server
         private _serverkey = GVARMAIN(missionkey);
         // prevent just to just disconnect and reconnect to get a free teleport
-        private _localKey = uiNamespace getVariable [QGVARMAIN(missionkey),""]
+        private _localKey = uiNamespace getVariable [QGVARMAIN(missionkey),""];
         // check if the player was already on the server -> he has the same key as the server
         // if he doen't have the variable, he is new, or has cleared his profileNamespace, so no free teleport
         If (_localKey isEqualTo "") then {

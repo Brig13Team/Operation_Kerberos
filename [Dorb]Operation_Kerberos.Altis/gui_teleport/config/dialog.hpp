@@ -15,6 +15,9 @@ class APP(dialog) : RSC(Echidna) {
     fadeout = 0;
     duration = 1000000;
 
+    onLoad = QUOTE(uiNamespace setVariable [ARR_2('EGVAR(gui_Echidna,dialog)',_this select 0)]; [ARR_2('GVAR(dialog)',true)] call EFUNC(gui,blur); _this spawn EFUNC(gui_echidna,OnLoad);_this call FUNC(OnLoad););
+    onUnload = QUOTE([ARR_2('GVAR(dialog)',false)] call EFUNC(gui,blur);_this call EFUNC(gui_Echidna,OnUnLoad););
+
     controlsBackground[] = {
         background_taskbar,
         background_display,
@@ -30,7 +33,10 @@ class APP(dialog) : RSC(Echidna) {
         teleport_bttn4,
         teleport_bttn5,
         teleport_bttn6,
-        teleport_bttn7
+        teleport_bttn7,
+        metro_back,
+        metro,
+        metro_side,
         background_device
     };
 
