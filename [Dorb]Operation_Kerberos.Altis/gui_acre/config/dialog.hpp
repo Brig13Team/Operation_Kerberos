@@ -4,7 +4,7 @@
 
 #define CBA_OFF
 #include "script_component.hpp"
-class APP(dialog) : RSC(tabletBase) {
+class APP(dialog) : RSC(echidna) {
 
     controlsBackground[] =     {
         background_Picture,
@@ -25,7 +25,7 @@ class APP(dialog) : RSC(tabletBase) {
     */
 
     class Button_1 : RSC(BaseButton) {
-        idc = IDC_TABLET_BTTN1;
+        idc = -1;
         x = GUI_GRID_CENTER_X;
         y = GUI_GRID_CENTER_Y;
         w = GUI_GRID_CENTER_W * 5;

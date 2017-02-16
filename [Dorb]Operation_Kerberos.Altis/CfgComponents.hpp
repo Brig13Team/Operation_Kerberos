@@ -42,7 +42,6 @@ class CfgComponents {
     gui_crate = 1;
     gui_save = 1;
     gui_tfr = 0;
-    gui_tablet = 1;
     gui_arsenal = 1;
     gui_acre = 1;
     gui_echidna = 1;
@@ -71,7 +70,7 @@ class CfgComponents {
 #include "doorbreach\CfgComponent.hpp"
 
 #include "gui\CfgComponent.hpp"
-#include "gui_tablet\CfgComponent.hpp"
+#include "gui_echidna\CfgComponent.hpp"
 #include "gui_spawn\CfgComponent.hpp"
 #include "gui_teleport\CfgComponent.hpp"
 #include "gui_crate\CfgComponent.hpp"
@@ -79,5 +78,4 @@ class CfgComponents {
 #include "gui_tfr\CfgComponent.hpp"
 #include "gui_arsenal\CfgComponent.hpp"
 #include "gui_acre\CfgComponent.hpp"
-#include "gui_echidna\CfgComponent.hpp"
 #include "gui_mail\CfgComponent.hpp"
