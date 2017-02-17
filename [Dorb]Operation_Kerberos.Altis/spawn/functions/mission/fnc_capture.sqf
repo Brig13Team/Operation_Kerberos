@@ -25,7 +25,7 @@ for "_i" from 1 to _amount do {
     private _obj = ["capture"] call FUNC(getMissionObject);
 
     private _group = createGroup GVARMAIN(side);
-    private _spawnPos =+ _targetPos;
+    private _spawnPos = +_targetPos;
     _spawnPos resize 3;
     private _curTarget = _group createUnit [_obj, _spawnPos, [], 0, "CAN_COLLIDE"];
     _curTarget setPosASL _targetPos;

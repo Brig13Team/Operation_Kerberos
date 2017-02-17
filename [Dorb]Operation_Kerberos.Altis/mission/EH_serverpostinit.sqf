@@ -20,17 +20,10 @@ If ((getMarkerPos GVARMAIN(rescuemarker)) isEqualTo [0,0,0]) then {
 ********************/
 [QGVAR(emp),LINKFUNC(onEMP)] call CBA_fnc_addEventHandler;
 [QGVAR(effectDownload_Server),LINKFUNC(obj_effectDownloadServer)] call CBA_fnc_addEventHandler;
+
 /********************
     Missionloop
 ********************/
-GVAR(next_mission)  = "";
-GVAR(next_location) = [];
-GVAR(task_counter)  = 0;
-GVAR(conditions)    = [];
-
-
-
-
 [] spawn {
     SCRIPTIN(XEH_SERVERPOSTINIT,taskloop);
 
@@ -49,5 +42,4 @@ GVAR(conditions)    = [];
     uiSleep 20;
 
     [] call FUNC(taskmanager_init);
-
 };

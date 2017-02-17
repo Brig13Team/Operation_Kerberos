@@ -1,4 +1,6 @@
 /*
+ * (old file)
+ *
  *  Author: Dorbedo
  *
  *  Description:
@@ -13,7 +15,6 @@
  *      STRING - taskstate
  *
  */
-//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 _this params [["_centerposition",[],[[]]],["_radius",0,[0]],["_skipamount",0,[0]]];
@@ -23,5 +24,5 @@ private _unitsinArea = {
     {(_x distance2D _centerposition) < _radius}
 } count allUnits;
 
-If (_unitsinArea < _skipamount) then { "Succeeded" };
+if (_unitsinArea < _skipamount) exitWith { "Succeeded" };
 ""
