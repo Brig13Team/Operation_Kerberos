@@ -17,12 +17,10 @@ private _data = profileNamespace getvariable ["bis_fnc_saveInventory_data",[]];
 CHECK(_data isEqualTo [])
 for "_i" from 1 to ((count _data) -1) step 2 do {
     for "_j" from 0 to 2 do {
-        {
-            private _classnamearray = _x splitString "_";
-            If (((_classnamearray select 0) isEqualTo "ACRE")&&{((_classnamearray select 1) in ["PRC148","PRC152","PRC117F","PRC77","PRC343"])&&(count _classnamearray > 2)}) then {
-                _classnamearray resize 2;
-                (((_data select _i)select _j) select 1) set [_forEachIndex,_classnamearray joinString "_"];
-                LOG("Changing classname in Arsenal");
+        { //acre_baseClass = "ACRE_PRC117F";
+            private _baseClass = If (isClass(configFile >> "CfgWeapons" >> _x)) then {getText(configFile >> "CfgWeapons" >> _x >> "acre_baseClass")}else{""};
+            If !(_baseClass isEqualTo "") then {
+                (((_data select _i)select _j) select 1) set [_forEachIndex,_baseClass];
             };
         } forEach (((_data select _i)select _j) select 1);
     };
