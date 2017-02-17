@@ -32,4 +32,4 @@ private _fnc = format["%1_%2", QFUNC(mainmission), _name];
 [_hash] call (missionNamespace getVariable [_fnc, {}]);
 
 // spawn army and defence stuff
-// [_location select 1] call EFUNC(spawn,createMission);
+[_location select 1] call EFUNC(spawn,createMission);
