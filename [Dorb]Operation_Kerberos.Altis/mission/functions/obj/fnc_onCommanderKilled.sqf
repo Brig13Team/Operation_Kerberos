@@ -1,5 +1,5 @@
 /*
- *  Author: Dorbedo
+ *  Author: Dorbedo, iJesuz
  *
  *  Description:
  *      Event when a hostage is rescued
@@ -16,8 +16,11 @@
 
 If (isServer) then {
     _this params ["_commander"];
-    GVAR(commander_killed) = GVAR(commander_killed) + 1;
+
+    private _mission = _commander getVariable QGVAR(mission);
+    HASH_SET(_mission, "obj_counter_2", HASH_GET(_mission, "obj_counter_2") + 1);
 };
+
 If (hasInterface) then {
     _this params ["_commander","_killer"];
     [

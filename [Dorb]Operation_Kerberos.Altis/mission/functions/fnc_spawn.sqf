@@ -1,19 +1,19 @@
 /*
-    Author: iJesuz
-
-    Description:
-        create new mission
-
-    Parameter(s):
-        0 : STRING  - config name
-
-    Return:
-        -
-*/
+ *  Author: iJesuz
+ *
+ *  Description:
+ *      spawn a new mission
+ *
+ *  Parameter(s):
+ *      0 : STRING  - config name
+ *
+ *  Returns:
+ *      -
+ */
 #include "script_component.hpp"
 
 _this params [["_name", "", [""]]];
-if (_mission isEqualTo "") exitWith { -1 };
+if !(isClass(missionConfigFile >> "missions_config" >> "main" >> _name)) exitWith { -1 };
 
 // spawn mission
 GVAR(spawn_tmp) = HASH_CREATE;
