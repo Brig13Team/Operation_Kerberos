@@ -5,13 +5,26 @@
  *      start downloading
  *
  *  Parameter(s):
- *      0 : [TYPE] - [argument name]
+ *      0 : OBJECT - the Laptop
+ *      1 : OBJECT - the caller
  *
  *  Returns:
- *      [TYPE] - [return name]
+ *      none
  *
  */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-[QEGVAR(gui,message),LSTRING(OBJ_DATATERMINAL_DOWNLOAD_MSG_TITLE),LSTRING(OBJ_DATATERMINAL_DOWNLOAD_MSG)] call CBA_fnc_localEvent;
+_this params["_laptop","_caller"];
+
+[
+    10,
+    [_laptop,_caller],
+    {
+        [QGVAR(effectDownload_Server),_args] call CBA_fnc_serverEvent;
+    },
+    {
+        [LSTRING(OBJ_LAPTOP_DOWNLOAD_CANCEL_MSG_TITLE),LSTRING(OBJ_LAPTOP_DOWNLOAD_CANCEL_MSG)] call EFUNC(gui,Message);
+    },
+    localize LSTRING(OBJ_LAPTOP_DOWNLOAD_PREPARE)
+] call ace_common_fnc_progressBar

@@ -86,9 +86,12 @@
     </Package>
     <Package name="GUI_ARSENAL">
         <Key ID="STR_DORB_GUI_ARSENAL_NOTEMPTY">
-            <Original>open arsenal</Original>
             <German>Arsenal öffnen</German>
             <English>open arsenal</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARSENAL_CREATE_LIST">
+            <German>Erstelle Arsenallisten</German>
+            <English>creating arsenal lists</English>
         </Key>
     </Package>
     <Package name="GUI_SPAWN">
@@ -652,10 +655,9 @@
             <German>Echidna</German>
             <English>Echidna</English>
         </Key>
-        <Key ID="STR_DORB_GUI_S">
-            <Original></Original>
-            <German></German>
-
+        <Key ID="STR_DORB_GUI_LOADINGBAR">
+            <German>Am Herunterladen</German>
+            <German>Downloading</German>
         </Key>
     </Package>
     <Package name="Gui_teleport">
@@ -1124,7 +1126,6 @@
             <German>Eine modifizierte Kopie der Viewrestriction von ACEX.</German>
         </Key>
     </Package>
-
     <Package name="mission_obj">
         <Key ID="STR_DORB_MISSION_OBJ_DEVICE_DISABLE">
             <English>deactivate</English>
@@ -1192,17 +1193,56 @@
         <Key ID="STR_DORB_MISSION_OBJ_DATATERMINAL_DEACTIVATE">
             <German>Terminal Deaktivieren</German>
         </Key>
-        <Key ID="STR_DORB_MISSION_OBJ_DATATERMINAL_DOWNLOAD">
-            <German>Beginne Daten herunterzuladen</German>
+        <Key ID="STR_DORB_MISSION_OBJ_DATATERMINAL_TRIANGULATE">
+            <German>Starte Triangulation</German>
         </Key>
-        <Key ID="STR_DORB_MISSION_OBJ_DATATERMINAL_DOWNLOADING">
-            <German>Am herunterladen</German>
+        <Key ID="STR_DORB_MISSION_OBJ_DATATERMINAL_TRIANGULATING">
+            <German>trianguliere</German>
         </Key>
-        <Key ID="STR_DORB_MISSION_OBJ_DATATERMINAL_DOWNLOAD_MSG_TITLE">
-            <German>Download gestartet</German>
+        <Key ID="STR_DORB_MISSION_OBJ_TRIANGULATE_MISSING_MSG_TITLE">
+            <German>Triangulation fehlgeschlagen</German>
         </Key>
-        <Key ID="STR_DORB_MISSION_OBJ_DATATERMINAL_CAPTURED_MSG">
-            <German>Ein Download wurde gestartet. Bleiben Sie bis zum Abschluss in der Nähe.</German>
+        <Key ID="STR_DORB_MISSION_OBJ_TRIANGULATE_MISSING_MSG">
+            <German>Die Triangulation ist fehlgeschlagen. Es befinden sich nicht ausreichend Sender im Bereich.</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_TRIANGULATE_MOVED_MSG_TITLE">
+            <German>Triangulation abgebrochen</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_TRIANGULATE_MOVED_MSG">
+            <German>Die Triangulation wurde abgebrochen. Die Empfänger wurden bewegt.</German>
+        </Key>
+        <!-- Laptop -->
+        <Key ID="STR_DORB_MISSION_OBJ_LAPTOP_DOWNLOAD">
+            <German>Download starten</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_LAPTOP_DOWNLOAD_PREPARE">
+            <German>Download wird vorbereitet</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_LAPTOP_DOWNLOAD_CANCEL_MSG_TITLE">
+            <German>Download abgebrochen</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_LAPTOP_DOWNLOAD_CANCEL_MSG">
+            <German>Der Download wurde abgebrochen.</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_LAPTOP_DOWNLOAD_FINISHED_MSG_TITLE">
+            <German>Download abgeschlossen</German>
+        </Key>
+        <Key ID="STR_DORB_MISSION_OBJ_LAPTOP_DOWNLOAD_FINISHED_MSG">
+            <German>Der Download ist komplett.</German>
+        </Key>
+    </Package>
+    <Package name="babel">
+        <Key ID="STR_DORB_MOD_ACRE_ARAB">
+            <German>Arabisch</German>
+            <English>arabic</English>
+        </Key>
+        <Key ID="STR_DORB_MOD_ACRE_ENGLISH">
+            <German>Englisch</German>
+            <English>english</English>
+        </Key>
+        <Key ID="STR_DORB_MOD_ACRE_GERMAN">
+            <German>Deutsch</German>
+            <English>german</English>
         </Key>
     </Package>
 </Project>

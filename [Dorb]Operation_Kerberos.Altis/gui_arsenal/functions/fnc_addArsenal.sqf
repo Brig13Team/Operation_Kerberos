@@ -7,13 +7,21 @@
 */
 
 #include "script_component.hpp"
-SCRIPT(addArsenal);
 _this params [["_target",objNull,[objNull]]];
-CHECK((isNull _target)||(!(local _target)))
 
-CHECK(!hasInterface)
-If (GVAR(fullArsenal)) then {
-    [_target,false] call FUNC(addArsenalAction);
-}else{
-    [_target,GVARMAIN(playerside),true] call FUNC(addSideRestrictedArsenal);
+CHECK(!isServer)
+
+GVAR(arsenal_boxes) pushBackUnique _target;
+
+If !(missionNamespace getVariable [QGVAR(ArsenalIsTransmitting),false]) then {
+    GVAR(ArsenalIsTransmitting) = true;
+    [
+        {
+            GVAR(ArsenalIsTransmitting) = false;
+            publicvariable QGVAR(arsenal_boxes);
+            publicvariable QGVAR(allowedPositions);
+        },
+        [],
+        5
+    ] call CBA_fnc_waitAndExecute;
 };

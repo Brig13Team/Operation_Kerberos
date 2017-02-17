@@ -25,5 +25,5 @@ CHECK(isNull _target)
         _target setVariable [QGVAR(isActive),false,true];
     },
     {},
-    LSTRING(OBJ_DEVICE_DEACTIVATING)
+    localize LSTRING(OBJ_DEVICE_DEACTIVATING)
 ] call ace_common_fnc_progressBar;

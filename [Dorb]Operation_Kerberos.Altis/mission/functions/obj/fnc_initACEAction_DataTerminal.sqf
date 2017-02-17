@@ -53,9 +53,9 @@
 
     private _action = [
         QGVAR(dataTerminal_download),
-        localize LSTRING(OBJ_DATATERMINAL_DOWNLOAD),
+        localize LSTRING(OBJ_DATATERMINAL_TRIANGULATE),
         "",
-        LINKFUNC(obj_doDownload),
+        LINKFUNC(obj_doTriangulate),
         {
             (_target animationSourcePhase "Antenna_source")>=3
         }
@@ -66,4 +66,4 @@
         ["ACE_MainActions"],
         _action
     ] call ace_interact_menu_fnc_addActionToClass;
-} forEach ["Land_DataTerminal_01_F"];
+} forEach _this;

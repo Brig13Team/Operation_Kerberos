@@ -19,6 +19,15 @@ for "_i" from 1 to 9 do {
     };
 };
 
+[
+    QGVAR(crateIcon),
+    (parsingNamespace getVariable ["MISSION_ROOT",""]) + QEPAAPATH(icon,icon_robot),
+    FUNC(canOpenMenu),
+    [player]
+] call EFUNC(gui,addNotification);
+
+
+/*
 private _id = addMissionEventHandler ["draw3D",{
     private _root = parsingNamespace getVariable ["MISSION_ROOT",""];
     private _zoom = round(([0.5,0.5] distance worldToScreen positionCameraToWorld [0,1.05,1]) * (getResolution select 5));
@@ -35,7 +44,7 @@ private _id = addMissionEventHandler ["draw3D",{
         };
     }forEach GVAR(cratelogics);
 }];
-
+*/
 [
     localize LSTRING(header),
     {[] call FUNC(OpenMenu);},

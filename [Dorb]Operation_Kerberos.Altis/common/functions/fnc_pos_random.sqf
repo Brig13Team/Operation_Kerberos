@@ -19,7 +19,7 @@ private ["_pos","_dir","_radx","_rady","_generiere"];
 _this params [
     ["_start",[],[[]],[2,3]],
     ["_rad",200,[0]],
-    ["_typ",-1,[0]]
+    ["_typ",0,[0]]
 ];
 TRACEV_3(_start,_rad,_typ);
 
