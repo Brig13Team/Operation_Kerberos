@@ -15,14 +15,20 @@ class APP(dialog) : RSC(Echidna) {
     controls[] = {
         clock,
         menu_button,
+        folder_list,
         mail_list,
         header_mail_list,
         header_sender,
         header_date,
         header_subject,
         content,
+        metro_back,
+        metro,
+        metro_side,
         background_device
     };
+    onLoad = QUOTE(uiNamespace setVariable [ARR_2('EGVAR(gui_Echidna,dialog)',_this select 0)]; [ARR_2('GVAR(dialog)',true)] call EFUNC(gui,blur); _this spawn EFUNC(gui_echidna,OnLoad);_this spawn FUNC(OnLoad););
+    onUnload = QUOTE([ARR_2('GVAR(dialog)',false)] call EFUNC(gui,blur);_this call EFUNC(gui_Echidna,OnUnLoad););
     class background_display: background_display {
         idc = -1;
         x = GUI_ECHIDNA_X;
@@ -101,7 +107,7 @@ class APP(dialog) : RSC(Echidna) {
         x = GUI_ECHIDNA_X + GUI_ECHIDNA_W * 7;
         y = GUI_ECHIDNA_Y;
         w = GUI_ECHIDNA_W * 11;
-        h = GUI_ECHIDNA_H * 4;
+        h = GUI_ECHIDNA_H * 3;
         colorBackground[] = COLOR_ECHIDNA_MAIL_MAIL_BACKGROUND;
         colorText[] = COLOR_ECHIDNA_MAIL_MAIL_TEXT;
         text = "Posteingang";
@@ -111,9 +117,9 @@ class APP(dialog) : RSC(Echidna) {
         idc = IDC_ECHIDNA_MAIL_LIST;
 
         x = GUI_ECHIDNA_X + GUI_ECHIDNA_W * 7;
-        y = GUI_ECHIDNA_Y + GUI_ECHIDNA_H * 4;
+        y = GUI_ECHIDNA_Y + GUI_ECHIDNA_H * 3;
         w = GUI_ECHIDNA_W * 11;
-        h = GUI_ECHIDNA_H * 23.5;
+        h = GUI_ECHIDNA_H * 24.5;
 
         colorBackground[] = COLOR_ECHIDNA_MAIL_MAIL_BACKGROUND;
         colorSelectBackground[] = COLOR_ECHIDNA_MAIL_MAIL_BACKGROUND_SELECTED;
@@ -133,30 +139,30 @@ class APP(dialog) : RSC(Echidna) {
         x = GUI_ECHIDNA_X + GUI_ECHIDNA_W * 18;
         y = GUI_ECHIDNA_Y;
         w = GUI_ECHIDNA_W * 22;
-        h = GUI_ECHIDNA_H * 3;
+        h = GUI_ECHIDNA_H * 2;
         colorBackground[] = COLOR_ECHIDNA_MAIL_CONTENT_BACKGROUND_SENDER;
         text = "sender";
     };
     class header_date : header_sender {
         idc = IDC_ECHIDNA_MAIL_HEADER_DATE;
-        y = GUI_ECHIDNA_Y + GUI_ECHIDNA_H * 3;
-        h = GUI_ECHIDNA_H * 2;
+        y = GUI_ECHIDNA_Y + GUI_ECHIDNA_H * 2;
+        h = GUI_ECHIDNA_H * 1;
         colorBackground[] = COLOR_ECHIDNA_MAIL_CONTENT_BACKGROUND_DATE;
         text = "date";
     };
     class header_subject : header_sender {
         idc = IDC_ECHIDNA_MAIL_HEADER;
-        y = GUI_ECHIDNA_Y + GUI_ECHIDNA_H * 5;
-        h = GUI_ECHIDNA_H * 3;
+        y = GUI_ECHIDNA_Y + GUI_ECHIDNA_H * 3;
+        h = GUI_ECHIDNA_H * 1;
         colorBackground[] = COLOR_ECHIDNA_MAIL_CONTENT_BACKGROUND_SUBJECT;
         text = "header";
     };
     class content : RSC(BaseStructuredText) {
         idc = IDC_ECHIDNA_MAIL_CONTENT;
         x = GUI_ECHIDNA_X + GUI_ECHIDNA_W * 18;
-        y = GUI_ECHIDNA_Y + GUI_ECHIDNA_H * 8;
+        y = GUI_ECHIDNA_Y + GUI_ECHIDNA_H * 4;
         w = GUI_ECHIDNA_W * 22;
-        h = GUI_ECHIDNA_H * 19.5;
+        h = GUI_ECHIDNA_H * 23.5;
         colorBackground[] = COLOR_ECHIDNA_MAIL_CONTENT_BACKGROUND_CONTENT;
         text = "content";
     };

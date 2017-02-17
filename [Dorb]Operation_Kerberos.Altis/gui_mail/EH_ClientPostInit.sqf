@@ -16,3 +16,5 @@
     ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QEPAAPATH(echidna,mail)),
     3
 ] call EFUNC(gui_echidna,addApp);
+
+GVAR(mail) = HASH_CREATE;

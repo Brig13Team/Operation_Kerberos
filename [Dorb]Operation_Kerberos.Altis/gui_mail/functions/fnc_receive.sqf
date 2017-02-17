@@ -11,20 +11,21 @@
  *      [TYPE] - [return name]
  *
  */
-//#define DEBUG_MODE_FULL
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 
 _this params [
     ["_header","",[""]],
     ["_content","",[""]],
-    ["_sender", LSTRING(sender) ,[""]],
+    ["_sender",LSTRING(sender),[""]],
     ["_folder",LSTRING(inbox),[""]]
 ];
-
+TRACEV_2(_sender,_folder);
 If (isLocalized _sender) then {_sender = localize _sender;};
 If (isLocalized _folder) then {_folder = localize _folder;};
 
+_folder = [_folder] call CBA_fnc_trim;
 
 If !(HASH_HASKEY(GVAR(mail),_folder)) then {
     HASH_SET(GVAR(mail),_folder,[]);

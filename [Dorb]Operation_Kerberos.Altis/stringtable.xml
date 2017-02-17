@@ -1253,6 +1253,10 @@
             <German>E-Mail</German>
             <English>E-Mail</English>
         </Key>
+        <Key ID="STR_DORB_GUI_MAIL_DATE">
+            <German>%1.%2.%3 %4:%5</German>
+            <English>%2-%1-%3 %4:%5</English>
+        </Key>
     </Package>
     <Package name="gui_Echidna">
         <Key ID="STR_DORB_GUI_ECHIDNA_SELFACTIONGROUP">
