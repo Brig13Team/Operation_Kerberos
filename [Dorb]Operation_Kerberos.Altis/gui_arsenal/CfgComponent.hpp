@@ -10,10 +10,11 @@
 
 class DOUBLES(CfgComponent,ADDON) {
     class clientpostinit {server = 0;};
+    class postinitServer {client = 0;};
     class preinit {};
     class dependencies {
         CfgPatches[] = {};
-        CfgComponents[] = {"common","gui"};
+        CfgComponents[] = {"common","gui","gui_tablet"};
     };
     class features {
         restrictions = CSTRING(FEATURES_RESTRICTIONS);

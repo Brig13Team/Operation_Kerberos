@@ -1,5 +1,5 @@
 /*
- *  Author: Dorbedo
+ *  Author: Dorbedo, iJesuz
  *
  *  Description:
  *      Event when a Intel is found
@@ -14,11 +14,12 @@
  */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-TRACE("INTEL FOUND");
 _this params ["_intel","_caller"];
 
 If (isServer) then {
-    GVAR(found_intel) = GVAR(found_intel) + 1;
+    private _mission = _intel getVariable QGVAR(mission);
+    HASH_SET(_mission, "obj_counter", HASH_GET(_mission, "obj_counter") + 1);
+
     deleteVehicle _intel;
 };
 If (hasInterface) then {
