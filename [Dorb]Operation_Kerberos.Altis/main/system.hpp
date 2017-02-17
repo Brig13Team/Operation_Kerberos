@@ -77,7 +77,7 @@ class system {
         { \
             _x params [ARR_3('_path','_funcName','_headertype')]; \
             diag_log text format [ARR_2('[MissionFile] (System) recompiling: %1',[ARR_3(_path,_funcName,_headertype)])]; \
-            [ARR_5(missionNamespace,_funcName,_path,_headertype,true)] call SYS_SYSTEM(compile_sys); \
+            [ARR_5(missionNamespace,_funcName,_path,_headertype,true)] call FUNCSYS(compile_sys); \
         } forEach (parsingNamespace getVariable [ARR_2('GVARMAIN(recompileCache)',[])]); \
         systemChat 'recompiling finished'; \
         );
@@ -106,7 +106,7 @@ class system {
             _x params [ARR_3('_path','_funcName','_headertype')]; \
             If ((_funcName find _searchString)==0) then { \
                 diag_log text format [ARR_2('[MissionFile] (System) recompiling: %1',[ARR_3(_path,_funcName,_headertype)])]; \
-                [ARR_5(missionNamespace,_funcName,_path,_headertype,true)] call SYS_SYSTEM(compile_sys); \
+                [ARR_5(missionNamespace,_funcName,_path,_headertype,true)] call FUNCSYS(compile_sys); \
             }; \
         } forEach (parsingNamespace getVariable [ARR_2('GVARMAIN(recompileCache)',[])]); \
         systemChat format[ARR_2('recompiling component: %1 finished',_componentName)]; \
