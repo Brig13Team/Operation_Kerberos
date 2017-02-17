@@ -14,7 +14,6 @@
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-
 If (isServer) then {
     _this params ["_hostage"];
 

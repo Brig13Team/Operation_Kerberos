@@ -23,6 +23,8 @@ if ((toUpper _state) in ["SUCCEEDED","CANCELED","FAILED"]) then {
     private _name   = HASH_GET(_mission, "name");
     HASH_SET(_taskhandler, "missions", HASH_GET(_taskhandler, "missions") - [_name]);
     [_mission] call FUNC(taskhandler___cancelAll);
+
+    [QEGVAR(mission,end), [HASH_GET(_mission, "type")]] call CBA_fnc_localEvent;
 };
 
 // set state in Bohemia's system

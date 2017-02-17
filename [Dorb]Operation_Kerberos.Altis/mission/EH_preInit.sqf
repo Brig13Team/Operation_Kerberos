@@ -4,7 +4,6 @@ ADDON = false;
 
 PREP(rtb);
 PREP(handleRescuePoint);
-PREP(onKilled);
 PREP(spawn);
 PREP(getAllMissionTargets);
 PREP(testCreate);
@@ -44,12 +43,7 @@ PREPS(mainmission,scarab_cond);
 PREPS(mainmission,scarab);
 PREPS(mainmission,specops);
 PREPS(mainmission,specops_cond);
-<<<<<<< HEAD
 */
-=======
-PREPS(mainmission,weaponcache_cond);
-PREPS(mainmission,weaponcache);
->>>>>>> refs/remotes/origin/develop
 
 PREPS(sidemission,clearArea);
 PREPS(sidemission,targetsAlive);

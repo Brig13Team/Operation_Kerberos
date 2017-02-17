@@ -17,6 +17,7 @@
 
 If (isServer) then {
     _this params ["_hostage"];
+
     private _mission = _hostage getVariable QGVAR(mission);
     HASH_SET(_mission, "obj_counter_2", HASH_GET(_mission, "obj_counter_2") + 1);
 };
