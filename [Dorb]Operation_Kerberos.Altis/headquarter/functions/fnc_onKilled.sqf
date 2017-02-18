@@ -24,24 +24,26 @@ _this spawn {
         /// reduce the enemystrenght, if a player was killed
         private _key = (getPos _player) call FUNC(dzconvert);
         private _zoneHash = HASH_GET(GVAR(dangerzones),_key);
-        private _unconciousPlayers = HASH_GET(_zoneHash,"unconciousPlayers");
+        if (isNil "_zoneHash") then {
+            _zoneHash = HASH_CREATE;
+            HASH_SET(GVAR(dangerzones),_key,_zoneHash);
+        };
+        private _unconciousPlayers = HASH_GET_DEF(_zoneHash,"unconciousPlayers",[]);
         private _alreadyReduces = false;
-        If (isNil "_unconciousPlayers") then {
-            if (_unit in _unconciousPlayers) then {
-                /// skip the reduction, if it is already reduced by unconsciousness
-                _alreadyReduces = true;
-                _unconciousPlayers = _unconciousPlayers - [_unit];
-                HASH_SET(_zoneHash,"unconciousPlayers",_unconciousPlayers);
-                private _unconciousHash = HASH_GET(_zoneHash,"unconcious");
-                private _playerhash = {
-                    If (_unit == (HASH_GET(_x,"player"))) exitWith {_x;};
-                } forEach _unconciousHash;
-                If (!isNil "_playerhash") then {
-                    _unconciousHash = _unconciousHash - _playerhash;
-                    HASH_DELETE(_playerhash);
-                };
-                HASH_SET(_zoneHash,"unconcious",_unconciousHash);
+        if (_unit in _unconciousPlayers) then {
+            /// skip the reduction, if it is already reduced by unconsciousness
+            _alreadyReduces = true;
+            _unconciousPlayers = _unconciousPlayers - [_unit];
+            HASH_SET(_zoneHash,"unconciousPlayers",_unconciousPlayers);
+            private _unconciousHash = HASH_GET(_zoneHash,"unconcious");
+            private _playerhash = {
+                If (_unit == (HASH_GET(_x,"player"))) exitWith {_x;};
+            } forEach _unconciousHash;
+            If (!isNil "_playerhash") then {
+                _unconciousHash = _unconciousHash - _playerhash;
+                HASH_DELETE(_playerhash);
             };
+            HASH_SET(_zoneHash,"unconcious",_unconciousHash);
         };
         If !(_alreadyReduces) then {
             /// reduce the enemyStrenght

@@ -29,15 +29,15 @@ If (isNull _attackLoc) then {
     _attackLoc = HASH_CREATE;
     HASH_GET(GVAR(attackpos),"Locations") pushBack _attackLoc;
     //private _size = (HASH_GET(GVAR(dangerzones),"gridsize")) * 1.414;
-    private _size = (HASH_GET(GVAR(dangerzones),"gridsize")) * 2;
+    private _size = (HASH_GET(GVAR(dangerzones),"gridsize")) * 2.1;
     _attackLoc setPosition _position;
     _attackLoc setSize [_size,_size];
     _attackLoc setRectangular true;
     HASH_SET(_attackLoc,"isPOI",false);
+    #ifdef DEBUG_MODE_FULL
+        [_position,"AttackPosition","ColorRed","mil_flag"] call EFUNC(common,debug_marker_create);
+    #endif
 };
-#ifdef DEBUG_MODE_FULL
-    [_position,"AttackPosition","ColorRed","mil_flag"] call EFUNC(common,debug_marker_create);
-#endif
 
 HASH_SET(_attackLoc,"strategies",[]);
 

@@ -26,7 +26,7 @@ private _enemyThreat = [0,0,0];
 
 {
     private _currentGroup = _x;
-    If (isNull _currentGroup) then {
+    If ((isNull _currentGroup)||{1>({(getPos _x) in _attackLoc}count (units _currentGroup))}) then {
         _groupsToRemove pushBack _currentGroup;
     }else{
         private _grouphash = _currentGroup getVariable QGVAR(grouphash);
@@ -48,6 +48,8 @@ private _enemyThreat = [0,0,0];
 {
     _enemygroups = _enemygroups - [_x];
 } forEach _groupsToRemove;
+
+If (_enemygroups isEqualTo []) exitWith {[_attackLoc] call FUNC(attackpos_delete);};
 
 HASH_SET(_attackLoc,"enemygroups",_enemygroups);
 HASH_SET(_attackLoc,"enemytype",_enemyType);

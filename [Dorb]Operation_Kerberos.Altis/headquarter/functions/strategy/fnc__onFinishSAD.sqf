@@ -21,9 +21,13 @@ private _grouphash = _group getVariable QGVAR(grouphash);
 private _target = HASH_GET(_grouphash,"target");
 
 CHECK((isNil "_target")||{isNull _target})
+// updaten the attackLocation
+If (IS_HASH(_target)) then {
+    [_target] call FUNC(attackpos_update);
+};
 
 private _strategy = HASH_GET_DEF(_grouphash,"strategy",locationNull);
-CHECK((isNil "_strategy")||{isNull _strategy})
+CHECK(!(isNull _strategy))
 
 HASH_DELETE(_strategy);
 HASH_SET(_grouphash,"strategy",locationNull);

@@ -17,7 +17,8 @@
 _this params [["_attackLoc",locationNull,[locationNull]],["_group",grpNull,[grpNull]]];
 CHECK((isNull _attackLoc)||(isNull _group)||{!(IS_HASH(_attackLoc))})
 
-private _enemygroups = HASH_GET(_attackLoc,"enemygroups");
+private _enemygroups = HASH_GET_DEF(_attackLoc,"enemygroups",[]);
+If (_enemygroups isEqualTo []) exitWith {[_attackLoc] call FUNC(attackpos_delete);};
 
 If (_group in _enemygroups) then {
 

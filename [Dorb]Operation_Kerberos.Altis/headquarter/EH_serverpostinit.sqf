@@ -111,7 +111,7 @@ _handle = [LINKFUNC(handle),INTERVALL_HQ,[]] call CBA_fnc_addPerFrameHandler;
 HASH_SET(GVAR(handles),"main",_handle);
 _handle = [LINKFUNC(check_radars),INTERVALL_RADARS,[]] call CBA_fnc_addPerFrameHandler;
 HASH_SET(GVAR(handles),"radars",_handle);
-_handle = [LINKFUNC(handlePlayerGroups),INTERVALL_PLAYERGROUPS,[]] call CBA_fnc_addPerFrameHandler;
+_handle = [LINKFUNC(handlePlayerGroups),INTERVALL_PLAYERGROUPS,[false]] call CBA_fnc_addPerFrameHandler;
 HASH_SET(GVAR(handles),"playergroups",_handle);
 _handle = [LINKFUNC(handleAA),INTERVALL_AA,[]] call CBA_fnc_addPerFrameHandler;
 HASH_SET(GVAR(handles),"antiair",_handle);

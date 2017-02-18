@@ -108,7 +108,7 @@ If ((_enemyType select 1)>0) then {
 };
 
 
-/// attack the rest with infanterie
+/// attack the infantry
 If ((_enemyType select 0)>0) then {
     /// posible strategies against air
     private _strategyCfgs = configProperties [(missionConfigFile >> "strategy"),"(((getArray(_x >> 'threat')) select 0) > 0)",true];

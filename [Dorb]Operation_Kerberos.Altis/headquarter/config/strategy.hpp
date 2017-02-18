@@ -72,7 +72,7 @@ class strategy {
 
     class drones {
         type[] = {0,0,1};
-        value = 2000000;
+        value = 4000000;
         threat[] = {1,1,0};
         condition = QUOTE(['drones'] call FUNC(ressources_canUseCallIn));
 
@@ -86,7 +86,7 @@ class strategy {
 
     class artillery {
         type[] = {0,0,0};
-        value = 2000000;
+        value = 3000000;
         threat[] = {1,1,0};
         condition = QUOTE('artillery' call EFUNC(headquarter,fdc_ready));
 
@@ -100,7 +100,7 @@ class strategy {
 
     class rocket {
         type[] = {0,0,0};
-        value = 2000000;
+        value = 4000000;
         threat[] = {1,1,0};
         condition = QUOTE('rocket' call EFUNC(headquarter,fdc_ready));
 
