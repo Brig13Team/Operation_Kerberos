@@ -1,4 +1,6 @@
 /*
+ * (old file)
+ *
  *  Author: Dorbedo
  *
  *  Description:
@@ -24,8 +26,8 @@ private _amount = (floor (random ((_max - _min) + 1))) + _min;
 
 private _radius = getNumber(missionConfigFile >> "missions_config" >> "main" >> "dronecommando" >> "location" >> "distance");
 
-private _objects = [_position,"dronecommando",[_radius,_amount]] call EFUNC(spawn,createMissionTarget);
+private _object = [_position,"dronecommando",[_radius,_amount]] call EFUNC(spawn,createMissionTarget);
 
 GVAR(tower_destroyed) = 0;
 
-[QFUNC(mainmission_dronecommando_cond),[_objects]]
+[QFUNC(mainmission_dronecommando_cond),[[_object]]]

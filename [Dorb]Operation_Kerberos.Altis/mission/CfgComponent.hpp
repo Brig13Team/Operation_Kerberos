@@ -13,7 +13,6 @@ class DOUBLES(CfgComponent,ADDON) {
     class serverpostinit {client = 0;};
     class postInit {};
     class preinit {};
-    class serverkilled {client=0;};
     class dependencies {
         CfgPatches[] = {};
         CfgComponents[] = {"spawn"};
