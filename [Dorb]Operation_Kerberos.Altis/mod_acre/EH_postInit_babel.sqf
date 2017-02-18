@@ -35,6 +35,7 @@ switch (_babelPreSet) do {
             ["ind", "Indepedent"] call acre_api_fnc_babelAddLanguageType;
             ["civ", "Civilian"] call acre_api_fnc_babelAddLanguageType;
             ["logic", "Zeus"] call acre_api_fnc_babelAddLanguageType;
+            CHECK(!hasInterface)
             waitUntil { !isNull acre_player };
             _side = side acre_player;
             switch _side do {
@@ -53,6 +54,7 @@ switch (_babelPreSet) do {
             ["ind", "Indepedent"] call acre_api_fnc_babelAddLanguageType;
             ["civ", "Civilian"] call acre_api_fnc_babelAddLanguageType;
             ["logic", "Zeus"] call acre_api_fnc_babelAddLanguageType;
+            CHECK(!hasInterface)
             waitUntil { !isNull acre_player };
             switch (side acre_player) do {
                 case east: {["east"] call acre_api_fnc_babelSetSpokenLanguages;};
@@ -68,6 +70,7 @@ switch (_babelPreSet) do {
             ["arab", LSTRING(ARAB)] call acre_api_fnc_babelAddLanguageType;
             ["english", LSTRING(ENGLISH)] call acre_api_fnc_babelAddLanguageType;
             ["german", LSTRING(GERMAN)] call acre_api_fnc_babelAddLanguageType;
+            CHECK(!hasInterface)
             waitUntil { !isNull acre_player };
             switch (side acre_player) do {
                 case west: {["english"] call acre_api_fnc_babelSetSpokenLanguages;};
