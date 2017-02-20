@@ -34,7 +34,7 @@ private _return = [];
                     private _type = getArray(missionConfigFile >> "strategy" >> _curStratName >> "type");
                     private _value = getNumber(missionConfigFile >> "strategy" >> _curStratName >> "value");
                     _stratValArray = [((_type select 0) * _value),((_type select 1) * _value),((_type select 2) * _value)];
-            } forEach _strategys;
+            } forEach (_strategys - [locationNull]);
             private _attackLocValArray = HASH_GET(_attackLocation,"enemyvalue");
 
             private _update = (((_stratValArray select 0) < ((_attackLocValArray select 0)*0.85))||

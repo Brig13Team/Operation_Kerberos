@@ -33,7 +33,8 @@ GVAR(handle) = [] spawn {
             [_curAttackPos,_value] call FUNC(attackpos_update);
         };
     } forEach ([] call FUNC(dzfindPeaks));
-    TRACEV_1(_attackPosToCreate);
+    //TRACEV_1(_attackPosToCreate);
+
     /// create new attacklocaltions
     private _size = (HASH_GET(GVAR(dangerzones),"gridsize")) * 2;
     {
@@ -76,7 +77,7 @@ GVAR(handle) = [] spawn {
         private _grouphash = _x;
         private _group = HASH_GET(_grouphash,"group");
         If (isNil "_grouphash") then {WARNING("Grouphash is Nil");TRACEV_3(_x,_grouphash,_group);};
-        If ((HASH_GET(_grouphash,"state")) in ["idle"]) then {
+        If ((HASH_GET_DEF(_grouphash,"state","NOSTATE")) in ["idle"]) then {
             private _allPOI = (HASH_GET(GVAR(POI),"Locations")) select {HASH_GET_DEF(_x,"isActive",false)};
             CHECK(_allPOI isEqualTo [])
             TRACE("Moving defence groups to other POI");
@@ -91,11 +92,11 @@ GVAR(handle) = [] spawn {
             private _grouphash = HASH_GET(_x,QGVAR(grouphash));
             If !(isNil "_grouphash") then {
                 // bored
-                if ((HASH_GET_DEF(_grouphash,QGVAR(state),"NOSTATE")) isEqualTo "wait") then {
+                if ((HASH_GET_DEF(_grouphash,QGVAR(state),"NOSTATE")) in ["wait"]) then {
                     _waitingGroups pushBack _x;
                 };
                 // Veteran
-                if ((HASH_GET_DEF(_grouphash,QGVAR(state),"NOSTATE")) isEqualTo "idle") then {
+                if ((HASH_GET_DEF(_grouphash,QGVAR(state),"NOSTATE")) in ["idle"]) then {
                     _waitingGroups pushBack _x;
                 };
             };
