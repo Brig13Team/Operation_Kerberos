@@ -31,10 +31,10 @@ if (_playerAmount  >= 20) then { _avail_adrones pushBack (selectRandom _adrones)
 if (_playerAmount  >= 30) then { _avail_adrones pushBack (selectRandom _adrones); };
 if (_playerAmount  >= 40) then { _avail_adrones pushBack (selectRandom _adrones); };
 
-GVAR(drones_isActive) = false;
 GVAR(drones_attackIntervall) = 600;
 GVAR(drones_reconIntervall) = 600;
 GVAR(drones_requestedAirstrikes) = [];
 GVAR(drones_requestedReconnaissances) = [];
 GVAR(drones_availableAttackDrones) = _avail_adrones;
 GVAR(drones_availableReconDrones) = _avail_rdrones;
+GVAR(drones_isActive) = true;
