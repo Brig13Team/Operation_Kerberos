@@ -13,6 +13,8 @@
  */
 #include "script_component.hpp"
 
+CHECK(!GVAR(active))
+
 private _mobileaa = HASH_GET(GVAR(anitair),"mobile");
 _mobileaa select {alive _x;};
 HASH_SET(GVAR(anitair),"mobile",_mobileaa);

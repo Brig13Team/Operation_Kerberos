@@ -13,6 +13,8 @@
  */
 #include "script_component.hpp"
 
+CHECK(!GVAR(active))
+
 private _radars = HASH_GET(GVAR(radars),"objects");
 _radars select {alive _x;};
 HASH_SET(GVAR(radars),"objects",_radars);

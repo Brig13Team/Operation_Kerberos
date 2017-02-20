@@ -109,17 +109,15 @@ HASH_SET(GVAR(POI),"locations",[]);
 /// Handles
 _handle = [LINKFUNC(handle),INTERVALL_HQ,[]] call CBA_fnc_addPerFrameHandler;
 HASH_SET(GVAR(handles),"main",_handle);
-_handle = [LINKFUNC(check_radars),INTERVALL_RADARS,[]] call CBA_fnc_addPerFrameHandler;
+_handle = [LINKFUNC(handleRadars),INTERVALL_RADARS,[]] call CBA_fnc_addPerFrameHandler;
 HASH_SET(GVAR(handles),"radars",_handle);
 _handle = [LINKFUNC(handlePlayerGroups),INTERVALL_PLAYERGROUPS,[false]] call CBA_fnc_addPerFrameHandler;
 HASH_SET(GVAR(handles),"playergroups",_handle);
 _handle = [LINKFUNC(handleAA),INTERVALL_AA,[]] call CBA_fnc_addPerFrameHandler;
 HASH_SET(GVAR(handles),"antiair",_handle);
-
+_handle = [LINKFUNC(ressources_handle),INTERVALL_RESSOURCES,[]] call CBA_fnc_addPerFrameHandler;
+HASH_SET(GVAR(handles),"ressources",_handle);
 
 /// Events
-[QEGVAR(mission,start),{GVAR(active) = true;_this call FUNC(MissionInit);}] call CBA_fnc_addEventHandler;
-[QEGVAR(mission,end),{GVAR(active) = false;_this call FUNC(MissionCleanUp);}] call CBA_fnc_addEventHandler;
-
-[QEGVAR(mission,start),LINKFUNC(drones_onMissionStart)] call CBA_fnc_addEventHandler;
-[QEGVAR(mission,end),LINKFUNC(drones_onMissionEnd)] call CBA_fnc_addEventHandler;
+[QEGVAR(mission,start),{_this call FUNC(MissionInit);}] call CBA_fnc_addEventHandler;
+[QEGVAR(mission,end),{_this call FUNC(MissionCleanUp);}] call CBA_fnc_addEventHandler;

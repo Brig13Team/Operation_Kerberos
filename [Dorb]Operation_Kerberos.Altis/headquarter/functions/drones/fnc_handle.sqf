@@ -14,7 +14,7 @@
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-CHECK(!(GVAR(drones_isActive)))
+CHECK(!(GVAR(active) && GVAR(drones_isActive)))
 
 
 private _requests = missionNamespace getVariable [QGVAR(drones_requestedAirstrikes),[]];

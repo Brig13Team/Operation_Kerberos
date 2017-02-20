@@ -37,6 +37,7 @@ PREPS(ressources,CanCallInUnits);
 PREPS(ressources,canUseCallIn);
 PREPS(ressources,getsaveSpawnPos);
 PREPS(ressources,getsaveSpawnPosAir);
+PREPS(ressources,handle);
 PREPS(ressources,supply);
 PREPS(ressources,supplyAirdrop);
 PREPS(ressources,supplyInfanterie);

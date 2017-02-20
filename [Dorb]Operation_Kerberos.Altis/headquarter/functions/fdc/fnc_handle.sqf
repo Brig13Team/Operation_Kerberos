@@ -13,6 +13,8 @@
 #define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
+CHECK(!GVAR(active))
+
 If (HASH_GET(GVAR(FDC),"firemissions") isEqualTo []) exitWith {};
 private _current_firemission = HASH_GET(GVAR(FDC),"firemissions") deleteAt 0;
 _current_firemission params ["_position","_type","_shelltype","_amount"];
