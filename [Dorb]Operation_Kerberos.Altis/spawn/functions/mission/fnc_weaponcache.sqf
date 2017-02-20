@@ -21,12 +21,11 @@ TRACEV_3(_centerposition,_parameter,_amount);
  *  Create the target
  */
 private _wpnCache = [];
-for "_i" from 0 to _amount do {
+private _targetPositions = [_centerposition,"intel",_amount] call FUNC(createMissionHouse);
 
-    private _targetPositions = [_centerposition,"weaponcache"] call FUNC(createMissionHouse);
+for "_i" from 0 to _amount do {
     private _targetPos = selectRandom _targetPositions;
     TRACEV_2(_targetPos,_targetPositions);
-
     private _obj = ["weaponcache"] call FUNC(getMissionObject);
 
     TRACEV_2(_centerpos,_obj);

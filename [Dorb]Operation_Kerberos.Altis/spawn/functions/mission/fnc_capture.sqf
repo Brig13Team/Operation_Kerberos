@@ -18,8 +18,9 @@ _parameter params [["_amount",1,[0]]];
 TRACEV_3(_centerposition,_parameter,_amount);
 private _targets = [];
 
+private _targetPositions = [_centerposition,"hostage",_amount] call FUNC(createMissionHouse)
+
 for "_i" from 1 to _amount do {
-    private _targetPositions = ([_centerposition,"capture"] call FUNC(createMissionHouse));
     private _targetPos = selectRandom _targetPositions;
     TRACEV_2(_targetPositions,_targetPos);
     private _obj = ["capture"] call FUNC(getMissionObject);
@@ -31,7 +32,6 @@ for "_i" from 1 to _amount do {
     _curTarget setPosASL _targetPos;
     private _spawnDir = random (360);
     _curTarget setDir _spawnDir;
-
 
     _curTarget allowFleeing 0;
 

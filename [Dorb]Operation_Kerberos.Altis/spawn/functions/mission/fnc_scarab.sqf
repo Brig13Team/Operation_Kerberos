@@ -18,27 +18,28 @@ _parameter params [["_radius",300,[0]],["_amount",3,[0]]];
 TRACEV_4(_centerposition,_parameter,_radius,_amount);
 private _targets = [];
 for "_i" from 0 to _amount do {
-
     private _targetPositions = [_centerposition,["scarab","isObjective"],1,_radius] call FUNC(createMissionComposition);
-    private _targetPos = selectRandom (_targetPositions select 0);
-    TRACEV_2(_targetPos,_targetPositions);
+    If !(_targetPositions isEqualTo []) then {
+        private _targetPos = selectRandom (_targetPositions select 0);
+        TRACEV_2(_targetPos,_targetPositions);
 
-    private _obj = ["scarab"] call FUNC(getMissionObject);
+        private _obj = ["scarab"] call FUNC(getMissionObject);
 
-    TRACEV_2(_centerposition,_obj);
-    private _curTarget = createVehicle [_obj, _targetPos,[], 0, "CAN_COLLIDE"];
-    [_curTarget] call FUNC(crew);
-    _targetPos set [2,0];
-    _curTarget setPosATL _targetPos;
-    If !(isNil QEFUNC(headquarter,registerPOI)) then {
-        [_curTarget] call EFUNC(headquarter,registerPOI);
+        TRACEV_2(_centerposition,_obj);
+        private _curTarget = createVehicle [_obj, _targetPos,[], 0, "CAN_COLLIDE"];
+        [_curTarget] call FUNC(crew);
+        _targetPos set [2,0];
+        _curTarget setPosATL _targetPos;
+        If !(isNil QEFUNC(headquarter,registerPOI)) then {
+            [_curTarget] call EFUNC(headquarter,registerPOI);
+        };
+
+        #ifdef DEBUG_MODE_FULL
+            [(getPos _curTarget),"scarab","ColorBlack","hd_destroy"] call EFUNC(common,debug_marker_create);
+        #endif
+
+        TRACEV_2(_targetPos,_curTarget);
+        _targets pushBack _curTarget;
     };
-
-    #ifdef DEBUG_MODE_FULL
-        [(getPos _curTarget),"scarab","ColorBlack","hd_destroy"] call EFUNC(common,debug_marker_create);
-    #endif
-
-    TRACEV_2(_targetPos,_curTarget);
-    _targets pushBack _curTarget;
 };
 _targets;
