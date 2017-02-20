@@ -12,7 +12,7 @@ private "_handle";
 ["medical_onUnconscious", {
     _this params ["_unit", "_status"];
     if ((isplayer _unit)&&(_status)) then {
-        [_unit] call FUNC(player_unconscious);
+        [_unit] call FUNC(onUnconscious);
     };
 }] call ace_common_fnc_addEventHandler;
 /*************************
