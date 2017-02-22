@@ -1,28 +1,24 @@
 /*
-    Author: iJesuz
-
-    Description:
-        Mission "Device"
-
-    Parameter(s):
-        0 : [STRING,ARRAY]  - Destination [Locationname, Position]
-
-    Return:
-        [CODE,ARRAY]    -   [Taskhandler conditional function, its arguments]
-*/
+ *  Author: iJesuz
+ *
+ *  Description:
+ *      Mission "Device"
+ *
+ *  Parameter(s):
+ *      0 : HASH    - mission hash
+ *
+ *  Returns:
+ *      -
+ */
 #include "script_component.hpp"
 
-_this params [["_destination","",[""]],["_position",[],[[]]]];
+_this params ["_mission"];
 
+[_mission] call FUNC(mainmission___device);
 
-private _radius = getNumber(missionConfigFile >> "missions_config" >> "main" >> "device" >> "location" >> "distance");
-
-private _obj = [_position,"device",_radius] call EFUNC(spawn,createMissionTarget);
-
-[_obj] call FUNC(objects_device_init);
-
-GVAR(last_earthquake) = CBA_missionTime;
-
-private _intervall = getNumber(missionConfigFile >> "missions_config" >> "main" >> "device" >> "intervall");
-_intervall = _intervall * 60;
-[QFUNC(mainmission_device_cond),[_obj,_intervall]]
+// init device event
+HASH_SET(_mission, "event_callback",  QFUNC(mainmission___device_event));
+HASH_SET(_mission, "event_name",      QGVAR(earthquake));
+HASH_SET(_mission, "event_parameter", { floor( random 4) + 1 });
+HASH_SET(_mission, "event_last",      CBA_missionTime);
+HASH_SET(_mission, "event_interval",  60 * getNumber(missionConfigFile >> "missions_config" >> "main" >> _type >> "intervall"));

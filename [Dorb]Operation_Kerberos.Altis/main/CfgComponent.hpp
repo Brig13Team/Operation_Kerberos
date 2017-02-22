@@ -34,7 +34,6 @@ class DOUBLES(CfgComponent,ADDON) {
 
 // COMPONENT specific configs can be added here -> they are directly integrated as a class into the missionConfigFile
 
-#include "system.hpp"
 #include "missionsettings.hpp"
 
 class Extended_PreInit_EventHandlers {

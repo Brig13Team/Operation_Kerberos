@@ -1,4 +1,6 @@
 /*
+ * (old file)
+ *
  *  Author: Dorbedo
  *
  *  Description:
@@ -15,7 +17,6 @@
 #include "script_component.hpp"
 
 _this params [["_destination","",[""]],["_position",[],[[]]]];
-
 
 private _distance = getNumber(missionConfigFile >> "missions_config" >> "main" >> "clear" >> "location" >> "distance");
 

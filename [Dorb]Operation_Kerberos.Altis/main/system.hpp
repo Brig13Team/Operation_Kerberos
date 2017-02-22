@@ -12,12 +12,12 @@
  */
 #define CBA_OFF
 #define COMPONENT SYSTEM
-#include "script_component.hpp"
+#include "..\script_mission.hpp"
 
 /*
     Name: dorb_system_fnc_compile
 
-    Author: Dorbedo - Version 1.0
+    Author: Dorbedo - Version 2.0
 
     Description:
         main compiling function
@@ -35,12 +35,12 @@
 */
 class system {
 
-    compile = QUOTE( \
+    SYS_SYSTEM(compile) = QUOTE( \
         private _fnc_scriptName = 'Main compiling function'; \
         scriptName _fnc_scriptName; \
         _this params [ARR_3([ARR_3('_path','',[''])],[ARR_3('_funcName','',[''])],[ARR_3('_headertype',0,[1])])]; \
         If (isClass(configFile>>'cfgPatches'>>'cba_cache_disable')) then { \
-            [ARR_5(missionNamespace,_funcName,_path,_headertype,true)] call (parsingNamespace getVariable 'TRIPLES(PREFIX,SYSTEM,compile_sys)'); \
+            [ARR_5(missionNamespace,_funcName,_path,_headertype,true)] call FUNCSYS(compile_sys); \
             with parsingNamespace do { \
                 If (isNil 'GVARMAIN(recompileCache)') then {GVARMAIN(recompileCache) = [];}; \
                 GVARMAIN(recompileCache) pushBackUnique [ARR_3(_path,_funcName,_headertype)]; \
@@ -49,25 +49,70 @@ class system {
         }else{ \
             private _cache = uiNamespace getVariable _funcName; \
             if (isNil '_cache') then { \
-                [ARR_4(uiNamespace,_funcName,_path,_headertype)] call (parsingNamespace getVariable 'TRIPLES(PREFIX,SYSTEM,compile_sys)'); \
+                [ARR_4(uiNamespace,_funcName,_path,_headertype)] call FUNCSYS(compile_sys); \
                 missionNamespace setVariable [ARR_2(_funcName, uiNamespace getVariable _funcName)]; \
             }else{ \
                 missionNamespace setVariable [ARR_2(_funcName,_cache)]; \
             }; \
         }; \
         nil;);
+/*
+    Name: dorb_system_fnc_recompile
 
-    recompile = QUOTE( \
-        private _fnc_scriptName = 'Recompiling function'; \
+    Author: Dorbedo - Version 2.0
+
+    Description:
+        recompiles all functions
+
+    Parameter(s):
+        none
+
+    Return
+        nil
+*/
+    SYS_SYSTEM(recompile) = QUOTE( \
+        private _fnc_scriptName = 'recompiling functions'; \
         scriptName _fnc_scriptName; \
+        systemChat 'recompiling started'; \
         { \
             _x params [ARR_3('_path','_funcName','_headertype')]; \
             diag_log text format [ARR_2('[MissionFile] (System) recompiling: %1',[ARR_3(_path,_funcName,_headertype)])]; \
-            [ARR_5(missionNamespace,_funcName,_path,_headertype,true)] call (parsingNamespace getVariable 'TRIPLES(PREFIX,SYSTEM,compile_sys)'); \
+            [ARR_5(missionNamespace,_funcName,_path,_headertype,true)] call FUNCSYS(compile_sys); \
         } forEach (parsingNamespace getVariable [ARR_2('GVARMAIN(recompileCache)',[])]); \
+        systemChat 'recompiling finished'; \
+        );
+/*
+    Name: dorb_system_fnc_recompileComponent
+
+    Author: Dorbedo - Version 2.0
+
+    Description:
+        recompiles given COMPONENT
+
+    Parameter(s):
+        0: STRING - Function Componentname with prefix - "PREFIX_COMPONENT"
+
+    Return
+        nil
+*/
+    SYS_SYSTEM(recompilecomponent) = QUOTE( \
+        private _fnc_scriptName = 'recompiling component functions'; \
+        scriptName _fnc_scriptName; \
+        _this params [[ARR_3('_componentName','',[''])]]; \
+        If (_componentName isEqualTo '') exitWith {}; \
+        private _searchString = _componentName + '_fnc_'; \
+        systemChat format[ARR_2('recompiling component: %1 started',_componentName)]; \
+        { \
+            _x params [ARR_3('_path','_funcName','_headertype')]; \
+            If ((_funcName find _searchString)==0) then { \
+                diag_log text format [ARR_2('[MissionFile] (System) recompiling: %1',[ARR_3(_path,_funcName,_headertype)])]; \
+                [ARR_5(missionNamespace,_funcName,_path,_headertype,true)] call FUNCSYS(compile_sys); \
+            }; \
+        } forEach (parsingNamespace getVariable [ARR_2('GVARMAIN(recompileCache)',[])]); \
+        systemChat format[ARR_2('recompiling component: %1 finished',_componentName)]; \
         );
 
-    compile_sys = QUOTE( \
+    SYS_SYSTEM(compile_sys) = QUOTE( \
         private _fnc_scriptName = 'Compiling SyS'; \
         scriptName _fnc_scriptName; \
         _this params [ARR_5('_namespace','_funcName','_pathstring','_headertype','_recompile')]; \
@@ -83,7 +128,7 @@ class system {
         If !((((call _cache) select 0) isEqualTo (_metadata select 0))||(((call _cache) select 1) isEqualTo (_metadata select 1))) exitWith {diag_log text '[MissionFile] (System) Compiling Violation'; call FUNCSYS(kick);}; \
         _namespace setVariable [ARR_2(_funcName,compilefinal (_headerstring + preprocessFileLineNumbers _pathstring))];);
 
-    kick = QUOTE( \
+    SYS_SYSTEM(kick) = QUOTE( \
         [] spawn { \
             If (!hasInterface) exitWith {}; \
             diag_log text '[MissionFile] kicking player due to critical violation'; \
@@ -93,26 +138,30 @@ class system {
         }; \
         );
 
-    compile_check = QUOTE( \
-        private _fnc_scriptName = 'Compiling Check'; \
+    SYS_SYSTEM(compile_system) = QUOTE( \
+        diag_log text '[MissionFile] (System) Initializing'; \
+        private _fnc_scriptName = 'Compiling System Functions'; \
         scriptName _fnc_scriptName; \
         private _error = false; \
-        private _fnc_compile_cacheSys = parsingnamespace getVariable 'TRIPLES(PREFIX,SYSTEM,compile_sys)'; \
-        private _fnc_compile_cache = parsingnamespace getVariable 'TRIPLES(PREFIX,SYSTEM,compile)'; \
-        If !(isNil '_fnc_compile_cache') then { \
-            private _tempFnc = compile getText(missionConfigFile>>'system'>>'compile'); \
-            If !((str _tempFnc) isEqualTo (str _fnc_compile_cache)) then {_error = true;}; \
-        }; \
-        If !(isNil '_fnc_compile_cacheSys') then { \
-            private _tempFnc = compile getText(missionConfigFile>>'system'>>'compile_sys'); \
-            If !((str _tempFnc) isEqualTo (str _fnc_compile_cacheSys)) then {_error = true;}; \
-        }; \
+        private _functions = configProperties[ARR_2(missionConfigFile >>'CfgComponents'>>'system','true')]; \
+        _functions = (_functions apply {configName _x;}) - ['SYS_SYSTEM(compile_system)']; \
+        { \
+            private _fnc = parsingnamespace getVariable _x; \
+            If (isNil '_fnc') then { \
+                parsingNamespace setVariable [ARR_2(_x,(compile getText(missionConfigFile >>'CfgComponents'>>'system'>>_x)))]; \
+            }else{ \
+                private _tempFnc = compile getText(missionConfigFile >>'CfgComponents'>>'system'>>_x); \
+                If !((str _tempFnc) isEqualTo (str _fnc)) then { \
+                    diag_log text format[ARR_2('[MissionFile] (System) Compiling Violation: %1',_x)]; \
+                    _error = true; \
+                }; \
+            }; \
+        } forEach _functions; \
         If (_error) then { \
             diag_log text '[MissionFile] (System) Compiling system check failed'; \
-            If (isMultiplayer) then {[] call compile getText(missionConfigFile>>'system'>>'kick');}; \
+            If (isMultiplayer) then {[] call compile getText(missionConfigFile >>'CfgComponents'>>'system'>>'SYS_SYSTEM(kick)');}; \
         }else{ \
             diag_log text '[MissionFile] (System) Compiling system check finished without errors'; \
         }; \
         );
-
 };

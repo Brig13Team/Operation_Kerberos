@@ -2,60 +2,23 @@
     Author: iJesuz
 
     Description:
-        Create new Child Task
+        create a new child task
 
     Parameter(s):
-        0 : STRING          - ConfigName
-        1 : NUMBER          - Parent TaskNumber
-        2 : [STRING,ARRAY]  - Destination [Locationname, Position]
-        3 : CODE            - Conditional Function
+        0 : STRING  - parent task
+        1 : HASH    - mission hash
 
     Return:
-        [NUMBER,NUMBER]
+        -
 */
 #include "script_component.hpp"
 
-_this params [
-    ["_configName","",[""]],
-    ["_parent",-1,[0]],
-    ["_destination",["",[0,0,0]],[[]]],
-    ["_func",{},[{}]],
-    "_args"
-];
+_this params [["_parent", "", [""]], "_mission"];
 
-private _children = missionNamespace getVariable [format["@%1_%2.2",QGVAR(task),_parent],[]];
-private _number = (count _children) + 1;
+if !(HASH_HASKEY(_mission,"type") &&
+     HASH_HASKEY(_mission,"location") &&
+     HASH_HASKEY(_mission,"state") &&
+     HASH_HASKEY(_mission,"condition")) exitWith { -1 };
+if !(THIS_HASKEY(_parent)) exitWith { -2 };
 
-private _side = GVARMAIN(playerside);
-private _type = getText(missionConfigFile >> "CfgTaskDescriptions" >> _configName >> "tasktype");
-private _taskID  = format["%1_%2_side_%3", QGVAR(task), _parent, _number];
-private _pTaskID = format["%1_%2", QGVAR(task), _parent];
-
-[[_taskID,_pTaskID], _side, _configName, _destination select 1, "AUTOASSIGNED", 1, false, true, _type, false] call BIS_fnc_setTask;
-
-GVAR(conditions) pushBack [_func,_args,[_parent,_number]];
-
-_number
-
-
-
-
-
-
-/*
-_this params [["_configName","",[""]], ["_parent",-1,[0]], ["_destination",["",[0,0,0]],[["",[]]]], ["_func",{},[{}]]];
-
-private _children = missionNamespace getVariable [format["@%1_%2.2",QGVAR(task),_parent],[]];
-private _number = (count _children) + 1;
-
-private _side = GVARMAIN(playerside);
-private _type = getText(missionConfigFile >> "CfgTaskDescriptions" >> _configName >> "tasktype");
-private _taskID  = format["%1_%2_side_%3", QGVAR(task), _parent, _number];
-private _pTaskID = format["%1_%2", QGVAR(task), _parent];
-
-[[_taskID,_pTaskID], _side, _configName, _destination select 1, "AUTOASSIGNED", 1, false, true, _type, false] call BIS_fnc_setTask;
-
-GVAR(conditions) pushBack [_func,[_parent,_number]];
-
-_number
-*/
+[THIS_GET(_parent), _mission] call FUNC(taskmanager___add);
