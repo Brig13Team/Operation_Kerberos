@@ -31,6 +31,8 @@ private _jammer_px = missionNamespace getVariable [_transmitterClass + "_jammer_
 _maxSignal = (_maxSignal - _jammer_signal) max -992;
 _Px = ((_Px - _jammer_px) min 1)max 0;
 
+#ifdef DEBUG_MODE_FULL
+    hintSilent parseText format["Radio:<br />   Px=%1<br />   Signal=%2<br />Jammer:<br />   Px=%3<br />   Signal=%4",_Px,_maxSignal,_jammer_px,_jammer_signal];
+#endif
 
-hintSilent parseText format["Radio:<br />   Px=%1<br />   Signal=%2<br />Jammer:<br />   Px=%3<br />   Signal=%4",_Px,_maxSignal,_jammer_px,_jammer_signal];
 [_Px, _maxSignal];
