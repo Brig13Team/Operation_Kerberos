@@ -12,9 +12,10 @@ class DOUBLES(CfgComponent,ADDON) {
     class postInit {};
     class preInit {};
     class preInitServer {};
-    
+
     class settings_postInit_Basic {};
     class settings_postInitServer {client = 0;};
+    class settings_postInit_ChannelNames {};
 
     class settings_postInit_babel {};
     class postInitClient_babbel_achilles {
