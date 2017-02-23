@@ -38,8 +38,8 @@ GVAR(interface) = [];
         [
             format[QGVAR(interface_%1),_spawnLogic],
             (parsingNamespace getVariable ["MISSION_ROOT",""]) + format["data\icon\icon_%1.paa",_picture],
-            FUNC(canOpenMenu),
-            [player,_spawntype]
+            {[ace_player,_this select 0] call FUNC(canOpenMenu);},
+            [_spawntype]
         ] call EFUNC(gui,addNotification);
     };
 } forEach [
