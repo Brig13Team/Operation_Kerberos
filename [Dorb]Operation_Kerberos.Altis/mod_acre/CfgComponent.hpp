@@ -9,9 +9,21 @@
 #include "script_component.hpp"
 
 class DOUBLES(CfgComponent,ADDON) {
-    class postInit_babel {};
-    class postInit_Basic {};
-    class postInitServer_settings {client = 0;};
+    class postInit {};
+    class preInit {};
+    class preInitServer {};
+    
+    class settings_postInit_Basic {};
+    class settings_postInitServer {client = 0;};
+
+    class settings_postInit_babel {};
+    class postInitClient_babbel_achilles {
+        server = 0;
+        class dependencies {
+            CfgPatches[] = {"acre_main","achilles_functions_f_ares"};
+            CfgComponents[] = {};
+        };
+    };
     class dependencies {
         CfgPatches[] = {"acre_main"};
         CfgComponents[] = {};
