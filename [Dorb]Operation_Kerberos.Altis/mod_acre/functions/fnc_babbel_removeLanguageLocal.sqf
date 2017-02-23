@@ -18,8 +18,8 @@ _this params [["_languageKey","",[]]];
 
 If ((_languageKey isEqualTo "")||{!([_languageKey] call FUNC(babbel_canAddLanguage))}) exitWith {};
 
-private _languageID = [_languageKey] call acre_sys_core_getLanguageId;
+private _languageID = [_languageKey] call acre_sys_core_fnc_getLanguageId;
 
 ACRE_SPOKEN_LANGUAGES = ACRE_SPOKEN_LANGUAGES - [_languageID];
 
-If (_languageID == ACRE_CURRENT_LANGUAGE_ID) then {[ACRE_SPOKEN_LANGUAGES select 0] call acre_sys_core_setSpeakingLanguage;};
+If (_languageID == ACRE_CURRENT_LANGUAGE_ID) then {[ACRE_SPOKEN_LANGUAGES select 0] call acre_sys_core_fnc_setSpeakingLanguage;};

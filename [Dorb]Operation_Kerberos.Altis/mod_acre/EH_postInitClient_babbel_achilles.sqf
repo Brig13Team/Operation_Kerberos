@@ -18,7 +18,7 @@
         };
         [
             QGVAR(addLanguage),
-            ["en"],
+            ["english"],
             _unitUnderCursor
         ] call CBA_fnc_targetEvent;
     }
@@ -34,7 +34,39 @@
         };
         [
             QGVAR(removeLanguage),
-            ["en"],
+            ["english"],
+            _unitUnderCursor
+        ] call CBA_fnc_targetEvent;
+    }
+] call ares_fnc_RegisterCustomModule;
+
+[
+    "Babbel",
+    "Add Arabic",
+    {
+        _this params ["_position",["_unitUnderCursor",objNull,[objNull]]];
+        If (isNull _unitUnderCursor) exitWith {
+            hint "Fehler: No Unit";
+        };
+        [
+            QGVAR(addLanguage),
+            ["arab"],
+            _unitUnderCursor
+        ] call CBA_fnc_targetEvent;
+    }
+] call ares_fnc_RegisterCustomModule;
+
+[
+    "Babbel",
+    "Remove Arabic",
+    {
+        _this params ["_position",["_unitUnderCursor",objNull,[objNull]]];
+        If (isNull _unitUnderCursor) exitWith {
+            hint "Fehler: No Unit";
+        };
+        [
+            QGVAR(removeLanguage),
+            ["arab"],
             _unitUnderCursor
         ] call CBA_fnc_targetEvent;
     }

@@ -19,7 +19,7 @@ _this params ["_jammer"];
 private _ret = [];
 
 {
-    If (_jammer = _x select 0) exitWith {
+    If (_jammer == (_x select 0)) exitWith {
         _ret = _x;
     };
 } forEach GVAR(jammer);
