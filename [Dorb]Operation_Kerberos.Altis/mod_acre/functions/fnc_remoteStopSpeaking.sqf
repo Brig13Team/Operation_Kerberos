@@ -24,5 +24,6 @@ if (!isNil "_unit") then {
         if (_unit in acre_sys_core_keyedMicRadios) then {
             missionNamespace setVariable [_radioId + "_jammer_signal", 0];
             missionNamespace setVariable [_radioId + "_jammer_px", 0];
+        };
     };
 };
