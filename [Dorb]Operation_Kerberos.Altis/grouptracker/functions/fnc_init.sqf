@@ -23,7 +23,10 @@ If !(isNil QGVAR(handler)) then {
     uiSleep (GVAR(intervall) + 3);
 };
 
-GVAR(active) = true;
+If (isNil QGVAR(active)) then {
+    GVAR(active) = true;
+};
+
 GVAR(handler) = [
     {[] spawn FUNC(handler);},
     GVAR(Intervall)
