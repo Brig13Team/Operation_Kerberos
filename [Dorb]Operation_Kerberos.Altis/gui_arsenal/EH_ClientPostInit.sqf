@@ -55,8 +55,8 @@ GVAR(arsenal_boxes) = [];
 [
     QGVAR(Arsenal),
     "\A3\ui_f\data\logos\arsenal_1024_ca.paa",
-    FUNC(canOpenMenu),
-    [ace_player]
+    {[ace_player] call FUNC(canOpenMenu);},
+    []
 ] call EFUNC(gui,addNotification);
 
 GVAR(postInit) = true;

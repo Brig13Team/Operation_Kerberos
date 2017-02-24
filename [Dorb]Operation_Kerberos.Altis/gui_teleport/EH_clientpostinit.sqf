@@ -74,7 +74,8 @@ for "_i" from 1 to 9 do {
 [
     QGVAR(teleporterIcon),
     (parsingNamespace getVariable ["MISSION_ROOT",""]) + QEPAAPATH(icon,icon_teleport),
-    FUNC(canOpenMenu)
+    {[ace_player] call FUNC(canOpenMenu);},
+    []
 ] call EFUNC(gui,addNotification);
 /*
 private _id = addMissionEventHandler ["draw3D",{
