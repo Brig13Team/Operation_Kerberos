@@ -1,14 +1,15 @@
 /*
- *  Author: [Name of Author(s)]
+ *  Author: Dorbedo
  *
  *  Description:
- *      [Description]
+ *      resets the jammer value after the talking has finished
  *
  *  Parameter(s):
- *      0 : [TYPE] - [argument name]
+ *      0 : STRING - the speaking id
+ *      1 : STRING - the netID
  *
  *  Returns:
- *      [TYPE] - [return name]
+ *      none
  *
  */
 //#define DEBUG_MODE_FULL

@@ -1,8 +1,9 @@
 /*
- *  Author: ACRE2
+ *  Author: ACRE2-Team, Dorbedo
  *
  *  Description:
  *      this is a copy of acre_sys_signal_fnc_getSignal
+ *      with the jammer addition
  *
  *
  */
@@ -41,7 +42,7 @@ if (_count == 0) then {
                     acre_sys_signal_omnidirectionalRadios
                 ],
                 true,
-                acre_sys_signalhandleSignalReturn,
+                acre_sys_signal_fnc_handleSignalReturn,
                 [_transmitterClass, _receiverClass]
             ] call acre_sys_core_fnc_callExt;
         } forEach _rxAntennas;

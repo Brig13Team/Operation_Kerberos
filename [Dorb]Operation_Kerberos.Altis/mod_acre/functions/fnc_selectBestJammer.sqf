@@ -2,13 +2,18 @@
  *  Author: Dorbedo
  *
  *  Description:
- *      [Description]
+ *      selects the best jammer (the jammer with the shortest distance)
  *
  *  Parameter(s):
- *      0 : [TYPE] - [argument name]
+ *      0 : STRING - transmitting radioclass
+ *      1 : STRING - receving radioclass
+ *      2 : ARRAY - transmitting antenna data
+ *      3 : ARRAY - receving antenna data
+ *      4 : SCALAR - sending frequency
+ *      5 : SCALAR - sending power
  *
  *  Returns:
- *      [TYPE] - [return name]
+ *      ARRAY - [jammerobject,calculation position, distance between jammer and calc pos]
  *
  */
 //#define DEBUG_MODE_FULL
@@ -30,11 +35,12 @@ private _bestdistance = 999999;
     If ([_jammer] call FUNC(isJammerActive)) then {
         private _jammerPos = AGLToASL(_jammer modelToWorld _jammeroffset);
         // check the frequency
+        TRACEV_8(_jammerPos,_jammer,_jammerID,_jammerAntenna,_jammerAntennaDir,_jammeroffset,_jammermW,_jammerF);
         If ((_jammerF isEqualTo [])||{((_jammerF select 0)<_f)&&((_jammerF select 1)>_f)}) then {
             // get the point of the shortest distance between jammer and a line between the sender and receiver
             private _perpendicular = _posSender vectorAdd (_posReceiver vectorMultiply((_posReceiver vectorDotProduct (_jammerPos vectorDiff _posSender))/(vectorMagnitude _posReceiver)^2));
-            private _distance = _posJammmer distance _perpendicular;
-
+            private _distance = _jammerPos distance _perpendicular;
+            TRACEV_2(_perpendicular,_distance);
             If (_distance < _bestdistance) then {
                 _bestdistance = _distance;
                 _bestPos = _perpendicular;
@@ -44,11 +50,12 @@ private _bestdistance = 999999;
     };
 } forEach GVAR(jammer);
 
-_bestPosATL = ASLToATL _bestPos;
+If !(_bestPos isEqualTo []) then {
+    _bestPosATL = ASLToATL _bestPos;
 
-If ((_bestPosATL select 2)<0) then {
-    _bestPosATL set [2,0.8];
-    _bestPos = ATLtoASL _bestPosATL;
+    If ((_bestPosATL select 2)<0) then {
+        _bestPosATL set [2,0.8];
+        _bestPos = ATLtoASL _bestPosATL;
+    };
 };
-
-[_bestJammer,_bestPos];
+[_bestJammer,_bestPos,_bestdistance];

@@ -4,12 +4,6 @@
  *  Description:
  *      basic Settings
  *
- *  Parameter(s):
- *      none
- *
- *  Returns:
- *      none
- *
  */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"

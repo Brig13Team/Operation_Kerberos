@@ -31,7 +31,6 @@ class CfgComponents {
     /// mod specific components
     mod_ace = 1;
     mod_acre = 1;
-    mod_acre_jammer = 1;
     mod_asrai = 1;
     mod_tfar = 0;
     patch_acre = 1;
@@ -57,7 +56,6 @@ class CfgComponents {
 #include "mission\CfgComponent.hpp"
 #include "mod_ace\CfgComponent.hpp"
 #include "mod_acre\CfgComponent.hpp"
-#include "mod_acre_jammer\CfgComponent.hpp"
 #include "mod_asrai\CfgComponent.hpp"
 #include "mod_tfar\CfgComponent.hpp"
 #include "patch_acre\CfgComponent.hpp"

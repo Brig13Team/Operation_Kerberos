@@ -1,3 +1,11 @@
+/*
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      preinit
+ *
+ */
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 ADDON = false;
@@ -22,5 +30,5 @@ ADDON = true;
 If (isNil QGVAR(jammer)) then {
     GVAR(jammer) = [];
 };
-
+GVAR(advancedjammer) = true;
 GVAR(jammer_lastCheck) = HASH_CREATE;

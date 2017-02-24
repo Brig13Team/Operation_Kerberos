@@ -1,14 +1,14 @@
 /*
- *  Author: [Name of Author(s)]
+ *  Author: Dorbedo
  *
  *  Description:
- *      [Description]
+ *      returns the jammerarray for a specific jammer
  *
  *  Parameter(s):
- *      0 : [TYPE] - [argument name]
+ *      0 : OBJECT - jammer object
  *
  *  Returns:
- *      [TYPE] - [return name]
+ *      ARRAY - the jammer array
  *
  */
 //#define DEBUG_MODE_FULL
@@ -23,5 +23,5 @@ private _ret = [];
         _ret = _x;
     };
 } forEach GVAR(jammer);
-
+TRACEV_2(_jammer,_ret);
 _ret;

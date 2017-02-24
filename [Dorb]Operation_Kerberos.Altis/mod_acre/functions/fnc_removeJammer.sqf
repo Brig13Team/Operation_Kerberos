@@ -5,10 +5,10 @@
  *      removes a jammer
  *
  *  Parameter(s):
- *      0 : [TYPE] - [argument name]
+ *      0 : OBJECT - the jammer
  *
  *  Returns:
- *      [TYPE] - [return name]
+ *      none
  *
  */
 //#define DEBUG_MODE_FULL
