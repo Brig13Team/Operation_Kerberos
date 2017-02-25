@@ -15,7 +15,7 @@
 
 private _groups = [];
 
-If !(isNull (getAssignedCuratorLogic player)) then {
+If ((!(isNull (getAssignedCuratorLogic player)))||(GVAR(showAll))) then {
     _groups = allGroups;
 }else{
     If (GVAR(AiIsVisible)) then {

@@ -14,7 +14,7 @@
 #define DEBUG_MODE_OFF
 #include "script_component.hpp"
 
-If !(GVAR(active)) exitWith {[_this select 1] spawn FUNC(terminate);};
+If !(GVAR(active)) exitWith {[] spawn FUNC(terminate);};
 If !(GVAR(handleID)<0) exitWith {
     DEC(GVAR(handleID));
 };
