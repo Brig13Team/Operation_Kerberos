@@ -22,8 +22,8 @@ for "_i" from 1 to 9 do {
 [
     QGVAR(crateIcon),
     (parsingNamespace getVariable ["MISSION_ROOT",""]) + QEPAAPATH(icon,icon_robot),
-    FUNC(canOpenMenu),
-    [player]
+    {[ace_player] call FUNC(canOpenMenu);},
+    []
 ] call EFUNC(gui,addNotification);
 
 
