@@ -23,7 +23,8 @@ if (count _result > 0) then {
     missionNamespace setVariable [_transmitterClass + "_jammer_signal", (_signal)];
     if (_signal >= -250) then {
         _signal = _signal min -0.001;
-        private _px = (1 - (((log(abs _signal)/log(4))-2.4) max 0)) max 0;
+        //private _px = (1 - (((log(abs _signal)/log(4))-2.4) max 0)) max 0;
+        private _px = (1 - (((log(abs _signal)/log(1.7))-8.6) max 0)) max 0;
         missionNamespace setVariable [_transmitterClass + "_jammer_px", _Px];
     } else {
         missionNamespace setVariable [_transmitterClass + "_jammer_px", 0];
