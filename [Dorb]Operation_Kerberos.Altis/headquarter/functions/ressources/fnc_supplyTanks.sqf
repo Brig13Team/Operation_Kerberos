@@ -16,6 +16,7 @@
 private _centerpos = HASH_GET(GVAR(dangerzones),"centerpos");
 
 private _tanktype = ["tanks"] call EFUNC(spawn,getUnit);
+If (_tanktype isEqualTo []) exitWith {0};
 private _targetPos = [_centerpos,200,0] call EFUNC(common,pos_random);
 private _spawnpos = [_targetPos,_tanktype] call FUNC(ressources_getSaveSpawnPos);
 private _newGroup = ([_spawnpos,GVARMAIN(side),_tanktype] call EFUNC(spawn,vehicle)) select 0;

@@ -51,7 +51,7 @@ TRACEV_4(_StrengthValue,_keyX,_keyY,_maxKey);
             HASH_SET(GVAR(dangerzones),_tempkey,_zoneHash);
         };
         private _strenghtEnemy = HASH_GET_DEF(_zoneHash,"enemystrenght",0);
-        _strenghtEnemy = (_strenghtEnemy max _value);
+        _strenghtEnemy = (_strenghtEnemy + _value);
         HASH_SET(_zoneHash,"enemystrenght",_strenghtEnemy);
     };
 } forEach [

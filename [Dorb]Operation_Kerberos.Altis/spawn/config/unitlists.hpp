@@ -121,7 +121,14 @@ class GVAR(unitlists) {
                 {"configfile","CfgGroups","East","rhs_faction_vdv","rhs_group_rus_vdv_infantry","rhs_group_rus_vdv_infantry_section_marksman"},
                 {"configfile","CfgGroups","East","rhs_faction_vdv","rhs_group_rus_vdv_infantry","rhs_group_rus_vdv_infantry_section_mg"}
             };
-
+            groups_mechanized[] = {
+                {"configfile","CfgGroups","East","rhs_faction_vmf","rhs_group_rus_vmf_BTR80","rhs_group_rus_vmf_BTR80_squad"},
+                {"configfile","CfgGroups","East","rhs_faction_vmf","rhs_group_rus_vmf_BTR80","rhs_group_rus_vmf_BTR80_squad_2mg"},
+                {"configfile","CfgGroups","East","rhs_faction_vmf","rhs_group_rus_vmf_BTR80","rhs_group_rus_vmf_BTR80_squad_aa"},
+                {"configfile","CfgGroups","East","rhs_faction_vmf","rhs_group_rus_vmf_BTR80","rhs_group_rus_vmf_BTR80_squad_mg_sniper"},
+                {"configfile","CfgGroups","East","rhs_faction_vmf","rhs_group_rus_vmf_BTR80","rhs_group_rus_vmf_BTR80_squad_sniper"}
+            };
+            groups_sniper[] = {};
             // own groups
             class patrol {
                 class E_Reg_Pat_01 {
@@ -217,6 +224,14 @@ class GVAR(unitlists) {
                     SOLDIER_4(rhs_vdv_aa);
                     SOLDIER_5(rhs_vdv_strelok_rpg_assist);
                     SOLDIER_6(rhs_vdv_strelok_rpg_assist);
+                };
+            };
+            class sniper {
+                class E_Snip_01 {
+                    SOLDIERR_1(O_ghillie_ard_F,CORPORAL);
+                    SOLDIER_2(O_ghillie_ard_F);
+                    SOLDIER_3(O_ghillie_ard_F);
+
                 };
             };
         };
@@ -572,7 +587,7 @@ class GVAR(unitlists) {
                     };
                 };
             };
-            
+
         };
         class armored : msv {
             art_shells[] = {"rhs_2s3_tv"};

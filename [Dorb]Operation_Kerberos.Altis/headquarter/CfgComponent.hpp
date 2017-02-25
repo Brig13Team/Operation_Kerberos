@@ -11,7 +11,7 @@
 class DOUBLES(CfgComponent,ADDON) {
     class clientpostinit {server = 0;};
     class initpostServer {client = 0;};
-    class killed {};
+    class ServerKilled {client = 0;};
     class preinit {};
     class serverpostinit {client = 0;};
     class dependencies {

@@ -16,7 +16,7 @@
 
 If (
         (GVAR(ressources_amount)>0)&&
-        {[] call FUNC(canCallInUnits)}
+        {[] call FUNC(ressources_CanCallInUnits)}
     ) then {
 
     private _callinType = selectRandom ["infanterie","airdrop","mounted","sniper","tanks","mechanized"];
@@ -44,7 +44,10 @@ If (
     };
 
 
-
-    GVAR(ressources_amount) = GVAR(ressources_amount) - _costs;
-
+    If (IS_SCALAR(_costs)) then {
+        GVAR(ressources_amount) = GVAR(ressources_amount) - _costs;
+    }else{
+        ERROR("wrong supply return");
+        TRACEV_1(_costs);
+    };
 };

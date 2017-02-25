@@ -20,7 +20,7 @@ private _spawnPos = [_centerpos,_transporttype] call FUNC(ressources_getsaveSpaw
 
 ([_spawnPos,GVARMAIN(side),_transporttype] call EFUNC(spawn,vehicle)) params ["_transportGroup","_transportVehicle"];
 
-private _groupType = ["group_sniper"] call EFUNC(spawn,getUnit);
+private _groupType = ["sniper"] call EFUNC(spawn,getGroup);
 private _newGroup = [_spawnpos, _grouptype] call EFUNC(spawn,group);
 
 {

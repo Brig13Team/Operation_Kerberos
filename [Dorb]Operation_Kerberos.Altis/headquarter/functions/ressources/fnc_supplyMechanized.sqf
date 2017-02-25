@@ -16,6 +16,8 @@
 private _centerpos = HASH_GET(GVAR(dangerzones),"centerpos");
 
 private _groupType = ["mechanized"] call EFUNC(spawn,getGroup);
+if (isNull _groupType) exitWith {0};
+
 private _spawnpos = [_targetPos] call FUNC(ressources_getSaveSpawnPos);
 
 private _targetPos = [_centerpos,200,0] call EFUNC(common,pos_random);

@@ -91,5 +91,5 @@ switch _grouptype do {
         selectRandom _allUnits;
     };
 
-    default {ERROR(FORMAT_1("Missing entrie: %1",_this))};
+    default {ERROR(FORMAT_1("Missing entrie: %1",_this));[]};
 };

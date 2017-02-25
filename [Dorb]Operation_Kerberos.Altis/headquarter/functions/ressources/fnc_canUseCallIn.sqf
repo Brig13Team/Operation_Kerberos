@@ -26,5 +26,5 @@ switch (_type) do {
         (GVARMAIN(side_type) == "droneoperations")
     };
 
-    default {[_type] call FUNC(CanCallInUnits);};
+    default {[_type] call FUNC(ressources_CanCallInUnits);};
 };

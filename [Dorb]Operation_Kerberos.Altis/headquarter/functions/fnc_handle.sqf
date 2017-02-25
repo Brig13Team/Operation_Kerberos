@@ -33,10 +33,10 @@ GVAR(handle) = [] spawn {
             [_curAttackPos,_value] call FUNC(attackpos_update);
         };
     } forEach ([] call FUNC(dzfindPeaks));
-    //TRACEV_1(_attackPosToCreate);
+    TRACEV_1(_attackPosToCreate);
 
     /// create new attacklocaltions
-    private _size = (HASH_GET(GVAR(dangerzones),"gridsize")) * 2;
+    private _size = (HASH_GET(GVAR(dangerzones),"gridsize")) * 1.42;
     {
         /// should be changed in a later Version
         private _curPos = _x;

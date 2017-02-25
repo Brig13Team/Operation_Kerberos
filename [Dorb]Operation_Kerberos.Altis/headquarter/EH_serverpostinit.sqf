@@ -121,3 +121,11 @@ HASH_SET(GVAR(handles),"ressources",_handle);
 /// Events
 [QEGVAR(mission,start),{_this call FUNC(MissionInit);}] call CBA_fnc_addEventHandler;
 [QEGVAR(mission,end),{_this call FUNC(MissionCleanUp);}] call CBA_fnc_addEventHandler;
+
+
+// DEBUG
+GVAR(debugMarkerActive) = false;
+#ifdef DEBUG_MODE_FULL
+    GVAR(debugMarkerActive) = true;
+    [FUNC(handleDebugMarker),60,[]] call CBA_fnc_addPerFrameHandler;
+#endif
