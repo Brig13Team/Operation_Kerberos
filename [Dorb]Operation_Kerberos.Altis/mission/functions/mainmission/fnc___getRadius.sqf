@@ -15,6 +15,6 @@
 _this params ["_type"];
 
 if (!isNumber(missionConfigFile >> "missions_config" >> "main" >> _type >> "location" >> "distance")) throw "no distance";
-private _distance = getNumber(missionConfigFile >> "missions_config" >> "main" >> "radiotower" >> "location" >> "distance");
+private _distance = getNumber(missionConfigFile >> "missions_config" >> "main" >> _type >> "location" >> "distance");
 
 _distance

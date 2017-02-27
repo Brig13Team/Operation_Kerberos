@@ -28,4 +28,4 @@ If !(isNil QEFUNC(headquarter,registerPOI)) then {
     [_curTarget] call EFUNC(headquarter,registerPOI);
 };
 
-_curTarget;
+[_curTarget]

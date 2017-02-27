@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=1080;
+		nextID=1110;
 	};
 	class Camera
 	{
 		pos[]={16610.32,63.145996,18958.605};
-		dir[]={0.59522259,-0.40823454,0.69219404};
-		up[]={0.26624933,0.91281784,0.30962601};
-		aside[]={0.75824749,-5.485781e-007,-0.65202332};
+		dir[]={-0.018453438,-0.5581879,0.8295579};
+		up[]={-0.012416233,0.82963866,0.55815613};
+		aside[]={0.99979138,-4.269732e-007,0.022239817};
 	};
 };
 binarizationWanted=0;
@@ -86,7 +86,7 @@ class AddonsMetaData
 		{
 			className="cba_main";
 			name="Community Base Addons - Main Component";
-			author="CBA Team";
+			author="CBA-Team";
 			url="https://www.github.com/CBATeam/CBA_A3";
 		};
 		class Item6

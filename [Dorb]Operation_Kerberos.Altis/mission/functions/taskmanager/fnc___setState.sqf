@@ -24,7 +24,8 @@ if ((toUpper _state) in ["SUCCEEDED","CANCELED","FAILED"]) then {
     HASH_SET(_taskhandler, "missions", HASH_GET(_taskhandler, "missions") - [_name]);
     [_mission] call FUNC(taskhandler___cancelAll);
 
-    [QEGVAR(mission,end), [HASH_GET(_mission, "type")]] call CBA_fnc_localEvent;
+    [QEGVAR(mission,end_server), [_mission]] call CBA_fnc_localEvent;
+    // TODO: client event (without mission hash - it's local!)
 };
 
 // set state in Bohemia's system

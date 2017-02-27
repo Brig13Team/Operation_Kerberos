@@ -1,11 +1,11 @@
 /*
- *  Author: Dorbedo
+ *  Author: Dorbedo, iJesuz
  *
  *  Description:
  *      called after a main mission has ended
  *
  *  Parameter(s):
- *      none
+ *      0 : HASH    - mission hash
  *
  *  Returns:
  *      none
@@ -13,7 +13,8 @@
  */
 #include "script_component.hpp"
 
-_this params [["_centerpos",EGVAR(mission,centerPos),[[]]]];
+_this params ["_mission"];
+private _centerpos = HASH_GET(_mission,"location") select 1;
 
 GVAR(targetHouses) = [];
 GVAR(usedHouses) = [];

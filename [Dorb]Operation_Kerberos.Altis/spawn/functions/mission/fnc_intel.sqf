@@ -21,7 +21,7 @@ private _intelObjects = [];
 private _targetPositions = [_centerposition,"intel",_amount] call FUNC(createMissionHouse);
 TRACEV_1(_targetPositions);
 
-for "_i" from 0 to _amount do {
+for "_i" from 1 to _amount do {
     private _targetPos = selectRandom _targetPositions;
     TRACEV_1(_targetPos);
 

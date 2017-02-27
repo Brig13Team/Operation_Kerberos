@@ -2,18 +2,15 @@
 
 ADDON = false;
 
-PREP(rtb);
-PREP(handleRescuePoint);
 PREP(spawn);
+PREP(end);
+PREP(handleRescuePoint);
 PREP(getAllMissionTargets);
 PREP(testCreate);
 PREP(test);
 
 // helper funcitons
 PREPS(mainmission,__chooseLocation);
-PREPS(mainmission,__device_condition);
-PREPS(mainmission,__device_event);
-PREPS(mainmission,__device);
 PREPS(mainmission,__getAmount);
 PREPS(mainmission,__getRadius);
 PREPS(mainmission,__spawn);
@@ -29,6 +26,8 @@ PREPS(mainmission,device);
 PREPS(mainmission,emp);
 PREPS(mainmission,hostage);
 PREPS(mainmission,intel);
+PREPS(mainmission,scarab);
+PREPS(mainmission,radiotower);
 PREPS(mainmission,weaponcache);
 /*
 PREPS(mainmission,clear_cond);
@@ -38,9 +37,7 @@ PREPS(mainmission,dronecommando);
 PREPS(mainmission,prototype_cond);
 PREPS(mainmission,prototype);
 PREPS(mainmission,radiotower_cond);
-PREPS(mainmission,radiotower);
 PREPS(mainmission,scarab_cond);
-PREPS(mainmission,scarab);
 PREPS(mainmission,specops);
 PREPS(mainmission,specops_cond);
 */
@@ -88,11 +85,15 @@ PREPS(obj,initACEAction_device);
 PREPS(obj,initACEAction_secureIntel);
 PREPS(obj,onCommanderCaptured);
 PREPS(obj,onCommanderKilled);
+PREPS(obj,onDeviceDestroyed);
 PREPS(obj,onHostageKilled);
 PREPS(obj,onHostageRescued);
 PREPS(obj,onIntelFound);
 PREPS(obj,onPrototypeKilled);
 PREPS(obj,onPrototypeReturned);
+PREPS(obj,onRadiotowerDamaged);
+PREPS(obj,onScarabDestroyed);
+PREPS(obj,onScarabGunnerKilled);
 PREPS(obj,onWeaponCacheDestroyed);
 PREPS(obj,spawnEMP);
 PREPS(obj,spawnNuke);

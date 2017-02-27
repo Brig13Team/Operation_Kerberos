@@ -5,7 +5,7 @@
  *      Cleans the mission specific values after the end of a main-mission
  *
  *  Parameter(s):
- *      none
+ *      0 : HASH    - mission hash
  *
  *  Returns:
  *      none

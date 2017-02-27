@@ -5,7 +5,7 @@
  *      called to initialize a new mainmission
  *
  *  Parameter(s):
- *      0 : ARRAY - Centerposition of the mainarea
+ *      0 : HASH    - mission hash
  *
  *  Returns:
  *      none
@@ -14,7 +14,8 @@
 
 #include "script_component.hpp"
 
-_this params [["_centerPos",[],[[]]]];
+_this params ["_mission"];
+private _centerpos = HASH_GET(_mission,"location") select 1;
 TRACEV_1(_centerPos);
 
 private _gridsize = HASH_GET(GVAR(dangerzones),"gridsize");

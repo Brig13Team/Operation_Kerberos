@@ -14,10 +14,15 @@
 
 _this params ["_mission"];
 
-[_mission] call FUNC(mainmission___device);
+[_mission, {
+    _this params ["_emp"];
+
+    _emp setVariable [QGVAR(isActive),true,true];
+    _emp addEventHandler ["Killed", LINKFUNC(obj_onDeviceDestroyed)];
+}/*, 60 */] call FUNC(mainmission__oneCounter);
 
 // init device event
-HASH_SET(_mission, "event_callback",  QFUNC(mainmission___device_event));
+HASH_SET(_mission, "event_callback",  QFUNC(obj_callEvent));
 HASH_SET(_mission, "event_name",      QGVAR(emp));
 HASH_SET(_mission, "event_parameter", { getPos (_this select 0) });
 HASH_SET(_mission, "event_last",      CBA_missionTime);

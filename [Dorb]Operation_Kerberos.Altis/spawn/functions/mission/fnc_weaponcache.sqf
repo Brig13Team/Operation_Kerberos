@@ -21,7 +21,7 @@ TRACEV_3(_centerposition,_parameter,_amount);
  *  Create the target
  */
 private _wpnCache = [];
-for "_i" from 0 to _amount do {
+for "_i" from 1 to _amount do {
 
     private _targetPositions = [_centerposition,"weaponcache"] call FUNC(createMissionHouse);
     private _targetPos = selectRandom _targetPositions;

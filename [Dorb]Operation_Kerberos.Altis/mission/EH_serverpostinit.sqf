@@ -1,5 +1,5 @@
 /*
- *  Author: Dorbedo
+ *  Author: Dorbedo, iJesuz
  *
  *  Description:
  *      Server Post-Init
@@ -20,6 +20,7 @@ If ((getMarkerPos GVARMAIN(rescuemarker)) isEqualTo [0,0,0]) then {
 ********************/
 [QGVAR(emp),LINKFUNC(onEMP)] call CBA_fnc_addEventHandler;
 [QGVAR(effectDownload_Server),LINKFUNC(obj_effectDownloadServer)] call CBA_fnc_addEventHandler;
+[QEGVAR(mission,end),LINKFUNC(end)] call CBA_fnc_addEventHandler;
 
 /********************
     Missionloop

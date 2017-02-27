@@ -1,32 +1,23 @@
 /*
- * (old file)
- *
- *  Author: Dorbedo
+ *  Author: iJesuz
  *
  *  Description:
  *      Mission "SCARAB"
  *
  *  Parameter(s):
- *      0 : [STRING,ARRAY] - Destination [Locationname, Position]
+ *      0 : HASH    - mission hash
  *
  *  Returns:
- *      [CODE,ARRAY] - [Taskhandler conditional function, its arguments]
- *
+ *      -
  */
-//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-_this params [["_destination","",[""]],["_position",[],[[]]]];
+_this params ["_mission"];
 
-private _radius = getNumber(missionConfigFile >> "missions_config" >> "main" >> "scarab" >> "location" >> "distance");
+[_mission, {
+    _this params ["_scarab"];
+    private _gunner = gunner _scarab;
 
-private _objects = [_position,"scarab",_radius] call EFUNC(spawn,createMissionTarget);
-
-{
-    _x addEventHandler ["Killed", {[getPos (_this select 0)] call FUNC(objects_nuke);}];
-} forEach _objects;
-
-GVAR(scarab_timer) = CBA_missionTime + 60 * 60;
-GVAR(scarab_waiting) = true;
-If !(IS_ARRAY(_objects)) then {_objects = [_objects]};
-[QFUNC(mainmission_scarab_cond),_objects]
+    _gunner addEventHandler ["Killed", LINKFUNC(obj_onScarabGunnerKilled)];
+    _scarab addEventHandler ["Killed", LINKFUNC(obj_onScarabDestroyed)];
+}, 60] call FUNC(mainmission__oneCounter);

@@ -14,10 +14,11 @@
 #include "script_component.hpp"
 
 _this params [["_centerposition",[],[[]]],["_parameter",[]]];
-_parameter params [["_radius",300,[0]],["_amount",3,[0]]];
+_parameter params [["_amount",3,[0]],["_radius",100,[0]]];
 TRACEV_4(_centerposition,_parameter,_radius,_amount);
+
 private _targets = [];
-for "_i" from 0 to _amount do {
+for "_i" from 1 to _amount do {
 
     private _targetPositions = [_centerposition,["scarab","isObjective"],1,_radius] call FUNC(createMissionComposition);
     private _targetPos = selectRandom (_targetPositions select 0);
@@ -27,7 +28,9 @@ for "_i" from 0 to _amount do {
 
     TRACEV_2(_centerposition,_obj);
     private _curTarget = createVehicle [_obj, _targetPos,[], 0, "CAN_COLLIDE"];
-    [_curTarget] call FUNC(crew);
+    private _crew = [_curTarget, createGroup GVARMAIN(side), false] call FUNC(crew);
+    TRACEV_1(_crew);
+
     _targetPos set [2,0];
     _curTarget setPosATL _targetPos;
     If !(isNil QEFUNC(headquarter,registerPOI)) then {
@@ -41,4 +44,5 @@ for "_i" from 0 to _amount do {
     TRACEV_2(_targetPos,_curTarget);
     _targets pushBack _curTarget;
 };
-_targets;
+
+_targets

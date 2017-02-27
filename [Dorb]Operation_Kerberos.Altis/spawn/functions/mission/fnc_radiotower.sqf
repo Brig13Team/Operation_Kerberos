@@ -14,10 +14,10 @@
 #include "script_component.hpp"
 
 _this params [["_centerposition",[],[[]]],["_parameter",[]]];
-_parameter params [["_radius",300,[0]],["_amount",3,[0]]];
+_parameter params [["_amount",3,[0]],["_radius",300,[0]]];
 TRACEV_4(_centerposition,_parameter,_radius,_amount);
 private _targets = [];
-for "_i" from 0 to _amount do {
+for "_i" from 1 to _amount do {
 
     private _targetPositions = [_centerposition,["radiotower","isObjective"],1,_radius] call FUNC(createMissionComposition);
     private _targetPos = selectRandom (_targetPositions select 0);
