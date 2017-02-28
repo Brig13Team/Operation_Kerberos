@@ -1,21 +1,25 @@
+/*
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      onRespawn event
+ *
+ *  Parameter(s):
+ *      0 : [TYPE] - [argument name]
+ *
+ *  Returns:
+ *      [TYPE] - [return name]
+ *
+ */
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-SCRIPT(XEH_respawn);
+
+
+#include "script_component.hpp"
 If(!hasInterface)exitWith{};
 
-["restart"] spawn FUNC(grouptracker);
-
-ISNILS(GVAR(respawn_fnc),[]);
-{
-    _this spawn compile _x;
-}forEach GVAR(respawn_fnc);
-
-ISNILS(EGVAR(mission,intel_obj),[]);
-{
-    if (alive _x) then {
-        removeAllActions _x;
-        [_x] spawn EFUNC(mission,stadt_found_intel);
-    };
-}forEach EGVAR(mission,intel_obj);
+_this params ["_unit","_corpse"];
+CHECK(!(local _unit))
 
 If !(isNull _unit) then {
     [
