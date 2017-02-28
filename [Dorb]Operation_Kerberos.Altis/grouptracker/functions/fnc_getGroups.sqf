@@ -16,11 +16,11 @@
 private _groups = [];
 
 If ((!(isNull (getAssignedCuratorLogic player)))||(GVAR(showAll))) then {
-    _groups = allGroups;
+    _groups = allGroups select {(({alive _x}count (units _x)) >0)};
 }else{
     If (GVAR(AiIsVisible)) then {
         {
-            If ((side(leader _x ) == playerSide) and ((count (units _x)) >0)) then {
+            If ((side(leader _x ) == playerSide) and (({alive _x}count (units _x)) >0)) then {
                 _groups pushBack _x;
             };
         } forEach allGroups;

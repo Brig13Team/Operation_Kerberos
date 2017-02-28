@@ -29,10 +29,11 @@ private _groupsToDelete = _groupsToTrack - GVAR(lastGroupsToTrack);
 GVAR(lastGroupsToTrack) = _groupsToTrack;
 {
     private _groupHash = _x getVariable QGVAR(groupHash);
-    If (!isNil "_groupHash") then {
-        [_grouphash] call FUNC(deleteMarker);
-        HASH_DELETE(_groupHash);
+    If (isNil "_groupHash") exitWith {
+        [] call FUNC(restart);
     };
+    [_grouphash] call FUNC(deleteMarker);
+    HASH_DELETE(_groupHash);
 } forEach _groupsToDelete;
 
 {
