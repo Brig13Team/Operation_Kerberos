@@ -51,11 +51,12 @@ _transportVehicle doMove _centerpos;
             _transportVehicle domove _spawnpos;
             [
                 {
-                    (_this select 0) params ["_transporter","_spawnpos"];
-                    If (((_transporter distance _spawnpos) > 200)&&(canMove _transportVehicle)) exitWith {};
+                    (_this select 0) params ["_transportVehicle","_spawnpos","_transportGroup"];
+                    If (((_transportVehicle distance _spawnpos) > 200)&&(canMove _transportVehicle)) exitWith {};
                     [_this select 1] call CBA_fnc_removePerFrameHandler;
-                    {deletevehicle _x} foreach crew _transporter;
-                    deletevehicle _transporter;
+                    {deletevehicle _x} foreach crew _transportVehicle;
+                    deletevehicle _transportVehicle;
+                    deleteGroup _transportGroup;
                 },
                 30,
                 [_transporter,_spawnPos]

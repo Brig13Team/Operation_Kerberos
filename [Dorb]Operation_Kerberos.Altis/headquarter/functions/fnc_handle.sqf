@@ -29,27 +29,12 @@ GVAR(handle) = [] spawn {
             _attackPosToCreate pushBack _position;
         };
         TRACEV_4(_position,_key,_curAttackPos,_value);
-        If (!isNull _curAttackPos) then {
-            [_curAttackPos,_value] call FUNC(attackpos_update);
-        };
     } forEach ([] call FUNC(dzfindPeaks));
     TRACEV_1(_attackPosToCreate);
 
     /// create new attacklocaltions
-    private _size = (HASH_GET(GVAR(dangerzones),"gridsize")) * 1.42;
     {
-        /// should be changed in a later Version
-        private _curPos = _x;
-        TRACE(FORMAT_1("Creating new attackposition at position: %1",_curPos));
-        private _curAttackLoc = [_curPos] call FUNC(attackpos_create);
-        private _players = allPlayers select {(_x distance2D _curPos)<_size};
-        private _groups = [];
-        {
-            _groups pushBackUnique (group _x);
-        } forEach _players;
-        {
-            [_curAttackLoc,_x] call FUNC(attackpos_add);
-        } forEach _groups;
+        [_x] call FUNC(attackpos_create);
     } forEach _attackPosToCreate;
 
     /// calling supplys -

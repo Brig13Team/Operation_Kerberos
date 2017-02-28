@@ -13,20 +13,29 @@
  *      none
  *
  */
-#define DEBUG_MODE_FULL
+#define DEBUG_MODE_OFF
 #include "script_component.hpp"
 
 If (!canSuspend) then {_this spawn FUNC(onKilled);};
 
 _this params["_unit","_killer","_instigator"];
-TRACEV_3(_unit,_killer,_instigator);
 
+_killer = if ((_unit==_killer)||{isNull _killer}) then {
+    _unit getVariable ["ace_medical_lastDamageSource", _killer];
+} else { _killer };
+
+TRACEV_3(_unit,_killer,_instigator);
 CHECK(side _unit == side _killer)
+If (!isServer) exitWith {
+    TRACE("calling remote killed event");
+    [QGVAR(killedUnit),[_unit,_killer,_instigator]] call CBA_fnc_serverEvent;
+};
+
 
 If (isPlayer _unit) then {
     TRACE("Player killed");
     /// reduce the enemystrenght, if a player was killed
-    private _key = (getPos _unit) call FUNC(dzconvert);
+    private _key = [(getPos _unit)] call FUNC(dzconvert);
     private _zoneHash = HASH_GET(GVAR(dangerzones),_key);
     if (isNil "_zoneHash") then {
         _zoneHash = HASH_CREATE;
@@ -63,7 +72,6 @@ If (isPlayer _unit) then {
     // if unit is the last one in the group the units joins
     if ((count (units (group _unit)))<2) then {
         private _group = group _unit;
-        [_group] call FUNC(attackpos_reduce);
 
         // remove the group from hashes;
         private _grouphash = _group getVariable [QGVAR(grouphash),locationNull];
@@ -76,7 +84,7 @@ If (isPlayer _unit) then {
                 default {"attackGroups"};
             };
             private _groupsarray = HASH_GET(GVAR(groups),_key);
-            _groupsarray = _groupsarray - [_group];
+            _groupsarray = _groupsarray - [_grouphash];
             HASH_SET(GVAR(groups),_key,_groupsarray);
             HASH_DELETE(_grouphash);
         };
@@ -84,7 +92,7 @@ If (isPlayer _unit) then {
         // join a random defence group
         private _defenceGroups = HASH_GET(GVAR(groups),"defenceGroups");
         If !(_defenceGroups isEqualTo []) then {
-            (units (group _unit)) joinSilent (selectRandom _defenceGroups);
+            (units (group _unit)) joinSilent HASH_GET(selectRandom _defenceGroups,"group");
         };
     };
 
@@ -92,6 +100,7 @@ If (isPlayer _unit) then {
     /// TODO - only if a unit realy know about the incident
     private _deathWasKnowledged = false;
     if ((count (units (group _unit)))<1) then {
+        private _distance = 30;
         private _otherUnits = (getPos _unit) nearEntities ["Man",_distance];
         TRACEV_2(_distance,_otherUnits);
         _otherUnits = _otherUnits - [_unit]; /// TODO - evaluate if this is needed;

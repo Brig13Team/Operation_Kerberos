@@ -37,6 +37,7 @@ private _dangerzones = HASH_KEYS(GVAR(dangerzones)) select {IS_HASH(HASH_GET(GVA
         _mark setMarkerType "hd_dot";
         _mark setMarkerColor "ColorBlack";
         _mark setMarkerText format["%1",_value toFixed 0];
+        TRACEV_2(_dz,_value);
     };
 } forEach _dangerzones;
 

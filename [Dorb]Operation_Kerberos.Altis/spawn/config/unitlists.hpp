@@ -39,6 +39,7 @@ class GVAR(unitlists) {
         art_rocket[] = {"RHS_BM21_VDV_01"};
 
         trucks[] = {"RHS_Ural_VDV_01","RHS_Ural_Open_VDV_01","rhs_gaz66_vdv","rhs_gaz66o_vdv"};
+        ifv[] = {"rhs_btr80a_vdv","rhs_btr80_vdv"};
         cars[] = {"rhs_tigr_VDV","rhs_tigr_ffv_vdv","rhs_tigr_3camo_vdv","rhs_tigr_ffv_3camo_vdv"};
         tanks[] = {"rhs_t72ba_tv","rhs_t72bb_tv","rhs_t72bc_tv","rhs_t72bd_tv"};
         divers[] = {"O_diver_f","O_diver_exp_f","O_diver_TL_f","O_diver_f","O_diver_exp_f","O_diver_f"};
@@ -265,7 +266,7 @@ class GVAR(unitlists) {
                     {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry_emr","rhs_group_rus_MSV_infantry_emr_squad_2mg"}
                 };
             };
-            class groups {
+            class groups : groups {
                 groups_patrol[] = {
                     {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_section_AA"},
                     {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_section_AT"},
@@ -441,7 +442,7 @@ class GVAR(unitlists) {
                     {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_infantry_emr","rhs_group_rus_VDV_infantry_emr_squad_2mg"}
                 };
             };
-            class groups {
+            class groups : groups {
                 groups_patrol[] = {
                     {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_infantry","rhs_group_rus_VDV_infantry_section_AA"},
                     {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_infantry","rhs_group_rus_VDV_infantry_section_AT"},
@@ -631,7 +632,7 @@ class GVAR(unitlists) {
                     {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_squad_2mg"}
                 };
             };
-            class groups {
+            class groups : groups {
                 groups_patrol[] = {
                     {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_section_AA"},
                     {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_section_AT"},
@@ -781,7 +782,7 @@ class GVAR(unitlists) {
                     {"configfile","CfgGroups","East","rhs_faction_vdv","rhs_group_rus_vdv_infantry_recon","rhs_group_rus_vdv_infantry_recon_squad_sniper"}
                 };
             };
-            class groups {
+            class groups : groups {
                 groups_patrol[] = {
                     {"configfile","CfgGroups","East","rhs_faction_vdv","rhs_group_rus_vdv_infantry_recon","rhs_group_rus_vdv_infantry_recon_fireteam"},
                     {"configfile","CfgGroups","East","rhs_faction_vdv","rhs_group_rus_vdv_infantry_recon","rhs_group_rus_vdv_infantry_recon_MANEUVER"},

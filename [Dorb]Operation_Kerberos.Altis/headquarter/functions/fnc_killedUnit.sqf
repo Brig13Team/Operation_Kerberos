@@ -14,6 +14,7 @@
  *      none
  *
  */
+#define DEBUG_MODE_OFF
 #include "script_component.hpp"
 
 _this params ["_killedUnit","_killer","_instigator"];

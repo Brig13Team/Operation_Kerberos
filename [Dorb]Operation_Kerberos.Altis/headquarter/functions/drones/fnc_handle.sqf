@@ -31,7 +31,7 @@ for "_i" from 0 to (count _requests - 1) do {
 GVAR(drones_requestedAirstrikes) = _leftrequests;
 
 
-_requests = missionNamespace getVariable [GVAR(drones_requestedReconnaissances),[]];
+_requests = missionNamespace getVariable [QGVAR(drones_requestedReconnaissances),[]];
 _leftrequests = [];
 for "_i" from 0 to (count _requests - 1) do {
     if ((_requests select _i select 1) <= serverTime) then {

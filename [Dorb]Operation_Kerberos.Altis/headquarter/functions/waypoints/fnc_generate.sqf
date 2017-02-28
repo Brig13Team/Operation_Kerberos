@@ -37,8 +37,8 @@ If (_startKey isEqualTo _targetKey) exitWith {
     [_start,_target]
 };
 private ["_startKeypos","_targetKeypos","_distance","_Keydifferenz","_waypointsActivated","_waypointsDeactivated"];
-_startKeypos = getArray(missionconfigFile >> "maps" >> worldname >> _startKey >> "position");
-_targetKeypos = getArray(missionconfigFile >> "maps" >> worldname >> _targetKey >> "position");
+_startKeypos = getArray(missionconfigFile >> "maps" >> worldname >> _startKey >> "pos");
+_targetKeypos = getArray(missionconfigFile >> "maps" >> worldname >> _targetKey >> "pos");
 _distance = _startKeypos distance2D _targetKeypos;
 _Keydifferenz = 50;
 
@@ -69,7 +69,7 @@ while {_active} do {
     _nextValue = getNumber(missionconfigFile >> "maps" >> worldname >> _nextKey >> "XM");
     if (_nextValue > 0) then {
         private ["_nextPos","_value","_inside"];
-        _nextPos = getArray(missionconfigFile >> "maps" >> worldname >> _nextKey >> "position");
+        _nextPos = getArray(missionconfigFile >> "maps" >> worldname >> _nextKey >> "pos");
         _value = _currentWay + _currentDistance + (If (_evade) then {[_nextKey,_distance] call FUNC(waypoints_evade)}else{0});
         _inside = 0;
         _inside = ({
@@ -98,7 +98,7 @@ while {_active} do {
     _nextValue = getNumber(missionconfigFile >> "maps" >> worldname >> _nextKey >> "XP");
     if (_nextValue > 0) then {
         private ["_nextPos","_value","_inside"];
-        _nextPos = getArray(missionconfigFile >> "maps" >> worldname >> _nextKey >> "position");
+        _nextPos = getArray(missionconfigFile >> "maps" >> worldname >> _nextKey >> "pos");
         _value = _currentWay + _currentDistance + (If (_evade) then {[_nextKey,_distance] call FUNC(waypoints_evade)}else{0});
         _inside = 0;
         _inside = ({
@@ -127,7 +127,7 @@ while {_active} do {
     _nextValue = getNumber(missionconfigFile >> "maps" >> worldname >> _nextKey >> "YM");
     if (_nextValue > 0) then {
         private ["_nextPos","_value","_inside"];
-        _nextPos = getArray(missionconfigFile >> "maps" >> worldname >> _nextKey >> "position");
+        _nextPos = getArray(missionconfigFile >> "maps" >> worldname >> _nextKey >> "pos");
         _value = _currentWay + _currentDistance + (If (_evade) then {[_nextKey,_distance] call FUNC(waypoints_evade)}else{0});
         _inside = 0;
         _inside = ({
@@ -156,7 +156,7 @@ while {_active} do {
     _nextValue = getNumber(missionconfigFile >> "maps" >> worldname >> _nextKey >> "YP");
     if (_nextValue > 0) then {
         private ["_nextPos","_value","_inside"];
-        _nextPos = getArray(missionconfigFile >> "maps" >> worldname >> _nextKey >> "position");
+        _nextPos = getArray(missionconfigFile >> "maps" >> worldname >> _nextKey >> "pos");
         _value = _currentWay + _currentDistance + (If (_evade) then {[_nextKey,_distance] call FUNC(waypoints_evade)}else{0});
         _inside = 0;
         _inside = ({
@@ -188,7 +188,7 @@ while {_active} do {
     _nextValue = getNumber(missionconfigFile >> "maps" >> worldname >> _nextKey >> "XMYM");
     if (_nextValue > 0) then {
         private ["_nextPos","_value","_inside"];
-        _nextPos = getArray(missionconfigFile >> "maps" >> worldname >> _nextKey >> "position");
+        _nextPos = getArray(missionconfigFile >> "maps" >> worldname >> _nextKey >> "pos");
         _value = _currentWay + _currentDistance + (If (_evade) then {[_nextKey,_distance] call FUNC(waypoints_evade)}else{0});
         _inside = 0;
         _inside = ({
@@ -217,7 +217,7 @@ while {_active} do {
     _nextValue = getNumber(missionconfigFile >> "maps" >> worldname >> _nextKey >> "XPYP");
     if (_nextValue > 0) then {
         private ["_nextPos","_value","_inside"];
-        _nextPos = getArray(missionconfigFile >> "maps" >> worldname >> _nextKey >> "position");
+        _nextPos = getArray(missionconfigFile >> "maps" >> worldname >> _nextKey >> "pos");
         _value = _currentWay + _currentDistance + (If (_evade) then {[_nextKey,_distance] call FUNC(waypoints_evade)}else{0});
         _inside = 0;
         _inside = ({
@@ -246,7 +246,7 @@ while {_active} do {
     _nextValue = getNumber(missionconfigFile >> "maps" >> worldname >> _nextKey >> "XPYM");
     if (_nextValue > 0) then {
         private ["_nextPos","_value","_inside"];
-        _nextPos = getArray(missionconfigFile >> "maps" >> worldname >> _nextKey >> "position");
+        _nextPos = getArray(missionconfigFile >> "maps" >> worldname >> _nextKey >> "pos");
         _value = _currentWay + _currentDistance + (If (_evade) then {[_nextKey,_distance] call FUNC(waypoints_evade)}else{0});
         _inside = 0;
         _inside = ({
@@ -275,7 +275,7 @@ while {_active} do {
     _nextValue = getNumber(missionconfigFile >> "maps" >> worldname >> _nextKey >> "XMYP");
     if (_nextValue > 0) then {
         private ["_nextPos","_value","_inside"];
-        _nextPos = getArray(missionconfigFile >> "maps" >> worldname >> _nextKey >> "position");
+        _nextPos = getArray(missionconfigFile >> "maps" >> worldname >> _nextKey >> "pos");
         _value = _currentWay + _currentDistance + (If (_evade) then {[_nextKey,_distance] call FUNC(waypoints_evade)}else{0});
         _inside = 0;
         _inside = ({
@@ -307,10 +307,10 @@ while {_active} do {
 
 #ifdef DEBUG_MARKER
 {
-    [getArray(missionconfigFile >> "maps" >> worldname >> (_x select 3) >> "position"),format["%1_%2_%3",_x select 0,_x select 1,_x select 2]] call EFUNC(common,debug_marker_create);
+    [getArray(missionconfigFile >> "maps" >> worldname >> (_x select 3) >> "pos"),format["%1_%2_%3",_x select 0,_x select 1,_x select 2]] call EFUNC(common,debug_marker_create);
 }forEach _waypointsActivated;
 {
-    [getArray(missionconfigFile >> "maps" >> worldname >> (_x select 3) >> "position"),format["%1_%2_%3",_x select 0,_x select 1,_x select 2],"ColorBlue"] call EFUNC(common,debug_marker_create);
+    [getArray(missionconfigFile >> "maps" >> worldname >> (_x select 3) >> "pos"),format["%1_%2_%3",_x select 0,_x select 1,_x select 2],"ColorBlue"] call EFUNC(common,debug_marker_create);
 }forEach _waypointsDeactivated;
 #endif
 
@@ -359,7 +359,7 @@ while {_active} do {
     If !(_nextWP isEqualTo "") then {
         _waypoints append [_nextWP];
         #ifdef DEBUG_MARKER
-            [getArray(missionconfigFile >> "maps" >> worldname >> _nextWP >> "position"),"","ColorBlack","hd_objective"] call EFUNC(common,debug_marker_create);
+            [getArray(missionconfigFile >> "maps" >> worldname >> _nextWP >> "pos"),"","ColorBlack","hd_objective"] call EFUNC(common,debug_marker_create);
         #endif
     };
 };
@@ -369,7 +369,7 @@ reverse _waypoints;
 _return = [_start];
 {
     private ["_temp"];
-    _temp = (getArray(missionconfigFile >> "maps" >> worldname >> _x >> "position"));
+    _temp = (getArray(missionconfigFile >> "maps" >> worldname >> _x >> "pos"));
     TRACEV_1(_temp);
     _return pushBack _temp;
 } forEach _waypoints;

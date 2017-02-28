@@ -121,7 +121,7 @@ HASH_SET(GVAR(handles),"ressources",_handle);
 /// Events
 [QEGVAR(mission,start),{_this call FUNC(MissionInit);}] call CBA_fnc_addEventHandler;
 [QEGVAR(mission,end),{_this call FUNC(MissionCleanUp);}] call CBA_fnc_addEventHandler;
-
+[QGVAR(killedUnit),{_this call FUNC(onKilled);}] call CBA_fnc_addEventHandler;
 
 // DEBUG
 GVAR(debugMarkerActive) = false;

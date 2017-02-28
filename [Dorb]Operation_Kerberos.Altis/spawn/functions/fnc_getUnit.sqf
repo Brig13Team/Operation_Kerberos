@@ -50,6 +50,10 @@ switch _grouptype do {
         private _allUnits = getArray(_cfg >> "tanks");
         selectRandom _allUnits;
     };
+    case "ifv" : {
+        private _allUnits = getArray(_cfg >> "ifv");
+        selectRandom _allUnits;
+    };
     case "group_infantry" : {
         private _allUnits = getArray(_cfg >> "callIn" >> "group_infantry");
         selectRandom _allUnits;
