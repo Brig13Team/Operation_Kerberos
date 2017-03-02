@@ -24,6 +24,7 @@ PREP(addToLog);
 PREP(debug_performance);
 PREP(getComponents);
 
+PREP(allHashLocations);
 PREP(HashCollector);
 PREP(HashGetKeyFromValue);
 PREP(HashCopy);
