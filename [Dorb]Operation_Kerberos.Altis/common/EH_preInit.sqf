@@ -23,8 +23,6 @@ PREP(handledamage_C4);
 
 PREP(list_groups);
 
-PREP(getPos);
-
 PREP(players);
 PREP(setOwner);
 PREP(pos_between);
