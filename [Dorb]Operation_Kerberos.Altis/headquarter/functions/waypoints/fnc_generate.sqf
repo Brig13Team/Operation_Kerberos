@@ -13,6 +13,7 @@
  *      ARRAY - The generated waypoints
  *
  */
+#define DEBUG_MODE_OFF
 #include "script_component.hpp"
 
 _this params[
@@ -20,7 +21,7 @@ _this params[
     ["_target",[],[[],objNull]],
     ["_evade",false,[true]]
     ];
-
+TRACEV_3(_start,_target,_evade);
 If (IS_OBJECT(_start)) then {_start = getPos _start;};
 If (IS_OBJECT(_target)) then {_target = getPos _target;};
 
