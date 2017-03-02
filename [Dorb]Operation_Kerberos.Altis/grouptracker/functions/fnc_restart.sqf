@@ -21,8 +21,10 @@ GVAR(allMarker) = [];
 
 {
     private _groupHash = _x getVariable QGVAR(groupHash);
-    If !(isNil "_groupHash") exitWith {
+    If !(isNil "_groupHash") then {
         HASH_DELETE(_groupHash);
-        _x setVariable [QGVAR(groupHash),nil];
+        _x setVariable [QGVAR(groupHash),locationNull];
     };
 } forEach allGroups;
+
+GVAR(grouphashes) = [];
