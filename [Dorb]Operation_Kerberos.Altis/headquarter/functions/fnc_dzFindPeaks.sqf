@@ -37,7 +37,7 @@ private _gridsize = HASH_GET(GVAR(dangerzones),"gridsize");
     {
 
         If (HASH_HASKEY(GVAR(dangerzones),_x)) then {
-            _curVal = _curVal + HASH_GET_DEF(HASH_GET(GVAR(dangerzones),_curKey),"enemystrenght",0);
+            _curVal = _curVal + HASH_GET_DEF(HASH_GET(GVAR(dangerzones),_curKey),"enemystrength",0);
         };
     } forEach [
         format["%1_%2",_xKey,_yKey]

@@ -27,7 +27,7 @@ GVAR(debugMarker) = [];
 private _dangerzones = HASH_KEYS(GVAR(dangerzones)) select {IS_HASH(HASH_GET(GVAR(dangerzones),_x))};
 {
     private _dz = _x;
-    private _value = HASH_GET(HASH_GET(GVAR(dangerzones),_dz),"enemystrenght");
+    private _value = HASH_GET(HASH_GET(GVAR(dangerzones),_dz),"enemystrength");
     If (!isNil "_value") then {
         private _position = [_dz] call FUNC(dzconvert);
         _position set [1,(_position select 1)-5];

@@ -26,4 +26,4 @@ private _newGroup = [_spawnpos, _grouptype] call EFUNC(spawn,group);
 [_newGroup,"attack"] call FUNC(registerGroup);
 [_newGroup,"retreat",_targetPos] call FUNC(state_set);
 
-(([_newGroup] call FUNC(strenghtAi)) param [1,0]);
+(([_newGroup] call FUNC(strengthAI)) param [1,0]);

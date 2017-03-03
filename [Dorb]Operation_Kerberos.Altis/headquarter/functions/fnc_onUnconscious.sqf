@@ -30,16 +30,16 @@ If (isNil "_unconciousArray") then {
 };
 
 private _unconciousHash = HASH_CREATE;
-private _strenghtArray = _player call FUNC(strengthPlayer);
+private _strengthArray = _player call FUNC(strengthPlayer);
 /// create a hash for monitoring th revive
 HASH_SET(_unconciousHash,"player",_player);
 HASH_GET(_zoneHash,"unconciousPlayers") pushBackUnique _player;
-HASH_SET(_unconciousHash,"type",_strenghtArray select 0);
-HASH_SET(_unconciousHash,"value",_strenghtArray select 1);
-HASH_SET(_unconciousHash,"threa",_strenghtArray select 2);
+HASH_SET(_unconciousHash,"type",_strengthArray select 0);
+HASH_SET(_unconciousHash,"value",_strengthArray select 1);
+HASH_SET(_unconciousHash,"threa",_strengthArray select 2);
 HASH_GET(_zoneHash,"unconcious") pushBack _unconciousHash;
-/// modify the enemy Strenght
-private _strenghtEnemy = HASH_GET(_zoneHash,"enemystrenght");
-If (isNil "_strenghtEnemy") then {_strenghtEnemy = 0;};
-_strenghtEnemy = (_strenghtEnemy - (_strenghtArray select 1)) max 0;
-HASH_SET(_zoneHash,"enemystrenght",_strenghtEnemy);
+/// modify the enemy strength
+private _strengthEnemy = HASH_GET(_zoneHash,"enemystrength");
+If (isNil "_strengthEnemy") then {_strengthEnemy = 0;};
+_strengthEnemy = (_strengthEnemy - (_strengthArray select 1)) max 0;
+HASH_SET(_zoneHash,"enemystrength",_strengthEnemy);

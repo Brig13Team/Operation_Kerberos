@@ -43,7 +43,7 @@ If !(_group in _enemygroups) then {
 
     // the type of the playerunits
     private _currentType = HASH_GET_DEF(_attackLoc,"enemytype",[ARR_3(0,0,0)]);
-    // the strenght of the playerunits depending on the type
+    // the strength of the playerunits depending on the type
     private _currentValue = HASH_GET_DEF(_attackLoc,"enemyvalue",[ARR_3(0,0,0)]);
     // the threat to possible AI attacks (e.g. strong AT/AA) -> needed for the choosing of the strategie
     private _currentThreat = HASH_GET_DEF(_attackLoc,"enemythreat",[ARR_3(0,0,0)]);

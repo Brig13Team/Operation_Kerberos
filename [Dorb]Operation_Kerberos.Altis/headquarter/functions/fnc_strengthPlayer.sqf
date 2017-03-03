@@ -2,7 +2,7 @@
  *  Author: Dorbedo
  *
  *  Description:
- *      returns the strenght of a player or a group of players
+ *      returns the strength of a player or a group of players
  *
  *  Parameter(s):
  *      0 : GROUP/OBJECT - Group of a player or a player himself
@@ -64,7 +64,7 @@ private _type = 0;
         ];
     };
     //private _coef = (getNumber(configFile >> "CfgVehicles" >> _similiSoldier >> "costTurnCoef")) max 0.025;
-    _value = _value + ([_similiSoldier] call FUNC(getCost)) /* * _coef */;
+    _value = _value + ([_similiSoldier] call FUNC(getCost)) /* * _coef */ * ([_x] call FUNC(getPlayerCoeff));
 }forEach _soldiers;
 
 
@@ -78,7 +78,7 @@ private _type = 0;
             (_threat select 2) max (_temp select 2)
         ];
     };
-    _value = _value + ([typeOf _x] call FUNC(getCost));
+    _value = _value + ([typeOf _x] call FUNC(getCost)) * ([_x] call FUNC(getPlayerCoeff));
 } forEach _vehicles;
 
 [_type,_value,_threat];

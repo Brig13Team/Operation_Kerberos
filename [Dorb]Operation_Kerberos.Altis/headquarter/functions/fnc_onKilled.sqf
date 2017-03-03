@@ -34,7 +34,7 @@ If (!isServer) exitWith {
 
 If (isPlayer _unit) then {
     TRACE("Player killed");
-    /// reduce the enemystrenght, if a player was killed
+    /// reduce the enemystrength, if a player was killed
     private _key = [(getPos _unit)] call FUNC(dzconvert);
     private _zoneHash = HASH_GET(GVAR(dangerzones),_key);
     if (isNil "_zoneHash") then {
@@ -59,12 +59,12 @@ If (isPlayer _unit) then {
         HASH_SET(_zoneHash,"unconcious",_unconciousHash);
     };
     If !(_alreadyReduces) then {
-        /// reduce the enemyStrenght
-        private _strenghtArray = _unit call FUNC(strengthPlayer);
-        private _strenghtEnemy = HASH_GET(_zoneHash,"enemystrenght");
-        If (isNil "_strenghtEnemy") then {_strenghtEnemy = 0;};
-        _strenghtEnemy = (_strenghtEnemy - (_strenghtArray select 1)) max 0;
-        HASH_SET(_zoneHash,"enemystrenght",_strenghtEnemy);
+        /// reduce the enemystrength
+        private _strengthArray = _unit call FUNC(strengthPlayer);
+        private _strengthEnemy = HASH_GET(_zoneHash,"enemystrength");
+        If (isNil "_strengthEnemy") then {_strengthEnemy = 0;};
+        _strengthEnemy = (_strengthEnemy - (_strengthArray select 1)) max 0;
+        HASH_SET(_zoneHash,"enemystrength",_strengthEnemy);
     };
 }else{
     //  a ai Unit was Killed

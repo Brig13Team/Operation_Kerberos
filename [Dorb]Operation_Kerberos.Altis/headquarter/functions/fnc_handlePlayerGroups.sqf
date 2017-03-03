@@ -2,7 +2,7 @@
  *  Author: Dorbedo
  *
  *  Description:
- *      updates the strenght of the playergroups
+ *      updates the strength of the playergroups
  *      gets the values over time to prevent smaller attacks if the units moved out of a vehicle
  *
  *  Parameter(s):
@@ -37,7 +37,7 @@ If (_fullCheck) then {
             [_group] call FUNC(registerPlayerGroup);
         };
         GVAR(playergroups_new) pushBackUnique _grouphash;
-        private _strenghtArray = (_group call FUNC(strengthPlayer)) params ["_GroupType","_value","_threat"];
+        private _strengthArray = (_group call FUNC(strengthPlayer)) params ["_GroupType","_value","_threat"];
 
         private _temphistory = (HASH_GET(_grouphash,"typehistory"));
         If (count _temphistory >= 10) then {_temphistory deleteAt 0;};

@@ -33,8 +33,8 @@ If (_value < 0) then {
         If ((_tempkeyX>=0)&&(_tempkeyX<_maxKey)&&(_tempkeyY>=0)&&(_tempkeyY<_maxKey)) then {
             private _tempkey = format ["%1_%2",_tempkeyX,_tempkeyY];
             private _zoneHash = HASH_GET(GVAR(dangerzones),_tempkey);
-            private _strenghtEnemy = HASH_GET(_zoneHash,"enemystrenght");
-            If ((!(isNil "_strenghtEnemy"))&&{_strenghtEnemy > 0}) then {
+            private _strengthEnemy = HASH_GET(_zoneHash,"enemystrength");
+            If ((!(isNil "_strengthEnemy"))&&{_strengthEnemy > 0}) then {
                 _value = _value + 1;
             };
         };
