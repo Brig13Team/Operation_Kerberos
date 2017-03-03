@@ -16,12 +16,10 @@ if (leader _caller == _caller) exitWith {
     [LSTRING(LEAD_FAIL),LSTRING(LEAD_ISLEADER),"red"] call EFUNC(gui,message);
 };
 
-private _serverkey = missionNamespace getVariable [QGVARMAIN(missionkeyServer),"ERROR"];
-private _missionkey = missionNamespace getVariable [QGVARMAIN(missionkey),"ERROR"];
 private _missiontime = missionNamespace getVariable [QGVARMAIN(missiontime),CBA_missiontime];
 
 #ifdef TELEPORT_TIMEOUT
-    If ((_serverkey == _missionkey)&&{(_missiontime - CBA_missiontime + 1200) > 0}) exitWith {
+    If ((!GVAR(freeTeleport))&&{(_missiontime - CBA_missiontime + 1200) > 0}) exitWith {
         [
             LSTRING(TELEPORT),
             format [localize LSTRING(LEAD_WAIT),
@@ -70,7 +68,7 @@ if ((vehicle _caller) == _caller) then {
 };
 #ifdef TELEPORT_TIMEOUT
     if (_isTeleported) then {
-        GVARMAIN(missionkey) = _serverkey;
+        GVAR(freeTeleport) = false;
         GVARMAIN(missiontime) = CBA_missiontime;
     };
 #endif

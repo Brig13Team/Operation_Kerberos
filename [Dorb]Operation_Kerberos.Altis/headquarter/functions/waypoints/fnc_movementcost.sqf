@@ -3,6 +3,7 @@
  *
  *  Description:
  *      returns the movement costs
+ *      *** OBSOLET ? ****
  *
  *  Parameter(s):
  *      0 : ARRAY - The starting point

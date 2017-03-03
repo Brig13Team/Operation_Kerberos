@@ -22,6 +22,9 @@ switch (_type) do {
     case "helicopter" : {
         true;
     };
+    case "drones" : {
+        (GVARMAIN(side_type) == "droneoperations")
+    };
 
-    default {[] call FUNC(CanCallInUnits);};
+    default {[_type] call FUNC(ressources_CanCallInUnits);};
 };

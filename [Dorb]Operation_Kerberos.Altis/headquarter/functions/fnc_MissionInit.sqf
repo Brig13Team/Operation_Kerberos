@@ -34,6 +34,10 @@ HASH_DELETE(GVAR(waypoints));
 GVAR(waypoints) = HASH_CREATE;
 HASH_SET(GVAR(waypoints),"deactivated",[]);
 
+If (GVARMAIN(side_type) in ["droneoperations","specops"]) then {
+    [] call FUNC(drones_onMissionStart);
+};
 
+GVAR(missionStartTime) = CBA_missiontime;
 
 GVAR(active) = true;

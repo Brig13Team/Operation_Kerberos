@@ -10,7 +10,7 @@
 
 class DOUBLES(CfgComponent,ADDON) {
     class clientpostinit {server = 0;};
-    class initpost {};
+    class initpostServer {client = 0;};
     class killed {};
     class preinit {};
     class serverpostinit {client = 0;};

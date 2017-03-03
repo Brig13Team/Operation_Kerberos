@@ -15,5 +15,5 @@
 
 
 (
-    (east countSide allUnits) < 150
+    (GVARMAIN(side) countSide allUnits) < 150
 )

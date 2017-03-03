@@ -12,7 +12,7 @@ private "_handle";
 ["medical_onUnconscious", {
     _this params ["_unit", "_status"];
     if ((isplayer _unit)&&(_status)) then {
-        [_unit] call FUNC(player_unconscious);
+        [_unit] call FUNC(onUnconscious);
     };
 }] call ace_common_fnc_addEventHandler;
 /*************************
@@ -54,6 +54,24 @@ HASH_SET(GVAR(antiair),"static",[]);
 GVAR(active) = false;
 GVAR(handle) = scriptNull;
 
+/*************************
+*
+*       Drones
+*
+*************************/
+GVAR(drones_isActive) = false;
+GVAR(drones_attackIntervall) = 600;
+GVAR(drones_lastAttackRequest) = CBA_missiontime;
+GVAR(drones_reconIntervall) = 600;
+GVAR(drones_lastReconRequest) = CBA_missiontime;
+GVAR(drones_requestedAirstrikes) = [];
+GVAR(drones_requestedReconnaissances) = [];
+GVAR(drones_availableAttackDrones) = [];
+GVAR(drones_availableReconDrones) = [];
+
+GVAR(drones_handle) = [LINKFUNC(drones_handle),10,[]] call CBA_fnc_addPerFrameHandler;
+
+
 /// ressources
 GVAR(ressources_amount) = 0;
 
@@ -91,14 +109,23 @@ HASH_SET(GVAR(POI),"locations",[]);
 /// Handles
 _handle = [LINKFUNC(handle),INTERVALL_HQ,[]] call CBA_fnc_addPerFrameHandler;
 HASH_SET(GVAR(handles),"main",_handle);
-_handle = [LINKFUNC(check_radars),INTERVALL_RADARS,[]] call CBA_fnc_addPerFrameHandler;
+_handle = [LINKFUNC(handleRadars),INTERVALL_RADARS,[]] call CBA_fnc_addPerFrameHandler;
 HASH_SET(GVAR(handles),"radars",_handle);
-_handle = [LINKFUNC(handlePlayerGroups),INTERVALL_PLAYERGROUPS,[]] call CBA_fnc_addPerFrameHandler;
+_handle = [LINKFUNC(handlePlayerGroups),INTERVALL_PLAYERGROUPS,[false]] call CBA_fnc_addPerFrameHandler;
 HASH_SET(GVAR(handles),"playergroups",_handle);
 _handle = [LINKFUNC(handleAA),INTERVALL_AA,[]] call CBA_fnc_addPerFrameHandler;
 HASH_SET(GVAR(handles),"antiair",_handle);
-
+_handle = [LINKFUNC(ressources_handle),INTERVALL_RESSOURCES,[]] call CBA_fnc_addPerFrameHandler;
+HASH_SET(GVAR(handles),"ressources",_handle);
 
 /// Events
-[QEGVAR(mission,start),{GVAR(active) = true;_this call FUNC(MissionInit);}] call CBA_fnc_addEventHandler;
-[QEGVAR(mission,end),{GVAR(active) = false;_this call FUNC(MissionCleanUp);}] call CBA_fnc_addEventHandler;
+[QEGVAR(mission,start),{_this call FUNC(MissionInit);}] call CBA_fnc_addEventHandler;
+[QEGVAR(mission,end),{_this call FUNC(MissionCleanUp);}] call CBA_fnc_addEventHandler;
+[QGVAR(killedUnit),{_this call FUNC(onKilled);}] call CBA_fnc_addEventHandler;
+
+// DEBUG
+GVAR(debugMarkerActive) = false;
+#ifdef DEBUG_MODE_FULL
+    GVAR(debugMarkerActive) = true;
+    [FUNC(handleDebugMarker),60,[]] call CBA_fnc_addPerFrameHandler;
+#endif

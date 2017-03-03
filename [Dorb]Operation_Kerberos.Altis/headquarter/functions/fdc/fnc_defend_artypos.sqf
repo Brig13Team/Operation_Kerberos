@@ -7,6 +7,8 @@
 */
 #include "script_component.hpp"
 
+CHECK(!GVAR(active))
+
 private _newcommands = [];
 private _fnc_searchArea = {
     _this params["_unit","_min","_max","_type"];

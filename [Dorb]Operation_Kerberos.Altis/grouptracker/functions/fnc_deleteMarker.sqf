@@ -21,8 +21,8 @@ private _marker2 = HASH_GET(_groupHash,"marker2");
 deleteMarkerLocal _marker1;
 deleteMarkerLocal _marker2;
 
-GVAR(allMarker) = GVAR(allMarker) - _marker1;
-GVAR(allMarker) = GVAR(allMarker) - _marker2;
+GVAR(allMarker) = GVAR(allMarker) - [_marker1];
+GVAR(allMarker) = GVAR(allMarker) - [_marker2];
 
 HASH_SET(_groupHash,"marker1",nil);
 HASH_SET(_groupHash,"marker2",nil);

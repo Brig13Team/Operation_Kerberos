@@ -50,7 +50,7 @@ GVAR(arsenal_boxes) = [];
     {[ace_player] call FUNC(canOpenMenu);},
     "\A3\ui_f\data\logos\arsenal_1024_ca.paa",
     2
-] call EFUNC(gui_tablet,addApp);
+] call EFUNC(gui_echidna,addApp);
 
 [
     QGVAR(Arsenal),

@@ -7,9 +7,16 @@
 */
 #include "script_component.hpp"
 
+If !(canSuspend) exitWIth {
+    _this spawn FUNC(OpenMenu);
+};
+
+
 If (GVAR(level)<1) exitWith {
     ["Open",true] spawn BIS_fnc_arsenal;
 };
+
+[EGVAR(patch_acre,removeRadio)] call CBA_fnc_localEvent;
 
 If (GVAR(level)<2) exitWith {
     If (isNull(missionNamespace getVariable [QGVAR(level_1_obj),objNull])) exitWith {

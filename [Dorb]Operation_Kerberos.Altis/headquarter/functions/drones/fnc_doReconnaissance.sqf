@@ -1,15 +1,15 @@
 /*
     Author: iJesuz
-    
+
     Description:
-    
+
     Parameter(s):
         0 : OBJECT - drone
         1 : ARRAY/OBJECT - position or target object
 
     Retruns:
         BOOLEAN
-    
+
 */
 #include "script_component.hpp"
 SCRIPT(doReconnaissance);
@@ -18,19 +18,16 @@ params ["_target",["_caller",objNull,[objNull]],["_func",{},[{}]]];
 private ["_drone","_rdrones","_scan_radius","_pos","_wp_type","_dir","_height","_posBegin","_radius","_onExit"];
 
 _onExit = {
-    private ["_rdrones"];
-    _rdrones = GETVAR(missionNamespace,GVAR(availableReconDrones),[]);
-    _rdrones pushback (typeOf _this);
-    SETVAR(missionNamespace,GVAR(availableReconDrones),_rdrones);
+    GVAR(drones_availableReconDrones) pushback (typeOf _this);
     deleteVehicle _this;
 };
 
-_rdrones = GETVAR(missionNamespace,GVAR(availableReconDrones),[]);
+_rdrones = GVAR(drones_availableReconDrones);
 if (count _rdrones == 0) exitWith { false };
 
 _drone = _rdrones select (count _rdrones - 1);
 _rdrones resize (count _rdrones - 1);
-SETVAR(missionNamespace,GVAR(availableReconDrones),_rdrones);
+GVAR(drones_availableReconDrones) = _rdrones;
 
 _drone = createVehicle [_drone,[0,0,2000],[],0,"FLY"];
 createVehicleCrew _drone;
@@ -56,7 +53,7 @@ _drone setPos _posBegin;
 _drone setDir (_dir + 180);
 if (!([_drone,_wp_type,_pos] call FUNC(drones_createWaypoint))) exitWith { _drone call _onExit; false };
 
-while { (((waypointPosition (waypoints _drone select 0)) distance2D _drone) >= (_radius + 50)) } do { 
+while { (((waypointPosition (waypoints _drone select 0)) distance2D _drone) >= (_radius + 50)) } do {
     uiSleep 1;
     ((waypointPosition (waypoints _drone select 0)) distance2D _drone) call BIS_fnc_log;
 };
@@ -73,7 +70,7 @@ uiSleep 30;
 if(isNull _drone) exitWith { _drone call _onExit; false };
 if (!([_drone,"MOVE",_posBegin] call FUNC(drones_createWaypoint))) exitWith { _drone call _onExit; false };
 
-while { ((waypointPosition (waypoints _drone select 0)) distance2D _drone) >= 50 } do { 
+while { ((waypointPosition (waypoints _drone select 0)) distance2D _drone) >= 50 } do {
     uiSleep 1;
 };
 
