@@ -85,7 +85,7 @@ HASH_SET(GVAR(groups),"attackGroups",[]);
 GVAR(playergroups_new) = 0;
 
 /// radars
-GVAR(radars) = CREATE_HASH;
+GVAR(radars) = HASH_CREATE;
 HASH_SET(GVAR(radars),"objects",[]);
 HASH_SET(GVAR(radars),"targets",[]);
 
