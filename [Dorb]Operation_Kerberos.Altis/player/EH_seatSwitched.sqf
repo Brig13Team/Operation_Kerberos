@@ -7,7 +7,7 @@
  */
 #include "script_component.hpp"
 
-If (hasInterface) then {
+If (!hasInterface) then {
     ["Air", "seatSwitched", {
         _this call FUNC(onseatswitched);
     },true,[],true] call CBA_fnc_addClassEventHandler;
