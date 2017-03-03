@@ -130,4 +130,5 @@ private _loadingScreenID = [localize LSTRING(CREATE_LIST)] call EFUNC(gui,startL
 
 profileNamespace setVariable [QGVAR(arsenalList_Full_version),_version];
 profileNamespace setVariable [QGVAR(arsenalList_Full),[_addWeapons,_addMagazines,_addItems,_addBackpacks,_fixWeapons,_fixMagazines,_fixItems,_fixBackpacks]];
+saveProfileNamespace;
 GVAR(arsenalList_Full) = [_addWeapons,_addMagazines,_addItems,_addBackpacks,_fixWeapons,_fixMagazines,_fixItems,_fixBackpacks];

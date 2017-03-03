@@ -181,4 +181,5 @@ switch (_side) do {
 
 profileNamespace setVariable [format[QGVAR(arsenalList_%1_version),str _side],_version];
 profileNamespace setVariable [format[QGVAR(arsenalList_%1),str _side],[_addWeapons,_addMagazines,_addItems,_addBackpacks,_fixWeapons,_fixMagazines,_fixItems,_fixBackpacks]];
+saveProfileNamespace;
 missionNamespace setVariable [format[QGVAR(arsenalList_%1),str _side],[_addWeapons,_addMagazines,_addItems,_addBackpacks,_fixWeapons,_fixMagazines,_fixItems,_fixBackpacks]];
