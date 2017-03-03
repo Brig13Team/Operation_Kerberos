@@ -650,11 +650,6 @@
         </Key>
     </Package>
     <Package name="Gui">
-        <Key ID="STR_DORB_GUI_TABLET_SELFACTIONGROUP">
-            <Original>Echidna</Original>
-            <German>Echidna</German>
-            <English>Echidna</English>
-        </Key>
         <Key ID="STR_DORB_GUI_LOADINGBAR">
             <German>Am Herunterladen</German>
             <German>Downloading</German>
@@ -1041,7 +1036,7 @@
         <Key ID="STR_DORB_GUI_SPAWN_FEATURES_SIDE">
             <German>Die Fahrzeugspawns verfügen über die für die Spielerseite verfügbaren Fahrzeuge.</German>
         </Key>
-        <Key ID="STR_DORB_GUI_TABLET_FEATURES_TABLET">
+        <Key ID="STR_DORB_gui_echidna_FEATURES_TABLET">
             <German>Das virtuelle Tablett verfügt über die Möglichkeit weitere Apps zu installieren, welche dann innerhalb dieses Tablets aufgerufen werden können. Das hinzufügen der kann innerhalb einer Mission erfolgen.</German>
         </Key>
         <Key ID="STR_DORB_GUI_TELEPORT_FEATURES_TELEPORT">
@@ -1243,6 +1238,34 @@
         <Key ID="STR_DORB_MOD_ACRE_GERMAN">
             <German>Deutsch</German>
             <English>german</English>
+        </Key>
+    </Package>
+    <Package name="gui_mail">
+        <Key ID="STR_DORB_GUI_MAIL_INBOX">
+            <German>Posteingang</German>
+            <English>inbox</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_MAIL_SENDER">
+            <German>Leitstand</German>
+            <English>High Command</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_MAIL_APPNAME">
+            <German>E-Mail</German>
+            <English>E-Mail</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_MAIL_DATE">
+            <German>%1.%2.%3 %4:%5</German>
+            <English>%2-%1-%3 %4:%5</English>
+        </Key>
+    </Package>
+    <Package name="gui_Echidna">
+        <Key ID="STR_DORB_GUI_ECHIDNA_SELFACTIONGROUP">
+            <German>Echidna</German>
+            <English>echidna</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ECHIDNA_SHUTDOWN">
+            <German>Ausschalten</German>
+            <English>shutdown</English>
         </Key>
     </Package>
 </Project>

@@ -240,7 +240,7 @@ class RSC(BaseShortcutButton) {
     class AttributesImage {
         font="RobotoCondensed";
         color="#E5E5E5";
-        align="left";
+        align="right";
     };
 };
 
@@ -299,6 +299,59 @@ class RSC(BaseSwitch) : RSC(BaseControlsGroup) {
             sizeEx = 0.9;
             colorBackground[] = COLOR_DISABLED;
         };
+    };
+};
+
+class RSC(BaseListbox) {
+    access = 0;
+    idc = 5;
+    type = 5;
+    style="0x00 + 0x10";
+    default = 0;
+    enable = 1;
+    show = 1;
+    fade = 0;
+    blinkingPeriod = 0;
+    x = 0;
+    y = 0;
+    w = 0;
+    h = 0;
+    colorBackground[] = {0.2,0.2,0.2,1};
+    colorSelectBackground[] = {1,0.5,0,1};
+    colorSelectBackground2[] = {0,0,0,1};
+    sizeEx = (pixelH * pixelGrid * 3);
+    font = FONT_DEFAULT;
+    shadow = 0;
+    colorText[] = {1,1,1,1};
+    colorDisabled[] = {1,1,1,0.5};
+    colorSelect[] = {1,1,1,1};
+    colorSelect2[] = {1,1,1,1};
+    colorShadow[] = {0,0,0,0.5};
+    colorPicture[] = {1,0.5,0,1};
+    colorPictureSelected[] = {1,1,1,1};
+    colorPictureDisabled[] = {1,1,1,0.5};
+    colorPictureRight[] = {1,0.5,0,1};
+    colorPictureRightSelected[] = {1,1,1,1};
+    colorPictureRightDisabled[] = {1,1,1,0.5};
+    tooltip = "";
+    tooltipColorShade[] = {0,0,0,1};
+    tooltipColorText[] = {1,1,1,1};
+    tooltipColorBox[] = {1,1,1,1};
+    period = 1;
+    rowHeight  =  (pixelH * pixelGrid * 4);
+    itemSpacing = 0;
+    maxHistoryDelay = 1;
+    canDrag = 0;
+    soundSelect[] = {"\A3\ui_f\data\sound\RscListbox\soundSelect",0.090000004,1};
+    class ListScrollBar {
+        width = 0;
+        height = 0;
+        scrollSpeed = 0.0099999998;
+        arrowEmpty = "\A3\ui_f\data\gui\cfg\scrollbar\arrowEmpty_ca.paa";
+        arrowFull = "\A3\ui_f\data\gui\cfg\scrollbar\arrowFull_ca.paa";
+        border = "\A3\ui_f\data\gui\cfg\scrollbar\border_ca.paa";
+        thumb = "\A3\ui_f\data\gui\cfg\scrollbar\thumb_ca.paa";
+        color[] = {1,1,1,1};
     };
 };
 
@@ -415,6 +468,62 @@ class RSC(BaseButton) {
     soundClick[] = {"",0.1,1};
     soundEscape[] = {"",0.1,1};
     onButtonClick = "";
+};
+
+class RSC(BaseXButton) {
+    access=0;
+    idc=41;
+    type=41;
+    style=0;
+    default=0;
+    enable=1;
+    show=1;
+    fade=0;
+    blinkingPeriod=0;
+    x="12 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
+    y="15 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+    w="10 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+    h="1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+    colorBackground[]={0,0,0,0};
+    colorActiveBackground[]={1,0.5,0,1};
+    colorActiveBackground2[]={0,0,0,1};
+    colorDisabled[]={0,1,1,1};
+    text="CT_XBUTTON";
+    size="(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+    font="RobotoCondensed";
+    shadow=0;
+    color[]={1,1,1,1};
+    colorActive[]={1,1,1,1};
+    colorActive2[]={1,1,1,1};
+    tooltip="CT_XBUTTON";
+    tooltipColorShade[]={0,0,0,1};
+    tooltipColorText[]={1,1,1,1};
+    tooltipColorBox[]={1,1,1,1};
+    period=1;
+    soundClick[]=
+    {
+        "\A3\ui_f\data\sound\RscButton\soundClick",
+        0.090000004,
+        1
+    };
+    soundEnter[]=
+    {
+        "\A3\ui_f\data\sound\RscButton\soundEnter",
+        0.090000004,
+        1
+    };
+    soundPush[]=
+    {
+        "\A3\ui_f\data\sound\RscButton\soundPush",
+        0.090000004,
+        1
+    };
+    soundEscape[]=
+    {
+        "\A3\ui_f\data\sound\RscButton\soundEscape",
+        0.090000004,
+        1
+    };
 };
 
 class RSC(BaseEditBox) {
@@ -620,4 +729,48 @@ class RSC(loadingScreen) {
             text = "";
         };
     };
+};
+
+class RSC(BaseActiveText) {
+    idc = -1;
+    type = 11;
+    style = "0x00";
+    x=0;
+    y=0;
+    h=0.035;
+    w=0.035;
+
+    font = GUI_FONT_NORMAL;
+    shadow = 2;
+    sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+    url = "";
+    color[] = {RAL9005,1};
+    colorActive[] = {RAL6018,1};
+    colorShade[] = {RAL6018,1};
+    colorFocused[] = {RAL6018,1};
+    colorDisabled[] = {RAL9005,0.25};
+    colorText[] = {RAL9010,1};
+
+    text = "blubb";
+    colorBackground2[] = {RAL4010,1};
+    picture = "\a3\ui_f\data\gui\rsc\rscdisplaymultiplayersetup\flag_bluefor_empty_ca.paa";
+
+
+    sideToggle = "a3\ui_f\data\gui\rsc\rscdisplaymultiplayersetup\flag_bluefor_ca.paa";
+    sideDisabled = "a3\ui_f\data\gui\rsc\rscdisplaymultiplayersetup\flag_none_ca.paa";
+    pictureHeight = 1;
+    pictureWidth = 1;
+
+    tooltipColorText[] = {RAL9005,1};
+    tooltipColorBox[] = {RAL9005,1};
+    tooltipColorShade[] = {RAL9004,0.64999998};
+    action = "";
+    candrag = 1;
+    blinkingPeriod = 0.2;
+
+    soundEnter[] = {"",0.1,1};
+    soundPush[] = {"",0.1,1};
+    soundClick[] = {"",0.1,1};
+    soundDoubleClick[] = {"",0.1,1};
+    soundEscape[] = {"",0.1,1};
 };

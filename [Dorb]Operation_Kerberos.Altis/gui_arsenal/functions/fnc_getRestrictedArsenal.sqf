@@ -15,6 +15,12 @@
 
 If !(isClass(missionConfigFile>>QGVARMAIN(arsenal))) exitWith {GVAR(arsenalList_Full) = [[],[],[],[]]};
 
+private _version = getText(missionConfigFile >> QUOTE(DOUBLES(CfgComponent,ADDON)) >> "version");
+private _profileVersion = profileNamespace getVariable [QGVAR(arsenalList_Full_version),"NoVersion"];
+If (_version isEqualTo _profileVersion) exitWith {
+    GVAR(arsenalList_Full) = profileNamespace getVariable [QGVAR(arsenalList_Full), [[],[],[],[]] ];
+};
+
 private _itemBlacklist = (getArray(missionConfigFile>>QGVARMAIN(arsenal)>> "ItemsBlacklist"));
 private _weaponBlacklist = (getArray(missionConfigFile>>QGVARMAIN(arsenal)>> "WeaponsBlacklist"));
 private _backpackBlacklist = getArray(missionConfigFile>>QGVARMAIN(arsenal)>> "BackpackBlacklist");
@@ -122,4 +128,7 @@ private _loadingScreenID = [localize LSTRING(CREATE_LIST)] call EFUNC(gui,startL
 
 [_loadingScreenID] call EFUNC(gui,endLoadingScreen);
 
+profileNamespace setVariable [QGVAR(arsenalList_Full_version),_version];
+profileNamespace setVariable [QGVAR(arsenalList_Full),[_addWeapons,_addMagazines,_addItems,_addBackpacks,_fixWeapons,_fixMagazines,_fixItems,_fixBackpacks]];
+saveProfileNamespace;
 GVAR(arsenalList_Full) = [_addWeapons,_addMagazines,_addItems,_addBackpacks,_fixWeapons,_fixMagazines,_fixItems,_fixBackpacks];

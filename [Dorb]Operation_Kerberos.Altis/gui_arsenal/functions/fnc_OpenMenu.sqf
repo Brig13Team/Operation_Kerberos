@@ -7,6 +7,11 @@
 */
 #include "script_component.hpp"
 
+If !(canSuspend) exitWIth {
+    _this spawn FUNC(OpenMenu);
+};
+
+
 If (GVAR(level)<1) exitWith {
     ["Open",true] spawn BIS_fnc_arsenal;
 };

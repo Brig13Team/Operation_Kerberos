@@ -2,4 +2,4 @@
 #define DEBUG_MODE_MINIMAL
 #include "..\script_mission.hpp"
 
-#define NOTIFICATION_SHOW_DELAY 10
+#define NOTIFICATION_SHOW_DELAY 6
