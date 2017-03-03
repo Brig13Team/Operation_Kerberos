@@ -14,7 +14,15 @@
 #include "script_component.hpp"
 _this params ["_side",["_onlyGear",false,[true]]];
 
-If !(isClass(missionConfigFile>>QGVARMAIN(arsenal))) exitWith {GVAR(arsenalList_Full) = [[],[],[],[]]};
+If !(isClass(missionConfigFile>>QGVARMAIN(arsenal))) exitWith {missionNamespace setVariable [format[QGVAR(arsenalList_%1),str _side], [[],[],[],[]] ];};
+
+private _version = getText(missionConfigFile >> QUOTE(DOUBLES(CfgComponent,ADDON)) >> "version");
+private _profileVersion = profileNamespace getVariable [format[QGVAR(arsenalList_%1_version),str _side],"NoVersion"];
+If (_version isEqualTo _profileVersion) exitWith {
+    private _list = profileNamespace getVariable [QGVAR(arsenalList_Full), [[],[],[],[]] ];
+    missionNamespace setVariable [format[QGVAR(arsenalList_%1),str _side],_list];
+};
+
 
 private _itemBlacklist = (getArray(missionConfigFile>>QGVARMAIN(arsenal)>> "ItemsBlacklist"));
 private _weaponBlacklist = (getArray(missionConfigFile>>QGVARMAIN(arsenal)>> "WeaponsBlacklist"));
@@ -170,4 +178,8 @@ switch (_side) do {
     };
 } foreach _BackpackWhitelist;
 [_loadingScreenID] call EFUNC(gui,endLoadingScreen);
+
+profileNamespace setVariable [format[QGVAR(arsenalList_%1_version),str _side],_version];
+profileNamespace setVariable [format[QGVAR(arsenalList_%1),str _side],[_addWeapons,_addMagazines,_addItems,_addBackpacks,_fixWeapons,_fixMagazines,_fixItems,_fixBackpacks]];
+saveProfileNamespace;
 missionNamespace setVariable [format[QGVAR(arsenalList_%1),str _side],[_addWeapons,_addMagazines,_addItems,_addBackpacks,_fixWeapons,_fixMagazines,_fixItems,_fixBackpacks]];

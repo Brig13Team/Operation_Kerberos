@@ -30,7 +30,7 @@ CHECK(isNil "_target")
 If (IS_ARRAY(_target)) exitWith {
     CHECK(_target isEqualTo [])
     closeDialog IDD_TELEPORT_DLG;
-    [] call EFUNC(gui_tablet,close);
+    [] call EFUNC(gui_echidna,close);
     player setPosASL _target;
 };
 If (IS_CODE(_target)) then {

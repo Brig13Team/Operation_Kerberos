@@ -11,7 +11,7 @@
 onLoadMissionTime = 1;
 onLoadName = LSTRING(NAME);
 onLoadMission = LSTRING(NAME);
-loadScreen = QEPAAPATH(logo,logo_512);
+//loadScreen = QEPAAPATH(logo,logo_512);
 
 author = CSTRING(AUTHOR);
 //overviewPicture = QEPAAPATH(logo,logo_512);

@@ -7,7 +7,7 @@
  */
 #include "script_component.hpp"
 
-If (!hasInterface) then {
+If (hasInterface) then {
     ["CAManBase", "respawn", {
         _this call FUNC(onrespawn);
     },true,[],true] call CBA_fnc_addClassEventHandler;

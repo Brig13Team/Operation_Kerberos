@@ -34,15 +34,13 @@ If (_notifications isEqualTo []) exitWith {
             (format[QAPP(notification_%1),_i]) cutText ["","PLAIN",0];
         };
     };
-};
-
-// faster notification update, if you are near by modifing the PFH
-If (_notifications isEqualTo []) exitWith {
+    // faster notification update, if you are near by modifing the PFH
     if ((_delay < NOTIFICATION_SHOW_DELAY)&&{(uiNamespace getVariable [QGVAR(lastNotificationHandle),diag_tickTime])<diag_tickTime}) then {
         _x set [1,NOTIFICATION_SHOW_DELAY];
     };
 };
 uiNamespace setVariable [QGVAR(lastNotificationHandle),diag_tickTime];
+TRACEV_2(_x select 1,_delay);
 If (_delay > 1) then {
     _x set [1,1];
 };
