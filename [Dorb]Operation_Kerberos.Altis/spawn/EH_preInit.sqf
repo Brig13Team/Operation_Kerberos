@@ -50,7 +50,6 @@ PREPS(composition,exportHouse);
 PREPS(composition,exportPosition);
 PREPS(composition,exportToHpp);
 PREPS(composition,issimpleobject);
-PREPS(composition,onFiredNear);
 PREPS(composition,spawnComposition);
 PREPS(composition,spawnHouse);
 
