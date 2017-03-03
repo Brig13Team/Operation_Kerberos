@@ -11,6 +11,7 @@ PREP(getSymbol);
 PREP(handler);
 PREP(init);
 PREP(initGroup);
+PREP(restart);
 PREP(terminate);
 PREP(update);
 

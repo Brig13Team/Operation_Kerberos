@@ -11,7 +11,7 @@ If (isHeadless) then {
         QGVAR(setVehicleAmmo),
         {
             _this params ["_vehicle",["_ammo",1,[0]]];
-            _vehicle setVehicleAmmo 1;
+            _vehicle setVehicleAmmo _ammo;
         }
     ] call CBA_fnc_addEventHandler;
 };

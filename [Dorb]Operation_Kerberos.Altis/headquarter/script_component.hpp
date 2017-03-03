@@ -9,8 +9,8 @@
 #define INTERVALL_PLAYERGROUPS 60
 // handler anti-air
 #define INTERVALL_AA 60
-
-
+// handler ressources
+#define INTERVALL_RESSOURCES 60
 
 
 #define ATTACKPOS_DISTANCE 300

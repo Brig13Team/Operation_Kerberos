@@ -23,6 +23,7 @@ If (isNil "_grouphash") then {
     HASH_GET(GVAR(groups),"playergroups") pushBack _grouphash;
 
     private _strenghtArray = (_group call FUNC(strengthPlayer)) params ["_GroupType","_value","_threat"];
+    HASH_SET(_grouphash,"group",_group);
     HASH_SET(_grouphash,"type",_GroupType);
     HASH_SET(_grouphash,"value",_value);
     HASH_SET(_grouphash,"threat",_threat);

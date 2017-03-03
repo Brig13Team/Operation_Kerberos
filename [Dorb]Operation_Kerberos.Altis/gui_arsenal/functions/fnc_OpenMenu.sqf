@@ -16,6 +16,8 @@ If (GVAR(level)<1) exitWith {
     ["Open",true] spawn BIS_fnc_arsenal;
 };
 
+[EGVAR(patch_acre,removeRadio)] call CBA_fnc_localEvent;
+
 If (GVAR(level)<2) exitWith {
     If (isNull(missionNamespace getVariable [QGVAR(level_1_obj),objNull])) exitWith {
         GVAR(level_1_obj) = [] call FUNC(createLocalArsenal);

@@ -19,6 +19,10 @@ private _key = (getPos _player) call FUNC(dzconvert);
 CHECK(_key isEqualTo "") // not in the area
 
 private _zoneHash = HASH_GET(GVAR(dangerzones),_key);
+if (isNil "_zoneHash") then {
+    _zoneHash = HASH_CREATE;
+    HASH_SET(GVAR(dangerzones),_key,_zoneHash);
+};
 private _unconciousArray = HASH_GET(_zoneHash,"unconcious");
 If (isNil "_unconciousArray") then {
     HASH_SET(_zoneHash,"unconcious",[]);

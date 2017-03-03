@@ -18,8 +18,9 @@ _parameter params [["_amount",3,[0]],["_radius",150,[0]]];
 TRACEV_4(_centerposition,_parameter,_radius,_amount);
 private _targets = [];
 
+private _targetPositions = [_centerposition,"hostage",_amount] call FUNC(createMissionHouse);
+
 for "_i" from 1 to _amount do {
-    private _targetPositions = ([_centerposition,"hostage"] call FUNC(createMissionHouse));
     private _targetPos = selectRandom _targetPositions;
 
     private _obj = ["hostage"] call FUNC(getMissionObject);

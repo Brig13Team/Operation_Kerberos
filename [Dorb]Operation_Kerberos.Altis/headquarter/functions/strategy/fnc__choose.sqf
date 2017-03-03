@@ -17,6 +17,7 @@ _this params ["_attackPos",["_again",false,[true]],"_lastValue",["_passing",5,[0
 private _failedattacks = HASH_GET_DEF(_attackPos,"failedattacks",0);
 
 private _enemyType = HASH_GET(_attackPos,"enemytype"); /// [0,0,0] - amount of specific groups
+If (_enemyType isEqualTo [0,0,0]) exitWith {[_attackPos] call FUNC(attackpos_update);};
 private _enemyValue = HASH_GET(_attackPos,"enemyvalue"); /// [0,0,0] - value of each type
 private _enemyThreat = HASH_GET(_attackPos,"enemythreat"); /// [0,0,0] - combined threat
 TRACEV_4(_failedattacks,_enemyType,_enemyValue,_enemyThreat);
@@ -108,7 +109,7 @@ If ((_enemyType select 1)>0) then {
 };
 
 
-/// attack the rest with infanterie
+/// attack the infantry
 If ((_enemyType select 0)>0) then {
     /// posible strategies against air
     private _strategyCfgs = configProperties [(missionConfigFile >> "strategy"),"(((getArray(_x >> 'threat')) select 0) > 0)",true];
