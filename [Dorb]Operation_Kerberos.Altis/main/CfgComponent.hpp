@@ -18,6 +18,7 @@ class DOUBLES(CfgComponent,ADDON) {
             Condition = "true"; // can be used to add some aditional conditions
         };
     };
+    class postInit {};
     class postInitClient {
         server = 0;
     };
