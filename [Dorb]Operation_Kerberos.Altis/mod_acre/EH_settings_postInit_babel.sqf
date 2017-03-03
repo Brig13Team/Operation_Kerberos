@@ -4,12 +4,6 @@
  *  Description:
  *      Settings for babel
  *
- *  Parameter(s):
- *      none
- *
- *  Returns:
- *      none
- *
  */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
@@ -70,6 +64,9 @@ switch (_babelPreSet) do {
             ["arab", LSTRING(ARAB)] call acre_api_fnc_babelAddLanguageType;
             ["english", LSTRING(ENGLISH)] call acre_api_fnc_babelAddLanguageType;
             ["german", LSTRING(GERMAN)] call acre_api_fnc_babelAddLanguageType;
+            ["arab", localize LSTRING(ARAB)] call acre_api_fnc_babelAddLanguageType;
+            ["english", localize LSTRING(ENGLISH)] call acre_api_fnc_babelAddLanguageType;
+            ["german", localize LSTRING(GERMAN)] call acre_api_fnc_babelAddLanguageType;
             CHECK(!hasInterface)
             waitUntil { !isNull acre_player };
             switch (side acre_player) do {
@@ -83,3 +80,6 @@ switch (_babelPreSet) do {
     };
 
 };
+
+[QGVAR(addLanguage),{_this call FUNC(babbel_addLanguageLocal);}] call CBA_fnc_addEventHandler;
+[QGVAR(removeLanguage),{_this call FUNC(babbel_removeLanguageLocal);}] call CBA_fnc_addEventHandler;
