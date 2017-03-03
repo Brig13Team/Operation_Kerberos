@@ -17,7 +17,7 @@ _this params ["_handler"];
 
 GVAR(active) = false;
 
-[_handler] call CBA_fnc_removePerFrameHandler;
+[GVAR(handler)] call CBA_fnc_removePerFrameHandler;
 
 GVAR(handler) = nil;
 
