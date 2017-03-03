@@ -83,3 +83,6 @@ switch (_babelPreSet) do {
     };
 
 };
+
+[QGVAR(addLanguage),{_this call FUNC(babbel_addLanguageLocal);}] call CBA_fnc_addEventHandler;
+[QGVAR(removeLanguage),{_this call FUNC(babbel_removeLanguageLocal);}] call CBA_fnc_addEventHandler;
