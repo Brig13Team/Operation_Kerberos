@@ -32,7 +32,7 @@ _possibleTargets append (allUnitsUAV select {
     (side _x == GVARMAIN(playerside))
     });
 
-private _target = [];
+private _targets = [];
 {
     private _radarpos = (getPosASL _x);
     private _radar = _x;
