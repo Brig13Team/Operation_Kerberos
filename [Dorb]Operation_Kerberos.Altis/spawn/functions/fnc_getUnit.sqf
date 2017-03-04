@@ -98,4 +98,4 @@ private _return = switch _grouptype do {
     default {ERROR(FORMAT_1("Missing entrie: %1",_this));nil};
 };
 
-[_return] param [0,[],[[],""]];
+If (isNil "_return") then {[]}else{_return};

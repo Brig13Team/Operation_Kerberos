@@ -85,7 +85,7 @@ HASH_SET(GVAR(groups),"attackGroups",[]);
 GVAR(playergroups_new) = 0;
 
 /// radars
-GVAR(radars) = CREATE_HASH;
+GVAR(radars) = HASH_CREATE;
 HASH_SET(GVAR(radars),"objects",[]);
 HASH_SET(GVAR(radars),"targets",[]);
 
@@ -119,8 +119,8 @@ _handle = [LINKFUNC(ressources_handle),INTERVALL_RESSOURCES,[]] call CBA_fnc_add
 HASH_SET(GVAR(handles),"ressources",_handle);
 
 /// Events
-[QEGVAR(mission,start),{_this call FUNC(MissionInit);}] call CBA_fnc_addEventHandler;
-[QEGVAR(mission,end),{_this call FUNC(MissionCleanUp);}] call CBA_fnc_addEventHandler;
+[QEGVAR(mission,start_server),{_this call FUNC(MissionInit);}] call CBA_fnc_addEventHandler;
+[QEGVAR(mission,end_server),{_this call FUNC(MissionCleanUp);}] call CBA_fnc_addEventHandler;
 [QGVAR(killedUnit),{_this call FUNC(onKilled);}] call CBA_fnc_addEventHandler;
 
 // DEBUG

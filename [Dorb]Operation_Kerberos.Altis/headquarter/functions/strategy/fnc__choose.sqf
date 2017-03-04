@@ -21,7 +21,7 @@ If (_enemyType isEqualTo [0,0,0]) exitWith {[_attackPos] call FUNC(attackpos_upd
 private _enemyValue = HASH_GET(_attackPos,"enemyvalue"); /// [0,0,0] - value of each type
 private _enemyThreat = HASH_GET(_attackPos,"enemythreat"); /// [0,0,0] - combined threat
 TRACEV_4(_failedattacks,_enemyType,_enemyValue,_enemyThreat);
-private _curValue = _enemyValue apply {_x * (_failedattacks * 0.2 + 1 + (missionNamespace getVariable [QGVAR(playermalus),0]) )};
+private _curValue = _enemyValue apply {_x * (_failedattacks * 0.2 + 1 + (missionNamespace getVariable [QGVAR(playermalus),0]) ) * ([_attackPos] call FUNC(getDistanceCoeff))};
 If (_again) then {
     TRACEV_3(_again,_curValue,_lastValue);
     _curValue = _lastValue;

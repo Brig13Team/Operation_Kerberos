@@ -24,7 +24,7 @@ IF (_type isEqualTo "") then {
     If (IS_STRING(_type)) then {_type = [_type];};
     private _condition = format["(getNumber(_x >> '%1')>0)",_type deleteAt 0];
     {
-        _condition = format["%1 || (getNumber(_x >> '%2')>0)",_condition,_type deleteAt 0];
+        _condition = format["%1 || (getNumber(_x >> '%2')>0)",_condition,_x];
     } forEach _type;
     _condition = format["(%1)",_condition];
     _allConfigs = configProperties [(missionConfigFile >> "CfgCompositions" >> "positions"),_condition,true];

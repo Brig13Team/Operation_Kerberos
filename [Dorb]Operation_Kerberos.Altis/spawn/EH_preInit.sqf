@@ -50,6 +50,7 @@ PREPS(composition,exportHouse);
 PREPS(composition,exportPosition);
 PREPS(composition,exportToHpp);
 PREPS(composition,issimpleobject);
+PREPS(composition,onFiredNear);
 PREPS(composition,spawnComposition);
 PREPS(composition,spawnHouse);
 
@@ -70,6 +71,7 @@ PREPS(mission,emp);
 PREPS(mission,hostage);
 PREPS(mission,intel);
 PREPS(mission,prototype);
+PREPS(mission,radar);
 PREPS(mission,radiotower);
 PREPS(mission,scarab);
 PREPS(mission,specops);

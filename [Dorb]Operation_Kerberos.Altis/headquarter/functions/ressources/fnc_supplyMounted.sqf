@@ -57,4 +57,4 @@ _transportVehicle doMove _centerpos;
     [_transportGroup,_newGroup,_centerpos,_transportVehicle,_spawnPos]
 ] call CBA_fnc_addPerFrameHandler;
 
-((([_newGroup] call FUNC(strenghtAi)) param [1,0]) + (([_transportGroup] call FUNC(strenghtAi)) param [1,0]));
+((([_newGroup] call FUNC(strengthAI)) param [1,0]) + (([_transportGroup] call FUNC(strengthAI)) param [1,0]));

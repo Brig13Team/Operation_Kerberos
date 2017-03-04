@@ -45,6 +45,8 @@ _transportVehicle doMove _centerpos;
         [_newGroup,"idle",getPos (leader _newGroup)] call FUNC(state_set);
 
         If (canMove _transportVehicle) then {
+            private _wp = _transportGroup addWaypoint [_spawnPos,200];
+            _transportGroup setCurrentWaypoint _wp;
             _transportVehicle domove _spawnpos;
             [
                 {
@@ -60,11 +62,11 @@ _transportVehicle doMove _centerpos;
         }else{
             private _defendPos = getPos (selectrandom (HASH_GET(GVAR(POI),"Locations")));
             [_transportGroup,"defend"] call FUNC(registerGroup);
-            [_newGroup,"idle",_defendPos] call FUNC(state_set);
+            [_transportGroup,"idle",_defendPos] call FUNC(state_set);
         };
     },
     10,
     [_transportGroup,_newGroup,_centerpos,_transportVehicle,_spawnPos]
 ] call CBA_fnc_addPerFrameHandler;
 
-(([_newGroup] call FUNC(strenghtAi)) param [1,0]);
+(([_newGroup] call FUNC(strengthAI)) param [1,0]);

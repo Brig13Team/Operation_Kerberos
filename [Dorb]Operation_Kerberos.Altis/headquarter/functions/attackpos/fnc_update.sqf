@@ -58,7 +58,7 @@ If (_dzValue < 0) then {
     private _key = [getPos _attackLoc] call FUNC(dzConvert);
     private _dzHash = HASH_GET(GVAR(dangerzones),_key);
     If (!isNil "_dzHash") then {
-        _dzValue = HASH_GET_DEF(_dzHash,"enemystrenght",0);
+        _dzValue = HASH_GET_DEF(_dzHash,"enemystrength",0);
     }else{
         _dzValue = 0;
     };
@@ -133,7 +133,7 @@ If (_dzValue < 0) then {
     private _key = [getPos _attackLoc] call FUNC(dzConvert);
     private _dzHash = HASH_GET(GVAR(dangerzones),_key);
     If (!isNil "_dzHash") then {
-        _dzValue = HASH_GET_DEF(_dzHash,"enemystrenght",0);
+        _dzValue = HASH_GET_DEF(_dzHash,"enemystrength",0);
     };
 };
 

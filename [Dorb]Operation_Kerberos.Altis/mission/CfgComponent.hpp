@@ -25,5 +25,6 @@ class DOUBLES(CfgComponent,ADDON) {
 #include "config\CfgTaskTypes.hpp"
 #include "config\CfgTaskEnhancements.hpp"
 #include "config\CfgTaskDescriptions.hpp"
-#include "config\missions_config.hpp"
+// #include "config\missions_config.hpp"
+#include "config\mission.hpp"
 #include "CfgDebriefing.hpp"

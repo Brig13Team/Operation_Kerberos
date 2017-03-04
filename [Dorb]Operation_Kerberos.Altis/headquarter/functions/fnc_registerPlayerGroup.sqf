@@ -22,7 +22,7 @@ If (isNil "_grouphash") then {
     _group setVariable [QGVAR(grouphash),_grouphash];
     HASH_GET(GVAR(groups),"playergroups") pushBack _grouphash;
 
-    private _strenghtArray = (_group call FUNC(strengthPlayer)) params ["_GroupType","_value","_threat"];
+    private _strengthArray = (_group call FUNC(strengthPlayer)) params ["_GroupType","_value","_threat"];
     HASH_SET(_grouphash,"group",_group);
     HASH_SET(_grouphash,"type",_GroupType);
     HASH_SET(_grouphash,"value",_value);
