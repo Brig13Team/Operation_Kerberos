@@ -16,7 +16,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=1410;
+		nextID=1420;
 	};
 	class Camera
 	{
@@ -86,7 +86,7 @@ class AddonsMetaData
 		{
 			className="cba_main";
 			name="Community Base Addons - Main Component";
-			author="CBA-Team";
+			author="CBA Team";
 			url="https://www.github.com/CBATeam/CBA_A3";
 		};
 		class Item6

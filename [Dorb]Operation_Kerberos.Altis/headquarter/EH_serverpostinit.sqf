@@ -91,8 +91,8 @@ HASH_SET(GVAR(radars),"targets",[]);
 
 /// dangerzones
 GVAR(dangerzones) = HASH_CREATE;
-HASH_SET(GVAR(dangerzones),"definitions",[ARR_3(2000,125,16)]);
-HASH_SET(GVAR(dangerzones),"gridsize",125);
+HASH_SET(GVAR(dangerzones),"definitions",[ARR_3(2000,100,20)]);
+HASH_SET(GVAR(dangerzones),"gridsize",100);
 HASH_SET(GVAR(dangerzones),"distance",2000);
 
 /// Strategy
