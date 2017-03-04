@@ -20,7 +20,7 @@ If (IS_OBJECT(_position)) then {_position = getPos _position;};
 If (IS_STRING(_position)) then {_position = getMarkerPos _position;};
 
 GVAR(allowedPositions) pushBack _position;
-
+CHECK(!isServer)
 If !(missionNamespace getVariable [QGVAR(ArsenalIsTransmitting),false]) then {
     GVAR(ArsenalIsTransmitting) = true;
     [
