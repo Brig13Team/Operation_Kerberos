@@ -3,6 +3,7 @@
  *
  *  Description:
  *      condition with one counters
+ *      (can be used for sidemission too)
  *
  *  Parameter(s):
  *      0 : HASH    - mission hash

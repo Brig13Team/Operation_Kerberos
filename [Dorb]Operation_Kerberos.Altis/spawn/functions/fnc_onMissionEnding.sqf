@@ -14,6 +14,9 @@
 #include "script_component.hpp"
 
 _this params ["_mission"];
+
+if !(HASH_GET(_mission, "type") isEqualTo "_rtb") exitWith { -1 };
+
 private _centerpos = HASH_GET(_mission,"location") select 1;
 
 GVAR(targetHouses) = [];

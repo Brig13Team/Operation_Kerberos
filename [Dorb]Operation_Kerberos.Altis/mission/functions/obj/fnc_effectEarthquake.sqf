@@ -19,7 +19,7 @@ CHECK(!hasInterface)
 if (!((vehicle player) isKindof 'Air')) then {
     _this params [["_strenght",-1,[0]]];
     If (_strenght < 0) then {
-        _strenght = (floor(random 4)+1);
+        _strenght = (floor (random 4) + 1);
     };
-    [_strenght]spawn BIS_fnc_earthquake;
+    [_strenght] spawn BIS_fnc_earthquake;
 };

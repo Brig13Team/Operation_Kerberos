@@ -3,11 +3,12 @@
  *
  *  Description:
  *      mission with two counters in condition
+ *      (can be used for sidemission too)
  *
  *  Parameter(s):
  *      0 : HASH    - mission hash
  *      1 : CODE    - obj init code
- *      2 : NUMBER  - time to end (optional)
+ *      2 : NUMBER  - (optional) time to end (default: -1)
  *
  *  Returns:
  *      -

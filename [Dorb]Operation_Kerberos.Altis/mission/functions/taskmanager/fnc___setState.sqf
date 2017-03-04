@@ -21,8 +21,9 @@ HASH_SET(_mission, "state", _state);
 
 if ((toUpper _state) in ["SUCCEEDED","CANCELED","FAILED"]) then {
     private _name   = HASH_GET(_mission, "name");
+    TRACEV_2(_name, _state);
     HASH_SET(_taskhandler, "missions", HASH_GET(_taskhandler, "missions") - [_name]);
-    [_mission] call FUNC(taskhandler___cancelAll);
+    [_mission] call FUNC(taskmanager___cancelAll);
 
     [QEGVAR(mission,end_server), [_mission]] call CBA_fnc_localEvent;
     // TODO: client event (without mission hash - it's local!)

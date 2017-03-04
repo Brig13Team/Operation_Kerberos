@@ -100,5 +100,5 @@ HASH_SET(GVAR(handles),"antiair",_handle);
 
 
 /// Events
-[QEGVAR(mission,start_server),{GVAR(active) = true;_this call FUNC(MissionInit);}] call CBA_fnc_addEventHandler;
-[QEGVAR(mission,end_server),{GVAR(active) = false;_this call FUNC(MissionCleanUp);}] call CBA_fnc_addEventHandler;
+[QEGVAR(mission,start_server),{_this call FUNC(MissionInit);}] call CBA_fnc_addEventHandler;
+[QEGVAR(mission,end_server),{_this call FUNC(MissionCleanUp);}] call CBA_fnc_addEventHandler;

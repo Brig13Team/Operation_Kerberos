@@ -16,7 +16,6 @@
 _this params [["_parent", "", [""]], "_mission"];
 
 if !(HASH_HASKEY(_mission,"type") &&
-     HASH_HASKEY(_mission,"location") &&
      HASH_HASKEY(_mission,"state") &&
      HASH_HASKEY(_mission,"condition")) exitWith { -1 };
 if !(THIS_HASKEY(_parent)) exitWith { -2 };

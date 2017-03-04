@@ -13,6 +13,10 @@
  */
 #include "script_component.hpp"
 
+_this params ["_mission"];
+
+if !(HASH_GET(_mission, "type") isEqualTo "_rtb") exitWith { -1 };
+
 GVAR(active) = false;
 
 //POI

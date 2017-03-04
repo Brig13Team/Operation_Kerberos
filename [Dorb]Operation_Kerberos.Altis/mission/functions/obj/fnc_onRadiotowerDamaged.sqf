@@ -15,7 +15,6 @@
 if (isServer) then {
     _this params ["_radiotower"];
     private _damage = damage _radiotower;
-    TRACEV_2(_radiotower, _damage);
 
     if ((_damage > 0.75) && {_radiotower getVariable [QGVAR(isActive), true]}) then {
         _radiotower setVariable [QGVAR(isActive), false];
@@ -24,3 +23,5 @@ if (isServer) then {
         HASH_SET(_mission, "obj_counter", HASH_GET(_mission, "obj_counter") + 1);
     }
 }
+
+// TODO: client fnc

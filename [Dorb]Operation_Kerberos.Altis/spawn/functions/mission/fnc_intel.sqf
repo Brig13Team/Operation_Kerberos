@@ -15,10 +15,10 @@
 #include "script_component.hpp"
 
 _this params [["_centerposition",[],[[]]],["_parameter",[]]];
-_parameter params [["_amount",3,[0]]];
+_parameter params [["_amount",3,[0]],["_radius",200,[0]]];
 TRACEV_3(_centerposition,_parameter,_amount);
 private _intelObjects = [];
-private _targetPositions = [_centerposition,"intel",_amount] call FUNC(createMissionHouse);
+private _targetPositions = [_centerposition,"intel",_amount,_radius] call FUNC(createMissionHouse);
 TRACEV_1(_targetPositions);
 
 for "_i" from 1 to _amount do {

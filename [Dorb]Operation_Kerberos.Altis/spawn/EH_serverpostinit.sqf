@@ -7,8 +7,6 @@
  */
 #include "script_component.hpp"
 
-[QEGVAR(mission,end_server),{
-    _this call FUNC(onMissionEnding);
-}] call CBA_fnc_addEventHandler;
+[QEGVAR(mission,end_server),LINKFUNC(onMissionEnding)] call CBA_fnc_addEventHandler;
 
 [] call FUNC(Army_set);

@@ -1,6 +1,8 @@
 #define CBA_OFF
 #include "script_component.hpp"
 
+// old
+
 class missions_config {
     class side {
         class side_base {
