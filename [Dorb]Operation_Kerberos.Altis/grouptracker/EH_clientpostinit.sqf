@@ -26,7 +26,7 @@ GVAR(lastGroupsToTrack) = [];
 GVAR(grouphashes) = [];
 GVAR(allMarker) = [];
 GVAR(handleID) = -1;
-GVAR(showAll) = true;
+GVAR(showAll) = false; // for debug purpose
 // delay the spawn
 [
     {[] call FUNC(init);},
