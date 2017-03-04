@@ -14,9 +14,9 @@
 
 #include "script_component.hpp"
 
-_this params [["_centerposition",[],[[]]],["_type","",[""]],["_amount",1,[0]]];
+_this params [["_centerposition",[],[[]]],["_type","",[""]],["_amount",1,[0]],["_radius",280,[0]]];
 TRACEV_2(_this,_centerposition);
-private _buildings = _centerposition nearObjects ["House", 280];
+private _buildings = _centerposition nearObjects ["House", _radius];
 _buildings = _buildings - (missionNamespace getVariable [QGVAR(usedHouses),[]]);
 TRACEV_2(_centerposition,_buildings);
 If (_buildings isEqualTo []) exitWith {ERROR(FORMAT_1("No Buildings found around %1",_centerposition));[]};

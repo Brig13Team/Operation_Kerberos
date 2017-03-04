@@ -13,13 +13,15 @@
 #include "script_component.hpp"
 
 _this params [["_name", "", [""]]];
-if !(isClass(missionConfigFile >> "missions_config" >> "main" >> _name)) exitWith { -1 };
+if !(isClass(missionConfigFile >> "mission" >> "main" >> _name)) exitWith { -1 };
 
 // spawn mission
-GVAR(spawn_tmp) = HASH_CREATE;
-HASH_SET(GVAR(spawn_tmp), "type", _name);
-[GVAR(spawn_tmp)] call FUNC(mainmission___spawn);
+_name spawn {
+    GVAR(spawn_tmp) = HASH_CREATE;
+    HASH_SET(GVAR(spawn_tmp), "type", _this);
+    [GVAR(spawn_tmp)] call FUNC(mainmission___spawn);
 
-// register mission
-[GVAR(spawn_tmp)] call FUNC(taskmanager_add);
-GVAR(spawn_tmp) = nil;
+    // register mission
+    [GVAR(spawn_tmp)] call FUNC(taskmanager_add);
+    GVAR(spawn_tmp) = nil;
+};

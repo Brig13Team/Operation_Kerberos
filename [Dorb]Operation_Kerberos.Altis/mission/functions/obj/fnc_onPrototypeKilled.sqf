@@ -18,6 +18,7 @@ If (isServer) then {
     _this params ["_prototype"];
     GVAR(killed_prototype) = GVAR(killed_prototype) + 1;
 };
+
 If (hasInterface) then {
     [
         QEGVAR(gui,message),
