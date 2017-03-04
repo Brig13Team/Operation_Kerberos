@@ -13,7 +13,9 @@
  */
 #include "script_component.hpp"
 
-If ((!canSuspend)||(!isMultiplayer)) exitWith {};
+CHECK(!canSuspend)
+CHECK(!isMultiplayer)
+ISNIL(SpawnNext,CBA_missiontime);
 
-waitUntil {(GVAR(SpawnNext) > CBA_missiontime)};
+waitUntil {(GVAR(SpawnNext) < CBA_missiontime)};
 GVAR(SpawnNext) = CBA_missiontime + 2;
