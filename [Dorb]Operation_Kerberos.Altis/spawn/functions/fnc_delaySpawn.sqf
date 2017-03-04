@@ -16,4 +16,4 @@
 If ((!canSuspend)||(!isMultiplayer)) exitWith {};
 
 waitUntil {(GVAR(SpawnNext) > CBA_missiontime)};
-GVAR(SpawnNext) = CBA_missiontime + 10;
+GVAR(SpawnNext) = CBA_missiontime + 2;
