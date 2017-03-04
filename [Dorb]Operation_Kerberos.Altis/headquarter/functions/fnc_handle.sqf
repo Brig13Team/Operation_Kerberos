@@ -25,26 +25,16 @@ GVAR(handle) = [] spawn {
         _x params ["_value","_key"];
         private _position = [_key] call FUNC(dzconvert);
         private _curAttackPos = [_position] call FUNC(attackpos_atPosition);
-        If (isNull _curAttackPos) then {
-            _attackPosToCreate pushBack [_position];
+        If ((isNull _curAttackPos)&&{!(_position isEqualTo [0,0,0])}) then {
+            _attackPosToCreate pushBack _position;
         };
+        TRACEV_4(_position,_key,_curAttackPos,_value);
     } forEach ([] call FUNC(dzfindPeaks));
+    TRACEV_1(_attackPosToCreate);
 
     /// create new attacklocaltions
-    private _size = (HASH_GET(GVAR(dangerzones),"gridsize")) * 2;
     {
-        /// should be changed in a later Version
-        private _curPos = _x;
-        TRACE(FORMAT_1("Creating new attackposition at position: %1",getPos _x));
-        private _curAttackLoc = [_position] call FUNC(attackpos_create);
-        private _players = allPlayers select {(_x distance _curPos)<_size};
-        private _groups = [];
-        {
-            _groups pushBackUnique (group _x);
-        } forEach _players;
-        {
-            [_curAttackLoc,_x] call FUNC(attackpos_add);
-        } forEach _groups;
+        [_x] call FUNC(attackpos_create);
     } forEach _attackPosToCreate;
 
     /// calling supplys -
@@ -72,7 +62,7 @@ GVAR(handle) = [] spawn {
         private _grouphash = _x;
         private _group = HASH_GET(_grouphash,"group");
         If (isNil "_grouphash") then {WARNING("Grouphash is Nil");TRACEV_3(_x,_grouphash,_group);};
-        If ((HASH_GET(_grouphash,"state")) in ["idle"]) then {
+        If ((HASH_GET_DEF(_grouphash,"state","NOSTATE")) in ["idle"]) then {
             private _allPOI = (HASH_GET(GVAR(POI),"Locations")) select {HASH_GET_DEF(_x,"isActive",false)};
             CHECK(_allPOI isEqualTo [])
             TRACE("Moving defence groups to other POI");
@@ -87,11 +77,11 @@ GVAR(handle) = [] spawn {
             private _grouphash = HASH_GET(_x,QGVAR(grouphash));
             If !(isNil "_grouphash") then {
                 // bored
-                if ((HASH_GET_DEF(_grouphash,QGVAR(state),"NOSTATE")) isEqualTo "wait") then {
+                if ((HASH_GET_DEF(_grouphash,QGVAR(state),"NOSTATE")) in ["wait"]) then {
                     _waitingGroups pushBack _x;
                 };
                 // Veteran
-                if ((HASH_GET_DEF(_grouphash,QGVAR(state),"NOSTATE")) isEqualTo "idle") then {
+                if ((HASH_GET_DEF(_grouphash,QGVAR(state),"NOSTATE")) in ["idle"]) then {
                     _waitingGroups pushBack _x;
                 };
             };

@@ -29,7 +29,7 @@ GVAR(interface) = [];
                 compile format["[player,'%1'] call %2;",_spawntype,QFUNC(canOpenMenu)],
                 ((parsingNamespace getVariable ["MISSION_ROOT",""]) + format[QEPAAPATH(icon,icon_%1),_picture]),
                 2
-            ] call EFUNC(gui_tablet,addApp);
+            ] call EFUNC(gui_echidna,addApp);
             HASH_SET(GVAR(spawnpositions),_spawntype,[[ARR_2(_spawnPos,_spawnDir)]]);
         }else{
             HASH_GET(GVAR(spawnpositions),_spawntype) pushBack [ARR_2(_spawnPos,_spawnDir)];
@@ -38,8 +38,8 @@ GVAR(interface) = [];
         [
             format[QGVAR(interface_%1),_spawnLogic],
             (parsingNamespace getVariable ["MISSION_ROOT",""]) + format["data\icon\icon_%1.paa",_picture],
-            FUNC(canOpenMenu),
-            [player,_spawntype]
+            {[ace_player,_this select 0] call FUNC(canOpenMenu);},
+            [_spawntype]
         ] call EFUNC(gui,addNotification);
     };
 } forEach [

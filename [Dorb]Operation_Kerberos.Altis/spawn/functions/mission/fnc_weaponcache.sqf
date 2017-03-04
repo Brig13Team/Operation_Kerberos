@@ -26,7 +26,6 @@ for "_i" from 1 to _amount do {
     private _targetPositions = [_centerposition,"weaponcache",1,_radius] call FUNC(createMissionHouse);
     private _targetPos = selectRandom _targetPositions;
     TRACEV_2(_targetPos,_targetPositions);
-
     private _obj = ["weaponcache"] call FUNC(getMissionObject);
 
     TRACEV_2(_centerpos,_obj);

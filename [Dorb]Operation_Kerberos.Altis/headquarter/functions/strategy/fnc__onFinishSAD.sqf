@@ -23,7 +23,7 @@ private _target = HASH_GET(_grouphash,"target");
 CHECK((isNil "_target")||{isNull _target})
 
 private _strategy = HASH_GET_DEF(_grouphash,"strategy",locationNull);
-CHECK((isNil "_strategy")||{isNull _strategy})
+CHECK(!(isNull _strategy))
 
 HASH_DELETE(_strategy);
 HASH_SET(_grouphash,"strategy",locationNull);

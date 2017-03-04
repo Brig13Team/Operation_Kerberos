@@ -23,12 +23,12 @@ private _symbolpost = HASH_GET(_groupHash,"symbol") select 0;
 private _symbol = HASH_GET(_grouphash,"prefix") + _symbolpost;
 private _size = HASH_GET(_groupHash,"size") select 0;
 
-private _markername = format[QGVAR(%1),_groupID];
+private _markername = format[QGVAR(%1_%2),side _group,_groupID];
 private _marker1 = createMarkerLocal [_markername,_position];
 HASH_SET(_groupHash,"marker1",_markername);
 GVAR(allMarker) pushBack _marker1;
 
-private _markername = format[QGVAR(%1_size),_groupID];
+private _markername = format[QGVAR(%1_%2_size),side _group,_groupID];
 private _marker2 = createMarkerLocal [_markername,_position];
 HASH_SET(_groupHash,"marker2",_markername);
 GVAR(allMarker) pushBack _marker2;

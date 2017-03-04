@@ -21,9 +21,14 @@ If !(isNil QGVAR(handler)) then {
     GVAR(active) = false;
     [GVAR(handler)] call FUNC(terminate);
     uiSleep (GVAR(intervall) + 3);
+    GVAR(handler) = -1;
+    GVAR(active) = true;
 };
 
-GVAR(active) = true;
+If (isNil QGVAR(active)) then {
+    GVAR(active) = true;
+};
+
 GVAR(handler) = [
     {[] spawn FUNC(handler);},
     GVAR(Intervall)

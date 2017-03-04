@@ -26,10 +26,4 @@ CHECK(!hasInterface)
     {true},
     "\A3\ui_f\data\igui\cfg\simpleTasks\types\radio_ca.paa",
     3
-] call EFUNC(gui_tablet,addApp);
-
-[
-    QGVAR(InterfaceIcon),
-    "\A3\ui_f\data\igui\cfg\simpleTasks\types\radio_ca.paa",
-    FUNC(canOpenMenu)
-] call EFUNC(gui,addNotification);
+] call EFUNC(gui_echidna,addApp);

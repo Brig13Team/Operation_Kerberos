@@ -130,8 +130,8 @@ class missions_config {
                 areas[] = {QGVAR(town)};
                 distance = 200;
             };
-            objectsamount_min = 5;
-            objectsamount_max = 10;
+            objectsamount_min = 3;
+            objectsamount_max = 5;
         };
         class device : main_base {
             taskDescription = "device";

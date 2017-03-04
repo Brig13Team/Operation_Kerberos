@@ -1,14 +1,14 @@
 /*
- *  Author: [Name of Author(s)]
+ *  Author: Dorbedo
  *
  *  Description:
- *      [Description]
+ *      this creates a local arsenal object, whre the items are stored
  *
  *  Parameter(s):
- *      0 : [TYPE] - [argument name]
+ *      none
  *
  *  Returns:
- *      [TYPE] - [return name]
+ *      OBJECT - the arsenal object
  *
  */
 //#define DEBUG_MODE_FULL

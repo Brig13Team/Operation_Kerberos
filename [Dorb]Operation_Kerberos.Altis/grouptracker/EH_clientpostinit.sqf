@@ -21,12 +21,12 @@ GVAR(AiIsVisible) = true; // shows Groups witch are not led by a player
 
 
 // Initializing
-GVAR(active) = false;
+GVAR(active) = true;
 GVAR(lastGroupsToTrack) = [];
 GVAR(grouphashes) = [];
 GVAR(allMarker) = [];
 GVAR(handleID) = -1;
-
+GVAR(showAll) = true;
 // delay the spawn
 [
     {[] call FUNC(init);},

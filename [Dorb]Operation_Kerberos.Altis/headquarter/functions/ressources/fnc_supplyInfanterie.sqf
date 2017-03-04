@@ -15,8 +15,9 @@
 
 private _centerpos = HASH_GET(GVAR(dangerzones),"centerpos");
 
-private _spawnPos = [_centerpos] call FUNC(ressources_getsaveSpawnPos);
 private _transporttype = ["transporter_lorry"] call EFUNC(spawn,getUnit);
+if (_transporttype isEqualTo []) exitWith {0};
+private _spawnPos = [_centerpos,_transporttype] call FUNC(ressources_getsaveSpawnPos);
 
 ([_spawnPos,GVARMAIN(side),_transporttype] call EFUNC(spawn,vehicle)) params ["_transportGroup","_transportVehicle"];
 
@@ -50,11 +51,12 @@ _transportVehicle doMove _centerpos;
             _transportVehicle domove _spawnpos;
             [
                 {
-                    (_this select 0) params ["_transporter","_spawnpos"];
-                    If (((_transporter distance _spawnpos) > 200)&&(canMove _transportVehicle)) exitWith {};
+                    (_this select 0) params ["_transportVehicle","_spawnpos","_transportGroup"];
+                    If (((_transportVehicle distance _spawnpos) > 200)&&(canMove _transportVehicle)) exitWith {};
                     [_this select 1] call CBA_fnc_removePerFrameHandler;
-                    {deletevehicle _x} foreach crew _transporter;
-                    deletevehicle _transporter;
+                    {deletevehicle _x} foreach crew _transportVehicle;
+                    deletevehicle _transportVehicle;
+                    deleteGroup _transportGroup;
                 },
                 30,
                 [_transporter,_spawnPos]
@@ -69,4 +71,4 @@ _transportVehicle doMove _centerpos;
     [_transportGroup,_newGroup,_centerpos,_transportVehicle,_spawnPos]
 ] call CBA_fnc_addPerFrameHandler;
 
-(([_newGroup] call FUNC(strenghtAi)) param [1,0]);
+(([_newGroup] call FUNC(strengthAI)) param [1,0]);

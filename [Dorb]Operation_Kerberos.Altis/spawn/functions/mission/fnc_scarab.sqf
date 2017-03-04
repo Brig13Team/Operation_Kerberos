@@ -21,10 +21,11 @@ private _targets = [];
 for "_i" from 1 to _amount do {
 
     private _targetPositions = [_centerposition,["scarab","isObjective"],1,_radius] call FUNC(createMissionComposition);
-    private _targetPos = selectRandom (_targetPositions select 0);
-    TRACEV_2(_targetPos,_targetPositions);
+    If !(_targetPositions isEqualTo []) then {
+        private _targetPos = selectRandom (_targetPositions select 0);
+        TRACEV_2(_targetPos,_targetPositions);
 
-    private _obj = ["scarab"] call FUNC(getMissionObject);
+        private _obj = ["scarab"] call FUNC(getMissionObject);
 
     TRACEV_2(_centerposition,_obj);
     private _curTarget = createVehicle [_obj, _targetPos,[], 0, "CAN_COLLIDE"];
@@ -37,12 +38,13 @@ for "_i" from 1 to _amount do {
         [_curTarget] call EFUNC(headquarter,registerPOI);
     };
 
-    #ifdef DEBUG_MODE_FULL
-        [(getPos _curTarget),"scarab","ColorBlack","hd_destroy"] call EFUNC(common,debug_marker_create);
-    #endif
+        #ifdef DEBUG_MODE_FULL
+            [(getPos _curTarget),"scarab","ColorBlack","hd_destroy"] call EFUNC(common,debug_marker_create);
+        #endif
 
-    TRACEV_2(_targetPos,_curTarget);
-    _targets pushBack _curTarget;
+        TRACEV_2(_targetPos,_curTarget);
+        _targets pushBack _curTarget;
+    };
 };
 
 _targets

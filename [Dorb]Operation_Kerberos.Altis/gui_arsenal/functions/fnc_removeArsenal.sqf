@@ -1,14 +1,14 @@
 /*
- *  Author: [Name of Author(s)]
+ *  Author: Dorbedo
  *
  *  Description:
- *      [Description]
+ *      removes an arsenal from an object
  *
  *  Parameter(s):
- *      0 : [TYPE] - [argument name]
+ *      0 : OBJECT - The object whre the arsenal should be removed
  *
  *  Returns:
- *      [TYPE] - [return name]
+ *      none
  *
  */
 //#define DEBUG_MODE_FULL

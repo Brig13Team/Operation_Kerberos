@@ -2,7 +2,7 @@
  *  Author: Dorbedo
  *
  *  Description:
- *      updates the strenght of a AI group
+ *      updates the strength of a AI group
  *      registers unregistered groups
  *
  *  Parameter(s):

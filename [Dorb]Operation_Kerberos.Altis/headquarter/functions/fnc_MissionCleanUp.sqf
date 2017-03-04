@@ -57,3 +57,5 @@ HASH_SET(GVAR(groups),"patrolGroups",[]);
         HASH_DELETE(_value);
     };
 } forEach HASH_KEYS(GVAR(attackpos));
+
+[] call FUNC(drones_onMissionEnd);
