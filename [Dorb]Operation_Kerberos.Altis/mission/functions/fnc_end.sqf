@@ -24,12 +24,11 @@ switch (_type) do {
         private _pos = HASH_GET(_mission, "location") select 0;
         [_pos] call FUNC(obj_spawnNuke);
     };
-    // case "rtb": {
-    //     [_name] call FUNC(taskmanager_remove);
-    // };
+    case "_rtb": {
+        [_name] call FUNC(taskmanager_remove);
+    };
 };
 
-// if (!(_type isEqualTo "_rtb") && {!(call FUNC(taskmanager_hasActiveMissions))}) then {
-//    TRACEV_1(_name);
-//    ["_rtb"] call FUNC(spawn);
-// };
+if (!(_type isEqualTo "_rtb") && {!(call FUNC(taskmanager_hasActiveMissions))}) then {
+   ["_rtb"] call FUNC(spawn);
+};

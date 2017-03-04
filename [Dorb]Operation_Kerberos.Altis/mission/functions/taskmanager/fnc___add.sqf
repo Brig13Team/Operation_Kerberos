@@ -43,3 +43,5 @@ if (HASH_HASKEY(_taskhandler, "state")) then { // _taskhandler is a mission too
 
 [QEGVAR(mission,start_server), [_mission]] call CBA_fnc_localEvent;
 [_taskID, GVARMAIN(playerside), _type, _pos, "AUTOASSIGNED", 1, false, true, _type, false] call BIS_fnc_setTask;
+
+TRACEV_3(_taskID, _type, _pos);

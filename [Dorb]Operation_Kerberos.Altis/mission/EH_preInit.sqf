@@ -49,6 +49,7 @@ PREPS(taskmanager,__setState);
 PREPS(taskmanager,add);
 PREPS(taskmanager,addChild);
 PREPS(taskmanager,handle);
+PREPS(taskmanager,hasActiveMissions);
 PREPS(taskmanager,init);
 PREPS(taskmanager,remove);
 PREPS(taskmanager,removeChild);

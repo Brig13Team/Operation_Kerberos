@@ -22,6 +22,16 @@ class main {
     class __twoCounter : __oneCounter {};
 
     /*
+     *  special missions
+     */
+    class _rtb : __base {
+        class object : object {
+            radius   = 100;
+            position = "respawn_west";
+        };
+    };
+
+    /*
      *  playable missions
      */
     class capture : __twoCounter {
