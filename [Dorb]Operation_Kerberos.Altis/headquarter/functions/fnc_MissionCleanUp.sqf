@@ -5,13 +5,17 @@
  *      Cleans the mission specific values after the end of a main-mission
  *
  *  Parameter(s):
- *      none
+ *      0 : HASH    - mission hash
  *
  *  Returns:
  *      none
  *
  */
 #include "script_component.hpp"
+
+_this params ["_mission"];
+
+if !(HASH_GET(_mission, "type") isEqualTo "_rtb") exitWith { -1 };
 
 GVAR(active) = false;
 

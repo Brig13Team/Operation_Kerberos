@@ -31,6 +31,6 @@ If (isNil _functionname) exitWith {
     []
 };
 
-[QEGVAR(mission,init),[_centerPosition,_missiontype]] call CBA_fnc_localEvent;
+// [QEGVAR(mission,init),[_centerPosition,_missiontype]] call CBA_fnc_localEvent; <<-- not sure if it's used anywhere ....
 TRACEV_3(_centerposition,_parameter,_functionname);
 [_centerposition,_parameter] call (missionNamespace getVariable _functionname);

@@ -71,6 +71,7 @@ PREPS(mission,emp);
 PREPS(mission,hostage);
 PREPS(mission,intel);
 PREPS(mission,prototype);
+PREPS(mission,radar);
 PREPS(mission,radiotower);
 PREPS(mission,scarab);
 PREPS(mission,specops);

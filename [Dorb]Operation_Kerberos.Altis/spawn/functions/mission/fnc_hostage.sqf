@@ -14,7 +14,7 @@
 #include "script_component.hpp"
 
 _this params [["_centerposition",[],[[]]],["_parameter",[]]];
-_parameter params [["_amount",3,[0]],["_radius",150,[0]]];
+_parameter params [["_amount",3,[0]],["_radius",200,[0]]];
 TRACEV_4(_centerposition,_parameter,_radius,_amount);
 private _targets = [];
 

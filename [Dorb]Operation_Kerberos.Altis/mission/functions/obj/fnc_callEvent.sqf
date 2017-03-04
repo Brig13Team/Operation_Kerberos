@@ -16,8 +16,9 @@ _this params ["_mission"];
 
 private _last     = HASH_GET(_mission, "event_last");
 private _interval = HASH_GET(_mission, "event_interval");
+private _active   = HASH_GET(_mission, "event_active");
 
-if (_last + _interval >= CBA_missionTime) then {
+if (_active && {(_last + _interval) < CBA_missionTime}) then {
     HASH_SET(_mission, "event_last", CBA_missionTime);
 
     private _event_name = HASH_GET(_mission, "event_name");
