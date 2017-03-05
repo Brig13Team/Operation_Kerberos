@@ -27,7 +27,7 @@ private _coeff = 1;
     If (_position in _poiLoc) exitWith {
         _coeff = MAXIMUM;
     };
-    private _distance = _position distance2D (getPos _poiLoc) + 1;
+    private _distance = (_position distance2D (getPos _poiLoc)) max 1;
     _coeff = _coeff max (5*(log _distance / log 0.00001)+3.2);
 } forEach HASH_GET_DEF(GVAR(POI),"locations",[]);
 

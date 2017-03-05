@@ -36,6 +36,9 @@ private _fnc_setObject = {
             private _watchpos = [_spawnPos,250,_spawnDir] call BIS_fnc_relPos;
             _watchpos set [2,0];
             (gunner _curObj) doWatch _watchpos;
+            If ("Artillery" in getArray(configFile>>"cfgVehicles">>typeOf _curObj>>"availableforsupporttypes")) then {
+                [_curObj] call EFUNC(headquarter,fdc_register);
+            };
         };
         case (_curObj isKindOf "CAManBase"): {
             // disable the moving of the units
@@ -52,6 +55,9 @@ private _fnc_setObject = {
             _curObj setFuel 0.1;
             (driver _curObj) disableAI "PATH";
             (driver _curObj) addEventHandler ["FiredNear",LINKFUNC(composition_onFiredNear)];
+            If ("Artillery" in getArray(configFile>>"cfgVehicles">>typeOf _curObj>>"availableforsupporttypes")) then {
+                [_curObj] call EFUNC(headquarter,fdc_register);
+            };
         };
         case (_curObj isKindOf "CamoNet_BLUFOR_F"): {
             _curObj setDammage 0;
