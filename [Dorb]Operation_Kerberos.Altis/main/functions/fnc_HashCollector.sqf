@@ -14,10 +14,11 @@
 */
 #include "script_component.hpp"
 
-// init the collecting
+// If the collecting is not in progress, initialize the collecting
 If (DORB_HASH_COLLECTOR_NAMESPACES isEqualTo []) then {
     If (DORB_HASH_COLLECTOR_FOUND isEqualTo []) then {
-        DORB_HASH_COLLECTOR_NAMESPACES = [missionNamespace] + allGroups;
+        //start the collecting by initializing the variables
+        DORB_HASH_COLLECTOR_NAMESPACES = [missionNamespace];
         DORB_HASH_COLLECTOR_VARIABLES = (allVariables missionNamespace);
         DORB_HASH_COLLECTOR_ARRAYS = [];
         DORB_HASH_COLLECTOR_FOUND = [];
@@ -29,6 +30,7 @@ If (DORB_HASH_COLLECTOR_NAMESPACES isEqualTo []) then {
         //// deleting old hashes
         private _time = diag_ticktime + DORB_HASH_COLLECTOR_SEARCHTIME;
         while { (diag_ticktime < _time) && {DORB_HASH_COLLECTOR_ID < (count DORB_HASH_COLLECTOR_FOUND)}} do {
+            // moving through the created hashes and delete the hashes, if the are not found
             private _hash = DORB_HASH_CREATED select DORB_HASH_COLLECTOR_ID;
             If !(_hash in DORB_HASH_COLLECTOR_FOUND) then {
                 HASH_DELETE(_hash);
@@ -37,8 +39,11 @@ If (DORB_HASH_COLLECTOR_NAMESPACES isEqualTo []) then {
         };
     };
 };
+
+// first check the namespaces for hashes
 private _time = diag_ticktime + DORB_HASH_COLLECTOR_SEARCHTIME;
 while { (diag_ticktime < _time) && {!(DORB_HASH_COLLECTOR_NAMESPACES isEqualTo [])}} do {
+    // get the variables from the namespace
     If (DORB_HASH_COLLECTOR_VARIABLES isEqualTo []) then {
         /// use the next namespace
         DORB_HASH_COLLECTOR_NAMESPACES deleteAt 0;
@@ -48,7 +53,9 @@ while { (diag_ticktime < _time) && {!(DORB_HASH_COLLECTOR_NAMESPACES isEqualTo [
             DORB_HASH_COLLECTOR_VARIABLES = [];
         };
     }else{
+    // if there are some variables to check, check them
         private _variable = (DORB_HASH_COLLECTOR_VARIABLES deleteAt 0);
+        // prevent endless looping by ignoring the internal variables
         If !((tolower _variable) in DORB_HASH_COLLECTOR_IGNORE) then {
             private _value = (DORB_HASH_COLLECTOR_NAMESPACES select 0) getVariable _variable;
             If (IS_HASH(_value)) then {
