@@ -72,7 +72,7 @@ private _objectives = [];
     }else{
         If (_curType isKindOf "CAManBase") then {
             If (isNull _group) then {_group = createGroup GVARMAIN(side);};
-            _object = [[0,0,0],_group,_curType,"NONE",_spawnDir] call FUNC(unit);
+            _object = [[0,0,0],_group,_curType,"NONE",0] call FUNC(unit);
         }else{
             If (_isSimpleObject) then {
                 _object = createSimpleObject [getText(configFile>>"CfgVehicles">>_curType>>"model"), [0,0,100]];
@@ -80,7 +80,7 @@ private _objectives = [];
                 If (isNull _group) then {_group = createGroup GVARMAIN(side);};
                 _object = ([[0,0,0],_group,_curType,(_curDir + (getDir _house)),((_hasCrew)||{_curType isKindOf "StaticWeapon"}),true] call FUNC(vehicle)) select 1;
             };
-        }
+        };
         _object setPosWorld _targetPos;
         _object setDir (_curDir + (getDir _house));
         _object setVectorUp _curVecUp;
