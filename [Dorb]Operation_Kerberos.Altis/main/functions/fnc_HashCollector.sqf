@@ -1,24 +1,25 @@
 /*
-    Author: Dorbedo
-    Original Author: ACRE2 team (https://github.com/IDI-Systems/acre2)
-
-    Description:
-        collects all hashes and removes lost ones
-        called via PFH
-
-    Parameter(s):
-        None
-
-    Return
-        None
-*/
+ *  Author: Dorbedo
+ *  Original Author: ACRE2 team (https://github.com/IDI-Systems/acre2)
+ *
+ *  Description:
+ *      gathers all hashes and deletes old ones to release the used space
+ *
+ *  Parameter(s):
+ *      none
+ *
+ *  Returns:
+ *      none
+ *
+ */
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-// If the collecting is not in progress, initialize the collecting
-If (DORB_HASH_COLLECTOR_NAMESPACES isEqualTo []) then {
+// If the collecting is not in progress, exit and initialize the collecting (wait for the next call via PFH)
+If (DORB_HASH_COLLECTOR_NAMESPACES isEqualTo []) exitWith {
     If (DORB_HASH_COLLECTOR_FOUND isEqualTo []) then {
         //start the collecting by initializing the variables
-        DORB_HASH_COLLECTOR_NAMESPACES = [missionNamespace];
+        DORB_HASH_COLLECTOR_NAMESPACES = [missionNamespace] + allGroups;
         DORB_HASH_COLLECTOR_VARIABLES = (allVariables missionNamespace);
         DORB_HASH_COLLECTOR_ARRAYS = [];
         DORB_HASH_COLLECTOR_FOUND = [];
@@ -36,6 +37,9 @@ If (DORB_HASH_COLLECTOR_NAMESPACES isEqualTo []) then {
                 HASH_DELETE(_hash);
             };
             INC(DORB_HASH_COLLECTOR_ID);
+        };
+        If (DORB_HASH_COLLECTOR_ID >= (count DORB_HASH_COLLECTOR_FOUND)) then {
+            DORB_HASH_COLLECTOR_FOUND = [];
         };
     };
 };
