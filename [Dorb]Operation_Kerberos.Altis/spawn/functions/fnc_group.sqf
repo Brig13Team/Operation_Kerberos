@@ -66,7 +66,7 @@ CHECKRET((_types isEqualTo []),grpNull);
     If (_isMan) then {
         _unit = [_spawnpos,_group,_x,"FORM",random(360)] call FUNC(unit);
     }else{
-        _unit = ([_spawnpos,_group,_x,random(360),true,true,"FORM"] call FUNC(vehicle)) select 1;
+        _unit = ([_spawnpos,_group,_x,random(360),true,false,"FORM"] call FUNC(vehicle)) select 1;
     };
 
     if ((count _ranks) > _forEachIndex) then {

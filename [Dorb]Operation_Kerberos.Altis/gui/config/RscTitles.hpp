@@ -102,7 +102,7 @@ class RscTitles {
                 w = GUI_TIMER_PIC_W;
                 h = GUI_TIMER_PIC_H;
                 colorBackground[] = COLOR_DISABLED;
-                text = "A3\ui_f\data\gui\cfg\cursors\wait_gs.paa"
+                text = "A3\ui_f\data\gui\cfg\cursors\wait_gs.paa";
                 colorText[] = COLOR_FONT;
             };
             class text : RSC(BaseText) {

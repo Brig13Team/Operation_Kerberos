@@ -15,8 +15,8 @@
 
 _this params ["_groupHash"];
 
-private _marker1 = HASH_GET(_groupHash,"marker1");
-private _marker2 = HASH_GET(_groupHash,"marker2");
+private _marker1 = HASH_GET_DEF(_groupHash,"marker1","");
+private _marker2 = HASH_GET_DEF(_groupHash,"marker2","");
 
 deleteMarkerLocal _marker1;
 deleteMarkerLocal _marker2;

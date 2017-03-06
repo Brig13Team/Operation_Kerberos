@@ -50,14 +50,14 @@ _transportVehicle doMove _centerpos;
             _transportVehicle domove _spawnpos;
             [
                 {
-                    (_this select 0) params ["_transporter","_spawnpos"];
-                    If (((_transporter distance _spawnpos) > 200)&&(canMove _transportVehicle)) exitWith {};
+                    (_this select 0) params ["_transportVehicle","_spawnpos"];
+                    If (((_transportVehicle distance _spawnpos) > 200)&&(canMove _transportVehicle)) exitWith {};
                     [_this select 1] call CBA_fnc_removePerFrameHandler;
-                    {deletevehicle _x} foreach crew _transporter;
-                    deletevehicle _transporter;
+                    {deletevehicle _x} foreach crew _transportVehicle;
+                    deletevehicle _transportVehicle;
                 },
                 30,
-                [_transporter,_spawnPos]
+                [_transportVehicle,_spawnPos]
             ] call CBA_fnc_addPerFrameHandler;
         }else{
             private _defendPos = getPos (selectrandom (HASH_GET(GVAR(POI),"Locations")));

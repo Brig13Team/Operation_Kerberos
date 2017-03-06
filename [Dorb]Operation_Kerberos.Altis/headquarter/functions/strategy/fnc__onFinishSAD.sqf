@@ -20,6 +20,11 @@ private _grouphash = _group getVariable QGVAR(grouphash);
 
 private _target = HASH_GET(_grouphash,"target");
 
+// move the group back to the center
+private _centerpos = HASH_GET(GVAR(dangerzones),"centerpos");
+private _waitingPosition = [_centerpos,250] call EFUNC(common,pos_random);
+[_group,"wait",_waitingPosition,""] call FUNC(state_set);
+
 CHECK((isNil "_target")||{isNull _target})
 
 private _strategy = HASH_GET_DEF(_grouphash,"strategy",locationNull);

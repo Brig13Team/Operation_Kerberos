@@ -5,7 +5,7 @@ SCRIPT(XEH_killed);
 CHECK(!hasInterface)
 _this params ["_unit"];
 
-CHECK(!(local _unit))
+CHECK((!(local _unit))&&{!(isPlayer _unit)})
 
 
 ([_unit] call EFUNC(player,getLoadout)) params ["_loadout","_weaponsarray"];

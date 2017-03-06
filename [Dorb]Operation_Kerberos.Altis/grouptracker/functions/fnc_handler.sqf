@@ -25,7 +25,7 @@ GVAR(handleID) = 3;
 private _groupsToTrack = [] call FUNC(getGroups);
 
 // delete the old groups
-private _groupsToDelete = _groupsToTrack - GVAR(lastGroupsToTrack);
+private _groupsToDelete = (GVAR(lastGroupsToTrack) - _groupsToTrack);
 GVAR(lastGroupsToTrack) = _groupsToTrack;
 {
     private _groupHash = _x getVariable QGVAR(groupHash);
@@ -36,6 +36,7 @@ GVAR(lastGroupsToTrack) = _groupsToTrack;
         GVAR(lastGroupsToTrack) = _groupsToTrack;
     };
     [_grouphash] call FUNC(deleteMarker);
+    GVAR(grouphashes) - [_groupHash];
     HASH_DELETE(_groupHash);
 } forEach _groupsToDelete;
 TRACEV_2(_groupsToDelete,_groupsToTrack);
@@ -65,7 +66,7 @@ TRACEV_2(_groupsToDelete,_groupsToTrack);
     };
     // set the current properties
     private _positions = HASH_GET(_groupHash,"positions");
-    TRACEV_2(_groupHash,_curGroup,_positions);
+    TRACEV_3(_groupHash,_curGroup,_positions);
     If ((count _positions)>((GVAR(delayAmount) max 0)+1)) then {
         [_curGroup,false] call FUNC(update);
     }else{
