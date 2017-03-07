@@ -29,6 +29,14 @@ If !(_state in ["patrol","attack","defend","evade","idle","retreat","wait"]) the
 
 HASH_SET(_grouphash,"state",_state);
 
+If (missionNamespace getVariable [QEGVAR(cache,enabled),false]) then {
+    If (_state isEqualTo "idle") then {
+        [_group] call EFUNC(cache,add);
+    }else{
+        [_group] call EFUNC(cache,remove);
+    };
+};
+
 If !(isNil "_target") then {
     HASH_SET(_grouphash,"target",_target);
 };

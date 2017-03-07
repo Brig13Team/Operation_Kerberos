@@ -41,6 +41,9 @@ private _fnc_setObject = {
             // disable the moving of the units
             _curObj disableAI "PATH";
             _curObj addEventHandler ["FiredNear",LINKFUNC(composition_onFiredNear)];
+            If (missionNamespace getVariable [QEGVAR(cache,enabled),false]) then {
+                [_curObj] call EFUNC(cache,add);
+            };
         };
         case (_curObj isKindOf "LandVehicle"): {
             // lock the vehicles and remove the most of the fuel
@@ -48,6 +51,9 @@ private _fnc_setObject = {
             _curObj setFuel 0.1;
             (driver _curObj) disableAI "PATH";
             (driver _curObj) addEventHandler ["FiredNear",LINKFUNC(composition_onFiredNear)];
+            If (missionNamespace getVariable [QEGVAR(cache,enabled),false]) then {
+                [_curObj] call EFUNC(cache,add);
+            };
         };
     };
 };

@@ -44,6 +44,9 @@ private _fnc_setObject = {
             // disable the moving of the units
             _curObj disableAI "PATH";
             _curObj addEventHandler ["FiredNear",LINKFUNC(composition_onFiredNear)];
+            If (missionNamespace getVariable [QEGVAR(cache,enabled),false]) then {
+                [_curObj] call EFUNC(cache,add);
+            };
         };
         case (_curObj isKindOf "HouseBase"): {
             // houses are always up
@@ -57,6 +60,10 @@ private _fnc_setObject = {
             (driver _curObj) addEventHandler ["FiredNear",LINKFUNC(composition_onFiredNear)];
             If ("Artillery" in getArray(configFile>>"cfgVehicles">>typeOf _curObj>>"availableforsupporttypes")) then {
                 [_curObj] call EFUNC(headquarter,fdc_register);
+            }else{
+                If (missionNamespace getVariable [QEGVAR(cache,enabled),false]) then {
+                    [_curObj] call EFUNC(cache,add);
+                };
             };
         };
         case (_curObj isKindOf "CamoNet_BLUFOR_F"): {
