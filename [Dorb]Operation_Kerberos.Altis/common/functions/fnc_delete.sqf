@@ -1,6 +1,6 @@
 /*
     Author: Dorbedo
-    
+
     Description:
         deletes locations,objects,marker and groups or an array including these
     Parameter(s):
@@ -12,21 +12,20 @@
 _this params [["_delete",objNull,[[],objNull,"",grpNull,locationNull]]];
 switch (typeName _delete) do {
     case "ARRAY" : {
-        {_x call _fnc_scriptName;} forEach _delete;
+        {_x call EFUNC(COMPONENT,delete);} forEach _delete;
     };
     case "OBJECT" : {
         If (vehicle _delete != _delete) then {
-            unassignVehicle (vehicle _delete);
-            _delete setPos [0,0,0];
+            unassignVehicle _delete;
         }else{
             if ({_x != _delete} count (crew _delete) > 0) then {
-                (crew _delete) call _fnc_scriptName;
+                (crew _delete) call EFUNC(COMPONENT,delete);;
             };
         };
         deleteVehicle _delete;
     };
     case "GROUP" : {
-        (units _delete) call _fnc_scriptName;
+        (units _delete) call EFUNC(COMPONENT,delete);;
         {deleteWaypoint _x} forEach (wayPoints _delete);
         deleteGroup _delete;
     };

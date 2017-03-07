@@ -1,26 +1,29 @@
 /*
     Author: Dorbedo
-    
+
     Description:
         loads an object
-        
+
     Parameter(s):
         0 : OBJECT - Target
         1 : OBJECT - Cargo
-        
+
     Returns:
         BOOL
 */
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 _this params ["_target","_caller","_params"];
-_params params ["_vehicle",["_object",objNull,[objNull]]];
+_params params [["_object",objNull,[objNull]],"_vehicle"];
 CHECK(GETVAR(player,GVAR(isloading),false))
-
+TRACEV_3(_target,_vehicle,_object);
 If (!isNull _object) then {
     SETVAR(player,GVAR(isloading),true);
     GVAR(isloading_pos)=getPos player;
     private _anim = getText(missionConfigFile >> "logistics" >> "vehicles" >> (typeOf _vehicle) >> "hatch_isclosed");
+    TRACEV_2(_anim,(typeOf _vehicle));
     If (!(_anim isEqualTo "")) then {
+        TRACEV_1((_vehicle call compile _anim));
         If (_vehicle call compile _anim) then {
             _vehicle call (compile (getText(missionConfigFile >> "logistics" >> "vehicles" >> (typeOf _vehicle) >> "hatch_open")));
             private _isopened = compile (getText(missionConfigFile >> "logistics" >> "vehicles" >> (typeOf _vehicle) >> "hatch_isopened"));
@@ -39,10 +42,14 @@ If (!isNull _object) then {
     SETPVAR(_object,GVAR(aceactions),GVAR(aceactions));
     [
         LOADTIME,
-        [_object,_vehicle, getPos _object, getPos _vehicle],
+        [_vehicle,_object, getPos _vehicle, getPos _object],
         {(_this select 0) call FUNC(load);SETVAR(player,GVAR(isloading),false);},
         {SETVAR(player,GVAR(isloading),false);},
         "",
-        { if (!((getPos (_this select 0 select 0)) isEqualTo (_this select 0 select 2))) exitWith { false }; if (!((getPos (_this select 0 select 1)) isEqualTo (_this select 0 select 3))) exitWith { false }; true }
+        {
+            if (( (getPos((_this select 0) select 0)) distance ((_this select 0) select 2)) > 0.5) exitWith {TRACE("Vehicle has been moved"); false };
+            if (( (getPos((_this select 0) select 1)) distance ((_this select 0) select 3)) > 0.5) exitWith {TRACE("Object has been moved"); false };
+            true;
+        }
     ] call ace_common_fnc_progressBar;
 };

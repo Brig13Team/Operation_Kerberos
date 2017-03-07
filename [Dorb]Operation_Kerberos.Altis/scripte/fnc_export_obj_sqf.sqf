@@ -1,14 +1,14 @@
 /*
     Author: Dorbedo
-    
+
     called via:
         [(getPos player),25,(getDir player)] execVM "fnc_export_obj_sqf.sqf";
         [player,25] execVM "fnc_export_obj_sqf.sqf";
         [cursorTarget,25] execVM "fnc_export_obj_sqf.sqf";
 
-    
+
     class defencepostionname {
-        
+
         material[] = {  {classname,position,direction,offset,vectorUp}  };
         vehicles[] = {  {classname,position,direction,offset,vectorUp}  };        //static and vehicles
         soldier[] = {  {classname,position,direction,offset,vectorUp}  };
@@ -40,7 +40,7 @@ private _exportarray = [];
 /// offset = [position,direction,vectorUp];
 private _fnc_getoffset = {
     params["_object","_positionASL"];
-    
+
     private "_offset";
     private _nextObject = [_object] call _fnc_getObjbelow;
     If (isNull _nextObject) then {
@@ -180,5 +180,3 @@ _output = _output + "};" + _br + _tab2 + "};" + _br;
 copyToClipboard _output;
 uisleep 3;
 hint "copied to clipboard";
-
-

@@ -1,7 +1,7 @@
 /*
     Author: Dorbedo
-    
-    hint typeOf cursorTarget;[cursortarget] execVM "functions\scripte\fnc_logHelperCargo.sqf";
+
+    hint typeOf cursorTarget;[cursortarget] execVM "scripte\fnc_logHelperCargo.sqf";
 */
 
 params[["_vehicle",objNull,[objNull]]];

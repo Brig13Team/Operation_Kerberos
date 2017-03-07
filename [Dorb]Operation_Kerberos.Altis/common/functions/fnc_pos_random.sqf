@@ -13,12 +13,13 @@
     Returns:
     Position
 */
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 private ["_pos","_dir","_radx","_rady","_generiere"];
 _this params [
     ["_start",[],[[]],[2,3]],
     ["_rad",200,[0]],
-    ["_typ",-1,[0]]
+    ["_typ",0,[0]]
 ];
 TRACEV_3(_start,_rad,_typ);
 
@@ -113,7 +114,7 @@ switch _typ do {
         _rady = (sin _dir) * _rad;
         _radx = _radx + (_start select 0);
         _rady = _rady + (_start select 1);
-        _pos=[_radx,_rady,0];    
+        _pos=[_radx,_rady,0];
     };
 };
 _pos

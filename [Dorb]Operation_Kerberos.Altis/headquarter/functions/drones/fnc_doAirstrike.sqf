@@ -1,11 +1,11 @@
 /*
     Author: iJesuz
-    
+
     Description:
-    
+
     Parameter(s):
         0 : ARRAY/OBJECT - position or target object
-    
+
 */
 #include "script_component.hpp"
 SCRIPT(doAirstrike);
@@ -14,18 +14,15 @@ params [["_target",objNull,[objNull,[]]]];
 private ["_adrones","_drone","_ret","_dir","_pos","_posBegin","_posEnd","_height","_pos","_onExit","_logic"];
 
 _onExit = {
-    private ["_adrones"];
-    _adrones = GETVAR(missionNamespace,GVAR(availableAttackDrones),[]);
-    _adrones pushback (typeOf _this);
-    SETVAR(missionNamespace,GVAR(availableAttackDrones),_adrones);
+    GVAR(drones_availableAttackDrones) pushback (typeOf _this);
     deleteVehicle _this;
 };
 
-_adrones = GETVAR(missionNamespace,GVAR(availableAttackDrones),[]);
+_adrones = GVAR(drones_availableAttackDrones);
 if (count _adrones == 0) exitWith { false };
 _drone = _adrones select (count _adrones - 1);
 _adrones resize (count _adrones - 1);
-SETVAR(missionNamespace,GVAR(availableAttackDrones),_adrones);
+GVAR(drones_availableAttackDrones) = _adrones;
 
 _drone = createVehicle [_drone,[0,0,2000],[],0,"FLY"];
 createVehicleCrew _drone;

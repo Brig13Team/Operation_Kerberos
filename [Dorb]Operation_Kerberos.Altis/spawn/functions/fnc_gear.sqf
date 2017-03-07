@@ -11,7 +11,6 @@
     None
 */
 #include "script_component.hpp"
-SCRIPT(gear);
 _this params[["_unit",objNull,[objNull]]];
 
 CHECK((isPlayer _unit)||(!(local _unit)))

@@ -18,7 +18,7 @@
     [_vehicle,_crew,_group]
 */
 #include "script_component.hpp"
-params[
+_this params[
     ["_position",[],[[]],[2,3]],
     ["_group",grpNull,[grpNull,east]],
     ["_unittype","",[""]],
@@ -38,6 +38,7 @@ CHECKRET(((_position isEqualTo [])||(_unittype isEqualTo "")||(isNull _group)),[
 
 
 private _simulation = getText(configFile >> "CfgVehicles" >> _unittype >> "simulation");
+private _isArtillery = "Artillery" in getArray(configFile >> "CfgVehicles" >> _unittype >> "availableForSupportTypes");
 private "_vehicle";
 switch (tolower _simulation) do {
     case "soldier": {
@@ -65,9 +66,11 @@ if (_simulation == "airplanex") then {
     _vehicle setVelocity [100 * (sin _direction), 100 * (cos _direction), 0];
 };
 If (_withcrew) then {
-    _group = [_vehicle,_group] call FUNC(crew);
+    [_vehicle,_group] call FUNC(crew);
 };
 if (_changeleader) then {
-    _group selectLeader (commander _vehicle);
+    If (!(_vehicle isKindOf "Air")) then {
+        _group selectLeader (commander _vehicle);
+    };
 };
-[_group,_vehicle]
+[_group,_vehicle];

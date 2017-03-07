@@ -1,9 +1,10 @@
 /*
     Author: Dorbedo
-    
+
     Description:
         Gebäude um Position auflisten
 */
+
 #include "script_component.hpp"
 _this params[["_pos",[],[[]]],["_rad",250,[0]]];
 TRACEV_2(_pos,_rad);

@@ -1,12 +1,12 @@
 /*
     Author: Dorbedo
-    
+
     Description:
         shows the loadable cargo
-        
+
     Parameter(s):
         0 : OBJECT - vehicle
-        
+
     Returns:
         ARRAY - ChildActions
 */
@@ -24,7 +24,7 @@ private _loadActions = [];
 
 
 {
-    _cargo = _x;   
+    _cargo = _x;
     If ((_vehicle != _cargo)&&{[_vehicle,_cargo] call FUNC(canbeLoaded)}) then {
         private _action = [
             _cargo,

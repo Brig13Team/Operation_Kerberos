@@ -9,20 +9,21 @@
         1: OBJECT - vehicle
 
 */
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-
+TRACEV_1(_this);
 _this params ["_vehicle","_cargo"];
 private _vehicle_class = typeOf _vehicle;
 private _cargo_class = [_cargo] call FUNC(getCargoCfg);
 
 if (!isClass(missionConfigFile >> "logistics" >> "vehicles" >> _vehicle_class)) exitWith {
-    ["unsupported vehicle",["unsupported vehicle"],"",false] call EFUNC(interface,disp_info);
+    [QGVAR(message),["unsupported vehicle",["unsupported vehicle"],"",false]] call CBA_fnc_localEvent;
 };
 if (_cargo_class isEqualTo "") exitWith {
-    ["unsupported cargo",["unsupported cargo"],"",false] call EFUNC(interface,disp_info);
+    [QGVAR(message),["unsupported cargo",["unsupported cargo"],"",false]] call CBA_fnc_localEvent;
 };
 if (!(isNull attachedTo _cargo)) exitWith {
-    ["cargo already attached",["cargo already attached"],"",false] call EFUNC(interface,disp_info);
+    [QGVAR(message),["cargo already attached",["cargo already attached"],"",false]] call CBA_fnc_localEvent;
 };
 
 private _cargo_width = getNumber(missionConfigFile >> "logistics" >> "cargos" >> _cargo_class >> "width");
@@ -45,7 +46,7 @@ If (isClass(missionConfigFile >> "logistics" >> "vehicles" >> _vehicle_class >> 
 private _logistic_stack = _vehicle getVariable [QGVAR(stack),[]];
 
 if ((_max_height > 0) && {_cargo_height > _max_height}) exitWith {
-    ["cargo to high",["cargo to high"],"",false] call EFUNC(interface,disp_info);
+    [QGVAR(message),["cargo to high",["cargo to high"],"",false]] call CBA_fnc_localEvent;
 };
 
 private ["_attach_point","_rotate"];
@@ -179,7 +180,7 @@ if (!(_logistic_stack isEqualTo [])) then {
 };
 
 if(_attach_point isEqualTo []) exitWith {
-    ["cargo doesn't fit",["cargo doesn't fit"],"",false] call EFUNC(interface,disp_info);
+    [QGVAR(message),["cargo doesn't fit",["cargo doesn't fit"],"",false]] call CBA_fnc_localEvent;
 };
 
 private _cargo_mass = getMass _cargo;

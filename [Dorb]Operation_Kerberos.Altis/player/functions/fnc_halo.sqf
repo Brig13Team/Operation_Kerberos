@@ -1,9 +1,9 @@
 /*
     Author: Dorbedo
-    
+
     Description:
         performes the Halo
-        
+
     Parameter(s):
         (optional)
             Altitude of the startpoint
@@ -15,22 +15,22 @@
 _this params["_host","_caller","_id","_params"];
 _params params[["_althalo",500,[0]],["_altchute",100,[0]]];
 
-if ((count ([]call EFUNC(common,players)))>7) exitWith {[LSTRING(HALO),LSTRING(HALO_DISABLED)] call EFUNC(interface,disp_message);};
+if ((count ([]call EFUNC(common,players)))>7) exitWith {[QGVAR(message),[LSTRING(HALO),LSTRING(HALO_DISABLED)]] call CBA_fnc_localEvent;};
 
 if !(alive _host) exitwith {
-    [LSTRING(HALO),LSTRING(HALO_DISABLED)] call EFUNC(interface,disp_message);
+    [QGVAR(message),[LSTRING(HALO),LSTRING(HALO_DISABLED)]] call CBA_fnc_localEvent;
     _host removeaction _id;
 };
 
 if (vehicle _caller == _caller) then {
-    [LSTRING(HALO),LSTRING(HALO_KLICK)] call EFUNC(interface,disp_message);
+    [QGVAR(message),[LSTRING(HALO),LSTRING(HALO_KLICK)]] call CBA_fnc_localEvent;
     openMap true;
     GVAR(halo_clicked) = false;
     private _handler = [QGVAR(halo_handler),"onMapSingleClick",{GVAR(halo_pos)= _pos;GVAR(halo_clicked) = true;true;}] call BIS_fnc_addStackedEventHandler;
     waituntil {GVAR(halo_clicked) or !(visiblemap)};
     [QGVAR(halo_handler),"onMapSingleClick"] call BIS_fnc_removeStackedEventHandler;
     if !(GVAR(halo_clicked)) exitwith {
-        [LSTRING(HALO),LSTRING(HALO_ABORT)] call EFUNC(interface,disp_message);
+        [LSTRING(HALO),LSTRING(HALO_ABORT)] call EFUNC(gui,message);
     };
     _caller setpos [GVAR(halo_pos) select 0, GVAR(halo_pos) select 1, _althalo];
     _caller spawn bis_fnc_halo;

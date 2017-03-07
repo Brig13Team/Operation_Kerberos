@@ -1,12 +1,12 @@
 /*
     Author: Dorbedo
-    
+
     Description:
         shows the loadable vehicles
-        
+
     Parameter(s):
         0 : OBJECT - cargo
-        
+
     Returns:
         ARRAY - ChildActions
 */

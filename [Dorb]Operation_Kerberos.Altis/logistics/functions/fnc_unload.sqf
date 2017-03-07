@@ -15,10 +15,10 @@ private _vehicle_class = typeOf _vehicle;
 private _logistic_stack = _vehicle getVariable [QGVAR(stack),[]];
 
 if (!isClass(missionConfigFile >> "logistics" >> "vehicles" >> _vehicle_class)) exitWith {
-    ["unsupported vehicle",["unsupported vehicle"],"",false] call EFUNC(interface,disp_info);
+    [QGVAR(message),["unsupported vehicle",["unsupported vehicle"],"",false]] call CBA_fnc_localEvent;
 };
 if (_logistic_stack isEqualTo []) exitWith {
-    ["vehicle is empty",["vehicle is empty"],"",false] call EFUNC(interface,disp_info);
+    [QGVAR(message),["vehicle is empty",["vehicle is empty"],"",false]] call CBA_fnc_localEvent;
 };
 
 private _last_row = _logistic_stack select ((count _logistic_stack) - 1);
@@ -102,3 +102,4 @@ If (_aceActions select 0) then {
 If (_aceActions select 1) then {
     (_last_cargo select 0) setVariable ["ACE_dragging_canCarry",true,true];
 };
+(_last_cargo select 0) setVariable [QGVAR(aceactions),[]];

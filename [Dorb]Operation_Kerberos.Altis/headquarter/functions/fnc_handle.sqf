@@ -1,9 +1,9 @@
 /*
     Author: Dorbedo
-    
+
     Description:
         handles AI HQ
-    
+
     Parameter(s):
         none
 
@@ -11,196 +11,82 @@
         none
 */
 #include "script_component.hpp"
-CHECK(GETMVAR(GVAR(active),false))
-CHECK(GETMVAR(GVAR(working),false))
-CHECK((GETMVAR(GVAR(centerpos),[]) isEqualTo []))
-SETMVAR(GVAR(working,true));
+CHECK(!GVAR(active))
+
+CHECK(!isNull(GVAR(handle)))
 
 /// spawn to move it in the ingame sheduler
-[] spawn {
+GVAR(handle) = [] spawn {
     SCRIPTIN(handle,spawn);
-    /*
-    /// backup -> get unregistered Groups
-    
+
+    /// check dangerzones for new Zones to attack
+    private _attackPosToCreate = [];
     {
-        If ((side _x != GVARMAIN(playerside))&&{(_x getVariable [QGVAR(state),""]) isEqualTo ""}) then {
-            _x setVariable [QGVAR(state),"idle"];
+        _x params ["_value","_key"];
+        private _position = [_key] call FUNC(dzconvert);
+        private _curAttackPos = [_position] call FUNC(attackpos_atPosition);
+        If ((isNull _curAttackPos)&&{!(_position isEqualTo [0,0,0])}) then {
+            _attackPosToCreate pushBack _position;
         };
-    }forEach allGroups;
-    */
-    
-    
-    
+        TRACEV_4(_position,_key,_curAttackPos,_value);
+    } forEach ([] call FUNC(dzfindPeaks));
+    TRACEV_1(_attackPosToCreate);
 
-    private _attackarray = [QGVAR(dangerzones)] call EFUNC(common,matrix_find_peaks);
-    private _attackpositions = [];
+    /// create new attacklocaltions
     {
-        _attackpositions pushBack [
-                                ((GVAR(centerpos) select 0)-(GVAR(definitions) select 0) + ((_x select 1)*(GVAR(definitions) select 1))),
-                                ((GVAR(centerpos) select 1)+(GVAR(definitions) select 1) - ((_x select 2)*(GVAR(definitions) select 1))),
-                                0
-                                ];
-    }forEach _attackarray;
+        [_x] call FUNC(attackpos_create);
+    } forEach _attackPosToCreate;
 
+    /// calling supplys -
+    [] call FUNC(ressources_supply);
 
-    //// create new Attacklogics
-    private _attackLogics = [] call FUNC(attackpos_getAll);
+    /// check the attackpositions
+    private _newAttackPos = [] call FUNC(attackpos_check);
 
-    {
-        private _curentAttackPos = _x;
-        {
-            if ((_x distance _curentAttackPos)<400) exitWith {
-                [_curentAttackPos,0] call FUNC(attackpos_create_logic);
-            };
-        }forEach _attackLogics;
-    }forEach _attackpositions;
+    /// groups balancing
+    [] call FUNC(balanceGroups);
 
-
-
-    /// Update the enemyamount on each Attackpos
-    _attackLogics = [] call FUNC(attackpos_getAll);
 
     {
-        ([getPos _x] call FUNC(dangerzone_convert)) params ["_x_coord","_y_coord"];
-        private _enemy = 0;
-        {
-            _enemy = _enemy + (_x call EFUNC(common,matrix_value_get));
-        }forEach [
-            [QGVAR(dangerzones),_x_coord,_y_coord],
-            
-            [QGVAR(dangerzones),_x_coord+1,_y_coord],
-            [QGVAR(dangerzones),_x_coord-1,_y_coord],
-            [QGVAR(dangerzones),_x_coord,_y_coord+1],
-            [QGVAR(dangerzones),_x_coord,_y_coord-1],
-            
-            [QGVAR(dangerzones),_x_coord+1,_y_coord+1],
-            [QGVAR(dangerzones),_x_coord-1,_y_coord-1],
-            [QGVAR(dangerzones),_x_coord-1,_y_coord+1],
-            [QGVAR(dangerzones),_x_coord+1,_y_coord-1],
-            
-            [QGVAR(dangerzones),_x_coord+2,_y_coord-2],
-            [QGVAR(dangerzones),_x_coord+2,_y_coord+2],
-            [QGVAR(dangerzones),_x_coord-2,_y_coord-2],
-            [QGVAR(dangerzones),_x_coord-2,_y_coord+2],
-            
-            [QGVAR(dangerzones),_x_coord-1,_y_coord-2],
-            [QGVAR(dangerzones),_x_coord-2,_y_coord-1],
-            [QGVAR(dangerzones),_x_coord+1,_y_coord-2],
-            [QGVAR(dangerzones),_x_coord+2,_y_coord-1],
-            [QGVAR(dangerzones),_x_coord+1,_y_coord+2],
-            [QGVAR(dangerzones),_x_coord+2,_y_coord+1],
-            [QGVAR(dangerzones),_x_coord-1,_y_coord+2],
-            [QGVAR(dangerzones),_x_coord-2,_y_coord+1],
-            
-            [QGVAR(dangerzones),_x_coord+2,_y_coord],
-            [QGVAR(dangerzones),_x_coord-2,_y_coord],
-            [QGVAR(dangerzones),_x_coord,_y_coord+2],
-            [QGVAR(dangerzones),_x_coord,_y_coord-2]
-        ];
-        _x setVariable[QGVAR(enemy),_enemy];
-    } forEach _attackLogics;
+        TRACE(FORMAT_1("Choosing new strategie: %1",_x));
+        [_x] call FUNC(strategy__choose);
+    } forEach _newAttackPos;
 
 
-/*
-    // Check Radars
-    _aircontacts = [] call FUNC(check_radars);
-    // Check Spotters
-    _spotter_requests = [] call FUNC(check_spotter);
-    // Check Requests
-    _support_requests = GETMVAR(GVAR(support_requests),[]);
-    SETMVAR(GVAR(support_requests),[]);
-*/
+    /// POI
 
+    [] call FUNC(checkPOI);
 
-
+    /// Move defending Units of already destroyed POI to other POI
+    {
+        private _grouphash = _x;
+        private _group = HASH_GET(_grouphash,"group");
+        If (isNil "_grouphash") then {WARNING("Grouphash is Nil");TRACEV_3(_x,_grouphash,_group);};
+        If ((HASH_GET_DEF(_grouphash,"state","NOSTATE")) in ["idle"]) then {
+            private _allPOI = (HASH_GET(GVAR(POI),"Locations")) select {HASH_GET_DEF(_x,"isActive",false)};
+            CHECK(_allPOI isEqualTo [])
+            TRACE("Moving defence groups to other POI");
+            [_group,"defend",(selectRandom _allPOI)] call FUNC(state_set);
+        };
+    } forEach (HASH_GET(GVAR(groups),"defenceGroups"));
 
     /// get the availlible groups
     private _waitingGroups = [];
-    /// the bored groups
     {
         If (side _x != GVARMAIN(playerside)) then {
-            if ((_x getVariable [QGVAR(state),""]) isEqualTo "wait") then {
-                _waitingGroups pushBack _x;
-            };
-        };
-    }forEach allGroups;
-    /// the veterans
-    {
-        If (side _x != GVARMAIN(playerside)) then {
-            if ((_x getVariable [QGVAR(state),""]) isEqualTo "idle") then {
-                _waitingGroups pushBack _x;
-            };
-        };
-    }forEach allGroups;
-    
-    
-    private _missingstrenght = 0;
-    /// move into battle
-    TRACEV_2(_attackLogics,_waitingGroups);
-    [_attackLogics,_waitingGroups] call FUNC(strategy);
-    /*
-    {
-        private _enemy = _x getVariable[QGVAR(enemy),0];
-        private _troops = _x getVariable[QGVAR(troopsNeeded),0];
-        
-        If ((_enemy - _troops)>0) then {
-            for "_i" from 0 to _troops do {
-                private _curGroup = _waitingGroups deleteAt 0;
-                private _strength = [_curGroup] call FUNC(strength);
-                _curGroup setVariable [QGVAR(target),_x];
-                _curGroup setVariable [QGVAR(strength),_x];
-                _curGroup setVariable [QGVAR(state),"attack"];
-                [_curGroup] spawn FUNC(state_change);
-                
-                _troops = _troops + (_strength select 1);
-                _i = _i + (_strength select 1);
-            };
-        };
-        _missingstrenght = _missingstrenght + ((_enemy - _troops) max 0);
-        _x setVariable[QGVAR(troopsNeeded),_troops];
-    }forEach _attackLogics;
-    */
-    
-    //// Let the rest do something too.
-    {
-        if ((_x getVariable [QGVAR(state),""]) isEqualTo "idle") then {
-            private _curPOI = selectRandom GVAR(POI);
-            private _curPos = [_curPOI,800,0] call EFUNC(common,pos_random);
-            _x setVariable [QGVAR(target),_curPos];
-            _x setVariable [QGVAR(state),"wait"];
-            [_x] spawn FUNC(state_change);
-        };
-    } forEach _waitingGroups;
-    
-    
-    // remove groups from patroling when the shit hits the fan
-    /*
-    If (_missingstrenght > 0) then {
-        _waitingGroups = [];
-        {
-            If (side _x != GVARMAIN(playerside)) then {
-                if ((_x getVariable [QGVAR(state),""]) isEqualTo "idle") then {
+            private _grouphash = HASH_GET(_x,QGVAR(grouphash));
+            If !(isNil "_grouphash") then {
+                // bored
+                if ((HASH_GET_DEF(_grouphash,QGVAR(state),"NOSTATE")) in ["wait"]) then {
+                    _waitingGroups pushBack _x;
+                };
+                // Veteran
+                if ((HASH_GET_DEF(_grouphash,QGVAR(state),"NOSTATE")) in ["idle"]) then {
                     _waitingGroups pushBack _x;
                 };
             };
-        }forEach allGroups;
+        };
+    } forEach allGroups;
 
-        {
-            if (_missingstrenght <= 0) exitWith {};
-            private _strength = [_x] call FUNC(strength);
-            private _curPOI = selectRandom GVAR(POI);
-            private _curPos = [_curPOI,200,0] call EFUNC(common,pos_random);
-            _x setVariable [QGVAR(target),_curPos];
-            _x setVariable [QGVAR(state),"retreat"];
-            [_x] spawn FUNC(state_change);
-            _missingstrenght = _missingstrenght - _strength;
-        } forEach _waitingGroups;
-    };
-    */
-    
-    
-
-
-    SETMVAR(GVAR(working),false);
 
 };
