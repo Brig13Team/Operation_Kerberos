@@ -38,6 +38,7 @@ CHECKRET(((_position isEqualTo [])||(_unittype isEqualTo "")||(isNull _group)),[
 
 
 private _simulation = getText(configFile >> "CfgVehicles" >> _unittype >> "simulation");
+private _isArtillery = "Artillery" in getArray(configFile >> "CfgVehicles" >> _unittype >> "availableForSupportTypes");
 private "_vehicle";
 switch (tolower _simulation) do {
     case "soldier": {

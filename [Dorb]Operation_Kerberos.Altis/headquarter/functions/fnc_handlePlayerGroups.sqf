@@ -2,7 +2,7 @@
  *  Author: Dorbedo
  *
  *  Description:
- *      updates the strenght of the playergroups
+ *      updates the strength of the playergroups
  *      gets the values over time to prevent smaller attacks if the units moved out of a vehicle
  *
  *  Parameter(s):
@@ -12,13 +12,14 @@
  *      none
  *
  */
- #define DEBUG_MODE_FULL
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-private _fullCheck = false;
+(_this select 0) params[["_fullCheck",false,[true]]];
+
 private _allPlayerGroups = allGroups select {side _x == GVARMAIN(playerside)};
 private _playergrouphashes = HASH_GET(GVAR(groups),"playergroups");
-
+//TRACEV_3(_this,_allPlayerGroups,_playergrouphashes);
 If !((count _allPlayerGroups)==(count _playergrouphashes)) then {
     _fullCheck = true;
 };
@@ -36,7 +37,7 @@ If (_fullCheck) then {
             [_group] call FUNC(registerPlayerGroup);
         };
         GVAR(playergroups_new) pushBackUnique _grouphash;
-        private _strenghtArray = (_group call FUNC(strengthPlayer)) params ["_GroupType","_value","_threat"];
+        private _strengthArray = (_group call FUNC(strengthPlayer)) params ["_GroupType","_value","_threat"];
 
         private _temphistory = (HASH_GET(_grouphash,"typehistory"));
         If (count _temphistory >= 10) then {_temphistory deleteAt 0;};
@@ -77,6 +78,7 @@ If (_fullCheck) then {
                 HASH_SET(_grouphash,"type",_GroupType);
                 HASH_SET(_grouphash,"value",_value);
                 HASH_SET(_grouphash,"threat",_threat);
+                TRACE("Setting debug Values");
             };
         #endif
     } forEach _allPlayerGroups;

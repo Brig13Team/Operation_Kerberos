@@ -1,5 +1,5 @@
 /*
- *  Author: Dorbedo
+ *  Author: Dorbedo, iJesuz
  *
  *  Description:
  *      disable the device
@@ -20,10 +20,7 @@ CHECK(isNull _target)
 [
     5,
     [_target],
-    {
-        _args params ["_target"];
-        _target setVariable [QGVAR(isActive),false,true];
-    },
+    LINKFUNC(obj_disableDevice),
     {},
     localize LSTRING(OBJ_DEVICE_DEACTIVATING)
 ] call ace_common_fnc_progressBar;

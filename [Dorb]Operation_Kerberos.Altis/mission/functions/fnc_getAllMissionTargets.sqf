@@ -14,6 +14,8 @@
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
+// TODO
+
 #ifdef DEBUG_MODE_FULL
     [obj1,obj2,obj3,obj4,obj5]
 #else

@@ -27,6 +27,31 @@ If !(_housetype isEqualTo (typeOf _house)) exitWith {
     ERROR("Housetype does not match config");
 };
 
+private _fnc_setObject = {
+    _this params ["_curObj"];
+    //TRACEV_1(_curObj);
+    switch (true) do {
+        case (_curObj isKindOf "StaticWeapon"): {
+            // prevent the static units from looking north by default
+            private _watchpos = [_targetPos,250,(_curDir + (getDir _house))] call BIS_fnc_relPos;
+            _watchpos set [2,0];
+            (gunner _curObj) doWatch _watchpos;
+        };
+        case (_curObj isKindOf "CAManBase"): {
+            // disable the moving of the units
+            _curObj disableAI "PATH";
+            _curObj addEventHandler ["FiredNear",LINKFUNC(composition_onFiredNear)];
+        };
+        case (_curObj isKindOf "LandVehicle"): {
+            // lock the vehicles and remove the most of the fuel
+            _curObj lock 1;
+            _curObj setFuel 0.1;
+            (driver _curObj) disableAI "PATH";
+            (driver _curObj) addEventHandler ["FiredNear",LINKFUNC(composition_onFiredNear)];
+        };
+    };
+};
+
 Private _allObjects = configProperties [_config,"isClass(_x)",true];
 private _group = grpNull;
 private _objectives = [];
@@ -45,21 +70,21 @@ private _objectives = [];
     If (_curType == "Land_CargoBox_V1_F") then {
         _objectives pushBack _targetPos;
     }else{
-        If (_isSimpleObject) then {
-            _object = createSimpleObject [getText(configFile>>"CfgVehicles">>_curType>>"model"), [0,0,100]];
+        If (_curType isKindOf "CAManBase") then {
+            If (isNull _group) then {_group = createGroup GVARMAIN(side);};
+            _object = [[0,0,0],_group,_curType,"NONE",0] call FUNC(unit);
         }else{
-            _object = createVehicle [_curType, [0,0,100], [], 0, "CAN_COLLIDE"];
+            If (_isSimpleObject) then {
+                _object = createSimpleObject [getText(configFile>>"CfgVehicles">>_curType>>"model"), [0,0,100]];
+            }else{
+                If (isNull _group) then {_group = createGroup GVARMAIN(side);};
+                _object = ([[0,0,0],_group,_curType,(_curDir + (getDir _house)),((_hasCrew)||{_curType isKindOf "StaticWeapon"}),true] call FUNC(vehicle)) select 1;
+            };
         };
-        //_object setPos _targetPos;
         _object setPosWorld _targetPos;
         _object setDir (_curDir + (getDir _house));
         _object setVectorUp _curVecUp;
-        If (_hasCrew) then {
-            If (isNull _group) then {
-                _group = createGroup GVARMAIN(side);
-            };
-            [_object,_group] call FUNC(crew);
-        };
+        [_object] call _fnc_setObject;
     };
 } forEach _allObjects;
 

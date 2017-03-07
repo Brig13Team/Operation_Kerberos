@@ -12,7 +12,6 @@ SETUVAR(EGVAR(gui,respawnTime),nil);
 
 [] call FUNC(halo_addaction);
 [] call FUNC(backpack_init);
-[] call FUNC(onrespawn);
 [] call FUNC(initKnockKnock);
 
 

@@ -9,9 +9,9 @@
 #include "script_component.hpp"
 _this params [["_target",objNull,[objNull]]];
 
-CHECK(!isServer)
-
 GVAR(arsenal_boxes) pushBackUnique _target;
+
+CHECK(!isServer)
 
 If !(missionNamespace getVariable [QGVAR(ArsenalIsTransmitting),false]) then {
     GVAR(ArsenalIsTransmitting) = true;

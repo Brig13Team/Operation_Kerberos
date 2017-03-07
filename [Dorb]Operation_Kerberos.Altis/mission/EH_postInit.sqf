@@ -25,7 +25,7 @@
  */
 
 [QGVAR(earthquake),LINKFUNC(obj_effectEarthquake)] call CBA_fnc_addEventHandler;
-[QGVAR(sandstorm),LINKFUNC(obj_createSandstorm)] call CBA_fnc_addEventHandler;
+// [QGVAR(sandstorm),LINKFUNC(obj_createSandstorm)] call CBA_fnc_addEventHandler;
 
 [QGVAR(pickUpSuitcase),{
     [LINKFUNC(handleCarry),15,_this] call CBA_fnc_addPerFrameHandler;

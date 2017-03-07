@@ -3,9 +3,11 @@
 
     Description:
         changes the HC
-    
+
 */
 #include "script_component.hpp"
+CHECK(!hasInterface)
+
 _this params [["_target",[],[[],objNull,grpNull],[2,3]],["_text","",[""]],["_color2","",[""]],["_type2","",[""]],["_dir",0,[0]]];
 ISNILS(GVARMAIN(debug_marker),[]);
 

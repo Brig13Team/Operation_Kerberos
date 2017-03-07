@@ -15,19 +15,19 @@
 #include "script_component.hpp"
 
 _this params [["_centerposition",[],[[]]],["_parameter",[]]];
-_parameter params [["_amount",3,[0]]];
+_parameter params [["_amount",3,[0]],["_radius",200,[0]]];
 TRACEV_3(_centerposition,_parameter,_amount);
 private _intelObjects = [];
-private _targetPositions = [_centerposition,"intel",_amount] call FUNC(createMissionHouse);
-TRACEV_1(_targetPositions);
+private _targetPositions = [_centerposition,["hasmissiontarget","intel"],_amount,_radius] call FUNC(createMissionHouse);
+//TRACEV_1(_targetPositions);
 
-for "_i" from 0 to _amount do {
+for "_i" from 1 to _amount do {
     private _targetPos = selectRandom _targetPositions;
-    TRACEV_1(_targetPos);
+    //TRACEV_1(_targetPos);
 
     private _obj = ["intel"] call FUNC(getMissionObject);
 
-    TRACEV_2(_centerposition,_obj);
+    //TRACEV_2(_centerposition,_obj);
     private _spawnPos =+ _targetPos;
     _spawnPos resize 3;
 
@@ -44,7 +44,7 @@ for "_i" from 0 to _amount do {
         [(getPos _curTarget),"Intel","ColorBlack","hd_destroy"] call EFUNC(common,debug_marker_create);
     #endif
 
-    TRACEV_2(_targetPos,_curTarget);
+    //TRACEV_2(_targetPos,_curTarget);
     _intelObjects pushBack _curTarget;
 };
 //[_curTarget];

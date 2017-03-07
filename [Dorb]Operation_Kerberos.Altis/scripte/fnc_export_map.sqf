@@ -1,12 +1,12 @@
 /*
     Author: Dorbedo
-    
+
     called via:
         [(getPos player),25,(getDir player)] execVM "fnc_export_obj_sqf.sqf";
         [player,25] execVM "fnc_export_obj_sqf.sqf";
         [cursorTarget,25] execVM "fnc_export_obj_sqf.sqf";
 
-    
+
     class map {
         class 11_12 {
             surface = 0; // (0:water ; 1:land ; 2:road);
@@ -23,7 +23,7 @@
 */
 hint "Export in progess....";
 
-#define RASTER 500
+#define RASTER 300
 #define RASTER_2 floor(RASTER/2)
 #define ROADDISTANCE floor(RASTER/3)
 #define TERRAINDISTANCE floor(RASTER/3)
@@ -32,8 +32,9 @@ private ["_positions"];
 _positions = [];
 
 for "_i" from 0 to (worldsize - RASTER_2) step RASTER do {
+    private "_temp";
     for "_j" from 0 to (worldsize - RASTER_2) step RASTER do {
-        private ["_temp","_nearestRoad","_nearestPos","_surface"];
+        private ["_nearestRoad","_nearestPos","_surface"];
         _temp = [_j + RASTER_2, _i + RASTER_2, 0];
         _surface = 0;
         //if !(surfaceisWater _temp) then {
@@ -53,12 +54,13 @@ for "_i" from 0 to (worldsize - RASTER_2) step RASTER do {
                     _temp pushBack 0;
                 };
                 */
-                
+
             };
         //};
-        [_temp,"","ColorBlue"] call dorb_common_fnc_debug_marker_create;
+        //[_temp,"","ColorBlue"] call dorb_common_fnc_debug_marker_create;
         _positions pushBack [format["%1_%2",floor(_j/10),floor(_i/10)],_temp,_surface, -1,-1,-1,-1, -1,-1,-1,-1];
     };
+    [_temp,"","ColorBlue"] call dorb_common_fnc_debug_marker_create;
 };
 
 hint "valuing";
@@ -157,8 +159,8 @@ _side = sqrt(_count);
             _positions set [_temp,[_tkey,_tpos,_tsurface,_tXP,_tXM,_tYP,_tYM,_tXPYP,_tXMYP,_tXPYM,_tXMYM]];
         };
     };
-    
-    
+
+
     If (_XPYP < 0) then {
         _XPYP = 0;
         _temp = _forEachIndex + 1 + _side;
@@ -250,25 +252,53 @@ _br = toString [0x0D, 0x0A];
 _tab = "    "; // changed into spaces - toString[0x09];
 _tab2 = _tab + _tab;
 
+private _amount = count _positions;
+
+_output = (format["class %1 {",worldname] + _br + format["raster=%1;",RASTER] + _br);
+"ace_clipboard" callExtension _output;
+{
+    _output = format["class %1 {",_x select 0] +
+    format["pos[]={%1,%2,%3};",(_x select 1)select 0,(_x select 1)select 1,(_x select 1)select 2] +
+    (If ((_x select 3) == 0) then {""}else{format["S=%1;",_x select 2]}) +
+    (If ((_x select 3) == 0) then {""}else{format["XP=%1;",_x select 3]}) +
+    (If ((_x select 4) == 0) then {""}else{format["XM=%1;",_x select 4]}) +
+    (If ((_x select 5) == 0) then {""}else{format["YP=%1;",_x select 5]}) +
+    (If ((_x select 6) == 0) then {""}else{format["YM=%1;",_x select 6]}) +
+    (If ((_x select 7) == 0) then {""}else{format["XPYP=%1;",_x select 7]}) +
+    (If ((_x select 8) == 0) then {""}else{format["XMYP=%1;",_x select 8]}) +
+    (If ((_x select 9) == 0) then {""}else{format["XPYM=%1;",_x select 9]}) +
+    (If ((_x select 10) == 0) then {""}else{format["XMYM=%1;",_x select 10]}) +
+    "};" + _br;
+    "ace_clipboard" callExtension _output;
+    hintsilent format["%1/%2",_forEachIndex,_amount];
+}forEach _positions;
+"ace_clipboard" callExtension "}; ";
+uisleep 0.5;
+"ace_clipboard" callExtension "--COMPLETE--";
+
+hint "copied to clipboard";
+/*
 _output = format["class %1 {",worldname] + _br
 + _tab + format["raster = %1;",RASTER] + _br;
 {
-_output = _output
-+ _tab + format["class %1 {",_x select 0] + _br
-+ _tab2 + format["position[] = {%1,%2,%3};",(_x select 1)select 0,(_x select 1)select 1,(_x select 1)select 2] + _br
-+ _tab2 + format["surface = %1;",_x select 2] + _br
-+ _tab2 + format["XP = %1;",_x select 3] + _br
-+ _tab2 + format["XM = %1;",_x select 4] + _br
-+ _tab2 + format["YP = %1;",_x select 5] + _br
-+ _tab2 + format["YM = %1;",_x select 6] + _br
-+ _tab2 + format["XPYP = %1;",_x select 7] + _br
-+ _tab2 + format["XMYP = %1;",_x select 8] + _br
-+ _tab2 + format["XPYM = %1;",_x select 9] + _br
-+ _tab2 + format["XMYM = %1;",_x select 10] + _br
-+ _tab + "};" + _br;
+    _output = _output
+    + _tab + format["class %1 {",_x select 0] + _br
+    + _tab2 + format["position[] = {%1,%2,%3};",(_x select 1)select 0,(_x select 1)select 1,(_x select 1)select 2] + _br
+    + _tab2 + format["surface = %1;",_x select 2] + _br
+    + _tab2 + format["XP = %1;",_x select 3] + _br
+    + _tab2 + format["XM = %1;",_x select 4] + _br
+    + _tab2 + format["YP = %1;",_x select 5] + _br
+    + _tab2 + format["YM = %1;",_x select 6] + _br
+    + _tab2 + format["XPYP = %1;",_x select 7] + _br
+    + _tab2 + format["XMYP = %1;",_x select 8] + _br
+    + _tab2 + format["XPYM = %1;",_x select 9] + _br
+    + _tab2 + format["XMYM = %1;",_x select 10] + _br
+    + _tab + "};" + _br;
 }forEach _positions;
 _output = _output + "};";
+
 
 copyToClipboard _output;
 uisleep 3;
 hint "copied to clipboard";
+*/

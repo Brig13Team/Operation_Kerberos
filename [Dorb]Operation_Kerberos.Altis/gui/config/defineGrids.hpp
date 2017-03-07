@@ -5,6 +5,37 @@
  *      Grid Definitions
  *
  */
+
+// the maximum display size with the 4:3 Ratio -> should be used for the most Interface-dialogs.
+#define GUI_DISP_Abs (floor(((SafeZoneW/(pixelW*pixelGridNoUIScale))/4)min((SafeZoneH/(pixelH*pixelGridNoUIScale))/3)))
+#define GUI_DISP_WAbs (4*GUI_DISP_Abs*pixelW * pixelGridNoUIScale)
+#define GUI_DISP_HAbs (3*GUI_DISP_Abs*pixelH * pixelGridNoUIScale)
+#define GUI_DISP_X (0.5-0.5*GUI_DISP_WAbs)
+#define GUI_DISP_Y (0.5-0.5*GUI_DISP_HAbs)
+
+// the maximum 4:3 display is reduced by 25% to make it possible to view the frame of the ECHIDNA-System
+#define GUI_ECHIDNA_WAbs (0.75*GUI_DISP_WAbs)
+#define GUI_ECHIDNA_HAbs (0.75*GUI_DISP_HAbs)
+#define GUI_ECHIDNA_X (0.5-0.5*GUI_ECHIDNA_WAbs)
+#define GUI_ECHIDNA_Y (0.5-0.5*GUI_ECHIDNA_HAbs)
+#define GUI_ECHIDNA_W (GUI_ECHIDNA_WAbs/40)
+#define GUI_ECHIDNA_H (GUI_ECHIDNA_HAbs/30)
+
+#define GUI_ECHIDNA_METRO_BTTN_X (GUI_ECHIDNA_W*2)
+#define GUI_ECHIDNA_METRO_BTTN_Y (GUI_ECHIDNA_H*3.5)
+#define GUI_ECHIDNA_METRO_BTTN_W (GUI_ECHIDNA_W*4)
+#define GUI_ECHIDNA_METRO_BTTN_H (GUI_ECHIDNA_H*4)
+#define GUI_ECHIDNA_METRO_BTTN_DIST (pixelH*pixelGrid)
+#define GUI_ECHIDNA_METRO_ROW_DIST (pixelH*pixelGrid*5)
+#define GUI_ECHIDNA_METRO_SIDE (GUI_ECHIDNA_W*2)
+#define GUI_ECHIDNA_METRO_W (GUI_ECHIDNA_W*40-GUI_ECHIDNA_METRO_SIDE)
+#define GUI_ECHIDNA_METRO_H (GUI_ECHIDNA_H * 27.5)
+
+
+/*
+ *  Old Version below only for backwards compatibility
+ */
+
 #define GUI_GRID_WAbs ((safezoneW / safezoneH) min 1.2)
 #define GUI_GRID_HAbs (GUI_GRID_WAbs / 1.2)
 #define GUI_GRID_W (GUI_GRID_WAbs / 40)

@@ -14,7 +14,7 @@
 */
 #include "script_component.hpp"
 
-_this params [["_parent", "", ["",[]]], ["_child", "", ["",[]]], ["_state", "Assigned", [""]]];
+_this params [["_parent", "", [""]], ["_child", "", [""]], ["_state", "Assigned", [""]]];
 
 if !THIS_HASKEY(_parent) exitWith { -2 };
 if !HASH_HASKEY(THIS_GET(_parent), _child) exitWith { -2 };

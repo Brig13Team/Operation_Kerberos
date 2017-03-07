@@ -3,10 +3,11 @@
  *
  *  Description:
  *      call spawn function and call init-code
+ *      (can be used for sidemission too)
  *
  *  Parameter(s):
- *      0 : HASH    - mission hash
- *      1 : CODE    - obj init code
+ *      0 : HASH        - mission hash
+ *      1 : CODE        - obj init code
  *
  *  Returns:
  *      -
@@ -24,13 +25,13 @@ private _position = HASH_GET(_mission, "location") select 1;
 private _parameter = [];
 [_type] try { _parameter pushBack (_this call FUNC(mainmission___getAmount)); } catch {};
 [_type] try { _parameter pushBack (_this call FUNC(mainmission___getRadius)); } catch {};
-private _objs = [_position, _type, _parameter] call EFUNC(spawn,createMissionTarget);
-TRACEV_2(_parameter,_objs);
+_objects = [_position, _type, _parameter] call EFUNC(spawn,createMissionTarget);
+TRACEV_2(_parameter,_objects);
 
 // initialize mission target(s)
 {
     _x setVariable [QGVAR(mission), _mission];
     [_x] call _init_code;
-} forEach _objs;
+} forEach _objects;
 
-_objs
+_objects

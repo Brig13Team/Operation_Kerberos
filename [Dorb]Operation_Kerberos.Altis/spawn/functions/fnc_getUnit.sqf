@@ -8,7 +8,7 @@
  *      0 : STRING - Unittype
  *
  *  Returns:
- *      STRING - classname of a unit
+ *      ARRAY/STRING - array with classnames/classname
  *
  */
 #include "script_component.hpp"
@@ -18,7 +18,7 @@ CHECK(_grouptype isEqualTo "")
 
 private _cfg = (missionConfigFile >> QGVAR(unitlists) >> str GVARMAIN(side) >> GVARMAIN(side_type));
 
-switch _grouptype do {
+private _return = switch _grouptype do {
     // air
     case "helicopter" : {
         private _allUnits = getArray(_cfg >> "callIn" >> "helicopter_cas");
@@ -48,6 +48,10 @@ switch _grouptype do {
     };
     case "tanks" : {
         private _allUnits = getArray(_cfg >> "tanks");
+        selectRandom _allUnits;
+    };
+    case "ifv" : {
+        private _allUnits = getArray(_cfg >> "ifv");
         selectRandom _allUnits;
     };
     case "group_infantry" : {
@@ -91,5 +95,7 @@ switch _grouptype do {
         selectRandom _allUnits;
     };
 
-    default {ERROR(FORMAT_1("Missing entrie: %1",_this))};
+    default {ERROR(FORMAT_1("Missing entrie: %1",_this));nil};
 };
+
+If (isNil "_return") then {[]}else{_return};

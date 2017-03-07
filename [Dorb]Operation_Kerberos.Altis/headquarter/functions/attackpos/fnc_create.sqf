@@ -2,51 +2,60 @@
  *  Author: Dorbedo
  *
  *  Description:
- *      creates an attack poistion at given position
+ *      creates an attackposition
  *
  *  Parameter(s):
- *      0 : ARRAY - The position where to create a attack location
+ *      0 : ARRAY - attackposition
  *
  *  Returns:
- *      none
+ *      LOCATION - the attacklocation wich was created
  *
  */
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-_this params [["_position",[],[[],grpNull],[2,3]]];
-private _group = grpNull;
-If (IS_GROUP(_position)) then {
-    If (isNull _position) then {
-        _position = [];
-    }else{
-        _group = _position;
-        _position = getPos (leader _group);
-    };
-};
+_this params [["_position",[],[[]],[2,3]]];
+
 CHECK(_position isEqualTo [])
+
+// check if there is already an attackposition if there is one, exit
 private _attackLoc = [_position] call FUNC(attackpos_atPosition);
-If (isNull _attackLoc) then {
-    _attackLoc = HASH_CREATE;
-    HASH_GET(GVAR(attackpos),"Locations") pushBack _attackLoc;
-    //private _size = (HASH_GET(GVAR(dangerzones),"gridsize")) * 1.414;
-    private _size = (HASH_GET(GVAR(dangerzones),"gridsize")) * 2;
-    _attackLoc setPosition _position;
-    _attackLoc setSize [_size,_size];
-    _attackLoc setRectangular true;
-    HASH_SET(_attackLoc,"isPOI",false);
-};
+CHECK(!isNull _attackLoc)
+
+_attackLoc = HASH_CREATE;
+HASH_GET(GVAR(attackpos),"Locations") pushBack _attackLoc;
+
+// cover all sorrounding Dangerzones
+private _size = (HASH_GET(GVAR(dangerzones),"gridsize")) * 1.1;
+_attackLoc setPosition _position;
+_attackLoc setSize [_size,_size];
+_attackLoc setRectangular true;
+// prevent registration as POI
+HASH_SET(_attackLoc,"isPOI",false);
+
+
 #ifdef DEBUG_MODE_FULL
     [_position,"AttackPosition","ColorRed","mil_flag"] call EFUNC(common,debug_marker_create);
 #endif
 
 HASH_SET(_attackLoc,"strategies",[]);
+HASH_SET(_attackLoc,"enemygroups",[]);
+HASH_SET(_attackLoc,"enemytype",[ARR_3(0,0,0)]);
+HASH_SET(_attackLoc,"enemyvalue",[ARR_3(0,0,0)]);
+HASH_SET(_attackLoc,"enemythreat",[ARR_3(0,0,0)]);
 
-If !(isNull _group) then {
-    [_attackLoc,_group] call FUNC(attackpos_add);
-}else{
-    HASH_SET(_attackLoc,"enemygroups",[]);
-    HASH_SET(_attackLoc,"enemytype",[ARR_3(0,0,0)]);
-    HASH_SET(_attackLoc,"enemyvalue",[ARR_3(0,0,0)]);
-    HASH_SET(_attackLoc,"enemythreat",[ARR_3(0,0,0)]);
-};
+// register the playergroups
+// TODO - register only know groups and maybe spare the airunits
+private _allGroups = [];
+{
+    If ((getPos _x) in _attackLoc) then {
+        _allGroups pushBackUnique (group _x);
+    };
+    nil
+} count allPlayers;
+{
+    [_attackLoc,_x] call FUNC(attackpos_add);
+    nil
+} count _allGroups;
+
 _attackLoc;

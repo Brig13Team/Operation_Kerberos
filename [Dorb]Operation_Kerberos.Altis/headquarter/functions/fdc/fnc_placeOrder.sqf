@@ -16,7 +16,7 @@
 */
 #define DEBUG_MODE_FULL
 #include "script_component.hpp"
-_this params[["_attackpos",[],[[]],[2,3]],["_type",-1,[0]],["_amount",-1,[0]],["_modearray",[],[[]]]];
+_this params [["_attackpos",[],[[]],[2,3]],["_type",-1,[0]],["_amount",-1,[0]],["_modearray",[],[[]]]];
 //TRACEV_4(_attackpos,_type,_amount,_modearray);
 If (_attackpos isEqualTo []) exitWith {false};
 private _cancel = false;
@@ -75,25 +75,33 @@ _cancel = switch (_type) do {
     case 0 : {
                 If (HASH_GET(GVAR(FDC),"artilleries") isEqualTo []) exitWith {true};
                 _unit = selectRandom (HASH_GET(GVAR(FDC),"artilleries"));
-                _shelltype = ((getArtilleryAmmo [_unit])select 0);
+                private _shellArray = getArtilleryAmmo [_unit];
+                If (_shellArray isEqualTo []) exitWith {_cancel = true;};
+                _shelltype = (_shellArray select 0);
                 If (_amount < 0) then {_amount = 6;};
                 false;
             };
     case 1 : {
                 If (HASH_GET(GVAR(FDC),"mortars") isEqualTo []) exitWith {true};
                 _unit = selectRandom (HASH_GET(GVAR(FDC),"mortars"));
-                _shelltype = ((getArtilleryAmmo [_unit])select 0);
+                private _shellArray = getArtilleryAmmo [_unit];
+                If (_shellArray isEqualTo []) exitWith {_cancel = true;};
+                _shelltype = (_shellArray select 0);
                 If (_amount < 0) then {_amount = 3;};
                 false;
             };
     case 2 : {
                 If (HASH_GET(GVAR(FDC),"rockets") isEqualTo []) exitWith {true};
                 _unit = selectRandom (HASH_GET(GVAR(FDC),"rockets"));
-                _shelltype = ((getArtilleryAmmo [_unit])select 0);
-                private _ammo = getText(configFile>>"CfgMagazines">> _shelltype >> "ammo");
-                private _submun = getText(configFile>>"CfgAmmo">>_ammo>>"submunitionAmmo");
-                private _strength = getNumber(configFile>>"CfgAmmo">>_submun>>"hit");
-                _amount = floor(3000/(_strength)) min 1;
+                private _shellArray = getArtilleryAmmo [_unit];
+                If (_shellArray isEqualTo []) exitWith {_cancel = true;};
+                _shelltype = (_shellArray select 0);
+                If (_amount < 1) then {
+                    private _ammo = getText(configFile>>"CfgMagazines">> _shelltype >> "ammo");
+                    private _submun = getText(configFile>>"CfgAmmo">>_ammo>>"submunitionAmmo");
+                    private _strength = getNumber(configFile>>"CfgAmmo">>_submun>>"hit");
+                    _amount = floor(3000/(_strength)) min 1;
+                };
                 false;
             };
 };
