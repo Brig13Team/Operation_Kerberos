@@ -20,4 +20,5 @@ if ((count DORB_HASH_POOL) > 0) exitWith {
     _return;
 };
 DORB_HASH_SYS_CREATE(_return);
+DORB_HASH_CREATED_NEW pushBack _return;
 _return;
