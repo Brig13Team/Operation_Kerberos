@@ -24,7 +24,7 @@ PREP(addToLog);
 PREP(debug_performance);
 PREP(getComponents);
 
-PREP(allHashLocations);
+PREP(allHashes);
 PREP(HashCollector);
 PREP(HashGetKeyFromValue);
 PREP(HashCopy);
@@ -54,6 +54,7 @@ DORB_HASH_COLLECTOR_IGNORE = [QUOTE(DORB_HASH_POOL),QUOTE(DORB_HASH_TO_DELETE),Q
 
 for "_i" from 1 to 500 do {
     DORB_HASH_SYS_CREATE(_newHash);
+    DORB_HASH_POOL pushBack _newHash
 };
 
 [FUNC(HashMonitor),(1/3),[]] call CBA_fnc_addPerFrameHandler;
@@ -62,12 +63,6 @@ for "_i" from 1 to 500 do {
     {
         // don't execute if to less hashes were created or the last execution is long ago
         If ((count DORB_HASH_CREATED_NEW < 100)&&{DORB_HASH_COLLECTOR_NEXTEXEC > diag_tickTime}) exitWith {};
-        /*
-        If !(isNull DORB_HASH_COLLECTOR_HANDLER) exitWith {
-            // I don't like to do this in the unsheduled environment
-            DORB_HASH_COLLECTOR_HANDLER = [] spawn FUNC(HashCollector);
-        };
-        */
         [] call FUNC(HashCollector);
     },
     (1/4),
