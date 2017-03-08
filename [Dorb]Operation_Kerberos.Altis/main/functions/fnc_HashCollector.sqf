@@ -16,7 +16,7 @@
 #include "script_component.hpp"
 
 // If the collecting is not in progress, exit and initialize the collecting (wait for the next call via PFH)
-If ((DORB_HASH_COLLECTOR_NAMESPACES isEqualTo [])&&{DORB_HASH_COLLECTOR_ARRAYS isEqualTo []}) exitWith {
+If ((DORB_HASH_COLLECTOR_NAMESPACES_ID >= (count DORB_HASH_COLLECTOR_NAMESPACES))&&{DORB_HASH_COLLECTOR_ARRAYS isEqualTo []}) exitWith {
     If (DORB_HASH_COLLECTOR_FOUND isEqualTo []) then {
         //start the collecting by initializing the variables
         DORB_HASH_COLLECTOR_NAMESPACES = [missionNamespace] + allGroups;
@@ -25,7 +25,7 @@ If ((DORB_HASH_COLLECTOR_NAMESPACES isEqualTo [])&&{DORB_HASH_COLLECTOR_ARRAYS i
         DORB_HASH_COLLECTOR_ARRAYS = [];
         DORB_HASH_COLLECTOR_FOUND = [];
         DORB_HASH_COLLECTOR_ID = 0;
-        DORB_HASH_CREATED = DORB_HASH_CREATED append DORB_HASH_CREATED_NEW;
+        DORB_HASH_CREATED append DORB_HASH_CREATED_NEW;
         DORB_HASH_CREATED_NEW = [];
     }else{
         //// deleting old hashes
