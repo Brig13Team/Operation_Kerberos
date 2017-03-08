@@ -22,9 +22,13 @@ If !(DORB_HASH_TO_DELETE isEqualTo []) then {
         DORB_HASH_POOL pushBack _newHash;
     };
 };
+
 If ((count DORB_HASH_POOL) <= 100) then {
-    For "_i" from 0 to 10 do {
+    For "_i" from 0 to 100 do {
         DORB_HASH_SYS_CREATE(_newHash);
         DORB_HASH_POOL pushBack _newHash;
+    };
+    If ((count DORB_HASH_CREATED_NEW) > ((count DORB_HASH_CREATED) * 0.05)) then {
+        DORB_HASH_COLLECTOR_COLLECT = true;
     };
 };

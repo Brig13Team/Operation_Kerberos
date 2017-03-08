@@ -42,8 +42,7 @@ DORB_HASH_POOL = [];
 DORB_HASH_TO_DELETE = [];
 DORB_HASH_CREATED_NEW = [];
 DORB_HASH_CREATED = [];
-DORB_HASH_COLLECTOR_NEXTEXEC = (diag_tickTime + DORB_HASH_COLLECTOR_NEXTEXEC_DELAY);
-//DORB_HASH_COLLECTOR_HANDLER = scriptNull;
+DORB_HASH_COLLECTOR_COLLECT = false;
 DORB_HASH_COLLECTOR_ID = 0;
 DORB_HASH_COLLECTOR_NAMESPACES = [];
 DORB_HASH_COLLECTOR_NAMESPACES_ID = 0;
@@ -62,9 +61,11 @@ for "_i" from 1 to 500 do {
 
 [
     {
+        If !(DORB_HASH_COLLECTOR_COLLECT) exitWith {};
+        [] call FUNC(HashCollector);
         // don't execute if to less hashes were created or the last execution is long ago
         If ((count DORB_HASH_CREATED_NEW < 100)&&{DORB_HASH_COLLECTOR_NEXTEXEC > diag_tickTime}) exitWith {};
-        [] call FUNC(HashCollector);
+
     },
     (1/4),
     []
