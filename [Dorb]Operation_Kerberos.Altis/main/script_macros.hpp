@@ -722,7 +722,7 @@ Author:
 #define DORB_HASH_CREATED GVARMAIN(HASHCREATED)
 #define DORB_HASH_COLLECTOR_HANDLER GVAR(hashCollector_handler)
 #define DORB_HASH_COLLECTOR_NEXTEXEC GVAR(hashCollector_nextExecution)
-#define DORB_HASH_COLLECTOR_NEXTEXEC_DELAY (6*60)
+#define DORB_HASH_COLLECTOR_NEXTEXEC_DELAY (15*60)
 #define DORB_HASH_COLLECTOR_SEARCHTIME (0.001)
 #define DORB_HASH_COLLECTOR_NAMESPACES GVAR(hashCollector_namespaces)
 #define DORB_HASH_COLLECTOR_NAMESPACES_ID GVAR(hashCollector_namespaces_ID)
@@ -734,7 +734,7 @@ Author:
 
 #define DORB_HASH_SYS_NAME QUOTE(mission_hash)
 #define IS_HASH(hash) (hash isEqualType locationNull && {(text hash) isEqualTo DORB_HASH_SYS_NAME})
-#define DORB_HASH_SYS_CREATE(VAR) private VAR = call CBA_fnc_createNamespace; \
+#define DORB_HASH_SYS_CREATE(VAR) private VAR = [false] call CBA_fnc_createNamespace; \
     VAR setText DORB_HASH_SYS_NAME;
 #define IS_SERIALIZEDHASH(array) (IS_ARRAY(array) && {(count array) > 0} && {IS_STRING((array select 0))} && {(array select 0) isEqalTo DORB_HASH_SYS_NAME})
 ////-------------------//
