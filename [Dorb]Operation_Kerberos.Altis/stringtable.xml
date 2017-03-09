@@ -1226,7 +1226,7 @@
             <German>Der Download ist komplett.</German>
         </Key>
     </Package>
-    <Package name="babel">
+    <Package name="MOD_ACRE">
         <Key ID="STR_DORB_MOD_ACRE_ARAB">
             <German>Arabisch</German>
             <English>arabic</English>
@@ -1238,6 +1238,18 @@
         <Key ID="STR_DORB_MOD_ACRE_GERMAN">
             <German>Deutsch</German>
             <English>german</English>
+        </Key>
+        <Key ID="STR_DORB_MOD_ACRE_ANTENNA_ACTION_MAIN">
+            <German>Antenne</German>
+            <English>antenna</English>
+        </Key>
+        <Key ID="STR_DORB_MOD_ACRE_ANTENNA_ACTION_CONNECT">
+            <German>Funkgerät mit Antenne verbinden</German>
+            <English>Connect radio to antenna</English>
+        </Key>
+        <Key ID="STR_DORB_MOD_ACRE_ANTENNA_ACTION_DISCONNECT">
+            <German>Funkgerät von Antenne trennen</German>
+            <English>Disconnect radio from antenna</English>
         </Key>
     </Package>
     <Package name="gui_mail">
