@@ -33,7 +33,7 @@ _this params [
     ["_f",[],[[]],[2]]  // jammed frequencies [min,max] - if not given, everything is jammed
 ];
 
-// [cursorObject,"ACRE_120CM_VHF_TNC",[0,0,1],[0,0,2.5],20000,[0,500]] call dorb_mod_acre_fnc_addJammer
+// [cursorObject,"ACRE_120CM_VHF_TNC",[0,0,1],[0,0,2.5],20000,[0,500]] call dorb_mod_acre_fnc_jammer_add
 
 
 If !(isClass(configFile >> "CfgAcreComponents" >> _antenna)) exitWith {

@@ -27,23 +27,23 @@ TRACEV_7(_id,_transmitterClass,_receiverClass,_rxAntenna,_txAntenna,_f,_mW);
 _id = _id + "_jammer";
 
 // select the best jammer
-([_transmitterClass,_receiverClass,_rxAntenna,_txAntenna,_f,_mw] call FUNC(selectBestJammer)) params ["_bestJammer","_calcPos","_calcDistance"];
+([_transmitterClass,_receiverClass,_rxAntenna,_txAntenna,_f,_mw] call FUNC(jammer_selectBest)) params ["_bestJammer","_calcPos","_calcDistance"];
 TRACEV_3(_bestJammer,_calcPos,_calcDistance);
 If (isNull _bestJammer) exitWith {
     // reset the jammervalues
     missionNamespace setVariable [_transmitterClass + "_jammer_signal", 0];
     missionNamespace setVariable [_transmitterClass + "_jammer_px", 0];
 };
-([_bestJammer] call FUNC(getJammerArray)) params ["_jammer","_jammerID","_jammerAntenna","_jammerAntennaDir","_jammeroffset","_jammermW","_jammerF"];
+([_bestJammer] call FUNC(jammer_getArray)) params ["_jammer","_jammerID","_jammerAntenna","_jammerAntennaDir","_jammeroffset","_jammermW","_jammerF"];
 private _jammerpos = AGLToASL(_jammer modelToWorld _jammeroffset);
 TRACEV_7(_jammer,_jammerID,_jammerAntenna,_jammerAntennaDir,_jammeroffset,_jammermW,_jammerF);
 if !(GVAR(advancedjammer)) exitWith {
-    [_transmitterClass,_jammermW,_f,_calcDistance] call FUNC(getJammerSignalSimple);
+    [_transmitterClass,_jammermW,_f,_calcDistance] call FUNC(jammer_getSignalSimple);
 };
 
 If ((missionNamespace getVariable [_transmitterClass + "_jammer_signal", 0])==0) then {
     // this is used to prevent radio contact during jammer initialization
-    [_transmitterClass,_jammermW,_f,_calcDistance] call FUNC(getJammerSignalSimple);
+    [_transmitterClass,_jammermW,_f,_calcDistance] call FUNC(jammer_getSignalSimple);
 };
 
 private _extID = format["%1_%2_%3",_id,_jammerID,_transmitterClass];
@@ -66,6 +66,6 @@ TRACEV_9(_extID,_jammerpos,_jammerAntennaDir,_jammerAntenna,_calcPos,(_txAntenna
         acre_sys_signal_omnidirectionalRadios
     ],
     true,
-    FUNC(handleJammerReturn),
+    FUNC(jammer_handleReturn),
     [_id,_transmitterClass,_receiverClass]
 ] call acre_sys_core_fnc_callExt;
