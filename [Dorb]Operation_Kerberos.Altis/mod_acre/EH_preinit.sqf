@@ -12,6 +12,13 @@ ADDON = false;
 
 PREP(getSignal);
 
+PREPS(antenna,addChildActions);
+PREPS(antenna,canConnect);
+PREPS(antenna,canDisconnect);
+PREPS(antenna,connect);
+PREPS(antenna,disconnect);
+PREPS(antenna,handler);
+
 PREPS(babbel,addLanguageLocal);
 PREPS(babbel,canAddLanguage);
 PREPS(babbel,removeLanguageLocal);

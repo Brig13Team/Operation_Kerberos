@@ -8,6 +8,7 @@
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
+CHECK(!hasInterface)
 CHECK(!isClass(missionConfigFile >> "acre_antennaObjects"))
 
 private _mainAction = [
