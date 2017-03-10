@@ -20,7 +20,7 @@ If !(isClass(missionConfigFile>>QGVARMAIN(arsenal))) then {
 private _neededVersion = getText(missionConfigFile >> QUOTE(DOUBLES(CfgComponent,ADDON)) >> "version");
 (profileNamespace getVariable [QGVAR(arsenalList_Full),["NotFound",[]]]) params [["_currentVersion","NotFound",[]],["_list",[],[[]]]];
 TRACEV_2(_currentVersion,_neededVersion);
-If ((!(_list isEqualTo []))&&{_currentVersion isEqualTo _version}) exitWith {
+If ((!(_list isEqualTo []))&&{_currentVersion isEqualTo _neededVersion}) exitWith {
     missionNamespace setVariable [QGVAR(arsenalList_Full),_list];
 };
 
