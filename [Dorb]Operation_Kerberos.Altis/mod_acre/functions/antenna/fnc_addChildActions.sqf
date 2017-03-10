@@ -17,11 +17,18 @@
 _this params ["_target", "_player", "_args"];
 
 private _radios = call acre_api_fnc_getCurrentRadioList;
-
+private _actions = [];
 {
-    
-} forEach _radios
-
-
-
-//
+    private _displayName = getText(configFile >> "CfgWeapons" >> _x >> "displayname");
+    private _action = [
+        _x,
+        _displayName,
+        "",
+        {_this call FUNC(antenna_connect);},
+        {true},
+        {},
+        [_target,_x]
+        ] call ace_interact_menu_fnc_createAction;
+    _loadActions pushBack [_action,[],_target];
+} forEach (_radios select {!(([_x] call acre_sys_radio_fnc_getRadioBaseClassname) isEqualTo "ACRE_PRC343")});
+_actions;

@@ -24,4 +24,6 @@ _currentRadios = _currentRadios - ["ACRE_PRC343"];
 
 If (_currentRadios isEqualTo []) exitWith {false;};
 
-true;
+private _condition = getText(missionConfigFile >> "acre_antennaObjects" >> typeOf _target >> "condition");
+If (_condition isEqualTo "") exitWith {true};
+call compile _condition;
