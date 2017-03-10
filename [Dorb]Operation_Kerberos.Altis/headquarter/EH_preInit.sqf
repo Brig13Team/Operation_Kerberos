@@ -85,6 +85,7 @@ PREP(dzconvert);
 PREP(dzFindPeaks);
 PREP(getCost);
 PREP(getDistanceCoeff);
+PREP(getKnownPlayerPos);
 PREP(getPlayerCoeff);
 PREP(handle);
 PREP(handleAA);
