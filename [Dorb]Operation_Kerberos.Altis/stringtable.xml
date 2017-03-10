@@ -1251,6 +1251,14 @@
             <German>Funkgerät von Antenne trennen</German>
             <English>Disconnect radio from antenna</English>
         </Key>
+        <Key ID="STR_DORB_MOD_ACRE_ANTENNA_DISCONNECT">
+            <German>Funkgerät getrennt</German>
+            <English>radio disconnected</English>
+        </Key>
+        <Key ID="STR_DORB_MOD_ACRE_ANTENNA_DISCONNECT_DISTANCE">
+            <German>Entfernung zur Antenne zu groß</German>
+            <English>Distance to antenna was to high</English>
+        </Key>
     </Package>
     <Package name="gui_mail">
         <Key ID="STR_DORB_GUI_MAIL_INBOX">

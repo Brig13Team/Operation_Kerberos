@@ -30,6 +30,12 @@ _logic attachTo [_target,_position];
 _target setVariable [QGVAR(externalAntenna),_logic,true];
 _target setVariable [QGVAR(externalAntenna_radioID),_radioID,true];
 
+[
+    LINKFUNC(antenna_handler),
+    3,
+    [_target,_radioID,_condition]
+] call CBA_fnc_addPerFrameHandler;
+
 // get the right connectorType of the antenna
 private _radioConnectors = (getArray(configFile >> "CfgAcreComponents" >> ([_radioID] call acre_sys_radio_fnc_getRadioBaseClassname) >> "connectors"));
 private _antennaConnectorID = {if (toLower(_x select 0) == "antenna") exitWith {_x select 1};-1;} forEach _radioConnectors;
