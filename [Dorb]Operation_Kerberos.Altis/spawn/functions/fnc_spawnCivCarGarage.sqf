@@ -18,7 +18,7 @@
 
 _this params [["_centerposition",[],[[]]],["_amount",0,[0]],["_radius",200,[0]]];
 
-private _garages = (_centerPosition nearObjects ["Land_i_Garage_V1_F", _radius]) + (_centerPosition nearObjects ["Land_i_Garage_V2_F", _radius]);
+private _garages = (_centerPosition nearObjects ["Land_i_Garage_V1_F", _radius]);// + (_centerPosition nearObjects ["Land_i_Garage_V2_F", _radius]);
 _garages = _garages - GVAR(targetHouses);
 _garages = _garages - GVAR(usedHouses);
 
@@ -33,6 +33,7 @@ _garages resize (((count _garages) min _amount) max 0);
     _spawnpos set [2,(_spawnpos select 2) + 0.5];
     private _veh = createVehicle [_unittype,[0,0,0],[],0,"CAN_COLLIDE"];
     _veh setPosATL _spawnpos;
+    _veh setDir _spawndir;
     #ifdef DEBUG_MODE_FULL
         [_spawnpos,"Garage","ColorCivilian"] call EFUNC(common,debug_marker_create);
     #endif

@@ -23,6 +23,7 @@ private _nearLoc = nearestLocations [_centerposition, ["NameCityCapital","NameCi
 TRACEV_1(_nearLoc);
 If ((count _nearLoc)>0) then {
     [_centerposition,"",7] call FUNC(createMissionHouse);
+    [_centerposition,"",2] call FUNC(createMissionComposition);
     [_centerposition,2] call FUNC(spawnGroup_defence);
     for "_i" from 1 to 20 do {
         If ([] call FUNC(UnitLimit)) exitWith {TRACE("Unitlimit reached");};
