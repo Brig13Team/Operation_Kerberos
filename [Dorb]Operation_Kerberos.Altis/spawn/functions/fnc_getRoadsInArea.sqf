@@ -15,7 +15,9 @@
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-_this params [["_position",[],[[]],[2,3]],["_radius",100,[0]]];
+_this params [["_position",[],[[]],[2,3]],["_radius",250,[0]]];
+
+private _roadlist_formatted = [];
 
 private _fnc_getRoadArray = {
     _this params ["_road"];
@@ -43,7 +45,7 @@ private _roadlist_unformatted = _position nearRoads _radius;
 private _roadlist_formatted = [];
 
 {
-    private _temp = (_x call (_getroadarray));
+    private _temp = (_x call (_fnc_getRoadArray));
     If (!(_temp isEqualTo [])) then {_roadlist_formatted pushBack _temp;};
 }forEach _roadlist_unformatted;
 
