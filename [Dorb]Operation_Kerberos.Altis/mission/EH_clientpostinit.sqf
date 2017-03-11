@@ -7,6 +7,7 @@
 */
 #include "script_component.hpp"
 CHECK(!hasInterface)
+
 // Initialization Stuff
 [
     "Land_File1_F",
@@ -14,7 +15,7 @@ CHECK(!hasInterface)
     "Land_FilePhotos_F",
     "Land_SatellitePhone_F",
     "Land_MobilePhone_smart_F"
-] call FUNC(obj_initACEAction_secureIntel);
+] call FUNC(obj_initACEAction_intel);
 
 [
     "rhs_typhoon_vdv",

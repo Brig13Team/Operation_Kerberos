@@ -15,6 +15,5 @@
 _this params ["_mission"];
 
 [_mission, {
-    // _this params ["_intel"];
-    // _intel setVariable [QGVAR(rescueEvent), QGVAR(intel_found)];
+    // nothing todo (intel is initialized via EH_clientPostInit)
 }] call FUNC(mainmission__oneCounter);

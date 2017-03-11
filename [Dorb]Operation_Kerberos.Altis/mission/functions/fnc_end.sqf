@@ -17,13 +17,6 @@ private _name = HASH_GET(_mission, "name");
 private _type = HASH_GET(_mission, "type");
 
 switch (_type) do {
-    case "scarab": {
-        private _state = HASH_GET(_mission, "state");
-        if ((toUpper _state) isEqualTo "FAILED") exitWith { -1 };
-
-        private _pos = HASH_GET(_mission, "location") select 0;
-        [_pos] call FUNC(obj_spawnNuke);
-    };
     case "_rtb": {
         [_name] call FUNC(taskmanager_remove);
     };

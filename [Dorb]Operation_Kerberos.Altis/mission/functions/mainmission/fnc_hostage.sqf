@@ -16,6 +16,7 @@ _this params ["_mission"];
 
 [_mission, {
     _this params ["_hostage"];
-    _hostage setVariable [QGVAR(rescueEvent), QGVAR(hostage_rescued)];
-    _hostage addEventHandler ["Killed", LINKFUNC(obj_onHostageKilled)];
+
+    _hostage setVariable [QGVAR(rescueEvent), QFUNC(obj__increaseCounterOne)];
+    _hostage addEventHandler ["Killed", LINKFUNC(obj__incraseCounterTwo)];
 }] call FUNC(mainmission__twoCounters);

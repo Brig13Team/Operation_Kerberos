@@ -1,5 +1,6 @@
 #define CBA_OFF
 #include "script_component.hpp"
+
 #define TASK_DESC(VAR) class VAR { \
     description = CSTRING(DOUBLES(VAR,DESC)); \
     title = CSTRING(DOUBLES(VAR,TITLE)); \
@@ -14,36 +15,27 @@
     tasktype = QUOTE(VAR2); \
 }
 
-
 class CfgTaskDescriptions {
     // mainmissions
-    TASK_DESC2(intel,download);
-    TASK_DESC2(weaponcache,destroy);
+    TASK_DESC2(_rtb,run);
+    TASK_DESC2(capture,target);
+    // TASK_DESC2(clear,target);
     TASK_DESC2(device,interact);
+    // TASK_DESC2(dronecommando,destroy);
     TASK_DESC2(emp,interact);
     TASK_DESC2(hostage,heal);
-    TASK_DESC2(clear,target);
-    TASK_DESC2(capture,target);
-    TASK_DESC2(scarab,kill);
+    TASK_DESC2(intel,download);
+    // TASK_DESC2(prototype,Default);
     TASK_DESC2(radiotower,destroy);
-    TASK_DESC2(dronecommando,destroy);
-    TASK_DESC2(prototype,Default);
-    TASK_DESC2(specops,target);
+    TASK_DESC2(scarab,kill);
+    // TASK_DESC2(specops,target);
+    TASK_DESC2(weaponcache,destroy);
 
     // sidemissions
-    TASK_DESC2(artillery,target);
-    TASK_DESC2(ugv,target);
-    TASK_DESC2(convoi,target);
     TASK_DESC2(radar,target);
 
-    class _rtb {
-        title = "STR_DORB_MISSION_RTB";
-        description = "STR_DORB_MISSION_RTB_START_1";
-        marker = "";
-        tasktype = "run";
-    };
-
     // Vanilla
+/*
     TASK_DESC(armor);
     TASK_DESC(attack);
     TASK_DESC(Default);
@@ -82,4 +74,5 @@ class CfgTaskDescriptions {
     TASK_DESC(upload);
     TASK_DESC(walk);
     TASK_DESC(whiteboard);
+*/
 };

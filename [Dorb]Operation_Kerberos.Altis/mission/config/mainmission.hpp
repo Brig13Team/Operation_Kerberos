@@ -1,3 +1,4 @@
+#define CBA_OFF
 #include "script_component.hpp"
 
 class main {
@@ -84,11 +85,14 @@ class main {
         };
     };
 
+    /*
+    // internal rhs script produces too much script errors
     class scarab : radiotower {
         class object : object {
             radius = 100;
         };
     };
+    */
 
     class weaponcache : hostage {
         class location : location {

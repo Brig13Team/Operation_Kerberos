@@ -2,7 +2,7 @@
  *  Author: iJesuz
  *
  *  Description:
- *      init ace actions for device
+ *      init ace actions for intel objects
  *      (it's called once from clientPostInit)
  *
  *  Parameter(s):
@@ -13,13 +13,15 @@
  */
 #include "script_component.hpp"
 
+#include "script_component.hpp"
+
 {
     private _action = [
-        QGVAR(disableDevice),
-        localize LSTRING(OBJ_DEVICE_DISABLE),
+        QGVAR(takeIntel),
+        localize LSTRING(OBJ_INTEL_GRAB),
         "",
-        { [_target, { (_this select 0) call FUNC(obj__increaseCounter); }, LSTRING(OBJ_DEVICE_DEACTIVATING)] call FUNC(obj__progressBar); },
-        { (_this select 0) getVariable [QGVAR(isActive), false]; }
+        { [_target] call FUNC(obj__increaseCounter); deleteVehicle _target; },
+        { true }
     ] call ace_interact_menu_fnc_createAction;
 
     [

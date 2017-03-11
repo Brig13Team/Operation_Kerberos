@@ -17,8 +17,9 @@ _this params ["_mission"];
 [_mission, {
     _this params ["_device"];
 
-    _device setVariable [QGVAR(isActive),true,true];
-    _device addEventHandler ["Killed", LINKFUNC(obj_onDeviceDestroyed)];
+    _device setVariable [QGVAR(isActive), true, true];
+    _device addEventHandler ["Killed", LINKFUNC(obj__triggerFailed)];
+    // deactivate event initialized via EH_clientPostInit
 }] call FUNC(mainmission__oneCounter);
 
 // init device event

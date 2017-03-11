@@ -5,6 +5,7 @@
 */
 #define CBA_OFF
 #include "script_component.hpp"
+
 class CfgDebriefing {
     class Win {
         title = "Mission Abgeschlossen";
@@ -14,6 +15,7 @@ class CfgDebriefing {
         picture = "b_inf";
         pictureColor[] = {0.0,0.3,0.6,1};
     };
+
     class Fail {
         title = "Mission gescheitert";
         subtitle = "";

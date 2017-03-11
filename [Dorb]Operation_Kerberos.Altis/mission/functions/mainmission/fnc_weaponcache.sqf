@@ -16,5 +16,6 @@ _this params ["_mission"];
 
 [_mission, {
     _this params ["_cache"];
-    _cache addEventHandler ["Killed", LINKFUNC(obj_onWeaponCacheDestroyed)];
+
+    _cache addEventHandler ["Killed", LINKFUNC(obj__increaseCounter)];
 }] call FUNC(mainmission__oneCounter);

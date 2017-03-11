@@ -18,6 +18,7 @@ _this params ["_mission"];
     _this params ["_scarab"];
     private _gunner = gunner _scarab;
 
-    _gunner addEventHandler ["Killed", LINKFUNC(obj_onScarabGunnerKilled)];
-    _scarab addEventHandler ["Killed", LINKFUNC(obj_onScarabDestroyed)];
+    _gunner addEventHandler ["Killed", { [vehicle (_this select 0)] call FUNC(obj__increaseCounter); }];
+    _scarab addEventHandler ["Killed", LINKFUNC(obj__triggerFailed)];
+    _scarab addEventHandler ["Killed", { [getPos (_this select 0)] call FUNC(obj_spawnNuke); }];
 }, 60] call FUNC(mainmission__oneCounter);

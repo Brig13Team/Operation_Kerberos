@@ -37,5 +37,5 @@ private _fnc = format["%1_%2", QFUNC(mainmission), _name];
 
 // spawn army and defence stuff
 if (!_isRTB) then {
-    [_hash] call EFUNC(spawn,createMission);
+    // [_hash] call EFUNC(spawn,createMission);
 };
