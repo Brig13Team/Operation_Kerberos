@@ -57,14 +57,13 @@ PREPS(state,wait);
 
 PREPS(strategy,_checkisWorking);
 PREPS(strategy,_choose);
+PREPS(strategy,_onFinishAir);
 PREPS(strategy,_onFinishSAD);
 PREPS(strategy,airinterception);
-PREPS(strategy,airinterception_onFinish);
 PREPS(strategy,armored);
 PREPS(strategy,artillery);
 PREPS(strategy,cas);
 PREPS(strategy,drones);
-PREPS(strategy,helicopter_onFinish);
 PREPS(strategy,helicopter);
 PREPS(strategy,infanterie);
 PREPS(strategy,mortar);

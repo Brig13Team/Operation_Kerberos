@@ -50,13 +50,13 @@ class strategy {
         finishcondition = "(!(alive (_this select 0)))";
         parameter[] = {};
 
-        onFinish = QFUNC(strategy_helicopter_OnFinish);
+        onFinish = QFUNC(strategy_onFinishAir);
 
     };
 
     class airinterception {
         type[] = {0,0,1};
-        value = 3000000;
+        value = 2000000;
         threat[] = {0,0,1};
         condition = QUOTE(['airinterception'] call FUNC(ressources_canUseCallIn));
 
@@ -66,13 +66,18 @@ class strategy {
         finishcondition = "(!(alive (_this select 0)))";
         parameter[] = {};
 
-        onFinish = QFUNC(strategy_helicopter_OnFinish);
+        onFinish = QFUNC(strategy_onFinishAir);
+    };
 
+    class cas : airinterception {
+        threat[] = {1,1,0};
+        value = 3000000;
+        condition = QUOTE(['cas'] call FUNC(ressources_canUseCallIn));
     };
 
     class drones {
         type[] = {0,0,1};
-        value = 4000000;
+        value = 2000000;
         threat[] = {1,1,0};
         condition = QUOTE(['drones'] call FUNC(ressources_canUseCallIn));
 
@@ -81,7 +86,6 @@ class strategy {
         timeout = 1000;
         finishcondition = "";
         parameter[] = {};
-
     };
 
     class artillery {
@@ -95,7 +99,6 @@ class strategy {
         timeout = 180;
         finishcondition = "";
         parameter[] = {};
-
     };
 
     class rocket {
@@ -109,7 +112,6 @@ class strategy {
         timeout = 180;
         finishcondition = "";
         parameter[] = {};
-
     };
 
     class mortar {
@@ -123,7 +125,6 @@ class strategy {
         timeout = 180;
         finishcondition = "";
         parameter[] = {};
-
     };
 
 };
