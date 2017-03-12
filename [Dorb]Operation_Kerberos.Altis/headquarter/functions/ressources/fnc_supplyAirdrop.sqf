@@ -67,7 +67,7 @@ TRACEV_5(_newGroup,_spawnpos,_grouptype,_transportVehicle,_centerpos);
 
         If (canMove _transportVehicle) then {
             [_transportGroup] call CBA_fnc_clearWaypoints;
-            [_transportGroup,_spawnPos,200,"MOVE","SAFE","WHITE","FULL"] call CBA_fnc_addWaypoint;
+            [_transportGroup,_spawnPos,200,"MOVE","CARELESS","WHITE","FULL"] call CBA_fnc_addWaypoint;
             _transportVehicle domove _spawnpos;
             [
                 {
