@@ -1,47 +1,41 @@
 /*
-    Author: Dorbedo
-
-    Description:
-        revon
-
-    Parameter(s):
-        none
-
-    Returns:
-        none
-*/
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      attacks with a plane
+ *
+ *  Parameter(s):
+ *      0 : LOCATION - Attacklocation
+ *
+ *  Returns:
+ *      ARRAY - parameter for check
+ *
+ */
 #include "script_component.hpp"
-_this params ["_currentLocation"];
-TRACEV_1(_currentLocation);
-private _currentPos = getPos _currentLocation;
-private _spawnpos = [_currentPos,4000,4000,10000] call FUNC(ressources_getsavespawnposair);
-TRACEV_2(_currentPos,_spawnpos);
-CHECKRET((_spawnpos isEqualTo []),0);
 
-GVAR(callIn_cas) = GVAR(callIn_cas) - 1;
-
-
-private _casVehType = ["plane_cas"] call EFUNC(spawn,getUnit);
-_spawnpos set [2,1500];
+_this params ["_attackLoc"];
+TRACEV_1(_attackLoc);
+private _pos = locationPosition _attackLoc;
+private _spawnPos = [_pos,4000,4000,10000] call FUNC(ressources_getsavespawnposair);
+TRACEV_2(_pos,_spawnPos);
+_spawnPos set [2,500];
 _dir = [_spawnpos, _currentPos] call BIS_fnc_dirTo;
-TRACEV_3(_casVehType,_spawnpos,_dir);
-([_spawnpos,GVARMAIN(side),_casVehType,_dir,true,true,"FLY"] call EFUNC(spawn,vehicle)) params ["_casGroup","_casVeh"];
+private _attackVehType = ["plane_cas"] call EFUNC(spawn,getUnit);
 
-_casVeh flyInHeight 400;
+([_spawnPos,GVARMAIN(side),_attackVehType,_dir,true,true,"FLY"] call EFUNC(spawn,vehicle)) params ["_attackGroup","_attackVeh"];
+TRACEV_2(_attackGroup,_attackVeh);
 
-[_casGroup, _currentPos, 0, "SAD", "COMBAT", "RED", "FULL", "NO CHANGE", _statement, [180,260,380], 80] call FUNC(waypoints_add);
+private _costs = [_attackVehType] call FUNC(getCosts);
+GVAR(ressources_amount) = GVAR(ressources_amount) - _costs;
 
-_casGroup addWaypoint [_spawnpos, 0];
-TRACEV_1(_casVeh);
-[_casVeh,_spawnpos] spawn {
-    SCRIPTIN(strategy_airinterception_reset);
-    params ["_casVeh","_spawnpos"];
-    uisleep 60;
-    while {(alive _casVeh) && ((_casVeh distance2D _spawnpos)<100)} do {
-        uisleep 5;
-    };
-    If (alive _casVeh) then {
-        GVAR(callIn_cas) = GVAR(callIn_cas) + 1;
-    };
-};
-([_casGroup] call FUNC(strength_ai)) params ["_type","_cost","_threat"];
+_attackVeh flyInHeight 300;
+private _wp = _attackGroup addWaypoint [_pos, 0];
+_wp setWaypointLoiterType "CIRCLE";
+_wp setWaypointLoiterRadius 800;
+_wp setWaypointBehaviour "SAD";
+_wp setWaypointCombatMode "RED";
+_wp setWaypointTimeout [300,400,500];
+
+[_attackGroup, _pos, 400] call CBA_fnc_taskAttack;
+
+[_attackVeh,_attackGroup,_spawnpos]
