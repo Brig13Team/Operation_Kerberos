@@ -36,4 +36,4 @@ _value = TIMEFACTOR * HANDLER_TIMEFACTOR * KILLS_PER_MINUTE * COST_PER_KILL * PL
 
 
 
-GVAR(ressources_amount) = GVAR(ressources_amount) + (_value max 0);
+GVAR(ressources_amount) = (GVAR(ressources_amount) + _value) max 0;

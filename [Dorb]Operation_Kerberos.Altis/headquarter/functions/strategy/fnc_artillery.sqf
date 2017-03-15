@@ -25,6 +25,6 @@ private _target = (selectRandom _nearPlayers);
 private _targetDir = getDir _target;
 private _targetPos = getPosATL _target;
 
-[_targetPos,0,_amount,["creeping",_dir,50,200]] call FUNC(fdc_placeOrder);
+[_targetPos,0,_amount] call FUNC(fdc_placeOrder);
 
 _target;

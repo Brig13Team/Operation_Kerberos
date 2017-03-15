@@ -25,14 +25,16 @@ private _plane = ["plane_ai"] call EFUNC(spawn,getUnit);
 private _dir = [_spawnpos, _currentPos] call BIS_fnc_dirTo;
 ([_spawnpos,GVARMAIN(side),_plane,_dir,true,true,"FLY"] call EFUNC(spawn,vehicle)) params ["_attackGroup","_attackVeh"];
 
+private _costs = [_plane] call FUNC(getCosts);
+GVAR(ressources_amount) = GVAR(ressources_amount) - _costs;
+
 _attackVeh flyInHeight 600;
 private _wp = _attackGroup addWaypoint [_pos, 0];
 _wp setWaypointLoiterType "CIRCLE";
 _wp setWaypointLoiterRadius 800;
 _wp setWaypointBehaviour "SAD";
+_wp setWaypointCombatMode "RED";
 _wp setWaypointTimeout [300,400,500];
-_wp = _attackGroup addWaypoint [_spawnpos, 0];
-
 
 [_attackGroup, _pos, 400] call CBA_fnc_taskAttack;
 
