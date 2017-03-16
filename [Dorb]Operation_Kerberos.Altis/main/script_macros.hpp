@@ -733,6 +733,8 @@ Author:
 
 #define DORB_HASH_SYS_NAME QUOTE(mission_hash)
 #define IS_HASH(hash) (hash isEqualType locationNull && {(text hash) isEqualTo DORB_HASH_SYS_NAME})
+#define DORB_HASH_SYS_NAME_ACRE QUOTE(acre_hash)
+#define IS_HASH_ALL(hash) (hash isEqualType locationNull && {((text hash) isEqualTo DORB_HASH_SYS_NAME)||((text hash) isEqualTo DORB_HASH_SYS_NAME_ACRE)})
 #define DORB_HASH_SYS_CREATE(VAR) private VAR = [false] call CBA_fnc_createNamespace; \
     VAR setText DORB_HASH_SYS_NAME;
 #define IS_SERIALIZEDHASH(array) (IS_ARRAY(array) && {(count array) > 0} && {IS_STRING((array select 0))} && {(array select 0) isEqualTo DORB_HASH_SYS_NAME})

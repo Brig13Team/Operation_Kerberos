@@ -8,8 +8,8 @@
 
 // the maximum display size with the 4:3 Ratio -> should be used for the most Interface-dialogs.
 #define GUI_DISP_Abs (floor(((SafeZoneW/(pixelW*pixelGridNoUIScale))/4)min((SafeZoneH/(pixelH*pixelGridNoUIScale))/3)))
-#define GUI_DISP_WAbs (4*GUI_DISP_Abs*pixelW * pixelGridNoUIScale)
-#define GUI_DISP_HAbs (3*GUI_DISP_Abs*pixelH * pixelGridNoUIScale)
+#define GUI_DISP_WAbs (4*GUI_DISP_Abs*pixelW*pixelGridNoUIScale)
+#define GUI_DISP_HAbs (3*GUI_DISP_Abs*pixelH*pixelGridNoUIScale)
 #define GUI_DISP_X (0.5-0.5*GUI_DISP_WAbs)
 #define GUI_DISP_Y (0.5-0.5*GUI_DISP_HAbs)
 
@@ -29,7 +29,7 @@
 #define GUI_ECHIDNA_METRO_ROW_DIST (pixelH*pixelGrid*5)
 #define GUI_ECHIDNA_METRO_SIDE (GUI_ECHIDNA_W*2)
 #define GUI_ECHIDNA_METRO_W (GUI_ECHIDNA_W*40-GUI_ECHIDNA_METRO_SIDE)
-#define GUI_ECHIDNA_METRO_H (GUI_ECHIDNA_H * 27.5)
+#define GUI_ECHIDNA_METRO_H (GUI_ECHIDNA_H*27.5)
 
 
 /*
@@ -106,17 +106,3 @@
 #define GUI_LOADINGBAR_ARROW_Y (safezoneY + safezoneH - 7.5 * GUI_GRID_H)
 #define GUI_LOADINGBAR_ARROW_H (1.5 * GUI_GRID_H)
 #define GUI_LOADINGBAR_ARROW_W (2 * GUI_GRID_W)
-
-#define GUI_GRID_TABLET_BTTN_W (2*((GUI_GRID_CENTER_W * 40)/16))
-#define GUI_GRID_TABLET_BTTN_H (2*((GUI_GRID_CENTER_H * 25)/10))
-#define GUI_GRID_TABLET_BTTN_DIS_W (GUI_GRID_TABLET_BTTN_W * 0.1)
-#define GUI_GRID_TABLET_BTTN_DIS_H (GUI_GRID_TABLET_BTTN_H * 0.1)
-#define GUI_GRID_TABLET_BTTN_X (GUI_GRID_CENTER_X + 1 * GUI_GRID_TABLET_BTTN_W)
-#define GUI_GRID_TABLET_BTTN_Y (GUI_GRID_CENTER_Y + 0.5 * GUI_GRID_TABLET_BTTN_H)
-
-#define GUI_GRID_TABLET_BTTN_W (2*((GUI_GRID_CENTER_W * 38)/16))
-#define GUI_GRID_TABLET_BTTN_H (2*((GUI_GRID_CENTER_H * 21)/10))
-#define GUI_GRID_TABLET_BTTN_DIS_W (GUI_GRID_TABLET_BTTN_W * 0.1)
-#define GUI_GRID_TABLET_BTTN_DIS_H (GUI_GRID_TABLET_BTTN_H * 0.1)
-#define GUI_GRID_TABLET_BTTN_X (GUI_GRID_CENTER_X + GUI_GRID_CENTER_W)
-#define GUI_GRID_TABLET_BTTN_Y (GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H)

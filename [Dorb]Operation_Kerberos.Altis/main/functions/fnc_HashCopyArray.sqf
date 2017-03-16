@@ -18,7 +18,7 @@ _this params [["_array",[],[[]]]];
 
 private _newArray = [];
 {
-    if(IS_HASH(_x)) then {
+    if(IS_HASH_ALL(_x)) then {
         _newArray pushBack (_x call FUNC(HashCopy));
     } else {
         if(IS_ARRAY(_x)) then {

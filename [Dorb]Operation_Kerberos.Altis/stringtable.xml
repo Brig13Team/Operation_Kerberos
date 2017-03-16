@@ -1268,4 +1268,10 @@
             <English>shutdown</English>
         </Key>
     </Package>
+    <Package name="gui_acre">
+        <Key ID="STR_DORB_GUI_ACRE_NOSQUADRADIOS">
+            <German>Keine Gruppen-Funkgeräte eingetragen</German>
+            <English>no squad-radios registered</English>
+        </Key>
+    </Package>
 </Project>
