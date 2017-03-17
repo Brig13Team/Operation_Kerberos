@@ -16,7 +16,7 @@ if !(isServer) exitWith { -1 };
 
 _this params ["_obj"];
 
-TRACEV_1(_this);
+TRACEV_2(_this,_obj);
 
 private _mission = _obj getVariable QGVAR(mission);
 HASH_SET(_mission, "trigger_failed", true);

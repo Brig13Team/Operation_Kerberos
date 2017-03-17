@@ -29,8 +29,8 @@ private _action = [
     { (_this select 0) getVariable [QGVAR(isActive), false]; }
 ] call ace_interact_menu_fnc_createAction;
 
-private _classes = ["device"] call FUNC(getObjects);
-_classes pushBack (["emp"] call FUNC(getObjects));
+private _classes = ["device"] call FUNC(spawn_getObjects);
+_classes + (["emp"] call FUNC(spawn_getObjects));
 TRACEV_1(_classes);
 
 {

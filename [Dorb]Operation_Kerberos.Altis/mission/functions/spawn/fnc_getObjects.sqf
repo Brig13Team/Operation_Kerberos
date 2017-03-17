@@ -14,23 +14,33 @@
 
 _this params ["_type"];
 
-private "_class";
+private _config = missionConfigFile >> QEGVAR(spawn,unitlists);
+if (isNil QGVARMAIN(side_type)) then {
+    _config = _config >> format["base_%1", GVARMAIN(side)] >> "mission";
+} else {
+    _config = _config >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "mission";
+};
+
+TRACEV_1(_type);
+
 switch _type do {
     case "hostage" : {
-        _config = missionConfigFile >> QGVAR(unitlists) >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "mission" >> "pow";
+        _config = _config >> "pow";
     };
     case "capture" : {
-        _config = missionConfigFile >> QGVAR(unitlists) >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "mission" >> "commander";
+        _config = _config >> "commander";
     };
     case "radiotower" : {
-        _config = missionConfigFile >> QGVAR(unitlists) >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "mission" >> "tower";
+        _config = _config >> "tower";
     };
     case "dronecommando" : {
-        _config = missionConfigFile >> QGVAR(unitlists) >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "mission" >> "hq_mobile";
+        _config = _config >> "hq_mobile";
     };
     default {
-        _config = missionConfigFile >> QGVAR(unitlists) >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "mission" >> "intel";
+        _config = _config >> _type;
     };
 };
 
-getArray(_class)
+TRACEV_1(_config);
+
+getArray(_config)

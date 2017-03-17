@@ -14,8 +14,8 @@ class main {
             target = ""; // "house", "composition" or ""
             armys[] = {{"regular",1}, {"armored",1}, {"infanterie",1}, {"airborne",1}, {"specops",1}, {"droneoperations",1}, {"guards",1}};
 
-            composition_types = {"isObjective"};
-            house_types = {"hasmissiontarget"};
+            composition_types[] = {"isObjective"};
+            house_types[] = {"hasmissiontarget"};
         };
 
         class object {};
@@ -64,7 +64,7 @@ class main {
         };
 
         class defence : defence {
-            armys[] = {{"droneoperations",1}};
+            armys[] = {{"droneoperations",1}, {"specops",1}};
         };
     };
 

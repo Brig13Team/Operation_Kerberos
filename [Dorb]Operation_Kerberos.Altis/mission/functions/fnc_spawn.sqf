@@ -26,13 +26,16 @@ if !(isClass(missionConfigFile >> "mission" >> "main" >> _type)) exitWith { -1 }
 
     if !(_type isEqualTo "rtb") then {
         // create normal mission
-        private _location = [_hash] call FUNC(spawn_chooseLocation);
+        private _location = [_type] call FUNC(spawn_chooseLocation);
         private _position = _location select 1;
         HASH_SET(_hash, "location", _location);
 
         // spawn targets
-        private _targets = [_position, _type] call FUNC(spawn_spawnTargets);
-        [_targets, _hash] call (missionNamespace getVariable [format ["%1_%2", QFUNC(mainmission), _type], {}]);
+        private _targets = [_type, _position] call FUNC(spawn_spawnTargets);
+        { _x setVariable [QGVAR(mission),_hash]; } forEach _targets;
+
+        TRACEV_1(_targets);
+        [_hash, _targets] call (missionNamespace getVariable [format ["%1_%2", QFUNC(mainmission), _type], {}]);
 
         // spawn defence stuff
         // [_position] call EFUNC(spawn,createMission);

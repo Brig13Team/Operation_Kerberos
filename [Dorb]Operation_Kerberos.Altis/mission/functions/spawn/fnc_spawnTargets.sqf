@@ -5,50 +5,55 @@
  *      prepare target spawning
  *
  *  Parameter(s):
- *      0 : HASH    - mission hash
+ *      0 : STRING  - type
+ *      1 : ARRAY   - position
  *
  *  Returns:
  *      [OBJECT]    - mission targets
  */
 #include "script_component.hpp"
 
-_this params ["_mission"];
+_this params ["_type", "_centerposition"];
 
-private _type      = HASH_GET(_mission, "type");
-private _position  = HASH_GET(_mission, "location") select 1;
 private _defenceStructure = getText(missionConfigFile >> "mission" >> "main" >> _type >> "defence" >> "target");
-
-private _objects = [];
 private _amount = [_type] call FUNC(spawn_getAmount);
 private _radius = [_type] call FUNC(spawn_getRadius);
+private _objects = [];
+
+TRACEV_5(_type,_centerposition,_amount,_radius,_defenceStructure);
 
 private _targetPositions = [];
 private _house = false;
 switch (_defenceStructure) do {
     case "composition": {
         private _compositionTypes = getArray(missionConfigFile >> "mission" >> "main" >> _type >> "defence" >> "composition_types");
-        _type = [_type] + _compositionTypes;
+        private _types = [_type] + _compositionTypes;
 
-        _targetPositions = [_centerposition, _type, _amount, _radius] call FUNC(createMissionComposition);
+        _targetPositions = [_centerposition, _types, _amount, _radius] call EFUNC(spawn,createMissionComposition);
     };
     case "house": {
         _house = true;
         private _houseTypes = getArray(missionConfigFile >> "mission" >> "main" >> _type >> "defence" >> "house_types");
-        _type = [_type] + _houseTypes;
+        private _types = [_type] + _houseTypes;
 
-        _targetPositions = [_centerposition, _type, _amount, _radius] call FUNC(createMissionHouse);
+        _targetPositions = [_centerposition, _types, _amount, _radius] call EFUNC(spawn,createMissionHouse);
     };
-    default {
-        _targetPositions = [_position];
-    }
+};
+
+if (_targetPositions isEqualTo []) then {
+    _targetPositions = [[_centerposition]];
 };
 
 for "_i" from 1 to _amount do {
     if (_targetPositions isEqualTo []) exitWith { [] };
     private _pos = selectRandom _targetPositions;
     if !(_house) then { _targetPositions = _targetPositions - [_pos]; };
+    _pos = selectRandom _pos;
 
-    private _class = selectRandom ([_type] call FUNC(getMissionObject));
+    private _class = selectRandom ([_type] call FUNC(spawn_getObjects));
+
+    TRACEV_2(_class,_pos);
+
     if (isNil "_class") exitWith { [] };
 
     private "_target";

@@ -12,7 +12,7 @@
  */
 #include "script_component.hpp"
 
-_this params [["_name", "", [""]]]
+_this params [["_name", "", [""]]];
 
 if !THIS_HASKEY(_name) exitWith { [] };
 
