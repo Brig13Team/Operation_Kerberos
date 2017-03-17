@@ -10,25 +10,29 @@ class main {
             areas[] = {QGVAR(town), QGVAR(industrie), QGVAR(military), QGVAR(other)};
         };
 
+        class defence {
+            target = ""; // "house", "composition" or ""
+            armys[] = {{"regular",1}, {"armored",1}, {"infanterie",1}, {"airborne",1}, {"specops",1}, {"droneoperations",1}, {"guards",1}};
+
+            composition_types = {"isObjective"};
+            house_types = {"hasmissiontarget"};
+        };
+
         class object {};
 
         probability = 1;
-        armys[] = {{"regular",1}, {"armored",1}, {"infanterie",1}, {"airborne",1}, {"specops",1}, {"droneoperations",1}, {"guards",1}};
     };
 
     class __oneCounter : __base {
-        armys[] = {{"regular",1}, {"armored",1}, {"infanterie",1}, {"airborne",1}, {"guards",1}};
+        class defence : defence {
+            target = "composition";
+            armys[] = {{"regular",1}, {"armored",1}, {"infanterie",1}, {"airborne",1}, {"guards",1}};
+        };
     };
 
-    class __twoCounter : __oneCounter {};
-
-    /*
-     *  special missions
-     */
-    class _rtb : __base {
-        class object : object {
-            radius   = 100;
-            position = "respawn_west";
+    class __twoCounter : __oneCounter {
+        class defence : defence {
+            target = "house";
         };
     };
 
@@ -38,21 +42,29 @@ class main {
     class capture : __twoCounter {
         class location : location {
             areas[] = {QGVAR(town)};
+            radius = 200;
         };
 
         class object : object {
             min = 1;
             max = 3;
-            radius = 200;
         };
     };
+
     class device : __oneCounter {
         class location : location {
             areas[] = {QGVAR(industrie), QGVAR(other)};
+            radius = 250;
+        };
+    };
+
+    class dronecommando : __oneCounter {
+        class location : location {
+            radius = 500;
         };
 
-        class object : object {
-            radius = 250;
+        class defence : defence {
+            armys[] = {{"droneoperations",1}};
         };
     };
 
@@ -65,24 +77,41 @@ class main {
         };
     };
 
+    class prototype : __oneCounter {
+        class location : location {
+            areas[] = {QGVAR(industrie), QGVAR(military), QGVAR(other)};
+            radius = 500;
+        };
+    };
+
     class intel : hostage {
+        class location : location {
+            radius = 250;
+        };
+
         class object : object {
             min = 2;
             max = 10;
-            radius = 250;
         };
     };
 
     class radiotower : __oneCounter {
         class location : location {
             areas[] = {QGVAR(industrie), QGVAR(military), QGVAR(other)};
+            radius = 1000;
         };
 
         class object : object {
             min = 1;
             max = 3;
-            radius = 1000;
         };
+    };
+
+    class rtb : __base {
+       class object : object {
+           radius   = 100;
+           position = "respawn_west";
+       };
     };
 
     /*
@@ -93,6 +122,12 @@ class main {
         };
     };
     */
+
+    class upload : __oneCounter {
+        class location : location {
+            areas[] = {QGVAR(military)};
+        };
+    };
 
     class weaponcache : hostage {
         class location : location {

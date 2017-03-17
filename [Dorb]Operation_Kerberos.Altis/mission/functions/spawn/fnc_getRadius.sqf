@@ -3,13 +3,12 @@
  *
  *  Description:
  *      get spawn radius of mission
- *      (can be used for sidemission too)
  *
  *  Parameter(s):
  *      0 : STRING  - name
  *
  *  Returns:
- *      -
+ *      NUMBER (default: 200)
  */
 #include "script_component.hpp"
 
@@ -25,5 +24,4 @@ if (isNumber(missionConfigFile >> "mission" >> "side" >> _type >> "object" >> "r
     getNumber(missionConfigFile >> "mission" >> "side" >> _type >> "object" >> "radius")
 };
 
-// _type is neither main nor side mission
-throw "no radius";
+200

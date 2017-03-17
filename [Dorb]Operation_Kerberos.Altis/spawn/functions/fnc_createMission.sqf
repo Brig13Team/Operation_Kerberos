@@ -5,7 +5,7 @@
  *      called after the mission was created
  *
  *  Parameter(s):
- *      0 : HASH    - mission hash
+ *      0 : ARRAY   - centerposition
  *
  *  Returns:
  *      none
@@ -14,8 +14,7 @@
 
 #include "script_component.hpp"
 
-_this params ["_mission"];
-private _centerposition = HASH_GET(_mission,"location") select 1;
+_this params [["_centerposition",[],[[]]]];
 TRACEV_1(_centerposition);
 
 If (count _centerposition <3) then {_centerposition set[2,0];};

@@ -1,2 +1,2 @@
-#define PART mission
+#define PART spawn
 #include "..\script_component.hpp"

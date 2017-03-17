@@ -19,4 +19,4 @@ _this params ["_obj"];
 private _mission = _obj getVariable QGVAR(mission);
 HASH_SET(_mission, "obj_counter_2", HASH_GET(_mission, "obj_counter_2") + 1);
 
-["COUNTER_2", HASH_GET(_mission, "type"), "red", [name _obj]] call FUNC(obj___createGlobalMessage);
+[QFUNC(obj___message), ["COUNTER_2", HASH_GET(_mission, "type"), "red", [name _obj]]] call CBA_fnc_globalEvent;

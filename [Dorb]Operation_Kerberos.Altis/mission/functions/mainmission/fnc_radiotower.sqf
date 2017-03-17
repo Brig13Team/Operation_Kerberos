@@ -2,23 +2,24 @@
  *  Author: iJesuz
  *
  *  Description:
- *      Mission "Radiotower"
+ *      init mission "radiotower"
  *
  *  Parameter(s):
- *      0 : HASH    - mission hash
+ *      0 : HASH        - mission hash
+ *      1 : [OBJECT]    - mission target
  *
  *  Returns:
  *      -
  */
 #include "script_component.hpp"
 
-_this params ["_mission"];
+_this params ["_mission", "_targets"];
 
-private _position = HASH_GET(_mission,"location") select 1;
+{
+    _x setVectorUp [0,0,1];
 
-[_mission, {
-    _this params ["_radiotower"];
+    _x setVariable [QGVAR(isActive), true, true];
+    _x addEventHandler ["HandleDamage", LINKFUNC(obj_onRadiotowerDamaged)];
+} forEach _targets;
 
-    _radiotower setVariable [QGVAR(isActive), true, true];
-    _radiotower addEventHandler ["HandleDamage", LINKFUNC(obj_onRadiotowerDamaged)];
-}] call FUNC(mainmission__oneCounter);
+[_mission, _targets] call FUNC(mainmission__oneCounter);

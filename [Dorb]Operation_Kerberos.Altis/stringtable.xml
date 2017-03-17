@@ -228,6 +228,21 @@
                 <German>Das Gerät wurde zerstört.</German>
                 <English>TODO</English>
             </Key>
+            <Key ID="STR_DORB_MISSION_DRONECOMMANDO_TITLE">
+                <Original>Destroy Dronecommando</Original>
+                <German>Drohnencommando zerstören</German>
+                <English>Destroy Dronecommando</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_DRONECOMMANDO_DESC">
+                <Original>TODO</Original>
+                <German>Der Feind setzt Drohnen ein. Finden und zerstören Sie deren Steuerungszentrale.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_DRONECOMMANDO_COUNTER">
+                <Original>TODO</Original>
+                <German>Das Drohnenkommando wurde zerstört.</German>
+                <English>TODO</English>
+            </Key>
             <Key ID="STR_DORB_MISSION_EMP_TITLE">
                 <Original>Deaktivate EMP</Original>
                 <German>EMP-Waffe deaktivieren</German>
@@ -281,6 +296,26 @@
             <Key ID="STR_DORB_MISSION_INTEL_COUNTER">
                 <Original>TODO</Original>
                 <German>Einige Informationen wurden gesichert.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_PROTOTYPE_TITLE">
+                <Original>Recover Prototype</Original>
+                <German>Prototyp zurückholen</German>
+                <English>Recover Prototype</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_PROTOTYPE_DESC">
+                <Original>TODO</Original>
+                <German>Der Feind ist in Besitz eines unserer Prototypen gekommen. Finden Sie diesen und bringen Sie ihn zurück zur Basis.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_PROTOTYPE_COUNTER">
+                <Original>TODO</Original>
+                <German>Der Prototyp wurde in die Basis überführt.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_PROTOTYPE_TRIGGER_FAILED">
+                <Original>TODO</Original>
+                <German>Der Prototyp wurde zerstört.</German>
                 <English>TODO</English>
             </Key>
             <Key ID="STR_DORB_MISSION_RADIOTOWER_TITLE">
@@ -353,12 +388,29 @@
         </Container>
         <Container name="OBJ">
             <Key ID="STR_DORB_MISSION_OBJECTS_DEVICE_DISABLE">
-                <English>Deactivate</English>
+                <Original>Deactivate</Original>
                 <German>Deaktivieren</German>
+                <English>Deactivate</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_OBJECTS_DEVICE_DISABLING">
+                <Original>deactivating ...</Original>
+                <German>deaktiviere ...</German>
+                <English>deactivating ...</English>
             </Key>
             <Key ID="STR_DORB_MISSION_OBJECTS_INTEL_GRAB">
-                <English>secure informations</English>
+                <Original>Secure Information</Original>
                 <German>Informationen sicherstellen</German>
+                <English>Secure Information</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_OBJECTS_UPLOAD">
+                <Original>Upload Virus</Original>
+                <German>Virus hochladen</German>
+                <English>Upload Virus</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_OBJECTS_UPLOADING">
+                <Original>Uploading Virus ...</Original>
+                <German>Virus wird hochgeladen ...</German>
+                <English>Uploading Virus ...</English>
             </Key>
             <Key ID="STR_DORB_MISSION_OBJECTS_CARRY">
                 <Original>Carry</Original>
@@ -1091,14 +1143,6 @@
         </Key>
     </Package>
     <Package name="mission_obj">
-        <Key ID="STR_DORB_MISSION_OBJ_DEVICE_DISABLE">
-            <English>deactivate</English>
-            <German>Deaktivieren</German>
-        </Key>
-        <Key ID="STR_DORB_MISSION_OBJ_DEVICE_DEACTIVATING">
-            <English>deactivating</English>
-            <German>deaktiviere</German>
-        </Key>
         <Key ID="STR_DORB_MISSION_OBJ_CASE_CARRY">
             <English>carray</English>
             <German>tragen</German>
@@ -1106,10 +1150,6 @@
         <Key ID="STR_DORB_MISSION_OBJ_CASE_DROP">
             <English>drop</English>
             <German>ablegen</German>
-        </Key>
-        <Key ID="STR_DORB_MISSION_OBJ_INTEL_GRAB">
-            <English>secure</English>
-            <German>sichern</German>
         </Key>
         <!-- hostage -->
         <Key ID="STR_DORB_MISSION_OBJ_HOSTAGE_KILLED_MSG_TITLE">

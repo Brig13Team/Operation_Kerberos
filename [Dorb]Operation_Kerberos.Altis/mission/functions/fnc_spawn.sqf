@@ -12,16 +12,35 @@
  */
 #include "script_component.hpp"
 
-_this params [["_name", "", [""]]];
-if !(isClass(missionConfigFile >> "mission" >> "main" >> _name)) exitWith { -1 };
+_this params [["_type", "", [""]]];
+if !(isClass(missionConfigFile >> "mission" >> "main" >> _type)) exitWith { -1 };
 
-// spawn mission
-_name spawn {
+[_type] spawn {
+    _this params ["_type"];
+
+    // create mission hash
     GVAR(spawn_tmp) = HASH_CREATE;
-    HASH_SET(GVAR(spawn_tmp), "type", _this);
-    [GVAR(spawn_tmp)] call FUNC(mainmission___spawn);
+    private _hash = GVAR(spawn_tmp);
+    HASH_SET(_hash, "type", _type);
+    HASH_SET(_hash, "state", "init");
+
+    if !(_type isEqualTo "rtb") then {
+        // create normal mission
+        private _location = [_hash] call FUNC(spawn_chooseLocation);
+        private _position = _location select 1;
+        HASH_SET(_hash, "location", _location);
+
+        // spawn targets
+        private _targets = [_position, _type] call FUNC(spawn_spawnTargets);
+        [_targets, _hash] call (missionNamespace getVariable [format ["%1_%2", QFUNC(mainmission), _type], {}]);
+
+        // spawn defence stuff
+        // [_position] call EFUNC(spawn,createMission);
+    } else {
+        // create rtb mission
+        [_hash] call FUNC(mainmission_rtb);
+    };
 
     // register mission
     [GVAR(spawn_tmp)] call FUNC(taskmanager_add);
-    GVAR(spawn_tmp) = nil;
 };

@@ -2,20 +2,21 @@
  *  Author: iJesuz
  *
  *  Description:
- *      Mission "Weaponcache"
+ *      init mission "weaponcache"
  *
  *  Parameter(s):
- *      0 : HASH    - mission hash
+ *      0 : HASH        - mission hash
+ *      1 : [OBJECT]    - mission target
  *
  *  Returns:
  *      -
  */
 #include "script_component.hpp"
 
-_this params ["_mission"];
+_this params ["_mission", "_targets"];
 
-[_mission, {
-    _this params ["_cache"];
+{
+    _x addEventHandler ["Killed", LINKFUNC(obj__increaseCounter)];
+} forEach _targets;
 
-    _cache addEventHandler ["Killed", LINKFUNC(obj__increaseCounter)];
-}] call FUNC(mainmission__oneCounter);
+[_mission, _targets] call FUNC(mainmission__oneCounter);

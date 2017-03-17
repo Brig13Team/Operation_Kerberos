@@ -17,18 +17,16 @@
 
 class CfgTaskDescriptions {
     // mainmissions
-    TASK_DESC2(_rtb,run);
     TASK_DESC2(capture,target);
-    // TASK_DESC2(clear,target);
     TASK_DESC2(device,interact);
-    // TASK_DESC2(dronecommando,destroy);
+    TASK_DESC2(dronecommando,destroy);
     TASK_DESC2(emp,interact);
     TASK_DESC2(hostage,heal);
     TASK_DESC2(intel,download);
-    // TASK_DESC2(prototype,Default);
+    TASK_DESC2(prototype,Default);
     TASK_DESC2(radiotower,destroy);
+    TASK_DESC2(rtb,run);
     TASK_DESC2(scarab,kill);
-    // TASK_DESC2(specops,target);
     TASK_DESC2(weaponcache,destroy);
 
     // sidemissions

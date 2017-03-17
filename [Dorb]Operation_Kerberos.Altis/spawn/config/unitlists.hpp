@@ -16,7 +16,7 @@ class GVAR(unitlists) {
             case[] = {"Land_Suitcase_F"};
             tower[] = {"Land_TTowerBig_1_F","Land_TTowerBig_2_F"};
             radar[] = {"rhs_p37","rhs_prv13"};
-            device[] = {"Land_Device_assembled_F"};
+            device[] = {"Land_Device_assembled_F","Land_Device_disassembled_F"};
             emp[] = {"rhs_typhoon_vdv"};
             scarab[] = {"rhs_9k79"};
         };

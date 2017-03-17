@@ -2,7 +2,7 @@
  *  Author: iJesuz
  *
  *  Description:
- *      Mission "Return to Base"
+ *      init mission "Return to Base"
  *
  *  Parameter(s):
  *      0 : HASH    - mission hash

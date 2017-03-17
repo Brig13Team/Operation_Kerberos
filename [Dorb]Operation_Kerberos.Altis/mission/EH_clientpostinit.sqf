@@ -9,20 +9,8 @@
 CHECK(!hasInterface)
 
 // Initialization Stuff
-[
-    "Land_File1_F",
-    "Land_File2_F",
-    "Land_FilePhotos_F",
-    "Land_SatellitePhone_F",
-    "Land_MobilePhone_smart_F"
-] call FUNC(obj_initACEAction_intel);
-
-[
-    "rhs_typhoon_vdv",
-    "Land_Device_assembled_F",
-    "Land_Device_disassembled_F",
-    "Land_Device_slingloadable_F"
-] call FUNC(obj_initACEAction_Device);
+[] call FUNC(obj_initACEAction_intel);
+[] call FUNC(obj_initACEAction_device);
 
 /*
 [
@@ -42,3 +30,4 @@ CHECK(!hasInterface)
 */
 
 [QGVAR(effectDownload_Client),LINKFUNC(obj_effectDownloadClient)] call CBA_fnc_addEventHandler;
+[QFUNC(obj___message),LINKFUNC(obj___message)] call CBA_fnc_addEventHandler;

@@ -2,18 +2,17 @@
  *  Author: iJesuz
  *
  *  Description:
- *      Mission "Intel"
+ *      init mission "intel"
  *
  *  Parameter(s):
- *      0 : HASH    - mission hash
+ *      0 : HASH        - mission hash
+ *      1 : [OBJECT]    - mission target
  *
  *  Returns:
  *      -
  */
 #include "script_component.hpp"
 
-_this params ["_mission"];
+_this params ["_mission", "_targets"];
 
-[_mission, {
-    // nothing todo (intel is initialized via EH_clientPostInit)
-}] call FUNC(mainmission__oneCounter);
+[_mission, _targets] call FUNC(mainmission__oneCounter);

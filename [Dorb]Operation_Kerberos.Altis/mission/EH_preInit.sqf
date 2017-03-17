@@ -3,43 +3,34 @@
 ADDON = false;
 
 PREP(end);
-PREP(getAllMissionTargets);
 PREP(handleRescuePoint);
 PREP(spawn);
 PREP(spawnSide);
 
-PREPS(mainmission,__chooseLocation);
-PREPS(mainmission,__getAmount);
-PREPS(mainmission,__getRadius);
-PREPS(mainmission,__spawn);
-PREPS(mainmission,__spawnTargets);
 PREPS(mainmission,_oneCounter_condition);
 PREPS(mainmission,_oneCounter);
 PREPS(mainmission,_rtb_condition);
-PREPS(mainmission,_rtb);
 PREPS(mainmission,_twoCounters_condition);
 PREPS(mainmission,_twoCounters);
 PREPS(mainmission,capture);
-// PREPS(mainmission,clear_cond);
-// PREPS(mainmission,clear);
 PREPS(mainmission,device);
-// PREPS(mainmission,dronecommando_cond);
-// PREPS(mainmission,dronecommando);
+PREPS(mainmission,dronecommando);
 PREPS(mainmission,emp);
 PREPS(mainmission,hostage);
 PREPS(mainmission,intel);
-// PREPS(mainmission,prototype_cond);
-// PREPS(mainmission,prototype);
+PREPS(mainmission,prototype);
 PREPS(mainmission,radiotower);
+PREPS(mainmission,rtb);
 PREPS(mainmission,scarab);
-// PREPS(mainmission,specops_cond);
-// PREPS(mainmission,specops);
 PREPS(mainmission,weaponcache);
 
-PREPS(sidemission,__spawn);
-// PREPS(sidemission,clearArea);
 PREPS(sidemission,radar);
-// PREPS(sidemission,targetsAlive);
+
+PREPS(spawn,chooseLocation);
+PREPS(spawn,getAmount);
+PREPS(spawn,getObjects);
+PREPS(spawn,getRadius);
+PREPS(spawn,spawnTargets);
 
 PREPS(taskmanager,__add);
 PREPS(taskmanager,__cancelAll);
@@ -48,6 +39,7 @@ PREPS(taskmanager,__remove);
 PREPS(taskmanager,__setState);
 PREPS(taskmanager,add);
 PREPS(taskmanager,addChild);
+PREPS(taskmanager,getMissionTargets);
 PREPS(taskmanager,handle);
 PREPS(taskmanager,hasActiveMissions);
 PREPS(taskmanager,init);
@@ -56,11 +48,10 @@ PREPS(taskmanager,removeChild);
 PREPS(taskmanager,setState);
 PREPS(taskmanager,setStateChild);
 
-PREPS(obj,__createGlobalMessage);
+PREPS(obj,__message);
 PREPS(obj,_increaseCounter);
 PREPS(obj,_increaseCounterOne);
 PREPS(obj,_increaseCounterTwo);
-PREPS(obj,_progressBar);
 PREPS(obj,_triggerFailed);
 PREPS(obj,callEvent);
 // PREPS(obj,canCarry);

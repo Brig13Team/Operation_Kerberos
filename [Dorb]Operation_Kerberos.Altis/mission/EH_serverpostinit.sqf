@@ -22,6 +22,7 @@ If ((getMarkerPos GVARMAIN(rescuemarker)) isEqualTo [0,0,0]) then {
 [QGVAR(emp), LINKFUNC(onEMP)] call CBA_fnc_addEventHandler;
 [QGVAR(effectDownload_Server), LINKFUNC(obj_effectDownloadServer)] call CBA_fnc_addEventHandler;
 [QEGVAR(mission,end_server), LINKFUNC(end)] call CBA_fnc_addEventHandler;
+// rescue point events
 [QFUNC(obj__increaseCounter), LINKFUNC(obj__increaseCounter)] call CBA_fnc_addEventHandler;
 [QFUNC(obj__increaseCounterOne), LINKFUNC(obj__increaseCounterOne)] call CBA_fnc_addEventHandler;
 [QFUNC(obj__increaseCounterTwo), LINKFUNC(obj__increaseCounterTwo)] call CBA_fnc_addEventHandler;

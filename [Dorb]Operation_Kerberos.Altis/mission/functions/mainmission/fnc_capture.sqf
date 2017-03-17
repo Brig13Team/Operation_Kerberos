@@ -2,21 +2,24 @@
  *  Author: Dorbedo, iJesuz
  *
  *  Description:
- *      Mission "Capture"
+ *      init mission "capture"
  *
  *  Parameter(s):
- *      0 : HASH    - mission hash
+ *      0 : HASH        - mission hash
+ *      1 : [OBJECT]    - mission target
  *
  *  Returns:
  *      -
  */
 #include "script_component.hpp"
 
-_this params ["_mission"];
+_this params ["_mission", "_targets"];
 
-[_mission, {
-    _this params ["_commander"];
+{
+    _x allowFleeing 0;
 
-    _commander setVariable [QGVAR(rescueEvent), QFUNC(obj__increaseCounterOne)];
-    _commander addEventHandler ["Killed", LINKFUNC(obj__increaseCounterTwo)];
-}] call FUNC(mainmission__twoCounters);
+    _x setVariable [QGVAR(rescueEvent), QFUNC(obj__increaseCounterOne)];
+    _x addEventHandler ["Killed", LINKFUNC(obj__increaseCounterTwo)];
+} forEach _targets;
+
+[_mission, _targets] call FUNC(mainmission__twoCounters);
