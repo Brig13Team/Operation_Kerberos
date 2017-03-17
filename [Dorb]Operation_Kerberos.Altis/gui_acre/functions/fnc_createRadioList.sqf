@@ -32,7 +32,7 @@ private _allRadios = configProperties [configFile >> "CfgWeapons","(isClass _x)&
     {
         _channels set [_forEachIndex,locationNull];
     } forEach (HASH_GET([ARR_2(_WeaponName, _presetName)] call acre_api_fnc_getPresetData,"_channels"));
-    private _channel_one = [_WeaponName,_presetName,1] call FUNC(setFilteredPresetChannel);
+    private _channel_one = [_WeaponName,1] call FUNC(setFilteredPresetChannel);
     _channels set [0,_channel_one];
     HASH_SET(_radioHash,"channels",_channels);
 } forEach _allRadios;

@@ -1,0 +1,158 @@
+/*
+ *  Author: Dorbedo
+ *
+ *  Description:
+ *      shows the tree-View
+ *
+ *  Parameter(s):
+ *      none
+ *
+ *  Returns:
+ *      none
+ *
+ */
+#define DEBUG_MODE_FULL
+#define INCLUDE_GUI
+#include "script_component.hpp"
+disableSerialization;
+// hide all other things
+[] call FUNC(hideAll);
+
+// get the tree and the propertiesList
+private _display = uiNamespace getVariable QEGVAR(gui_Echidna,dialog);
+private _tree = _display displayCtrl IDC_ACRE_MENU_TREE;
+private _list = _display displayCtrl IDC_ACRE_MENU_PROPERTIESLIST;
+
+tvClear _tree;
+lnbClear _list;
+
+// move the tree and the propertieslist to their positions
+_tree ctrlSetPosition [
+    GUI_ECHIDNA_X + 6*GUI_ECHIDNA_W,
+    GUI_ECHIDNA_Y + 0.5*GUI_ECHIDNA_H,
+    22*GUI_ECHIDNA_W,
+    26.5*GUI_ECHIDNA_H
+];
+_list ctrlSetPosition [
+    GUI_ECHIDNA_X + 28.5*GUI_ECHIDNA_W,
+    GUI_ECHIDNA_Y + 0.5*GUI_ECHIDNA_H,
+    11*GUI_ECHIDNA_W,
+    26.5*GUI_ECHIDNA_H
+];
+//_list lnbAddColumn (6*GUI_ECHIDNA_W);
+_list lnbAddColumn 0.5;
+_tree ctrlCommit 0;
+_list ctrlCommit 0;
+TRACEV_1(_list);
+// add the Events
+_tree ctrladdEventHandler ["TreeSelChanged",LINKFUNC(TreeOnSelChanged)];
+
+
+// functions
+_fnc_getPlayergroups = {
+    _this params ["_side"];
+    private _groups = [];
+    {
+        If (
+            (side _x == _side)
+            //&&{({isPlayer _x} count (units _x))>0}
+            ) then {
+            _groups pushBack _x;
+        };
+    } forEach allGroups;
+    _groups;
+};
+
+
+// display the tree
+/*
+
+    SIDE
+    --GROUP
+    ----(P)RADIO1 - CUSTOM
+    ----MEMBER1
+    ------(P)RADIO1 - CHAN1
+    ------(P)RADIO1 - CUST
+
+*/
+If !(isNil QGVAR(curTree)) then {
+    HASH_DELETE(GVAR(curTree));
+};
+GVAR(curTree) = HASH_CREATE;
+{
+    // SIDE
+    _curside = _x;
+    private _sideIndex = [(_tree tvAdd [[], str _curside])];
+    private _playergroups = [_curside] call _fnc_getPlayergroups;
+    {
+        // --GROUP
+        private _curGroup = _x;
+        private _groupIndex =+ _sideIndex;
+        TRACEV_2(_groupIndex,_sideIndex);
+        _groupIndex pushBack (_tree tvAdd [_sideIndex, groupId _curGroup]);
+        private _hashes = _curGroup getVariable [QGVAR(radios),[]];
+        // ----RADIO
+        If (_hashes isEqualTo []) then {
+            _tree tvAdd [_groupIndex, localize LSTRING(NOSQUADRADIOS)];
+        }else{
+            {
+                private _radioHash = _x;
+                private _radioIndex =+ _groupIndex;
+                private _radio = HASH_GET_DEF(_radioHash,"radioName","ERROR");
+
+                private _channel = HASH_GET_DEF(_radioHash,"channel",-1);
+                private _presetName = HASH_GET_DEF(_radioHash,"presetName","");
+                private _picture = HASH_GET_DEF(_radioHash,"picture","");
+                If ((!(_presetName isEqualTo ""))&&{_channel > 0}) then {
+                    If (HASH_HASKEY(_radioHash,"channelName")) then {
+                        _channel = HASH_GET(_radioHash,"channelName");
+                    };
+                    _radioIndex pushBack (_tree tvAdd [_groupIndex, format["%1         Channel: %2",_radio,_channel]]);
+                }else{
+                    _radioIndex pushBack (_tree tvAdd [_groupIndex, _radio]);
+                };
+
+
+                if !(_picture isEqualTo "") then {
+                    _tree tvSetPicture [_radioIndex, _picture];
+                };
+                _tree tvSetData [ _radioIndex,str _radioIndex];
+                HASH_SET(GVAR(curTree),str _radioIndex,_radioHash);
+            } forEach _hashes;
+        };
+
+        {
+            private _curPlayer = _x;
+            private _hashes = _curPlayer getVariable [QGVAR(radios),[]];
+            If !(_hashes isEqualTo []) then {
+                // ----MEMBER
+                private _playerIndex =+ _groupIndex;
+                _playerIndex pushBack (_tree tvAdd [_groupIndex, name _curPlayer]);
+                {
+                    // ------RADIO
+                    private _radioHash = _x;
+                    private _radioIndex =+ _playerIndex;
+                    private _radio = HASH_GET_DEF(_radioHash,"radioName","ERROR");
+
+                    private _channel = HASH_GET_DEF(_radioHash,"channel",-1);
+                    private _presetName = HASH_GET_DEF(_radioHash,"presetName","");
+                    private _picture = HASH_GET_DEF(_radioHash,"picture","");
+                    If ((!(_presetName isEqualTo ""))&&{_channel > 0}) then {
+                        If (HASH_HASKEY(_radioHash,"channelName")) then {
+                            _channel = HASH_GET(_radioHash,"channelName");
+                        };
+                        _radioIndex pushBack (_tree tvAdd [_playerIndex, format["%1         Channel: %2",_radio,_channel]]);
+                    }else{
+                        _radioIndex pushBack (_tree tvAdd [_playerIndex, _radio]);
+                    };
+
+                    if !(_picture isEqualTo "") then {
+                        _tree tvSetPicture [_radioIndex, _picture];
+                    };
+                    _tree tvSetData [ _radioIndex,str _radioIndex];
+                    HASH_SET(GVAR(curTree),str _radioIndex,_radioHash);
+                } forEach _hashes;
+            };
+        } forEach ((units _curGroup) select {isPlayer _x});
+    } foreach _playergroups;
+} forEach (missionNamespace getVariable [QGVAR(sides),[GVARMAIN(playerside)]]);

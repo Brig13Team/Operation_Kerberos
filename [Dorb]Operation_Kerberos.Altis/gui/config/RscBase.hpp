@@ -575,8 +575,7 @@ class RSC(BaseCombobox) {
 };
 
 class RSC(BaseTree) {
-	access = 0;
-	idc = 12;
+	idc = -1;
 	type = 12;
 	style = 0;
 	default = 0;
@@ -588,14 +587,38 @@ class RSC(BaseTree) {
 	y = 0;
 	w = 0;
 	h = 0;
+    rowHeight=0.043909099;
+    sizeEx = (pixelH * pixelGrid * 3);
+	font = FONT_DEFAULT;
+    shadow = 0;
+
+	borderSize=0;
 	colorBorder[] = COLOR_DISABLED;
-	colorBackground[] = {0.2,0.2,0.2,1};
+	colorDisabled[]={1,1,1,0.25};
+	colorLines[]={0,0,0,0};
+
+    colorBackground[] = {0.2,0.2,0.2,1};
+	colorSelectBackground[]={0,0,0,0.5};
+
 	colorSelect[] = {1,0.5,0,1};
 	colorMarked[] = {1,0.5,0,0.5};
 	colorMarkedSelected[] = {1,0.5,0,1};
-	sizeEx = (pixelH * pixelGrid * 3);
-	font = FONT_DEFAULT;
-	shadow = 0;
+
+    colorPicture[]={1,1,1,1};
+    colorPictureSelected[]={0,0,0,1};
+    colorPictureDisabled[]={1,1,1,0.25};
+    colorPictureRight[]={1,1,1,1};
+    colorPictureRightSelected[]={0,0,0,1};
+    colorPictureRightDisabled[]={1,1,1,0.25};
+
+	colorArrow[] = {0,0,0,0};
+    colorSearch[]={
+        "(profilenamespace getvariable ['GUI_BCG_RGB_R',0.13])",
+        "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.54])",
+        "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.21])",
+        "(profilenamespace getvariable ['GUI_BCG_RGB_A',0.8])"
+    };
+
 	colorText[] = {1,1,1,1};
 	colorSelectText[] = {1,1,1,1};
 	colorMarkedText[] = {1,1,1,1};
@@ -618,8 +641,6 @@ class RSC(BaseTree) {
 		thumb = "\A3\ui_f\data\gui\cfg\scrollbar\thumb_ca.paa";
 		color[] = {1,1,1,1};
 	};
-	colorDisabled[] = {0,0,0,0};
-	colorArrow[] = {0,0,0,0};
 };
 
 class RSC(BaseLoadingbar) {

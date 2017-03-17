@@ -6,16 +6,33 @@
 #include "script_component.hpp"
 class APP(dialog) : RSC(echidna) {
 
-    controlsBackground[] =     {
-        background_Picture,
-        background_Display,
-        background_Header
+    controlsBackground[] = {
+        background_taskbar,
+        background_display
+    };
+    controls[] = {
+        clock,
+        menu_button,
+
+        Button_1,
+        Button_2,
+        Button_3,
+        Button_4,
+        Button_5,
+        Itemlist,
+        Radiolist,
+        properties,
+        properties_list,
+        treeview,
+
+        metro_back,
+        metro,
+        metro_side,
+        background_device
     };
 
-    controls[] =    {
-        clock,
-        notifications
-    };
+    onLoad = QUOTE(uiNamespace setVariable [ARR_2('EGVAR(gui_Echidna,dialog)',_this select 0)]; [ARR_2('GVAR(dialog)',true)] call EFUNC(gui,blur); _this spawn EFUNC(gui_echidna,OnLoad);_this spawn FUNC(OnLoad););
+    onUnload = QUOTE([ARR_2('GVAR(dialog)',false)] call EFUNC(gui,blur);_this call EFUNC(gui_Echidna,OnUnLoad););
 
     /*
     x = GUI_ECHIDNA_X;
@@ -78,20 +95,29 @@ class APP(dialog) : RSC(echidna) {
         h = 0;
         class controls {
             class PresetList : RSC(BaseComboBox) {
-
+                idc = IDC_ACRE_MENU_PROPERTIES + 1;
+                x = 0;
+                y = 0;
+                w = 0;
+                h = 0;
             };
 
             class transmitt : RSC(BaseButton) {
-
+                idc = IDC_ACRE_MENU_PROPERTIES + 2;
+                x = 0;
+                y = 0;
+                w = 0;
+                h = 0;
             };
         };
     };
-    class properties_list : RSC(BaseListbox) {
+    class properties_list : RSC(BaseListboxN) {
         idc = IDC_ACRE_MENU_PROPERTIESLIST;
         x = 0;
         y = 0;
         w = 0;
         h = 0;
+        columns[] = {-0.01};
     };
     class treeview : RSC(BaseTree) {
         idc = IDC_ACRE_MENU_TREE;

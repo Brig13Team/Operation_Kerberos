@@ -14,7 +14,11 @@
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-_this params [["_radioType","",[""]],["_presetName","default",[""]],["channel",1,[1]]];
+_this params [["_radioType","",[""]],["_channel",1,[1]],["_presetName","",[""]]];
+
+If (_presetName isEqualTo "") then {
+    _presetName = [_radioType] call acre_api_fnc_getPreset;
+};
 
 private _acreHash = [_radioType, _presetName, _channel] call acre_api_fnc_getPresetChannelData;
 
@@ -26,5 +30,15 @@ private _missionKeysOrderd = _acreKeys arrayIntersect ["description","label","na
 {_missionKeysOrderd pushBackUnique _x} forEach _acreKeys;
 
 private _missionHash = HASH_COPY(_acreHash);
+
 HASH_SET(_missionHash,"keysOrdered",_missionKeysOrderd);
+HASH_SET(_missionHash,"radioType",_radioType);
+HASH_SET(_missionHash,"presetName",_presetName);
+HASH_SET(_missionHash,"channel",_channel);
+If (_radioType in ["ACRE_PRC148","ACRE_PRC152","ACRE_PRC117F"]) then {
+    private _key = [_radioType,"description"] call acre_api_fnc_mapChannelFieldName;
+    private _channelName = HASH_GET(_missionHash,_key);
+    HASH_SET(_missionHash,"channelName",_channelName);
+};
+
 _missionHash;
