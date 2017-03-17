@@ -53,7 +53,7 @@ disableSerialization;
 
 GVAR(msg_cur) = GVAR(msg_cur) - [displayNull];
 
-[QEGVAR(gui_tablet,addMessage),[_title,_content,_color,dialog]] call CBA_fnc_localEvent;
+[QEGVAR(gui_mail,receive),[_title,_content]] call CBA_fnc_localEvent;
 
 If (GVAR(msg_cur) isEqualTo []) then {
     GVAR(msg_cur_ID)=1;

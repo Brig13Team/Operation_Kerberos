@@ -22,8 +22,6 @@ GVAR(active) = false;
 GVAR(handler) = nil;
 
 {
-    private _groupHash = _x getVariable QGVAR(grouphash);
-    if !(isNil "_groupHash") then {
-        [_groupHash] call FUNC(deleteMarker);
-    };
-} forEach allGroups;
+    deleteMarkerLocal _x
+} forEach GVAR(allMarker);
+GVAR(allMarker) = [];

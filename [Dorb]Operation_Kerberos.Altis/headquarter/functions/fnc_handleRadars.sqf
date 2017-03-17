@@ -13,6 +13,8 @@
  */
 #include "script_component.hpp"
 
+CHECK(!GVAR(active))
+
 private _radars = HASH_GET(GVAR(radars),"objects");
 _radars select {alive _x;};
 HASH_SET(GVAR(radars),"objects",_radars);
@@ -30,7 +32,7 @@ _possibleTargets append (allUnitsUAV select {
     (side _x == GVARMAIN(playerside))
     });
 
-private _target = [];
+private _targets = [];
 {
     private _radarpos = (getPosASL _x);
     private _radar = _x;

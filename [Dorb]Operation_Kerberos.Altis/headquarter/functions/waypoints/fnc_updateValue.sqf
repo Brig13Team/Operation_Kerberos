@@ -23,7 +23,7 @@ CHECK(_key isEqualTo "");
 
 If (_value < 0) then {
     _value = 0;
-    private _dangerkey = (getArray(missionconfigFile >> "maps" >> worldname >> _startKey >> "position")) call FUNC(dzconvert);
+    private _dangerkey = (getArray(missionconfigFile >> "maps" >> worldname >> _startKey >> "pos")) call FUNC(dzconvert);
     private _keyX = parsenumber ((_dangerkey splitString "_") select 0);
     private _keyY = parsenumber ((_dangerkey splitString "_") select 1);
     private _maxKey = (HASH_GET(GVAR(dangerzones),"distance") * 2)/HASH_GET(GVAR(dangerzones),"gridsize");
@@ -33,8 +33,8 @@ If (_value < 0) then {
         If ((_tempkeyX>=0)&&(_tempkeyX<_maxKey)&&(_tempkeyY>=0)&&(_tempkeyY<_maxKey)) then {
             private _tempkey = format ["%1_%2",_tempkeyX,_tempkeyY];
             private _zoneHash = HASH_GET(GVAR(dangerzones),_tempkey);
-            private _strenghtEnemy = HASH_GET(_zoneHash,"enemystrenght");
-            If ((!(isNil "_strenghtEnemy"))&&{_strenghtEnemy > 0}) then {
+            private _strengthEnemy = HASH_GET(_zoneHash,"enemystrength");
+            If ((!(isNil "_strengthEnemy"))&&{_strengthEnemy > 0}) then {
                 _value = _value + 1;
             };
         };

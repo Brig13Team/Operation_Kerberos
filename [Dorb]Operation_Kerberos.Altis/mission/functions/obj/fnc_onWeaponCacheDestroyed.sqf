@@ -5,7 +5,7 @@
  *      Event when a weaponcache is destroyed
  *
  *  Parameter(s):
- *      0 : OBJECT - the missiontarget
+ *      0 : OBJECT  - mission object
  *
  *  Returns:
  *      none

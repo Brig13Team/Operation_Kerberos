@@ -16,4 +16,11 @@
 _this params [["_type","",[""]]];
 If (_type isEqualTo "") exitWith {0};
 
-getNumber(configFile >> "CfgVehicles" >> _type >> "cost");
+switch (_type) do {
+    case ("rhsusf_f22"): {
+        4000000;
+    };
+    default {
+        getNumber(configFile >> "CfgVehicles" >> _type >> "cost");
+    };
+};

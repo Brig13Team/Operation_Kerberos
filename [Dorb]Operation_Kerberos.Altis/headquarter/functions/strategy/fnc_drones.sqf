@@ -21,7 +21,7 @@ private _nearPlayers = allPlayers select { ((_x distance pos)<500) && ((GVARMAIN
 
 private _weightArray = [];
 {
-    _weightArray pushBack [([_x] call FUNC(strenghtPlayer)),_x];
+    _weightArray pushBack [([_x] call FUNC(strengthPlayer)),_x];
 } forEach _nearPlayers;
 
 private _target = [_weightArray,0] call EFUNC(common,sel_array_weighted);

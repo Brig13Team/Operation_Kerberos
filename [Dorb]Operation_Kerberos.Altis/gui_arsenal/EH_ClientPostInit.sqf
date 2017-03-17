@@ -23,26 +23,19 @@ GVAR(fullArsenal) = false;
 GVAR(level) = 2;
 GVAR(allowedradius) = 12;
 
-GVAR(allowedPositions) = [
-    getMarkerPos "arsenalTest",
-    getmarkerpos GVARMAIN(RESPAWNMARKER)
-];
-
+[getmarkerpos GVARMAIN(RESPAWNMARKER)] call FUNC(addArsenalArea);
 
 /*
  *  no edit below needed
  *
  */
-If !(IS_ARRAY(GVAR(allowedPositions))) then {
-    GVAR(allowedPositions) = [];
-};
+
 IF !(IS_SCALAR(GVAR(allowedradius))) then {
     GVAR(allowedradius) = 5;
 };
 If !(IS_SCALAR(GVAR(fullArsenal))) then {
     GVAR(fullArsenal) = 0;
 };
-GVAR(arsenal_boxes) = [];
 
 [
     localize "str_a3_cfghints_learn_arsenal0",
@@ -50,7 +43,7 @@ GVAR(arsenal_boxes) = [];
     {[ace_player] call FUNC(canOpenMenu);},
     "\A3\ui_f\data\logos\arsenal_1024_ca.paa",
     2
-] call EFUNC(gui_tablet,addApp);
+] call EFUNC(gui_echidna,addApp);
 
 [
     QGVAR(Arsenal),

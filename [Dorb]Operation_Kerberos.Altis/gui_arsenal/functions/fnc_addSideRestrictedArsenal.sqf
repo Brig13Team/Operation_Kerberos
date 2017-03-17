@@ -10,16 +10,8 @@ _this params [["_target",objNull,[objNull]],["_side",west,[west]],["_onlyGear",f
 
 CHECK(isNull _target)
 
-If (isNil format[QGVAR(arsenalList_%1),str _side]) exitWith {
-    If (isNil QGVAR(arsenalList_script)) then {
-        GVAR(arsenalList_script) = false;
-        [_side,_onlyGear] spawn FUNC(getSideRestrictedArsenal);
-    };
-    [
-        {(!(isNil format[QGVAR(arsenalList_%1),(_this select 1)]))&&((!isNil QGVAR(postInit))&&{GVAR(postInit)})},
-        FUNC(addSideRestrictedArsenal),
-        [_target,_side,_onlyGear]
-    ] call CBA_fnc_waitUntilAndExecute;
+If (isNil format[QGVAR(arsenalList_%1),str _side]) then {
+    [_side,_onlyGear] call FUNC(getSideRestrictedArsenal);
 };
 (missionNamespace getVariable format[QGVAR(arsenalList_%1),str _side]) params ["_addWeapons","_addMagazines","_addItems","_addBackpacks",["_fixWeapons",[],[[]]],["_fixMagazines",[],[[]]],["_fixItems",[],[[]]],["_fixBackpacks",[],[[]]]];
 
@@ -28,6 +20,7 @@ If (isNil format[QGVAR(arsenalList_%1),str _side]) exitWith {
 [_target,_addItems,true,false] call bis_fnc_addVirtualItemCargo;
 [_target,_addBackpacks,true,false] call bis_fnc_addVirtualBackpackCargo;
 //[["AmmoboxServer",_target,true],"bis_fnc_arsenal",false] call bis_fnc_mp;
+TRACEV_5(_side,_addItems,_addBackpacks,_addMagazines,_addWeapons);
 private _fix = _target getVariable ["bis_addVirtualWeaponCargo_cargo",[[],[],[],[]]];
 {
     private _index = _forEachIndex;

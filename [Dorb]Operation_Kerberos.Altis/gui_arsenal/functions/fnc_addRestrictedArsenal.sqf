@@ -11,12 +11,8 @@ _this params [["_target",objNull,[objNull]]];
 
 CHECK(isNull _target)
 
-If (isNil QGVAR(arsenalList_Full)) exitWith {
-    If (isNil QGVAR(arsenalList_script)) then {
-        GVAR(arsenalList_script) = false;
-        [] spawn FUNC(getRestrictedArsenal);
-    };
-    [{(!(isNil QGVAR(arsenalList_Full)))&&((!isNil QGVAR(postInit))&&{GVAR(postInit)})},FUNC(addRestrictedArsenal),[_target]] call CBA_fnc_waitUntilAndExecute;
+If (isNil QGVAR(arsenalList_Full)) then {
+    [] call FUNC(getRestrictedArsenal);
 };
 GVAR(arsenalList_Full) params ["_addWeapons","_addMagazines","_addItems","_addBackpacks","_fixWeapons","_fixMagazines","_fixItems","_fixBackpacks"];
 

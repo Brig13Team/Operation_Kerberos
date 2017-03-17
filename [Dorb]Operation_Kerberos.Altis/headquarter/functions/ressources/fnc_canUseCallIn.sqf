@@ -16,12 +16,21 @@
 _this params [["_type","",[""]]];
 
 switch (_type) do {
+    case "cas" : {
+        private _unit = ["cas"] call EFUNC(spawn,getUnit);
+        ((([_unit] call FUNC(getCost)) + GVAR(ressources_amount)) > 0);
+    };
     case "airinterception" : {
-        true;
+        private _unit = ["plane_ai"] call EFUNC(spawn,getUnit);
+        ((([_unit] call FUNC(getCost)) + GVAR(ressources_amount)) > 0);
     };
     case "helicopter" : {
-        true;
+        private _unit = ["helicopter"] call EFUNC(spawn,getUnit);
+        ((([_unit] call FUNC(getCost)) + GVAR(ressources_amount)) > 0);
+    };
+    case "drones" : {
+        (GVARMAIN(side_type) == "droneoperations")
     };
 
-    default {[] call FUNC(CanCallInUnits);};
+    default {[_type] call FUNC(ressources_CanCallInUnits);};
 };

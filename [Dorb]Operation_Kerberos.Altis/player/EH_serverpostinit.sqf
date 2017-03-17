@@ -10,10 +10,6 @@ CHECK(!isServer)
 
 GVAR(postInit) = false;
 
-/// Teleport
-GVARMAIN(key) = format ["Missionkey:%1",random(100000)];
-publicVariable QGVARMAIN(missionkeyServer);
-
 /*
  * Curator
  *

@@ -15,12 +15,12 @@
 
 private _centerpos = HASH_GET(GVAR(dangerzones),"centerpos");
 
-private _spawnPos = [_centerpos] call FUNC(ressources_getsaveSpawnPos);
-private _transporttype = ["transporter_mounted"] call EFUNC(spawn,getUnit);
+private _transporttype = ["ifv"] call EFUNC(spawn,getUnit);
+private _spawnPos = [_centerpos,_transporttype] call FUNC(ressources_getsaveSpawnPos);
 
 ([_spawnPos,GVARMAIN(side),_transporttype] call EFUNC(spawn,vehicle)) params ["_transportGroup","_transportVehicle"];
 
-private _groupType = ["group_mounted"] call EFUNC(spawn,getUnit);
+private _groupType = ["mounted"] call EFUNC(spawn,getGroup);
 private _newGroup = [_spawnpos, _grouptype] call EFUNC(spawn,group);
 
 {
@@ -57,4 +57,4 @@ _transportVehicle doMove _centerpos;
     [_transportGroup,_newGroup,_centerpos,_transportVehicle,_spawnPos]
 ] call CBA_fnc_addPerFrameHandler;
 
-((([_newGroup] call FUNC(strenghtAi)) param [1,0]) + (([_transportGroup] call FUNC(strenghtAi)) param [1,0]));
+((([_newGroup] call FUNC(strengthAI)) param [1,0]) + (([_transportGroup] call FUNC(strengthAI)) param [1,0]));

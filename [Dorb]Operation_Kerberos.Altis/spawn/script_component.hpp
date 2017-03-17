@@ -1,4 +1,4 @@
-#define DEBUG_MODE_FULL
+#define DEBUG_MODE_MINIMAL
 #define COMPONENT spawn
 #include "..\script_mission.hpp"
 

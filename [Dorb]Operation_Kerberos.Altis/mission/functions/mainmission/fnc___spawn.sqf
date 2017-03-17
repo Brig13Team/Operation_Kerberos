@@ -21,15 +21,21 @@ private _location = [_name] call FUNC(mainmission___chooseLocation);
 HASH_SET(_hash, "location", _location);
 HASH_SET(_hash, "state", "init");
 
+private _isRTB = _name isEqualTo "_rtb";
+
 // set army
-private _armys = getArray (missionConfigFile >> "mission_config" >> "main" >> _name >> "armys");
-private _army = [_armys,1] call EFUNC(common,sel_array_weighted);
-// private _army = [_armys select 0, _armys select 1] call BIS_fnc_selectRandomWeighted;
-[_army select 0] call EFUNC(spawn,army_set);
+if (!_isRTB) then {
+    private _armys = getArray (missionConfigFile >> "mission_config" >> "main" >> _name >> "armys");
+    private _army = [_armys,1] call EFUNC(common,sel_array_weighted);
+    // private _army = [_armys select 0, _armys select 1] call BIS_fnc_selectRandomWeighted;
+    [_army select 0] call EFUNC(spawn,army_set);
+};
 
 // call mission specific function
 private _fnc = format["%1_%2", QFUNC(mainmission), _name];
 [_hash] call (missionNamespace getVariable [_fnc, {}]);
 
 // spawn army and defence stuff
-// [_location select 1] call EFUNC(spawn,createMission);
+if (!_isRTB) then {
+    [_hash] call EFUNC(spawn,createMission);
+};

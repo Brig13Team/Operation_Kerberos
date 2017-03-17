@@ -36,9 +36,12 @@ class CfgTaskDescriptions {
     TASK_DESC2(convoi,target);
     TASK_DESC2(radar,target);
 
-
-
-    TASK_DESC2(rtb,run);
+    class _rtb {
+        title = "STR_DORB_MISSION_RTB";
+        description = "STR_DORB_MISSION_RTB_START_1";
+        marker = "";
+        tasktype = "run";
+    };
 
     // Vanilla
     TASK_DESC(armor);

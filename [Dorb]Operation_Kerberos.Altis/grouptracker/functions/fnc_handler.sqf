@@ -14,7 +14,7 @@
 #define DEBUG_MODE_OFF
 #include "script_component.hpp"
 
-If !(GVAR(active)) exitWith {[_this select 1] spawn FUNC(terminate);};
+If !(GVAR(active)) exitWith {[] spawn FUNC(terminate);};
 If !(GVAR(handleID)<0) exitWith {
     DEC(GVAR(handleID));
 };
@@ -23,28 +23,34 @@ GVAR(handleID) = 3;
 
 // get the groups to track
 private _groupsToTrack = [] call FUNC(getGroups);
-LOG_1(_groupsToTrack);
+
 // delete the old groups
-private _groupsToDelete = _groupsToTrack - GVAR(lastGroupsToTrack);
+private _groupsToDelete = (GVAR(lastGroupsToTrack) - _groupsToTrack);
 GVAR(lastGroupsToTrack) = _groupsToTrack;
 {
     private _groupHash = _x getVariable QGVAR(groupHash);
-    If (!isNil "_groupHash") then {
-        [_grouphash] call FUNC(deleteMarker);
-        HASH_DELETE(_groupHash);
+    If (isNil "_groupHash") exitWith {
+        [] call FUNC(restart);
+        TRACE("restart");
+        _groupsToTrack = [] call FUNC(getGroups);
+        GVAR(lastGroupsToTrack) = _groupsToTrack;
     };
+    [_grouphash] call FUNC(deleteMarker);
+    GVAR(grouphashes) - [_groupHash];
+    HASH_DELETE(_groupHash);
 } forEach _groupsToDelete;
-
+TRACEV_2(_groupsToDelete,_groupsToTrack);
 {
     private _curGroup = _x;
-    LOG_1(_curGroup);
+
     // check for grouphash
-    private _groupHash = _curGroup getVariable QGVAR(groupHash);
-    LOG_1(_groupHash);
-    If (isNil "_groupHash") then {
+    private _groupHash = _curGroup getVariable [QGVAR(groupHash),locationNull];
+    TRACEV_2(_groupHash,_curGroup);
+    If (isNull _groupHash) then {
         _groupHash = [_curGroup] call FUNC(initGroup);
+        TRACEV_2(_curGroup,_groupHash);
     };
-    LOG_1(_groupHash);
+
     // update the group
     If (alive (leader _curGroup)) then {
         HASH_GET(_groupHash,"positions") pushBack (getPos (leader _curGroup));
@@ -60,6 +66,7 @@ GVAR(lastGroupsToTrack) = _groupsToTrack;
     };
     // set the current properties
     private _positions = HASH_GET(_groupHash,"positions");
+    TRACEV_3(_groupHash,_curGroup,_positions);
     If ((count _positions)>((GVAR(delayAmount) max 0)+1)) then {
         [_curGroup,false] call FUNC(update);
     }else{

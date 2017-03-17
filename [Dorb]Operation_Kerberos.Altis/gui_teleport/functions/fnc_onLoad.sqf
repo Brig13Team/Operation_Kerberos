@@ -6,12 +6,11 @@
 
 */
 #define INCLUDE_GUI
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 disableSerialization;
 _this params ["_dialog"];
-
-[_dialog] call EFUNC(gui_tablet,initHeader);
 
 for "_i" from 0 to 6 do {
     Private _ctrl = _dialog displayCtrl (IDD_TELEPORT_BTTN1 + _i);

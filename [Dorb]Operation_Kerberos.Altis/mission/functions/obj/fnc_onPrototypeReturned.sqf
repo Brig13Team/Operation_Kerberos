@@ -19,6 +19,7 @@ If (isServer) then {
     GVAR(rescued_prototype) = GVAR(rescued_prototype) + 1;
     _prototype setVariable [QGVAR(isActive),false];
 };
+
 If (hasInterface) then {
     [
         QEGVAR(gui,message),

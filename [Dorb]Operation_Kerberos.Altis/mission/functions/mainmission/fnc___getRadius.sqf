@@ -3,6 +3,7 @@
  *
  *  Description:
  *      get spawn radius of mission
+ *      (can be used for sidemission too)
  *
  *  Parameter(s):
  *      0 : STRING  - name
@@ -14,7 +15,15 @@
 
 _this params ["_type"];
 
-if (!isNumber(missionConfigFile >> "missions_config" >> "main" >> _type >> "location" >> "distance")) throw "no distance";
-private _distance = getNumber(missionConfigFile >> "missions_config" >> "main" >> "radiotower" >> "location" >> "distance");
+// _type is a main mission
+if (isNumber(missionConfigFile >> "mission" >> "main" >> _type >> "object" >> "radius")) exitWith {
+    getNumber(missionConfigFile >> "mission" >> "main" >> _type >> "object" >> "radius")
+};
 
-_distance
+// _type is a side mission
+if (isNumber(missionConfigFile >> "mission" >> "side" >> _type >> "object" >> "radius")) exitWith {
+    getNumber(missionConfigFile >> "mission" >> "side" >> _type >> "object" >> "radius")
+};
+
+// _type is neither main nor side mission
+throw "no radius";

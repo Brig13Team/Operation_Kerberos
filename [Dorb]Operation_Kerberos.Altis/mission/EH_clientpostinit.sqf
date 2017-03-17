@@ -23,6 +23,7 @@ CHECK(!hasInterface)
     "Land_Device_slingloadable_F"
 ] call FUNC(obj_initACEAction_Device);
 
+/*
 [
     "Land_Suitcase_F"
 ] call FUNC(obj_initACEAction_case);
@@ -37,5 +38,6 @@ CHECK(!hasInterface)
 [
     "Land_DataTerminal_01_F"
 ] call FUNC(obj_initACEAction_DataTerminal);
+*/
 
 [QGVAR(effectDownload_Client),LINKFUNC(obj_effectDownloadClient)] call CBA_fnc_addEventHandler;

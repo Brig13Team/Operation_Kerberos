@@ -15,45 +15,42 @@ CHECK(!GVAR(active))
 
 CHECK(!isNull(GVAR(handle)))
 
-/// spawn to move it in the ingame sheduler
+// spawn to move it in the ingame sheduler
 GVAR(handle) = [] spawn {
     SCRIPTIN(handle,spawn);
 
-    /// check dangerzones for new Zones to attack
+    // check dangerzones for new Zones to attack
     private _attackPosToCreate = [];
     {
         _x params ["_value","_key"];
         private _position = [_key] call FUNC(dzconvert);
         private _curAttackPos = [_position] call FUNC(attackpos_atPosition);
-        If (isNull _curAttackPos) then {
-            _attackPosToCreate pushBack [_position];
+        If ((isNull _curAttackPos)&&{!(_position isEqualTo [0,0,0])}) then {
+            _attackPosToCreate pushBack _position;
         };
+        TRACEV_4(_position,_key,_curAttackPos,_value);
     } forEach ([] call FUNC(dzfindPeaks));
+    TRACEV_1(_attackPosToCreate);
 
-    /// create new attacklocaltions
-    private _size = (HASH_GET(GVAR(dangerzones),"gridsize")) * 2;
+    // add the positions, where Player were spotted
     {
-        /// should be changed in a later Version
-        private _curPos = _x;
-        TRACE(FORMAT_1("Creating new attackposition at position: %1",getPos _x));
-        private _curAttackLoc = [_position] call FUNC(attackpos_create);
-        private _players = allPlayers select {(_x distance _curPos)<_size};
-        private _groups = [];
-        {
-            _groups pushBackUnique (group _x);
-        } forEach _players;
-        {
-            [_curAttackLoc,_x] call FUNC(attackpos_add);
-        } forEach _groups;
+        If !(([_x] call FUNC(dzConvert))isEqualTo "") then {
+            _attackPosToCreate pushBack _x;
+        };
+    } forEach ([] call FUNC(getKnownPlayerPos));
+
+    // create new attacklocaltions
+    {
+        [_x] call FUNC(attackpos_create);
     } forEach _attackPosToCreate;
 
-    /// calling supplys -
+    // calling supplys -
     [] call FUNC(ressources_supply);
 
-    /// check the attackpositions
+    // check the attackpositions
     private _newAttackPos = [] call FUNC(attackpos_check);
 
-    /// groups balancing
+    // groups balancing
     [] call FUNC(balanceGroups);
 
 
@@ -63,16 +60,16 @@ GVAR(handle) = [] spawn {
     } forEach _newAttackPos;
 
 
-    /// POI
+    // POI
 
     [] call FUNC(checkPOI);
 
-    /// Move defending Units of already destroyed POI to other POI
+    // Move defending Units of already destroyed POI to other POI
     {
         private _grouphash = _x;
         private _group = HASH_GET(_grouphash,"group");
         If (isNil "_grouphash") then {WARNING("Grouphash is Nil");TRACEV_3(_x,_grouphash,_group);};
-        If ((HASH_GET(_grouphash,"state")) in ["idle"]) then {
+        If ((HASH_GET_DEF(_grouphash,"state","NOSTATE")) in ["idle"]) then {
             private _allPOI = (HASH_GET(GVAR(POI),"Locations")) select {HASH_GET_DEF(_x,"isActive",false)};
             CHECK(_allPOI isEqualTo [])
             TRACE("Moving defence groups to other POI");
@@ -80,18 +77,18 @@ GVAR(handle) = [] spawn {
         };
     } forEach (HASH_GET(GVAR(groups),"defenceGroups"));
 
-    /// get the availlible groups
+    // get the availlible groups
     private _waitingGroups = [];
     {
         If (side _x != GVARMAIN(playerside)) then {
             private _grouphash = HASH_GET(_x,QGVAR(grouphash));
             If !(isNil "_grouphash") then {
                 // bored
-                if ((HASH_GET_DEF(_grouphash,QGVAR(state),"NOSTATE")) isEqualTo "wait") then {
+                if ((HASH_GET_DEF(_grouphash,QGVAR(state),"NOSTATE")) in ["wait"]) then {
                     _waitingGroups pushBack _x;
                 };
                 // Veteran
-                if ((HASH_GET_DEF(_grouphash,QGVAR(state),"NOSTATE")) isEqualTo "idle") then {
+                if ((HASH_GET_DEF(_grouphash,QGVAR(state),"NOSTATE")) in ["idle"]) then {
                     _waitingGroups pushBack _x;
                 };
             };
