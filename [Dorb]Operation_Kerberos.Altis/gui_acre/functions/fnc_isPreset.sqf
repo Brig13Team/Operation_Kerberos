@@ -16,18 +16,23 @@
 
 _this params ["_radioHash"];
 
+If (HASH_HASKEY(_radioHash,"isPreset")) exitWith {
+    HASH_GET(_radioHash,"isPreset");
+};
+
 private _presetName = HASH_GET_DEF(_radioHash,"presetName","");
 private _radioType = HASH_GET(_radioHash,"radioType");
 private _acrePreset = [_radioType] call acre_api_fnc_getPreset;
-TRACEV_4(_radioHash,_presetName,_radioType,_acrePreset);
+
 
 If ((_presetName isEqualTo "")||{!(_presetName isEqualTo _acrePreset)}) exitWith {
-    HASH_SET(_radioHash,"presetName","");
+    HASH_SET(_radioHash,"isPreset",false);
+    false;
 };
 
 
 private _channel = HASH_GET(_radioHash,"channel");
-TRACEV_1(_channel);
+
 private _acrePresetHash = [_radioType,_channel] call FUNC(setFilteredPresetChannel);
 private _keysToCheck = HASH_GET(_acrePresetHash,"keysOrdered");
 
@@ -39,5 +44,9 @@ private _temp = {
 } count _keysToCheck;
 TRACEV_2(_radioType,_temp);
 If (_temp > 0) then {
-    HASH_SET(_radioHash,"presetName","");
+    HASH_SET(_radioHash,"isPreset",false);
+    false;
+}else{
+    HASH_SET(_radioHash,"isPreset",true);
+    true;
 };

@@ -11,7 +11,7 @@
  *      none
  *
  */
-#define DEBUG_MODE_FULL
+//#define DEBUG_MODE_FULL
 #define INCLUDE_GUI
 #include "script_component.hpp"
 disableSerialization;
@@ -39,8 +39,8 @@ _list ctrlSetPosition [
     11*GUI_ECHIDNA_W,
     26.5*GUI_ECHIDNA_H
 ];
-//_list lnbAddColumn (6*GUI_ECHIDNA_W);
-_list lnbAddColumn 0.5;
+
+_list lnbAddColumn 0.7;
 _tree ctrlCommit 0;
 _list ctrlCommit 0;
 TRACEV_1(_list);
@@ -99,11 +99,10 @@ GVAR(curTree) = HASH_CREATE;
                 private _radioHash = _x;
                 private _radioIndex =+ _groupIndex;
                 private _radio = HASH_GET_DEF(_radioHash,"radioName","ERROR");
-
                 private _channel = HASH_GET_DEF(_radioHash,"channel",-1);
-                private _presetName = HASH_GET_DEF(_radioHash,"presetName","");
                 private _picture = HASH_GET_DEF(_radioHash,"picture","");
-                If ((!(_presetName isEqualTo ""))&&{_channel > 0}) then {
+
+                If ([_radioHash] call FUNC(isPreset)) then {
                     If (HASH_HASKEY(_radioHash,"channelName")) then {
                         _channel = HASH_GET(_radioHash,"channelName");
                     };
@@ -111,7 +110,6 @@ GVAR(curTree) = HASH_CREATE;
                 }else{
                     _radioIndex pushBack (_tree tvAdd [_groupIndex, _radio]);
                 };
-
 
                 if !(_picture isEqualTo "") then {
                     _tree tvSetPicture [_radioIndex, _picture];
@@ -135,9 +133,9 @@ GVAR(curTree) = HASH_CREATE;
                     private _radio = HASH_GET_DEF(_radioHash,"radioName","ERROR");
 
                     private _channel = HASH_GET_DEF(_radioHash,"channel",-1);
-                    private _presetName = HASH_GET_DEF(_radioHash,"presetName","");
                     private _picture = HASH_GET_DEF(_radioHash,"picture","");
-                    If ((!(_presetName isEqualTo ""))&&{_channel > 0}) then {
+
+                    If ([_radioHash] call FUNC(isPreset)) then {
                         If (HASH_HASKEY(_radioHash,"channelName")) then {
                             _channel = HASH_GET(_radioHash,"channelName");
                         };

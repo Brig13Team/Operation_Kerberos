@@ -40,5 +40,9 @@ If (_radioType in ["ACRE_PRC148","ACRE_PRC152","ACRE_PRC117F"]) then {
     private _channelName = HASH_GET(_missionHash,_key);
     HASH_SET(_missionHash,"channelName",_channelName);
 };
+If (_radioType isEqualTo "ACRE_PRC343") then {
+    private _channelName = format["B%1-C%2",floor(_channel/16)+1,_channel-floor(_channel/16)*16+1];
+    HASH_SET(_missionHash,"channelName",_channelName);
+};
 
 _missionHash;

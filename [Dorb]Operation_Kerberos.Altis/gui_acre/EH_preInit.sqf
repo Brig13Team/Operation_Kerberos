@@ -2,7 +2,7 @@
 
 ADDON = false;
 
-PREP(checkPreset);
+PREP(isPreset);
 PREP(canOpenMenu);
 PREP(createRadioList);
 PREP(hideAll);
@@ -14,8 +14,8 @@ PREP(open);
 
 PREP(setFilteredPresetChannel);
 
+
 PREP(treeOnSelChanged);
 PREP(treeShow);
-PREP(treeSelect);
 
 ADDON = true;

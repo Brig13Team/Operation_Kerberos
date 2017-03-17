@@ -31,10 +31,24 @@ If ((_data isEqualTo "")||{isNull _radioHash}) exitWith {
 };
 
 private _valuesOrdered = HASH_GET(_radioHash,"keysOrdered");
+_valuesOrdered = ((_valuesOrdered - ["description"]) - ["label"]) - ["name"];
+
+If (HASH_GET_DEF(_radioHash,"isPreset",false)) then {
+    private _channelName = format["Channel %1",HASH_GET(_radioHash,"channel")];
+    If (HASH_HASKEY(_radioHash,"channelName")) then {
+        _channelName = HASH_GET(_radioHash,"channelName");
+    };
+    _list lnbAddRow [localize LSTRING(PRESETCHANNELNAME),_channelName];
+    _list lnbAddRow [" "," "];
+};
 
 {
     private _key = _x;
     If (HASH_HASKEY(_radioHash,_key)) then {
-        _list lnbAddRow [_key,str (HASH_GET(_radioHash,_key))];
+        private _keyname = _key;
+        If (isLocalized format[LSTRING(PROPERTYNAME_%1),_key]) then {
+            _keyname = localize format[LSTRING(PROPERTYNAME_%1),_key];
+        };
+        _list lnbAddRow [_keyname,str (HASH_GET(_radioHash,_key))];
     };
 } forEach _valuesOrdered;

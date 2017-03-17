@@ -1273,5 +1273,96 @@
             <German>Keine Gruppen-Funkgeräte eingetragen</German>
             <English>no squad-radios registered</English>
         </Key>
+        <Key ID="STR_DORB_GUI_ACRE_PRESETCHANNELNAME">
+            <German>Standardfunkkanal:</German>
+            <English>Preset Channel:</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_description">
+            <German>Name</German>
+            <English>name</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_label">
+            <German>Name</German>
+            <English>name</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_name">
+            <German>Name</German>
+            <English>name</English>
+        </Key>
+
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_frequencyrx">
+            <German>Empfangsfrequenz</German>
+            <English>receiving frequency</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_frequencytx">
+            <German>Sendefrequenz</German>
+            <English>transmitting frequency</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_rxonly">
+            <German>Nur Empfangen</German>
+            <English>Only Receiving</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_ctcssrx">
+            <German>Empfangs-Entstörungscode</German>
+            <English>Receiving tone squelch</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_ctcsstx">
+            <German>Sende-Entstörungscode</German>
+            <English>Sending tone squelch</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_squelch">
+            <German>Entstörstärke</German>
+            <English>Squelch-value</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_modulation">
+            <German>Modulation</German>
+            <English>modulation</English>
+        </Key>
+
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_encryption">
+            <German>Verschlüsselung</German>
+            <English>encryption</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_synclength">
+            <German>synclength</German>
+            <English>synclength</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_power">
+            <German>Sendeleistung</German>
+            <English>power</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_phase">
+            <German>Phase</German>
+            <English>phase</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_channelmode">
+            <German>channelmode</German>
+            <English>channelmode</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_deviation">
+            <German>deviation</German>
+            <English>deviation</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_trafficrate">
+            <German>Übertrangungsrate</German>
+            <English>trafficrate</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_tek">
+            <German>Verschlüsselungsschlüssel</German>
+            <English>Encryption Key</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_active">
+            <German>Aktiv</German>
+            <English>active</English>
+        </Key>
+
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_fade">
+            <German>fade</German>
+            <English>fade</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_rptr">
+            <German>Repeater Delay</German>
+            <English>Repeater Delay</English>
+        </Key>
     </Package>
 </Project>
