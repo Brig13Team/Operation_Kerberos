@@ -551,7 +551,7 @@ Example:
 Author:
     Dorbedo
 ------------------------------------------- */
-#define HASH_GET_DEF(hash, key, default) ([hash getVariable key] param [0,default])
+#define HASH_GET_DEF(hash, key, default) (hash getVariable [key,default])
 /* -------------------------------------------
 Macro: HASH_REM(hash, key)
     removes the key from a hash
