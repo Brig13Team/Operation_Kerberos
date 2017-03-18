@@ -20,7 +20,7 @@ If !(DORB_HASH_TO_DELETE isEqualTo []) then {
         private _oldHash = (DORB_HASH_TO_DELETE deleteAt 0);
         If (_oldHash isEqualType locationNull) then {
             deleteLocation _oldHash;
-            DORB_HASH_SYS_CREATE(_newHash);
+            private _newHash = DORB_HASH_SYS_CREATE_LOCAL;
             DORB_HASH_POOL pushBack _newHash;
         }else{
             deleteVehicle _oldHash;
@@ -30,7 +30,7 @@ If !(DORB_HASH_TO_DELETE isEqualTo []) then {
 
 If ((count DORB_HASH_POOL) <= 100) then {
     For "_i" from 0 to 100 do {
-        DORB_HASH_SYS_CREATE(_newHash);
+        private _newHash = DORB_HASH_SYS_CREATE_LOCAL;
         DORB_HASH_POOL pushBack _newHash;
     };
     If ((count DORB_HASH_CREATED_NEW) > ((count DORB_HASH_CREATED) * 0.05)) then {
