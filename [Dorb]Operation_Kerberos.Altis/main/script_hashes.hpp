@@ -13,7 +13,6 @@
  *          A - "any" hashes - some macros support not internal hashes for communication with other mods
  *
  */
-#include "script_component.hpp"
 //>>>>>> Internal >>>>>>//
 #define DORB_HASH_POSITION [-2017,-1803,0]
 #define DORB_HASH_TYPE "CBA_NamespaceDummy"
