@@ -215,7 +215,7 @@ Example:
 Author:
     ACRE2-Team
 ------------------------------------------- */
-#define HASH_KEYS(hash) ([hash] call EFUNC(main,HashKeys))
+#define HASH_KEYS(hash) ([hash] call EFUNC(main,hash_Keys))
 #define LHASH_KEYS(hash) HASH_KEYS(hash)
 #define GHASH_KEYS(hash) HASH_KEYS(hash)
 #define AHASH_KEYS(hash) HASH_KEYS(hash)
@@ -231,10 +231,10 @@ Example:
 Author:
     ACRE2-Team
 ------------------------------------------- */
-#define HASH_SERIALIZE(HASH) ([HASH] call EFUNC(main,serialize))
-#define LHASH_SERIALIZE(HASH) ([HASH] call EFUNC(main,serialize))
-#define GHASH_SERIALIZE(HASH) ([HASH] call EFUNC(main,serialize))
-#define AHASH_SERIALIZE(HASH) ([HASH] call EFUNC(main,serialize))
+#define HASH_SERIALIZE(HASH) ([HASH] call EFUNC(main,hash_serialize))
+#define LHASH_SERIALIZE(HASH) ([HASH] call EFUNC(main,hash_serialize))
+#define GHASH_SERIALIZE(HASH) ([HASH] call EFUNC(main,hash_serialize))
+#define AHASH_SERIALIZE(HASH) ([HASH] call EFUNC(main,hash_serialize))
 /* -------------------------------------------
 Macro: IS_SERIALIZEDHASH(array)
 
@@ -260,10 +260,10 @@ Example:
 Author:
     Dorbedo
 ------------------------------------------- */
-#define HASH_DESERIALIZE(ARRAY) ([ARRAY] call EFUNC(main,Ldeserialize))
-#define LHASH_DESERIALIZE(ARRAY) ([ARRAY] call EFUNC(main,Ldeserialize))
-#define GHASH_DESERIALIZE(ARRAY) ([ARRAY] call EFUNC(main,Gdeserialize))
-#define AHASH_DESERIALIZE(ARRAY) ([ARRAY] call EFUNC(main,Adeserialize))
+#define HASH_DESERIALIZE(ARRAY) ([ARRAY] call EFUNC(main,hash_Ldeserialize))
+#define LHASH_DESERIALIZE(ARRAY) ([ARRAY] call EFUNC(main,hash_Ldeserialize))
+#define GHASH_DESERIALIZE(ARRAY) ([ARRAY] call EFUNC(main,hash_Gdeserialize))
+#define AHASH_DESERIALIZE(ARRAY) ([ARRAY] call EFUNC(main,hash_Adeserialize))
 /* -------------------------------------------
 Macro: HASH_SIZE(HASH)
     returns the amount of keys in a hash
