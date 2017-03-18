@@ -9,14 +9,14 @@
  *      1 : ANY - the value
  *
  *  Returns:
- *      STRING - the key of a value, empty nil, if not availible
+ *      STRING - the key of a value - nil, if not availible
  *
  */
 #include "script_component.hpp"
 
 _this params ["_hash","_value"];
 
-If !(IS_HASH(_hash)) exitWith {nil};
+If !(IS_AHASH(_hash)) exitWith {nil};
 
 private "_return";
 

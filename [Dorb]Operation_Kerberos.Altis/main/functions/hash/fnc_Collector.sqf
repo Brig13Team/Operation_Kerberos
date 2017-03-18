@@ -4,6 +4,7 @@
  *
  *  Description:
  *      gathers all hashes and deletes old ones to release the used space
+ *      global hashes are collected only where they are local.
  *
  *  Parameter(s):
  *      none
@@ -19,7 +20,7 @@
 If ((DORB_HASH_COLLECTOR_NAMESPACES_ID >= (count DORB_HASH_COLLECTOR_NAMESPACES))&&{DORB_HASH_COLLECTOR_ARRAYS isEqualTo []}) exitWith {
     If (DORB_HASH_COLLECTOR_FOUND isEqualTo []) then {
         //start the collecting by initializing the variables
-        DORB_HASH_COLLECTOR_NAMESPACES = [missionNamespace] + allGroups;
+        DORB_HASH_COLLECTOR_NAMESPACES = [missionNamespace] + allGroups + allPlayers + ((nearestObjects [DORB_HASH_POSITION, [], 1]) select {local _x});
         DORB_HASH_COLLECTOR_NAMESPACES_ID = 0;
         DORB_HASH_COLLECTOR_VARIABLES = (allVariables missionNamespace);
         DORB_HASH_COLLECTOR_ARRAYS = [];
@@ -27,6 +28,9 @@ If ((DORB_HASH_COLLECTOR_NAMESPACES_ID >= (count DORB_HASH_COLLECTOR_NAMESPACES)
         DORB_HASH_COLLECTOR_ID = 0;
         DORB_HASH_CREATED append DORB_HASH_CREATED_NEW;
         DORB_HASH_CREATED_NEW = [];
+        // add the global hashes, ignore the hashes with a changed owner
+        DORB_HASH_CREATED append (DORB_HASH_CREATED_NEW_GLOBAL select {local _x});
+        DORB_HASH_CREATED_NEW_GLOBAL = [];
     }else{
         //// deleting old hashes
         private _time = diag_ticktime + DORB_HASH_COLLECTOR_SEARCHTIME;
@@ -34,11 +38,15 @@ If ((DORB_HASH_COLLECTOR_NAMESPACES_ID >= (count DORB_HASH_COLLECTOR_NAMESPACES)
             // moving through the created hashes and delete the hashes, if the are not found
             private _hash = DORB_HASH_CREATED select DORB_HASH_COLLECTOR_ID;
             If !(_hash in DORB_HASH_COLLECTOR_FOUND) then {
-                HASH_DELETE(_hash);
+                // don't delete global hashes, if they are not local
+                If !((IS_GHASH(_hash))&&{!local _x}) then {
+                    HASH_DELETE(_hash);
+                };
             };
             INC(DORB_HASH_COLLECTOR_ID);
         };
         If (DORB_HASH_COLLECTOR_ID >= (count DORB_HASH_CREATED)) then {
+            DORB_HASH_CREATED = DORB_HASH_COLLECTOR_FOUND;
             DORB_HASH_COLLECTOR_FOUND = [];
             DORB_HASH_COLLECTOR_COLLECT = false;
         };
