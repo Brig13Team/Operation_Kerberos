@@ -24,52 +24,29 @@ PREP(addToLog);
 PREP(debug_performance);
 PREP(getComponents);
 
-PREP(allHashes);
-PREP(HashCollector);
-PREP(HashGetKeyFromValue);
-PREP(HashCopy);
-PREP(HashCopyArray);
-PREP(HashCreate);
-PREP(HashKeys);
-PREP(HashMerge);
-PREP(HashMonitor);
-PREP(serialize);
-PREP(deserialize);
+PREPS(hash,Acopy);
+PREPS(hash,AcopyArray);
+PREPS(hash,Adeserialize);
+PREPS(hash,Amerge);
+PREPS(hash,Collector);
+PREPS(hash,Gcopy);
+PREPS(hash,GcopyArray);
+PREPS(hash,Gcreate);
+PREPS(hash,Gdeserialize);
+PREPS(hash,GetKeyfromValue);
+PREPS(hash,Gmerge);
+PREPS(hash,keys);
+PREPS(hash,Lcopy);
+PREPS(hash,LcopyArray);
+PREPS(hash,Lcreate);
+PREPS(hash,Ldeserialize);
+PREPS(hash,Lmerge);
+PREPS(hash,monitor);
+PREPS(hash,serialize);
 
 ADDON = true;
 
-DORB_HASH_POOL = [];
-DORB_HASH_TO_DELETE = [];
-DORB_HASH_CREATED_NEW = [];
-DORB_HASH_CREATED = [];
-DORB_HASH_COLLECTOR_COLLECT = false;
-DORB_HASH_COLLECTOR_ID = 0;
-DORB_HASH_COLLECTOR_NAMESPACES = [];
-DORB_HASH_COLLECTOR_NAMESPACES_ID = 0;
-DORB_HASH_COLLECTOR_VARIABLES = [];
-DORB_HASH_COLLECTOR_ARRAYS = [];
-DORB_HASH_COLLECTOR_FOUND = [];
-DORB_HASH_COLLECTOR_IGNORE = [QUOTE(DORB_HASH_POOL),QUOTE(DORB_HASH_TO_DELETE),QUOTE(DORB_HASH_CREATED_NEW),QUOTE(DORB_HASH_CREATED),QUOTE(DORB_HASH_COLLECTOR_HANDLER),QUOTE(DORB_HASH_COLLECTOR_NEXTEXEC),QUOTE(DORB_HASH_COLLECTOR_NAMESPACES),QUOTE(DORB_HASH_COLLECTOR_VARIABLES),QUOTE(DORB_HASH_COLLECTOR_ARRAYS),QUOTE(DORB_HASH_COLLECTOR_FOUND),QUOTE(DORB_HASH_COLLECTOR_ID),QUOTE(DORB_HASH_COLLECTOR_IGNORE)] apply {toLower _x};
-
-
-for "_i" from 1 to 500 do {
-    DORB_HASH_SYS_CREATE(_newHash);
-    DORB_HASH_POOL pushBack _newHash
-};
-
-[FUNC(HashMonitor),(1/3),[]] call CBA_fnc_addPerFrameHandler;
-
-[
-    {
-        If !(DORB_HASH_COLLECTOR_COLLECT) exitWith {};
-        [] call FUNC(HashCollector);
-        // don't execute if to less hashes were created or the last execution is long ago
-        If ((count DORB_HASH_CREATED_NEW < 100)&&{DORB_HASH_COLLECTOR_NEXTEXEC > diag_tickTime}) exitWith {};
-
-    },
-    (1/4),
-    []
-] call CBA_fnc_addPerFrameHandler;
+DORB_HASH_COLLECTOR_INIT
 
 #include "missionsettings.sqf"
 

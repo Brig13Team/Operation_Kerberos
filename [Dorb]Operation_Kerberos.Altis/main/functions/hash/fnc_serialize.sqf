@@ -14,9 +14,9 @@
  */
 #include "script_component.hpp"
 
-#define SELF EFUNC(main,serialize)
+#define SELF EFUNC(main,hash_serialize)
 _this params ["_hash"];
-If (IS_HASH(_hash)) exitWith {
+If (IS_AHASH(_hash)) exitWith {
     private _keys = [];
     private _values = [];
     private _variables = allVariables _hash;
@@ -27,7 +27,7 @@ If (IS_HASH(_hash)) exitWith {
             _values pushBack ([_val] call SELF);
         };
     } forEach _variables;
-    [DORB_HASH_SYS_NAME,_keys,_values];
+    [DORB_HASH_TYPE,_keys,_values];
 };
 If (IS_ARRAY(_hash)) exitWith {
     private _return = [];
