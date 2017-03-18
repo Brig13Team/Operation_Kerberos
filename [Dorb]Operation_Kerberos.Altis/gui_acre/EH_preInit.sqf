@@ -2,18 +2,19 @@
 
 ADDON = false;
 
-PREP(isPreset);
+
 PREP(canOpenMenu);
+PREP(canSaveRadioList);
 PREP(createRadioList);
 PREP(hideAll);
+PREP(isPreset);
 
 PREP(onLoad);
 PREP(onUnLoad);
-
 PREP(open);
 
+PREP(radiosShow);
 PREP(setFilteredPresetChannel);
-
 
 PREP(treeOnSelChanged);
 PREP(treeShow);

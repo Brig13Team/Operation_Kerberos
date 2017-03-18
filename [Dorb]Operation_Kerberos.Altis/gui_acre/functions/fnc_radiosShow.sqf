@@ -54,3 +54,15 @@ _properties ctrlSetPosition [
 _itemlist ctrlCommit 0;
 _radiolist ctrlCommit 0;
 _properties ctrlCommit 0;
+
+
+
+{
+    private _radioHash = HASH_GET(GVAR(radioTypeList),_x);
+    private _picture = HASH_GET(_radioHash,"picture");
+    private _description = HASH_GET(_radioHash,"displayname");
+    TRACEV_3(_radioHash,_picture,_description);
+    private _index = _itemlist lbAdd "";
+    _itemlist lbSetPicture [_index, _picture];
+    _itemlist lbSetTooltip [_index, _description];
+} forEach HASH_KEYS(GVAR(radioTypeList));
