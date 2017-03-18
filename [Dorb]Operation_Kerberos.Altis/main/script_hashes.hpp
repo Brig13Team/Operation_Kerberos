@@ -13,7 +13,6 @@
  *          A - "any" hashes - some macros support not internal hashes for communication with other mods
  *
  */
-#include "script_component.hpp"
 //>>>>>> Internal >>>>>>//
 #define DORB_HASH_POSITION [-2017,-1803,0]
 #define DORB_HASH_TYPE "CBA_NamespaceDummy"
@@ -34,24 +33,6 @@
 #define DORB_HASH_COLLECTOR_FOUND GVAR(hashCollector_found)
 #define DORB_HASH_COLLECTOR_ID GVAR(hashCollector_ID)
 #define DORB_HASH_COLLECTOR_IGNORE GVAR(hashCollector_ignore)
-
-#define DORB_HASH_COLLECTOR_INIT \
-DORB_HASH_POOL = []; \
-DORB_HASH_TO_DELETE = []; \
-DORB_HASH_CREATED_NEW = []; \
-DORB_HASH_CREATED_NEW_GLOBAL = []; \
-DORB_HASH_CREATED = []; \
-DORB_HASH_COLLECTOR_COLLECT = false; \
-DORB_HASH_COLLECTOR_ID = 0; \
-DORB_HASH_COLLECTOR_NAMESPACES = []; \
-DORB_HASH_COLLECTOR_NAMESPACES_ID = 0; \
-DORB_HASH_COLLECTOR_VARIABLES = []; \
-DORB_HASH_COLLECTOR_ARRAYS = []; \
-DORB_HASH_COLLECTOR_FOUND = []; \
-DORB_HASH_COLLECTOR_IGNORE = [QUOTE(DORB_HASH_POOL),QUOTE(DORB_HASH_TO_DELETE),QUOTE(DORB_HASH_CREATED_NEW),QUOTE(DORB_HASH_CREATED_NEW_GLOBAL),QUOTE(DORB_HASH_CREATED),QUOTE(DORB_HASH_COLLECTOR_HANDLER),QUOTE(DORB_HASH_COLLECTOR_NEXTEXEC),QUOTE(DORB_HASH_COLLECTOR_NAMESPACES),QUOTE(DORB_HASH_COLLECTOR_VARIABLES),QUOTE(DORB_HASH_COLLECTOR_ARRAYS),QUOTE(DORB_HASH_COLLECTOR_FOUND),QUOTE(DORB_HASH_COLLECTOR_ID),QUOTE(DORB_HASH_COLLECTOR_IGNORE)] apply {toLower _x}; \
-for "_i" from 1 to ([150,500] select isServer) do {DORB_HASH_POOL pushBack (DORB_HASH_SYS_CREATE_LOCAL)};  \
-[FUNC(hash_monitor),(1/3),[]] call CBA_fnc_addPerFrameHandler;  \
-[{If (DORB_HASH_COLLECTOR_COLLECT) then {[] call FUNC(hash_collector);};},(1/4),[]] call CBA_fnc_addPerFrameHandler;
 
 //<<<<<< Internal <<<<<<//
 
@@ -143,8 +124,8 @@ Author:
 #define IS_HASH(hash) ((hash isEqualTypeAny [locationNull,objNull])&&{(position hash) isEqualTo DORB_HASH_POSITION})
 //#define IS_GHASH(hash) ((hash isEqualType locationNull)&&{(position hash) isEqualTo DORB_HASH_POSITION})
 //#define IS_LHASH(hash) ((hash isEqualType objNull)&&{(position hash) isEqualTo DORB_HASH_POSITION})
-#define IS_GHASH(hash) ((hash isEqualType locationNull)&&{(type hash) isEqualTo DORB_HASH_TYPE})
-#define IS_LHASH(hash) ((hash isEqualType objNull)&&{(typeOf hash) isEqualTo DORB_HASH_TYPE})
+#define IS_LHASH(hash) ((hash isEqualType locationNull)&&{(type hash) isEqualTo DORB_HASH_TYPE})
+#define IS_GHASH(hash) ((hash isEqualType objNull)&&{(typeOf hash) isEqualTo DORB_HASH_TYPE})
 #define IS_AHASH(hash) (((hash isEqualType locationNull)&&{(type hash) isEqualTo DORB_HASH_TYPE})||((hash isEqualType objNull)&&{(typeOf hash) isEqualTo DORB_HASH_TYPE}))
 /* -------------------------------------------
 Macro: HASH_GET(hash, key)
