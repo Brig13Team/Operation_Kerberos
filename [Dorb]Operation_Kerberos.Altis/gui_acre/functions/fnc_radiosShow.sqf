@@ -20,6 +20,6 @@ disableSerialization;
 
 // get the tree and the propertiesList
 private _display = uiNamespace getVariable QEGVAR(gui_Echidna,dialog);
-private _tree = _display displayCtrl IDC_ACRE_MENU_TREE;
-private _list = _display displayCtrl IDC_ACRE_MENU_PROPERTIESLIST;
-private _list = _display displayCtrl IDC_ACRE_MENU_PROPERTIESLIST;
+private _itemlist = _display displayCtrl IDC_ACRE_MENU_ITEMLIST;
+private _radiolist = _display displayCtrl IDC_ACRE_MENU_RADIOLIST;
+private _properties = _display displayCtrl IDC_ACRE_MENU_PROPERTIES;

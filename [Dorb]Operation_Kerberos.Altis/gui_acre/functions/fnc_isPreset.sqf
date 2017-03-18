@@ -26,7 +26,7 @@ private _acrePreset = [_radioType] call acre_api_fnc_getPreset;
 
 
 If ((_presetName isEqualTo "")||{!(_presetName isEqualTo _acrePreset)}) exitWith {
-    HASH_SET(_radioHash,"isPreset",false);
+    LHASH_SET(_radioHash,"isPreset",false);
     false;
 };
 
@@ -44,9 +44,9 @@ private _temp = {
 } count _keysToCheck;
 TRACEV_2(_radioType,_temp);
 If (_temp > 0) then {
-    HASH_SET(_radioHash,"isPreset",false);
+    LHASH_SET(_radioHash,"isPreset",false);
     false;
 }else{
-    HASH_SET(_radioHash,"isPreset",true);
+    LHASH_SET(_radioHash,"isPreset",true);
     true;
 };

@@ -29,7 +29,7 @@ private _missionKeysOrderd = _acreKeys arrayIntersect ["description","label","na
 // add the unknown keys
 {_missionKeysOrderd pushBackUnique _x} forEach _acreKeys;
 
-private _missionHash = HASH_COPY(_acreHash);
+private _missionHash = LHASH_COPY(_acreHash);
 
 HASH_SET(_missionHash,"keysOrdered",_missionKeysOrderd);
 HASH_SET(_missionHash,"radioType",_radioType);

@@ -78,7 +78,7 @@ _fnc_getPlayergroups = {
 If !(isNil QGVAR(curTree)) then {
     HASH_DELETE(GVAR(curTree));
 };
-GVAR(curTree) = HASH_CREATE;
+GVAR(curTree) = LHASH_CREATE;
 {
     // SIDE
     _curside = _x;
@@ -98,24 +98,27 @@ GVAR(curTree) = HASH_CREATE;
             {
                 private _radioHash = _x;
                 private _radioIndex =+ _groupIndex;
-                private _radio = HASH_GET_DEF(_radioHash,"radioName","ERROR");
-                private _channel = HASH_GET_DEF(_radioHash,"channel",-1);
-                private _picture = HASH_GET_DEF(_radioHash,"picture","");
-
-                If ([_radioHash] call FUNC(isPreset)) then {
-                    If (HASH_HASKEY(_radioHash,"channelName")) then {
-                        _channel = HASH_GET(_radioHash,"channelName");
+                private _radioType = HASH_GET_DEF(_radioHash,"radioType","");
+                If !(_radioType isEqualTo "") then {
+                    private _typeHash = HASH_GET(GVAR(radioTypeList),_radioType);
+                    private _radio = HASH_GET_DEF(_typeHash,"displayname","ERROR");
+                    private _channel = HASH_GET_DEF(_radioHash,"channel",-1);
+                    private _picture = HASH_GET_DEF(_typeHash,"picture","");
+                    If ([_radioHash] call FUNC(isPreset)) then {
+                        If (HASH_HASKEY(_radioHash,"channelName")) then {
+                            _channel = HASH_GET(_radioHash,"channelName");
+                        };
+                        _radioIndex pushBack (_tree tvAdd [_groupIndex, format["%1         Channel: %2",_radio,_channel]]);
+                    }else{
+                        _radioIndex pushBack (_tree tvAdd [_groupIndex, _radio]);
                     };
-                    _radioIndex pushBack (_tree tvAdd [_groupIndex, format["%1         Channel: %2",_radio,_channel]]);
-                }else{
-                    _radioIndex pushBack (_tree tvAdd [_groupIndex, _radio]);
-                };
 
-                if !(_picture isEqualTo "") then {
-                    _tree tvSetPicture [_radioIndex, _picture];
+                    if !(_picture isEqualTo "") then {
+                        _tree tvSetPicture [_radioIndex, _picture];
+                    };
+                    _tree tvSetData [ _radioIndex,str _radioIndex];
+                    HASH_SET(GVAR(curTree),str _radioIndex,_radioHash);
                 };
-                _tree tvSetData [ _radioIndex,str _radioIndex];
-                HASH_SET(GVAR(curTree),str _radioIndex,_radioHash);
             } forEach _hashes;
         };
 
@@ -130,25 +133,27 @@ GVAR(curTree) = HASH_CREATE;
                     // ------RADIO
                     private _radioHash = _x;
                     private _radioIndex =+ _playerIndex;
-                    private _radio = HASH_GET_DEF(_radioHash,"radioName","ERROR");
-
-                    private _channel = HASH_GET_DEF(_radioHash,"channel",-1);
-                    private _picture = HASH_GET_DEF(_radioHash,"picture","");
-
-                    If ([_radioHash] call FUNC(isPreset)) then {
-                        If (HASH_HASKEY(_radioHash,"channelName")) then {
-                            _channel = HASH_GET(_radioHash,"channelName");
+                    private _radioType = HASH_GET_DEF(_radioHash,"radioType","");
+                    If !(_radioType isEqualTo "") then {
+                        private _typeHash = HASH_GET(GVAR(radioTypeList),_radioType);
+                        private _radio = HASH_GET_DEF(_typeHash,"displayname","ERROR");
+                        private _channel = HASH_GET_DEF(_radioHash,"channel",-1);
+                        private _picture = HASH_GET_DEF(_typeHash,"picture","");
+                        If ([_radioHash] call FUNC(isPreset)) then {
+                            If (HASH_HASKEY(_radioHash,"channelName")) then {
+                                _channel = HASH_GET(_radioHash,"channelName");
+                            };
+                            _radioIndex pushBack (_tree tvAdd [_playerIndex, format["%1         Channel: %2",_radio,_channel]]);
+                        }else{
+                            _radioIndex pushBack (_tree tvAdd [_playerIndex, _radio]);
                         };
-                        _radioIndex pushBack (_tree tvAdd [_playerIndex, format["%1         Channel: %2",_radio,_channel]]);
-                    }else{
-                        _radioIndex pushBack (_tree tvAdd [_playerIndex, _radio]);
-                    };
 
-                    if !(_picture isEqualTo "") then {
-                        _tree tvSetPicture [_radioIndex, _picture];
+                        if !(_picture isEqualTo "") then {
+                            _tree tvSetPicture [_radioIndex, _picture];
+                        };
+                        _tree tvSetData [ _radioIndex,str _radioIndex];
+                        HASH_SET(GVAR(curTree),str _radioIndex,_radioHash);
                     };
-                    _tree tvSetData [ _radioIndex,str _radioIndex];
-                    HASH_SET(GVAR(curTree),str _radioIndex,_radioHash);
                 } forEach _hashes;
             };
         } forEach ((units _curGroup) select {isPlayer _x});

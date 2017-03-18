@@ -9,3 +9,5 @@
 #include "script_component.hpp"
 
 GVAR(sides) = [GVARMAIN(playerside)];
+
+[] call FUNC(createRadioList);
