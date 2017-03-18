@@ -20,7 +20,7 @@
 If ((DORB_HASH_COLLECTOR_NAMESPACES_ID >= (count DORB_HASH_COLLECTOR_NAMESPACES))&&{DORB_HASH_COLLECTOR_ARRAYS isEqualTo []}) exitWith {
     If (DORB_HASH_COLLECTOR_FOUND isEqualTo []) then {
         //start the collecting by initializing the variables
-        DORB_HASH_COLLECTOR_NAMESPACES = [missionNamespace] + allGroups + allPlayers + ((nearestObjects [DORB_HASH_POSITION, [], 1]) select {local _x});
+        DORB_HASH_COLLECTOR_NAMESPACES = [missionNamespace] + allGroups + allPlayers;
         DORB_HASH_COLLECTOR_NAMESPACES_ID = 0;
         DORB_HASH_COLLECTOR_VARIABLES = (allVariables missionNamespace);
         DORB_HASH_COLLECTOR_ARRAYS = [];
@@ -71,7 +71,7 @@ while { (diag_ticktime < _time) && {DORB_HASH_COLLECTOR_NAMESPACES_ID < (count D
         // prevent endless looping by ignoring the internal variables
         If !((tolower _variable) in DORB_HASH_COLLECTOR_IGNORE) then {
             private _value = (DORB_HASH_COLLECTOR_NAMESPACES select DORB_HASH_COLLECTOR_NAMESPACES_ID) getVariable _variable;
-            If (IS_HASH(_value)) then {
+            If (IS_AHASH(_value)) then {
                 If !(_value in DORB_HASH_COLLECTOR_FOUND) then {
                     DORB_HASH_COLLECTOR_NAMESPACES pushBackUnique _value;
                     DORB_HASH_COLLECTOR_FOUND pushBack _value;
@@ -87,7 +87,7 @@ while { (diag_ticktime < _time) && {DORB_HASH_COLLECTOR_NAMESPACES_ID < (count D
 private _time = diag_ticktime + DORB_HASH_COLLECTOR_SEARCHTIME;
 while { (diag_ticktime < _time)&&{!(DORB_HASH_COLLECTOR_ARRAYS isEqualTo [])}} do {
     {
-        If (IS_HASH(_x)) then {
+        If (IS_AHASH(_x)) then {
             If !(_x in DORB_HASH_COLLECTOR_FOUND) then {
                 DORB_HASH_COLLECTOR_NAMESPACES pushBackUnique _x;
                 DORB_HASH_COLLECTOR_FOUND pushBack _value;
