@@ -126,7 +126,7 @@ Author:
 //#define IS_LHASH(hash) ((hash isEqualType objNull)&&{(position hash) isEqualTo DORB_HASH_POSITION})
 #define IS_LHASH(hash) ((hash isEqualType locationNull)&&{(type hash) isEqualTo DORB_HASH_TYPE})
 #define IS_GHASH(hash) ((hash isEqualType objNull)&&{(typeOf hash) isEqualTo DORB_HASH_TYPE})
-#define IS_AHASH(hash) (((hash isEqualType locationNull)&&{(type hash) isEqualTo DORB_HASH_TYPE})||((hash isEqualType objNull)&&{(typeOf hash) isEqualTo DORB_HASH_TYPE}))
+#define IS_AHASH(hash) (((hash isEqualType locationNull)&&{(type hash) isEqualTo DORB_HASH_TYPE})||((hash isEqualType objNull)&&{(typeOf hash) isEqualTo DORB_HASH_TYPE})||((hash isEqualType locationNull)&&{(text hash) isEqualTo "acre_hash"}))
 /* -------------------------------------------
 Macro: HASH_GET(hash, key)
     returns a value from a hash
