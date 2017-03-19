@@ -104,40 +104,40 @@ class RSC(BasePicture) : RSC(BaseText) {
 
 class RSC(BaseCheckBox) {
     idc=-1;
-	type=77;
-	style=0;
-	checked=0;
-	x="0.375 * safezoneW + safezoneX";
-	y="0.36 * safezoneH + safezoneY";
-	w="0.025 * safezoneW";
-	h="0.04 * safezoneH";
-	color[]={1,1,1,0.69999999};
-	colorFocused[]={1,1,1,1};
-	colorHover[]={1,1,1,1};
-	colorPressed[]={1,1,1,1};
-	colorDisabled[]={1,1,1,0.2};
-	colorBackground[]={0,0,0,0};
-	colorBackgroundFocused[]={0,0,0,0};
-	colorBackgroundHover[]={0,0,0,0};
-	colorBackgroundPressed[]={0,0,0,0};
-	colorBackgroundDisabled[]={0,0,0,0};
-	textureChecked="A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
-	textureUnchecked="A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
-	textureFocusedChecked="A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
-	textureFocusedUnchecked="A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
-	textureHoverChecked="A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
-	textureHoverUnchecked="A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
-	texturePressedChecked="A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
-	texturePressedUnchecked="A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
-	textureDisabledChecked="A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
-	textureDisabledUnchecked="A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
-	tooltipColorText[]={1,1,1,1};
-	tooltipColorBox[]={1,1,1,1};
-	tooltipColorShade[]={0,0,0,0.64999998};
-	soundEnter[]={"",0.1,1};
-	soundPush[]={"",0.1,1};
-	soundClick[]={"",0.1,1};
-	soundEscape[]={"",0.1,1};
+    type=77;
+    style=0;
+    checked=0;
+    x="0.375 * safezoneW + safezoneX";
+    y="0.36 * safezoneH + safezoneY";
+    w="0.025 * safezoneW";
+    h="0.04 * safezoneH";
+    color[]={1,1,1,0.69999999};
+    colorFocused[]={1,1,1,1};
+    colorHover[]={1,1,1,1};
+    colorPressed[]={1,1,1,1};
+    colorDisabled[]={1,1,1,0.2};
+    colorBackground[]={0,0,0,0};
+    colorBackgroundFocused[]={0,0,0,0};
+    colorBackgroundHover[]={0,0,0,0};
+    colorBackgroundPressed[]={0,0,0,0};
+    colorBackgroundDisabled[]={0,0,0,0};
+    textureChecked="A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
+    textureUnchecked="A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
+    textureFocusedChecked="A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
+    textureFocusedUnchecked="A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
+    textureHoverChecked="A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
+    textureHoverUnchecked="A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
+    texturePressedChecked="A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
+    texturePressedUnchecked="A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
+    textureDisabledChecked="A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
+    textureDisabledUnchecked="A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
+    tooltipColorText[]={1,1,1,1};
+    tooltipColorBox[]={1,1,1,1};
+    tooltipColorShade[]={0,0,0,0.64999998};
+    soundEnter[]={"",0.1,1};
+    soundPush[]={"",0.1,1};
+    soundClick[]={"",0.1,1};
+    soundEscape[]={"",0.1,1};
 };
 
 class RSC(BaseShortcut) {
@@ -518,16 +518,16 @@ class RSC(BaseXButton) {
     show=1;
     fade=0;
     blinkingPeriod=0;
-    x="12 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
-    y="15 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
-    w="10 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-    h="1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+    x="12 *                     (            ((safezoneW / safezoneH) min 1.2) / 40) +         (safezoneX + (safezoneW -                     ((safezoneW / safezoneH) min 1.2))/2)";
+    y="15 *                     (            (            ((safezoneW / safezoneH) min 1.2) / 1.2) / 25) +         (safezoneY + (safezoneH -                     (            ((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+    w="10 *                     (            ((safezoneW / safezoneH) min 1.2) / 40)";
+    h="1 *                     (            (            ((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
     colorBackground[] = {0,0,0,0};
     colorActiveBackground[] = {1,0.5,0,1};
     colorActiveBackground2[] = {0,0,0,1};
     colorDisabled[] = {0,1,1,1};
     text="CT_XBUTTON";
-    size="(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+    size="(            (            ((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
     font="RobotoCondensed";
     shadow=0;
     color[] = {1,1,1,1};
@@ -582,20 +582,20 @@ class RSC(BaseEditBox) {
 
 class RSC(BaseEdit) {
     type = 2;
-	style="0x00 + 0x40";
-	font=GUI_FONT_NORMAL;
+    style="0x00 + 0x40";
+    font=GUI_FONT_NORMAL;
     text = "";
     autocomplete = "";
-	shadow=0;
-	sizeEx="(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
-	colorBackground[]={0,0,0,0};
-	colorText[]={0.94999999,0.94999999,0.94999999,1};
-	colorDisabled[]={1,1,1,0.25};
-	colorSelection[]={"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.13])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.54])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.21])",1};
-	canModify=1;
-	tooltipColorText[]={1,1,1,1};
-	tooltipColorBox[]={1,1,1,1};
-	tooltipColorShade[]={0,0,0,0.64999998};
+    shadow=0;
+    sizeEx="(            (            (            ((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+    colorBackground[]={0,0,0,0};
+    colorText[]={0.94999999,0.94999999,0.94999999,1};
+    colorDisabled[]={1,1,1,0.25};
+    colorSelection[]={"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.13])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.54])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.21])",1};
+    canModify=1;
+    tooltipColorText[]={1,1,1,1};
+    tooltipColorBox[]={1,1,1,1};
+    tooltipColorShade[]={0,0,0,0.64999998};
 };
 
 
@@ -632,34 +632,34 @@ class RSC(BaseCombobox) {
 };
 
 class RSC(BaseTree) {
-	idc = -1;
-	type = 12;
-	style = 0;
-	default = 0;
-	enable = 1;
-	show = 1;
-	fade = 0;
-	blinkingPeriod = 0;
-	x = 0;
-	y = 0;
-	w = 0;
-	h = 0;
+    idc = -1;
+    type = 12;
+    style = 0;
+    default = 0;
+    enable = 1;
+    show = 1;
+    fade = 0;
+    blinkingPeriod = 0;
+    x = 0;
+    y = 0;
+    w = 0;
+    h = 0;
     rowHeight=0.043909099;
     sizeEx = (pixelH * pixelGrid * 3);
-	font = FONT_DEFAULT;
+    font = FONT_DEFAULT;
     shadow = 0;
 
-	borderSize=0;
-	colorBorder[] = COLOR_DISABLED;
-	colorDisabled[]={1,1,1,0.25};
-	colorLines[]={0,0,0,0};
+    borderSize=0;
+    colorBorder[] = COLOR_DISABLED;
+    colorDisabled[]={1,1,1,0.25};
+    colorLines[]={0,0,0,0};
 
     colorBackground[] = {0.2,0.2,0.2,1};
-	colorSelectBackground[]={0,0,0,0.5};
+    colorSelectBackground[]={0,0,0,0.5};
 
-	colorSelect[] = {1,0.5,0,1};
-	colorMarked[] = {1,0.5,0,0.5};
-	colorMarkedSelected[] = {1,0.5,0,1};
+    colorSelect[] = {1,0.5,0,1};
+    colorMarked[] = {1,0.5,0,0.5};
+    colorMarkedSelected[] = {1,0.5,0,1};
 
     colorPicture[]={1,1,1,1};
     colorPictureSelected[]={0,0,0,1};
@@ -668,7 +668,7 @@ class RSC(BaseTree) {
     colorPictureRightSelected[]={0,0,0,1};
     colorPictureRightDisabled[]={1,1,1,0.25};
 
-	colorArrow[] = {0,0,0,0};
+    colorArrow[] = {0,0,0,0};
     colorSearch[]={
         "(profilenamespace getvariable ['GUI_BCG_RGB_R',0.13])",
         "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.54])",
@@ -676,28 +676,28 @@ class RSC(BaseTree) {
         "(profilenamespace getvariable ['GUI_BCG_RGB_A',0.8])"
     };
 
-	colorText[] = {1,1,1,1};
-	colorSelectText[] = {1,1,1,1};
-	colorMarkedText[] = {1,1,1,1};
-	tooltip = "";
-	tooltipColorShade[] = {0,0,0,1};
-	tooltipColorText[] = {1,1,1,1};
-	tooltipColorBox[] = {1,1,1,1};
-	multiselectEnabled = 1;
-	expandOnDoubleclick = 1;
-	hiddenTexture = "A3\ui_f\data\gui\rsccommon\rsctree\hiddenTexture_ca.paa";
-	expandedTexture = "A3\ui_f\data\gui\rsccommon\rsctree\expandedTexture_ca.paa";
-	maxHistoryDelay = 1;
-	class ScrollBar {
-		width = 0;
-		height = 0;
-		scrollSpeed = 0.0099999998;
-		arrowEmpty = "\A3\ui_f\data\gui\cfg\scrollbar\arrowEmpty_ca.paa";
-		arrowFull = "\A3\ui_f\data\gui\cfg\scrollbar\arrowFull_ca.paa";
-		border = "\A3\ui_f\data\gui\cfg\scrollbar\border_ca.paa";
-		thumb = "\A3\ui_f\data\gui\cfg\scrollbar\thumb_ca.paa";
-		color[] = {1,1,1,1};
-	};
+    colorText[] = {1,1,1,1};
+    colorSelectText[] = {1,1,1,1};
+    colorMarkedText[] = {1,1,1,1};
+    tooltip = "";
+    tooltipColorShade[] = {0,0,0,1};
+    tooltipColorText[] = {1,1,1,1};
+    tooltipColorBox[] = {1,1,1,1};
+    multiselectEnabled = 1;
+    expandOnDoubleclick = 1;
+    hiddenTexture = "A3\ui_f\data\gui\rsccommon\rsctree\hiddenTexture_ca.paa";
+    expandedTexture = "A3\ui_f\data\gui\rsccommon\rsctree\expandedTexture_ca.paa";
+    maxHistoryDelay = 1;
+    class ScrollBar {
+        width = 0;
+        height = 0;
+        scrollSpeed = 0.0099999998;
+        arrowEmpty = "\A3\ui_f\data\gui\cfg\scrollbar\arrowEmpty_ca.paa";
+        arrowFull = "\A3\ui_f\data\gui\cfg\scrollbar\arrowFull_ca.paa";
+        border = "\A3\ui_f\data\gui\cfg\scrollbar\border_ca.paa";
+        thumb = "\A3\ui_f\data\gui\cfg\scrollbar\thumb_ca.paa";
+        color[] = {1,1,1,1};
+    };
 };
 
 class RSC(BaseLoadingbar) {
@@ -868,7 +868,7 @@ class RSC(BaseActiveText) {
 
     font = GUI_FONT_NORMAL;
     shadow = 2;
-    sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+    sizeEx = "(            (            (            ((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
     url = "";
     color[] = {RAL9005,1};
     colorActive[] = {RAL6018,1};
