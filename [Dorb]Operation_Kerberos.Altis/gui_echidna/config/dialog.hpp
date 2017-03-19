@@ -305,7 +305,7 @@ class RSC(Echidna) : RSC(BaseEchidna) {
             BUTTON_HELPER(47,22);
             BUTTON_HELPER(48,23);
             BUTTON_HELPER(49,24);
-            BUTTON_HELPER(50,25);
+            BUTTON_HELPER(50,25);/*
             BUTTON_HELPER(51,1);
             BUTTON_HELPER(52,2);
             BUTTON_HELPER(53,3);
@@ -335,7 +335,7 @@ class RSC(Echidna) : RSC(BaseEchidna) {
             BUTTON_HELPER(77,2);
             BUTTON_HELPER(78,3);
             BUTTON_HELPER(79,4);
-            BUTTON_HELPER(80,5);
+            BUTTON_HELPER(80,5);*/
 
 
             /*

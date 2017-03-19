@@ -2,6 +2,7 @@
 
 ADDON = false;
 
+PREP(AnimBttn);
 
 PREP(canOpenMenu);
 PREP(canSaveRadioList);
@@ -13,7 +14,12 @@ PREP(onLoad);
 PREP(onUnLoad);
 PREP(open);
 
+PREP(radiosDrop);
+PREP(radiosList);
 PREP(radiosShow);
+PREP(radiosProperties);
+
+
 PREP(setFilteredPresetChannel);
 
 PREP(treeOnSelChanged);

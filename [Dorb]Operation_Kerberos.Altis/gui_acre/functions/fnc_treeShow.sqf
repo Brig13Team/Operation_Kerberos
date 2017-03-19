@@ -91,6 +91,7 @@ GVAR(curTree) = LHASH_CREATE;
         TRACEV_2(_groupIndex,_sideIndex);
         _groupIndex pushBack (_tree tvAdd [_sideIndex, groupId _curGroup]);
         private _hashes = _curGroup getVariable [QGVAR(radios),[]];
+        _hashes = _hashes - [objNull];
         // ----RADIO
         If (_hashes isEqualTo []) then {
             _tree tvAdd [_groupIndex, localize LSTRING(NOSQUADRADIOS)];
@@ -125,6 +126,7 @@ GVAR(curTree) = LHASH_CREATE;
         {
             private _curPlayer = _x;
             private _hashes = _curPlayer getVariable [QGVAR(radios),[]];
+            _hashes = _hashes - [objNull];
             If !(_hashes isEqualTo []) then {
                 // ----MEMBER
                 private _playerIndex =+ _groupIndex;

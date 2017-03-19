@@ -21,7 +21,7 @@ If (_presetName isEqualTo "") then {
 };
 
 private _acreHash = [_radioType, _presetName, _channel] call acre_api_fnc_getPresetChannelData;
-
+TRACEV_4(_acreHash,_radioType,_presetName,_channel);
 private _acreKeys = ((allVariables _acreHash) select {!isNil{_acreHash getVariable _x}});
 
 // order the known keys
@@ -30,13 +30,14 @@ private _missionKeysOrderd = _acreKeys arrayIntersect ["description","label","na
 {_missionKeysOrderd pushBackUnique _x} forEach _acreKeys;
 
 private _missionHash = LHASH_COPY(_acreHash);
-
+TRACEV_2(allVariables _acreHash,allVariables _missionHash);
 HASH_SET(_missionHash,"keysOrdered",_missionKeysOrderd);
 HASH_SET(_missionHash,"radioType",_radioType);
 HASH_SET(_missionHash,"presetName",_presetName);
 HASH_SET(_missionHash,"channel",_channel);
 If (_radioType in ["ACRE_PRC148","ACRE_PRC152","ACRE_PRC117F"]) then {
     private _key = [_radioType,"description"] call acre_api_fnc_mapChannelFieldName;
+    TRACEV_2(_key,allVariables _missionHash);
     private _channelName = HASH_GET(_missionHash,_key);
     HASH_SET(_missionHash,"channelName",_channelName);
 };

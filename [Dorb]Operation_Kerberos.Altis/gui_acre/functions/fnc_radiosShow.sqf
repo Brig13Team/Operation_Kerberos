@@ -17,7 +17,7 @@
 disableSerialization;
 
 _this params ["_target"];
-
+GVAR(curSelIndex) = -1;
 GVAR(radioSettingsTarget) = _target;
 
 // hide all other things
@@ -28,6 +28,7 @@ private _display = uiNamespace getVariable QEGVAR(gui_Echidna,dialog);
 private _itemlist = _display displayCtrl IDC_ACRE_MENU_ITEMLIST;
 private _radiolist = _display displayCtrl IDC_ACRE_MENU_RADIOLIST;
 private _properties = _display displayCtrl IDC_ACRE_MENU_PROPERTIES;
+private _properties_back = _display displayCtrl IDC_ACRE_MENU_PROPERTIES_BACK;
 
 lbClear _itemlist;
 lbClear _radiolist;
@@ -50,12 +51,21 @@ _properties ctrlSetPosition [
     17.5*GUI_ECHIDNA_W,
     26.5*GUI_ECHIDNA_H
 ];
+_properties_back ctrlSetPosition [
+    GUI_ECHIDNA_X + 22*GUI_ECHIDNA_W,
+    GUI_ECHIDNA_Y + 0.5*GUI_ECHIDNA_H,
+    17.5*GUI_ECHIDNA_W,
+    26.5*GUI_ECHIDNA_H
+];
 
 _itemlist ctrlCommit 0;
 _radiolist ctrlCommit 0;
 _properties ctrlCommit 0;
+_properties_back ctrlCommit 0;
 
-
+_itemlist ctrladdEventHandler ["LBDrop",{_this call FUNC(radiosDrop)}];
+_radiolist ctrladdEventHandler ["LBDrop",{_this call FUNC(radiosDrop)}];
+_radiolist ctrlAddEventHandler ["LBSelChanged",{GVAR(curSelIndex) = _this select 1;[GVAR(curSelIndex)] call FUNC(radiosProperties);}];
 
 {
     private _radioHash = HASH_GET(GVAR(radioTypeList),_x);
@@ -65,4 +75,11 @@ _properties ctrlCommit 0;
     private _index = _itemlist lbAdd "";
     _itemlist lbSetPicture [_index, _picture];
     _itemlist lbSetTooltip [_index, _description];
+    _itemlist lbSetData [_index, _x];
 } forEach HASH_KEYS(GVAR(radioTypeList));
+
+GVAR(tempRadioList) = (_target getVariable [QGVAR(radios),[]]) select {!(isNull _x)};
+
+[] call FUNC(radiosList);
+
+[GVAR(curSelIndex)] call FUNC(radiosProperties);

@@ -18,25 +18,24 @@
 _this params ["_event","_params"];
 _params params ["_ctrlBttn"];
 private _display = uiNamespace getVariable [QEGVAR(gui_Echidna,dialog),(findDisplay IDD_ECHIDNA_MAIN)];
-private _ctrlGroup = _display displayCtrl IDC_ECHIDNA_METRO_GRP;
 private _ctrlIDC = parseNumber ((str _ctrlBttn) select [9]);
-private _ctrlPicture = _ctrlGroup controlsGroupCtrl (-_ctrlIDC);
+private _ctrlPicture = _display displayCtrl (-_ctrlIDC);
 TRACEV_4(_event,_ctrlBttn,_ctrlIDC,_ctrlPicture);
 switch (toLower _event) do {
     case "changepos" : {
         private _pos = _params param [1];
         _ctrlBttn ctrlSetPosition _pos;
         _ctrlBttn ctrlCommit 0;
-        _ctrlBttn ctrlAddEventHandler ["MouseEnter", {["onMouseEnter",_this] call FUNC(MetroBttn);}];
-        _ctrlBttn ctrlAddEventHandler ["MouseExit", {["onMouseExit",_this] call FUNC(MetroBttn);}];
-        _ctrlBttn ctrlAddEventHandler ["ButtonDown", {["onButtonDown",_this] call FUNC(MetroBttn);}];
-        _ctrlBttn ctrlAddEventHandler ["ButtonUp", {["onButtonUp",_this] call FUNC(MetroBttn);}];
-        _ctrlBttn ctrlAddEventHandler ["SetFocus", {["onSetFocus",_this] call FUNC(MetroBttn);}];
-        _ctrlBttn ctrlAddEventHandler ["KillFocus", {["onKillFocus",_this] call FUNC(MetroBttn);}];
+        _ctrlBttn ctrlAddEventHandler ["MouseEnter", {["onMouseEnter",_this] call FUNC(AnimBttn);}];
+        _ctrlBttn ctrlAddEventHandler ["MouseExit", {["onMouseExit",_this] call FUNC(AnimBttn);}];
+        _ctrlBttn ctrlAddEventHandler ["ButtonDown", {["onButtonDown",_this] call FUNC(AnimBttn);}];
+        _ctrlBttn ctrlAddEventHandler ["ButtonUp", {["onButtonUp",_this] call FUNC(AnimBttn);}];
+        _ctrlBttn ctrlAddEventHandler ["SetFocus", {["onSetFocus",_this] call FUNC(AnimBttn);}];
+        _ctrlBttn ctrlAddEventHandler ["KillFocus", {["onKillFocus",_this] call FUNC(AnimBttn);}];
         _ctrlPicture ctrlSetPosition _pos;
         _ctrlPicture ctrlCommit 0;
     };
-    case "hide" : {
+    case "delete" : {
         _ctrlBttn ctrlSetPosition [0,0,0,0];
         _ctrlBttn ctrlCommit 0;
         _ctrlBttn ctrlRemoveAllEventHandlers "MouseEnter";
@@ -45,6 +44,12 @@ switch (toLower _event) do {
         _ctrlBttn ctrlRemoveAllEventHandlers "ButtonUp";
         _ctrlBttn ctrlRemoveAllEventHandlers "SetFocus";
         _ctrlBttn ctrlRemoveAllEventHandlers "KillFocus";
+        _ctrlPicture ctrlSetPosition [0,0,0,0];
+        _ctrlPicture ctrlCommit 0;
+    };
+    case "hide" : {
+        _ctrlBttn ctrlSetPosition [0,0,0,0];
+        _ctrlBttn ctrlCommit 0;
         _ctrlBttn ctrlRemoveAllEventHandlers "ButtonClick";
         _ctrlPicture ctrlSetPosition [0,0,0,0];
         _ctrlPicture ctrlCommit 0;

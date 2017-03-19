@@ -21,12 +21,12 @@ private _display = uiNamespace getVariable QEGVAR(gui_Echidna,dialog);
     _ctrl ctrlsetPosition [0,0,0,0];
     _ctrl ctrlCommit 0;
     {
-        _ctrl displayRemoveAllEventHandlers _x;
+        _ctrl ctrlRemoveAllEventHandlers _x;
     }forEach _handler;
 } forEach [
-    [IDC_ACRE_MENU_ITEMLIST],
-    [IDC_ACRE_MENU_RADIOLIST],
-    [IDC_ACRE_MENU_TREE,[]],
+    [IDC_ACRE_MENU_ITEMLIST,["LBDrop"]],
+    [IDC_ACRE_MENU_RADIOLIST,["LBDrop","LBSelChanged"]],
+    [IDC_ACRE_MENU_TREE,["TreeSelChanged"]],
     [IDC_ACRE_MENU_PROPERTIESLIST],
     [IDC_ACRE_MENU_PROPERTIES]
 ];

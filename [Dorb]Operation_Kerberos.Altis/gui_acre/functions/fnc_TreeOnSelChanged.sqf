@@ -40,6 +40,9 @@ If (HASH_GET_DEF(_radioHash,"isPreset",false)) then {
     };
     _list lnbAddRow [localize LSTRING(PRESETCHANNELNAME),_channelName];
     _list lnbAddRow [" "," "];
+}else{
+    _list lnbAddRow [" "," "];
+    _list lnbAddRow [" "," "];
 };
 
 {
