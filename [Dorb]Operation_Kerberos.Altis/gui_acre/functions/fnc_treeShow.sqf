@@ -84,6 +84,7 @@ GVAR(curTree) = LHASH_CREATE;
     _curside = _x;
     private _sideIndex = [(_tree tvAdd [[], str _curside])];
     private _playergroups = [_curside] call _fnc_getPlayergroups;
+    _tree tvExpand _sideIndex;
     {
         // --GROUP
         private _curGroup = _x;
@@ -121,6 +122,7 @@ GVAR(curTree) = LHASH_CREATE;
                     HASH_SET(GVAR(curTree),str _radioIndex,_radioHash);
                 };
             } forEach _hashes;
+            _tree tvExpand _groupIndex;
         };
 
         {

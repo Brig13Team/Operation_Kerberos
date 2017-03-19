@@ -32,6 +32,8 @@ private _allRadios = configProperties [configFile >> "CfgWeapons","(isClass _x)&
             HASH_SET(_radioHash,"displayname",_displayName);
             HASH_SET(_radioHash,"picture",_picture);
             HASH_SET(_radioHash,"presetname",_presetName);
+            private _channels = count (HASH_GET_DEF(_presetData,"channels",[])) - 1;
+            HASH_SET(_radioHash,"LastChannelIndex",_channels);
         };
     };
 } forEach _allRadios;

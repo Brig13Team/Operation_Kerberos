@@ -11,10 +11,10 @@
  *      [TYPE] - [return name]
  *
  */
-//#define DEBUG_MODE_FULL
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-_this params [["_radioType","",[""]],["_channel",1,[1]],["_presetName","",[""]]];
+_this params [["_radioType","",[""]],["_channel",0,[1]],["_presetName","",[""]]];
 
 If (_presetName isEqualTo "") then {
     _presetName = [_radioType] call acre_api_fnc_getPreset;
@@ -35,15 +35,16 @@ HASH_SET(_missionHash,"keysOrdered",_missionKeysOrderd);
 HASH_SET(_missionHash,"radioType",_radioType);
 HASH_SET(_missionHash,"presetName",_presetName);
 HASH_SET(_missionHash,"channel",_channel);
-If (_radioType in ["ACRE_PRC148","ACRE_PRC152","ACRE_PRC117F"]) then {
-    private _key = [_radioType,"description"] call acre_api_fnc_mapChannelFieldName;
+If ((toUpper _radioType) in ["ACRE_PRC148","ACRE_PRC152","ACRE_PRC117F"]) then {
+    private _key = [(toUpper _radioType),"description"] call acre_api_fnc_mapChannelFieldName;
     TRACEV_2(_key,allVariables _missionHash);
-    private _channelName = HASH_GET(_missionHash,_key);
+    private _channelName = HASH_GET(_acreHash,_key);
+    TRACEV_1(_channelName);
     HASH_SET(_missionHash,"channelName",_channelName);
 };
-If (_radioType isEqualTo "ACRE_PRC343") then {
+If ((toUpper _radioType) isEqualTo "ACRE_PRC343") then {
     private _channelName = format["B%1-C%2",floor(_channel/16)+1,_channel-floor(_channel/16)*16+1];
     HASH_SET(_missionHash,"channelName",_channelName);
 };
-
+TRACEV_2(_channelName,_radioType);
 _missionHash;

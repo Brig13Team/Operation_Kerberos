@@ -181,17 +181,15 @@ class APP(dialog) : RSC(echidna) {
         w = 0;
         h = 0;
         class controls {
-
-            /*
             class combo : RSC(BaseComboBox) {
                 idc = IDC_ACRE_MENU_PROPERTIES_COMBO;
                 x = 0;
                 y = 0;
                 w = 0;
                 h = 0;
+                wholeHeight = GUI_ECHIDNA_H * 15;
             };
-            */
-
+            /*
             class text_1 : RSC(BaseText) {
                 idc = IDC_ACRE_MENU_PROPERTIES_TEXT_1;
                 x = 0;
@@ -273,6 +271,7 @@ class APP(dialog) : RSC(echidna) {
             class bool_3 : edit_1 {idc = IDC_ACRE_MENU_PROPERTIES_BOOL_3;};
             class bool_4 : edit_1 {idc = IDC_ACRE_MENU_PROPERTIES_BOOL_4;};
             class bool_5 : edit_1 {idc = IDC_ACRE_MENU_PROPERTIES_BOOL_5;};
+            */
         };
     };
     class properties_list : RSC(BaseListboxN) {

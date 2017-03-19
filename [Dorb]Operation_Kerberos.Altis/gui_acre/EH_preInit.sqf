@@ -18,7 +18,7 @@ PREP(radiosDrop);
 PREP(radiosList);
 PREP(radiosShow);
 PREP(radiosProperties);
-
+PREP(radiosPropertiesShow);
 
 PREP(setFilteredPresetChannel);
 

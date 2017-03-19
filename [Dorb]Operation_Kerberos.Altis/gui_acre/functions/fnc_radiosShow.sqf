@@ -29,6 +29,7 @@ private _itemlist = _display displayCtrl IDC_ACRE_MENU_ITEMLIST;
 private _radiolist = _display displayCtrl IDC_ACRE_MENU_RADIOLIST;
 private _properties = _display displayCtrl IDC_ACRE_MENU_PROPERTIES;
 private _properties_back = _display displayCtrl IDC_ACRE_MENU_PROPERTIES_BACK;
+private _properties_combo = _properties controlsGroupCtrl IDC_ACRE_MENU_PROPERTIES_COMBO;
 
 lbClear _itemlist;
 lbClear _radiolist;
@@ -58,10 +59,20 @@ _properties_back ctrlSetPosition [
     26.5*GUI_ECHIDNA_H
 ];
 
+_properties_combo ctrlSetPosition [
+    GUI_ECHIDNA_W,
+    GUI_ECHIDNA_H,
+    //GUI_ECHIDNA_X + 23*GUI_ECHIDNA_W,
+    //GUI_ECHIDNA_Y + 1*GUI_ECHIDNA_H,
+    15.5*GUI_ECHIDNA_W,
+    2*GUI_ECHIDNA_H
+];
+
 _itemlist ctrlCommit 0;
 _radiolist ctrlCommit 0;
 _properties ctrlCommit 0;
 _properties_back ctrlCommit 0;
+_properties_combo ctrlCommit 0;
 
 _itemlist ctrladdEventHandler ["LBDrop",{_this call FUNC(radiosDrop)}];
 _radiolist ctrladdEventHandler ["LBDrop",{_this call FUNC(radiosDrop)}];
