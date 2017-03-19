@@ -18,3 +18,13 @@
 ] call EFUNC(gui_echidna,addApp);
 
 GVAR(mail) = HASH_CREATE;
+
+[
+    QEGVAR(gui_mail,receive),
+    LINKFUNC(receive)
+] call CBA_fnc_addEventHandler;
+
+[
+    QEGVAR(gui_mail,receiveTask),
+    LINKFUNC(receive)
+] call CBA_fnc_addEventHandler;

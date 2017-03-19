@@ -123,12 +123,6 @@ class main {
     };
     */
 
-    class upload : __oneCounter {
-        class location : location {
-            areas[] = {QGVAR(military)};
-        };
-    };
-
     class weaponcache : hostage {
         class location : location {
             areas[] = {QGVAR(town), QGVAR(military)};

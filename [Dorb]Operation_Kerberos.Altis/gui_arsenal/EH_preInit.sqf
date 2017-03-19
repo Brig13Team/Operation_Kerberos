@@ -15,3 +15,6 @@ PREP(getSideRestrictedArsenal);
 PREP(removeArsenal);
 
 ADDON = true;
+
+ISNIL(arsenal_boxes,[]);
+ISNIL(allowedPositions,[]);

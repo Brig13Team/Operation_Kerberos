@@ -2,13 +2,13 @@
  *  Author: Dorbedo
  *
  *  Description:
- *      adds the hit Eventhandler
+ *      adds the killed Eventhandler
  *
  */
 #include "script_component.hpp"
 
 If (hasInterface) then {
-    ["Air", "seatSwitched", {
-        _this call FUNC(onseatswitched);
+    ["CAManBase", "killed", {
+        _this call FUNC(onkilled);
     },true,[],true] call CBA_fnc_addClassEventHandler;
 };

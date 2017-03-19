@@ -17,6 +17,7 @@ PREP(delaySpawn);
 
 PREP(gear);
 PREP(getGroup);
+PREP(getRoadsInArea);
 PREP(getUnit);
 PREP(group);
 PREP(groupFromArray);
@@ -27,10 +28,14 @@ PREP(onMissionStart);
 
 PREP(patrol_task);
 
+PREP(spawnCivCarGarage);
+PREP(spawnCivVehRoadside);
+PREP(spawnExplosive);
 PREP(spawnGroup_attack);
 PREP(spawnGroup_defence);
 PREP(spawnGroup_patrol);
 PREP(spawnMinefieldACE);
+PREP(spawnRoadIEDs);
 PREP(stayInVehicle);
 
 PREP(unitLimit);

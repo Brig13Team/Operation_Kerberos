@@ -43,7 +43,8 @@ If (_fullCheck) then {
         If (count _temphistory >= 10) then {_temphistory deleteAt 0;};
         _temphistory pushBack _GroupType;
         HASH_SET(_grouphash,"typehistory",_temphistory);
-        private _GroupType = (_temphistory call CBA_fnc_findMax) select 0;
+        //private _GroupType = (_temphistory call CBA_fnc_findMax) select 0;
+        private _GroupType = round ([_temphistory] call EFUNC(common,arithmeticMean));
         HASH_SET(_grouphash,"type",_GroupType);
 
 

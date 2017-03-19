@@ -23,7 +23,7 @@ private _value = 0;
 #define KILLS_PER_MINUTE (KILLS_PER_HOUR/60)
 #define PLAYERAMOUNT (count ([] call EFUNC(common,players)))
 // average cost of a killed unit
-#define COST_PER_KILL 100000
+#define COST_PER_KILL 200000
 // ressource handler intervall
 #define HANDLER_TIMEFACTOR (INTERVALL_RESSOURCES/60)
 // the mission has a targettime of 2 hours
@@ -36,4 +36,4 @@ _value = TIMEFACTOR * HANDLER_TIMEFACTOR * KILLS_PER_MINUTE * COST_PER_KILL * PL
 
 
 
-GVAR(ressources_amount) = GVAR(ressources_amount) + (_value max 0);
+GVAR(ressources_amount) = (GVAR(ressources_amount) + _value) max 0;

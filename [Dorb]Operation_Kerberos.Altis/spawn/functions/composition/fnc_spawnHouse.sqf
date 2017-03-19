@@ -70,21 +70,20 @@ private _objectives = [];
     If (_curType == "Land_CargoBox_V1_F") then {
         _objectives pushBack _targetPos;
     }else{
-        If ((_isSimpleObject)&&{!(_curType isKindOf "CAManBase")}) then {
-            _object = createSimpleObject [getText(configFile>>"CfgVehicles">>_curType>>"model"), [0,0,100]];
+        If (_curType isKindOf "CAManBase") then {
+            If (isNull _group) then {_group = createGroup GVARMAIN(side);};
+            _object = [[0,0,0],_group,_curType,"NONE",0] call FUNC(unit);
         }else{
-            _object = createVehicle [_curType, [0,0,100], [], 0, "CAN_COLLIDE"];
+            If (_isSimpleObject) then {
+                _object = createSimpleObject [getText(configFile>>"CfgVehicles">>_curType>>"model"), [0,0,100]];
+            }else{
+                If (isNull _group) then {_group = createGroup GVARMAIN(side);};
+                _object = ([[0,0,0],_group,_curType,(_curDir + (getDir _house)),((_hasCrew)||{_curType isKindOf "StaticWeapon"}),true] call FUNC(vehicle)) select 1;
+            };
         };
-        //_object setPos _targetPos;
         _object setPosWorld _targetPos;
         _object setDir (_curDir + (getDir _house));
         _object setVectorUp _curVecUp;
-        If ((_hasCrew)||{_curType isKindOf "StaticWeapon"}) then {
-            If (isNull _group) then {
-                _group = createGroup GVARMAIN(side);
-            };
-            [_object,_group] call FUNC(crew);
-        };
         [_object] call _fnc_setObject;
     };
 } forEach _allObjects;

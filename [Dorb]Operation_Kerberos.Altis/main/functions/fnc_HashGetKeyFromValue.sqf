@@ -9,7 +9,7 @@
  *      1 : ANY - the value
  *
  *  Returns:
- *      STRING - the key of a value, empty string, if not availible
+ *      STRING - the key of a value, empty nil, if not availible
  *
  */
 #include "script_component.hpp"

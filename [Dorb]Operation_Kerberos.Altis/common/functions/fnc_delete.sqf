@@ -30,7 +30,11 @@ switch (typeName _delete) do {
         deleteGroup _delete;
     };
     case "LOCATION" : {
-        deleteLocation _delete;
+        If (IS_HASH(_delete)) then {
+            HASH_DELETE(_delete);
+        }else{
+            deleteLocation _delete;
+        };
     };
     case "STRING" : {
         deleteMarker _this;

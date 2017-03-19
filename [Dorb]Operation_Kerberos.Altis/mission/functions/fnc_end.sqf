@@ -22,6 +22,6 @@ switch (_type) do {
     };
 };
 
-if (!(_type isEqualTo "_rtb") && {!(call FUNC(taskmanager_hasActiveMissions))}) then {
+if (!(_type isEqualTo "rtb") && {!(call FUNC(taskmanager_hasActiveMissions))}) then {
     ["rtb"] spawn FUNC(spawn);
 };

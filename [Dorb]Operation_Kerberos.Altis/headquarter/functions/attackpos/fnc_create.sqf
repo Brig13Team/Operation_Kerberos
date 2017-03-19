@@ -23,6 +23,8 @@ private _attackLoc = [_position] call FUNC(attackpos_atPosition);
 CHECK(!isNull _attackLoc)
 
 _attackLoc = HASH_CREATE;
+// add the hash to the dump to prevent the loosing because of the changed locationPosition
+EGVAR(spawn,cleanUpDump) pushBack _attackLoc;
 HASH_GET(GVAR(attackpos),"Locations") pushBack _attackLoc;
 
 // cover all sorrounding Dangerzones
