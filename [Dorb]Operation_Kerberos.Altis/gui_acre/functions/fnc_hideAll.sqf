@@ -30,3 +30,8 @@ private _display = uiNamespace getVariable QEGVAR(gui_Echidna,dialog);
     [IDC_ACRE_MENU_PROPERTIESLIST],
     [IDC_ACRE_MENU_PROPERTIES]
 ];
+private _header = _display displayCtrl IDC_ACRE_MENU_HEADER;
+_header ctrlsetText "";
+
+ISNILS(GVAR(tempProperties),[]);
+{ctrlDelete _x;} forEach GVAR(tempProperties);

@@ -1364,5 +1364,23 @@
             <German>Repeater Delay</German>
             <English>Repeater Delay</English>
         </Key>
+
+
+        <Key ID="STR_DORB_GUI_ACRE_MENU_MODERN">
+            <German>Moderne Ansicht</German>
+            <English>modern-view</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_MENU_TREE">
+            <German>Baumansicht</German>
+            <English>tree-view</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_MENU_GROUP">
+            <German>Gruppenfunkgeräte</German>
+            <English>group-radios</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_MENU_SINGLE">
+            <German>Spielerfunkteräte</German>
+            <English>player-radios</English>
+        </Key>
     </Package>
 </Project>

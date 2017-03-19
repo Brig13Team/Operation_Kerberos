@@ -58,3 +58,5 @@ for "_i" from 0 to _lastChannelIndex do {
 };
 
 _combobox lbSetCurSel _curChannel;
+
+[] call FUNC(radiosPropertiesShow);

@@ -37,7 +37,7 @@ lbClear _radiolist;
 _itemlist ctrlSetPosition [
     GUI_ECHIDNA_X + 6*GUI_ECHIDNA_W,
     GUI_ECHIDNA_Y + 0.5*GUI_ECHIDNA_H,
-    5*GUI_ECHIDNA_W,
+    5.5*GUI_ECHIDNA_W,
     26.5*GUI_ECHIDNA_H
 ];
 _radiolist ctrlSetPosition [

@@ -14,7 +14,20 @@ class APP(dialog) : RSC(echidna) {
         clock,
         menu_button,
 
+        display_background,
 
+        display_header,
+
+        Itemlist,
+        Radiolist,
+
+        properties_back,
+        properties,
+        properties_list,
+
+        treeview,
+
+        menubutton_background,
         menubutton_1_background,
         menubutton_2_background,
         menubutton_3_background,
@@ -27,16 +40,6 @@ class APP(dialog) : RSC(echidna) {
         menubutton_4,
         menubutton_5,
         menubutton_6,
-
-
-        Itemlist,
-        Radiolist,
-
-        properties_back,
-        properties,
-        properties_list,
-
-        treeview,
 
         metro_back,
         metro,
@@ -53,9 +56,9 @@ class APP(dialog) : RSC(echidna) {
     w = GUI_ECHIDNA_W * 40;
     h = GUI_ECHIDNA_H * 27.5;
     */
-    /*
-    class backGroundLeft: RSC(BaseText) {
-        idc = IDC_ACRE_MENU_BACK_LEFT;
+
+    class display_background: RSC(BaseText) {
+        idc = IDC_ACRE_MENU_BACK_REST;
         x = 0;
         y = 0;
         w = 0;
@@ -64,15 +67,15 @@ class APP(dialog) : RSC(echidna) {
         colorBackground[] = COLOR_DISABLED;
         colorText[] = COLOR_DISABLED;
     };
-    */
+    class menubutton_background: display_background {
+        idc = IDC_ACRE_MENU_BACK_LEFT;
+    };
+    class display_header: display_background {
+        idc = IDC_ACRE_MENU_HEADER;
+    };
 
-    #define COLOR_HELPER_PIC(NUMBER) colorBackground[] = {0,0,0,1}; \
-            colorText[]={ \
-            QUOTE((missionNamespace getvariable [ARR_2('TRIPLES(GVAR(METRO_BUTTON),NUMBER,RGB_R)',0.666667)])), \
-            QUOTE((missionNamespace getvariable [ARR_2('TRIPLES(GVAR(METRO_BUTTON),NUMBER,RGB_G)',0.25098)])), \
-            QUOTE((missionNamespace getvariable [ARR_2('TRIPLES(GVAR(METRO_BUTTON),NUMBER,RGB_B)',1)])),1} \
 
-    #define BUTTON_HELPER(NUMBER,COLOR) class TRIPLES(menubutton,NUMBER,background) : RSC(BasePicture) { \
+    #define BUTTON_HELPER(NUMBER) class TRIPLES(menubutton,NUMBER,background) : RSC(BasePicture) { \
         idc = -(IDC_ACRE_MENU_BTTN + NUMBER); \
         x = 0;y = 0;w = 0;h = 0; \
         text = QEPAAPATH(buttons,button_256_normal); \
@@ -80,7 +83,8 @@ class APP(dialog) : RSC(echidna) {
         style = "48"; \
         colorShadow[] = COLOR_DISABLED; \
         font = FONT_DEFAULT; \
-        COLOR_HELPER_PIC(NUMBER); \
+        colorBackground[] = {0,0,0,1}; \
+        colorText[] = {0,0,0,1}; \
     }; \
     class DOUBLES(menubutton,NUMBER) : RSC(BaseButton) { \
         idc = IDC_ACRE_MENU_BTTN + NUMBER; \
@@ -102,48 +106,13 @@ class APP(dialog) : RSC(echidna) {
         offsetPressedY = 0; \
     }
 
-    BUTTON_HELPER(1,1);
-    BUTTON_HELPER(2,2);
-    BUTTON_HELPER(3,3);
-    BUTTON_HELPER(4,4);
-    BUTTON_HELPER(5,5);
-    BUTTON_HELPER(6,6);
+    BUTTON_HELPER(1);
+    BUTTON_HELPER(2);
+    BUTTON_HELPER(3);
+    BUTTON_HELPER(4);
+    BUTTON_HELPER(5);
+    BUTTON_HELPER(6);
 
-
-/*
-    class Button_1 : RSC(BaseButton) {
-        idc = IDC_ACRE_MENU_BTTN1;
-        x = GUI_ECHIDNA_X + 0.5*GUI_ECHIDNA_W;
-        y = GUI_ECHIDNA_Y + 0.5*GUI_ECHIDNA_H;
-        w = GUI_ECHIDNA_W * 5;
-        h = GUI_ECHIDNA_H * 5;
-        sizeEx = GUI_GRID_CENTER_H;
-        text = "\a3\ui_f\data\gui\rsc\rscdisplaymain\menu_multiplayer_ca.paa";
-        style = "48+0x800";
-        colorBackground[] = COLOR_TABLET_MAIN_BTTN;
-        colorBackgroundActive[] = COLOR_TABLET_MAIN_BTTN_SELECTED;
-        colorFocused[] = COLOR_TABLET_MAIN_BTTN;
-        colorText[] = COLOR_TABLET_MAIN_BTTN_TEXT;
-        colorDisabled[] = COLOR_TABLET_MAIN_BTTN_TEXT_DISABLED;
-        colorBackgroundDisabled[] = COLOR_TABLET_MAIN_BTTN_DISABLED;
-    };
-    class Button_2 : Button_1 {
-        idc = IDC_ACRE_MENU_BTTN2;
-        y = GUI_ECHIDNA_Y + 6*GUI_ECHIDNA_H;
-    };
-    class Button_3 : Button_1 {
-        idc = IDC_ACRE_MENU_BTTN3;
-        y = GUI_ECHIDNA_Y + 11.5*GUI_ECHIDNA_H;
-    };
-    class Button_4 : Button_1 {
-        idc = IDC_ACRE_MENU_BTTN4;
-        y = GUI_ECHIDNA_Y + 17*GUI_ECHIDNA_H;
-    };
-    class Button_5 : Button_1 {
-        idc = IDC_ACRE_MENU_BTTN5;
-        y = GUI_ECHIDNA_Y + 22.5*GUI_ECHIDNA_H;
-    };
-*/
     class Itemlist : RSC(BaseListbox) {
         idc = IDC_ACRE_MENU_ITEMLIST;
         x = 0;
@@ -152,7 +121,7 @@ class APP(dialog) : RSC(echidna) {
         h = 0;
         access = 1;
         canDrag = 1;
-        rowHeight = 4.5*GUI_ECHIDNA_H;
+        rowHeight = 4*GUI_ECHIDNA_H;
     };
     class RadioList : RSC(BaseListbox) {
         idc = IDC_ACRE_MENU_RADIOLIST;
