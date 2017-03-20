@@ -17,47 +17,128 @@
 #define UI_CL_BTN6_foc  {1,0.271,0,1}
 #define UI_CL_BTN2      {0,0,0.545,1}
 #define UI_CL_BTN2_foc  {0,0,1,1}
+class testobj {
+	idd=-1;
 
-class dtest  {
-    idd = 100000;
-    name = "testdialog";
-    movingEnable = 0;
-    enableSimulation = 1;
-    fadein = 0;
-    fadeout = 0;
-    duration = 1000000;
-    objects[] = {};
-    controlsBackground[] = {};
+
+    controlsBackground[] =    {
+        background2,
+        Background
+    };
+	objects[] = {
+        TestObject
+    };
     controls[] = {
-        background,
-        header,
-        bttn
+
     };
+	class TestObject: RSC(BaseObjectContainer) {
+        idc = 1001;
+        onLoad = "uiNamespace setVariable ['testObject',_this select 0];";
+        model="\A3\ui_f\objects\compass.p3d";
+        direction[]={0,0,1};
+        up[]={0,1,0};
+        scale="0.47 * 0.875 * (SafeZoneW Min SafeZoneH)";
+        //positionBack[]={0,-0.02,0.075000003};
+
+
+        position[]={-0.5,0,5};
+        positionBack[]={-0.5,0,6};
+        x = GUI_ECHIDNA_X;
+        y = GUI_ECHIDNA_Y;
+        w = GUI_ECHIDNA_W * 40;
+        h = GUI_ECHIDNA_H * 27.5;
+	};
     class background : RSC(BaseText) {
-        idc = 100;
-        style = "0x02";
-        x = GUI_GRID_CENTER_X;
-        y = GUI_GRID_CENTER_Y;
-        w = GUI_GRID_CENTER_W * 40;
-        h = GUI_GRID_CENTER_H * 25;
-        colorBackground[] = UI_CL_BODY;
+        colorBackground[] = {1,1,1,1};
+        x = GUI_ECHIDNA_X;
+        y = GUI_ECHIDNA_Y;
+        w = GUI_ECHIDNA_W * 40;
+        h = GUI_ECHIDNA_H * 27.5;
     };
-    class header : background {
-        idc = 101;
-        h = GUI_GRID_CENTER_H * 5;
-    };
-    class bttn : background {
-        idc = 102;
-        x = GUI_GRID_CENTER_X + GUI_GRID_CENTER_W * 10;
-        y = GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 10;
-        w = GUI_GRID_CENTER_W * 10;
-        h = GUI_GRID_CENTER_H * 7;
-        text = "TEEST";
+    class background2 : RSC(BaseText) {
+        colorBackground[] = {0,1,1,1};
+        x = GUI_ECHIDNA_X;
+        y = GUI_ECHIDNA_Y;
+        w = GUI_ECHIDNA_W * 40;
+        h = GUI_ECHIDNA_H * 30;
     };
 };
+/*
+class APP(dialog) : RSC(Echidna) {
+    idd = IDD_ECHIDNA_MAIN;
+    controlsBackground[] = {
+        background_taskbar,
+        background_display
+    };
+    controls[] = {
+        clock,
+        menu_button,
+
+        spawnmenubutton_1_background,
+        spawnmenubutton_2_background,
+        spawnmenubutton_1,
+        spawnmenubutton_2,
 
 
 
+
+        metro_back,
+        metro,
+        metro_side,
+        background_device
+    };
+    objects[] = {
+        vehicle
+    };
+
+    #define BUTTON_HELPER(NUMBER) class TRIPLES(spawnmenubutton,NUMBER,background) : RSC(BasePicture) { \
+        idc = -(IDC_ECHIDNA_SPAWN_VEHICLEBUTTON + NUMBER); \
+        x = 0;y = 0;w = 0;h = 0; \
+        text = QEPAAPATH(buttons,button_256_normal); \
+        shadow = 0; \
+        style = "48"; \
+        colorShadow[] = COLOR_DISABLED; \
+        font = FONT_DEFAULT; \
+        colorBackground[] = {0,0,0,1}; \
+        colorText[] = {0,0,0,1}; \
+    }; \
+    class DOUBLES(spawnmenubutton,NUMBER) : RSC(BaseButton) { \
+        idc = IDC_ECHIDNA_SPAWN_VEHICLEBUTTON + NUMBER; \
+        x = 0;y = 0;w = 0;h = 0; \
+        sizeEx = GUI_ECHIDNA_H * 0.7; \
+        text = ""; \
+        style = "48+0x800"; \
+        colorBackground[]= COLOR_DISABLED; \
+        colorBackgroundActive[]= COLOR_DISABLED; \
+        colorFocused[]= COLOR_DISABLED; \
+        colorBackgroundDisabled[]= COLOR_DISABLED; \
+        colorText[] = COLOR_ECHIDNA_METRO_BTTN_DEFAULT_TEXT; \
+        colorDisabled[] = COLOR_ECHIDNA_METRO_BTTN_DEFAULT_TEXT_DISABLED; \
+        shadow = 0; \
+        colorShadow[] = COLOR_DISABLED; \
+        offsetX = 0; \
+        offsetY = 0; \
+        offsetPressedX = 0; \
+        offsetPressedY = 0; \
+    }
+
+    BUTTON_HELPER(1);
+    BUTTON_HELPER(2);
+
+    vehiclelist : RSC(BaseListboxN) {
+        idc = IDC_ECHIDNA_SPAWN_VEHICLELIST;
+    };
+
+    vehicle : RSC(BaseObjectContainer) {
+        idc = IDC_ECHIDNA_SPAWN_VEHICLEOBJECT;
+    };
+
+    vehicleName : RSC(BaseText) {
+        idc = IDC_ECHIDNA_SPAWN_VEHICLENAME;
+    };
+
+};
+*/
 class APP(dialog) {
     idd = IDD_SPAWN_DLG;
     name = "spawndialog";
