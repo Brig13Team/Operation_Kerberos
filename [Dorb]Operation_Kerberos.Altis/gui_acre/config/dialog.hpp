@@ -50,13 +50,6 @@ class APP(dialog) : RSC(echidna) {
     onLoad = QUOTE(uiNamespace setVariable [ARR_2('EGVAR(gui_Echidna,dialog)',_this select 0)]; [ARR_2('GVAR(dialog)',true)] call EFUNC(gui,blur); _this spawn EFUNC(gui_echidna,OnLoad);_this spawn FUNC(OnLoad););
     onUnload = QUOTE([ARR_2('GVAR(dialog)',false)] call EFUNC(gui,blur);_this call EFUNC(gui_Echidna,OnUnLoad););
 
-    /*
-    x = GUI_ECHIDNA_X;
-    y = GUI_ECHIDNA_Y;
-    w = GUI_ECHIDNA_W * 40;
-    h = GUI_ECHIDNA_H * 27.5;
-    */
-
     class display_background: RSC(BaseText) {
         idc = IDC_ACRE_MENU_BACK_REST;
         x = 0;
@@ -158,89 +151,6 @@ class APP(dialog) : RSC(echidna) {
                 h = 0;
                 wholeHeight = GUI_ECHIDNA_H * 15;
             };
-            /*
-            class text_1 : RSC(BaseText) {
-                idc = IDC_ACRE_MENU_PROPERTIES_TEXT_1;
-                x = 0;
-                y = 0;
-                w = 0;
-                h = 0;
-            };
-            class text_2 : text_1 {idc = IDC_ACRE_MENU_PROPERTIES_TEXT_2;};
-            class text_3 : text_1 {idc = IDC_ACRE_MENU_PROPERTIES_TEXT_3;};
-            class text_4 : text_1 {idc = IDC_ACRE_MENU_PROPERTIES_TEXT_4;};
-            class text_5 : text_1 {idc = IDC_ACRE_MENU_PROPERTIES_TEXT_5;};
-            class text_6 : text_1 {idc = IDC_ACRE_MENU_PROPERTIES_TEXT_6;};
-            class text_7 : text_1 {idc = IDC_ACRE_MENU_PROPERTIES_TEXT_7;};
-            class text_8 : text_1 {idc = IDC_ACRE_MENU_PROPERTIES_TEXT_8;};
-            class text_9 : text_1 {idc = IDC_ACRE_MENU_PROPERTIES_TEXT_9;};
-            class text_10 : text_1 {idc = IDC_ACRE_MENU_PROPERTIES_TEXT_10;};
-            class text_11 : text_1 {idc = IDC_ACRE_MENU_PROPERTIES_TEXT_11;};
-            class text_12 : text_1 {idc = IDC_ACRE_MENU_PROPERTIES_TEXT_12;};
-            class text_13 : text_1 {idc = IDC_ACRE_MENU_PROPERTIES_TEXT_13;};
-            class text_14 : text_1 {idc = IDC_ACRE_MENU_PROPERTIES_TEXT_14;};
-            class text_15 : text_1 {idc = IDC_ACRE_MENU_PROPERTIES_TEXT_15;};
-            class text_16 : text_1 {idc = IDC_ACRE_MENU_PROPERTIES_TEXT_16;};
-            class text_17 : text_1 {idc = IDC_ACRE_MENU_PROPERTIES_TEXT_17;};
-            class text_18 : text_1 {idc = IDC_ACRE_MENU_PROPERTIES_TEXT_18;};
-            class text_19 : text_1 {idc = IDC_ACRE_MENU_PROPERTIES_TEXT_19;};
-            class text_20 : text_1 {idc = IDC_ACRE_MENU_PROPERTIES_TEXT_20;};
-            class text_21 : text_1 {idc = IDC_ACRE_MENU_PROPERTIES_TEXT_21;};
-            class text_22 : text_1 {idc = IDC_ACRE_MENU_PROPERTIES_TEXT_22;};
-            class text_23 : text_1 {idc = IDC_ACRE_MENU_PROPERTIES_TEXT_23;};
-            class text_24 : text_1 {idc = IDC_ACRE_MENU_PROPERTIES_TEXT_24;};
-            class text_25 : text_1 {idc = IDC_ACRE_MENU_PROPERTIES_TEXT_25;};
-            class text_26 : text_1 {idc = IDC_ACRE_MENU_PROPERTIES_TEXT_26;};
-            class text_27 : text_1 {idc = IDC_ACRE_MENU_PROPERTIES_TEXT_27;};
-            class text_28 : text_1 {idc = IDC_ACRE_MENU_PROPERTIES_TEXT_28;};
-            class text_29 : text_1 {idc = IDC_ACRE_MENU_PROPERTIES_TEXT_29;};
-            class text_30 : text_1 {idc = IDC_ACRE_MENU_PROPERTIES_TEXT_30;};
-
-
-            class edit_1 : RSC(BaseEdit) {
-                idc = IDC_ACRE_MENU_PROPERTIES_EDIT_1;
-                x = 1;
-                y = 1;
-                w = 1;
-                h = 1;
-            };
-            class edit_2 : edit_1 {idc = IDC_ACRE_MENU_PROPERTIES_EDIT_2;};
-            class edit_3 : edit_1 {idc = IDC_ACRE_MENU_PROPERTIES_EDIT_3;};
-            class edit_4 : edit_1 {idc = IDC_ACRE_MENU_PROPERTIES_EDIT_4;};
-            class edit_5 : edit_1 {idc = IDC_ACRE_MENU_PROPERTIES_EDIT_5;};
-            class edit_6 : edit_1 {idc = IDC_ACRE_MENU_PROPERTIES_EDIT_6;};
-            class edit_7 : edit_1 {idc = IDC_ACRE_MENU_PROPERTIES_EDIT_7;};
-            class edit_8 : edit_1 {idc = IDC_ACRE_MENU_PROPERTIES_EDIT_8;};
-            class edit_9 : edit_1 {idc = IDC_ACRE_MENU_PROPERTIES_EDIT_9;};
-            class edit_10 : edit_1 {idc = IDC_ACRE_MENU_PROPERTIES_EDIT_10;};
-            class edit_11 : edit_1 {idc = IDC_ACRE_MENU_PROPERTIES_EDIT_11;};
-            class edit_12 : edit_1 {idc = IDC_ACRE_MENU_PROPERTIES_EDIT_12;};
-            class edit_13 : edit_1 {idc = IDC_ACRE_MENU_PROPERTIES_EDIT_13;};
-            class edit_14 : edit_1 {idc = IDC_ACRE_MENU_PROPERTIES_EDIT_14;};
-            class edit_15 : edit_1 {idc = IDC_ACRE_MENU_PROPERTIES_EDIT_15;};
-            class edit_16 : edit_1 {idc = IDC_ACRE_MENU_PROPERTIES_EDIT_16;};
-            class edit_17 : edit_1 {idc = IDC_ACRE_MENU_PROPERTIES_EDIT_17;};
-            class edit_18 : edit_1 {idc = IDC_ACRE_MENU_PROPERTIES_EDIT_18;};
-            class edit_19 : edit_1 {idc = IDC_ACRE_MENU_PROPERTIES_EDIT_19;};
-            class edit_20 : edit_1 {idc = IDC_ACRE_MENU_PROPERTIES_EDIT_20;};
-            class edit_21 : edit_1 {idc = IDC_ACRE_MENU_PROPERTIES_EDIT_21;};
-            class edit_22 : edit_1 {idc = IDC_ACRE_MENU_PROPERTIES_EDIT_22;};
-            class edit_23 : edit_1 {idc = IDC_ACRE_MENU_PROPERTIES_EDIT_23;};
-            class edit_24 : edit_1 {idc = IDC_ACRE_MENU_PROPERTIES_EDIT_24;};
-            class edit_25 : edit_1 {idc = IDC_ACRE_MENU_PROPERTIES_EDIT_25;};
-
-            class bool_1 : RSC(BaseCheckBox) {
-                idc = IDC_ACRE_MENU_PROPERTIES_BOOL_1;
-                x = 0;
-                y = 0;
-                w = 0;
-                h = 0;
-            };
-            class bool_2 : edit_1 {idc = IDC_ACRE_MENU_PROPERTIES_BOOL_2;};
-            class bool_3 : edit_1 {idc = IDC_ACRE_MENU_PROPERTIES_BOOL_3;};
-            class bool_4 : edit_1 {idc = IDC_ACRE_MENU_PROPERTIES_BOOL_4;};
-            class bool_5 : edit_1 {idc = IDC_ACRE_MENU_PROPERTIES_BOOL_5;};
-            */
         };
     };
     class properties_list : RSC(BaseListboxN) {
