@@ -14,47 +14,20 @@
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-_this params [["_player",objNull,[objNull]],["_spawntype","",[""]]];
+_this params [["_player",objNull,[objNull]],["_spawnID","",[""]]];
 
-If ((isNull _player)||(!(isPlayer _player))) exitWith {
-    TRACE("player != player");
-    false;
-};
-If !(vehicle player == player) exitWith {
-    TRACE("vehicle player != player");
-    false;
-};
+If ((isNull _player)||(!(isPlayer _player))||(!(vehicle player == player))) exitWith {false;};
 
-private _spawnpositions = HASH_GET(GVAR(spawnpositions),_spawntype);
+private _spawnArray = HASH_GET_DEF(GVAR(spawns),_spawnID,[]);
 
-If ((isNil "_spawnpositions")) exitWith {
-    TRACE("spawnposition == nil||null");
-    false;
-};
+If (_spawnArray isEqualTo []) exitWith {false;};
+
+If ((_player distance2D (_spawnArray select 1)) > (5 + CHECK_RADIUS)) exitWith {false};
 
 
-Private _possiblePos = [];
-If !(({
-    If (((_player distance2D (_x select 0))<(5 + CHECK_RADIUS))&&
-    ((_player distance2D (_x select 0))>CHECK_RADIUS)) then {
-        _possiblePos pushBack (_x select 0);
-        true;
-    }else{false;};
-} count _spawnpositions)>0) exitWith {
-    TRACE("wrong distance");
-    false;
-};
+private _cur =+ (_spawnArray select 1):
+_cur set[2,(_cur select 2)+1];
+private _pPos = getPos _player;
+_pPos set[2,(_pPos select 2)+1];
 
-TRACEV_1(_possiblePos);
-
-(({
-    private _cur =+ _x;
-    _cur set[2,(_cur select 2)+1];
-    private _pPos = getPos player;
-    _pPos set[2,(_pPos select 2)+1];
-    //private _intersects = !( lineIntersects [_cur,_pPos,player]);
-    private _intersects = !( terrainIntersect [_cur,_pPos]);
-    TRACEV_3(_intersects,_cur,_pPos);
-    _intersects;
-} count _possiblePos)>0);
-/// TODO - check sight (lineintersects), add distance, remove actionposition
+!(terrainIntersect [_cur,_pPos]);

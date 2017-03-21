@@ -12,7 +12,7 @@ class DOUBLES(CfgComponent,ADDON) {
     class clientpostinit {server = 0;};
     class preinit {};
     class dependencies {
-        CfgPatches[] = {};
+        CfgPatches[] = {"CBA_common"};
         CfgComponents[] = {"common","gui"};
     };
     class features {

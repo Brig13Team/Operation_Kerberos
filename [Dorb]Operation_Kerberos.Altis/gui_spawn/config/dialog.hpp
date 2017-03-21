@@ -23,7 +23,8 @@ class testobj {
 
     controlsBackground[] =    {
         background2,
-        Background
+        Background,
+        background3
     };
 	objects[] = {
         TestObject
@@ -37,16 +38,21 @@ class testobj {
         model="\A3\ui_f\objects\compass.p3d";
         direction[]={0,0,1};
         up[]={0,1,0};
-        scale="0.47 * 0.875 * (SafeZoneW Min SafeZoneH)";
+        //scale="0.47 * 0.875 * (SafeZoneW Min SafeZoneH)";
         //positionBack[]={0,-0.02,0.075000003};
 
-
-        position[]={-0.5,0,5};
-        positionBack[]={-0.5,0,6};
-        x = GUI_ECHIDNA_X;
-        y = GUI_ECHIDNA_Y;
-        w = GUI_ECHIDNA_W * 40;
-        h = GUI_ECHIDNA_H * 27.5;
+        enableZoom = 0;
+        zoomDuration = 1;
+        position[]={
+            0,
+            0,
+            4
+        };
+        positionBack[]={
+            -0.5,
+            -0.5,
+            5
+        };
 	};
     class background : RSC(BaseText) {
         colorBackground[] = {1,1,1,1};
@@ -62,10 +68,20 @@ class testobj {
         w = GUI_ECHIDNA_W * 40;
         h = GUI_ECHIDNA_H * 30;
     };
+    class background3 : RSC(BaseText) {
+        colorBackground[] = {0,1,0,1};
+        x = GUI_ECHIDNA_X;
+        y = GUI_ECHIDNA_Y + GUI_ECHIDNA_H * 12.5;
+        w = GUI_ECHIDNA_W * 20;
+        h = GUI_ECHIDNA_H * 15;
+    };
 };
-/*
+
 class APP(dialog) : RSC(Echidna) {
     idd = IDD_ECHIDNA_MAIN;
+    onLoad = QUOTE(uiNamespace setVariable [ARR_2('EGVAR(gui_Echidna,dialog)',_this select 0)]; [ARR_2('GVAR(dialog)',true)] call EFUNC(gui,blur); _this spawn EFUNC(gui_echidna,OnLoad);_this spawn FUNC(OnLoad););
+    onUnload = QUOTE([ARR_2('GVAR(dialog)',false)] call EFUNC(gui,blur);_this call EFUNC(gui_Echidna,OnUnLoad););
+    
     controlsBackground[] = {
         background_taskbar,
         background_display
@@ -79,8 +95,9 @@ class APP(dialog) : RSC(Echidna) {
         spawnmenubutton_1,
         spawnmenubutton_2,
 
-
-
+        vehiclelist,
+        vehiclename,
+        vehicleproperties,
 
         metro_back,
         metro,
@@ -99,8 +116,8 @@ class APP(dialog) : RSC(Echidna) {
         style = "48"; \
         colorShadow[] = COLOR_DISABLED; \
         font = FONT_DEFAULT; \
-        colorBackground[] = {0,0,0,1}; \
-        colorText[] = {0,0,0,1}; \
+        colorBackground[] = {ARR_4(0,0,0,1)}; \
+        colorText[] = {ARR_4(0,0,0,1)}; \
     }; \
     class DOUBLES(spawnmenubutton,NUMBER) : RSC(BaseButton) { \
         idc = IDC_ECHIDNA_SPAWN_VEHICLEBUTTON + NUMBER; \
@@ -125,20 +142,52 @@ class APP(dialog) : RSC(Echidna) {
     BUTTON_HELPER(1);
     BUTTON_HELPER(2);
 
-    vehiclelist : RSC(BaseListboxN) {
+
+    class vehiclelist : RSC(BaseListboxN) {
         idc = IDC_ECHIDNA_SPAWN_VEHICLELIST;
+        x = 0;
+        y = 0;
+        w = 0;
+        h = 0;
     };
 
-    vehicle : RSC(BaseObjectContainer) {
+    class vehicleproperties : RSC(BaseListboxN) {
+        idc = IDC_ECHIDNA_SPAWN_VEHICLELIST;
+        x = 0;
+        y = 0;
+        w = 0;
+        h = 0;
+    };
+
+    class vehicle : RSC(BaseObjectContainer) {
         idc = IDC_ECHIDNA_SPAWN_VEHICLEOBJECT;
+        model = "\A3\Weapons_F\empty.p3d";
+        direction[]={0,0,1};
+        up[]={0,1,0};
+        enableZoom = 0;
+        zoomDuration = 1;
+        position[]={
+            0,
+            0,
+            4
+        };
+        positionBack[]={
+            -0.5,
+            -0.5,
+            5
+        };
     };
 
-    vehicleName : RSC(BaseText) {
+    class vehicleName : RSC(BaseText) {
         idc = IDC_ECHIDNA_SPAWN_VEHICLENAME;
+        x = 0;
+        y = 0;
+        w = 0;
+        h = 0;
     };
 
 };
-*/
+/*
 class APP(dialog) {
     idd = IDD_SPAWN_DLG;
     name = "spawndialog";
@@ -282,3 +331,4 @@ class APP(dialog) {
         action = QUOTE([] call FUNC(create););
     };
 };
+*/

@@ -175,6 +175,21 @@
             <German>Als Fahrer erschaffen</German>
             <English>Spawn as driver</English>
         </Key>
+
+
+        <Key ID="STR_DORB_GUI_SPAWN_PROPERTY_NAME">
+            <German>Name</German>
+            <English>Name</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_SPAWN_PROPERTY_EMPTY">
+            <German> </German>
+            <English> </English>
+        </Key>
+        <Key ID="STR_DORB_GUI_SPAWN_PROPERTY_MASS">
+            <German>Fahrzeuggewicht</German>
+            <English>Vehiclemass</English>
+        </Key>
+
     </Package>
     <Package name="MISSIONS">
         <!-- Intel -->
