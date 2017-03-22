@@ -18,7 +18,7 @@
 #define UI_CL_BTN2      {0,0,0.545,1}
 #define UI_CL_BTN2_foc  {0,0,1,1}
 class testobj {
-	idd=-1;
+    idd=-1;
 
 
     controlsBackground[] =    {
@@ -26,13 +26,13 @@ class testobj {
         Background,
         background3
     };
-	objects[] = {
+    objects[] = {
         TestObject
     };
     controls[] = {
 
     };
-	class TestObject: RSC(BaseObjectContainer) {
+    class TestObject: RSC(BaseObjectContainer) {
         idc = 1001;
         onLoad = "uiNamespace setVariable ['testObject',_this select 0];";
         model="\A3\ui_f\objects\compass.p3d";
@@ -53,7 +53,7 @@ class testobj {
             -0.5,
             5
         };
-	};
+    };
     class background : RSC(BaseText) {
         colorBackground[] = {1,1,1,1};
         x = GUI_ECHIDNA_X;
