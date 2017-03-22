@@ -1386,6 +1386,10 @@
             <German>Einstellungen übertragen</German>
             <English>transmitt settings</English>
         </Key>
+        <Key ID="STR_DORB_GUI_ACRE_RADIOS_RESET">
+            <German>Einstellungen zurücksetzen</German>
+            <English>discard settings</English>
+        </Key>
         <Key ID="STR_DORB_GUI_ACRE_HEADER">
             <German>ACRE2 - Frequenzübersicht</German>
             <English>ACRE2 - Frequencies overview</English>

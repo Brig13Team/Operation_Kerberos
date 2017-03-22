@@ -24,6 +24,8 @@ class APP(dialog) : RSC(echidna) {
         spare_back2,
         spare_back3,
 
+        watermark,
+
         Itemlist,
         Radiolist,
 
@@ -39,12 +41,14 @@ class APP(dialog) : RSC(echidna) {
         menubutton_4_background,
         menubutton_5_background,
         menubutton_6_background,
+        menubutton_7_background,
         menubutton_1,
         menubutton_2,
         menubutton_3,
         menubutton_4,
         menubutton_5,
         menubutton_6,
+        menubutton_7,
 
         metro_back,
         metro,
@@ -110,6 +114,7 @@ class APP(dialog) : RSC(echidna) {
     BUTTON_HELPER(4);
     BUTTON_HELPER(5);
     BUTTON_HELPER(6);
+    BUTTON_HELPER(7);
 
     class Itemlist : RSC(BaseListbox) {
         idc = IDC_ACRE_MENU_ITEMLIST;
@@ -121,8 +126,6 @@ class APP(dialog) : RSC(echidna) {
         canDrag = 1;
         rowHeight = 4*GUI_ECHIDNA_H;
         colorBackground[] = COLOR_DISABLED;
-        //colorSelectBackground[] = {RAL9022,1};
-        //colorSelectBackground2[] = {RAL9022,1};
         colorSelectBackground[] = COLOR_DISABLED;
         colorSelectBackground2[] = COLOR_DISABLED;
         colorText[] = {RAL9005,1};
@@ -169,6 +172,10 @@ class APP(dialog) : RSC(echidna) {
     };
     class header_text : RSC(BaseText) {
         idc = IDC_ACRE_MENU_HEADER_TEXT;
+        x = 0;
+        y = 0;
+        w = 0;
+        h = 0;
         colorBackground[] = COLOR_DISABLED;
         colorText[] = COLOR_DISABLED;
     };
@@ -176,6 +183,9 @@ class APP(dialog) : RSC(echidna) {
         idc = IDC_ACRE_MENU_HEADER_PIC;
         colorBackground[] = COLOR_DISABLED;
         colorText[] = COLOR_DISABLED;
+    };
+    class watermark : header_picture {
+        idc = IDC_ACRE_MENU_WATERMARK;
     };
 
     class spare_back2: spare_back1 {
@@ -198,7 +208,6 @@ class APP(dialog) : RSC(echidna) {
                 w = 0;
                 h = 0;
                 wholeHeight = GUI_ECHIDNA_H * 15;
-
                 colorSelect[]={RAL9005,1};
                 colorText[]={RAL9005,1};
                 colorBackground[]={RAL9018,1};
@@ -249,9 +258,7 @@ class APP(dialog) : RSC(echidna) {
         colorPictureRight[]={1,1,1,1};
         colorPictureRightSelected[]={1,1,1,1};
         colorPictureRightDisabled[]={1,1,1,0.25};
-        //hiddenTexture = __EVAL(MISSION_ROOT + 'EPAAPATH(icon,add_b_nb)');
-        //expandedTexture = __EVAL(MISSION_ROOT + 'EPAAPATH(icon,dec_b_nb)');
-        hiddenTexture = MPATH(data\gui\tree\add_b_nb.paa);
-        expandedTexture = MPATH(data\gui\tree\dec_b_nb.paa);
+        hiddenTexture = MPATH(gui\data\tree\add_b_nb.paa);
+        expandedTexture = MPATH(gui\data\tree\dec_b_nb.paa);
     };
 };

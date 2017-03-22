@@ -11,7 +11,7 @@
  *      [TYPE] - [return name]
  *
  */
-//#define DEBUG_MODE_FULL
+#define DEBUG_MODE_FULL
 #define INCLUDE_GUI
 #include "script_component.hpp"
 disableSerialization;
@@ -32,6 +32,7 @@ private _back1 = _display displayCtrl IDC_ACRE_MENU_BACK_1;
 private _back2 = _display displayCtrl IDC_ACRE_MENU_BACK_2;
 private _back3 = _display displayCtrl IDC_ACRE_MENU_BACK_3;
 private _properties_combo = _properties controlsGroupCtrl IDC_ACRE_MENU_PROPERTIES_COMBO;
+private _watermark = _display displayCtrl IDC_ACRE_MENU_WATERMARK;
 
 lbClear _itemlist;
 lbClear _radiolist;
@@ -90,13 +91,39 @@ private _pos_h = GUI_ECHIDNA_H*3;
 private _picture = "a3\ui_f\data\igui\cfg\simpletasks\types\upload_ca.paa";
 private _displayName = localize LSTRING(RADIOS_TRANSMITT);
 private _ctrl = _display displayCtrl IDC_ACRE_MENU_BTTN6;
-_ctrl ctrlAddEventHandler ["ButtonClick",{[player] call FUNC(transmitt);true}];
+_ctrl ctrlAddEventHandler ["ButtonClick",{[GVAR(radioSettingsTarget)] call FUNC(transmitt);true}];
 ["changepos",[_ctrl,[_pos_x, _pos_y, _pos_w, _pos_h]]] call FUNC(AnimBttn);
 _ctrl ctrlSetText _picture;
 _ctrl ctrlSetTooltip _displayName;
 _ctrl ctrlSetFontHeight (GUI_ECHIDNA_METRO_BTTN_H * 0.1);
 _ctrl ctrlSetTextColor [1,1,1,1];
 
+private _pos_x = GUI_ECHIDNA_X + 33*GUI_ECHIDNA_W;
+private _picture = "a3\ui_f\data\igui\cfg\simpletasks\types\download_ca.paa";
+private _displayName = localize LSTRING(RADIOS_RESET);
+private _ctrl2 = _display displayCtrl IDC_ACRE_MENU_BTTN7;
+_ctrl2 ctrlAddEventHandler ["ButtonClick",{[GVAR(radioSettingsTarget)] call FUNC(radiosShow);true}];
+["changepos",[_ctrl2,[_pos_x, _pos_y, _pos_w, _pos_h]]] call FUNC(AnimBttn);
+_ctrl2 ctrlSetText _picture;
+_ctrl2 ctrlSetTooltip _displayName;
+_ctrl2 ctrlSetFontHeight (GUI_ECHIDNA_METRO_BTTN_H * 0.1);
+_ctrl2 ctrlSetTextColor [1,1,1,1];
+
+
+_watermark ctrlSetPosition [
+    GUI_ECHIDNA_X + GUI_ECHIDNA_W * 10,
+    GUI_ECHIDNA_Y + GUI_ECHIDNA_H * 2.5,
+    25*GUI_ECHIDNA_W,
+    25*GUI_ECHIDNA_H
+];
+If (_target isEqualType grpNull) then {
+    _watermark ctrlSetText ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QUOTE(COMPONENT\data\radio_multi.paa));
+}else{
+    _watermark ctrlSetText ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QUOTE(COMPONENT\data\radio_single.paa));
+};
+_watermark ctrlSetTextColor [RAL9022,0.15];
+TRACEV_3(_watermark,ctrlText _watermark,ctrlPosition _watermark);
+_watermark ctrlCommit 0;
 _back1 ctrlCommit 0;
 _back2 ctrlCommit 0;
 _back3 ctrlCommit 0;
@@ -105,6 +132,7 @@ _radiolist ctrlCommit 0;
 _properties ctrlCommit 0;
 _properties_combo ctrlCommit 0;
 _ctrl ctrlCommit 0;
+_ctrl2 ctrlCommit 0;
 
 _itemlist ctrladdEventHandler ["LBDrop",{_this call FUNC(radiosDrop)}];
 _radiolist ctrladdEventHandler ["LBDrop",{_this call FUNC(radiosDrop)}];

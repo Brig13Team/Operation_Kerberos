@@ -105,7 +105,7 @@ _ctrl ctrlSetTextColor [1,1,1,1];
 
 
 // tree view
-private _picture = ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QEPAAPATH(acre,tree));
+private _picture = ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QUOTE(COMPONENT\data\tree.paa));
 private _displayName = localize LSTRING(MENU_TREE);
 private _pos_y = GUI_ECHIDNA_Y + _pos_h*1;
 private _ctrl = _dialog displayCtrl IDC_ACRE_MENU_BTTN2;
@@ -117,7 +117,7 @@ _ctrl ctrlSetFontHeight (GUI_ECHIDNA_METRO_BTTN_H * 0.1);
 _ctrl ctrlSetTextColor [1,1,1,1];
 
 // group settings
-private _picture = ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QEPAAPATH(acre,radio_multi));
+private _picture = ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QUOTE(COMPONENT\data\radio_multi.paa));
 private _displayName = localize LSTRING(MENU_GROUP);
 private _pos_y = GUI_ECHIDNA_Y + _pos_h*2;
 private _ctrl = _dialog displayCtrl IDC_ACRE_MENU_BTTN3;
@@ -129,7 +129,7 @@ _ctrl ctrlSetFontHeight (GUI_ECHIDNA_METRO_BTTN_H * 0.1);
 _ctrl ctrlSetTextColor [1,1,1,1];
 
 // player settings
-private _picture = ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QEPAAPATH(acre,radio_single));
+private _picture = ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QUOTE(COMPONENT\data\radio_single.paa));
 private _displayName = localize LSTRING(MENU_SINGLE);
 private _pos_y = GUI_ECHIDNA_Y + _pos_h*3;
 private _ctrl = _dialog displayCtrl IDC_ACRE_MENU_BTTN4;

@@ -32,14 +32,20 @@ private _display = uiNamespace getVariable QEGVAR(gui_Echidna,dialog);
     [IDC_ACRE_MENU_PROPERTIES],
     [IDC_ACRE_MENU_BACK_1],
     [IDC_ACRE_MENU_BACK_2],
-    [IDC_ACRE_MENU_BACK_3]
+    [IDC_ACRE_MENU_BACK_3],
+    [IDC_ACRE_MENU_WATERMARK]
 ];
-private _header = _display displayCtrl IDC_ACRE_MENU_HEADER;
-_header ctrlsetText "";
+
+{
+    private _ctrl = _display displayCtrl _x;
+    _ctrl ctrlsetText "";
+} forEach [IDC_ACRE_MENU_WATERMARK,IDC_ACRE_MENU_HEADER];
 
 {
     {ctrlDelete _x;} forEach _x;
 } forEach GVAR(tempProperties);
 
-private _ctrl = _display displayCtrl IDC_ACRE_MENU_BTTN6;
-["delete",[_ctrl]] call FUNC(AnimBttn);
+{
+    private _ctrl = _display displayCtrl _x;
+    ["delete",[_ctrl]] call FUNC(AnimBttn);
+} forEach [IDC_ACRE_MENU_BTTN6,IDC_ACRE_MENU_BTTN7];

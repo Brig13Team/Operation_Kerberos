@@ -11,10 +11,10 @@
 onLoadMissionTime = 1;
 onLoadName = LSTRING(NAME);
 onLoadMission = LSTRING(NAME);
-//loadScreen = QEPAAPATH(logo,logo_512);
+loadScreen = MPATH('EPAAPATH(logo,logo_512)');
 
 author = CSTRING(AUTHOR);
-//overviewPicture = QEPAAPATH(logo,logo_512);
+overviewPicture = MPATH('EPAAPATH(logo,logo_512)');
 overviewText = "";
 overviewTextLocked = "";
 
