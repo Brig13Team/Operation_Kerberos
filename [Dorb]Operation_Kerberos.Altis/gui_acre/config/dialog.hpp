@@ -251,7 +251,7 @@ class APP(dialog) : RSC(echidna) {
         multiselectEnabled = 0;
         class ScrollBar : ScrollBar {
             color[] = {RAL9005,1};
-		};
+        };
         colorPicture[]={1,1,1,1};
         colorPictureSelected[]={1,1,1,1};
         colorPictureDisabled[]={1,1,1,0.25};
