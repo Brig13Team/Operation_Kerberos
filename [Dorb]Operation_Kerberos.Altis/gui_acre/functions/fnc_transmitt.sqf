@@ -15,3 +15,4 @@
 #include "script_component.hpp"
 
 TRACE("transmitting");
+private _target = GVAR(radioSettingsTarget);
