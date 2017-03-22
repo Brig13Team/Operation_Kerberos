@@ -1382,5 +1382,13 @@
             <German>Spielerfunkteräte</German>
             <English>player-radios</English>
         </Key>
+        <Key ID="STR_DORB_GUI_ACRE_RADIOS_TRANSMITT">
+            <German>Einstellungen übertragen</German>
+            <English>transmitt settings</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_HEADER">
+            <German>ACRE2 - Frequenzübersicht</German>
+            <English>ACRE2 - Frequencies overview</English>
+        </Key>
     </Package>
 </Project>

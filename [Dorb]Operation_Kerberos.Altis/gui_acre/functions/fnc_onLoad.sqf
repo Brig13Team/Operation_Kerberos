@@ -27,6 +27,9 @@ private _pos_h = GUI_ECHIDNA_H*5.5;
 private _menu_back = _dialog displayCtrl IDC_ACRE_MENU_BACK_LEFT;
 private _other_back = _dialog displayCtrl IDC_ACRE_MENU_BACK_REST;
 private _header = _dialog displayCtrl IDC_ACRE_MENU_HEADER;
+private _header_text = _dialog displayCtrl IDC_ACRE_MENU_HEADER_TEXT;
+private _header_pic = _dialog displayCtrl IDC_ACRE_MENU_HEADER_PIC;
+
 
 _menu_back ctrlsetPosition [
     _pos_x,
@@ -39,30 +42,50 @@ _menu_back ctrlCommit 0;
 {
     private _pic = _dialog displayCtrl (-1*_x);
     TRACEV_1(_pic);
-    _pic ctrlSetBackgroundColor [RAL8022,1];
-    _pic ctrlSetTextColor [RAL8022,1];
+    _pic ctrlSetBackgroundColor [RAL5015,1];
+    _pic ctrlSetTextColor [RAL5015,1];
     _pic ctrlCommit 0;
 } forEach [IDC_ACRE_MENU_BTTN1,IDC_ACRE_MENU_BTTN2,IDC_ACRE_MENU_BTTN3,IDC_ACRE_MENU_BTTN4,IDC_ACRE_MENU_BTTN5];
 
 _other_back ctrlsetPosition [
     _pos_x + _pos_w,
-    _pos_y,
+    _pos_y + GUI_ECHIDNA_H * 2,
     GUI_ECHIDNA_WAbs - _pos_w,
-    GUI_ECHIDNA_H * 27.5
+    GUI_ECHIDNA_H * 27.5 - GUI_ECHIDNA_H * 2
 ];
 _other_back ctrlSetBackgroundColor [RAL9010,1];
 _other_back ctrlCommit 0;
 
-_other_back ctrlsetPosition [
+_header ctrlsetPosition [
     _pos_x + _pos_w,
     _pos_y,
     GUI_ECHIDNA_WAbs - _pos_w,
-    GUI_ECHIDNA_H * 27.5
+    GUI_ECHIDNA_H * 2
 ];
-_other_back ctrlSetBackgroundColor [RAL9010,1];
-_other_back ctrlCommit 0;
+_header ctrlSetBackgroundColor [RAL7004,1];
+_header ctrlCommit 0;
 
+_header_pic ctrlsetPosition [
+    _pos_x + (GUI_ECHIDNA_WAbs - _pos_w)/2 - GUI_ECHIDNA_H * 2,
+    _pos_y + GUI_ECHIDNA_H * 0.1,
+    GUI_ECHIDNA_H * 1.8,
+    GUI_ECHIDNA_H * 1.8
+];
+_header_pic ctrlSetBackgroundColor [RAL7004,1];
+_header_pic ctrlSetText (getText(configfile >> "CfgMods" >> "ACRE2" >> "picture"));
+_header_pic ctrlSetTextColor [1,1,1,1];
+_header_pic ctrlCommit 0;
 
+_header_text ctrlsetPosition [
+    _pos_x + (GUI_ECHIDNA_WAbs - _pos_w)/2,
+    _pos_y,
+    (GUI_ECHIDNA_WAbs - _pos_w)/2,
+    GUI_ECHIDNA_H * 2
+];
+_header_text ctrlSetBackgroundColor [RAL7004,1];
+_header_text ctrlsetText localize LSTRING(HEADER);
+_header_text ctrlSetTextColor [RAL9005,1];
+_header_text ctrlCommit 0;
 
 
 
@@ -133,5 +156,5 @@ _ctrl ctrlSetTextColor [1,1,1,1];
 
 
 
-
+// TODO: should be changed after the modern view is created
 [] spawn FUNC(treeShow);

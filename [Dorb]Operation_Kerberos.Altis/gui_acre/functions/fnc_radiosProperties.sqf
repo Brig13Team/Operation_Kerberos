@@ -23,13 +23,15 @@ private _combobox = _ctrlGroup controlsGroupCtrl IDC_ACRE_MENU_PROPERTIES_COMBO;
 
 lnbClear _combobox;
 
+TRACEV_1(_index);
+
 If (_index < 0) exitWith {
     GVAR(tempProperties) = [];
     GVAR(tempPropertiesRadio) = locationNull;
     [] call FUNC(radiosPropertiesShow);
 };
 
-TRACEV_1(_index);
+
 
 GVAR(tempPropertiesRadio) = GVAR(tempRadioList) select _index;
 

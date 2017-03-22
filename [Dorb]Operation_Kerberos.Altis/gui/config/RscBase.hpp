@@ -649,17 +649,23 @@ class RSC(BaseTree) {
     font = FONT_DEFAULT;
     shadow = 0;
 
+    colorDisabled[] = COLOR_DISABLED; // not used
+    colorArrow[] = COLOR_DISABLED; // not used
+
     borderSize=0;
     colorBorder[] = COLOR_DISABLED;
-    colorDisabled[]={1,1,1,0.25};
     colorLines[]={0,0,0,0};
 
     colorBackground[] = {0.2,0.2,0.2,1};
-    colorSelectBackground[]={0,0,0,0.5};
+    colorText[] = {1,1,1,1};
 
+    colorSelectBackground[]={0,0,0,0.5};
+    colorSelectText[] = {1,1,1,1};
     colorSelect[] = {1,0.5,0,1};
+
     colorMarked[] = {1,0.5,0,0.5};
     colorMarkedSelected[] = {1,0.5,0,1};
+    colorMarkedText[] = {1,1,1,1};
 
     colorPicture[]={1,1,1,1};
     colorPictureSelected[]={0,0,0,1};
@@ -668,7 +674,6 @@ class RSC(BaseTree) {
     colorPictureRightSelected[]={0,0,0,1};
     colorPictureRightDisabled[]={1,1,1,0.25};
 
-    colorArrow[] = {0,0,0,0};
     colorSearch[]={
         "(profilenamespace getvariable ['GUI_BCG_RGB_R',0.13])",
         "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.54])",
@@ -676,9 +681,6 @@ class RSC(BaseTree) {
         "(profilenamespace getvariable ['GUI_BCG_RGB_A',0.8])"
     };
 
-    colorText[] = {1,1,1,1};
-    colorSelectText[] = {1,1,1,1};
-    colorMarkedText[] = {1,1,1,1};
     tooltip = "";
     tooltipColorShade[] = {0,0,0,1};
     tooltipColorText[] = {1,1,1,1};
@@ -688,6 +690,7 @@ class RSC(BaseTree) {
     hiddenTexture = "A3\ui_f\data\gui\rsccommon\rsctree\hiddenTexture_ca.paa";
     expandedTexture = "A3\ui_f\data\gui\rsccommon\rsctree\expandedTexture_ca.paa";
     maxHistoryDelay = 1;
+    disableKeyboardSearch = 1;
     class ScrollBar {
         width = 0;
         height = 0;

@@ -12,6 +12,7 @@
  *
  */
 //#define DEBUG_MODE_FULL
+#define INCLUDE_GUI
 #include "script_component.hpp"
 disableSerialization;
 private _display = uiNamespace getVariable QEGVAR(gui_Echidna,dialog);
@@ -28,10 +29,17 @@ private _display = uiNamespace getVariable QEGVAR(gui_Echidna,dialog);
     [IDC_ACRE_MENU_RADIOLIST,["LBDrop","LBSelChanged"]],
     [IDC_ACRE_MENU_TREE,["TreeSelChanged"]],
     [IDC_ACRE_MENU_PROPERTIESLIST],
-    [IDC_ACRE_MENU_PROPERTIES]
+    [IDC_ACRE_MENU_PROPERTIES],
+    [IDC_ACRE_MENU_BACK_1],
+    [IDC_ACRE_MENU_BACK_2],
+    [IDC_ACRE_MENU_BACK_3]
 ];
 private _header = _display displayCtrl IDC_ACRE_MENU_HEADER;
 _header ctrlsetText "";
 
-ISNILS(GVAR(tempProperties),[]);
-{ctrlDelete _x;} forEach GVAR(tempProperties);
+{
+    {ctrlDelete _x;} forEach _x;
+} forEach GVAR(tempProperties);
+
+private _ctrl = _display displayCtrl IDC_ACRE_MENU_BTTN6;
+["delete",[_ctrl]] call FUNC(AnimBttn);

@@ -22,6 +22,7 @@ disableSerialization;
 private _display = uiNamespace getVariable QEGVAR(gui_Echidna,dialog);
 private _tree = _display displayCtrl IDC_ACRE_MENU_TREE;
 private _list = _display displayCtrl IDC_ACRE_MENU_PROPERTIESLIST;
+private _background = _display displayCtrl IDC_ACRE_MENU_BACK_1;
 
 tvClear _tree;
 lnbClear _list;
@@ -29,20 +30,33 @@ lnbClear _list;
 // move the tree and the propertieslist to their positions
 _tree ctrlSetPosition [
     GUI_ECHIDNA_X + 6*GUI_ECHIDNA_W,
-    GUI_ECHIDNA_Y + 0.5*GUI_ECHIDNA_H,
-    22*GUI_ECHIDNA_W,
-    26.5*GUI_ECHIDNA_H
+    GUI_ECHIDNA_Y + 3*GUI_ECHIDNA_H,
+    21*GUI_ECHIDNA_W,
+    23.5*GUI_ECHIDNA_H
 ];
 _list ctrlSetPosition [
-    GUI_ECHIDNA_X + 28.5*GUI_ECHIDNA_W,
-    GUI_ECHIDNA_Y + 0.5*GUI_ECHIDNA_H,
+    GUI_ECHIDNA_X + 28*GUI_ECHIDNA_W,
+    GUI_ECHIDNA_Y + 3*GUI_ECHIDNA_H,
     11*GUI_ECHIDNA_W,
-    26.5*GUI_ECHIDNA_H
+    23.5*GUI_ECHIDNA_H
+];
+_background ctrlSetPosition [
+    GUI_ECHIDNA_X + 28*GUI_ECHIDNA_W,
+    GUI_ECHIDNA_Y + 3*GUI_ECHIDNA_H,
+    11*GUI_ECHIDNA_W,
+    23.5*GUI_ECHIDNA_H
 ];
 
+/*
+_tree ctrlSetBackgroundColor [RAL9002,1];
+_background ctrlSetBackgroundColor [RAL9002,1];
+_tree ctrlSetTextColor [RAL9005,1];
+_list ctrlSetTextColor [RAL9005,1];
+*/
 _list lnbAddColumn 0.7;
 _tree ctrlCommit 0;
 _list ctrlCommit 0;
+_background ctrlCommit 0;
 TRACEV_1(_list);
 // add the Events
 _tree ctrladdEventHandler ["TreeSelChanged",LINKFUNC(TreeOnSelChanged)];

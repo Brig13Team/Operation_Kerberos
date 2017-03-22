@@ -19,9 +19,11 @@ PREP(radiosList);
 PREP(radiosShow);
 PREP(radiosProperties);
 PREP(radiosPropertiesShow);
+PREP(radiosPropertiesUpdate);
 
 PREP(setFilteredPresetChannel);
 
+PREP(transmitt);
 PREP(treeOnSelChanged);
 PREP(treeShow);
 

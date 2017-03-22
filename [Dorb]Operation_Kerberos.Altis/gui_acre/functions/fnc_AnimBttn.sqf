@@ -44,6 +44,7 @@ switch (toLower _event) do {
         _ctrlBttn ctrlRemoveAllEventHandlers "ButtonUp";
         _ctrlBttn ctrlRemoveAllEventHandlers "SetFocus";
         _ctrlBttn ctrlRemoveAllEventHandlers "KillFocus";
+        _ctrlBttn ctrlRemoveAllEventHandlers "ButtonClick";
         _ctrlPicture ctrlSetPosition [0,0,0,0];
         _ctrlPicture ctrlCommit 0;
     };

@@ -15,13 +15,18 @@ class APP(dialog) : RSC(echidna) {
         menu_button,
 
         display_background,
-
         display_header,
+
+        header_text,
+        header_picture,
+
+        spare_back1,
+        spare_back2,
+        spare_back3,
 
         Itemlist,
         Radiolist,
 
-        properties_back,
         properties,
         properties_list,
 
@@ -115,6 +120,20 @@ class APP(dialog) : RSC(echidna) {
         access = 1;
         canDrag = 1;
         rowHeight = 4*GUI_ECHIDNA_H;
+        colorBackground[] = COLOR_DISABLED;
+        //colorSelectBackground[] = {RAL9022,1};
+        //colorSelectBackground2[] = {RAL9022,1};
+        colorSelectBackground[] = COLOR_DISABLED;
+        colorSelectBackground2[] = COLOR_DISABLED;
+        colorText[] = {RAL9005,1};
+        colorDisabled[] = {RAL9005,0.5};
+        colorSelect[] = {RAL9010,1};
+        colorSelect2[] = {RAL9010,1};
+        colorPictureSelected[] = {1,1,1,1};
+        colorPictureDisabled[] = {1,1,1,0.5};
+        colorPictureRight[] = {1,1,1,0.5};
+        colorPictureRightSelected[] = {1,1,1,1};
+        colorPictureRightDisabled[] = {1,1,1,0.5};
     };
     class RadioList : RSC(BaseListbox) {
         idc = IDC_ACRE_MENU_RADIOLIST;
@@ -125,16 +144,45 @@ class APP(dialog) : RSC(echidna) {
         canDrag = 1;
         rowHeight = 3*GUI_ECHIDNA_H;
         style = 16;
+        colorBackground[] = COLOR_DISABLED;
+        colorSelectBackground[] = {RAL9022,1};
+        colorSelectBackground2[] = {RAL9022,1};
+        colorText[] = {RAL9005,1};
+        colorDisabled[] = {RAL9005,0.5};
+        colorSelect[] = {RAL9010,1};
+        colorSelect2[] = {RAL9010,1};
+        colorPictureSelected[] = {1,1,1,1};
+        colorPictureDisabled[] = {1,1,1,0.5};
+        colorPictureRight[] = {1,1,1,0.5};
+        colorPictureRightSelected[] = {1,1,1,1};
+        colorPictureRightDisabled[] = {1,1,1,0.5};
     };
-    class properties_back: RSC(BaseText) {
-        idc = IDC_ACRE_MENU_PROPERTIES_BACK;
+    class spare_back1: RSC(BaseText) {
+        idc = IDC_ACRE_MENU_BACK_1;
         x = 0;
         y = 0;
         w = 0;
         h = 0;
         text = "";
-        colorBackground[] = {0.2,0.2,0.2,1};
+        colorBackground[] = {RAL9002,1};
         colorText[] = COLOR_DISABLED;
+    };
+    class header_text : RSC(BaseText) {
+        idc = IDC_ACRE_MENU_HEADER_TEXT;
+        colorBackground[] = COLOR_DISABLED;
+        colorText[] = COLOR_DISABLED;
+    };
+    class header_picture : RSC(BasePicture) {
+        idc = IDC_ACRE_MENU_HEADER_PIC;
+        colorBackground[] = COLOR_DISABLED;
+        colorText[] = COLOR_DISABLED;
+    };
+
+    class spare_back2: spare_back1 {
+        idc = IDC_ACRE_MENU_BACK_2;
+    };
+    class spare_back3: spare_back1 {
+        idc = IDC_ACRE_MENU_BACK_3;
     };
     class properties : RSC(BaseControlsGroupNoScrollbar) {
         idc = IDC_ACRE_MENU_PROPERTIES;
@@ -150,6 +198,17 @@ class APP(dialog) : RSC(echidna) {
                 w = 0;
                 h = 0;
                 wholeHeight = GUI_ECHIDNA_H * 15;
+
+                colorSelect[]={RAL9005,1};
+                colorText[]={RAL9005,1};
+                colorBackground[]={RAL9018,1};
+                colorSelectBackground[]={RAL9010,1};
+                colorScrollbar[]={RAL9022,1};
+                colorActive[]={RAL9018,1};
+                colorDisabled[]={RAL9002,0.25};
+                colorTextRight[]={RAL9018,1};
+                colorSelectRight[]={RAL9010,1};
+                colorSelect2Right[]={RAL9010,1};
             };
         };
     };
@@ -160,6 +219,15 @@ class APP(dialog) : RSC(echidna) {
         w = 0;
         h = 0;
         columns[] = {-0.01};
+        color[] = {RAL9005,1};
+        colorScrollbar[] = {RAL9005,1};
+        colorSelect[] = {RAL9005,1};
+        colorSelect2[] = {RAL9005,1};
+        colorDisabled[] = COLOR_DISABLED;
+        colorSelectBackground[] = {RAL9002,1};
+        colorSelectBackground2[] = {RAL9002,1};
+        colorText[] = {RAL9005,1};
+        colorBackground[] = {RAL9002,1};
     };
     class treeview : RSC(BaseTree) {
         idc = IDC_ACRE_MENU_TREE;
@@ -167,5 +235,23 @@ class APP(dialog) : RSC(echidna) {
         y = 0;
         w = 0;
         h = 0;
+        colorBackground[] = {RAL9002,1};
+        colorArrow[] = {RAL9005,1};
+        colorText[] = {RAL9005,1};
+        colorSelect[] = {RAL9022,1};
+        multiselectEnabled = 0;
+        class ScrollBar : ScrollBar {
+            color[] = {RAL9005,1};
+		};
+        colorPicture[]={1,1,1,1};
+        colorPictureSelected[]={1,1,1,1};
+        colorPictureDisabled[]={1,1,1,0.25};
+        colorPictureRight[]={1,1,1,1};
+        colorPictureRightSelected[]={1,1,1,1};
+        colorPictureRightDisabled[]={1,1,1,0.25};
+        //hiddenTexture = __EVAL(MISSION_ROOT + 'EPAAPATH(icon,add_b_nb)');
+        //expandedTexture = __EVAL(MISSION_ROOT + 'EPAAPATH(icon,dec_b_nb)');
+        hiddenTexture = MPATH(data\gui\tree\add_b_nb.paa);
+        expandedTexture = MPATH(data\gui\tree\dec_b_nb.paa);
     };
 };
