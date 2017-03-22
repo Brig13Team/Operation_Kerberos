@@ -151,7 +151,13 @@ _properties_combo ctrlAddEventHandler ["LBSelChanged",{_this call FUNC(radiosPro
     _itemlist lbSetData [_index, _x];
 } forEach HASH_KEYS(GVAR(radioTypeList));
 
-GVAR(tempRadioList) = (_target getVariable [QGVAR(radios),[]]) select {!(isNull _x)};
+private _currentRadios = (_target getVariable [QGVAR(radios),[]]) select {!(isNull _x)};
+GVAR(tempRadioList) = [];
+{
+    private _copy = LHASH_COPY(_x);
+    HASH_SET(_copy,"isCopyOf",_x);
+    GVAR(tempRadioList) pushBack _copy;
+} forEach _currentRadios;
 
 [] call FUNC(radiosList);
 
