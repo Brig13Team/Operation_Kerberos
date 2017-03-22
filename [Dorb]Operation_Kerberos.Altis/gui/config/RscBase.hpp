@@ -408,7 +408,7 @@ class RSC(BaseListboxN) {
     idcRight = -1;
     maxHistoryDelay = 1;
     rowHeight = 0;
-    soundSelect[] = {"", 0.1, 1};
+    soundSelect[] = {"\A3\ui_f\data\sound\RscListbox\soundSelect",0.09,1};
     period = 1;
     lineSpacing = 1;
     shadow = 0;

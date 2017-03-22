@@ -14,6 +14,7 @@ PREP(select);
 
 PREP(animBttn);
 PREP(canOpenMenu);
+PREP(getPreset);
 PREP(getVehicleList);
 PREP(handleObject);
 PREP(initVehicle);

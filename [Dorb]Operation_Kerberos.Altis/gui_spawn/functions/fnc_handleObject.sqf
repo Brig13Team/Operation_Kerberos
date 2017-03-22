@@ -2,13 +2,14 @@
  *  Author: Dorbedo
  *
  *  Description:
- *      [Description]
+ *      Handles the turning of the object container
+ *      TODO: No helper Object should be needed. Just needs some calc magic.
  *
  *  Parameter(s):
- *      0 : [TYPE] - [argument name]
+ *      none
  *
  *  Returns:
- *      [TYPE] - [return name]
+ *      none
  *
  */
 //#define DEBUG_MODE_FULL
@@ -16,6 +17,7 @@
 
 private _ctrl = uiNamespace getVariable [QGVAR(ObjectCtrl),controlNull];
 If (isNull _ctrl) exitWith {
+    GVAR(objecthandler) = -1;
     [_this select 1] call CBA_fnc_removePerFrameHandler;
 };
 

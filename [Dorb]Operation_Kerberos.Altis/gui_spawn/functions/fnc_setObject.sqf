@@ -11,33 +11,39 @@
  *      [TYPE] - [return name]
  *
  */
-//#define DEBUG_MODE_FULL
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 _this params [["_vehicleType","",[""]]];
 
 CHECK(_vehicleType isEqualTo "")
 
-private _display = uiNamespace getVariable [QEGVAR(gui_Echidna,dialog),(findDisplay IDD_ECHIDNA_SPAWN)];
-private _vehicleObject = _dialog displayCtrl IDC_ECHIDNA_SPAWN_VEHICLENAME;
+private _dialog = uiNamespace getVariable [QEGVAR(gui_Echidna,dialog),(findDisplay IDD_ECHIDNA_SPAWN)];
+private _vehicleObject = _dialog displayCtrl IDC_ECHIDNA_SPAWN_VEHICLEOBJECT;
+TRACEV_2(_vehicleObject,_vehicleType);
+private _vehicleHash = HASH_GET(GVAR(vehiclesHash),_vehicleType);
 
-If !(HASH_GET_DEF(GVAR(vehicleSpace),"objInitialized",false)) then {
+If !(HASH_GET_DEF(_vehicleHash,"objInitialized",false)) then {
     [_vehicleType] call FUNC(initVehicle);
 };
 
-private _model = HASH_GET_DEF(GVAR(vehicleSpace),"model","");
-private _ctrlPos = HASH_GET(GVAR(vehicleSpace),"ctrlPos");
-private _scale = HASH_GET(GVAR(vehicleSpace),"scale");
-
+private _model = HASH_GET_DEF(_vehicleHash,"model","");
+private _ctrlPos = HASH_GET(_vehicleHash,"ctrlPos");
+private _scale = HASH_GET(_vehicleHash,"scale");
+TRACEV_3(_model,_ctrlPos,_scale);
 If (_model isEqualTo "") exitWith {
     ISNILS(GVAR(objecthandler),-1);
     _vehicleObject ctrlSetModel "\A3\Weapons_F\empty.p3d";
     [GVAR(objecthandler)] call CBA_fnc_removePerFrameHandler;
 };
 
-_ctrl ctrlSetPosition _ctrlPos;
-_ctrl ctrlSetModel _model;
-_ctrl ctrlSetModelScale _scale;
+_vehicleObject ctrlSetPosition _ctrlPos;
+_vehicleObject ctrlSetModel _model;
+_vehicleObject ctrlSetModelScale _scale;
 
 ISNILS(GVAR(objecthelper),objNull);
-uiNamespace setVariable [QGVAR(ObjectCtrl),_ctrl];
+uiNamespace setVariable [QGVAR(ObjectCtrl),_vehicleObject];
+
+If ((isNil QGVAR(objecthandler))||{GVAR(objecthandler)<0}) then {
+    [LINKFUNC(handleObject),0] call CBA_fnc_addPerFrameHandler;
+};

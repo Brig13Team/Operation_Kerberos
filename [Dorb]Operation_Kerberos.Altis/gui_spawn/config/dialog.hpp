@@ -81,7 +81,7 @@ class APP(dialog) : RSC(Echidna) {
     idd = IDD_ECHIDNA_MAIN;
     onLoad = QUOTE(uiNamespace setVariable [ARR_2('EGVAR(gui_Echidna,dialog)',_this select 0)]; [ARR_2('GVAR(dialog)',true)] call EFUNC(gui,blur); _this spawn EFUNC(gui_echidna,OnLoad);_this spawn FUNC(OnLoad););
     onUnload = QUOTE([ARR_2('GVAR(dialog)',false)] call EFUNC(gui,blur);_this call EFUNC(gui_Echidna,OnUnLoad););
-    
+
     controlsBackground[] = {
         background_taskbar,
         background_display
@@ -149,14 +149,22 @@ class APP(dialog) : RSC(Echidna) {
         y = 0;
         w = 0;
         h = 0;
+        columns[] = {-0.01,0.4,0.8};
+        sizeEx = IGUI_TEXT_SIZE_MEDIUM;
+        rowHeight = IGUI_TEXT_SIZE_MEDIUM * 1.1;
+        tooltip = "";
     };
 
     class vehicleproperties : RSC(BaseListboxN) {
-        idc = IDC_ECHIDNA_SPAWN_VEHICLELIST;
+        idc = IDC_ECHIDNA_SPAWN_VEHICLEPROPERTIES;
         x = 0;
         y = 0;
         w = 0;
         h = 0;
+        columns[] = {-0.01,0.5};
+        sizeEx = IGUI_TEXT_SIZE_MEDIUM;
+        rowHeight = IGUI_TEXT_SIZE_MEDIUM * 1.1;
+        tooltip = "";
     };
 
     class vehicle : RSC(BaseObjectContainer) {

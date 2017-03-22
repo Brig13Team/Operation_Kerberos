@@ -9,6 +9,9 @@
 CHECK(!hasInterface)
 
 GVAR(spawns) = HASH_CREATE;
+GVAR(vehiclesHash) = HASH_CREATE;
+
+["test",getMarkerPos "respawn_west",0] call FUNC(registerSpawn);
 
 {
     _x params ["_spawntype","_spawnLogic","_picture"];
@@ -16,7 +19,7 @@ GVAR(spawns) = HASH_CREATE;
         private _spawnPos = getPos _spawnLogic;
         _spawnPos set[2,0];
         Private _spawnDir = getDir _spawnLogic;
-        private _id = [_spawnPos,_spawntype,_spawnDir] call FUNC(registerSpawn);
+        private _id = [_spawntype,_spawnPos,_spawnDir] call FUNC(registerSpawn);
         [
             localize format[LSTRING(%1),_spawntype],
             compile format["[player,'%1'] call %2;",_id,QFUNC(open)],

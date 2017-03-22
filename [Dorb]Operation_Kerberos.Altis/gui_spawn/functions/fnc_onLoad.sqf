@@ -24,20 +24,14 @@ private _propertiesList = _dialog displayCtrl IDC_ECHIDNA_SPAWN_VEHICLEPROPERTIE
 private _vehicleName = _dialog displayCtrl IDC_ECHIDNA_SPAWN_VEHICLENAME;
 
 // Events
-//_vehicleList ctrlAddEventHandler ["LBSelChanged",{_this call FUNC(onSelection)}];
-_vehicleList ctrlAddEventHandler ["LBSelChanged",{systemchat format["_this = %1",_this];}];
+_vehicleList ctrlAddEventHandler ["LBSelChanged",{_this call FUNC(onSelection)}];
+//_vehicleList ctrlAddEventHandler ["LBSelChanged",{systemchat format["_this = %1",_this];}];
 
 private _pos_x = GUI_ECHIDNA_X;
 private _pos_y = GUI_ECHIDNA_Y;
 private _pos_w = GUI_ECHIDNA_W*20;
 private _pos_h = GUI_ECHIDNA_H*2;
-
-_vehicleName ctrlsetPosition [
-    _pos_x,
-    _pos_y,
-    _pos_w,
-    _pos_h
-];
+_vehicleName ctrlsetPosition [_pos_x,_pos_y,_pos_w,_pos_h];
 _vehicleName ctrlSetBackgroundColor [RAL7047,1];
 _vehicleName ctrlCommit 0;
 
@@ -48,12 +42,7 @@ _pos_y = GUI_ECHIDNA_Y + GUI_ECHIDNA_H*2.5;
 _pos_w = GUI_ECHIDNA_W*20;
 _pos_h = GUI_ECHIDNA_H*10;
 
-_propertiesList ctrlsetPosition [
-    _pos_x,
-    _pos_y,
-    _pos_w,
-    _pos_h
-];
+_propertiesList ctrlsetPosition [_pos_x,_pos_y,_pos_w,_pos_h];
 _propertiesList ctrlSetBackgroundColor [RAL7047,1];
 _propertiesList ctrlCommit 0;
 
@@ -63,12 +52,7 @@ _pos_y = GUI_ECHIDNA_Y;
 _pos_w = GUI_ECHIDNA_W*20;
 _pos_h = GUI_ECHIDNA_H*20;
 
-_vehicleList ctrlsetPosition [
-    _pos_x,
-    _pos_y,
-    _pos_w,
-    _pos_h
-];
+_vehicleList ctrlsetPosition [_pos_x,_pos_y,_pos_w,_pos_h];
 _vehicleList ctrlSetBackgroundColor [RAL7047,1];
 _vehicleList ctrlCommit 0;
 
@@ -108,6 +92,6 @@ _ctrl ctrlSetTextColor [1,1,1,1];
 
 TRACE("OnLoad Finished");
 
-//[] call FUNC(showVehicleList);
-//[] call FUNC(onSelection);
-//[] call FUNC(showProperties);
+[] call FUNC(showVehicleList);
+[] call FUNC(setObject);
+[] call FUNC(showProperties);

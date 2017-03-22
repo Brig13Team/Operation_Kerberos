@@ -177,7 +177,7 @@
         </Key>
 
 
-        <Key ID="STR_DORB_GUI_SPAWN_PROPERTY_NAME">
+        <Key ID="STR_DORB_GUI_SPAWN_PROPERTY_DISPLAYNAME">
             <German>Name</German>
             <English>Name</English>
         </Key>

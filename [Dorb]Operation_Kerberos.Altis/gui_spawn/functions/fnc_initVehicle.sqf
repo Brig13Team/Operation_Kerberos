@@ -11,7 +11,7 @@
  *      [TYPE] - [return name]
  *
  */
-//#define DEBUG_MODE_FULL
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 
@@ -30,21 +30,24 @@ private _modifier = abs((_boundingBox select 0) select 0) + abs((_boundingBox se
 
 private _scale = switch (true) do {
     case (_modifier < 15) : {
-        linearConversion [15, 5, _modifier, 0.2, 0.7, false];
+        linearConversion [15, 5, _modifier, 0.3, 0.7, false];
     };
     case (_modifier > 30): {
         linearConversion [30, 50, _modifier, 0.1, 0.09, false];
     };
     default {
-        linearConversion [15, 30, _modifier, 0.2, 0.1, false];
+        linearConversion [15, 30, _modifier, 0.3, 0.1, false];
     };
 };
 
+private _dialog = uiNamespace getVariable [QEGVAR(gui_Echidna,dialog),(findDisplay IDD_ECHIDNA_SPAWN)];
+private _ctrl = _dialog displayCtrl IDC_ECHIDNA_SPAWN_VEHICLEOBJECT;
 (ctrlPosition _ctrl) params ["_posX","_posZ","_posY"];
-
+TRACEV_3(_dialog,_ctrl,_posZ);
 _posX = GUI_ECHIDNA_X + GUI_ECHIDNA_W * 10;
-_posZ = _posZ + _scale * (_boundingCenter select 2)*5;
-_posY = GUI_ECHIDNA_Y +  GUI_ECHIDNA_H * 22.5;
+_posZ = 5 + _scale * (_boundingCenter select 2)*5;
+TRACEV_3(_posZ,_scale,_boundingCenter);
+_posY = GUI_ECHIDNA_Y +  GUI_ECHIDNA_H * 21;
 
 private _ctrlPos = [_posX,_posZ,_posY];
 
@@ -52,7 +55,7 @@ private _vehicleHash = HASH_GET(GVAR(vehiclesHash),_vehicleType);
 
 HASH_SET(_vehicleHash,"model",_model);
 HASH_SET(_vehicleHash,"ctrlPos",_ctrlPos);
-HASH_SET(_vehicleHash,"scale",_scale);
+HASH_SET(_vehicleHash,"scale",_scale * 1.2);
 HASH_SET(_vehicleHash,"objInitialized",true);
 
 HASH_SET(_vehicleHash,"propertiesList",[]);
