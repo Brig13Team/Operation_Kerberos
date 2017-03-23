@@ -17,6 +17,7 @@ _this params ["_mission", "_targets"];
 
 {
     _x addEventHandler ["Killed", LINKFUNC(obj__increaseCounter)];
+    _x setVariable ["ace_cookOff_enable", false, true];
 } forEach _targets;
 
 [_mission, _targets] call FUNC(mainmission__oneCounter);

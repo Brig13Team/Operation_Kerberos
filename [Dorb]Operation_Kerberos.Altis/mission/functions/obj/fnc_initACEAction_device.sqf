@@ -23,15 +23,14 @@ private _action = [
             [_target],
             { (_this select 0) call FUNC(obj__increaseCounter); },
             {},
-            LSTRING(OBJECTS_DEVICE_DISABLING)
+            localize LSTRING(OBJECTS_DEVICE_DISABLING)
         ] call ace_common_fnc_progressBar;
     },
     { (_this select 0) getVariable [QGVAR(isActive), false]; }
 ] call ace_interact_menu_fnc_createAction;
 
 private _classes = ["device"] call FUNC(spawn_getObjects);
-_classes + (["emp"] call FUNC(spawn_getObjects));
-TRACEV_1(_classes);
+_classes = _classes + (["emp"] call FUNC(spawn_getObjects));
 
 {
     [_x, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToClass;

@@ -20,6 +20,10 @@ switch (_type) do {
     case "rtb": {
         [_name] call FUNC(taskmanager_remove);
     };
+    case "prototype": {
+        private _class = HASH_GET(_mission, "prototype");
+        createVehicle [_class, getMarkerPos "rescue_marker", [], 0, "NONE"];
+    };
 };
 
 if (!(_type isEqualTo "rtb") && {!(call FUNC(taskmanager_hasActiveMissions))}) then {

@@ -37,12 +37,15 @@ switch (_defenceStructure) do {
         private _types = [_type] + _houseTypes;
 
         _targetPositions = [_centerposition, _types, _amount, _radius] call EFUNC(spawn,createMissionHouse);
+        _targetPositions = [_targetPositions]; // to get compatibility with composition
     };
 };
 
 if (_targetPositions isEqualTo []) then {
     _targetPositions = [[_centerposition]];
 };
+
+TRACEV_1(_targetPositions);
 
 for "_i" from 1 to _amount do {
     if (_targetPositions isEqualTo []) exitWith { [] };
@@ -58,6 +61,7 @@ for "_i" from 1 to _amount do {
 
     private "_target";
     if (_class isKindOf "CAManBase") then {
+        private "_group";
         if (_type isEqualTo "hostage") then {
             _group = createGroup civilian;
         } else {

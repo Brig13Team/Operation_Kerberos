@@ -22,7 +22,6 @@ private _action = [
 ] call ace_interact_menu_fnc_createAction;
 
 private _classes = ["intel"] call FUNC(spawn_getObjects);
-TRACEV_1(_classes);
 
 {
     [_x, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToClass;

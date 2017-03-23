@@ -178,12 +178,12 @@
     </Package>
     <Package name="MISSION">
         <Container name="MAINMISSION">
-            <Key ID="STR_DORB_MISSION__RTB_TITLE">
+            <Key ID="STR_DORB_MISSION_RTB_TITLE">
                 <Original>RTB</Original>
                 <German>RTB</German>
                 <English>RTB</English>
             </Key>
-            <Key ID="STR_DORB_MISSION__RTB_DESC">
+            <Key ID="STR_DORB_MISSION_RTB_DESC">
                 <Original>Return To Base</Original>
                 <German>Return To Base</German>
                 <English>Return To Base</English>

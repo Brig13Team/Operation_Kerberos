@@ -2,7 +2,7 @@
  *  Author: iJesuz
  *
  *  Description:
- *      event called to increase mission's obj_counter
+ *      event called to increase mission's obj_counter_2
  *
  *  Parameter(s):
  *      0 : OBJECT  - mission target

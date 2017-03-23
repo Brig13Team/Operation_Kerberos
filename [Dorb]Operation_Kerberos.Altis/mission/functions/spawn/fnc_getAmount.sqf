@@ -32,8 +32,8 @@ private _return = 1;
 {
     private _class = missionConfigFile >> "mission" >> _x >> _type >> "object";
     if (isClass _class) exitWith {
-        _ret = [_class] call _calc;
-    }
+        _return = [_class] call _calc;
+    };
 } forEach ["main", "side"];
 
 _return
