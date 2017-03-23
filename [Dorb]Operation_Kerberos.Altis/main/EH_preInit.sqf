@@ -33,6 +33,7 @@ PREPS(hash,Gcopy);
 PREPS(hash,GcopyArray);
 PREPS(hash,Gcreate);
 PREPS(hash,Gdeserialize);
+PREPS(hash,getAllGlobal);
 PREPS(hash,GetKeyfromValue);
 PREPS(hash,Gmerge);
 PREPS(hash,keys);
