@@ -84,11 +84,19 @@ class APP(dialog) : RSC(Echidna) {
 
     controlsBackground[] = {
         background_taskbar,
-        background_display
+        background_display,
+        background_object
     };
     controls[] = {
         clock,
         menu_button,
+
+        spare_back_1,
+        spare_back_2,
+        spare_back_3,
+        spare_back_4,
+        spare_back_5,
+        spare_back_6,
 
         spawnmenubutton_1_background,
         spawnmenubutton_2_background,
@@ -96,7 +104,7 @@ class APP(dialog) : RSC(Echidna) {
         spawnmenubutton_2,
 
         vehiclelist,
-        vehiclename,
+        header,
         vehicleproperties,
 
         metro_back,
@@ -106,6 +114,15 @@ class APP(dialog) : RSC(Echidna) {
     };
     objects[] = {
         vehicle
+    };
+
+    class background_object: background_display {
+        idc = -1;
+        colorBackground[] = {RAL9002,1};
+        x = GUI_ECHIDNA_X;
+        y = GUI_ECHIDNA_Y+GUI_ECHIDNA_H*10;
+        w = GUI_ECHIDNA_W*20;
+        h = GUI_ECHIDNA_H*17.5;
     };
 
     #define BUTTON_HELPER(NUMBER) class TRIPLES(spawnmenubutton,NUMBER,background) : RSC(BasePicture) { \
@@ -149,10 +166,19 @@ class APP(dialog) : RSC(Echidna) {
         y = 0;
         w = 0;
         h = 0;
-        columns[] = {-0.01,0.4,0.8};
+        columns[] = {-0.01,0.65,0.8};
         sizeEx = IGUI_TEXT_SIZE_MEDIUM;
         rowHeight = IGUI_TEXT_SIZE_MEDIUM * 1.1;
         tooltip = "";
+        color[] = {RAL9005,1};
+        colorScrollbar[] = {RAL9005,1};
+        colorSelect[] = {RAL9005,1};
+        colorSelect2[] = {RAL9005,1};
+        colorDisabled[] = COLOR_DISABLED;
+        colorSelectBackground[] = {RAL9002,1};
+        colorSelectBackground2[] = {RAL9002,1};
+        colorText[] = {RAL9005,1};
+        colorBackground[] = {RAL9002,1};
     };
 
     class vehicleproperties : RSC(BaseListboxN) {
@@ -165,6 +191,15 @@ class APP(dialog) : RSC(Echidna) {
         sizeEx = IGUI_TEXT_SIZE_MEDIUM;
         rowHeight = IGUI_TEXT_SIZE_MEDIUM * 1.1;
         tooltip = "";
+        color[] = {RAL9005,1};
+        colorScrollbar[] = {RAL9005,1};
+        colorSelect[] = {RAL9005,1};
+        colorSelect2[] = {RAL9005,1};
+        colorDisabled[] = COLOR_DISABLED;
+        colorSelectBackground[] = {RAL9002,1};
+        colorSelectBackground2[] = {RAL9002,1};
+        colorText[] = {RAL9005,1};
+        colorBackground[] = {RAL9002,1};
     };
 
     class vehicle : RSC(BaseObjectContainer) {
@@ -174,24 +209,40 @@ class APP(dialog) : RSC(Echidna) {
         up[]={0,1,0};
         enableZoom = 0;
         zoomDuration = 1;
-        position[]={
-            0,
-            0,
-            4
-        };
-        positionBack[]={
-            -0.5,
-            -0.5,
-            5
-        };
+        position[]={0,0,4};
+        positionBack[]={-0.5,-0.5,5};
     };
 
-    class vehicleName : RSC(BaseText) {
-        idc = IDC_ECHIDNA_SPAWN_VEHICLENAME;
+    class header : RSC(BaseText) {
+        idc = IDC_ECHIDNA_SPAWN_HEADER;
         x = 0;
         y = 0;
         w = 0;
         h = 0;
+        style = "0x02";
+    };
+
+    class spare_back_1 : RSC(BaseText) {
+        idc = IDC_ECHIDNA_SPAWN_SPAREBACK_1;
+        x = 0;
+        y = 0;
+        w = 0;
+        h = 0;
+    };
+    class spare_back_2 : spare_back_1 {
+        idc = IDC_ECHIDNA_SPAWN_SPAREBACK_2;
+    };
+    class spare_back_3 : spare_back_1 {
+        idc = IDC_ECHIDNA_SPAWN_SPAREBACK_3;
+    };
+    class spare_back_4 : spare_back_1 {
+        idc = IDC_ECHIDNA_SPAWN_SPAREBACK_4;
+    };
+    class spare_back_5 : spare_back_1 {
+        idc = IDC_ECHIDNA_SPAWN_SPAREBACK_5;
+    };
+    class spare_back_6 : spare_back_1 {
+        idc = IDC_ECHIDNA_SPAWN_SPAREBACK_6;
     };
 
 };

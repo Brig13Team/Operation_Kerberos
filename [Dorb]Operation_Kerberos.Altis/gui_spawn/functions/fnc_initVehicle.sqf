@@ -1,14 +1,14 @@
 /*
- *  Author: [Name of Author(s)]
+ *  Author: Dorbedo
  *
  *  Description:
- *      [Description]
+ *      completes the entrie
  *
  *  Parameter(s):
- *      0 : [TYPE] - [argument name]
+ *      0 : STRING - Vehicle classname
  *
  *  Returns:
- *      [TYPE] - [return name]
+ *      none
  *
  */
 #define DEBUG_MODE_FULL
@@ -19,11 +19,9 @@ _this params [["_vehicleType","",[""]]];
 
 private _model = getText(configFile>>"CfgVehicles">>_vehicleType>>"model");
 
-
 private _localVeh = _vehicleType createVehicleLocal [0,0,0];
 private _boundingCenter = boundingCenter _localVeh;
 private _boundingBox = boundingBox _localVeh;
-
 
 private _modifier = abs((_boundingBox select 0) select 0) + abs((_boundingBox select 1) select 0) +
                     abs((_boundingBox select 0) select 1) + abs((_boundingBox select 1) select 1);
@@ -40,17 +38,12 @@ private _scale = switch (true) do {
     };
 };
 
-private _dialog = uiNamespace getVariable [QEGVAR(gui_Echidna,dialog),(findDisplay IDD_ECHIDNA_SPAWN)];
-private _ctrl = _dialog displayCtrl IDC_ECHIDNA_SPAWN_VEHICLEOBJECT;
-(ctrlPosition _ctrl) params ["_posX","_posZ","_posY"];
-TRACEV_3(_dialog,_ctrl,_posZ);
-_posX = GUI_ECHIDNA_X + GUI_ECHIDNA_W * 10;
-_posZ = 5 + _scale * (_boundingCenter select 2)*5;
+private _posX = GUI_ECHIDNA_X + GUI_ECHIDNA_W * 10;
+private _posZ = 5 + _scale * (_boundingCenter select 2)*5;
+private _posY = GUI_ECHIDNA_Y +  GUI_ECHIDNA_H * 21;
 TRACEV_3(_posZ,_scale,_boundingCenter);
-_posY = GUI_ECHIDNA_Y +  GUI_ECHIDNA_H * 21;
 
 private _ctrlPos = [_posX,_posZ,_posY];
-
 private _vehicleHash = HASH_GET(GVAR(vehiclesHash),_vehicleType);
 
 HASH_SET(_vehicleHash,"model",_model);

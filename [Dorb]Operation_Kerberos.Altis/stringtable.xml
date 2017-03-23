@@ -189,6 +189,10 @@
             <German>Fahrzeuggewicht</German>
             <English>Vehiclemass</English>
         </Key>
+        <Key ID="STR_DORB_GUI_SPAWN_HEADER">
+            <German>Fahrzeugdepot</German>
+            <English>Vehicle Spawn</English>
+        </Key>
 
     </Package>
     <Package name="MISSIONS">

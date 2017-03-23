@@ -19,7 +19,6 @@ _this params [["_vehicleType","",[""]]];
 
 
 private _dialog = uiNamespace getVariable [QEGVAR(gui_Echidna,dialog),(findDisplay IDD_ECHIDNA_SPAWN)];
-private _vehicleName = _dialog displayCtrl IDC_ECHIDNA_SPAWN_VEHICLENAME;
 private _ctrl = _dialog displayCtrl IDC_ECHIDNA_SPAWN_VEHICLEPROPERTIES;
 
 lnbClear _ctrl;
@@ -35,5 +34,3 @@ TRACEV_1(_propertiesList);
     TRACEV_3(_ctrl,_name,_value);
     _ctrl lnbAddRow [_name,_value];
 } forEach _propertiesList;
-private _displayName = HASH_GET_DEF(_vehicleHash,"displayName","");
-_vehicleName ctrlSetText _displayName;
