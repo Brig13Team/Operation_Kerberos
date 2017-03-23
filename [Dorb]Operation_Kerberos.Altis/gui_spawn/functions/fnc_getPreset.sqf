@@ -19,7 +19,7 @@ private _return = [];
 switch {_preset} do {
 
     default {
-        _return = configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'scope')>1}&&{(configName _x) isKindOf 'Tank_F'})", true];
+        _return = configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'scope')>1}&&{((configName _x) isKindOf 'Tank_F')||((configName _x) isKindOf 'Air')||((configName _x) isKindOf 'Car')||((configName _x) isKindOf 'StaticWeapon')})", true];
         _return = _return apply {configName _x};
     };
 };
