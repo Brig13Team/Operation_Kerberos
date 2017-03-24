@@ -20,19 +20,19 @@ _this params [["_vehicleType","",[""]]];
 private _model = getText(configFile>>"CfgVehicles">>_vehicleType>>"model");
 
 private _localVeh = _vehicleType createVehicleLocal [0,0,0];
-//TRACEV_5(_vehicleType,getPosWorld _localVeh,getPos _localVeh,getPosASL _localVeh,getPosATL _localVeh);
-private _boundingCenter = boundingCenter _localVeh;
 private _boundingBox = boundingBoxReal _localVeh;
 
 private _posDiffZ = ((getPosASL _localVeh)select 2) - ((getPosWorld _localVeh)select 2);
+private _diff = (_boundingBox select 1) vectorDiff (_boundingBox select 0);
+private _maxSize = selectMax [_diff vectorDotProduct [1,0,0], _diff vectorDotProduct [0,1,0], _diff vectorDotProduct [0,0,1]];
 
-private _scale = 4.5 / ((abs((_boundingBox select 0) select 0) + abs((_boundingBox select 1) select 0)) max
-                           (abs((_boundingBox select 0) select 1) + abs((_boundingBox select 1) select 1)));
-
-private _posX = GUI_ECHIDNA_X + GUI_ECHIDNA_W * 10;
 private _posZ = 10;
-private _posY = GUI_ECHIDNA_Y +  GUI_ECHIDNA_H * 23 + _posDiffZ * _scale * GUI_ECHIDNA_H * 5;
-TRACEV_5(_vehicleType,_posDiffZ,_scale,_boundingCenter,_boundingBox);
+/*
+    SCALE = CONTAINERSIZE_in_SCREEN / MAXIMUM_SIZE * POS_Z
+*/
+private _scale = (GUI_ECHIDNA_W * 15)/_maxSize * _posZ;
+private _posX = GUI_ECHIDNA_X + GUI_ECHIDNA_W * 10.5;
+private _posY = GUI_ECHIDNA_Y + GUI_ECHIDNA_H * 23 + (_scale * _posDiffZ) / _posZ;
 
 private _ctrlPos = [_posX,_posZ,_posY];
 private _vehicleHash = HASH_GET(GVAR(vehiclesHash),_vehicleType);
