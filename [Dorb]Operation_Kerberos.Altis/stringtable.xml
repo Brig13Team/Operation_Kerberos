@@ -1289,6 +1289,10 @@
             <German>Zünder</German>
             <English>fuze</English>
         </Key>
+        <Key ID="STR_DORB_GUI_ARTILLERY_TTS">
+            <German>Feuerzeitpunkt</German>
+            <English>Time to Shoot</English>
+        </Key>
         <Key ID="STR_DORB_GUI_ARTILLERY_NETWORK">
             <German>mit Netzwerk verbunden</German>
             <English>connected to network</English>
@@ -1296,6 +1300,18 @@
         <Key ID="STR_DORB_GUI_ARTILLERY_NETWORKID">
             <German>Artillerie-Kennung</German>
             <English>Artillery-ID</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARTILLERY_NETWORK_ADD">
+            <German>Hinzufügen</German>
+            <English>Add</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARTILLERY_NETWORK_DEL">
+            <German>Löschen</German>
+            <English>Delete</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARTILLERY_NETWORK_USE">
+            <German>Auswählen</German>
+            <English>Use</English>
         </Key>
         <Key ID="STR_DORB_GUI_ARTILLERY_LOCATION_USE">
             <German>Aktuell Position nutzen</German>

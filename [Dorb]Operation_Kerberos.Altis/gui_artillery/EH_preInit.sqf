@@ -2,6 +2,6 @@
 
 ADDON = false;
 
-
+PREP(onLoad);
 
 ADDON = true;

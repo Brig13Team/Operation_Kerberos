@@ -40,10 +40,10 @@ class RSC(BaseEchidna) {
     };
     class background_display: RSC(BaseText) {
         idc = IDC_ECHIDNA_BACKGROUND_DISPLAY;
-        x = GUI_ECHIDNA_X;
-        y = GUI_ECHIDNA_Y;
-        w = GUI_ECHIDNA_W * 40;
-        h = GUI_ECHIDNA_H * 27.5;
+        x = GUI_ECHIDNA_X - GUI_ECHIDNA_W * 0.25;
+        y = GUI_ECHIDNA_Y - GUI_ECHIDNA_H * 0.25;
+        w = GUI_ECHIDNA_W * 40.5;
+        h = GUI_ECHIDNA_H * 28;
         text = "";
         colorBackground[] = COLOR_ECHIDNA_DISPLAY_BACKGROUND;
         colorText[] = COLOR_ECHIDNA_DISPLAY_TEXT;
