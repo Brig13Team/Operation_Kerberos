@@ -18,4 +18,4 @@ class DOUBLES(CfgComponent,ADDON) {
 
     };
 };
-#include "config\dialog.hpp"
+#include "config\arsenal.hpp"

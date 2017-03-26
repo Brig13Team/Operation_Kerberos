@@ -15,7 +15,11 @@ class APP(dialog) : RSC(Echidna) {
         clock,
         menu_button,
 
-
+        artilleryProperties,
+        shootingLocation,
+        shootingparameter,
+        network,
+        FIRE_bttn,
 
         metro_back,
         metro,
@@ -25,142 +29,276 @@ class APP(dialog) : RSC(Echidna) {
     onLoad = QUOTE(uiNamespace setVariable [ARR_2('EGVAR(gui_Echidna,dialog)',_this select 0)]; [ARR_2('GVAR(dialog)',true)] call EFUNC(gui,blur); _this spawn EFUNC(gui_echidna,OnLoad);_this spawn FUNC(OnLoad););
     onUnload = QUOTE([ARR_2('GVAR(dialog)',false)] call EFUNC(gui,blur);_this call EFUNC(gui_Echidna,OnUnLoad););
 
-
-    warning_order : RSC(BaseControlsGroupNoHScrollbar) {
-        idc = IDC_ARTILLERY_WARNINGORDER_GROUP;
-        class controls {
-            // Observer-Identification
-            class observerID_name : RSC(BaseText) {
-
+    class background_display : background_display {
+        idc = -1;
+        x = GUI_ECHIDNA_X;
+        y = GUI_ECHIDNA_Y;
+        w = GUI_ECHIDNA_W * 40;
+        h = GUI_ECHIDNA_H * 27.5;
+        colorBackground[] = {RAL9017,1};
+    };
+    class artilleryProperties : RSC(BaseControlsGroupNoScrollbar) {
+        idc = IDC_ARTILLERY_PROPERTIES;
+        x = GUI_ECHIDNA_X + GUI_ECHIDNA_W * 0.5;
+        y = GUI_ECHIDNA_Y + GUI_ECHIDNA_H * 0.5;
+        w = GUI_ECHIDNA_W * 10;
+        h = GUI_ECHIDNA_H * 26.5;
+        class controlsBackground {
+            class artilleryData_bgrd : RSC(BaseText) {
+                idc = -1;
+                x = 0;
+                y = 0;
+                w = GUI_ECHIDNA_W * 10;
+                h = GUI_ECHIDNA_H * 13;
+                colorBackground[] = {RAL9017,1};
             };
-            class observerID_edit : RSC(BaseEdit) {
-
-            };
-            // Missiontype
-            class missiontype_name : RSC(BaseText) {
-
-            };
-            class missiontype_combo : RSC(BaseCombo) {
-
-            };
-
-            // TargetNumber
-            class targetnumber_name : RSC(BaseText) {
-
-            };
-            class targetnumber_edit : RSC(BaseEdit) {
-
-            };
-
-            // Number of Guns
-            class numberofguns_name : RSC(BaseText) {
-
-            };
-            class numberofguns_edit : RSC(BaseEdit) {
-
+            class ammunitionData_bgrd : artilleryData_bgrd {
+                x = 0;
+                y = GUI_ECHIDNA_H * 13.5;
+                w = GUI_ECHIDNA_W * 10;
+                h = GUI_ECHIDNA_H * 13;
             };
         };
-
-    };
-    targetLocation : RSC(BaseControlsGroupNoHScrollbar) {
-        idc = IDC_ARTILLERY_TARGETLOCATION_GROUP;
+        class objects {};
         class controls {
-            class type : RSC(BaseCombobox) {
-
+            class artilleryData : RSC(BaseListboxN) {
+                idc = IDC_ARTILLERY_PROPERTIES_ARTILLERY;
+                x = GUI_ECHIDNA_W * 0.5;
+                y = GUI_ECHIDNA_H * 0.5;
+                w = GUI_ECHIDNA_W * 9;
+                h = GUI_ECHIDNA_H * 12;
             };
-            class text_1 RSC(BaseText) {
-
-            };
-            class text_2 : text_1 {
-
+            class ammunitionData : RSC(BaseListboxN) {
+                idc = IDC_ARTILLERY_PROPERTIES_AMMUNITION;
+                x = GUI_ECHIDNA_W * 0.5;
+                y = GUI_ECHIDNA_H * 14;
+                w = GUI_ECHIDNA_W * 9;
+                h = GUI_ECHIDNA_H * 12;
+                onMouseEnter = "systemChat str ['onMouseEnter',_this]; false";
             };
         };
-
     };
 
-
-    /*
-        Warning Order
-
-            a)* Observer-Identification
-
-            b)* MissionType
-                - "FireMission"
-                - "Adjust Fire"
-                - "Fire for Effect"
-                - "Polar"
-
-            c)* TargetNumber
-                - 2Letter + 4 Digits
-
-            d) Number of Guns
-                - used in FFE
-
-        Location of Target
-
-            a) By Grid Coordinates
-                1) Grid easting-> norhting
-                    - East (3-5 digits)
-                    - north (3-5 digits)
-                b) ALtitude
-                    - sealevel
-                c) Target Grid Zone
-            b) By Ref/Shift from a TargetNumber
-                Offset from a Targetlocation
-            c) by Poloar coordinates
-
-                “Direction 1240, Distance 2000, Up 50”.
-            d) by Target number
-
-        Direction
-            Direction GT
-
-        Target Description
-            a) Description
-                1)* Target Type and Subtype
-                2) Degree of Protection (only for Personal)
-                    e.g. Prone
-                3)* Target size
-                    radius or retangular
-                4) Target activity
-                    "Prepared to move"
-                5) combination of all
-            b) Target strenght
-                1-4 digits
-            c) Report value accuracy
-                1-3 digits
-            d) Trajectory type
-                high angle (default for arty) or low angel (default for mortar)
-            e) Dange close Missions
-            f) Ammunition
-                1) Number of Rounds
-                2) Type
-                    shell and fuze
-            g) effect required
-                1) traditional ammunition (HE, ICM)
-                    1-30% (default neutralization 20-29%)
-                2) special effects
-                    mark, mark illuminating, smoke, quick smoke, blinding,
-            h) Method of Fire and method of COntol
-                A)
-                    1) "Fire for Effect" - effect without adjustment
-                    2) "Adjust Fire" - fire is qdjusted by observer
-                    3) "Battery left (or Right)" 5 sec. between guns
-                        "Battery Right 10 Seconds"
-                    4) "Continous Illumination"
-                    5) "Co-Ordinated Illumination"
-                    6) "Continous Fire" - Stop via "End of Mission" or "Cease Loading" or "Check FIre"
-                B) Method of control
-                    1) "At my Command" -
-                    2) "Resticted when Ready"
-                        "Rsticted when Ready from 2359, for 65 Minutes"
-                    3) "Time on Target"
-                        "TOT 1545"
-                    4) "Time to fire"
-                    5) "When ready"
-                C) Firing Interval
-                    "Interval 5 rounds 20 sec"
-                D) Duration of Fire
-                    * Mainly used for smoke or Illumination
-    */
+    class shootingLocation : RSC(BaseControlsGroupNoScrollbar) {
+        idc = IDC_ARTILLERY_LOCATION;
+        x = GUI_ECHIDNA_X + GUI_ECHIDNA_W * 11;
+        y = GUI_ECHIDNA_Y + GUI_ECHIDNA_H * 0.5;
+        w = GUI_ECHIDNA_W * 18;
+        h = GUI_ECHIDNA_H * 7.5;
+        class controlsBackground {
+            class background: RSC(BaseText) {
+                idc = -1;
+                x = 0;
+                y = 0;
+                w = GUI_ECHIDNA_W * 18;
+                h = GUI_ECHIDNA_H * 7.5;
+                colorBackground[] = {RAL9017,1};
+            };
+        };
+        class objects {};
+        class controls {
+            class useCurrent_check : RSC(BaseCheckBox) {
+                idc = IDC_ARTILLERY_LOCATION_USECURRENT;
+                x = GUI_ECHIDNA_W * 0.5;
+                y = GUI_ECHIDNA_H * 0.5;
+                w = GUI_ECHIDNA_W * 1;
+                h = GUI_ECHIDNA_H * 1;
+                checked=0;
+            };
+            class useCurrent_name : RSC(BaseText) {
+                x = GUI_ECHIDNA_W * 2;
+                y = GUI_ECHIDNA_H * 0.5;
+                w = GUI_ECHIDNA_W * 15;
+                h = GUI_ECHIDNA_H * 1;
+                text = CSTRING(location_use);
+            };
+            class easting_name : RSC(BaseText) {
+                idc = -IDC_ARTILLERY_LOCATION_EAST;
+                x = GUI_ECHIDNA_W * 0.5;
+                y = GUI_ECHIDNA_H * 3;
+                w = GUI_ECHIDNA_W * 8;
+                h = GUI_ECHIDNA_H * 1;
+                text = CSTRING(location_east);
+            };
+            class easting_edit : RSC(BaseEdit) {
+                idc = IDC_ARTILLERY_LOCATION_EAST;
+                x = GUI_ECHIDNA_W * 9;
+                y = GUI_ECHIDNA_H * 3;
+                w = GUI_ECHIDNA_W * 8;
+                h = GUI_ECHIDNA_H * 1;
+                text = "0000";
+            };
+            class northing_name : easting_name {
+                idc = -IDC_ARTILLERY_LOCATION_NORTH;
+                y = GUI_ECHIDNA_H * 4.5;
+            };
+            class northing_edit : easting_edit {
+                idc = IDC_ARTILLERY_LOCATION_NORTH;
+                y = GUI_ECHIDNA_H * 4.5;
+                text = "0000";
+            };
+            class altitude_name : easting_name {
+                idc = -IDC_ARTILLERY_LOCATION_ALT;
+                y = GUI_ECHIDNA_H * 6;
+                text = CSTRING(location_altitude);
+            };
+            class altitude_edit : easting_edit {
+                idc = IDC_ARTILLERY_LOCATION_ALT;
+                y = GUI_ECHIDNA_H * 6;
+                text = "0000";
+            };
+        };
+    };
+    class shootingparameter : RSC(BaseControlsGroupNoScrollbar) {
+        idc = IDC_ARTILLERY_PARAMS;
+        x = GUI_ECHIDNA_X + GUI_ECHIDNA_W * 11;
+        y = GUI_ECHIDNA_Y + GUI_ECHIDNA_H * 0.5;
+        w = GUI_ECHIDNA_W * 18;
+        h = GUI_ECHIDNA_H * 7.5;
+        class controlsBackground {
+            class background: RSC(BaseText) {
+                idc = IDC_ARTILLERY_PARAMS;
+                x = 0;
+                y = 0;
+                w = GUI_ECHIDNA_W * 18;
+                h = GUI_ECHIDNA_H * 7.5;
+            };
+        };
+        class objects {};
+        class controls {
+            class mil_name : RSC(BaseText) {
+                idc = -IDC_ARTILLERY_PARAMS_MILS;
+                x = GUI_ECHIDNA_W * 0.5;
+                y = GUI_ECHIDNA_H * 0.5;
+                w = GUI_ECHIDNA_W * 8;
+                h = GUI_ECHIDNA_H * 1;
+                text = CSTRING(mils);
+            };
+            class mil_edit : RSC(BaseEdit) {
+                idc = IDC_ARTILLERY_PARAMS_MILS;
+                x = GUI_ECHIDNA_W * 9;
+                y = GUI_ECHIDNA_H * 0.5;
+                w = GUI_ECHIDNA_W * 8;
+                h = GUI_ECHIDNA_H * 1;
+                text = "1000";
+            };
+            class elevation_name : mil_name {
+                idc = -IDC_ARTILLERY_PARAMS_ELEVATION;
+                y = GUI_ECHIDNA_H * 2;
+                text = CSTRING(elevation);
+            };
+            class elevation_edit : mil_edit {
+                idc = IDC_ARTILLERY_PARAMS_ELEVATION;
+                y = GUI_ECHIDNA_H * 2;
+                text = "45";
+            };
+            class ammunition_name : mil_name {
+                idc = -IDC_ARTILLERY_PARAMS_AMMO;
+                y = GUI_ECHIDNA_H * 3.5;
+                text = CSTRING(ammo);
+            };
+            class ammunition_combo : RSC(BaseCombo) {
+                idc = IDC_ARTILLERY_PARAMS_AMMO;
+                y = GUI_ECHIDNA_H * 3.5;
+            };
+            class charge_name : mil_name {
+                idc = -IDC_ARTILLERY_PARAMS_CHARGE;
+                y = GUI_ECHIDNA_H * 5;
+                text = CSTRING(charge);
+            };
+            class charge_combo : RSC(BaseCombo) {
+                idc = IDC_ARTILLERY_PARAMS_CHARGE;
+                y = GUI_ECHIDNA_H * 5;
+            };
+            class fuze_name : mil_name {
+                idc = -IDC_ARTILLERY_PARAMS_FUZE;
+                y = GUI_ECHIDNA_H * 6.5;
+                text = CSTRING(ammo);
+            };
+            class fuze_combo : RSC(BaseCombo) {
+                idc = IDC_ARTILLERY_PARAMS_FUZE;
+                y = GUI_ECHIDNA_H * 6.5;
+            };
+        };
+    };
+    class network : RSC(BaseControlsGroupNoScrollbar) {
+        idc = IDC_ARTILLERY_NETWORK;
+        x = GUI_ECHIDNA_X + GUI_ECHIDNA_W * 29.5;
+        y = GUI_ECHIDNA_Y + GUI_ECHIDNA_H * 0.5;
+        w = GUI_ECHIDNA_W * 10;
+        h = GUI_ECHIDNA_H * 19;
+        class controlsBackground {
+            class background: RSC(BaseText) {
+                x = 0;
+                y = 0;
+                w = GUI_ECHIDNA_W * 10;
+                h = GUI_ECHIDNA_H * 19;
+                colorBackground[] = {RAL9017,1};
+            };
+        };
+        class objects {};
+        class controls {
+            class network_name : RSC(BaseText) {
+                x = GUI_ECHIDNA_W * 2;
+                y = GUI_ECHIDNA_H * 0.5;
+                w = GUI_ECHIDNA_W * 6;
+                h = GUI_ECHIDNA_H * 1;
+                text = CSTRING(network);
+            };
+            class network_checkbox : RSC(BaseCheckbox) {
+                idc = IDC_ARTILLERY_NETWORK_CONNECT;
+                x = GUI_ECHIDNA_W * 0.5;
+                y = GUI_ECHIDNA_H * 0.5;
+                w = GUI_ECHIDNA_W * 1;
+                h = GUI_ECHIDNA_H * 1;
+                text = "1000";
+            };
+            class artilleryID_name : RSC(BaseText) {
+                x = GUI_ECHIDNA_W * 0.5;
+                y = GUI_ECHIDNA_H * 2;
+                w = GUI_ECHIDNA_W * 5;
+                h = GUI_ECHIDNA_H * 1;
+                text = CSTRING(networkID);
+            };
+            class artilleryID_edit : RSC(BaseEdit) {
+                idc = IDC_ARTILLERY_NETWORK_ID;
+                x = GUI_ECHIDNA_W * 5.5;
+                y = GUI_ECHIDNA_H * 2;
+                w = GUI_ECHIDNA_W * 4;
+                h = GUI_ECHIDNA_H * 1;
+                text = "XX-0000";
+                canModify=0;
+            };
+            class orderList : RSC(BaseListboxN) {
+                idc = IDC_ARTILLERY_NETWORK_ORDERLIST;
+                x = GUI_ECHIDNA_W * 0.5;
+                y = GUI_ECHIDNA_H * 3.5;
+                w = GUI_ECHIDNA_W * 9;
+                h = GUI_ECHIDNA_H * 10;
+            };
+            class add_bttn : RSC(BaseButton) {
+                idc = IDC_ARTILLERY_NETWORK_ADD;
+                x = GUI_ECHIDNA_W * 0.5;
+                y = GUI_ECHIDNA_H * 17;
+                w = GUI_ECHIDNA_W * 2.5;
+                h = GUI_ECHIDNA_H * 1.5;
+            };
+            class delete_bttn : add_bttn {
+                idc = IDC_ARTILLERY_NETWORK_DELETE;
+                x = GUI_ECHIDNA_W * 3.25;
+            };
+            class use_bttn : delete_bttn {
+                idc = IDC_ARTILLERY_NETWORK_USE;
+                x = GUI_ECHIDNA_W * 6;
+            };
+        };
+    };
+    class FIRE_bttn : RSC(BaseButton) {
+        idc = IDC_ARTILLERY_FIRE;
+        text = CSTRING(FIRE);
+        x = GUI_ECHIDNA_X + GUI_ECHIDNA_W * 22;
+        y = GUI_ECHIDNA_Y + GUI_ECHIDNA_H * 24;
+        w = GUI_ECHIDNA_W * 6;
+        h = GUI_ECHIDNA_H * 3;
+    };
 };

@@ -1268,4 +1268,55 @@
             <English>shutdown</English>
         </Key>
     </Package>
+    <Package name="gui_artillery">
+        <Key ID="STR_DORB_GUI_ARTILLERY_ELEVATION">
+            <German>Rohrerhöhung</German>
+            <English>elevation</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARTILLERY_MILS">
+            <German>Geländewinkel</German>
+            <English>milliradian</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARTILLERY_AMMO">
+            <German>Munition</German>
+            <English>ammunition</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARTILLERY_CHARGE">
+            <German>Ladung</German>
+            <English>charge</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARTILLERY_FUZE">
+            <German>Zünder</German>
+            <English>fuze</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARTILLERY_NETWORK">
+            <German>mit Netzwerk verbunden</German>
+            <English>connected to network</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARTILLERY_NETWORKID">
+            <German>Artillerie-Kennung</German>
+            <English>Artillery-ID</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARTILLERY_LOCATION_USE">
+            <German>Aktuell Position nutzen</German>
+            <English>Use current Position</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARTILLERY_LOCATION_EAST">
+            <German>Position Ost:</German>
+            <English>Easting:</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARTILLERY_LOCATION_NORTH">
+            <German>Position Nord:</German>
+            <English>Northing:</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARTILLERY_LOCATION_ALT">
+            <German>Höhe über NN:</German>
+            <English>Altitude:</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARTILLERY_FIRE">
+            <German>FEUER</German>
+            <English>FIRE</English>
+        </Key>
+
+    </Package>
 </Project>
