@@ -123,6 +123,13 @@ class main {
     };
     */
 
+    class upload : device {
+        class location : location {
+            areas[] = {QGVAR(military)};
+            radius = 200;
+        };
+    };
+
     class weaponcache : hostage {
         class location : location {
             areas[] = {QGVAR(town), QGVAR(military)};

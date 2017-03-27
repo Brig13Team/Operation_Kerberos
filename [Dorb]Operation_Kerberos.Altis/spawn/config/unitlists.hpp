@@ -13,6 +13,9 @@ class GVAR(unitlists) {
             weaponcache[] = {"Box_IND_Wps_F","Box_IND_WpsSpecial_F","Box_IND_WpsLaunch_F","Box_IND_Ammo_F","Box_IND_Grenades_F","Box_IND_Support_F"};
             pow[] = {"C_scientist_F","C_journalist_F"};
             intel[] = {"Land_File1_F","Land_File2_F","Land_FilePhotos_F","Land_SatellitePhone_F","Land_MobilePhone_smart_F"};
+            laptop_open[] = {"Land_Laptop_unfolded_F", "Land_Laptop_device_F"};
+            laptop_closed[] = {"Land_Laptop_F"};
+            laptop[] = {"Land_Laptop_F", "Land_Laptop_unfolded_F", "Land_Laptop_device_F"};
             case[] = {"Land_Suitcase_F"};
             tower[] = {"Land_TTowerBig_1_F","Land_TTowerBig_2_F"};
             radar[] = {"rhs_p37","rhs_prv13"};

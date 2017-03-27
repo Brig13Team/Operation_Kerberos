@@ -22,6 +22,7 @@ PREPS(mainmission,prototype);
 PREPS(mainmission,radiotower);
 PREPS(mainmission,rtb);
 PREPS(mainmission,scarab);
+PREPS(mainmission,upload);
 PREPS(mainmission,weaponcache);
 
 PREPS(sidemission,radar);

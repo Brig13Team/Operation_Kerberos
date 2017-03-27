@@ -36,6 +36,9 @@ switch _type do {
     case "dronecommando" : {
         _config = _config >> "hq_mobile";
     };
+    case "upload" : {
+         _config = _config >> "laptop_open";
+    };
     default {
         _config = _config >> _type;
     };
