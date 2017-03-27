@@ -18,6 +18,9 @@ if !(isClass(missionConfigFile >> "mission" >> "main" >> _type)) exitWith { -1 }
 [_type] spawn {
     _this params ["_type"];
 
+    while !(isNil QGVAR(spawn_tmp)) do { uiSleep 5; };
+    TRACE("Spawning started!");
+
     // create mission hash
     GVAR(spawn_tmp) = HASH_CREATE;
     private _hash = GVAR(spawn_tmp);
@@ -46,4 +49,6 @@ if !(isClass(missionConfigFile >> "mission" >> "main" >> _type)) exitWith { -1 }
 
     // register mission
     [GVAR(spawn_tmp)] call FUNC(taskmanager_add);
+
+    GVAR(spawn_tmp) = nil;
 };
