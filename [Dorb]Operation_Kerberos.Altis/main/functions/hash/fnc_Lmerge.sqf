@@ -18,7 +18,7 @@
 _this params ["_mainHash","_secondaryHash"];
 
 {
-    HASH_SET(_mainHash,_x,HASH_GET(_secondaryHash,_x));
-} forEach (HASH_KEYS(_secondaryHash));
+    LHASH_SET(_mainHash,_x,LHASH_GET(_secondaryHash,_x));
+} forEach (LHASH_KEYS(_secondaryHash));
 
 nil;
