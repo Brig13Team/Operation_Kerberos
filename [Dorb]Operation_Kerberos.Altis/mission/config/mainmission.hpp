@@ -70,6 +70,23 @@ class main {
 
     class emp : device {};
 
+    class hold : __oneCounter {
+      class location : location {
+        radius = 250;
+      };
+
+      class object : objects {
+        tickets = 135000; // 25 player for 30 minutes
+        multiplier = 0.01;
+        min = 0;
+        max = 0;
+      };
+
+      class defence : defence {
+        target = "";
+      };
+    };
+
     class hostage : capture {
         class object : object {
             min = 1;

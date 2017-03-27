@@ -46,4 +46,8 @@ switch _type do {
 
 TRACEV_1(_config);
 
-getArray(_config)
+if (isArray _config) exitWith {
+   getArray(_config)
+};
+
+[]

@@ -7,6 +7,7 @@ PREP(handleRescuePoint);
 PREP(spawn);
 PREP(spawnSide);
 
+PREPS(mainmission,_holdPFH);
 PREPS(mainmission,_oneCounter_condition);
 PREPS(mainmission,_oneCounter);
 PREPS(mainmission,_rtb_condition);
@@ -16,6 +17,7 @@ PREPS(mainmission,capture);
 PREPS(mainmission,device);
 PREPS(mainmission,dronecommando);
 PREPS(mainmission,emp);
+PREPS(mainmission,hold);
 PREPS(mainmission,hostage);
 PREPS(mainmission,intel);
 PREPS(mainmission,prototype);

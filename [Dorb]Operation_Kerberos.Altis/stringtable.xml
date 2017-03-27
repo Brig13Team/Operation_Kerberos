@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Project name="dorb">
     <Package name="main">
         <Key ID="STR_DORB_MAIN_NAME">
@@ -261,6 +261,26 @@
             <Key ID="STR_DORB_MISSION_EMP_TRIGGER_FAILED">
                 <Original>TODO</Original>
                 <German>Das Gerät wurde zerstört.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_HOLD_TITLE">
+                <Original>Hold Position</Original>
+                <German>Position halten</German>
+                <English>Hold Position</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_HOLD_DESC">
+                <Original>TODO</Original>
+                <German>Halten Sie die Position um jeden Preis.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_HOLD_COUNTER">
+                <Original>TODO</Original>
+                <German>Die Position wurde erfolgreich gehalten.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_HOLD_TRIGGER_FAILED">
+                <Original>TODO</Original>
+                <German>Die Position ist verloren.</German>
                 <English>TODO</English>
             </Key>
             <Key ID="STR_DORB_MISSION_HOSTAGE_TITLE">
