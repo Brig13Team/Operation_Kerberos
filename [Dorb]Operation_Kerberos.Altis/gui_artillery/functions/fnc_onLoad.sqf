@@ -20,7 +20,7 @@ _this params [["_type","",[""]],"_ctrl"];
 switch _type do {
     case "ammunitiondata" : {};
     case "orderlist": {
-        _ctrl setVariable [QGVAR(orders),((vehicle player) getVariable [QGVAR(orders),[]]) + ((vehicle player) getVariable [QGVAR(localorders),[]])];
+        //_ctrl setVariable [QGVAR(orders),((vehicle player) getVariable [QGVAR(orders),[]]) + ((vehicle player) getVariable [QGVAR(localorders),[]])];
     };
     case "artillerydata" : {
 
@@ -43,6 +43,16 @@ switch _type do {
             GVAR(handleDisplay) = [LINKFUNC(handleDisplay),1,[_ctrl]] call CBA_fnc_addPerFrameHandler;
         };
         GVAR(curArtillery) = vehicle player;
+    };
+    case "useCurrent" : {
+        [
+            {
+                _this params ["_ctrl"];
+                _ctrl cbSetChecked false;
+                [_ctrl,0] call FUNC(onCheckedChangedLoc);
+            },
+            [_ctrl]
+        ] call CBA_fnc_execNextFrame;
     };
     case "network" : {
         _ctrl cbSetChecked ((vehicle player) getVariable [QGVAR(networkConnected),false]);

@@ -17,7 +17,7 @@
 
 _this params ["_ctrl","_state"];
 
-_state = !_state;
+_state = [false,true] select _state;
 private _ctrlGrp = ctrlParentControlsGroup _ctrl;
 private _ctrl = _ctrlGrp controlsGroupCtrl IDC_ARTILLERY_LOCATION_EAST;
 _ctrl ctrlEnable _state;

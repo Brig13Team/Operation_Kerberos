@@ -25,6 +25,7 @@ If (isNull _display) exitWith {
 
 [_display,GVAR(curArtillery)] call FUNC(showArtData);
 [_display,GVAR(curArtillery)] call FUNC(showArtAmmo);
+[] call FUNC(showOrders);
 
 private _time = missionStart;
 private _timectrl = _display displayCTRL IDC_ARTILLERY_TIME;

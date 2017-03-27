@@ -11,15 +11,15 @@
  *      [TYPE] - [return name]
  *
  */
-//#define DEBUG_MODE_FULL
+#define DEBUG_MODE_FULL
 #define INCLUDE_GUI
 #include "script_component.hpp"
 
 
+TRACE("adding");
 
 
-
-If !([] call FUNC(checkInput)) exitWith {};
+//If !([] call FUNC(checkInput)) exitWith {};
 
 private _lastID = (GVAR(curArtillery) getVariable [QGVAR(lastID),0]) + 1;
 GVAR(curArtillery) setVariable [QGVAR(lastID),_lastID];

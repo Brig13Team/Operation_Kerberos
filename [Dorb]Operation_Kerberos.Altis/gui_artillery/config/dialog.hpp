@@ -120,7 +120,7 @@ class APP(dialog) : RSC(Echidna) {
                 w = GUI_ECHIDNA_W * 1;
                 h = GUI_ECHIDNA_H * 1;
                 checked=0;
-                //onLoad = QUOTE([ARR_2('useCurrent',_this select 0)] call FUNC(OnLoad););
+                onLoad = QUOTE([ARR_2('useCurrent',_this select 0)] call FUNC(OnLoad););
                 onCheckedChanged = QUOTE(_this call FUNC(onCheckedChangedLoc));
             };
             class useCurrent_name : RSC(BaseText) {
@@ -294,6 +294,7 @@ class APP(dialog) : RSC(Echidna) {
                 y = GUI_ECHIDNA_H * 3.5;
                 w = GUI_ECHIDNA_W * 9;
                 h = GUI_ECHIDNA_H * 10;
+                columns[] = {-0.01,0.6};
                 onLoad = QUOTE([ARR_2('orderlist',_this select 0)] call FUNC(OnLoad););
             };
             class add_bttn : RSC(BaseButton) {
@@ -303,16 +304,19 @@ class APP(dialog) : RSC(Echidna) {
                 w = GUI_ECHIDNA_W * 2.5;
                 h = GUI_ECHIDNA_H * 1.5;
                 text = CSTRING(NETWORK_ADD);
+                onButtonClick = QUOTE(_this call FUNC(addOrder);true);
             };
             class delete_bttn : add_bttn {
                 idc = IDC_ARTILLERY_NETWORK_DELETE;
                 x = GUI_ECHIDNA_W * 3.25;
                 text = CSTRING(NETWORK_DEL);
+                onButtonClick = QUOTE(_this call FUNC(deleteOrder);true);
             };
             class use_bttn : delete_bttn {
                 idc = IDC_ARTILLERY_NETWORK_USE;
                 x = GUI_ECHIDNA_W * 6;
                 text = CSTRING(NETWORK_USE);
+                onButtonClick = QUOTE(_this call FUNC(useOrder);true);
             };
         };
     };
