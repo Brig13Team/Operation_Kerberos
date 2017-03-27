@@ -28,6 +28,7 @@ PREPS(mainmission,upload);
 PREPS(mainmission,weaponcache);
 
 PREPS(sidemission,radar);
+PREPS(sidemission,wreck);
 
 PREPS(spawn,chooseLocation);
 PREPS(spawn,getAmount);
@@ -78,6 +79,7 @@ PREPS(obj,effectEarthquake);
 PREPS(obj,initACEAction_device);
 PREPS(obj,initACEAction_intel);
 PREPS(obj,initACEAction_upload);
+PREPS(obj,initACEAction_wreck);
 PREPS(obj,onRadiotowerDamaged);
 PREPS(obj,spawnEMP);
 PREPS(obj,spawnNuke);

@@ -19,4 +19,10 @@ class side {
             radius = 500;
         };
     };
+
+    class radar : __base {
+        class object : object {
+            radius = 1500;
+        };
+    };
 };

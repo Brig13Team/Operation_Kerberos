@@ -405,6 +405,21 @@
                 <German>Ein Radar wurde neutralisiert.</German>
                 <English>TODO</English>
             </Key>
+            <Key ID="STR_DORB_MISSION_WRECK_TITLE">
+                <Original>Find Wreck</Original>
+                <German>Wrack finden</German>
+                <English>Find Wreck</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_WRECK_DESC">
+                <Original>TODO</Original>
+                <German>Ein feindliches Luftfahrzeug ist abgestürtzt. Finden Sie dessen Wrack und durchsuchen Sie es nach Informationen.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_WRECK_COUNTER">
+                <Original>TODO</Original>
+                <German>Wrack wurde durchsucht.</German>
+                <English>TODO</English>
+            </Key>
         </Container>
         <Container name="OBJ">
             <Key ID="STR_DORB_MISSION_OBJECTS_DEVICE_DISABLE">
@@ -431,6 +446,16 @@
                 <Original>Uploading Virus ...</Original>
                 <German>Virus wird hochgeladen ...</German>
                 <English>Uploading Virus ...</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_OBJECTS_GATHER_INTEL">
+                <Original>Gather Intel</Original>
+                <German>Nach Informationen suchen</German>
+                <English>Gather Intel</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_OBJECTS_GATHER_INTEL">
+                <Original>Gathering Intel</Original>
+                <German>Suche nach Informationen ...</German>
+                <English>Gathering Intel</English>
             </Key>
             <Key ID="STR_DORB_MISSION_OBJECTS_CARRY">
                 <Original>Carry</Original>
