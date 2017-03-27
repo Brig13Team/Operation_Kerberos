@@ -75,6 +75,7 @@ PREPS(obj,effectEarthquake);
 // PREPS(obj,initACEAction_DataTerminal);
 PREPS(obj,initACEAction_device);
 PREPS(obj,initACEAction_intel);
+PREPS(obj,initACEAction_upload);
 PREPS(obj,onRadiotowerDamaged);
 PREPS(obj,spawnEMP);
 PREPS(obj,spawnNuke);

@@ -11,6 +11,7 @@ CHECK(!hasInterface)
 // Initialization Stuff
 [] call FUNC(obj_initACEAction_intel);
 [] call FUNC(obj_initACEAction_device);
+[] call FUNC(obj_initACEAction_upload);
 
 /*
 [
