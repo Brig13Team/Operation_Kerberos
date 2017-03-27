@@ -20,6 +20,6 @@ PREP(showArtAmmo);
 PREP(showArtData);
 PREP(showOrders);
 
-PREP(useOrders);
+PREP(useOrder);
 
 ADDON = true;
