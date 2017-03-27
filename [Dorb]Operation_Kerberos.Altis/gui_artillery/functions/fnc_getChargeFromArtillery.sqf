@@ -15,16 +15,16 @@
 #include "script_component.hpp"
 
 
-_this params [["_ammotype","",["",0]]];
+_this params [["_artilleryType","",[""]]];
 
-
-If (_ammotype isEqualType 0) then {
-    [
-
-    ] select _fuze;
-}else{
-    private _fuze = switch (_ammotype) do {
-        default {[0,LSTRING(FUZE_0)]};
+switch (_artilleryType) do {
+    default {
+        [
+            0,  // 1xXM231
+            1,  // 2xXM231
+            2,  // 3xXM232
+            3,  // 4xXM232
+            4   // 5xXM232
+        ]
     };
-    [_fuze] call FUNC(getArtilleryFuze);
 };

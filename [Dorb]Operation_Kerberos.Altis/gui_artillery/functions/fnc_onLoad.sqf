@@ -11,7 +11,7 @@
  *      [TYPE] - [return name]
  *
  */
-//#define DEBUG_MODE_FULL
+#define DEBUG_MODE_FULL
 #define INCLUDE_GUI
 #include "script_component.hpp"
 
@@ -43,13 +43,37 @@ switch _type do {
             GVAR(handleDisplay) = [LINKFUNC(handleDisplay),1,[_ctrl]] call CBA_fnc_addPerFrameHandler;
         };
         GVAR(curArtillery) = vehicle player;
+
+        private _ctrlGrp = _ctrl displayCtrl IDC_ARTILLERY_PARAMS;
+        private _ctrlAmmo = _ctrlGrp controlsGroupCtrl IDC_ARTILLERY_PARAMS_AMMO;
+        private _allMags = [GVAR(curArtillery)] call FUNC(getArtilleryAmmo);
+        {
+            private _name = getText(configfile >> "CfgMagazines" >> _x >> "displayNameShort");
+            private _index = _ctrlAmmo lbAdd _name;
+            _ctrlAmmo lbSetData [_index, _x];
+        } forEach _allMags;
+        _ctrlAmmo setVariable ["values",_allMags];
+        _ctrlAmmo lbSetCurSel 0;
+
+        private _ctrlCharge = _ctrlGrp controlsGroupCtrl IDC_ARTILLERY_PARAMS_CHARGE;
+        private _allCharges = [typeOf GVAR(curArtillery)] call FUNC(getChargeFromArtillery);
+        {
+            private _name = localize format[LSTRING(CHARGE_%1),_x];
+            private _index = _ctrlCharge lbAdd _name;
+            _ctrlCharge lbSetValue [_index, _x];
+        } forEach _allCharges;
+        _ctrlCharge setVariable ["values",_allCharges];
+        TRACEV_1(_allCharges);
+        _ctrlCharge lbSetCurSel 0;
+
+        [] call FUNC(showFuze);
     };
     case "useCurrent" : {
         [
             {
                 _this params ["_ctrl"];
-                _ctrl cbSetChecked false;
-                [_ctrl,0] call FUNC(onCheckedChangedLoc);
+                _ctrl cbSetChecked ((GVAR(curArtillery) getVariable [QGVAR(location_usecurrent),true]));
+                [_ctrl] call FUNC(onCheckedChangedLoc);
             },
             [_ctrl]
         ] call CBA_fnc_execNextFrame;

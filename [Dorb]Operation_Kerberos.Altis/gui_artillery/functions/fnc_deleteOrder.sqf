@@ -30,3 +30,5 @@ if !(_curHash in _localHashes) exitWith {};
 
 _localHashes = _localHashes - [_curHash];
 GVAR(curArtillery) setVariable [QGVAR(localorders),_localHashes];
+
+[] call FUNC(showOrder);

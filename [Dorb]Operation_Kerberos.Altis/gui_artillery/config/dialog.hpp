@@ -17,7 +17,8 @@ class APP(dialog) : RSC(Echidna) {
         artilleryProperties_bgrd2,
         shootingLocation_bgrd,
         shootingparameter_bgrd,
-        network_bgrd
+        network_bgrd,
+        artcontrol_bgrd
     };
     controls[] = {
         clock,
@@ -27,7 +28,7 @@ class APP(dialog) : RSC(Echidna) {
         shootingLocation,
         shootingparameter,
         network,
-        FIRE_bttn,
+        artilleryControl,
         time,
 
         metro_back,
@@ -60,22 +61,27 @@ class APP(dialog) : RSC(Echidna) {
     class shootingLocation_bgrd: artilleryProperties_bgrd {
         x = GUI_ECHIDNA_X + GUI_ECHIDNA_W * 11;
         y = GUI_ECHIDNA_Y + GUI_ECHIDNA_H * 0.5;
-        w = GUI_ECHIDNA_W * 18;
-        h = GUI_ECHIDNA_H * 7.5;
+        w = GUI_ECHIDNA_W * 14;
+        h = GUI_ECHIDNA_H * 9.5;
     };
     class shootingparameter_bgrd: artilleryProperties_bgrd {
         x = GUI_ECHIDNA_X + GUI_ECHIDNA_W * 11;
         y = GUI_ECHIDNA_Y + GUI_ECHIDNA_H * 11;
-        w = GUI_ECHIDNA_W * 18;
+        w = GUI_ECHIDNA_W * 14;
         h = GUI_ECHIDNA_H * 9.5;
     };
     class network_bgrd: artilleryProperties_bgrd {
-        x = GUI_ECHIDNA_X + GUI_ECHIDNA_W * 29.5;
+        x = GUI_ECHIDNA_X + GUI_ECHIDNA_W * 25.5;
         y = GUI_ECHIDNA_Y + GUI_ECHIDNA_H * 2;
-        w = GUI_ECHIDNA_W * 10;
+        w = GUI_ECHIDNA_W * 14;
         h = GUI_ECHIDNA_H * 19;
     };
-
+    class artcontrol_bgrd: artilleryProperties_bgrd {
+        x = GUI_ECHIDNA_X + GUI_ECHIDNA_W * 25.5;
+        y = GUI_ECHIDNA_Y + GUI_ECHIDNA_H * 21.5;
+        w = GUI_ECHIDNA_W * 14;
+        h = GUI_ECHIDNA_H * 6.5;
+    };
 
 
     class artilleryProperties : RSC(BaseControlsGroupNoScrollbar) {
@@ -93,6 +99,7 @@ class APP(dialog) : RSC(Echidna) {
                 h = GUI_ECHIDNA_H * 12;
                 columns[] = {-0.01,0.6};
                 onLoad = QUOTE([ARR_2('artillerydata',_this select 0)] call FUNC(OnLoad););
+                sizeEx = GUI_ECHIDNA_H * 0.8;
             };
             class ammunitionData : RSC(BaseListboxN) {
                 idc = IDC_ARTILLERY_PROPERTIES_AMMUNITION;
@@ -102,6 +109,7 @@ class APP(dialog) : RSC(Echidna) {
                 h = GUI_ECHIDNA_H * 12;
                 columns[] = {-0.01,0.6};
                 onLoad = QUOTE([ARR_2('ammunitiondata',_this select 0)] call FUNC(OnLoad););
+                sizeEx = GUI_ECHIDNA_H * 0.8;
             };
         };
     };
@@ -110,13 +118,13 @@ class APP(dialog) : RSC(Echidna) {
         idc = IDC_ARTILLERY_LOCATION;
         x = GUI_ECHIDNA_X + GUI_ECHIDNA_W * 11;
         y = GUI_ECHIDNA_Y + GUI_ECHIDNA_H * 0.5;
-        w = GUI_ECHIDNA_W * 18;
-        h = GUI_ECHIDNA_H * 7.5;
+        w = GUI_ECHIDNA_W * 13.5;
+        h = GUI_ECHIDNA_H * 9;
         class controls {
             class useCurrent_check : RSC(BaseCheckBox) {
                 idc = IDC_ARTILLERY_LOCATION_USECURRENT;
-                x = GUI_ECHIDNA_W * 0.5;
-                y = GUI_ECHIDNA_H * 0.5;
+                x = GUI_ECHIDNA_W * 12;
+                y = GUI_ECHIDNA_H * 3;
                 w = GUI_ECHIDNA_W * 1;
                 h = GUI_ECHIDNA_H * 1;
                 checked=0;
@@ -125,50 +133,60 @@ class APP(dialog) : RSC(Echidna) {
             };
             class useCurrent_name : RSC(BaseText) {
                 idc = -IDC_ARTILLERY_LOCATION_USECURRENT;
-                x = GUI_ECHIDNA_W * 2;
-                y = GUI_ECHIDNA_H * 1.5;
-                w = GUI_ECHIDNA_W * 16;
-                h = GUI_ECHIDNA_H * 2;
-                //text = CSTRING(LOCATION_USE);
-                test = "ASdasd";
-                style = "0x00";
+                x = GUI_ECHIDNA_W * 0.5;
+                y = GUI_ECHIDNA_H * 3;
+                w = GUI_ECHIDNA_W * 11;
+                h = GUI_ECHIDNA_H * 1;
+                text = CSTRING(LOCATION_USE);
+                style = "0x01";
             };
             class easting_name : RSC(BaseText) {
                 idc = -IDC_ARTILLERY_LOCATION_EAST;
                 x = GUI_ECHIDNA_W * 0.5;
-                y = GUI_ECHIDNA_H * 3;
-                w = GUI_ECHIDNA_W * 8;
+                y = GUI_ECHIDNA_H * 4.5;
+                w = GUI_ECHIDNA_W * 6;
                 h = GUI_ECHIDNA_H * 1;
                 text = CSTRING(location_east);
                 style = "0x01";
             };
             class easting_edit : RSC(BaseEdit) {
                 idc = IDC_ARTILLERY_LOCATION_EAST;
-                x = GUI_ECHIDNA_W * 9;
-                y = GUI_ECHIDNA_H * 3;
-                w = GUI_ECHIDNA_W * 8;
+                x = GUI_ECHIDNA_W * 7;
+                y = GUI_ECHIDNA_H * 4.5;
+                w = GUI_ECHIDNA_W * 6;
                 h = GUI_ECHIDNA_H * 1;
                 text = "0000";
             };
             class northing_name : easting_name {
                 idc = -IDC_ARTILLERY_LOCATION_NORTH;
-                y = GUI_ECHIDNA_H * 4.5;
+                y = GUI_ECHIDNA_H * 6;
                 text = CSTRING(location_north);
             };
             class northing_edit : easting_edit {
                 idc = IDC_ARTILLERY_LOCATION_NORTH;
-                y = GUI_ECHIDNA_H * 4.5;
+                y = GUI_ECHIDNA_H * 6;
                 text = "0000";
             };
             class altitude_name : easting_name {
                 idc = -IDC_ARTILLERY_LOCATION_ALT;
-                y = GUI_ECHIDNA_H * 6;
+                y = GUI_ECHIDNA_H * 7.5;
                 text = CSTRING(location_alt);
             };
             class altitude_edit : easting_edit {
                 idc = IDC_ARTILLERY_LOCATION_ALT;
-                y = GUI_ECHIDNA_H * 6;
+                y = GUI_ECHIDNA_H * 7.5;
                 text = "0000";
+            };
+            class order_name : easting_name {
+                idc = -IDC_ARTILLERY_LOCATION_ORDER;
+                y = GUI_ECHIDNA_H * 0.5;
+                text = CSTRING(location_order);
+            };
+            class order_edit : easting_edit {
+                idc = IDC_ARTILLERY_LOCATION_ORDER;
+                y = GUI_ECHIDNA_H * 0.5;
+                text = "";
+                canModify=0;
             };
         };
     };
@@ -176,25 +194,26 @@ class APP(dialog) : RSC(Echidna) {
         idc = IDC_ARTILLERY_PARAMS;
         x = GUI_ECHIDNA_X + GUI_ECHIDNA_W * 11;
         y = GUI_ECHIDNA_Y + GUI_ECHIDNA_H * 11;
-        w = GUI_ECHIDNA_W * 18;
+        w = GUI_ECHIDNA_W * 13.5;
         h = GUI_ECHIDNA_H * 9.5;
         class controls {
             class mil_name : RSC(BaseText) {
                 idc = -IDC_ARTILLERY_PARAMS_MILS;
                 x = GUI_ECHIDNA_W * 0.5;
                 y = GUI_ECHIDNA_H * 0.5;
-                w = GUI_ECHIDNA_W * 8;
+                w = GUI_ECHIDNA_W * 6;
                 h = GUI_ECHIDNA_H * 1;
                 text = CSTRING(mils);
                 style = "0x01";
             };
             class mil_edit : RSC(BaseEdit) {
                 idc = IDC_ARTILLERY_PARAMS_MILS;
-                x = GUI_ECHIDNA_W * 9;
+                x = GUI_ECHIDNA_W * 7;
                 y = GUI_ECHIDNA_H * 0.5;
-                w = GUI_ECHIDNA_W * 8;
+                w = GUI_ECHIDNA_W * 6;
                 h = GUI_ECHIDNA_H * 1;
                 text = "1000";
+                toolTip = "0-6400";
             };
             class elevation_name : mil_name {
                 idc = -IDC_ARTILLERY_PARAMS_ELEVATION;
@@ -205,6 +224,7 @@ class APP(dialog) : RSC(Echidna) {
                 idc = IDC_ARTILLERY_PARAMS_ELEVATION;
                 y = GUI_ECHIDNA_H * 2;
                 text = "45";
+                toolTip = "45-90";
             };
             class ammunition_name : mil_name {
                 idc = -IDC_ARTILLERY_PARAMS_AMMO;
@@ -213,10 +233,11 @@ class APP(dialog) : RSC(Echidna) {
             };
             class ammunition_combo : RSC(BaseComboBox) {
                 idc = IDC_ARTILLERY_PARAMS_AMMO;
-                x = GUI_ECHIDNA_W * 9;
+                x = GUI_ECHIDNA_W * 7;
                 y = GUI_ECHIDNA_H * 3.5;
-                w = GUI_ECHIDNA_W * 8;
+                w = GUI_ECHIDNA_W * 6;
                 h = GUI_ECHIDNA_H * 1;
+                sizeEx = GUI_ECHIDNA_H * 0.7;
             };
             class charge_name : mil_name {
                 idc = -IDC_ARTILLERY_PARAMS_CHARGE;
@@ -241,23 +262,25 @@ class APP(dialog) : RSC(Echidna) {
                 y = GUI_ECHIDNA_H * 8;
                 text = CSTRING(tts);
             };
-            class tts_combo : mil_edit {
-                idc = IDC_ARTILLERY_PARAMS_FUZE;
+            class tts_edit : mil_edit {
+                idc = IDC_ARTILLERY_PARAMS_TTS;
                 y = GUI_ECHIDNA_H * 8;
+                text = "";
+                toolTip = "HHMM-SS";
             };
         };
     };
     class network : RSC(BaseControlsGroupNoScrollbar) {
         idc = IDC_ARTILLERY_NETWORK;
-        x = GUI_ECHIDNA_X + GUI_ECHIDNA_W * 29.5;
+        x = GUI_ECHIDNA_X + GUI_ECHIDNA_W * 25.5;
         y = GUI_ECHIDNA_Y + GUI_ECHIDNA_H * 2;
-        w = GUI_ECHIDNA_W * 10;
+        w = GUI_ECHIDNA_W * 14;
         h = GUI_ECHIDNA_H * 19;
         class controls {
             class network_name : RSC(BaseText) {
                 x = GUI_ECHIDNA_W * 2;
                 y = GUI_ECHIDNA_H * 0.5;
-                w = GUI_ECHIDNA_W * 6;
+                w = GUI_ECHIDNA_W * 10;
                 h = GUI_ECHIDNA_H * 1;
                 text = CSTRING(network);
                 style = "0x01";
@@ -274,15 +297,15 @@ class APP(dialog) : RSC(Echidna) {
             class artilleryID_name : RSC(BaseText) {
                 x = GUI_ECHIDNA_W * 0.5;
                 y = GUI_ECHIDNA_H * 2;
-                w = GUI_ECHIDNA_W * 5;
+                w = GUI_ECHIDNA_W * 6.5;
                 h = GUI_ECHIDNA_H * 1;
                 text = CSTRING(networkID);
             };
             class artilleryID_edit : RSC(BaseEdit) {
                 idc = IDC_ARTILLERY_NETWORK_ID;
-                x = GUI_ECHIDNA_W * 5.5;
+                x = GUI_ECHIDNA_W * 7.5;
                 y = GUI_ECHIDNA_H * 2;
-                w = GUI_ECHIDNA_W * 4;
+                w = GUI_ECHIDNA_W * 6;
                 h = GUI_ECHIDNA_H * 1;
                 text = "XX-0000";
                 canModify=0;
@@ -292,10 +315,11 @@ class APP(dialog) : RSC(Echidna) {
                 idc = IDC_ARTILLERY_NETWORK_ORDERLIST;
                 x = GUI_ECHIDNA_W * 0.5;
                 y = GUI_ECHIDNA_H * 3.5;
-                w = GUI_ECHIDNA_W * 9;
+                w = GUI_ECHIDNA_W * 13;
                 h = GUI_ECHIDNA_H * 10;
-                columns[] = {-0.01,0.6};
+                columns[] = {0.1,0.6,0.9};
                 onLoad = QUOTE([ARR_2('orderlist',_this select 0)] call FUNC(OnLoad););
+                sizeEx = GUI_ECHIDNA_H * 0.8;
             };
             class add_bttn : RSC(BaseButton) {
                 idc = IDC_ARTILLERY_NETWORK_ADD;
@@ -322,19 +346,69 @@ class APP(dialog) : RSC(Echidna) {
     };
     class time: RSC(BaseText) {
         idc = IDC_ARTILLERY_TIME;
-        x = GUI_ECHIDNA_X + GUI_ECHIDNA_W * 30;
+        x = GUI_ECHIDNA_X + GUI_ECHIDNA_W * 25.5;
         y = GUI_ECHIDNA_Y + GUI_ECHIDNA_H * 0.5;
-        w = GUI_ECHIDNA_W * 9;
+        w = GUI_ECHIDNA_W * 14;
         h = GUI_ECHIDNA_H * 1;
         text = "0000-00";
         style = "0x01";
     };
-    class FIRE_bttn : RSC(BaseButton) {
-        idc = IDC_ARTILLERY_FIRE;
-        text = CSTRING(FIRE);
-        x = GUI_ECHIDNA_X + GUI_ECHIDNA_W * 32;
-        y = GUI_ECHIDNA_Y + GUI_ECHIDNA_H * 24;
-        w = GUI_ECHIDNA_W * 6;
-        h = GUI_ECHIDNA_H * 3;
+    class artilleryControl : RSC(BaseControlsGroupNoScrollbar) {
+        idc = IDC_ARTILLERY_CONTROL;
+        x = GUI_ECHIDNA_X + GUI_ECHIDNA_W * 25.5;
+        y = GUI_ECHIDNA_Y + GUI_ECHIDNA_H * 21.5;
+        w = GUI_ECHIDNA_W * 14;
+        h = GUI_ECHIDNA_H * 6.5;
+        class controls {
+            class enable_bttn : RSC(BaseButton) {
+                idc = IDC_ARTILLERY_CONTROL_ENABLE;
+                text = CSTRING(CONTROL_ENABLE);
+                x = GUI_ECHIDNA_W * 1;
+                y = GUI_ECHIDNA_H * 0.5;
+                w = GUI_ECHIDNA_W * 6;
+                h = GUI_ECHIDNA_H * 1.5;
+                onButtonClick = QUOTE([true] call FUNC(onBttnEnable);true);
+            };
+            class disable_bttn : enable_bttn {
+                idc = IDC_ARTILLERY_CONTROL_DISABLE;
+                text = CSTRING(CONTROL_DISABLE);
+                x = GUI_ECHIDNA_W * 7.5;
+                onButtonClick = QUOTE([false] call FUNC(onBttnEnable);true);
+            };
+            class state_name : RSC(BaseText) {
+                idc = -IDC_ARTILLERY_CONTROL_STATE;
+                x = GUI_ECHIDNA_W * 0.5;
+                y = GUI_ECHIDNA_H * 2.5;
+                w = GUI_ECHIDNA_W * 6.5;
+                h = GUI_ECHIDNA_H * 1;
+                text = CSTRING(CONTROL_STATE);
+                style = "0x01";
+            };
+            class state_edit : RSC(BaseEdit) {
+                idc = IDC_ARTILLERY_CONTROL_STATE;
+                x = GUI_ECHIDNA_W * 7.5;
+                y = GUI_ECHIDNA_H * 2.5;
+                w = GUI_ECHIDNA_W * 6;
+                h = GUI_ECHIDNA_H * 1;
+                text = CSTRING(CONTROL_STATE_0);
+                canModify=0;
+            };
+            class PREPARE_bttn : RSC(BaseButton) {
+                idc = IDC_ARTILLERY_CONTROL_PREPARE;
+                text = CSTRING(CONTROL_PREPARE);
+                x = GUI_ECHIDNA_W * 0.5;
+                y = GUI_ECHIDNA_H * 4;
+                w = GUI_ECHIDNA_W * 6;
+                h = GUI_ECHIDNA_H * 2;
+                onButtonClick = QUOTE(_this call FUNC(onBttnPrepare);true);
+            };
+            class FIRE_bttn : PREPARE_bttn {
+                idc = IDC_ARTILLERY_CONTROL_FIRE;
+                text = CSTRING(CONTROL_FIRE);
+                x = GUI_ECHIDNA_W * 7.5;
+                onButtonClick = QUOTE(_this call FUNC(onBttnFire);true);
+            };
+        };
     };
+
 };

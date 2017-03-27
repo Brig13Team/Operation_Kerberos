@@ -19,7 +19,9 @@
 TRACE("adding");
 
 
-//If !([] call FUNC(checkInput)) exitWith {};
+If !([] call FUNC(checkInput)) exitWith {};
+
+disableSerialization;
 
 private _lastID = (GVAR(curArtillery) getVariable [QGVAR(lastID),0]) + 1;
 GVAR(curArtillery) setVariable [QGVAR(lastID),_lastID];
@@ -66,3 +68,5 @@ HASH_SET(_newHash,"fuze",_value);
 private _ctrl = _ctrlGrp controlsGroupCtrl IDC_ARTILLERY_PARAMS_TTS;
 private _value = ctrlText _ctrl;
 HASH_SET(_newHash,"tts",_value);
+
+[] call FUNC(showOrder);

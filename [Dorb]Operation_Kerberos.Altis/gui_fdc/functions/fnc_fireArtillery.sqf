@@ -16,7 +16,7 @@
 _this params [["_vehicle",objNull,[objNull]],["_fireHash",locationNull,[locationNull]]];
 
 If (isNil QGVAR(artilleryHandle)) then {
-    GVAR(artilleryHandle) = [LINKFUNK(handleArtillery),[],[_vehicle]] call CBA_fnc_addPerFrameHandler;
+    GVAR(artilleryHandle) = [LINKFUNC(handleArtillery),[],[_vehicle]] call CBA_fnc_addPerFrameHandler;
 };
 
 GVAR(fireCommands) pushBack _fireHash;

@@ -35,5 +35,5 @@ If !(isNil QGVAR(handleArtilleryComputer)) then {
 };
 
 [LINKFUNC(handleArtilleryComputer),0,[_vehicle,player]] call CBA_fnc_addPerFrameHandler;
-_vehicle addEventhandler ["fired",LINKFUNK(handleFired)];
+_vehicle addEventhandler ["fired",LINKFUNC(handleFired)];
 _vehicle setVariable [QGVAR(ready),true];

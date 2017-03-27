@@ -1329,9 +1329,9 @@
             <German>Höhe über NN:</German>
             <English>Altitude:</English>
         </Key>
-        <Key ID="STR_DORB_GUI_ARTILLERY_FIRE">
-            <German>FEUER</German>
-            <English>FIRE</English>
+        <Key ID="STR_DORB_GUI_ARTILLERY_LOCATION_ORDER">
+            <German>Auftrags-ID:</German>
+            <English>Order-ID:</English>
         </Key>
 
         <Key ID="STR_DORB_GUI_ARTILLERY_ARTDATA_X">
@@ -1370,6 +1370,61 @@
         <Key ID="STR_DORB_GUI_ARTILLERY_FUZE_0">
             <German>Aufschlagszünder</German>
             <English>serve detonator</English>
+        </Key>
+
+        <Key ID="STR_DORB_GUI_ARTILLERY_CHARGE_0">
+            <German>1xXM231</German>
+            <English>1xXM231</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARTILLERY_CHARGE_1">
+            <German>2xXM231</German>
+            <English>2xXM231</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARTILLERY_CHARGE_2">
+            <German>3xXM232</German>
+            <English>3xXM232</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARTILLERY_CHARGE_3">
+            <German>4xXM232</German>
+            <English>4xXM232</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARTILLERY_CHARGE_4">
+            <German>5xXM232</German>
+            <English>5xXM232</English>
+        </Key>
+
+
+        <Key ID="STR_DORB_GUI_ARTILLERY_CONTROL_FIRE">
+            <German>FEUER</German>
+            <English>FIRE</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARTILLERY_CONTROL_PREPARE">
+            <German>Werte Übernehmen</German>
+            <English>Prepare</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARTILLERY_CONTROL_ENABLE">
+            <German>Geschütz aktivieren</German>
+            <English>Enable gun</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARTILLERY_CONTROL_DISABLE">
+            <German>Geschütz deaktivieren</German>
+            <English>disable gun</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARTILLERY_CONTROL_STATE">
+            <German>status</German>
+            <English>status</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARTILLERY_CONTROL_STATE_0">
+            <German>Deaktiviert</German>
+            <English>Deaktivated</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARTILLERY_CONTROL_STATE_1">
+            <German>Am Vorbereiten</German>
+            <English>Preparing</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARTILLERY_CONTROL_STATE_2">
+            <German>Feuerbereit</German>
+            <English>Ready to Fire</English>
         </Key>
 
 

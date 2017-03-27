@@ -11,7 +11,7 @@
  *      [TYPE] - [return name]
  *
  */
-//#define DEBUG_MODE_FULL
+#define DEBUG_MODE_FULL
 #define INCLUDE_GUI
 #include "script_component.hpp"
 
@@ -25,48 +25,48 @@ private _curHash = lnbCurSelRow _orderlist;
 CHECK(_curHash < 0)
 
 _curHash = _allHashes select _curHash;
-
+TRACE("settingValues");
 
 private _ctrlGrp = _display displayCtrl IDC_ARTILLERY_LOCATION;
+private _ctrl = _ctrlGrp controlsGroupCtrl IDC_ARTILLERY_LOCATION_USECURRENT;
+_ctrl cbSetChecked false;
+[_ctrl] call FUNC(onCheckedChangedLoc);
+
 private _ctrl = _ctrlGrp controlsGroupCtrl IDC_ARTILLERY_LOCATION_EAST;
-private _value = ctrlSetText HASH_GET(_newHash,"east");
-HASH_SET(_newHash,"east",_value);
-
+_ctrl ctrlSetText HASH_GET(_curHash,"east");
 private _ctrl = _ctrlGrp controlsGroupCtrl IDC_ARTILLERY_LOCATION_NORTH;
-private _value = ctrlSetText HASH_GET(_newHash,"north");
-private _value = ctrlText _ctrl;
-HASH_SET(_newHash,"north",_value);
-
+_ctrl ctrlSetText HASH_GET(_curHash,"north");
 private _ctrl = _ctrlGrp controlsGroupCtrl IDC_ARTILLERY_LOCATION_ALT;
-private _value = ctrlText _ctrl;
-private _value = ctrlSetText HASH_GET(_newHash,"altitude");
-HASH_SET(_newHash,"altitude",_value);
+_ctrl ctrlSetText HASH_GET(_curHash,"altitude");
 
 
 private _ctrlGrp = _display displayCtrl IDC_ARTILLERY_PARAMS;
 private _ctrl = _ctrlGrp controlsGroupCtrl IDC_ARTILLERY_PARAMS_MILS;
-private _value = ctrlSetText HASH_GET(_newHash,"mils");
+_ctrl ctrlSetText HASH_GET(_curHash,"mils");
 
 private _ctrl = _ctrlGrp controlsGroupCtrl IDC_ARTILLERY_PARAMS_ELEVATION;
-private _value = ctrlSetText HASH_GET(_newHash,"elevation");
+_ctrl ctrlSetText HASH_GET(_curHash,"elevation");
 
 private _ctrl = _ctrlGrp controlsGroupCtrl IDC_ARTILLERY_PARAMS_AMMO;
-private _value = ctrlSetText HASH_GET(_newHash,"ammo");
-private _values = _ctrl getVariable ["values"];
-private _index = _values find _value;
-private _value = _ctrl lbSetCurSel _index;
+private _value = HASH_GET(_curHash,"ammo");
+private _values = _ctrl getVariable "values";
+private _index = _values find HASH_GET(_curHash,"ammo");
+_ctrl lbSetCurSel _index;
+TRACEV_3(_values,_value,_index);
+[] call FUNC(showFuze);
 
 private _ctrl = _ctrlGrp controlsGroupCtrl IDC_ARTILLERY_PARAMS_CHARGE;
-private _value = ctrlSetText HASH_GET(_newHash,"charge");
-private _values = _ctrl getVariable ["values"];
-private _index = _values find _value;
-private _value = _ctrl lbSetCurSel _index;
+private _values = _ctrl getVariable "values";
+private _index = _values find HASH_GET(_curHash,"charge");
+_ctrl lbSetCurSel _index;
 
 private _ctrl = _ctrlGrp controlsGroupCtrl IDC_ARTILLERY_PARAMS_FUZE;
-private _value = ctrlSetText HASH_GET(_newHash,"fuze");
-private _values = _ctrl getVariable ["values"];
-private _index = _values find _value;
-private _value = _ctrl lbSetCurSel _index;
+private _values = _ctrl getVariable "values";
+private _index = _values find HASH_GET(_curHash,"fuze");
+_ctrl lbSetCurSel _index;
 
 private _ctrl = _ctrlGrp controlsGroupCtrl IDC_ARTILLERY_PARAMS_TTS;
-private _value = ctrlSetText HASH_GET(_newHash,"tts");
+_ctrl ctrlSetText HASH_GET_DEF(_curHash,"tts","");
+
+[] call FUNC(checkInput);
+_display setVariable ["ismodified",false];
