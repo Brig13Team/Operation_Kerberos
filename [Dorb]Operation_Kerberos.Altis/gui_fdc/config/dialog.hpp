@@ -25,76 +25,10 @@ class APP(dialog) : RSC(Echidna) {
     onLoad = QUOTE(uiNamespace setVariable [ARR_2('EGVAR(gui_Echidna,dialog)',_this select 0)]; [ARR_2('GVAR(dialog)',true)] call EFUNC(gui,blur); _this spawn EFUNC(gui_echidna,OnLoad);_this spawn FUNC(OnLoad););
     onUnload = QUOTE([ARR_2('GVAR(dialog)',false)] call EFUNC(gui,blur);_this call EFUNC(gui_Echidna,OnUnLoad););
 
-    class artilleryData : RSC(BaseListboxN) {
+    class menu_Order : RSC(BaseButton) {
 
     };
-    class ammunitionData : RSC(BaseListboxN) {
-
-    };
-    class orderList : RSC(BaseListboxN) {
-
-    };
-    class shootingLocation : RSC(BaseControlsGroupNoScrollbar) {
-        class useCurrent : RSC(BaseComboBox) {
-
-        };
-        class easting_name : RSC(BaseText) {
-
-        };
-        class easting_edit : RSC(BaseEdit) {
-
-        };
-        class northing_name : easting_name {
-
-        };
-        class northing_edit : easting_edit {
-
-        };
-        class altitude_name : easting_name {
-
-        };
-        class altitude_edit : easting_edit {
-
-        };
-    };
-    class shootingparameter : RSC(BaseControlsGroupNoScrollbar) {
-        class mil_name : RSC(BaseText) {
-
-            text = CSTRING(mils);
-        };
-        class mil_edit : RSC(BaseEdit) {
-            text = "1000";
-        };
-        class elevation_name : easting_name {
-
-            text = CSTRING(elevation);
-        };
-        class elevation_edit : easting_edit {
-
-            text = "45";
-        };
-        class ammunition_name : easting_name {
-
-            text = CSTRING(ammo);
-        };
-        class ammunition_combo : RSC(BaseCombo) {
-
-        };
-        class charge_name : easting_name {
-
-            text = CSTRING(charge);
-        };
-        class charge_combo : RSC(BaseCombo) {
-
-        };
-        class fuze_name : easting_name {
-
-            text = CSTRING(ammo);
-        };
-        class fuze_combo : RSC(BaseCombo) {
-
-        };
-    };
+    class menu_Observer
 
     /*
         Warning Order
