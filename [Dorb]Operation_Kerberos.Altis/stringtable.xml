@@ -1314,8 +1314,8 @@
             <English>Use</English>
         </Key>
         <Key ID="STR_DORB_GUI_ARTILLERY_LOCATION_USE">
-            <German>Aktuell Position nutzen</German>
-            <English>Use current Position</English>
+            <German>Aktuelle Position</German>
+            <English>Current Position</English>
         </Key>
         <Key ID="STR_DORB_GUI_ARTILLERY_LOCATION_EAST">
             <German>Position Ost:</German>
@@ -1333,6 +1333,45 @@
             <German>FEUER</German>
             <English>FIRE</English>
         </Key>
+
+        <Key ID="STR_DORB_GUI_ARTILLERY_ARTDATA_X">
+            <German>Position Ost</German>
+            <English>Position East</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARTILLERY_ARTDATA_Y">
+            <German>Position Nord</German>
+            <English>Position North</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARTILLERY_ARTDATA_ALT">
+            <German>Höhe über NN</German>
+            <English>Altitude</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARTILLERY_ARTDATA_PITCH">
+            <German>Nickwinkel</German>
+            <English>Pitch</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARTILLERY_ARTDATA_BANK">
+            <German>Rollwinkel</German>
+            <English>Roll</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARTILLERY_ARTDATA_TEMP">
+            <German>Temperatur</German>
+            <English>Temperature</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARTILLERY_ARTDATA_Pres">
+            <German>Luftdruck</German>
+            <English>Air Pressure</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARTILLERY_ARTDATA_HUMID">
+            <German>Luftfeuchte</German>
+            <English>Humidity</English>
+        </Key>
+
+        <Key ID="STR_DORB_GUI_ARTILLERY_FUZE_0">
+            <German>Aufschlagszünder</German>
+            <English>serve detonator</English>
+        </Key>
+
 
     </Package>
 </Project>

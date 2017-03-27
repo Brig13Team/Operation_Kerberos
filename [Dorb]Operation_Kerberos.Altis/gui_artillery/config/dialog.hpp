@@ -35,7 +35,7 @@ class APP(dialog) : RSC(Echidna) {
         metro_side,
         background_device
     };
-    onLoad = QUOTE(uiNamespace setVariable [ARR_2('EGVAR(gui_Echidna,dialog)',_this select 0)]; [ARR_2('GVAR(dialog)',true)] call EFUNC(gui,blur); _this spawn EFUNC(gui_echidna,OnLoad); [ARR_2('',_this select 0)] call FUNC(OnLoad););
+    onLoad = QUOTE(uiNamespace setVariable [ARR_2('EGVAR(gui_Echidna,dialog)',_this select 0)]; [ARR_2('GVAR(dialog)',true)] call EFUNC(gui,blur); _this spawn EFUNC(gui_echidna,OnLoad); [ARR_2('display',_this select 0)] call FUNC(OnLoad););
     onUnload = QUOTE([ARR_2('GVAR(dialog)',false)] call EFUNC(gui,blur);_this call EFUNC(gui_Echidna,OnUnLoad););
 
     class background_display : background_display {
@@ -120,15 +120,18 @@ class APP(dialog) : RSC(Echidna) {
                 w = GUI_ECHIDNA_W * 1;
                 h = GUI_ECHIDNA_H * 1;
                 checked=0;
-                onLoad = QUOTE([ARR_2('useCurrent',_this select 0)] call FUNC(OnLoad););
+                //onLoad = QUOTE([ARR_2('useCurrent',_this select 0)] call FUNC(OnLoad););
+                onCheckedChanged = QUOTE(_this call FUNC(onCheckedChangedLoc));
             };
             class useCurrent_name : RSC(BaseText) {
-                idc = -1;
+                idc = -IDC_ARTILLERY_LOCATION_USECURRENT;
                 x = GUI_ECHIDNA_W * 2;
-                y = GUI_ECHIDNA_H * 0.5;
-                w = GUI_ECHIDNA_W * 15;
-                h = GUI_ECHIDNA_H * 1;
-                text = CSTRING(LOCATION_USE);
+                y = GUI_ECHIDNA_H * 1.5;
+                w = GUI_ECHIDNA_W * 16;
+                h = GUI_ECHIDNA_H * 2;
+                //text = CSTRING(LOCATION_USE);
+                test = "ASdasd";
+                style = "0x00";
             };
             class easting_name : RSC(BaseText) {
                 idc = -IDC_ARTILLERY_LOCATION_EAST;
@@ -265,6 +268,8 @@ class APP(dialog) : RSC(Echidna) {
                 y = GUI_ECHIDNA_H * 0.5;
                 w = GUI_ECHIDNA_W * 1;
                 h = GUI_ECHIDNA_H * 1;
+                onLoad = QUOTE([ARR_2('network',_this select 0)] call FUNC(OnLoad););
+                onCheckedChanged = QUOTE(_this call FUNC(onCheckedChangedNet));
             };
             class artilleryID_name : RSC(BaseText) {
                 x = GUI_ECHIDNA_W * 0.5;
@@ -281,6 +286,7 @@ class APP(dialog) : RSC(Echidna) {
                 h = GUI_ECHIDNA_H * 1;
                 text = "XX-0000";
                 canModify=0;
+                //onLoad = QUOTE([ARR_2('networkID',_this select 0)] call FUNC(OnLoad););
             };
             class orderList : RSC(BaseListboxN) {
                 idc = IDC_ARTILLERY_NETWORK_ORDERLIST;
