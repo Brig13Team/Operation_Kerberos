@@ -39,7 +39,7 @@ switch _type do {
     case "upload" : {
          _config = _config >> "laptop_open";
     };
-    case "wreck : {
+    case "wreck" : {
          _config = _config >> "wreck_air";
     };
     default {

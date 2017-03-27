@@ -23,4 +23,6 @@ HASH_SET(_mission, "trigger_failed", true);
 HASH_SET(_mission, "event_active", false); // if needed
 _obj setVariable [QGVAR(isActive), false, true]; // if needed
 
-[QFUNC(obj___message), ["TRIGGER_FAILED", HASH_GET(_mission, "type"), "blue", [name _obj]]] call CBA_fnc_globalEvent;
+if HASH_GET_DEF(_mission, "no_message", false) then {
+    [QFUNC(obj___message), ["TRIGGER_FAILED", HASH_GET(_mission, "type"), "blue", [name _obj]]] call CBA_fnc_globalEvent;
+};

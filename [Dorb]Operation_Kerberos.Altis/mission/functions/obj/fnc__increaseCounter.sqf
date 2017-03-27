@@ -21,4 +21,6 @@ _obj setVariable [QGVAR(isActive), false, true]; // if needed
 HASH_SET(_mission, "obj_counter", HASH_GET(_mission, "obj_counter") + 1);
 HASH_SET(_mission, "event_active", false); // if needed
 
-[QFUNC(obj___message), ["COUNTER", HASH_GET(_mission, "type"), "green", [name _obj]]] call CBA_fnc_globalEvent;
+if HASH_GET_DEF(_mission, "no_message", false) then {
+    [QFUNC(obj___message), ["COUNTER", HASH_GET(_mission, "type"), "green", [name _obj]]] call CBA_fnc_globalEvent;
+};

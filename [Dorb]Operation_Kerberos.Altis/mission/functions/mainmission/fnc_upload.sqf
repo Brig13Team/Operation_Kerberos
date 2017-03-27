@@ -15,4 +15,8 @@
 
 _this params ["_mission", "_targets"];
 
+{
+    _x setVariable [QGVAR(isActive), true, true];
+} forEach _targets;
+
 [_mission, _targets] call FUNC(mainmission__oneCounter);

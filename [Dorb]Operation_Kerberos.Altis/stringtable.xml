@@ -373,6 +373,21 @@
                 <German>Die Atomrakete des Scarab wurde ausgelöst.</German>
                 <English>TODO</English>
             </Key>
+            <Key ID="STR_DORB_MISSION_UPLOAD_TITLE">
+                <Original>Upload Virus</Original>
+                <German>Virus Hochladen</German>
+                <English>Upload Virus</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_UPLOAD_DESC">
+                <Original>TODO</Original>
+                <German>TODO</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_UPLOAD_COUNTER">
+                <Original>TODO</Original>
+                <German>Virus erfolgreich hochgeladen.</German>
+                <English>TODO</English>
+            </Key>
             <Key ID="STR_DORB_MISSION_WEAPONCACHE_TITLE">
                 <Original>Destroy Weaponcaches</Original>
                 <German>Waffenverstecke vernichten</German>

@@ -6,6 +6,7 @@ class side {
      *  abstact missions
      */
     class __base {
+    	class location {};
         class object {};
 
         probability = 1;
@@ -15,13 +16,13 @@ class side {
      *  playable missions
      */
     class radar : __base {
-        class object : object {
+        class location : location {
             radius = 500;
         };
     };
 
-    class radar : __base {
-        class object : object {
+    class wreck : __base {
+        class location : location {
             radius = 1500;
         };
     };

@@ -21,16 +21,19 @@ class CfgTaskDescriptions {
     TASK_DESC2(device,interact);
     TASK_DESC2(dronecommando,destroy);
     TASK_DESC2(emp,interact);
+    TASK_DESC2(hold,defend);
     TASK_DESC2(hostage,heal);
     TASK_DESC2(intel,download);
     TASK_DESC2(prototype,Default);
     TASK_DESC2(radiotower,destroy);
     TASK_DESC2(rtb,run);
     TASK_DESC2(scarab,kill);
+    TASK_DESC2(upload,upload);
     TASK_DESC2(weaponcache,destroy);
 
     // sidemissions
     TASK_DESC2(radar,target);
+    TASK_DESC2(wreck,interact);
 
     // Vanilla
 /*

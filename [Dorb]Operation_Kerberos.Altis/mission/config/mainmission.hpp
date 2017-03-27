@@ -75,7 +75,7 @@ class main {
         radius = 250;
       };
 
-      class object : objects {
+      class object : object {
         tickets = 135000; // 25 player for 30 minutes
         multiplier = 0.01;
         min = 0;

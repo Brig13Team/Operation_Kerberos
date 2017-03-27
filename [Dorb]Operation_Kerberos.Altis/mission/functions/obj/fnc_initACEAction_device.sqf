@@ -18,15 +18,16 @@ private _action = [
     localize LSTRING(OBJECTS_DEVICE_DISABLE),
     "",
     {
+        _target setVariable [QGVAR(isActive), false, true];
         [
             5,
             [_target],
             { (_this select 0) call FUNC(obj__increaseCounter); },
-            {},
+            { (_this select 0 select 0) setVariable [QGVAR(isActive), true, true]; },
             localize LSTRING(OBJECTS_DEVICE_DISABLING)
         ] call ace_common_fnc_progressBar;
     },
-    { (_this select 0) getVariable [QGVAR(isActive), false]; }
+    { _target getVariable [QGVAR(isActive), false]; }
 ] call ace_interact_menu_fnc_createAction;
 
 private _classes = ["device"] call FUNC(spawn_getObjects);

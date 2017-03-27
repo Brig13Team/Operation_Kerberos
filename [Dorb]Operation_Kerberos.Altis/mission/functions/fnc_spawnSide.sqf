@@ -21,19 +21,21 @@ if !(isClass(missionConfigFile >> "mission" >> "side" >> _type)) exitWith { -1 }
 _this spawn {
     _this params [["_parent", "", [""]], ["_type", "", [""]], ["_targets", [], [[]]]];
 
-    while !(isNil QGVAR(spawnSide_tmp)) do { uiSleep 5; };
+    while { !(isNil QGVAR(spawnSide_tmp)) } do { uiSleep 5; };
     TRACE("Spawning started!");
 
     GVAR(spawnSide_tmp) = HASH_CREATE;
     private _hash = GVAR(spawnSide_tmp);
+
     HASH_SET(_hash, "type", _type);
-    HASH_SET(_hash, "location", HASH_GET(HASH_GET(GVAR(master),_parent),"location")); // needed for FUNC(mainmission_spawnTargets) and HQ
+    private _location = HASH_GET(HASH_GET(GVAR(master),_parent),"location");
+    HASH_SET(_hash, "location", _location); // needed for FUNC(mainmission_spawnTargets) and HQ
     HASH_SET(_hash, "side", true); // needed for spawn- and hq-functions
     HASH_SET(_hash, "state", "init");
 
     // spawn targets
     if (_targets isEqualTo []) then {
-       _targets = [_type, _position] call FUNC(spawn_spawnTargets);
+       _targets = [_type, _location select 1] call FUNC(spawn_spawnTargets);
     };
     { _x setVariable [QGVAR(mission),_hash]; } forEach _targets;
 
