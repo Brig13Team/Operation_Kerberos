@@ -13,4 +13,4 @@
  */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-(nearestObjects [DOBR_HASH_POSITION, [], 1] select {((typeOf _x) isEqualTo "CBA_NamespaceDummy")&&{local _x}});
+(nearestObjects [DORB_HASH_POSITION, [], 1] select {((typeOf _x) isEqualTo "CBA_NamespaceDummy")&&{local _x}});
