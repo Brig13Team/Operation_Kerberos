@@ -11,7 +11,7 @@
  *      none
  *
  */
-#define DEBUG_MODE_FULL
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 disableSerialization;
 _this params ["_dialog","_PFH_ID"];

@@ -43,7 +43,11 @@ class RSC(BaseEchidna) {
         x = GUI_ECHIDNA_X - GUI_ECHIDNA_W * 0.25;
         y = GUI_ECHIDNA_Y - GUI_ECHIDNA_H * 0.25;
         w = GUI_ECHIDNA_W * 40.5;
-        h = GUI_ECHIDNA_H * 28;
+        h = GUI_ECHIDNA_H * 30.5;
+        /*
+         *   cheating a little bit to make it look better.
+         *   the display is 40*W and 30*H
+         */
         text = "";
         colorBackground[] = COLOR_ECHIDNA_DISPLAY_BACKGROUND;
         colorText[] = COLOR_ECHIDNA_DISPLAY_TEXT;
@@ -63,7 +67,7 @@ class RSC(BaseEchidna) {
         x = GUI_ECHIDNA_X;
         y = GUI_ECHIDNA_Y + GUI_ECHIDNA_H * 27.5;
         w = GUI_ECHIDNA_W * 40;
-        h = GUI_ECHIDNA_H * 2.5;
+        h = GUI_ECHIDNA_H * 3;
         colorBackground[] = COLOR_ECHIDNA_TASKBAR_BACKGROUND;
         colorText[] = COLOR_ECHIDNA_TASKBAR_TEXT;
     };
