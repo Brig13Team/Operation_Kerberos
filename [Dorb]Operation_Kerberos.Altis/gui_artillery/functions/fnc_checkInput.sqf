@@ -91,7 +91,7 @@ If !(_value isEqualTo (_ctrl getVariable ["lastValue",""])) then {
 };
 private _ctrlText = _ctrlGrp controlsGroupCtrl -IDC_ARTILLERY_PARAMS_ELEVATION;
 private _number = parseNumber _value;
-If !((_number > 0)&&{_number =< 80}) then {
+If !((_number > 0)&&{_number <= 80}) then {
     _ctrlText ctrlSetTextColor [RAL3024,1];
     _return = false;
 }else{

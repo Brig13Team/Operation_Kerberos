@@ -8,14 +8,20 @@
 class APP(dialog) : RSC(Echidna) {
     idd = IDD_ECHIDNA_MAIN;
     controlsBackground[] = {
-        background_taskbar,
-        background_display
+        background_display,
+        background_taskbar
     };
     controls[] = {
         clock,
         menu_button,
 
+        Map_Tablet,
 
+        menubutton_1,
+        menubutton_2,
+        menubutton_3,
+        menubutton_4,
+        menubutton_5,
 
         metro_back,
         metro,
@@ -25,10 +31,128 @@ class APP(dialog) : RSC(Echidna) {
     onLoad = QUOTE(uiNamespace setVariable [ARR_2('EGVAR(gui_Echidna,dialog)',_this select 0)]; [ARR_2('GVAR(dialog)',true)] call EFUNC(gui,blur); _this spawn EFUNC(gui_echidna,OnLoad);_this spawn FUNC(OnLoad););
     onUnload = QUOTE([ARR_2('GVAR(dialog)',false)] call EFUNC(gui,blur);_this call EFUNC(gui_Echidna,OnUnLoad););
 
-    class menu_Order : RSC(BaseButton) {
+    #define BUTTON_HELPER(NUMBER) class TRIPLES(menubutton,NUMBER,background) : RSC(BasePicture) { \
+        idc = -(IDC_FDC_MAIN_BTTN + NUMBER); \
+        x = 0;y = 0;w = 0;h = 0; \
+        text = QEPAAPATH(buttons,button_256_normal); \
+        shadow = 0; \
+        style = "48"; \
+        colorShadow[] = COLOR_DISABLED; \
+        font = FONT_DEFAULT; \
+        colorBackground[] = {0,0,0,1}; \
+        colorText[] = {0,0,0,1}; \
+    }; \
+    class DOUBLES(menubutton,NUMBER) : RSC(BaseButton) { \
+        idc = IDC_FDC_MAIN_BTTN + NUMBER; \
+        x = 0;y = 0;w = 0;h = 0; \
+        sizeEx = GUI_ECHIDNA_H * 0.7; \
+        text = ""; \
+        style = "48+0x800"; \
+        colorBackground[]= COLOR_DISABLED; \
+        colorBackgroundActive[]= COLOR_DISABLED; \
+        colorFocused[]= COLOR_DISABLED; \
+        colorBackgroundDisabled[]= COLOR_DISABLED; \
+        colorText[] = COLOR_ECHIDNA_METRO_BTTN_DEFAULT_TEXT; \
+        colorDisabled[] = COLOR_ECHIDNA_METRO_BTTN_DEFAULT_TEXT_DISABLED; \
+        shadow = 0; \
+        colorShadow[] = COLOR_DISABLED; \
+        offsetX = 0; \
+        offsetY = 0; \
+        offsetPressedX = 0; \
+        offsetPressedY = 0; \
+    }
 
+    BUTTON_HELPER(1);
+    BUTTON_HELPER(2);
+    BUTTON_HELPER(3);
+    BUTTON_HELPER(4);
+    BUTTON_HELPER(5);
+
+    class Map_Tablet : RSC(BaseMapControl) {
+        idc = IDC_FDC_MAP;
+        x = GUI_ECHIDNA_X;
+        y = GUI_ECHIDNA_Y;
+        w = GUI_ECHIDNA_W * 40;
+        h = GUI_ECHIDNA_H * 27.5;
+        type = 101;
+        style = 48;
+        colorText[] = {0.00, 0.00, 0.00, 1.00};
+        font = "TahomaB";
+        sizeEx = 0.040000;
+        maxSatelliteAlpha = 0;
+        drawObjects = 0;
+        showMarkers=1;
     };
-    class menu_Observer
+
+    class Info_Group : RSC(BaseControlsGroupNoHScrollbar) {
+        idc = IDC_FDC_INFO_GRP;
+        x = GUI_ECHIDNA_X + GUI_ECHIDNA_W * 28;
+        y = GUI_ECHIDNA_Y;
+        w = GUI_ECHIDNA_W * 12;
+        h = GUI_ECHIDNA_H * 27.5;
+    };
+
+    class Order_Group : RSC(BaseControlsGroupNoHScrollbar) {
+        idc = IDC_FDC_ORDER_GRP;
+        x = GUI_ECHIDNA_X;
+        y = GUI_ECHIDNA_Y;
+        w = GUI_ECHIDNA_W * 28;
+        h = GUI_ECHIDNA_H * 27.5;
+        class controls {
+            class background : RSC(BaseText) {
+                idc = IDC_FDC_ORDER_BACK;
+                x = 0;
+                y = 0;
+                w = GUI_ECHIDNA_W * 28;
+                h = GUI_ECHIDNA_H * 27.5;
+            };
+            class warningOrder_Header : RSC(BaseText) {
+                idc = IDC_FDC_ORDER_WARNING_HEADER;
+                x = GUI_ECHIDNA_W * 3;
+                y = GUI_ECHIDNA_H * 3;
+                w = GUI_ECHIDNA_W * 28;
+                h = GUI_ECHIDNA_H * 2;
+                style = "0x00";
+                font = FONT_BOLD;
+                sizeEx = GUI_ECHIDNA_H * 2;
+                text = CSTRING(ORDER_HEADER);
+            };
+            class warningOrder_Observer_name : RSC(BaseText) {
+                idc = -1;
+                x = GUI_ECHIDNA_W * 4;
+                y = GUI_ECHIDNA_H * 5.5;
+                w = GUI_ECHIDNA_W * 5;
+                h = GUI_ECHIDNA_H * 2;
+                text = CSTRING(ORDER_OBSERVER);
+            };
+            class warningOrder_Observer_edit_1 : RSC(BaseEdit) {
+                idc = IDC_FDC_ORDER_WARNING_OBSERVER_edit_1;
+                x = GUI_ECHIDNA_W * 9.5;
+                y = GUI_ECHIDNA_H * 5.5;
+                w = GUI_ECHIDNA_W * 1.5;
+                h = GUI_ECHIDNA_H * 2;
+            };
+            class warningOrder_Observer_minus : RSC(BaseText) {
+                idc = -1;
+                x = GUI_ECHIDNA_W * 4;
+                y = GUI_ECHIDNA_H * 5.5;
+                w = GUI_ECHIDNA_W * 1;
+                h = GUI_ECHIDNA_H * 2;
+                text = "-";
+                style = "0x02";
+            };
+            class warningOrder_Observer_edit_2 : warningOrder_Observer_edit_1 {
+                idc = IDC_FDC_ORDER_WARNING_OBSERVER_edit_2;
+                x = GUI_ECHIDNA_W * 12;
+                w = GUI_ECHIDNA_W * 3;
+            };
+        };
+    };
+
+    class Position_Group : RSC(BaseControlsGroupNoHScrollbar) {
+        idc = IDC_FDC_POSITION_GRP;
+    };
+
 
     /*
         Warning Order

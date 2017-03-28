@@ -11,8 +11,8 @@
 class APP(dialog) : RSC(Echidna) {
     idd = IDD_ECHIDNA_MAIN;
     controlsBackground[] = {
-        background_taskbar,
         background_display,
+        background_taskbar,
         artilleryProperties_bgrd,
         artilleryProperties_bgrd2,
         shootingLocation_bgrd,

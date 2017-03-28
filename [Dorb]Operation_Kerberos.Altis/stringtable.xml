@@ -1428,5 +1428,29 @@
         </Key>
 
 
+
+    <Package name="gui_fdc">
+        <Key ID="STR_DORB_GUI_FDC_MENU_NEWORDER">
+            <German>Neuer Feuerauftrag</German>
+            <English>New Support Order</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_FDC_MENU_NEWPOSITION">
+            <German>Neue Stellung</German>
+            <English>new fire position</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_FDC_MENU_INFO">
+            <German>Informationen</German>
+            <English>Informations</English>
+        </Key>
+
+
+        <Key ID="STR_DORB_GUI_FDC_ORDER_HEADER">
+            <German>Identifizierung</German>
+            <English>Identifikation</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_FDC_ORDER_OBSERVER">
+            <German>Beobacher-Kennung</German>
+            <English>Observer-ID</English>
+        </Key>
     </Package>
 </Project>

@@ -48,6 +48,7 @@ class CfgComponents {
     gui_mail = 1;
 
     gui_artillery = 1;
+    gui_fdc = 1;
 };
 
 #include "main\CfgComponent.hpp"
@@ -82,3 +83,4 @@ class CfgComponents {
 #include "gui_acre\CfgComponent.hpp"
 #include "gui_mail\CfgComponent.hpp"
 #include "gui_artillery\CfgComponent.hpp"
+#include "gui_fdc\CfgComponent.hpp"

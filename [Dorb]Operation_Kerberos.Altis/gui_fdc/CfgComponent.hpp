@@ -11,11 +11,11 @@
 class DOUBLES(CfgComponent,ADDON) {
     class preinit {};
     class dependencies {
-        CfgPatches[] = {"cba_common","ace_weather"};
+        CfgPatches[] = {"cba_common"};
         CfgComponents[] = {"common","gui","gui_echidna"};
     };
     class features {
 
     };
 };
-#include "config\arsenal.hpp"
+#include "config\dialog.hpp"

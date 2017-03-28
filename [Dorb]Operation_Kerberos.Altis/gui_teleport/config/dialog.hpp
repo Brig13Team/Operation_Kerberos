@@ -19,8 +19,8 @@ class APP(dialog) : RSC(Echidna) {
     onUnload = QUOTE([ARR_2('GVAR(dialog)',false)] call EFUNC(gui,blur);_this call EFUNC(gui_Echidna,OnUnLoad););
 
     controlsBackground[] = {
-        background_taskbar,
         background_display,
+        background_taskbar,
         teleport_CenterBackground,
         teleport_HeaderBackground
     };

@@ -8,8 +8,8 @@
 class APP(dialog) : RSC(Echidna) {
     idd = IDD_ECHIDNA_MAIN;
     controlsBackground[] = {
-        background_taskbar,
         background_display,
+        background_taskbar,
         mail_Logo
     };
     controls[] = {
