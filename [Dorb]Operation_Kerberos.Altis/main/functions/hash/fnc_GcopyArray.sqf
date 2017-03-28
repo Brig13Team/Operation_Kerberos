@@ -18,11 +18,11 @@ _this params [["_array",[],[[]]]];
 
 private _newArray = [];
 {
-    if(IS_HASH(_x)) then {
-        _newArray pushBack (_x call FUNC(HashCopy));
+    if(IS_AHASH(_x)) then {
+        _newArray pushBack (_x call FUNC(hash_Gcopy));
     } else {
         if(IS_ARRAY(_x)) then {
-            _newArray pushBack (_x call FUNC(HashCopyArray));
+            _newArray pushBack (_x call FUNC(hash_GcopyArray));
         } else {
             _newArray pushBack _x;
         };

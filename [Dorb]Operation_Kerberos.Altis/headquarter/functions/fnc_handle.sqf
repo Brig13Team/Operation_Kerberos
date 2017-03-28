@@ -15,11 +15,11 @@ CHECK(!GVAR(active))
 
 CHECK(!isNull(GVAR(handle)))
 
-/// spawn to move it in the ingame sheduler
+// spawn to move it in the ingame sheduler
 GVAR(handle) = [] spawn {
     SCRIPTIN(handle,spawn);
 
-    /// check dangerzones for new Zones to attack
+    // check dangerzones for new Zones to attack
     private _attackPosToCreate = [];
     {
         _x params ["_value","_key"];
@@ -32,18 +32,25 @@ GVAR(handle) = [] spawn {
     } forEach ([] call FUNC(dzfindPeaks));
     TRACEV_1(_attackPosToCreate);
 
-    /// create new attacklocaltions
+    // add the positions, where Player were spotted
+    {
+        If !(([_x] call FUNC(dzConvert))isEqualTo "") then {
+            _attackPosToCreate pushBack _x;
+        };
+    } forEach ([] call FUNC(getKnownPlayerPos));
+
+    // create new attacklocaltions
     {
         [_x] call FUNC(attackpos_create);
     } forEach _attackPosToCreate;
 
-    /// calling supplys -
+    // calling supplys -
     [] call FUNC(ressources_supply);
 
-    /// check the attackpositions
+    // check the attackpositions
     private _newAttackPos = [] call FUNC(attackpos_check);
 
-    /// groups balancing
+    // groups balancing
     [] call FUNC(balanceGroups);
 
 
@@ -53,11 +60,11 @@ GVAR(handle) = [] spawn {
     } forEach _newAttackPos;
 
 
-    /// POI
+    // POI
 
     [] call FUNC(checkPOI);
 
-    /// Move defending Units of already destroyed POI to other POI
+    // Move defending Units of already destroyed POI to other POI
     {
         private _grouphash = _x;
         private _group = HASH_GET(_grouphash,"group");
@@ -70,7 +77,7 @@ GVAR(handle) = [] spawn {
         };
     } forEach (HASH_GET(GVAR(groups),"defenceGroups"));
 
-    /// get the availlible groups
+    // get the availlible groups
     private _waitingGroups = [];
     {
         If (side _x != GVARMAIN(playerside)) then {

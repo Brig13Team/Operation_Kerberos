@@ -13,13 +13,17 @@
 */
 #include "script_component.hpp"
 
-If !(isClass(missionConfigFile>>QGVARMAIN(arsenal))) exitWith {GVAR(arsenalList_Full) = [[],[],[],[]]};
-
-private _version = getText(missionConfigFile >> QUOTE(DOUBLES(CfgComponent,ADDON)) >> "version");
-private _profileVersion = profileNamespace getVariable [QGVAR(arsenalList_Full_version),"NoVersion"];
-If (_version isEqualTo _profileVersion) exitWith {
-    GVAR(arsenalList_Full) = profileNamespace getVariable [QGVAR(arsenalList_Full), [[],[],[],[]] ];
+If !(isClass(missionConfigFile>>QGVARMAIN(arsenal))) then {
+    ERROR("No Arsenal config found")
 };
+
+private _neededVersion = getText(missionConfigFile >> QUOTE(DOUBLES(CfgComponent,ADDON)) >> "version");
+(profileNamespace getVariable [QGVAR(arsenalList_Full),["NotFound",[]]]) params [["_currentVersion","NotFound",[]],["_list",[],[[]]]];
+TRACEV_2(_currentVersion,_neededVersion);
+If ((!(_list isEqualTo []))&&{_currentVersion isEqualTo _neededVersion}) exitWith {
+    missionNamespace setVariable [QGVAR(arsenalList_Full),_list];
+};
+
 
 private _itemBlacklist = (getArray(missionConfigFile>>QGVARMAIN(arsenal)>> "ItemsBlacklist"));
 private _weaponBlacklist = (getArray(missionConfigFile>>QGVARMAIN(arsenal)>> "WeaponsBlacklist"));
@@ -128,7 +132,10 @@ private _loadingScreenID = [localize LSTRING(CREATE_LIST)] call EFUNC(gui,startL
 
 [_loadingScreenID] call EFUNC(gui,endLoadingScreen);
 
-profileNamespace setVariable [QGVAR(arsenalList_Full_version),_version];
-profileNamespace setVariable [QGVAR(arsenalList_Full),[_addWeapons,_addMagazines,_addItems,_addBackpacks,_fixWeapons,_fixMagazines,_fixItems,_fixBackpacks]];
+
+_list = [_addWeapons,_addMagazines,_addItems,_addBackpacks,_fixWeapons,_fixMagazines,_fixItems,_fixBackpacks];
+
+profileNamespace setVariable [QGVAR(arsenalList_Full),[_neededVersion,_list]];
 saveProfileNamespace;
-GVAR(arsenalList_Full) = [_addWeapons,_addMagazines,_addItems,_addBackpacks,_fixWeapons,_fixMagazines,_fixItems,_fixBackpacks];
+
+GVAR(arsenalList_Full) = _list;

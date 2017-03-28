@@ -13,11 +13,11 @@
  */
 #include "script_component.hpp"
 
-#define SELF EFUNC(main,deserialize)
+#define SELF EFUNC(main,hash_Adeserialize)
 _this params ["_toDeserialize"];
 If (IS_SERIALIZEDHASH(_toDeserialize)) exitWith {
     _toDeserialize params ["","_keys","_values"];
-    private _hash = HASH_CREATE;
+    private _hash = AHASH_CREATE;
     {
         private _val = _values select _forEachIndex;
         If (IS_SERIALIZEDHASH(_val)) then {
@@ -27,7 +27,7 @@ If (IS_SERIALIZEDHASH(_toDeserialize)) exitWith {
                 _val = [_val] call SELF;
             };
         };
-        HASH_SET(_hash,_x,_val);
+        AHASH_SET(_hash,_x,_val);
     } forEach _keys;
     _hash;
 };
