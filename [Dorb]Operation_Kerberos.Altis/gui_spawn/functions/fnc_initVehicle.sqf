@@ -22,9 +22,15 @@ private _model = getText(configFile>>"CfgVehicles">>_vehicleType>>"model");
 private _localVeh = _vehicleType createVehicleLocal [0,0,0];
 private _boundingBox = boundingBoxReal _localVeh;
 
-private _posDiffZ = ((getPosASL _localVeh)select 2) - ((getPosWorld _localVeh)select 2);
-private _diff = (_boundingBox select 1) vectorDiff (_boundingBox select 0);
-private _maxSize = selectMax [_diff vectorDotProduct [1,0,0], _diff vectorDotProduct [0,1,0], _diff vectorDotProduct [0,0,1]];
+private ["_posDiffZ","_maxSize"];
+If ((toLower _model) isEqualTo "\a3\weapons_f\empty.p3d") then {
+    _posDiffZ = 0;
+    _maxSize = 0;
+}else{
+    _posDiffZ = ((getPosASL _localVeh)select 2) - ((getPosWorld _localVeh)select 2);
+    private _diff = (_boundingBox select 1) vectorDiff (_boundingBox select 0);
+    _maxSize = selectMax [_diff vectorDotProduct [1,0,0], _diff vectorDotProduct [0,1,0], _diff vectorDotProduct [0,0,1]];
+};
 
 private _posZ = 10;
 /*
@@ -39,7 +45,7 @@ private _vehicleHash = HASH_GET(GVAR(vehiclesHash),_vehicleType);
 
 HASH_SET(_vehicleHash,"model",_model);
 HASH_SET(_vehicleHash,"ctrlPos",_ctrlPos);
-HASH_SET(_vehicleHash,"scale",_scale * 1);
+HASH_SET(_vehicleHash,"scale",_scale);
 HASH_SET(_vehicleHash,"objInitialized",true);
 
 HASH_SET(_vehicleHash,"propertiesList",[]);
@@ -57,5 +63,25 @@ private _mass = format ["%1 t",((getMass _localVeh) / 1000)];
 HASH_SET(_vehicleHash,"mass",_mass);
 HASH_GET(_vehicleHash,"propertiesList") pushBack "mass";
 
+private _positionNumber = count (fullCrew [_localVeh, "cargo", true]);
+HASH_SET(_vehicleHash,"cargonumber",_positionNumber);
+HASH_GET(_vehicleHash,"propertiesList") pushBack "cargonumber";
+
+private _weaponAdded = false;
+{
+    private _curWeapon = _x;
+    private _name = getText (configFile >> "CfgWeapons" >> _curWeapon >> "displayName");
+    If !((_name isEqualTo "")||{(toUpper _name) in ["MASTERSAFE","SAFE","HORN"]}) then {
+        If (_weaponAdded) then {
+            private _curKey = format["WEAPON_%1",_forEachIndex];
+            HASH_SET(_vehicleHash,_curKey,_name);
+            HASH_GET(_vehicleHash,"propertiesList") pushBack (_curKey);
+        }else{
+            HASH_SET(_vehicleHash,"weapons",_name);
+            HASH_GET(_vehicleHash,"propertiesList") pushBack "weapons";
+            _weaponAdded=true;
+        };
+    };
+} forEach (weapons _localVeh);
 
 deleteVehicle _localVeh;

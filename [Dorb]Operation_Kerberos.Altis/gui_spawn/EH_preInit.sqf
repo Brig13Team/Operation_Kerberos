@@ -2,18 +2,11 @@
 
 ADDON = false;
 
-/*
-PREP(canOpenMenu);
-PREP(clearPos);
-PREP(create);
-PREP(createlist_west);
-PREP(createlist_east);
-PREP(Open);
-PREP(select);
-*/
-
 PREP(animBttn);
 PREP(canOpenMenu);
+PREP(checkPosEmpty);
+PREP(checkRestrictions);
+PREP(clearPos);
 PREP(getCosts);
 PREP(getPreset);
 PREP(getVehicleList);
@@ -26,6 +19,6 @@ PREP(registerSpawn);
 PREP(setObject);
 PREP(showProperties);
 PREP(showVehicleList);
-
+PREP(spawnVehicle);
 
 ADDON = true;

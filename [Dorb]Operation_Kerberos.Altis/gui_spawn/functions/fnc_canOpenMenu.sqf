@@ -24,10 +24,12 @@ If (_spawnArray isEqualTo []) exitWith {false;};
 
 If ((_player distance2D (_spawnArray select 1)) > (5 + CHECK_RADIUS)) exitWith {false};
 
-
+/*
 private _cur =+ (_spawnArray select 1):
 _cur set[2,(_cur select 2)+1];
 private _pPos = getPos _player;
 _pPos set[2,(_pPos select 2)+1];
 
 !(terrainIntersect [_cur,_pPos]);
+*/
+true

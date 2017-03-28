@@ -118,3 +118,15 @@
 #define UI_CL_CTRL_ROT2 {1,0.549,0,1}
 #define UI_CL_CTRL_WEINROT1 {0.502,0,0,1}
 #define UI_CL_CTRL_WEINROT2 {0.647,0.165,0.165,1}
+
+
+#define UI_CL_BODY   {0.98,0.941,0.902,1}
+#define UI_CL_HEADER_TEXT {0.98,0.98,0.824,1}
+#define UI_CL_HEADER {0.502,0,0,1}
+#define UI_CL_TEXT_DARK {0.098,0.098,0.439,1}
+#define UI_CL_HEADER2 {0.722,0.525,0.043,1}
+#define UI_CL_CTRL_GRAU3 {0.502,0.502,0.502,1}
+#define UI_CL_BTN6      {1,0.549,0,1}
+#define UI_CL_BTN6_foc  {1,0.271,0,1}
+#define UI_CL_BTN2      {0,0,0.545,1}
+#define UI_CL_BTN2_foc  {0,0,1,1}

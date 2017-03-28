@@ -30,7 +30,9 @@ TRACEV_1(_propertiesList);
 {
     private _key = _x;
     private _value = HASH_GET(_vehicleHash,_key);
-    private _name = localize format[LSTRING(PROPERTY_%1),_key];
+
+    private _LocalizeString = format[LSTRING(PROPERTY_%1),_key];
+    private _name = If (isLocalized _LocalizeString) then {localize _LocalizeString}else{""};
     TRACEV_3(_ctrl,_name,_value);
-    _ctrl lnbAddRow [_name,_value];
+    _ctrl lnbAddRow [_name,format["%1",_value]];
 } forEach _propertiesList;

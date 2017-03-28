@@ -30,3 +30,7 @@ switch (typeOf _object) do {
         _vehicle setVariable ["ace_medical_isMedicalFacility",true];
     };
 };
+
+if ((GVAR(playerside) == west)&&{(typeOf _object) in ["I_MRAP_03_F","I_MRAP_03_gmg_F","I_MRAP_03_hmg_F"]}) then {
+    [_object,"blufor",true] call BIS_fnc_initVehicle;
+};

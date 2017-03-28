@@ -11,11 +11,13 @@
  *      [TYPE] - [return name]
  *
  */
-//#define DEBUG_MODE_FULL
+#define DEBUG_MODE_FULL
 #define INCLUDE_GUI
 #include "script_component.hpp"
 
 _this params ["_caller","_spawnID"];
+
+TRACEV_2(_caller,_spawnID);
 
 private _spawnArray = HASH_GET(GVAR(spawns),_spawnID);
 
