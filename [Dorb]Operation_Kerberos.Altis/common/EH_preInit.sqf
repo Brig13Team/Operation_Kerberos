@@ -5,7 +5,6 @@ ADDON = false;
 
 PREP(arithmeticMean);
 
-PREP(create_location);
 PREP(convertAngleToRotMat);
 PREP(convertRotMatToAngle);
 
