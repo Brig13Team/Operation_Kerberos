@@ -8,7 +8,7 @@
 #include "script_component.hpp"
 class acre_antennaObjects {
     class rhs_gaz66_r142_base {
-        position[] = {[0,0,47.75};
+        position[] = {0,0,47.75};
         condition ="(_this select 0) doorPhase 'mast_source' == 1";
     };
     class rhs_gaz66_r142_msv : rhs_gaz66_r142_base {};
