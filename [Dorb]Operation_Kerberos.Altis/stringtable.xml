@@ -1161,7 +1161,7 @@
             <German>Der Download ist komplett.</German>
         </Key>
     </Package>
-    <Package name="babel">
+    <Package name="MOD_ACRE">
         <Key ID="STR_DORB_MOD_ACRE_ARAB">
             <German>Arabisch</German>
             <English>arabic</English>
@@ -1173,6 +1173,34 @@
         <Key ID="STR_DORB_MOD_ACRE_GERMAN">
             <German>Deutsch</German>
             <English>german</English>
+        </Key>
+        <Key ID="STR_DORB_MOD_ACRE_ANTENNA_ACTION_MAIN">
+            <German>Antenne</German>
+            <English>antenna</English>
+        </Key>
+        <Key ID="STR_DORB_MOD_ACRE_ANTENNA_ACTION_CONNECT">
+            <German>Funkgerät mit Antenne verbinden</German>
+            <English>Connect radio to antenna</English>
+        </Key>
+        <Key ID="STR_DORB_MOD_ACRE_ANTENNA_ACTION_DISCONNECT">
+            <German>Funkgerät von Antenne trennen</German>
+            <English>Disconnect radio from antenna</English>
+        </Key>
+        <Key ID="STR_DORB_MOD_ACRE_ANTENNA_DISCONNECT">
+            <German>Funkgerät getrennt</German>
+            <English>radio disconnected</English>
+        </Key>
+        <Key ID="STR_DORB_MOD_ACRE_ANTENNA_DISCONNECT_DISTANCE">
+            <German>Entfernung zur Antenne zu groß</German>
+            <English>Distance to antenna was to high</English>
+        </Key>
+        <Key ID="STR_DORB_MOD_ACRE_ANTENNA_CONNECTED">
+            <German>Funkgerät verbunden</German>
+            <English>radio connected</English>
+        </Key>
+        <Key ID="STR_DORB_MOD_ACRE_ANTENNA_CONNECTED_MSG">
+            <German>Du hast dein Funkgerät mit der Antenne verbunden. Die Reichweite ist nun erhöht.</German>
+            <English>Du have connected your Radio to the radio-tower. Your Range has been extended.</English>
         </Key>
     </Package>
     <Package name="gui_mail">
