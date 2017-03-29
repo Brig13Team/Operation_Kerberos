@@ -45,7 +45,12 @@ switch (_defenceStructure) do {
 };
 
 if (_targetPositions isEqualTo []) then {
-    _targetPositions = [[_centerposition]];
+    for "_i" from 1 to _amount do {
+        _targetPositions pushBack [[_centerposition, 15, _radius] call EFUNC(common,pos_randomFlatEmpty)];
+    };
+    if (_targetPositions isEqualTo []) then {
+        _targetPositions = [[_centerposition]];
+    };
 };
 
 TRACEV_1(_targetPositions);
@@ -80,6 +85,12 @@ for "_i" from 1 to _amount do {
         _target setPosATL _pos;
         _target setVectorUp [0,0,1];
     };
+
+    #ifdef DEBUG_MODE_FULL
+        private _marker = createMarker[format["debug_marker_%1_%2", _type, getPos _target], getPos _target];
+        _marker setMarkerType "hd_dot";
+        _marker setMarkerText (typeof _target);
+    #endif // DEBUG_MODE_FULL
 
     if !(isNil QEFUNC(headquarter,registerPOI)) then {
         [_target] call EFUNC(headquarter,registerPOI);

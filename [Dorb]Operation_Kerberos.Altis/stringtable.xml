@@ -318,6 +318,21 @@
                 <German>Einige Informationen wurden gesichert.</German>
                 <English>TODO</English>
             </Key>
+            <Key ID="STR_DORB_MISSION_JAMMER_TITLE">
+                <Original>Destroy Jammer</Original>
+                <German>Jammer zerstören</German>
+                <English>Destroy Jammer</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_JAMMER_DESC">
+                <Original>TODO</Original>
+                <German>Der Feind hat Jammer platziert, um unseren Funk zu stören. Finden und zerstören Sie diese.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_JAMMER_COUNTER">
+                <Original>TODO</Original>
+                <German>Ein Jammer wurde zerstört.</German>
+                <English>TODO</English>
+            </Key>
             <Key ID="STR_DORB_MISSION_PROTOTYPE_TITLE">
                 <Original>Recover Prototype</Original>
                 <German>Prototyp zurückholen</German>
@@ -430,9 +445,14 @@
                 <German>Ein feindliches Luftfahrzeug ist abgestürtzt. Finden Sie dessen Wrack und durchsuchen Sie es nach Informationen.</German>
                 <English>TODO</English>
             </Key>
-            <Key ID="STR_DORB_MISSION_WRECK_COUNTER">
+            <Key ID="STR_DORB_MISSION_WRECK_COUNTER_1">
                 <Original>TODO</Original>
                 <German>Wrack wurde durchsucht.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_WRECK_COUNTER_2">
+                <Original>TODO</Original>
+                <German>Die Informationen wurden zusammen mit dem Wrack zerstört.</German>
                 <English>TODO</English>
             </Key>
         </Container>

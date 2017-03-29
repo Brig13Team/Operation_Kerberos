@@ -18,15 +18,16 @@ private _action = [
     localize LSTRING(OBJECTS_GATHER_INTEL),
     "",
     {
+        _target setVariable [QGVAR(isActive), false, true];
         [
             30,
             [_target],
-            { (_this select 0) call FUNC(obj__increaseCounter); },
-            {},
+            { (_this select 0) call FUNC(obj__increaseCounterOne); },
+            { (_this select 0 select 0) setVariable [QGVAR(isActive), true, true]; },
             localize LSTRING(OBJECTS_GATHERING_INTEL)
         ] call ace_common_fnc_progressBar;
     },
-    { true }
+    { (_target getVariable [QGVAR(isActive), false]) && (_target getVariable [QGVAR(isMissionTarget), false]) && (getDammage _target < 1) }
 ] call ace_interact_menu_fnc_createAction;
 
 private _classes = ["wreck"] call FUNC(spawn_getObjects);

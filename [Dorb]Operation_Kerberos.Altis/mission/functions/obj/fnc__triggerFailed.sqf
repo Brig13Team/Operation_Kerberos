@@ -5,7 +5,7 @@
  *      event called to increase mission's obj_counter
  *
  *  Parameter(s):
- *      0 : OBJECT  - mission target
+ *      0 : OBJECT / HASH  - mission target
  *
  *  Returns:
  *      -
@@ -15,14 +15,13 @@
 if !(isServer) exitWith { -1 };
 
 _this params ["_obj"];
+private _mission = _obj;
+if ((typeName _obj) isEqualTo "OBJECT") then {
+    _obj setVariable [QGVAR(isActive), false, true]; // if needed
+    _mission = _obj getVariable QGVAR(mission);
+};
 
-TRACEV_2(_this,_obj);
-
-private _mission = _obj getVariable QGVAR(mission);
 HASH_SET(_mission, "trigger_failed", true);
 HASH_SET(_mission, "event_active", false); // if needed
-_obj setVariable [QGVAR(isActive), false, true]; // if needed
 
-if HASH_GET_DEF(_mission, "no_message", false) then {
-    [QFUNC(obj___message), ["TRIGGER_FAILED", HASH_GET(_mission, "type"), "blue", [name _obj]]] call CBA_fnc_globalEvent;
-};
+[QFUNC(obj___message), ["TRIGGER_FAILED", HASH_GET(_mission, "type"), "blue", [name _obj]]] call CBA_fnc_globalEvent;

@@ -17,6 +17,6 @@ _this params [["_name", "", [""]]];
 if !THIS_HASKEY(_name) exitWith { [] };
 
 private _mission = THIS_GET(_name);
-if !HASH_HASKEY(_name, "objects") exitWith { [] };
+if !HASH_HASKEY(_mission, "objects") exitWith { [] };
 
 HASH_GET(_mission, "objects")

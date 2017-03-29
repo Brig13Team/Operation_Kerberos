@@ -2,7 +2,7 @@
  *  Author: iJesuz
  *
  *  Description:
- *      init mission "intel"
+ *      init mission "jammer"
  *
  *  Parameter(s):
  *      0 : HASH        - mission hash
@@ -16,7 +16,10 @@
 _this params ["_mission", "_targets"];
 
 {
-    _x setPos ((getPos _x) vectorAdd [0,0,1]);
+    [_x] call EFUNC(mod_acre,addJammer);
+
+    _x setVariable [QGVAR(isActive), true, true];
+    _x addEventHandler ["Killed", LINKFUNC(obj__increaseCounter)];
 } forEach _targets;
 
 [_mission, _targets] call FUNC(mainmission__oneCounter);

@@ -24,8 +24,7 @@ _args params ["_position", "_radius", "_multiplier", "_max", "_mission"];
 private _tickets = HASH_GET(_mission, "obj_counter");
 if (_tickets > _max) exitWith {
    [_id] call CBA_fnc_removePerFrameHandler;
-
-   [QFUNC(obj___message), ["COUNTER", "hold", "green"]] call CBA_fnc_globalEvent;
+   [_mission] call FUNC(obj__increaseCounter);
 };
 
 private _players = { (_x distance2D _position) < _radius } count allPlayers;
@@ -34,9 +33,7 @@ private _increase = 0;
 if (_players == 0 && { _tickets > 0 }) exitWith {
    // position lost ...
    [_id] call CBA_fnc_removePerFrameHandler;
-   HASH_SET(_mission, "trigger_failed", true);
-
-   [QFUNC(obj___message), ["TRIGGER_FAILED", "hold", "red"]] call CBA_fnc_globalEvent;
+   [_mission] call FUNC(obj__triggerFailed);
 };
 if (_players > 0) then {
    // position is hold

@@ -31,7 +31,7 @@ class GVAR(unitlists) {
             prototype[] = {"B_MBT_01_TUSK_F","B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F"};
             commander[] = {"rhs_vdv_officer"};
             hq_mobile[] = {"rhs_gaz66_r142_vdv"};
-            wreck_air[] = {"Plane_Fighter_03_wreck_F", "Land_UWreck_Heli_Attack_02_F"};
+            wreck_air[] = {"rhs_Mi8mt_vdv","rhs_Mi8mt_Cargo_vdv","rhs_Mi8MTV3_vdv","rhs_Mi8MTV3_UPK23_vdv","rhs_Mi8MTV3_FAB_vdv","rhs_Mi8AMT_vdv"};
         };
         attack_uavs[] = {"O_UAV_02_F"};
         recon_uavs[] = {"rhs_pchela1t_vvs","O_UAV_01_F"};
@@ -841,7 +841,7 @@ class GVAR(unitlists) {
     };
     class base_west : base {
         class mission : mission {
-            wreck_air[] = {"Land_UWreck_MV22_F", "Land_Wreck_Heli_Attack_01_F"};
+            wreck_air[] = {/* "Land_UWreck_MV22_F", "Land_Wreck_Heli_Attack_01_F" */};
         };
     };
     class west {

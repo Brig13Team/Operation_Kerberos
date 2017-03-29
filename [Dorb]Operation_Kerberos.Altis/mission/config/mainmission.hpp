@@ -70,22 +70,24 @@ class main {
 
     class emp : device {};
 
+/*
     class hold : __oneCounter {
-      class location : location {
-        radius = 250;
-      };
+        class location : location {
+            radius = 250;
+        };
 
-      class object : object {
-        tickets = 135000; // 25 player for 30 minutes
-        multiplier = 0.01;
-        min = 0;
-        max = 0;
-      };
+        class object : object {
+            tickets = 135000; // 25 player for 30 minutes
+            multiplier = 0.01;
+            min = 0;
+            max = 0;
+        };
 
-      class defence : defence {
-        target = "";
-      };
+        class defence : defence {
+            target = "";
+        };
     };
+*/
 
     class hostage : capture {
         class object : object {
@@ -112,6 +114,17 @@ class main {
         };
     };
 
+    class jammer : __oneCounter {
+        class location : location {
+            radius = 1500;
+        };
+
+        class object : object {
+            min = 2;
+            max = 5;
+        };
+    };
+
     class radiotower : __oneCounter {
         class location : location {
             areas[] = {QGVAR(industrie), QGVAR(military), QGVAR(other)};
@@ -131,14 +144,14 @@ class main {
        };
     };
 
-    /*
+/*
     // internal rhs script produces too much script errors
     class scarab : radiotower {
         class object : object {
             radius = 100;
         };
     };
-    */
+*/
 
     class upload : device {
         class location : location {

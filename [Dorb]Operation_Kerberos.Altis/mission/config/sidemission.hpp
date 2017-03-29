@@ -23,7 +23,7 @@ class side {
 
     class wreck : __base {
         class location : location {
-            radius = 1500;
+            radius = 3000;
         };
     };
 };

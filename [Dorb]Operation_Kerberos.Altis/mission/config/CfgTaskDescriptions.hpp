@@ -24,6 +24,7 @@ class CfgTaskDescriptions {
     TASK_DESC2(hold,defend);
     TASK_DESC2(hostage,heal);
     TASK_DESC2(intel,download);
+    TASK_DESC2(jammer,destroy);
     TASK_DESC2(prototype,Default);
     TASK_DESC2(radiotower,destroy);
     TASK_DESC2(rtb,run);

@@ -42,6 +42,9 @@ switch _type do {
     case "wreck" : {
          _config = _config >> "wreck_air";
     };
+    case "jammer" : {
+        _config = _config >> "hq_mobile";
+    };
     default {
         _config = _config >> _type;
     };
