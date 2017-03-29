@@ -16,6 +16,6 @@
 
 _this params [["_target",objNull,[objNull]]];
 
-If (isNull(_target getVariable [QGVAR(antenna_external),objNull])) exitWith {false;};
+If (isNull(_target getVariable [QGVAR(externalAntenna),objNull])) exitWith {false;};
 
 true;
