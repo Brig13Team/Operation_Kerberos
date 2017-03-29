@@ -13,6 +13,6 @@
 
 // adding the possibility to stop the
 ["remoteStopSpeaking", {
-    _this call FUNC(remoteStopSpeaking);
+    _this call FUNC(jammer_remoteStopSpeaking);
     _this call acre_sys_core_fnc_remoteStopSpeaking;
 }] call acre_sys_rpc_fnc_addProcedure;
