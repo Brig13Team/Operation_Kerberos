@@ -15,11 +15,12 @@
 #include "script_component.hpp"
 
 _this params ["_target", "_player", "_args"];
-
+TRACEV_3(_target,_player,_args);
 private _radios = call acre_api_fnc_getCurrentRadioList;
 private _actions = [];
 {
     private _displayName = getText(configFile >> "CfgWeapons" >> _x >> "displayname");
+    TRACEV_2(_x,_displayName);
     private _action = [
         _x,
         _displayName,
@@ -28,7 +29,8 @@ private _actions = [];
         {true},
         {},
         [_target,_x]
-        ] call ace_interact_menu_fnc_createAction;
-    _loadActions pushBack [_action,[],_target];
+    ] call ace_interact_menu_fnc_createAction;
+    _actions pushBack [_action,[],_target];
 } forEach (_radios select {!(([_x] call acre_sys_radio_fnc_getRadioBaseClassname) isEqualTo "ACRE_PRC343")});
+TRACEV_2(_radios,_actions);
 _actions;

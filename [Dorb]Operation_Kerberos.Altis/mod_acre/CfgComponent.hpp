@@ -32,3 +32,5 @@ class DOUBLES(CfgComponent,ADDON) {
         CfgComponents[] = {};
     };
 };
+
+#include "config\acre_antennaObjects.hpp"

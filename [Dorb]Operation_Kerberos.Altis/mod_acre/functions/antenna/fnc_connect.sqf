@@ -11,12 +11,13 @@
  *      [TYPE] - [return name]
  *
  */
-//#define DEBUG_MODE_FULL
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-
-_this params [["_target",objNull,[objNull]],["_radioID","",[""]]];
-
+TRACEV_1(_this);
+_this params ["_interactTarget","_user","_args"];
+_args params [["_target",objNull,[objNull]],["_radioID","",[""]]];
+TRACE("ConnectAntenna");
 private _logic = [true] call CBA_fnc_createNamespace;
 private _cfg = missionConfigFile >> "acre_antennaObjects" >> typeOf _target;
 private _position = If (isText(_cfg >> "position")) then {
@@ -24,7 +25,12 @@ private _position = If (isText(_cfg >> "position")) then {
     }else{
         getArray(_cfg >> "position");
     };
-private _condition = compile getText(_cfg >> "condition");
+private _condition = getText(_cfg >> "condition");
+If (_condition isEqualTo "") then {
+    _condition = {true};
+}else{
+    _condition = compile _condition;
+};
 
 _logic attachTo [_target,_position];
 _target setVariable [QGVAR(externalAntenna),_logic,true];
@@ -48,3 +54,8 @@ CHECK(_connector isEqualTo [])
 
 // add the new antenna
 [_radioID,_antennaConnectorID,_connector select 0,_connectorAttributes setVariable ["worldObject",_logic],true] call acre_sys_components_fnc_attachSimpleComponent;
+
+[
+    QEGVAR(gui,message),
+    [LSTRING(antenna_connected),LSTRING(antenna_connected_msg)]
+] call CBA_fnc_localEvent;

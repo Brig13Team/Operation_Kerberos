@@ -11,10 +11,13 @@
  *      [TYPE] - [return name]
  *
  */
-//#define DEBUG_MODE_FULL
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 _this params [["_target",objNull,[objNull]]];
+
+TRACEV_1(_target);
+
 
 private _radioID = _target getVariable [QGVAR(externalAntenna_radioID),""];
 private _logic = _target getVariable [QGVAR(externalAntenna),objNull];
@@ -30,7 +33,7 @@ CHECK(_antennaConnectorID < 0)
 
 // get the connector Data
 private _connectorData = ((acre_sys_data_radioData getVariable _radioID) getVariable "acre_radioConnectionData");
-private _connector = {If ((_x select 1)==_antennaConnectorID) exitWith {_x};[];} forEach _connectorData
+private _connector = {If ((_x select 1)==_antennaConnectorID) exitWith {_x};[];} forEach _connectorData;
 CHECK(_connector isEqualTo [])
 
 // remove the external antenna
