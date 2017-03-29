@@ -20,7 +20,7 @@
 If ((DORB_HASH_COLLECTOR_NAMESPACES_ID >= (count DORB_HASH_COLLECTOR_NAMESPACES))&&{DORB_HASH_COLLECTOR_ARRAYS isEqualTo []}) exitWith {
     If (DORB_HASH_COLLECTOR_FOUND isEqualTo []) then {
         //start the collecting by initializing the variables
-        DORB_HASH_COLLECTOR_NAMESPACES = [missionNamespace] + allGroups + allPlayers;
+        DORB_HASH_COLLECTOR_NAMESPACES = [missionNamespace] + allGroups + allPlayers + (call FUNC(hash_getAllGlobal));
         DORB_HASH_COLLECTOR_NAMESPACES_ID = 0;
         DORB_HASH_COLLECTOR_VARIABLES = (allVariables missionNamespace);
         DORB_HASH_COLLECTOR_ARRAYS = [];
