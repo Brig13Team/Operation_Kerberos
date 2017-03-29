@@ -7,15 +7,15 @@
  */
 
 // the maximum display size with the 4:3 Ratio -> should be used for the most Interface-dialogs.
-#define GUI_DISP_Abs (floor(((SafeZoneW/(pixelW*pixelGridNoUIScale))/4)min((SafeZoneH/(pixelH*pixelGridNoUIScale))/3)))
-#define GUI_DISP_WAbs (4*GUI_DISP_Abs*pixelW * pixelGridNoUIScale)
-#define GUI_DISP_HAbs (3*GUI_DISP_Abs*pixelH * pixelGridNoUIScale)
-#define GUI_DISP_X (0.5-0.5*GUI_DISP_WAbs)
-#define GUI_DISP_Y (0.5-0.5*GUI_DISP_HAbs)
+#define GUI_DLG_Abs (floor(((SafeZoneW/(pixelW*pixelGridNoUIScale))/4)min((SafeZoneH/(pixelH*pixelGridNoUIScale))/3)))
+#define GUI_DLG_WAbs (4*GUI_DLG_Abs*pixelW * pixelGridNoUIScale)
+#define GUI_DLG_HAbs (3*GUI_DLG_Abs*pixelH * pixelGridNoUIScale)
+#define GUI_DLG_X (0.5-0.5*GUI_DLG_WAbs)
+#define GUI_DLG_Y (0.5-0.5*GUI_DLG_HAbs)
 
 // the maximum 4:3 display is reduced by 25% to make it possible to view the frame of the ECHIDNA-System
-#define GUI_ECHIDNA_WAbs (0.75*GUI_DISP_WAbs)
-#define GUI_ECHIDNA_HAbs (0.75*GUI_DISP_HAbs)
+#define GUI_ECHIDNA_WAbs (0.75*GUI_DLG_WAbs)
+#define GUI_ECHIDNA_HAbs (0.75*GUI_DLG_HAbs)
 #define GUI_ECHIDNA_X (0.5-0.5*GUI_ECHIDNA_WAbs)
 #define GUI_ECHIDNA_Y (0.5-0.5*GUI_ECHIDNA_HAbs)
 #define GUI_ECHIDNA_W (GUI_ECHIDNA_WAbs/40)
@@ -30,6 +30,27 @@
 #define GUI_ECHIDNA_METRO_SIDE (GUI_ECHIDNA_W*2)
 #define GUI_ECHIDNA_METRO_W (GUI_ECHIDNA_W*40-GUI_ECHIDNA_METRO_SIDE)
 #define GUI_ECHIDNA_METRO_H (GUI_ECHIDNA_H * 27.5)
+
+// the maximum display size with the 16:9 Ratio
+#define GUI_DISP_Abs (floor(((SafeZoneW/(pixelW*pixelGridNoUIScale))/16)min((SafeZoneH/(pixelH*pixelGridNoUIScale))/9)))
+#define GUI_DISP_WAbs (16*GUI_DISP_Abs*pixelW*pixelGridNoUIScale)
+#define GUI_DISP_HAbs (9*GUI_DISP_Abs*pixelH*pixelGridNoUIScale)
+#define GUI_DISP_X (0.5-0.5*GUI_DISP_WAbs)
+#define GUI_DISP_XAbs (safezoneX)
+#define GUI_DISP_Y (0.5-0.5*GUI_DISP_HAbs)
+#define GUI_DISP_YAbs (safezoneY)
+#define GUI_DISP_W (GUI_DISP_WAbs/160)
+#define GUI_DISP_H (GUI_DISP_HAbs/90)
+
+#define GUI_MSG_X (GUI_DISP_XAbs+GUI_DISP_W)
+#define GUI_MSG_Y (GUI_DISP_YAbs+GUI_DISP_H*6)
+#define GUI_MSG_Y (0)
+#define GUI_MSG_W (GUI_DISP_W*20)
+#define GUI_MSG_H (GUI_DISP_H*8)
+#define GUI_MSG_HEAD (GUI_DISP_H*2)
+#define GUI_MSG_COL (GUI_DISP_W*0.2)
+#define GUI_MSG_TEXT (GUI_DISP_H*6)
+#define GUI_MSG_TEXTSIZE (GUI_MSG_HEAD)
 
 
 /*
@@ -52,14 +73,7 @@
 #define GUI_GRID_CENTER_X (safezoneX + (safezoneW - GUI_GRID_CENTER_WAbs)/2)
 #define GUI_GRID_CENTER_Y (safezoneY + (safezoneH - GUI_GRID_CENTER_HAbs)/2)
 
-#define GUI_MSG_X (safezoneX + 0.5 * GUI_GRID_W)
-//#define GUI_MSG_Y (5 * GUI_GRID_H + safezoneY) ((5 * GUI_GRID_H  + safezoneY)+(5 * IGUI_TEXT_SIZE_MEDIUM))
-#define GUI_MSG_Y ((5 * GUI_GRID_H  + safezoneY)+(5 * IGUI_TEXT_SIZE_MEDIUM))
-#define GUI_MSG_W (10 * GUI_GRID_W)
-#define GUI_MSG_H (4 * GUI_GRID_H)
-#define GUI_MSG_HEAD (1 * GUI_GRID_H)
-#define GUI_MSG_COL (0.2 * GUI_GRID_W)
-#define GUI_MSG_TEXT (3 * GUI_GRID_H)
+
 
 #define GUI_TIMER_BACK_X (safezoneX + 0.5 * GUI_GRID_W)
 #define GUI_TIMER_BACK_Y (safezoneY + safezoneH - 5.5 * GUI_GRID_H)
