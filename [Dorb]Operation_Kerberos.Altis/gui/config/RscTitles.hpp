@@ -41,6 +41,7 @@ class RscTitles {
                 w = GUI_MSG_W;
                 h = GUI_MSG_HEAD;
                 text = "ERROR: No Header";
+                size = GUI_MSG_TEXTSIZE;
                 shadow = 0;
                 colorBackground[] = {0,0,0,0};
                 colorText[] = { RAL7047 ,1};
@@ -61,7 +62,7 @@ class RscTitles {
                 shadow = 0;
                 colorBackground[] = {0,0,0,0};
                 colorText[] = {RAL7047,1};
-                size = GUI_TEXT_SIZE_SMALL;
+                size = GUI_MSG_TEXTSIZE*0.8;
                 class Attributes : Attributes {
                     shadow = 0;
                     font = GUI_FONT_THIN;

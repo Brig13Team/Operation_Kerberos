@@ -9,7 +9,6 @@ PREP(canOpenMenu);
 PREP(close);
 PREP(clock);
 PREP(clockPFH);
-//PREP(displayPage);
 PREP(hideMetro);
 PREP(initHeader);
 PREP(MetroBttn);
