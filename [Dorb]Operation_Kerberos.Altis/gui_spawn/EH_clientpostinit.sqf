@@ -25,7 +25,7 @@ GVAR(vehiclesHash) = HASH_CREATE;
             compile format["[player,'%1'] call %2;",_id,QFUNC(open)],
             compile format["[player,'%1'] call %2;",_id,QFUNC(canOpenMenu)],
             ((parsingNamespace getVariable ["MISSION_ROOT",""]) + format[QEPAAPATH(icon,icon_%1),_picture]),
-            2
+            1
         ] call EFUNC(gui_echidna,addApp);
         [
             format[QGVAR(interface_%1),_spawnLogic],

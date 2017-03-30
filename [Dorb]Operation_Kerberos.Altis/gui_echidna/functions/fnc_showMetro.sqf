@@ -129,6 +129,7 @@ _ctrlBackground ctrlCommit 0;
                 TRACE("disabled");
                 _ctrl ctrlEnable false;
                 _ctrl ctrlRemoveAllEventHandlers "ButtonClick";
+                _ctrl ctrlSetTextColor [1,1,1,0.4];
                 _ctrl ctrlCommit 0;
             };
             INC(_idc);
