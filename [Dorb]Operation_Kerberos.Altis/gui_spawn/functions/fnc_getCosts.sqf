@@ -1,14 +1,14 @@
 /*
- *  Author: [Name of Author(s)]
+ *  Author: Dorbedo
  *
  *  Description:
- *      [Description]
+ *      returns the cost of a vehcleclass
  *
  *  Parameter(s):
- *      0 : [TYPE] - [argument name]
+ *      0 : STRING - Classname
  *
  *  Returns:
- *      [TYPE] - [return name]
+ *      Number
  *
  */
 //#define DEBUG_MODE_FULL

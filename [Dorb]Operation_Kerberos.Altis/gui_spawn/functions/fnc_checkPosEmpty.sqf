@@ -1,14 +1,14 @@
 /*
- *  Author: [Name of Author(s)]
+ *  Author: Dorbedo
  *
  *  Description:
- *      [Description]
+ *      Spawn Position is empty
  *
  *  Parameter(s):
- *      0 : [TYPE] - [argument name]
+ *      0 : ARRAY - Position
  *
  *  Returns:
- *      [TYPE] - [return name]
+ *      BOOL - pad is empty
  *
  */
 //#define DEBUG_MODE_FULL
