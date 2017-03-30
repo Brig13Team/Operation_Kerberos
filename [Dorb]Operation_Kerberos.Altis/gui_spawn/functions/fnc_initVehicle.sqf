@@ -85,3 +85,5 @@ private _weaponAdded = false;
 } forEach (weapons _localVeh);
 
 deleteVehicle _localVeh;
+
+GVAR(vehiclesHashModified) = true;

@@ -9,6 +9,7 @@
 #include "script_component.hpp"
 
 class DOUBLES(CfgComponent,ADDON) {
+    version = "2017.03.30"; // used for the lib of vehicles should only be touched if the gui has changed
     class clientpostinit {server = 0;};
     class preinit {};
     class dependencies {

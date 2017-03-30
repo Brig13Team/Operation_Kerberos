@@ -56,3 +56,12 @@ if ((getText(configFile >> "CfgVehicles" >> _vehicleType >> "vehicleClass"))isEq
 
 closeDialog (ctrlIDD _dialog);
 [] call EFUNC(gui_echidna,close);
+
+If (GVAR(vehiclesHashModified)) then {
+    [] spawn {
+        private _Version = format["Version:%1_at_%2-%3",getText(missionConfigFile >> QUOTE(DOUBLES(CfgComponent,ADDON)) >> "version"),getResolution select 0,getResolution select 1];
+        private _serializedHash = [GVAR(vehiclesHash)] call EFUNC(main,hash_serialize);
+        profileNamespace setVariable [QGVARMAIN(vehiclesLib),[_Version,_serializedHash]];
+        saveProfileNamespace;
+    };
+};
