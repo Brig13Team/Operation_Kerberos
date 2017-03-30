@@ -59,7 +59,7 @@ closeDialog (ctrlIDD _dialog);
 
 If (GVAR(vehiclesHashModified)) then {
     [] spawn {
-        private _Version = format["Version:%1_at_%2-%3",getText(missionConfigFile >> QUOTE(DOUBLES(CfgComponent,ADDON)) >> "version"),getResolution select 0,getResolution select 1];
+        private _version = format["Version:%1_[%2,%3,%4,%5]",getText(missionConfigFile >> QUOTE(DOUBLES(CfgComponent,ADDON)) >> "version"),SafeZoneX,SafeZoneY,SafeZoneW,safeZoneH];
         private _serializedHash = [GVAR(vehiclesHash)] call EFUNC(main,hash_serialize);
         profileNamespace setVariable [QGVARMAIN(vehiclesLib),[_Version,_serializedHash]];
         saveProfileNamespace;

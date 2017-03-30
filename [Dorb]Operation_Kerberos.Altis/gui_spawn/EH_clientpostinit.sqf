@@ -10,8 +10,8 @@ CHECK(!hasInterface)
 
 GVAR(spawns) = HASH_CREATE;
 
-private _neededVersion = format["Version:%1_at_%2-%3",getText(missionConfigFile >> QUOTE(DOUBLES(CfgComponent,ADDON)) >> "version"),getResolution select 0,getResolution select 1];
-(profileNamespace getVariable [QGVARMAIN(vehiclesLib)],["NotFound",[]]]) params [["_currentVersion","NotFound",[]],["_list",[],[[]]]];
+private _neededVersion = format["Version:%1_[%2,%3,%4,%5]",getText(missionConfigFile >> QUOTE(DOUBLES(CfgComponent,ADDON)) >> "version"),SafeZoneX,SafeZoneY,SafeZoneW,safeZoneH];
+(profileNamespace getVariable [QGVARMAIN(vehiclesLib),["NotFound",[]]]) params [["_currentVersion","NotFound",[]],["_list",[],[[]]]];
 If ((!(_list isEqualTo []))&&{_currentVersion isEqualTo _neededVersion}) then {
     GVAR(vehiclesHash) = [_list] call EFUNC(main,hash_Ldeserialize);
 }else{

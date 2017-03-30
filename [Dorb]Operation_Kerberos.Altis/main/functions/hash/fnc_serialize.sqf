@@ -21,7 +21,7 @@ If (IS_AHASH(_hash)) exitWith {
     private _values = [];
     private _variables = allVariables _hash;
     {
-        private _val = HASH_GET(_hash,key);
+        private _val = HASH_GET(_hash,_x);
         If (!isNil "_val") then {
             _keys pushBack _x;
             _values pushBack ([_val] call SELF);
@@ -33,6 +33,7 @@ If (IS_ARRAY(_hash)) exitWith {
     private _return = [];
     {
         _return pushBack ([_x] call SELF);
+        nil;
     } count _hash;
     _return;
 };
