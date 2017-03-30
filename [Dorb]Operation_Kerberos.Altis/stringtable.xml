@@ -151,7 +151,7 @@
             <German>Fahrzeugdepot</German>
             <English>Vehicle Spawn</English>
         </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_ERROR">
+        <Key ID="STR_DORB_GUI_SPAWN_ERRORMSG">
             <German>Fehler</German>
             <English>Error</English>
         </Key>

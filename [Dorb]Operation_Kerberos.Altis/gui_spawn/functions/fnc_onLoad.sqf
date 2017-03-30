@@ -28,8 +28,7 @@ private _pos_x = GUI_ECHIDNA_X + GUI_ECHIDNA_W*31;
 private _pos_y = GUI_ECHIDNA_Y + GUI_ECHIDNA_H*23.5;
 private _pos_w = GUI_ECHIDNA_W*3;
 private _pos_h = GUI_ECHIDNA_H*3;
-//private _picture = ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QEPAAPATH(acre,tree));
-private _picture = "\a3\ui_f\data\igui\cfg\simpletasks\types\container_ca.paa";
+private _picture = ((parsingNamespace getVariable ["MISSION_ROOT",""]) + 'COMPONENT\data\dec_w.paa');
 private _displayName = localize LSTRING(BTTN_CLEAR);
 private _ctrl = _dialog displayCtrl IDC_ECHIDNA_SPAWN_VEHICLEBUTTON_2;
 _ctrl ctrlAddEventHandler ["ButtonClick",{_this call FUNC(clearPos);true}];
@@ -41,8 +40,7 @@ _ctrl ctrlSetTextColor [1,1,1,1];
 
 
 _pos_x = GUI_ECHIDNA_X + GUI_ECHIDNA_W*35;
-//private _picture = ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QEPAAPATH(acre,tree));
-private _picture = "\a3\ui_f\data\igui\cfg\simpletasks\types\container_ca.paa";
+private _picture = ((parsingNamespace getVariable ["MISSION_ROOT",""]) + 'COMPONENT\data\add_w.paa');
 private _displayName = localize LSTRING(BTTN_SPAWN);
 private _ctrl = _dialog displayCtrl IDC_ECHIDNA_SPAWN_VEHICLEBUTTON_1;
 _ctrl ctrlAddEventHandler ["ButtonClick",{_this call FUNC(spawnVehicle);true}];
@@ -56,5 +54,9 @@ _ctrl ctrlSetTextColor [1,1,1,1];
 TRACE("OnLoad Finished");
 
 [] call FUNC(showVehicleList);
-[] call FUNC(setObject);
-[] call FUNC(showProperties);
+If (((lnbsize _vehicleList) select 0)>0) then {
+    _vehicleList lnbSetCurSelRow 0;
+}else{
+    [] call FUNC(setObject);
+    [] call FUNC(showProperties);
+};
