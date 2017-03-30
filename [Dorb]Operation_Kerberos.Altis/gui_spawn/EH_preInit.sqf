@@ -2,12 +2,23 @@
 
 ADDON = false;
 
+PREP(animBttn);
 PREP(canOpenMenu);
+PREP(checkPosEmpty);
+PREP(checkRestrictions);
 PREP(clearPos);
-PREP(create);
-PREP(createlist_west);
-PREP(createlist_east);
+PREP(getCosts);
+PREP(getPreset);
+PREP(getVehicleList);
+PREP(handleObject);
+PREP(initVehicle);
+PREP(onLoad);
+PREP(onSelection);
 PREP(Open);
-PREP(select);
+PREP(registerSpawn);
+PREP(setObject);
+PREP(showProperties);
+PREP(showVehicleList);
+PREP(spawnVehicle);
 
 ADDON = true;

@@ -12,8 +12,8 @@
  *
  */
 #include "script_component.hpp"
-_this params [["_position",[],[[]],[2,3]]];
-If ((count _position) == 2) then {_position pushBack 0};
+
+private _position = GVAR(curPos);
 
 {
     private _veh = _x;
