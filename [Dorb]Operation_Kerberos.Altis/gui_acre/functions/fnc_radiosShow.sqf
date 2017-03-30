@@ -88,7 +88,7 @@ private _pos_x = GUI_ECHIDNA_X + 36.5*GUI_ECHIDNA_W;
 private _pos_y = GUI_ECHIDNA_Y + 24*GUI_ECHIDNA_H;
 private _pos_w = GUI_ECHIDNA_W*3;
 private _pos_h = GUI_ECHIDNA_H*3;
-private _picture = "a3\ui_f\data\igui\cfg\simpletasks\types\upload_ca.paa";
+private _picture = ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QUOTE(COMPONENT\data\save.paa));
 private _displayName = localize LSTRING(RADIOS_TRANSMITT);
 private _ctrl = _display displayCtrl IDC_ACRE_MENU_BTTN6;
 _ctrl ctrlAddEventHandler ["ButtonClick",{[GVAR(radioSettingsTarget)] call FUNC(transmitt);true}];
@@ -99,7 +99,7 @@ _ctrl ctrlSetFontHeight (GUI_ECHIDNA_METRO_BTTN_H * 0.1);
 _ctrl ctrlSetTextColor [1,1,1,1];
 
 private _pos_x = GUI_ECHIDNA_X + 33*GUI_ECHIDNA_W;
-private _picture = "a3\ui_f\data\igui\cfg\simpletasks\types\download_ca.paa";
+private _picture = ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QUOTE(COMPONENT\data\delete.paa));
 private _displayName = localize LSTRING(RADIOS_RESET);
 private _ctrl2 = _display displayCtrl IDC_ACRE_MENU_BTTN7;
 _ctrl2 ctrlAddEventHandler ["ButtonClick",{[GVAR(radioSettingsTarget)] call FUNC(radiosShow);true}];
