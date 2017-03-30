@@ -11,7 +11,7 @@
  *      [TYPE] - [return name]
  *
  */
-#define DEBUG_MODE_FULL
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 _this params [["_radioType","",[""]],["_channel",0,[1]],["_presetName","",[""]]];
@@ -28,9 +28,10 @@ private _acreKeys = ((allVariables _acreHash) select {!isNil{_acreHash getVariab
 private _missionKeysOrderd = _acreKeys arrayIntersect ["description","label","name","frequencyrx","frequencytx","rxonly","ctcssrx","ctcsstx","squelch","modulation","encryption","synclength","power","phase","channelmode","deviation","trafficrate","tek","active","optioncode","fade","rptr"];
 // add the unknown keys
 {_missionKeysOrderd pushBackUnique _x} forEach _acreKeys;
-
+TRACEV_1(_acreHash);
 private _missionHash = LHASH_COPY(_acreHash);
-TRACEV_2(allVariables _acreHash,allVariables _missionHash);
+//private _serialized = HASH_SERIALIZE(_missionHash);
+//TRACEV_3(allVariables _acreHash,allVariables _missionHash,_serialized);
 HASH_SET(_missionHash,"keysOrdered",_missionKeysOrderd);
 HASH_SET(_missionHash,"radioType",_radioType);
 HASH_SET(_missionHash,"presetName",_presetName);

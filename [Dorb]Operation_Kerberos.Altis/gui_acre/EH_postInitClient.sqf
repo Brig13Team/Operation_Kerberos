@@ -13,3 +13,11 @@ GVAR(tempPropertiesRadio) = locationNull;
 GVAR(tempProperties) = [];
 
 [] call FUNC(createRadioList);
+
+[
+    localize LSTRING(HEADER),
+    {[] spawn FUNC(OpenMenu);},
+    {[ace_player] call FUNC(canOpenMenu);},
+    getText(configfile >> "CfgMods" >> "ACRE2" >> "picture"),
+    3
+] call EFUNC(gui_echidna,addApp);

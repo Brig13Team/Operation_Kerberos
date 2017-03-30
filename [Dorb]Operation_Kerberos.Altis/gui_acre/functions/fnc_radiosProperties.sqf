@@ -11,7 +11,7 @@
  *      [TYPE] - [return name]
  *
  */
-#define DEBUG_MODE_FULL
+//#define DEBUG_MODE_FULL
 #define INCLUDE_GUI
 #include "script_component.hpp"
 
@@ -26,6 +26,7 @@ lnbClear _combobox;
 TRACEV_1(_index);
 
 If (_index < 0) exitWith {
+    {ctrlDelete _x;} forEach GVAR(tempProperties);
     GVAR(tempProperties) = [];
     GVAR(tempPropertiesRadio) = locationNull;
     [] call FUNC(radiosPropertiesShow);
@@ -34,7 +35,7 @@ If (_index < 0) exitWith {
 
 
 GVAR(tempPropertiesRadio) = GVAR(tempRadioList) select _index;
-
+TRACEV_3(GVAR(tempPropertiesRadio),allVariables GVAR(tempPropertiesRadio),GVAR(tempRadioList));
 private _radioType = toUpper(HASH_GET(GVAR(tempPropertiesRadio),"radioType"));
 private _radioTypeHash = HASH_GET(GVAR(radioTypeList),_radioType);
 private _lastChannelIndex = HASH_GET(_radioTypeHash,"LastChannelIndex");

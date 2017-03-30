@@ -12,6 +12,7 @@
  *      LOCATION - copied hash
  *
  */
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 _this params [["_hash",locationNull,[locationNull,[]]]];
@@ -21,16 +22,16 @@ If (_hash isEqualType []) exitWith {
 };
 
 private _newHash = call FUNC(hash_Lcreate);
-If !(IS_AHASH(_hash)) exitWith {_newHash};
+If !(IS_AHASH(_hash)) exitWith {TRACE("NOHASH");_newHash};
 
 {
     private _value = _hash getVariable _x;
     private _key = _x;
     If (IS_ARRAY(_value)) then {
-        _newHash setVariable [_key,(_value call FUNC(hash_LcopyArray))];
+        _newHash setVariable [_key,([_value] call FUNC(hash_LcopyArray))];
     }else{
         If (IS_AHASH(_value)) then {
-            _newHash setVariable [_key,(_value call FUNC(hash_Lcopy))];
+            _newHash setVariable [_key,([_value] call FUNC(hash_Lcopy))];
         }else{
             _newHash setVariable [_key,_value];
         };

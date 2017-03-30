@@ -11,7 +11,7 @@
  *      [TYPE] - [return name]
  *
  */
-#define DEBUG_MODE_FULL
+//#define DEBUG_MODE_FULL
 #define INCLUDE_GUI
 #include "script_component.hpp"
 
@@ -44,13 +44,12 @@ _fnc_Checkbox = {
     private _posW = 1*GUI_ECHIDNA_W;
     private _posH = 1*GUI_ECHIDNA_H;
     private _ctrl2 = _display ctrlCreate ["RscText", -1, _ctrlGroup];
-    _ctrl2 ctrlSetPosition [_posX, _posY, _posW, _posH];
+    _ctrl2 ctrlSetPosition [_posX + GUI_ECHIDNA_W * 0.1, _posY + GUI_ECHIDNA_H * 0.1, _posW * 0.8, _posH * 0.8];
     _ctrl2 ctrlSetText "";
-    _ctrl2 ctrlSetBackgroundColor [RAL9007,1];
+    _ctrl2 ctrlSetBackgroundColor [RAL9005,0.7];
     private _ctrl = _display ctrlCreate ["RscCheckBox", _idc, _ctrlGroup];
     _ctrl ctrlSetPosition [_posX, _posY, _posW, _posH];
     _ctrl ctrlSetTextColor [RAL9005,1];
-    _ctrl ctrlSetBackgroundColor [RAL9007,1];
     [_ctrl,_ctrl2];
 };
 _fnc_Edit = {
@@ -60,7 +59,9 @@ _fnc_Edit = {
     private _posH = 1*GUI_ECHIDNA_H;
     private _ctrl = _display ctrlCreate ["RscEdit", _idc, _ctrlGroup];
     _ctrl ctrlSetPosition [_posX, _posY, _posW, _posH];
-    _ctrl ctrlSetBackgroundColor [RAL9007,1];
+    _ctrl ctrlSetBackgroundColor [RAL9005,0];
+    _ctrl ctrlSetTextColor [RAL9005,1];
+    _ctrl ctrlSetFont FONT_THIN;
     _ctrl;
 };
 
@@ -86,6 +87,7 @@ TRACEV_1(_keys);
 
     private _value = HASH_GET(GVAR(tempPropertiesRadio),_key);
     private "_ctrlvalue";
+    TRACEV_2(_key,_value);
     If (_value isEqualType true) then {
         _ctrlvalue = [(IDC_ACRE_MENU_PROPERTIES_TEXT_1 + _forEachIndex),_posY] call _fnc_Checkbox;
         (_ctrlvalue select 0) cbSetChecked _value;
@@ -97,6 +99,7 @@ TRACEV_1(_keys);
         _ctrlvalue = [(IDC_ACRE_MENU_PROPERTIES_TEXT_1 + _forEachIndex),_posY] call _fnc_Edit;
         _ctrlvalue ctrlSetText format["%1",_value];
         _ctrlvalue ctrlCommit 0;
+        TRACEV_1(_ctrlvalue);
         _ctrlDump pushBack _ctrlvalue;
     };
 

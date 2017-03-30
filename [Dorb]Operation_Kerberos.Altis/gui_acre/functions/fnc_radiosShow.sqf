@@ -11,7 +11,7 @@
  *      [TYPE] - [return name]
  *
  */
-#define DEBUG_MODE_FULL
+//#define DEBUG_MODE_FULL
 #define INCLUDE_GUI
 #include "script_component.hpp"
 disableSerialization;
@@ -152,8 +152,11 @@ _properties_combo ctrlAddEventHandler ["LBSelChanged",{_this call FUNC(radiosPro
 } forEach HASH_KEYS(GVAR(radioTypeList));
 
 private _currentRadios = (_target getVariable [QGVAR(radios),[]]) select {!(isNull _x)};
+TRACEV_1(_currentRadios);
 GVAR(tempRadioList) = [];
 {
+    private _serialized = HASH_SERIALIZE(_x);
+    TRACEV_3(_copy,_x,_serialized);
     private _copy = LHASH_COPY(_x);
     HASH_SET(_copy,"isCopyOf",_x);
     GVAR(tempRadioList) pushBack _copy;

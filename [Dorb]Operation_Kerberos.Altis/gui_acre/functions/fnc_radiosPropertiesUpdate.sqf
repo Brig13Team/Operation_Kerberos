@@ -11,7 +11,7 @@
  *      [TYPE] - [return name]
  *
  */
-#define DEBUG_MODE_FULL
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 TRACE("PRESET CHANGED");
 _this params ["_ctrl",["_index",-1,[0]]];

@@ -26,7 +26,10 @@ TRACEV_3(_data,_valueArray,_this);
 If (HASH_HASKEY(GVAR(radioTypeList),_data)) then {
     // add a new radio to the list
     TRACE("ADDING");
+    //TRACEV_1(_data);
     private _localHash = [_data] call FUNC(setFilteredPresetChannel);
+    private _serialized = [_localHash] call EFUNC(main,hash_serialize);
+    TRACEV_2(allVariables _localHash,_serialized);
     GVAR(curSelIndex) = GVAR(tempRadioList) pushBack _localHash;
     [] call FUNC(radiosList);
 }else{

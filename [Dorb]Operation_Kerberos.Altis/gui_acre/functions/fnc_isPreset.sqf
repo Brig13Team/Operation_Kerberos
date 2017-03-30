@@ -11,7 +11,7 @@
  *      [TYPE] - [return name]
  *
  */
-#define DEBUG_MODE_FULL
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 _this params ["_radioHash"];
@@ -34,7 +34,7 @@ If ((_presetName isEqualTo "")||{!(_presetName isEqualTo _acrePreset)}) exitWith
 private _channel = HASH_GET(_radioHash,"channel");
 
 private _acrePresetHash = [_radioType,_channel] call FUNC(setFilteredPresetChannel);
-private _keysToCheck = HASH_GET(_acrePresetHash,"keysOrdered");
+private _keysToCheck = (HASH_GET(_acrePresetHash,"keysOrdered")) select {!((tolower _x) in ["description","label","name"])};
 
 
 private _temp = {

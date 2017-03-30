@@ -12,7 +12,7 @@ PREP(isPreset);
 
 PREP(onLoad);
 PREP(onUnLoad);
-PREP(open);
+PREP(openMenu);
 
 PREP(radiosDrop);
 PREP(radiosList);

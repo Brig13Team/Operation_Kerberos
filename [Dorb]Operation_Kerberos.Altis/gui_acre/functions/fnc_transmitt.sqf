@@ -11,7 +11,7 @@
  *      [TYPE] - [return name]
  *
  */
-#define DEBUG_MODE_FULL
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 TRACE("transmitting");
@@ -30,7 +30,7 @@ private _newList = [];
     private _copyTarget = LHASH_GET_DEF(_curRadioHash,"isCopyOf",locationNull);
     If !(isNull _copyTarget) then {
         // compare the values and update if needed;
-        private _keys = LHASH_GET(_curRadioHash,"keysOrdered");
+        private _keys =+ LHASH_GET(_curRadioHash,"keysOrdered");
         _keys append ["keysOrdered","radioType","presetName","channel","channelName"];
         {
             private _curKey = _x;
@@ -42,7 +42,7 @@ private _newList = [];
         _newList pushBack _copyTarget;
     }else{
         private _newHash = GHASH_CREATE;
-        private _keys = LHASH_GET(_curRadioHash,"keysOrdered");
+        private _keys =+ LHASH_GET(_curRadioHash,"keysOrdered");
         _keys append ["keysOrdered","radioType","presetName","channel","channelName"];
         {
             private _newVal = LHASH_GET(_curRadioHash,_x);
