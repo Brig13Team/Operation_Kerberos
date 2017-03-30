@@ -98,12 +98,12 @@ If (GVAR(msg_cur) isEqualTo []) then {
             If !(GVAR(msg_waiting) isEqualTo []) then {
                 (GVAR(msg_waiting) deleteAt 0) params ["_title","_content","_color"];
                 /// change the moving distance
-                private _move = 0.5 * GUI_GRID_H + (call compile (getText(missionconfigfile>>"RscTitles">>QAPP(message_1)>>"controls">>"background">>"h") ));
+                private _move = 0.5 * GUI_MSG_HEAD + GUI_MSG_H;
                 If ((_content isEqualTo "")||(_title isEqualTo "")) then {
                     If (_content isEqualTo "") then {
-                        _move = 0.5 * GUI_GRID_H + (call compile (getText(missionconfigfile>>"RscTitles">>QAPP(message_1)>>"controls">>"header">>"h") ));
+                        _move = 1.5 * GUI_MSG_HEAD;
                     }else{
-                        _move = 0.5 * GUI_GRID_H + (call compile (getText(missionconfigfile>>"RscTitles">>QAPP(message_1)>>"controls">>"content">>"h") ));
+                        _move = 0.5 * GUI_MSG_HEAD + GUI_MSG_TEXT;
                     };
                 };
                 /// pushdown the old ones;

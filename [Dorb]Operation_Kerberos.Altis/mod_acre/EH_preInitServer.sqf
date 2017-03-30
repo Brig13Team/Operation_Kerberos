@@ -10,7 +10,7 @@
 
 [
     QGVAR(addJammer),
-    LINKFUNC(addJammer)
+    LINKFUNC(jammer_add)
 ] call CBA_fnc_addEventHandler;
 
 GVAR(lastRemove) = -1;
@@ -20,7 +20,7 @@ GVAR(lastRemove) = -1;
     {
         if (GVAR(lastRemove) < (CBA_missiontime + 20)) then {
             GVAR(lastRemove) = CBA_missiontime;
-            _this call FUNC(removeJammer);
+            _this call FUNC(jammer_remove);
         };
     }
 ] call CBA_fnc_addEventHandler;

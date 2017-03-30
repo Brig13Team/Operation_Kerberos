@@ -32,7 +32,7 @@ private _bestdistance = 999999;
 
 {
     _x params ["_jammer","_jammerID","_jammerAntenna","_jammerAntennaDir","_jammeroffset","_jammermW","_jammerF"];
-    If ([_jammer] call FUNC(isJammerActive)) then {
+    If ([_jammer] call FUNC(jammer_isActive)) then {
         private _jammerPos = AGLToASL(_jammer modelToWorld _jammeroffset);
         // check the frequency
         TRACEV_8(_jammerPos,_jammer,_jammerID,_jammerAntenna,_jammerAntennaDir,_jammeroffset,_jammermW,_jammerF);
