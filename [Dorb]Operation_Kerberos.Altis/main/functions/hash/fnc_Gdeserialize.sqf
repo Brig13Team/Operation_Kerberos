@@ -35,7 +35,8 @@ If (IS_ARRAY(_toDeserialize)) exitWith {
     private _return = [];
     {
         _return pushBack ([_x] call SELF);
-    } count _hash;
+        nil;
+    } count _toDeserialize;
     _return;
 };
 _toDeserialize;

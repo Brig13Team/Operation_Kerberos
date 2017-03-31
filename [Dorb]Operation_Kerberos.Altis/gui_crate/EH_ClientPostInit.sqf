@@ -31,5 +31,5 @@ for "_i" from 1 to 9 do {
     {[] call FUNC(OpenMenu);},
     {[player] call FUNC(canOpenMenu);},
     ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QEPAAPATH(icon,icon_robot)),
-    3
+    1
 ] call EFUNC(gui_echidna,addApp);
