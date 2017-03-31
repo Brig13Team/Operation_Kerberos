@@ -2,13 +2,13 @@
  *  Author: Dorbedo
  *
  *  Description:
- *      [Description]
+ *      displays the properties of the vehicle
  *
  *  Parameter(s):
- *      0 : [TYPE] - [argument name]
+ *      0 : STRING - VehicleType
  *
  *  Returns:
- *      [TYPE] - [return name]
+ *      none
  *
  */
 //#define DEBUG_MODE_FULL
@@ -36,3 +36,4 @@ TRACEV_1(_propertiesList);
     TRACEV_3(_ctrl,_name,_value);
     _ctrl lnbAddRow [_name,format["%1",_value]];
 } forEach _propertiesList;
+nil;

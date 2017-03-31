@@ -2,13 +2,14 @@
  *  Author: Dorbedo
  *
  *  Description:
- *      [Description]
+ *      onSelection Event of the vehicleList
  *
  *  Parameter(s):
- *      0 : [TYPE] - [argument name]
+ *      0 : CONTROL - the vehiclelist
+ *      1 : SCALAR - the index
  *
  *  Returns:
- *      [TYPE] - [return name]
+ *      none
  *
  */
 //#define DEBUG_MODE_FULL

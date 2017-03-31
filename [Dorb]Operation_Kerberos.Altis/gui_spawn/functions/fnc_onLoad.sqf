@@ -2,13 +2,13 @@
  *  Author: Dorbedo
  *
  *  Description:
- *      [Description]
+ *      onLoad Event of the dialog
  *
  *  Parameter(s):
- *      0 : [TYPE] - [argument name]
+ *      0 : DIALOG - Main dialog
  *
  *  Returns:
- *      [TYPE] - [return name]
+ *      none
  *
  */
 //#define DEBUG_MODE_FULL
