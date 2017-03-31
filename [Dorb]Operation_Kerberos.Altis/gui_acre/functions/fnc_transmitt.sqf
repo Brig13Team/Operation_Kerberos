@@ -1,14 +1,14 @@
 /*
- *  Author: [Name of Author(s)]
+ *  Author: Dorbedo
  *
  *  Description:
- *      [Description]
+ *      transfers the local hashes into global ones
  *
  *  Parameter(s):
- *      0 : [TYPE] - [argument name]
+ *      none
  *
  *  Returns:
- *      [TYPE] - [return name]
+ *      none
  *
  */
 //#define DEBUG_MODE_FULL

@@ -2,13 +2,13 @@
  *  Author: Dorbedo
  *
  *  Description:
- *      [Description]
+ *      hides everything
  *
  *  Parameter(s):
- *      0 : [TYPE] - [argument name]
+ *      none
  *
  *  Returns:
- *      [TYPE] - [return name]
+ *      none
  *
  */
 //#define DEBUG_MODE_FULL

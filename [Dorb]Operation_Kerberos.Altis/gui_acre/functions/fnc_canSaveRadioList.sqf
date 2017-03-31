@@ -2,13 +2,13 @@
  *  Author: Dorbedo
  *
  *  Description:
- *      [Description]
+ *      checks if you are allowed to save the data
  *
  *  Parameter(s):
- *      0 : [TYPE] - [argument name]
+ *      0 : GROUP/OBJECT - the save-target
  *
  *  Returns:
- *      [TYPE] - [return name]
+ *      BOOL - You are allowed to save the data
  *
  */
 //#define DEBUG_MODE_FULL

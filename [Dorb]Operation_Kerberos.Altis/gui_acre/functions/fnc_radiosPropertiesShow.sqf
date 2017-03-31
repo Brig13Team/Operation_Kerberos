@@ -1,14 +1,14 @@
 /*
- *  Author: [Name of Author(s)]
+ *  Author: Dorbedo
  *
  *  Description:
- *      [Description]
+ *      Shows the radio properties with the edit-fields
  *
  *  Parameter(s):
- *      0 : [TYPE] - [argument name]
+ *      none
  *
  *  Returns:
- *      [TYPE] - [return name]
+ *      none
  *
  */
 //#define DEBUG_MODE_FULL
@@ -107,17 +107,3 @@ TRACEV_1(_keys);
     GVAR(tempProperties) pushBack _ctrlDump;
 
 } forEach _keys;
-
-
-//private _radioTypeHash = HASH_SET(GVAR(radioTypeList),_WeaponName,_radioHash);
-//private _channelAmount = HASH_SET(_radioHash,"LastChannelIndex",_channels);
-
-
-
-
-
-
-
-
-
-//

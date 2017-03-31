@@ -1,14 +1,16 @@
 /*
- *  Author: DOrbedo
+ *  Author: Dorbedo
  *
  *  Description:
- *      [Description]
+ *      Copys a preset from acre into a local hash and adds some specific data
  *
  *  Parameter(s):
- *      0 : [TYPE] - [argument name]
+ *      0 : STRING - Radio-ID
+ *      1 : SCALAR - Channel-ID
+ *      2 : STRING - Name of the Preset
  *
  *  Returns:
- *      [TYPE] - [return name]
+ *      HASH - the copied hash
  *
  */
 //#define DEBUG_MODE_FULL

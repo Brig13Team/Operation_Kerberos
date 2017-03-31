@@ -5,10 +5,10 @@
  *      returns if a hash is a preset
  *
  *  Parameter(s):
- *      0 : [TYPE] - [argument name]
+ *      0 : HASH - the radiohash to check
  *
  *  Returns:
- *      [TYPE] - [return name]
+ *      BOOL - the radioHash is a preset
  *
  */
 //#define DEBUG_MODE_FULL

@@ -2,13 +2,13 @@
  *  Author: Dorbedo
  *
  *  Description:
- *      [Description]
+ *      displays the current radios assigned to the target
  *
  *  Parameter(s):
- *      0 : [TYPE] - [argument name]
+ *      0 : OBJECT/GROUP - The namespace where the radios are saved
  *
  *  Returns:
- *      [TYPE] - [return name]
+ *      none
  *
  */
 //#define DEBUG_MODE_FULL

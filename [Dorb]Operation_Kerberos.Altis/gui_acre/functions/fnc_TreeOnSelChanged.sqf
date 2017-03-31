@@ -2,13 +2,14 @@
  *  Author: Dorbedo
  *
  *  Description:
- *      [Description]
+ *      displays the properties of a radio selected in the treeview
  *
  *  Parameter(s):
- *      0 : [TYPE] - [argument name]
+ *      0 : CONTROL - the tree
+ *      1 : ARRAY - the selection
  *
  *  Returns:
- *      [TYPE] - [return name]
+ *      none
  *
  */
 //#define DEBUG_MODE_FULL

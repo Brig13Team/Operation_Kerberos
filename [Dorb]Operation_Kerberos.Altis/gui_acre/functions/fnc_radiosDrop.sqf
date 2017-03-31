@@ -2,10 +2,14 @@
  *  Author: Dorbedo
  *
  *  Description:
- *      [Description]
+ *      the Drop-Event of the radio moving adds/removes radios
  *
  *  Parameter(s):
- *      0 : [TYPE] - [argument name]
+ *      0 : CONTROL - the targetcontrol
+ *      1 : SCALAR - PosX
+ *      2 : SCALAR - PosY
+ *      3 : CONTROL - the sourcecontrol
+ *      4 : VALUE - the value of the dragged element
  *
  *  Returns:
  *      [TYPE] - [return name]

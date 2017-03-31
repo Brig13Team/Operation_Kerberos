@@ -1,14 +1,14 @@
 /*
- *  Author: [Name of Author(s)]
+ *  Author: Dorbedo
  *
  *  Description:
- *      [Description]
+ *      shows the properties of a selected radio
  *
  *  Parameter(s):
- *      0 : [TYPE] - [argument name]
+ *      0 : SCALAR - the index of the radioList
  *
  *  Returns:
- *      [TYPE] - [return name]
+ *      none
  *
  */
 //#define DEBUG_MODE_FULL

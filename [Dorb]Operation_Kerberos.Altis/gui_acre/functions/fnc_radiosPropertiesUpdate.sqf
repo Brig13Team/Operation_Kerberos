@@ -1,14 +1,15 @@
 /*
- *  Author: [Name of Author(s)]
+ *  Author: Dorbedo
  *
  *  Description:
- *      [Description]
+ *      Updates the radioproperties
  *
  *  Parameter(s):
- *      0 : [TYPE] - [argument name]
+ *      0 : CONTROL - the combobox
+ *      1 : SCALAR - the control
  *
  *  Returns:
- *      [TYPE] - [return name]
+ *      none
  *
  */
 //#define DEBUG_MODE_FULL

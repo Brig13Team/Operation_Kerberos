@@ -5,7 +5,7 @@
  *      starts general display functions
  *
  *  Parameter(s):
- *      none
+ *      0: DIALOG - the radio-dialog
  *
  *  Returns:
  *      none
