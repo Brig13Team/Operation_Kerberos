@@ -64,5 +64,5 @@ _mark setMarkerTypeLocal _type;
 If !(_text isEqualTo "") then {
     _mark setMarkerTextLocal _text;
 };
-_mark setMarkerDir _dir;
+_mark setMarkerDirLocal _dir;
 true

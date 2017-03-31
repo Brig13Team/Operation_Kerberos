@@ -17,11 +17,15 @@ class APP(dialog) : RSC(Echidna) {
 
         Map_Tablet,
 
+        bttnBackgrd_1,
+        bttnBackgrd_2,
         menubutton_1,
         menubutton_2,
         menubutton_3,
         menubutton_4,
         menubutton_5,
+        menubutton_6,
+        menubutton_7,
 
         metro_back,
         metro,
@@ -29,7 +33,7 @@ class APP(dialog) : RSC(Echidna) {
         background_device
     };
     onLoad = QUOTE(uiNamespace setVariable [ARR_2('EGVAR(gui_Echidna,dialog)',_this select 0)]; [ARR_2('GVAR(dialog)',true)] call EFUNC(gui,blur); _this spawn EFUNC(gui_echidna,OnLoad);_this spawn FUNC(OnLoad););
-    onUnload = QUOTE([ARR_2('GVAR(dialog)',false)] call EFUNC(gui,blur);_this call EFUNC(gui_Echidna,OnUnLoad););
+    onUnload = QUOTE([ARR_2('GVAR(dialog)',false)] call EFUNC(gui,blur);_this call FUNC(OnUnLoad);_this call EFUNC(gui_Echidna,OnUnLoad););
 
     #define BUTTON_HELPER(NUMBER) class TRIPLES(menubutton,NUMBER,background) : RSC(BasePicture) { \
         idc = -(IDC_FDC_MAIN_BTTN + NUMBER); \
@@ -67,6 +71,9 @@ class APP(dialog) : RSC(Echidna) {
     BUTTON_HELPER(3);
     BUTTON_HELPER(4);
     BUTTON_HELPER(5);
+    BUTTON_HELPER(6);
+    BUTTON_HELPER(7);
+
 
     class Map_Tablet : RSC(BaseMapControl) {
         idc = IDC_FDC_MAP;
@@ -151,6 +158,18 @@ class APP(dialog) : RSC(Echidna) {
 
     class Position_Group : RSC(BaseControlsGroupNoHScrollbar) {
         idc = IDC_FDC_POSITION_GRP;
+    };
+
+    class bttnBackgrd_1 : RSC(BaseText) {
+        idc = IDC_FDC_MAIN_BTTN_BACK_1;
+        x = 0;
+        y = 0;
+        w = 0;
+        h = 0;
+        colorBackGround = {RAL9005,1};
+    };
+    class bttnBackgrd_2 : bttnBackgrd_1 {
+        idc = IDC_FDC_MAIN_BTTN_BACK_2;
     };
 
 

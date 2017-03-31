@@ -4,4 +4,7 @@ ADDON = false;
 
 PREP(onLoad);
 
+
+PREP(onUnLoad);
+
 ADDON = true;
