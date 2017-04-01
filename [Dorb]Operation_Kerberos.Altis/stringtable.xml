@@ -644,37 +644,26 @@
     </Package>
     <Package name="Gui_teleport">
         <Key ID="STR_DORB_GUI_TELEPORT_TELEPORT">
-            <Original>Teleport</Original>
             <German>Teleport</German>
             <English>Teleport</English>
         </Key>
         <Key ID="STR_DORB_GUI_TELEPORT_BASE">
-            <Original>Base</Original>
             <German>Basis</German>
             <English>Base</English>
         </Key>
         <Key ID="STR_DORB_GUI_TELEPORT_VEHICLES">
-            <Original>Vehicles</Original>
             <German>Fahrzeuge</German>
             <English>Vehicles</English>
         </Key>
-        <Key ID="STR_DORB_GUI_TELEPORT_AIR">
-            <Original>Aircraft</Original>
-            <German>Luftwaffe</German>
-            <English>Aircraft</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_TELEPORT_SHOOTING">
-            <Original>Shooting Range</Original>
-            <German>Schießstand</German>
-            <English>Shooting Range</English>
+        <Key ID="STR_DORB_GUI_TELEPORT_AIRFIELD">
+            <German>Flugfeld</German>
+            <English>Airfield</English>
         </Key>
         <Key ID="STR_DORB_GUI_TELEPORT_LOGISTIC">
-            <Original>Logistics</Original>
             <German>Logistik</German>
             <English>Logistics</English>
         </Key>
-        <Key ID="STR_DORB_GUI_TELEPORT_MARINE">
-            <Original>Harbour</Original>
+        <Key ID="STR_DORB_GUI_TELEPORT_MARINA">
             <German>Hafen</German>
             <English>Harbour</English>
         </Key>

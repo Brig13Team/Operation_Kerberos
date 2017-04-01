@@ -8,7 +8,7 @@ class EditorData
 	toggles=5;
 	class ItemIDProvider
 	{
-		nextID=455;
+		nextID=459;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={16658.826,43.544106,19071.6};
-		dir[]={0.080930054,-0.53247392,0.84263158};
-		up[]={0.050909627,0.846421,0.53007591};
-		aside[]={0.99547023,1.3216777e-007,-0.095606245};
+		pos[]={17409.451,29.748075,19453.217};
+		dir[]={0,-0.70710683,0.70710683};
+		up[]={0,0.70710677,0.70710677};
+		aside[]={0.99999994,0,-0};
 	};
 };
 binarizationWanted=0;
@@ -263,7 +263,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=229;
+		items=233;
 		class Item0
 		{
 			dataType="Logic";
@@ -12085,6 +12085,46 @@ class Mission
 				};
 				nAttributes=2;
 			};
+		};
+		class Item229
+		{
+			dataType="Marker";
+			position[]={26785.625,0,24654.125};
+			name="airfield";
+			type="Empty";
+			angle=141.93198;
+			id=455;
+			atlOffset=-20.937649;
+		};
+		class Item230
+		{
+			dataType="Marker";
+			position[]={26730.125,0,24608};
+			name="teleport_logistics";
+			type="Empty";
+			angle=76.705582;
+			id=456;
+			atlOffset=-20.486155;
+		};
+		class Item231
+		{
+			dataType="Marker";
+			position[]={17407,0,19479.75};
+			name="teleport_marina";
+			type="Empty";
+			angle=342.72195;
+			id=457;
+			atlOffset=-4.4845972;
+		};
+		class Item232
+		{
+			dataType="Marker";
+			position[]={16570.25,0,19001};
+			name="teleport_vehicles";
+			type="Empty";
+			angle=123.12497;
+			id=458;
+			atlOffset=-35.135311;
 		};
 	};
 };

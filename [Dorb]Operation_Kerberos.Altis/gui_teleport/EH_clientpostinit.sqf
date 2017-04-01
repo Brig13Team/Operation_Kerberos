@@ -27,30 +27,30 @@ HASH_SET(_hash,"active",true);
 /// Button 3
 private _hash = HASH_CREATE;
 HASH_SET(GVAR(teleporter),"button_3",_hash);
-HASH_SET(_hash,"target",(getMarkerPos "teleport_luftwaffe"));
-HASH_SET(_hash,"name",localize LSTRING(AIR));
+HASH_SET(_hash,"target",(getMarkerPos "airfield"));
+HASH_SET(_hash,"name",localize LSTRING(AIRFIELD));
 HASH_SET(_hash,"active",true);
 
 /// Button 4
 private _hash = HASH_CREATE;
 HASH_SET(GVAR(teleporter),"button_4",_hash);
-HASH_SET(_hash,"target",(getMarkerPos "teleport_shooting"));
-HASH_SET(_hash,"name",localize LSTRING(SHOOTING));
+HASH_SET(_hash,"target",(getMarkerPos "teleport_logistics"));
+HASH_SET(_hash,"name",localize LSTRING(LOGISTIC));
 HASH_SET(_hash,"active",true);
 
 /// Button 5
 private _hash = HASH_CREATE;
 HASH_SET(GVAR(teleporter),"button_5",_hash);
-HASH_SET(_hash,"target",(getMarkerPos "teleport_hafen"));
-HASH_SET(_hash,"name",localize LSTRING(MARINE));
+HASH_SET(_hash,"target",(getMarkerPos "teleport_marina"));
+HASH_SET(_hash,"name",localize LSTRING(MARINA));
 HASH_SET(_hash,"active",true);
 
 /// Button 6
 private _hash = HASH_CREATE;
 HASH_SET(GVAR(teleporter),"button_6",_hash);
-HASH_SET(_hash,"target",(getMarkerPos "teleport_logistic"));
-HASH_SET(_hash,"name",localize LSTRING(LOGISTIC));
-HASH_SET(_hash,"active",true);
+HASH_SET(_hash,"target",(getMarkerPos "respawn_west"));
+HASH_SET(_hash,"name","");
+HASH_SET(_hash,"active",false);
 
 /// Button 7 -> teleport to lead
 private _hash = HASH_CREATE;
