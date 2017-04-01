@@ -27,10 +27,10 @@ If !(IS_AHASH(_hash)) exitWith {_newHash};
     private _value = _hash getVariable _x;
     private _key = _x;
     If (IS_ARRAY(_value)) then {
-        _newHash setVariable [_key,(_value call FUNC(hash_GcopyArray))];
+        _newHash setVariable [_key,([_value] call FUNC(hash_GcopyArray))];
     }else{
         If (IS_AHASH(_value)) then {
-            _newHash setVariable [_key,(_value call FUNC(hash_Gcopy))];
+            _newHash setVariable [_key,([_value] call FUNC(hash_Gcopy))];
         }else{
             _newHash setVariable [_key,_value];
         };

@@ -1,14 +1,15 @@
 /*
- *  Author: [Name of Author(s)]
+ *  Author: Dorbedo
  *
  *  Description:
- *      [Description]
+ *      opens the dialog with the defined data
  *
  *  Parameter(s):
- *      0 : [TYPE] - [argument name]
+ *      0 : OBJECT - the caller
+ *      1 : STRING - the spawn-ID
  *
  *  Returns:
- *      [TYPE] - [return name]
+ *      none
  *
  */
 #define DEBUG_MODE_FULL

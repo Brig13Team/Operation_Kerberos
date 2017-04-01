@@ -19,10 +19,10 @@ _this params [["_array",[],[[]]]];
 private _newArray = [];
 {
     if(IS_AHASH(_x)) then {
-        _newArray pushBack (_x call FUNC(hash_Acopy));
+        _newArray pushBack ([_x] call FUNC(hash_Acopy));
     } else {
         if(IS_ARRAY(_x)) then {
-            _newArray pushBack (_x call FUNC(hash_AcopyArray));
+            _newArray pushBack ([_x] call FUNC(hash_AcopyArray));
         } else {
             _newArray pushBack _x;
         };

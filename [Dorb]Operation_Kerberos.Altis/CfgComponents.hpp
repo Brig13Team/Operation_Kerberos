@@ -32,7 +32,6 @@ class CfgComponents {
     mod_ace = 1;
     mod_acre = 1;
     mod_asrai = 1;
-    mod_tfar = 0;
     patch_acre = 1;
     patch_bw = 1;
     /// gui

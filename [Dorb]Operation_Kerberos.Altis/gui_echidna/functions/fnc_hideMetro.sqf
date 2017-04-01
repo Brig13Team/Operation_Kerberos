@@ -37,6 +37,10 @@ private _ctrlGroup = _display displayCtrl IDC_ECHIDNA_METRO_GRP;
 private _ctrlBackground = _ctrlGroup controlsGroupCtrl IDC_ECHIDNA_METRO_BACK_HELPER;
 _ctrlBackground ctrlSetPosition [0, 0, 0, 0];
 _ctrlBackground ctrlCommit 0;
+private _allIDC = [];
+for [{_i = IDC_ECHIDNA_METRO_BTTN + 1},{_i<=IDC_ECHIDNA_METRO_BTTN + 50},{INC(_i)}] do {
+    _allIDC pushBack _i;
+};
 {
     private _idc = _x;
     private _ctrl = _ctrlGroup controlsGroupCtrl _idc;
@@ -47,9 +51,8 @@ _ctrlBackground ctrlCommit 0;
     _ctrl ctrlEnable false;
     _ctrl ctrlRemoveAllEventHandlers "ButtonClick";
     _ctrl ctrlCommit 0;
-} forEach [
+} forEach _allIDC;
 
-];
 TRACEV_2(_display,_ctrlGroup);
 _ctrlGroup ctrlsetPosition [SafeZoneX + safeZoneWAbs + 1, SafeZoneY + SafeZoneH + 1, 0, 0];
 _ctrlGroup ctrlCommit 0;

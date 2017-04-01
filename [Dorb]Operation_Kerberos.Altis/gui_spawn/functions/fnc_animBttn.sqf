@@ -2,10 +2,11 @@
  *  Author: Dorbedo
  *
  *  Description:
- *      Anomation for the metro button
+ *      Anomation for the button
  *
  *  Parameter(s):
  *      0 : STRING - dialog Eventhandler
+ *      1 : ANY - parameter
  *
  *  Returns:
  *      none

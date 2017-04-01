@@ -29,7 +29,7 @@
 #define GUI_ECHIDNA_METRO_ROW_DIST (pixelH*pixelGrid*5)
 #define GUI_ECHIDNA_METRO_SIDE (GUI_ECHIDNA_W*2)
 #define GUI_ECHIDNA_METRO_W (GUI_ECHIDNA_W*40-GUI_ECHIDNA_METRO_SIDE)
-#define GUI_ECHIDNA_METRO_H (GUI_ECHIDNA_H * 27.5)
+#define GUI_ECHIDNA_METRO_H (GUI_ECHIDNA_H*27.5)
 
 // the maximum display size with the 16:9 Ratio
 #define GUI_DISP_Abs (floor(((SafeZoneW/(pixelW*pixelGridNoUIScale))/16)min((SafeZoneH/(pixelH*pixelGridNoUIScale))/9)))

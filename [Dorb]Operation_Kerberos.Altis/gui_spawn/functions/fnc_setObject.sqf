@@ -2,13 +2,13 @@
  *  Author: Dorbedo
  *
  *  Description:
- *      [Description]
+ *      changes the vehicleobject to the the selected one
  *
  *  Parameter(s):
- *      0 : [TYPE] - [argument name]
+ *      0 : STRING - VehicleName
  *
  *  Returns:
- *      [TYPE] - [return name]
+ *      none
  *
  */
 #define DEBUG_MODE_FULL
