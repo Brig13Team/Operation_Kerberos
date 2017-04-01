@@ -13,5 +13,5 @@
  */
 #include "script_component.hpp"
 
-
+//(count (call acre_api_fnc_getCurrentRadioList))>0;
 true;

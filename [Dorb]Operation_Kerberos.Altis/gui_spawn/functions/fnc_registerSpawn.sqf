@@ -2,13 +2,13 @@
  *  Author: Dorbedo
  *
  *  Description:
- *      [Description]
+ *      registers a new spawn
  *
  *  Parameter(s):
- *      0 : [TYPE] - [argument name]
+ *      0 : ARRAY/STRING - Array with vehicles or a string (presetname)
  *
  *  Returns:
- *      [TYPE] - [return name]
+ *      STRING - the spawn-ID
  *
  */
 #define DEBUG_MODE_FULL

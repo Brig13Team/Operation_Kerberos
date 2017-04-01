@@ -67,6 +67,18 @@ Author:
 #define QEPAAPATH(VAR1,VAR2) QUOTE(EPAAPATH(VAR1,VAR2))
 
 /* -------------------------------------------
+Macro: MPATH(VAR)
+    this marco is used to convert a missiopath for the description.ext
+
+Parameters:
+    VAR - NAME
+
+Author:
+    Dorbedo
+------------------------------------------- */
+#define MPATH(VAR) __EVAL(MISSION_ROOT + 'VAR')
+
+/* -------------------------------------------
 Macro: FUNCSYS(VAR)
 
 Parameters:

@@ -1,11 +1,12 @@
 /*
- *  Author: [Name of Author(s)]
+ *  Author: Dorbedo
  *
  *  Description:
- *      [Description]
+ *      Checks if the player is allowed to spawn a vehicleclass
  *
  *  Parameter(s):
- *      0 : [TYPE] - [argument name]
+ *      0 : OBJECT - player
+ *      1 : STRING - vehicletype
  *
  *  Returns:
  *      BOOL - true if the player is not allowed to spawn

@@ -1,14 +1,14 @@
 /*
- *  Author: [Name of Author(s)]
+ *  Author: Dorbedo
  *
  *  Description:
- *      [Description]
+ *      returns a preset by a string
  *
  *  Parameter(s):
- *      0 : [TYPE] - [argument name]
+ *      0 : STRING - preset name
  *
  *  Returns:
- *      [TYPE] - [return name]
+ *      ARRAY - Array of classnames
  *
  */
 #define DEBUG_MODE_FULL

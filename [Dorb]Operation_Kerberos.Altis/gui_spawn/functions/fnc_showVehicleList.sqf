@@ -2,13 +2,13 @@
  *  Author: Dorbedo
  *
  *  Description:
- *      [Description]
+ *      displays the vehiclelist
  *
  *  Parameter(s):
- *      0 : [TYPE] - [argument name]
+ *      none
  *
  *  Returns:
- *      [TYPE] - [return name]
+ *      none
  *
  */
 #define DEBUG_MODE_FULL
@@ -30,5 +30,6 @@ TRACEV_1(_vehicleList);
     _ctrl lnbSetData [[_rowindex, 0], _vehicleType];
     If !(_picture in ["iconstaticmg","iconstaticmortar","iconcrate","iconstaticaa","iconobject_2x1","iconobject_circle","iconcrateord"]) then {
         _ctrl lnbSetPicture [[_rowindex, 0], _picture];
-    };    
+    };
 } forEach _vehicleList;
+nil;
