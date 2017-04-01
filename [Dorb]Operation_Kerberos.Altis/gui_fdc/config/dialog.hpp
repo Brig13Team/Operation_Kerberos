@@ -99,6 +99,31 @@ class APP(dialog) : RSC(Echidna) {
         h = GUI_ECHIDNA_H * 27.5;
     };
 
+    class OrderList : RSC(BaseControlsGroupNoHScrollbar) {
+        idc = IDC_FDC_ORDERLIST_GRP;
+        x = GUI_ECHIDNA_X;
+        y = GUI_ECHIDNA_Y;
+        w = GUI_ECHIDNA_W * 28;
+        h = GUI_ECHIDNA_H * 27.5;
+        class controls {
+            class background : RSC(BaseText) {
+                idc = IDC_FDC_ORDERLIST_BACK;
+                x = 0;
+                y = 0;
+                w = GUI_ECHIDNA_W * 28;
+                h = GUI_ECHIDNA_H * 27.5;
+                colorBackground[] = {RAL9005,1};
+            };
+            class orderlist_list : RSC(BaseListboxN) {
+                idc = IDC_FDC_ORDERLIST_LIST;
+                x = GUI_ECHIDNA_W * 0.5;
+                y = GUI_ECHIDNA_H * 2.5;
+                w = GUI_ECHIDNA_W * 19;
+                h = GUI_ECHIDNA_H * 24.5;
+            };
+        };
+    };
+
     class Order_Group : RSC(BaseControlsGroupNoHScrollbar) {
         idc = IDC_FDC_ORDER_GRP;
         x = GUI_ECHIDNA_X;
