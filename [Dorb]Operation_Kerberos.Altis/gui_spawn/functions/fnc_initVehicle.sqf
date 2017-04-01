@@ -71,7 +71,7 @@ private _weaponAdded = false;
 {
     private _curWeapon = _x;
     private _name = getText (configFile >> "CfgWeapons" >> _curWeapon >> "displayName");
-    If !((_name isEqualTo "")||{(toUpper _name) in ["MASTERSAFE","SAFE","HORN"]}) then {
+    If !((_name isEqualTo "")||{(toUpper _name) in ["MASTERSAFE","SAFE","HORN","FLARES"]}) then {
         If (_weaponAdded) then {
             private _curKey = format["WEAPON_%1",_forEachIndex];
             HASH_SET(_vehicleHash,_curKey,_name);
