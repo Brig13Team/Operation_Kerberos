@@ -1,6 +1,10 @@
 #include "..\script_component.hpp"
 
-#define CHECK_INTERVALL     30
+#ifdef DEBUG_MODE_FULL
+    #define CHECK_INTERVALL     5
+#else
+    #define CHECK_INTERVALL     30
+#endif
 
 #define DEBUG_MODE_FULL
 

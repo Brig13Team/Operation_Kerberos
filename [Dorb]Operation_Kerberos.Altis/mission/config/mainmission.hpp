@@ -10,25 +10,35 @@ class main {
             areas[] = {QGVAR(town), QGVAR(industrie), QGVAR(military), QGVAR(other)};
         };
 
+        class defence {
+            target = ""; // "house", "composition" or ""
+            armys[] = {{"regular",1}, {"armored",1}, {"infanterie",1}, {"airborne",1}, {"specops",1}, {"droneoperations",1}, {"guards",1}};
+
+            composition_types[] = {"isObjective"};
+            house_types[] = {"hasmissiontarget"};
+        };
+
         class object {};
 
-        probability = 1;
-        armys[] = {{"regular",1}, {"armored",1}, {"infanterie",1}, {"airborne",1}, {"specops",1}, {"droneoperations",1}, {"guards",1}};
+        class side {
+            min = 1;
+            max = 1;
+            types[] = {"__base"};
+        };
+
+        probability = 1.0;
     };
 
     class __oneCounter : __base {
-        armys[] = {{"regular",1}, {"armored",1}, {"infanterie",1}, {"airborne",1}, {"guards",1}};
+        class defence : defence {
+            target = "composition";
+            armys[] = {{"regular",1}, {"armored",1}, {"infanterie",1}, {"airborne",1}, {"guards",1}};
+        };
     };
 
-    class __twoCounter : __oneCounter {};
-
-    /*
-     *  special missions
-     */
-    class _rtb : __base {
-        class object : object {
-            radius   = 100;
-            position = "respawn_west";
+    class __twoCounter : __oneCounter {
+        class defence : defence {
+            target = "house";
         };
     };
 
@@ -38,25 +48,56 @@ class main {
     class capture : __twoCounter {
         class location : location {
             areas[] = {QGVAR(town)};
+            radius = 200;
         };
 
         class object : object {
             min = 1;
             max = 3;
-            radius = 200;
         };
     };
+
     class device : __oneCounter {
         class location : location {
             areas[] = {QGVAR(industrie), QGVAR(other)};
-        };
-
-        class object : object {
             radius = 250;
         };
     };
 
+    class dronecommando : __oneCounter {
+        class location : location {
+            radius = 500;
+        };
+
+        class defence : defence {
+            armys[] = {{"droneoperations",1}, {"specops",1}};
+        };
+    };
+
     class emp : device {};
+
+/*
+    class hold : __oneCounter {
+        class location : location {
+            radius = 250;
+        };
+
+        class object : object {
+            tickets = 135000; // 25 player for 30 minutes
+            multiplier = 0.01;
+            min = 0;
+            max = 0;
+        };
+
+        class defence : defence {
+            target = "";
+        };
+
+        class side : side {
+            types[] = {};
+        };
+    };
+*/
 
     class hostage : capture {
         class object : object {
@@ -65,29 +106,71 @@ class main {
         };
     };
 
+    class prototype : __oneCounter {
+        class location : location {
+            areas[] = {QGVAR(industrie), QGVAR(military), QGVAR(other)};
+            radius = 500;
+        };
+    };
+
     class intel : hostage {
+        class location : location {
+            radius = 250;
+        };
+
         class object : object {
             min = 2;
             max = 10;
-            radius = 250;
+        };
+    };
+
+    class jammer : __oneCounter {
+        class location : location {
+            radius = 1500;
+        };
+
+        class object : object {
+            min = 2;
+            max = 5;
         };
     };
 
     class radiotower : __oneCounter {
         class location : location {
             areas[] = {QGVAR(industrie), QGVAR(military), QGVAR(other)};
+            radius = 1000;
         };
 
         class object : object {
             min = 1;
             max = 3;
-            radius = 1000;
         };
     };
 
+    class rtb : __base {
+       class object : object {
+           radius   = 100;
+           position = "respawn_west";
+       };
+
+       class side : side {
+           types[] = {};
+       };
+    };
+
+/*
+    // internal rhs script produces too much script errors
     class scarab : radiotower {
         class object : object {
             radius = 100;
+        };
+    };
+*/
+
+    class upload : device {
+        class location : location {
+            areas[] = {QGVAR(military)};
+            radius = 200;
         };
     };
 

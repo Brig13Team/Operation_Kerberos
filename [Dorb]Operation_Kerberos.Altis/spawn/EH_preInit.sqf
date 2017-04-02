@@ -11,14 +11,12 @@ PREP(createMinefields);
 PREP(createMission);
 PREP(createMissionComposition);
 PREP(createMissionHouse);
-PREP(createMissionTarget);
 PREP(crew);
 
 PREP(delaySpawn);
 
 PREP(gear);
 PREP(getGroup);
-PREP(getMissionObject);
 PREP(getRoadsInArea);
 PREP(getUnit);
 PREP(group);
@@ -67,23 +65,6 @@ PREPS(fallback,spawnDoorMines);
 PREPS(fallback,spawnExplosives);
 PREPS(fallback,spawnStatic);
 PREPS(fallback,spawnUnit);
-
-PREPS(mission,capture);
-PREPS(mission,clear);
-PREPS(mission,device);
-PREPS(mission,dronecommando);
-PREPS(mission,emp);
-PREPS(mission,hostage);
-PREPS(mission,intel);
-PREPS(mission,prototype);
-PREPS(mission,radar);
-PREPS(mission,radiotower);
-PREPS(mission,scarab);
-PREPS(mission,specops);
-PREPS(mission,weaponcache);
-
-PREPS(sidemission,artillery);
-PREPS(sidemission,radar);
 
 PREPS(water,createPatrols);
 PREPS(water,minefield);

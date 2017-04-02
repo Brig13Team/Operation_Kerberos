@@ -21,7 +21,9 @@ private _active   = HASH_GET(_mission, "event_active");
 if (_active && {(_last + _interval) < CBA_missionTime}) then {
     HASH_SET(_mission, "event_last", CBA_missionTime);
 
+    private _name = HASH_GET(_mission, "name");
     private _event_name = HASH_GET(_mission, "event_name");
+    TRACEV_2(_name,_event_name);
     private _event_parameter = HASH_GET(_mission, "event_parameter");
     [_event_name, [HASH_GET(_mission, "object")] call _event_parameter] call CBA_fnc_serverEvent;
 };

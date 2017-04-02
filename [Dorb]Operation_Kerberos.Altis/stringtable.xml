@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Project name="dorb">
     <Package name="main">
         <Key ID="STR_DORB_MAIN_NAME">
@@ -173,247 +173,348 @@
         </Key>
 
     </Package>
-    <Package name="MISSIONS">
-        <!-- Intel -->
-        <Key ID="STR_DORB_MISSION_INTEL_DESC">
-
-            <German>Der Feind in diesem Gebiet besitzt wichtige Informationen, welche uns einen entscheidenen Vorteil im Verlauf des Konfliktes verschaffen können. Ihre Aufgabe ist es diese Informationen zu sichern.</German>
-        </Key>
-        <Key ID="STR_DORB_MISSION_INTEL_TITLE">
-
-            <German>Informationen sicherstellen</German>
-        </Key>
-        <Key ID="STR_DORB_MISSION_INTEL_FOUND_MSG_TITLE">
-
-            <German>Informationen gesichert</German>
-        </Key>
-        <Key ID="STR_DORB_MISSION_INTEL_FOUND_MSG">
-
-            <German>%1 konnte Informationen sicherstellen</German>
-        </Key>
-        <!-- weaponcaches -->
-        <Key ID="STR_DORB_MISSION_WEAPONCACHE_DESC">
-
-            <German>In diesem Bereich befinden sich feindliche Waffenverstecke. Finden und zerstören sie diese.</German>
-        </Key>
-        <Key ID="STR_DORB_MISSION_WEAPONCACHE_TITLE">
-
-            <German>Waffenverstecke zerstören</German>
-        </Key>
-        <Key ID="STR_DORB_MISSION_WEAPONCACHE_DESTROYED_MSG_TITLE">
-
-            <German>Waffenversteck</German>
-        </Key>
-        <Key ID="STR_DORB_MISSION_WEAPONCACHE_DESTROYED_MSG">
-
-            <German>Ein Waffenversteck wurde zerstört.</German>
-        </Key>
-        <!-- device -->
-        <Key ID="STR_DORB_MISSION_DEVICE_DESC">
-
-            <German>Der Feind besitzt eine neuartige Technologie, welche es ihm ermöglicht Erdbeben hervorzurufen. Finden sie diese Maschine und deaktivieren sie diese.</German>
-        </Key>
-        <Key ID="STR_DORB_MISSION_DEVICE_TITLE">
-
-            <German>Erdbebengerät ausschalten</German>
-        </Key>
-        <!-- emp -->
-        <Key ID="STR_DORB_MISSION_EMP_DESC">
-
-            <German>Der Feind verfügt über ein Gerät, welches einen elektromagnetischen Impuls aussenden kann. Deaktiveren sie dieses Gerät</German>
-        </Key>
-        <Key ID="STR_DORB_MISSION_EMP_TITLE">
-
-            <German>EMP deaktivieren</German>
-        </Key>
-        <!-- hostages -->
-        <Key ID="STR_DORB_MISSION_HOSTAGE_DESC">
-
-            <German>Der Feind hat einige unserer Wissenschaftler gefangen genommen. Befreien sie diese und bringen sie sie zurück in Sicherheit</German>
-        </Key>
-        <Key ID="STR_DORB_MISSION_HOSTAGE_TITLE">
-
-            <German>Gefangene befreien</German>
-        </Key>
-        <Key ID="STR_DORB_MISSION_HOSTAGE_KILLED_MSG_TITLE">
-
-            <German>Gefangener getötet</German>
-        </Key>
-        <Key ID="STR_DORB_MISSION_HOSTAGE_KILLED_MSG">
-
-            <German>%1 wurde auf der Flucht getötet.</German>
-        </Key>
-        <Key ID="STR_DORB_MISSION_HOSTAGE_RESCUED_MSG_TITLE">
-
-            <German>Gefangener befreit</German>
-        </Key>
-        <Key ID="STR_DORB_MISSION_HOSTAGE_RESCUED_MSG">
-
-            <German>%1 konnte befreit werden und befindet sich nun in Sicherheit.</German>
-        </Key>
-        <!-- clear -->
-        <Key ID="STR_DORB_MISSION_CLEAR_DESC">
-
-            <German>Schlagen sie die Feindlichen Kräfte in diesem Gebiet zurück</German>
-        </Key>
-        <Key ID="STR_DORB_MISSION_CLEAR_TITLE">
-
-            <German>Gebiet befreien</German>
-        </Key>
-        <!-- capture -->
-        <Key ID="STR_DORB_MISSION_CAPTURE_DESC">
-
-            <German>Nehmen sie den oder die Befehlshaber der Region gefangen und bringen sie diese zum Verhör in die Basis.</German>
-        </Key>
-        <Key ID="STR_DORB_MISSION_CAPTURE_TITLE">
-
-            <German>Offizier gefangen nehmen</German>
-        </Key>
-        <!-- scarab -->
-        <Key ID="STR_DORB_MISSION_SCARAB_DESC">
-
-            <German>Der Feind hat Mittelstreckenrakten in Stellung gebracht um unsere Flotte anzugreifen. Verhindern sie unter allen umständen den Abschuss der Atomraketen.</German>
-        </Key>
-        <Key ID="STR_DORB_MISSION_SCARAB_TITLE">
-
-            <German>Abschuss verhindern</German>
-        </Key>
-        <!-- radiotower -->
-        <Key ID="STR_DORB_MISSION_RADIOTOWER_DESC">
-
-            <German>Durch die Funkmasten in diesem Gebiet steuert der Feind einen großen Teil seiner Truppen. Zerstören Sie diese Funkmasten.</German>
-        </Key>
-        <Key ID="STR_DORB_MISSION_RADIOTOWER_TITLE">
-
-            <German>Funktürme vernichten</German>
-        </Key>
-        <!-- dronecommando -->
-        <Key ID="STR_DORB_MISSION_DRONECOMMANDO_DESC">
-
-            <German>In diesem Bereich befindet sich ein vorgelagertes Drohnenkommando. Vernichten Sie dieses um die Schlagkraft der Drohnenangriffe zu reduzieren.</German>
-        </Key>
-        <Key ID="STR_DORB_MISSION_DRONECOMMANDO_TITLE">
-
-            <German>Dronenkommando neutralisieren</German>
-        </Key>
-        <!-- prototype -->
-        <Key ID="STR_DORB_MISSION_PROTOTYPE_DESC">
-
-            <German>Der Feind hat einen Prototypen gestohlen. Erobern sie diesen und bringen sie Ihn zurück.</German>
-        </Key>
-        <Key ID="STR_DORB_MISSION_PROTOTYPE_TITLE">
-
-            <German>Prototypen erobern</German>
-        </Key>
-        <Key ID="STR_DORB_MISSION_PROTOTYPE_KILLED_MSG_TITLE">
-
-            <German>Prototyp zerstört</German>
-        </Key>
-        <Key ID="STR_DORB_MISSION_PROTOTYPE_KILLED_MSG">
-
-            <German>Ein Prototyp wurde zerstört.</German>
-        </Key>
-        <Key ID="STR_DORB_MISSION_PROTOTYPE_RESCUED_MSG_TITLE">
-
-            <German>Prototyp gesichert</German>
-        </Key>
-        <Key ID="STR_DORB_MISSION_PROTOTYPE_RESCUED_MSG">
-
-            <German>Ein Prototyp wurde gesichert. Er steht nun zu Ihrer Verfügung.</German>
-        </Key>
-        <!-- specops -->
-        <Key ID="STR_DORB_MISSION_SPECOPS_DESC">
-
-            <German>Feindliche Spezielkräfte wurden in diesem Bereich gesichtet. Säubern sie den Bereich.</German>
-        </Key>
-        <Key ID="STR_DORB_MISSION_SPECOPS_TITLE">
-
-            <German>Spezialkräfte vernichten.</German>
-        </Key>
-
-        <!-- sisdemissions -->
-        <!-- artillery -->
-        <Key ID="STR_DORB_MISSION_ARTILLERY_DESC">
-
-            <German>Der Feind hat eine starke Artillerieeinheit in das Gebiet verlegt. Suchen und Zerstören Sie diese um dem Feind die Feuerunterstützung zu nehmen.</German>
-        </Key>
-        <Key ID="STR_DORB_MISSION_ARTILLERY_TITLE">
-
-            <German>Artilleriestellung neutralisieren</German>
-        </Key>
-        <!-- specops -->
-        <Key ID="STR_DORB_MISSION_RADAR_DESC">
-
-            <German>Nach Informationen durch unsere Aufklärung besitzt der Feind ein starkes Radar. Neutralisieren sie die feindliche Radaraufklärung.</German>
-        </Key>
-        <Key ID="STR_DORB_MISSION_RADAR_TITLE">
-
-            <German>Radar ausschalten</German>
-        </Key>
-
-
-
-
-
-
-        <Key ID="STR_DORB_MISSION_OBJECTS_DEVICE_DISABLE">
-            <English>Deactivate</English>
-            <German>Deaktivieren</German>
-        </Key>
-        <Key ID="STR_DORB_MISSION_OBJECTS_INTEL_GRAB">
-            <English>secure informations</English>
-            <German>Informationen sicherstellen</German>
-        </Key>
-
-
-        <Key ID="STR_DORB_MISSION_OBJECTS_CARRY">
-            <Original>Carry</Original>
-            <German>Tragen</German>
-            <English>Carry</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_OBJECTS_DROP">
-            <Original>Drop</Original>
-            <German>Abstellen</German>
-            <English>Drop</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_OBJECTS_DISABLE">
-            <Original>Disable</Original>
-            <German>Deaktivieren</German>
-            <English>Disable</English>
-        </Key>
-
-        <Key ID="STR_DORB_MISSION_RTB_START_1">
-            <Original>Return to base.</Original>
-            <German>Kehren sie zur Basis zurück.</German>
-            <English>Return to base.</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_RTB_FINISHED">
-            <Original>All units have returned.</Original>
-            <German>Alle Soldaten sind zurückgekehrt.</German>
-            <English>All units have returned.</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_RTB_FINISHED2">
-            <Original>Prepare for new orders.</Original>
-            <German>Bereiten Sie sich auf neue Befehle vor.</German>
-            <English>Prepare for new orders.</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_EXAMINE">
-            <Original>Interrogate</Original>
-            <German>Verhör</German>
-            <English>Interrogate</English>
-        </Key>
-        <Key ID="STR_DORB_MISSION_EXAMINE_DESC">
-            <Original>The enemy has been interrogated.</Original>
-            <German>Der Gegner wurde verhört.</German>
-            <English>The enemy has been interrogated.</English>
-        </Key>
-
-        <Key ID="STR_DORB_MISSION_RTB">
-            <Original>RTB</Original>
-            <German>RTB</German>
-            <English>RTB</English>
-        </Key>
-
+    <Package name="MISSION">
+        <Container name="MAINMISSION">
+            <Key ID="STR_DORB_MISSION_RTB_TITLE">
+                <Original>RTB</Original>
+                <German>RTB</German>
+                <English>RTB</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_RTB_DESC">
+                <Original>Return To Base</Original>
+                <German>Return To Base</German>
+                <English>Return To Base</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_CAPTURE_TITLE">
+                <Original>Capture Commander</Original>
+                <German>Offizier gefangen nehmen</German>
+                <English>Capture Commander</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_CAPTURE_DESC">
+                <Original>TODO</Original>
+                <German>Nehmen Sie die feindlichen Befehlshaber der Region gefangen. Bringen Sie diese anschließend zum Verhör in die Basis.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_CAPTURE_COUNTER_1">
+                <Original>TODO</Original>
+                <German>Der Offizier %1 wurde gefangen genommen und erfolgreich in unsere Basis überführt.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_CAPTURE_COUNTER_2">
+                <Original>TODO</Original>
+                <German>Der Offizier %1 kam bei Feuergefechten ums Leben.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_DEVICE_TITLE">
+                <Original>Deaktivate Device</Original>
+                <German>Erdbebengerät deaktivieren</German>
+                <English>Deaktivate Device</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_DEVICE_DESC">
+                <Original>TODO</Original>
+                <German>Der Feind setzt ein neuartiges Gerät zur tektonischen Kriegsführung ein. Finden und deaktivieren Sie es. Achten Sie darauf das Gerät nicht grob zu beschädigen damit wir es später untersuchen können.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_DEVICE_COUNTER">
+                <Original>TODO</Original>
+                <German>Das Gerät wurde erfolgreich deaktiviert.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_DEVICE_TRIGGER_FAILED">
+                <Original>TODO</Original>
+                <German>Das Gerät wurde zerstört.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_DRONECOMMANDO_TITLE">
+                <Original>Destroy Dronecommando</Original>
+                <German>Drohnencommando zerstören</German>
+                <English>Destroy Dronecommando</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_DRONECOMMANDO_DESC">
+                <Original>TODO</Original>
+                <German>Der Feind setzt Drohnen ein. Finden und zerstören Sie deren Steuerungszentrale.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_DRONECOMMANDO_COUNTER">
+                <Original>TODO</Original>
+                <German>Das Drohnenkommando wurde zerstört.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_EMP_TITLE">
+                <Original>Deaktivate EMP</Original>
+                <German>EMP-Waffe deaktivieren</German>
+                <English>Deaktivate EMP</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_EMP_DESC">
+                <Original>TODO</Original>
+                <German>Der Feind hat eine Waffe zur Aussendung elektromagnetische Impulse im Einsatzgebiet stationiert. Wir wissen nicht, wie diese auf Außeneinwirkung reagiert. Deshalb müssen sie die Waffe von Hand deaktivieren.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_EMP_COUNTER">
+                <Original>TODO</Original>
+                <German>Das Gerät wurde erfolgreich deaktiviert.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_EMP_TRIGGER_FAILED">
+                <Original>TODO</Original>
+                <German>Das Gerät wurde zerstört.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_HOLD_TITLE">
+                <Original>Hold Position</Original>
+                <German>Position halten</German>
+                <English>Hold Position</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_HOLD_DESC">
+                <Original>TODO</Original>
+                <German>Halten Sie die Position um jeden Preis.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_HOLD_COUNTER">
+                <Original>TODO</Original>
+                <German>Die Position wurde erfolgreich gehalten.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_HOLD_TRIGGER_FAILED">
+                <Original>TODO</Original>
+                <German>Die Position ist verloren.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_HOSTAGE_TITLE">
+                <Original>Rescue Prisoners</Original>
+                <German>Gefangene befreien</German>
+                <English>Rescue Prisoners</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_HOSTAGE_DESC">
+                <Original>TODO</Original>
+                <German>Der Feind hat einige unserer Wissenschaftler und Journalisten gefangen genommen. Befreien Sie diese und bringen Sie sie in unsere Basis zurück.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_HOSTAGE_COUNTER_1">
+                <Original>TODO</Original>
+                <German>Es ist gelungen %1 zu befreien und in Sicherheit zu bringen</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_HOSTAGE_COUNTER_2">
+                <Original>TODO</Original>
+                <German>%1 kam bei Feuergefechten ums Leben.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_INTEL_TITLE">
+                <Original>Secure Information</Original>
+                <German>Informationen sicherstellen</German>
+                <English>Secure Information</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_INTEL_DESC">
+                <Original>TODO</Original>
+                <German>Im Missionsgebiet befinden sich Informationen, die uns entscheidene Vorteile im Verlauf des Konfliktes verschaffen können. Stellen Sie diese Informationen sicher.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_INTEL_COUNTER">
+                <Original>TODO</Original>
+                <German>Einige Informationen wurden gesichert.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_JAMMER_TITLE">
+                <Original>Destroy Jammer</Original>
+                <German>Jammer zerstören</German>
+                <English>Destroy Jammer</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_JAMMER_DESC">
+                <Original>TODO</Original>
+                <German>Der Feind hat Jammer platziert, um unseren Funk zu stören. Finden und zerstören Sie diese.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_JAMMER_COUNTER">
+                <Original>TODO</Original>
+                <German>Ein Jammer wurde zerstört.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_PROTOTYPE_TITLE">
+                <Original>Recover Prototype</Original>
+                <German>Prototyp zurückholen</German>
+                <English>Recover Prototype</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_PROTOTYPE_DESC">
+                <Original>TODO</Original>
+                <German>Der Feind ist in Besitz eines unserer Prototypen gekommen. Finden Sie diesen und bringen Sie ihn zurück zur Basis.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_PROTOTYPE_COUNTER">
+                <Original>TODO</Original>
+                <German>Der Prototyp wurde in die Basis überführt.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_PROTOTYPE_TRIGGER_FAILED">
+                <Original>TODO</Original>
+                <German>Der Prototyp wurde zerstört.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_RADIOTOWER_TITLE">
+                <Original>Destroy Radiotower</Original>
+                <German>Funkmasten zerstören</German>
+                <English>Destroy Radiotower</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_RADIOTOWER_DESC">
+                <Original>TODO</Original>
+                <German>Durch die im Missionsgebiet errichteten Funkmasten steuert der Feind einen Großteil seiner Truppen in der Region. Zerstören Sie diese Funkmasten.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_RADIOTOWER_COUNTER">
+                <Original>TODO</Original>
+                <German>Ein Funkturm wurde zerstört.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_SCARAB_TITLE">
+                <Original>TODO</Original>
+                <German>Raketenabschuss verhindern</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_SCARAB_DESC">
+                <Original>TODO</Original>
+                <German>Der Feind hat Atomraketen im Missionsgebiet stationiert und bereitet ihren Abschuss vor. Verhindern Sie diesen Nuklearschlag.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_SCARAB_COUNTER">
+                <Original>TODO</Original>
+                <German>Ein Raketenabschuss wurde erfolgreich verhindert.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_SCARAB_TRIGGER_FAILED">
+                <Original>TODO</Original>
+                <German>Die Atomrakete des Scarab wurde ausgelöst.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_UPLOAD_TITLE">
+                <Original>Upload Virus</Original>
+                <German>Virus Hochladen</German>
+                <English>Upload Virus</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_UPLOAD_DESC">
+                <Original>TODO</Original>
+                <German>Wir konnten eine feindliche Basis ausmachen, welche zur Koordination von lokalen Cyberangriffen benutzt wird. Infiltrieren Sie diese und laden Sie einen unserer Viren beim Feind hoch.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_UPLOAD_COUNTER">
+                <Original>TODO</Original>
+                <German>Virus erfolgreich hochgeladen.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_WEAPONCACHE_TITLE">
+                <Original>Destroy Weaponcaches</Original>
+                <German>Waffenverstecke vernichten</German>
+                <English>Destroy Weaponcaches</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_WEAPONCACHE_DESC">
+                <Original>TODO</Original>
+                <German>Wir haben Informationen über Waffenverstecke im Missionsgebiert erhalten. Finden und zerstören Sie diese.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_WEAPONCACHE_COUNTER">
+                <Original>TODO</Original>
+                <German>Ein Waffenlager wurde zerstört.</German>
+                <English>TODO</English>
+            </Key>
+        </Container>
+        <Container name="SIDEMISSION">
+            <Key ID="STR_DORB_MISSION_RADAR_TITLE">
+                <Original>Destroy Radar</Original>
+                <German>Radar ausschalten</German>
+                <English>Destroy Radar</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_RADAR_DESC">
+                <Original>TODO</Original>
+                <German>Nach Informationen der Aufklärung setzt der Feind ein Radar zur Luftaufklärung ein. Neutralisieren Sie dieses.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_RADAR_COUNTER">
+                <Original>TODO</Original>
+                <German>Ein Radar wurde neutralisiert.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_WRECK_TITLE">
+                <Original>Find Wreck</Original>
+                <German>Wrack finden</German>
+                <English>Find Wreck</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_WRECK_DESC">
+                <Original>TODO</Original>
+                <German>Ein feindliches Luftfahrzeug ist abgestürtzt. Finden Sie dessen Wrack und durchsuchen Sie es nach Informationen.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_WRECK_COUNTER_1">
+                <Original>TODO</Original>
+                <German>Wrack wurde durchsucht.</German>
+                <English>TODO</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_WRECK_COUNTER_2">
+                <Original>TODO</Original>
+                <German>Die Informationen wurden zusammen mit dem Wrack zerstört.</German>
+                <English>TODO</English>
+            </Key>
+        </Container>
+        <Container name="OBJ">
+            <Key ID="STR_DORB_MISSION_OBJECTS_DEVICE_DISABLE">
+                <Original>Deactivate</Original>
+                <German>Deaktivieren</German>
+                <English>Deactivate</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_OBJECTS_DEVICE_DISABLING">
+                <Original>deactivating ...</Original>
+                <German>deaktiviere ...</German>
+                <English>deactivating ...</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_OBJECTS_INTEL_GRAB">
+                <Original>Secure Information</Original>
+                <German>Informationen sicherstellen</German>
+                <English>Secure Information</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_OBJECTS_UPLOAD">
+                <Original>Upload Virus</Original>
+                <German>Virus hochladen</German>
+                <English>Upload Virus</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_OBJECTS_UPLOADING">
+                <Original>Uploading Virus ...</Original>
+                <German>Virus wird hochgeladen ...</German>
+                <English>Uploading Virus ...</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_OBJECTS_GATHER_INTEL">
+                <Original>Gather Intel</Original>
+                <German>Nach Informationen suchen</German>
+                <English>Gather Intel</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_OBJECTS_GATHER_INTEL">
+                <Original>Gathering Intel</Original>
+                <German>Suche nach Informationen ...</German>
+                <English>Gathering Intel</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_OBJECTS_CARRY">
+                <Original>Carry</Original>
+                <German>Tragen</German>
+                <English>Carry</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_OBJECTS_DROP">
+                <Original>Drop</Original>
+                <German>Abstellen</German>
+                <English>Drop</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_OBJECTS_DISABLE">
+                <Original>Disable</Original>
+                <German>Deaktivieren</German>
+                <English>Disable</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_EXAMINE">
+                <Original>Interrogate</Original>
+                <German>Verhör</German>
+                <English>Interrogate</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_EXAMINE_DESC">
+                <Original>The enemy has been interrogated.</Original>
+                <German>Der Gegner wurde verhört.</German>
+                <English>The enemy has been interrogated.</English>
+            </Key>
+        </Container>
     </Package>
     <Package name="player">
         <Key ID="STR_DORB_PLAYER_BRIEF_SETTING">
@@ -1054,14 +1155,6 @@
         </Key>
     </Package>
     <Package name="mission_obj">
-        <Key ID="STR_DORB_MISSION_OBJ_DEVICE_DISABLE">
-            <English>deactivate</English>
-            <German>Deaktivieren</German>
-        </Key>
-        <Key ID="STR_DORB_MISSION_OBJ_DEVICE_DEACTIVATING">
-            <English>deactivating</English>
-            <German>deaktiviere</German>
-        </Key>
         <Key ID="STR_DORB_MISSION_OBJ_CASE_CARRY">
             <English>carray</English>
             <German>tragen</German>
@@ -1069,23 +1162,6 @@
         <Key ID="STR_DORB_MISSION_OBJ_CASE_DROP">
             <English>drop</English>
             <German>ablegen</German>
-        </Key>
-        <Key ID="STR_DORB_MISSION_OBJ_INTEL_GRAB">
-            <English>secure</English>
-            <German>sichern</German>
-        </Key>
-        <!-- commander -->
-        <Key ID="STR_DORB_MISSION_OBJ_COMMANDER_KILLED_MSG_TITLE">
-            <German>Komandant getötet</German>
-        </Key>
-        <Key ID="STR_DORB_MISSION_OBJ_COMMANDER_KILLED_MSG">
-            <German>Der feindliche Kommandant %1 wurde getötet.</German>
-        </Key>
-        <Key ID="STR_DORB_MISSION_OBJ_COMMANDER_CAPTURED_MSG_TITLE">
-            <German>Komandant gefangen</German>
-        </Key>
-        <Key ID="STR_DORB_MISSION_OBJ_COMMANDER_CAPTURED_MSG">
-            <German>Der feindliche Kommandant %1 wurde gefangengenommen.</German>
         </Key>
         <!-- hostage -->
         <Key ID="STR_DORB_MISSION_OBJ_HOSTAGE_KILLED_MSG_TITLE">

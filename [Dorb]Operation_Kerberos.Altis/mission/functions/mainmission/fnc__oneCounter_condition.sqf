@@ -2,8 +2,7 @@
  *  Author: iJesuz
  *
  *  Description:
- *      condition with one counters
- *      (can be used for sidemission too)
+ *      condition with one counter
  *
  *  Parameter(s):
  *      0 : HASH    - mission hash
