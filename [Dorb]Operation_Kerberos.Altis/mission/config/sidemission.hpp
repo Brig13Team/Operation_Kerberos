@@ -6,7 +6,7 @@ class side {
      *  abstact missions
      */
     class __base {
-    	class location {};
+        class location {};
         class object {};
 
         probability = 1.0;
