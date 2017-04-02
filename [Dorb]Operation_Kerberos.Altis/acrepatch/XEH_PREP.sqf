@@ -1,4 +1,0 @@
-
-
-PREP(ArsenalRemoveRadio);
-PREP(cleanLoadout);
