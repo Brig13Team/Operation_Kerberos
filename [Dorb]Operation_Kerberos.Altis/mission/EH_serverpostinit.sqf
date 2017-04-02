@@ -45,4 +45,7 @@ If ((getMarkerPos GVARMAIN(rescuemarker)) isEqualTo [0,0,0]) then {
     uiSleep 20;
 
     [] call FUNC(taskmanager_init);
+    TRACE("Taskmanager is initialized!");
+
+    [["main"] call FUNC(spawn_chooseMission)] call FUNC(spawn);
 };

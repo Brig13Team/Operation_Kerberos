@@ -15,6 +15,8 @@
 
 _this params ["_mission"];
 
+GVAR(cleaningUp) = true;
+
 if !(HASH_GET(_mission, "type") isEqualTo "rtb") exitWith {
     private _location = HASH_GET(_mission, "location");
     GVAR(cleanup_positions) pushback (_location select 1);

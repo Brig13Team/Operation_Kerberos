@@ -20,7 +20,7 @@ class main {
 
         class object {};
 
-        probability = 1;
+        probability = 1.0;
     };
 
     class __oneCounter : __base {

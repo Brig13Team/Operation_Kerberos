@@ -40,7 +40,6 @@ switch (_defenceStructure) do {
         private _types = [_type] + _houseTypes;
 
         _targetPositions = [_centerposition, _types, _amount, _radius] call EFUNC(spawn,createMissionHouse);
-        _targetPositions = [_targetPositions]; // to get compatibility with composition
     };
 };
 
@@ -49,7 +48,7 @@ if (_targetPositions isEqualTo []) then {
         _targetPositions pushBack [[_centerposition, 15, _radius] call EFUNC(common,pos_randomFlatEmpty)];
     };
     if (_targetPositions isEqualTo []) then {
-        _targetPositions = [[_centerposition]];
+        _targetPositions = [_centerposition];
     };
 };
 
@@ -58,8 +57,7 @@ TRACEV_1(_targetPositions);
 for "_i" from 1 to _amount do {
     if (_targetPositions isEqualTo []) exitWith { [] };
     private _pos = selectRandom _targetPositions;
-    if !(_house) then { _targetPositions = _targetPositions - [_pos]; };
-    _pos = selectRandom _pos;
+    /* if !(_house) then { */ _targetPositions = _targetPositions - [_pos]; // };
 
     private _class = selectRandom ([_type] call FUNC(spawn_getObjects));
 
@@ -77,12 +75,11 @@ for "_i" from 1 to _amount do {
         };
         _pos resize 3;
 
-        _target = _group createUnit [_class, _pos, [], 0, "CAN_COLLIDE"];
+        _target = _group createUnit [_class, [0,0,0], [], 0, "CAN_COLLIDE"];
         _target setPosASL _pos;
     } else {
-        _target = createVehicle [_class, _pos, [], 0, "CAN_COLLIDE"];
-        _pos set [2, 0];
-        _target setPosATL _pos;
+        _target = createVehicle [_class, [0,0,0], [], 0, "CAN_COLLIDE"];
+        _target setPosASL _pos;
         _target setVectorUp [0,0,1];
     };
 

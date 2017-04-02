@@ -18,7 +18,14 @@ private _type = HASH_GET(_mission, "type");
 
 switch (_type) do {
     case "rtb": {
-        [_name] call FUNC(taskmanager_remove);
+        [_name] spawn {
+            [_this select 0] call FUNC(taskmanager_remove);
+
+            uiSleep 5;
+            while { EGVAR(spawn,cleaningUp) } do { uiSleep 1; };
+
+            [["main"] call FUNC(spawn_chooseMission)] call FUNC(spawn);
+        };
     };
     case "prototype": {
         private _class = HASH_GET(_mission, "prototype");

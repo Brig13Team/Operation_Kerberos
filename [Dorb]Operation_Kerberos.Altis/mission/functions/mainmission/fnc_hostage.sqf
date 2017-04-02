@@ -22,7 +22,7 @@ _this params ["_mission", "_targets"];
     removeBackpack _x;
 
     _x setVariable [QGVAR(rescueEvent), QFUNC(obj__increaseCounterOne)];
-    _x addEventHandler ["Killed", LINKFUNC(obj__incraseCounterTwo)];
+    _x addEventHandler ["Killed", LINKFUNC(obj__increaseCounterTwo)];
 } forEach _targets;
 
 [_mission, _targets] call FUNC(mainmission__twoCounters);

@@ -32,6 +32,7 @@ PREPS(sidemission,radar);
 PREPS(sidemission,wreck);
 
 PREPS(spawn,chooseLocation);
+PREPS(spawn,chooseMission);
 PREPS(spawn,getAmount);
 PREPS(spawn,getObjects);
 PREPS(spawn,getRadius);
