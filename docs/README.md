@@ -21,7 +21,8 @@ Unterstützt von Maverick (Stellungsdesign), Cypherstalker (Übersetzungen), Kiw
 
 ## Momentane Features:
 
-### Missionstypen:<ul>
+### Missionstypen:
+<ul>
 <li>Informationen sicherstellen<ul>Ein Objekt (Laptop, Koffer, etc.) mit Informationen  befindet sich in der Stadt</ul></li>
 <li>Waffenverstecke vernichten<ul>Es sind mehere Waffendepots in der Stadt versteckt. Der Großteil davon muss zerstört werden</ul></li>
 <li>Komandaten neutralisieren<ul>Es sind mehere Kommandanten in der Stadt -> töten</ul></li>
