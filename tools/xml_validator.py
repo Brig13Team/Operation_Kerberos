@@ -1,54 +1,71 @@
+#!/usr/bin/python3
+
 import os
 import sys
 
-def validate_xml(filepath : str):
+def checkNegative(i : int, error : str):
+    if (i < 0):
+        raise ValueError(error)
+
+def validate_xml(filepath : str) -> bool:
     file = open(filepath,'r')
     content = file.read()
     file.close()
 
-    stack = []
-    index = 0
-    while index < len(content):
-        if (content[index] == '<'):
-            # a comment
-            if (content[index:index+4] == "<!--"):
-                index = content.find("-->", index + 4)
-                if (index < 0): break
-                index += 3
+    try:
+        stack = []
+        index = 0
 
-            # special tag
-            elif (content[index:index+2] == "<?"):
-                index = content.find("?>", index + 2)
-                if (index < 0): break
+        while index < len(content):
+            if (content[index] == '<'):
+                # a comment
+                if (content[index:index+4] == "<!--"):
+                    index = content.find("-->", index + 4)
+                    checkNegative(index,"Comment not closed!")
+                    index += 3
 
-            # close tag
-            elif (content[index:index+2] == "</"):
-                first = index + 2
-                last = content.find(">", first)
-                if (last < 0): break
+                # processing instruction
+                elif (content[index:index+2] == "<?"):
+                    index = content.find("?>", index + 2)
+                    checkNegative(index,"Missing '?>' in processing instruction!")
+                    index += 2
 
-                closedName = content[first:last]
-                if (len(stack) == 0):
-                    print("Tag '" + closedName + "' closed but not opened before!")
-                    return 1
+                # end tag
+                elif (content[index:index+2] == "</"):
+                    first = index + 2
 
-                openedName = stack.pop()
-                if (openedName != closedName):
-                    print("Tag '" + closedName + "' closed but '" + openedName + "' opened!")
-                    return 1
+                    last = content.find(">", first)
+                    checkNegative(index,"End Tag never closed!")
+                    closedName = content[first:last]
 
-            # normal tag
-            else:
-                first = index + 1
-                last = content.find(">", first)
-                if (last < 0): break
-                space = content.find(" ",first,last)
-                if (space > 0):
-                    index = last + 2
-                    last = space
-                stack.append(content[first:last])
+                    checkNegative(len(stack)-1, "Element '" + closedName + "' closed but not opened before!")
+                    openedName = stack.pop()
+                    if (openedName != closedName):
+                        raise ValueError ("Element '" + closedName + "' closed but '" + openedName + "' excepted to be closed!")
 
-        index += 1
+                    index = last + 1
+
+                # start tag
+                else:
+                    first = index + 1
+                    last = content.find(">", first)
+                    checkNegative(last, "Start Tag never closed!")
+                    
+                    # not an empty-element tag
+                    if (not content[last-1] == '/'):
+                        space = content.find(" ",first,last)
+                        if (space > 0):
+                            index = last + 2
+                            last = space
+                        stack.append(content[first:last])
+        
+            index += 1
+
+    except Exception as error:
+        print(error)
+        return False
+        
+    return True
 
 def main():
     dirToCheck = "../[Dorb]Operation_Kerberos.Altis"
@@ -60,6 +77,7 @@ def main():
                 errors = errors + 1
 
     if (errors > 0):
+        print(str(errors) + " erros found!")
         return 1
     else:
         print("No errors found.")
