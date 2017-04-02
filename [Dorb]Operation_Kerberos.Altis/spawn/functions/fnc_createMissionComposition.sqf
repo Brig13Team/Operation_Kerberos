@@ -107,7 +107,7 @@ private _allTargetPositions = [];
     GVAR(spawnedCompositions) pushBack _x;
     TRACEV_1(_curTargetPos);
     If !(_curTargetPos isEqualTo []) then {
-        _allTargetPositions pushBack _curTargetPos;
+        _allTargetPositions append _curTargetPos;
     };
 
 }forEach _possibleSpawnpositions;

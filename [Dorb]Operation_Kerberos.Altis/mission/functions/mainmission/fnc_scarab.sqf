@@ -2,22 +2,25 @@
  *  Author: iJesuz
  *
  *  Description:
- *      Mission "SCARAB"
+ *      init mission "SCARAB"
  *
  *  Parameter(s):
- *      0 : HASH    - mission hash
+ *      0 : HASH        - mission hash
+ *      1 : [OBJECT]    - mission target
  *
  *  Returns:
  *      -
  */
 #include "script_component.hpp"
 
-_this params ["_mission"];
+_this params ["_mission", "_targets"];
 
-[_mission, {
-    _this params ["_scarab"];
-    private _gunner = gunner _scarab;
+{
+    [_curTarget, createGroup GVARMAIN(side), false] call EFUNC(spawn,crew);
 
-    _gunner addEventHandler ["Killed", LINKFUNC(obj_onScarabGunnerKilled)];
-    _scarab addEventHandler ["Killed", LINKFUNC(obj_onScarabDestroyed)];
-}, 60] call FUNC(mainmission__oneCounter);
+    (gunner _x) addEventHandler ["Killed", { [vehicle (_this select 0)] call FUNC(obj__increaseCounter); }];
+    _x addEventHandler ["Killed", LINKFUNC(obj__triggerFailed)];
+    _x addEventHandler ["Killed", { [getPos (_this select 0)] call FUNC(obj_spawnNuke); }];
+} forEach _targets;
+
+[_mission, _targets, 60] call FUNC(mainmission__oneCounter);

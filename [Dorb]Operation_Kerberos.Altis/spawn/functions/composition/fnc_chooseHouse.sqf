@@ -31,7 +31,7 @@ IF (_missionTargetType isEqualTo "") then {
     private _condition = format["(getNumber(_x >> '%1')>0)",_missionTargetType deleteAt 0];
     {
         _condition = format["%1 || (getNumber(_x >> '%2')>0)",_condition,_x];
-    } forEach _type;
+    } forEach _missionTargetType;
     _condition = format["((getText(_x >> 'type') == '%1')&&{%2})",_housetype,_condition];
     TRACEV_3(_missionTargetType,_housetype,_condition);
     _allConfigs = configProperties [(missionConfigFile >> "CfgCompositions" >> "houses"),_condition,true];

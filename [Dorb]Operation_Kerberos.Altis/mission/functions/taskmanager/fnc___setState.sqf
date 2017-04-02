@@ -31,6 +31,5 @@ if ((toUpper _state) in ["SUCCEEDED","CANCELED","FAILED"]) then {
 
 // set state in Bohemia's system
 if (not (_state isEqualTo "")) then {
-    private _taskID = HASH_GET(_mission, "BIS_taskID");
     [HASH_GET(_mission,"BIS_taskID"),nil,nil,nil,_state,nil,false] call BIS_fnc_setTask;
 };

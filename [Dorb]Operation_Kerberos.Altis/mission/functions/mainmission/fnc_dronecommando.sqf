@@ -1,33 +1,23 @@
 /*
- * (old file)
- *
- *  Author: Dorbedo
+ *  Author: iJesuz
  *
  *  Description:
- *      Mission "dronecommando"
+ *      init mission "dronecommando"
  *
  *  Parameter(s):
- *      0 : [STRING,ARRAY] - Destination [Locationname, Position]
+ *      0 : HASH        - mission hash
+ *      1 : [OBJECT]    - mission target
  *
  *  Returns:
- *      [CODE,ARRAY] - [Taskhandler conditional function, its arguments]
- *
+ *      -
  */
-//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-_this params [["_destination","",[""]],["_position",[],[[]]]];
+_this params ["_mission", "_targets"];
 
-private _min = getNumber(missionConfigFile >> "missions_config" >> "main" >> "dronecommando" >> "objectsamount_min");
-private _max = getNumber(missionConfigFile >> "missions_config" >> "main" >> "dronecommando" >> "objectsamount_max");
-TRACEV_4(_max,_min,_destination,_position);
-private _amount = (floor (random ((_max - _min) + 1))) + _min;
+{
+    _x setVariable [QGVAR(isActive), true, true];
+    _x addEventHandler ["Killed", LINKFUNC(obj__increaseCounter)];
+} forEach _targets;
 
-
-private _radius = getNumber(missionConfigFile >> "missions_config" >> "main" >> "dronecommando" >> "location" >> "distance");
-
-private _object = [_position,"dronecommando",[_radius,_amount]] call EFUNC(spawn,createMissionTarget);
-
-GVAR(tower_destroyed) = 0;
-
-[QFUNC(mainmission_dronecommando_cond),[[_object]]]
+[_mission, _targets] call FUNC(mainmission__oneCounter);

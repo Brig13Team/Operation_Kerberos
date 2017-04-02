@@ -15,4 +15,4 @@
 _this params [["_name", "", [""]]];
 
 if !THIS_HASKEY(_name) exitWith { -2 };
-[__THIS, _name] call FUNC(taskhandler___remove);
+[__THIS, _name] call FUNC(taskmanager___remove);

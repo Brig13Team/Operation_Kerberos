@@ -20,7 +20,7 @@ If !(isNil QGVAR(loggingHandler)) exitWith {
 
 GVAR(loggingHandler) = _this spawn {
 //    [{
-        GVAR(logging) = (missionNamespace getVariable [QGVAR(logging),[]]) + [_this];
+        GVAR(logging) = [_this] + (missionNamespace getVariable [QGVAR(logging),[]]);
         while {(count GVAR(logging))>0} do {
             (GVAR(logging) deleteAt 0) params [
                 ["_message","",[""]],

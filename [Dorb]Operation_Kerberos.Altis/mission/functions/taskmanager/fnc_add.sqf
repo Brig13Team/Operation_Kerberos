@@ -8,7 +8,7 @@
         0 : HASH    - mission hash
 
     Return:
-        -
+        STRING - mission name
 */
 #include "script_component.hpp"
 
@@ -19,4 +19,4 @@ if !(HASH_HASKEY(_mission,"type") &&
      HASH_HASKEY(_mission,"location") &&
      HASH_HASKEY(_mission,"condition")) exitWith { -1 };
 
-[__THIS, _mission] call FUNC(taskmanager___add);
+[__THIS, _mission] call FUNC(taskmanager___add)

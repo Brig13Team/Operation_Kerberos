@@ -17,18 +17,29 @@ private _name = HASH_GET(_mission, "name");
 private _type = HASH_GET(_mission, "type");
 
 switch (_type) do {
-    case "scarab": {
-        private _state = HASH_GET(_mission, "state");
-        if ((toUpper _state) isEqualTo "FAILED") exitWith { -1 };
+    case "rtb": {
+        [_name] spawn {
+            [_this select 0] call FUNC(taskmanager_remove);
 
-        private _pos = HASH_GET(_mission, "location") select 0;
-        [_pos] call FUNC(obj_spawnNuke);
+            uiSleep 5;
+            while { EGVAR(spawn,cleaningUp) } do { uiSleep 1; };
+
+            [[] call FUNC(spawn_chooseMission)] call FUNC(spawn);
+        };
     };
-    case "_rtb": {
-        [_name] call FUNC(taskmanager_remove);
+    case "prototype": {
+        private _class = HASH_GET(_mission, "prototype");
+        createVehicle [_class, getMarkerPos "rescue_marker", [], 0, "NONE"];
+    };
+    case "wreck": {
+        if (_type isEqualTo "Succeeded") then {
+            private _array = _name splitString "_";
+            private _parent = format["%1_%2_%3",_array select 0, _array select 1, _array select 2];
+            [_parent] call FUNC(obj_markTargets);
+        };
     };
 };
 
-if (!(_type isEqualTo "_rtb") && {!(call FUNC(taskmanager_hasActiveMissions))}) then {
-   ["_rtb"] call FUNC(spawn);
+if (!(_type isEqualTo "rtb") && {!(call FUNC(taskmanager_hasActiveMissions))}) then {
+    ["rtb"] spawn FUNC(spawn);
 };
