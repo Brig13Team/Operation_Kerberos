@@ -13,6 +13,7 @@ before_script:
 script:
 - python3 tools/sqf_validator.py
 - python3 tools/config_style_checker.py
+- python3 tools/xml_validator.py
 
 notifications:
   email:
