@@ -13,6 +13,8 @@ class DOUBLES(CfgComponent,ADDON) {
     class preInit {};
     class preInitServer {};
 
+    class postInitClient_Antenna {server = 0;};
+
     class settings_postInit_Basic {};
     class settings_postInitServer {client = 0;};
     class settings_postInit_ChannelNames {};
@@ -30,3 +32,5 @@ class DOUBLES(CfgComponent,ADDON) {
         CfgComponents[] = {};
     };
 };
+
+#include "config\acre_antennaObjects.hpp"

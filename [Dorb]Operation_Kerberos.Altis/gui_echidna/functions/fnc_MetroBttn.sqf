@@ -12,7 +12,7 @@
  *
  */
 #define INCLUDE_GUI
-#define DEBUG_MODE_FULL
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 _this params ["_event","_params"];
@@ -39,6 +39,12 @@ switch (toLower _event) do {
     case "hide" : {
         _ctrlBttn ctrlSetPosition [0,0,0,0];
         _ctrlBttn ctrlCommit 0;
+        _ctrlBttn ctrlRemoveAllEventHandlers "MouseEnter";
+        _ctrlBttn ctrlRemoveAllEventHandlers "MouseExit";
+        _ctrlBttn ctrlRemoveAllEventHandlers "ButtonDown";
+        _ctrlBttn ctrlRemoveAllEventHandlers "ButtonUp";
+        _ctrlBttn ctrlRemoveAllEventHandlers "SetFocus";
+        _ctrlBttn ctrlRemoveAllEventHandlers "KillFocus";
         _ctrlBttn ctrlRemoveAllEventHandlers "ButtonClick";
         _ctrlPicture ctrlSetPosition [0,0,0,0];
         _ctrlPicture ctrlCommit 0;

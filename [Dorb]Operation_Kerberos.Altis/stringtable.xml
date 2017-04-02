@@ -95,46 +95,6 @@
         </Key>
     </Package>
     <Package name="GUI_SPAWN">
-        <Key ID="STR_DORB_GUI_SPAWN_NOTEMPTY">
-            <Original>Spawn point is not empty</Original>
-            <German>Spawnfläche ist nicht leer</German>
-            <English>Spawn point is not empty</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_VEHICLE_DESC">
-            <Original>Order Vehicle</Original>
-            <German>Fahrzeug bestellen</German>
-            <English>Order Vehicle</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_AIR_DESC">
-            <Original>Order Aircraft</Original>
-            <German>Fluggeraete bestellen</German>
-            <English>Order Aircraft</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_WATER_DESC">
-            <Original>Order Boat</Original>
-            <German>Schiffe bestellen</German>
-            <English>Order Boat</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_DRONES_DESC">
-            <Original>Order Drone</Original>
-            <German>Drohnen bestellen</German>
-            <English>Order Drone</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_LOGISTIC_DESC">
-            <Original>Order Supplies</Original>
-            <German>Versorgung bestellen</German>
-            <English>Order Supplies</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_WD">
-            <Original>Woodland</Original>
-            <German>Wald</German>
-            <English>Woodland</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_D">
-            <Original>Desert</Original>
-            <German>Wüste</German>
-            <English>Desert</English>
-        </Key>
         <Key ID="STR_DORB_GUI_SPAWN_VEHICLES">
             <Original>Vehicle Spawn</Original>
             <German>Fahrzeugspawn</German>
@@ -165,16 +125,53 @@
             <German>Versorgungsdepot</German>
             <English>Supply Depot</English>
         </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_EMPTY">
-            <Original>Spawn empty</Original>
-            <German>Leer erschaffen</German>
-            <English>Spawn empty</English>
+
+
+        <Key ID="STR_DORB_GUI_SPAWN_PROPERTY_DISPLAYNAME">
+            <German>Name</German>
+            <English>Name</English>
         </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_DRIVER">
-            <Original>Spawn as driver</Original>
-            <German>Als Fahrer erschaffen</German>
-            <English>Spawn as driver</English>
+        <Key ID="STR_DORB_GUI_SPAWN_PROPERTY_EMPTY">
+            <German> </German>
+            <English> </English>
         </Key>
+        <Key ID="STR_DORB_GUI_SPAWN_PROPERTY_MASS">
+            <German>Fahrzeuggewicht</German>
+            <English>Vehiclemass</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_SPAWN_PROPERTY_WEAPONS">
+            <German>Waffen:</German>
+            <English>Weapons:</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_SPAWN_PROPERTY_cargonumber">
+            <German>Pasagieranzahl:</German>
+            <English>Number of Passengers:</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_SPAWN_HEADER">
+            <German>Fahrzeugdepot</German>
+            <English>Vehicle Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_SPAWN_ERRORMSG">
+            <German>Fehler</German>
+            <English>Error</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_SPAWN_NOTEMPTY">
+            <German>Spawnfläche ist nicht leer</German>
+            <English>Spawn point is not empty</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_SPAWN_ISRESTRICTED">
+            <German>Du hast keine Berechtigung das Fahrzeug zu bestellen</German>
+            <English>You are not allowed to spawn this vehicle</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_SPAWN_BTTN_CLEAR">
+            <German>Bereich säubern</German>
+            <English>Clear Spawn Area</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_SPAWN_BTTN_SPAWN">
+            <German>Erschaffen</German>
+            <English>Spawn</English>
+        </Key>
+
     </Package>
     <Package name="MISSION">
         <Container name="MAINMISSION">
@@ -570,16 +567,6 @@
             <German>Um deine Gruppe zu wechseln nutze bitte das Squadmanagement von Bohemia. Die Tastatur Standartbelegung dafür ist 'U'.</German>
             <English>To open the squad management dialog press 'U'.</English>
         </Key>
-        <Key ID="STR_DORB_PLAYER_BRIEF_TFR">
-            <Original>Frequencies</Original>
-            <German>Funkfrequenzen</German>
-            <English>Frequencies</English>
-        </Key>
-        <Key ID="STR_DORB_PLAYER_BRIEF_TFR_DESC">
-            <Original>To ensure communication between the squads please enter your frequencies via the 'Frequencies' option in your mouse wheel menu. Each squad leader is able to define frequencies, and squad members are able to adopt them easily.</Original>
-            <German>Um die Kommunikation zwischen den Squads zu gewährleisten, tragt bitte eure Funkfrequenzen über das TFR-Frequenzübersicht Tool ein. Dieses findet ihr auch über das Mausradmenu. Der Teamleader kann in dem Tool die Frequenzen des Squads mit 'Festlegen' festlegen und die Teammiglieder können schnell ihr Funkgerät mit 'Übernehmen' auf die Squadfrequenzen einstellen.</German>
-            <English>To ensure communication between the squads please enter your frequencies via the 'Frequencies' option in your mouse wheel menu. Each squad leader is able to define frequencies, and squad members are able to adopt them easily.</English>
-        </Key>
         <Key ID="STR_DORB_PLAYER_HALO">
             <Original>Halo</Original>
             <German>Halo</German>
@@ -838,58 +825,6 @@
             <English>You have to wait %1 minute(s) and %2 second(s)!</English>
         </Key>
     </Package>
-    <Package name="gui_tfr">
-        <Key ID="STR_DORB_GUI_TFR_SHORT">
-            <Original>TFR Frequencies</Original>
-            <German>TFR - Frequenzübersicht</German>
-            <English>TFR Frequencies</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_TFR_HEADER">
-            <Original>Task Force Radio - Frequencies</Original>
-            <German>Task Force Radio - Frequenzübersicht</German>
-            <English>Task Force Radio - Frequencies</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_TFR_TAKE">
-            <Original>Apply</Original>
-            <German>Übernehmen</German>
-            <English>Apply</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_TFR_TAKE_TOOLTIP">
-            <Original>Copy frequencies of your squad to your radio(s).</Original>
-            <German>Übernimm die Frequenzen der Gruppe in dein eigenes Funkgerät.</German>
-            <English>Copy frequencies of your squad to your radio(s).</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_TFR_SET">
-            <Original>Define</Original>
-            <German>Festlegen</German>
-            <English>Define</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_TFR_SET_TOOLTIP">
-            <Original>As squad lead, define the radio frequency of your team.</Original>
-            <German>Setze als Teamleader die Frequenzen der Gruppe fest.</German>
-            <English>As squad lead, define the radio frequency of your team.</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_TFR_GROUP">
-            <Original>Squad</Original>
-            <German>Gruppe</German>
-            <English>Squad</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_TFR_FREQ_SQUAD">
-            <Original>Current squad frequencies</Original>
-            <German>Aktuelle Squadfrequenzen</German>
-            <English>Current squad frequencies</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_TFR_FREQ_NEW">
-            <Original>New Squad frequencies</Original>
-            <German>Neue Squadfrequenzen</German>
-            <English>New squad frequencies</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_TFR_NOLEADER">
-            <Original>Not squad leader</Original>
-            <German>Kein Truppfuehrer</German>
-            <English>Not squad leader</English>
-        </Key>
-    </Package>
     <Package name="gui_crate">
         <Key ID="STR_DORB_GUI_CRATE_HEADER">
             <Original>Crate Filler</Original>
@@ -1143,9 +1078,6 @@
         <Key ID="STR_DORB_GUI_TELEPORT_FEATURES_TELEPORT">
             <German>Ein einfacher Teleporter ist verfügbar, um zwischen verschiedenen Punkten schnell hin und herzuspringen-</German>
         </Key>
-        <Key ID="STR_DORB_GUI_TFR_FEATURES_LIST">
-            <German>Eine Funkgeräteüberischt für Task Force Radio Arrowhead</German>
-        </Key>
         <Key ID="STR_DORB_HEADLESS_FEATURES_HEADLESSCLIENTS">
             <German>Headlessclients bekommen automatisch KI einheiten zugewiesen, welche die dann steuern. Nach Disconnts und verbinden neuer HCs werden die Gruppen neu auf die HCs verteilt.</German>
         </Key>
@@ -1302,7 +1234,7 @@
             <German>Der Download ist komplett.</German>
         </Key>
     </Package>
-    <Package name="babel">
+    <Package name="MOD_ACRE">
         <Key ID="STR_DORB_MOD_ACRE_ARAB">
             <German>Arabisch</German>
             <English>arabic</English>
@@ -1314,6 +1246,34 @@
         <Key ID="STR_DORB_MOD_ACRE_GERMAN">
             <German>Deutsch</German>
             <English>german</English>
+        </Key>
+        <Key ID="STR_DORB_MOD_ACRE_ANTENNA_ACTION_MAIN">
+            <German>Antenne</German>
+            <English>antenna</English>
+        </Key>
+        <Key ID="STR_DORB_MOD_ACRE_ANTENNA_ACTION_CONNECT">
+            <German>Funkgerät mit Antenne verbinden</German>
+            <English>Connect radio to antenna</English>
+        </Key>
+        <Key ID="STR_DORB_MOD_ACRE_ANTENNA_ACTION_DISCONNECT">
+            <German>Funkgerät von Antenne trennen</German>
+            <English>Disconnect radio from antenna</English>
+        </Key>
+        <Key ID="STR_DORB_MOD_ACRE_ANTENNA_DISCONNECT">
+            <German>Funkgerät getrennt</German>
+            <English>radio disconnected</English>
+        </Key>
+        <Key ID="STR_DORB_MOD_ACRE_ANTENNA_DISCONNECT_DISTANCE">
+            <German>Entfernung zur Antenne zu groß</German>
+            <English>Distance to antenna was to high</English>
+        </Key>
+        <Key ID="STR_DORB_MOD_ACRE_ANTENNA_CONNECTED">
+            <German>Funkgerät verbunden</German>
+            <English>radio connected</English>
+        </Key>
+        <Key ID="STR_DORB_MOD_ACRE_ANTENNA_CONNECTED_MSG">
+            <German>Du hast dein Funkgerät mit der Antenne verbunden. Die Reichweite ist nun erhöht.</German>
+            <English>Du have connected your Radio to the radio-tower. Your Range has been extended.</English>
         </Key>
     </Package>
     <Package name="gui_mail">
@@ -1342,6 +1302,133 @@
         <Key ID="STR_DORB_GUI_ECHIDNA_SHUTDOWN">
             <German>Ausschalten</German>
             <English>shutdown</English>
+        </Key>
+    </Package>
+    <Package name="gui_acre">
+        <Key ID="STR_DORB_GUI_ACRE_NOSQUADRADIOS">
+            <German>Keine Gruppen-Funkgeräte eingetragen</German>
+            <English>no squad-radios registered</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_PRESETCHANNELNAME">
+            <German>Standardfunkkanal:</German>
+            <English>Preset Channel:</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_description">
+            <German>Name</German>
+            <English>name</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_label">
+            <German>Name</German>
+            <English>name</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_name">
+            <German>Name</German>
+            <English>name</English>
+        </Key>
+
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_frequencyrx">
+            <German>Empfangsfrequenz</German>
+            <English>receiving frequency</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_frequencytx">
+            <German>Sendefrequenz</German>
+            <English>transmitting frequency</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_rxonly">
+            <German>Nur Empfangen</German>
+            <English>Only Receiving</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_ctcssrx">
+            <German>Empfangs-Entstörungscode</German>
+            <English>Receiving tone squelch</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_ctcsstx">
+            <German>Sende-Entstörungscode</German>
+            <English>Sending tone squelch</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_squelch">
+            <German>Entstörstärke</German>
+            <English>Squelch-value</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_modulation">
+            <German>Modulation</German>
+            <English>modulation</English>
+        </Key>
+
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_encryption">
+            <German>Verschlüsselung</German>
+            <English>encryption</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_synclength">
+            <German>synclength</German>
+            <English>synclength</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_power">
+            <German>Sendeleistung</German>
+            <English>power</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_phase">
+            <German>Phase</German>
+            <English>phase</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_channelmode">
+            <German>channelmode</German>
+            <English>channelmode</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_deviation">
+            <German>deviation</German>
+            <English>deviation</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_trafficrate">
+            <German>Übertrangungsrate</German>
+            <English>trafficrate</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_tek">
+            <German>Verschlüsselungsschlüssel</German>
+            <English>Encryption Key</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_active">
+            <German>Aktiv</German>
+            <English>active</English>
+        </Key>
+
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_fade">
+            <German>fade</German>
+            <English>fade</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_rptr">
+            <German>Repeater Delay</German>
+            <English>Repeater Delay</English>
+        </Key>
+
+
+        <Key ID="STR_DORB_GUI_ACRE_MENU_MODERN">
+            <German>Moderne Ansicht</German>
+            <English>modern-view</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_MENU_TREE">
+            <German>Baumansicht</German>
+            <English>tree-view</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_MENU_GROUP">
+            <German>Gruppenfunkgeräte</German>
+            <English>group-radios</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_MENU_SINGLE">
+            <German>Spielerfunkteräte</German>
+            <English>player-radios</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_RADIOS_TRANSMITT">
+            <German>Einstellungen übertragen</German>
+            <English>transmitt settings</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_RADIOS_RESET">
+            <German>Einstellungen zurücksetzen</German>
+            <English>discard settings</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_HEADER">
+            <German>ACRE2 - Frequenzübersicht</German>
+            <English>ACRE2 - Frequencies overview</English>
         </Key>
     </Package>
 </Project>

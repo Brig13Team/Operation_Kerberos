@@ -10,20 +10,29 @@
 
 ADDON = false;
 
-PREP(addJammer);
-PREP(babbel_addLanguageLocal);
-PREP(babbel_canAddLanguage);
-PREP(babbel_removeLanguageLocal);
-PREP(getJammedSignal);
-PREP(getJammerArray);
-PREP(getJammerSignal);
-PREP(getJammerSignalSimple);
 PREP(getSignal);
-PREP(handleJammerReturn);
-PREP(isJammerActive);
-PREP(remoteStopSpeaking);
-PREP(removeJammer);
-PREP(selectBestJammer);
+
+PREPS(antenna,addChildActions);
+PREPS(antenna,canConnect);
+PREPS(antenna,canDisconnect);
+PREPS(antenna,connect);
+PREPS(antenna,disconnect);
+PREPS(antenna,handler);
+
+PREPS(babbel,addLanguageLocal);
+PREPS(babbel,canAddLanguage);
+PREPS(babbel,removeLanguageLocal);
+
+PREPS(jammer,add);
+PREPS(jammer,getSignalOutput);
+PREPS(jammer,getArray);
+PREPS(jammer,getSignal);
+PREPS(jammer,getSignalSimple);
+PREPS(jammer,handleReturn);
+PREPS(jammer,isActive);
+PREPS(jammer,remoteStopSpeaking);
+PREPS(jammer,remove);
+PREPS(jammer,selectBest);
 
 ADDON = true;
 

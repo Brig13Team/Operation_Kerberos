@@ -15,7 +15,7 @@
  *      none
  *
  */
-#define DEBUG_MODE_FULL
+//#define DEBUG_MODE_FULL
 #define INCLUDE_GUI
 #include "script_component.hpp"
 _this params ["_displayName","_function","_condition","_picture","_size","_parameter",["_Page","0",[""]]];

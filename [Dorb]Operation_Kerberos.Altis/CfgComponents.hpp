@@ -27,12 +27,11 @@ class CfgComponents {
     /// mission specific components
     headquarter = 1;
     mission = 1;
-    advertisements = 1;
+    advertisements = 0;
     /// mod specific components
     mod_ace = 1;
     mod_acre = 1;
     mod_asrai = 1;
-    mod_tfar = 0;
     patch_acre = 1;
     patch_bw = 1;
     /// gui
@@ -41,7 +40,6 @@ class CfgComponents {
     gui_teleport = 1;
     gui_crate = 1;
     gui_save = 1;
-    gui_tfr = 0;
     gui_arsenal = 1;
     gui_acre = 1;
     gui_echidna = 1;
@@ -59,7 +57,6 @@ class CfgComponents {
 #include "mod_ace\CfgComponent.hpp"
 #include "mod_acre\CfgComponent.hpp"
 #include "mod_asrai\CfgComponent.hpp"
-#include "mod_tfar\CfgComponent.hpp"
 #include "patch_acre\CfgComponent.hpp"
 #include "patch_bw\CfgComponent.hpp"
 #include "player\CfgComponent.hpp"
@@ -75,7 +72,6 @@ class CfgComponents {
 #include "gui_teleport\CfgComponent.hpp"
 #include "gui_crate\CfgComponent.hpp"
 #include "gui_save\CfgComponent.hpp"
-#include "gui_tfr\CfgComponent.hpp"
 #include "gui_arsenal\CfgComponent.hpp"
 #include "gui_acre\CfgComponent.hpp"
 #include "gui_mail\CfgComponent.hpp"

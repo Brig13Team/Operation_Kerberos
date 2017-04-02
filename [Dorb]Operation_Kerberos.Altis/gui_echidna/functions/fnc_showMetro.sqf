@@ -11,7 +11,7 @@
  *      none
  *
  */
-#define DEBUG_MODE_FULL
+//#define DEBUG_MODE_FULL
 #define INCLUDE_GUI
 #include "script_component.hpp"
 disableSerialization;
@@ -129,6 +129,7 @@ _ctrlBackground ctrlCommit 0;
                 TRACE("disabled");
                 _ctrl ctrlEnable false;
                 _ctrl ctrlRemoveAllEventHandlers "ButtonClick";
+                _ctrl ctrlSetTextColor [1,1,1,0.4];
                 _ctrl ctrlCommit 0;
             };
             INC(_idc);

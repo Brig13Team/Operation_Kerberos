@@ -23,7 +23,7 @@ if (_count == 0) then {
             private _rxAntenna = _x;
             _count = _count + 1;
             private _id = format["%1_%2_%3_%4", _transmitterClass, (_txAntenna select 0), _receiverClass, (_rxAntenna select 0)];
-            [_id,_transmitterClass,_receiverClass,_txAntenna,_rxAntenna,_f,_mw] call FUNC(getJammerSignal);
+            [_id,_transmitterClass,_receiverClass,_txAntenna,_rxAntenna,_f,_mw] call FUNC(jammer_getSignal);
             [
                 "process_signal",
                 [
@@ -50,4 +50,4 @@ if (_count == 0) then {
     missionNamespace setVariable [_transmitterClass + "_running_count", _count];
 };
 
-[_transmitterClass] call FUNC(getJammedSignal);
+[_transmitterClass] call FUNC(jammer_getSignalOutput);

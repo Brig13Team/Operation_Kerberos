@@ -10,6 +10,7 @@
 
 class DOUBLES(CfgComponent,ADDON) {
     class preinit {};
+    class postInitClient {server=0;};
     class dependencies {
         CfgPatches[] = {};
         CfgComponents[] = {"common","gui","gui_echidna"};
