@@ -41,7 +41,7 @@ if !(isClass(missionConfigFile >> "mission" >> "main" >> _type)) exitWith { -1 }
         [_hash, _targets] call (missionNamespace getVariable [format ["%1_%2", QFUNC(mainmission), _type], {}]);
 
         // spawn defence stuff
-        // [_position] call EFUNC(spawn,createMission);
+        [_position] call EFUNC(spawn,createMission);
     } else {
         // create rtb mission
         [_hash] call FUNC(mainmission_rtb);
