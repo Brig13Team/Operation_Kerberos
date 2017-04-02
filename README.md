@@ -19,9 +19,10 @@
 Dynamische Mission von Dorbedo und iJesuz </br>
 Unterstützt von Maverick (Stellungsdesign), Cypherstalker (Übersetzungen), Kiwa (Spellcheck).
 
-##Momentane Features:
+## Momentane Features:
 
-###Missionstypen:<ul>
+### Missionstypen:
+<ul>
 <li>Informationen sicherstellen<ul>Ein Objekt (Laptop, Koffer, etc.) mit Informationen  befindet sich in der Stadt</ul></li>
 <li>Waffenverstecke vernichten<ul>Es sind mehere Waffendepots in der Stadt versteckt. Der Großteil davon muss zerstört werden</ul></li>
 <li>Komandaten neutralisieren<ul>Es sind mehere Kommandanten in der Stadt -> töten</ul></li>
@@ -34,9 +35,10 @@ Unterstützt von Maverick (Stellungsdesign), Cypherstalker (Übersetzungen), Kiw
 <li>Prototyp<ul>Prototyp finden, bei Bedarf erobern und zurück zur Basis schaffen</ul></li>
 <li>Scarab<ul>Abschuss der Atomraketen verhinden (Fahrzeugcrew töten)</ul></li>
 </ul>
-###Armeen:
+### Armeen:
 Diverse Armeen, mit unterschiedlichen Einheitentypen
-###Gegner:<ul>
+### Gegner:
+<ul>
 <li>Patroullien</li>
 <li>Angriffstruppen</li>
 <li>Verteidigungstruppen</li>
@@ -44,7 +46,7 @@ Diverse Armeen, mit unterschiedlichen Einheitentypen
 <li>Befestigte Haeuser</li>
 <li>ACE-Minenfelder</li>
 </ul>
-###Gegnerischer Kommandant[virtuell]:
+### Gegnerischer Kommandant[virtuell]:
 Gegnerischer Kommandant hat Befehl über Angriffsstreitkräte und setzt diese zur Verteidigung/dem Angriff ein. Zusätzlich hat er die Kontrolle über:<ul>
 <li>FDC(fire direction center)</li>
 <li>Dronensteuerung</li>
@@ -52,14 +54,16 @@ Gegnerischer Kommandant hat Befehl über Angriffsstreitkräte und setzt diese zu
 <li>"Call In" Einheiten</li>
 <li>CAS</li>
 </ul>
-###Basis<ul>
+### Basis
+<ul>
 <li>Fahrzeugspawns</li>
 <li>Halo (bei wenigen Spielern)</li>
 <li>Teleport zum Teamleader (im Falle von disconnects, geht nur wenn kein Gegner in der Nähe)</li>
 <li>Medical facility (Krankenhaus in Basis, gespawnte HEMMTT, Huron Medizincontainer)</li>
 <li>Crate Spawner</li>
 </ul>
-####Sonstiges<ul>
+#### Sonstiges
+<ul>
 <li>Task-Force Radio übersicht</li>
 <li>Grouptracker</li>
 <li>Rucksack auf die Brust schnallen</li>
