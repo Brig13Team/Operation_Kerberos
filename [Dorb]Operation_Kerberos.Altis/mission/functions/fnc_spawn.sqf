@@ -48,7 +48,8 @@ if !(isClass(missionConfigFile >> "mission" >> "main" >> _type)) exitWith { -1 }
     };
 
     // register mission
-    [GVAR(spawn_tmp)] call FUNC(taskmanager_add);
-
+    private _task = [GVAR(spawn_tmp)] call FUNC(taskmanager_add);
     GVAR(spawn_tmp) = nil;
+
+    [_task, [_type] call FUNC(spawn_chooseMission)] call FUNC(spawnSide);
 };

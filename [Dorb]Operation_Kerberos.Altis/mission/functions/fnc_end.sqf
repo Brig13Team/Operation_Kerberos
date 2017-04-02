@@ -24,7 +24,7 @@ switch (_type) do {
             uiSleep 5;
             while { EGVAR(spawn,cleaningUp) } do { uiSleep 1; };
 
-            [["main"] call FUNC(spawn_chooseMission)] call FUNC(spawn);
+            [[] call FUNC(spawn_chooseMission)] call FUNC(spawn);
         };
     };
     case "prototype": {

@@ -16,7 +16,7 @@
 
 _this params [["_parent", "", [""]], ["_name", "", [""]]];
 if !(HASH_HASKEY(GVAR(master), _parent)) exitWith { -1 };
-if !(isClass(missionConfigFile >> "mission" >> "side" >> _type)) exitWith { -1 };
+if !(isClass(missionConfigFile >> "mission" >> "side" >> _name)) exitWith { -1 };
 
 _this spawn {
     _this params [["_parent", "", [""]], ["_type", "", [""]], ["_targets", [], [[]]]];

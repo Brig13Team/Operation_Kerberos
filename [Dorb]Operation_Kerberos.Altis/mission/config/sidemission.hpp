@@ -9,7 +9,7 @@ class side {
     	class location {};
         class object {};
 
-        probability = 1;
+        probability = 1.0;
     };
 
     /*
@@ -21,9 +21,11 @@ class side {
         };
     };
 
+/*
     class wreck : __base {
         class location : location {
             radius = 3000;
         };
     };
+*/
 };

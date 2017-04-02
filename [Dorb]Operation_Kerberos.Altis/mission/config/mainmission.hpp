@@ -20,6 +20,12 @@ class main {
 
         class object {};
 
+        class side {
+            min = 1;
+            max = 1;
+            types[] = {"__base"};
+        };
+
         probability = 1.0;
     };
 
@@ -86,6 +92,10 @@ class main {
         class defence : defence {
             target = "";
         };
+
+        class side : side {
+            types[] = {};
+        };
     };
 */
 
@@ -141,6 +151,10 @@ class main {
        class object : object {
            radius   = 100;
            position = "respawn_west";
+       };
+
+       class side : side {
+           types[] = {};
        };
     };
 

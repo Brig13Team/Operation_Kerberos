@@ -45,7 +45,7 @@ switch (_defenceStructure) do {
 
 if (_targetPositions isEqualTo []) then {
     for "_i" from 1 to _amount do {
-        _targetPositions pushBack [[_centerposition, 15, _radius] call EFUNC(common,pos_randomFlatEmpty)];
+        _targetPositions pushBack (ATLtoASL ([_centerposition, 15, _radius] call EFUNC(common,pos_randomFlatEmpty)));
     };
     if (_targetPositions isEqualTo []) then {
         _targetPositions = [_centerposition];

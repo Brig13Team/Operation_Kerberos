@@ -20,7 +20,7 @@ private _action = [
     {
         _target setVariable [QGVAR(isActive), false, true];
         [
-            30,
+            120,
             [_target],
             { (_this select 0) call FUNC(obj__increaseCounter); },
             { (_this select 0 select 0) setVariable [QGVAR(isActive), true, true]; },
