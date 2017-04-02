@@ -27,7 +27,8 @@ TRACEV_1(_preset);
 switch (_preset) do {
 
     case "air_light" : {
-        _return = configProperties [configfile>>"CfgVehicles",format ["((isClass _x)&&{getNumber(_x>>'side')==%1}&&{getNumber(_x>>'scope')>1}&&{((configName _x) isKindOf 'Air')}&&{!(getText(_x>>'vehicleClass')=='Autonomous')})",_sideNumber], true];
+        _return = configProperties [configfile>>"CfgVehicles",format ["((isClass _x)&&{getNumber(_x>>'side')==%1}&&{getNumber(_x>>'scope')>1}&&{((configName _x) isKindOf 'helicopter')}&&{!(getText(_x>>'vehicleClass')=='Autonomous')})",_sideNumber], true];
+        _return = _return select {"transport" in (getArray(_x >> 'availableForSupportTypes') apply {toLower _x})};
         _return = _return apply {configName _x};
         _return = _return select {!(ISCASVEHICLE(_x))};
     };

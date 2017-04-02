@@ -58,5 +58,5 @@ _anzahl = GVAR(current) select 3;
 [QEGVAR(logistics,setContainerWeight),_box] call CBA_fnc_localEvent;
 ["CRATE_SPAWNED",[_box]] spawn CBA_fnc_ServerEvent;
 disableSerialization;
-closeDialog IDD_SPAWN_DLG;
-[] call EFUNC(gui_echidna,close);
+closeDialog IDD_CRATE_DLG;
+[] spawn EFUNC(gui_echidna,close);

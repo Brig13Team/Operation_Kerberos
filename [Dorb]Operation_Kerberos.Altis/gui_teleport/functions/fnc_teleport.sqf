@@ -21,7 +21,7 @@ CHECK(isNil "_hash")
 private _isActive = HASH_GET(_hash,"active");
 CHECK(isNil "_isActive")
 If !(call {_isActive}) exitWith {
-    [localize LSTRING(teleporter),localize LSTRING(DEACTIVATED)] call EFUNC(gui,message);
+    [localize LSTRING(TELEPORT),localize LSTRING(DEACTIVATED),"red"] call EFUNC(gui,message);
 };
 
 private _target = HASH_GET(_hash,"target");

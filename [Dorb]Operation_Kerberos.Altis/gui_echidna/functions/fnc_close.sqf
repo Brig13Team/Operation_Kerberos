@@ -14,6 +14,10 @@
 #define INCLUDE_GUI
 #include "script_component.hpp"
 
+if (!canSuspend) exitWith {
+    [] spawn FUNC(close);
+};
+
 CHECK(!dialog)
 
 closeDialog IDD_ECHIDNA_MAIN;
