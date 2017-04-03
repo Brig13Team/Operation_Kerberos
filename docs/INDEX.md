@@ -16,7 +16,7 @@
 
 <hr>
 
-[WIKI](wiki\MAIN.md).
+[WIKI](wiki/wiki.md).
 
 
 Dynamische Mission von Dorbedo und iJesuz </br>
