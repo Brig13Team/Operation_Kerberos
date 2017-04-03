@@ -16,6 +16,9 @@
 
 <hr>
 
+[WIKI](wiki\MAIN.md).
+
+
 Dynamische Mission von Dorbedo und iJesuz </br>
 Unterstützt von Maverick (Stellungsdesign), Cypherstalker (Übersetzungen), Kiwa (Spellcheck).
 
