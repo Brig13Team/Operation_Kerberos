@@ -15,9 +15,6 @@ class DOUBLES(CfgComponent,ADDON) {
         CfgPatches[] = {};
         CfgComponents[] = {"common","gui"};
     };
-    class features {
-        teleport = CSTRING(FEATURES_TELEPORT);
-    };
 };
 
 #include "config\dialog.hpp"
