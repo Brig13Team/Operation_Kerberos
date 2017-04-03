@@ -1,2 +1,8 @@
-## Component: Overview
-[Main](components/MAIN.md).
+---
+layout: brig13
+title: Wiki
+---
+
+
+## Components:
+- [Main](components/MAIN.md).
