@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-    <a href="https://github.com/Brig13Team/Operation_Kerberos/LICENSE">
+    <a href="https://github.com/Brig13Team/Operation_Kerberos/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/License-GPL%20v3-blue.svg?style=flat-square" alt="License: GPL v3">
     </a>
     <a href="https://github.com/Brig13Team/Operation_Kerberos/issues">
