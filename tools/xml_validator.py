@@ -1,8 +1,26 @@
+# author: iJesuz
+#
+# description:
+#   This is a simple xml validator for TravisCI.
+#   It's not guaranteed to find all errors!
+#
 #!/usr/bin/python3
 
 import os
 import sys
 
+# description: 
+#   returns index before pattern
+#   if pattern isn't found a ValueError is thrown
+#
+# parameter:
+#   content : str - string
+#   index   : int - start index
+#   pattern : str - pattern to search
+#   error   : str - to created ValueError(error)
+#
+# return:
+#   int
 def skipUntil(content : str, index : int, pattern : str, error : str) -> int:
     skip = content.find(pattern,index)
     if (skip < 0):
@@ -10,8 +28,29 @@ def skipUntil(content : str, index : int, pattern : str, error : str) -> int:
         raise ValueError(error)
     return skip + len(pattern) - 1
 
+# description:
+#   check if xml-tag is correct
+#   if tag is not correct a ValueError is thrown
+#
+# parameter:
+#   string  : str - XML-Tag without '<' and '>'
+#
+# return:
+#   str - tag name
 def checkHeader(string : str) -> str:
 
+    # description:
+    #   check if attribute assignment(s) are correct
+    #   or throw ValueError
+    #
+    # parameter:
+    #   string  : str  - string to check
+    #   __name  : str  - (internal) attribute which is currently parsed
+    #   __equal : bool - (internal) already encountered '=' (__name is now final)
+    #   __names : []   - (internal) already found attributes
+    #
+    # return:
+    #   bool
     def checkAttributes(string : str, __name = "", __equal = False, __names = []) -> bool:
         if (len(string) == 0):
             if (len(__name) > 0):
@@ -54,13 +93,28 @@ def checkHeader(string : str) -> str:
                         raise ValueError("Expected '\"' after '='!")
                 return checkAttributes(string[1:],__name + string[0],__equal,__names)
 
+    if ('<' in string):
+        raise ValueError("Encountered illegal character inside a tag header: '<'")            
+    # shouldn't be inside (see calling function)
+    # if ('>' in string):
+    #     raise ValueError("Encountered illegal character inside a tag header: '>'")
+
     space = string.find(" ")
     if (space < 0):
+        # tag as no attributes
         return string
     else:
         if checkAttributes(string[space+1:]):
             return string[0:space]
 
+# description:
+#   check if given xml-file is correct
+#
+# parameter:
+#   filepath : str - path to xml
+#
+# return:
+#    bool
 def validate_xml(filepath : str) -> bool:
     file = open(filepath,'r')
     content = file.read()
@@ -113,7 +167,7 @@ def validate_xml(filepath : str) -> bool:
             
     except ValueError as error:
         print(error)
-        
+
         last = ""
         count = 0
         countLines = 0
@@ -135,6 +189,11 @@ def validate_xml(filepath : str) -> bool:
     file.close()
     return True
 
+# description:
+#   check xml-files inside dirToCheck recursivly
+#
+# return
+#   int - 0 (on success) or 1 (if errors are found)
 def main():
     dirToCheck = "../[Dorb]Operation_Kerberos.Altis"
 
