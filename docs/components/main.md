@@ -1,4 +1,4 @@
-[back](../COMPONENTS.MD)
+[back](../components.md)
 <hr>
 ### Description:
 

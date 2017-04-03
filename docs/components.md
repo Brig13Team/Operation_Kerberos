@@ -1,9 +1,9 @@
-[back](README.MD)
+[back](README.md)
 
 <hr>
 
 # Components:
 
-[Component Main](COMPONENTS/MAIN.MD)
+[Component Main](components/main.md)
 
 <hr>
