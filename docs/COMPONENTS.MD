@@ -1,7 +1,9 @@
 ---
-title: Component main
+title: Components
 ---
 [back](README.MD)
 <hr>
 # Components:
-- [MAIN](COMPONENT/MAIN.MD)
+[MAIN](COMPONENTS/MAIN.MD)
+
+<hr>
