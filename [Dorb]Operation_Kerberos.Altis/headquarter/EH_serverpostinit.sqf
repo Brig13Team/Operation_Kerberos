@@ -126,6 +126,6 @@ HASH_SET(GVAR(handles),"ressources",_handle);
 // DEBUG
 GVAR(debugMarkerActive) = false;
 #ifdef DEBUG_MODE_FULL
-    GVAR(debugMarkerActive) = true;
-    [FUNC(handleDebugMarker),60,[]] call CBA_fnc_addPerFrameHandler;
+    //GVAR(debugMarkerActive) = true;
+    //[FUNC(handleDebugMarker),60,[]] call CBA_fnc_addPerFrameHandler;
 #endif
