@@ -2,8 +2,11 @@
 title: Components
 ---
 [back](README.MD)
+
 <hr>
+
 # Components:
-[MAIN](COMPONENTS/MAIN.MD)
+
+[Component Main](COMPONENTS/MAIN.MD)
 
 <hr>
