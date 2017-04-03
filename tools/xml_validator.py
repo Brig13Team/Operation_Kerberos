@@ -3,14 +3,24 @@
 import os
 import sys
 
-def checkNegative(i : int, error : str):
-    if (i < 0):
+def skipUntil(content : str, index : int, pattern : str, error : str) -> int:
+    skip = content.find(pattern,index)
+    if (skip < 0):
+        print(index)
         raise ValueError(error)
+    return skip + len(pattern) - 1
+
+def checkHeader(string : str) -> str:
+    # TODO ...
+    space = string.find(" ")
+    if (space < 0):
+        return string
+    else:
+        return string[0:space]
 
 def validate_xml(filepath : str) -> bool:
     file = open(filepath,'r')
     content = file.read()
-    file.close()
 
     try:
         stack = []
@@ -20,51 +30,64 @@ def validate_xml(filepath : str) -> bool:
             if (content[index] == '<'):
                 # a comment
                 if (content[index:index+4] == "<!--"):
-                    index = content.find("-->", index + 4)
-                    checkNegative(index,"Comment not closed!")
-                    index += 3
+                    index = skipUntil(content, index, "-->", "Comment never closed!")
 
                 # processing instruction
                 elif (content[index:index+2] == "<?"):
-                    index = content.find("?>", index + 2)
-                    checkNegative(index,"Missing '?>' in processing instruction!")
-                    index += 2
+                    index = skipUntil(content, index, "?>", "Missing '?>' in processing instruction!")
+                    
 
                 # end tag
                 elif (content[index:index+2] == "</"):
                     first = index + 2
-
-                    last = content.find(">", first)
-                    checkNegative(index,"End Tag never closed!")
+                    last = skipUntil(content, first, ">", "End Tag never closed!")
                     closedName = content[first:last]
+                    
+                    if (len(stack) == 0):
+                        raise ValueError("Element '" + closedName + "' closed but not opened before!")
 
-                    checkNegative(len(stack)-1, "Element '" + closedName + "' closed but not opened before!")
                     openedName = stack.pop()
                     if (openedName != closedName):
                         raise ValueError ("Element '" + closedName + "' closed but '" + openedName + "' excepted to be closed!")
 
-                    index = last + 1
+                    index = last
 
-                # start tag
                 else:
                     first = index + 1
-                    last = content.find(">", first)
-                    checkNegative(last, "Start Tag never closed!")
+                    last = skipUntil(content, first, ">", "Start Tag never closed!")
                     
                     # not an empty-element tag
-                    if (not content[last-1] == '/'):
-                        space = content.find(" ",first,last)
-                        if (space > 0):
-                            index = last + 2
-                            last = space
-                        stack.append(content[first:last])
-        
-            index += 1
+                    if (content[last-1] == '/'):
+                        tag = checkHeader(content[first:last-1])
+                    else:
+                        tag = checkHeader(content[first:last])
+                        stack.append(tag)
 
-    except Exception as error:
+                    index = last
+                        
+            index += 1
+            
+    except ValueError as error:
         print(error)
-        return False
         
+        last = ""
+        count = 0
+        countLines = 0
+        
+        file.seek(0)
+        for line in file:
+            if (count <= index):
+                count += len(str(line))
+                countLines += 1
+                last = line
+            else:
+                break
+
+        file.close()
+        print("in line " + str(countLines) + ": '" + last[0:-1] + "'")            
+        return False
+
+    file.close()
     return True
 
 def main():
