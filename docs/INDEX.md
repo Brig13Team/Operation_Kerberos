@@ -1,3 +1,8 @@
+---
+layout: brig13
+---
+
+
 <p align="center">
     <img src="https://raw.githubusercontent.com/Brig13Team/Operation_Kerberos/develop/extra/logo/Logo_lang_schwarz.jpg" width="900">
 </p>
@@ -15,6 +20,9 @@
 </p>
 
 <hr>
+
+[WIKI](wiki/wiki.md).
+
 
 Dynamische Mission von Dorbedo und iJesuz </br>
 Unterstützt von Maverick (Stellungsdesign), Cypherstalker (Übersetzungen), Kiwa (Spellcheck).

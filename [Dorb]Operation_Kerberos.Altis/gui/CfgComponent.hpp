@@ -15,11 +15,6 @@ class DOUBLES(CfgComponent,ADDON) {
         CfgPatches[] = {};
         CfgComponents[] = {"common","main"};
     };
-    class features {
-        messages = CSTRING(FEATURES_MESSAGES);
-        loadingscreen = CSTRING(FEATURES_LOADING);
-        timer = CSTRING(FEATURES_TIMER);
-    };
 };
 
 #include "rsc_base.hpp"

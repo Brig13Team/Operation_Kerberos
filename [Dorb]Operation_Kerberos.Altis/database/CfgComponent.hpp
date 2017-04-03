@@ -14,7 +14,4 @@ class DOUBLES(CfgComponent,ADDON) {
         CfgPatches[] = {"extDB3"};
         CfgComponents[] = {"main"};
     };
-    class features {
-        whitelist = CSTRING(FEATURES_WHITELIST);
-    };
 };

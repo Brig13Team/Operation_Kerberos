@@ -16,10 +16,6 @@ class DOUBLES(CfgComponent,ADDON) {
         CfgPatches[] = {"CBA_common"};
         CfgComponents[] = {"common","gui"};
     };
-    class features {
-        vehicles = CSTRING(FEATURES_VEHICLESPAWN);
-        side = CSTRING(FEATURES_SIDE);
-    };
 };
 
 #include "config\dialog.hpp"

@@ -20,7 +20,4 @@ class DOUBLES(CfgComponent,ADDON) {
         CfgPatches[] = {};
         CfgComponents[] = {"gui","mission","database"};
     };
-    class features {
-        advertisements = CSTRING(FEATURES_ADVERTISEMENTS);
-    };
 };

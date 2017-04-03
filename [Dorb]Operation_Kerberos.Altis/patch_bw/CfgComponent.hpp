@@ -14,7 +14,4 @@ class DOUBLES(CfgComponent,ADDON) {
         CfgPatches[] = {"BWA3_Tracked"};
         CfgComponents[] = {};
     };
-    class features {
-        armor = CSTRING(FEATURES_EH);
-    };
 };

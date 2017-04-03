@@ -26,11 +26,6 @@ class DOUBLES(CfgComponent,ADDON) {
         CfgPatches[] = {"CBA_main","CBA_XEH","CBA_Events","CBA_common"};
         CfgComponents[] = {};
     };
-    class features {
-        compiling = CSTRING(FEATURES_COMPILING);
-        hashes = CSTRING(FEATURES_HASHES);
-        debug = CSTRING(FEATURES_DEBUG);
-    };
 };
 
 // COMPONENT specific configs can be added here -> they are directly integrated as a class into the missionConfigFile
