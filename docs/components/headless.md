@@ -1,6 +1,4 @@
 [back](../components.md)
 <hr>
 ### short description:
-
-
-### Features:
+This component is a modified copy of the aceX Mod.
