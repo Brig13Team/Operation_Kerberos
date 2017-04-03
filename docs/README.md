@@ -23,6 +23,6 @@ Operation Kerberos is a dynamic Arma 3 mission.
 It dynamicaly generates random objectives, which have to be completed by human players. The mission forces the players to play together as a team to achive success.
 
 
-[More informations](./COMPONENTS.MD)
+[More informations](./COMPONENTS.md)
 
 <hr>
