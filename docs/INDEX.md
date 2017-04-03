@@ -1,5 +1,6 @@
 ---
-layout: brig13
+layout: default
+title: Operation Kerberos
 ---
 
 

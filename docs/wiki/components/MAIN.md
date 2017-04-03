@@ -1,5 +1,4 @@
 ---
-layout: brig13
 title: Component main
 ---
 
