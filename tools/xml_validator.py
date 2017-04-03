@@ -11,12 +11,55 @@ def skipUntil(content : str, index : int, pattern : str, error : str) -> int:
     return skip + len(pattern) - 1
 
 def checkHeader(string : str) -> str:
-    # TODO ...
+
+    def checkAttributes(string : str, __name = "", __equal = False, __names = []) -> bool:
+        if (len(string) == 0):
+            if (len(__name) > 0):
+                raise ValueError("Non finished assignment for attribute '" + __name + "'!")
+            else:
+                return True
+        else:
+            if (string[0] == "="):
+                if (len(__name) > 0):
+                    if (__equal):
+                        raise ValueError("Expected '\"' but encountered '='!")
+                    else:
+                        if (__name in __names):
+                            raise ValueError("Attribute '" + __name + "' is assigned more then once!")
+                        else:
+                            return checkAttributes(string[1:],__name,True,__names)
+                else:
+                    raise ValueError("Tag-Name can't start width '='!")
+
+            elif (string[0] == "\""):
+                if (len(__name) > 0):
+                    if (__equal):
+                        skip = skipUntil(string,1,"\"","Missing closing '\"'!")
+                        if (skip+1 < len(string)):
+                            if (not string[skip+1] == " "):
+                                raise ValueError("Missing ' ' after attribute assignment!")
+                        __names.append(__name)
+                        return checkAttributes(string[skip+1:],"",False,__names)
+                    else:
+                        raise ValueError("Encountered '\"' before '='!")
+                else:
+                    raise ValueError("Tag-Name can't start with '\"'!")
+
+            elif (string[0] == " "):
+                return checkAttributes(string[1:],__name,__equal,__names)
+                
+            else:
+                if (len(__name) > 0):
+                    if (__equal):
+                        raise ValueError("Expected '\"' after '='!")
+                return checkAttributes(string[1:],__name + string[0],__equal,__names)
+
     space = string.find(" ")
     if (space < 0):
         return string
     else:
-        return string[0:space]
+        if checkAttributes(string[space+1:]):
+            return string[0:space]
 
 def validate_xml(filepath : str) -> bool:
     file = open(filepath,'r')
@@ -48,10 +91,11 @@ def validate_xml(filepath : str) -> bool:
 
                     openedName = stack.pop()
                     if (openedName != closedName):
-                        raise ValueError ("Element '" + closedName + "' closed but '" + openedName + "' excepted to be closed!")
+                        raise ValueError ("Element '" + closedName + "' closed but '" + openedName + "' expected to be closed!")
 
                     index = last
 
+                # start tag
                 else:
                     first = index + 1
                     last = skipUntil(content, first, ">", "Start Tag never closed!")
@@ -84,7 +128,8 @@ def validate_xml(filepath : str) -> bool:
                 break
 
         file.close()
-        print("in line " + str(countLines) + ": '" + last[0:-1] + "'")            
+        print("at line " + str(countLines) + ": '" + last[0:-1] + "'")
+        print("in file '" + filepath + "'")
         return False
 
     file.close()
@@ -100,7 +145,8 @@ def main():
                 errors = errors + 1
 
     if (errors > 0):
-        print(str(errors) + " erros found!")
+        print('')
+        print(str(errors) + " error found!")
         return 1
     else:
         print("No errors found.")
