@@ -1,7 +1,3 @@
----
-title: Readme
----
-
 <p align="center">
     <img src="https://raw.githubusercontent.com/Brig13Team/Operation_Kerberos/master/extra/logo/Logo_lang_schwarz.jpg" width="900">
 </p>

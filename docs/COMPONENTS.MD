@@ -1,6 +1,3 @@
----
-title: Components
----
 [back](README.MD)
 
 <hr>
