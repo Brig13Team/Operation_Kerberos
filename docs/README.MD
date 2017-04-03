@@ -1,6 +1,7 @@
 ---
 title: Readme
 ---
+
 <p align="center">
     <img src="https://raw.githubusercontent.com/Brig13Team/Operation_Kerberos/master/extra/logo/Logo_lang_schwarz.jpg" width="900">
 </p>
@@ -13,6 +14,7 @@ title: Readme
         <img src="https://img.shields.io/github/issues-raw/Brig13Team/Operation_Kerberos.svg?style=flat-square" alt="GitHub issues">
     </a>
 </p>
+
 <hr>
 
 Dynamic Mission for **Arma 3** by @Dorbedo and @iJesuz
@@ -21,6 +23,6 @@ Operation Kerberos is a dynamic Arma 3 mission.
 It dynamicaly generates random objectives, which have to be completed by human players. The mission forces the players to play together as a team to achive success.
 
 
-[More informations](COMPONENTS.MD)
+[More informations](./COMPONENTS.MD)
 
 <hr>
