@@ -21,4 +21,4 @@ The players have to succeed during serveral Missions. The goal is to play togeth
 To achive this, the human player can use serveral supporting features.
 
 
-[More informations](./components.md)
+[More on the Repository-Website](http://brig13team.github.io/Operation_Kerberos/)
