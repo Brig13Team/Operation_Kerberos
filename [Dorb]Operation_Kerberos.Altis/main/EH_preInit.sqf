@@ -19,7 +19,6 @@ FUNCMAIN(recompile) = FUNCSYS(recompile);
 FUNCMAIN(recompileComponent) = FUNCSYS(recompilecomponent);
 
 PREP(addMapToLog);
-PREP(addToFeatureList);
 PREP(addToLog);
 PREP(debug_performance);
 PREP(getComponents);
