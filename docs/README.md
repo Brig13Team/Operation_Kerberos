@@ -16,9 +16,21 @@
 Dynamic Mission for **Arma 3**   
 by ***Dorbedo*** and ***iJesuz***
 
-Operation Kerberos is a dynamic Arma 3 COOP-mission.   
-The players have to succeed during serveral Missions. The goal is to play together as a team against an virtual enemy commander.   
+Operation Kerberos is a dynamic Arma 3 COOP-mission.
+The players have to succeed during serveral Missions. The goal is to play together as a team against an virtual enemy commander.
 To achive this, the human player can use serveral supporting features.
 
+### Short summary of some features
+- Different Mainmissions (e.g.: Find informations, disable emp, prevent Launch of nuklear missiles, ...)
+- Changing Enemys (differnet Troups, Vehicles, Call-In Units)
+- Enemy is choosing the best way to extinguish the players (depending on the strenght of the players)
+- Enemy can use serveral tactics (e.g.: Coordinating spawned artilleries, CAS, drone-attacks, ...)
+- custom made vehicle spawns
+- custom made Crate-Filler (User Interface to spawn things)
+- ACRE2 - frequencies Overview
 
-[More informations](./components.md)
+
+
+[mission components](./components.md)
+
+<hr>
