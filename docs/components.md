@@ -7,7 +7,7 @@ These Conditions can be other components or `CfgPatches` classes.
 
 ## Components:
 
-[Component Main](components/main.md)    
+[Component main](components/main.md)    
 [Component common](components/common.md)    
 [Component database](components/database.md)   
 [Component doorbreach](components/doorbreach.md)   
