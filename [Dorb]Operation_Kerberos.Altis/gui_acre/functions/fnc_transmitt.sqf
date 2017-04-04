@@ -60,4 +60,4 @@ private _newList = [];
     };
 } forEach _currentRadios;
 
-_target setVariable [QGVAR(radios),_newRadios,true];
+_target setVariable [QGVAR(radios),_newList,true];

@@ -5,6 +5,7 @@
  *      definines the acre vehicles antenna-positions
  *
  */
+#define CBA_OFF
 #include "script_component.hpp"
 class acre_antennaObjects {
     class rhs_gaz66_r142_base {
