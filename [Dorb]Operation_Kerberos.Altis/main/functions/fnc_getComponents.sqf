@@ -72,7 +72,6 @@ TRACEV_3(_active_Components,_active_Components_cfgs,_cfgArray);
 GVAR(Events_preinit) = [];
 GVAR(Events_postinit) = [];
 GVAR(Events_all) = [];
-GVAR(FeatureList) = [];
 
 {
     private _cfg = _x;
