@@ -16,7 +16,7 @@
 _this params ["_mission", "_targets"];
 
 {
-    [_x] call EFUNC(mod_acre,addJammer);
+    [_x] call EFUNC(mod_acre,jammer_add);
 
     _x setVariable [QGVAR(isActive), true, true];
     _x addEventHandler ["Killed", LINKFUNC(obj__increaseCounter)];
