@@ -7,6 +7,6 @@
  */
 #include "script_component.hpp"
 
-["AllVehicles", "initPost", {
-    _this call FUNC(initPost);
+["AllVehicles", "init", {
+    _this spawn FUNC(onInit);
 },true,[],true] call CBA_fnc_addClassEventHandler;

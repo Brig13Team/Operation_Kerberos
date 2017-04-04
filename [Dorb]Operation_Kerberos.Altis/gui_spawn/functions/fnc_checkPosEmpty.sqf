@@ -15,5 +15,6 @@
 #include "script_component.hpp"
 
 _this params ["_position"];
-
-(nearestObjects [_position, ["LandVehicle","Air"], CHECK_RADIUS]) isEqualTo [];
+_position =+ _position;
+_position set[2,0];
+(nearestObjects [_position, ["LandVehicle","Air","CAManBase"], CHECK_RADIUS]) isEqualTo [];

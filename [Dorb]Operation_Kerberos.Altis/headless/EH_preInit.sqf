@@ -3,7 +3,7 @@ ADDON = false;
 
 PREP(HCconnect);
 PREP(HCdisconnect);
-PREP(initPost);
+PREP(onInit);
 PREP(transfer);
 
 ADDON = true;
