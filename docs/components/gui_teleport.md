@@ -1,5 +1,6 @@
 [back](../components.md)
 <hr>
+
 ### short description:
 Small Gui for fast travel iside the base area.
 

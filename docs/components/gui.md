@@ -1,5 +1,6 @@
 [back](../components.md)
 <hr>
+
 ### short description:
 This component contains serveral gui features, which are used by other components.
 
@@ -17,4 +18,4 @@ diplaying notifications to indicate specials areas
 ##### Loadingscreen
 Customized animated Loadingscreen
 ##### loadingbar
-Custromized Loadingbar with 
+Custromized Loadingbar with

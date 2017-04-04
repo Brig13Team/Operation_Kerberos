@@ -1,5 +1,6 @@
 [back](../components.md)
 <hr>
+
 ### short description:
 A custom crate spawing gui.
 

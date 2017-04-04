@@ -1,5 +1,6 @@
 [back](../components.md)
 <hr>
+
 ### short description:
 This component connects the mission to a database.
 Currently it is used to connect to a extDB3-database

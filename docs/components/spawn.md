@@ -1,5 +1,6 @@
 [back](../components.md)
 <hr>
+
 ### short description:
 The spawning functions.
 

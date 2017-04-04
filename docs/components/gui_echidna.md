@@ -1,5 +1,6 @@
 [back](../components.md)
 <hr>
+
 ### short description:
 The Tablet-Design is definied inside this component
 
