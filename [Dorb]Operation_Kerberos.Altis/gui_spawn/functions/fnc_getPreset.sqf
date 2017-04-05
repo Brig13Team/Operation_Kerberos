@@ -11,7 +11,7 @@
  *      ARRAY - Array of classnames
  *
  */
-#define DEBUG_MODE_FULL
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 _this params [["_preset","",[""]]];
