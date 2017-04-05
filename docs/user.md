@@ -5,15 +5,15 @@ layout: brigade
 # User-Documentation
 If you want to know, how to use the features of this mission, you can receive the informations here.
 
-#### [ACRE-Frequency Overview](#gui_acre)    
-#### [Grouptracker](#grouptracker)    
-#### [Vehicle-Spawns](#gui_spawn)    
-#### [Whitelist](#whitelist)    
-#### [Logistics](#logistics)    
-#### [Doorbreach](#doorbreach)    
-#### [Cratespawner](#gui_crate)    
-#### [Missionobjects](#mission)    
-#### [Parachting](#parachuting)    
+[ACRE-Frequency Overview](#gui_acre)    
+[Grouptracker](#grouptracker)    
+[Vehicle-Spawns](#gui_spawn)    
+[Whitelist](#whitelist)    
+[Logistics](#logistics)    
+[Doorbreach](#doorbreach)    
+[Cratespawner](#gui_crate)    
+[Missionobjects](#mission)    
+[Parachting](#parachuting)    
 <hr>
 
 

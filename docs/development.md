@@ -7,9 +7,9 @@ layout: brigade
 
 
 
-#### [Components](#components)    
-#### [Functions](#functions)    
-#### [Coding-Guidlines](#coding)    
+[Components](#components)    
+[Functions](#functions)    
+[Coding-Guidlines](#coding)    
 
 <hr>
 ## <a name="components"></a>Components
