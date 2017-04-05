@@ -30,7 +30,6 @@ GVAR(handle) = [] spawn {
         };
         TRACEV_4(_position,_key,_curAttackPos,_value);
     } forEach ([] call FUNC(dzfindPeaks));
-    TRACEV_1(_attackPosToCreate);
 
     // add the positions, where Player were spotted
     {
@@ -38,6 +37,12 @@ GVAR(handle) = [] spawn {
             _attackPosToCreate pushBack _x;
         };
     } forEach ([] call FUNC(getKnownPlayerPos));
+
+    #ifdef DEBUG_MODE_FULL
+        If !(_attackPosToCreate isEqualTo []) then {
+            TRACEV_1(_attackPosToCreate);
+        };
+    #endif
 
     // create new attacklocaltions
     {
