@@ -36,7 +36,7 @@ private _ACE_Action = [
     _condition
 ] call ace_interact_menu_fnc_createAction;
 
-[ACE_Player, 1, ["ACE_SelfActions", QGVAR(selfactiongroup)], _ACE_Action] call ace_interact_menu_fnc_addActionToObject;
+[ace_player, 1, ["ACE_SelfActions", QGVAR(selfactiongroup)], _ACE_Action] call ace_interact_menu_fnc_addActionToObject;
 
 
 If !(_size in [1,2,3]) then {_size = 1;};

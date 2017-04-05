@@ -121,7 +121,7 @@ private _picture = ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QUOTE(C
 private _displayName = localize LSTRING(MENU_GROUP);
 private _pos_y = GUI_ECHIDNA_Y + _pos_h*2;
 private _ctrl = _dialog displayCtrl IDC_ACRE_MENU_BTTN3;
-_ctrl ctrlAddEventHandler ["ButtonClick",{[group player] call FUNC(radiosShow);true}];
+_ctrl ctrlAddEventHandler ["ButtonClick",{[group ace_player] call FUNC(radiosShow);true}];
 ["changepos",[_ctrl,[_pos_x, _pos_y, _pos_w, _pos_h]]] call FUNC(AnimBttn);
 _ctrl ctrlSetText _picture;
 _ctrl ctrlSetTooltip _displayName;
@@ -133,7 +133,7 @@ private _picture = ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QUOTE(C
 private _displayName = localize LSTRING(MENU_SINGLE);
 private _pos_y = GUI_ECHIDNA_Y + _pos_h*3;
 private _ctrl = _dialog displayCtrl IDC_ACRE_MENU_BTTN4;
-_ctrl ctrlAddEventHandler ["ButtonClick",{[player] call FUNC(radiosShow);true}];
+_ctrl ctrlAddEventHandler ["ButtonClick",{[ace_player] call FUNC(radiosShow);true}];
 ["changepos",[_ctrl,[_pos_x, _pos_y, _pos_w, _pos_h]]] call FUNC(AnimBttn);
 _ctrl ctrlSetText _picture;
 _ctrl ctrlSetTooltip _displayName;

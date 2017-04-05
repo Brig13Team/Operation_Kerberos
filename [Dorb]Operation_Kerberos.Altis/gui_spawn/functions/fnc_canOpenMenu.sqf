@@ -16,7 +16,7 @@
 
 _this params [["_player",objNull,[objNull]],["_spawnID","",[""]]];
 
-If ((isNull _player)||(!(isPlayer _player))||(!(vehicle player == player))) exitWith {false;};
+If ((isNull _player)||(!(isPlayer _player))||(!(vehicle ace_player == ace_player))) exitWith {false;};
 
 private _spawnArray = HASH_GET_DEF(GVAR(spawns),_spawnID,[]);
 

@@ -15,6 +15,6 @@
 
 ((
     {
-        (player distance _x) < 12
+        (ace_player distance _x) < 12
     } count GVAR(teleporterlogics)
 )>0)
