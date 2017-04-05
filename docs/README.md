@@ -1,5 +1,6 @@
 ---
 title: README
+layout: brigade
 ---
 
 <p align="center">
