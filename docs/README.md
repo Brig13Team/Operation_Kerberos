@@ -36,5 +36,3 @@ To achive this, the human player can use serveral supporting features.
 [Components](#components)
 
 <hr>
-
-{% include test.html %}
