@@ -1,6 +1,5 @@
 ---
 title: README
-components: components.html
 ---
 
 <p align="center">
@@ -38,4 +37,4 @@ To achive this, the human player can use serveral supporting features.
 
 <hr>
 
-{% include test.md %}
+{% include test.html %}
