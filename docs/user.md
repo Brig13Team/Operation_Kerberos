@@ -35,8 +35,8 @@ The way, this is ment to be used is:
 
 Now the Tree should show the following:
 ```
--WEST
---Group 1
+- WEST
+-- Group 1
 --- AN/PRC 343 - B1/C2
 --- AN/PRC 152 - Channel 10
 ---- Dieter
