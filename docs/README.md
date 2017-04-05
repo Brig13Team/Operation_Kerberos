@@ -38,4 +38,4 @@ To achive this, the human player can use serveral supporting features.
 
 <hr>
 
-{% include_relative {{page.components}} %}
+{% include_relative components.html %}
