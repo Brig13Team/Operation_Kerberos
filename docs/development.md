@@ -6,7 +6,6 @@ layout: brigade
 # Developer-Documentation
 
 
-
 [Components](#components)    
 [Functions](#functions)    
 [Coding-Guidlines](#coding)    

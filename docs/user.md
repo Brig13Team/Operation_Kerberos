@@ -24,7 +24,7 @@ The Feature is not connected to your currently used radios. This is done on purp
 ### Treeview
 The Treeview shows the groups of your side. Each Group can have Group-radios and each player can have his own radios displayed.
 For Example:
-´´´
+
 Group 1 uses AN/PRC 343 - Block 1 Channel 2 as an internal radio.
 The group receive their orders over an AN/PRC 152 - Channel 10.
 In addition, a JTAC named Dieter follows this squad an carrys an AN/PRC 117F on Channel CAS to connect to the Air-Support.
@@ -34,6 +34,7 @@ The way, this is ment to be used is:
 2. The JTAC defines his Radio for him personally.
 
 Now the Tree should show the following:
+```
 -WEST
 --Group 1
 --- AN/PRC 343 - B1/C2
