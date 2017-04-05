@@ -1,5 +1,7 @@
-[back](../components.md)
-<hr>
+---
+title: gui_mail
+layout: brigade
+---
 
 ### short description:
 Small messaging logging

@@ -1,5 +1,7 @@
-[back](../components.md)
-<hr>
+---
+title: gui_save
+layout: brigade
+---
 
 ### short description:
 This is a small generic Save function

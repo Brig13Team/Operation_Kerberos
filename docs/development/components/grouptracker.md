@@ -1,5 +1,7 @@
-[back](../components.md)
-<hr>
+---
+title: grouptracker
+layout: brigade
+---
 
 ### short description:
 This component contains a simple grouptracker.

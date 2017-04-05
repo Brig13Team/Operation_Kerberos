@@ -1,5 +1,7 @@
-[back](../components.md)
-<hr>
+---
+title: spawn
+layout: brigade
+---
 
 ### short description:
 The spawning functions.

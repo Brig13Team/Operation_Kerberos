@@ -1,5 +1,7 @@
-[back](../components.md)
-<hr>
+---
+title: headquarter
+layout: brigade
+---
 
 ### short description:
 This component contains the Enemy Commander.

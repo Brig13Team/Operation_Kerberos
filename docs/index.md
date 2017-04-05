@@ -34,6 +34,4 @@ To achive this, the human player can use serveral supporting features.
 - custom made Crate-Filler (User Interface to spawn things)
 - ACRE2 - frequencies Overview
 
-[Components](#components)
-
 <hr>

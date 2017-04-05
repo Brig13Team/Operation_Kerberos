@@ -1,5 +1,7 @@
-[back](../components.md)
-<hr>
+---
+title: main
+layout: brigade
+---
 
 ### short description:
 The main component

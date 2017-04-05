@@ -1,5 +1,7 @@
-[back](../components.md)
-<hr>
+---
+title: gui
+layout: brigade
+---
 
 ### short description:
 This component contains serveral gui features, which are used by other components.
