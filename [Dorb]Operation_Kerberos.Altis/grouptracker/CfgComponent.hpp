@@ -15,8 +15,4 @@ class DOUBLES(CfgComponent,ADDON) {
         CfgPatches[] = {};
         CfgComponents[] = {"main"};
     };
-    class features {
-        grouptracker = CSTRING(FEATURES_BFT);
-        delay = CSTRING(FEATURES_DELAY);
-    };
 };

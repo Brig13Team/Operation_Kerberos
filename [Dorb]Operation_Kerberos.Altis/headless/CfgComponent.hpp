@@ -17,7 +17,4 @@ class DOUBLES(CfgComponent,ADDON) {
         CfgPatches[] = {"CBA_xeh","CBA_Events"};
         CfgComponents[] = {"common"};
     };
-    class features {
-        HEADLESSCLIENTS = CSTRING(FEATURES_HEADLESSCLIENTS);
-    };
 };

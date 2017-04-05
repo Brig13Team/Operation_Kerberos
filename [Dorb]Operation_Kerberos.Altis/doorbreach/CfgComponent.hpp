@@ -14,10 +14,7 @@ class DOUBLES(CfgComponent,ADDON) {
     };
     class preinit {};
     class dependencies {
-        CfgPatches[] = {};
+        CfgPatches[] = {"rhs_main"};
         CfgComponents[] = {"main"};
-    };
-    class features {
-        doorbreach = CSTRING(FEATURES_DOORBREACH);
     };
 };

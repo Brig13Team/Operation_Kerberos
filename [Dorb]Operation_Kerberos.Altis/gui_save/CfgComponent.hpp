@@ -14,9 +14,6 @@ class DOUBLES(CfgComponent,ADDON) {
         CfgPatches[] = {};
         CfgComponents[] = {"common","gui"};
     };
-    class features {
-        save = CSTRING(FEATURES_SAVE);
-    };
 };
 
 #include "config\dialog.hpp"

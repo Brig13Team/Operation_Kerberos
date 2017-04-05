@@ -72,7 +72,6 @@ TRACEV_3(_active_Components,_active_Components_cfgs,_cfgArray);
 GVAR(Events_preinit) = [];
 GVAR(Events_postinit) = [];
 GVAR(Events_all) = [];
-GVAR(FeatureList) = [];
 
 {
     private _cfg = _x;
@@ -80,7 +79,7 @@ GVAR(FeatureList) = [];
     _cfgname deleteAt 0; // remove CfgComponens
     _cfgname deleteAt 0; // remove PREFIX
     _cfgname = _cfgname joinString "_";
-    private _allEvents = configProperties [_cfg,"(!((configname _x) in ['dependencies','features','version']))",true];
+    private _allEvents = configProperties [_cfg,"(!((configname _x) in ['dependencies','version']))",true];
     {
         private _eventName = tolower (configName _x);
         private _eventConfig = _x;
@@ -126,10 +125,6 @@ GVAR(FeatureList) = [];
             diag_log text (format["[MissionFile] (%1) Event %2 is NOT loading - Checks failed",_cfgname,_eventName]);
         };
     } forEach _allEvents;
-    If ((isClass (_cfg >> "features"))&&(hasInterface)) then {
-        private _allFeatures = configProperties [_cfg >> "features","isText(_x)",true];
-        GVAR(FeatureList) pushBack [_allFeatures,_cfgname];
-    };
 } forEach _active_Components_cfgs;
 
 TRACEV_3(GVAR(Events_preinit),GVAR(Events_postinit),GVAR(Events_all));

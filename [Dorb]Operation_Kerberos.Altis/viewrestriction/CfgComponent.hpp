@@ -15,7 +15,4 @@ class DOUBLES(CfgComponent,ADDON) {
         CfgPatches[] = {"ace_common","cba_events"};
         CfgComponents[] = {"main"};
     };
-    class features {
-        restriction = CSTRING(FEATURES_RESTRICTION);
-    };
 };
