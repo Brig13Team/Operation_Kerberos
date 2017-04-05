@@ -1,5 +1,7 @@
-[back](../components.md)
-<hr>
+---
+title: gui_arsenal
+layout: brigade
+---
 
 ### short description:
 This component contains a whitelisted arsenal

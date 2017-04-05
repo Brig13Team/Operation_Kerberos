@@ -1,5 +1,7 @@
-[back](../components.md)
-<hr>
+---
+title: gui_acre
+layout: brigade
+---
 
 ### short description:
 Overview over ACRE2-radios

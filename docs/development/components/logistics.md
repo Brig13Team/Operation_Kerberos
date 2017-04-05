@@ -1,5 +1,7 @@
-[back](../components.md)
-<hr>
+---
+title: logistics
+layout: brigade
+---
 
 ### short description:
 Custom made container loading system

@@ -1,5 +1,7 @@
-[back](../components.md)
-<hr>
+---
+title: gui_crate
+layout: brigade
+---
 
 ### short description:
 A custom crate spawing gui.

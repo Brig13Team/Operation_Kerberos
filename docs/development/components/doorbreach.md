@@ -1,5 +1,7 @@
-[back](../components.md)
-<hr>
+---
+title: doorbreach
+layout: brigade
+---
 
 ### short description:
 This component allows the player to breach through doors.

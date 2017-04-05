@@ -1,5 +1,7 @@
-[back](../components.md)
-<hr>
+---
+title: database
+layout: brigade
+---
 
 ### short description:
 This component connects the mission to a database.

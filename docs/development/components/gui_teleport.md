@@ -1,5 +1,7 @@
-[back](../components.md)
-<hr>
+---
+title: gui_teleport
+layout: brigade
+---
 
 ### short description:
 Small Gui for fast travel iside the base area.

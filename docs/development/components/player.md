@@ -1,5 +1,7 @@
-[back](../components.md)
-<hr>
+---
+title: player
+layout: brigade
+---
 
 ### short description:
 This component contains serveral player specific functions.

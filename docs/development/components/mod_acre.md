@@ -1,5 +1,7 @@
-[back](../components.md)
-<hr>
+---
+title: mod_acre
+layout: brigade
+---
 
 ### short description:
 This component contains features for ACRE2 and some settings

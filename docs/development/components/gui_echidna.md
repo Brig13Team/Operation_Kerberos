@@ -1,5 +1,7 @@
-[back](../components.md)
-<hr>
+---
+title: gui_echidna
+layout: brigade
+---
 
 ### short description:
 The Tablet-Design is definied inside this component

@@ -1,5 +1,7 @@
-[back](../components.md)
-<hr>
+---
+title: gui_spawn
+layout: brigade
+---
 
 ### short description:
 Customized spawn menu
