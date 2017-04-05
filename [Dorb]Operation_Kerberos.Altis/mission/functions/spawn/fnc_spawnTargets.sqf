@@ -84,9 +84,7 @@ for "_i" from 1 to _amount do {
     };
 
     #ifdef DEBUG_MODE_FULL
-        private _marker = createMarker[format["debug_marker_%1_%2", _type, getPos _target], getPos _target];
-        _marker setMarkerType "hd_dot";
-        _marker setMarkerText (typeof _target);
+        [_target,typeof _target,"ColorBlack","hd_dot"] call EFUNC(common,debug_marker_create);
     #endif // DEBUG_MODE_FULL
 
     if !(isNil QEFUNC(headquarter,registerPOI)) then {

@@ -43,13 +43,10 @@ _spawnpos call BIS_fnc_arrayShuffle;
 {
     _x call FUNC(spawnMinefieldACE);
     #ifdef DEBUG_MODE_FULL
-        private _mrkr = createMarker [format["minepos-%1",((_spawnpos select _i) select 0)],((_spawnpos select _i) select 0)];
-        _mrkr setMarkerShape "ICON";
-        _mrkr setMarkerColor "ColorBlue";
         If ((_x select 2)>0) then {
-            _mrkr setMarkerType "MinefieldAP";
+            [((_spawnpos select _i) select 0),format["minepos-%1",((_spawnpos select _i) select 0)],"ColorBlue","MinefieldAP"] call EFUNC(common,debug_marker_create);
         }else{
-            _mrkr setMarkerType "Minefield";
+            [((_spawnpos select _i) select 0),format["minepos-%1",((_spawnpos select _i) select 0)],"ColorBlue","Minefield"] call EFUNC(common,debug_marker_create);
         };
     #endif
 } forEach _spawnpos;
