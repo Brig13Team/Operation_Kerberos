@@ -1,3 +1,8 @@
+---
+title: README
+components: components.html
+---
+
 <p align="center">
     <img src="https://raw.githubusercontent.com/Brig13Team/Operation_Kerberos/master/extra/logo/Logo_lang_schwarz.jpg" width="900">
 </p>
@@ -29,8 +34,8 @@ To achive this, the human player can use serveral supporting features.
 - custom made Crate-Filler (User Interface to spawn things)
 - ACRE2 - frequencies Overview
 
-
-
-[mission components](./components.md)
+[Components](#components)
 
 <hr>
+
+{% include_relative {{page.components}} %}
