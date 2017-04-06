@@ -28,8 +28,10 @@ If (GVAR(cleanup_objectsToCheck) isEqualTo []) then {
     while { (diag_ticktime < _time)&&{!(GVAR(cleanup_objectsToCheck) isEqualTo [])} } do {
         private _curObj = (GVAR(cleanup_objectsToCheck)) deleteAt 0;
         If ((_curObj getVariable [QGVARMAIN(canDelete),true])&&{!(_curObj getVariable [QGVAR(inDelete),false])}) then {
-            _curObj setVariable [QGVAR(inDelete),true];
-            GVAR(cleanup_Dump_int) pushBack [CBA_missiontime + GVAR(cleanUp_waittime),_curObj];
+            If ((!(IS_GROUP(_curObj)))||{(units _curObj) isEqualTo []}) then {
+                _curObj setVariable [QGVAR(inDelete),true];
+                GVAR(cleanup_Dump_int) pushBack [CBA_missiontime + GVAR(cleanUp_waittime),_curObj];
+            };
         };
     };
 };
