@@ -25,9 +25,13 @@ switch (typeName _delete) do {
         deleteVehicle _delete;
     };
     case "GROUP" : {
-        (units _delete) call EFUNC(COMPONENT,delete);;
-        {deleteWaypoint _x} forEach (wayPoints _delete);
-        deleteGroup _delete;
+        If !(local _delete) then {
+            [QGVAR(delete),[_delete],_delete] call CBA_fnc_targetEvent;
+        }else{
+            (units _delete) call EFUNC(COMPONENT,delete);;
+            {deleteWaypoint _x} forEach (wayPoints _delete);
+            deleteGroup _delete;
+        };
     };
     case "LOCATION" : {
         If (IS_HASH(_delete)) then {

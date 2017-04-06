@@ -11,7 +11,6 @@
 ["missionstest",FUNC(spawn)] call CBA_fnc_addEventHandler;
 
 // initialize rescuemarker
-[LINKEFUNC(spawn,cleanup_base) , 900, []] call CBA_fnc_addPerFrameHandler;
 If ((getMarkerPos GVARMAIN(rescuemarker)) isEqualTo [0,0,0]) then {
     ERROR("No Rescue-Marker Found")
 } else {

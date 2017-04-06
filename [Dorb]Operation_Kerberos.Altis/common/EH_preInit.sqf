@@ -48,3 +48,5 @@ PREPS(matrix,value_get);
 PREPS(matrix,value_set);
 
 ADDON = true;
+
+[QGVAR(delete),FUNC(delete)] call CBA_fnc_addEventHandler;
