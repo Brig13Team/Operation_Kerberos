@@ -34,12 +34,12 @@ If (_possibleBuildings isEqualTo []) then {
     WARNING("No possible Buildings found - FALLBACK");
     _buildings = _buildings call BIS_fnc_arrayShuffle;
     {
-        private _curType = typeOf _x;
-        private _allPos = getArray(missionConfigFile >> "CfgCompositions" >> "housepositions" >> _curType >> "soldierpos");
-        If !(_allPos isEqualTo []) exitWith {
-            _targetPositions = _allPos;
+        private _allPos = _x buildingPos -1;
+        If !(_allPos isEqualTo []) then {
+            _targetPositions append _allPos;
             GVAR(targetHouses) pushBack _x;
         };
+        If ((count _targetPositions) > _amount) exitWit {};
     } forEach _buildings;
 }else{
     _possibleBuildings = _possibleBuildings - GVAR(targetHouses);

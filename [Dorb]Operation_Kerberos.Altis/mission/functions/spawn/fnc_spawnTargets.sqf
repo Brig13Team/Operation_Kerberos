@@ -56,9 +56,9 @@ TRACEV_1(_targetPositions);
 
 for "_i" from 1 to _amount do {
     if (_targetPositions isEqualTo []) exitWith { [] };
-    private _pos = selectRandom _targetPositions;
+    private _pos =+ (selectRandom _targetPositions);
     /* if !(_house) then { */ _targetPositions = _targetPositions - [_pos]; // };
-
+    _pos resize 3;
     private _class = selectRandom ([_type] call FUNC(spawn_getObjects));
 
     TRACEV_2(_class,_pos);
