@@ -39,7 +39,7 @@ If (_possibleBuildings isEqualTo []) then {
             _targetPositions append _allPos;
             GVAR(targetHouses) pushBack _x;
         };
-        If ((count _targetPositions) > _amount) exitWit {};
+        If ((count _targetPositions) > _amount) exitWith {};
     } forEach _buildings;
 }else{
     _possibleBuildings = _possibleBuildings - GVAR(targetHouses);
