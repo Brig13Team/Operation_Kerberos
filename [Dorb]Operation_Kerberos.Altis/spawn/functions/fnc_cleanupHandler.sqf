@@ -40,7 +40,7 @@ If (GVAR(cleanup_objectsToCheck) isEqualTo []) then {
 // deleteStuff
 private _time = diag_tickTime + 0.02;
 while { (diag_ticktime < _time) && {!(GVAR(cleanup_Dump_int) isEqualTo [])} } do {
-    (GVAR(cleanup_Dump_int) select 0) params ["_thing","_curtime"];
+    (GVAR(cleanup_Dump_int) select 0) params ["_curtime","_thing"];
     If (!((isNull _thing)||{_curtime < CBA_missiontime})) exitWith {};
     GVAR(cleanup_Dump_int) deleteAt 0;
     [_thing] call EFUNC(common,delete);

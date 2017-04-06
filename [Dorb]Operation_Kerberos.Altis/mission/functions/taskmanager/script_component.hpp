@@ -1,10 +1,6 @@
 #include "..\script_component.hpp"
 
-#ifdef DEBUG_MODE_FULL
-
 #define CHECK_INTERVALL     (If (isMultiplayer) then {30}else{5})
-
-#define DEBUG_MODE_FULL
 
 #define __THIS              GVAR(master)
 #define THIS_GET(key)       HASH_GET(__THIS,key)

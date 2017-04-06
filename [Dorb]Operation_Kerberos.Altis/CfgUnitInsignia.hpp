@@ -10,6 +10,6 @@ class CfgUnitInsignia {
         displayName = ELSTRING(MAIN,NAME);
         author = ELSTRING(MAIN,AUTHOR);
         texture = QEPAAPATH(logo,logo_512);
-        textureVehicle = "";
+        textureVehicle = QEPAAPATH(logo,logo_512);
     };
 };
