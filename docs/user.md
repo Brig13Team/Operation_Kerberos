@@ -5,6 +5,7 @@ layout: brigade
 # User-Documentation
 If you want to know, how to use the features of this mission, you can receive the informations here.
 
+[Echidna](#echidna)    
 [ACRE-Frequency Overview](#gui_acre)    
 [Grouptracker](#grouptracker)    
 [Vehicle-Spawns](#gui_spawn)    
@@ -16,7 +17,10 @@ If you want to know, how to use the features of this mission, you can receive th
 [Parachting](#parachuting)    
 <hr>
 
+## <a name="echidna"></a>Echidna
+Echidna is the Virtual OS called. It is used to combine several features into one similar appearence. You can open it by using the ACE self interact menu. Inside this menu you can open the different features by clicking on the button. The most features use the similar appearence and you are able to use the menu to change your feature.
 
+<hr>
 ## <a name="gui_acre"></a>ACRE-Frequency Overview
 This GUI is designed to give the players an Overview over the other squads and their radios.
 The Feature is not connected to your currently used radios. This is done on purpose. The goal was to give an overview, not to reduce the usage of ACRE into just clicking a button.
