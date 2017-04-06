@@ -130,8 +130,8 @@ class main {
         };
 
         class object : object {
-            min = 2;
-            max = 5;
+            min = 1;
+            max = 3;
         };
     };
 

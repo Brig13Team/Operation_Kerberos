@@ -38,6 +38,8 @@ _this params ["_pos","_rad"];
 } count GVAR(cleanUpDump);
 GVAR(cleanUpDump) = [];
 
+[{GVAR(cleaningUp) = false;},[],15] call CBA_fnc_waitAndExecute;
+
 [] call EFUNC(common,debug_marker_clean);
 
 ISNILS(EGVAR(mission,markerdump),[]);
