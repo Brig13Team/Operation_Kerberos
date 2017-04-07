@@ -32,8 +32,9 @@ class CfgComponents {
     mod_ace = 1;
     mod_acre = 1;
     mod_asrai = 1;
+    mod_bwa3 = 1;
     patch_acre = 1;
-    patch_bw = 1;
+    patch_bwa3 = 1;
     /// gui
     gui = 1;
     gui_spawn = 1;
@@ -57,8 +58,9 @@ class CfgComponents {
 #include "mod_ace\CfgComponent.hpp"
 #include "mod_acre\CfgComponent.hpp"
 #include "mod_asrai\CfgComponent.hpp"
+#include "mod_bwa3\CfgComponent.hpp"
 #include "patch_acre\CfgComponent.hpp"
-#include "patch_bw\CfgComponent.hpp"
+#include "patch_bwa3\CfgComponent.hpp"
 #include "player\CfgComponent.hpp"
 #include "spawn\CfgComponent.hpp"
 #include "teamkilling\CfgComponent.hpp"
