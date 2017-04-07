@@ -25,7 +25,7 @@ Echidna is the Virtual OS called. It is used to combine several features into on
 This GUI is designed to give the players an Overview over the other squads and their radios.
 The Feature is not connected to your currently used radios. This is done on purpose. The goal was to give an overview, not to reduce the usage of ACRE into just clicking a button.
 
-### Treeview
+#### Treeview
 The Treeview shows the groups of your side. Each Group can have Group-radios and each player can have his own radios displayed.
 For Example:
 
@@ -47,7 +47,7 @@ Now the Tree should show the following:
 ----- AN/PRC 117F - CAS
 ```
 
-### Defining radios
+#### Defining radios
 The defining radios of groups is similar to defining radios for yourself
 Only the leader of the squad can define radios for the group while every player can define his own radios.
 You can spot, if you are defining the group or the personal radios by taking a look at the watermark.
@@ -84,7 +84,7 @@ The minus button can be used to clear the spawn are. The add button creates the 
 <hr>
 ## <a name="whitelist"></a>Whitelist
 The CAS-Vehicles are whitelisted. If you are not allowed to fly this vehicle, you can't use the Pilot and Co-Pilot slots.
-The Whitelist is based on a Database
+The Whitelist is based on a Database and the rights are granted from the Server after you are connected to the server.
 
 <hr>
 ## <a name="logistics"></a>Logistics
