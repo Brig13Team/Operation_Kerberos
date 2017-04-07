@@ -37,9 +37,9 @@ private _enemyThreat = [0,0,0];
             _enemygroups pushBackUnique _currentGroup;
 
 
-            private _currentType = HASH_GET(_grouphash,"type");
-            private _currentValue = HASH_GET(_grouphash,"value");
-            private _currentThreat = HASH_GET(_grouphash,"threat");
+            private _currentType = HASH_GET(_grouphash,"type"); // 0
+            private _currentValue = HASH_GET(_grouphash,"value"); // 100000
+            private _currentThreat = HASH_GET(_grouphash,"threat"); // [0,0,0]
 
             _enemyType set [_currentType,(_enemyType select _currentType) + 1];
             _enemyValue set [_currentType,(_enemyValue select _currentType) + _currentValue];
