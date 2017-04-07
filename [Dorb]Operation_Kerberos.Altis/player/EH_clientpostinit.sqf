@@ -65,3 +65,10 @@ waituntil {! isnull player};
         ]
     ]
 ] call CBA_fnc_localEvent;
+
+[
+    QGVARMAIN(arsenalClosed),
+    {
+        [player,QGVARMAIN(insignia)] call BIS_fnc_setUnitInsignia;
+    }
+] call CBA_fnc_addEventHandler;
