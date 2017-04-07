@@ -5,10 +5,10 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=5;
+	toggles=133;
 	class ItemIDProvider
 	{
-		nextID=462;
+		nextID=463;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={26792.262,82.97377,24550.494};
-		dir[]={-0.036235094,-0.65719867,0.7528531};
-		up[]={-0.031594776,0.75371116,0.65644485};
-		aside[]={0.99884564,-1.2941928e-007,0.048075128};
+		pos[]={16575.418,60.260284,18971.104};
+		dir[]={0,-0.70710683,0.70710683};
+		up[]={0,0.70710677,0.70710677};
+		aside[]={0.99999994,0,-0};
 	};
 };
 binarizationWanted=0;
@@ -238,7 +238,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=230;
+		items=231;
 		class Item0
 		{
 			dataType="Group";
@@ -11335,7 +11335,7 @@ class Mission
 			position[]={26785.625,0,24654.125};
 			name="airfield";
 			type="Empty";
-			angle=141.93196;
+			angle=141.93195;
 			id=455;
 			atlOffset=-20.937649;
 		};
@@ -11345,7 +11345,7 @@ class Mission
 			position[]={26730.125,0,24608};
 			name="teleport_logistics";
 			type="Empty";
-			angle=76.705574;
+			angle=76.705566;
 			id=456;
 			atlOffset=-20.486155;
 		};
@@ -11355,7 +11355,7 @@ class Mission
 			position[]={17407,0,19479.75};
 			name="teleport_marina";
 			type="Empty";
-			angle=342.72192;
+			angle=342.72189;
 			id=457;
 			atlOffset=-4.4845972;
 		};
@@ -11409,6 +11409,16 @@ class Mission
 			};
 			id=461;
 			type="Land_HelipadCircle_F";
+		};
+		class Item230
+		{
+			dataType="Marker";
+			position[]={16556.625,0,19019};
+			name="rescue_marker";
+			type="Empty";
+			angle=123.12498;
+			id=462;
+			atlOffset=-34.392696;
 		};
 	};
 };
