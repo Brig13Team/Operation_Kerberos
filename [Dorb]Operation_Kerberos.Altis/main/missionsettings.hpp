@@ -14,7 +14,8 @@ onLoadMission = LSTRING(NAME);
 loadScreen = MPATH(EPAAPATH(logo,logo_512));
 
 author = CSTRING(AUTHOR);
-overviewPicture = MPATH(EPAAPATH(logo,logo_512));
+//overviewPicture = MPATH(EPAAPATH(logo,logo_512));
+overviewPicture = "";
 overviewText = "";
 overviewTextLocked = "";
 
