@@ -12,7 +12,7 @@ GVAR(cleanup_positions) = [];
 
 GVAR(cleanUpDump) = [];
 GVAR(cleanup_objectsToCheck) = [];
-GVAR(cleanUp_waittime) = 30;
+GVAR(cleanUp_waittime) = 8*60;
 GVAR(cleanup_Dump_int) = [];
 
 [QEGVAR(mission,end_server),LINKFUNC(onMissionEnding)] call CBA_fnc_addEventHandler;
