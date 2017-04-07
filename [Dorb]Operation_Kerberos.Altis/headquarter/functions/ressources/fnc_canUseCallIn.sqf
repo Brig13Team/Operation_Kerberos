@@ -17,7 +17,7 @@ _this params [["_type","",[""]]];
 
 switch (_type) do {
     case "cas" : {
-        private _unit = ["cas"] call EFUNC(spawn,getUnit);
+        private _unit = ["plane_cas"] call EFUNC(spawn,getUnit);
         ((([_unit] call FUNC(getCost)) + GVAR(ressources_amount)) > 0);
     };
     case "airinterception" : {
