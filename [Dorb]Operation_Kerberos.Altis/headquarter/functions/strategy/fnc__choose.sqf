@@ -16,7 +16,7 @@ _this params ["_attackPos",["_again",false,[true]],"_lastValue",["_passing",5,[0
 
 private _failedattacks = HASH_GET_DEF(_attackPos,"failedattacks",0);
 
-private _enemyType = HASH_GET_DEF(_attackPos,"enemytype",[0,0,0]); /// [0,0,0] - amount of specific groups
+private _enemyType = HASH_GET_DEF(_attackPos,"enemytype",[ARR_3(0,0,0)]); /// [0,0,0] - amount of specific groups
 If (_enemyType isEqualTo [0,0,0]) exitWith {
     TRACEV_2(_attackPos,_enemyType);
     [_attackPos] call FUNC(attackpos_update);

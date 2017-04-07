@@ -5,7 +5,7 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=133;
+	toggles=5;
 	class ItemIDProvider
 	{
 		nextID=463;
@@ -16,7 +16,7 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={16575.418,60.260284,18971.104};
+		pos[]={17394.18,24.989487,19562.887};
 		dir[]={0,-0.70710683,0.70710683};
 		up[]={0,0.70710677,0.70710677};
 		aside[]={0.99999994,0,-0};
@@ -2226,13 +2226,13 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={17395.6,0.52274132,19595.373};
-				angles[]={0.020001473,2.0681279,0.0093375118};
+				position[]={17398,0.5,19595.25};
+				angles[]={0,6.218502,0};
 			};
 			name="spawn_boat";
 			id=178;
 			type="Logic";
-			atlOffset=4.9999995;
+			atlOffset=4.8223338;
 		};
 		class Item17
 		{
@@ -4147,7 +4147,7 @@ class Mission
 			};
 			id=244;
 			type="Land_Cargo20_military_green_F";
-			atlOffset=-0.00026321411;
+			atlOffset=-0.00027275085;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -11285,7 +11285,7 @@ class Mission
 			};
 			id=454;
 			type="Land_Cargo40_military_green_F";
-			atlOffset=-0.0014228821;
+			atlOffset=-0.0014190674;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -11335,7 +11335,7 @@ class Mission
 			position[]={26785.625,0,24654.125};
 			name="airfield";
 			type="Empty";
-			angle=141.93195;
+			angle=141.93193;
 			id=455;
 			atlOffset=-20.937649;
 		};
@@ -11345,7 +11345,7 @@ class Mission
 			position[]={26730.125,0,24608};
 			name="teleport_logistics";
 			type="Empty";
-			angle=76.705566;
+			angle=76.705559;
 			id=456;
 			atlOffset=-20.486155;
 		};
@@ -11416,7 +11416,7 @@ class Mission
 			position[]={16556.625,0,19019};
 			name="rescue_marker";
 			type="Empty";
-			angle=123.12498;
+			angle=123.12497;
 			id=462;
 			atlOffset=-34.392696;
 		};

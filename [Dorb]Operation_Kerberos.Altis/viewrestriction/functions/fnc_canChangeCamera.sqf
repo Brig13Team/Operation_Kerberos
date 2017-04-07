@@ -16,10 +16,12 @@
 
 _this params ["_CameraView","_vehicle"];
 
-!(_CameraView in ["GUNNER", "GROUP"]) &&
+(
+!((toUpper _CameraView) in ["GUNNER", "GROUP"]) &&
 {!isNull ACE_player} &&
 {player == ACE_player} &&
 {alive ACE_player} &&
 {ACE_player == _vehicle || vehicle ACE_player == _vehicle} &&
 {!([] call ace_common_fnc_isFeatureCameraActive)} &&
 {!(_vehicle isKindOf "UAV" || _vehicle isKindOf "UAV_01_base_F")}
+)
