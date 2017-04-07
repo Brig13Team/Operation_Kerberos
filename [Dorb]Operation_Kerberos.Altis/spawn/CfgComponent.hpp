@@ -19,12 +19,6 @@ class DOUBLES(CfgComponent,ADDON) {
     class hit {};
     class preinit {};
     class init {};
-    class initTFAR {
-        class dependencies {
-            CfgPatches[] = {};
-            CfgComponents[] = {"mod_tfar"};
-        };
-    };
     class initACE {
         class dependencies {
             CfgPatches[] = {};
