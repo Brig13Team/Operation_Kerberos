@@ -35,11 +35,11 @@ If (!isServer) exitWith {
 If (isPlayer _unit) then {
     TRACE("Player killed");
     /// reduce the enemystrength, if a player was killed
-    private _key = [(getPos _unit)] call FUNC(dzconvert);
-    private _zoneHash = HASH_GET(GVAR(dangerzones),_key);
+    private _DZkey = [(getPos _unit)] call FUNC(dzconvert);
+    private _zoneHash = HASH_GET(GVAR(dangerzones),_DZkey);
     if (isNil "_zoneHash") then {
         _zoneHash = HASH_CREATE;
-        HASH_SET(GVAR(dangerzones),_key,_zoneHash);
+        HASH_SET(GVAR(dangerzones),_DZkey,_zoneHash);
     };
     private _unconciousPlayers = HASH_GET_DEF(_zoneHash,"unconciousPlayers",[]);
     private _alreadyReduces = false;
