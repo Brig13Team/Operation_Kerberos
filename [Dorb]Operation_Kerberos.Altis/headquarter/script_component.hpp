@@ -22,8 +22,8 @@
 #define INTERVALL_FDC 120
 #define INTERVALL_SEARCH 400
 
-#define DZVALUEMOD(DZVALUE) (((1.5*(log((DZVALUE/100000) max 1)/log(0.001))+1.5) * 100000) * DZVALUE)
-
+//#define DZVALUEMOD(DZVALUE) (((1.5*(log((DZVALUE/100000) max 1)/log(0.001))+1.5) * 100000) * DZVALUE)
+#define DZVALUEMOD(DZVALUE) (DZVALUE)
 
 
 #include "..\script_mission.hpp"
