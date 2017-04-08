@@ -96,6 +96,7 @@ GVAR(dangerzones) = HASH_CREATE;
 HASH_SET(GVAR(dangerzones),"definitions",[ARR_3(2000,100,20)]);
 HASH_SET(GVAR(dangerzones),"gridsize",100);
 HASH_SET(GVAR(dangerzones),"distance",2000);
+GVAR(UnitKilledCoeff) = 0.2;
 
 /// Strategy
 GVAR(strategy_memory) = HASH_SERIALIZE(GETPRVAR(GVAR(strategy_memory),HASH_CREATE));
@@ -128,6 +129,6 @@ HASH_SET(GVAR(handles),"ressources",_handle);
 // DEBUG
 GVAR(debugMarkerActive) = false;
 #ifdef DEBUG_MODE_FULL
-    //GVAR(debugMarkerActive) = true;
-    //[FUNC(handleDebugMarker),60,[]] call CBA_fnc_addPerFrameHandler;
+    GVAR(debugMarkerActive) = true;
+    [FUNC(handleDebugMarker),60,[]] call CBA_fnc_addPerFrameHandler;
 #endif

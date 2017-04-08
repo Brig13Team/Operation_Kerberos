@@ -69,6 +69,7 @@ If (_dzValue < 0) then {
 };
 
 private _valueMax = (_enemyValue select 0) + (_enemyValue select 1) + (_enemyValue select 2);
+TRACEV_3(_dzValue,_valueMax,_enemyValue);
 if (_valueMax < (0.8 *_dzValue)) then {
     _enemyValue = [
         If ((_enemyValue select 0) == 0) then {
@@ -88,7 +89,7 @@ if (_valueMax < (0.8 *_dzValue)) then {
         }
     ];
 };
-TRACEV_6(_attackLoc,locationPosition _attackLoc,_enemygroups,_enemyType,_enemyValue,_enemyThreat);
+TRACEV_8(_attackLoc,locationPosition _attackLoc,_dzValue,_valueMax,_enemygroups,_enemyType,_enemyValue,_enemyThreat);
 HASH_SET(_attackLoc,"enemygroups",_enemygroups);
 HASH_SET(_attackLoc,"enemytype",_enemyType);
 HASH_SET(_attackLoc,"enemyvalue",_enemyValue);

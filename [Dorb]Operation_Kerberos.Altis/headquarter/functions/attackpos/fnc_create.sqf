@@ -18,6 +18,10 @@ _this params [["_position",[],[[]],[2,3]]];
 
 CHECK(_position isEqualTo [])
 
+private _centerpos = HASH_GET(GVAR(dangerzones),"centerpos");
+private _distance = HASH_GET(GVAR(dangerzones),"distance");
+If ((_position distance2d _centerPos)>(_distance * 1.4)) exitWith {};
+
 // check if there is already an attackposition if there is one, exit
 private _attackLoc = [_position] call FUNC(attackpos_atPosition);
 CHECK(!isNull _attackLoc)

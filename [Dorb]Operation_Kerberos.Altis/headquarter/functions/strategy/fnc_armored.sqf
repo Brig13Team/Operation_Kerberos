@@ -16,7 +16,7 @@
 
 
 _this params ["_currentLocation","_strategyHash"];
-TRACEV_2(_currentLocation,_strategyHash);
+//TRACEV_2(_currentLocation,_strategyHash);
 private _attackgroups = HASH_GET(GVAR(groups),"attackGroups");
 private _availableGroups = [];
 

@@ -27,7 +27,8 @@ TRACEV_1(_vehicleType);
 If ((isNil "_vehicleType")||{_vehicleType isEqualTo ""}) exitWith {};
 
 If ([player,_vehicleType] call FUNC(checkRestrictions)) exitWith {
-    [LSTRING(ERRORMSG),LSTRING(ISRESTRICTED),"red"] call EFUNC(gui,message);
+    [LSTRING(ERRORMSG),LSTRING(ISRESTRICTED),"red"] spawn EFUNC(gui,message);
+    true;
 };
 
 private _spawnposition =+ GVAR(curPos);
