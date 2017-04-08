@@ -16,6 +16,8 @@
 
 CHECK(!(GVAR(active)))
 
+ISNILS(GVAR(ressources_amount),-1);
+
 private _value = 0;
 
 // average player kills units per hour
