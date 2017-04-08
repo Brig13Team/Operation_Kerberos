@@ -18,15 +18,15 @@ private _failedattacks = HASH_GET_DEF(_attackPos,"failedattacks",0);
 
 private _enemyType = HASH_GET_DEF(_attackPos,"enemytype",[ARR_3(0,0,0)]); /// [0,0,0] - amount of specific groups
 If (_enemyType isEqualTo [0,0,0]) exitWith {
-    TRACEV_2(_attackPos,_enemyType);
+    //TRACEV_2(_attackPos,_enemyType);
     [_attackPos] call FUNC(attackpos_update);
 };
 private _enemyValue = HASH_GET(_attackPos,"enemyvalue"); /// [0,0,0] - value of each type
 private _enemyThreat = HASH_GET(_attackPos,"enemythreat"); /// [0,0,0] - combined threat
-TRACEV_4(_failedattacks,_enemyType,_enemyValue,_enemyThreat);
+//TRACEV_4(_failedattacks,_enemyType,_enemyValue,_enemyThreat);
 private _curValue = _enemyValue apply {_x * (_failedattacks * 0.2 + 1 + (missionNamespace getVariable [QGVAR(playermalus),0]) ) * ([_attackPos] call FUNC(getDistanceCoeff))};
 If (_again) then {
-    TRACEV_3(_again,_curValue,_lastValue);
+    //TRACEV_3(_again,_curValue,_lastValue);
     _curValue = _lastValue;
     _again = false;
 };
@@ -76,7 +76,7 @@ If ((_enemyType select 1)>0) then {
     /// posible strategies against air
     private _strategyCfgs = configProperties [(missionConfigFile >> "strategy"),"(((getArray(_x >> 'threat')) select 1) > 0)" ,true];
     private _possibleStrategys = [];
-    TRACEV_1(_strategyCfgs);
+    //TRACEV_1(_strategyCfgs);
     {
         //// check additional condition - e.g. all Support used
         private _condition = (getText(_x>>"condition"));
@@ -92,12 +92,12 @@ If ((_enemyType select 1)>0) then {
                 _temp = 1 / (abs((_curValue select 1) - ((_tempthreat select 1) * (_tempValue)))+1);
             };
             _temp = _temp * 1000000;
-            TRACEV_4(configname _x,_temp,_tempValue,_tempthreat);
+            //TRACEV_4(configname _x,_temp,_tempValue,_tempthreat);
             _possibleStrategys pushBack [_temp,_x];
         };
     } forEach _strategyCfgs;
     /// select the strategy (weighted)
-    TRACEV_1(_possibleStrategys);
+    //TRACEV_1(_possibleStrategys);
     private _strategyToAdd = ([_possibleStrategys,0,false] call EFUNC(common,sel_array_weighted)) select 1;
     private _tempValue = (getNumber(_strategyToAdd>>"value"));
     private _tempthreat = (getArray(_strategyToAdd>>"threat"));
@@ -157,8 +157,8 @@ If (
     ) then {
     _again = true;
     _passing = _passing - 1;
-    TRACE("Choosing again");
-    TRACEV_3(_curValue,_again,_passing);
+    //TRACE("Choosing again");
+    //TRACEV_3(_curValue,_again,_passing);
 };
 
 
@@ -183,8 +183,8 @@ If (
         };
     };
     //private _parameter = [[_attackPos,_strategyhash] call compile _function] param [0,[]];
-    TRACEV_5(configName _x,_attackPos,_strategyhash,_function,_parameter);
-    TRACEV_3(_timeout,_condition,_parameter);
+    //TRACEV_5(configName _x,_attackPos,_strategyhash,_function,_parameter);
+    //TRACEV_3(_timeout,_condition,_parameter);
     If (_timeout > 0) then {
         _timeout = _timeout + CBA_missiontime;
         HASH_SET(_strategyhash,"timeout",_timeout);
@@ -214,7 +214,11 @@ If (
 } forEach _chosenStrategies;
 
 
-If ((_again)&&{_passing > 0}) then {
-    TRACEV_3(_attackPos,_curValue,_passing);
+If ((_again)&&{_passing > 0}) exitWith {
+    //TRACEV_3(_attackPos,_curValue,_passing);
     [_attackPos,true,_curValue,_passing] call FUNC(strategy__choose);
 };
+#ifdef DEBUG_MODE_FULL
+    private _currentStrategies = HASH_GET(_attackPos,"strategies") apply {HASH_GET(_x,"strategytype")};
+    TRACEV_6(_attackPos,_currentStrategies,_curValue,_enemyType,_enemyValue,_enemyThreat);
+#endif
