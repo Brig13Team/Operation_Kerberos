@@ -36,8 +36,10 @@ HASH_SET(GVAR(FDC),"firemissions",[]);
 
 _handle = [LINKFUNC(fdc_handle),INTERVALL_FDC,[]] call CBA_fnc_addPerFrameHandler;
 HASH_SET(GVAR(handles),"fdc_main",_handle);
+/*
 _handle = [LINKFUNC(fdc_defend_artypos),INTERVALL_SEARCH,[]] call CBA_fnc_addPerFrameHandler;
 HASH_SET(GVAR(handles),"fdc_defend",_handle);
+*/
 /*************************
 *
 *       Anti Air

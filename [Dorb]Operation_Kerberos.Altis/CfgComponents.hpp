@@ -26,6 +26,7 @@ class CfgComponents {
     doorbreach = 1;
     /// mission specific components
     headquarter = 1;
+    artillery = 1;
     mission = 1;
     advertisements = 0;
     /// mod specific components
@@ -53,6 +54,7 @@ class CfgComponents {
 #include "grouptracker\CfgComponent.hpp"
 #include "headless\CfgComponent.hpp"
 #include "headquarter\CfgComponent.hpp"
+#include "artillery\CfgComponent.hpp"
 #include "logistics\CfgComponent.hpp"
 #include "mission\CfgComponent.hpp"
 #include "mod_ace\CfgComponent.hpp"

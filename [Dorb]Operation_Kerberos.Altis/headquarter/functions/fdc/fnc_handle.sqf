@@ -62,6 +62,7 @@ private _unit = selectRandom _current_artillerys_array;
 SETVAR(_unit,GVAR(fdc_ready),false);
 TRACE_5("ArtilleryOrder = %1 - [%2,%3,%4]",_unit,_position,_shelltype,_amount);
 ///// Add fired Eventhandler -> removes status
-_unit addEventHandler ["Fired",{_this params ["_unit"];_unit setVehicleAmmoDef 1;_unit setVariable [ARR_2(QGVAR(fdc_ready),true)];_unit removeEventHandler [ARR_2("Fired",_thisEventHandler)];}];
-_unit commandArtilleryFire [_position,_shelltype,_amount];
+//_unit addEventHandler ["Fired",{_this params ["_unit"];_unit setVehicleAmmoDef 1;_unit setVariable [ARR_2(QGVAR(fdc_ready),true)];_unit removeEventHandler [ARR_2("Fired",_thisEventHandler)];}];
+[_unit,_position,_shelltype,_amount,{(_this select 0) setVariable [QGVAR(fdc_ready),true];_unit setVehicleAmmoDef 1;}] call EFUNC(artillery,fireAtTarget);
+//_unit commandArtilleryFire [_position,_shelltype,_amount];
 [] spawn FUNC(fdc_handle);
