@@ -149,7 +149,7 @@ class main {
 
     class rtb : __base {
        class object : object {
-           radius   = 100;
+           radius   = 250;
            position = "respawn_west";
        };
 
