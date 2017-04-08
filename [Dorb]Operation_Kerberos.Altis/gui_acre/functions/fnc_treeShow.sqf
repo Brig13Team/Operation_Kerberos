@@ -69,7 +69,7 @@ _fnc_getPlayergroups = {
     {
         If (
             (side _x == _side)
-            //&&{({isPlayer _x} count (units _x))>0}
+            &&{({isPlayer _x} count (units _x))>0}
             ) then {
             _groups pushBack _x;
         };
