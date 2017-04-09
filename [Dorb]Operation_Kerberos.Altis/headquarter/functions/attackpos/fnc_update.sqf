@@ -15,7 +15,8 @@
 #include "script_component.hpp"
 
 _this params [["_attackLoc",locationNull,[locationNull]],["_dzValue",-1,[0]]];
-CHECK((isNull _attackLoc)||{!(IS_HASH(_attackLoc))})
+TRACEV_2(_attackLoc,_dzValue);
+CHECK((isNull _attackLoc))
 
 private _enemygroups = [];
 private _enemyType = [0,0,0];
@@ -28,17 +29,17 @@ private _enemyThreat = [0,0,0];
     If !(isNull _currentGroup) then {
         private _groupIsInside =
             0<{
-                ((getPos _x) in _attackLoc)&&
-                {(GVARMAIN(side) knowsAbout _x)>1}
+                ((getPos _x) in _attackLoc)
+                //&&{(GVARMAIN(side) knowsAbout _x)>1}
             }count (units _currentGroup);
 
         If (_groupIsInside) then {
             _enemygroups pushBackUnique _currentGroup;
 
 
-            private _currentType = HASH_GET(_grouphash,"type");
-            private _currentValue = HASH_GET(_grouphash,"value");
-            private _currentThreat = HASH_GET(_grouphash,"threat");
+            private _currentType = HASH_GET(_grouphash,"type"); // 0
+            private _currentValue = HASH_GET(_grouphash,"value"); // 100000
+            private _currentThreat = HASH_GET(_grouphash,"threat"); // [0,0,0]
 
             _enemyType set [_currentType,(_enemyType select _currentType) + 1];
             _enemyValue set [_currentType,(_enemyValue select _currentType) + _currentValue];
@@ -52,7 +53,10 @@ private _enemyThreat = [0,0,0];
     };
 } count HASH_GET_DEF(GVAR(groups),"playergroups",[]);
 
-If (_enemygroups isEqualTo []) exitWith {[_attackLoc] call FUNC(attackpos_delete);};
+If (_enemygroups isEqualTo []) exitWith {
+    TRACE("Deleting Attackpos");
+    [_attackLoc] call FUNC(attackpos_delete);
+};
 
 If (_dzValue < 0) then {
     private _key = [getPos _attackLoc] call FUNC(dzConvert);
@@ -65,6 +69,7 @@ If (_dzValue < 0) then {
 };
 
 private _valueMax = (_enemyValue select 0) + (_enemyValue select 1) + (_enemyValue select 2);
+TRACEV_3(_dzValue,_valueMax,_enemyValue);
 if (_valueMax < (0.8 *_dzValue)) then {
     _enemyValue = [
         If ((_enemyValue select 0) == 0) then {
@@ -84,7 +89,7 @@ if (_valueMax < (0.8 *_dzValue)) then {
         }
     ];
 };
-
+TRACEV_8(_attackLoc,locationPosition _attackLoc,_dzValue,_valueMax,_enemygroups,_enemyType,_enemyValue,_enemyThreat);
 HASH_SET(_attackLoc,"enemygroups",_enemygroups);
 HASH_SET(_attackLoc,"enemytype",_enemyType);
 HASH_SET(_attackLoc,"enemyvalue",_enemyValue);

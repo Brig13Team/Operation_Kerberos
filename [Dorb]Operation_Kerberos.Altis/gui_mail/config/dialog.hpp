@@ -141,6 +141,7 @@ class APP(dialog) : RSC(Echidna) {
         w = GUI_ECHIDNA_W * 22;
         h = GUI_ECHIDNA_H * 2;
         colorBackground[] = COLOR_ECHIDNA_MAIL_CONTENT_BACKGROUND_SENDER;
+        colorText[] = COLOR_ECHIDNA_MAIL_CONTENT_TEXT;
         text = "sender";
     };
     class header_date : header_sender {

@@ -26,7 +26,9 @@ lnbClear _combobox;
 TRACEV_1(_index);
 
 If (_index < 0) exitWith {
-    {ctrlDelete _x;} forEach GVAR(tempProperties);
+    {
+        {ctrlDelete _x;} forEach _x;
+    } forEach GVAR(tempProperties);
     GVAR(tempProperties) = [];
     GVAR(tempPropertiesRadio) = locationNull;
     [] call FUNC(radiosPropertiesShow);

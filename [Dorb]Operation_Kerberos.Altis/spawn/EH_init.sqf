@@ -12,7 +12,3 @@
         _this call FUNC(gear);
     };
 },true,[],true] call CBA_fnc_addClassEventHandler;
-
-["ACE_bodyBagObject", "init", {
-    if (local (_this select 0)) then {deleteVehicle (_this select 0);};
-},true,[],true] call CBA_fnc_addClassEventHandler;

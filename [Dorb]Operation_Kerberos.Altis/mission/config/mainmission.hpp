@@ -130,8 +130,8 @@ class main {
         };
 
         class object : object {
-            min = 2;
-            max = 5;
+            min = 1;
+            max = 3;
         };
     };
 
@@ -149,7 +149,7 @@ class main {
 
     class rtb : __base {
        class object : object {
-           radius   = 100;
+           radius   = 250;
            position = "respawn_west";
        };
 

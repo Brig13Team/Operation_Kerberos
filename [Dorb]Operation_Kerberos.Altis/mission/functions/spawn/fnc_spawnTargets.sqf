@@ -56,9 +56,9 @@ TRACEV_1(_targetPositions);
 
 for "_i" from 1 to _amount do {
     if (_targetPositions isEqualTo []) exitWith { [] };
-    private _pos = selectRandom _targetPositions;
+    private _pos =+ (selectRandom _targetPositions);
     /* if !(_house) then { */ _targetPositions = _targetPositions - [_pos]; // };
-
+    _pos resize 3;
     private _class = selectRandom ([_type] call FUNC(spawn_getObjects));
 
     TRACEV_2(_class,_pos);
@@ -84,9 +84,7 @@ for "_i" from 1 to _amount do {
     };
 
     #ifdef DEBUG_MODE_FULL
-        private _marker = createMarker[format["debug_marker_%1_%2", _type, getPos _target], getPos _target];
-        _marker setMarkerType "hd_dot";
-        _marker setMarkerText (typeof _target);
+        [_target,typeof _target,"ColorBlack","hd_dot"] call EFUNC(common,debug_marker_create);
     #endif // DEBUG_MODE_FULL
 
     if !(isNil QEFUNC(headquarter,registerPOI)) then {

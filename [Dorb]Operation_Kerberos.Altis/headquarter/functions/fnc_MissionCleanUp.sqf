@@ -51,11 +51,17 @@ HASH_SET(GVAR(groups),"attackGroups",[]);
 HASH_SET(GVAR(groups),"patrolGroups",[]);
 
 // Attackpositions
+/*
 {
     private _value = HASH_GET(GVAR(attackpos),_x);
     If (IS_HASH(_value)) then {
         HASH_DELETE(_value);
     };
 } forEach HASH_KEYS(GVAR(attackpos));
+*/
+{
+    HASH_DELETE(_x);
+} forEach HASH_GET_DEF(GVAR(attackPos),"locations",[]);
+HASH_SET(GVAR(attackPos),"locations",[]);
 
 [] call FUNC(drones_onMissionEnd);

@@ -26,7 +26,7 @@ private _ACE_Action = [
     LINKFUNC(canOpenMenu)
 ] call ace_interact_menu_fnc_createAction;
 
-[player, 1, ["ACE_SelfActions"], _ACE_Action] call ace_interact_menu_fnc_addActionToObject;
+[ace_player, 1, ["ACE_SelfActions"], _ACE_Action] call ace_interact_menu_fnc_addActionToObject;
 
 {
     _x params ["_Red","_Green","_Blue"];

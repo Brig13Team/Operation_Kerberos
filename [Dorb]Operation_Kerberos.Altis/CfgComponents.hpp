@@ -26,14 +26,16 @@ class CfgComponents {
     doorbreach = 1;
     /// mission specific components
     headquarter = 1;
+    artillery = 1;
     mission = 1;
     advertisements = 0;
     /// mod specific components
     mod_ace = 1;
     mod_acre = 1;
     mod_asrai = 1;
+    mod_bwa3 = 1;
     patch_acre = 1;
-    patch_bw = 1;
+    patch_bwa3 = 1;
     /// gui
     gui = 1;
     gui_spawn = 1;
@@ -52,13 +54,15 @@ class CfgComponents {
 #include "grouptracker\CfgComponent.hpp"
 #include "headless\CfgComponent.hpp"
 #include "headquarter\CfgComponent.hpp"
+#include "artillery\CfgComponent.hpp"
 #include "logistics\CfgComponent.hpp"
 #include "mission\CfgComponent.hpp"
 #include "mod_ace\CfgComponent.hpp"
 #include "mod_acre\CfgComponent.hpp"
 #include "mod_asrai\CfgComponent.hpp"
+#include "mod_bwa3\CfgComponent.hpp"
 #include "patch_acre\CfgComponent.hpp"
-#include "patch_bw\CfgComponent.hpp"
+#include "patch_bwa3\CfgComponent.hpp"
 #include "player\CfgComponent.hpp"
 #include "spawn\CfgComponent.hpp"
 #include "teamkilling\CfgComponent.hpp"

@@ -11,11 +11,10 @@
  *      SCLALAR - costa of a Unit
  *
  */
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-
-_this params [["_type","",[""]]];
-If (_type isEqualTo "") exitWith {0};
-
+_this params [["_type",""]];
+If ((!(_type isEqualType ""))||{_type isEqualTo ""}) exitWith {0};
 switch (_type) do {
     case ("rhsusf_f22"): {
         4000000;

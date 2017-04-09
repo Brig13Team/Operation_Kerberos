@@ -36,7 +36,19 @@ If (_current_artillerys_array isEqualTo []) exitwith {
     TRACE_1("No artilleryunit found for Mission: \n %1",_current_firemission);
 };
 
-_current_artillerys_array = _current_artillerys_array select {(_position inRangeOfArtillery [[_x],_shelltype])&&(_shelltype in getArtilleryAmmo[_x])};
+private _minDistance = switch (_type) do {
+    case 0 : {1026};//1026
+    case 1 : {560};
+    case 2 : {800};
+    default {1050};
+};;
+
+
+_current_artillerys_array = _current_artillerys_array select {
+    (_position inRangeOfArtillery [[_x],_shelltype])
+    &&((_position distance _x)>_minDistance)
+    &&(_shelltype in getArtilleryAmmo[_x])
+};
 
 If (_current_artillerys_array isEqualTo []) exitwith {
     _type = [1,-1,0] select _type;
@@ -62,6 +74,7 @@ private _unit = selectRandom _current_artillerys_array;
 SETVAR(_unit,GVAR(fdc_ready),false);
 TRACE_5("ArtilleryOrder = %1 - [%2,%3,%4]",_unit,_position,_shelltype,_amount);
 ///// Add fired Eventhandler -> removes status
-_unit addEventHandler ["Fired",{_this params ["_unit"];_unit setVehicleAmmoDef 1;_unit setVariable [ARR_2(QGVAR(fdc_ready),true)];_unit removeEventHandler [ARR_2("Fired",_thisEventHandler)];}];
-_unit commandArtilleryFire [_position,_shelltype,_amount];
+//_unit addEventHandler ["Fired",{_this params ["_unit"];_unit setVehicleAmmoDef 1;_unit setVariable [ARR_2(QGVAR(fdc_ready),true)];_unit removeEventHandler [ARR_2("Fired",_thisEventHandler)];}];
+[_unit,_position,_shelltype,_amount,{(_this select 0) setVariable [QGVAR(fdc_ready),true];_unit setVehicleAmmoDef 1;}] call EFUNC(artillery,fireAtTarget);
+//_unit commandArtilleryFire [_position,_shelltype,_amount];
 [] spawn FUNC(fdc_handle);

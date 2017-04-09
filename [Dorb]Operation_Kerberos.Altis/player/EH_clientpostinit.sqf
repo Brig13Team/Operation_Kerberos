@@ -53,15 +53,8 @@ waituntil {! isnull player};
 ["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;
 
 [
-    QEGVAR(gui,dispInfo),
-    [
-        ELSTRING(MAIN,NAME),
-        [
-            ELSTRING(MAIN,WELCOME1),
-            ELSTRING(MAIN,WELCOME2),
-            ELSTRING(MAIN,WELCOME3),
-            " ",
-            ELSTRING(MAIN,AUTHOR)
-        ]
-    ]
-] call CBA_fnc_localEvent;
+    QGVARMAIN(arsenalClosed),
+    {
+        [player,QGVARMAIN(insignia)] call BIS_fnc_setUnitInsignia;
+    }
+] call CBA_fnc_addEventHandler;

@@ -15,7 +15,7 @@
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-_this params [["_hash",locationNull,[locationNull]]];
+_this params [["_hash",locationNull,[locationNull,objNull]]];
 
 If !(IS_AHASH(_hash)) exitWith {[]};
 

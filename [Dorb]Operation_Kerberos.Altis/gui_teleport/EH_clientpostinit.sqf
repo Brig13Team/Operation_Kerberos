@@ -9,6 +9,7 @@
 CHECK(!hasInterface)
 
 GVAR(teleporter) = HASH_CREATE;
+GVARMAIN(missiontime) = CBA_missiontime;
 
 /// Button 1
 private _hash = HASH_CREATE;

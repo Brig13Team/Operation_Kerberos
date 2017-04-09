@@ -8,10 +8,7 @@
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-["missionstest",FUNC(spawn)] call CBA_fnc_addEventHandler;
-
 // initialize rescuemarker
-[LINKEFUNC(spawn,cleanup_base) , 900, []] call CBA_fnc_addPerFrameHandler;
 If ((getMarkerPos GVARMAIN(rescuemarker)) isEqualTo [0,0,0]) then {
     ERROR("No Rescue-Marker Found")
 } else {
@@ -19,7 +16,7 @@ If ((getMarkerPos GVARMAIN(rescuemarker)) isEqualTo [0,0,0]) then {
 };
 
 // events
-[QGVAR(emp), LINKFUNC(onEMP)] call CBA_fnc_addEventHandler;
+[QGVAR(emp), LINKFUNC(obj_spawnEMP)] call CBA_fnc_addEventHandler;
 [QGVAR(effectDownload_Server), LINKFUNC(obj_effectDownloadServer)] call CBA_fnc_addEventHandler;
 [QEGVAR(mission,end_server), LINKFUNC(end)] call CBA_fnc_addEventHandler;
 // rescue point events
@@ -42,7 +39,7 @@ If ((getMarkerPos GVARMAIN(rescuemarker)) isEqualTo [0,0,0]) then {
     GVAR(base) = HASH_GET(GVAR(locations),"HQ");
     // SETMVAR(GVAR(base),[ARR_2("HQ",getMarkerPos format [ARR_2("respawn_%1",toLower (str GVARMAIN(playerside)))])]);
 
-    uiSleep 20;
+    uiSleep 60;
 
     [] call FUNC(taskmanager_init);
     TRACE("Taskmanager is initialized!");

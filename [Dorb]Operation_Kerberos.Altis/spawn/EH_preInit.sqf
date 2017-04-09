@@ -5,8 +5,8 @@ ADDON = false;
 
 PREP(army_set);
 
-PREP(cleanup_base);
 PREP(cleanup_full);
+PREP(cleanuphandler);
 PREP(createMinefields);
 PREP(createMission);
 PREP(createMissionComposition);

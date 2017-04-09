@@ -13,7 +13,7 @@
  */
 #include "script_component.hpp"
 
-
+ISNILS(GVAR(ressources_amount),-1);
 If (
         (GVAR(ressources_amount)>0)&&
         {[] call FUNC(ressources_CanCallInUnits)}

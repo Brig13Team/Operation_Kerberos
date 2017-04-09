@@ -60,7 +60,7 @@ class GVAR(unitlists) {
                     "rhs_vdv_crew_commander","rhs_vdv_driver","rhs_vdv_driver_armored"};
 
         class callIn {
-            helicopter_cas[] = {"RHS_Ka52_UPK23_vvs","rhs_ka60_grey"};
+            helicopter_cas[] = {"RHS_Ka52_UPK23_vvs"};
             helicopter_transport[] = {"rhs_Mi8mt_vdv","rhs_Mi8mt_Cargo_vdv","rhs_Mi8MTV3_vdv","rhs_Mi8MTV3_UPK23_vdv","rhs_Mi8MTV3_FAB_vdv","rhs_Mi8AMT_vdv"};
 
             planeAI[] = {"RHS_T50_vvs_054","RHS_T50_vvs_053","RHS_T50_vvs_052"};

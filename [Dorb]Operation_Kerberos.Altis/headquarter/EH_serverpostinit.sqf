@@ -36,8 +36,10 @@ HASH_SET(GVAR(FDC),"firemissions",[]);
 
 _handle = [LINKFUNC(fdc_handle),INTERVALL_FDC,[]] call CBA_fnc_addPerFrameHandler;
 HASH_SET(GVAR(handles),"fdc_main",_handle);
+/*
 _handle = [LINKFUNC(fdc_defend_artypos),INTERVALL_SEARCH,[]] call CBA_fnc_addPerFrameHandler;
 HASH_SET(GVAR(handles),"fdc_defend",_handle);
+*/
 /*************************
 *
 *       Anti Air
@@ -94,6 +96,7 @@ GVAR(dangerzones) = HASH_CREATE;
 HASH_SET(GVAR(dangerzones),"definitions",[ARR_3(2000,100,20)]);
 HASH_SET(GVAR(dangerzones),"gridsize",100);
 HASH_SET(GVAR(dangerzones),"distance",2000);
+GVAR(UnitKilledCoeff) = 0.2;
 
 /// Strategy
 GVAR(strategy_memory) = HASH_SERIALIZE(GETPRVAR(GVAR(strategy_memory),HASH_CREATE));

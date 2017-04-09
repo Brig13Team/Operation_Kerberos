@@ -27,7 +27,8 @@ TRACEV_1(_vehicleType);
 If ((isNil "_vehicleType")||{_vehicleType isEqualTo ""}) exitWith {};
 
 If ([player,_vehicleType] call FUNC(checkRestrictions)) exitWith {
-    [LSTRING(ERRORMSG),LSTRING(ISRESTRICTED),"red"] call EFUNC(gui,message);
+    [LSTRING(ERRORMSG),LSTRING(ISRESTRICTED),"red"] spawn EFUNC(gui,message);
+    true;
 };
 
 private _spawnposition =+ GVAR(curPos);
@@ -59,6 +60,7 @@ closeDialog (ctrlIDD _dialog);
 
 If (GVAR(vehiclesHashModified)) then {
     [] spawn {
+        uisleep 5;
         private _version = format["Version:%1_[%2,%3,%4,%5]",getText(missionConfigFile >> QUOTE(DOUBLES(CfgComponent,ADDON)) >> "version"),SafeZoneX,SafeZoneY,SafeZoneW,safeZoneH];
         private _serializedHash = [GVAR(vehiclesHash)] call EFUNC(main,hash_serialize);
         profileNamespace setVariable [QGVARMAIN(vehiclesLib),[_Version,_serializedHash]];

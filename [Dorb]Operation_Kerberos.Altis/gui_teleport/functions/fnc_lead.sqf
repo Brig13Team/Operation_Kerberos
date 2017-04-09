@@ -8,7 +8,7 @@
 #define INCLUDE_GUI
 #include "script_component.hpp"
 
-private _caller = player;
+private _caller = ace_player;
 private["_position","_platzanzahl","_nearestEnemy","_time"];
 _position = [];
 

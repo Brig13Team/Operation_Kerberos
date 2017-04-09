@@ -21,6 +21,8 @@ if (HASH_HASKEY(_mission, "side")) exitWith { -1 };
 private _centerpos = HASH_GET(_mission,"location") select 1;
 TRACEV_1(_centerPos);
 
+CHECK((_centerPos distance2d (getMarkerPos GVARMAIN(RESPAWNMARKER)))<1500)
+
 private _gridsize = HASH_GET(GVAR(dangerzones),"gridsize");
 private _distance = HASH_GET(GVAR(dangerzones),"distance");
 

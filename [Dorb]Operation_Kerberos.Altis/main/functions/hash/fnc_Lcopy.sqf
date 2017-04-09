@@ -15,7 +15,7 @@
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-_this params [["_hash",locationNull,[locationNull,[]]]];
+_this params [["_hash",locationNull,[locationNull,objNull,[]]]];
 
 If (_hash isEqualType []) exitWith {
     _hash call FUNC(hash_LcopyArray);

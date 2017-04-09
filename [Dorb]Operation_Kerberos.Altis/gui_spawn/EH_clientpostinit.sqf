@@ -28,8 +28,8 @@ GVAR(vehiclesHashModified) = false;
         private _id = [_spawntype,_spawnPos,_spawnDir] call FUNC(registerSpawn);
         [
             localize format[LSTRING(%1),_spawntype],
-            compile format["[player,'%1'] call %2;",_id,QFUNC(open)],
-            compile format["[player,'%1'] call %2;",_id,QFUNC(canOpenMenu)],
+            compile format["[ace_player,'%1'] call %2;",_id,QFUNC(open)],
+            compile format["[ace_player,'%1'] call %2;",_id,QFUNC(canOpenMenu)],
             ((parsingNamespace getVariable ["MISSION_ROOT",""]) + format[QEPAAPATH(icon,icon_%1),_picture]),
             _iconsize
         ] call EFUNC(gui_echidna,addApp);

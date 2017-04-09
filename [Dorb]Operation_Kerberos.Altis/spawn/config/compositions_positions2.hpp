@@ -1483,7 +1483,7 @@ class composition_80947 {
         hascrew = 1;
         class objects {
             class obj_0 {
-                pos[] = {-0.122803,-0.0786133,4.5944};
+                pos[] = {-0.122803,-0.0786133,2.5944};
                 issimpleobj = 0;
                 vecup[] = {0,0,2};
                 hascrew = 1;
@@ -1501,7 +1501,7 @@ class composition_80947 {
         hascrew = 1;
         class objects {
             class obj_0 {
-                pos[] = {-1.82031,-1.52637,7.09652};
+                pos[] = {-1.82031,-1.52637,2.09652};
                 issimpleobj = 0;
                 vecup[] = {0,0,2};
                 hascrew = 1;
@@ -1535,7 +1535,7 @@ class composition_80947 {
         hascrew = 1;
         class objects {
             class obj_0 {
-                pos[] = {0.0634766,0.0678711,4.49121};
+                pos[] = {0.0634766,0.0678711,2.49121};
                 issimpleobj = 0;
                 vecup[] = {0,0,2};
                 hascrew = 1;
