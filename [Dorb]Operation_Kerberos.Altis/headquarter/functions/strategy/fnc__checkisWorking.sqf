@@ -24,6 +24,7 @@ If ((_timeout > 0)&&{_timeout < CBA_missiontime}) exitWith {
 };
 
 private _finishCondition = HASH_GET_DEF(_strategy,"finishcondition",{true});
+If (IS_STRING(_finishCondition)) then {_finishCondition = compile _finishCondition;};
 private _parameter = HASH_GET_DEF(_strategy,"parameter",[]);
 TRACEV_3((_timeout-CBA_missiontime),_finishCondition,_parameter);
 If (!(_parameter call _finishCondition)) exitWith {true};

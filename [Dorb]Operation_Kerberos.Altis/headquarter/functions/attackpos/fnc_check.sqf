@@ -55,6 +55,7 @@ private _return = [];
                 ((_attackLocValArray select 1) - (_stratValArray select 1)) max 0,
                 ((_attackLocValArray select 2) - (_stratValArray select 2)) max 0
             ];
+            TRACEV_2(_attackLocation,_temp);
             [_attackLocation,true,_temp] call FUNC(strategy__choose);
         };
     };

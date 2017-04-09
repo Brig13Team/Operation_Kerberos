@@ -16,30 +16,31 @@
 _this params ["_position"];
 private _allVehicles = _position nearEntities [["LandVehicle","Air","Ship_F"],2000];
 {
+    private _curVehicle = _x;
     switch (true) do {
-        case (_x isKindOf 'Air') then {
+        case (_curVehicle isKindOf 'Air') : {
             private _damagecount = (floor(random 6)) max 1;
             private _hitpoints = ["HitEngine","HitEngine2","HitEngine3","HitBatteries","HitLight","HitHydraulics","HitHStabilizerL1",
                 "HitHStabilizerR1","HitVStabilizer1","HitPitotTube","HitStaticPort","HitStarter1","HitStarter2","HitStarter3",
                 "HitAvionics","HitMissiles"] call BIS_fnc_arrayShuffle;
             {
                 If (_damagecount < 0) exitWith {};
-                private _engine = (vehicle _x) getHitPointDamage "HitEngine";
+                private _engine = (vehicle _curVehicle) getHitPointDamage _x;
                 If !(isNil "_engine") then {
-                    (vehicle _x) setHitPointDamage ["HitEngine",1];
+                    (vehicle _curVehicle) setHitPointDamage [_engine,1];
                     _damagecount = _damagecount - 1;
                 };
             } forEach _hitpoints;
             If (_damagecount > 0) then {
-                (vehicle _x) setFuel 0;
+                (vehicle _curVehicle) setFuel 0;
             };
         };
         default {
-            private _engine = (vehicle _x) getHitPointDamage "HitEngine";
+            private _engine = (vehicle _curVehicle) getHitPointDamage "HitEngine";
             If (isNil "_engine") then {
-                (vehicle _x) setFuel 0;
+                (vehicle _curVehicle) setFuel 0;
             }else{
-                (vehicle _x) setHitPointDamage ["HitEngine",1];
+                (vehicle _curVehicle) setHitPointDamage ["HitEngine",1];
             };
         };
     };
