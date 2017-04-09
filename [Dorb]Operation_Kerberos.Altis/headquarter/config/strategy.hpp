@@ -40,7 +40,7 @@ class strategy {
 
     class helicopter {
         type[] = {0,0,1};
-        value = 3000000;
+        value = 7000000;
         threat[] = {1,1,0.7};
         condition = QUOTE(['helicopter'] call FUNC(ressources_canUseCallIn));
 
