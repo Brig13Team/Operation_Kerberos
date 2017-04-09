@@ -13,7 +13,7 @@
  *
  */
 #define DEBUG_MODE_FULL
-
+CHECK(!isServer)
 #include "script_component.hpp"
 _this params[["_group",grpNull,[grpNull,objNull]],["_statementFinish","",[""]]];
 
