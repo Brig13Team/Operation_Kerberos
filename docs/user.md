@@ -97,7 +97,7 @@ Otherwise he has to use the ACE-self interact menu.
 
 <hr>
 ## <a name="doorbreach"></a>Doorbreach
-It is possible to breach through doors with a M113 charge. If you want to do this, you have to have a M113 inside your inventory.
+It is possible to breach through doors with a M112 charge. If you want to do this, you have to have a M112 inside your inventory.
 Then you move towards a door and plant the charge via ACE-interact. The you have 10 Seconds until the charge explodes and opens the door.
 
 <hr>
