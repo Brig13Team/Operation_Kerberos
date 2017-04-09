@@ -12,9 +12,9 @@
  *      none
  *
  */
-#define DEBUG_MODE_FULL
-CHECK(!isServer)
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
+CHECK(!isServer)
 _this params[["_group",grpNull,[grpNull,objNull]],["_statementFinish","",[""]]];
 
 _group = _group call CBA_fnc_getGroup;
