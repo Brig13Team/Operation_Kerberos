@@ -36,7 +36,19 @@ If (_current_artillerys_array isEqualTo []) exitwith {
     TRACE_1("No artilleryunit found for Mission: \n %1",_current_firemission);
 };
 
-_current_artillerys_array = _current_artillerys_array select {(_position inRangeOfArtillery [[_x],_shelltype])&&(_shelltype in getArtilleryAmmo[_x])};
+private _minDistance = switch (_type) do {
+    case 0 : {1026};//1026
+    case 1 : {560};
+    case 2 : {800};
+    default {1050};
+};;
+
+
+_current_artillerys_array = _current_artillerys_array select {
+    (_position inRangeOfArtillery [[_x],_shelltype])
+    &&((_position distance _x)>_minDistance)
+    &&(_shelltype in getArtilleryAmmo[_x])
+};
 
 If (_current_artillerys_array isEqualTo []) exitwith {
     _type = [1,-1,0] select _type;
