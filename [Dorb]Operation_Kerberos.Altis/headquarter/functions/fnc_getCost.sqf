@@ -65,8 +65,17 @@ If (_type isKindOf "Air") exitWith {
 
     If (_type isKindOf "Plane") then {
         If ((count _weapons) >0) then {
-            //TODO: Difference between AI/CAS
-            _value = getArray(missionConfigFile>>"costs">>"plane_cas");
+            private _isAI = 0;
+            {
+                private _curWeapon = _x;
+                private _mag = ((getArray(configFile >> "CfgWeapons" >> _curWeapon >> "magazines")) select 0);
+                _isAI = _isAI max (getNumber(configFile >> "CfgAmmo" >> getText(configFile >> "CfgMagazines" >> _mag >> "ammo") >> "airLock"));
+            } forEach _weapons;
+            If (_isAI > 0) then {
+                _value = getArray(missionConfigFile>>"costs">>"plane_ai");
+            } else {
+                _value = getArray(missionConfigFile>>"costs">>"plane_cas");
+            };
             HASH_SET(GVAR(costs),_Type,_value);
             (_value select 0);
         } else {
@@ -120,8 +129,13 @@ If (_type isKindOf "CAManBase") exitWith {
         private _curWeapon = _x;
         ([_curWeapon] call BIS_fnc_itemType)params ["_itemclass","_itemtype"];
         If (_itemtype in ["Launcher"]) then {
-            //TODO: difference between Air and Ground Launcher
-            (getArray(missionConfigFile>>"costs">>"soldier_at")) call _fnc_valueAdd;
+            private _mag = ((getArray(configFile >> "CfgWeapons" >> _curWeapon >> "magazines")) select 0);
+            private _airlock = getNumber(configFile >> "CfgAmmo" >> getText(configFile >> "CfgMagazines" >> _mag >> "ammo") >> "airLock");
+            If (_airlock > 0) then {
+                (getArray(missionConfigFile>>"costs">>"soldier_at")) call _fnc_valueAdd;
+            } else {
+                (getArray(missionConfigFile>>"costs">>"soldier_aa")) call _fnc_valueAdd;
+            };
         };
         If (_itemtype in ["MG"]) then {
             (getArray(missionConfigFile>>"costs">>"soldier_mg")) call _fnc_valueAdd;
@@ -188,8 +202,13 @@ If ((_type isKindOf "LandVehicle")||{_type isKindOf "Ship_F"}) exitWith {
             (getArray(missionConfigFile>>"costs">>"vehicle_gmg")) call _fnc_valueAdd;
         };
         If (_itemtype in ["Launcher","MissileLauncher","RocketLauncher"]) then {
-            //TODO: difference between Air and Ground Launcher
-            (getArray(missionConfigFile>>"costs">>"vehicle_atrocket")) call _fnc_valueAdd;
+            private _mag = ((getArray(configFile >> "CfgWeapons" >> _type >> "magazines")) select 0);
+            private _airlock = getNumber(configFile >> "CfgAmmo" >> getText(configFile >> "CfgMagazines" >> _mag >> "ammo") >> "airLock");
+            If (_airlock > 0) then {
+                (getArray(missionConfigFile>>"costs">>"vehicle_atrocket")) call _fnc_valueAdd;
+            } else {
+                (getArray(missionConfigFile>>"costs">>"vehicle_aarocket")) call _fnc_valueAdd;
+            };
         };
         If (_itemtype in ["Mortar"]) then {
             (getArray(missionConfigFile>>"costs">>"vehicle_artillery")) call _fnc_valueAdd;
@@ -198,10 +217,18 @@ If ((_type isKindOf "LandVehicle")||{_type isKindOf "Ship_F"}) exitWith {
             (getArray(missionConfigFile>>"costs">>"vehicle_rocketart")) call _fnc_valueAdd;
         };
         If (_itemtype in ["Cannon"]) then {
-            // TODO different calliber
-            (getArray(missionConfigFile>>"costs">>"vehicle_gun")) call _fnc_valueAdd;
+            private _mag = ((getArray(configFile >> "CfgWeapons" >> _curWeapon >> "magazines")) select 0);
+            private _cal = getNumber(configFile >> "CfgMagazines" >> getText(configFile >> "CfgMagazines" >> _mag >> "ammo") >> "ace_rearm_caliber");
+            If (_cal > 80) then {
+                (getArray(missionConfigFile>>"costs">>"vehicle_gun")) call _fnc_valueAdd;
+            } else {
+                (getArray(missionConfigFile>>"costs">>"vehicle_20mm")) call _fnc_valueAdd;
+            };
         };
     } forEach _weapons;
+    
+    HASH_SET(GVAR(costs),_Type,_value);
+    (_value select 0);
 };
 
 LOG(FORMAT_1("Vehicle not found: %1",_type))
