@@ -55,6 +55,7 @@ HASH_SET(GVAR(antiair),"static",[]);
 *************************/
 GVAR(active) = false;
 GVAR(handle) = scriptNull;
+GVAR(costs) = HASH_CREATE;
 
 /*************************
 *

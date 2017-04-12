@@ -23,99 +23,187 @@ If (IS_OBJECT(_type)) then {
     _object = objNull;
 };
 
+private _value = HASH_GET(GVAR(costs),_type);
+If !(isNil "_value") exitWith {
+    (_value select 0);
+};
 
-#define SOLDIER 100
-
-#define V_NO_ARMOR
-#define V_LIGHT_ARMOR
-#define V_HEAVY_ARMOR
-
-#define A_HELICOPTER
-#define A_HELICOPTER_CAS
-#define A_PLANE
-#define A_PLANE_CAS
-
-#define D_PLANE
-#define D_HELICOPTER
-#define D_GROUND
-
-#define S_SHIP
-
-private _value = HASH_GET_DEF(GVAR(Cost),_type,-1);
-If (_value > 0) exitWith {_value};
-
+If (isCLass(missionConfigFile>>"costs">>_type)) exitWith {
+    private _value = [
+        getNumber(missionConfigFile>>"costs">>_type>>"value"),
+        getNumber(missionConfigFile>>"costs">>_type>>"strenght"),
+        getNumber(missionConfigFile>>"costs">>_type>>"defence")
+    ];
+    HASH_SET(GVAR(costs),_Type,_value);
+    (_value select 0);
+};
 
 If (_type isKindOf "Autonomous") exitWith {
     If !(_type isKindOf "Air") exitWith {
-        HASH_SET(GVAR(Cost),_type,D_GROUND);
-        D_GROUND
+        _value = getArray(missionConfigFile>>"costs">>"drone_ground");
+        HASH_SET(GVAR(costs),_Type,_value);
+        (_value select 0);
     };
     If (_type isKindOf "Plane") then {
-        HASH_SET(GVAR(Cost),_type,D_PLANE);
-        D_PLANE
+        _value = getArray(missionConfigFile>>"costs">>"drone_plane");
+        HASH_SET(GVAR(costs),_Type,_value);
+        (_value select 0);
     }else{
-        HASH_SET(GVAR(Cost),_type,D_HELICOPTER);
-        D_HELICOPTER
+        _value = getArray(missionConfigFile>>"costs">>"drone_helicopter");
+        HASH_SET(GVAR(costs),_Type,_value);
+        (_value select 0);
     };
 };
 
-If (_type isKindOf "Man") exitWith {
-    If (getNumber (configFile >> "CfgVehicles" >> typeOf _vehicle >> "attendant") > 0) then {
-            _value = _value + M_MEDIC;
+If (_type isKindOf "Air") exitWith {
+    private _weapons = If !(isNull _object) then {
+        weapons _object
+    } else {
+        getArray(configfile >> "CfgVehicles" >> _type >> "weapons")
+    };
+    _weapons = _weapons select {!((toUpper _x) in ["CMFLARELAUNCHER","ACE_AIR_SAFETY","RHS_WEAP_MASTERSAFE","RHS_LWIRCM_MELB"])};
+
+    If (_type isKindOf "Plane") then {
+        If ((count _weapons) >0) then {
+            //TODO: Difference between AI/CAS
+            _value = getArray(missionConfigFile>>"costs">>"plane_cas");
+            HASH_SET(GVAR(costs),_Type,_value);
+            (_value select 0);
+        } else {
+            _value = getArray(missionConfigFile>>"costs">>"plane");
+            HASH_SET(GVAR(costs),_Type,_value);
+            (_value select 0);
         };
-};
-
-If (_type isKindOf "Ship") exitWIth {
-    HASH_SET(GVAR(Cost),_type,S_SHIP);
-    S_SHIP
-};
-
-If (_type isKindOf "Car_F") exitWith {
-    private _value = 150;
-    // Cargo > 6
-    If () then {_value = _value + V_U_TRANSPORT;};
-    // Weapon
-    If () then {
-        If () then {_value = _value + V_U_HMG;};
-        If () then {_value = _value + V_U_GMG;};
+    }else{
+        If ((count _weapons) >0) then {
+            _value = getArray(missionConfigFile>>"costs">>"helicopter_cas");
+            HASH_SET(GVAR(costs),_Type,_value);
+            (_value select 0);
+        } else {
+            _value = getArray(missionConfigFile>>"costs">>"helicopter");
+            HASH_SET(GVAR(costs),_Type,_value);
+            (_value select 0);
+        };
     };
+};
+
+
+_fnc_valueAdd = {
+    _this params ["_cost","_strenght","_defence"];
+    _value set[0,(_value select 0)+_cost];
+    (_value select 1) set[0,((_value select 1) select 0)max(_strenght select 0)];
+    (_value select 1) set[1,((_value select 1) select 1)max(_strenght select 1)];
+    (_value select 1) set[2,((_value select 1) select 2)max(_strenght select 2)];
+
+    (_value select 2) set[0,((_value select 1) select 0)max(_defence select 0)];
+    (_value select 2) set[1,((_value select 1) select 1)max(_defence select 1)];
+    (_value select 2) set[2,((_value select 1) select 2)max(_defence select 2)];
+};
+
+If (_type isKindOf "CAManBase") exitWith {
+    _value = getArray(missionConfigFile>>"costs">>"soldier");
+    If (
+            ((getNumber (configFile >> "CfgVehicles" >> _type >> "attendant")>0)||
+            {(_object getVariable [QGVAR(medicClass),0]) > 1})||
+            {_object getVariable ["ACE_isEOD", getNumber (configFile >> "CfgVehicles" >> _type >> "canDeactivateMines") == 1]}||
+            {_object getVariable ["ACE_isEngineer", getNumber (configFile >> "CfgVehicles" >> _type >> "engineer") == 1]}
+            {(!(isNull _object))&&{({(toLower _x) in ["item_b_uavterminal","item_o_uavterminal","item_i_uavterminal"]} count (items _object))>0}}
+        ) then {
+            (getArray(missionConfigFile>>"costs">>"soldier_special")) call _fnc_valueAdd;
+        };
+    private _weapons = If !(isNull _object) then {
+        weapons _object
+    } else {
+        getArray(configfile >> "CfgVehicles" >> _type >> "weapons")
+    };
+    {
+        private _curWeapon = _x;
+        ([_curWeapon] call BIS_fnc_itemType)params ["_itemclass","_itemtype"];
+        If (_itemtype in ["Launcher"]) then {
+            //TODO: difference between Air and Ground Launcher
+            (getArray(missionConfigFile>>"costs">>"soldier_at")) call _fnc_valueAdd;
+        };
+        If (_itemtype in ["MG"]) then {
+            (getArray(missionConfigFile>>"costs">>"soldier_mg")) call _fnc_valueAdd;
+        };
+        If (_itemtype in ["Sniper"]) then {
+            (getArray(missionConfigFile>>"costs">>"soldier_sniper")) call _fnc_valueAdd;
+        };
+    } forEach _weapons;
+
+    HASH_SET(GVAR(costs),_Type,_value);
+    (_value select 0);
+};
+
+If ((_type isKindOf "LandVehicle")||{_type isKindOf "Ship_F"}) exitWith {
+    _value = getArray(missionConfigFile>>"costs">>"vehicle");
+
+    // SPecial
+    If (
+            (
+                (getNumber (configFile >> "CfgVehicles" >> _type >> "attendant") > 0)||
+                {getNumber (configFile >> "CfgVehicles" >> _type >> "ace_refuel_fuelCargo")) > 0}||
+                {isClass(configFile >> "CfgVehicles" >> _type >> "ACE_Actions" >> "ACE_MainActions" >> "ACE_Rearm_TakeAmmo")}
+            )||
+            {
+                (!isNull _object)&&(
+                    ([_object] call ace_medical_fnc_isMedic)||
+                    {[_object] call ACE_rearm_fnc_canTakeAmmo}
+                )
+            }
+        ) then {
+            (getArray(missionConfigFile>>"costs">>"vehicle_special")) call _fnc_valueAdd;
+        };
+
+    If (isClass(configfile >> "CfgVehicles" >> _type >> "HitPoints" >> "HitRTrack")) then {
+        (getArray(missionConfigFile>>"costs">>"vehicle_tracks")) call _fnc_valueAdd;
+    };
+
     // Armor
-    If () then {_value = _value + V_U_ARMOR;};
-    // Special
-    If () then {_value = _value + V_U_SPECIAL;};
-    HASH_SET(GVAR(Cost),_type,_value);
-    _value;
+    private _armor = getNumber(configfile >> "CfgVehicles" >> _type >> "armor");
+    If (_armor > 500) then {
+        (getArray(missionConfigFile>>"costs">>"vehicle_heavy")) call _fnc_valueAdd;
+    };
+    If ((_armor <= 500)&&(_armor > 200)) then {
+        (getArray(missionConfigFile>>"costs">>"vehicle_medium")) call _fnc_valueAdd;
+    };
+    If ((_armor <= 200)&&(_armor > 20)) then {
+        (getArray(missionConfigFile>>"costs">>"vehicle_light")) call _fnc_valueAdd;
+    };
+
+    // weapons
+    private _weapons = If !(isNull _object) then {
+        weapons _object
+    } else {
+        getArray(configfile >> "CfgVehicles" >> _type >> "weapons")
+    };
+
+    {
+        private _curWeapon = _x;
+        ([_curWeapon] call BIS_fnc_itemType)params ["_itemclass","_itemtype"];
+        If (_itemtype in ["MachineGun"]) then {
+            (getArray(missionConfigFile>>"costs">>"vehicle_hmg")) call _fnc_valueAdd;
+        };
+        If (_itemtype in ["GrenadeLauncher"]) then {
+            (getArray(missionConfigFile>>"costs">>"vehicle_gmg")) call _fnc_valueAdd;
+        };
+        If (_itemtype in ["Launcher","MissileLauncher","RocketLauncher"]) then {
+            //TODO: difference between Air and Ground Launcher
+            (getArray(missionConfigFile>>"costs">>"vehicle_atrocket")) call _fnc_valueAdd;
+        };
+        If (_itemtype in ["Mortar"]) then {
+            (getArray(missionConfigFile>>"costs">>"vehicle_artillery")) call _fnc_valueAdd;
+        };
+        If (_itemtype in ["RocketLauncher"]) then {
+            (getArray(missionConfigFile>>"costs">>"vehicle_rocketart")) call _fnc_valueAdd;
+        };
+        If (_itemtype in ["Cannon"]) then {
+            // TODO different calliber
+            (getArray(missionConfigFile>>"costs">>"vehicle_gun")) call _fnc_valueAdd;
+        };
+    } forEach _weapons;
 };
 
-private _value = 0;
-
-// Armor
-If () then {_value = _value + V_A_ARMOR;};
-
-// Tracks
-If (isClass(configFile >> "CfgVehicles" >> _type >> "HitPoints" >> "HitTrack")) then {_value = _value + V_A_TRACKS;};
-
-// Weapons
-If () then {
-    // ARtillery
-    If () then {_value = _value + V_A_ARTILLERY;};
-
-};
-// SPecial
-If (((!isNull _object)&&{[_object] call ace_medical_fnc_isMedic})||
-    ((isNull _object)&&{getNumber (configFile >> "CfgVehicles" >> _type >> "attendant") > 0})) then {
-        _value = _value + V_SPECIAL;
-    };
-If (getNumber (configFile >> "CfgVehicles" >> _type >> "ace_refuel_fuelCargo")) > 0) then {
-        _value = _value + V_SPECIAL;
-    };
-If (
-    (isClass(configFile >> "CfgVehicles" >> _type >> "ACE_Actions" >> "ACE_MainActions" >> "ACE_Rearm_TakeAmmo"))||
-    {[_object] call ACE_rearm_fnc_canTakeAmmo}
-    ) then {
-        _value = _value + V_SPECIAL;
-    };
-
-
-HASH_SET(GVAR(Cost),_type,_value);
-_value;
+LOG(FORMAT_1("Vehicle not found: %1",_type))
+HASH_SET(GVAR(costs),_Type,[0,[0,0,0],[0,0,0]]);
+0;

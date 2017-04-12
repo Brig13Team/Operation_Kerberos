@@ -22,3 +22,4 @@ class DOUBLES(CfgComponent,ADDON) {
 #include "config\drones.hpp"
 #include "config\maps.hpp"
 #include "config\strategy.hpp"
+#include "config\costs.hpp"
