@@ -1,4 +1,4 @@
-/*
+/**
  *  Author: Dorbedo
  *
  *  Description:
@@ -6,9 +6,9 @@
  *      add a value to the dangerzone
  *
  *  Parameter(s):
- *      0 : OBEJCT - Unit which got killed
- *      1 : OBEJCT - Killer
- *      2 : OBEJCT - Unit who pulled the Trigger
+ *      0 : OBJECT - Unit which got killed
+ *      1 : OBJECT - Killer
+ *      2 : OBJECT - Unit who pulled the Trigger
  *
  *  Returns:
  *      none
@@ -18,7 +18,6 @@
 #include "script_component.hpp"
 
 _this params ["_killedUnit","_killer","_instigator"];
-
 
 private _key = [(getPos _killer)] call FUNC(dzconvert);
 CHECK(_key isEqualTo "") // not in the area

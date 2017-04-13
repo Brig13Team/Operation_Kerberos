@@ -87,7 +87,8 @@ PREP(getDefence);
 PREP(getDistanceCoeff);
 PREP(getKnownPlayerPos);
 PREP(getPlayerCoeff);
-PREP(getStrenght);
+PREP(getStrenghtAI);
+PREP(getStrenghtAIGroup);
 PREP(handle);
 PREP(handleAA);
 PREP(handleDebugMarker);
@@ -105,7 +106,7 @@ PREP(registerPlayerGroup);
 PREP(registerPOI);
 PREP(registerRadar);
 PREP(requestRecon);
-PREP(strengthAi);
+PREP(strengthAi); //*** old
 PREP(strengthPlayer);
 
 ADDON = true;
