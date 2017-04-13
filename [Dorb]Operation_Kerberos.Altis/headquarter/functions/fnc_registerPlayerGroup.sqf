@@ -1,4 +1,4 @@
-/*
+/**
  *  Author: Dorbedo
  *
  *  Description:
@@ -22,11 +22,11 @@ If (isNil "_grouphash") then {
     _group setVariable [QGVAR(grouphash),_grouphash];
     HASH_GET(GVAR(groups),"playergroups") pushBack _grouphash;
 
-    private _strengthArray = (_group call FUNC(strengthPlayer)) params ["_GroupType","_value","_threat"];
+    private _strengthArray = (_group call FUNC(strengthPlayer)) params ["_value","_strenght","_defence"];
     HASH_SET(_grouphash,"group",_group);
-    HASH_SET(_grouphash,"type",_GroupType);
     HASH_SET(_grouphash,"value",_value);
-    HASH_SET(_grouphash,"threat",_threat);
+    HASH_SET(_grouphash,"strenght",_strenght);
+    HASH_SET(_grouphash,"defence",_defence);
 
     HASH_SET(_grouphash,"typehistory",[]);
     HASH_SET(_grouphash,"valuehistory",[]);

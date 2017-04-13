@@ -37,7 +37,7 @@ If (_fullCheck) then {
             [_group] call FUNC(registerPlayerGroup);
         };
         GVAR(playergroups_new) pushBackUnique _grouphash;
-        private _strengthArray = (_group call FUNC(strengthPlayer)) params ["_GroupType","_value","_threat"];
+        private _strengthArray = (_group call FUNC(strengthPlayer)) params ["_value","_strenght","_defence"];
 
         private _temphistory = (HASH_GET(_grouphash,"typehistory"));
         If (count _temphistory >= 10) then {_temphistory deleteAt 0;};
