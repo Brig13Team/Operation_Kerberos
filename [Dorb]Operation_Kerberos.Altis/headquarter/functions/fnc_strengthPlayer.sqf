@@ -34,6 +34,7 @@ private _vehicles = [];
 private _Allvalues = [0];
 private _AllStrenght = [[0,0,0]];
 private _AllDefence = [[0,0,0]];
+private _AllTypes = [0];
 
 {
     If ((vehicle _x != _x)&&{(toLower(_x call CBA_fnc_vehicleRole)) in ["driver","gunner","commander","Turret"]}) then {
@@ -71,11 +72,20 @@ private _AllDefence = [[0,0,0]];
             _AllDefence pushBack (["B_soldier_AT_F"] call FUNC(getDefence));
         };
     };
-
 }forEach _soldiers;
+
+{
+    private _curType = typeOf _x;
+    _Allvalues pushBack ([_curType] call FUNC(getCost));
+    _AllStrenght pushBack ([_curType] call FUNC(getStrenght));
+    _AllDefence pushBack ([_curType] call FUNC(getDefence));
+    _AllTypes pushBack ([_curType] call FUNC(getType));
+}forEach _vehicles;
+
 
 [
     ([_Allvalues] call EFUNC(common,arraySum)) * ([_x] call FUNC(getPlayerCoeff));,
     [_AllStrenght] call EFUNC(common,arraysGetMax),
     [_AllDefence] call EFUNC(common,arraysGetMax)
+    selectMax _AllTypes;
 ]

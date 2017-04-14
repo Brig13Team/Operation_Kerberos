@@ -29,11 +29,11 @@ _namearray params ["_xKey","_yKey"];
 _xKey = parseNumber _xKey;
 _yKey = parseNumber _yKey;
 {
-    private _curval = HASH_GET_DEF(HASH_GET(GVAR(dangerzones),_x),"enemystrength",0);
+    private _curval = HASH_GET_DEF(HASH_GET(GVAR(dangerzones),_x),"enemystrength",0) * _factor;
     // prevent stupid small values
-    If (_curval < 100000) then {_curval = 0;};
+    If (_curval < 100) then {_curval = 0;};
 
-    HASH_SET(HASH_GET(GVAR(dangerzones),_x),"enemystrength",_curval * _factor);
+    HASH_SET(HASH_GET(GVAR(dangerzones),_x),"enemystrength",_curval);
 } forEach [
     format["%1_%2",_xKey,_yKey]
     ,format["%1_%2",_xKey+_gridsize,_yKey]

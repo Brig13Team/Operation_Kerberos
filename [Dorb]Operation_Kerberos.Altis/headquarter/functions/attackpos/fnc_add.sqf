@@ -36,30 +36,4 @@ If !(_group in _enemygroups) then {
         _grouphash = _group getVariable QGVAR(grouphash);
     };
     [_attackLoc] call FUNC(attackpos_update);
-    /*
-    private _GroupType = HASH_GET(_grouphash,"type");
-    private _value = HASH_GET(_grouphash,"value");
-    private _threat = HASH_GET(_grouphash,"threat");
-
-    // the type of the playerunits
-    private _currentType = HASH_GET_DEF(_attackLoc,"enemytype",[ARR_3(0,0,0)]);
-    // the strength of the playerunits depending on the type
-    private _currentValue = HASH_GET_DEF(_attackLoc,"enemyvalue",[ARR_3(0,0,0)]);
-    // the threat to possible AI attacks (e.g. strong AT/AA) -> needed for the choosing of the strategie
-    private _currentThreat = HASH_GET_DEF(_attackLoc,"enemythreat",[ARR_3(0,0,0)]);
-
-    // TODO -  the grouptype should support mixed groups, not only the strongest type
-    _currentType set [_GroupType,(_currentType select _GroupType) + 1];
-    _currentValue set [_GroupType,(_currentValue select _GroupType) + _value];
-    // the highest threat is chosen (max [1,1,1])
-    _currentThreat = [
-        (_currentThreat select 0) max (_threat select 0),
-        (_currentThreat select 1) max (_threat select 1),
-        (_currentThreat select 2) max (_threat select 2)
-    ];
-    // set the values
-    HASH_SET(_attackLoc,"enemytype",_currentType);
-    HASH_SET(_attackLoc,"enemyvalue",_currentValue);
-    HASH_SET(_attackLoc,"enemythreat",_currentThreat);
-    */
 };

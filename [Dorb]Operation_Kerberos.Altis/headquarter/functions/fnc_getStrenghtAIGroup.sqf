@@ -9,7 +9,7 @@
  *      0 : GROUP - The group to register/update
  *
  *  Returns:
- *      ARRAY - [value of the group, strenght of group, defence of group]
+ *      ARRAY - [value of the group, strenght of group, defence of group,type of group]
  *
  */
 //define DEBUG_MODE_FULL
@@ -29,6 +29,7 @@ private _vehicles = [];
 private _value = 0;
 private _strenght = [0,0,0];
 private _defence = [0,0,0];
+private _type = 0;
 
 private _fnc_Add = {
     _this params ["_cur","_add"];
@@ -42,6 +43,7 @@ private _fnc_Add = {
     _value = _value + [_curUnit] call FUNC(getCost);
     [_strenght,[_curUnit] call FUNC(getStrenght)] call _fnc_Add;
     [_defence, [_curUnit] call FUNC(getDefence) ] call _fnc_Add;
+    _type = _type max ([_curUnit] call FUNC(getType));
 } forEach (_soldiers + _vehicles);
 
-[_value,_strenght,_defence];
+[_value,_strenght,_defence,_type];
