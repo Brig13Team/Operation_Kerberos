@@ -20,7 +20,7 @@ If ((_array isEqualTo [])||{!(_array isEqualTypeAll 0)}) exitWith {nil};
 
 private _return = _array deleteAt 0;
 {
-    _retunr = _return + _x;
+    _return = _return + _x;
     nil;
 } count _array;
 _return;

@@ -7,6 +7,7 @@ PREP(arithmeticMean);
 
 PREP(arraysGetMax);
 PREP(arrayGetSum);
+PREP(arraysGetArithmeticMean);
 
 PREP(convertAngleToRotMat);
 PREP(convertRotMatToAngle);
