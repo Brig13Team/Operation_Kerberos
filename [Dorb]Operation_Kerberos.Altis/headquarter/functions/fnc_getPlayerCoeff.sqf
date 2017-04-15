@@ -14,6 +14,6 @@
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-private _coeff = missionNamespace getVariable [QGVAR(playerCoeff),1];
+private _coeff = missionNamespace getVariable [QGVAR(playerCoeff),1.5];
 
-_coeff max 0.5;
+_coeff max 1;
