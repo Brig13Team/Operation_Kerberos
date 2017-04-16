@@ -39,7 +39,7 @@ class system {
         private _fnc_scriptName = 'Main compiling function'; \
         scriptName _fnc_scriptName; \
         _this params [ARR_3([ARR_3('_path','',[''])],[ARR_3('_funcName','',[''])],[ARR_3('_headertype',0,[1])])]; \
-        If (isClass(configFile>>'cfgPatches'>>'cba_cache_disable')) then { \
+        If ((isClass(configFile>>'cfgPatches'>>'cba_cache_disable'))||{!isMultiplayer}) then { \
             [ARR_5(missionNamespace,_funcName,_path,_headertype,true)] call FUNCSYS(compile_sys); \
             with parsingNamespace do { \
                 If (isNil 'GVARMAIN(recompileCache)') then {GVARMAIN(recompileCache) = [];}; \
