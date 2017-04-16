@@ -13,7 +13,7 @@
  */
  //#define DEBUG_MODE_FULL
  #include "script_component.hpp"
- this params [["_type","",["",objNull]]];
+ _this params [["_type","",["",objNull]]];
  If (_type isEqualTo "") exitWith {0};
 
  If (IS_OBJECT(_type)) then {

@@ -14,10 +14,10 @@
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 _this params [["_unittype","",[""]],["_object",objNull,[objNull]]];
-
+CHECK(_unittype isEqualTo "")
 If (isCLass(missionConfigFile>>"costs">>_unittype)) exitWith {
     HASH_SET(GVAR(costs),_unittype,getNumber(missionConfigFile>>"costs">>_unittype>>"value"));
-    HASH_SET(GVAR(strenght),_unittype,getNumber(missionConfigFile>>"costs">>_unittype>>"strenght"));
+    HASH_SET(GVAR(strength),_unittype,getNumber(missionConfigFile>>"costs">>_unittype>>"strength"));
     HASH_SET(GVAR(defence),_unittype,getNumber(missionConfigFile>>"costs">>_unittype>>"defence"));
 };
 private "_value";
@@ -25,18 +25,18 @@ If (_unittype isKindOf "Autonomous") exitWith {
     If !(_unittype isKindOf "Air") exitWith {
         _value = getArray(missionConfigFile>>"costs">>"drone_ground");
         HASH_SET(GVAR(costs),_unittype,_value select 0);
-        HASH_SET(GVAR(strenght),_unittype,_value select 1);
+        HASH_SET(GVAR(strength),_unittype,_value select 1);
         HASH_SET(GVAR(defence),_unittype,_value select 2);
     };
     If (_unittype isKindOf "Plane") then {
         _value = getArray(missionConfigFile>>"costs">>"drone_plane");
         HASH_SET(GVAR(costs),_unittype,_value select 0);
-        HASH_SET(GVAR(strenght),_unittype,_value select 1);
+        HASH_SET(GVAR(strength),_unittype,_value select 1);
         HASH_SET(GVAR(defence),_unittype,_value select 2);
     }else{
         _value = getArray(missionConfigFile>>"costs">>"drone_helicopter");
         HASH_SET(GVAR(costs),_unittype,_value select 0);
-        HASH_SET(GVAR(strenght),_unittype,_value select 1);
+        HASH_SET(GVAR(strength),_unittype,_value select 1);
         HASH_SET(GVAR(defence),_unittype,_value select 2);
     };
 };
@@ -63,24 +63,24 @@ If (_unittype isKindOf "Air") exitWith {
                 _value = getArray(missionConfigFile>>"costs">>"plane_cas");
             };
             HASH_SET(GVAR(costs),_unittype,_value select 0);
-            HASH_SET(GVAR(strenght),_unittype,_value select 1);
+            HASH_SET(GVAR(strength),_unittype,_value select 1);
             HASH_SET(GVAR(defence),_unittype,_value select 2);
         } else {
             _value = getArray(missionConfigFile>>"costs">>"plane");
             HASH_SET(GVAR(costs),_unittype,_value select 0);
-            HASH_SET(GVAR(strenght),_unittype,_value select 1);
+            HASH_SET(GVAR(strength),_unittype,_value select 1);
             HASH_SET(GVAR(defence),_unittype,_value select 2);
         };
     }else{
         If ((count _weapons) >0) then {
             _value = getArray(missionConfigFile>>"costs">>"helicopter_cas");
             HASH_SET(GVAR(costs),_unittype,_value select 0);
-            HASH_SET(GVAR(strenght),_unittype,_value select 1);
+            HASH_SET(GVAR(strength),_unittype,_value select 1);
             HASH_SET(GVAR(defence),_unittype,_value select 2);
         } else {
             _value = getArray(missionConfigFile>>"costs">>"helicopter");
             HASH_SET(GVAR(costs),_unittype,_value select 0);
-            HASH_SET(GVAR(strenght),_unittype,_value select 1);
+            HASH_SET(GVAR(strength),_unittype,_value select 1);
             HASH_SET(GVAR(defence),_unittype,_value select 2);
         };
     };
@@ -88,11 +88,11 @@ If (_unittype isKindOf "Air") exitWith {
 
 
 _fnc_valueAdd = {
-    _this params ["_cost","_strenght","_defence"];
+    _this params ["_cost","_strength","_defence"];
     _value set[0,(_value select 0)+_cost];
-    (_value select 1) set[0,((_value select 1) select 0)max(_strenght select 0)];
-    (_value select 1) set[1,((_value select 1) select 1)max(_strenght select 1)];
-    (_value select 1) set[2,((_value select 1) select 2)max(_strenght select 2)];
+    (_value select 1) set[0,((_value select 1) select 0)max(_strength select 0)];
+    (_value select 1) set[1,((_value select 1) select 1)max(_strength select 1)];
+    (_value select 1) set[2,((_value select 1) select 2)max(_strength select 2)];
 
     (_value select 2) set[0,((_value select 1) select 0)max(_defence select 0)];
     (_value select 2) set[1,((_value select 1) select 1)max(_defence select 1)];
@@ -105,7 +105,7 @@ If (_unittype isKindOf "CAManBase") exitWith {
             ((getNumber (configFile >> "CfgVehicles" >> _unittype >> "attendant")>0)||
             {(_object getVariable [QGVAR(medicClass),0]) > 1})||
             {_object getVariable ["ACE_isEOD", getNumber (configFile >> "CfgVehicles" >> _unittype >> "canDeactivateMines") == 1]}||
-            {_object getVariable ["ACE_isEngineer", getNumber (configFile >> "CfgVehicles" >> _unittype >> "engineer") == 1]}
+            {_object getVariable ["ACE_isEngineer", getNumber (configFile >> "CfgVehicles" >> _unittype >> "engineer") == 1]}||
             {(!(isNull _object))&&{({(toLower _x) in ["item_b_uavterminal","item_o_uavterminal","item_i_uavterminal"]} count (items _object))>0}}
         ) then {
             (getArray(missionConfigFile>>"costs">>"soldier_special")) call _fnc_valueAdd;
@@ -136,7 +136,7 @@ If (_unittype isKindOf "CAManBase") exitWith {
     } forEach _weapons;
 
     HASH_SET(GVAR(costs),_unittype,_value select 0);
-    HASH_SET(GVAR(strenght),_unittype,_value select 1);
+    HASH_SET(GVAR(strength),_unittype,_value select 1);
     HASH_SET(GVAR(defence),_unittype,_value select 2);
 };
 
@@ -147,7 +147,7 @@ If ((_unittype isKindOf "LandVehicle")||{_unittype isKindOf "Ship_F"}) exitWith 
     If (
             (
                 (getNumber (configFile >> "CfgVehicles" >> _unittype >> "attendant") > 0)||
-                {getNumber (configFile >> "CfgVehicles" >> _unittype >> "ace_refuel_fuelCargo")) > 0}||
+                {getNumber (configFile >> "CfgVehicles" >> _unittype >> "ace_refuel_fuelCargo") > 0}||
                 {isClass(configFile >> "CfgVehicles" >> _unittype >> "ACE_Actions" >> "ACE_MainActions" >> "ACE_Rearm_TakeAmmo")}
             )||
             {
@@ -219,12 +219,12 @@ If ((_unittype isKindOf "LandVehicle")||{_unittype isKindOf "Ship_F"}) exitWith 
     } forEach _weapons;
 
     HASH_SET(GVAR(costs),_unittype,_value select 0);
-    HASH_SET(GVAR(strenght),_unittype,_value select 1);
+    HASH_SET(GVAR(strength),_unittype,_value select 1);
     HASH_SET(GVAR(defence),_unittype,_value select 2);
 };
 
-LOG(FORMAT_1("Vehicle not found: %1",_unittype))
+LOG(FORMAT_1("Vehicle not found: %1",_unittype));
 _value = [0,[0,0,0],[0,0,0]];
 HASH_SET(GVAR(costs),_unittype,_value select 0);
-HASH_SET(GVAR(strenght),_unittype,_value select 1);
+HASH_SET(GVAR(strength),_unittype,_value select 1);
 HASH_SET(GVAR(defence),_unittype,_value select 2);

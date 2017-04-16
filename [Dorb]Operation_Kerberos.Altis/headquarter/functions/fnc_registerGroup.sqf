@@ -49,8 +49,8 @@ HASH_SET(_grouphash,"grouptype",_type);
 HASH_SET(_grouphash,"group",_group);
 HASH_SET(_grouphash,"state",_state);
 
-private _strengthArray = ([_group] call FUNC(getStrenghtAI)) params ["_value","_strenght","_defence","_grouptype"];
+private _strengthArray = ([_group] call FUNC(getstrengthAIGroup)) params ["_value","_strength","_defence","_grouptype"];
 HASH_SET(_grouphash,"value",_value);
-HASH_SET(_grouphash,"strenght",_strenght);
+HASH_SET(_grouphash,"strength",_strength);
 HASH_SET(_grouphash,"defence",_defence);
 HASH_SET(_grouphash,"type",_grouptype);

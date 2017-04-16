@@ -23,7 +23,7 @@ If (_enemyValue == 0) then {
 CHECK(isNull _attackPos)
 
 private _enemyValue = HASH_GET_DEF(_attackPos,"enemyvalue",0);
-private _enemyStrenght = HASH_GET_DEF(_attackPos,"enemystrenght",[ARR_3(0,0,0)]);
+private _enemystrength = HASH_GET_DEF(_attackPos,"enemystrength",[ARR_3(0,0,0)]);
 private _enemyDefence = HASH_GET_DEF(_attackPos,"enemydefence",[ARR_3(0,0,0)]);
 private _enemyType = HASH_GET_DEF(_attackPos,"enemytype",[ARR_3(0,0,0)]);
 private _possibleStrategys = [];
@@ -63,23 +63,23 @@ private _availableGroups = [];
     private _possibility = 0;
     private _grouphash = _x getVariable "grouphash";
     private _groupValue = HASH_GET_DEF(_grouphash,"value",0);
-    private _groupstrenght = HASH_GET_DEF(_grouphash,"strenght",[ARR_3(0,0,0)]);
+    private _groupstrength = HASH_GET_DEF(_grouphash,"strength",[ARR_3(0,0,0)]);
     private _groupdefence = HASH_GET_DEF(_grouphash,"defence",[ARR_3(0,0,0)]);
     private _grouptype = HASH_GET_DEF(_grouphash,"type",0);
 
     private _valueDiffMod = (1/(_groupValue/_enemyValue));
     private _possibility = selectMax [
         (_enemyType select 0) *
-            ((_groupstrenght select 0)*(1-(_enemyDefence select _grouptype))) *
-            (1-((_enemyStrenght select _grouptype)*(1-(_groupdefence select 0)))) *
+            ((_groupstrength select 0)*(1-(_enemyDefence select _grouptype))) *
+            (1-((_enemystrength select _grouptype)*(1-(_groupdefence select 0)))) *
             _valueDiffMod,
         (_enemyType select 1) *
-            ((_groupstrenght select 1)*(1-(_enemyDefence select _grouptype))) *
-            (1-((_enemyStrenght select _grouptype)*(1-(_groupdefence select 1)))) *
+            ((_groupstrength select 1)*(1-(_enemyDefence select _grouptype))) *
+            (1-((_enemystrength select _grouptype)*(1-(_groupdefence select 1)))) *
             _valueDiffMod,
         (_enemyType select 2) *
-            ((_groupstrenght select 2)*(1-(_enemyDefence select _grouptype))) *
-            (1-((_enemyStrenght select _grouptype)*(1-(_groupdefence select 2)))) *
+            ((_groupstrength select 2)*(1-(_enemyDefence select _grouptype))) *
+            (1-((_enemystrength select _grouptype)*(1-(_groupdefence select 2)))) *
             _valueDiffMod
     ];
     private _curStratValue = _groupValue;
@@ -97,23 +97,23 @@ private _availableGroups = [];
 
     If ([] call compile _condition) then {
         private _stratValue = getNumber(_curCfg >> "value");
-        private _stratstrenght = getarray(_curCfg >> "strenght");
+        private _stratstrength = getarray(_curCfg >> "strength");
         private _stratdefence = getarray(_curCfg >> "defence");
         private _strattype = getNumber(_curCfg >> "type");
 
         private _valueDiffMod = (1/(_stratValue/_enemyValue));
         private _possibility = selectMax [
             (_enemyType select 0) *
-                ((_stratstrenght select 0)*(1-(_enemyDefence select _strattype))) *
-                (1-((_enemyStrenght select _strattype)*(1-(_stratdefence select 0)))) *
+                ((_stratstrength select 0)*(1-(_enemyDefence select _strattype))) *
+                (1-((_enemystrength select _strattype)*(1-(_stratdefence select 0)))) *
                 _valueDiffMod,
             (_enemyType select 1) *
-                ((_stratstrenght select 1)*(1-(_enemyDefence select _strattype))) *
-                (1-((_enemyStrenght select _strattype)*(1-(_stratdefence select 1)))) *
+                ((_stratstrength select 1)*(1-(_enemyDefence select _strattype))) *
+                (1-((_enemystrength select _strattype)*(1-(_stratdefence select 1)))) *
                 _valueDiffMod,
             (_enemyType select 2) *
-                ((_stratstrenght select 2)*(1-(_enemyDefence select _strattype))) *
-                (1-((_enemyStrenght select _strattype)*(1-(_stratdefence select 2)))) *
+                ((_stratstrength select 2)*(1-(_enemyDefence select _strattype))) *
+                (1-((_enemystrength select _strattype)*(1-(_stratdefence select 2)))) *
                 _valueDiffMod
         ];
         private _curStratValue = _stratValue;

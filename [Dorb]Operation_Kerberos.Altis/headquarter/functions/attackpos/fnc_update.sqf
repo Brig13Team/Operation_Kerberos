@@ -21,7 +21,7 @@ CHECK((isNull _attackLoc))
 
 private _enemygroups = [];
 private _enemyValue = [0];
-private _enemyStrenght = [[0,0,0]];
+private _enemystrength = [[0,0,0]];
 private _enemyDefence = [[0,0,0]];
 private _enemyType = [0,0,0];
 
@@ -39,7 +39,7 @@ private _enemyType = [0,0,0];
             _enemygroups pushBackUnique _currentGroup;
 
             _enemyValue pushBack HASH_GET(_grouphash,"value");
-            _enemyStrenght pushBack HASH_GET(_grouphash,"strenght");
+            _enemystrength pushBack HASH_GET(_grouphash,"strength");
             _enemyDefence pushBack HASH_GET(_grouphash,"defence");
             _enemyType set [HASH_GET(_grouphash,"type"),1];
         };
@@ -47,7 +47,7 @@ private _enemyType = [0,0,0];
 } count HASH_GET_DEF(GVAR(groups),"playergroups",[]);
 
 private _enemyValue = [_enemyValue] call EFUNC(common,arraySum);
-private _enemyStrenght = [_enemyStrenght] call EFUNC(common,arraysGetMax);
+private _enemystrength = [_enemystrength] call EFUNC(common,arraysGetMax);
 private _enemyDefence = [_enemyDefence] call EFUNC(common,arraysGetMax);
 
 If (_enemygroups isEqualTo []) exitWith {
@@ -67,9 +67,9 @@ If (_dzValue < 0) then {
 
 private _enemyValue = _enemyValue + _dzValue * ([] call FUNC(getDZCoeff));
 
-TRACEV_8(_attackLoc,locationPosition _attackLoc,_dzValue,_enemygroups,_enemyValue,_enemyStrenght,_enemyDefence,_enemyType);
+TRACEV_8(_attackLoc,locationPosition _attackLoc,_dzValue,_enemygroups,_enemyValue,_enemystrength,_enemyDefence,_enemyType);
 HASH_SET(_attackLoc,"enemygroups",_enemygroups);
 HASH_SET(_attackLoc,"enemyvalue",_enemyValue);
-HASH_SET(_attackLoc,"enemystrenght",_enemyStrenght);
+HASH_SET(_attackLoc,"enemystrength",_enemystrength);
 HASH_SET(_attackLoc,"enemydefence",_enemyDefence);
 HASH_SET(_attackLoc,"enemytype",_enemyType);

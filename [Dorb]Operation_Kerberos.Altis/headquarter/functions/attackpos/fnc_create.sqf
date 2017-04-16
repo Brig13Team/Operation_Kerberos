@@ -47,7 +47,7 @@ HASH_SET(_attackLoc,"isPOI",false);
 HASH_SET(_attackLoc,"strategies",[]);
 HASH_SET(_attackLoc,"enemygroups",[]);
 HASH_SET(_attackLoc,"enemyvalue",0);
-HASH_SET(_attackLoc,"enemystrenght",[ARR_3(0,0,0)]);
+HASH_SET(_attackLoc,"enemystrength",[ARR_3(0,0,0)]);
 HASH_SET(_attackLoc,"enemydefence",[ARR_3(0,0,0)]);
 HASH_SET(_attackLoc,"enemytype",0);
 

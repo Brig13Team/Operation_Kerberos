@@ -10,7 +10,7 @@ class strategy {
         condition = "true";
 
         value = 100;
-        strenght[] = {1,1,0};
+        strength[] = {1,1,0};
         defence[] = {0,0,0};
         type = 1;
 
@@ -25,7 +25,7 @@ class strategy {
         condition = QUOTE(['helicopter'] call FUNC(ressources_canUseCallIn));
 
         value = 4000;
-        strenght[] = {0.8,0.7,0.3};
+        strength[] = {0.8,0.7,0.3};
         defence[] = {0.3,0.3,0.3};
         type = 2;
 
@@ -43,7 +43,7 @@ class strategy {
         condition = QUOTE(['airinterception'] call FUNC(ressources_canUseCallIn));
 
         value = 6000;
-        strenght[] = {0,0,1};
+        strength[] = {0,0,1};
         defence[] = {0.5,0.5,0.5};
         type = 2;
 
@@ -60,7 +60,7 @@ class strategy {
         condition = QUOTE(['cas'] call FUNC(ressources_canUseCallIn));
 
         value = 4000;
-        strenght[] = {0.8,0.7,0};
+        strength[] = {0.8,0.7,0};
         defence[] = {0.5,0.5,0};
         type = 2;
 
@@ -71,7 +71,7 @@ class strategy {
         condition = QUOTE(['drones'] call FUNC(ressources_canUseCallIn));
 
         value = 3000;
-        strenght[] = {0.4,0.8,0};
+        strength[] = {0.4,0.8,0};
         defence[] = {0.5,0.5,0.5};
         type = 2;
 
@@ -86,7 +86,7 @@ class strategy {
         condition = QUOTE('artillery' call EFUNC(headquarter,fdc_ready));
 
         value = 3000;
-        strenght[] = {0.7,0.3,0};
+        strength[] = {0.7,0.3,0};
         defence[] = {1,0.8,0};
         type = 2;
 
@@ -101,7 +101,7 @@ class strategy {
         condition = QUOTE('rocket' call EFUNC(headquarter,fdc_ready));
 
         value = 4000;
-        strenght[] = {0.4,0.5,0};
+        strength[] = {0.4,0.5,0};
         defence[] = {1,0.8,0};
         type = 2;
 
@@ -116,7 +116,7 @@ class strategy {
         condition = QUOTE('mortar' call EFUNC(headquarter,fdc_ready));
 
         value = 2500;
-        strenght[] = {0.7,0,0};
+        strength[] = {0.7,0,0};
         defence[] = {1,0.8,0};
         type = 2;
 

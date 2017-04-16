@@ -37,7 +37,7 @@ If (_fullCheck) then {
             [_group] call FUNC(registerPlayerGroup);
         };
         GVAR(playergroups_new) pushBackUnique _grouphash;
-        private _strengthArray = (_group call FUNC(strengthPlayer)) params ["_value","_strenght","_defence","_type"];
+        private _strengthArray = (_group call FUNC(strengthPlayer)) params ["_value","_strength","_defence","_type"];
 
         private _temphistory = (HASH_GET(_grouphash,"valuehistory"));
         If (count _temphistory >= 10) then {_temphistory deleteAt 0;};
@@ -47,12 +47,12 @@ If (_fullCheck) then {
         HASH_SET(_grouphash,"value",_GroupValue);
 
 
-        private _temphistory = (HASH_GET(_grouphash,"strenghthistory"));
+        private _temphistory = (HASH_GET(_grouphash,"strengthhistory"));
         If (count _temphistory >= 10) then {_temphistory deleteAt 0;};
-        _temphistory pushBack _strenght;
-        HASH_SET(_grouphash,"strenghthistory",_temphistory);
-        private _GroupStrenght = [_temphistory] call EFUNC(common,arraysGetMax);
-        HASH_SET(_grouphash,"strenght",_GroupStrenght);
+        _temphistory pushBack _strength;
+        HASH_SET(_grouphash,"strengthhistory",_temphistory);
+        private _Groupstrength = [_temphistory] call EFUNC(common,arraysGetMax);
+        HASH_SET(_grouphash,"strength",_Groupstrength);
 
         private _temphistory = (HASH_GET(_grouphash,"defencehistory"));
         If (count _temphistory >= 10) then {_temphistory deleteAt 0;};

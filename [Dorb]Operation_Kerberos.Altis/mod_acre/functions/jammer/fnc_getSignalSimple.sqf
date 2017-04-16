@@ -26,21 +26,21 @@ _distance = _distance max 1;
 private _transmittPower = 10 * (log ((_jammermW)/1000)) + 30;
 private _freeSpaceLoss = (-27.44 + 20*log(_jammedFrequenz) + 20*log(_distance));
 
-private _jammerStrenght = _transmittPower - _freeSpaceLoss - 20;
-TRACEV_3(_jammerStrenght,_transmittPower,_freeSpaceLoss);
+private _jammerstrength = _transmittPower - _freeSpaceLoss - 20;
+TRACEV_3(_jammerstrength,_transmittPower,_freeSpaceLoss);
 // no jamming
-If (_jammerStrenght <= -110) exitWith {
+If (_jammerstrength <= -110) exitWith {
     missionNamespace setVariable [_transmitterClass + "_jammer_signal", 0];
     missionNamespace setVariable [_transmitterClass + "_jammer_px", 0];
 };
 
-//private _signal = 10 * (_jammerStrenght + 40);
+//private _signal = 10 * (_jammerstrength + 40);
 //private _px = (_signal/110) min 1;
 
-missionNamespace setVariable [_transmitterClass + "_jammer_signal", _jammerStrenght];
+missionNamespace setVariable [_transmitterClass + "_jammer_signal", _jammerstrength];
 
-_jammerStrenght = _jammerStrenght min -0.001;
-private _px = (1 - (((log(abs _jammerStrenght)/log(1.5))-9.3) max 0)) max 0;
+_jammerstrength = _jammerstrength min -0.001;
+private _px = (1 - (((log(abs _jammerstrength)/log(1.5))-9.3) max 0)) max 0;
 
 missionNamespace setVariable [_transmitterClass + "_jammer_px", _px];
-TRACEV_2(_jammerStrenght,_px);
+TRACEV_2(_jammerstrength,_px);

@@ -6,8 +6,8 @@ ADDON = false;
 PREP(arithmeticMean);
 
 PREP(arraysGetMax);
-PREP(arrayGetSum);
 PREP(arraysGetArithmeticMean);
+PREP(arraySum);
 
 PREP(convertAngleToRotMat);
 PREP(convertRotMatToAngle);

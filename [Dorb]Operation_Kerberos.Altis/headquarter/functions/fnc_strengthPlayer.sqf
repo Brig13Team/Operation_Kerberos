@@ -32,7 +32,7 @@ If (IS_GROUP(_group)) then {
 private _vehicles = [];
 
 private _Allvalues = [0];
-private _AllStrenght = [[0,0,0]];
+private _Allstrength = [[0,0,0]];
 private _AllDefence = [[0,0,0]];
 private _AllTypes = [0];
 
@@ -43,19 +43,19 @@ private _AllTypes = [0];
     private _primaryweapon = ((primaryWeapon _x) call BIS_fnc_itemType) select 1;
     private _secondaryWeapon = ((secondaryWeapon _x) call BIS_fnc_itemType) select 1;
     _Allvalues pushBack (["B_soldier_F"] call FUNC(getCost));
-    _AllStrenght pushBack (["B_soldier_F"] call FUNC(getStrenght));
+    _Allstrength pushBack (["B_soldier_F"] call FUNC(getstrengthAI));
     _AllDefence pushBack (["B_soldier_F"] call FUNC(getDefence));
 
 
     If (_primaryweapon == "SniperRifle") then {
-        _Allvalues pushBack (["B_sniper_F"] call FUNC(getCost) - ["B_soldier_F"] call FUNC(getCost));
-        _AllStrenght pushBack (["B_sniper_F"] call FUNC(getStrenght));
+        _Allvalues pushBack ((["B_sniper_F"] call FUNC(getCost)) - (["B_soldier_F"] call FUNC(getCost)));
+        _Allstrength pushBack (["B_sniper_F"] call FUNC(getstrengthAI));
         _AllDefence pushBack (["B_sniper_F"] call FUNC(getDefence));
     };
 
     If ((_x getVariable ["ace_medical_medicClass",0])>1) then {
-        _Allvalues pushBack (["B_Medic_F"] call FUNC(getCost) - ["B_soldier_F"] call FUNC(getCost));
-        _AllStrenght pushBack (["B_Medic_F"] call FUNC(getStrenght));
+        _Allvalues pushBack ((["B_Medic_F"] call FUNC(getCost)) - (["B_soldier_F"] call FUNC(getCost)));
+        _Allstrength pushBack (["B_Medic_F"] call FUNC(getstrengthAI));
         _AllDefence pushBack (["B_Medic_F"] call FUNC(getDefence));
     };
 
@@ -63,12 +63,12 @@ private _AllTypes = [0];
         private _mag = (getArray(configFile >> "CfgVehicles" >> (secondaryWeapon _x))select 0);
         private _ammo = getText(configFile >> "CfgVehicles" >> _mag >> "ammo");
         If (getNumber(configFile >> "CfgVehicles" >> _ammo >> "airlock")>1) then {
-            _Allvalues pushBack (["B_soldier_AA_F"] call FUNC(getCost) - ["B_soldier_F"] call FUNC(getCost));
-            _AllStrenght pushBack (["B_soldier_AA_F"] call FUNC(getStrenght));
+            _Allvalues pushBack ((["B_soldier_AA_F"] call FUNC(getCost)) - (["B_soldier_F"] call FUNC(getCost)));
+            _Allstrength pushBack (["B_soldier_AA_F"] call FUNC(getstrengthAI));
             _AllDefence pushBack (["B_soldier_AA_F"] call FUNC(getDefence));
         }else{
-            _Allvalues pushBack (["B_soldier_AT_F"] call FUNC(getCost) - ["B_soldier_F"] call FUNC(getCost));
-            _AllStrenght pushBack (["B_soldier_AT_F"] call FUNC(getStrenght));
+            _Allvalues pushBack ((["B_soldier_AT_F"] call FUNC(getCost)) - (["B_soldier_F"] call FUNC(getCost)));
+            _Allstrength pushBack (["B_soldier_AT_F"] call FUNC(getstrengthAI));
             _AllDefence pushBack (["B_soldier_AT_F"] call FUNC(getDefence));
         };
     };
@@ -77,15 +77,15 @@ private _AllTypes = [0];
 {
     private _curType = typeOf _x;
     _Allvalues pushBack ([_curType] call FUNC(getCost));
-    _AllStrenght pushBack ([_curType] call FUNC(getStrenght));
+    _Allstrength pushBack ([_curType] call FUNC(getstrengthAI));
     _AllDefence pushBack ([_curType] call FUNC(getDefence));
     _AllTypes pushBack ([_curType] call FUNC(getType));
 }forEach _vehicles;
 
 
 [
-    ([_Allvalues] call EFUNC(common,arraySum)) * ([_x] call FUNC(getPlayerCoeff));,
-    [_AllStrenght] call EFUNC(common,arraysGetMax),
-    [_AllDefence] call EFUNC(common,arraysGetMax)
-    selectMax _AllTypes;
+    (([_Allvalues] call EFUNC(common,arraySum)) * ([_x] call FUNC(getPlayerCoeff))),
+    [_Allstrength] call EFUNC(common,arraysGetMax),
+    [_AllDefence] call EFUNC(common,arraysGetMax),
+    selectMax _AllTypes
 ]
