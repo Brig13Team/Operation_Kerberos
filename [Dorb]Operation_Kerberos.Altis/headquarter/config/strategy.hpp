@@ -5,44 +5,29 @@
 #define CBA_OFF
 #include "script_component.hpp"
 class strategy {
-    //// _tankGroups,_infanterieGroups,_helicoptersGroups
-    //// [_airborne,_airinterception,_armored,_cas,_fortifications,_motorized,_drones];
 
-    /// simple attack
-
-    class infanterie {
-        type[] = {1,0,0};
-        value = 1000000;
-        threat[] = {1,0.8,0.3};
+    class groundattack {
         condition = "true";
 
-        function = QFUNC(strategy_infanterie);
+        value = 100;
+        strenght[] = {1,1,0};
+        defence[] = {0,0,0};
+        type = 1;
+
+        function = QFUNC(strategy_groundattack);
 
         timeout = 1800;
         finishcondition = "(({alive _x} count (units (_this select 1)))<=((_this select 0)*0.3))";
         parameter[] = {};
     };
 
-    class armored {
-        type[] = {0,1,0};
-        value = 2500000;
-        threat[] = {1,1,0.3};
-        condition = "true";
-
-        function = QFUNC(strategy_armored);
-
-        timeout = 1800;
-        finishcondition = "(canMove (_this select 0))";
-        parameter[] = {};
-
-    };
-
-
     class helicopter {
-        type[] = {0,0,1};
-        value = 7000000;
-        threat[] = {1,1,0.7};
         condition = QUOTE(['helicopter'] call FUNC(ressources_canUseCallIn));
+
+        value = 4000;
+        strenght[] = {0.8,0.7,0.3};
+        defence[] = {0.3,0.3,0.3};
+        type = 2;
 
         function = QFUNC(strategy_helicopter);
 
@@ -55,12 +40,14 @@ class strategy {
     };
 
     class airinterception {
-        type[] = {0,0,1};
-        value = 2000000;
-        threat[] = {0,0,1};
         condition = QUOTE(['airinterception'] call FUNC(ressources_canUseCallIn));
 
-        function = QFUNC(strategy_helicopter);
+        value = 6000;
+        strenght[] = {0,0,1};
+        defence[] = {0.5,0.5,0.5};
+        type = 2;
+
+        function = QFUNC(strategy_airinterception);
 
         timeout = 1000;
         finishcondition = "(!(alive (_this select 0)))";
@@ -70,16 +57,23 @@ class strategy {
     };
 
     class cas : airinterception {
-        threat[] = {1,1,0};
-        value = 3000000;
         condition = QUOTE(['cas'] call FUNC(ressources_canUseCallIn));
+
+        value = 4000;
+        strenght[] = {0.8,0.7,0};
+        defence[] = {0.5,0.5,0};
+        type = 2;
+
+        function = QFUNC(strategy_cas);
     };
 
     class drones {
-        type[] = {0,0,1};
-        value = 2000000;
-        threat[] = {1,1,0};
         condition = QUOTE(['drones'] call FUNC(ressources_canUseCallIn));
+
+        value = 3000;
+        strenght[] = {0.4,0.8,0};
+        defence[] = {0.5,0.5,0.5};
+        type = 2;
 
         function = QFUNC(strategy_drones);
 
@@ -89,10 +83,12 @@ class strategy {
     };
 
     class artillery {
-        type[] = {0,0,0};
-        value = 3000000;
-        threat[] = {1,1,0};
         condition = QUOTE('artillery' call EFUNC(headquarter,fdc_ready));
+
+        value = 3000;
+        strenght[] = {0.7,0.3,0};
+        defence[] = {1,0.8,0};
+        type = 2;
 
         function = QFUNC(strategy_artillery);
 
@@ -102,10 +98,12 @@ class strategy {
     };
 
     class rocket {
-        type[] = {0,0,0};
-        value = 4000000;
-        threat[] = {1,1,0};
         condition = QUOTE('rocket' call EFUNC(headquarter,fdc_ready));
+
+        value = 4000;
+        strenght[] = {0.4,0.5,0};
+        defence[] = {1,0.8,0};
+        type = 2;
 
         function = QFUNC(strategy_rocket);
 
@@ -115,10 +113,12 @@ class strategy {
     };
 
     class mortar {
-        type[] = {0,0,0};
-        value = 2000000;
-        threat[] = {1,1,0};
         condition = QUOTE('mortar' call EFUNC(headquarter,fdc_ready));
+
+        value = 2500;
+        strenght[] = {0.7,0,0};
+        defence[] = {1,0.8,0};
+        type = 2;
 
         function = QFUNC(strategy_mortar);
 

@@ -64,6 +64,7 @@ PREPS(strategy,armored);
 PREPS(strategy,artillery);
 PREPS(strategy,cas);
 PREPS(strategy,drones);
+PREPS(strategy,groundattack);
 PREPS(strategy,helicopter);
 PREPS(strategy,infanterie);
 PREPS(strategy,mortar);
