@@ -44,7 +44,7 @@ private _return = [];
 
         // if the difference is bigger then 15%, add more strategies
         If (_stratValue < (_attackLocValue * 0.85)) then {
-            private _temp = [_attackLocValue - _stratValue];
+            private _temp = _attackLocValue - _stratValue;
             TRACEV_2(_attackLocation,_temp);
             [_attackLocation,true,_temp] call FUNC(strategy__choose);
         };

@@ -10,10 +10,11 @@
     Returns:
         none
 */
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 _this params ["_attackPos",["_again",false,[true]],"_lastValue",["_passing",5,[0]]];
-
+TRACEV_4(_attackPos,_again,_lastValue,_passing);
 private _failedattacks = HASH_GET_DEF(_attackPos,"failedattacks",0);
 
 private _enemyValue = HASH_GET_DEF(_attackPos,"enemyvalue",0);
@@ -42,6 +43,8 @@ If (_again) then {
     _curValue = _lastValue;
     _again = false;
 };
+TRACEV_2(_again,_curValue);
+
 
 // cycle through current availible groups
 private _availableGroups = [];
@@ -55,13 +58,13 @@ private _availableGroups = [];
         };
     };
 } forEach (HASH_GET_DEF(GVAR(groups),"attackGroups",[]));
-
+TRACEV_1(_availableGroups);
 // add the availible groups
 {
     private _curGroup = _x;
 
     private _possibility = 0;
-    private _grouphash = _x getVariable "grouphash";
+    private _grouphash = _curGroup getVariable QGVAR(grouphash);
     private _groupValue = HASH_GET_DEF(_grouphash,"value",0);
     private _groupstrength = HASH_GET_DEF(_grouphash,"strength",[ARR_3(0,0,0)]);
     private _groupdefence = HASH_GET_DEF(_grouphash,"defence",[ARR_3(0,0,0)]);
@@ -83,7 +86,7 @@ private _availableGroups = [];
             _valueDiffMod
     ];
     private _curStratValue = _groupValue;
-    private _parameter = [_group];
+    private _parameter = [_curGroup];
     If (_possibility > 0) then {
         _possibleStrategys pushBack [_possibility,_curStratValue,"groundattack",_parameter];
     };
@@ -129,9 +132,10 @@ private _currentStrategies = [[_possibleStrategys,0,false] call EFUNC(common,sel
 
 // execute the strategies until the current value reaches zero
 {
+    TRACEV_1(_curValue);
     If (_curValue < 0) exitWith {};
 
-    _x params ["_possibility","_curStratValue","_strategytype","_parameter"];
+    _x params ["_possibility","_curStratValue","_strategytype","_curparameter"];
 
     _curValue = _curValue - _curStratValue;
 
@@ -148,9 +152,9 @@ private _currentStrategies = [[_possibleStrategys,0,false] call EFUNC(common,sel
     private _parameter = [];
     If !(_function isEqualTo "") then {
         If !(isNil _function) then {
-            _parameter = [_attackPos,_strategyhash] call (missionNamespace getVariable _function);
+            _parameter = [_attackPos,_strategyhash,_curparameter] call (missionNamespace getVariable _function);
         }else{
-            _parameter = [_attackPos,_strategyhash] call compile _function;
+            _parameter = [_attackPos,_strategyhash,_curparameter] call compile _function;
         };
     };
 
@@ -170,15 +174,15 @@ private _currentStrategies = [[_possibleStrategys,0,false] call EFUNC(common,sel
         HASH_SET(_strategyhash,"parameter",_parameter);
     };
 
-    If !((getText(_x >> "onfinish")) isEqualTo "") then {
-        HASH_SET(_strategyhash,"onfinish",(getText(_x >> "onfinish")));
+    If !((getText(_stratCfg >> "onfinish")) isEqualTo "") then {
+        HASH_SET(_strategyhash,"onfinish",(getText(_stratCfg >> "onfinish")));
     };
     /*
-    If !((getText(_x >> "onsuc")) isEqualTo "") then {
-        HASH_SET(_strategyhash,"function",(getText(_x >> "function")));
+    If !((getText(_stratCfg >> "onsuc")) isEqualTo "") then {
+        HASH_SET(_strategyhash,"function",(getText(_stratCfg >> "function")));
     };
-    If !((getText(_x >> "function")) isEqualTo "") then {
-        HASH_SET(_strategyhash,"onfinish",(getText(_x >> "function")));
+    If !((getText(_stratCfg >> "function")) isEqualTo "") then {
+        HASH_SET(_strategyhash,"onfinish",(getText(_stratCfg >> "function")));
     };
     */
 

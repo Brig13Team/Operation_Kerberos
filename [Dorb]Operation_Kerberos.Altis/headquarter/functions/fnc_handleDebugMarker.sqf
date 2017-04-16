@@ -24,7 +24,7 @@ If (isNil QGVAR(debugMarker)) then {
 {deleteMarker _x;} forEach GVAR(debugMarker);
 GVAR(debugMarker) = [];
 
-private _dangerzones = HASH_KEYS(GVAR(dangerzones)) select {IS_HASH(HASH_GET(GVAR(dangerzones),_x))};
+private _dangerzones = HASH_KEYS(GVAR(dangerzones)) select {IS_LHASH(HASH_GET(GVAR(dangerzones),_x))};
 {
     private _dz = _x;
     private _value = HASH_GET(HASH_GET(GVAR(dangerzones),_dz),"enemystrength");
@@ -54,5 +54,5 @@ private _dangerzones = HASH_KEYS(GVAR(dangerzones)) select {IS_HASH(HASH_GET(GVA
     _mark setMarkerType "hd_dot";
     _mark setMarkerColor "ColorBlack";
     _mark setMarkerText format["%1 | %2 | %3 | %4",_enemyValue,_enemytype apply {_x toFixed 0},_enemystrength apply {_x toFixed 0},_enemydefence apply {_x toFixed 0}];
-    TRACEV_5(_attackLoc,_position,_enemytype,_enemyvalue,_enemythreat);
+    TRACEV_6(_attackLoc,_position,_enemytype,_enemyvalue,_enemystrength,_enemydefence);
 } forEach HASH_GET_DEF(GVAR(attackpos),"Locations",[]);;

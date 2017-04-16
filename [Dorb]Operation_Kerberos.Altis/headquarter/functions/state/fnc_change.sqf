@@ -25,8 +25,8 @@ If (isNil "_grouphash") then {
     [_group,'patrol'] call FUNC(registerGroup);
 };
 /// update the strength if the unit received some losses or if the unit lost the vehicle
-private _strengthArray = (_group call FUNC(strengthAI)) params ["_value","_strength","_defence","_GroupType"];
-HASH_SET(_grouphash,"type",_GroupType);
+private _strengthArray = ([_group] call FUNC(getstrengthAIGroup)) params ["_value","_strength","_defence","_grouptype"];
+HASH_SET(_grouphash,"type",_grouptype);
 HASH_SET(_grouphash,"value",_value);
 HASH_SET(_grouphash,"defence",_defence);
 HASH_SET(_grouphash,"strength",_strength);

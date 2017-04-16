@@ -14,7 +14,7 @@
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-
+TRACEV_1(_this);
 _this params ["_currentLocation","_strategyHash","_parameter"];
 _parameter params ["_group"];
 
