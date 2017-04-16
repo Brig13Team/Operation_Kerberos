@@ -53,6 +53,6 @@ private _dangerzones = HASH_KEYS(GVAR(dangerzones)) select {IS_LHASH(HASH_GET(GV
     _mark setMarkerShape "ICON";
     _mark setMarkerType "hd_dot";
     _mark setMarkerColor "ColorBlack";
-    _mark setMarkerText format["%1 | %2 | %3 | %4",_enemyValue,_enemytype apply {_x toFixed 0},_enemystrength apply {_x toFixed 0},_enemydefence apply {_x toFixed 0}];
+    _mark setMarkerText format["%1 | %2 | %3 | %4",_enemyValue,_enemytype,_enemystrength,_enemydefence];
     TRACEV_6(_attackLoc,_position,_enemytype,_enemyvalue,_enemystrength,_enemydefence);
 } forEach HASH_GET_DEF(GVAR(attackpos),"Locations",[]);;
