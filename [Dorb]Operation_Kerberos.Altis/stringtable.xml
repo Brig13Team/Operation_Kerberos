@@ -1027,5 +1027,13 @@
             <German>ACRE2 - Frequenzübersicht</German>
             <English>ACRE2 - Frequencies overview</English>
         </Key>
+        <Key ID="STR_DORB_GUI_ACRE_KEYBIND">
+            <German>ACRE2 - Frequenzübersicht</German>
+            <English>ACRE2 - Freqencies overview</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ACRE_KEYBIND_TOOLTIP">
+            <German>Taste um das Menu zu öffnen</German>
+            <English>Shortcut for opening the menu</English>
+        </Key>
     </Package>
 </Project>
