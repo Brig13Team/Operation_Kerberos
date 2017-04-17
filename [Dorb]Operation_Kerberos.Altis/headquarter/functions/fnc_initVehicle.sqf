@@ -119,9 +119,8 @@ If (_unittype isKindOf "CAManBase") exitWith {
         private _curWeapon = _x;
         ([_curWeapon] call BIS_fnc_itemType)params ["_itemclass","_itemtype"];
         If (_itemtype in ["Launcher"]) then {
-            private _mag = ((getArray(configFile >> "CfgWeapons" >> _curWeapon >> "magazines")) select 0);
-            private _airlock = getNumber(configFile >> "CfgAmmo" >> getText(configFile >> "CfgMagazines" >> _mag >> "ammo") >> "airLock");
-            If (_airlock > 0) then {
+            private _mag = ((getArray(configFile >> "CfgWeapons" >> _unittype >> "magazines")) select 0);
+            If ((isNil "_mag")||{(getNumber(configFile >> "CfgAmmo" >> getText(configFile >> "CfgMagazines" >> _mag >> "ammo") >> "airLock")) > 0}) then {
                 (getArray(missionConfigFile>>"costs">>"soldier_at")) call _fnc_valueAdd;
             } else {
                 (getArray(missionConfigFile>>"costs">>"soldier_aa")) call _fnc_valueAdd;
@@ -194,8 +193,7 @@ If ((_unittype isKindOf "LandVehicle")||{_unittype isKindOf "Ship_F"}) exitWith 
         };
         If (_itemtype in ["Launcher","MissileLauncher","RocketLauncher"]) then {
             private _mag = ((getArray(configFile >> "CfgWeapons" >> _unittype >> "magazines")) select 0);
-            private _airlock = getNumber(configFile >> "CfgAmmo" >> getText(configFile >> "CfgMagazines" >> _mag >> "ammo") >> "airLock");
-            If (_airlock > 0) then {
+            If ((isNil "_mag")||{(getNumber(configFile >> "CfgAmmo" >> getText(configFile >> "CfgMagazines" >> _mag >> "ammo") >> "airLock")) > 0}) then {
                 (getArray(missionConfigFile>>"costs">>"vehicle_atrocket")) call _fnc_valueAdd;
             } else {
                 (getArray(missionConfigFile>>"costs">>"vehicle_aarocket")) call _fnc_valueAdd;
