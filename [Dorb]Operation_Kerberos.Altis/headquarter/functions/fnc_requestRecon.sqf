@@ -1,4 +1,4 @@
-/*
+/**
  *  Author: Dorbedo
  *
  *  Description:
@@ -15,3 +15,7 @@
 
 _this params [["_target",[],[[],objNull],[2,3]]];
 If (IS_OBJECT(_target)) then {_target = getPosASL _target;};
+
+/*
+ *  Not implemented for now
+ */

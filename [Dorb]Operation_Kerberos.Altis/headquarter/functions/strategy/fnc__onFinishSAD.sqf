@@ -15,7 +15,7 @@
 
 _this params ["_groupleader"];
 
-private _group = _groupleader call CBA_fnc_getGroup;
+private _group = [_groupleader] call CBA_fnc_getGroup;
 private _grouphash = _group getVariable QGVAR(grouphash);
 
 private _target = HASH_GET(_grouphash,"target");

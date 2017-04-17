@@ -15,10 +15,11 @@ class DOUBLES(CfgComponent,ADDON) {
     class preinit {};
     class serverpostinit {client = 0;};
     class dependencies {
-        CfgPatches[] = {};
+        CfgPatches[] = {"ace_rearm"};
         CfgComponents[] = {"mission","spawn"};
     };
 };
 #include "config\drones.hpp"
 #include "config\maps.hpp"
 #include "config\strategy.hpp"
+#include "config\costs.hpp"

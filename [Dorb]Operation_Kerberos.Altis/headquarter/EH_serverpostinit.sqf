@@ -55,6 +55,9 @@ HASH_SET(GVAR(antiair),"static",[]);
 *************************/
 GVAR(active) = false;
 GVAR(handle) = scriptNull;
+GVAR(costs) = HASH_CREATE;
+GVAR(strength) = HASH_CREATE;
+GVAR(defence) = HASH_CREATE;
 
 /*************************
 *
@@ -96,7 +99,7 @@ GVAR(dangerzones) = HASH_CREATE;
 HASH_SET(GVAR(dangerzones),"definitions",[ARR_3(2000,100,20)]);
 HASH_SET(GVAR(dangerzones),"gridsize",100);
 HASH_SET(GVAR(dangerzones),"distance",2000);
-GVAR(UnitKilledCoeff) = 0.2;
+GVAR(UnitKilledCoeff) = 1;
 
 /// Strategy
 GVAR(strategy_memory) = HASH_SERIALIZE(GETPRVAR(GVAR(strategy_memory),HASH_CREATE));

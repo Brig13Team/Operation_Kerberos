@@ -1,4 +1,4 @@
-/*
+/**
  *  Author: Dorbedo
  *
  *  Description:
@@ -47,7 +47,7 @@ private _newPOI = HASH_CREATE;
 // add the hash to the dump to prevent the loosing because of the changed locationPosition
 EGVAR(spawn,cleanUpDump) pushBack _newPOI;
 _newPOI setPosition _POI;
-_newPOI setSize [50,50];
+_newPOI setSize [75,75];
 _newPOI setRectangular false;
 HASH_SET(_newPOI,"isPOI",true);
 HASH_SET(_newPOI,"isActive",true);

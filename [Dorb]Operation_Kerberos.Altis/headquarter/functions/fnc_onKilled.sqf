@@ -1,4 +1,4 @@
-/*
+/**
  *  Author: Dorbedo
  *
  *  Description:
@@ -16,18 +16,24 @@
 #define DEBUG_MODE_OFF
 #include "script_component.hpp"
 
-If (!canSuspend) then {_this spawn FUNC(onKilled);};
+If (!canSuspend) then {
+    _this spawn FUNC(onKilled);
+};
 
 _this params["_unit","_killer","_instigator"];
 
+// workaround for modified EH
 _killer = if ((_unit==_killer)||{isNull _killer}) then {
     _unit getVariable ["ace_medical_lastDamageSource", _killer];
-} else { _killer };
+} else {
+    _killer
+};
 
 TRACEV_3(_unit,_killer,_instigator);
+// ignor blue on blue
 CHECK(side _unit == side _killer)
+
 If (!isServer) exitWith {
-    TRACE("calling remote killed event");
     [QGVAR(killedUnit),[_unit,_killer,_instigator]] call CBA_fnc_serverEvent;
 };
 

@@ -10,181 +10,156 @@
     Returns:
         none
 */
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 _this params ["_attackPos",["_again",false,[true]],"_lastValue",["_passing",5,[0]]];
-
+TRACEV_4(_attackPos,_again,_lastValue,_passing);
 private _failedattacks = HASH_GET_DEF(_attackPos,"failedattacks",0);
 
-private _enemyType = HASH_GET_DEF(_attackPos,"enemytype",[ARR_3(0,0,0)]); /// [0,0,0] - amount of specific groups
-If (_enemyType isEqualTo [0,0,0]) exitWith {
-    //TRACEV_2(_attackPos,_enemyType);
+private _enemyValue = HASH_GET_DEF(_attackPos,"enemyvalue",0);
+If (_enemyValue == 0) then {
     [_attackPos] call FUNC(attackpos_update);
 };
-private _enemyValue = HASH_GET(_attackPos,"enemyvalue"); /// [0,0,0] - value of each type
-private _enemyThreat = HASH_GET(_attackPos,"enemythreat"); /// [0,0,0] - combined threat
-//TRACEV_4(_failedattacks,_enemyType,_enemyValue,_enemyThreat);
-private _curValue = _enemyValue apply {_x * (_failedattacks * 0.2 + 1 + (missionNamespace getVariable [QGVAR(playermalus),0]) ) * ([_attackPos] call FUNC(getDistanceCoeff))};
+CHECK(isNull _attackPos)
+
+private _enemyValue = HASH_GET_DEF(_attackPos,"enemyvalue",0);
+private _enemystrength = HASH_GET_DEF(_attackPos,"enemystrength",[ARR_3(0,0,0)]);
+private _enemyDefence = HASH_GET_DEF(_attackPos,"enemydefence",[ARR_3(0,0,0)]);
+private _enemyType = HASH_GET_DEF(_attackPos,"enemytype",[ARR_3(0,0,0)]);
+private _possibleStrategys = [];
+// [possiblity,_value,"STRATEGY",[PARAMETER]];
+
+
+private _curValue = _enemyValue * ([_attackPos] call FUNC(getDistanceCoeff)) *
+        (
+            1 +
+            _failedattacks * 0.2 +
+            (missionNamespace getVariable [QGVAR(playermalus),0])
+        );
+
 If (_again) then {
     //TRACEV_3(_again,_curValue,_lastValue);
     _curValue = _lastValue;
     _again = false;
 };
-
-private _chosenStrategies = [];
-
-
-/// get some AA - strategie
-If ((_enemyType select 2)>0) then {
-    /// posible strategies against air
-    private _strategyCfgs = configProperties [(missionConfigFile >> "strategy"),"(((getArray(_x >> 'threat')) select 2) > 0)",true];
-    private _possibleStrategys = [];
-    {
-        //// check additional condition - e.g. all Support used
-        private _condition = (getText(_x>>"condition"));
-        If ([] call compile _condition) then {
-            //// weight the strategy
-            private _tempValue = (getNumber(_x>>"value"));
-            private _tempthreat = (getArray(_x>>"threat"));
-            private _temp = 0;
-            /// minimal value difference
-            If (((_curValue select 2) - ((_tempthreat select 2) * (_tempValue))) > 0) then {
-                _temp = 1 / ((abs((_curValue select 2) - ((_tempthreat select 2) * (_tempValue)))+ 1) * 10);
-            }else{
-                _temp = 1 / (abs((_curValue select 2) - ((_tempthreat select 2) * (_tempValue)))+1);
-            };
-            _temp = _temp * 1000000;
-            _possibleStrategys pushBack [_temp,_x];
-        };
-    } forEach _strategyCfgs;
-    /// select the strategy (weighted)
-    private _strategyToAdd = ([_possibleStrategys,0,false] call EFUNC(common,sel_array_weighted)) select 1;
-    private _tempValue = (getNumber(_strategyToAdd>>"value"));
-    private _tempthreat = (getArray(_strategyToAdd>>"threat"));
-    private _temptype = (getArray(_strategyToAdd>>"type"));
-
-    //// reduce the needed strategy -> if a helicopter is send, there is no need to send additional infantrie
-    _curValue set[2,    ((_curValue select 2) - (_tempValue * (_tempthreat select 2))) max 0    ];
-    _curValue set[1,    ((_curValue select 1) - (_tempValue * (_tempthreat select 1))) max 0    ];
-    _curValue set[0,    ((_curValue select 0) - (_tempValue * (_tempthreat select 0))) max 0    ];
-
-    _chosenStrategies pushBack _strategyToAdd;
-};
-
-/// get some AT - strategie
-If ((_enemyType select 1)>0) then {
-    /// posible strategies against air
-    private _strategyCfgs = configProperties [(missionConfigFile >> "strategy"),"(((getArray(_x >> 'threat')) select 1) > 0)" ,true];
-    private _possibleStrategys = [];
-    //TRACEV_1(_strategyCfgs);
-    {
-        //// check additional condition - e.g. all Support used
-        private _condition = (getText(_x>>"condition"));
-        If ([] call compile _condition) then {
-            //// weight the strategy
-            private _tempValue = (getNumber(_x>>"value"));
-            private _tempthreat = (getArray(_x>>"threat"));
-            private _temp = 0;
-            /// minimal value difference
-            If (((_curValue select 1) - ((_tempthreat select 1) * (_tempValue))) > 0) then {
-                _temp = 1 / ((abs((_curValue select 1) - ((_tempthreat select 1) * (_tempValue)))+ 1) * 10);
-            }else{
-                _temp = 1 / (abs((_curValue select 1) - ((_tempthreat select 1) * (_tempValue)))+1);
-            };
-            _temp = _temp * 1000000;
-            //TRACEV_4(configname _x,_temp,_tempValue,_tempthreat);
-            _possibleStrategys pushBack [_temp,_x];
-        };
-    } forEach _strategyCfgs;
-    /// select the strategy (weighted)
-    //TRACEV_1(_possibleStrategys);
-    private _strategyToAdd = ([_possibleStrategys,0,false] call EFUNC(common,sel_array_weighted)) select 1;
-    private _tempValue = (getNumber(_strategyToAdd>>"value"));
-    private _tempthreat = (getArray(_strategyToAdd>>"threat"));
-    private _temptype = (getArray(_strategyToAdd>>"type"));
-
-    //// reduce the needed strategy -> if a helicopter is send, there is no need to send additional infantrie
-    _curValue set[2,    ((_curValue select 2) - (_tempValue * (_tempthreat select 2))) max 0    ];
-    _curValue set[1,    ((_curValue select 1) - (_tempValue * (_tempthreat select 1))) max 0    ];
-    _curValue set[0,    ((_curValue select 0) - (_tempValue * (_tempthreat select 0))) max 0    ];
-    TRACEV_5(_strategyToAdd,_tempValue,_tempthreat,_temptype,_curValue);
-    _chosenStrategies pushBack _strategyToAdd;
-};
+TRACEV_2(_again,_curValue);
 
 
-/// attack the infantry
-If ((_enemyType select 0)>0) then {
-    /// posible strategies against air
-    private _strategyCfgs = configProperties [(missionConfigFile >> "strategy"),"(((getArray(_x >> 'threat')) select 0) > 0)",true];
-    private _possibleStrategys = [];
-    {
-        //// check additional condition - e.g. all Support used
-        private _condition = (getText(_x>>"condition"));
-        If ([] call compile _condition) then {
-            //// weight the strategy
-            private _tempValue = (getNumber(_x>>"value"));
-            private _tempthreat = (getArray(_x>>"threat"));
-            private _temp = 0;
-            /// minimal value difference
-            If (((_curValue select 0) - ((_tempthreat select 0) * (_tempValue))) > 0) then {
-                _temp = 1 / ((abs((_curValue select 0) - ((_tempthreat select 0) * (_tempValue)))+ 1) * 10);
-            }else{
-                _temp = 1 / (abs((_curValue select 0) - ((_tempthreat select 0) * (_tempValue)))+1);
-            };
-            _temp = _temp * 1000000;
-            _possibleStrategys pushBack [_temp,_x];
-        };
-    } forEach _strategyCfgs;
-    /// select the strategy (weighted)
-    private _strategyToAdd = ([_possibleStrategys,0,false] call EFUNC(common,sel_array_weighted)) select 1;
-    private _tempValue = (getNumber(_strategyToAdd>>"value"));
-    private _tempthreat = (getArray(_strategyToAdd>>"threat"));
-    private _temptype = (getArray(_strategyToAdd>>"type"));
-
-    //// reduce the needed strategy -> if a helicopter is send, there is no need to send additional infantrie
-    _curValue set[2,    ((_curValue select 2) - (_tempValue * (_tempthreat select 2))) max 0    ];
-    _curValue set[1,    ((_curValue select 1) - (_tempValue * (_tempthreat select 1))) max 0    ];
-    _curValue set[0,    ((_curValue select 0) - (_tempValue * (_tempthreat select 0))) max 0    ];
-
-    _chosenStrategies pushBack _strategyToAdd;
-};
-
-If (
-    (((_curValue select 0)>0)||
-    ((_curValue select 1)>0)||
-    ((_curValue select 2)>0))&&
-    (!_again)
-    ) then {
-    _again = true;
-    _passing = _passing - 1;
-    //TRACE("Choosing again");
-    //TRACEV_3(_curValue,_again,_passing);
-};
-
-
-//// register the strategies and execute them
-
+// cycle through current availible groups
+private _availableGroups = [];
 {
+    private _grouphash = _x;
+    private _group = _grouphash getVariable "group";
+    If !(isNil "_grouphash") then {
+        private _state = HASH_GET(_grouphash,"state");
+        If ((_state in ["idle","wait"])) then {
+            _availableGroups pushBack _group;
+        };
+    };
+} forEach (HASH_GET_DEF(GVAR(groups),"attackGroups",[]));
+TRACEV_1(_availableGroups);
+// add the availible groups
+{
+    private _curGroup = _x;
+
+    private _possibility = 0;
+    private _grouphash = _curGroup getVariable QGVAR(grouphash);
+    private _groupValue = HASH_GET_DEF(_grouphash,"value",0);
+    private _groupstrength = HASH_GET_DEF(_grouphash,"strength",[ARR_3(0,0,0)]);
+    private _groupdefence = HASH_GET_DEF(_grouphash,"defence",[ARR_3(0,0,0)]);
+    private _grouptype = HASH_GET_DEF(_grouphash,"type",0);
+
+    private _valueDiffMod = (1/(_groupValue/_enemyValue));
+    private _possibility = selectMax [
+        (_enemyType select 0) *
+            ((_groupstrength select 0)*(1-(_enemyDefence select _grouptype))) *
+            (1-((_enemystrength select _grouptype)*(1-(_groupdefence select 0)))) *
+            _valueDiffMod,
+        (_enemyType select 1) *
+            ((_groupstrength select 1)*(1-(_enemyDefence select _grouptype))) *
+            (1-((_enemystrength select _grouptype)*(1-(_groupdefence select 1)))) *
+            _valueDiffMod,
+        (_enemyType select 2) *
+            ((_groupstrength select 2)*(1-(_enemyDefence select _grouptype))) *
+            (1-((_enemystrength select _grouptype)*(1-(_groupdefence select 2)))) *
+            _valueDiffMod
+    ];
+    private _curStratValue = _groupValue;
+    private _parameter = [_curGroup];
+    If (_possibility > 0) then {
+        _possibleStrategys pushBack [_possibility,_curStratValue,"groundattack",_parameter];
+    };
+} forEach _availableGroups;
+
+// add the offmap support
+{
+    private _curCfg = _x;
+
+    private _condition = getText(_curCfg >> "condition");
+
+    If ([] call compile _condition) then {
+        private _stratValue = getNumber(_curCfg >> "value");
+        private _stratstrength = getarray(_curCfg >> "strength");
+        private _stratdefence = getarray(_curCfg >> "defence");
+        private _strattype = getNumber(_curCfg >> "type");
+
+        private _valueDiffMod = (1/(_stratValue/_enemyValue));
+        private _possibility = selectMax [
+            (_enemyType select 0) *
+                ((_stratstrength select 0)*(1-(_enemyDefence select _strattype))) *
+                (1-((_enemystrength select _strattype)*(1-(_stratdefence select 0)))) *
+                _valueDiffMod,
+            (_enemyType select 1) *
+                ((_stratstrength select 1)*(1-(_enemyDefence select _strattype))) *
+                (1-((_enemystrength select _strattype)*(1-(_stratdefence select 1)))) *
+                _valueDiffMod,
+            (_enemyType select 2) *
+                ((_stratstrength select 2)*(1-(_enemyDefence select _strattype))) *
+                (1-((_enemystrength select _strattype)*(1-(_stratdefence select 2)))) *
+                _valueDiffMod
+        ];
+        private _curStratValue = _stratValue;
+        private _parameter = [_strat];
+        If (_possibility > 0) then {
+            _possibleStrategys pushBack [_possibility,_curStratValue,configName _curCfg,_parameter];
+        };
+    };
+} forEach (configProperties [missionConfigFile >> "strategies", "!((toLower(configname _x)) in ['groundattack'])", true]);
+
+private _currentStrategies = [[_possibleStrategys,0,false] call EFUNC(common,sel_array_weighted)];
+
+
+// execute the strategies until the current value reaches zero
+{
+    TRACEV_1(_curValue);
+    If (_curValue < 0) exitWith {};
+
+    _x params ["_possibility","_curStratValue","_strategytype","_curparameter"];
+
+    _curValue = _curValue - _curStratValue;
+
+    private _stratCfg = (missionConfigFile >> "strategy" >> _strategytype);
+
     private _strategyhash = HASH_CREATE;
     HASH_GET(_attackPos,"strategies") pushBack _strategyhash;
+    HASH_SET(_strategyhash,"strategytype",_strategytype);
 
-    HASH_SET(_strategyhash,"strategytype",configName _x);
-
-    private _timeout = (getNumber(_x >> "timeout"));
-    private _condition = (getText(_x >> "finishcondition"));
-    private _function = (getText(_x >> "function"));
+    private _timeout = (getNumber(_stratCfg >> "timeout"));
+    private _condition = (getText(_stratCfg >> "finishcondition"));
+    private _function = (getText(_stratCfg >> "function"));
 
     private _parameter = [];
     If !(_function isEqualTo "") then {
         If !(isNil _function) then {
-            _parameter = [_attackPos,_strategyhash] call (missionNamespace getVariable _function);
+            _parameter = [_attackPos,_strategyhash,_curparameter] call (missionNamespace getVariable _function);
         }else{
-            _parameter = [_attackPos,_strategyhash] call compile _function;
+            _parameter = [_attackPos,_strategyhash,_curparameter] call compile _function;
         };
     };
-    //private _parameter = [[_attackPos,_strategyhash] call compile _function] param [0,[]];
-    //TRACEV_5(configName _x,_attackPos,_strategyhash,_function,_parameter);
-    //TRACEV_3(_timeout,_condition,_parameter);
+
+    HASH_SET(_strategyhash,"value",_curStratValue);
+
     If (_timeout > 0) then {
         _timeout = _timeout + CBA_missiontime;
         HASH_SET(_strategyhash,"timeout",_timeout);
@@ -199,19 +174,29 @@ If (
         HASH_SET(_strategyhash,"parameter",_parameter);
     };
 
-    If !((getText(_x >> "onfinish")) isEqualTo "") then {
-        HASH_SET(_strategyhash,"onfinish",(getText(_x >> "onfinish")));
+    If !((getText(_stratCfg >> "onfinish")) isEqualTo "") then {
+        HASH_SET(_strategyhash,"onfinish",(getText(_stratCfg >> "onfinish")));
     };
     /*
-    If !((getText(_x >> "onsuc")) isEqualTo "") then {
-        HASH_SET(_strategyhash,"function",(getText(_x >> "function")));
+    If !((getText(_stratCfg >> "onsuc")) isEqualTo "") then {
+        HASH_SET(_strategyhash,"function",(getText(_stratCfg >> "function")));
     };
-    If !((getText(_x >> "function")) isEqualTo "") then {
-        HASH_SET(_strategyhash,"onfinish",(getText(_x >> "function")));
+    If !((getText(_stratCfg >> "function")) isEqualTo "") then {
+        HASH_SET(_strategyhash,"onfinish",(getText(_stratCfg >> "function")));
     };
     */
 
-} forEach _chosenStrategies;
+} forEach _currentStrategies;
+
+If (
+    (_curValue > 0)&&
+    (!_again)
+    ) then {
+    _again = true;
+    _passing = _passing - 1;
+    //TRACE("Choosing again");
+    //TRACEV_3(_curValue,_again,_passing);
+};
 
 
 If ((_again)&&{_passing > 0}) exitWith {

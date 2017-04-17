@@ -1,4 +1,4 @@
-/*
+/**
  *  Author: Dorbedo
  *
  *  Description:
@@ -22,9 +22,10 @@ CHECK(_radars isEqualTo [])
 
 private _possibleTargets = allPlayers select {
     (alive _x)&&
-    (!((vehicle _x)isKindOf "ParachuteBase"))&&
-    ((vehicle _x)isKindOf "Plane")&&
-    (isTouchingGround (vehicle _x))
+    {!(vehicle _x == _x)}&&
+    {!((vehicle _x)isKindOf "ParachuteBase")}&&
+    {(vehicle _x)isKindOf "Plane"}&&
+    {isTouchingGround (vehicle _x)}
 };
 _possibleTargets append (allUnitsUAV select {
     (alive _x)&&

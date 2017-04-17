@@ -1,4 +1,4 @@
-/*
+/**
  *  Author: Dorbedo
  *
  *  Description:
@@ -16,7 +16,7 @@
 #include "script_component.hpp"
 _this params ["_position"];
 
-#define MAXIMUM 4
+#define MAXIMUM 2
 
 _position = [_position] call CBA_fnc_getPos;
 
@@ -27,8 +27,8 @@ private _coeff = 1;
     If (_position in _poiLoc) exitWith {
         _coeff = MAXIMUM;
     };
-    private _distance = (_position distance2D (getPos _poiLoc)) max 1;
-    _coeff = _coeff max (5*(log _distance / log 0.00001)+3.2);
+    private _distance = (_position distance2D (getPos _poiLoc)) max 100;
+    _coeff = _coeff max (3*(log _distance / log 0.00001)+3);
 } forEach HASH_GET_DEF(GVAR(POI),"locations",[]);
 
 ((_coeff max 1) min MAXIMUM);
