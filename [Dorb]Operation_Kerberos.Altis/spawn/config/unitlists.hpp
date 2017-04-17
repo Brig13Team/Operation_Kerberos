@@ -272,14 +272,6 @@ class GVAR(unitlists) {
             };
             class groups : groups {
                 groups_patrol[] = {
-                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_section_AA"},
-                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_section_AT"},
-                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_section_marksman"},
-                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_section_mg"},
-                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_squad"},
-                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_squad_2mg"},
-                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_squad_mg_sniper"},
-                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_squad_sniper"},
                     {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry_recon","rhs_group_rus_MSV_infantry_recon_fireteam"},
                     {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry_recon","rhs_group_rus_MSV_infantry_recon_MANEUVER"},
                     {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry_recon","rhs_group_rus_MSV_infantry_recon_squad"},
@@ -288,27 +280,22 @@ class GVAR(unitlists) {
                     {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry_recon","rhs_group_rus_MSV_infantry_recon_squad_sniper"}
                 };
                 groups_attack[] = {
-                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_BTR80a","rhs_group_rus_MSV_BTR80a_squad"},
-                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_BTR80a","rhs_group_rus_MSV_BTR80a_squad_2mg"},
-                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_BTR80a","rhs_group_rus_MSV_BTR80a_squad_aa"},
-                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_BTR80a","rhs_group_rus_MSV_BTR80a_squad_mg_sniper"},
-                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_BTR80a","rhs_group_rus_MSV_BTR80a_squad_sniper"},
-                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_btr70","rhs_group_rus_MSV_btr70_squad"},
-                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_btr70","rhs_group_rus_MSV_btr70_squad_2mg"},
-                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_btr70","rhs_group_rus_MSV_btr70_squad_aa"},
-                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_btr70","rhs_group_rus_MSV_btr70_squad_mg_sniper"},
-                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_btr70","rhs_group_rus_MSV_btr70_squad_sniper"},
-                    {"configfile","CfgGroups","East","rhs_faction_tv","rhs_group_rus_tv_72","RHS_T72BDSection"},
-                    {"configfile","CfgGroups","East","rhs_faction_tv","rhs_group_rus_tv_72","RHS_T72BCSection"},
-                    {"configfile","CfgGroups","East","rhs_faction_tv","rhs_group_rus_tv_72","RHS_T72BBSection"},
-                    {"configfile","CfgGroups","East","rhs_faction_tv","rhs_group_rus_tv_72","RHS_T72BASection"},
-                    {"configfile","CfgGroups","East","rhs_faction_tv","rhs_group_rus_tv_80","RHS_T80ASection"},
-                    {"configfile","CfgGroups","East","rhs_faction_tv","rhs_group_rus_tv_80","RHS_T80BSection"},
-                    {"configfile","CfgGroups","East","rhs_faction_tv","rhs_group_rus_tv_80","RHS_T80BVSection"},
-                    {"configfile","CfgGroups","East","rhs_faction_tv","rhs_group_rus_tv_80","RHS_T80Section"},
-                    {"configfile","CfgGroups","East","rhs_faction_tv","rhs_group_rus_tv_80","rhs_t80u45mSection"},
-                    {"configfile","CfgGroups","East","rhs_faction_tv","rhs_group_rus_tv_80","rhs_t80ue1Section"},
-                    {"configfile","CfgGroups","East","rhs_faction_tv","rhs_group_rus_tv_80","RHS_T80USection"}
+                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_section_AA"},
+                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_section_AT"},
+                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_section_marksman"},
+                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_section_mg"},
+                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_squad"},
+                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_squad_2mg"},
+                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_squad_mg_sniper"},
+                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_squad_sniper"},
+                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_section_AA"},
+                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_section_AT"},
+                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_section_marksman"},
+                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_section_mg"},
+                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_squad"},
+                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_squad_2mg"},
+                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_squad_mg_sniper"},
+                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_squad_sniper"}
                 };
                 groups_defence[] = {
                     {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_fireteam"},
@@ -373,8 +360,8 @@ class GVAR(unitlists) {
                         SOLDIER_7(rhs_msv_aa);
                     };
                     class E_Reg_Att_03 {
-                        SOLDIER_1(rhs_btr80a_msv);
-                        SOLDIERR_2(rhs_msv_junior_sergeant,CORPORAL);
+                        SOLDIERR_1(rhs_msv_junior_sergeant,CORPORAL);
+                        SOLDIER_2(rhs_msv_rifleman);
                         SOLDIER_3(rhs_msv_rifleman);
                         SOLDIER_4(rhs_msv_rifleman);
                         SOLDIER_5(rhs_msv_rifleman);
@@ -389,6 +376,41 @@ class GVAR(unitlists) {
                     };
                     class E_Reg_Att_04 {
                         SOLDIER_1(rhs_t90a_tv);
+                    };
+                    class E_Reg_Att_05 {
+                        SOLDIER_1(rhs_t72ba_tv);
+                        SOLDIER_6(rhs_t72bc_tv);
+                    };
+                    class E_Reg_Att_06 {
+                        SOLDIER_1(rhs_t72bb_tv);
+                        SOLDIER_6(rhs_t72bd_tv);
+                    };
+                    class E_Reg_Att_07 {
+                        SOLDIER_1(rhs_t80u45m);
+                    };
+                    class E_Reg_Att_08 {
+                        SOLDIER_1(rhs_t80uk);
+                    };
+                    class E_Reg_Att_09 {
+                        SOLDIER_1(RHS_ZU23_MSV);
+                    };
+                    class E_Reg_Att_10 {
+                        SOLDIER_1(rhs_zsu234_aa);
+                    };
+                    class E_Reg_Att_11 {
+                        SOLDIER_1(rhs_btr70_msv);
+                    };
+                    class E_Reg_Att_12 {
+                        SOLDIER_1(rhs_btr80a_msv);
+                    };
+                    class E_Reg_Att_13 {
+                        SOLDIER_1(rhs_bmp2e_msv);
+                    };
+                    class E_Reg_Att_14 {
+                        SOLDIER_1(rhs_bmp2d_msv);
+                    };
+                    class E_Reg_Att_15 {
+                        SOLDIER_1(rhs_bmp1d_msv);
                     };
                 };
                 class defence {
@@ -448,14 +470,6 @@ class GVAR(unitlists) {
             };
             class groups : groups {
                 groups_patrol[] = {
-                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_infantry","rhs_group_rus_VDV_infantry_section_AA"},
-                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_infantry","rhs_group_rus_VDV_infantry_section_AT"},
-                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_infantry","rhs_group_rus_VDV_infantry_section_marksman"},
-                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_infantry","rhs_group_rus_VDV_infantry_section_mg"},
-                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_infantry","rhs_group_rus_VDV_infantry_squad"},
-                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_infantry","rhs_group_rus_VDV_infantry_squad_2mg"},
-                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_infantry","rhs_group_rus_VDV_infantry_squad_mg_sniper"},
-                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_infantry","rhs_group_rus_VDV_infantry_squad_sniper"},
                     {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_infantry_recon","rhs_group_rus_VDV_infantry_recon_fireteam"},
                     {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_infantry_recon","rhs_group_rus_VDV_infantry_recon_MANEUVER"},
                     {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_infantry_recon","rhs_group_rus_VDV_infantry_recon_squad"},
@@ -464,29 +478,22 @@ class GVAR(unitlists) {
                     {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_infantry_recon","rhs_group_rus_VDV_infantry_recon_squad_sniper"}
                 };
                 groups_attack[] = {
-                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_vdv_gaz66","rhs_group_rus_vdv_gaz66_squad_mg_sniper"},
-                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_vdv_gaz66","rhs_group_rus_vdv_gaz66_squad_2mg"},
-                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_vdv_2s25","RHS_2S25Section"},
-                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_vdv_2s25","RHS_2S25Platoon_AA"},
-                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_vdv_2s25","RHS_2S25Platoon"},
-                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_vdv_bmd4m","rhs_group_rus_vdv_bmd4m_squad"},
-                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_vdv_bmd4m","rhs_group_rus_vdv_bmd4m_squad_aa"},
-                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_vdv_bmd4m","rhs_group_rus_vdv_bmd4m_squad_mg_sniper"},
-                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_vdv_bmd4m","rhs_group_rus_vdv_bmd4m_squad_sniper"},
-                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_vdv_bmp1","rhs_group_rus_vdv_bmp1_squad"},
-                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_vdv_bmp1","rhs_group_rus_vdv_bmp1_squad_aa"},
-                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_vdv_bmp1","rhs_group_rus_vdv_bmp1_squad_mg_sniper"},
-                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_vdv_bmp1","rhs_group_rus_vdv_bmp1_squad_sniper"},
-                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_vdv_Ural","rhs_group_rus_VDV_Ural_squad"},
-                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_vdv_Ural","rhs_group_rus_VDV_Ural_squad_2mg"},
-                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_vdv_Ural","rhs_group_rus_VDV_Ural_squad_aa"},
-                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_vdv_Ural","rhs_group_rus_VDV_Ural_squad_mg_sniper"},
-                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_vdv_Ural","rhs_group_rus_VDV_Ural_squad_sniper"},
-                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_btr70","rhs_group_rus_VDV_btr70_squad"},
-                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_btr70","rhs_group_rus_VDV_btr70_squad_2mg"},
-                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_btr70","rhs_group_rus_VDV_btr70_squad_aa"},
-                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_btr70","rhs_group_rus_VDV_btr70_squad_mg_sniper"},
-                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_btr70","rhs_group_rus_VDV_btr70_squad_sniper"}
+                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_infantry","rhs_group_rus_VDV_infantry_section_AA"},
+                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_infantry","rhs_group_rus_VDV_infantry_section_AT"},
+                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_infantry","rhs_group_rus_VDV_infantry_section_marksman"},
+                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_infantry","rhs_group_rus_VDV_infantry_section_mg"},
+                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_infantry","rhs_group_rus_VDV_infantry_squad"},
+                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_infantry","rhs_group_rus_VDV_infantry_squad_2mg"},
+                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_infantry","rhs_group_rus_VDV_infantry_squad_mg_sniper"},
+                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_infantry","rhs_group_rus_VDV_infantry_squad_sniper"},
+                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_infantry","rhs_group_rus_VDV_infantry_section_AA"},
+                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_infantry","rhs_group_rus_VDV_infantry_section_AT"},
+                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_infantry","rhs_group_rus_VDV_infantry_section_marksman"},
+                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_infantry","rhs_group_rus_VDV_infantry_section_mg"},
+                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_infantry","rhs_group_rus_VDV_infantry_squad"},
+                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_infantry","rhs_group_rus_VDV_infantry_squad_2mg"},
+                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_infantry","rhs_group_rus_VDV_infantry_squad_mg_sniper"},
+                    {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_infantry","rhs_group_rus_VDV_infantry_squad_sniper"}
                 };
                 groups_defence[] = {
                     {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_infantry","rhs_group_rus_VDV_infantry_fireteam"},
@@ -564,6 +571,30 @@ class GVAR(unitlists) {
                         SOLDIER_11(rhs_vdv_medic);
                         SOLDIER_12(rhs_vdv_rifleman);
                         SOLDIER_13(rhs_vdv_rifleman);
+                    };
+                    class E_Reg_Att_04 {
+                        SOLDIER_1(rhs_sprut_vdv);
+                    };
+                    class E_Reg_Att_05 {
+                        SOLDIER_1(rhs_sprut_vdv);
+                    };
+                    class E_Reg_Att_06 {
+                        SOLDIER_1(rhs_bmd4ma_vdv);
+                    };
+                    class E_Reg_Att_07 {
+                        SOLDIER_1(rhs_bmp2d_vdv);
+                    };
+                    class E_Reg_Att_08 {
+                        SOLDIER_1(rhs_bmp1p_vdv);
+                    };
+                    class E_Reg_Att_09 {
+                        SOLDIER_1(rhs_brm1k_vdv);
+                    };
+                    class E_Reg_Att_10 {
+                        SOLDIER_1(rhs_btr60_vdv);
+                    };
+                    class E_Reg_Att_11 {
+                        SOLDIER_1(rhs_btr80a_vdv);
                     };
                 };
                 class defence {
@@ -648,17 +679,22 @@ class GVAR(unitlists) {
                     {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_squad_sniper"}
                 };
                 groups_attack[] = {
-                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_msv_Ural","rhs_group_rus_msv_Ural_squad"},
-                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_msv_Ural","rhs_group_rus_MSV_Ural_squad_2mg"},
-                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_msv_Ural","rhs_group_rus_MSV_Ural_squad_aa"},
-                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_msv_Ural","rhs_group_rus_MSV_Ural_squad_mg_sniper"},
-                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_msv_Ural","rhs_group_rus_MSV_Ural_squad_sniper"},
-                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_btr70","rhs_group_rus_MSV_btr70_squad"},
-                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_btr70","rhs_group_rus_MSV_btr70_squad_2mg"},
-                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_btr70","rhs_group_rus_MSV_btr70_squad_aa"},
-                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_btr70","rhs_group_rus_MSV_btr70_squad_mg_sniper"},
-                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_btr70","rhs_group_rus_MSV_btr70_squad_sniper"},
-
+                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_section_AA"},
+                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_section_AT"},
+                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_section_marksman"},
+                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_section_mg"},
+                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_squad"},
+                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_squad_2mg"},
+                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_squad_mg_sniper"},
+                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_squad_sniper"},
+                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_section_AA"},
+                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_section_AT"},
+                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_section_marksman"},
+                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_section_mg"},
+                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_squad"},
+                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_squad_2mg"},
+                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_squad_mg_sniper"},
+                    {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_squad_sniper"},
                     {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_section_AA"},
                     {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_section_AT"},
                     {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_section_marksman"},
@@ -729,6 +765,12 @@ class GVAR(unitlists) {
                         SOLDIER_5(rhs_msv_grenadier_rpg);
                         SOLDIER_6(rhs_msv_grenadier_rpg);
                         SOLDIER_7(rhs_msv_aa);
+                    };
+                    class E_Reg_Att_03 {
+                        SOLDIER_1(rhs_brm1k_vdv);
+                    };
+                    class E_Reg_Att_04 {
+                        SOLDIER_1(rhs_btr60_vdv);
                     };
                 };
                 class defence {
@@ -831,13 +873,15 @@ class GVAR(unitlists) {
             };
         };
         class droneoperations : specops {
+            /*
             class groups : groups {
                 class patrol {};
                 class strikeforce {};
                 class defence {};
             };
+            */
         };
-        class guards  : msv {};
+        class guards  : infanterie {};
     };
     class base_west : base {
         class mission : mission {
