@@ -418,7 +418,7 @@ class RSC(BaseListboxN) {
     type = 102;// 102;
     style = "0x10";
     font = GUI_FONT_NORMAL;
-    sizeEx = IGUI_TEXT_SIZE_MEDIUM;
+    sizeEx = (pixelH * pixelGrid * 3);
     colorText[] = COLOR_TABLET_MAIN_TEXT;
     colorBackground[] = {RAL9023,1};
     canDrag = false;
@@ -607,7 +607,7 @@ class RSC(BaseEdit) {
     text = "";
     autocomplete = "";
     shadow=0;
-    sizeEx="(            (            (            ((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+    sizeEx = (pixelH * pixelGrid * 3);
     colorBackground[]={0,0,0,0};
     colorText[]={0.94999999,0.94999999,0.94999999,1};
     colorDisabled[]={1,1,1,0.25};
