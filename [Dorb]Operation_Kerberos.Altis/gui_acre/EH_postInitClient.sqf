@@ -27,5 +27,6 @@ GVAR(tempProperties) = [];
     QGVAR(keybind_openMenu),
     [localize LSTRING(KEYBIND), localize LSTRING(KEYBIND_TOOLTIP)],
     {if ([] call FUNC(canOpenMenu)) then {[] spawn FUNC(openMenu)};},
-    {false}, [0, [false, false, false]
-], false] call CBA_fnc_addKeybind;
+    {false}, [-1, [false, false, false]],
+    false
+] call CBA_fnc_addKeybind;
