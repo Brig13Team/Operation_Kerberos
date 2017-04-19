@@ -80,6 +80,9 @@ GVAR(drones_handle) = [LINKFUNC(drones_handle),10,[]] call CBA_fnc_addPerFrameHa
 /// ressources
 GVAR(ressources_amount) = 0;
 
+GVAR(callInUnits_cas) = [];
+GVAR(callInUnits_ai) = [];
+GVAR(callInUnits_heli) = [];
 
 /// groups - player & ai
 GVAR(groups) = HASH_CREATE;

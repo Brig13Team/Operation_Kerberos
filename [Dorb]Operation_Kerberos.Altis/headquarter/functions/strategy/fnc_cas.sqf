@@ -23,6 +23,7 @@ _dir = [_spawnpos, _currentPos] call BIS_fnc_dirTo;
 private _attackVehType = ["plane_cas"] call EFUNC(spawn,getUnit);
 
 ([_spawnPos,GVARMAIN(side),_attackVehType,_dir,true,true,"FLY"] call EFUNC(spawn,vehicle)) params ["_attackGroup","_attackVeh"];
+GVAR(callInUnits_cas) pushBack _attackVeh;
 //TRACEV_2(_attackGroup,_attackVeh);
 
 private _costs = [_attackVehType] call FUNC(getCosts);

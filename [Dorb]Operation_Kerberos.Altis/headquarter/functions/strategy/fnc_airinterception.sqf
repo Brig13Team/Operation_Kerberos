@@ -24,6 +24,7 @@ _spawnPos set [2,3000];
 private _plane = ["plane_ai"] call EFUNC(spawn,getUnit);
 private _dir = [_spawnpos, _currentPos] call BIS_fnc_dirTo;
 ([_spawnpos,GVARMAIN(side),_plane,_dir,true,true,"FLY"] call EFUNC(spawn,vehicle)) params ["_attackGroup","_attackVeh"];
+GVAR(callInUnits_ai) pushBack _attackVeh;
 
 private _costs = [_plane] call FUNC(getCosts);
 GVAR(ressources_amount) = GVAR(ressources_amount) - _costs;
