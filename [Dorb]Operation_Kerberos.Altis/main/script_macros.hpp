@@ -47,10 +47,6 @@ Author:
     #undef CBA_OFF
 #endif
 
-/* Temp Fix for RETNIL */
-#define RETNIL(VARIABLE) (If (isNil{VARIABLE}) then {nil}else{VARIABLE})
-#define RETDEF(VARIABLE,DEFAULT_VALUE) (If (isNil{VARIABLE}) then {DEFAULT_VALUE}else{VARIABLE})
-
 /* -------------------------------------------
 Macro: PAAPATH(VAR)
     reurn the path of the picture

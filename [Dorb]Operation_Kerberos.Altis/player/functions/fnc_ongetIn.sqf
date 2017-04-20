@@ -21,7 +21,7 @@ CHECK((vehicle player) isKindOf "ParachuteBase")
 
 if (!(((_turret isEqualTo [0]) || (_position == "driver")))) exitWith {};
 
-If (RETDEF(EGVAR(player,whitelistenabled),false)) then {
+If (missionNamespace getVariable [QEGVAR(player,whitelistenabled),false]) then {
 
     private "_bool";
     _bool = true;
