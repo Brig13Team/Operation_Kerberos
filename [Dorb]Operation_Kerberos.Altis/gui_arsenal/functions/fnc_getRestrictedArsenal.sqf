@@ -91,7 +91,6 @@ private _loadingScreenID = [localize LSTRING(CREATE_LIST)] call EFUNC(gui,startL
             };
         };
     };
-    hintSilent format["%1/%2",_forEachIndex,count _configArray];
     [_loadingScreenID,(_forEachIndex * _loadingScreenStep)] call EFUNC(gui,progressLoadingScreen);
 } foreach _configArray;
 {

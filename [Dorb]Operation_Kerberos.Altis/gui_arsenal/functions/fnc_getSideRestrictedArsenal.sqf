@@ -64,7 +64,7 @@ private _sideNumber = -1;
 
 switch (_side) do {
     case west : {
-        _dlcs = ["RHS_USAF","bwa3"];
+        _dlcs = ["RHS_USAF","bwa3","UK3CB_BAF_Equipment","UK3CB_BAF_Vehicles","UK3CB_BAF_Weapons"];
         _BISClassBlack = ["_O_","_OG_","_I_","_IG_"];
         _BISModelBlacK = ["OPFOR","INDEP"];
         _sideNumber = 0;
