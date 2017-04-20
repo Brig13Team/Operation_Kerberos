@@ -364,7 +364,7 @@
                 <German>Nach Informationen suchen</German>
                 <English>Gather Intel</English>
             </Key>
-            <Key ID="STR_DORB_MISSION_OBJECTS_GATHER_INTEL">
+            <Key ID="STR_DORB_MISSION_OBJECTS_GATHERING_INTEL">
                 <German>Suche nach Informationen ...</German>
                 <English>Gathering Intel</English>
             </Key>
