@@ -19,7 +19,7 @@ If ((isNil "_strategy")||{isNull _strategy}) exitWith {false};
 
 private _timeout = HASH_GET_DEF(_strategy,"timeout",-1);
 If ((_timeout > 0)&&{_timeout < CBA_missiontime}) exitWith {
-    HASH_DELETE(_strategy);
+    [_strategy] call FUNC(strategy__onfinished);
     false;
 };
 
@@ -46,6 +46,6 @@ If (IS_STRING(_onFinish)) then {
     };
 };
 _parameter spawn _onFinish;
-HASH_DELETE(_strategy);
+[_strategy] call FUNC(strategy__onfinished);
 
 false;

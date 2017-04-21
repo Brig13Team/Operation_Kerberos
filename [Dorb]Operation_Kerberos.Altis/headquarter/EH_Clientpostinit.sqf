@@ -15,3 +15,10 @@ If (isHeadless) then {
         }
     ] call CBA_fnc_addEventHandler;
 };
+
+// DEBUG
+GVAR(debugMarkerActive) = false;
+#ifdef DEBUG_MODE_FULL
+    GVAR(debugMarkerActive) = true;
+    [FUNC(handleDebugMarker),60,[]] call CBA_fnc_addPerFrameHandler;
+#endif
