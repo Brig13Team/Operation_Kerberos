@@ -134,8 +134,10 @@ HASH_SET(GVAR(handles),"ressources",_handle);
 [QGVAR(killedUnit),{_this call FUNC(onKilled);}] call CBA_fnc_addEventHandler;
 
 // DEBUG
-GVAR(debugMarkerActive) = false;
 #ifdef DEBUG_MODE_FULL
+If (isDedicated) then {
+    GVAR(debugMarkerActive) = false;
     GVAR(debugMarkerActive) = true;
     [FUNC(handleDebugMarker),60,[]] call CBA_fnc_addPerFrameHandler;
+};
 #endif

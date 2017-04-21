@@ -22,7 +22,7 @@ If (isNil QGVAR(debugMarker)) then {
     GVAR(debugMarker_sync) = [];
 };
 
-If (hasInterface && (!(IS_ADMIN_LOGGED))) exitWith {};
+If (hasInterface && (!(IS_ADMIN_LOGGED)) && (!isMultiplayer)) exitWith {};
 
 If (isServer) then {
     GVAR(debugMarker_sync) = [];

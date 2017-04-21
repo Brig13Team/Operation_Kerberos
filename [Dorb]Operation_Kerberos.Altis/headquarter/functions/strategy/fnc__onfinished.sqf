@@ -20,7 +20,7 @@ private _type = HASH_GET_DEF(_strategy,"strategytype","");
 
 If (_type isEqualTo "groundattack") then {
     {
-        private _groupStrat = HASH_GET(_x,"strategy",locationNull);
+        private _groupStrat = HASH_GET_DEF(_x,"strategy",locationNull);
         If (_groupStrat isEqualTo _strategy) then {
             [HASH_GET_DEF(_x,"group",grpNull)] call FUNC(strategy__onFinishSAD);
         };
