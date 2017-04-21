@@ -17,6 +17,9 @@ _this params ["_side",["_onlyGear",false,[true]]];
 If !(isClass(missionConfigFile>>QGVARMAIN(arsenal))) then {
     ERROR("No Arsenal config found");
 };
+If ((isNil "_side")||{(_side isEqualType west)}) then {
+    _side = side player;
+};
 
 private _neededVersion = format["%1_ArsenalVersion_%2",missionName,getText(missionConfigFile >> QUOTE(DOUBLES(CfgComponent,ADDON)) >> "version")];
 (profileNamespace getVariable [format[QGVAR(arsenalList_%1),str _side],["NotFound",[]]]) params [["_currentVersion","NotFound",[]],["_list",[],[[]]]];
