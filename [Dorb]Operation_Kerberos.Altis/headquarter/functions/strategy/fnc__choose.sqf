@@ -70,25 +70,27 @@ TRACEV_1(_availableGroups);
     private _groupdefence = HASH_GET_DEF(_grouphash,"defence",[ARR_3(0,0,0)]);
     private _grouptype = HASH_GET_DEF(_grouphash,"type",0);
 
-    private _valueDiffMod = (1/(_groupValue/_enemyValue));
-    private _possibility = selectMax [
-        (_enemyType select 0) *
-            ((_groupstrength select 0)*(1-(_enemyDefence select _grouptype))) *
-            (1-((_enemystrength select _grouptype)*(1-(_groupdefence select 0)))) *
-            _valueDiffMod,
-        (_enemyType select 1) *
-            ((_groupstrength select 1)*(1-(_enemyDefence select _grouptype))) *
-            (1-((_enemystrength select _grouptype)*(1-(_groupdefence select 1)))) *
-            _valueDiffMod,
-        (_enemyType select 2) *
-            ((_groupstrength select 2)*(1-(_enemyDefence select _grouptype))) *
-            (1-((_enemystrength select _grouptype)*(1-(_groupdefence select 2)))) *
-            _valueDiffMod
-    ];
-    private _curStratValue = _groupValue;
-    private _parameter = [_curGroup];
-    If (_possibility > 0) then {
-        _possibleStrategys pushBack [_possibility,_curStratValue,"groundattack",_parameter];
+    If !(_groupValue isEqualTo 0) then {
+        private _valueDiffMod = (1/(_groupValue/_enemyValue));
+        private _possibility = selectMax [
+            (_enemyType select 0) *
+                ((_groupstrength select 0)*(1-(_enemyDefence select _grouptype))) *
+                (1-((_enemystrength select _grouptype)*(1-(_groupdefence select 0)))) *
+                _valueDiffMod,
+            (_enemyType select 1) *
+                ((_groupstrength select 1)*(1-(_enemyDefence select _grouptype))) *
+                (1-((_enemystrength select _grouptype)*(1-(_groupdefence select 1)))) *
+                _valueDiffMod,
+            (_enemyType select 2) *
+                ((_groupstrength select 2)*(1-(_enemyDefence select _grouptype))) *
+                (1-((_enemystrength select _grouptype)*(1-(_groupdefence select 2)))) *
+                _valueDiffMod
+        ];
+        private _curStratValue = _groupValue;
+        private _parameter = [_curGroup];
+        If (_possibility > 0) then {
+            _possibleStrategys pushBack [_possibility,_curStratValue,"groundattack",_parameter];
+        };
     };
 } forEach _availableGroups;
 

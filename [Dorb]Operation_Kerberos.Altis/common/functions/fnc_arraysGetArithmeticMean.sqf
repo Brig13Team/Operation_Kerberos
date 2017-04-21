@@ -14,7 +14,7 @@
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-_this params [["_array",[],[[]]]];
+[_this] params [["_array",[],[[]]]];
 CHECK(_array isEqualTo [])
 _array =+ _array;
 

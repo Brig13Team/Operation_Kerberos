@@ -13,7 +13,7 @@
  */
 #include "script_component.hpp"
 
-_this params [["_array",[],[[]]]];
+[_this] params [["_array",[],[[]]]];
 If !(_array isEqualTypeAll 0) exitWith {nil};
 private _return = 0;
 {_return = _return + _x;}forEach _array;

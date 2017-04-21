@@ -67,7 +67,7 @@ If (hasInterface) then {
     {deleteMarker _x;} forEach GVAR(debugMarker);
     GVAR(debugMarker) = [];
     {
-        _x params [_name,_position,_shape,_type,_color,_text];
+        _x params ["_name","_position","_shape","_type","_color","_text"];
         private _mark = createMarkerLocal [_name,_position];
         GVAR(debugMarker) pushBack _mark;
         _mark setMarkerShapeLocal _shape;

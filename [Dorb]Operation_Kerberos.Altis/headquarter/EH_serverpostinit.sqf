@@ -138,6 +138,6 @@ HASH_SET(GVAR(handles),"ressources",_handle);
 If (isDedicated) then {
     GVAR(debugMarkerActive) = false;
     GVAR(debugMarkerActive) = true;
-    [FUNC(handleDebugMarker),60,[]] call CBA_fnc_addPerFrameHandler;
+    [LINKFUNC(handleDebugMarker),60,[]] call CBA_fnc_addPerFrameHandler;
 };
 #endif
