@@ -28,6 +28,9 @@ switch (_type) do {
         private _amount = getNumber(missionConfigFile >> QEGVAR(spawn,unitlists) >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "callIn" >> "amountAI");
         (((([_unit] call FUNC(getCost)) + GVAR(ressources_amount)) > 0)&&{(count _aliveAI) < _amount});
     };
+    case "radar_airinterception" : {
+        ((GVAR(radar_nextAI) < CBA_missiontime)&&{({alive _x} count HASH_GET(GVAR(radars),"objects"))>0})
+    };
     case "helicopter" : {
         private _unit = ["helicopter"] call EFUNC(spawn,getUnit);
         private _aliveHeli = GVAR(callInUnits_heli) select {alive _x};

@@ -470,21 +470,20 @@ Original Author:
 #include "script_hashes.hpp"
 
 /* -------------------------------------------
-Macro: ACTIVEMOD_TFAR
-    Checks if the Mod Task Force Radio is loaded
+Macro: ACTIVEMOD_BW
+    Checks if the Mod  is loaded
 
 Parameters:
     none
 
 Example:
     (begin example)
-        If ACTIVEMOD_TFAR then ...
+        If ACTIVEMOD_BW then ...
     (end)
 
 Author:
     Dorbedo
 ------------------------------------------- */
-#define ACTIVEMOD_TFAR (isClass(configFile >> "CfgPatches" >> "task_force_radio"))
 #define ACTIVEMOD_ACRE (isClass(configFile >> "CfgPatches" >> "acre_main"))
 #define ACTIVEMOD_BW (isClass(configFile >> "CfgPatches" >> "BWA3_Tracked"))
 

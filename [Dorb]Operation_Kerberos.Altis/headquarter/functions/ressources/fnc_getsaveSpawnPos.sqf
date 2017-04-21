@@ -26,7 +26,9 @@ private _return = [];
     If (
             ((_pos distance2D _targetPos) > 4000)&&
             ((_pos distance2D _targetPos) < 7000)&&
-            (({(_x distance2D _pos)<3000} count allPlayers)<1)
+            (({(_x distance2D _pos)<3000} count allPlayers)<1)&&
+            ((({(_x distance2D _targetPos)<3000} count (allUnitsUAV select {side _x == GVARMAIN(playerside)}))<1))&&
+            ((({(_x distance2D _targetPos)<4000} count [getmarkerpos GVARMAIN(RESPAWNMARKER),getmarkerpos GVARMAIN(AIRFIELD)])<1))
         ) exitWith {
         _return = _pos;
     };

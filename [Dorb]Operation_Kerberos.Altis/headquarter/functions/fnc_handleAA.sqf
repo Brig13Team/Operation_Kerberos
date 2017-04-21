@@ -51,3 +51,11 @@ private _targets = HASH_GET(GVAR(radars),"targets");
         _currentAA commandTarget _nearestTarget;
     };
 } forEach _mobileaa;
+
+If (["radar_airinterception"] call FUNC(ressources_canUseCallIn)) then {
+    {
+        if (_x isKindOf "Plane") exitWith {
+            [_x] call FUNC(radar_airInterceptionGroup);
+        };
+    } forEach _targets;
+};

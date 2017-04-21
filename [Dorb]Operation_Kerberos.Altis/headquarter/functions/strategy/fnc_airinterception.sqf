@@ -35,7 +35,6 @@ _wp setWaypointLoiterType "CIRCLE";
 _wp setWaypointLoiterRadius 800;
 _wp setWaypointBehaviour "SAD";
 _wp setWaypointCombatMode "RED";
-_wp setWaypointTimeout [300,400,500];
 
 [_attackGroup, _pos, 400] call CBA_fnc_taskAttack;
 

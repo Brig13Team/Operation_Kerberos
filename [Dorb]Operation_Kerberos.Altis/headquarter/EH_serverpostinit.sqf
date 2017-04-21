@@ -96,6 +96,7 @@ GVAR(playergroups_new) = 0;
 GVAR(radars) = HASH_CREATE;
 HASH_SET(GVAR(radars),"objects",[]);
 HASH_SET(GVAR(radars),"targets",[]);
+GVAR(radar_nextAI) = 0;
 
 /// dangerzones
 GVAR(dangerzones) = HASH_CREATE;

@@ -25,7 +25,9 @@ while {_generate && (_max_run>0)} do {
     _spawnPos = [_targetPos,_maxdistance,0] call EFUNC(common,pos_random);
     If (
             ((_spawnPos distance2D _targetPos)>_mindistance)&&
-            ((({(_x distance2D _targetPos)<_mindistancePlayer} count allPlayers)==0))
+            ((({(_x distance2D _targetPos)<_mindistancePlayer} count allPlayers)==0))&&
+            ((({(_x distance2D _targetPos)<_mindistancePlayer} count (allUnitsUAV select {side _x == GVARMAIN(playerside)}))==0))&&
+            ((({(_x distance2D _targetPos)<4000} count [getmarkerpos GVARMAIN(RESPAWNMARKER),getmarkerpos GVARMAIN(AIRFIELD)])==0))
         ) then {
             _generate=false;
     };

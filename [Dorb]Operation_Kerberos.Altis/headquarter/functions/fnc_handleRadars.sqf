@@ -11,6 +11,7 @@
  *      none
  *
  */
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 CHECK(!GVAR(active))
@@ -32,7 +33,7 @@ _possibleTargets append (allUnitsUAV select {
     (_x isKindOf "Plane")&&
     (side _x == GVARMAIN(playerside))
     });
-
+//TRACEV_1(_possibleTargets);
 private _targets = [];
 {
     private _radarpos = (getPosASL _x);
@@ -43,9 +44,9 @@ private _targets = [];
                 (((getPos _x) distance _radarpos) < 5000)&&
                 {(!(lineintersects[_radarpos,(getPosASL _x),_radar,_x]))}
             ) then {
-            _targets pushBack _x;
+            _targets pushBackUnique _x;
         };
     } forEach _possibleTargets;
-} forEach _allRadars;
+} forEach _radars;
 
 HASH_SET(GVAR(radars),"targets",_targets);

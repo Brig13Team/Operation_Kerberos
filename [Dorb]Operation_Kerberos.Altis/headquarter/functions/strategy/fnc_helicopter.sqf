@@ -29,13 +29,13 @@ GVAR(callInUnits_heli) pushBack _attackVeh;
 private _costs = [_helicopterType] call FUNC(getCosts);
 GVAR(ressources_amount) = GVAR(ressources_amount) - _costs;
 
-_attackVeh flyInHeight 300;
+_attackVeh flyInHeight 150;
+_pos set [2,150];
 private _wp = _attackGroup addWaypoint [_pos, 0];
 _wp setWaypointLoiterType "CIRCLE";
 _wp setWaypointLoiterRadius 800;
 _wp setWaypointBehaviour "SAD";
 _wp setWaypointCombatMode "RED";
-_wp setWaypointTimeout [300,400,500];
 
 [_attackGroup, _pos, 400] call CBA_fnc_taskAttack;
 

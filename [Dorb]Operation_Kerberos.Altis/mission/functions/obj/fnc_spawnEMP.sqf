@@ -11,9 +11,10 @@
  *      none
  *
  */
-//#define DEBUG_MODE_FULL
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-_this params ["_position"];
+_this params [["_position",HASH_GET_DEF(GVAR(dangerzones),"centerpos",[ARR_3(0,0,0)]),[[]],[2,3]]];
+TRACEV_2(_this,_position);
 private _allVehicles = _position nearEntities [["LandVehicle","Air","Ship_F"],2000];
 {
     private _curVehicle = _x;
@@ -46,5 +47,4 @@ private _allVehicles = _position nearEntities [["LandVehicle","Air","Ship_F"],20
     };
 } forEach _allVehicles;
 
-[QEGVAR(mod_tfar,disableArea),[_position]] call CBA_fnc_globalEvent;
 [QEGVAR(mod_acre,disableArea),[_position]] call CBA_fnc_globalEvent;
