@@ -20,5 +20,5 @@ If (isHeadless) then {
 GVAR(debugMarkerActive) = false;
 #ifdef DEBUG_MODE_FULL
     GVAR(debugMarkerActive) = true;
-    [LINKFUNCFUNC(handleDebugMarker),60,[]] call CBA_fnc_addPerFrameHandler;
+    [LINKFUNC(handleDebugMarker),60,[]] call CBA_fnc_addPerFrameHandler;
 #endif
