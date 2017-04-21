@@ -92,7 +92,7 @@ TRACEV_1(_availableGroups);
             _possibleStrategys pushBack [_possibility,_curStratValue,"groundattack",_parameter];
         };
     };
-} forEach _availableGroups;
+} forEach (_availableGroups select {!isNull _x});
 
 // add the offmap support
 {
