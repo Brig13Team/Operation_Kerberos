@@ -24,7 +24,7 @@ If (_type isEqualTo "groundattack") then {
         If (_groupStrat isEqualTo _strategy) then {
             [HASH_GET_DEF(_x,"group",grpNull)] call FUNC(strategy__onFinishSAD);
         };
-    } forEach HASH_GET(GVAR(groups),"attackGroups",[]);
+    } forEach HASH_GET_DEF(GVAR(groups),"attackGroups",[]);
 };
 
 HASH_DELETE(_strategy);
