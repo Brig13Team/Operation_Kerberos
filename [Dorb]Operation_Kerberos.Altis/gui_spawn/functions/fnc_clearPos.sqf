@@ -25,4 +25,4 @@ private _position = GVAR(curPos);
     if (count crew _x == 0) then {deletevehicle _x};
 } forEach (nearestObjects [_position, ["AllVehicles"], CHECK_RADIUS]);
 
-{deletevehicle _x;} forEach (nearestObjects [_position, ["CraterLong_small","CraterLong","WeaponHolder","GroundWeaponHolder","allDead","Thing"], CHECK_RADIUS]);
+{deletevehicle _x;} forEach (nearestObjects [_position, ["CraterLong_small","CraterLong","WeaponHolder","GroundWeaponHolder","GroundWeaponHolder_scripted","allDead","Thing"], CHECK_RADIUS]);
