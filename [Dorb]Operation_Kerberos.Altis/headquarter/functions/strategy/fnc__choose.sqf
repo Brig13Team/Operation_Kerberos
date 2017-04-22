@@ -127,7 +127,7 @@ TRACEV_1(_availableGroups);
             _possibleStrategys pushBack [_possibility,_curStratValue,configName _curCfg,_parameter];
         };
     };
-} forEach (configProperties [missionConfigFile >> "strategies", "!((toLower(configname _x)) in ['groundattack'])", true]);
+} forEach (configProperties [missionConfigFile >> "strategy", "!((toLower(configname _x)) in ['groundattack'])", true]);
 
 private _currentStrategies = [[_possibleStrategys,0,false] call EFUNC(common,sel_array_weighted)];
 TRACEV_2(_currentStrategies,_possibleStrategys);
