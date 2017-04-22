@@ -27,4 +27,6 @@ If (_type isEqualTo "groundattack") then {
     } forEach HASH_GET_DEF(GVAR(groups),"attackGroups",[]);
 };
 
-HASH_DELETE(_strategy);
+If !(isNull _strategy) then {
+    HASH_DELETE(_strategy);
+};

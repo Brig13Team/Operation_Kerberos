@@ -30,7 +30,7 @@ _namearray params ["_xKey","_yKey"];
 _xKey = parseNumber _xKey;
 _yKey = parseNumber _yKey;
 {
-    private _curval = HASH_GET_DEF(HASH_GET_DEF(GVAR(dangerzones),_x,"0_0"),"enemystrength",0) * _factor;
+    private _curval = HASH_GET_DEF(HASH_GET_DEF(GVAR(dangerzones),_x,locationNull),"enemystrength",0) * _factor;
     // prevent stupid small values
     If (_curval < 100) then {_curval = 0;};
 
