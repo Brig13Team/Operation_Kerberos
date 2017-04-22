@@ -9,9 +9,9 @@
 #include "script_component.hpp"
 
 class DOUBLES(CfgComponent,ADDON) {
-    class postinit {};
+    class postInit {};
     class dependencies {
-        CfgPatches[] = {'asr_ai3_main'};
+        CfgPatches[] = {"asr_ai3_main"};
         CfgComponents[] = {};
     };
 };
