@@ -42,7 +42,7 @@ class strategy {
     class airinterception {
         condition = QUOTE(['airinterception'] call FUNC(ressources_canUseCallIn));
 
-        value = 6000;
+        value = 3500;
         strength[] = {0,0,1};
         defence[] = {0.5,0.5,0.5};
         type = 2;
@@ -59,7 +59,7 @@ class strategy {
     class cas : airinterception {
         condition = QUOTE(['cas'] call FUNC(ressources_canUseCallIn));
 
-        value = 4000;
+        value = 3000;
         strength[] = {0.8,0.7,0};
         defence[] = {0.5,0.5,0};
         type = 2;
@@ -70,7 +70,7 @@ class strategy {
     class drones {
         condition = QUOTE(['drones'] call FUNC(ressources_canUseCallIn));
 
-        value = 3000;
+        value = 2500;
         strength[] = {0.4,0.8,0};
         defence[] = {0.5,0.5,0.5};
         type = 2;
@@ -85,7 +85,7 @@ class strategy {
     class artillery {
         condition = QUOTE('artillery' call EFUNC(headquarter,fdc_ready));
 
-        value = 3000;
+        value = 1500;
         strength[] = {0.7,0.3,0};
         defence[] = {1,0.8,0};
         type = 2;
@@ -100,7 +100,7 @@ class strategy {
     class rocket {
         condition = QUOTE('rocket' call EFUNC(headquarter,fdc_ready));
 
-        value = 4000;
+        value = 2000;
         strength[] = {0.4,0.5,0};
         defence[] = {1,0.8,0};
         type = 2;
@@ -115,7 +115,7 @@ class strategy {
     class mortar {
         condition = QUOTE('mortar' call EFUNC(headquarter,fdc_ready));
 
-        value = 2500;
+        value = 1000;
         strength[] = {0.7,0,0};
         defence[] = {1,0.8,0};
         type = 2;

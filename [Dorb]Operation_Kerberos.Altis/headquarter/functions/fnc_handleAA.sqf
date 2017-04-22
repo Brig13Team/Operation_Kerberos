@@ -52,7 +52,10 @@ private _targets = HASH_GET(GVAR(radars),"targets");
     };
 } forEach _mobileaa;
 
-If (["radar_airinterception"] call FUNC(ressources_canUseCallIn)) then {
+private _airInterceptionAvailible = ["radar_airinterception"] call FUNC(ressources_canUseCallIn);
+TRACEV_2(_airInterceptionAvailible,_targets);
+
+If (_airInterceptionAvailible) then {
     {
         if (_x isKindOf "Plane") exitWith {
             [_x] call FUNC(radar_airInterceptionGroup);
