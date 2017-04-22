@@ -57,9 +57,6 @@ private _configArray = (
     ("isclass _x" configclasses (configfile >> "cfgglasses"))
 );
 
-private _loadingScreenStep = 1/(count _configArray);
-private _loadingScreenID = [localize LSTRING(CREATE_LIST)] call EFUNC(gui,startLoadingScreen);
-
 private _dlcs = [];
 private _BISClassBlack = [];
 private _BISModelBlacK = [];
@@ -79,6 +76,13 @@ switch (_side) do {
         _sideNumber = 1;
     };
 };
+
+If (_sideNumber < 0) exitWith {
+    ERROR(FORMAT_1("Wrong side given",_side));
+};
+
+private _loadingScreenStep = 1/(count _configArray);
+private _loadingScreenID = [localize LSTRING(CREATE_LIST)] call EFUNC(gui,startLoadingScreen);
 
 {
     private _class = _x;
