@@ -8,7 +8,7 @@
 
 CHECK(!hasInterface)
 
-SETUVAR(EGVAR(gui,respawnTime),nil);
+uiNamespace setVariable [QEGVAR(gui,respawnTime),nil];
 
 [] call FUNC(halo_addaction);
 [] call FUNC(backpack_init);
@@ -40,10 +40,10 @@ private _action = [
         [player,_loadout select 0,_loadout select 1] call FUNC(setLoadout);
     },
     {
-        [_target,player] call FUNC(canCopyLoadout);
+        [_target,ace_player] call FUNC(canCopyLoadout);
     }
 ] call ace_interact_menu_fnc_createAction;
-["CAManBase",0,["ACE_MainActions"],_action] call ace_interact_menu_fnc_addActionToClass;
+["CAManBase",0,["ACE_MainActions"],_action,true] call ace_interact_menu_fnc_addActionToClass;
 
 
 
