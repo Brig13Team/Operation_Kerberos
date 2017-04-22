@@ -49,6 +49,6 @@ private _return = [];
             [_attackLocation,true,_temp] call FUNC(strategy__choose);
         };
     };
-} forEach HASH_GET(GVAR(attackpos),"Locations");
+} forEach HASH_GET_DEF(GVAR(attackpos),"Locations",[]);
 
 _return;

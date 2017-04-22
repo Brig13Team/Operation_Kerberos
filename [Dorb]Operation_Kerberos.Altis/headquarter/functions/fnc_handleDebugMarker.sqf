@@ -22,8 +22,6 @@ If (isNil QGVAR(debugMarker)) then {
     GVAR(debugMarker_sync) = [];
 };
 
-If (hasInterface && (!(IS_ADMIN_LOGGED))) exitWith {};
-
 If (isServer) then {
     GVAR(debugMarker_sync) = [];
     private _dangerzones = HASH_KEYS(GVAR(dangerzones)) select {IS_LHASH(HASH_GET(GVAR(dangerzones),_x))};
@@ -63,8 +61,8 @@ If (isServer) then {
     publicVariable QGVAR(debugMarker_sync);
 };
 
-If (hasInterface) then {
-    {deleteMarker _x;} forEach GVAR(debugMarker);
+If ((IS_ADMIN_LOGGED)||{!isMultiplayer}) then {
+    {deleteMarkerLocal _x;} forEach GVAR(debugMarker);
     GVAR(debugMarker) = [];
     {
         _x params ["_name","_position","_shape","_type","_color","_text"];

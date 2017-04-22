@@ -19,13 +19,13 @@ switch (_type) do {
     case "cas" : {
         private _unit = ["plane_cas"] call EFUNC(spawn,getUnit);
         private _aliveCas = GVAR(callInUnits_cas) select {alive _x};
-        private _amount = getNumber(missionConfigFile >> QEGVAR(spawn,unitlists) >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "callIn" >> "amountCAS");
+        private _amount = getNumber(missionConfigFile >> QEGVAR(spawn,unitlists) >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "callIn" >> "amountCAS") min 1;
         (((([_unit] call FUNC(getCost)) + GVAR(ressources_amount)) > 0)&&{(count _aliveCas) < _amount});
     };
     case "airinterception" : {
         private _unit = ["plane_ai"] call EFUNC(spawn,getUnit);
         private _aliveAI = GVAR(callInUnits_ai) select {alive _x};
-        private _amount = getNumber(missionConfigFile >> QEGVAR(spawn,unitlists) >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "callIn" >> "amountAI");
+        private _amount = getNumber(missionConfigFile >> QEGVAR(spawn,unitlists) >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "callIn" >> "amountAI") min 1;
         (((([_unit] call FUNC(getCost)) + GVAR(ressources_amount)) > 0)&&{(count _aliveAI) < _amount});
     };
     case "radar_airinterception" : {
@@ -34,7 +34,7 @@ switch (_type) do {
     case "helicopter" : {
         private _unit = ["helicopter"] call EFUNC(spawn,getUnit);
         private _aliveHeli = GVAR(callInUnits_heli) select {alive _x};
-        private _amount = getNumber(missionConfigFile >> QEGVAR(spawn,unitlists) >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "callIn" >> "amountHeli");
+        private _amount = getNumber(missionConfigFile >> QEGVAR(spawn,unitlists) >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "callIn" >> "amountHeli") min 1;
         (((([_unit] call FUNC(getCost)) + GVAR(ressources_amount)) > 0)&&{(count _aliveHeli) < _amount});
     };
     case "drones" : {

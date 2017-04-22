@@ -69,7 +69,7 @@ TRACEV_1(_availableGroups);
     private _groupstrength = HASH_GET_DEF(_grouphash,"strength",[ARR_3(0,0,0)]);
     private _groupdefence = HASH_GET_DEF(_grouphash,"defence",[ARR_3(0,0,0)]);
     private _grouptype = HASH_GET_DEF(_grouphash,"type",0);
-
+    TRACEV_7(_curGroup,_possibility,_grouphash,_groupValue,_groupstrength,_groupdefence,_grouptype);
     If !(_groupValue isEqualTo 0) then {
         private _valueDiffMod = (1/(_groupValue/_enemyValue));
         private _possibility = selectMax [
@@ -134,11 +134,11 @@ TRACEV_2(_currentStrategies,_possibleStrategys);
 
 // execute the strategies until the current value reaches zero
 {
-    TRACEV_1(_curValue);
-    If (_curValue < 0) exitWith {};
+    TRACEV_2(_curValue,_x);
+    If ((_curValue < 0)||{_x isEqualTo []}) exitWith {};
 
-    _x params ["_possibility","_curStratValue","_strategytype","_curparameter"];
-
+    _x params [["_possibility",0,[0]],["_curStratValue",0,[0]],["_strategytype","",[""]],["_curparameter",[]]];
+    CHECK(_strategytype isEqualTo "")
     _curValue = _curValue - _curStratValue;
 
     private _stratCfg = (missionConfigFile >> "strategy" >> _strategytype);
