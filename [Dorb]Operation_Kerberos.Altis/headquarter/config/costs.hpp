@@ -14,7 +14,7 @@ class costs {
     vehicle_hmg[] =       {250, {0.4,0,0.3},   {0,0,0}};
     vehicle_gmg[] =       {300, {0.8,0.4,0},   {0,0,0}};
     vehicle_20mm[] =      {500, {0.8,0.6,0.7}, {0,0,0}};
-    vehicle_atrocket[] =  {700, {0,1,0},       {0,0,0}};
+    vehicle_atrocket[] =  {700, {0,0.9,0},     {0,0,0}};
     vehicle_aarocket[] =  {700, {0,0,1},       {0,0,0}};
     vehicle_artillery[] = {500, {0.7,0.3,0},   {1,0.8,0}};
     vehicle_rocketart[] = {700, {0.7,0.7,0},   {1,0.8,0}};

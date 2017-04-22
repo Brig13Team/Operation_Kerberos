@@ -47,27 +47,33 @@ private _AllTypes = [0];
     _AllDefence pushBack (["B_soldier_F"] call FUNC(getDefence));
 
 
-    If (_primaryweapon == "SniperRifle") then {
-        _Allvalues pushBack ((["B_sniper_F"] call FUNC(getCost)) - (["B_soldier_F"] call FUNC(getCost)));
+    If ((_primaryweapon == "SniperRifle")||(isClass(configFile >> "CfgWeapons" >> _primaryweapon >> "far_optic1"))) then {
+        _Allvalues pushBack (["B_sniper_F"] call FUNC(getCost));
         _Allstrength pushBack (["B_sniper_F"] call FUNC(getstrengthAI));
         _AllDefence pushBack (["B_sniper_F"] call FUNC(getDefence));
     };
 
+    If (_primaryweapon == "MachineGun") then {
+        _Allvalues pushBack (["B_soldier_AR_F"] call FUNC(getCost));
+        _Allstrength pushBack (["B_soldier_AR_F"] call FUNC(getstrengthAI));
+        _AllDefence pushBack (["B_soldier_AR_F"] call FUNC(getDefence));
+    };
+
     If ((_x getVariable ["ace_medical_medicClass",0])>1) then {
-        _Allvalues pushBack ((["B_Medic_F"] call FUNC(getCost)) - (["B_soldier_F"] call FUNC(getCost)));
+        _Allvalues pushBack (["B_Medic_F"] call FUNC(getCost));
         _Allstrength pushBack (["B_Medic_F"] call FUNC(getstrengthAI));
         _AllDefence pushBack (["B_Medic_F"] call FUNC(getDefence));
     };
 
-    If (_secondaryWeapon == "Launcher") then {
-        private _mag = (getArray(configFile >> "CfgVehicles" >> (secondaryWeapon _x))select 0);
-        private _ammo = getText(configFile >> "CfgVehicles" >> _mag >> "ammo");
-        If (getNumber(configFile >> "CfgVehicles" >> _ammo >> "airlock")>1) then {
-            _Allvalues pushBack ((["B_soldier_AA_F"] call FUNC(getCost)) - (["B_soldier_F"] call FUNC(getCost)));
+    If (_secondaryWeapon in ["Launcher","RocketLauncher","MissileLauncher"]) then {
+        private _mag = (getArray(configFile >> "CfgWeapons" >> (secondaryWeapon _x))select 0);
+        private _ammo = getText(configFile >> "CfgMagazines" >> _mag >> "ammo");
+        If (getNumber(configFile >> "CfgAmmo" >> _ammo >> "airlock")>1) then {
+            _Allvalues pushBack (["B_soldier_AA_F"] call FUNC(getCost));
             _Allstrength pushBack (["B_soldier_AA_F"] call FUNC(getstrengthAI));
             _AllDefence pushBack (["B_soldier_AA_F"] call FUNC(getDefence));
         }else{
-            _Allvalues pushBack ((["B_soldier_AT_F"] call FUNC(getCost)) - (["B_soldier_F"] call FUNC(getCost)));
+            _Allvalues pushBack (["B_soldier_AT_F"] call FUNC(getCost));
             _Allstrength pushBack (["B_soldier_AT_F"] call FUNC(getstrengthAI));
             _AllDefence pushBack (["B_soldier_AT_F"] call FUNC(getDefence));
         };
