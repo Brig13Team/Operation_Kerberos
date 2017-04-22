@@ -34,7 +34,7 @@ _yKey = parseNumber _yKey;
     // prevent stupid small values
     If (_curval < 100) then {_curval = 0;};
 
-    HASH_SET(HASH_GET_DEF(GVAR(dangerzones),_x,"0_0"),"enemystrength",_curval);
+    HASH_SET(HASH_GET_DEF(GVAR(dangerzones),_x,locationNull),"enemystrength",_curval);
 } forEach [
     format["%1_%2",_xKey,_yKey]
     ,format["%1_%2",_xKey+_gridsize,_yKey]
