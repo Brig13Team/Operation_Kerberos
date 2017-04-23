@@ -67,8 +67,14 @@ private _AllTypes = [0];
 
     If (_secondaryWeapon in ["Launcher","RocketLauncher","MissileLauncher"]) then {
         private _mag = (getArray(configFile >> "CfgWeapons" >> (secondaryWeapon _x))select 0);
-        private _ammo = getText(configFile >> "CfgMagazines" >> _mag >> "ammo");
-        If (getNumber(configFile >> "CfgAmmo" >> _ammo >> "airlock")>1) then {
+        private _isAA = false;
+        If !(isNil "_mag") then {
+            private _ammo = getText(configFile >> "CfgMagazines" >> _mag >> "ammo");
+            If !(isNil "_ammo") then {
+                _isAA = (getNumber(configFile >> "CfgAmmo" >> _ammo >> "airlock")>1);
+            };
+        };
+        If (_isAA) then {
             _Allvalues pushBack (["B_soldier_AA_F"] call FUNC(getCost));
             _Allstrength pushBack (["B_soldier_AA_F"] call FUNC(getstrengthAI));
             _AllDefence pushBack (["B_soldier_AA_F"] call FUNC(getDefence));

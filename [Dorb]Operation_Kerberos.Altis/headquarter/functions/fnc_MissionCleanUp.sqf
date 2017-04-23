@@ -22,7 +22,7 @@ GVAR(active) = false;
 //POI
 {
     private _value = HASH_GET(GVAR(POI),_x);
-    If (IS_HASH(_value)) then {
+    If (IS_LHASH(_value)) then {
         HASH_DELETE(_value);
     };
 } forEach HASH_KEYS(GVAR(POI));
@@ -30,7 +30,7 @@ GVAR(active) = false;
 // Dangerzones
 {
     private _value = HASH_GET(GVAR(dangerzones),_x);
-    If (IS_HASH(_value)) then {
+    If (IS_LHASH(_value)) then {
         HASH_DELETE(_value);
         HASH_SET(GVAR(dangerzones),_x,nil);
     };
@@ -42,7 +42,7 @@ HASH_SET(GVAR(dangerzones),"y",nil);
 // Groups
 {
     private _value = HASH_GET(GVAR(groups),_x);
-    If (IS_HASH(_value)) then {
+    If (IS_LHASH(_value)) then {
         HASH_DELETE(_value);
     };
 } forEach HASH_KEYS(GVAR(groups));
