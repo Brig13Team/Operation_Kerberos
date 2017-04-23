@@ -19,6 +19,7 @@ class DOUBLES(CfgComponent,ADDON) {
     class hit {};
     class preinit {};
     class init {};
+    class initPostServer {client = 0;};
     class initACE {
         class dependencies {
             CfgPatches[] = {};
