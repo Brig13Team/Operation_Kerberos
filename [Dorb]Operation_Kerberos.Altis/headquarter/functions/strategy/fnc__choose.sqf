@@ -99,7 +99,7 @@ TRACEV_1(_availableGroups);
     private _curCfg = _x;
 
     private _condition = getText(_curCfg >> "condition");
-
+    //TRACEV_3(_curCfg,_condition,[] call compile _condition);
     If ([] call compile _condition) then {
         private _stratValue = getNumber(_curCfg >> "value");
         private _stratstrength = getarray(_curCfg >> "strength");
@@ -122,7 +122,8 @@ TRACEV_1(_availableGroups);
                 _valueDiffMod
         ];
         private _curStratValue = _stratValue;
-        private _parameter = [_strat];
+        private _parameter = [];
+        //TRACEV_5(_stratValue,_stratstrength,_stratdefence,_strattype,_possibility);
         If (_possibility > 0) then {
             _possibleStrategys pushBack [_possibility,_curStratValue,configName _curCfg,_parameter];
         };
@@ -207,5 +208,5 @@ If ((_again)&&{_passing > 0}) exitWith {
 };
 #ifdef DEBUG_MODE_FULL
     private _currentStrategies = HASH_GET(_attackPos,"strategies") apply {HASH_GET(_x,"strategytype")};
-    TRACEV_6(_attackPos,_currentStrategies,_curValue,_enemyType,_enemyValue,_enemyThreat);
+    TRACEV_7(_attackPos,_currentStrategies,_curValue,_enemyValue,_enemystrength,_enemyDefence,_enemyType);
 #endif
