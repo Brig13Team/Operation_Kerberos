@@ -20,9 +20,10 @@ _array =+ _array;
 
 private _return = _array deleteAt 0;
 {
+    private _curArray = _x;
     {
         _return set [_forEachIndex,(_return select _forEachIndex) max _x];
-    } forEach _x;
+    } forEach _curArray;
     nil;
 } count _array;
 _return;

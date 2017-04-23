@@ -19,10 +19,11 @@ private _pos = locationPosition _attackLoc;
 private _spawnPos = [_pos,4000,4000,10000] call FUNC(ressources_getsavespawnposair);
 //TRACEV_2(_pos,_spawnPos);
 _spawnPos set [2,500];
-_dir = [_spawnpos, _currentPos] call BIS_fnc_dirTo;
+_dir = [_spawnpos, _pos] call BIS_fnc_dirTo;
 private _attackVehType = ["plane_cas"] call EFUNC(spawn,getUnit);
 
 ([_spawnPos,GVARMAIN(side),_attackVehType,_dir,true,true,"FLY"] call EFUNC(spawn,vehicle)) params ["_attackGroup","_attackVeh"];
+GVAR(callInUnits_cas) pushBack _attackVeh;
 //TRACEV_2(_attackGroup,_attackVeh);
 
 private _costs = [_attackVehType] call FUNC(getCosts);

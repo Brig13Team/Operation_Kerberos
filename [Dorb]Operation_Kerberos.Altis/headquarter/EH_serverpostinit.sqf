@@ -80,6 +80,9 @@ GVAR(drones_handle) = [LINKFUNC(drones_handle),10,[]] call CBA_fnc_addPerFrameHa
 /// ressources
 GVAR(ressources_amount) = 0;
 
+GVAR(callInUnits_cas) = [];
+GVAR(callInUnits_ai) = [];
+GVAR(callInUnits_heli) = [];
 
 /// groups - player & ai
 GVAR(groups) = HASH_CREATE;
@@ -93,6 +96,7 @@ GVAR(playergroups_new) = 0;
 GVAR(radars) = HASH_CREATE;
 HASH_SET(GVAR(radars),"objects",[]);
 HASH_SET(GVAR(radars),"targets",[]);
+GVAR(radar_nextAI) = 0;
 
 /// dangerzones
 GVAR(dangerzones) = HASH_CREATE;
@@ -130,8 +134,10 @@ HASH_SET(GVAR(handles),"ressources",_handle);
 [QGVAR(killedUnit),{_this call FUNC(onKilled);}] call CBA_fnc_addEventHandler;
 
 // DEBUG
-GVAR(debugMarkerActive) = false;
 #ifdef DEBUG_MODE_FULL
+If (isDedicated) then {
+    GVAR(debugMarkerActive) = false;
     GVAR(debugMarkerActive) = true;
-    [FUNC(handleDebugMarker),60,[]] call CBA_fnc_addPerFrameHandler;
+    [LINKFUNC(handleDebugMarker),60,[]] call CBA_fnc_addPerFrameHandler;
+};
 #endif

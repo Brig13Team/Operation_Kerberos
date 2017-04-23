@@ -16,6 +16,7 @@
 #define DEBUG_MODE_FULL
 #include "script_component.hpp"
 _this params ["_house","_caller","_door"];
+_door = _door select 0;
 TRACEV_1(_this);
 _house setVariable [format[QGVAR(%1),_door],true,true];
 GVAR(removedMagazine) = switch (true) do {

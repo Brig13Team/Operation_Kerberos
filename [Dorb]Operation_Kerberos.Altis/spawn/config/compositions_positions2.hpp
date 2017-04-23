@@ -1,3 +1,4 @@
+/*
 class composition_590962 {
     class obj_6 {
         pos[] = {10.1175,4.56258,0.740514};
@@ -674,6 +675,7 @@ class composition_590962 {
         dir = -141.778;
     };
 };
+*/
 class composition_477841 {
     class obj_6 {
         pos[] = {9.74506,-10.4458,3.8754};
@@ -2441,6 +2443,7 @@ class composition_961514 {
         dir = -325.591;
     };
 };
+/*
 class composition_956288 {
     class obj_6 {
         pos[] = {-10.47,-9.60493,1.19346};
@@ -2941,3 +2944,4 @@ class composition_956288 {
         dir = -87.9169;
     };
 };
+*/

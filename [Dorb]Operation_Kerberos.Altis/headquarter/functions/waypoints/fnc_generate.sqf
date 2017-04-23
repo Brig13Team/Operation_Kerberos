@@ -13,7 +13,7 @@
  *      ARRAY - The generated waypoints
  *
  */
-#define DEBUG_MODE_OFF
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 _this params[
@@ -41,13 +41,13 @@ private ["_startKeypos","_targetKeypos","_distance","_Keydifferenz","_waypointsA
 _startKeypos = getArray(missionconfigFile >> "maps" >> worldname >> _startKey >> "pos");
 _targetKeypos = getArray(missionconfigFile >> "maps" >> worldname >> _targetKey >> "pos");
 _distance = _startKeypos distance2D _targetKeypos;
-_Keydifferenz = 50;
+_Keydifferenz = getNumber(missionconfigFile >> "maps" >> worldname >> "raster") / 10;
 
-/*
+
 #ifdef DEBUG_MODE_FULL
     #define DEBUG_MARKER
 #endif
-*/
+
 
 
 //#undef DEBUG_MODE_FULL
@@ -68,6 +68,7 @@ while {_active} do {
     /*XP*/
     _nextKey = format["%1_%2",_currentKeyX + _Keydifferenz,_currentKeyY];
     _nextValue = getNumber(missionconfigFile >> "maps" >> worldname >> _nextKey >> "XM");
+    TRACEV_2(_nextKey,_nextValue);
     if (_nextValue > 0) then {
         private ["_nextPos","_value","_inside"];
         _nextPos = getArray(missionconfigFile >> "maps" >> worldname >> _nextKey >> "pos");

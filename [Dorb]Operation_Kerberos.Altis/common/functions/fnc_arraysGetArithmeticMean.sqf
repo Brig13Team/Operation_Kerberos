@@ -24,9 +24,10 @@ private _return = _array deleteAt 0;
 If (_size == 1) exitWith {_return};
 
 {
+    private _curArray = _x;
     {
         _return set [_forEachIndex,(_return select _forEachIndex) + _x];
-    } forEach _x;
+    } forEach _curArray;
     nil;
 } count _array;
 

@@ -34,6 +34,26 @@ _this params ["_pos","_rad"];
 
 {
     GVAR(cleanup_Dump_int) pushBackUnique [-1,_x];
+} forEach (allMissionObjects "CraterLong");
+
+{
+    GVAR(cleanup_Dump_int) pushBackUnique [-1,_x];
+} forEach (allMissionObjects "CraterLong_small");
+
+{
+    GVAR(cleanup_Dump_int) pushBackUnique [-1,_x];
+} forEach (allMissionObjects "WeaponHolder");
+
+{
+    GVAR(cleanup_Dump_int) pushBackUnique [-1,_x];
+} forEach (allMissionObjects "GroundWeaponHolder");
+
+{
+    GVAR(cleanup_Dump_int) pushBackUnique [-1,_x];
+} forEach (allMissionObjects "GroundWeaponHolder_scripted");
+
+{
+    GVAR(cleanup_Dump_int) pushBackUnique [-1,_x];
     nil;
 } count GVAR(cleanUpDump);
 GVAR(cleanup_Dump_int) sort true;

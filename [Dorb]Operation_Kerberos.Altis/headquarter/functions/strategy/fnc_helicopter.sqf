@@ -23,18 +23,19 @@ _spawnPos set [2,500];
 private _helicopterType = ["helicopter"] call EFUNC(spawn,getUnit);
 
 ([_spawnPos,GVARMAIN(side),_helicopterType] call EFUNC(spawn,vehicle)) params ["_attackGroup","_attackVeh"];
+GVAR(callInUnits_heli) pushBack _attackVeh;
 //TRACEV_2(_attackGroup,_attackVeh);
 
 private _costs = [_helicopterType] call FUNC(getCosts);
 GVAR(ressources_amount) = GVAR(ressources_amount) - _costs;
 
-_attackVeh flyInHeight 300;
+_attackVeh flyInHeight 150;
+_pos set [2,150];
 private _wp = _attackGroup addWaypoint [_pos, 0];
 _wp setWaypointLoiterType "CIRCLE";
 _wp setWaypointLoiterRadius 800;
 _wp setWaypointBehaviour "SAD";
 _wp setWaypointCombatMode "RED";
-_wp setWaypointTimeout [300,400,500];
 
 [_attackGroup, _pos, 400] call CBA_fnc_taskAttack;
 

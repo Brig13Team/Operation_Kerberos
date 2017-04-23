@@ -24,7 +24,7 @@ GVAR(EH) = [
         If (!GVAR(active)) exitWith {
             ["cameraView", GVAR(EH)] call CBA_fnc_removePlayerEventHandler;
         };
-        [_this select 1, cameraOn] call FUNC(onCameraChange);
+        [_this select 1, cameraOn] call FUNC(onCameraChanged);
     },
     true
 ] call CBA_fnc_addPlayerEventHandler;

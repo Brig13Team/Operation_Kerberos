@@ -25,11 +25,11 @@ If (IS_LOCATION(_target)) then {_target = locationPosition _target;};
 private["_statement","_waypoints"];
 if (IS_OBJECT(_target)) then {
     _waypoints = [getPos (leader _group),getPos _target] call FUNC(waypoints_generate);
-    _statement = QUOTE(If !(alive (((group this) getVariable 'GVAR(grouphash)') getvariable [ARR_2('target',objNull)])) exitWith {[ARR_3(this,'idle',objNull)] call FUNC(state_set);};);
+    _statement = QUOTE(If (!isServer) exitWith {};If !(alive (((group this) getVariable 'GVAR(grouphash)') getvariable [ARR_2('target',objNull)])) exitWith {[ARR_3(this,'idle',objNull)] call FUNC(state_set);};);
 }else{
     If (IS_LOCATION(_target)) then {
         _waypoints = [getPos (leader _group),locationPosition _target] call FUNC(waypoints_generate);
-        _statement = QUOTE(If (isNull ([(group this) getVariable 'GVAR(grouphash)'] param [ARR_2(0,locationNull)])) exitWith {[ARR_3(this,'idle',objNull)] call FUNC(state_set);};);
+        _statement = QUOTE(If (!isServer) exitWith {};If (isNull ([(group this) getVariable 'GVAR(grouphash)'] param [ARR_2(0,locationNull)])) exitWith {[ARR_3(this,'idle',objNull)] call FUNC(state_set);};);
         //_statement = QUOTE(If (isNull (((group this) getVariable 'GVAR(grouphash)') getvariable [ARR_2('target',locationNull)])) exitWith {[ARR_3(this,'idle',objNull)] call FUNC(state_set);};);
     }else{
         _waypoints = [getPos (leader _group),_target] call FUNC(waypoints_generate);
@@ -47,6 +47,6 @@ while {(count (waypoints _group)) > 0} do {
 
 //_statement = QUOTE([ARR_2(this,'idle')] call FUNC(state_set);) + _statementFinish; /// the waypoint should never end
 
-_statement = QUOTE([ARR_2(this,'idle')] call FUNC(state_set););
+_statement = QUOTE(If (!isServer) exitWith {};[ARR_2(this,'idle')] call FUNC(state_set););
 
 [_group, _lastWaypoint, 0, "DISMISS", "SAFE", "GREEN", "LIMITED", "NO CHANGE", _statement, [3,6,9], 30] call FUNC(waypoints_add);

@@ -27,6 +27,14 @@ private _notifications = [];
 
 TRACEV_1(_notifications);
 
+If ((!(_notifications isEqualTo []))||{({(!(_x isEqualTo [0,0,0]))&&{(player distance _x)<200}} count [getMarkerPos GVARMAIN(respawnmarker),getMarkerPos GVARMAIN(AIRFIELD)])>0}) then {
+    uiNamespace setVariable [QGVAR(lastNotificationHandle),diag_tickTime];
+    TRACEV_2(_x select 1,_delay);
+    If (_delay > 1) then {
+        _x set [1,0.5];
+    };
+};
+
 If (_notifications isEqualTo []) exitWith {
     private _display = uiNamespace getvariable [QAPP(notification_1),displayNull];
     if (!isNull _display) then {
@@ -39,12 +47,6 @@ If (_notifications isEqualTo []) exitWith {
         _x set [1,NOTIFICATION_SHOW_DELAY];
     };
 };
-uiNamespace setVariable [QGVAR(lastNotificationHandle),diag_tickTime];
-TRACEV_2(_x select 1,_delay);
-If (_delay > 1) then {
-    _x set [1,1];
-};
-
 
 // resize the amount of notifications
 

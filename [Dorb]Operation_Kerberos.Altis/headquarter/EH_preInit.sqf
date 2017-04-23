@@ -57,6 +57,7 @@ PREPS(state,wait);
 
 PREPS(strategy,_checkisWorking);
 PREPS(strategy,_choose);
+PREPS(strategy,_onfinished);
 PREPS(strategy,_onFinishAir);
 PREPS(strategy,_onFinishSAD);
 PREPS(strategy,airinterception);
@@ -103,6 +104,8 @@ PREP(MissionCleanUp);
 PREP(MissionInit);
 PREP(onKilled);
 PREP(onUnconscious);
+PREP(radar_airInterceptionGroup_return);
+PREP(radar_airInterceptionGroup);
 PREP(registerAA);
 PREP(registerGroup);
 PREP(registerPlayerGroup);

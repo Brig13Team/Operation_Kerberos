@@ -14,10 +14,10 @@
 #include "script_component.hpp"
 
 _this params [["_target",objNull,[objNull]]];
-If ((isNull _target)||{!isPlayer _target}) exitWith {false};
+If ((isNull _target)/*||{!isPlayer _target}*/) exitWith {false};
 
-If !((vehicle player == player)&&(vehicle _target == _target)&&(side player == side _target)) exitWith {false};
+If !((vehicle ace_player == ace_player)&&(vehicle _target == _target)&&(side ace_player == side _target)) exitWith {false};
 
-private _respawnPos = getMarkerPos (format["respawn_%1",_side]);
+private _respawnPos = getMarkerPos GVARMAIN(respawnMarker);
 
-((player distance2D _respawnPos) < 20)
+((ace_player distance2D _respawnPos) < 20)
