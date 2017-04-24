@@ -19,7 +19,7 @@ class EditorData
 		pos[]={17394.18,24.989487,19562.887};
 		dir[]={0,-0.70710683,0.70710683};
 		up[]={0,0.70710677,0.70710677};
-		aside[]={0.99999994,0,-0};
+		aside[]={0.99999994,0,0};
 	};
 };
 binarizationWanted=0;
@@ -4147,7 +4147,7 @@ class Mission
 			};
 			id=244;
 			type="Land_Cargo20_military_green_F";
-			atlOffset=-0.00027275085;
+			atlOffset=-0.00026321411;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -11285,7 +11285,7 @@ class Mission
 			};
 			id=454;
 			type="Land_Cargo40_military_green_F";
-			atlOffset=-0.0014190674;
+			atlOffset=-0.0014228821;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -11345,7 +11345,7 @@ class Mission
 			position[]={26730.125,0,24608};
 			name="teleport_logistics";
 			type="Empty";
-			angle=76.705559;
+			angle=76.705551;
 			id=456;
 			atlOffset=-20.486155;
 		};
@@ -11416,7 +11416,7 @@ class Mission
 			position[]={16556.625,0,19019};
 			name="rescue_marker";
 			type="Empty";
-			angle=123.12497;
+			angle=123.12496;
 			id=462;
 			atlOffset=-34.392696;
 		};
