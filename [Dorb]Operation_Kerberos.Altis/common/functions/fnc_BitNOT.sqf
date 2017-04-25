@@ -38,4 +38,4 @@ If (_bits < 0) then {
     };
 };
 
-_return;
+abs _return

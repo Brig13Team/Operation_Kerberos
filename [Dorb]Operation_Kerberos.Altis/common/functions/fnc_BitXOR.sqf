@@ -30,4 +30,4 @@ while {((floor _value1) > 0) || ((floor _value2) > 0)} do {
     _value2 = floor(_value2 / 2);
     _i = _i + 1;
 };
-_return;
+abs _return

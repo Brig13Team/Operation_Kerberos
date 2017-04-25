@@ -35,10 +35,10 @@ private _k = [ 0xd76aa478, 0xe8c7b756, 0x242070db, 0xc1bdceee,
     0x655b59c3, 0x8f0ccc92, 0xffeff47d, 0x85845dd1, 0x6fa87e4f, 0xfe2ce6e0, 0xa3014314, 0x4e0811a1,
     0xf7537e82, 0xbd3af235, 0x2ad7d2bb, 0xeb86d391] apply {abs _x};
 
-private _a0 = 0x67452301;
-private _b0 = abs(0xEFCDAB89);
-private _c0 = abs(0x98BADCFE);
-private _d0 = 0x10325476;
+private _a0 = abs 0x67452301;
+private _b0 = abs 0xEFCDAB89;
+private _c0 = abs 0x98BADCFE;
+private _d0 = abs 0x10325476;
 
 // convert the array to bits and split into 512-Bit blocks
 _value = (toArray _value);
@@ -145,7 +145,7 @@ TRACEV_2(_value,_bitArray);
             _D = _C;
             _C = _B;
             _value = _A + _F + (_k select _i) + ([(_words select _g)] call FUNC(BinToNumber));
-            _value = [([_value,32] call FUNC(NumberToBin)),_switches select _i] call FUNC(arrayRotate);
+            _value = [([abs _value,32] call FUNC(NumberToBin)),_switches select _i] call FUNC(arrayRotate);
             _B = _B + ([_value] call FUNC(BinToNumber));
             _A = _temp;
         };
