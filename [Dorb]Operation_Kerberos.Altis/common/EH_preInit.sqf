@@ -16,6 +16,8 @@ PREP(BitAND);
 PREP(BitNOT);
 PREP(BitOR);
 PREP(BitXOR);
+PREP(BitRotate);
+PREP(BitArrayToNumber);
 
 PREP(checksum);
 PREP(convertAngleToRotMat);
@@ -35,6 +37,7 @@ PREP(handledamage_C4);
 
 PREP(list_groups);
 
+PREP(NumberToBitArray);
 PREP(NumberToBin);
 PREP(NumberToHex);
 
