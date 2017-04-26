@@ -5,16 +5,17 @@
  *      converts a number to a HEX
  *
  *  Parameter(s):
- *      0 : [TYPE] - [argument name]
+ *      0 : SCALAR - number
+ *      1 : BOOL - with hex-identificator ("0x": default)
  *
  *  Returns:
- *      [TYPE] - [return name]
+ *      STRING - the Number as HEX
  *
  */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-_this params [["_number",0,[0]]];
+_this params [["_number",0,[0]],["_withID",true,[false]]];
 
 _number = floor _number;
 
@@ -37,4 +38,8 @@ while {_number > 0} do {
 };
 
 reverse _return;
-("0x" + (_return joinString ""))
+If (_withID) then {
+    ("0x" + (_return joinString ""))
+}else{
+    (_return joinString "")
+};

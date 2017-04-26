@@ -7,7 +7,7 @@
  *  Parameter(s):
  *      0 : SCALAR - the number to be shifted;
  *      1 : SCALAR - the bit-size of the value
- *      2 : SCALAR - the number of positions the array should to the left (negativ means right)
+ *      2 : SCALAR - the number of positions the value should be shifted to the left
  *
  *  Returns:
  *      SCALAR - the shifted number
@@ -15,7 +15,6 @@
  */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-
 
 _this params [["_value",0,[0]],["_lenght",0,[0]],["_positions",0,[0]]];
 
@@ -28,12 +27,6 @@ private _array = [_value] call FUNC(NumberToBitArray);
 private _lenght = count _array;
 _positions = _positions mod _lenght;
 
-If (_positions > 0) then {
-    _array = (_array select [_lenght - _positions,_lenght - 1]) + (_array select [0,_lenght - _positions]);
-};
+_array = (_array select [_lenght - _positions,_lenght - 1]) + (_array select [0,_lenght - _positions]);
 
-If (_positions < 0) then {
-    _array = (_array select [_positions,_lenght - 1]) + (_array select [0,_positions]);
-};
-
-([_array] call BitArrayToNumber)
+([_array] call FUNC(BitArrayToNumber))

@@ -16,8 +16,9 @@ PREP(BitAND);
 PREP(BitNOT);
 PREP(BitOR);
 PREP(BitXOR);
-PREP(BitRotate);
 PREP(BitArrayToNumber);
+PREP(BitLeftShift);
+PREP(BitRightShift);
 
 PREP(checksum);
 PREP(convertAngleToRotMat);

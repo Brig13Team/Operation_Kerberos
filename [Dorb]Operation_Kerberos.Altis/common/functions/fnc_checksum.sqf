@@ -144,9 +144,8 @@ TRACEV_2(_value,_bitArray);
             private _temp = _D;
             _D = _C;
             _C = _B;
-            _value = _A + _F + (_k select _i) + ([(_words select _g)] call FUNC(BinToNumber));
-            _value = [([abs _value,32] call FUNC(NumberToBin)),_switches select _i] call FUNC(arrayRotate);
-            _B = _B + ([_value] call FUNC(BinToNumber));
+            _value = _A + _F + (_k select _i) + ([(_words select _g)] call FUNC(BitToNumber));
+            _value = _B + ([_value,32,_switches select _i] call FUNC(BitLeftShift));
             _A = _temp;
         };
         _a0 = _a0 + _A;
@@ -158,7 +157,7 @@ TRACEV_2(_value,_bitArray);
 TRACEV_4(_a0,_b0,_c0,_d0);
 TRACEV_4(_a0 toFixed 0,_b0 toFixed 0,_c0 toFixed 0,_d0 toFixed 0);
 
-private _return = ([_a0,_b0,_c0,_d0] apply {[_x] call FUNC(NumberToHex)}) joinString "";
+private _return = (([_a0,false] call FUNC(NumberToHex)) + ([,_b0,_c0,_d0] apply {[_x,false] call FUNC(NumberToHex)})) joinString "";
 test3 = _return;
 _return
 
