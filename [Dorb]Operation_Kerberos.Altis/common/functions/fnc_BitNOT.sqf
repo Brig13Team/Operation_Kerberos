@@ -15,7 +15,7 @@
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-_this params [["_value",0,[0]],["_bits",32,[0]]];
+_this params [["_value",0,[0]],["_bits",24,[0]]];
 
 _value = abs(_value);
 private _return = 0;
