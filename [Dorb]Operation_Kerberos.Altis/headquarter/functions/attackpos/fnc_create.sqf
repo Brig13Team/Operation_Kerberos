@@ -32,10 +32,12 @@ EGVAR(spawn,cleanUpDump) pushBack _attackLoc;
 HASH_GET(GVAR(attackpos),"Locations") pushBack _attackLoc;
 
 // cover all sorrounding Dangerzones
-private _size = (HASH_GET(GVAR(dangerzones),"gridsize")) * 1.1;
+//private _size = (HASH_GET(GVAR(dangerzones),"gridsize")) * 1.1;
+private _size = (HASH_GET(GVAR(dangerzones),"gridsize")) * 1.5; // temporary switch for testing bigger areas
 _attackLoc setPosition _position;
 _attackLoc setSize [_size,_size];
-_attackLoc setRectangular true;
+//_attackLoc setRectangular true;
+_attackLoc setRectangular false;
 // prevent registration as POI
 HASH_SET(_attackLoc,"isPOI",false);
 

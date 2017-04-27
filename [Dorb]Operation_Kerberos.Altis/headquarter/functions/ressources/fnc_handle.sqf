@@ -21,7 +21,7 @@ ISNILS(GVAR(ressources_amount),-1);
 private _value = 0;
 
 // average player kills units per hour
-#define KILLS_PER_HOUR 18
+#define KILLS_PER_HOUR 12
 #define KILLS_PER_MINUTE (KILLS_PER_HOUR/60)
 #define PLAYERAMOUNT (count ([] call EFUNC(common,players)))
 // average cost of a killed unit
