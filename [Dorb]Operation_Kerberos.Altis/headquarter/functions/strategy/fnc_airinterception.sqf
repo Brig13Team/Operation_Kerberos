@@ -24,10 +24,10 @@ _spawnPos set [2,3000];
 private _plane = ["plane_ai"] call EFUNC(spawn,getUnit);
 private _dir = [_spawnpos, _currentPos] call BIS_fnc_dirTo;
 ([_spawnpos,GVARMAIN(side),_plane,_dir,true,true,"FLY"] call EFUNC(spawn,vehicle)) params ["_attackGroup","_attackVeh"];
-GVAR(callInUnits_ai) pushBack _attackVeh;
+private _ressourcesHash = HASH_GET_DEF(GVAR(ressources),"airinterception",locationNull);
+HASH_GET_DEF(_ressourcesHash,"units",[]) pushBack _attackVeh;
+HASH_SET(_ressourcesHash,"nextexecution",CBA_missiontime + GVAR(ressources_CallInreplenish_airinterception));
 
-private _costs = [_plane] call FUNC(getCosts);
-GVAR(ressources_amount) = GVAR(ressources_amount) - _costs;
 
 _attackVeh flyInHeight 600;
 private _wp = _attackGroup addWaypoint [_pos, 0];

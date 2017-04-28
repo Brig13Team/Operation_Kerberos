@@ -26,7 +26,6 @@ If (canMove _attackVeh) then {
             (_this select 0) params ["_attackVeh","_spawnpos"];
             If (((_attackVeh distance2D _spawnpos) > 600)&&(canMove _attackVeh)) exitWith {};
             [_this select 1] call CBA_fnc_removePerFrameHandler;
-            GVAR(ressources_amount) = GVAR(ressources_amount) + ([typeOf _attackVeh] call FUNC(getCost));
             {deletevehicle _x} foreach crew _attackVeh;
             deletevehicle _attackVeh;
         },

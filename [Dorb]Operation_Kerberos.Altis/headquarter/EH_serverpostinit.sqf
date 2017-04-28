@@ -78,12 +78,11 @@ GVAR(drones_handle) = [LINKFUNC(drones_handle),10,[]] call CBA_fnc_addPerFrameHa
 
 
 /// ressources
-GVAR(ressources_amount) = 0;
 GVAR(ressources) = HASH_CREATE;
-
-GVAR(callInUnits_cas) = [];
-GVAR(callInUnits_ai) = [];
-GVAR(callInUnits_heli) = [];
+HASH_GET(GVAR(ressources),"amount",0);
+{
+    HASH_SET(GVAR(ressources),_x,HASH_CREATE);
+} forEach ["cas","helicopter","airinterception"];
 
 /// groups - player & ai
 GVAR(groups) = HASH_CREATE;
@@ -131,6 +130,7 @@ HASH_SET(GVAR(handles),"ressources",_handle);
 
 /// Events
 [QEGVAR(mission,start_server),{_this call FUNC(MissionInit);}] call CBA_fnc_addEventHandler;
+[QEGVAR(mission,start_server),{_this call FUNC(ressources_onMissionInit);}] call CBA_fnc_addEventHandler;
 [QEGVAR(mission,end_server),{_this call FUNC(MissionCleanUp);}] call CBA_fnc_addEventHandler;
 [QGVAR(killedUnit),{_this call FUNC(onKilled);}] call CBA_fnc_addEventHandler;
 

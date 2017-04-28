@@ -23,11 +23,9 @@ _dir = [_spawnpos, _pos] call BIS_fnc_dirTo;
 private _attackVehType = ["plane_cas"] call EFUNC(spawn,getUnit);
 
 ([_spawnPos,GVARMAIN(side),_attackVehType,_dir,true,true,"FLY"] call EFUNC(spawn,vehicle)) params ["_attackGroup","_attackVeh"];
-GVAR(callInUnits_cas) pushBack _attackVeh;
-//TRACEV_2(_attackGroup,_attackVeh);
-
-private _costs = [_attackVehType] call FUNC(getCosts);
-GVAR(ressources_amount) = GVAR(ressources_amount) - _costs;
+private _ressourcesHash = HASH_GET_DEF(GVAR(ressources),"cas",locationNull);
+HASH_GET_DEF(_ressourcesHash,"units",[]) pushBack _attackVeh;
+HASH_SET(_ressourcesHash,"nextexecution",CBA_missiontime + GVAR(ressources_CallInreplenish_CAS));
 
 _attackVeh flyInHeight 300;
 private _wp = _attackGroup addWaypoint [_pos, 0];
