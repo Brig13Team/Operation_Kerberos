@@ -15,7 +15,7 @@
  */
 #include "script_component.hpp"
 
-_this params ["_attackVeh","_attackGroup","_spawnpos"];
+_this params ["_attackVeh","_attackGroup","_spawnpos","_attackLoc"];
 TRACEV_3(_attackVeh,_attackGroup,_spawnpos);
 If (canMove _attackVeh) then {
     [_attackGroup] call CBA_fnc_clearWaypoints;
@@ -23,15 +23,18 @@ If (canMove _attackVeh) then {
     _attackVeh domove _spawnpos;
     [
         {
-            (_this select 0) params ["_attackVeh","_spawnpos"];
-            If (((_attackVeh distance2D _spawnpos) > 600)&&(canMove _attackVeh)) exitWith {};
-            [_this select 1] call CBA_fnc_removePerFrameHandler;
-            {deletevehicle _x} foreach crew _attackVeh;
-            deletevehicle _attackVeh;
+            (!(alive (_this select 0)))||(((_this select 0) distance2D (_this select 2))<200)
         },
-        30,
-        [_attackVeh,_spawnPos]
-    ] call CBA_fnc_addPerFrameHandler;
+        {
+            [(_this select 0),units (_this select 1),(_this select 1)] call EFUNC(common,delete);
+        },
+        [_attackVeh,_attackGroup,_spawnpos,_attackLoc],
+        (5*60),
+        {
+            [(_this select 0),units (_this select 1),(_this select 1)] call EFUNC(common,delete);
+        }
+    ] call CBA_fnc_waitUntilAndExecute;
 }else{
     {_x setDamage 1;} foreach units _attackGroup;
+    [_attackGroup] call EFUNC(common,delete);
 };
