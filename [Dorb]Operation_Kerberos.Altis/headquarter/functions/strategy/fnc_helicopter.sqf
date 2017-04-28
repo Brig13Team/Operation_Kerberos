@@ -23,11 +23,10 @@ _spawnPos set [2,500];
 private _helicopterType = ["helicopter"] call EFUNC(spawn,getUnit);
 
 ([_spawnPos,GVARMAIN(side),_helicopterType] call EFUNC(spawn,vehicle)) params ["_attackGroup","_attackVeh"];
-GVAR(callInUnits_heli) pushBack _attackVeh;
+private _ressourcesHash = HASH_GET_DEF(GVAR(ressources),"helicopter",locationNull);
+HASH_GET_DEF(_ressourcesHash,"units",[]) pushBack _attackVeh;
+HASH_SET(_ressourcesHash,"nextexecution",CBA_missiontime + GVAR(ressources_CallInreplenish_helicopter));
 //TRACEV_2(_attackGroup,_attackVeh);
-
-private _costs = [_helicopterType] call FUNC(getCosts);
-GVAR(ressources_amount) = GVAR(ressources_amount) - _costs;
 
 _attackVeh flyInHeight 150;
 _pos set [2,150];
@@ -37,6 +36,21 @@ _wp setWaypointLoiterRadius 800;
 _wp setWaypointBehaviour "SAD";
 _wp setWaypointCombatMode "RED";
 
-[_attackGroup, _pos, 400] call CBA_fnc_taskAttack;
+private _wp = _attackGroup addWaypoint [_spawnPos, 1];
+// RTB
+[
+    {
+        (!(alive (_this select 0)))||(isNull (_this select 3))
+    },
+    {
+        _this call FUNC(onFinishAir);
+    },
+    [_attackVeh,_attackGroup,_spawnpos,_attackLoc],
+    (10*60),
+    {
+        _this call FUNC(onFinishAir);
+    }
+] call CBA_fnc_waitUntilAndExecute;
+//[_attackGroup, _pos, 400] call CBA_fnc_taskAttack;
 
 [_attackVeh,_attackGroup,_spawnpos]

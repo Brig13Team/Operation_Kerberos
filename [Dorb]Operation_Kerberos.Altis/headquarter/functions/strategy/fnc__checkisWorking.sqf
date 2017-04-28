@@ -37,15 +37,11 @@ If (!(_parameter call _finishCondition)) exitWith {true};
 
 /// TODO evaluate if the strategy finished with success
 
-private _onFinish = HASH_GET_DEF(_strategy,"onfinish",{true});
-If (IS_STRING(_onFinish)) then {
-    If (_onFinish isEqualTo "") then {
-        _onFinish = {true};
-    }else{
-        _onFinish = compile _onFinish;
-    };
+private _onFinish = HASH_GET_DEF(_strategy,"onfinish","");
+If !(_onFinish isEqualTo "") then {
+    _parameter spawn (missionNamespace getvariable [_onFinish,{true}]);
 };
-_parameter spawn _onFinish;
+
 [_strategy] call FUNC(strategy__onfinished);
 
 false;

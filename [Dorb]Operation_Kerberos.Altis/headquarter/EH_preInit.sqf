@@ -35,9 +35,11 @@ PREPS(fdc,register);
 
 PREPS(ressources,CanCallInUnits);
 PREPS(ressources,canUseCallIn);
+PREPS(ressources,CheckIntervall);
 PREPS(ressources,getsaveSpawnPos);
 PREPS(ressources,getsaveSpawnPosAir);
 PREPS(ressources,handle);
+PREPS(ressources,onMissionInit);
 PREPS(ressources,supply);
 PREPS(ressources,supplyAirdrop);
 PREPS(ressources,supplyInfanterie);

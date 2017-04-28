@@ -60,13 +60,13 @@ class GVAR(unitlists) {
                     "rhs_vdv_crew_commander","rhs_vdv_driver","rhs_vdv_driver_armored"};
 
         class callIn {
-            helicopter_cas[] = {"RHS_Ka52_UPK23_vvs"};
-            amountHeli = 2;
             helicopter_transport[] = {"rhs_Mi8mt_vdv","rhs_Mi8mt_Cargo_vdv","rhs_Mi8MTV3_vdv","rhs_Mi8MTV3_UPK23_vdv","rhs_Mi8MTV3_FAB_vdv","rhs_Mi8AMT_vdv"};
+            helicopter_cas[] = {"RHS_Ka52_UPK23_vvs"};
 
             planeAI[] = {"RHS_T50_vvs_054","RHS_T50_vvs_053","RHS_T50_vvs_052"};
-            amountAI = 2;
             planeCAS[] = {"RHS_Su25SM_KH29_vvs","RHS_Su25SM_CAS_vvs","RHS_Su25SM_vvs"};
+            amountHeli = 1;
+            amountAI = 1;
             amountCAS = 1;
 
             group_infantry[] = {
@@ -461,6 +461,9 @@ class GVAR(unitlists) {
             };
             crewmen[] = {"rhs_VDV_driver_armored","rhs_VDV_driver","rhs_VDV_crew","rhs_VDV_armoredcrew","rhs_VDV_combatcrew","rhs_VDV_crew_commander"};
             class callIn : callIn {
+                amountHeli = 0;
+                amountAI = 1;
+                amountCAS = 1;
                 group_infantry[] = {
                     {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_infantry_emr","rhs_group_rus_VDV_infantry_emr_fireteam"},
                     {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_infantry_emr","rhs_group_rus_VDV_infantry_emr_MANEUVER"},
@@ -641,6 +644,9 @@ class GVAR(unitlists) {
                             "rhs_msv_at","rhs_msv_aa","rhs_msv_engineer","rhs_msv_medic"};
             crewmen[] = {"rhs_msv_driver_armored","rhs_msv_driver","rhs_msv_crew","rhs_msv_armoredcrew","rhs_msv_combatcrew","rhs_msv_crew_commander"};
             class callIn : callIn {
+                amountHeli = 0;
+                amountAI = 1;
+                amountCAS = 0;
                 group_infantry[] = {
                     {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_fireteam"},
                     {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_MANEUVER"},
@@ -822,6 +828,9 @@ class GVAR(unitlists) {
             };
             crewmen[] = {"rhs_VDV_driver_armored","rhs_VDV_driver","rhs_VDV_crew","rhs_VDV_armoredcrew","rhs_VDV_combatcrew","rhs_VDV_crew_commander"};
             class callIn : callIn {
+                amountHeli = 0;
+                amountAI = 1;
+                amountCAS = 2;
                 group_infantry[] = {
                     {"configfile","CfgGroups","East","rhs_faction_vdv","rhs_group_rus_vdv_infantry_recon","rhs_group_rus_vdv_infantry_recon_fireteam"},
                     {"configfile","CfgGroups","East","rhs_faction_vdv","rhs_group_rus_vdv_infantry_recon","rhs_group_rus_vdv_infantry_recon_MANEUVER"},
@@ -876,6 +885,11 @@ class GVAR(unitlists) {
             };
         };
         class droneoperations : specops {
+            class callIn : callIn {
+                amountHeli = 0;
+                amountAI = 1;
+                amountCAS = 0;
+            };
             /*
             class groups : groups {
                 class patrol {};

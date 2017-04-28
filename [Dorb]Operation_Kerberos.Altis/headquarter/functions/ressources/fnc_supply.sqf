@@ -13,9 +13,9 @@
  */
 #include "script_component.hpp"
 
-ISNILS(GVAR(ressources_amount),-1);
+
 If (
-        (GVAR(ressources_amount)>0)&&
+        (HASH_GET_DEF(GVAR(ressources),"amount",0)>-1)&&
         {[] call FUNC(ressources_CanCallInUnits)}
     ) then {
 
@@ -45,7 +45,8 @@ If (
 
 
     If (IS_SCALAR(_costs)) then {
-        GVAR(ressources_amount) = GVAR(ressources_amount) - _costs;
+        private _ressources = HASH_GET(GVAR(ressources),"amount",0) - costs;
+        HASH_SET(GVAR(ressources),"amount",_ressources);
     }else{
         ERROR("wrong supply return");
         TRACEV_1(_costs);
