@@ -15,7 +15,7 @@
 
 
 If (
-        (HASH_GET(GVAR(ressources),"amount",0)>-1)&&
+        (HASH_GET_DEF(GVAR(ressources),"amount",0)>-1)&&
         {[] call FUNC(ressources_CanCallInUnits)}
     ) then {
 

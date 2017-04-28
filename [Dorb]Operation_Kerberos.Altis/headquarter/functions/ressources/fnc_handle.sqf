@@ -32,6 +32,6 @@ private _value = 0;
 #define TIMEFACTOR (1 - ((CBA_missiontime - GVAR(missionStartTime))/MAINMISSION_TARGETTIME))
 
 
-_value = (TIMEFACTOR * HANDLER_TIMEFACTOR * KILLS_PER_MINUTE * COST_PER_KILL * PLAYERAMOUNT + HASH_GET(GVAR(ressources),"amount",0)) max 0;
+_value = (TIMEFACTOR * HANDLER_TIMEFACTOR * KILLS_PER_MINUTE * COST_PER_KILL * PLAYERAMOUNT + HASH_GET_DEF(GVAR(ressources),"amount",0)) max 0;
 
 HASH_SET(GVAR(ressources),"amount",_value);
