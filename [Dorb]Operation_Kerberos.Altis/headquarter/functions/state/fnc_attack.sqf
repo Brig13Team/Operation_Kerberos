@@ -50,8 +50,8 @@ while {(count (waypoints _group)) > 0} do {
     deleteWaypoint ((waypoints _group) select 0);
 };
 
-[_group,_waypoints,0,"MOVE","AWARE","YELLOW","FULL","NO CHANGE",_statement,[1,3,5],150] call FUNC(waypoints_add);
+[_group, _waypoints, 25, "MOVE", "AWARE", "YELLOW", "FULL", "NO CHANGE", _statement, [1,3,5], 150] call FUNC(waypoints_add);
 
 _statement = QUOTE(If (!isServer) exitWith {};[ARR_3(this,'idle',objNull)] call FUNC(state_set);) + _statementFinish;
 
-[_group, _lastWaypoint, 0, "SAD", "COMBAT", "RED", "FULL", "NO CHANGE", _statement, [3,6,9], 30] call FUNC(waypoints_add);
+[_group, _lastWaypoint, 25, "SAD", "COMBAT", "RED", "FULL", "NO CHANGE", _statement, [3,6,9], 30] call FUNC(waypoints_add);
