@@ -73,6 +73,7 @@ private _fnc_spawnRelObj = {
     {
         private _curCfg = _x;
         private _curType = getText(_x>>"type");
+        private _curType = [_curType] call FUNC(getReplacement);
         private _curPos = getArray(_x>>"pos");
         private _curDir = getNumber(_x>>"dir");
         private _curVecUp = getArray(_x>>"vecup");
@@ -142,6 +143,7 @@ private _allClasses = configProperties [_config, "isClass(_x)", true];
 {
     private _curCfg = _x;
     private _curType = getText(_x>>"type");
+    private _curType = [_curType] call FUNC(getReplacement);
     private _curPos = getArray(_x>>"pos");
     private _curDir = getNumber(_x>>"dir");
     private _curVecUp = getArray(_x>>"vecup");

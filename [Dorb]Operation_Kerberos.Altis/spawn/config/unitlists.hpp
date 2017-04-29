@@ -901,11 +901,409 @@ class GVAR(unitlists) {
         class guards  : infanterie {};
     };
     class base_west : base {
-        class mission : mission {
-            wreck_air[] = {/* "Land_UWreck_MV22_F", "Land_Wreck_Heli_Attack_01_F" */};
+        class mission: mission {
+            prototype[] = {"O_MBT_02_cannon_F","O_APC_Wheeled_02_rcws_F","O_APC_Tracked_02_cannon_F"};
+            commander[] = {"rhsusf_army_ocp_officer"};
+            hq_mobile[] = {"rhsusf_M1083A1P2_B_M2_d_MHQ_fmtv_usarmy"};
+            wreck_air[] = {"RHS_AH64D_GS", "RHS_AH64D"};
+        };
+        attack_uavs[] = {"B_UAV_02_F"};
+        recon_uavs[] = {"B_UAV_01_F"};
+        static[] = {"RHS_M2StaticMG_MiniTripod_D","RHS_TOW_TriPod_D"};
+        static_high[] = {"RHS_M2StaticMG_D"};
+        static_aa[] = {"RHS_Stinger_AA_pod_D"};
+        art_mortar[] = {"RHS_M252_D"};
+        art_shells[] = {"RHS_M119_D"};
+        art_rocket[] = {"B_MBT_01_mlrs_F"};
+
+        trucks[] = {"rhsusf_M1078A1P2_B_d_fmtv_usarmy","rhsusf_M1078A1P2_B_d_open_fmtv_usarmy","rhsusf_M1078A1P2_B_d_flatbed_fmtv_usarmy","rhsusf_M1078A1P2_d_fmtv_usarmy","rhsusf_M1078A1P2_d_open_fmtv_usarmy","rhsusf_M1078A1P2_d_flatbed_fmtv_usarmy","rhsusf_M1083A1P2_B_d_fmtv_usarmy","rhsusf_M1083A1P2_B_d_open_fmtv_usarmy","rhsusf_M1083A1P2_B_d_flatbed_fmtv_usarmy","rhsusf_M1083A1P2_d_fmtv_usarmy","rhsusf_M1083A1P2_d_open_fmtv_usarmy",
+                    "rhsusf_M1083A1P2_d_flatbed_fmtv_usarmy","rhsusf_M1078A1P2_B_M2_d_fmtv_usarmy","rhsusf_M1078A1P2_B_M2_d_open_fmtv_usarmy","rhsusf_M1078A1P2_B_M2_d_flatbed_fmtv_usarmy","rhsusf_M1083A1P2_B_M2_d_fmtv_usarmy","rhsusf_M1083A1P2_B_M2_d_open_fmtv_usarmy","rhsusf_M1083A1P2_B_M2_d_flatbed_fmtv_usarmy"};
+        ifv[] = {"rhsusf_m113d_usarmy","rhsusf_m113d_usarmy_supply","rhsusf_m113d_usarmy_unarmed","rhsusf_m113d_usarmy_medical","rhsusf_m113d_usarmy_M240","rhsusf_m113d_usarmy_MK19","RHS_M2A2","RHS_M2A2_BUSKI","RHS_M2A3","RHS_M2A3_BUSKI","RHS_M2A3_BUSKIII","RHS_M6"};
+        cars[] = {"rhsusf_m998_d_2dr","rhsusf_m998_d_2dr_halftop","rhsusf_m998_d_2dr_fulltop","rhsusf_m998_d_4dr","rhsusf_m998_d_4dr_halftop","rhsusf_m998_d_4dr_fulltop","rhsusf_m1025_d","rhsusf_m1025_d_m2","rhsusf_m1025_d_Mk19",};
+        tanks[] = {"rhsusf_m1a1aimd_usarmy","rhsusf_m1a1aim_tuski_d","rhsusf_m1a2sep1d_usarmy","rhsusf_m1a2sep1tuskid_usarmy","rhsusf_m1a2sep1tuskiid_usarmy"};
+        divers[] = {"B_diver_f","B_diver_exp_f","B_diver_TL_f"};
+        boats[] = {"rhsusf_mkvsoc"};
+
+        soldiers[] = {"rhsusf_army_ocp_rifleman_1stcav","rhsusf_army_ocp_rifleman_10th","rhsusf_army_ocp_rifleman","rhsusf_army_ocp_rifleman_m4","rhsusf_army_ocp_rifleman_m16","rhsusf_army_ocp_rifleman_m590","rhsusf_army_ocp_riflemanl","rhsusf_army_ocp_riflemanat","rhsusf_army_ocp_grenadier","rhsusf_army_ocp_autorifleman","rhsusf_army_ocp_autoriflemana","rhsusf_army_ocp_machinegunner","rhsusf_army_ocp_machinegunnera","rhsusf_army_ocp_marksman","rhsusf_army_ocp_squadleader",
+                    "rhsusf_army_ocp_teamleader","rhsusf_army_ocp_jfo","rhsusf_army_ocp_fso","rhsusf_army_ocp_javelin","rhsusf_army_ocp_javelin_assistant","rhsusf_army_ocp_aa","rhsusf_army_ocp_uav","rhsusf_army_ocp_medic","rhsusf_army_ocp_engineer","rhsusf_army_ocp_explosives"};
+        crewmen[] = {"rhsusf_army_ocp_crewman","rhsusf_army_ocp_combatcrewman","rhsusf_army_ocp_driver","rhsusf_army_ocp_driver_armored"};
+
+        class callIn {
+            helicopter_transport[] = {"RHS_CH_47F_10","RHS_CH_47F_light"};
+            helicopter_cas[] = {"RHS_AH64D_GS","RHS_AH64D_CS"};
+
+            planeAI[] = {"rhsusf_f22"};
+            planeCAS[] = {"RHS_A10","RHS_A10_AT"};
+            amountHeli = 1;
+            amountAI = 1;
+            amountCAS = 1;
+
+            group_infantry[] = {
+                {"configfile","CfgGroups","West","rhs_faction_usarmy_d","rhs_group_nato_usarmy_d_infantry","rhs_group_nato_usarmy_d_infantry_squad"},
+                {"configfile","CfgGroups","West","rhs_faction_usarmy_d","rhs_group_nato_usarmy_d_infantry","rhs_group_nato_usarmy_d_infantry_squad_sniper"},
+                {"configfile","CfgGroups","West","rhs_faction_usarmy_d","rhs_group_nato_usarmy_d_infantry","rhs_group_nato_usarmy_d_infantry_team_AA"},
+                {"configfile","CfgGroups","West","rhs_faction_usarmy_d","rhs_group_nato_usarmy_d_infantry","rhs_group_nato_usarmy_d_infantry_team_AT"},
+                {"configfile","CfgGroups","West","rhs_faction_usarmy_d","rhs_group_nato_usarmy_d_infantry","rhs_group_nato_usarmy_d_infantry_team_MG"},
+                {"configfile","CfgGroups","West","rhs_faction_usarmy_d","rhs_group_nato_usarmy_d_infantry","rhs_group_nato_usarmy_d_infantry_team_support"},
+                {"configfile","CfgGroups","West","rhs_faction_usarmy_d","rhs_group_nato_usarmy_d_infantry","rhs_group_nato_usarmy_d_infantry_weaponsquad"}
+            };
+        };
+
+
+        class groups {
+            groups_patrol[] = {
+                {"configfile","CfgGroups","West","rhs_faction_usarmy_d","rhs_group_nato_usarmy_d_infantry","rhs_group_nato_usarmy_d_infantry_squad_sniper"},
+                {"configfile","CfgGroups","West","rhs_faction_usarmy_d","rhs_group_nato_usarmy_d_infantry","rhs_group_nato_usarmy_d_infantry_team_AA"},
+                {"configfile","CfgGroups","West","rhs_faction_usarmy_d","rhs_group_nato_usarmy_d_infantry","rhs_group_nato_usarmy_d_infantry_team_AT"},
+                {"configfile","CfgGroups","West","rhs_faction_usarmy_d","rhs_group_nato_usarmy_d_infantry","rhs_group_nato_usarmy_d_infantry_team_MG"},
+                {"configfile","CfgGroups","West","rhs_faction_usarmy_d","rhs_group_nato_usarmy_d_infantry","rhs_group_nato_usarmy_d_infantry_team_support"}
+            };
+            groups_attack[] = {
+                {"configfile","CfgGroups","West","rhs_faction_usarmy_d","rhs_group_nato_usarmy_d_infantry","rhs_group_nato_usarmy_d_infantry_squad"},
+                {"configfile","CfgGroups","West","rhs_faction_usarmy_d","rhs_group_nato_usarmy_d_infantry","rhs_group_nato_usarmy_d_infantry_squad_sniper"},
+                {"configfile","CfgGroups","West","rhs_faction_usarmy_d","rhs_group_nato_usarmy_d_infantry","rhs_group_nato_usarmy_d_infantry_team_AA"},
+                {"configfile","CfgGroups","West","rhs_faction_usarmy_d","rhs_group_nato_usarmy_d_infantry","rhs_group_nato_usarmy_d_infantry_team_AA"},
+                {"configfile","CfgGroups","West","rhs_faction_usarmy_d","rhs_group_nato_usarmy_d_infantry","rhs_group_nato_usarmy_d_infantry_team_AT"},
+                {"configfile","CfgGroups","West","rhs_faction_usarmy_d","rhs_group_nato_usarmy_d_infantry","rhs_group_nato_usarmy_d_infantry_team_AT"},
+                {"configfile","CfgGroups","West","rhs_faction_usarmy_d","rhs_group_nato_usarmy_d_infantry","rhs_group_nato_usarmy_d_infantry_team_AT"},
+                {"configfile","CfgGroups","West","rhs_faction_usarmy_d","rhs_group_nato_usarmy_d_infantry","rhs_group_nato_usarmy_d_infantry_team_MG"},
+                {"configfile","CfgGroups","West","rhs_faction_usarmy_d","rhs_group_nato_usarmy_d_infantry","rhs_group_nato_usarmy_d_infantry_team_support"},
+                {"configfile","CfgGroups","West","rhs_faction_usarmy_d","rhs_group_nato_usarmy_d_infantry","rhs_group_nato_usarmy_d_infantry_weaponsquad"},
+                {"configfile","CfgGroups","West","rhs_faction_usarmy_d","rhs_group_nato_usarmy_d_infantry","rhs_group_nato_usarmy_d_infantry_squad"},
+                {"configfile","CfgGroups","West","rhs_faction_usarmy_d","rhs_group_nato_usarmy_d_infantry","rhs_group_nato_usarmy_d_infantry_squad_sniper"},
+                {"configfile","CfgGroups","West","rhs_faction_usarmy_d","rhs_group_nato_usarmy_d_infantry","rhs_group_nato_usarmy_d_infantry_team_AA"},
+                {"configfile","CfgGroups","West","rhs_faction_usarmy_d","rhs_group_nato_usarmy_d_infantry","rhs_group_nato_usarmy_d_infantry_team_AA"},
+                {"configfile","CfgGroups","West","rhs_faction_usarmy_d","rhs_group_nato_usarmy_d_infantry","rhs_group_nato_usarmy_d_infantry_team_AT"},
+                {"configfile","CfgGroups","West","rhs_faction_usarmy_d","rhs_group_nato_usarmy_d_infantry","rhs_group_nato_usarmy_d_infantry_team_AT"},
+                {"configfile","CfgGroups","West","rhs_faction_usarmy_d","rhs_group_nato_usarmy_d_infantry","rhs_group_nato_usarmy_d_infantry_team_AT"},
+                {"configfile","CfgGroups","West","rhs_faction_usarmy_d","rhs_group_nato_usarmy_d_infantry","rhs_group_nato_usarmy_d_infantry_team_MG"},
+                {"configfile","CfgGroups","West","rhs_faction_usarmy_d","rhs_group_nato_usarmy_d_infantry","rhs_group_nato_usarmy_d_infantry_team_support"},
+                {"configfile","CfgGroups","West","rhs_faction_usarmy_d","rhs_group_nato_usarmy_d_infantry","rhs_group_nato_usarmy_d_infantry_weaponsquad"}
+            };
+            groups_defence[] = {
+                {"configfile","CfgGroups","West","rhs_faction_usarmy_d","rhs_group_nato_usarmy_d_infantry","rhs_group_nato_usarmy_d_infantry_team_AA"},
+                {"configfile","CfgGroups","West","rhs_faction_usarmy_d","rhs_group_nato_usarmy_d_infantry","rhs_group_nato_usarmy_d_infantry_team_AT"},
+                {"configfile","CfgGroups","West","rhs_faction_usarmy_d","rhs_group_nato_usarmy_d_infantry","rhs_group_nato_usarmy_d_infantry_team_MG"},
+                {"configfile","CfgGroups","West","rhs_faction_usarmy_d","rhs_group_nato_usarmy_d_infantry","rhs_group_nato_usarmy_d_infantry_team_support"}
+            };
+            groups_mechanized[] = {
+                {"configfile","CfgGroups","East","rhs_faction_vmf","rhs_group_nato_usarmy_d_bradley","rhs_group_nato_usarmy_d_bradley_aa"},
+                {"configfile","CfgGroups","East","rhs_faction_vmf","rhs_group_nato_usarmy_d_bradley","rhs_group_nato_usarmy_d_bradley_squad"},
+                {"configfile","CfgGroups","East","rhs_faction_vmf","rhs_group_nato_usarmy_d_bradley","rhs_group_nato_usarmy_d_bradley_squad_2mg"},
+                {"configfile","CfgGroups","East","rhs_faction_vmf","rhs_group_nato_usarmy_d_bradley","rhs_group_nato_usarmy_d_bradley_squad_mg_sniper"},
+                {"configfile","CfgGroups","East","rhs_faction_vmf","rhs_group_nato_usarmy_d_bradley","rhs_group_nato_usarmy_d_bradley_squad_sniper"}
+            };
+            groups_sniper[] = {};
+            // own groups
+            class patrol {
+            };
+            class strikeforce {
+                class E_Reg_Att_01 {
+                    SOLDIER_1(rhsusf_m1a2sep1tuskiid_usarmy);
+                };
+                class E_Reg_Att_02 {
+                    SOLDIER_1(rhsusf_m1a1aim_tuski_d);
+                };
+                class E_Reg_Att_03 {
+                    SOLDIER_1(RHS_M2A3_BUSKIII);
+                };
+                class E_Reg_Att_04 {
+                    SOLDIER_1(RHS_M6);
+                };
+            };
+            class defence {};
+            class sniper {
+                class E_Snip_01 {
+                    SOLDIERR_1(rhsusf_army_ocp_sniper,CORPORAL);
+                    SOLDIER_2(rhsusf_army_ocp_sniper);
+                    SOLDIER_3(rhsusf_army_ocp_sniper);
+                };
+                class E_Snip_02 {
+                    SOLDIERR_1(rhsusf_army_ocp_sniper_m24sws,CORPORAL);
+                    SOLDIER_2(rhsusf_army_ocp_sniper_m24sws);
+                    SOLDIER_3(rhsusf_army_ocp_sniper_m24sws);
+                };
+                class E_Snip_03 {
+                    SOLDIERR_1(rhsusf_army_ocp_sniper_m107,CORPORAL);
+                    SOLDIER_2(rhsusf_army_ocp_sniper_m107);
+                    SOLDIER_3(rhsusf_army_ocp_sniper_m107);
+                };
+            };
         };
     };
     class west {
-        class regular : base_west {};
+        class us_army : base_west {};
+        class us_army_wd : us_army {
+
+        };
+        class us_marine : base_west {
+            trucks[] = {"rhsusf_rg33_usmc_d"};
+            ifv[] = {"rhsusf_rg33_m2_usmc_d","rhsusf_m1025_d_s_m2","rhsusf_m1025_d_s_Mk19"};
+            cars[] = {"rhsusf_m998_d_s_2dr","rhsusf_m998_d_s_2dr_halftop","rhsusf_m998_d_s_2dr_fulltop","rhsusf_m998_d_s_4dr","rhsusf_m998_d_s_4dr_halftop","rhsusf_m998_d_s_4dr_fulltop"};
+            tanks[] = {"rhsusf_m1a1fep_d"};
+            boats[] = {"rhsusf_mkvsoc"};
+
+            soldiers[] = {"rhsusf_usmc_marpat_d_rifleman","rhsusf_usmc_marpat_d_rifleman_light","rhsusf_usmc_marpat_d_rifleman_m4","rhsusf_usmc_marpat_d_riflemanat","rhsusf_usmc_marpat_d_rifleman_law","rhsusf_usmc_marpat_d_rifleman_m590","rhsusf_usmc_marpat_d_grenadier","rhsusf_usmc_marpat_d_grenadier_m32","rhsusf_usmc_marpat_d_autorifleman","rhsusf_usmc_marpat_d_autorifleman_m249",
+                        "rhsusf_usmc_marpat_d_autorifleman_m249_ass","rhsusf_usmc_marpat_d_machinegunner","rhsusf_usmc_marpat_d_machinegunner_ass","rhsusf_usmc_marpat_d_squadleader","rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_fso","rhsusf_usmc_marpat_d_jfo","rhsusf_usmc_marpat_d_engineer","rhsusf_usmc_marpat_d_explosives","rhsusf_usmc_marpat_d_uav","rhsusf_usmc_marpat_d_smaw",
+                        "rhsusf_usmc_marpat_d_javelin","rhsusf_usmc_marpat_d_javelin_assistant","rhsusf_usmc_marpat_d_stinger","rhsusf_usmc_marpat_d_marksman"};
+            crewmen[] = {"rhsusf_usmc_marpat_d_crewman","rhsusf_usmc_marpat_d_combatcrewman","rhsusf_usmc_marpat_d_driver","rhsusf_usmc_marpat_d_gunner"};
+
+            class callIn {
+                helicopter_transport[] = {"RHS_UH1Y_d","RHS_UH1Y_FFAR_d","RHS_UH1Y_d_GS","rhsusf_CH53E_USMC_D"};
+                helicopter_cas[] = {"RHS_AH1Z_GS","RHS_AH1Z_CS"};
+                amountHeli = 0;
+                amountAI = 1;
+                amountCAS = 1;
+
+                group_infantry[] = {
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_d_infantry","rhs_group_nato_usmc_d_infantry_squad"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_d_infantry","rhs_group_nato_usmc_d_infantry_squad_sniper"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_d_infantry","rhs_group_nato_usmc_d_infantry_team"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_d_infantry","rhs_group_nato_usmc_d_infantry_team_AA"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_d_infantry","rhs_group_nato_usmc_d_infantry_team_heavy_AT"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_d_infantry","rhs_group_nato_usmc_d_infantry_team_MG"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_d_infantry","rhs_group_nato_usmc_d_infantry_team_support"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_d_infantry","rhs_group_nato_usmc_d_infantry_weaponsquad"}
+                };
+            };
+
+
+            class groups {
+                groups_patrol[] = {
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_d_infantry","rhs_group_nato_usmc_d_infantry_squad_sniper"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_d_infantry","rhs_group_nato_usmc_d_infantry_team"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_d_infantry","rhs_group_nato_usmc_d_infantry_team_AA"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_d_infantry","rhs_group_nato_usmc_d_infantry_team_heavy_AT"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_d_infantry","rhs_group_nato_usmc_d_infantry_team_MG"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_d_infantry","rhs_group_nato_usmc_d_infantry_team_support"}
+                };
+                groups_attack[] = {
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_d_infantry","rhs_group_nato_usmc_d_infantry_squad"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_d_infantry","rhs_group_nato_usmc_d_infantry_squad_sniper"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_d_infantry","rhs_group_nato_usmc_d_infantry_team"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_d_infantry","rhs_group_nato_usmc_d_infantry_team_AA"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_d_infantry","rhs_group_nato_usmc_d_infantry_team_AA"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_d_infantry","rhs_group_nato_usmc_d_infantry_team_heavy_AT"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_d_infantry","rhs_group_nato_usmc_d_infantry_team_heavy_AT"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_d_infantry","rhs_group_nato_usmc_d_infantry_team_heavy_AT"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_d_infantry","rhs_group_nato_usmc_d_infantry_team_MG"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_d_infantry","rhs_group_nato_usmc_d_infantry_team_support"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_d_infantry","rhs_group_nato_usmc_d_infantry_weaponsquad"}
+                };
+                groups_defence[] = {
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_d_infantry","rhs_group_nato_usmc_d_infantry_team_AA"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_d_infantry","rhs_group_nato_usmc_d_infantry_team_heavy_AT"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_d_infantry","rhs_group_nato_usmc_d_infantry_team_MG"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_d_infantry","rhs_group_nato_usmc_d_infantry_team"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_d_infantry","rhs_group_nato_usmc_d_infantry_team_support"}
+                };
+                groups_mechanized[] = {
+                    {"configfile","CfgGroups","East","rhs_faction_vmf","rhs_group_nato_usmc_d_RG33","rhs_group_nato_usmc_d_RG33_m2_squad"},
+                    {"configfile","CfgGroups","East","rhs_faction_vmf","rhs_group_nato_usmc_d_RG33","rhs_group_nato_usmc_d_RG33_m2_squad_2mg"},
+                    {"configfile","CfgGroups","East","rhs_faction_vmf","rhs_group_nato_usmc_d_RG33","rhs_group_nato_usmc_d_RG33_m2_squad_mg_sniper"},
+                    {"configfile","CfgGroups","East","rhs_faction_vmf","rhs_group_nato_usmc_d_RG33","rhs_group_nato_usmc_d_RG33_m2_squad_sniper"}
+                };
+                groups_sniper[] = {};
+                // own groups
+                class patrol {};
+                class strikeforce {
+                    class E_Reg_Att_01 {
+                        SOLDIER_1(rhsusf_m1a1fep_d);
+                    };
+                };
+                class defence {};
+                class sniper {
+                    class E_Snip_01 {
+                        SOLDIERR_1(rhsusf_usmc_marpat_d_spotter,CORPORAL);
+                        SOLDIER_2(rhsusf_usmc_marpat_d_sniper);
+                        SOLDIER_3(rhsusf_usmc_marpat_d_sniper);
+                    };
+                    class E_Snip_02 {
+                        SOLDIERR_1(rhsusf_usmc_marpat_d_spotter,CORPORAL);
+                        SOLDIER_2(rhsusf_usmc_marpat_d_sniper_m110);
+                        SOLDIER_3(rhsusf_usmc_marpat_d_sniper_m110);
+                    };
+                    class E_Snip_03 {
+                        SOLDIERR_1(rhsusf_usmc_marpat_d_spotter,CORPORAL);
+                        SOLDIER_2(rhsusf_usmc_marpat_d_sniper_m107);
+                        SOLDIER_3(rhsusf_usmc_marpat_d_sniper_m107);
+                    };
+                };
+            };
+        };
+        class specops : us_marine {
+            tanks[] = {};
+            class callIn {
+                class callIn : callIn {
+                    amountHeli = 0;
+                    amountAI = 1;
+                    amountCAS = 2;
+                };
+                group_infantry[] = {
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_d_infantry","rhs_group_nato_usmc_d_infantry_squad"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_d_infantry","rhs_group_nato_usmc_d_infantry_squad_sniper"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_d_infantry","rhs_group_nato_usmc_d_infantry_team"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_d_infantry","rhs_group_nato_usmc_d_infantry_team_AA"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_d_infantry","rhs_group_nato_usmc_d_infantry_team_heavy_AT"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_d_infantry","rhs_group_nato_usmc_d_infantry_team_MG"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_d_infantry","rhs_group_nato_usmc_d_infantry_team_support"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_d_infantry","rhs_group_nato_usmc_d_infantry_weaponsquad"}
+                };
+            };
+
+            class groups {
+                groups_patrol[] = {
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_recon_d_infantry","rhs_group_nato_usmc_recon_d_infantry_team"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_recon_d_infantry","rhs_group_nato_usmc_recon_d_infantry_team_fast"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_recon_d_infantry","rhs_group_nato_usmc_recon_d_infantry_team_lite"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_recon_d_infantry","rhs_group_nato_usmc_recon_d_infantry_team_MG"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_recon_d_infantry","rhs_group_nato_usmc_recon_d_infantry_team_support"}
+                };
+                groups_attack[] = {
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_recon_d_infantry","rhs_group_nato_usmc_recon_d_infantry_team"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_recon_d_infantry","rhs_group_nato_usmc_recon_d_infantry_team_fast"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_recon_d_infantry","rhs_group_nato_usmc_recon_d_infantry_team_lite"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_recon_d_infantry","rhs_group_nato_usmc_recon_d_infantry_team_MG"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_recon_d_infantry","rhs_group_nato_usmc_recon_d_infantry_team_support"}
+                };
+                groups_defence[] = {
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_recon_d_infantry","rhs_group_nato_usmc_recon_d_infantry_team"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_recon_d_infantry","rhs_group_nato_usmc_recon_d_infantry_team_fast"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_recon_d_infantry","rhs_group_nato_usmc_recon_d_infantry_team_lite"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_recon_d_infantry","rhs_group_nato_usmc_recon_d_infantry_team_MG"},
+                    {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_recon_d_infantry","rhs_group_nato_usmc_recon_d_infantry_team_support"}
+                };
+                class strikeforce {};
+            };
+        };
+        class dronecommando : specops {
+            class callIn {
+                class callIn : callIn {
+                    amountHeli = 0;
+                    amountAI = 1;
+                    amountCAS = 0;
+                };
+            };
+        };
+
+        class bundeswehr : base_west {
+            class mission: mission {
+                commander[] = {"BWA3_Officer_Fleck"};
+                wreck_air[] = {"BWA3_Tiger_Gunpod_Heavy", "BWA3_Tiger_Gunpod_PARS"};
+            };
+            trucks[] = {"B_Truck_01_covered_F","B_Truck_01_transport_F"};
+            ifv[] = {"BWA3_Eagle_FLW100_Fleck"};
+            cars[] = {"BWA3_Eagle_Fleck"};
+            tanks[] = {"BWA3_Leopard2A6M_Fleck","BWA3_Puma_Fleck"};
+
+            soldiers[] = {"rhsusf_army_ocp_rifleman_1stcav","rhsusf_army_ocp_rifleman_10th","rhsusf_army_ocp_rifleman","rhsusf_army_ocp_rifleman_m4","rhsusf_army_ocp_rifleman_m16","rhsusf_army_ocp_rifleman_m590","rhsusf_army_ocp_riflemanl","rhsusf_army_ocp_riflemanat","rhsusf_army_ocp_grenadier","rhsusf_army_ocp_autorifleman","rhsusf_army_ocp_autoriflemana","rhsusf_army_ocp_machinegunner","rhsusf_army_ocp_machinegunnera","rhsusf_army_ocp_marksman","rhsusf_army_ocp_squadleader",
+                        "rhsusf_army_ocp_teamleader","rhsusf_army_ocp_jfo","rhsusf_army_ocp_fso","rhsusf_army_ocp_javelin","rhsusf_army_ocp_javelin_assistant","rhsusf_army_ocp_aa","rhsusf_army_ocp_uav","rhsusf_army_ocp_medic","rhsusf_army_ocp_engineer","rhsusf_army_ocp_explosives"};
+            crewmen[] = {"BWA3_Crew_Fleck","BWA3_Tank_Commander_Fleck"};
+
+            class callIn {
+                helicopter_transport[] = {"RHS_UH1Y","RHS_UH1Y_FFAR"};
+                helicopter_cas[] = {"BWA3_Tiger_RMK_FZ","BWA3_Tiger_RMK_Heavy","BWA3_Tiger_RMK_PARS","BWA3_Tiger_RMK_Universal"};
+
+                amountHeli = 1;
+                amountAI = 1;
+                amountCAS = 0;
+
+                group_infantry[] = {
+                    {"configfile","CfgGroups","West","Bundeswehr","Infantry_Fleck","Jaegertrupp"},
+                    {"configfile","CfgGroups","West","Bundeswehr","Infantry_Fleck","Panzerabwehrtrupp"},
+                    {"configfile","CfgGroups","West","Bundeswehr","SpecOps_Fleck","Fernspaeher"}
+                };
+            };
+
+
+            class groups {
+                groups_patrol[] = {
+                    {"configfile","CfgGroups","West","Bundeswehr","Infantry_Fleck","Jaegertrupp"},
+                    {"configfile","CfgGroups","West","Bundeswehr","Infantry_Fleck","Panzerabwehrtrupp"},
+                    {"configfile","CfgGroups","West","Bundeswehr","SpecOps_Fleck","Fernspaeher"}
+                };
+                groups_attack[] = {
+                    {"configfile","CfgGroups","West","Bundeswehr","Infantry_Fleck","Jaegertrupp"},
+                    {"configfile","CfgGroups","West","Bundeswehr","Infantry_Fleck","Panzerabwehrtrupp"},
+                    {"configfile","CfgGroups","West","Bundeswehr","SpecOps_Fleck","Fernspaeher"}
+                };
+                groups_defence[] = {
+                    {"configfile","CfgGroups","West","Bundeswehr","Infantry_Fleck","Panzerabwehrtrupp"},
+                    {"configfile","CfgGroups","West","Bundeswehr","SpecOps_Fleck","Fernspaeher"}
+                };
+                groups_mechanized[] = {
+                    {"configfile","CfgGroups","East","Bundeswehr","Mechanized_Fleck","Panzergrenadiergruppe"}
+                };
+                groups_sniper[] = {};
+                // own groups
+                class patrol {
+                };
+                class strikeforce {
+                    class E_Reg_Att_01 {
+                        SOLDIER_1(BWA3_Eagle_FLW100_Fleck);
+                    };
+                    class E_Reg_Att_02 {
+                        SOLDIER_1(BWA3_Puma_Fleck);
+                    };
+                    class E_Reg_Att_02 {
+                        SOLDIER_1(BWA3_Leopard2A6M_Fleck);
+                    };
+                    class E_Reg_Att_03 {
+                        SOLDIERR_1(BWA3_SL_Fleck,SERGEANT);
+                        SOLDIERR_2(BWA3_TL_Fleck,CORPORAL);
+                        SOLDIER_3(BWA3_Autorifleman_Fleck);
+                        SOLDIER_4(BWA3_AutoriflemanMG5_Fleck);
+                        SOLDIER_5(BWA3_RiflemanAT_Pzf3_Fleck);
+                        SOLDIER_6(BWA3_RiflemanAT_RGW90_Fleck);
+                        SOLDIER_7(BWA3_CombatLifeSaver_Fleck);
+                    };
+                    class E_Reg_Att_04 {
+                        SOLDIERR_1(BWA3_SL_Fleck,SERGEANT);
+                        SOLDIERR_2(BWA3_TL_Fleck,CORPORAL);
+                        SOLDIER_3(BWA3_Rifleman_Fleck);
+                        SOLDIER_4(BWA3_AutoriflemanMG5_Fleck);
+                        SOLDIER_5(BWA3_RiflemanAT_Pzf3_Fleck);
+                        SOLDIER_6(BWA3_AutoriflemanMG5_Fleck);
+                        SOLDIER_7(BWA3_CombatLifeSaver_Fleck);
+                        SOLDIER_8(BWA3_Rifleman_Fleck);
+                    };
+                    class E_Reg_Att_05 {
+                        SOLDIERR_1(BWA3_TL_Fleck,CORPORAL);
+                        SOLDIER_2(BWA3_RiflemanG27_Fleck);
+                        SOLDIER_3(BWA3_RiflemanG27_Fleck);
+                        SOLDIER_4(BWA3_RiflemanG27_Fleck);
+                        SOLDIER_5(BWA3_RiflemanAT_Pzf3_Fleck);
+                        SOLDIER_6(BWA3_RiflemanAT_Pzf3_Fleck);
+                        SOLDIER_7(BWA3_CombatLifeSaver_Fleck);
+                    };
+                    class E_Reg_Att_06 {
+                        SOLDIERR_1(BWA3_TL_Fleck,CORPORAL);
+                        SOLDIER_2(BWA3_Rifleman_Fleck);
+                        SOLDIER_3(BWA3_RiflemanAA_Fliegerfaust_Fleck);
+                        SOLDIER_4(BWA3_RiflemanAA_Fliegerfaust_Fleck);
+                        SOLDIER_5(BWA3_CombatLifeSaver_Fleck);
+                    };
+
+                };
+                class defence {};
+                class sniper {
+                    class E_Snip_01 {
+                        SOLDIERR_1(rhsusf_army_ocp_sniper,CORPORAL);
+                        SOLDIER_2(rhsusf_army_ocp_sniper);
+                        SOLDIER_3(rhsusf_army_ocp_sniper);
+                    };
+                    class E_Snip_02 {
+                        SOLDIERR_1(rhsusf_army_ocp_sniper_m24sws,CORPORAL);
+                        SOLDIER_2(rhsusf_army_ocp_sniper_m24sws);
+                        SOLDIER_3(rhsusf_army_ocp_sniper_m24sws);
+                    };
+                    class E_Snip_03 {
+                        SOLDIERR_1(rhsusf_army_ocp_sniper_m107,CORPORAL);
+                        SOLDIER_2(rhsusf_army_ocp_sniper_m107);
+                        SOLDIER_3(rhsusf_army_ocp_sniper_m107);
+                    };
+                };
+            };
+        };
     };
 };

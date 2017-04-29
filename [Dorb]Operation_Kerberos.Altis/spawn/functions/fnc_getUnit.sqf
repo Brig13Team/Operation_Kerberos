@@ -75,6 +75,11 @@ private _return = switch _grouptype do {
         getArray(_cfg >> "soldiers");
     };
 
+    case "soldier" : {
+        private _allUnits = getArray(_cfg >> "soldiers");
+        selectRandom _allUnits;
+    };
+
     case "boat" : {
         private _allUnits = getArray(_cfg >> "boats");
         selectRandom _allUnits;
