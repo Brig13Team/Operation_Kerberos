@@ -7,7 +7,7 @@
  */
 #include "script_component.hpp"
 
-GVARMAIN(playerside) = west;
+GVARMAIN(playerside) = east;
 enableSaving [false, false];
 enableRadio false;
 enableSentences false;

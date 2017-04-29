@@ -1245,10 +1245,10 @@ class GVAR(unitlists) {
                     class E_Reg_Att_02 {
                         SOLDIER_1(BWA3_Puma_Fleck);
                     };
-                    class E_Reg_Att_02 {
+                    class E_Reg_Att_03 {
                         SOLDIER_1(BWA3_Leopard2A6M_Fleck);
                     };
-                    class E_Reg_Att_03 {
+                    class E_Reg_Att_04 {
                         SOLDIERR_1(BWA3_SL_Fleck,SERGEANT);
                         SOLDIERR_2(BWA3_TL_Fleck,CORPORAL);
                         SOLDIER_3(BWA3_Autorifleman_Fleck);
@@ -1257,7 +1257,7 @@ class GVAR(unitlists) {
                         SOLDIER_6(BWA3_RiflemanAT_RGW90_Fleck);
                         SOLDIER_7(BWA3_CombatLifeSaver_Fleck);
                     };
-                    class E_Reg_Att_04 {
+                    class E_Reg_Att_05 {
                         SOLDIERR_1(BWA3_SL_Fleck,SERGEANT);
                         SOLDIERR_2(BWA3_TL_Fleck,CORPORAL);
                         SOLDIER_3(BWA3_Rifleman_Fleck);
@@ -1267,7 +1267,7 @@ class GVAR(unitlists) {
                         SOLDIER_7(BWA3_CombatLifeSaver_Fleck);
                         SOLDIER_8(BWA3_Rifleman_Fleck);
                     };
-                    class E_Reg_Att_05 {
+                    class E_Reg_Att_06 {
                         SOLDIERR_1(BWA3_TL_Fleck,CORPORAL);
                         SOLDIER_2(BWA3_RiflemanG27_Fleck);
                         SOLDIER_3(BWA3_RiflemanG27_Fleck);
@@ -1276,7 +1276,7 @@ class GVAR(unitlists) {
                         SOLDIER_6(BWA3_RiflemanAT_Pzf3_Fleck);
                         SOLDIER_7(BWA3_CombatLifeSaver_Fleck);
                     };
-                    class E_Reg_Att_06 {
+                    class E_Reg_Att_07 {
                         SOLDIERR_1(BWA3_TL_Fleck,CORPORAL);
                         SOLDIER_2(BWA3_Rifleman_Fleck);
                         SOLDIER_3(BWA3_RiflemanAA_Fliegerfaust_Fleck);
