@@ -26,7 +26,7 @@ If (missionNamespace getVariable [QEGVAR(player,whitelistenabled),false]) then {
     private "_bool";
     _bool = true;
 
-    if (!((typeOf _unit) in ["B_Pilot_F","B_Helipilot_F"])) then { _bool = false; };
+    if (!((typeOf _unit) in ["B_Pilot_F","B_Helipilot_F","O_Pilot_F","O_Helipilot_F"])) then { _bool = false; };
     if ISCASVEHICLE_C(typeOf vehicle _unit) then {
         if ( !((getPlayerUID _unit in (["_SP_AI_","_SP_PLAYER_"])) || (!isNil QEGVAR(player,reserved_pilot_slot))) ) then { _bool = false; };
         if (!(_unit getVariable ["DORB_ISCASPILOT",false])) then { _bool = false };
@@ -40,7 +40,7 @@ If (missionNamespace getVariable [QEGVAR(player,whitelistenabled),false]) then {
         if (isPlayer _unit) then { hint format[localize LSTRING(NURPILOTEN),name _unit]; };
     };
 }else{
-    if (!((typeOf _unit) in ["B_Pilot_F","B_Helipilot_F"])) then {
+    if (!((typeOf _unit) in ["B_Pilot_F","B_Helipilot_F","O_Pilot_F","O_Helipilot_F"])) then {
         if ((_position == "driver") || {isNull driver (vehicle _unit)}) then { (vehicle _unit) engineOn false; };
         unassignVehicle (vehicle _unit);
         _unit action ["Eject", vehicle _unit];
