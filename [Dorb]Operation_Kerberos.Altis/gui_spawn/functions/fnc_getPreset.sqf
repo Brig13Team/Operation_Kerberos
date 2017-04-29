@@ -50,6 +50,7 @@ switch (_preset) do {
         If (GVARMAIN(playerside) == west) then {
             _return append ["I_MRAP_03_F","I_MRAP_03_gmg_F","I_MRAP_03_hmg_F"];
         };
+        _return = _return - ["rhs_9k79"];
     };
     case "logistic" : {
         // static units
