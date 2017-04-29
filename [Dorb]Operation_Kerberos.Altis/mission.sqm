@@ -9467,18 +9467,20 @@ class Mission
 		class Item222
 		{
 			dataType="Marker";
-			position[]={26790.307,22.014786,24627.439};
+			position[]={26790.307,0,24627.439};
 			name="marker_1";
-			type="b_plane";
+			type="o_plane";
 			id=463;
+			atlOffset=-22.014786;
 		};
 		class Item223
 		{
 			dataType="Marker";
-			position[]={16600.199,34.232044,19051.492};
+			position[]={16600.199,0,19051.492};
 			name="marker_2";
-			type="b_hq";
+			type="o_hq";
 			id=464;
+			atlOffset=-34.232044;
 		};
 		class Item224
 		{

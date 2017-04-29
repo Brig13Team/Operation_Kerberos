@@ -12,7 +12,7 @@
  *      STRING - replaced vehicletype
  *
  */
-//#define DEBUG_MODE_FULL
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 _this params [["_unittype","",[""]]];
@@ -29,28 +29,25 @@ private _needReplacement = switch _unitside do {
 
 If !(_needReplacement) exitWith {_return};
 
-_return = switch (true) do {
-    case (_unittype isKindOf "House_F") : {_unittype};
-
+switch (true) do {
+    case (_unittype isKindOf "House_F");
+    case (_unittype isKindOf "StaticWeapon") : {};
     case (_unittype isKindOf "CAManBase") : {
-        ["soldier"] call FUNC(getUnit);
-    };
-    case (_unittype isKindOf "StaticWeapon") : {
-        _unittype
+        _return = ["soldier"] call FUNC(getUnit);
     };
     case (_unittype isKindOf "Tank") : {
-        ["tanks"] call FUNC(getUnit);
+        _return = ["tanks"] call FUNC(getUnit);
     };
     case (_unittype isKindOf "Truck_F") : {
-        ["transporter_lorry"] call FUNC(getUnit);
+        _return = ["transporter_lorry"] call FUNC(getUnit);
     };
     case (_unittype isKindOf "helicopter") : {
-        ["helicopter"] call FUNC(getUnit);
+        _return = ["helicopter"] call FUNC(getUnit);
     };
-    default {
-        TRACEV_1(_unittype);
-        _unittype
+    case (_unittype isKindOf "Car_F") : {
+        _return = ["transporter_sniper"] call FUNC(getUnit);
     };
+    default {TRACEV_1(_unittype);};
 };
 
 _return;
