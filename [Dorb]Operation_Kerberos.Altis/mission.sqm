@@ -8,7 +8,7 @@ class EditorData
 	toggles=5;
 	class ItemIDProvider
 	{
-		nextID=545;
+		nextID=549;
 	};
 	class MarkerIDProvider
 	{
@@ -50,8 +50,8 @@ addons[]=
 	"A3_Structures_F_Civ_Lamps",
 	"cba_main",
 	"A3_Structures_F_Civ_Camping",
-	"A3_Characters_F",
 	"ace_map",
+	"A3_Characters_F",
 	"ace_explosives",
 	"ace_gforces",
 	"ace_parachute"
@@ -161,17 +161,17 @@ class AddonsMetaData
 		};
 		class Item14
 		{
-			className="A3_Characters_F";
-			name="Arma 3 Alpha - Characters and Clothing";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
-		};
-		class Item15
-		{
 			className="ace_map";
 			name="ACE3 - Map";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
+		};
+		class Item15
+		{
+			className="A3_Characters_F";
+			name="Arma 3 Alpha - Characters and Clothing";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
 		};
 		class Item16
 		{
@@ -9415,31 +9415,6 @@ class Mission
 		};
 		class Item218
 		{
-			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={16503.834,30.222813,19051.967};
-			};
-			name="HC1";
-			isPlayable=1;
-			id=459;
-			type="HeadlessClient_F";
-		};
-		class Item219
-		{
-			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={16503.5,30.669992,19042.5};
-				angles[]={0.046635196,0,0.079831354};
-			};
-			name="HC2";
-			isPlayable=1;
-			id=460;
-			type="HeadlessClient_F";
-		};
-		class Item220
-		{
 			dataType="Object";
 			class PositionInfo
 			{
@@ -9454,7 +9429,7 @@ class Mission
 			id=461;
 			type="Land_HelipadCircle_F";
 		};
-		class Item221
+		class Item219
 		{
 			dataType="Marker";
 			position[]={16556.625,0,19019};
@@ -9464,7 +9439,7 @@ class Mission
 			id=462;
 			atlOffset=-34.392696;
 		};
-		class Item222
+		class Item220
 		{
 			dataType="Marker";
 			position[]={26790.307,0,24627.439};
@@ -9473,7 +9448,7 @@ class Mission
 			id=463;
 			atlOffset=-22.014786;
 		};
-		class Item223
+		class Item221
 		{
 			dataType="Marker";
 			position[]={16600.199,0,19051.492};
@@ -9482,7 +9457,7 @@ class Mission
 			id=464;
 			atlOffset=-34.232044;
 		};
-		class Item224
+		class Item222
 		{
 			dataType="Object";
 			class PositionInfo
@@ -9499,7 +9474,7 @@ class Mission
 			type="Land_JumpTarget_F";
 			atlOffset=1.1444092e-005;
 		};
-		class Item225
+		class Item223
 		{
 			dataType="Object";
 			class PositionInfo
@@ -9516,7 +9491,7 @@ class Mission
 			type="Land_JumpTarget_F";
 			atlOffset=0.00035476685;
 		};
-		class Item226
+		class Item224
 		{
 			dataType="Object";
 			class PositionInfo
@@ -9533,7 +9508,7 @@ class Mission
 			type="Land_JumpTarget_F";
 			atlOffset=0.00030517578;
 		};
-		class Item227
+		class Item225
 		{
 			dataType="Group";
 			side="East";
@@ -10161,7 +10136,7 @@ class Mission
 			};
 			id=468;
 		};
-		class Item228
+		class Item226
 		{
 			dataType="Group";
 			side="East";
@@ -10376,7 +10351,7 @@ class Mission
 			id=501;
 			atlOffset=0.004989624;
 		};
-		class Item229
+		class Item227
 		{
 			dataType="Group";
 			side="East";
@@ -10553,7 +10528,7 @@ class Mission
 			id=509;
 			atlOffset=0.00066375732;
 		};
-		class Item230
+		class Item228
 		{
 			dataType="Group";
 			side="East";
@@ -10955,7 +10930,7 @@ class Mission
 			};
 			id=523;
 		};
-		class Item231
+		class Item229
 		{
 			dataType="Group";
 			side="East";
@@ -11206,7 +11181,7 @@ class Mission
 			};
 			id=525;
 		};
-		class Item232
+		class Item230
 		{
 			dataType="Group";
 			side="East";
@@ -11380,7 +11355,7 @@ class Mission
 			};
 			id=530;
 		};
-		class Item233
+		class Item231
 		{
 			dataType="Group";
 			side="East";
@@ -11746,6 +11721,30 @@ class Mission
 			{
 			};
 			id=538;
+		};
+		class Item232
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={16530.744,30.839052,19049.031};
+			};
+			name="HC1";
+			isPlayable=1;
+			id=547;
+			type="HeadlessClient_F";
+		};
+		class Item233
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={16529.918,31.147961,19044.822};
+			};
+			name="HC2";
+			isPlayable=1;
+			id=548;
+			type="HeadlessClient_F";
 		};
 	};
 };

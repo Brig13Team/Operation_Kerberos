@@ -30,6 +30,9 @@ private _needReplacement = switch _unitside do {
 If !(_needReplacement) exitWith {_return};
 
 switch (true) do {
+    case (_unittype isKindOf "rhs_zsutank_base") : {
+        _return = "B_APC_Tracked_01_AA_F";
+    };
     case (_unittype isKindOf "House_F");
     case (_unittype isKindOf "StaticWeapon") : {};
     case (_unittype isKindOf "CAManBase") : {
