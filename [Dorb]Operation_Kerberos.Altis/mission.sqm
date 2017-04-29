@@ -220,7 +220,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=235;
+		items=234;
 		class Item0
 		{
 			dataType="Logic";
@@ -1512,7 +1512,7 @@ class Mission
 			position[]={16600.346,0,19033.033};
 			name="respawn_east";
 			type="Empty";
-			angle=141.93199;
+			angle=141.93193;
 			id=209;
 			atlOffset=-34.355358;
 		};
@@ -2191,7 +2191,7 @@ class Mission
 			};
 			id=244;
 			type="Land_Cargo20_military_green_F";
-			atlOffset=-0.00027275085;
+			atlOffset=-0.00026321411;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -9329,7 +9329,7 @@ class Mission
 			};
 			id=454;
 			type="Land_Cargo40_military_green_F";
-			atlOffset=-0.0014190674;
+			atlOffset=-0.0014228821;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -10165,15 +10165,6 @@ class Mission
 		{
 			dataType="Group";
 			side="East";
-			class Attributes
-			{
-			};
-			id=478;
-		};
-		class Item229
-		{
-			dataType="Group";
-			side="East";
 			class Entities
 			{
 				items=4;
@@ -10385,7 +10376,7 @@ class Mission
 			id=501;
 			atlOffset=0.004989624;
 		};
-		class Item230
+		class Item229
 		{
 			dataType="Group";
 			side="East";
@@ -10562,7 +10553,7 @@ class Mission
 			id=509;
 			atlOffset=0.00066375732;
 		};
-		class Item231
+		class Item230
 		{
 			dataType="Group";
 			side="East";
@@ -10964,7 +10955,7 @@ class Mission
 			};
 			id=523;
 		};
-		class Item232
+		class Item231
 		{
 			dataType="Group";
 			side="East";
@@ -11215,7 +11206,7 @@ class Mission
 			};
 			id=525;
 		};
-		class Item233
+		class Item232
 		{
 			dataType="Group";
 			side="East";
@@ -11389,7 +11380,7 @@ class Mission
 			};
 			id=530;
 		};
-		class Item234
+		class Item233
 		{
 			dataType="Group";
 			side="East";

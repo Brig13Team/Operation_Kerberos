@@ -1196,8 +1196,8 @@ class GVAR(unitlists) {
             cars[] = {"BWA3_Eagle_Fleck"};
             tanks[] = {"BWA3_Leopard2A6M_Fleck","BWA3_Puma_Fleck"};
 
-            soldiers[] = {"rhsusf_army_ocp_rifleman_1stcav","rhsusf_army_ocp_rifleman_10th","rhsusf_army_ocp_rifleman","rhsusf_army_ocp_rifleman_m4","rhsusf_army_ocp_rifleman_m16","rhsusf_army_ocp_rifleman_m590","rhsusf_army_ocp_riflemanl","rhsusf_army_ocp_riflemanat","rhsusf_army_ocp_grenadier","rhsusf_army_ocp_autorifleman","rhsusf_army_ocp_autoriflemana","rhsusf_army_ocp_machinegunner","rhsusf_army_ocp_machinegunnera","rhsusf_army_ocp_marksman","rhsusf_army_ocp_squadleader",
-                        "rhsusf_army_ocp_teamleader","rhsusf_army_ocp_jfo","rhsusf_army_ocp_fso","rhsusf_army_ocp_javelin","rhsusf_army_ocp_javelin_assistant","rhsusf_army_ocp_aa","rhsusf_army_ocp_uav","rhsusf_army_ocp_medic","rhsusf_army_ocp_engineer","rhsusf_army_ocp_explosives"};
+            soldiers[] = {"BWA3_Rifleman_Fleck","BWA3_Rifleman_lite_Fleck","BWA3_RiflemanG27_Fleck","BWA3_RiflemanG28_Fleck","BWA3_Grenadier_Fleck","BWA3_GrenadierG27_Fleck","BWA3_Autorifleman_Fleck","BWA3_AutoriflemanMG5_Fleck",
+                        "BWA3_CombatLifeSaver_Fleck","BWA3_Marksman_Fleck","BWA3_RiflemanAT_RGW90_Fleck","BWA3_RiflemanAT_Pzf3_Fleck","BWA3_RiflemanAT_CG_Fleck","BWA3_RiflemanAA_Fliegerfaust_Fleck","BWA3_Engineer_Fleck"};
             crewmen[] = {"BWA3_Crew_Fleck","BWA3_Tank_Commander_Fleck"};
 
             class callIn {
@@ -1288,19 +1288,9 @@ class GVAR(unitlists) {
                 class defence {};
                 class sniper {
                     class E_Snip_01 {
-                        SOLDIERR_1(rhsusf_army_ocp_sniper,CORPORAL);
-                        SOLDIER_2(rhsusf_army_ocp_sniper);
-                        SOLDIER_3(rhsusf_army_ocp_sniper);
-                    };
-                    class E_Snip_02 {
-                        SOLDIERR_1(rhsusf_army_ocp_sniper_m24sws,CORPORAL);
-                        SOLDIER_2(rhsusf_army_ocp_sniper_m24sws);
-                        SOLDIER_3(rhsusf_army_ocp_sniper_m24sws);
-                    };
-                    class E_Snip_03 {
-                        SOLDIERR_1(rhsusf_army_ocp_sniper_m107,CORPORAL);
-                        SOLDIER_2(rhsusf_army_ocp_sniper_m107);
-                        SOLDIER_3(rhsusf_army_ocp_sniper_m107);
+                        SOLDIERR_1(BWA3_Spotter_Fleck,CORPORAL);
+                        SOLDIER_2(BWA3_SniperG82_Fleck);
+                        SOLDIER_3(BWA3_SniperG82_Fleck);
                     };
                 };
             };
