@@ -31,7 +31,7 @@ if (
 */
 If ((_vehicleType isKindOf "Air")&&{!(_vehiclewahl isKindOf "UAV")}) then {
     If (!(
-        (((typeOf _player) in ["B_Pilot_F","B_Helipilot_F"])||(_player getVariable [QGVARMAIN(ISPILOT),false]))
+        (((toLower (typeOf _unit)) in ["b_pilot_F","b_helipilot_f","o_pilot_f","o_helipilot_f"])||(_player getVariable [QGVARMAIN(ISPILOT),false]))
     )) then {
         _return = true;
     };
