@@ -1048,7 +1048,7 @@ class GVAR(unitlists) {
                         "rhsusf_usmc_marpat_d_javelin","rhsusf_usmc_marpat_d_javelin_assistant","rhsusf_usmc_marpat_d_stinger","rhsusf_usmc_marpat_d_marksman"};
             crewmen[] = {"rhsusf_usmc_marpat_d_crewman","rhsusf_usmc_marpat_d_combatcrewman","rhsusf_usmc_marpat_d_driver","rhsusf_usmc_marpat_d_gunner"};
 
-            class callIn {
+            class callIn : callIn {
                 helicopter_transport[] = {"RHS_UH1Y_d","RHS_UH1Y_FFAR_d","RHS_UH1Y_d_GS","rhsusf_CH53E_USMC_D"};
                 helicopter_cas[] = {"RHS_AH1Z_GS","RHS_AH1Z_CS"};
                 amountHeli = 0;
@@ -1133,12 +1133,10 @@ class GVAR(unitlists) {
         };
         class specops : us_marine {
             tanks[] = {};
-            class callIn {
-                class callIn : callIn {
-                    amountHeli = 0;
-                    amountAI = 1;
-                    amountCAS = 2;
-                };
+            class callIn : callIn {
+                amountHeli = 0;
+                amountAI = 1;
+                amountCAS = 2;
                 group_infantry[] = {
                     {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_d_infantry","rhs_group_nato_usmc_d_infantry_squad"},
                     {"configfile","CfgGroups","West","rhs_faction_usmc_d","rhs_group_nato_usmc_d_infantry","rhs_group_nato_usmc_d_infantry_squad_sniper"},
@@ -1200,7 +1198,7 @@ class GVAR(unitlists) {
                         "BWA3_CombatLifeSaver_Fleck","BWA3_Marksman_Fleck","BWA3_RiflemanAT_RGW90_Fleck","BWA3_RiflemanAT_Pzf3_Fleck","BWA3_RiflemanAT_CG_Fleck","BWA3_RiflemanAA_Fliegerfaust_Fleck","BWA3_Engineer_Fleck"};
             crewmen[] = {"BWA3_Crew_Fleck","BWA3_Tank_Commander_Fleck"};
 
-            class callIn {
+            class callIn : callIn {
                 helicopter_transport[] = {"RHS_UH1Y","RHS_UH1Y_FFAR"};
                 helicopter_cas[] = {"BWA3_Tiger_RMK_FZ","BWA3_Tiger_RMK_Heavy","BWA3_Tiger_RMK_PARS","BWA3_Tiger_RMK_Universal"};
 
