@@ -18,14 +18,32 @@ _this params ["_mission"];
 
 //if (HASH_HASKEY(_mission, "side")) exitWith { -1 };
 
-{
-    private _curRes = _x;
-    private _curResHash = HASH_GET(GVAR(ressources),_curRes);
-    HASH_SET(_curResHash,"nextexecution",-1);
-    HASH_SET(_curResHash,"units",[]);
-    private _amount = getNumber(missionConfigFile >> QEGVAR(spawn,unitlists) >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "callIn" >> "amountCAS");
-    HASH_SET(_curResHash,"amount",_amount);
-    private _timer = getNumber(missionConfigFile >> QEGVAR(spawn,unitlists) >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "callIn" >> "replenishCAS");
-    If (_timer <= 0) then {_timer = 15*60;};
-    HASH_SET(_curResHash,"replenish",_timer);
-} forEach ["cas","helicopter","airinterception"];
+
+private _curResHash = HASH_GET(GVAR(ressources),"cas");
+HASH_SET(_curResHash,"nextexecution",-1);
+HASH_SET(_curResHash,"units",[]);
+private _amount = getNumber(missionConfigFile >> QEGVAR(spawn,unitlists) >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "callIn" >> "amountCAS");
+HASH_SET(_curResHash,"amount",_amount);
+private _timer = getNumber(missionConfigFile >> QEGVAR(spawn,unitlists) >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "callIn" >> "replenishCAS");
+If (_timer <= 0) then {_timer = 15*60;};
+HASH_SET(_curResHash,"replenish",_timer);
+
+
+private _curResHash = HASH_GET(GVAR(ressources),"helicopter");
+HASH_SET(_curResHash,"nextexecution",-1);
+HASH_SET(_curResHash,"units",[]);
+private _amount = getNumber(missionConfigFile >> QEGVAR(spawn,unitlists) >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "callIn" >> "amountAI");
+HASH_SET(_curResHash,"amount",_amount);
+private _timer = getNumber(missionConfigFile >> QEGVAR(spawn,unitlists) >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "callIn" >> "replenishAI");
+If (_timer <= 0) then {_timer = 15*60;};
+HASH_SET(_curResHash,"replenish",_timer);
+
+
+private _curResHash = HASH_GET(GVAR(ressources),"airinterception");
+HASH_SET(_curResHash,"nextexecution",-1);
+HASH_SET(_curResHash,"units",[]);
+private _amount = getNumber(missionConfigFile >> QEGVAR(spawn,unitlists) >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "callIn" >> "amountHeli");
+HASH_SET(_curResHash,"amount",_amount);
+private _timer = getNumber(missionConfigFile >> QEGVAR(spawn,unitlists) >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "callIn" >> "replenishHeli");
+If (_timer <= 0) then {_timer = 15*60;};
+HASH_SET(_curResHash,"replenish",_timer);
