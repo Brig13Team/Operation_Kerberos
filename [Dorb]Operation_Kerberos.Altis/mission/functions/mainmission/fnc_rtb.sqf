@@ -19,7 +19,8 @@ HASH_SET(_mission, "condition", QFUNC(mainmission__rtb_condition));
 
 private _marker = getText(missionConfigFile >> "mission" >> "main" >> _type >> "object" >> "position");
 private _radius = getNumber(missionConfigFile >> "mission" >> "main" >> _type >> "object" >> "radius");
-private _location =  ["Base", getMarkerPos _marker];
+//private _location =  ["Base", getMarkerPos _marker];
+private _location =  ["Base", getMarkerPos GVARMAIN(respawnmarker)];
 
 HASH_SET(_mission, "location", _location);
 HASH_SET(_mission, "radius", _radius);
