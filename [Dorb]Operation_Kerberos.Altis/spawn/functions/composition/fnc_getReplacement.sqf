@@ -30,11 +30,13 @@ private _needReplacement = switch _unitside do {
 If !(_needReplacement) exitWith {_return};
 
 switch (true) do {
-    case (_unittype isKindOf "rhs_zsutank_base") : {
+    case ((_unittype isKindOf "rhs_zsutank_base")||(_unittype isKindOf "RHS_Ural_Zu23_Base")) : {
         _return = "B_APC_Tracked_01_AA_F";
     };
     case (_unittype isKindOf "House_F");
-    case (_unittype isKindOf "StaticWeapon") : {};
+    case (_unittype isKindOf "StaticWeapon") : {
+        // nothing, just use the same unit
+    };
     case (_unittype isKindOf "CAManBase") : {
         _return = ["soldier"] call FUNC(getUnit);
     };

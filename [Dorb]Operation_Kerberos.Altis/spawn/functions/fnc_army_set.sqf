@@ -24,7 +24,9 @@ if (isNil QGVARMAIN(side)) then {
 _this params [["_army","",[""]]];
 If ((_army isEqualTo "")||{!isClass(missionConfigFile >> QGVAR(unitlists) >> str GVARMAIN(side) >> _army)}) then {
     private _allArmys = configProperties [(missionConfigFile >> QGVAR(unitlists) >> str GVARMAIN(side)),"true",true];
-    _army = configName (selectRandom(_allArmys));
+    _allArmys = _allArmys apply {configName _x};
+    _allArmys = [_allArmys] call CBA_fnc_shuffle;
+    _army = selectRandom _allArmys;
     GVARMAIN(side_type) = _army;
 }else{
     GVARMAIN(side_type) = _army;

@@ -1191,9 +1191,9 @@ class GVAR(unitlists) {
                 commander[] = {"BWA3_Officer_Fleck"};
                 wreck_air[] = {"BWA3_Tiger_Gunpod_Heavy", "BWA3_Tiger_Gunpod_PARS"};
             };
-            trucks[] = {"B_Truck_01_covered_F","B_Truck_01_transport_F"};
-            ifv[] = {"BWA3_Eagle_FLW100_Fleck"};
-            cars[] = {"BWA3_Eagle_Fleck"};
+            trucks[] = {"rhsusf_M1078A1P2_B_d_fmtv_usarmy","rhsusf_M1078A1P2_B_d_open_fmtv_usarmy","rhsusf_M1078A1P2_B_d_flatbed_fmtv_usarmy"};
+            ifv[] = {"BWA3_Puma_Fleck"};
+            cars[] = {"BWA3_Eagle_FLW100_Fleck"};
             tanks[] = {"BWA3_Leopard2A6M_Fleck","BWA3_Puma_Fleck"};
 
             soldiers[] = {"BWA3_Rifleman_Fleck","BWA3_Rifleman_lite_Fleck","BWA3_RiflemanG27_Fleck","BWA3_RiflemanG28_Fleck","BWA3_Grenadier_Fleck","BWA3_GrenadierG27_Fleck","BWA3_Autorifleman_Fleck","BWA3_AutoriflemanMG5_Fleck",
