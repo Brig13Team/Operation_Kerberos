@@ -13,7 +13,5 @@
  */
 #include "script_component.hpp"
 
-["rhs_p37", "initpost", LINKFUNC(registerRadar),false,[],true] call CBA_fnc_addClassEventHandler;
-["rhs_prv13", "initpost", LINKFUNC(registerRadar),false,[],true] call CBA_fnc_addClassEventHandler;
-
 ["rhs_zsutank_base", "initpost", LINKFUNC(registerAA),true,[],true] call CBA_fnc_addClassEventHandler;
+["B_APC_Tracked_01_AA_F", "initpost", LINKFUNC(registerAA),true,[],true] call CBA_fnc_addClassEventHandler;

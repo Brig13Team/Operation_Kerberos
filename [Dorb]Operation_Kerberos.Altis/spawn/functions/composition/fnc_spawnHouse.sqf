@@ -58,6 +58,7 @@ private _objectives = [];
 {
     private _curCfg = _x;
     private _curType = getText(_x>>"type");
+    _curType = [_curType] call FUNC(composition_getReplacement);
     private _curPos = getArray(_x>>"pos");
     private _curVecUp = getArray(_x>>"vecup");
     private _curDir = getNumber(_x>>"dir");

@@ -72,4 +72,4 @@ switch (_preset) do {
         _return pushBack "Land_VR_Block_05_F";
     };
 };
-_return;
+_return select {!((toLower _x) in ["rhs_9k79_b","rhs_9k79","rhs_9k79_k"])};

@@ -45,7 +45,7 @@ If (
 
 
     If (IS_SCALAR(_costs)) then {
-        private _ressources = HASH_GET(GVAR(ressources),"amount",0) - costs;
+        private _ressources = HASH_GET(GVAR(ressources),"amount",0) - _costs;
         HASH_SET(GVAR(ressources),"amount",_ressources);
     }else{
         ERROR("wrong supply return");

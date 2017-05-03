@@ -18,8 +18,8 @@
 _this params ["_player","_vehicleType"];
 
 private _return = false;
+/*
 private _vclass = getText(configFile >> "CfgVehicles" >> _vehicleType >> "vehicleClass");
-
 if (
     (_vclass in ["rhs_vehclass_ifv","rhs_vehclass_tank","rhs_vehclass_artillery","Armored",
                  "BWA3_VehClass_Tracked_Tropen","BWA3_VehClass_Tracked_Fleck","BWA3_VehClass_Wheeled_Tropen",
@@ -28,10 +28,10 @@ if (
      ) then {
          _return = true;
      };
-
+*/
 If ((_vehicleType isKindOf "Air")&&{!(_vehiclewahl isKindOf "UAV")}) then {
     If (!(
-        (((typeOf _player) in ["B_Pilot_F","B_Helipilot_F"])||(_player getVariable [QGVARMAIN(ISPILOT),false]))
+        (((toLower (typeOf _unit)) in ["b_pilot_F","b_helipilot_f","o_pilot_f","o_helipilot_f"])||(_player getVariable [QGVARMAIN(ISPILOT),false]))
     )) then {
         _return = true;
     };

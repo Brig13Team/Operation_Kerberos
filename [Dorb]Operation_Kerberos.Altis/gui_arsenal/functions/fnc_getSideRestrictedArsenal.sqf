@@ -71,7 +71,7 @@ switch (_side) do {
     };
     case east : {
         _dlcs = ["RHS_AFRF"];
-        _BISClassBlack = ["_B_","_BG_","_I_","_IG_"];
+        _BISClassBlack = ["_B_","_BG_","_I_","_IG_","BWA3_"];
         _BISModelBlacK = ["BLUFOR","INDEP"];
         _sideNumber = 1;
     };
