@@ -35,9 +35,11 @@ PREPS(fdc,register);
 
 PREPS(ressources,CanCallInUnits);
 PREPS(ressources,canUseCallIn);
+PREPS(ressources,CheckIntervall);
 PREPS(ressources,getsaveSpawnPos);
 PREPS(ressources,getsaveSpawnPosAir);
 PREPS(ressources,handle);
+PREPS(ressources,onMissionInit);
 PREPS(ressources,supply);
 PREPS(ressources,supplyAirdrop);
 PREPS(ressources,supplyInfanterie);
@@ -57,6 +59,7 @@ PREPS(state,wait);
 
 PREPS(strategy,_checkisWorking);
 PREPS(strategy,_choose);
+PREPS(strategy,_onfinished);
 PREPS(strategy,_onFinishAir);
 PREPS(strategy,_onFinishSAD);
 PREPS(strategy,airinterception);
@@ -103,6 +106,8 @@ PREP(MissionCleanUp);
 PREP(MissionInit);
 PREP(onKilled);
 PREP(onUnconscious);
+PREP(radar_airInterceptionGroup_return);
+PREP(radar_airInterceptionGroup);
 PREP(registerAA);
 PREP(registerGroup);
 PREP(registerPlayerGroup);

@@ -69,35 +69,37 @@ TRACEV_1(_availableGroups);
     private _groupstrength = HASH_GET_DEF(_grouphash,"strength",[ARR_3(0,0,0)]);
     private _groupdefence = HASH_GET_DEF(_grouphash,"defence",[ARR_3(0,0,0)]);
     private _grouptype = HASH_GET_DEF(_grouphash,"type",0);
-
-    private _valueDiffMod = (1/(_groupValue/_enemyValue));
-    private _possibility = selectMax [
-        (_enemyType select 0) *
-            ((_groupstrength select 0)*(1-(_enemyDefence select _grouptype))) *
-            (1-((_enemystrength select _grouptype)*(1-(_groupdefence select 0)))) *
-            _valueDiffMod,
-        (_enemyType select 1) *
-            ((_groupstrength select 1)*(1-(_enemyDefence select _grouptype))) *
-            (1-((_enemystrength select _grouptype)*(1-(_groupdefence select 1)))) *
-            _valueDiffMod,
-        (_enemyType select 2) *
-            ((_groupstrength select 2)*(1-(_enemyDefence select _grouptype))) *
-            (1-((_enemystrength select _grouptype)*(1-(_groupdefence select 2)))) *
-            _valueDiffMod
-    ];
-    private _curStratValue = _groupValue;
-    private _parameter = [_curGroup];
-    If (_possibility > 0) then {
-        _possibleStrategys pushBack [_possibility,_curStratValue,"groundattack",_parameter];
+    TRACEV_7(_curGroup,_possibility,_grouphash,_groupValue,_groupstrength,_groupdefence,_grouptype);
+    If !(_groupValue isEqualTo 0) then {
+        private _valueDiffMod = (1/(_groupValue/_enemyValue));
+        private _possibility = selectMax [
+            (_enemyType select 0) *
+                ((_groupstrength select 0)*(1-(_enemyDefence select _grouptype))) *
+                (1-((_enemystrength select _grouptype)*(1-(_groupdefence select 0)))) *
+                _valueDiffMod,
+            (_enemyType select 1) *
+                ((_groupstrength select 1)*(1-(_enemyDefence select _grouptype))) *
+                (1-((_enemystrength select _grouptype)*(1-(_groupdefence select 1)))) *
+                _valueDiffMod,
+            (_enemyType select 2) *
+                ((_groupstrength select 2)*(1-(_enemyDefence select _grouptype))) *
+                (1-((_enemystrength select _grouptype)*(1-(_groupdefence select 2)))) *
+                _valueDiffMod
+        ];
+        private _curStratValue = _groupValue;
+        private _parameter = [_curGroup];
+        If (_possibility > 0) then {
+            _possibleStrategys pushBack [_possibility,_curStratValue,"groundattack",_parameter];
+        };
     };
-} forEach _availableGroups;
+} forEach (_availableGroups select {!isNull _x});
 
 // add the offmap support
 {
     private _curCfg = _x;
 
     private _condition = getText(_curCfg >> "condition");
-
+    //TRACEV_3(_curCfg,_condition,[] call compile _condition);
     If ([] call compile _condition) then {
         private _stratValue = getNumber(_curCfg >> "value");
         private _stratstrength = getarray(_curCfg >> "strength");
@@ -120,23 +122,24 @@ TRACEV_1(_availableGroups);
                 _valueDiffMod
         ];
         private _curStratValue = _stratValue;
-        private _parameter = [_strat];
+        private _parameter = [];
+        //TRACEV_5(_stratValue,_stratstrength,_stratdefence,_strattype,_possibility);
         If (_possibility > 0) then {
             _possibleStrategys pushBack [_possibility,_curStratValue,configName _curCfg,_parameter];
         };
     };
-} forEach (configProperties [missionConfigFile >> "strategies", "!((toLower(configname _x)) in ['groundattack'])", true]);
+} forEach (configProperties [missionConfigFile >> "strategy", "!((toLower(configname _x)) in ['groundattack'])", true]);
 
 private _currentStrategies = [[_possibleStrategys,0,false] call EFUNC(common,sel_array_weighted)];
-
+TRACEV_2(_currentStrategies,_possibleStrategys);
 
 // execute the strategies until the current value reaches zero
 {
-    TRACEV_1(_curValue);
-    If (_curValue < 0) exitWith {};
+    TRACEV_2(_curValue,_x);
+    If ((_curValue < 0)||{_x isEqualTo []}) exitWith {};
 
-    _x params ["_possibility","_curStratValue","_strategytype","_curparameter"];
-
+    _x params [["_possibility",0,[0]],["_curStratValue",0,[0]],["_strategytype","",[""]],["_curparameter",[]]];
+    CHECK(_strategytype isEqualTo "")
     _curValue = _curValue - _curStratValue;
 
     private _stratCfg = (missionConfigFile >> "strategy" >> _strategytype);
@@ -205,5 +208,5 @@ If ((_again)&&{_passing > 0}) exitWith {
 };
 #ifdef DEBUG_MODE_FULL
     private _currentStrategies = HASH_GET(_attackPos,"strategies") apply {HASH_GET(_x,"strategytype")};
-    TRACEV_6(_attackPos,_currentStrategies,_curValue,_enemyType,_enemyValue,_enemyThreat);
+    TRACEV_7(_attackPos,_currentStrategies,_curValue,_enemyValue,_enemystrength,_enemyDefence,_enemyType);
 #endif

@@ -34,9 +34,9 @@ while {(count (waypoints _group)) > 0} do {
 
 private _statement = "";
 
-[_group,_waypoints,0,"MOVE","AWARE","GREEN","FULL","NO CHANGE",_statement,[1,3,5],150] call FUNC(waypoints_add);
+[_group,_waypoints,25,"MOVE","AWARE","GREEN","FULL","NO CHANGE",_statement,[1,3,5],150] call FUNC(waypoints_add);
 
 
-_statement = QUOTE([ARR_2(this,'idle')] call FUNC(state_set);) + _statementFinish;
+_statement = QUOTE(If (!isServer) exitWith {};[ARR_2(this,'idle')] call FUNC(state_set);) + _statementFinish;
 
-[_group, _lastWaypoint, 0, "MOVE", "COMBAT", "YELLOW", "FULL", "NO CHANGE", _statement, [3,6,9], 30] call FUNC(waypoints_add);
+[_group, _lastWaypoint, 25, "MOVE", "COMBAT", "YELLOW", "FULL", "NO CHANGE", _statement, [3,6,9], 30] call FUNC(waypoints_add);

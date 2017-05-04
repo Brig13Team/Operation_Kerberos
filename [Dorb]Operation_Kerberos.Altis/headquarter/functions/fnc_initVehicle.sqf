@@ -20,6 +20,18 @@ If (isCLass(missionConfigFile>>"costs">>_unittype)) exitWith {
     HASH_SET(GVAR(strength),_unittype,getNumber(missionConfigFile>>"costs">>_unittype>>"strength"));
     HASH_SET(GVAR(defence),_unittype,getNumber(missionConfigFile>>"costs">>_unittype>>"defence"));
 };
+
+private _fnc_getWeapons = {
+    _this params ["_unittype"];
+    private _turrets = "true" configClasses (configfile >> "CfgVehicles" >> _unittype >> "turrets");
+    private _weapons = [];
+    {
+        _weapons append getArray(_x>>"weapons");
+        nil;
+    } count _turrets;
+    _weapons;
+};
+
 private "_value";
 If (_unittype isKindOf "Autonomous") exitWith {
     If !(_unittype isKindOf "Air") exitWith {
@@ -45,17 +57,19 @@ If (_unittype isKindOf "Air") exitWith {
     private _weapons = If !(isNull _object) then {
         weapons _object
     } else {
-        getArray(configfile >> "CfgVehicles" >> _unittype >> "weapons")
+        [_unittype] call _fnc_getWeapons;
     };
     _weapons = _weapons select {!((toUpper _x) in ["CMFLARELAUNCHER","ACE_AIR_SAFETY","RHS_WEAP_MASTERSAFE","RHS_LWIRCM_MELB"])};
-
     If (_unittype isKindOf "Plane") then {
-        If ((count _weapons) >0) then {
+        private _isCAS = ["cas_bombing"] in ((getArray(configfile >> "CfgVehicles" >> _unittype >> "availableForSupportTypes")) apply {tolower _x});
+        If (((count _weapons) >0)||_isCAS) then {
             private _isAI = 0;
             {
                 private _curWeapon = _x;
                 private _mag = ((getArray(configFile >> "CfgWeapons" >> _curWeapon >> "magazines")) select 0);
-                _isAI = _isAI max (getNumber(configFile >> "CfgAmmo" >> getText(configFile >> "CfgMagazines" >> _mag >> "ammo") >> "airLock"));
+                If !(isNil "_mag") then {
+                    _isAI = _isAI max (getNumber(configFile >> "CfgAmmo" >> getText(configFile >> "CfgMagazines" >> _mag >> "ammo") >> "airLock"));
+                };
             } forEach _weapons;
             If (_isAI > 0) then {
                 _value = getArray(missionConfigFile>>"costs">>"plane_ai");
@@ -72,7 +86,8 @@ If (_unittype isKindOf "Air") exitWith {
             HASH_SET(GVAR(defence),_unittype,_value select 2);
         };
     }else{
-        If ((count _weapons) >0) then {
+        private _isCAS = ["cas_heli"] in ((getArray(configfile >> "CfgVehicles" >> _unittype >> "availableForSupportTypes")) apply {tolower _x});
+        If (((count _weapons) >0)||_isCAS) then {
             _value = getArray(missionConfigFile>>"costs">>"helicopter_cas");
             HASH_SET(GVAR(costs),_unittype,_value select 0);
             HASH_SET(GVAR(strength),_unittype,_value select 1);
@@ -87,16 +102,16 @@ If (_unittype isKindOf "Air") exitWith {
 };
 
 
-_fnc_valueAdd = {
+private _fnc_valueAdd = {
     _this params ["_cost","_strength","_defence"];
     _value set[0,(_value select 0)+_cost];
     (_value select 1) set[0,((_value select 1) select 0)max(_strength select 0)];
     (_value select 1) set[1,((_value select 1) select 1)max(_strength select 1)];
     (_value select 1) set[2,((_value select 1) select 2)max(_strength select 2)];
 
-    (_value select 2) set[0,((_value select 1) select 0)max(_defence select 0)];
-    (_value select 2) set[1,((_value select 1) select 1)max(_defence select 1)];
-    (_value select 2) set[2,((_value select 1) select 2)max(_defence select 2)];
+    (_value select 2) set[0,((_value select 2) select 0)max(_defence select 0)];
+    (_value select 2) set[1,((_value select 2) select 1)max(_defence select 1)];
+    (_value select 2) set[2,((_value select 2) select 2)max(_defence select 2)];
 };
 
 If (_unittype isKindOf "CAManBase") exitWith {
@@ -118,19 +133,19 @@ If (_unittype isKindOf "CAManBase") exitWith {
     {
         private _curWeapon = _x;
         ([_curWeapon] call BIS_fnc_itemType)params ["_itemclass","_itemtype"];
-        If (_itemtype in ["Launcher"]) then {
+        If (_itemtype in ["Launcher","RocketLauncher","MissileLauncher"]) then {
             private _mag = ((getArray(configFile >> "CfgWeapons" >> _curWeapon >> "magazines")) select 0);
-            private _airlock = getNumber(configFile >> "CfgAmmo" >> getText(configFile >> "CfgMagazines" >> _mag >> "ammo") >> "airLock");
-            If (_airlock > 0) then {
-                (getArray(missionConfigFile>>"costs">>"soldier_at")) call _fnc_valueAdd;
-            } else {
+
+            If ((isNil "_mag")||{(getNumber(configFile >> "CfgAmmo" >> getText(configFile >> "CfgMagazines" >> _mag >> "ammo") >> "airLock")) > 0}) then {
                 (getArray(missionConfigFile>>"costs">>"soldier_aa")) call _fnc_valueAdd;
+            } else {
+                (getArray(missionConfigFile>>"costs">>"soldier_at")) call _fnc_valueAdd;
             };
         };
-        If (_itemtype in ["MG"]) then {
+        If (_itemtype in ["MachineGun"]) then {
             (getArray(missionConfigFile>>"costs">>"soldier_mg")) call _fnc_valueAdd;
         };
-        If (_itemtype in ["Sniper"]) then {
+        If ((_itemtype in ["SniperRifle"])||(isClass(configFile >> "CfgWeapons" >> _curWeapon >> "far_optic1"))) then {
             (getArray(missionConfigFile>>"costs">>"soldier_sniper")) call _fnc_valueAdd;
         };
     } forEach _weapons;
@@ -172,7 +187,7 @@ If ((_unittype isKindOf "LandVehicle")||{_unittype isKindOf "Ship_F"}) exitWith 
     If ((_armor <= 500)&&(_armor > 200)) then {
         (getArray(missionConfigFile>>"costs">>"vehicle_medium")) call _fnc_valueAdd;
     };
-    If ((_armor <= 200)&&(_armor > 20)) then {
+    If ((_armor <= 200)&&(_armor > 50)) then {
         (getArray(missionConfigFile>>"costs">>"vehicle_light")) call _fnc_valueAdd;
     };
 
@@ -180,9 +195,8 @@ If ((_unittype isKindOf "LandVehicle")||{_unittype isKindOf "Ship_F"}) exitWith 
     private _weapons = If !(isNull _object) then {
         weapons _object
     } else {
-        getArray(configfile >> "CfgVehicles" >> _unittype >> "weapons")
+        [_unittype] call _fnc_getWeapons;
     };
-
     {
         private _curWeapon = _x;
         ([_curWeapon] call BIS_fnc_itemType)params ["_itemclass","_itemtype"];
@@ -193,12 +207,11 @@ If ((_unittype isKindOf "LandVehicle")||{_unittype isKindOf "Ship_F"}) exitWith 
             (getArray(missionConfigFile>>"costs">>"vehicle_gmg")) call _fnc_valueAdd;
         };
         If (_itemtype in ["Launcher","MissileLauncher","RocketLauncher"]) then {
-            private _mag = ((getArray(configFile >> "CfgWeapons" >> _unittype >> "magazines")) select 0);
-            private _airlock = getNumber(configFile >> "CfgAmmo" >> getText(configFile >> "CfgMagazines" >> _mag >> "ammo") >> "airLock");
-            If (_airlock > 0) then {
-                (getArray(missionConfigFile>>"costs">>"vehicle_atrocket")) call _fnc_valueAdd;
-            } else {
+            private _mag = ((getArray(configFile >> "CfgWeapons" >> _curWeapon >> "magazines")) select 0);
+            If ((isNil "_mag")||{(getNumber(configFile >> "CfgAmmo" >> getText(configFile >> "CfgMagazines" >> _mag >> "ammo") >> "airLock")) > 0}) then {
                 (getArray(missionConfigFile>>"costs">>"vehicle_aarocket")) call _fnc_valueAdd;
+            } else {
+                (getArray(missionConfigFile>>"costs">>"vehicle_atrocket")) call _fnc_valueAdd;
             };
         };
         If (_itemtype in ["Mortar"]) then {
@@ -209,7 +222,11 @@ If ((_unittype isKindOf "LandVehicle")||{_unittype isKindOf "Ship_F"}) exitWith 
         };
         If (_itemtype in ["Cannon"]) then {
             private _mag = ((getArray(configFile >> "CfgWeapons" >> _curWeapon >> "magazines")) select 0);
-            private _cal = getNumber(configFile >> "CfgMagazines" >> getText(configFile >> "CfgMagazines" >> _mag >> "ammo") >> "ace_rearm_caliber");
+            private _cal = If (isNil "_mag") then {
+                0
+            }else{
+                getNumber(configFile >> "CfgMagazines" >> getText(configFile >> "CfgMagazines" >> _mag >> "ammo") >> "ace_rearm_caliber");
+            };
             If (_cal > 80) then {
                 (getArray(missionConfigFile>>"costs">>"vehicle_gun")) call _fnc_valueAdd;
             } else {

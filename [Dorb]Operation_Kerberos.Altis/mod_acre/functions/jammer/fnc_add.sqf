@@ -45,3 +45,18 @@ GVAR(jammerID) = _jammerID;
 GVAR(jammer) pushBack [_object,_jammerID,_antenna,_antennaDir,_offset,_mW,_f];
 
 publicVariable QGVAR(jammer);
+
+If (isNil QGVAR(jammerHandle)) then {
+    GVAR(jammerHandle) = [
+        {
+            GVAR(jammer) = GVAR(jammer) select {alive (_x select 0)};
+            If (GVAR(jammer) isEqualTo []) then {
+                GVAR(jammerHandle) = nil;
+                GVAR(jammer) = [];
+                publicVariable QGVAR(jammer);
+                [_this select 1] call CBA_fnc_removePerFrameHandler;
+            };
+        },
+        60
+    ] call CBA_fnc_addPerFrameHandler;
+};

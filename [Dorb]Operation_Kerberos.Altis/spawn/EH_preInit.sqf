@@ -3,6 +3,7 @@
 
 ADDON = false;
 
+PREP(addNVG);
 PREP(army_set);
 
 PREP(cleanup_full);
@@ -47,6 +48,7 @@ PREPS(composition,chooseComposition);
 PREPS(composition,chooseHouse);
 PREPS(composition,createFromHouse);
 PREPS(composition,createFromPosition);
+PREPS(composition,getReplacement);
 PREPS(composition,hasCrew);
 PREPS(composition,helperRoad);
 PREPS(composition,exportHouse);

@@ -16,13 +16,13 @@
 #include "script_component.hpp"
 CHECK(!isServer)
 _this params[["_group",grpNull,[grpNull,objNull]],["_statementFinish","",[""]]];
-
+CHECK(isNull _group)
 _group = _group call CBA_fnc_getGroup;
 
 private _grouphash = _group getVariable QGVAR(grouphash);
 If (isNil "_grouphash") then {
     ERROR("Group not registered");
-    [_group,'patrol'] call FUNC(registerGroup);
+    [_group,"patrol"] call FUNC(registerGroup);
 };
 /// update the strength if the unit received some losses or if the unit lost the vehicle
 private _strengthArray = ([_group] call FUNC(getstrengthAIGroup)) params ["_value","_strength","_defence","_grouptype"];

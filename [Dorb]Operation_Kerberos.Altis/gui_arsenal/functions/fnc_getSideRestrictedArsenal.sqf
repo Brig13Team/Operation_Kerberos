@@ -17,6 +17,9 @@ _this params ["_side",["_onlyGear",false,[true]]];
 If !(isClass(missionConfigFile>>QGVARMAIN(arsenal))) then {
     ERROR("No Arsenal config found");
 };
+If ((isNil "_side")||{(_side isEqualType west)}) then {
+    _side = side player;
+};
 
 private _neededVersion = format["%1_ArsenalVersion_%2",missionName,getText(missionConfigFile >> QUOTE(DOUBLES(CfgComponent,ADDON)) >> "version")];
 (profileNamespace getVariable [format[QGVAR(arsenalList_%1),str _side],["NotFound",[]]]) params [["_currentVersion","NotFound",[]],["_list",[],[[]]]];
@@ -54,9 +57,6 @@ private _configArray = (
     ("isclass _x" configclasses (configfile >> "cfgglasses"))
 );
 
-private _loadingScreenStep = 1/(count _configArray);
-private _loadingScreenID = [localize LSTRING(CREATE_LIST)] call EFUNC(gui,startLoadingScreen);
-
 private _dlcs = [];
 private _BISClassBlack = [];
 private _BISModelBlacK = [];
@@ -64,18 +64,25 @@ private _sideNumber = -1;
 
 switch (_side) do {
     case west : {
-        _dlcs = ["RHS_USAF","bwa3"];
+        _dlcs = ["RHS_USAF","bwa3","UK3CB_BAF_Equipment","UK3CB_BAF_Vehicles","UK3CB_BAF_Weapons"];
         _BISClassBlack = ["_O_","_OG_","_I_","_IG_"];
         _BISModelBlacK = ["OPFOR","INDEP"];
         _sideNumber = 0;
     };
     case east : {
         _dlcs = ["RHS_AFRF"];
-        _BISClassBlack = ["_B_","_BG_","_I_","_IG_"];
+        _BISClassBlack = ["_B_","_BG_","_I_","_IG_","BWA3_"];
         _BISModelBlacK = ["BLUFOR","INDEP"];
         _sideNumber = 1;
     };
 };
+
+If (_sideNumber < 0) exitWith {
+    ERROR(FORMAT_1("Wrong side given",_side));
+};
+
+private _loadingScreenStep = 1/(count _configArray);
+private _loadingScreenID = [localize LSTRING(CREATE_LIST)] call EFUNC(gui,startLoadingScreen);
 
 {
     private _class = _x;

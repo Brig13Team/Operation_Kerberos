@@ -32,10 +32,12 @@ EGVAR(spawn,cleanUpDump) pushBack _attackLoc;
 HASH_GET(GVAR(attackpos),"Locations") pushBack _attackLoc;
 
 // cover all sorrounding Dangerzones
-private _size = (HASH_GET(GVAR(dangerzones),"gridsize")) * 1.1;
+//private _size = (HASH_GET(GVAR(dangerzones),"gridsize")) * 1.1;
+private _size = (HASH_GET(GVAR(dangerzones),"gridsize")) * 1.5; // temporary switch for testing bigger areas
 _attackLoc setPosition _position;
 _attackLoc setSize [_size,_size];
-_attackLoc setRectangular true;
+//_attackLoc setRectangular true;
+_attackLoc setRectangular false;
 // prevent registration as POI
 HASH_SET(_attackLoc,"isPOI",false);
 
@@ -46,10 +48,10 @@ HASH_SET(_attackLoc,"isPOI",false);
 
 HASH_SET(_attackLoc,"strategies",[]);
 HASH_SET(_attackLoc,"enemygroups",[]);
-HASH_SET(_attackLoc,"enemyvalue",0);
-HASH_SET(_attackLoc,"enemystrength",[ARR_3(0,0,0)]);
+HASH_SET(_attackLoc,"enemyvalue",300);
+HASH_SET(_attackLoc,"enemystrength",[ARR_3(0.1,0,0)]);
 HASH_SET(_attackLoc,"enemydefence",[ARR_3(0,0,0)]);
-HASH_SET(_attackLoc,"enemytype",0);
+HASH_SET(_attackLoc,"enemytype",[ARR_3(1,0,0)]);
 
 // register the playergroups
 // TODO - register only know groups and maybe spare the airunits

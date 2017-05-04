@@ -19,7 +19,7 @@
 
 _this params [["_unit",objNull],["_killer", objNull],["_damage",0],["_instigator", objNull]];
 
-CHECK(!(local _unit))
+CHECK(!(isPlayer _unit))
 
 private _killInfo = [];
 if ((isNull _killer) || {_killer == _unit}) then {

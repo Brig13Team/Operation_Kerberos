@@ -30,3 +30,6 @@ GVAR(spawnedCompositions) = [];
     [_x,2200] call FUNC(cleanup_full);
 } forEach GVAR(cleanup_positions);
 GVAR(cleanup_positions) = [];
+
+
+[] call FUNC(Army_set);

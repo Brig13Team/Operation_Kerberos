@@ -24,18 +24,33 @@ _spawnPos set [2,3000];
 private _plane = ["plane_ai"] call EFUNC(spawn,getUnit);
 private _dir = [_spawnpos, _currentPos] call BIS_fnc_dirTo;
 ([_spawnpos,GVARMAIN(side),_plane,_dir,true,true,"FLY"] call EFUNC(spawn,vehicle)) params ["_attackGroup","_attackVeh"];
+private _ressourcesHash = HASH_GET_DEF(GVAR(ressources),"airinterception",locationNull);
+HASH_GET_DEF(_ressourcesHash,"units",[]) pushBack _attackVeh;
+HASH_SET(_ressourcesHash,"nextexecution",CBA_missiontime + GVAR(ressources_CallInreplenish_airinterception));
 
-private _costs = [_plane] call FUNC(getCosts);
-GVAR(ressources_amount) = GVAR(ressources_amount) - _costs;
 
-_attackVeh flyInHeight 600;
+_attackVeh flyInHeight 800;
 private _wp = _attackGroup addWaypoint [_pos, 0];
 _wp setWaypointLoiterType "CIRCLE";
-_wp setWaypointLoiterRadius 800;
+_wp setWaypointLoiterRadius 1500;
 _wp setWaypointBehaviour "SAD";
 _wp setWaypointCombatMode "RED";
-_wp setWaypointTimeout [300,400,500];
 
-[_attackGroup, _pos, 400] call CBA_fnc_taskAttack;
+private _wp = _attackGroup addWaypoint [_spawnPos, 1];
+// RTB
+[
+    {
+        (!(alive (_this select 0)))||(isNull (_this select 3))
+    },
+    {
+        _this call FUNC(onFinishAir);
+    },
+    [_attackVeh,_attackGroup,_spawnpos,_attackLoc],
+    (10*60),
+    {
+        _this call FUNC(onFinishAir);
+    }
+] call CBA_fnc_waitUntilAndExecute;
+//[_attackGroup, _pos, 400] call CBA_fnc_taskAttack;
 
 [_attackVeh,_attackGroup,_spawnpos]

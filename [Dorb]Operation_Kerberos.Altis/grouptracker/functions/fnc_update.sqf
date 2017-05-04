@@ -32,6 +32,12 @@ If !(HASH_HASKEY(_groupHash,"marker1")) then {
         _symbolpost = HASH_GET(_groupHash,"symbol") select 0;
         _size = HASH_GET(_groupHash,"size") select 0;
     };
+    If (!(isNull (getAssignedCuratorLogic player))) then {
+        _position = HASH_GET(_groupHash,"positions") select ((count HASH_GET(_groupHash,"positions"))-1);
+        _symbolpost = HASH_GET(_groupHash,"symbol") select ((count HASH_GET(_groupHash,"symbol"))-1);
+        _size = HASH_GET(_groupHash,"size") select ((count HASH_GET(_groupHash,"size"))-1);
+    };
+
     If (_position isEqualTo [0,0,0]) exitWith {};
 
     private _symbol = HASH_GET(_grouphash,"prefix") + _symbolpost;

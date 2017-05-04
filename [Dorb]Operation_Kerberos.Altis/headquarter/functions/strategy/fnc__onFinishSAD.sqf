@@ -14,6 +14,7 @@
 #include "script_component.hpp"
 
 _this params ["_groupleader"];
+CHECK(isNull _groupleader)
 
 private _group = [_groupleader] call CBA_fnc_getGroup;
 private _grouphash = _group getVariable QGVAR(grouphash);

@@ -15,6 +15,7 @@
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 _this params ["_house","_caller","_door"];
+_door = _door select 0;
 
 ((_house animationPhase (_door + "_rot")) < 0.1)
 &&{

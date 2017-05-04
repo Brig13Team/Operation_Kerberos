@@ -13,7 +13,11 @@ enableRadio false;
 enableSentences false;
 
 GVARMAIN(rescuemarker) = "rescue_marker";
-If ((GVARMAIN(playerside) == west)&&((toLower missionName) in ["[dorb]operation_kerberos","[dorb]operation_kerberos_test"] )) then {
+
+private _missionNameArray = (toLower missionName) splitString "_";
+private _isKerberos = (count _missionNameArray >= 2)&&{(_missionNameArray select 0) isEqualTo "[dorb]operation"}&&{(_missionNameArray select 1) isEqualTo "kerberos"};
+
+If ((GVARMAIN(playerside) == west)&&_isKerberos) then {
     GVARMAIN(respawnmarker) = "respawn_west";
     GVARMAIN(AIRFIELD) = "airfield";
     GVARMAIN(side) = east;
@@ -31,7 +35,7 @@ If ((GVARMAIN(playerside) == west)&&((toLower missionName) in ["[dorb]operation_
     INDEPENDENT setFriend [WEST, 0];
     INDEPENDENT setFriend [EAST, 1];
 };
-If ((GVARMAIN(playerside) == east)&&((toLower missionName) in ["[dorb]operation_kerberos","[dorb]operation_kerberos_test"])) then {
+If ((GVARMAIN(playerside) == east)&&_isKerberos) then {
     GVARMAIN(respawnmarker) = "respawn_east";
     GVARMAIN(AIRFIELD) = "airfield";
     GVARMAIN(side) = west;

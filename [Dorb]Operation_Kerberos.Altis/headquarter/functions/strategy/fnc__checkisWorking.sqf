@@ -19,7 +19,7 @@ If ((isNil "_strategy")||{isNull _strategy}) exitWith {false};
 
 private _timeout = HASH_GET_DEF(_strategy,"timeout",-1);
 If ((_timeout > 0)&&{_timeout < CBA_missiontime}) exitWith {
-    HASH_DELETE(_strategy);
+    [_strategy] call FUNC(strategy__onfinished);
     false;
 };
 
@@ -37,15 +37,11 @@ If (!(_parameter call _finishCondition)) exitWith {true};
 
 /// TODO evaluate if the strategy finished with success
 
-private _onFinish = HASH_GET_DEF(_strategy,"onfinish",{true});
-If (IS_STRING(_onFinish)) then {
-    If (_onFinish isEqualTo "") then {
-        _onFinish = {true};
-    }else{
-        _onFinish = compile _onFinish;
-    };
+private _onFinish = HASH_GET_DEF(_strategy,"onfinish","");
+If !(_onFinish isEqualTo "") then {
+    _parameter spawn (missionNamespace getvariable [_onFinish,{true}]);
 };
-_parameter spawn _onFinish;
-HASH_DELETE(_strategy);
+
+[_strategy] call FUNC(strategy__onfinished);
 
 false;

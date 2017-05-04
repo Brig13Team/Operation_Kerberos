@@ -71,17 +71,17 @@ class RSC(BaseEchidna) {
     class clock: RSC(BaseStructuredText) {
         idc = IDC_ECHIDNA_TASKBAR_CLOCK;
         x = GUI_ECHIDNA_X + GUI_ECHIDNA_WAbs - GUI_ECHIDNA_W * 5;
-        y = GUI_ECHIDNA_Y + GUI_ECHIDNA_H * 27.5;
+        y = GUI_ECHIDNA_Y + GUI_ECHIDNA_H * 27.75;
         w = GUI_ECHIDNA_W * 4;
         h = GUI_ECHIDNA_H * 2;
         colorBackground[] = COLOR_DISABLED;
         colorText[] = COLOR_ECHIDNA_TASKBAR_TEXT;
         style = "0x02";
-        size = GUI_ECHIDNA_H * 0.9;
+        size = GUI_ECHIDNA_H * 1.9;
         text = "";
         class attributes : attributes {
             align = "center";
-            size = GUI_ECHIDNA_H * 0.9;
+            size = 1;
         };
     };
     class menu_button: RSC(BaseButton) {

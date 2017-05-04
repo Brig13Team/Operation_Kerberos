@@ -28,8 +28,8 @@ for "_i" from 1 to _number do {
         LINKFUNC(onAction),
         LINKFUNC(canPlaceCharge),
         {},
-        (format["door_%1",_i]),
-        (getText(configFile >> "CfgVehicles" >> _house >> "AnimationSources" >> format["door_%1_source",_i]  >> "soundPosition"))
+        [(format["door_%1",_i])],
+        (getText(configFile >> "CfgVehicles" >> _house >> "AnimationSources" >> format["door_%1_sound_source",_i]  >> "soundPosition"))
     ] call ace_interact_menu_fnc_createAction;
 
     [_house,0,[],_action] call ace_interact_menu_fnc_addActionToClass;
