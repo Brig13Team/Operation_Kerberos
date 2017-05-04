@@ -90,6 +90,14 @@
             <German>Logging um bei den Arsenal-Templates Fehler festzustellen</German>
             <English>This option is used to debug the arsenal templates and log the errors, why certain templates can not be used.</English>
         </Key>
+        <Key ID="STR_DORB_GUI_ARSENAL_forceReload">
+            <German>Neuerstellung der Arsenalliste erzwingen</German>
+            <English>Force eloading of the arsenal list</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARSENAL_forceReload_TOOLTIP">
+            <German>Neuerstellung der Arsenalliste erzwingen</German>
+            <English>Force reloading of the arsenal list</English>
+        </Key>
     </Package>
     <Package name="GUI_SPAWN">
         <Key ID="STR_DORB_GUI_SPAWN_VEHICLES">

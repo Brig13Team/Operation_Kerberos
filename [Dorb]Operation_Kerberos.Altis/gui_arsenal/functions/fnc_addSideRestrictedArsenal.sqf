@@ -10,7 +10,7 @@ _this params [["_target",objNull,[objNull]],["_side",west,[west]],["_onlyGear",f
 
 CHECK(isNull _target)
 
-If (isNil format[QGVAR(arsenalList_%1),str _side]) then {
+If ((isNil format[QGVAR(arsenalList_%1),str _side])||(GVAR(forceReload))) then {
     [_side,_onlyGear] call FUNC(getSideRestrictedArsenal);
 };
 (missionNamespace getVariable format[QGVAR(arsenalList_%1),str _side]) params ["_addWeapons","_addMagazines","_addItems","_addBackpacks",["_fixWeapons",[],[[]]],["_fixMagazines",[],[[]]],["_fixItems",[],[[]]],["_fixBackpacks",[],[[]]]];

@@ -24,7 +24,7 @@ If ((isNil "_side")||{(_side isEqualType west)}) then {
 private _neededVersion = format["%1_ArsenalVersion_%2",missionName,getText(missionConfigFile >> QUOTE(DOUBLES(CfgComponent,ADDON)) >> "version")];
 (profileNamespace getVariable [format[QGVAR(arsenalList_%1),str _side],["NotFound",[]]]) params [["_currentVersion","NotFound",[]],["_list",[],[[]]]];
 TRACEV_2(_currentVersion,_neededVersion);
-If ((!(_list isEqualTo []))&&{_currentVersion isEqualTo _neededVersion}) exitWith {
+If (((!(_list isEqualTo []))&&{_currentVersion isEqualTo _neededVersion})&&{!GVAR(forceReload)}) exitWith {
     missionNamespace setVariable [format[QGVAR(arsenalList_%1),str _side],_list];
 };
 
@@ -193,3 +193,13 @@ profileNamespace setVariable [format[QGVAR(arsenalList_%1),str _side],[_neededVe
 saveProfileNamespace;
 
 missionNamespace setVariable [format[QGVAR(arsenalList_%1),str _side],_list];
+
+If (GVAR(forceReload)) then {
+    [
+        QGVAR(forceReload),
+        false,
+        0,
+        "client",
+        false
+    ] call CBA_settings_fnc_set;
+};

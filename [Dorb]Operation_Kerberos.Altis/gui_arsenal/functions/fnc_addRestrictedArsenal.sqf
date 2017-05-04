@@ -11,7 +11,7 @@ _this params [["_target",objNull,[objNull]]];
 
 CHECK(isNull _target)
 
-If (isNil QGVAR(arsenalList_Full)) then {
+If ((isNil QGVAR(arsenalList_Full))||(GVAR(forceReload))) then {
     [] call FUNC(getRestrictedArsenal);
 };
 GVAR(arsenalList_Full) params ["_addWeapons","_addMagazines","_addItems","_addBackpacks","_fixWeapons","_fixMagazines","_fixItems","_fixBackpacks"];
