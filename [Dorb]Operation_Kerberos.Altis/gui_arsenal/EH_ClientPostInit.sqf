@@ -71,5 +71,19 @@ If !(IS_SCALAR(GVAR(fullArsenal))) then {
     0
 ] call cba_settings_fnc_init;
 
+[
+    QGVARMAIN(arsenalOpened),
+    {
+        ace_player setVariable [QGVAR(ArsenalIsOpened),true,true];
+        [
+            {
+                isNull (GETUVAR(BIS_fnc_arsenal_cam, objNull))
+            },
+            {
+                ace_player setVariable [QGVAR(ArsenalIsOpened),false,true];
+            }
+        ] call CBA_fnc_waitUntilAndExecute;
+    }
+] call CBA_fnc_addEventHandler;
 
 GVAR(postInit) = true;

@@ -28,4 +28,6 @@ private _fix = _target getVariable ["bis_addVirtualWeaponCargo_cargo",[[],[],[],
         (_fix select _index) pushBackUnique _x;
     } forEach _x;
 } forEach [_fixItems,_fixWeapons,_fixMagazines,_fixBackpacks];
+GVAR(curList) = (_fix select 0) + (_fix select 1) + (_fix select 2) + (_fix select 3);
+GVAR(curList) = (GVAR(curList) arrayIntersect GVAR(curList)) apply {toLower _x};
 _target setVariable ["bis_addVirtualWeaponCargo_cargo",_fix,true];
