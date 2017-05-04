@@ -25,8 +25,7 @@ private _Action = [
 private _targets = ["Tank"];
 {
     private _vehicle = configname(_x);
-    If (({_vehicle isKindOf _x} count _targets)>0) for {
-        //TRACEV_1(_vehicle);
+    If (({_vehicle isKindOf _x} count _targets)>0) then {
         [_vehicle, 0, ["ACE_MainActions"], _Action] call ace_interact_menu_fnc_addActionToClass;
     };
 } forEach (configProperties [(configFile >> "CfgVehicles"), "(isClass _x)&&{((configName _x) isKindOf 'Tank')&&{getNumber(_x >> 'scope') > 1}}"]);
