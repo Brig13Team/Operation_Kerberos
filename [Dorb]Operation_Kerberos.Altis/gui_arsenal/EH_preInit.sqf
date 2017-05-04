@@ -15,6 +15,11 @@ PREP(getRestrictedArsenal);
 PREP(getSideRestrictedArsenal);
 PREP(removeArsenal);
 
+PREP(isRestrictedArray);
+PREP(OpenFastArsenalList);
+PREP(cleanPlayer);
+PREP(getFastArsenalList);
+
 ADDON = true;
 
 ISNIL(arsenal_boxes,[]);

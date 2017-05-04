@@ -11,10 +11,15 @@ If !(canSuspend) exitWIth {
     _this spawn FUNC(OpenMenu);
 };
 
+_this params [["_fastArsenal",false,[true]]];
 [] call EFUNC(gui_echidna,close);
 
 If (GVAR(level)<1) exitWith {
-    ["Open",true] spawn BIS_fnc_arsenal;
+    If (_fastArsenal) then {
+        [] call FUNC(OpenfastArsenalList);
+    }else{
+        ["Open",true] spawn BIS_fnc_arsenal;
+    };
 };
 
 If (GVAR(level)<2) exitWith {
@@ -24,7 +29,11 @@ If (GVAR(level)<2) exitWith {
     };
     If (GVAR(forceReload)) then {[GVAR(level_1_obj)] call FUNC(addRestrictedArsenal);};
     If (GVAR(debugArsenal)) then {[GVAR(level_1_obj)] call FUNC(debugTemplate);};
-    ["Open",[nil,GVAR(level_1_obj),ace_player]] call bis_fnc_arsenal;
+    If (_fastArsenal) then {
+        [] call FUNC(OpenfastArsenalList);
+    }else{
+        ["Open",[nil,GVAR(level_1_obj),ace_player]] call bis_fnc_arsenal;
+    };
 };
 
 private _arsenalVarName = format[QGVAR(level_2_obj_%1),side ace_player];
@@ -36,4 +45,8 @@ If (isNull(missionNamespace getVariable [_arsenalVarName,objNull])) then {
 };
 If (GVAR(forceReload)) then {[(missionNamespace getVariable _arsenalVarName),side ace_player,true] call FUNC(addSideRestrictedArsenal);};
 If (GVAR(debugArsenal)) then {[(missionNamespace getVariable _arsenalVarName)] call FUNC(debugTemplate);};
-["Open",[nil,(missionNamespace getVariable _arsenalVarName),ace_player]] call bis_fnc_arsenal;
+If (_fastArsenal) then {
+    [] call FUNC(OpenfastArsenalList);
+}else{
+    ["Open",[nil,(missionNamespace getVariable _arsenalVarName),ace_player]] call bis_fnc_arsenal;
+};

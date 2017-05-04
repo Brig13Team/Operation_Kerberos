@@ -4,6 +4,7 @@ ADDON = false;
 
 PREP(checkContainerRestrictions);
 
+PREP(initKnockKnock);
 PREP(canCopyLoadout);
 PREP(getLoadout);
 PREP(halo);

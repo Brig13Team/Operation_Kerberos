@@ -32,5 +32,5 @@ for "_i" from 1 to _number do {
         (getText(configFile >> "CfgVehicles" >> _house >> "AnimationSources" >> format["door_%1_sound_source",_i]  >> "soundPosition"))
     ] call ace_interact_menu_fnc_createAction;
 
-    [_house,0,[],_action] call ace_interact_menu_fnc_addActionToClass;
+    [_house,0,["ACE_MainActions"],_action] call ace_interact_menu_fnc_addActionToClass;
 };

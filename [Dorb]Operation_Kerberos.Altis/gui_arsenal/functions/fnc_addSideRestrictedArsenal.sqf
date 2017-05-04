@@ -30,4 +30,5 @@ private _fix = _target getVariable ["bis_addVirtualWeaponCargo_cargo",[[],[],[],
 } forEach [_fixItems,_fixWeapons,_fixMagazines,_fixBackpacks];
 GVAR(curList) = (_fix select 0) + (_fix select 1) + (_fix select 2) + (_fix select 3);
 GVAR(curList) = (GVAR(curList) arrayIntersect GVAR(curList)) apply {toLower _x};
+[] call FUNC(getFastArsenalList);
 _target setVariable ["bis_addVirtualWeaponCargo_cargo",_fix,true];
