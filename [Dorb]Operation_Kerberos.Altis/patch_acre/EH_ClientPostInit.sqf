@@ -18,7 +18,6 @@ If (hasInterface) then {
     ] call CBA_fnc_addEventHandler;
 
     [
-        [
         QGVARMAIN(arsenalOpened),
         {
             disableSerialization;

@@ -92,7 +92,7 @@
         </Key>
         <Key ID="STR_DORB_GUI_ARSENAL_forceReload">
             <German>Neuerstellung der Arsenalliste erzwingen</German>
-            <English>Force eloading of the arsenal list</English>
+            <English>Force reloading of the arsenal list</English>
         </Key>
         <Key ID="STR_DORB_GUI_ARSENAL_forceReload_TOOLTIP">
             <German>Neuerstellung der Arsenalliste erzwingen</German>
