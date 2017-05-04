@@ -26,4 +26,5 @@ for "_i" from 1 to ((count _data) -1) step 2 do {
     };
 };
 profileNamespace Setvariable ["bis_fnc_saveInventory_data",_data];
+saveprofileNamespace;
 LOG("Cleaning Arsenal Classes finished");
