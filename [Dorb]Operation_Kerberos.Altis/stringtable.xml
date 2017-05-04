@@ -82,6 +82,14 @@
             <German>Erstelle Arsenallisten</German>
             <English>creating arsenal lists</English>
         </Key>
+        <Key ID="STR_DORB_GUI_ARSENAL_DEBUGARSENAL">
+            <German>Aktiviere Arsenal Debugmodus</German>
+            <English>activate arsenal debugging</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARSENAL_DEBUGARSENAL_TOOLTIP">
+            <German>Logging um bei den Arsenal-Templates Fehler festzustellen</German>
+            <English>This option is used to debug the arsenal templates and log the errors, why certain templates can not be used.</English>
+        </Key>
     </Package>
     <Package name="GUI_SPAWN">
         <Key ID="STR_DORB_GUI_SPAWN_VEHICLES">

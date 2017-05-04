@@ -22,6 +22,7 @@ If (GVAR(level)<2) exitWith {
         GVAR(level_1_obj) = [] call FUNC(createLocalArsenal);
         [GVAR(level_1_obj)] call FUNC(addRestrictedArsenal);
     };
+    If (GVAR(debugArsenal)) then {[GVAR(level_1_obj)] call FUNC(debugTemplate);};
     ["Open",[nil,GVAR(level_1_obj),ace_player]] call bis_fnc_arsenal;
 };
 
@@ -32,4 +33,5 @@ If (isNull(missionNamespace getVariable [_arsenalVarName,objNull])) then {
     TRACEV_2((missionNamespace getVariable _arsenalVarName),side ace_player);
     [(missionNamespace getVariable _arsenalVarName),side ace_player,true] call FUNC(addSideRestrictedArsenal);
 };
+If (GVAR(debugArsenal)) then {[(missionNamespace getVariable _arsenalVarName)] call FUNC(debugTemplate);};
 ["Open",[nil,(missionNamespace getVariable _arsenalVarName),ace_player]] call bis_fnc_arsenal;

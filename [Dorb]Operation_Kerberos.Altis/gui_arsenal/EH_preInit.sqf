@@ -10,6 +10,7 @@ PREP(addArsenalArea);
 PREP(addRestrictedArsenal);
 PREP(addSideRestrictedArsenal);
 PREP(createLocalArsenal);
+PREP(debugTemplate);
 PREP(getRestrictedArsenal);
 PREP(getSideRestrictedArsenal);
 PREP(removeArsenal);

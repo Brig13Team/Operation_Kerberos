@@ -52,4 +52,14 @@ If !(IS_SCALAR(GVAR(fullArsenal))) then {
     []
 ] call EFUNC(gui,addNotification);
 
+
+[
+    QGVAR(debugArsenal),
+    "CHECKBOX",
+    [localize LSTRING(DEBUGARSENAL), localize LSTRING(DEBUGARSENAL_TOOLTIP)],
+    "Mission",
+    true
+] call cba_settings_fnc_init;
+
+
 GVAR(postInit) = true;

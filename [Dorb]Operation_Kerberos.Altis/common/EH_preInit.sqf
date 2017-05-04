@@ -20,7 +20,7 @@ PREP(BitArrayToNumber);
 PREP(BitLeftShift);
 PREP(BitRightShift);
 
-PREP(checksum);
+//PREP(checksum);
 PREP(convertAngleToRotMat);
 PREP(convertRotMatToAngle);
 
