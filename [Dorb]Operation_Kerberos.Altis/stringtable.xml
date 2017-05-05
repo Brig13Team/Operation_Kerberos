@@ -98,6 +98,10 @@
             <German>Neuerstellung der Arsenalliste erzwingen</German>
             <English>Force reloading of the arsenal list</English>
         </Key>
+        <Key ID="STR_DORB_GUI_ARSENAL_FASTARSENAL">
+            <German>Arsenalklassen Schnelladefunktion</German>
+            <English>Fast Arsenal Template Loading</English>
+        </Key>
     </Package>
     <Package name="GUI_SPAWN">
         <Key ID="STR_DORB_GUI_SPAWN_VEHICLES">

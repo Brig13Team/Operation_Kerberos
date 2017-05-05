@@ -39,11 +39,20 @@ If !(IS_SCALAR(GVAR(fullArsenal))) then {
 
 [
     localize "str_a3_cfghints_learn_arsenal0",
-    {[] spawn FUNC(OpenMenu);},
+    {[false] spawn FUNC(OpenMenu);},
     {[ace_player] call FUNC(canOpenMenu);},
     "\A3\ui_f\data\logos\arsenal_1024_ca.paa",
     2
 ] call EFUNC(gui_echidna,addApp);
+
+[
+    localize LSTRING(FASTARSENAL),
+    {[true] spawn FUNC(OpenMenu);},
+    {[ace_player] call FUNC(canOpenMenu);},
+    "\A3\ui_f\data\logos\arsenal_1024_ca.paa",
+    1
+] call EFUNC(gui_echidna,addApp);
+
 
 [
     QGVAR(Arsenal),
@@ -80,6 +89,7 @@ If !(IS_SCALAR(GVAR(fullArsenal))) then {
                 isNull (GETUVAR(BIS_fnc_arsenal_cam, objNull))
             },
             {
+                [FUNC(cleanPlayer),[ace_player]] call CBA_fnc_directCall;
                 ace_player setVariable [QGVAR(ArsenalIsOpened),false,true];
             }
         ] call CBA_fnc_waitUntilAndExecute;

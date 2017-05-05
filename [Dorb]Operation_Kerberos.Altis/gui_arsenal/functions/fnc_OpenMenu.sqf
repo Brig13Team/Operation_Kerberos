@@ -5,6 +5,7 @@
         Opens the arsenal
 
 */
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 If !(canSuspend) exitWIth {
@@ -12,6 +13,7 @@ If !(canSuspend) exitWIth {
 };
 
 _this params [["_fastArsenal",false,[true]]];
+TRACEV_2(_fastArsenal,_this);
 [] call EFUNC(gui_echidna,close);
 
 If (GVAR(level)<1) exitWith {
@@ -30,7 +32,7 @@ If (GVAR(level)<2) exitWith {
     If (GVAR(forceReload)) then {[GVAR(level_1_obj)] call FUNC(addRestrictedArsenal);};
     If (GVAR(debugArsenal)) then {[GVAR(level_1_obj)] call FUNC(debugTemplate);};
     If (_fastArsenal) then {
-        [] call FUNC(OpenfastArsenalList);
+        [] call FUNC(Open);
     }else{
         ["Open",[nil,GVAR(level_1_obj),ace_player]] call bis_fnc_arsenal;
     };
@@ -46,7 +48,7 @@ If (isNull(missionNamespace getVariable [_arsenalVarName,objNull])) then {
 If (GVAR(forceReload)) then {[(missionNamespace getVariable _arsenalVarName),side ace_player,true] call FUNC(addSideRestrictedArsenal);};
 If (GVAR(debugArsenal)) then {[(missionNamespace getVariable _arsenalVarName)] call FUNC(debugTemplate);};
 If (_fastArsenal) then {
-    [] call FUNC(OpenfastArsenalList);
+    [] call FUNC(Open);
 }else{
     ["Open",[nil,(missionNamespace getVariable _arsenalVarName),ace_player]] call bis_fnc_arsenal;
 };

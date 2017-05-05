@@ -16,9 +16,11 @@ PREP(getSideRestrictedArsenal);
 PREP(removeArsenal);
 
 PREP(isRestrictedArray);
-PREP(OpenFastArsenalList);
+PREP(Open);
 PREP(cleanPlayer);
 PREP(getFastArsenalList);
+PREP(OnLoad);
+PREP(loadFast);
 
 ADDON = true;
 
