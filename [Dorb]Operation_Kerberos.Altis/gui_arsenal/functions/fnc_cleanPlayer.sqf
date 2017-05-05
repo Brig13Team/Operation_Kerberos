@@ -25,6 +25,7 @@ for "_i" from 0 to 8 do {
     private _curValue = _curLoadout select _i;
     If ((IS_STRING(_curValue))&&{[_curValue] call FUNC(isRestrictedArray)}) then {
         _setGearFlag = true;
+        _curLoadout set [_i,""];
     }else{
         If ((IS_ARRAY(_curValue))&&{[_curValue] call FUNC(isRestrictedArray)}) then {
             _setGearFlag = true;

@@ -20,6 +20,7 @@ PREP(Open);
 PREP(cleanPlayer);
 PREP(getFastArsenalList);
 PREP(OnLoad);
+PREP(onRespawn);
 PREP(loadFast);
 
 ADDON = true;

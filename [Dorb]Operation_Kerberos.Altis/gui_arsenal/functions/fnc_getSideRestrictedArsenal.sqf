@@ -130,7 +130,10 @@ private _loadingScreenID = [localize LSTRING(CREATE_LIST)] call EFUNC(gui,startL
                                 _addMagazines pushBackUnique _x;
                             };
                         }foreach _magazines;
-
+                        {
+                            _addItems pushBackUnique _x;
+                            nil;
+                        } count (_className call bis_fnc_compatibleItems);
                     };
                     case (_weaponTypeCategory in ["Mine"]) : {
                         _addMagazines pushBackUnique _className;
