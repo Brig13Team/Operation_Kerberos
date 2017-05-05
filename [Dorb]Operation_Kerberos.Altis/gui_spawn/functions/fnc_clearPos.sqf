@@ -11,10 +11,10 @@
  *      none
  *
  */
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-private _position = GVAR(curPos);
-
+private _position = ASLtoAGL GVAR(curPos);
 {
     private _veh = _x;
     if (((getText(configFile >> "CfgVehicles" >> (typeOf _veh) >> "vehicleClass"))isEqualTo "Autonomous")) then {
