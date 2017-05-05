@@ -87,7 +87,7 @@ private _loadingScreenID = [localize LSTRING(CREATE_LIST)] call EFUNC(gui,startL
 {
     private _class = _x;
     private _className = configname _x;
-    private _isBase = if (isarray (_x >> "muzzles")) then {(_className call bis_fnc_baseWeapon == _className)} else {true};
+    private _isBase = if (isarray (_x >> "muzzles")) then {/*(_className call bis_fnc_baseWeapon == _className)*/true} else {true};
     private _scope = if (isnumber (_class >> "scopeArsenal")) then {getnumber (_class >> "scopeArsenal")} else {getnumber (_class >> "scope")};
     if (((_scope > 1) && {(gettext (_class >> "model") != "")} && _isBase && {gettext (_class >> "displayName") != ""}&&{!(_className in _blacklist)})||{_className in _whitelist}) then {
         (_className call bis_fnc_itemType) params ["_weaponTypeCategory","_weaponTypeSpecific"];
@@ -132,6 +132,7 @@ private _loadingScreenID = [localize LSTRING(CREATE_LIST)] call EFUNC(gui,startL
                         }foreach _magazines;
                         {
                             _addItems pushBackUnique _x;
+                            _addWeapons pushBackUnique _x;
                             nil;
                         } count (_className call bis_fnc_compatibleItems);
                     };
