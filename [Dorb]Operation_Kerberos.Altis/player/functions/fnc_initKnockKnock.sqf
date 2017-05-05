@@ -12,6 +12,7 @@
 */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
+CHECK(!hasInterface)
 
 private _Action = [
     QGVAR(action_knockknock),
@@ -29,3 +30,11 @@ private _targets = ["Tank"];
         [_vehicle, 0, ["ACE_MainActions"], _Action] call ace_interact_menu_fnc_addActionToClass;
     };
 } forEach (configProperties [(configFile >> "CfgVehicles"), "(isClass _x)&&{((configName _x) isKindOf 'Tank')&&{getNumber(_x >> 'scope') > 1}}"]);
+
+[
+    QGVAR(KnockKnock),
+    {
+        _this params ["_tank","_knocker"];
+        [_tank,_knocker] say3D QGVARMAIN(sound_knockknock);
+    }
+] call CBA_fnc_addEventHandler;

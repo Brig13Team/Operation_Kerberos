@@ -33,12 +33,4 @@ GVAR(postInit) = false;
     }
 ] call CBA_fnc_addEventHandler;
 
-[
-    QGVAR(KnockKnock),
-    {
-        _this params ["_tank","_knocker"];
-        [_tank,_knocker] say3D QGVARMAIN(sound_knockknock);
-    }
-] call CBA_fnc_addEventHandler;
-
 GVAR(postInit) = true;
