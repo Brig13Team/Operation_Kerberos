@@ -89,3 +89,5 @@ PREPS(obj,spawnNuke);
 // PREPS(obj,triangulate);
 
 ADDON = true;
+
+ISNIL(rescuepositions,[]);
