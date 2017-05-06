@@ -17,6 +17,9 @@
 _this params ["_unit","_corpse"];
 CHECK(!(local _unit))
 
+If (ace_player getVariable [QGVAR(ArsenalIsOpened),false]) then {
+    ace_player setVariable [QGVAR(ArsenalIsOpened),false,true];
+};
 If ((GVAR(level)>0)&&{!isNil QGVAR(curList)}) then {
     [player] call FUNC(cleanPlayer);
 };
