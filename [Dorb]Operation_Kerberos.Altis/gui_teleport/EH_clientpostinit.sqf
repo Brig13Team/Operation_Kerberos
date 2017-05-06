@@ -8,69 +8,44 @@
 #include "script_component.hpp"
 CHECK(!hasInterface)
 
-GVAR(teleporter) = HASH_CREATE;
-GVARMAIN(missiontime) = CBA_missiontime;
-
-/// Button 1
-private _hash = HASH_CREATE;
-HASH_SET(GVAR(teleporter),"button_1",_hash);
-HASH_SET(_hash,"target",(getMarkerPos GVARMAIN(RESPAWNMARKER)));
-HASH_SET(_hash,"name",localize LSTRING(BASE));
-HASH_SET(_hash,"active",true);
-
-/// Button 2
-private _hash = HASH_CREATE;
-HASH_SET(GVAR(teleporter),"button_2",_hash);
-HASH_SET(_hash,"target",(getMarkerPos "teleport_vehicles"));
-HASH_SET(_hash,"name",localize LSTRING(VEHICLES));
-HASH_SET(_hash,"active",true);
-
-/// Button 3
-private _hash = HASH_CREATE;
-HASH_SET(GVAR(teleporter),"button_3",_hash);
-HASH_SET(_hash,"target",(getMarkerPos "airfield"));
-HASH_SET(_hash,"name",localize LSTRING(AIRFIELD));
-HASH_SET(_hash,"active",true);
-
-/// Button 4
-private _hash = HASH_CREATE;
-HASH_SET(GVAR(teleporter),"button_4",_hash);
-HASH_SET(_hash,"target",(getMarkerPos "teleport_logistics"));
-HASH_SET(_hash,"name",localize LSTRING(LOGISTIC));
-HASH_SET(_hash,"active",true);
-
-/// Button 5
-private _hash = HASH_CREATE;
-HASH_SET(GVAR(teleporter),"button_5",_hash);
-HASH_SET(_hash,"target",(getMarkerPos "teleport_marina"));
-HASH_SET(_hash,"name",localize LSTRING(MARINA));
-HASH_SET(_hash,"active",true);
-
-/// Button 6
-private _hash = HASH_CREATE;
-HASH_SET(GVAR(teleporter),"button_6",_hash);
-HASH_SET(_hash,"target",(getMarkerPos "respawn_west"));
-HASH_SET(_hash,"name","");
-HASH_SET(_hash,"active",false);
-
-/// Button 7 -> teleport to lead
-private _hash = HASH_CREATE;
-HASH_SET(GVAR(teleporter),"button_7",_hash);
-HASH_SET(_hash,"target",{_this call FUNC(lead);});
-HASH_SET(_hash,"name",localize LSTRING(LEADER));
-HASH_SET(_hash,"active",true);
+GVAR(teleport_lead_active) = true;
 
 
+private _carrierPos = getMarkerPos GVARMAIN(RESPAWNMARKER);
+_carrierPos set [2,23.8];
+[
+    _carrierPos, // Position as Array or code
+    localize LSTRING(CARRIER), // The Name wich will be displayed
+    "infanterie", // teleporter Type ("air","infanterie","sea","default")
+    {true}, // condition
+    [] // parameter for condition
+] call FUNC(registerTeleportTarget);
 
+[
+    {
+        (ace_player distance2D (getMarkerPos GVARMAIN(RESPAWNMARKER))) < 300
+    }, // Position as Array or code
+    localize LSTRING(CARRIER), // The Name wich will be displayed
+    ["default","infanterie","ship"], // teleporter Type ("air","infanterie","sea","default")
+    {true}, // condition
+    [] // parameter for condition
+] call FUNC(registerTeleportPosition);
 
-GVAR(teleporterlogics) = [];
+[getMarkerPos "bay_east",localize LSTRING(BAY_EAST),["default","infanterie"],{_this call FUNC(nearEnemys),[getMarkerPos "bay_east"]}] call FUNC(registerTeleportTarget);
+[getMarkerPos "bay_east",localize LSTRING(BAY_EAST),"ship",{_this call FUNC(nearEnemys),[getMarkerPos "bay_east"]] call FUNC(registerTeleportTarget);
+[getMarkerPos "bay_east",localize LSTRING(BAY_EAST),"infanterie",{_this call FUNC(nearEnemys),[getMarkerPos "bay_east"]] call FUNC(registerTeleportPosition);
 
-for "_i" from 1 to 9 do {
-    if !(isNil (format["teleporter%1",_i])) then {
-        //[["<t size='1.5' shadow='2' color='#F9FE44'>" +localize LSTRING(TELEPORT) +"</t>", {createDialog QAPP(dialog);}, [], 5, false, true, "",format["alive _target and (getposatl player distance getposatl teleporter%1) < 6",_i]]] call CBA_fnc_addPlayerAction;
-        GVAR(teleporterlogics) pushBack (missionNamespace getVariable [format["teleporter%1",_i],objNull]);
-    };
-};
+[getMarkerPos "bay_west",localize LSTRING(BAY_WEST),["default","infanterie"],{_this call FUNC(nearEnemys),[getMarkerPos "bay_west"]] call FUNC(registerTeleportTarget);
+[getMarkerPos "bay_west",localize LSTRING(BAY_EAST),"ship",{_this call FUNC(nearEnemys),[getMarkerPos "bay_west"]] call FUNC(registerTeleportTarget);
+[getMarkerPos "bay_west",localize LSTRING(BAY_WEST),"infanterie",{_this call FUNC(nearEnemys),[getMarkerPos "bay_west"]] call FUNC(registerTeleportPosition);
+
+[getMarkerPos "bay_north",localize LSTRING(BAY_NORTH),["default","infanterie"],{_this call FUNC(nearEnemys),[getMarkerPos "bay_north"]] call FUNC(registerTeleportTarget);
+[getMarkerPos "bay_north",localize LSTRING(BAY_EAST),"ship",{_this call FUNC(nearEnemys),[getMarkerPos "bay_north"]] call FUNC(registerTeleportTarget);
+[getMarkerPos "bay_north",localize LSTRING(BAY_NORTH),"infanterie",{_this call FUNC(nearEnemys),[getMarkerPos "bay_north"]] call FUNC(registerTeleportPosition);
+
+[getMarkerPos "bay_south",localize LSTRING(BAY_SOUTH),["default","infanterie"],{_this call FUNC(nearEnemys),[getMarkerPos "bay_south"]] call FUNC(registerTeleportTarget);
+[getMarkerPos "bay_south",localize LSTRING(BAY_EAST),"ship",{_this call FUNC(nearEnemys),[getMarkerPos "bay_south"]] call FUNC(registerTeleportTarget);
+[getMarkerPos "bay_south",localize LSTRING(BAY_SOUTH),"infanterie",{_this call FUNC(nearEnemys),[getMarkerPos "bay_south"]] call FUNC(registerTeleportPosition);
 
 [
     QGVAR(teleporterIcon),
@@ -78,21 +53,7 @@ for "_i" from 1 to 9 do {
     {[ace_player] call FUNC(canOpenMenu);},
     []
 ] call EFUNC(gui,addNotification);
-/*
-private _id = addMissionEventHandler ["draw3D",{
-    private _root = parsingNamespace getVariable "MISSION_ROOT";
-    private _zoom = round(([0.5,0.5] distance worldToScreen positionCameraToWorld [0,1.05,1]) * (getResolution select 5));
-    {
-        If ((!isNull _x)&&(isNull curatorCamera)&&{(player distance (getPosATL _x))<25}) then {
-            private _spawnPos = getPos _x;
-            _spawnPos set[2,1.5];
-            private _sizeicon = ((rad(2*atan(0.422793 * 30) / (player distance _x)))*_zoom*6);
-            //drawIcon3D [_root+"data\icon\icon_teleport.paa",[0.976,0.996,0.267,1],_spawnPos,_sizeicon*2,_sizeicon*2,0,localize LSTRING(TELEPORT),0,(_sizeicon*0.015),"PuristaMedium"];
-            drawIcon3D [(parsingNamespace getVariable ["MISSION_ROOT",""]) + QEPAAPATH(icon,icon_teleport),[0.976,0.996,0.267,1],_spawnPos,_sizeicon*2,_sizeicon*2,0,localize LSTRING(TELEPORT),0,(_sizeicon*0.015),"PuristaMedium"];
-        };
-    }forEach GVAR(teleporterlogics);
-}];
-*/
+
 [
     localize LSTRING(TELEPORT),
     {createDialog QAPP(dialog);},
@@ -106,6 +67,7 @@ private _id = addMissionEventHandler ["draw3D",{
  * Teleport
  *
 */
+GVARMAIN(missiontime) = CBA_missiontime;
 [
     {!isNil QGVARMAIN(missionkey)},
     {
