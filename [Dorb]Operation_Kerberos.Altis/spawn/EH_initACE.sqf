@@ -18,3 +18,7 @@
 ["ACE_bodyBagObject", "initPost", {
     if (local (_this select 0)) then {deleteVehicle (_this select 0);};
 },true,[],true] call CBA_fnc_addClassEventHandler;
+
+["B_Slingload_01_Medevac_F", "initPost", {
+    _this call EFUNC(mod_ace,addMedicalItems);
+},true,[],true] call CBA_fnc_addClassEventHandler;
