@@ -42,14 +42,14 @@ GVAR(vehiclesHashModified) = false;
     };
 } forEach [
 //   presetType,    spawnposition,      picture     isconsize
-    ["vehicles",    spawn_vehicles,     "tank",     2],
-    ["drones",      spawn_drones,       "drone",    1],
-    ["air",         spawn_air,          "heli",     1],
-    ["air_light",   spawn_air_light,    "heli",     2],
-    ["boat",        spawn_boat,         "harbour",  2],
-    ["logistic",    spawn_logistic,     "logistic", 2],
-    ["logistic",    spawn_logistic2,    "logistic", 2],
+    //["vehicles",    spawn_vehicles,     "tank",     2],
+    //["drones",      spawn_drones,       "drone",    1],
+    //["air",         spawn_air,          "heli",     1],
+    //["air_light",   spawn_air_light,    "heli",     2],
+    //["boat",        spawn_boat,         "harbour",  2],
+    //["logistic",    spawn_logistic,     "logistic", 2],
+    //["logistic",    spawn_logistic2,    "logistic", 2],
     ["carrier_air",    carrier_air,    "heli", 2],
-    ["carrier_vehicles",    carrier_vehicles,    "logistic", 2],
-    ["carrier_harbour",    carrier_marine,    "harbour", 2]
+    ["carrier_vehicles",    carrier_vehicles,    "tank", 2],
+    ["carrier_marine",    carrier_marine,    "harbour", 2]
 ];

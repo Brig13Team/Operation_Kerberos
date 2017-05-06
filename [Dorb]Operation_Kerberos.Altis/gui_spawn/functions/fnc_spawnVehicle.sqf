@@ -56,6 +56,7 @@ if ((getText(configFile >> "CfgVehicles" >> _vehicleType >> "vehicleClass"))isEq
     createVehicleCrew _vehicle;
 };
 
+_vehicle lock 0;
 
 closeDialog (ctrlIDD _dialog);
 [] call EFUNC(gui_echidna,close);

@@ -23,6 +23,6 @@ private _position = ASLtoAGL GVAR(curPos);
     };
     { if(!(alive _x)) then { deleteVehicle _x; }; } forEach (crew _veh);
     if (count crew _x == 0) then {deletevehicle _x};
-} forEach (nearestObjects [_position, ["AllVehicles"], CHECK_RADIUS]);
+} forEach ((nearestObjects [_position, ["AllVehicles"], CHECK_RADIUS]) select {_x getVariable [QGVARMAIN(canDelete),true]});
 
-{deletevehicle _x;} forEach (nearestObjects [_position, ["CraterLong_small","CraterLong","WeaponHolder","GroundWeaponHolder","GroundWeaponHolder_scripted","allDead","Thing"], CHECK_RADIUS]);
+{deletevehicle _x;} forEach ((nearestObjects [_position, ["CraterLong_small","CraterLong","WeaponHolder","GroundWeaponHolder","GroundWeaponHolder_scripted","allDead","Thing"], CHECK_RADIUS]) select {_x getVariable [QGVARMAIN(canDelete),true]});

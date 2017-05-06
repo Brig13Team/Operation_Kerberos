@@ -31,28 +31,21 @@ _carrierPos set [2,23.8];
     [] // parameter for condition
 ] call FUNC(registerTeleportPosition);
 
-[getMarkerPos "bay_east",localize LSTRING(BAY_EAST),["default","infanterie"],{_this call FUNC(nearEnemys),[getMarkerPos "bay_east"]}] call FUNC(registerTeleportTarget);
-[getMarkerPos "bay_east",localize LSTRING(BAY_EAST),"ship",{_this call FUNC(nearEnemys),[getMarkerPos "bay_east"]] call FUNC(registerTeleportTarget);
-[getMarkerPos "bay_east",localize LSTRING(BAY_EAST),"infanterie",{_this call FUNC(nearEnemys),[getMarkerPos "bay_east"]] call FUNC(registerTeleportPosition);
+[getMarkerPos "bay_east",localize LSTRING(BAY_EAST),["default","infanterie"],{_this call FUNC(nearEnemys)},[getMarkerPos "bay_east"]] call FUNC(registerTeleportTarget);
+[getMarkerPos "bay_east",localize LSTRING(BAY_EAST),"ship",{_this call FUNC(nearEnemys)},[getMarkerPos "bay_east"]] call FUNC(registerTeleportTarget);
+[getMarkerPos "bay_east",localize LSTRING(BAY_EAST),"infanterie",{_this call FUNC(nearEnemys)},[getMarkerPos "bay_east"]] call FUNC(registerTeleportPosition);
 
-[getMarkerPos "bay_west",localize LSTRING(BAY_WEST),["default","infanterie"],{_this call FUNC(nearEnemys),[getMarkerPos "bay_west"]] call FUNC(registerTeleportTarget);
-[getMarkerPos "bay_west",localize LSTRING(BAY_EAST),"ship",{_this call FUNC(nearEnemys),[getMarkerPos "bay_west"]] call FUNC(registerTeleportTarget);
-[getMarkerPos "bay_west",localize LSTRING(BAY_WEST),"infanterie",{_this call FUNC(nearEnemys),[getMarkerPos "bay_west"]] call FUNC(registerTeleportPosition);
+[getMarkerPos "bay_west",localize LSTRING(BAY_WEST),["default","infanterie"],{_this call FUNC(nearEnemys)},[getMarkerPos "bay_west"]] call FUNC(registerTeleportTarget);
+[getMarkerPos "bay_west",localize LSTRING(BAY_EAST),"ship",{_this call FUNC(nearEnemys)},[getMarkerPos "bay_west"]] call FUNC(registerTeleportTarget);
+[getMarkerPos "bay_west",localize LSTRING(BAY_WEST),"infanterie",{_this call FUNC(nearEnemys)},[getMarkerPos "bay_west"]] call FUNC(registerTeleportPosition);
 
-[getMarkerPos "bay_north",localize LSTRING(BAY_NORTH),["default","infanterie"],{_this call FUNC(nearEnemys),[getMarkerPos "bay_north"]] call FUNC(registerTeleportTarget);
-[getMarkerPos "bay_north",localize LSTRING(BAY_EAST),"ship",{_this call FUNC(nearEnemys),[getMarkerPos "bay_north"]] call FUNC(registerTeleportTarget);
-[getMarkerPos "bay_north",localize LSTRING(BAY_NORTH),"infanterie",{_this call FUNC(nearEnemys),[getMarkerPos "bay_north"]] call FUNC(registerTeleportPosition);
+[getMarkerPos "bay_north",localize LSTRING(BAY_NORTH),["default","infanterie"],{_this call FUNC(nearEnemys)},[getMarkerPos "bay_north"]] call FUNC(registerTeleportTarget);
+[getMarkerPos "bay_north",localize LSTRING(BAY_EAST),"ship",{_this call FUNC(nearEnemys)},[getMarkerPos "bay_north"]] call FUNC(registerTeleportTarget);
+[getMarkerPos "bay_north",localize LSTRING(BAY_NORTH),"infanterie",{_this call FUNC(nearEnemys)},[getMarkerPos "bay_north"]] call FUNC(registerTeleportPosition);
 
-[getMarkerPos "bay_south",localize LSTRING(BAY_SOUTH),["default","infanterie"],{_this call FUNC(nearEnemys),[getMarkerPos "bay_south"]] call FUNC(registerTeleportTarget);
-[getMarkerPos "bay_south",localize LSTRING(BAY_EAST),"ship",{_this call FUNC(nearEnemys),[getMarkerPos "bay_south"]] call FUNC(registerTeleportTarget);
-[getMarkerPos "bay_south",localize LSTRING(BAY_SOUTH),"infanterie",{_this call FUNC(nearEnemys),[getMarkerPos "bay_south"]] call FUNC(registerTeleportPosition);
-
-[
-    QGVAR(teleporterIcon),
-    (parsingNamespace getVariable ["MISSION_ROOT",""]) + QEPAAPATH(icon,icon_teleport),
-    {[ace_player] call FUNC(canOpenMenu);},
-    []
-] call EFUNC(gui,addNotification);
+[getMarkerPos "bay_south",localize LSTRING(BAY_SOUTH),["default","infanterie"],{_this call FUNC(nearEnemys)},[getMarkerPos "bay_south"]] call FUNC(registerTeleportTarget);
+[getMarkerPos "bay_south",localize LSTRING(BAY_EAST),"ship",{_this call FUNC(nearEnemys)},[getMarkerPos "bay_south"]] call FUNC(registerTeleportTarget);
+[getMarkerPos "bay_south",localize LSTRING(BAY_SOUTH),"infanterie",{_this call FUNC(nearEnemys)},[getMarkerPos "bay_south"]] call FUNC(registerTeleportPosition);
 
 [
     localize LSTRING(TELEPORT),
@@ -61,6 +54,13 @@ _carrierPos set [2,23.8];
     ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QEPAAPATH(icon,icon_teleport)),
     3
 ] call EFUNC(gui_echidna,addApp);
+
+[
+    QGVAR(teleporterIcon),
+    (parsingNamespace getVariable ["MISSION_ROOT",""]) + QEPAAPATH(icon,icon_teleport),
+    {[] call FUNC(canOpenMenu)},
+    []
+] call EFUNC(gui,addNotification);
 
 
 /*

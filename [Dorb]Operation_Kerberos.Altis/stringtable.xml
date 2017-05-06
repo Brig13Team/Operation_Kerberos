@@ -104,6 +104,18 @@
         </Key>
     </Package>
     <Package name="GUI_SPAWN">
+        <Key ID="STR_DORB_GUI_SPAWN_CARRIER_VEHICLES">
+            <German>Fahrzeugspawn</German>
+            <English>Vehicle Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_SPAWN_CARRIER_AIR">
+            <German>Luftwaffenspawn</German>
+            <English>Aircraft Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_SPAWN_CARRIER_MARINE">
+            <German>Marinespawn</German>
+            <English>Naval Spawn</English>
+        </Key>
         <Key ID="STR_DORB_GUI_SPAWN_VEHICLES">
             <German>Fahrzeugspawn</German>
             <English>Vehicle Spawn</English>
