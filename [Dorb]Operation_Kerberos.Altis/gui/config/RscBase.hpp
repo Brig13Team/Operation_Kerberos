@@ -923,3 +923,91 @@ class RSC(BaseActiveText) {
     soundDoubleClick[] = {"",0.1,1};
     soundEscape[] = {"",0.1,1};
 };
+
+class RSC(ControlsTable) {
+    idc = 107;
+    x = SafezoneX + 16.5 * GUI_GRID_W;
+    y = SafezoneY + 3.5 * GUI_GRID_H;
+    w = 15 * GUI_GRID_W;
+    h = 20 * GUI_GRID_H;
+
+    type = 19;
+    style = 0x10;
+
+    lineSpacing = 0;
+    rowHeight = 1 * GUI_GRID_H;
+    headerHeight = 1 * GUI_GRID_H;
+
+    firstIDC = 42000;
+    lastIDC = 44999;
+
+    // Colours which are used for animation (i.e. change of colour) of the selected line.
+    selectedRowColorFrom[]  = {0.7, 0.85, 1, 0.25};
+    selectedRowColorTo[]    = {0.7, 0.85, 1, 0.5};
+    // Length of the animation cycle in seconds.
+    selectedRowAnimLength = 1.2;
+
+    class VScrollBar: RSC(BaseScrollbar) {
+        width = 0.021;
+        autoScrollEnabled = 0;
+        autoScrollDelay = 1;
+        autoScrollRewind = 1;
+        autoScrollSpeed = 1;
+    };
+
+    class HScrollBar: RSC(BaseScrollbar) {
+        height = 0.028;
+    };
+
+    // Template for selectable rows
+    class RowTemplate {
+        class RowBackground {
+            controlBaseClassPath[] = {"RscText"};
+            columnX = 0;
+            columnW = 14.7 * GUI_GRID_W;
+            controlOffsetY = 0;
+        };
+        class Column1 {
+            controlBaseClassPath[] = {"RscPictureKeepAspect"};
+            columnX = 0;
+            columnW = 2 * GUI_GRID_W;
+            controlOffsetY = 0;
+            controlH = 1 * GUI_GRID_H;
+        };
+        class Column2 {
+            controlBaseClassPath[] = {"RscText"};
+            columnX = 2 * GUI_GRID_W;
+            columnW = 8.7 * GUI_GRID_W;
+            controlOffsetY = 0.1 * GUI_GRID_H;
+        };
+        class Column3 {
+            controlBaseClassPath[] = {"RscButton"};
+            columnX = 11.2 * GUI_GRID_W;
+            columnW = 2 * GUI_GRID_W;
+            controlOffsetY = 0.1 * GUI_GRID_H;
+        };
+    };
+
+    // Template for headers (unlike rows, cannot be selected)
+    class HeaderTemplate {
+        class HeaderBackground {
+            controlBaseClassPath[] = {"RscText"};
+            columnX = 0;
+            columnW = 14.7 * GUI_GRID_W;
+            controlOffsetY = 0;
+        };
+        class Column1 {
+            controlBaseClassPath[] = {"RscPictureKeepAspect"};
+            columnX = 0.2 * GUI_GRID_W;
+            columnW = 0.6 * GUI_GRID_W;
+            controlOffsetY = 0.2 * GUI_GRID_H;
+            controlH = 0.6 * GUI_GRID_H;
+        };
+        class Column2 {
+            controlBaseClassPath[] = {"RscText"};
+            columnX = 0.8 * GUI_GRID_W;
+            columnW = 9 * GUI_GRID_W;
+            controlOffsetY = 0.1 * GUI_GRID_H;
+        };
+    };
+};

@@ -28,7 +28,7 @@ TRACEV_1(_vehicleList);
     (_vehicleArray) params ["_content","_picture","_vehicleType"];
     private _rowindex = _ctrl lnbAddRow _content;
     _ctrl lnbSetData [[_rowindex, 0], _vehicleType];
-    If !((tolower _picture) in ["iconcratesupp","iconstaticmg","iconstaticmortar","iconcrate","iconstaticaa","iconobject_2x1","iconobject_circle","iconcrateord"]) then {
+    If !((tolower _picture) in ["iconcratesupp","iconstaticmg","iconstaticmortar","iconcrate","iconstaticaa","iconobject_1x3","iconobject_2x1","iconobject_circle","iconcrateord"]) then {
         _ctrl lnbSetPicture [[_rowindex, 0], _picture];
     };
 } forEach _vehicleList;

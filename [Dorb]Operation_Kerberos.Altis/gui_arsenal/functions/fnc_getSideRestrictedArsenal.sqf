@@ -24,7 +24,7 @@ If ((isNil "_side")||{(_side isEqualType west)}) then {
 private _neededVersion = format["%1_ArsenalVersion_%2",missionName,getText(missionConfigFile >> QUOTE(DOUBLES(CfgComponent,ADDON)) >> "version")];
 (profileNamespace getVariable [format[QGVAR(arsenalList_%1),str _side],["NotFound",[]]]) params [["_currentVersion","NotFound",[]],["_list",[],[[]]]];
 TRACEV_2(_currentVersion,_neededVersion);
-If ((!(_list isEqualTo []))&&{_currentVersion isEqualTo _neededVersion}) exitWith {
+If (((!(_list isEqualTo []))&&{_currentVersion isEqualTo _neededVersion})&&{!GVAR(forceReload)}) exitWith {
     missionNamespace setVariable [format[QGVAR(arsenalList_%1),str _side],_list];
 };
 
@@ -87,7 +87,7 @@ private _loadingScreenID = [localize LSTRING(CREATE_LIST)] call EFUNC(gui,startL
 {
     private _class = _x;
     private _className = configname _x;
-    private _isBase = if (isarray (_x >> "muzzles")) then {(_className call bis_fnc_baseWeapon == _className)} else {true};
+    private _isBase = if (isarray (_x >> "muzzles")) then {/*(_className call bis_fnc_baseWeapon == _className)*/true} else {true};
     private _scope = if (isnumber (_class >> "scopeArsenal")) then {getnumber (_class >> "scopeArsenal")} else {getnumber (_class >> "scope")};
     if (((_scope > 1) && {(gettext (_class >> "model") != "")} && _isBase && {gettext (_class >> "displayName") != ""}&&{!(_className in _blacklist)})||{_className in _whitelist}) then {
         (_className call bis_fnc_itemType) params ["_weaponTypeCategory","_weaponTypeSpecific"];
@@ -130,7 +130,11 @@ private _loadingScreenID = [localize LSTRING(CREATE_LIST)] call EFUNC(gui,startL
                                 _addMagazines pushBackUnique _x;
                             };
                         }foreach _magazines;
-
+                        {
+                            _addItems pushBackUnique _x;
+                            _addWeapons pushBackUnique _x;
+                            nil;
+                        } count (_className call bis_fnc_compatibleItems);
                     };
                     case (_weaponTypeCategory in ["Mine"]) : {
                         _addMagazines pushBackUnique _className;
@@ -193,3 +197,13 @@ profileNamespace setVariable [format[QGVAR(arsenalList_%1),str _side],[_neededVe
 saveProfileNamespace;
 
 missionNamespace setVariable [format[QGVAR(arsenalList_%1),str _side],_list];
+
+If (GVAR(forceReload)) then {
+    [
+        QGVAR(forceReload),
+        false,
+        0,
+        "client",
+        false
+    ] call CBA_settings_fnc_set;
+};

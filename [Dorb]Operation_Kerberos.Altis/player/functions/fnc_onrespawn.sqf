@@ -14,8 +14,6 @@
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-
-#include "script_component.hpp"
 If(!hasInterface)exitWith{};
 
 _this params ["_unit","_corpse"];

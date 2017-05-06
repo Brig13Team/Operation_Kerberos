@@ -5,10 +5,22 @@ ADDON = false;
 
 PREP(arithmeticMean);
 
+PREP(arrayRotate);
 PREP(arraysGetMax);
 PREP(arraysGetArithmeticMean);
 PREP(arraySum);
 
+PREP(BinToNumber);
+
+PREP(BitAND);
+PREP(BitNOT);
+PREP(BitOR);
+PREP(BitXOR);
+PREP(BitArrayToNumber);
+PREP(BitLeftShift);
+PREP(BitRightShift);
+
+//PREP(checksum);
 PREP(convertAngleToRotMat);
 PREP(convertRotMatToAngle);
 
@@ -25,6 +37,10 @@ PREP(getRotMat);
 PREP(handledamage_C4);
 
 PREP(list_groups);
+
+PREP(NumberToBitArray);
+PREP(NumberToBin);
+PREP(NumberToHex);
 
 PREP(players);
 PREP(setOwner);

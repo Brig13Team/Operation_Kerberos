@@ -15,13 +15,13 @@ private _spawndir = getDir GVAR(currentSpawn);
 
 [_spawnpos,_check_radius] call FUNC(clearPos);
 
-private _padempty = nearestObjects [_spawnpos, ["LandVehicle","Air"], _check_radius];
+private _padempty = (nearestObjects [_spawnpos, ["LandVehicle","Air"], _check_radius]) select {_x getVariable [QGVARMAIN(canDelete),true]};
 
 If (!(_padempty isEqualTo [])) exitWith {hint localize LSTRING(NOTEMPTY);};
 
 private _boxtyp = (GVAR(crate_boxes) select 0) select GVAR(current_boxid);
 private _box = createVehicle [_boxtyp, _spawnpos, [], 0 , "NONE"];
-_box setPosATL _spawnpos;
+_box setPosASL (getPosASL GVAR(currentSpawn));
 _box setDir _spawndir;
 
 clearWeaponCargoGlobal _box;

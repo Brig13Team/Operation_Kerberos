@@ -9,7 +9,7 @@
 #include "script_component.hpp"
 
 class DOUBLES(CfgComponent,ADDON) {
-    class initPost {};
+    class initPostServer {client = 0;};
     class CLientPostInit {server = 0;};
     class dependencies {
         CfgPatches[] = {'BWA3_common'};

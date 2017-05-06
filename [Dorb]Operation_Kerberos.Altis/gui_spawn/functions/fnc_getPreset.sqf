@@ -32,6 +32,7 @@ switch (_preset) do {
         _return = _return apply {configName _x};
         _return = _return select {!(ISCASVEHICLE(_x))};
     };
+    case "carrier_marine";
     case "boat" : {
         _return = configProperties [configfile>>"CfgVehicles",format ["((isClass _x)&&{getNumber(_x>>'side')==%1}&&{getNumber(_x>>'scope')>1}&&{((configName _x) isKindOf 'Ship_F')}&&{!(getText(_x>>'vehicleClass')=='Autonomous')})",_sideNumber], true];
         _return = _return apply {configName _x};
@@ -62,6 +63,26 @@ switch (_preset) do {
         _return = _return apply {configName _x};
         private _ace = ["ACE_medicalSupplyCrate","ACE_medicalSupplyCrate_advanced","ACE_Box_Misc","ACE_Box_Ammo","ACE_Track","ACE_Wheel","ACE_Box_82mm_Mo_Combo","ACE_Box_82mm_Mo_HE","ACE_Box_82mm_Mo_Illum","ACE_Box_82mm_Mo_Smoke"] select {isClass(configFile >> "CfgVehicles" >> _x)};
         _return append _ace;
+    };
+    case "carrier_air" : {
+        _return = (configProperties [configfile>>"CfgVehicles",format ["((isClass _x)&&{getNumber(_x>>'side')==%1}&&{getNumber(_x>>'scope')>1}&&{((configName _x) isKindOf 'Air')}&&{!(getText(_x>>'vehicleClass')=='Autonomous')})",_sideNumber], true])
+        + (configProperties [configfile>>"CfgVehicles",format ["((isClass _x)&&{getNumber(_x>>'side')==%1}&&{getNumber(_x>>'scope')>1}&&{getText(_x>>'vehicleClass')=='Autonomous'})",_sideNumber], true]);
+        _return = _return apply {configName _x};
+    };
+    case "carrier_vehicles" : {
+        // vehicles
+        _return = (configProperties [configfile>>"CfgVehicles",format ["((isClass _x)&&{getNumber(_x>>'side')==%1}&&{getNumber(_x>>'scope')>1}&&{((configName _x) isKindOf 'LandVehicle')}&&{!(getText(_x>>'vehicleClass')=='Autonomous')}&&{!(getText(_x>>'vehicleClass')=='Static')})",_sideNumber], true])
+        // cars
+        + (configProperties [configfile>>"CfgVehicles",format ["((isClass _x)&&{getNumber(_x>>'side')==%1}&&{getNumber(_x>>'scope')>1}&&{((configName _x) isKindOf 'Truck_F')}&&{!(getText(_x>>'vehicleClass')=='Autonomous')})",_sideNumber], true])
+        // slingload
+        + (configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'scope')>1}&&{(configName _x) isKindOf 'Slingload_01_Base_F'})", true]);
+        // static units
+        + (configProperties [configfile>>"CfgVehicles",format ["((isClass _x)&&{getNumber(_x>>'side')==%1}&&{getNumber(_x>>'scope')>1}&&{(getText(_x>>'vehicleClass')=='Static')}&&{!(getText(_x>>'vehicleClass')=='Autonomous')})",_sideNumber], true]);
+        _return = _return apply {configName _x};
+        If (GVARMAIN(playerside) == west) then {
+            _return append ["I_MRAP_03_F","I_MRAP_03_gmg_F","I_MRAP_03_hmg_F"];
+        };
+        _return arrayIntersect _return;
     };
 
 

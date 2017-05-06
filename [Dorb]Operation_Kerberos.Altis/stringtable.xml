@@ -82,8 +82,40 @@
             <German>Erstelle Arsenallisten</German>
             <English>creating arsenal lists</English>
         </Key>
+        <Key ID="STR_DORB_GUI_ARSENAL_DEBUGARSENAL">
+            <German>Aktiviere Arsenal Debugmodus</German>
+            <English>activate arsenal debugging</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARSENAL_DEBUGARSENAL_TOOLTIP">
+            <German>Logging um bei den Arsenal-Templates Fehler festzustellen</German>
+            <English>This option is used to debug the arsenal templates and log the errors, why certain templates can not be used.</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARSENAL_forceReload">
+            <German>Neuerstellung der Arsenalliste erzwingen</German>
+            <English>Force reloading of the arsenal list</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARSENAL_forceReload_TOOLTIP">
+            <German>Neuerstellung der Arsenalliste erzwingen</German>
+            <English>Force reloading of the arsenal list</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARSENAL_FASTARSENAL">
+            <German>Arsenalklassen Schnelladefunktion</German>
+            <English>Fast Arsenal Template Loading</English>
+        </Key>
     </Package>
     <Package name="GUI_SPAWN">
+        <Key ID="STR_DORB_GUI_SPAWN_CARRIER_VEHICLES">
+            <German>Fahrzeugspawn</German>
+            <English>Vehicle Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_SPAWN_CARRIER_AIR">
+            <German>Luftwaffenspawn</German>
+            <English>Aircraft Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_SPAWN_CARRIER_MARINE">
+            <German>Marinespawn</German>
+            <English>Naval Spawn</English>
+        </Key>
         <Key ID="STR_DORB_GUI_SPAWN_VEHICLES">
             <German>Fahrzeugspawn</German>
             <English>Vehicle Spawn</English>
@@ -540,25 +572,21 @@
             <German>Teleport</German>
             <English>Teleport</English>
         </Key>
-        <Key ID="STR_DORB_GUI_TELEPORT_BASE">
-            <German>Basis</German>
-            <English>Base</English>
+        <Key ID="STR_DORB_GUI_TELEPORT_DOTELEPORT">
+            <German>Teleportieren</German>
+            <English>Teleport</English>
         </Key>
-        <Key ID="STR_DORB_GUI_TELEPORT_VEHICLES">
-            <German>Fahrzeuge</German>
-            <English>Vehicles</English>
+        <Key ID="STR_DORB_GUI_TELEPORT_MAP_SELECTPOSITION">
+            <German>Zielposition auswählen</German>
+            <English>Select Target</English>
         </Key>
-        <Key ID="STR_DORB_GUI_TELEPORT_AIRFIELD">
-            <German>Flugfeld</German>
-            <English>Airfield</English>
+        <Key ID="STR_DORB_GUI_TELEPORT_MAP">
+            <German>Karte öffnen</German>
+            <English>Open Map</English>
         </Key>
-        <Key ID="STR_DORB_GUI_TELEPORT_LOGISTIC">
-            <German>Logistik</German>
-            <English>Logistics</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_TELEPORT_MARINA">
-            <German>Hafen</German>
-            <English>Harbour</English>
+        <Key ID="STR_DORB_GUI_TELEPORT_MAP_DESCRIPTION">
+            <German>Zum Ziel teleportieren</German>
+            <English>Teleport to Target</English>
         </Key>
         <Key ID="STR_DORB_GUI_TELEPORT_DEACTIVATED">
             <German>Deaktiviert</German>
@@ -595,6 +623,49 @@
         <Key ID="STR_DORB_GUI_TELEPORT_LEAD_WAIT">
             <German>Du musst noch %1 Minute(n) und %2 Sekunde(n) warten!</German>
             <English>You have to wait %1 minute(s) and %2 second(s)!</English>
+        </Key>
+
+        <Key ID="STR_DORB_GUI_TELEPORT_CARRIER">
+            <German>USS Freedom</German>
+            <English>USS Freedom</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_TELEPORT_BAY_SOUTH">
+            <German>Südliche Landeküste</German>
+            <English>Southern Landingbay</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_TELEPORT_BAY_NORTH">
+            <German>Nördliche Landeküste</German>
+            <English>Northern Landingbay</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_TELEPORT_BAY_EAST">
+            <German>Östliche Landeküste</German>
+            <English>Eastern Landingbay</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_TELEPORT_BAY_WEST">
+            <German>Westliche Landeküste</German>
+            <English>Western Landingbay</English>
+        </Key>
+
+
+        <Key ID="STR_DORB_GUI_TELEPORT_BASE">
+            <German>Basis</German>
+            <English>Base</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_TELEPORT_VEHICLES">
+            <German>Fahrzeuge</German>
+            <English>Vehicles</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_TELEPORT_AIRFIELD">
+            <German>Flugfeld</German>
+            <English>Airfield</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_TELEPORT_LOGISTIC">
+            <German>Logistik</German>
+            <English>Logistics</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_TELEPORT_MARINA">
+            <German>Hafen</German>
+            <English>Harbour</English>
         </Key>
     </Package>
     <Package name="gui_crate">

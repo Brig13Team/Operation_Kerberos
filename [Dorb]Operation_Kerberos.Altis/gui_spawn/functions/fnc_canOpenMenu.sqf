@@ -22,7 +22,9 @@ private _spawnArray = HASH_GET_DEF(GVAR(spawns),_spawnID,[]);
 
 If (_spawnArray isEqualTo []) exitWith {false;};
 
-If ((_player distance2D (_spawnArray select 1)) > (5 + CHECK_RADIUS)) exitWith {false};
+If (((getPosASL _player) distance (_spawnArray select 1)) > (5 + CHECK_RADIUS)) exitWith {false};
+
+If (((getPosASL _player) distance (_spawnArray select 1)) < (CHECK_RADIUS)) exitWith {false};
 
 /*
 private _cur =+ (_spawnArray select 1):

@@ -35,7 +35,7 @@ if ((!isNull _killer) && {!(_killer isKindof "CAManBase")}) then {
 };
 
 private _unitIsPlayer = hasInterface && {_unit == ace_player}; // isPlayer check will fail at this point
-private _killerIsPlayer = (!isNull _killer) && {_unit != _killer} && {[_killer] call ACEFUNC(common,isPlayer)};
+private _killerIsPlayer = (!isNull _killer) && {_unit != _killer} && {[_killer] call ace_common_fnc_isPlayer};
 
 // Don't do anything if neither are players
 if (!(_unitIsPlayer || _killerIsPlayer)) exitWith {};

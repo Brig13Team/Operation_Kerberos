@@ -46,14 +46,17 @@ _vehicle setDir _spawnDir;
 if ((_vehicle isKindOf "SDV") or (_vehicle isKindOf "Ship")) then {
     _vehicle setPosASL [_spawnposition select 0, _spawnposition select 1, 0];
 } else {
-    _vehicle setposATL [_spawnposition select 0, _spawnposition select 1, 0.2];
-    _vehicle setVectorUP (surfaceNormal [(getPosatl _vehicle) select 0,(getPosatl _vehicle) select 1]);
+    _vehicle setposASL _spawnposition;
+    If !(surfaceIsWater _spawnposition) then {
+        _vehicle setVectorUP (surfaceNormal [(getPos _vehicle) select 0,(getPos _vehicle) select 1]);
+    };
 };
 
 if ((getText(configFile >> "CfgVehicles" >> _vehicleType >> "vehicleClass"))isEqualTo "Autonomous") then {
     createVehicleCrew _vehicle;
 };
 
+_vehicle lock 0;
 
 closeDialog (ctrlIDD _dialog);
 [] call EFUNC(gui_echidna,close);

@@ -59,6 +59,7 @@ switch (tolower _simulation) do {
 };
 
 _vehicle setDir _direction;
+_vehicle lock 0;
 
 If (_precisePos) then {_vehicle setPos _position;};
 
