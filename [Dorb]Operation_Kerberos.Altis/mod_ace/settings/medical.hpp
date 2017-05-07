@@ -43,4 +43,3 @@ class ace_medical_painIsOnlySuppressed TURN_ON;
 class ace_medical_allowUnconsciousAnimationOnTreatment TURN_OFF;
 class ace_medical_moveUnitsFromGroupOnUnconscious TURN_OFF;
 class ace_medical_delayUnconCaptive SET_VAL(3);
-class ace_medical_ai_enabledFor SET_VAL(0);
