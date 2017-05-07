@@ -13,7 +13,7 @@
     Returns:
     Position
 */
-#define DEBUG_MODE_FULL
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 private ["_pos","_generiere"];
 _this params [
@@ -21,9 +21,11 @@ _this params [
     ["_rad",200,[0]],
     ["_typ",0,[0]]
 ];
-If (count _start < 2) then {
-    TRACEV_4(_this,_start,_rad,_typ);
-};
+#ifdef DEBUG_MODE_FULL
+    If (count _start < 2) then {
+        TRACEV_4(_this,_start,_rad,_typ);
+    };
+#endif
 
 private _max_run = 3000;
 

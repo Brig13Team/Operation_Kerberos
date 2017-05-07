@@ -9,7 +9,7 @@
         1: OBJECT - vehicle
 
 */
-#define DEBUG_MODE_FULL
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 TRACEV_1(_this);
 _this params ["_vehicle","_cargo"];
