@@ -15,10 +15,10 @@
 #define MIN_DISTANCE 4000
 #define MAX_DISTANCE 9000
 
-_this params ["_targetPos",["_vehicletype","",[""]]];
+_this params ["_targetPos"];
 
 private _positionBlacklist = [getMarkerPos GVARMAIN(respawnmarker),HASH_GET_DEF(GVAR(dangerzones),"centerpos",getMarkerPos GVARMAIN(respawnmarker))] + ((allUnits select {side _x == GVARMAIN(playerside)}) apply {getPos _x});
-private _errorcounter = 400; //
+private _errorcounter = 1000; //
 private _spawnpos = [];
 
 while {(_errorcounter > 0)} do {
@@ -26,7 +26,7 @@ while {(_errorcounter > 0)} do {
     private _roads = _tempPos nearRoads 200;
     If (_roads isEqualTo []) then {
         _tempPos = getPos (selectRandom _roads);
-        If (({(_x distance2D _tempPos)>MIN_DISTANCE} count _positionBlacklist)>0) then {
+        If (({(_x distance2D _tempPos)<MIN_DISTANCE} count _positionBlacklist)>0) then {
             DEC(_errorcounter);
         }else{
             _spawnpos = _tempPos;

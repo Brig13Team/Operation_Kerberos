@@ -16,7 +16,7 @@
 _this params ["_attackLoc"];
 //TRACEV_1(_attackLoc);
 private _pos = locationPosition _attackLoc;
-private _spawnPos = [_pos,4000,4000,10000] call FUNC(ressources_getsavespawnposair);
+private _spawnPos = [_pos,5000,5000,10000] call FUNC(ressources_getsavespawnposair);
 //TRACEV_2(_pos,_spawnPos);
 _spawnPos set [2,500];
 
