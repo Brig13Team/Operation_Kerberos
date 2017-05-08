@@ -23,4 +23,4 @@ class DOUBLES(CfgComponent,ADDON) {
 #include "config\maps.hpp"
 #include "config\strategy.hpp"
 #include "config\costs.hpp"
-#include "config\statemachine.hpp"
+#include "config\statemachines.hpp"

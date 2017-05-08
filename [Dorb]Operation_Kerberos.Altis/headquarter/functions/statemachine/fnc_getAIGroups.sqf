@@ -11,14 +11,14 @@
  *      ARRAY - Array of groups
  *
  */
-//#define DEBUG_MODE_FULL
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 _this params [["_type","",[""]]];
 
 GVAR(AIGroups) = allGroups select {(side (leader _x)) isEqualTo GVARMAIN(side)};
 
-switch (_type) do {
+private _return = switch (_type) do {
     case "combat" : {
         GVAR(AIGroups) select {
             (_x getVariable [QGVAR(state),"none"]) == "combat"
@@ -33,3 +33,5 @@ switch (_type) do {
 
     default { GVAR(AIGroups) };
 };
+TRACEV_2(_this,_return);
+_return

@@ -28,7 +28,9 @@ HASH_GET_DEF(_ressourcesHash,"units",[]) pushBack _attackVeh;
 HASH_SET(_ressourcesHash,"nextexecution",CBA_missiontime + GVAR(ressources_CallInreplenish_CAS));
 
 _group setVariable [QGVAR(target),_attackLoc];
-_group setVariable [QGVAR(time),_attackLoc]
+_group setVariable [QGVAR(timeout),CBA_missiontime + 10*60];
+_group setVariable [QGVAR(spawnpos),_spawnPos];
+_group setVariable [QGVAR(state),"cas_support"];
 
 /*
 _attackVeh flyInHeight 500;

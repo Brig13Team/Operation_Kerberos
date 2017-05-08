@@ -31,6 +31,5 @@ for "_i" from 0 to _amount do {
             [_spawnpos,"patrolGroup","ColorGreen","n_inf"] call EFUNC(common,debug_marker_create);
         #endif
         [_group,"patrol"] call EFUNC(headquarter,registerGroup);
-        [_group,"patrol"] call EFUNC(headquarter,state_set);
     };
 };

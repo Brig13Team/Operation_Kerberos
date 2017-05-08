@@ -135,7 +135,7 @@ HASH_SET(GVAR(handles),"ressources",_handle);
 [QGVAR(killedUnit),{_this call FUNC(onKilled);}] call CBA_fnc_addEventHandler;
 
 // Statemachines
-GVAR(AIGroups_statemachine) = [missionConfigFile >> QGVAR(AIGroups_statemachine)] call CBA_statemachine_fnc_createFromConfig;
+//GVAR(statemachine_AIGroups) = [missionConfigFile >> QGVAR(AIGroups_statemachine)] spawn CBA_statemachine_fnc_createFromConfig;
 
 // DEBUG
 #ifdef DEBUG_MODE_FULL
