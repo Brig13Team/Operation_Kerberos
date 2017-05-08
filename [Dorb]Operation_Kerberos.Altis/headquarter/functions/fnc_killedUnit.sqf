@@ -22,19 +22,8 @@ _this params ["_killedUnit","_killer","_instigator"];
 private _key = [(getPos _killer)] call FUNC(dzconvert);
 CHECK(_key isEqualTo "") // not in the area
 
-/*
-// register the enemy
-//private _StrengthValue = ([_killer] call FUNC(strengthPlayer));
-private _killergroup = [_killer] call CBA_fnc_getGroup;
-private _StrengthValue = 0;
-
-private _grouphash = _killergroup getVariable QGVAR(grouphash);
-If (!isNil "_grouphash") then {
-    _StrengthValue = HASH_GET_DEF(_grouphash,"value",0);
-};
-*/
 private _StrengthValue = ([typeOf _killedUnit] call FUNC(getCost))* (missionNamespace getVariable [QGVAR(UnitKilledCoeff),1]);
-//TRACEV_3(_StrengthValue,_killergroup,_grouphash);
+
 private _keyX = parsenumber ((_key splitString "_") select 0);
 private _keyY = parsenumber ((_key splitString "_") select 1);
 private _gridsize = HASH_GET(GVAR(dangerzones),"gridsize");

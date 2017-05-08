@@ -18,39 +18,16 @@
 _this params [["_group",grpNull,[grpNull]],["_type","attack",[""]]];
 TRACEV_2(_group,_type);
 CHECK(isNull _group)
-IF (!(_type in ["attack","defence","patrol"])) exitWith {
+IF (!(_type in ["attack","defence","patrol","static"])) exitWith {
     ERROR("Wrong state");
 };
 
+_group = _group call CBA_fnc_getGroup;
 
-private ["_key","_state"];
-switch _type do {
-    case "defence" : {
-            _key = "defenceGroups";
-            _state = "defend";
-        };
-    case "patrol" : {
-            _key = "patrolGroups";
-            _state = "patrol";
-        };
-    default {
-            _key = "attackGroups";
-            _state = "wait";
-        };
-};
-private _grouphash = HASH_CREATE;
-TRACEV_3(_groupHash,_key,_state);
-HASH_GET(GVAR(groups),_key) pushBack _grouphash;
-private _test = HASH_GET(GVAR(groups),_key);
-TRACEV_1(_test);
-_group setVariable [QGVAR(grouphash),_grouphash];
-TRACEV_3(_group,_type,_grouphash);
-HASH_SET(_grouphash,"grouptype",_type);
-HASH_SET(_grouphash,"group",_group);
-HASH_SET(_grouphash,"state",_state);
+_group setVariable [QGVAR(state),_type];
 
 private _strengthArray = ([_group] call FUNC(getstrengthAIGroup)) params ["_value","_strength","_defence","_grouptype"];
-HASH_SET(_grouphash,"value",_value);
-HASH_SET(_grouphash,"strength",_strength);
-HASH_SET(_grouphash,"defence",_defence);
-HASH_SET(_grouphash,"type",_grouptype);
+_group setVariable [QGVAR(value),_value];
+_group setVariable [QGVAR(strength),_strength];
+_group setVariable [QGVAR(defence),_defence];
+_group setVariable [QGVAR(type),_grouptype];

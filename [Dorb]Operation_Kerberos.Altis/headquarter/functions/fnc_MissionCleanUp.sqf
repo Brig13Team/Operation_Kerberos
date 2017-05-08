@@ -46,9 +46,11 @@ HASH_SET(GVAR(dangerzones),"y",nil);
         HASH_DELETE(_value);
     };
 } forEach HASH_KEYS(GVAR(groups));
-HASH_SET(GVAR(groups),"defenceGroups",[]);
-HASH_SET(GVAR(groups),"attackGroups",[]);
-HASH_SET(GVAR(groups),"patrolGroups",[]);
+
+{
+    [_x] call EFUNC(common,delete);
+} count (missionNamespace getVariable [GVAR(AIGroups),[]]);
+GVAR(AIGroups) = [];
 
 // Attackpositions
 /*

@@ -15,6 +15,12 @@
 #include "script_component.hpp"
 
 
+/*
+
+    !!! OLD - needs rework
+
+
+*/
 _this params ["_currentLocation","_strategyHash"];
 //TRACEV_2(_currentLocation,_strategyHash);
 private _attackgroups = HASH_GET(GVAR(groups),"attackGroups");

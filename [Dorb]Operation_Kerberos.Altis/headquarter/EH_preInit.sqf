@@ -57,6 +57,14 @@ PREPS(state,retreat);
 PREPS(state,set);
 PREPS(state,wait);
 
+PREPS(statemachine,attack);
+PREPS(statemachine,attackfinished);
+PREPS(statemachine,getAIGroups);
+PREPS(statemachine,patrol);
+PREPS(statemachine,patrolCombat);
+PREPS(statemachine,patrolDefence);
+PREPS(statemachine,return);
+
 PREPS(strategy,_checkisWorking);
 PREPS(strategy,_choose);
 PREPS(strategy,_onfinished);

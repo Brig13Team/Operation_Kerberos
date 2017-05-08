@@ -22,6 +22,6 @@ private _statementFinish = QUOTE(this call FUNC(strategy__onFinishSAD););
 
 [_group,"attack",_currentLocation,_statementFinish] call FUNC(state_set);
 
-private _grouphash = _group getVariable QGVAR(grouphash);
-HASH_SET(_groupHash,"strategy",_strategyHash);
+_group setVariable [QGVAR(strategy),_strategyHash];
+
 [count (units _group),_group];

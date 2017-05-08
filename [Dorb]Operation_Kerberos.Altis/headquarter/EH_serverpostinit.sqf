@@ -85,11 +85,10 @@ HASH_GET(GVAR(ressources),"amount",0);
 } forEach ["cas","helicopter","airinterception"];
 
 /// groups - player & ai
+GVAR(AIGroups) = [];
 GVAR(groups) = HASH_CREATE;
 HASH_SET(GVAR(groups),"playergroups",[]);
-HASH_SET(GVAR(groups),"defenceGroups",[]);
-HASH_SET(GVAR(groups),"patrolGroups",[]);
-HASH_SET(GVAR(groups),"attackGroups",[]);
+
 GVAR(playergroups_new) = 0;
 
 /// radars
@@ -134,6 +133,9 @@ HASH_SET(GVAR(handles),"ressources",_handle);
 [QEGVAR(mission,end_server),{_this call FUNC(MissionCleanUp);}] call CBA_fnc_addEventHandler;
 [QGVAR(registerRadar),{_this call FUNC(registerRadar)}] call CBA_fnc_addEventHandler;
 [QGVAR(killedUnit),{_this call FUNC(onKilled);}] call CBA_fnc_addEventHandler;
+
+// Statemachines
+GVAR(AIGroups_statemachine) = [missionConfigFile >> QGVAR(AIGroups_statemachine)] call CBA_statemachine_fnc_createFromConfig;
 
 // DEBUG
 #ifdef DEBUG_MODE_FULL

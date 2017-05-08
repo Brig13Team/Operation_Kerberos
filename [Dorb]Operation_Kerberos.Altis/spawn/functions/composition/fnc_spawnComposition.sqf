@@ -228,6 +228,9 @@ private _allClasses = configProperties [_config, "isClass(_x)", true];
     //LOG_1(_forEachIndex);
 } forEach _allClasses;
 
+If ((!(isNull _group))&&{!(isNil QEFUNC(headquarter,registergroup))}) then {
+    [_group,"static"] call EFUNC(headquarter,registergroup);
+};
 
 //TRACEV_1(_objectives);
 
