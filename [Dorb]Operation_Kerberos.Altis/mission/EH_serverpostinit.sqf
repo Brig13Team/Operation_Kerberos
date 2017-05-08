@@ -39,7 +39,7 @@ If ((getMarkerPos GVARMAIN(rescuemarker)) isEqualTo [0,0,0]) then {
     GVAR(base) = HASH_GET(GVAR(locations),"HQ");
     // SETMVAR(GVAR(base),[ARR_2("HQ",getMarkerPos format [ARR_2("respawn_%1",toLower (str GVARMAIN(playerside)))])]);
 
-    uiSleep 60;
+    uiSleep 30;
 
     [] call FUNC(taskmanager_init);
     TRACE("Taskmanager is initialized!");

@@ -120,7 +120,7 @@ class main {
 
         class object : object {
             min = 2;
-            max = 10;
+            max = 6;
         };
     };
 

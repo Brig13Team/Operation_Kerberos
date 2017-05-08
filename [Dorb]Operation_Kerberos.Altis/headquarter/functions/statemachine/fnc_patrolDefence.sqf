@@ -11,7 +11,7 @@
  *      none
  *
  */
-//#define DEBUG_MODE_FULL
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 _this params ["_group"];
@@ -32,5 +32,7 @@ If (isNull _center) then {
 }else{
     _center = locationPosition _center;
 };
-private _distance = 150;
-[_group,_center,_distance, 5, "MOVE", "AWARE", "WHITE", "LIMITED", selectRandom ["COLUMN","STAG COLUMN","WEDGE","ECH LEFT","ECH RIGHT","VEE","LINE","FILE","DIAMOND"], "", [5,10,15],50] call CBA_fnc_taskPatrol;
+private _distance = 250;
+TRACEV_3(_group,_center,_distance);
+//[_group,_center,_distance, 5, "MOVE", "AWARE", "WHITE", "LIMITED", selectRandom ["COLUMN","STAG COLUMN","WEDGE","ECH LEFT","ECH RIGHT","VEE","LINE","FILE","DIAMOND"], "", [5,10,15],50] call CBA_fnc_taskPatrol;
+[_group, _center, _distance, "MOVE", "AWARE", "WHITE", "LIMITED", selectRandom ["COLUMN","STAG COLUMN","WEDGE","ECH LEFT","ECH RIGHT","VEE","LINE","FILE","DIAMOND"], "", [5,10,15],50] call FUNC(statemachine_patrolTask);

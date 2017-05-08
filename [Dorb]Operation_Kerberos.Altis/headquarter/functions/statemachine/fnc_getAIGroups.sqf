@@ -11,7 +11,7 @@
  *      ARRAY - Array of groups
  *
  */
-#define DEBUG_MODE_FULL
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 _this params [["_type","",[""]]];
@@ -33,5 +33,5 @@ private _return = switch (_type) do {
 
     default { GVAR(AIGroups) };
 };
-TRACEV_2(_this,_return);
+//TRACEV_2(_this,_return);
 _return

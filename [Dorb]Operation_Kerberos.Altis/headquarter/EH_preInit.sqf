@@ -63,6 +63,7 @@ PREPS(statemachine,canBeDeletedUnseen);
 PREPS(statemachine,cas);
 PREPS(statemachine,getAIGroups);
 PREPS(statemachine,OffMapreturn);
+PREPS(statemachine,PatrolTask);
 PREPS(statemachine,patrol);
 PREPS(statemachine,patrolCombat);
 PREPS(statemachine,patrolDefence);

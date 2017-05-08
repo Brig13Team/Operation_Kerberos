@@ -14,9 +14,21 @@ class GVAR(AIGroups_statemachine) {
     list = QUOTE(call FUNC(statemachine_getAIGroups));
     skipNull = 1;
 
+    // wait for the HQ to be initialized
+    class preinit {
+        onState = "";
+        onStateEntered = "";
+        onStateLeaving = "";
+        class init {
+            targetState = "initial";
+            condition = QUOTE(missionNamespace getVariable [ARR_2('GVAR(active)',false)]);
+            onTransition = "";
+        };
+    };
+
     class initial {
         onState = "";
-        onStateEntered = QUOTE(_this setVariable [ARR_2('GVAR(target)',locationNull]);
+        onStateEntered = "";
         onStateLeaving = "";
         // groups patroling the outer parameter
         class toPatrol {
@@ -124,12 +136,14 @@ class GVAR(AIGroups_statemachine) {
             condition = QUOTE((_this getVariable [ARR_2('GVAR(state)','none')])=='combat');
             onTransition = "";
         };
+        /*
         // if the POI has been destroyed, move the group to another POI to defend this one
         class defence_nextPOI {
             targetState = "defence";
             condition = QUOTE(isNull (_this getVariable [ARR_2('GVAR(target)',locationNull)]));
             onTransition = "";
         };
+        */
     };
     // static units and compositions
     class static {

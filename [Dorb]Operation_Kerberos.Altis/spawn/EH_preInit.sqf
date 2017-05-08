@@ -27,8 +27,6 @@ PREP(onHit);
 PREP(onMissionEnding);
 PREP(onMissionStart);
 
-PREP(patrol_task);
-
 PREP(spawnCivCarGarage);
 PREP(spawnCivVehRoadside);
 PREP(spawnExplosive);

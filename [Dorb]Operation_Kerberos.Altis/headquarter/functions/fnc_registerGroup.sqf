@@ -15,12 +15,14 @@
 #define DEBUG_MODE_OFF
 #include "script_component.hpp"
 
-_this params [["_group",grpNull,[grpNull]],["_type","attack",[""]]];
+_this params [["_group",grpNull,[grpNull]],["_type","combat",[""]]];
 TRACEV_2(_group,_type);
 CHECK(isNull _group)
-IF (!(_type in ["attack","defence","patrol","static"])) exitWith {
+IF (!(_type in ["attack","defence","patrol","static","combat"])) exitWith {
     ERROR("Wrong state");
 };
+
+if (_type == "attack") then {_type = "combat";};
 
 _group = _group call CBA_fnc_getGroup;
 
