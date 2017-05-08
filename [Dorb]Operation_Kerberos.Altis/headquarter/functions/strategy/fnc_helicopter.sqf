@@ -24,14 +24,17 @@ private _helicopterType = ["helicopter"] call EFUNC(spawn,getUnit);
 
 ([_spawnPos,GVARMAIN(side),_helicopterType] call EFUNC(spawn,vehicle)) params ["_attackGroup","_attackVeh"];
 private _ressourcesHash = HASH_GET_DEF(GVAR(ressources),"helicopter",locationNull);
+
+_attackGroup setVariable [QGVAR(target),_attackLoc];
+_attackGroup setVariable [QGVAR(timeout),CBA_missiontime + 10*60];
+_attackGroup setVariable [QGVAR(spawnpos),_spawnPos];
+_attackGroup setVariable [QGVAR(state),"cas_support"];
+
 HASH_GET_DEF(_ressourcesHash,"units",[]) pushBack _attackVeh;
 HASH_SET(_ressourcesHash,"nextexecution",CBA_missiontime + GVAR(ressources_CallInreplenish_helicopter));
 //TRACEV_2(_attackGroup,_attackVeh);
 
-_group setVariable [QGVAR(target),_attackLoc];
-_group setVariable [QGVAR(timeout),CBA_missiontime + 10*60];
-_group setVariable [QGVAR(spawnpos),_spawnPos];
-_group setVariable [QGVAR(state),"cas_support"];
+
 
 
 /*

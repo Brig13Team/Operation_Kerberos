@@ -59,6 +59,11 @@ class GVAR(AIGroups_statemachine) {
             condition = QUOTE((_this getVariable [ARR_2('GVAR(state)','none')])=='cas_support');
             onTransition = "";
         };
+        class toAI {
+            targetState = "ai_support";
+            condition = QUOTE((_this getVariable [ARR_2('GVAR(state)','none')])=='ai_support');
+            onTransition = "";
+        };
 
     };
 
@@ -154,7 +159,7 @@ class GVAR(AIGroups_statemachine) {
 
     class cas_support {
         onState = "";
-        onStateEntered = QFUNC(statemachine_CAS);
+        onStateEntered = QFUNC(statemachine_cas);
         onStateLeaving = "";
         /*
         class noAmmo {
@@ -168,6 +173,14 @@ class GVAR(AIGroups_statemachine) {
             condition = QUOTE((_this getVariable [ARR_2('GVAR(timeout)',-1)])<CBA_missiontime);
             onTransition = "";
         };
+        class strategyFinished {
+            targetState = "return";
+            condition = QUOTE(isNull(_this getVariable [ARR_2('GVAR(target)',locationNull)]));
+            onTransition = "";
+        };
+    };
+    class ai_support : cas_support {
+        onStateEntered = QFUNC(statemachine_airinterception);
     };
 
     // return to spawnpos and delete
@@ -189,7 +202,7 @@ class GVAR(AIGroups_statemachine) {
     // delete a group and it's units mostly for off-map support or transport groups
     class delete {
         onState = "";
-        onStateEntered = QEFUNC(common,delete);
+        onStateEntered = QEFUNC(statemachine_delete);
         onStateLeaving = "";
     };
 };

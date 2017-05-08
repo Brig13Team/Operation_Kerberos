@@ -11,12 +11,14 @@
  *      ARRAY - parameter for check
  *
  */
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 _this params ["_attackLoc"];
 //TRACEV_1(_attackLoc);
 private _pos = locationPosition _attackLoc;
 private _spawnPos = [_pos,5000,5000,10000] call FUNC(ressources_getsavespawnposair);
+//TRACEV_2(_pos,_spawnpos);
 //TRACEV_2(_pos,_spawnPos);
 _spawnPos set [2,500];
 _dir = [_spawnpos, _pos] call BIS_fnc_dirTo;
@@ -24,13 +26,15 @@ private _attackVehType = ["plane_cas"] call EFUNC(spawn,getUnit);
 
 ([_spawnPos,GVARMAIN(side),_attackVehType,_dir,true,true,"FLY"] call EFUNC(spawn,vehicle)) params ["_attackGroup","_attackVeh"];
 private _ressourcesHash = HASH_GET_DEF(GVAR(ressources),"cas",locationNull);
+
+//TRACEV_3(_attackGroup,_attackLoc,locationPosition _attackLoc);
+_attackGroup setVariable [QGVAR(target),_attackLoc];
+_attackGroup setVariable [QGVAR(timeout),CBA_missiontime + 10*60];
+_attackGroup setVariable [QGVAR(spawnpos),_spawnPos];
+_attackGroup setVariable [QGVAR(state),"cas_support"];
+
 HASH_GET_DEF(_ressourcesHash,"units",[]) pushBack _attackVeh;
 HASH_SET(_ressourcesHash,"nextexecution",CBA_missiontime + GVAR(ressources_CallInreplenish_CAS));
-
-_group setVariable [QGVAR(target),_attackLoc];
-_group setVariable [QGVAR(timeout),CBA_missiontime + 10*60];
-_group setVariable [QGVAR(spawnpos),_spawnPos];
-_group setVariable [QGVAR(state),"cas_support"];
 
 /*
 _attackVeh flyInHeight 500;

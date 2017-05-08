@@ -26,6 +26,6 @@ _targetPos set [2,400];
 private _wp = _group addWaypoint [_targetPos, 0];
 _wp setWaypointType "LOITER";
 _wp setWaypointLoiterType "CIRCLE";
-_wp setWaypointLoiterRadius 800;
+_wp setWaypointLoiterRadius 1500;
 _wp setWaypointBehaviour "SAD";
 _wp setWaypointCombatMode "RED";

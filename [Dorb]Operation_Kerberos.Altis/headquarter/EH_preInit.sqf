@@ -57,10 +57,12 @@ PREPS(state,retreat);
 PREPS(state,set);
 PREPS(state,wait);
 
+PREPS(statemachine,airinterception);
 PREPS(statemachine,attack);
 PREPS(statemachine,attackfinished);
 PREPS(statemachine,canBeDeletedUnseen);
 PREPS(statemachine,cas);
+PREPS(statemachine,delete);
 PREPS(statemachine,getAIGroups);
 PREPS(statemachine,OffMapreturn);
 PREPS(statemachine,PatrolTask);

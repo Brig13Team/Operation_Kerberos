@@ -25,10 +25,16 @@ private _plane = ["plane_ai"] call EFUNC(spawn,getUnit);
 private _dir = [_spawnpos, _currentPos] call BIS_fnc_dirTo;
 ([_spawnpos,GVARMAIN(side),_plane,_dir,true,true,"FLY"] call EFUNC(spawn,vehicle)) params ["_attackGroup","_attackVeh"];
 private _ressourcesHash = HASH_GET_DEF(GVAR(ressources),"airinterception",locationNull);
+
+_attackGroup setVariable [QGVAR(target),_attackLoc];
+_attackGroup setVariable [QGVAR(timeout),CBA_missiontime + 10*60];
+_attackGroup setVariable [QGVAR(spawnpos),_spawnPos];
+_attackGroup setVariable [QGVAR(state),"ai_support"];
+
 HASH_GET_DEF(_ressourcesHash,"units",[]) pushBack _attackVeh;
 HASH_SET(_ressourcesHash,"nextexecution",CBA_missiontime + GVAR(ressources_CallInreplenish_airinterception));
 
-
+/*
 _attackVeh flyInHeight 800;
 private _wp = _attackGroup addWaypoint [_pos, 0];
 _wp setWaypointLoiterType "CIRCLE";
@@ -52,5 +58,5 @@ private _wp = _attackGroup addWaypoint [_spawnPos, 1];
     }
 ] call CBA_fnc_waitUntilAndExecute;
 //[_attackGroup, _pos, 400] call CBA_fnc_taskAttack;
-
+*/
 [_attackVeh,_attackGroup,_spawnpos]

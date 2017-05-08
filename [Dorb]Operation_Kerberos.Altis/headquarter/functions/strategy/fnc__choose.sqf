@@ -54,10 +54,10 @@ TRACEV_1(_availableGroups);
     private _curGroup = _x;
 
     private _possibility = 0;
-    private _groupValue = _group getVariable [QGVAR(value),0];
-    private _groupstrength = _group getVariable [QGVAR(strength),[0,0,0]];
-    private _groupdefence = _group getVariable [QGVAR(defence),[0,0,0]];
-    private _grouptype = _group getVariable [QGVAR(type),0];
+    private _groupValue = _curGroup getVariable [QGVAR(value),0];
+    private _groupstrength = _curGroup getVariable [QGVAR(strength),[0,0,0]];
+    private _groupdefence = _curGroup getVariable [QGVAR(defence),[0,0,0]];
+    private _grouptype = _curGroup getVariable [QGVAR(type),0];
 
     If !(_groupValue isEqualTo 0) then {
         private _valueDiffMod = (1/(_groupValue/_enemyValue));
