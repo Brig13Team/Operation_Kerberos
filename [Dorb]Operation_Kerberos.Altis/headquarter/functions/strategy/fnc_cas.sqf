@@ -27,6 +27,10 @@ private _ressourcesHash = HASH_GET_DEF(GVAR(ressources),"cas",locationNull);
 HASH_GET_DEF(_ressourcesHash,"units",[]) pushBack _attackVeh;
 HASH_SET(_ressourcesHash,"nextexecution",CBA_missiontime + GVAR(ressources_CallInreplenish_CAS));
 
+_group setVariable [QGVAR(target),_attackLoc];
+_group setVariable [QGVAR(time),_attackLoc]
+
+/*
 _attackVeh flyInHeight 500;
 private _wp = _attackGroup addWaypoint [_pos, 100];
 _wp setWaypointLoiterType "CIRCLE";
@@ -51,5 +55,5 @@ private _wp = _attackGroup addWaypoint [_spawnPos, 1];
     }
 ] call CBA_fnc_waitUntilAndExecute;
 //[_attackGroup, _pos, 400] call CBA_fnc_taskAttack;
-
+*/
 [_attackVeh,_attackGroup,_spawnpos]

@@ -132,5 +132,21 @@ class GVAR(AIGroups_statemachine) {
         onStateLeaving = "";
     };
 
-
+    class air_searchanddestroy {
+        onState = "";
+        onStateEntered = "_this setVariable ['GVAR(state)','static']";
+        onStateLeaving = "";
+    };
+    // return to spawnpos and delete
+    class air_return {
+        onState = "";
+        onStateEntered = "_this setVariable ['GVAR(state)','static']";
+        onStateLeaving = "";
+    };
+    // delete a group and it's units mostly for off-map support or transport groups
+    class delete {
+        onState = "";
+        onStateEntered = QEFUNC(common,delete);
+        onStateLeaving = "";
+    };
 };
