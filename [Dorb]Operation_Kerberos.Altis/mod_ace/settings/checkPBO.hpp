@@ -10,7 +10,7 @@
 
 
 class ace_common_checkPBOsWhitelist {
-    value = QUOTE([ARR_8(MOD_CBA,MOD_BWA3,MOD_STHUD,MOD_EXTDB3,MOD_ASRAI)]);
+    value = QUOTE([ARR_5(MOD_CBA,MOD_BWA3,MOD_STHUD,MOD_EXTDB3,MOD_ASRAI)]);
     typeName = "STRING";
     force = 1;
 };
