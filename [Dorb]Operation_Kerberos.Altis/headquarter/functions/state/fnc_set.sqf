@@ -21,6 +21,11 @@ _this params[["_group",grpNull,[grpNull,objNull]],["_state","",[""]],["_target",
 CHECK(isNull _group)
 
 TRACEV_1(_this);
+
+
+_group setVariable [QGVAR(target),_target];
+
+
 CHECK(true)
 _group = _group call CBA_fnc_getGroup;
 private _grouphash = _group getVariable QGVAR(grouphash);
