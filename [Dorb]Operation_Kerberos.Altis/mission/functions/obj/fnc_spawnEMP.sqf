@@ -13,7 +13,11 @@
  */
 #define DEBUG_MODE_FULL
 #include "script_component.hpp"
-_this params [["_position",HASH_GET_DEF(GVAR(dangerzones),"centerpos",[ARR_3(0,0,0)]),[[]],[2,3]]];
+_this params [["_position",[],[[]],[2,3]]];
+If (_position isEqualTo []) then {
+    _position = HASH_GET_DEF(EGVAR(headquarter,dangerzones),"centerpos",[ARR_3(0,0,0)]);
+};
+
 TRACEV_2(_this,_position);
 private _allVehicles = _position nearEntities [["LandVehicle","Air","Ship_F"],2000];
 {
@@ -36,13 +40,18 @@ private _allVehicles = _position nearEntities [["LandVehicle","Air","Ship_F"],20
                 (vehicle _curVehicle) setFuel 0;
             };
         };
-        default {
+        case (_curVehicle isKindOf 'Tank');
+        case (_curVehicle isKindOf 'Ship_F');
+        case (_curVehicle isKindOf 'Car') {
             private _engine = (vehicle _curVehicle) getHitPointDamage "HitEngine";
             If (isNil "_engine") then {
                 (vehicle _curVehicle) setFuel 0;
             }else{
                 (vehicle _curVehicle) setHitPointDamage ["HitEngine",1];
             };
+        };
+        default {
+            /* Autonoumius static weapons*/
         };
     };
 } forEach _allVehicles;
