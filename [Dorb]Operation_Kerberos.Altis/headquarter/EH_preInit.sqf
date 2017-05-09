@@ -65,11 +65,14 @@ PREPS(statemachine,cas);
 PREPS(statemachine,delete);
 PREPS(statemachine,getAIGroups);
 PREPS(statemachine,OffMapreturn);
-PREPS(statemachine,PatrolTask);
 PREPS(statemachine,patrol);
 PREPS(statemachine,patrolCombat);
-PREPS(statemachine,patrolDefence);
+PREPS(statemachine,patrolDefence)
+PREPS(statemachine,PatrolTask);;
 PREPS(statemachine,return);
+PREPS(statemachine,supply);
+PREPS(statemachine,transport);
+PREPS(statemachine,transportUnload);
 
 PREPS(strategy,_checkisWorking);
 PREPS(strategy,_choose);
