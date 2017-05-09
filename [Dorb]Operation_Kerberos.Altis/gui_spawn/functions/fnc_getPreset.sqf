@@ -68,6 +68,7 @@ switch (_preset) do {
         _return = (configProperties [configfile>>"CfgVehicles",format ["((isClass _x)&&{getNumber(_x>>'side')==%1}&&{getNumber(_x>>'scope')>1}&&{((configName _x) isKindOf 'Air')}&&{!(getText(_x>>'vehicleClass')=='Autonomous')})",_sideNumber], true])
         + (configProperties [configfile>>"CfgVehicles",format ["((isClass _x)&&{getNumber(_x>>'side')==%1}&&{getNumber(_x>>'scope')>1}&&{getText(_x>>'vehicleClass')=='Autonomous'})",_sideNumber], true]);
         _return = _return apply {configName _x};
+        _return arrayIntersect _return;
     };
     case "carrier_vehicles" : {
         // vehicles
@@ -82,15 +83,16 @@ switch (_preset) do {
         If (GVARMAIN(playerside) == west) then {
             _return append ["I_MRAP_03_F","I_MRAP_03_gmg_F","I_MRAP_03_hmg_F"];
         };
+        _return pushBack "Land_DataTerminal_01_F";
+        // remove doubled
         _return arrayIntersect _return;
     };
-
 
     default {
         _return = configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'scope')>1}&&{((configName _x) isKindOf 'Tank_F')||((configName _x) isKindOf 'Air')||((configName _x) isKindOf 'Car')||((configName _x) isKindOf 'StaticWeapon')})", true];
         _return = _return apply {configName _x};
-        TRACEV_1(_return);
         _return pushBack "Land_VR_Block_05_F";
     };
 };
-_return select {!((toLower _x) in ["rhs_9k79_b","rhs_9k79","rhs_9k79_k"])};
+// forced blacklist
+_return select {!((toLower _x) in ["rhs_9k79_b"])};

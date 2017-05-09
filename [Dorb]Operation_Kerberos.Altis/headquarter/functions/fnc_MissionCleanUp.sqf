@@ -49,7 +49,7 @@ HASH_SET(GVAR(dangerzones),"y",nil);
 
 {
     [_x] call EFUNC(common,delete);
-} count (missionNamespace getVariable [GVAR(AIGroups),[]]);
+} count (missionNamespace getVariable [QGVAR(AIGroups),[]]);
 GVAR(AIGroups) = [];
 
 // Attackpositions

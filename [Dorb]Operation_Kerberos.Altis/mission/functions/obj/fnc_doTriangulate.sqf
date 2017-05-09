@@ -43,7 +43,7 @@ private _objectSortArray = [];
 _objectSortArray sort true;
 private _checker = [_target,(_objectSortArray select 0) select 1,(_objectSortArray select 1) select 1];
 private _checkerPositions = [_target,(_objectSortArray select 0) select 1,(_objectSortArray select 1) select 1];
-private _allMissionTargets = [] call FUNC(getAllMissionTargets); // <<-- EDIT
+private _allMissionTargets = [] call FUNC(taskmanager_getMissionTargets);
 
 [
     15,
@@ -65,7 +65,7 @@ private _allMissionTargets = [] call FUNC(getAllMissionTargets); // <<-- EDIT
         } forEach (_args select 0);
         _check
     }
-] call ace_common_fnc_progressBar
+] call ace_common_fnc_progressBar;
 
 
 

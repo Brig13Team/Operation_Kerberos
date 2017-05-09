@@ -22,5 +22,7 @@ private _radius = getNumber(missionConfigFile >> "mission" >> "main" >> _type >>
 //private _location =  ["Base", getMarkerPos _marker];
 private _location =  ["Base", getMarkerPos GVARMAIN(respawnmarker)];
 
+[QEGVAR(gui,message),[LSTRING(RTB_TITLE),LSTRING(RTB_DESC),"blue"]] spawn CBA_fnc_globalEvent;
+
 HASH_SET(_mission, "location", _location);
 HASH_SET(_mission, "radius", _radius);

@@ -36,7 +36,7 @@ If (_possibleBuildings isEqualTo []) then {
     {
         private _allPos = _x buildingPos -1;
         If !(_allPos isEqualTo []) then {
-            _targetPositions append _allPos;
+            _targetPositions append (_allPos apply {AGLtoASL _x});
             GVAR(targetHouses) pushBack _x;
         };
         If ((count _targetPositions) > _amount) exitWith {};

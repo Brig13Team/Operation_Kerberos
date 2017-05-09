@@ -16,6 +16,8 @@
 
 _this params [["_type","",[""]]];
 
+If !(GVAR(active)) exitWith {[]};
+
 GVAR(AIGroups) = allGroups select {(side (leader _x)) isEqualTo GVARMAIN(side)};
 
 private _return = switch (_type) do {

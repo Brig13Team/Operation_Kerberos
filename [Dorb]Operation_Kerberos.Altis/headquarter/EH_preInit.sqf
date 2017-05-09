@@ -67,7 +67,7 @@ PREPS(statemachine,getAIGroups);
 PREPS(statemachine,OffMapreturn);
 PREPS(statemachine,patrol);
 PREPS(statemachine,patrolCombat);
-PREPS(statemachine,patrolDefence)
+PREPS(statemachine,patrolDefence);
 PREPS(statemachine,PatrolTask);;
 PREPS(statemachine,return);
 PREPS(statemachine,supply);
