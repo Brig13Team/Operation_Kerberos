@@ -23,7 +23,8 @@ private _spawnpos = [_targetPos] call FUNC(ressources_getSaveSpawnPos);
 TRACEV_4(_centerpos,_tanktype,_targetPos,_spawnpos);
 private _newGroup = ([_spawnpos,GVARMAIN(side),_tanktype] call EFUNC(spawn,vehicle)) select 0;
 
-[_newGroup,"attack"] call FUNC(registerGroup);
-[_newGroup,"retreat",_targetPos] call FUNC(state_set);
+_newGroup setVariable [QGVAR(spawnpos),_spawnPos];
+_newGroup setVariable [QGVAR(timeout),15*60];
+_newGroup setVariable [QGVAR(state),"supply"];
 
 (([_newGroup] call FUNC(getstrengthAIGroup)) param [0,0])

@@ -28,6 +28,17 @@ private _newGroup = [_spawnpos, _grouptype] call EFUNC(spawn,group);
     _x moveInCargo _transportVehicle;
 }forEach units _newGroup;
 
+_transportGroup setVariable [QGVAR(spawnpos),_spawnPos];
+_transportGroup setVariable [QGVAR(timeout),15*60];
+_transportGroup setVariable [QGVAR(state),"supplyunload"];
+
+_newGroup setVariable [QGVAR(spawnpos),_spawnPos];
+_newGroup setVariable [QGVAR(timeout),15*60];
+_newGroup setVariable [QGVAR(state),"inTransport"];
+
+
+/*
+
 _transportGroup addWaypoint [_centerpos,200];
 _transportVehicle doMove _centerpos;
 
@@ -56,5 +67,5 @@ _transportVehicle doMove _centerpos;
     10,
     [_transportGroup,_newGroup,_centerpos,_transportVehicle,_spawnPos]
 ] call CBA_fnc_addPerFrameHandler;
-
+*/
 ((([_newGroup] call FUNC(getstrengthAIGroup)) param [0,0]) + (([_newGroup] call FUNC(getstrengthAIGroup)) param [0,0]));

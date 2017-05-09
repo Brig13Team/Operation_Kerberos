@@ -19,14 +19,14 @@ class GVAR(AIGroups_statemachine) {
         onState = "";
         onStateEntered = "";
         onStateLeaving = "";
-        class init {
-            targetState = "initial";
+        class toinit {
+            targetState = "init";
             condition = QUOTE(missionNamespace getVariable [ARR_2('GVAR(active)',false)]);
             onTransition = "";
         };
     };
 
-    class initial {
+    class init {
         onState = "";
         onStateEntered = "";
         onStateLeaving = "";
@@ -62,6 +62,26 @@ class GVAR(AIGroups_statemachine) {
         class toAI {
             targetState = "ai_support";
             condition = QUOTE((_this getVariable [ARR_2('GVAR(state)','none')])=='ai_support');
+            onTransition = "";
+        };
+        class toTransport {
+            targetState = "transport";
+            condition = QUOTE((_this getVariable [ARR_2('GVAR(state)','none')])=='transporter');
+            onTransition = "";
+        };
+        class toInTransport {
+            targetState = "inTransport";
+            condition = QUOTE((_this getVariable [ARR_2('GVAR(state)','none')])=='intransport');
+            onTransition = "";
+        };
+        class toSupply {
+            targetState = "supply";
+            condition = QUOTE((_this getVariable [ARR_2('GVAR(state)','none')])=='supply');
+            onTransition = "";
+        };
+        class toSupply {
+            targetState = "supply";
+            condition = QUOTE((_this getVariable [ARR_2('GVAR(state)','none')])=='supplyunload');
             onTransition = "";
         };
 
@@ -202,7 +222,57 @@ class GVAR(AIGroups_statemachine) {
     // delete a group and it's units mostly for off-map support or transport groups
     class delete {
         onState = "";
-        onStateEntered = QEFUNC(statemachine_delete);
+        onStateEntered = QFUNC(statemachine_delete);
         onStateLeaving = "";
+    };
+
+    class supply {
+        onState = "";
+        onStateEntered = QFUNC(statemachine_Supply);
+        onStateLeaving = "";
+        class unload {
+            targetState = "combat";
+            condition = QUOTE((((leader _this) distance2D (GVAR(dangerzones) getVariable 'centerpos'))<500)&&((_this getVariable [ARR_2('GVAR(state)','none')])=='supplyunload'));
+            onTransition = QUOTE(_this setVariable [ARR_2('GVAR(state)','combat')];_this call FUNC(statemachine_transportUnload););
+        };
+        class reached {
+            targetState = "combat";
+            condition = QUOTE(((leader _this) distance2D (GVAR(dangerzones) getVariable 'centerpos'))<500);
+            onTransition = QUOTE(_this setVariable [ARR_2('GVAR(state)','combat')];);
+        };
+
+        class timeout {
+            targetState = "return";
+            condition = QUOTE((_this getVariable [ARR_2('GVAR(timeout)',-1)])<CBA_missiontime);
+            onTransition = "";
+        };
+    };
+
+
+    class transport {
+        onState = "";
+        onStateEntered = QFUNC(statemachine_Transport);
+        onStateLeaving = "";
+        class dropOff {
+            targetState = "return";
+            condition = QUOTE(((leader _this) distance2D (GVAR(dangerzones) getVariable 'centerpos'))<500);
+            onTransition = QFUNC(statemachine_TransportUnload);
+        };
+        class timeout {
+            targetState = "return";
+            condition = QUOTE((_this getVariable [ARR_2('GVAR(timeout)',-1)])<CBA_missiontime);
+            onTransition = "";
+        };
+    };
+
+    class inTransport {
+        onState = "";
+        onStateEntered = "";
+        onStateLeaving = QUOTE(_this setVariable [ARR_2('GVAR(state)','combat')]);
+        class leaving {
+            targetstate = "init";
+            condition = "vehicle (leader _this) != (leader _this)";
+            onStateLeaving = "";
+        };
     };
 };

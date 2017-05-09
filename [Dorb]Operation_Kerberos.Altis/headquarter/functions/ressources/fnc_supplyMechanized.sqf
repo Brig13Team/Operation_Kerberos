@@ -23,7 +23,8 @@ TRACEV_3(_grouptype,_spawnPos,_targetPos);
 private _targetPos = [_targetPos,200,0] call EFUNC(common,pos_random);
 private _newGroup = [_spawnpos, _grouptype] call EFUNC(spawn,group);
 
-[_newGroup,"attack"] call FUNC(registerGroup);
-[_newGroup,"retreat",_targetPos] call FUNC(state_set);
+_newGroup setVariable [QGVAR(spawnpos),_spawnPos];
+_newGroup setVariable [QGVAR(timeout),15*60];
+_newGroup setVariable [QGVAR(state),"supply"];
 
 (([_newGroup] call FUNC(getstrengthAIGroup)) param [0,0])
