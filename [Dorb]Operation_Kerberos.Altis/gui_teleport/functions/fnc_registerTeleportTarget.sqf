@@ -25,6 +25,12 @@ If (IS_ARRAY(_type)) exitWith {
     } forEach _type;
 };
 
+private _nearCarriers = _position nearObjects ["Land_Carrier_01_base_F",250];
+If !(_nearCarriers isEqualTo []) then {
+    private _offset = ((getPosASL (_nearCarriers select 0)) select 2) + 23.7;
+    _position set[2,_offset];
+};
+
 switch (toLower _type) do {
     case "air" : {
         GVAR(air) pushBack [_position,_targetName,_condition,_params];
