@@ -21,6 +21,9 @@ switch (_type) do {
         [_name] spawn {
             [_this select 0] call FUNC(taskmanager_remove);
 
+            GVAR(targets_client) = [];
+            publicVariable QGVAR(targets_client);
+            
             uiSleep 5;
             while { EGVAR(spawn,cleaningUp) } do { uiSleep 1; };
 

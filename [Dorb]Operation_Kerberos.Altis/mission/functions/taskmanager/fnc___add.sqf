@@ -40,6 +40,8 @@ if (HASH_HASKEY(_taskhandler, "state")) then { // _taskhandler is a mission too
 } else {
     _taskID = _name;
     HASH_SET(_mission, "BIS_taskID", _taskID);
+    GVAR(targets_client) = [] call FUNC(taskmanager,getMissionTargets);
+    publicVariable QGVAR(targets_client);
     [_taskID, GVARMAIN(playerside), _type, _pos, "ASSIGNED", 1, false, true, _type, false] call BIS_fnc_setTask;
 };
 

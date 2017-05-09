@@ -42,7 +42,7 @@ private _allVehicles = _position nearEntities [["LandVehicle","Air","Ship_F"],20
         };
         case (_curVehicle isKindOf 'Tank');
         case (_curVehicle isKindOf 'Ship_F');
-        case (_curVehicle isKindOf 'Car') {
+        case (_curVehicle isKindOf 'Car') : {
             private _engine = (vehicle _curVehicle) getHitPointDamage "HitEngine";
             If (isNil "_engine") then {
                 (vehicle _curVehicle) setFuel 0;

@@ -68,16 +68,16 @@ PREPS(obj,callEvent);
 // PREPS(obj,doCarry);
 // PREPS(obj,doDownload);
 PREPS(obj,doDrop);
-// PREPS(obj,doTriangulate);
+PREPS(obj,doTriangulate);
 // PREPS(obj,effectDownloadClient);
 // PREPS(obj,effectDownloadServer);
 PREPS(obj,effectEarthquake);
 // PREPS(obj,effectSandstorm);
-// PREPS(obj,effectTriangulation);
+PREPS(obj,effectTriangulation);
 // PREPS(obj,handleCarry);
 // PREPS(obj,init_Download);
 // PREPS(obj,initACEAction_case);
-// PREPS(obj,initACEAction_DataTerminal);
+PREPS(obj,initACEAction_DataTerminal);
 PREPS(obj,initACEAction_device);
 PREPS(obj,initACEAction_intel);
 PREPS(obj,initACEAction_upload);
@@ -86,7 +86,7 @@ PREPS(obj,markTargets);
 PREPS(obj,onRadiotowerDamaged);
 PREPS(obj,spawnEMP);
 PREPS(obj,spawnNuke);
-// PREPS(obj,triangulate);
+PREPS(obj,triangulate);
 
 ADDON = true;
 

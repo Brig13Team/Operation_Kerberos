@@ -13,9 +13,8 @@
  */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
+
 #define TRIANGULATION_DISTANCE 2000
-
-
 
 _this params ["_target","_caller"];
 
@@ -26,13 +25,13 @@ _allObjects = _allObjects - [_target];
 
 _allObjects = _allObjects select {
     // only close Terminals
-    ((_x distance2D _target) < 2000)&&
+    ((_x distance2D _target) < TRIANGULATION_DISTANCE)&&
     // they have to have their antenna active
     ((_x animationSourcePhase "Antenna_source")>=3)
 };
 TRACEV_1(_allObjects);
 If ((count _allObjects)<2) exitWith {
-    [LSTRING(OBJ_TRIANGULATE_MISSING_MSG_TITLE),LSTRING(OBJ_TRIANGULATE_MISSING_MSG_TITLE)] call EFUNC(gui,Message);
+    [LSTRING(OBJ_TRIANGULATE_MISSING_MSG_TITLE),LSTRING(OBJ_TRIANGULATE_MISSING_MSG)] call EFUNC(gui,Message);
 };
 
 private _objectSortArray = [];
@@ -43,7 +42,7 @@ private _objectSortArray = [];
 _objectSortArray sort true;
 private _checker = [_target,(_objectSortArray select 0) select 1,(_objectSortArray select 1) select 1];
 private _checkerPositions = [_target,(_objectSortArray select 0) select 1,(_objectSortArray select 1) select 1];
-private _allMissionTargets = [] call FUNC(taskmanager_getMissionTargets);
+private _allMissionTargets = missionNamespace getVariable [QGVAR(targets_client),[]];
 
 [
     15,
@@ -66,33 +65,3 @@ private _allMissionTargets = [] call FUNC(taskmanager_getMissionTargets);
         _check
     }
 ] call ace_common_fnc_progressBar;
-
-
-
-
-
-
-// get the missiontargets
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
