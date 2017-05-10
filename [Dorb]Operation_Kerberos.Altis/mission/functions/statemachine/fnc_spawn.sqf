@@ -46,6 +46,19 @@ _mission spawn {
         _x setVariable [QGVAR(mission),_mission];
     } forEach _objects;
     _mission setVariable ["objects",_objects];
+
+    If (_mainOrSide == "main") then {
+        // if the spawning of units errors out, the mission will still stay playable
+        [
+            {
+                (_this select 0) setVariable ["spawningfinished",true];
+            },
+            [_mission],
+            8*10
+        ] call CBA_fnc_waitAndExecute;
+        // spawn the big part of the units
+        [_centerpos] call EFUNC(spawn,createMission);
+    };
     // the spawning has been finished, next state
     _mission setVariable ["spawningfinished",true];
 
