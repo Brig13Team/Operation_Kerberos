@@ -195,6 +195,10 @@
                 <German>Return To Base</German>
                 <English>Return To Base</English>
             </Key>
+            <Key ID="STR_DORB_MISSION_RTB_SUCCESS">
+                <German>Alle Soldaten sind zurückgekehrt</German>
+                <English>All Soldiers returned</English>
+            </Key>
             <Key ID="STR_DORB_MISSION_CAPTURE_TITLE">
                 <German>Offizier gefangen nehmen</German>
                 <English>Capture Commander</English>
