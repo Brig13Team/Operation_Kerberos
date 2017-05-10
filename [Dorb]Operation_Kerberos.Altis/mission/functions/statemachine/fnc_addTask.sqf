@@ -39,8 +39,14 @@ If (_isMain) then {
         private _timeout = getNumber(_missionCfg >> "timeout");
         _mission setVariable ["timeout",CBA_missiontime + _timeout];
     };
+
+    // share the main objects for triangulation
     GVAR(targets_client) = _objects;
     publicVariable QGVAR(targets_client);
+
+    // mission start event
+    [QEGVAR(mission,start_server), [_mission]] call CBA_fnc_localEvent;
+
 }else{
     private _missionCfg = (missionconfigfile >> "mission" >> "side" >> _type);
     If (isNumber(_missionCfg >> "timeout")) then {

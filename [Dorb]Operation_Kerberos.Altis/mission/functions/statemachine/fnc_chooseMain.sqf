@@ -27,9 +27,10 @@ private _missionCfg = (missionConfigFile >> "mission" >> "main" >> _type);
 private _armys = getArray (_missionCfg >> "defence" >> "armys");
 private _chosenArmy = "";
 If !(_armys isEqualTo []) then {
-    private _chosenArmy = [_armys,1] call EFUNC(common,sel_array_weighted);
+    _chosenArmy = ([_armys,1] call EFUNC(common,sel_Array_Weighted)) select 0;
 };
 [_chosenArmy] call EFUNC(spawn,army_set);
+TRACEV_2(_armys,_chosenArmy);
 
 // the location of the Mission
 private _location = [_type] call FUNC(spawn_chooseLocation);

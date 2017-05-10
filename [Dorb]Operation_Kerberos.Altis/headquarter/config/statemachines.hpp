@@ -8,7 +8,7 @@
 #include "script_component.hpp"
 
 
-class GVAR(AIGroups_statemachine) {
+class GVAR(statemachine_AIGroups) {
     // Class properties have the same name as the corresponding function parameters
     // and code goes into strings.
     list = QUOTE(call FUNC(statemachine_getAIGroups));
