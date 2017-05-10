@@ -32,13 +32,13 @@ If (IS_ARRAY(_TaskID)) then {
 private _type = _mission getVariable ["type",""];
 
 switch _thisTransition do {
-    case "success" : {
+    case "succeeded" : {
         [
             _TaskID,
             "SUCCEEDED",
             false
         ] call BIS_fnc_taskSetState;
-        [QEGVAR(gui,message),[format[LSTRING(%1_TITLE),_type],format[LSTRING(%1_SUCCESS),_type],"green"]] call CBA_fnc_globalEvent;
+        [QEGVAR(gui,message),[format[LSTRING(%1_TITLE),_type],format[LSTRING(%1_SUCCEEDED),_type],"green"]] call CBA_fnc_globalEvent;
     };
     case "neutral" : {
         [

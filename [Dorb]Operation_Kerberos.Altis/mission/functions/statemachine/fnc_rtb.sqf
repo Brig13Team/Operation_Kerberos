@@ -45,7 +45,7 @@ If (_thisTransition == "toRTB") then {
     // RTB is Finished
     [
         _TaskID,
-        "SUCCESS",
+        "SUCCEEDED",
         false
     ] call BIS_fnc_taskSetState;
     [QEGVAR(gui,message),[LSTRING(RTB_TITLE),LSTRING(RTB_SUCCESS),"green"]] call CBA_fnc_globalEvent;

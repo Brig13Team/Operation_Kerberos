@@ -59,9 +59,9 @@ _this params ["_pos",["_rad",2500,[0]]];
 GVAR(cleanup_Dump_int) sort true;
 GVAR(cleanUpDump) = [];
 
-[{GVAR(cleaningUp) = false;},[],15] call CBA_fnc_waitAndExecute;
-
 [] call EFUNC(common,debug_marker_clean);
 
 ISNILS(EGVAR(mission,markerdump),[]);
 EGVAR(mission,markerdump) TILGE;
+
+[{GVAR(cleaningUp) = false;},[],30] call CBA_fnc_waitAndExecute;

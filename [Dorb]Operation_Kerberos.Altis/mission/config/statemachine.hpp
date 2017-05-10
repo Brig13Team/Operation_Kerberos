@@ -32,7 +32,7 @@ class GVAR(statemachine_Taskmanager) {
         onState = QFUNC(statemachine_checkOneCounter);
         onStateEntered = "_this setvariable ['progress','none']";
         onStateLeaving = "";
-        class success {
+        class succeeded {
             targetState = "endmission";
             condition = "(_this getvariable ['progress','none'])=='succeeded'";
             onTransition = QFUNC(statemachine_onTransition);
@@ -66,9 +66,9 @@ class GVAR(statemachine_Taskmanager) {
         onStateLeaving = "";
         // the possible mission endings, it's needed to create 3 transitions, to define the ending for endmission
         // the mission was a complete success
-        class success {
+        class succeeded {
             targetState = "endmission";
-            condition = "(_this getvariable ['progress','none'])=='success'";
+            condition = "(_this getvariable ['progress','none'])=='succeeded'";
             onTransition = QFUNC(statemachine_onTransition);
         };
         // you have failed the mission
@@ -128,7 +128,7 @@ class GVAR(statemachine_Taskmanager) {
         // add the rtb task and show the message
         onStateEntered = QFUNC(statemachine_rtb);
         onStateLeaving = "";
-        class success {
+        class succeeded {
             // we want to cleanup, after the units are back in base
             targetState = "cleanup"
             // check inf the units are all back to base

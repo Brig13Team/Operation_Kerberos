@@ -16,4 +16,4 @@
 TRACE("cleanup");
 _this params ["_mission"];
 
-[QGVAR(end_server),_mission] call CBA_fnc_globalEvent;
+[QGVAR(end_server),[_mission]] call CBA_fnc_globalEvent;

@@ -16,12 +16,8 @@
 _this params ["_mission"];
 
 GVAR(cleaningUp) = true;
-
-if !( HASH_GET_DEF(_mission, "type","none") == "rtb") exitWith {
-    private _location = HASH_GET(_mission, "location");
-    GVAR(cleanup_positions) pushback (_location select 1);
-    [] call FUNC(Army_set);
-};
+private _location = HASH_GET(_mission, "location");
+GVAR(cleanup_positions) pushback (_location select 1);
 
 GVAR(cleanup_positions) = GVAR(cleanup_positions) + (missionNamespace getVariable [QGVAR(rescuepositions),[]]);
 
