@@ -45,10 +45,13 @@ switch (_defenceStructure) do {
 
 if (_targetPositions isEqualTo []) then {
     for "_i" from 1 to _amount do {
-        _targetPositions pushBack (ATLtoASL ([_centerposition, 15, _radius] call EFUNC(common,pos_randomFlatEmpty)));
+        private _temp = [_centerposition, 15, _radius] call EFUNC(common,pos_randomFlatEmpty);
+        if ((!isNil "_temp")&&{count _temp == 3}) then {
+            _targetPositions pushBack (ATLtoASL _temp);
+        };
     };
     if (_targetPositions isEqualTo []) then {
-        _targetPositions = [_centerposition];
+        _targetPositions = [ATLtoASL[_centerposition select 0,_centerposition select 1,0]];
     };
 };
 

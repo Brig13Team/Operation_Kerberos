@@ -64,41 +64,7 @@ GVAR(handle) = [] spawn {
         [_x] call FUNC(strategy__choose);
     } forEach _newAttackPos;
 
-
     // POI
-
     [] call FUNC(checkPOI);
-
-    // Move defending Units of already destroyed POI to other POI
-    {
-        private _grouphash = _x;
-        private _group = HASH_GET(_grouphash,"group");
-        If (isNil "_grouphash") then {WARNING("Grouphash is Nil");TRACEV_3(_x,_grouphash,_group);};
-        If ((HASH_GET_DEF(_grouphash,"state","NOSTATE")) in ["idle"]) then {
-            private _allPOI = (HASH_GET(GVAR(POI),"Locations")) select {HASH_GET_DEF(_x,"isActive",false)};
-            CHECK(_allPOI isEqualTo [])
-            TRACE("Moving defence groups to other POI");
-            [_group,"defend",(selectRandom _allPOI)] call FUNC(state_set);
-        };
-    } forEach (HASH_GET(GVAR(groups),"defenceGroups"));
-
-    // get the availlible groups
-    private _waitingGroups = [];
-    {
-        If (side _x != GVARMAIN(playerside)) then {
-            private _grouphash = HASH_GET(_x,QGVAR(grouphash));
-            If !(isNil "_grouphash") then {
-                // bored
-                if ((HASH_GET_DEF(_grouphash,QGVAR(state),"NOSTATE")) in ["wait"]) then {
-                    _waitingGroups pushBack _x;
-                };
-                // Veteran
-                if ((HASH_GET_DEF(_grouphash,QGVAR(state),"NOSTATE")) in ["idle"]) then {
-                    _waitingGroups pushBack _x;
-                };
-            };
-        };
-    } forEach allGroups;
-
 
 };

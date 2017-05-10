@@ -2,13 +2,13 @@
  *  Author: Dorbedo
  *
  *  Description:
- *      [Description]
+ *      a strategy has been finished called via strategy check
  *
  *  Parameter(s):
- *      0 : [TYPE] - [argument name]
+ *      0 : LOCATION - the strategy
  *
  *  Returns:
- *      [TYPE] - [return name]
+ *      none
  *
  */
 //#define DEBUG_MODE_FULL
@@ -19,12 +19,17 @@ _this params ["_strategy"];
 private _type = HASH_GET_DEF(_strategy,"strategytype","");
 
 If (_type isEqualTo "groundattack") then {
+    private _attackinggroups = [];
     {
-        private _groupStrat = HASH_GET_DEF(_x,"strategy",locationNull);
+        private _groupStrat = _x getVariable [QGVAR(strategy),locationNull];
         If (_groupStrat isEqualTo _strategy) then {
-            [HASH_GET_DEF(_x,"group",grpNull)] call FUNC(strategy__onFinishSAD);
+            _attackinggroups pushBack _x;
         };
-    } forEach HASH_GET_DEF(GVAR(groups),"attackGroups",[]);
+    } forEach (["combat"] call FUNC(statemachine_getAIGroups));
+
+    {
+        [_x] call FUNC(strategy__onFinishSAD);
+    } forEach _attackinggroups;
 };
 
 If !(isNull _strategy) then {

@@ -50,6 +50,7 @@ If ((GVAR(teleport_lead_active))&&{_type == "infanterie"}) then {
     _button ctrlsetText (localize LSTRING(DOTELEPORT));
     If (_params call _condition) then {
         _button ctrlAddEventHandler ["ButtonClick",format['[%1,%2] call FUNC(teleport)',str _type,_forEachIndex]];
+        _button ctrlEnable true;
     }else{
         _button ctrlEnable false;
     };

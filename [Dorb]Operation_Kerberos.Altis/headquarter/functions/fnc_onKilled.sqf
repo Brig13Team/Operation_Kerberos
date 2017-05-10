@@ -79,26 +79,10 @@ If (isPlayer _unit) then {
     if ((count (units (group _unit)))<2) then {
         private _group = group _unit;
 
-        // remove the group from hashes;
-        private _grouphash = _group getVariable [QGVAR(grouphash),locationNull];
-        If !(isNull _grouphash) then {
-            /// if the group is registered somewhere, then remove the registration
-            private _state = HASH_GET(_grouphash,"grouptype");
-            private _key = switch _state do {
-                case "defence" : {"defenceGroups"};
-                case "patrol" : {"patrolGroups"};
-                default {"attackGroups"};
-            };
-            private _groupsarray = HASH_GET(GVAR(groups),_key);
-            _groupsarray = _groupsarray - [_grouphash];
-            HASH_SET(GVAR(groups),_key,_groupsarray);
-            HASH_DELETE(_grouphash);
-        };
-
-        // join a random defence group
-        private _defenceGroups = HASH_GET(GVAR(groups),"defenceGroups");
-        If !(_defenceGroups isEqualTo []) then {
-            (units (group _unit)) joinSilent HASH_GET(selectRandom _defenceGroups,"group");
+        // join a random attack group
+        private _newgroups = (["combat"] call FUNC(statemachine_getAIGroups));
+        If !(_newgroups isEqualTo []) then {
+            (units (group _unit)) joinSilent (selectRandom _newgroups);
         };
     };
 

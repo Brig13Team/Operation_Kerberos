@@ -17,7 +17,7 @@ private _centerpos = HASH_GET(GVAR(dangerzones),"centerpos");
 
 private _transporttype = ["transporter_lorry"] call EFUNC(spawn,getUnit);
 if (_transporttype isEqualTo []) exitWith {0};
-private _spawnPos = [_centerpos,_transporttype] call FUNC(ressources_getsaveSpawnPos);
+private _spawnPos = [_centerpos] call FUNC(ressources_getsaveSpawnPos);
 
 ([_spawnPos,GVARMAIN(side),_transporttype] call EFUNC(spawn,vehicle)) params ["_transportGroup","_transportVehicle"];
 
@@ -29,6 +29,16 @@ private _newGroup = [_spawnpos, _grouptype] call EFUNC(spawn,group);
     _x moveInCargo _transportVehicle;
 }forEach units _newGroup;
 
+
+_transportGroup setVariable [QGVAR(spawnpos),_spawnPos];
+_transportGroup setVariable [QGVAR(timeout),15*60];
+_transportGroup setVariable [QGVAR(state),"transporter"];
+
+_newGroup setVariable [QGVAR(spawnpos),_spawnPos];
+_newGroup setVariable [QGVAR(timeout),15*60];
+_newGroup setVariable [QGVAR(state),"inTransport"];
+
+/*
 _transportGroup addWaypoint [_centerpos,200];
 _transportVehicle doMove _centerpos;
 
@@ -70,5 +80,5 @@ _transportVehicle doMove _centerpos;
     10,
     [_transportGroup,_newGroup,_centerpos,_transportVehicle,_spawnPos]
 ] call CBA_fnc_addPerFrameHandler;
-
+*/
 (([_newGroup] call FUNC(getstrengthAIGroup)) param [0,0])

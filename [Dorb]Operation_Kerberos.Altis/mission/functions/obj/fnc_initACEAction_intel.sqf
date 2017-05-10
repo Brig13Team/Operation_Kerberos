@@ -17,8 +17,8 @@ private _action = [
     QGVAR(takeIntel),
     localize LSTRING(OBJECTS_INTEL_GRAB),
     "",
-    { [_target] call FUNC(obj__increaseCounter); deleteVehicle _target; },
-    { true }
+    { [QGVAR(obj__increaseCounter),[_target]] call CBA_fnc_serverEvent;_target setVariable [QGVAR(isActive),false,true];}, //TODO make it failproof
+    { _target getVariable [QGVAR(isActive),true]; }
 ] call ace_interact_menu_fnc_createAction;
 
 private _classes = ["intel"] call FUNC(spawn_getObjects);

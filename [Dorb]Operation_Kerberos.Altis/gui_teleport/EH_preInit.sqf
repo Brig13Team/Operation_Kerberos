@@ -2,16 +2,15 @@
 
 ADDON = false;
 
+PREP(animBttn);
 PREP(canOpenMenu);
 PREP(lead);
+PREP(nearEnemys);
 PREP(onLoad);
-PREP(teleport);
-
-PREP(animBttn);
 PREP(openMap);
 PREP(registerTeleportPosition);
 PREP(registerTeleportTarget);
-
+PREP(teleport);
 
 ADDON = true;
 

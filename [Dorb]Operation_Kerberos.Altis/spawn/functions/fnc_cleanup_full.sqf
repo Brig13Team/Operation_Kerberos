@@ -6,7 +6,7 @@
 
 */
 #include "script_component.hpp"
-_this params ["_pos","_rad"];
+_this params ["_pos",["_rad",2500,[0]]];
 
 {
     GVAR(cleanup_Dump_int) pushBackUnique [-1,_x];

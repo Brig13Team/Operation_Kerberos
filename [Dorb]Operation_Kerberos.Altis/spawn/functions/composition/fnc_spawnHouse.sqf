@@ -90,7 +90,7 @@ private _objectives = [];
 } forEach _allObjects;
 
 If ((!(isNull _group))&&{!(isNil QEFUNC(headquarter,registergroup))}) then {
-    [_group,"defence"] call EFUNC(headquarter,registergroup);
+    [_group,"static"] call EFUNC(headquarter,registergroup);
 };
 GVAR(usedHouses) pushBack _house;
 _objectives;
