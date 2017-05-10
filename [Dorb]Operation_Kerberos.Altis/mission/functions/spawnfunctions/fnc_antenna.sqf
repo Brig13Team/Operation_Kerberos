@@ -13,24 +13,3 @@
  */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-
-
-_this params ["_centerpos"];
-
-
-// spawn the targetvehicle
-
-
-
-
-
-
-
-
-// spawn the container
-private _Units = ["supplys"] call FUNC(spawn_getObjects);
-private _objects = [_units] call FUNC(spawn_createAtRescuepoint);
-
-
-_objects;
-//

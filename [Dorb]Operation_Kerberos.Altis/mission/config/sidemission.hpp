@@ -63,13 +63,14 @@ class side {
     };
     */
 
-/*
+
     class wreck : __base {
         class location : location {
             radius = 3000;
         };
+        taskdelay = 1200;
     };
-*/
+
     class supplys : __base {
         class location : location {
             areas[] = {QGVAR(town)};
@@ -77,5 +78,7 @@ class side {
             maxDistance = -1;
         };
         spawnfunction = QFUNC(spawnfunctions_supplys);
+        spawndelay = 600;
+        probability = 0.2;
     };
 };

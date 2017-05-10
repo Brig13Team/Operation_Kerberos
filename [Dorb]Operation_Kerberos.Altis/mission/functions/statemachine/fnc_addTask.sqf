@@ -50,18 +50,36 @@ private _showMarker = _mission getVariable ["showMarker",true];
 private _markerpos = (_mission getVariable "location")select 1;
 TRACEV_3(_type,_taskID,_showMarker);
 
+private _taskdelay = _mission getVariable ["taskdelay",0];
+
 [
-    _taskID,
-    GVARMAIN(playerside),
-    _type,
-    if ((_showMarker)&&{!isNil "_markerpos"}) then {_markerpos}else{nil},
-    "CREATED",
-    2,
-    false,
-    true,
-    _type,
-    false
-] call BIS_fnc_setTask;
+    {
+        _this params ["_mission","_taskID","_type","_showmarker","_markerpos"];
+        // if the task has already finished
+        private _progress = switch (_mission getVariable ["progress","none"]) do {
+            case "succeeded" : {"SUCCEEDED"};
+            case "failed" : {"FAILED"};
+            case "cancel";
+            case "neutral" : {"CANCELED"};
+            default {"CREATED"};
+        };
+        [
+            _taskID,
+            GVARMAIN(playerside),
+            _type,
+            if ((_showMarker)&&{!isNil "_markerpos"}) then {_markerpos}else{nil},
+            _progress,
+            2,
+            false,
+            true,
+            _type,
+            false
+        ] call BIS_fnc_setTask;
+    },
+    [_mission,_taskID,_type,_showmarker,_markerpos],
+    (CBA_missiontime + _taskdelay)
+] call CBA_fnc_waitandExecute;
+
 
 private _conditiontype = _mission getVariable ["conditiontype",""];
 _mission setVariable ["conditiontype",_conditiontype];
