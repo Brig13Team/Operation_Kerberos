@@ -13,7 +13,7 @@
  */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-
+TRACE("onTransition");
 _this params ["_mission"];
 
 private _eventName = format["on%1",_thisTransition];
@@ -22,7 +22,7 @@ If (!isNil "_value") then {
     If (IS_CODE(_value)) exitWith {
         _this call _value;
     };
-    If (IS_STRING) then {
+    If (IS_STRING(_value)) then {
         _this call compile (missionNamespace getVariable [_value,"true"]);
     };
 };

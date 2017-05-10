@@ -13,15 +13,7 @@
  */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-
-/*
-    //   _stateMachine   - the state machine
-    //   _this           - the current list item
-    //   _thisTransition - the current transition we're in
-    //   _thisOrigin     - the state we're coming from
-    //   _thisState      - same as _thisOrigin
-    //   _thisTarget     - the state we're transitioning to
-*/
+TRACE("choosingMain");
 
 _this params ["_mission"];
 
@@ -38,14 +30,30 @@ If !(_armys isEqualTo []) then {
     private _chosenArmy = [_armys,1] call EFUNC(common,sel_array_weighted);
 };
 [_chosenArmy] call EFUNC(spawn,army_set);
-// the location
+
+// the location of the Mission
 private _location = [_type] call FUNC(spawn_chooseLocation);
 _mission setVariable ["location",_location];
 
+// get the centerposition of the spawning
 private _radius = getNumber (_missionCfg >> "location" >> "radius");
+
 private _centerpos = [_location select 1, _radius] call EFUNC(common,pos_random);
 _mission setVariable ["centerpos",_centerpos];
 
+// showMarker flag
+private _showMarker = ((getNumber(_missionCfg >> "disableMarker")) == 0);
+_mission setVariable ["showmarker",_showMarker];
+
+// the conditiontype
+private _condition = getText(_missionCfg >> "conditiontype");
+_mission setVariable ["conditiontype",_condition];
+
+INC(GVAR(taskCounter));
+private _taskID = format[QGVAR(mission_%1),GVAR(taskcounter)];
+_mission setVariable ["taskID",_taskID];
+
+// now we check if we have already a new mainmission defined
 If !(isNull (missionNamespace getVariable [QGVAR(forcedNextMain),locationNull])) then {
     // we transfer the variables of the forced next main onto the current hash and delete the main
     HASH_MERGE(_mission,GVAR(forcedNextMain));

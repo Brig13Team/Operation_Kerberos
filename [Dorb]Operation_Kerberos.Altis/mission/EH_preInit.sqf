@@ -38,6 +38,23 @@ PREPS(spawn,getObjects);
 PREPS(spawn,getRadius);
 PREPS(spawn,spawnTargets);
 
+PREPS(statemachine,addSide);
+PREPS(statemachine,addTask);
+PREPS(statemachine,cancelALL);
+PREPS(statemachine,checkOneCounter);
+PREPS(statemachine,checkTwoCounter);
+PREPS(statemachine,chooseMain);
+PREPS(statemachine,cleanup);
+PREPS(statemachine,endmission);
+PREPS(statemachine,getMissions);
+PREPS(statemachine,HoldPFH);
+PREPS(statemachine,initHold);
+PREPS(statemachine,initOneCounter);
+PREPS(statemachine,initTwoCounter);
+PREPS(statemachine,onTransition);
+PREPS(statemachine,rtb);
+PREPS(statemachine,spawn);
+
 PREPS(taskmanager,__add);
 PREPS(taskmanager,__cancelAll);
 PREPS(taskmanager,__handle);

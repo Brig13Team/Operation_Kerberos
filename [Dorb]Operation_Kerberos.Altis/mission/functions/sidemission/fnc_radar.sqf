@@ -20,4 +20,4 @@ _this params ["_mission", "_targets"];
     [QEGVAR(headquarter,registerRadar),_x] call CBA_fnc_localEvent;
 } forEach _targets;
 
-[_mission, _targets] call FUNC(mainmission__oneCounter);
+//[_mission, _targets] call FUNC(mainmission__oneCounter);

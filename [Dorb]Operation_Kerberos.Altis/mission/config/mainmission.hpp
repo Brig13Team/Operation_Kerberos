@@ -30,6 +30,7 @@ class main {
     };
 
     class __oneCounter : __base {
+        conditiontype = "oneCounter";
         class defence : defence {
             target = "composition";
             armys[] = {{"regular",1}, {"armored",1}, {"infanterie",1}, {"airborne",1}, {"guards",1}};
@@ -37,6 +38,7 @@ class main {
     };
 
     class __twoCounter : __oneCounter {
+        conditiontype = "twoCounter";
         class defence : defence {
             target = "house";
         };

@@ -10,7 +10,7 @@
 
 class GVAR(statemachine_Taskmanager) {
 
-    list = QUOTE(missionnamespace getVariable [ARR_2(QGVAR(missions),[])]);
+    list = QUOTE(call FUNC(statemachine_getMissions));
     skipNull = 1;
 
     class initial {
@@ -18,24 +18,23 @@ class GVAR(statemachine_Taskmanager) {
         onStateEntered = "";
         onStateLeaving = "";
         class isMainMission {
-            targetState = "Spawn";
+            targetState = "spawn";
             condition = "_this getVariable ['isMain',true]";
             onTransition = QFUNC(statemachine_chooseMain);
         };
         class isSideMission {
-            targetState = "Spawn";
+            targetState = "spawn";
             condition = "true";
             onTransition = "";
         };
     };
-
     class oneCounter {
-        onState = QFUNC(CheckOneCounter);
+        onState = QFUNC(statemachine_checkOneCounter);
         onStateEntered = "_this setvariable ['progress','none']";
         onStateLeaving = "";
         class success {
             targetState = "endmission";
-            condition = "(_this getvariable ['progress','none'])=='success'";
+            condition = "(_this getvariable ['progress','none'])=='succeeded'";
             onTransition = QFUNC(statemachine_onTransition);
         };
         class failed {
@@ -62,7 +61,7 @@ class GVAR(statemachine_Taskmanager) {
 
     class twoCounter {
         // check the counter, it will set the progress directly onto the mission
-        onState = QFUNC(CheckTwoCounter);
+        onState = QFUNC(statemachine_CheckTwoCounter);
         onStateEntered = "_this setvariable ['progress','none']";
         onStateLeaving = "";
         // the possible mission endings, it's needed to create 3 transitions, to define the ending for endmission
@@ -142,13 +141,13 @@ class GVAR(statemachine_Taskmanager) {
     // cleanup the mainMission
     class cleanup {
         onState = "";
-        onStateEntered = QEFUNC(statemachine_cleanup);
+        onStateEntered = QFUNC(statemachine_cleanup);
         onStateLeaving = "";
         class newtask {
             // the mission is not needed anymore, it can be dumped
             targetState = "dump";
             // wait until everything is cleaned up
-            condition = QUOTE(!(missionNamespace getVariable [QEGVAR(spawn,cleaningUp),true]));
+            condition = QUOTE(!(missionNamespace getVariable [ARR_2('EGVAR(spawn,cleaningUp)',true)]));
             // create a new blank Mission
             onTransition = QUOTE(GVAR(Missions) pushBack HASH_CREATE);
         };
@@ -156,7 +155,7 @@ class GVAR(statemachine_Taskmanager) {
 
     class spawn {
         onState = "";
-        onStateEntered = QEFUNC(statemachine_spawn);
+        onStateEntered = QFUNC(statemachine_spawn);
         onStateLeaving = "";
         class cancel {
             // prevent the spawning, if the was an exit forced
@@ -178,7 +177,7 @@ class GVAR(statemachine_Taskmanager) {
 
     class addTask {
         onState = "";
-        onStateEntered = QEFUNC(statemachine_addTask);
+        onStateEntered = QFUNC(statemachine_addTask);
         onStateLeaving = "";
         class twoCounter {
             targetState = "twoCounter";

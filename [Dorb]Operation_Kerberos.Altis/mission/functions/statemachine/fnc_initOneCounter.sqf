@@ -13,7 +13,7 @@
  */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-
+TRACE("initOneCounter");
 _this params ["_mission"];
 
 private _targets = _mission getVariable ["objects",[]];

@@ -29,4 +29,4 @@ _this params ["_mission", "_targets"];
     _x addEventHandler ["Killed", LINKFUNC(obj__increaseCounterTwo)];
 } forEach _targets;
 
-[_mission, _targets] call FUNC(mainmission__twoCounters);
+//[_mission, _targets] call FUNC(mainmission__twoCounters);

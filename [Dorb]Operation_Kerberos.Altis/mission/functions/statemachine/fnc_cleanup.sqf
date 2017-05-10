@@ -13,7 +13,7 @@
  */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-
+TRACE("cleanup");
 _this params ["_mission"];
 
 [QGVAR(end_server),_mission] call CBA_fnc_globalEvent;

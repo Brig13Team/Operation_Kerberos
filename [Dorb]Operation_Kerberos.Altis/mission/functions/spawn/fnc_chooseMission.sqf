@@ -12,6 +12,7 @@
  *  Returns:
  *      STRING
  */
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 _this params [["_name", "", [""]]];
@@ -22,10 +23,21 @@ if (_name isEqualTo "") then {
 } else {
     _mainOrSide = "side";
 };
+/*
 private _classes = "true" configClasses (missionConfigFile >> "mission" >> _mainOrSide)
                         select { !(([configName _x, 0, 2] call CBA_fnc_substr) isEqualTo "__") AND !((configName _x) isEqualTo "rtb") } // non playable missions
                         select { if !(isText(_x >> "condition")) then { true } else { [] call compile getText(_x >> "condition") } };
+*/
+private _classes = configProperties [
+    (missionConfigFile >> "mission" >> _mainOrSide),
+    "(!(((configName _x) select [0,2]) isEqualTo '__'))",
+    true
+];
 
+_classes = _classes select {
+    if !(isText(_x >> "condition")) then { true } else { [] call compile getText(_x >> "condition") }
+};
+TRACEV_3(_classes,_mainOrSide,_name);
 if (_mainOrSide isEqualTo "side") then {
     private _types = getArray(missionConfigFile >> "mission" >> "main" >> _name >> "side" >> "types") apply { missionConfigFile >> "mission" >> "side" >> _x };
     _classes = _classes select { count ([_x,false] call BIS_fnc_returnParents arrayIntersect _types) > 0 };

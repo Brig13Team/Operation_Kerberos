@@ -13,12 +13,13 @@
  *  Returns:
  *      -
  */
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 _this params [["_messageType","",[""]], ["_missionType","",[""]], ["_color","blue",[""]], ["_parameter", []]];
 
 if !(hasInterface) exitWith { -1 };
-
+TRACEV_4(_messageType,_missionType,_color,_parameter);
 private _message = toUpper(format ["%1_%2_%3", QUOTE(DOUBLES(STR,ADDON)), _missionType, _messageType]);
 private _title = toUpper(format ["%1_%2_%3", QUOTE(DOUBLES(STR,ADDON)), _missionType, "TITLE"]);
 

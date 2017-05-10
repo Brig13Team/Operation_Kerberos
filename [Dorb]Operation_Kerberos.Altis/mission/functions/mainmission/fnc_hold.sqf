@@ -21,5 +21,5 @@ private _radius = ["hold"] call FUNC(spawn_getRadius);
 
 [LINKFUNC(mainmission__holdPFH), 1, [_position, _radius, _multiplier, _tickets, _mission]] call CBA_fnc_addPerFrameHandler;
 
-[_mission,[]] call FUNC(mainmission__oneCounter);
-HASH_SET(_mission, "obj_counter_total", _tickets);
+//[_mission,[]] call FUNC(mainmission__oneCounter);
+//HASH_SET(_mission, "obj_counter_total", _tickets);

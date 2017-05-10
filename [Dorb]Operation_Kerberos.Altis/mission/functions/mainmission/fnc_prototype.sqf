@@ -21,4 +21,4 @@ _this params ["_mission", "_targets"];
     HASH_SET(_mission, "prototype", typeOf _x);
 } forEach _targets;
 
-[_mission, _targets] call FUNC(mainmission__oneCounter);
+//[_mission, _targets] call FUNC(mainmission__oneCounter);

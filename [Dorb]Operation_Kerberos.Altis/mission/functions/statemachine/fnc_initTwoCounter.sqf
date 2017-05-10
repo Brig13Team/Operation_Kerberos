@@ -13,7 +13,7 @@
  */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-
+TRACE("initTwoCounter");
 _this params ["_mission"];
 
 

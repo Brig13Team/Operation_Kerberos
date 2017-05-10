@@ -13,7 +13,7 @@
  */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-
+TRACE("endmission");
 /*
     //   _stateMachine   - the state machine
     //   _this           - the current list item
@@ -25,14 +25,17 @@
 
 _this params ["_mission"];
 
-private _TaskID = _mission getVariable ["TaskID",str (random 999999)];
+private _TaskID = _mission getVariable "taskID";
+If (IS_ARRAY(_TaskID)) then {
+    _TaskID = _TaskID select 0;
+};
 private _type = _mission getVariable ["type",""];
 
 switch _thisTransition do {
     case "success" : {
         [
             _TaskID,
-            "SUCCESS",
+            "SUCCEEDED",
             false
         ] call BIS_fnc_taskSetState;
         [QEGVAR(gui,message),[format[LSTRING(%1_TITLE),_type],format[LSTRING(%1_SUCCESS),_type],"green"]] call CBA_fnc_globalEvent;

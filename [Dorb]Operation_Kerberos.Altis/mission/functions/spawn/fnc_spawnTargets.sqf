@@ -12,6 +12,7 @@
  *  Returns:
  *      [OBJECT]    - mission targets
  */
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 _this params ["_type", "_centerposition", ["_mainOrSide", "main", [""]]];

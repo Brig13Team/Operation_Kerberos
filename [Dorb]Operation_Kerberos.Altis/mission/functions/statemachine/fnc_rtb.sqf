@@ -13,7 +13,7 @@
  */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-
+TRACE("rtb");
 /*
     //   _stateMachine   - the state machine
     //   _this           - the current list item

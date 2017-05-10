@@ -20,7 +20,7 @@ _this params ["_mission", "_targets"];
     _x addEventHandler ["Killed", LINKFUNC(obj__triggerFailed)];
 } forEach _targets;
 
-[_mission, _targets] call FUNC(mainmission__oneCounter);
+//[_mission, _targets] call FUNC(mainmission__oneCounter);
 
 // init device event
 HASH_SET(_mission, "event_callback",  QFUNC(obj_callEvent));
