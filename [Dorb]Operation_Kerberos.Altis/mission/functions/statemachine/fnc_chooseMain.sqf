@@ -1,5 +1,5 @@
 /*
- *  Author: Dorbedo
+*  Author: iJesuz, Dorbedo
  *
  *  Description:
  *      chooses the maintask
@@ -29,10 +29,10 @@ _this params ["_mission"];
 private _type = [] call FUNC(spawn_chooseMission);
 _mission setVariable ["type",_type];
 // get all important Variables and start the mission
-
+private _missionCfg = (missionConfigFile >> "mission" >> "main" >> _type);
 
 // get the army
-private _armys = getArray (missionConfigFile >> "mission" >> "main" >> _type >> "defence" >> "armys");
+private _armys = getArray (_missionCfg >> "defence" >> "armys");
 private _chosenArmy = "";
 If !(_armys isEqualTo []) then {
     private _chosenArmy = [_armys,1] call EFUNC(common,sel_array_weighted);
@@ -42,7 +42,9 @@ If !(_armys isEqualTo []) then {
 private _location = [_type] call FUNC(spawn_chooseLocation);
 _mission setVariable ["location",_location];
 
-
+private _radius = getNumber (_missionCfg >> "location" >> "radius");
+private _centerpos = [_location select 1, _radius] call EFUNC(common,pos_random);
+_mission setVariable ["centerpos",_centerpos];
 
 If !(isNull (missionNamespace getVariable [QGVAR(forcedNextMain),locationNull])) then {
     // we transfer the variables of the forced next main onto the current hash and delete the main

@@ -59,6 +59,7 @@ class GVAR(statemachine_Taskmanager) {
             onTransition = QFUNC(statemachine_onTransition);
         };
     };
+
     class twoCounter {
         // check the counter, it will set the progress directly onto the mission
         onState = QFUNC(CheckTwoCounter);
@@ -182,22 +183,23 @@ class GVAR(statemachine_Taskmanager) {
         class twoCounter {
             targetState = "twoCounter";
             condition = "(_this getVariable ['conditiontype','none']) == 'twoCounter'";
-            onTransition = "";
+            onTransition = QFUNC(statemachine_inittwoCounter);
         };
         class oneCounter {
             targetState = "oneCounter";
             condition = "(_this getVariable ['conditiontype','none']) == 'oneCounter'";
-            onTransition = "";
+            onTransition = QFUNC(statemachine_initOneCounter);
         };
         class hold {
-            targetState = "hold";
+            // a hold mission is just some kind of oneCounter, but with another init
+            targetState = "oneCounter";
             condition = "(_this getVariable ['conditiontype','none']) == 'hold'";
-            onTransition = "";
+            onTransition = QFUNC(statemachine_initHold);
         };
         // the provided conditiotype is not supported
         class errorout {
             targetState = "error"
-            condition = true;
+            condition = "true";
             onTransition = "";
         };
     };

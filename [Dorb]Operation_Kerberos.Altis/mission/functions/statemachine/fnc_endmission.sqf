@@ -1,5 +1,5 @@
 /*
- *  Author: Dorbedo
+*  Author: iJesuz, Dorbedo
  *
  *  Description:
  *      ends a mission

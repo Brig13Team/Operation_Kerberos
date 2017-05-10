@@ -1,8 +1,8 @@
 /*
- *  Author: Dorbedo
+*  Author: iJesuz, Dorbedo
  *
  *  Description:
- *      adds the task
+ *      adds the task (visible message)
  *
  *  Parameter(s):
  *      0 : LOCATION - the mainmission
@@ -24,3 +24,33 @@
 */
 
 _this params ["_mission"];
+
+private _objects = _mission getVariable ["objects",[]];
+private _showMarker = _mission getVariable ["showmarker",true,[true]];
+private _markerpos = (_mission getVariable ["location",[[]]]) select 1;
+
+private _missionCfg = (missionconfigfile >> "");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+
+If (isNumber(_missionCfg >> "timeout")) then {
+    private _timeout = getNumber(_missionCfg >> "timeout");
+    _mission setVariable ["timeout",CBA_missiontime + _timeout];
+};
+
+_mission setVariable ["conditiontype",_conditiontype];
+
+//

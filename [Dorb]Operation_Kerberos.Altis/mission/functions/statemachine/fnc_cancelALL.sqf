@@ -1,8 +1,8 @@
 /*
- *  Author: Dorbedo
+ *  Author: iJesuz, Dorbedo
  *
  *  Description:
- *      cancels all Missions
+ *      adds a sidemission
  *
  *  Parameter(s):
  *      none

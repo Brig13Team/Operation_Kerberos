@@ -147,17 +147,6 @@ class main {
         };
     };
 
-    class rtb : __base {
-       class object : object {
-           radius   = 250;
-           position = "respawn_west";
-       };
-
-       class side : side {
-           types[] = {};
-       };
-    };
-
 /*
     // internal rhs script produces too much script errors
     class scarab : radiotower {
