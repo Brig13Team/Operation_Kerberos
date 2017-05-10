@@ -19,7 +19,7 @@ class GVAR(statemachine_Taskmanager) {
         onStateLeaving = "";
         class isMainMission {
             targetState = "Spawn";
-            condition = "isNull(_this getVariable ['parent',locationNull])";
+            condition = "_this getVariable ['isMain',true]";
             onTransition = QFUNC(statemachine_chooseMain);
         };
         class isSideMission {
@@ -107,7 +107,7 @@ class GVAR(statemachine_Taskmanager) {
         // if its a sidemission do nothing
         class isSideMission {
             targetState = "dump";
-            condition = "!(isNull(_this getVariable ['parent',locationNull]))";
+            condition = "!(_this getVariable ['isMain',true])";
             onTransition = "";
         };
         // create the rtb task, if it's a mainmission
@@ -211,7 +211,7 @@ class GVAR(statemachine_Taskmanager) {
         // if its a sidemission do nothing
         class isSideMission {
             targetState = "dump";
-            condition = "!(isNull(_this getVariable ['parent',locationNull]))";
+            condition = "!(_this getVariable ['isMain',true])";
             onTransition = "";
         };
         // if the mainmission errors, we have to cancel the mission

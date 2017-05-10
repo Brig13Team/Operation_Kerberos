@@ -35,11 +35,14 @@ private _amount = ceil (random(_max - _min)) + _min;
 for "_i" from 1 to _amount do {
     private _hash = HASH_CREATE;
     private _type = [_mainType] call FUNC(spawn_chooseSide);
-    _mission setVariable ["type",_type];
+    _hash setVariable ["type",_type];
+    _hash setVariable ["parent",_mission];
+    _hash setVariable ["isMain",false];
+
 
     // the location TODO
     private _location = [_type] call FUNC(spawn_chooseLocation);
-    _mission setVariable ["location",_location];
+    _hash setVariable ["location",_location];
 
     GVAR(missions) pushBack _hash;
 };
