@@ -2,7 +2,7 @@
 *  Author: iJesuz, Dorbedo
  *
  *  Description:
- *      Checks the counter
+*      initializes a two counter
  *
  *  Parameter(s):
  *      0 : LOCATION - the mission
@@ -13,7 +13,7 @@
  */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-TRACE("initTwoCounter");
+
 _this params ["_mission"];
 
 

@@ -2,7 +2,7 @@
  *  Author: Dorbedo
  *
  *  Description:
- *      onTransitionEvent
+ *      onTransitionEvent is called if defined
  *
  *  Parameter(s):
  *      0 : LOCATION - the mission
@@ -13,7 +13,7 @@
  */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-TRACE("onTransition");
+
 _this params ["_mission"];
 
 private _eventName = format["on%1",_thisTransition];

@@ -2,7 +2,7 @@
  *  Author: Dorbedo
  *
  *  Description:
- *      chooses the sidemissions
+ *      adds sidetasks to the mainmission
  *
  *  Parameter(s):
  *      0 : LOCATION - the mainmission
@@ -13,15 +13,6 @@
  */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-TRACE("adding side");
-/*
-    //   _stateMachine   - the state machine
-    //   _this           - the current list item
-    //   _thisTransition - the current transition we're in
-    //   _thisOrigin     - the state we're coming from
-    //   _thisState      - same as _thisOrigin
-    //   _thisTarget     - the state we're transitioning to
-*/
 
 _this params ["_mainmission"];
 
@@ -96,6 +87,18 @@ for "_i" from 1 to _amount do {
     // the conditiontype
     private _condition = getText(_missionCfg >> "conditiontype");
     _hash setVariable ["conditiontype",_condition];
+
+    // if there is a special spawning function
+    private _spawnFunction = getText(_missionCfg >> "spawnfunction");
+    _hash setVariable ["spawnfunction",_spawnFunction];
+
+    // if we want to delay the task creation
+    private _taskdeplay = getNumber(_missionCfg >> "taskdeplay");
+    _hash setVariable ["taskdelay",_taskdeplay];
+
+    // if we want to delay the spawning
+    private _spawndelay = getNumber(_missionCfg >> "spawndelay");
+    _hash setVariable ["spawndelay",_spawndelay];
 
 
     private _mainID = _mainmission getVariable "taskID";

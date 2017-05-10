@@ -22,6 +22,11 @@ class GVAR(statemachine_Taskmanager) {
             condition = "_this getVariable ['isMain',true]";
             onTransition = QFUNC(statemachine_chooseMain);
         };
+        class isSideMissiondelayed {
+            targetState = "addSpawnDelay";
+            condition = "(_this getVariable ['spawndelay',0])>0";
+            onTransition = "";
+        };
         class isSideMission {
             targetState = "spawn";
             condition = "true";
@@ -163,14 +168,51 @@ class GVAR(statemachine_Taskmanager) {
             condition = "(_this getvariable ['progress','none'])=='cancel'";
             onTransition = "";
         };
+        class spawncomplete_deplayedTask {
+            targetState = "addTaskDelayed";
+            condition = "((_this getVariable ['taskdelay',0])>0)&&{_this getVariable ['spawningfinished',false]}";
+            onTransition = "";
+        };
         class spawncomplete {
             targetState = "addTask";
             condition = "_this getVariable ['spawningfinished',false]";
-            onTransition = QFUNC(statemachine_addSide);
+            onTransition = "";
         };
         class timeout {
             targetState = "error";
             condition = "(_this getvariable ['spawntimeout',1E20])<CBA_missiontime";
+            onTransition = "";
+        };
+    };
+
+    class addTaskDelayed {
+        onState = "";
+        onStateEntered = "_this setVariable ['delayend',CBA_missiontime + (_this getVariable 'taskdelay')]";
+        onStateLeaving = "";
+        class cancel {
+            targetState = "dump";
+            condition = "(_this getvariable ['progress','none'])=='cancel'";
+            onTransition = "";
+        };
+        class addTask {
+            targetState = "addTask";
+            condition = "(_this getvariable ['delayend',-1])<CBA_missiontime";
+            onTransition = "";
+        };
+    };
+
+    class addSpawnDelay {
+        onState = "";
+        onStateEntered = "_this setVariable ['delayend',CBA_missiontime + (_this getVariable 'spawndelay')]";
+        onStateLeaving = "";
+        class cancel {
+            targetState = "dump";
+            condition = "(_this getvariable ['progress','none'])=='cancel'";
+            onTransition = "";
+        };
+        class spawn {
+            targetState = "spawn";
+            condition = "(_this getvariable ['delayend',-1])<CBA_missiontime";
             onTransition = "";
         };
     };

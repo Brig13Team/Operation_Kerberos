@@ -2,7 +2,7 @@
  *  Author: iJesuz, Dorbedo
  *
  *  Description:
- *      adds a sidemission
+ *      cancels all missions
  *
  *  Parameter(s):
  *      none

@@ -2,10 +2,10 @@
  *  Author: iJesuz, Dorbedo
  *
  *  Description:
- *      ends a mission
+ *      spawns the missionobjects
  *
  *  Parameter(s):
- *      0 : LOCATION - the last MainMission
+ *      0 : LOCATION - the Mission
  *
  *  Returns:
  *      none
@@ -13,7 +13,7 @@
  */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-TRACE("spawn");
+
 _this params ["_mission"];
 
  // if the spawning is not finished after 10 Minutes, we stop the mission
@@ -26,7 +26,16 @@ _mission spawn {
     private _centerpos = _mission getVariable "centerpos";
     private _mainOrSide = If (_mission getVariable ["isMain",true]) then {"main"}else{"side"};
     TRACEV_3(_type,_centerpos,_mainOrSide);
-    private _objects = [_type,_centerpos,_mainOrSide] call FUNC(spawn_spawnTargets);
+    private _spawnFunction = _mission getVariable ["spawnfunction",""];
+
+
+    private _objects = [];
+    If (_spawnFunction isEqualTo "") then {
+        _objects = [_type,_centerpos,_mainOrSide] call FUNC(spawn_spawnTargets);
+    }else{
+        _objects = [_centerpos] call (missionNamespace getVariable [_spawnFunction,{}]);
+    };
+
 
     // remove wrong spawned objects (0,0,0) or ATL
     _objects = _objects - [objNull];

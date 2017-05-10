@@ -13,7 +13,6 @@
  */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-TRACE("choosingMain");
 
 _this params ["_mission"];
 

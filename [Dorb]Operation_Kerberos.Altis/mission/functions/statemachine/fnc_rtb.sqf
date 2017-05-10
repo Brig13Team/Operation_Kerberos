@@ -2,7 +2,7 @@
  *  Author: iJesuz, Dorbedo
  *
  *  Description:
- *      the RTB-Mission
+ *      the RTB Task
  *
  *  Parameter(s):
  *      0 : LOCATION - the last MainMission
@@ -13,15 +13,6 @@
  */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-TRACE("rtb");
-/*
-    //   _stateMachine   - the state machine
-    //   _this           - the current list item
-    //   _thisTransition - the current transition we're in
-    //   _thisOrigin     - the state we're coming from
-    //   _thisState      - same as _thisOrigin
-    //   _thisTarget     - the state we're transitioning to
-*/
 
 _this params ["_mainmission"];
 

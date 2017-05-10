@@ -24,6 +24,14 @@ class side {
         };
 
         probability = 1.0;
+        // special spawnfunction, if needed, returns the missionobjects
+        spawnfunction = "";
+
+        // if we want to delay the task showing up
+        taskdelay = 0;
+
+        // if we want to delay ths spawning
+        spawndelay = 0;
     };
 
     /*
@@ -62,4 +70,12 @@ class side {
         };
     };
 */
+    class supplys : __base {
+        class location : location {
+            areas[] = {QGVAR(town)};
+            minDistance = 4000;
+            maxDistance = -1;
+        };
+        spawnfunction = QFUNC(spawnfunctions_supplys);
+    };
 };

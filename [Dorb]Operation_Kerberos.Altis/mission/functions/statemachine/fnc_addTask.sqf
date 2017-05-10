@@ -2,7 +2,7 @@
 *  Author: iJesuz, Dorbedo
  *
  *  Description:
- *      adds the task (visible message)
+ *      adds the task
  *
  *  Parameter(s):
  *      0 : LOCATION - the mainmission
@@ -13,15 +13,6 @@
  */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-TRACE("adding Task");
-/*
-    //   _stateMachine   - the state machine
-    //   _this           - the current list item
-    //   _thisTransition - the current transition we're in
-    //   _thisOrigin     - the state we're coming from
-    //   _thisState      - same as _thisOrigin
-    //   _thisTarget     - the state we're transitioning to
-*/
 
 _this params ["_mission"];
 
@@ -30,8 +21,6 @@ private _showMarker = _mission getVariable ["showmarker",true];
 private _markerpos = (_mission getVariable ["location",[[]]]) select 1;
 private _type = _mission getVariable ["type",""];
 private _isMain = _mission getVariable ["isMain",true];
-
-
 
 If (_isMain) then {
     private _missionCfg = (missionconfigfile >> "mission" >> "main" >> _type);
@@ -60,6 +49,7 @@ private _taskID = _mission getVariable "taskID";
 private _showMarker = _mission getVariable ["showMarker",true];
 private _markerpos = (_mission getVariable "location")select 1;
 TRACEV_3(_type,_taskID,_showMarker);
+
 [
     _taskID,
     GVARMAIN(playerside),

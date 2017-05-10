@@ -45,6 +45,9 @@ switch _type do {
     case "jammer" : {
         _config = _config >> "hq_mobile";
     };
+    case "supplys" : {
+        _config = _config >> "supplys";
+    };
     default {
         _config = _config >> _type;
     };

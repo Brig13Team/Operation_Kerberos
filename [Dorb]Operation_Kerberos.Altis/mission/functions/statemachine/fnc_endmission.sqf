@@ -13,15 +13,6 @@
  */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-TRACE("endmission");
-/*
-    //   _stateMachine   - the state machine
-    //   _this           - the current list item
-    //   _thisTransition - the current transition we're in
-    //   _thisOrigin     - the state we're coming from
-    //   _thisState      - same as _thisOrigin
-    //   _thisTarget     - the state we're transitioning to
-*/
 
 _this params ["_mission"];
 
@@ -58,6 +49,7 @@ switch _thisTransition do {
         [QEGVAR(gui,message),[format[LSTRING(%1_TITLE),_type],format[LSTRING(%1_FAILED),_type],"red"]] call CBA_fnc_globalEvent;
     };
     default {
+        // something happend, the task gets canceled
         [
             _TaskID,
             "CANCELED",
