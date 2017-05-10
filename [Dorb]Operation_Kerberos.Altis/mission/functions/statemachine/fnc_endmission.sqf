@@ -22,6 +22,10 @@ If (IS_ARRAY(_TaskID)) then {
 };
 private _type = _mission getVariable ["type",""];
 
+If !([_TaskID] call BIS_fnc_taskExists) exitWith {
+    /* the task is finihed but not created yet. */
+};
+
 switch _thisTransition do {
     case "succeeded" : {
         [
