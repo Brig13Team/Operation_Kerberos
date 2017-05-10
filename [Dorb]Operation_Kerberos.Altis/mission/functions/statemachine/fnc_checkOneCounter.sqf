@@ -16,6 +16,12 @@
 
 _this params ["_mission"];
 
+if (HASH_HASKEY(_mission, "event_callback")) then {
+    private _event = HASH_GET(_mission, "event_callback");
+    [_mission] spawn (missionNamespace getVariable [_event, {}]);
+};
+
+
 // one did something very bad...
 private _fail = HASH_GET(_mission, "trigger_failed");
 if (_fail) exitWith {

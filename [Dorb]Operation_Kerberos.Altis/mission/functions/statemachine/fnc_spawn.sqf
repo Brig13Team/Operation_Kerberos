@@ -29,6 +29,7 @@ _mission spawn {
     private _objects = [_type,_centerpos,_mainOrSide] call FUNC(spawn_spawnTargets);
 
     // remove wrong spawned objects (0,0,0) or ATL
+    _objects = _objects - [objNull];
     _objects = _objects select {
         (((getPosATL _x) select 2) >= 0)&&
         {((getPos _x) distance2D [0,0,0])>10}

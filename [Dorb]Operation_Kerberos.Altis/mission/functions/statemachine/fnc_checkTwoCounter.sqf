@@ -16,6 +16,12 @@
 
 _this params ["_mission"];
 
+if (HASH_HASKEY(_mission, "event_callback")) then {
+    private _event = HASH_GET(_mission, "event_callback");
+    [_mission] spawn (missionNamespace getVariable [_event, {}]);
+};
+
+
 private _objs = HASH_GET(_mission, "objects");
 
 if (({ alive _x } count _objs) > 0) exitWith {};
