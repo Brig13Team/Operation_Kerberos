@@ -161,7 +161,7 @@ private _allClasses = configProperties [_config, "isClass(_x)", true];
     private _checkPos1 = _relPos vectorAdd [0,0,30];
     private _checkPos2 = _relPos vectorAdd [0,0,-30];
 
-    ((terrainIntersectAtASL[_checkPos1,_checkPos2]) params ["_spawnPos"];
+    (terrainIntersectAtASL[_checkPos1,_checkPos2]) params ["_spawnPos"];
     private _surfaceNormal = surfaceNormal _spawnPos;
 
 
