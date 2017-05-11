@@ -66,18 +66,19 @@ class side {
     };
     */
 
-
+/*
     class wreck : __base {
         class location : location {
             radius = 3000;
         };
         taskdelay = 1200;
     };
-
+*/
 /*
  *  deliver goods from rescuepoint to a civilian town
  *  Reward: POI-Position gets marked
  */
+ /*
     class supplys : __base {
         class location : location {
             areas[] = {QGVAR(town)};
@@ -89,11 +90,12 @@ class side {
         probability = 0.2;
         onSucceeded = QFUNC(sidemission_supplys_succeeded);
     };
-
+*/
 /*
  *  Build an Antenna on Top of a Mountain
  *  Reward: some kind of triangulation effect for every vehicle
  */
+/*
     class antenna : __base {
         class location : location {
             areas[] = {QGVAR(mountain)};
@@ -105,11 +107,13 @@ class side {
         probability = 0.2;
         onSucceeded = QFUNC(sidemission_antenna_succeeded);
     };
+*/
 /*
  *  Enemy Chopper
  *  Reward: the chopper
  *  Failure: the chopper is ready for combat
  */
+/*
     class chopper : __base {
         class location : location {
             radius = 8000;
@@ -118,4 +122,5 @@ class side {
         probability = 0.2;
         onFailed = QFUNC(sidemission_chopper_failed);
     };
+*/
 };

@@ -48,6 +48,12 @@ switch _type do {
     case "supplys" : {
         _config = _config >> "supplys";
     };
+    case "konvoi" : {
+        _config = _config >> "konvoi";
+    };
+    case "chopper" : {
+        _config = _config >> "chopper";
+    };
     default {
         _config = _config >> _type;
     };

@@ -12,17 +12,15 @@
  *
  */
 #include "script_component.hpp"
-#define MIN_DISTANCE 4000
-#define MAX_DISTANCE 9000
 
-_this params [["_targetPos",[],[[]]]];
+_this params [["_targetPos",[],[[]]],["_mindistance",4000,[0]],["_mindistancePlayer",4000,[0]],["_maxdistance",9000,[0]]];
 
 private _positionBlacklist = [getMarkerPos GVARMAIN(respawnmarker),HASH_GET_DEF(GVAR(dangerzones),"centerpos",getMarkerPos GVARMAIN(respawnmarker))] + ((allUnits select {side _x == GVARMAIN(playerside)}) apply {getPos _x});
 private _errorcounter = 1000; //
 private _spawnpos = [];
 
 while {(_errorcounter > 0)} do {
-    private _tempPos = _targetPos getPos [(random(MAX_DISTANCE - MIN_DISTANCE)) + MIN_DISTANCE,random 360];
+    private _tempPos = [_targetPos,((random(_maxdistance - _mindistance)) + _mindistance),1] call EFUNC(common,pos_random);
     private _roads = _tempPos nearRoads 200;
     If !(_roads isEqualTo []) then {
         _tempPos = getPos (selectRandom _roads);
@@ -38,4 +36,4 @@ while {(_errorcounter > 0)} do {
 if !(_spawnpos isEqualTo []) exitWith {_spawnpos};
 
 // fallback
-[_targetPos,MAX_DISTANCE,0] call EFUNC(common,pos_random);
+[_targetPos,_maxdistance,0] call EFUNC(common,pos_random);
