@@ -24,7 +24,7 @@ while {(_errorcounter > 0)} do {
     private _roads = _tempPos nearRoads 200;
     If !(_roads isEqualTo []) then {
         _tempPos = getPos (selectRandom _roads);
-        If (({(_x distance2D _tempPos)<MIN_DISTANCE} count _positionBlacklist)>0) then {
+        If (({(_x distance2D _tempPos)<_mindistance} count _positionBlacklist)>0) then {
             DEC(_errorcounter);
         }else{
             _spawnpos = _tempPos;
