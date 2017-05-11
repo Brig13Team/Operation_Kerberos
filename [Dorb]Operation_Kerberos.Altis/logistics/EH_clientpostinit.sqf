@@ -57,6 +57,13 @@ for "_i" from 0 to ((count _cfgLog)-1) do {
         };
     };
 };
+
+private _towAction = [QGVAR(action_tow), localize LSTRING(ACTION_TOW), "", {[_target] spawn FUNC(simpletowing_doTow);}, {[_target] call FUNC(simpletowing_canTow);}] call ace_interact_menu_fnc_createAction;
+private _untowAction = [QGVAR(action_tow), localize LSTRING(ACTION_UNTOW), "", {[_target] spawn FUNC(simpletowing_doUnTow);}, {[_target] call FUNC(simpletowing_canUnTow);}] call ace_interact_menu_fnc_createAction;
+["Quadbike_01_base_F", 0, ["ACE_MainActions",QGVAR(action_main)], _untowAction,true] call ace_interact_menu_fnc_addActionToClass;
+["Quadbike_01_base_F", 0, ["ACE_MainActions",QGVAR(action_main)], _towAction,true] call ace_interact_menu_fnc_addActionToClass;
+
+
 /// Cargo
 private _cfgVeh = configFile >> "CfgVehicles";
 _loadAction = [
@@ -71,9 +78,7 @@ _loadAction = [
 for "_i" from 0 to ((count _cfgVeh)-1) do {
     private _vehicle = configname(_cfgVeh select _i);
     If (!([_vehicle] call FUNC(getCargoCfg) isEqualTo "")) then {
-        private _test1 = [_vehicle, 0, ["ACE_MainActions"], _mainAction] call ace_interact_menu_fnc_addActionToClass;
-        private _test2 = [_vehicle, 0, ["ACE_MainActions",QGVAR(action_main)], _loadAction] call ace_interact_menu_fnc_addActionToClass;
-        LOG_3(,_vehicle,_test1,_test2);
+        [_vehicle, 0, ["ACE_MainActions"], _mainAction] call ace_interact_menu_fnc_addActionToClass;
+        [_vehicle, 0, ["ACE_MainActions",QGVAR(action_main)], _loadAction] call ace_interact_menu_fnc_addActionToClass;
     };
-
 };

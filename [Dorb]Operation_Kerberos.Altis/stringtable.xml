@@ -645,6 +645,14 @@
             <German>freie Ladefläche: %1</German>
             <English>Free space: %1</English>
         </Key>
+        <Key ID="STR_DORB_LOGISTICS_ACTION_TOW">
+            <German>Anhängen (Simple)</German>
+            <English>Tow (Simple)</English>
+        </Key>
+        <Key ID="STR_DORB_LOGISTICS_ACTION_UNTOW">
+            <German>Abkoppeln (Simple)</German>
+            <English>Untow (Simple)</English>
+        </Key>
     </Package>
     <Package name="Common">
         <Key ID="STR_DORB_COMMON_REP_POINT">

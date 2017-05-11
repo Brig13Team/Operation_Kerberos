@@ -24,3 +24,6 @@ detach _target;
 
 _target setVariable [QGVAR(towingPartner),objNull,true];
 _target setVariable [QGVAR(towingPartner),objNull,true];
+
+_partner lock 0;
+_target lock 0;
