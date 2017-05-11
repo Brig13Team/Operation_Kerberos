@@ -63,6 +63,7 @@ private _taskdelay = _mission getVariable ["taskdelay",0];
             case "neutral" : {"CANCELED"};
             default {"CREATED"};
         };
+        private _tasktype = getText(missionConfigFile >> "CfgTaskDescriptions" >> _type >> "tasktype");
         [
             _taskID,
             GVARMAIN(playerside),
@@ -72,7 +73,7 @@ private _taskdelay = _mission getVariable ["taskdelay",0];
             2,
             false,
             true,
-            _type,
+            _tasktype,
             false
         ] call BIS_fnc_setTask;
     },

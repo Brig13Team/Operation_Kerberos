@@ -174,7 +174,7 @@ class main {
 
         class object : object {
             min = 5;
-            max = 10;
+            max = 8;
         };
     };
 };
