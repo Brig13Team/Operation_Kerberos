@@ -91,6 +91,9 @@ private _fnc_setObjAtt = {
     private _isSimpleObject = [_obj] call FUNC(composition_isSimpleObject);
     HASH_SET(_hash,"hascrew",_hasCrew);
     HASH_SET(_hash,"issimpleobj",_isSimpleObject);
+    private _replacementtype = [_curType] call FUNC(composition_getReplacementType);
+    HASH_SET(_temphash,"replacementtype",_replacementtype);
+    HASH_SET(_temphash,"stance",stance _x);
 };
 
 private _fnc_setObjAttBottom = {
@@ -114,6 +117,9 @@ private _fnc_setObjAttBottom = {
     private _isSimpleObject = [_obj] call FUNC(composition_isSimpleObject);
     HASH_SET(_hash,"hascrew",_hasCrew);
     HASH_SET(_hash,"issimpleobj",_isSimpleObject);
+    private _replacementtype = [_curType] call FUNC(composition_getReplacementType);
+    HASH_SET(_temphash,"replacementtype",_replacementtype);
+    HASH_SET(_temphash,"stance",stance _x);
 };
 
 

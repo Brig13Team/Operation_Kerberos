@@ -15,6 +15,9 @@
 #include "script_component.hpp"
 _this params [["_curObj",objNull,[objNull]],["_isStacked",false,[true]]];
 
+private _return = isSimpleObject _curObj;
+
+
 If (({_curObj isKindOf _x} count ["CAManBase","Static","LandVehicle","Air","Ship"])>0) exitWith {false;};
 
 /*
@@ -25,4 +28,4 @@ If (({_curObj isKindOf _x} count ["CAManBase","Static","LandVehicle","Air","Ship
 
 
 
-true;
+_return;

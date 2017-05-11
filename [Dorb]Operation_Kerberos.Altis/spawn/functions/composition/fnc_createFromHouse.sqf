@@ -60,6 +60,9 @@ LOG_1(_nearObjects);
         HASH_SET(_temphash,"vecup",_curVecUp);
         HASH_SET(_temphash,"hascrew",_hasCrew);
         HASH_SET(_temphash,"issimpleobj",_isSimpleObject);
+        private _replacementtype = [_curType] call FUNC(composition_getReplacementType);
+        HASH_SET(_temphash,"replacementtype",_replacementtype);
+        HASH_SET(_temphash,"stance",stance _x);
     };
 } forEach _nearObjects;
 

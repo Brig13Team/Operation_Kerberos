@@ -33,6 +33,9 @@ for "_i" from 1 to _tabsamount do {
 
 _output = _output + format ["class %1 {%2",_classname,_br];
 
+private _keys = (HASH_KEYS(_hash));
+private _sortedKeys = (_keys select {!IS_AHASH(HASH_GET(_hash,_x))}) + (_keys select {IS_AHASH(HASH_GET(_hash,_x))});
+
 {
     private _curKey = _x;
     private _value = HASH_GET(_hash,_curKey);
@@ -60,7 +63,7 @@ _output = _output + format ["class %1 {%2",_classname,_br];
             };
         };
     };
-} forEach (HASH_KEYS(_hash));
+} forEach _sortedKeys;
 
 for "_i" from 1 to (_tabsamount) do {
     _output = _output + _tab;
