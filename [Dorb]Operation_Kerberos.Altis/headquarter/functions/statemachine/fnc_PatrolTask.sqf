@@ -46,7 +46,7 @@ CHECK(!local _group)
 private _args = [_centerpos,_distance,_type,_behavior,_combatmode,_speed,_formation,_onComplete,_timeout];
 
 if !(_centerpos isEqualTo []) then {
-    _group setVariable [QGVAR(PatrolTask),_args];
+    _group setVariable [QGVAR(PatrolTask),_args,true];
 }else{
     _args = _group getVariable [QGVAR(PatrolTask),_args];
     _args params ["_centerpos","_distance","_type","_behavior","_combatmode","_speed","_formation","_onComplete","_timeout","_compRadius"];
@@ -86,7 +86,7 @@ private _pos = switch (true) do {
 
 CHECK(_pos isEqualTo [])
 
-private _statement = QUOTE([this] call FUNC(PatrolTask));
+private _statement = QUOTE([this] call FUNC(statemachine_PatrolTask));
 
 _onComplete = _onComplete + _statement;
 
