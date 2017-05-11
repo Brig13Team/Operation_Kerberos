@@ -119,6 +119,41 @@ class GVAR(statemachine_Taskmanager) {
         };
     };
 
+    class delivery {
+        onState = QFUNC(statemachine_CheckDelivery);
+        onStateEntered = "";
+        onStateLeaving = "";
+        class succeeded {
+            targetState = "endmission";
+            condition = "(_this getvariable ['progress','none'])=='succeeded'";
+            onTransition = QFUNC(statemachine_onTransition);
+        };
+        // you have failed the mission
+        class failed {
+            targetState = "endmission";
+            condition = "(_this getvariable ['progress','none'])=='failed'";
+            onTransition = QFUNC(statemachine_onTransition);
+        };
+        // the mission is not won, but not lost either. like you have killed half of the hostages
+        class neutral {
+            targetState = "endmission";
+            condition = "(_this getvariable ['progress','none'])=='neutral'";
+            onTransition = QFUNC(statemachine_onTransition);
+        };
+        // the mission failed through a timeout
+        class timeout {
+            targetState = "endmission";
+            condition = "(_this getvariable ['timeout',1E20])<CBA_missiontime";
+            onTransition = QFUNC(statemachine_onTransition);
+        };
+        // this state is used to cancel the mission without any messages
+        class cancel {
+            targetState = "endmission";
+            condition = "(_this getvariable ['progress','none'])=='cancel'";
+            onTransition = QFUNC(statemachine_onTransition);
+        };
+    };
+
     // the mission has been ended
     class endmission {
         onState = "";
@@ -201,6 +236,12 @@ class GVAR(statemachine_Taskmanager) {
         onState = "";
         onStateEntered = QFUNC(statemachine_addTask);
         onStateLeaving = "";
+        // this transition is used to define some precondition, wich have to be reached before the check can be performed
+        class delayCondition {
+            targetState = "delayCheck";
+            condition = "(_this getvariable ['delaycheck',0])>0";
+            onTransition = "";
+        };
         class twoCounter {
             targetState = "twoCounter";
             condition = "(_this getVariable ['conditiontype','none']) == 'twoCounter'";
@@ -222,6 +263,27 @@ class GVAR(statemachine_Taskmanager) {
             targetState = "error"
             condition = "true";
             onTransition = "";
+        };
+    };
+
+    class delayCheck {
+        onState = "";
+        onStateEntered = "";
+        onStateLeaving = "";
+        class twoCounter {
+            targetState = "twoCounter";
+            condition = "((_this getvariable ['delaycheck',1E20])<CBA_missiontime)&&{(_this getVariable ['conditiontype','none']) == 'twoCounter'}";
+            onTransition = QFUNC(statemachine_inittwoCounter);
+        };
+        class oneCounter {
+            targetState = "oneCounter";
+            condition = "((_this getvariable ['delaycheck',1E20])<CBA_missiontime)&&{(_this getVariable ['conditiontype','none']) == 'oneCounter'}";
+            onTransition = QFUNC(statemachine_initOneCounter);
+        };
+        class hold {
+            targetState = "oneCounter";
+            condition = "((_this getvariable ['delaycheck',1E20])<CBA_missiontime)&&{(_this getVariable ['conditiontype','none']) == 'hold'}";
+            onTransition = QFUNC(statemachine_initHold);
         };
     };
 

@@ -27,6 +27,8 @@ class main {
         };
 
         probability = 1.0;
+        // used to delay the evaluation by seconds. (use 1E18 to delay BOOL-like)
+        delaycheck = 0;
     };
 
     class __oneCounter : __base {

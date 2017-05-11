@@ -32,6 +32,9 @@ class side {
 
         // if we want to delay ths spawning
         spawndelay = 0;
+
+        // used to delay the evaluation by seconds. (use 1E18 to delay BOOL-like)
+        delaycheck = 0;
     };
 
     /*
@@ -71,6 +74,10 @@ class side {
         taskdelay = 1200;
     };
 
+/*
+ *  deliver goods from rescuepoint to a civilian town
+ *  Reward: POI-Position gets marked
+ */
     class supplys : __base {
         class location : location {
             areas[] = {QGVAR(town)};
@@ -80,5 +87,35 @@ class side {
         spawnfunction = QFUNC(spawnfunctions_supplys);
         spawndelay = 600;
         probability = 0.2;
+        onSucceeded = QFUNC(sidemission_supplys_succeeded);
+    };
+
+/*
+ *  Build an Antenna on Top of a Mountain
+ *  Reward: some kind of triangulation effect for every vehicle
+ */
+    class antenna : __base {
+        class location : location {
+            areas[] = {QGVAR(mountain)};
+            minDistance = 6000;
+            maxDistance = -1;
+        };
+        spawnfunction = QFUNC(spawnfunctions_antenna);
+        spawndelay = 1000;
+        probability = 0.2;
+        onSucceeded = QFUNC(sidemission_antenna_succeeded);
+    };
+/*
+ *  Enemy Chopper
+ *  Reward: the chopper
+ *  Failure: the chopper is ready for combat
+ */
+    class chopper : __base {
+        class location : location {
+            radius = 8000;
+        };
+        spawndelay = 650;
+        probability = 0.2;
+        onFailed = QFUNC(sidemission_chopper_failed);
     };
 };
