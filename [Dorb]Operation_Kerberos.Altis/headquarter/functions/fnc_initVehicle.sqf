@@ -118,7 +118,7 @@ If (_unittype isKindOf "CAManBase") exitWith {
     _value = getArray(missionConfigFile>>"costs">>"soldier");
     If (
             ((getNumber (configFile >> "CfgVehicles" >> _unittype >> "attendant")>0)||
-            {(_object getVariable [QGVAR(medicClass),0]) > 1})||
+            {(_object getVariable ["ace_medical_medicClass",0]) > 1})||
             {_object getVariable ["ACE_isEOD", getNumber (configFile >> "CfgVehicles" >> _unittype >> "canDeactivateMines") == 1]}||
             {_object getVariable ["ACE_isEngineer", getNumber (configFile >> "CfgVehicles" >> _unittype >> "engineer") == 1]}||
             {(!(isNull _object))&&{({(toLower _x) in ["item_b_uavterminal","item_o_uavterminal","item_i_uavterminal"]} count (items _object))>0}}
