@@ -17,7 +17,7 @@
 _this params ["_mission"];
 
  // if the spawning is not finished after 10 Minutes, we stop the mission
-_mission setVariable ["spawntimeout",CBA_missiontime + 10*60];
+_mission setVariable ["spawntimeout",CBA_missiontime + 12*60];
 
 _mission spawn {
     _this params ["_mission"];
@@ -63,7 +63,7 @@ _mission spawn {
                 (_this select 0) setVariable ["spawningfinished",true];
             },
             [_mission],
-            8*10
+            10*60
         ] call CBA_fnc_waitAndExecute;
         // spawn the big part of the units
         [_centerpos] call EFUNC(spawn,createMission);

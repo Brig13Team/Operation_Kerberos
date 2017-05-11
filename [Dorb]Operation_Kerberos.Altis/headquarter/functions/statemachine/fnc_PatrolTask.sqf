@@ -43,14 +43,16 @@ CHECK(isNull _group)
 _group = _group call CBA_fnc_getGroup;
 CHECK(!local _group)
 
-private _args = [_centerpos,_distance,_type,_behavior,_combatmode,_speed,_formation,_onComplete,_timeout];
-
+private "_args";
 if !(_centerpos isEqualTo []) then {
+    _args = [_centerpos,_distance,_type,_behavior,_combatmode,_speed,_formation,_onComplete,_timeout];
     _group setVariable [QGVAR(PatrolTask),_args,true];
 }else{
     _args = _group getVariable [QGVAR(PatrolTask),_args];
-    _args params ["_centerpos","_distance","_type","_behavior","_combatmode","_speed","_formation","_onComplete","_timeout","_compRadius"];
 };
+_args params ["_centerpos","_distance","_type","_behavior","_combatmode","_speed","_formation","_onComplete","_timeout","_compRadius"];
+
+TRACEV_2(_centerpos,_args);
 
 private "_temp";
 private _pos = switch (true) do {
@@ -80,6 +82,7 @@ private _pos = switch (true) do {
     };
     default {
         _temp = [_centerpos,_distance,0] call EFUNC(common,pos_random);
+        TRACEV_3(_centerpos,_temp,_distance);
         _temp
     };
 };
@@ -90,6 +93,8 @@ private _statement = QUOTE([this] call FUNC(statemachine_PatrolTask));
 
 _onComplete = _onComplete + _statement;
 
+TRACEV_5(_group,_pos,_type,_behavior,_combatmode);
+TRACEV_5(_speed,_formation,_statement,_timeout,_compRadius);
 [
     _group,
     _pos,
