@@ -71,7 +71,7 @@ If (_unittype isKindOf "Air") exitWith {
 If (_unittype isKindOf "CAManBase") exitWith {
     _return = "soldier";
     switch (true) do {
-        case ((getNumber (configFile >> "CfgVehicles" >> _unittype >> "attendant")>0);
+        case ((getNumber (configFile >> "CfgVehicles" >> _unittype >> "attendant")>0));
         case ((_object getVariable ["ace_medical_medicClass",0]) > 1) : {
             _return = "soldier_medic";
         };
