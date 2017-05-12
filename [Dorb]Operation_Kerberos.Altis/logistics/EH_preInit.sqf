@@ -27,4 +27,11 @@ PREPS(simpletowing,canUnTow);
 PREPS(simpletowing,doTow);
 PREPS(simpletowing,doUnTow);
 
+PREPS(helper,init);
+PREPS(helper,cargo);
+PREPS(helper,cargo_export);
+PREPS(helper,vehicle);
+PREPS(helper,vehicle_export);
+PREPS(helper,passenger);
+
 ADDON = true;

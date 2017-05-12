@@ -20,3 +20,4 @@ class DOUBLES(CfgComponent,ADDON) {
     };
 };
 #include "config\logistics.hpp"
+#include "config\dialog.hpp"

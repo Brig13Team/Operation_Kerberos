@@ -49,6 +49,8 @@ class CfgComponents {
 };
 
 #include "main\CfgComponent.hpp"
+#include "gui\CfgComponent.hpp"
+
 #include "common\CfgComponent.hpp"
 #include "advertisements\CfgComponent.hpp"
 #include "grouptracker\CfgComponent.hpp"
@@ -70,7 +72,7 @@ class CfgComponents {
 #include "database\CfgComponent.hpp"
 #include "doorbreach\CfgComponent.hpp"
 
-#include "gui\CfgComponent.hpp"
+
 #include "gui_echidna\CfgComponent.hpp"
 #include "gui_spawn\CfgComponent.hpp"
 #include "gui_teleport\CfgComponent.hpp"
