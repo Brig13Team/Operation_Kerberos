@@ -1,3 +1,5 @@
+#define CBA_OFF
+#include "script_component.hpp"
 class vehicles {
     class rhsusf_m1025_base {
         max_width = 1.37;

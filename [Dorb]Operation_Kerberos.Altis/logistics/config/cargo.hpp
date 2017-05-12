@@ -1,3 +1,5 @@
+#define CBA_OFF
+#include "script_component.hpp"
 class cargos {
     class ace_track {
         width = 0.54;

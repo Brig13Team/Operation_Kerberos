@@ -5,6 +5,7 @@
  *      the statemachine for the playergroups
  *
  */
+#define CBA_OFF
 #include "script_component.hpp"
 
 
