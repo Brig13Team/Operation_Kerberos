@@ -52,11 +52,13 @@ class cargos {
         length = 5.8;
         height = 2.3;
         offset[] = {0,0,1.15};
+        stackable = -1;
     };
     class B_Slingload_01_Cargo_F {
         width = 2.45;
         length = 6.25;
         height = 2.73;
+        stackable = -1;
     };
     class B_Slingload_01_Medevac_F : B_Slingload_01_Cargo_F {
         width = 2.7;
@@ -74,6 +76,7 @@ class cargos {
         width = 2.5;
         length = 3.1;
         height = 1.25;
+        stackable = -1;
     };
     class Land_Cargo10_blue_F : Land_Cargo10_base {};
     class Land_Cargo10_brick_red_F : Land_Cargo10_base {};
@@ -128,6 +131,7 @@ class cargos {
         length = 5.1;
         height = 1.5;
         offset[] = {0,-1.3,0.8};
+        stackable = -1;
     };
     class RHS_M119_D : RHS_M119_WD {};
     class rhs_D30_vdv : RHS_M119_WD {
@@ -140,6 +144,7 @@ class cargos {
         length = 3;
         height = 2;
         offset[] = {0,0,-0.5};
+        stackable = -1;
     };
 
     class TOW_static {
@@ -147,6 +152,7 @@ class cargos {
         length = 1.7;
         height = 1.2;
         offset[] = {0,0.5,-0.5};
+        stackable = -1;
     };
 
     class m2_mg2 {
@@ -154,6 +160,7 @@ class cargos {
         length = 2;
         height = 0.7;
         offset[] = {-0.35,0.6,-0.9};
+        stackable = -1;
     };
 
     class m2_mg {
@@ -161,6 +168,7 @@ class cargos {
         length = 1.9;
         height = 1.5;
         offset[] = {-0.35,0.6,-1};
+        stackable = -1;
     };
 
     class mk19_stat {
@@ -168,6 +176,7 @@ class cargos {
         length = 1.2;
         height = 0.7;
         offset[] = {0,0.8,-0.7};
+        stackable = -1;
     };
 
     class Quadbike_01_F {
@@ -175,6 +184,7 @@ class cargos {
         length = 2.2;
         height = 1;
         offset[] = {0,-0.05,-0.9};
+        stackable = -1;
     };
 
     class rhs_mrzr4 {
@@ -182,6 +192,7 @@ class cargos {
         length = 3.7;
         height = 2.1;
         offset[] = {-0.02,0,-0.55};
+        stackable = -1;
     };
 
     class SDV_01_F {
@@ -189,6 +200,7 @@ class cargos {
         length = 6.2;
         height = 1.5;
         offset[] = {0,-1.1,-1.2};
+        stackable = -1;
     };
 
     class Boat_Transport_01_F {
@@ -196,6 +208,7 @@ class cargos {
         length = 4.9;
         height = 1.5;
         offset[] = {0,0,-0.5};
+        stackable = -1;
     };
 
     class rhs_3Ya40_1 {
@@ -203,6 +216,7 @@ class cargos {
         length = 0.9;
         height = 0.8;
         offset[] = {0,0,-0.05};
+        stackable = -1;
     };
 
     class rhs_7ya37_1 {
@@ -210,5 +224,6 @@ class cargos {
         length = 0.45;
         height = 0.55;
         offset[] = {0,0,0};
+        stackable = -1;
     };
 };

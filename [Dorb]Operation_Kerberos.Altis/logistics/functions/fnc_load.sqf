@@ -115,6 +115,13 @@ if (!(_logistic_stack isEqualTo [])) then {
         };
     } else {
         private _stackable = false;
+        private _cargo_stackable = false;
+        If (
+            (isNumber (missionConfigFile >> "logistics" >> "cargos" >> _cargo_class >> "stackable"))&&
+            {getNumber (missionConfigFile >> "logistics" >> "cargos" >> _cargo_class >> "stackable") < 0 }
+            ) then {
+            _cargo_stackable = true;
+        };
 
         private "_i";
         for [{_i = 0},{_i < (count _last_row)},{_i = _i + 1}] do {
@@ -124,7 +131,7 @@ if (!(_logistic_stack isEqualTo [])) then {
                ) exitWith { _stackable = true; };
         };
 
-        if (_stackable) then {
+        if (_cargo_stackable&&_stackable) then {
             // stack cargo
 
             private _under = _last_row select _i;

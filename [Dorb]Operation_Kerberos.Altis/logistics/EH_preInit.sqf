@@ -11,10 +11,13 @@ PREP(canload);
 PREP(canunload);
 PREP(disp_cargo);
 PREP(doload);
+PREP(doRemoveTrack);
 PREP(dounload);
 PREP(getCargoCfg);
 PREP(load);
 PREP(unload);
+
+PREP(removeTrack);
 
 PREP(setContainerWeight);
 PREP(updateSeats);

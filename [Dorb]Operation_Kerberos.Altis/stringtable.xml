@@ -653,6 +653,10 @@
             <German>Abkoppeln (Simple)</German>
             <English>Untow (Simple)</English>
         </Key>
+        <Key ID="STR_DORB_LOGISTICS_ACTION_SPARETRACK">
+            <German>Ersatzkette entladen</German>
+            <English>Remove spare Track</English>
+        </Key>
     </Package>
     <Package name="Common">
         <Key ID="STR_DORB_COMMON_REP_POINT">

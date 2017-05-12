@@ -31,38 +31,69 @@ private _infoAction = [QGVAR(action_info), localize LSTRING(ACTION_DISP_CARGO),"
 private _paraAction = [QGVAR(action_paradrop), localize LSTRING(ACTION_PARADROP), "", {[_target,true] spawn FUNC(dounload);}, {[_target] call FUNC(candrop);}] call ace_interact_menu_fnc_createAction;
 private _extendAction = [QGVAR(action_extend), localize LSTRING(ACTION_EXTEND), "", {[_target,true] spawn FUNC(changeCargo);}, {[_target,true] call FUNC(canChangeCargo);}] call ace_interact_menu_fnc_createAction;
 private _reduceAction = [QGVAR(action_reduce), localize LSTRING(ACTION_REDUCE), "", {[_target,false] spawn FUNC(changeCargo);}, {[_target,false] call FUNC(canChangeCargo);}] call ace_interact_menu_fnc_createAction;
-
-[localize ELSTRING(main,name), QGVAR(keybind_g), [localize LSTRING(ACTION_PARADROP), localize LSTRING(ACTION_PARADROP)], { if ([vehicle player] call FUNC(candrop)) then { [vehicle player,true] spawn FUNC(dounload)}; }, {true}, [0x22, [false, false, false]], false] call CBA_fnc_addKeybind;
-/// Vehicles
-for "_i" from 0 to ((count _cfgLog)-1) do {
-    private _vehicle = configname(_cfgLog select _i);
-    If (isClass(configFile >> "cfgvehicles" >> _vehicle)) then {
-        private _canLoad = ( getnumber(missionconfigFile >> "logistics" >> "vehicles" >> _vehicle >> "max_length") ) > 0;
-        private _canPara = ((( getnumber(missionconfigFile >> "logistics" >> "vehicles" >> _vehicle >> "max_length") ) > 0)&&(_vehicle isKindOf "Air"));
-        private _canCargo = (isClass(missionconfigFile >> "logistics" >> "vehicles" >> _vehicle >> "cargo"));
-        If (_canLoad) then {
-            [_vehicle, 0, ["ACE_MainActions"], _mainAction] call ace_interact_menu_fnc_addActionToClass;
-            [_vehicle, 0, ["ACE_MainActions",QGVAR(action_main)], _loadAction] call ace_interact_menu_fnc_addActionToClass;
-            [_vehicle, 0, ["ACE_MainActions",QGVAR(action_main)], _unloadAction] call ace_interact_menu_fnc_addActionToClass;
-            [_vehicle, 0, ["ACE_MainActions",QGVAR(action_main)], _infoAction] call ace_interact_menu_fnc_addActionToClass;
-            If (_canCargo) then {
-                [_vehicle, 0, ["ACE_MainActions",QGVAR(action_main)], _extendAction] call ace_interact_menu_fnc_addActionToClass;
-                [_vehicle, 0, ["ACE_MainActions",QGVAR(action_main)], _reduceAction] call ace_interact_menu_fnc_addActionToClass;
-            };
-            [_vehicle, 1, ["ACE_SelfActions"], _mainAction] call ace_interact_menu_fnc_addActionToClass;
-            [_vehicle, 1, ["ACE_SelfActions",QGVAR(action_main)], _infoAction] call ace_interact_menu_fnc_addActionToClass;
-            If (_canPara) then {
-                [_vehicle, 1, ["ACE_SelfActions",QGVAR(action_main)], _paraAction] call ace_interact_menu_fnc_addActionToClass;
-            };
-        };
-    };
-};
-
 private _towAction = [QGVAR(action_tow), localize LSTRING(ACTION_TOW), "", {[_target] spawn FUNC(simpletowing_doTow);}, {[_target] call FUNC(simpletowing_canTow);}] call ace_interact_menu_fnc_createAction;
 private _untowAction = [QGVAR(action_tow), localize LSTRING(ACTION_UNTOW), "", {[_target] spawn FUNC(simpletowing_doUnTow);}, {[_target] call FUNC(simpletowing_canUnTow);}] call ace_interact_menu_fnc_createAction;
-["Quadbike_01_base_F", 0, ["ACE_MainActions",QGVAR(action_main)], _untowAction,true] call ace_interact_menu_fnc_addActionToClass;
-["Quadbike_01_base_F", 0, ["ACE_MainActions",QGVAR(action_main)], _towAction,true] call ace_interact_menu_fnc_addActionToClass;
+private _spareTrack = [QGVAR(action_spareTrack), localize LSTRING(ACTION_SPARETRACK), "", {[_target] spawn FUNC(doRemoveTrack);}, {(_target getVariable [QGVAR(spareTrackAmount),1]) > 0}] call ace_interact_menu_fnc_createAction;
 
+[localize ELSTRING(main,name), QGVAR(keybind_g), [localize LSTRING(ACTION_PARADROP), localize LSTRING(ACTION_PARADROP)], { if ([vehicle player] call FUNC(candrop)) then { [vehicle player,true] spawn FUNC(dounload)}; }, {true}, [0x22, [false, false, false]], false] call CBA_fnc_addKeybind;
+
+
+
+private _allVehicles = configProperties [configFile >> "CfgVehicles","((isClass _x)&&{getNumber(_x >> 'scope') > 1})", false];
+GVAR(initializedVehicles) = LHASH_CREATE;
+
+{
+    private _vehicle = configName _x;
+    [_vehicle, 0, ["ACE_MainActions"], _mainAction] call ace_interact_menu_fnc_addActionToClass;
+
+    private _canLoad = ( getnumber(missionconfigFile >> "logistics" >> "vehicles" >> _vehicle >> "max_length") ) > 0;
+    private _canPara = ((( getnumber(missionconfigFile >> "logistics" >> "vehicles" >> _vehicle >> "max_length") ) > 0)&&(_vehicle isKindOf "Air"));
+    private _canCargo = (isClass(missionconfigFile >> "logistics" >> "vehicles" >> _vehicle >> "cargo"));
+    If (_canLoad) then {
+        If (HASH_GET_DEF(GVAR(initializedVehicles),_vehicle,false)) then {
+            [_vehicle, 0, ["ACE_MainActions"], _mainAction,false] call ace_interact_menu_fnc_addActionToClass;
+        };
+        HASH_SET(GVAR(initializedVehicles),_vehicle,true);
+        [_vehicle, 0, ["ACE_MainActions",QGVAR(action_main)], _loadAction,false] call ace_interact_menu_fnc_addActionToClass;
+        [_vehicle, 0, ["ACE_MainActions",QGVAR(action_main)], _unloadAction,false] call ace_interact_menu_fnc_addActionToClass;
+        [_vehicle, 0, ["ACE_MainActions",QGVAR(action_main)], _infoAction,false] call ace_interact_menu_fnc_addActionToClass;
+        If (_canCargo) then {
+            [_vehicle, 0, ["ACE_MainActions",QGVAR(action_main)], _extendAction,false] call ace_interact_menu_fnc_addActionToClass;
+            [_vehicle, 0, ["ACE_MainActions",QGVAR(action_main)], _reduceAction,false] call ace_interact_menu_fnc_addActionToClass;
+        };
+        [_vehicle, 1, ["ACE_SelfActions"], _mainAction] call ace_interact_menu_fnc_addActionToClass;
+        [_vehicle, 1, ["ACE_SelfActions",QGVAR(action_main)], _infoAction,false] call ace_interact_menu_fnc_addActionToClass;
+        If (_canPara) then {
+            [_vehicle, 1, ["ACE_SelfActions",QGVAR(action_main)], _paraAction,false] call ace_interact_menu_fnc_addActionToClass;
+        };
+    };
+
+    if (_vehicle isKindOf "Quadbike_01_base_F") then {
+        If (HASH_GET_DEF(GVAR(initializedVehicles),_vehicle,false)) then {
+            [_vehicle, 0, ["ACE_MainActions"], _mainAction,false] call ace_interact_menu_fnc_addActionToClass;
+        };
+        HASH_SET(GVAR(initializedVehicles),_vehicle,true);
+        [_vehicle, 0, ["ACE_MainActions",QGVAR(action_main)], _untowAction,false] call ace_interact_menu_fnc_addActionToClass;
+        [_vehicle, 0, ["ACE_MainActions",QGVAR(action_main)], _towAction,false] call ace_interact_menu_fnc_addActionToClass;
+    };
+
+    if (_vehicle isKindOf "Air") then {
+        If (HASH_GET_DEF(GVAR(initializedVehicles),_vehicle,false)) then {
+            [_vehicle, 0, ["ACE_MainActions"], _mainAction,false] call ace_interact_menu_fnc_addActionToClass;
+        };
+        HASH_SET(GVAR(initializedVehicles),_vehicle,true);
+        [_vehicle, 0, ["ACE_MainActions",QGVAR(action_main)], _untowAction,false] call ace_interact_menu_fnc_addActionToClass;
+    };
+
+    If (isClass(configfile >> "cfgvehicles" >> _vehicle >> "HitPoints" >> "HitRTrack")) then {
+        If (HASH_GET_DEF(GVAR(initializedVehicles),_vehicle,false)) then {
+            [_vehicle, 0, ["ACE_MainActions"], _mainAction,false] call ace_interact_menu_fnc_addActionToClass;
+        };
+        HASH_SET(GVAR(initializedVehicles),_vehicle,true);
+        [_vehicle, 0, ["ACE_MainActions",QGVAR(action_main)], _spareTrack,false] call ace_interact_menu_fnc_addActionToClass;
+    };
+
+} forEach _allVehicles;
 
 /// Cargo
 private _cfgVeh = configFile >> "CfgVehicles";
@@ -78,7 +109,10 @@ _loadAction = [
 for "_i" from 0 to ((count _cfgVeh)-1) do {
     private _vehicle = configname(_cfgVeh select _i);
     If (!([_vehicle] call FUNC(getCargoCfg) isEqualTo "")) then {
-        [_vehicle, 0, ["ACE_MainActions"], _mainAction] call ace_interact_menu_fnc_addActionToClass;
-        [_vehicle, 0, ["ACE_MainActions",QGVAR(action_main)], _loadAction] call ace_interact_menu_fnc_addActionToClass;
+        If (HASH_GET_DEF(GVAR(initializedVehicles),_vehicle,false)) then {
+            [_vehicle, 0, ["ACE_MainActions"], _mainAction,false] call ace_interact_menu_fnc_addActionToClass;
+        };
+        HASH_SET(GVAR(initializedVehicles),_vehicle,true);
+        [_vehicle, 0, ["ACE_MainActions",QGVAR(action_main)], _loadAction,false] call ace_interact_menu_fnc_addActionToClass;
     };
 };
