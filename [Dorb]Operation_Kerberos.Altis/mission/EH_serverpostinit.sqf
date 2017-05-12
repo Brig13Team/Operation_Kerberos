@@ -26,6 +26,7 @@ If ((getMarkerPos GVARMAIN(rescuemarker)) isEqualTo [0,0,0]) then {
 [QFUNC(obj__increaseCounterTwo), { _this call FUNC(obj__increaseCounterTwo); deleteVehicle (_this select 0); }] call CBA_fnc_addEventHandler;
 
 // initialize missions
+If ((toUpper worldName) isEqualTo "VR") exitWith {};
 [] spawn {
     SCRIPTIN(XEH_SERVERPOSTINIT,mission_init);
 

@@ -38,9 +38,6 @@ class CfgCompositions {
     class houses {
         #include "config\compositions_houses.hpp"
     };
-    class positions {
-        #include "config\compositions_positions.hpp"
-        #include "config\compositions_positions2.hpp"
-    };
+    #include "config\positions.hpp"
     #include "config\compositions_housepositions.hpp"
 };

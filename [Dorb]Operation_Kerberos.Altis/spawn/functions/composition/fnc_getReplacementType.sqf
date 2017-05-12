@@ -30,7 +30,7 @@ private _fnc_getWeapons = {
     _weapons;
 };
 
-If (_unittype isKindOf "Autonomous") exitWith {
+If (_unittype isKindOf "Autonomous")||(_unittype in ["B_SAM_System_01_F","B_SAM_System_02_F"]) exitWith {
     // Autonomous units can switch sides easyly
     ""
 };
@@ -71,11 +71,10 @@ If (_unittype isKindOf "Air") exitWith {
 If (_unittype isKindOf "CAManBase") exitWith {
     _return = "soldier";
     switch (true) do {
-        case ((getNumber (configFile >> "CfgVehicles" >> _unittype >> "attendant")>0));
-        case ((_object getVariable ["ace_medical_medicClass",0]) > 1) : {
+        case ((getNumber (configFile >> "CfgVehicles" >> _unittype >> "attendant")>0)) : {
             _return = "soldier_medic";
         };
-        case (_object getVariable ["ACE_isEngineer", getNumber (configFile >> "CfgVehicles" >> _unittype >> "engineer") == 1]) : {
+        case (getNumber (configFile >> "CfgVehicles" >> _unittype >> "engineer") == 1) : {
             _return = "soldier_engineer";
         };
         default {
@@ -149,11 +148,7 @@ If (_unittype isKindOf "LandVehicle") exitWith {
 
 
     // weapons
-    private _weapons = If !(isNull _object) then {
-        weapons _object
-    } else {
-        [_unittype] call _fnc_getWeapons;
-    };
+    private _weapons = [_unittype] call _fnc_getWeapons;
     {
         private _curWeapon = _x;
         ([_curWeapon] call BIS_fnc_itemType)params ["_itemclass","_itemtype"];
