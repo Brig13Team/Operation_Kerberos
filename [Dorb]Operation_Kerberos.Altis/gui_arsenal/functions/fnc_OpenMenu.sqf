@@ -17,6 +17,7 @@ TRACEV_2(_fastArsenal,_this);
 [] call EFUNC(gui_echidna,close);
 
 If (GVAR(level)<1) exitWith {
+    GVAR(isPreloaded) = true;
     If (_fastArsenal) then {
         [] call FUNC(OpenfastArsenalList);
     }else{
@@ -31,6 +32,7 @@ If (GVAR(level)<2) exitWith {
     };
     If (GVAR(forceReload)) then {[GVAR(level_1_obj)] call FUNC(addRestrictedArsenal);};
     If (GVAR(debugArsenal)) then {[GVAR(level_1_obj)] call FUNC(debugTemplate);};
+    GVAR(isPreloaded) = true;
     If (_fastArsenal) then {
         [] call FUNC(Open);
     }else{
@@ -47,6 +49,7 @@ If (isNull(missionNamespace getVariable [_arsenalVarName,objNull])) then {
 };
 If (GVAR(forceReload)) then {[(missionNamespace getVariable _arsenalVarName),side ace_player,true] call FUNC(addSideRestrictedArsenal);};
 If (GVAR(debugArsenal)) then {[(missionNamespace getVariable _arsenalVarName)] call FUNC(debugTemplate);};
+GVAR(isPreloaded) = true;
 If (_fastArsenal) then {
     [] call FUNC(Open);
 }else{

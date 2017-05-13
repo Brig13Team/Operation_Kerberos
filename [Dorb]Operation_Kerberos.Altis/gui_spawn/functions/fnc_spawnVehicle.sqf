@@ -61,6 +61,8 @@ _vehicle lock 0;
 closeDialog (ctrlIDD _dialog);
 [] call EFUNC(gui_echidna,close);
 
+[QEGVAR(gui_arsenal,cleanCargo),[_vehicle]] call CBA_fnc_localEvent;
+
 If (GVAR(vehiclesHashModified)) then {
     [] spawn {
         uisleep 5;

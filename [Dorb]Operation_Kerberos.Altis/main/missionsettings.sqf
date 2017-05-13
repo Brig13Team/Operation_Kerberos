@@ -15,9 +15,9 @@ enableSentences false;
 GVARMAIN(rescuemarker) = "rescue_marker";
 
 private _missionNameArray = (toLower missionName) splitString "_";
-private _isKerberos = (count _missionNameArray >= 2)&&{(_missionNameArray select 0) isEqualTo "[dorb]operation"}&&{(_missionNameArray select 1) isEqualTo "kerberos"};
+private GVARMAIN(isKerberos) = (count _missionNameArray >= 2)&&{(_missionNameArray select 0) isEqualTo "[dorb]operation"}&&{(_missionNameArray select 1) isEqualTo "kerberos"};
 
-If ((GVARMAIN(playerside) == west)&&_isKerberos) then {
+If ((GVARMAIN(playerside) == west)&& GVARMAIN(isKerberos) ) then {
     GVARMAIN(respawnmarker) = "respawn_west";
     GVARMAIN(AIRFIELD) = "airfield";
     GVARMAIN(side) = east;

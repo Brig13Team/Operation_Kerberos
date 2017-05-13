@@ -58,3 +58,26 @@ waituntil {! isnull player};
         [player,QGVARMAIN(insignia)] call BIS_fnc_setUnitInsignia;
     }
 ] call CBA_fnc_addEventHandler;
+
+/*
+ *
+ *      Base Protection
+ *
+ */
+If (GVARMAIN(isKerberos)) then {
+    [
+        {
+            If ((vehicle player == player)&&{player distance2D GVARMAIN(respawnmarker) < 250}) then {
+                If (isDamageAllowed player) then {
+                    player allowDamage false;
+                };
+            } else {
+                If (!isDamageAllowed player) then {
+                    player allowDamage true;
+                };
+            };
+        },
+        1
+    ] call CBA_fnc_addPerFrameHandler;
+
+};
