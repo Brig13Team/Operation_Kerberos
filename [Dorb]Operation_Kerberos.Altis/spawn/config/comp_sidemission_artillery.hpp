@@ -1,5 +1,5 @@
 class composition_251068 {
-    author = "BrigTeam";
+    author = "Dorbedo";
     isobjective = 2;
     artillery = 1;
     class obj_6 {

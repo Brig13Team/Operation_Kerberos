@@ -1,3 +1,4 @@
+/*
 class composition_819096 {
     class obj_6 {
         pos[] = {8.15239,1.00574,0.769908};
@@ -178,6 +179,7 @@ class composition_819096 {
         dir = -86.2224;
     };
 };
+*/
 class composition_947465 {
     class obj_6 {
         pos[] = {-0.27375,5.75845,0.740514};
@@ -1726,6 +1728,7 @@ class composition_369390 {
         dir = 29.3741;
     };
 };
+/*
 class composition_788773 {
     class obj_6 {
         pos[] = {0.319484,4.62453,1.46987};
@@ -1882,6 +1885,7 @@ class composition_788773 {
         dir = -85.3932;
     };
 };
+*/
 class composition_422961 {
     class obj_6 {
         pos[] = {-5.21344,7.36283,0.360528};
@@ -3270,6 +3274,7 @@ class composition_869810 {
         dir = -174.993;
     };
 };
+/*
 class composition_674677 {
     class obj_6 {
         pos[] = {2.69874,6.78251,1.30432};
@@ -3418,3 +3423,4 @@ class composition_674677 {
         dir = -34.2863;
     };
 };
+*/

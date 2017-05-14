@@ -7,7 +7,8 @@ class positions {
 
 
     // the new ones
-
+    #include "comp_pos_aa.hpp"
+    #include "comp_pos_mortar.hpp"
 
     // sidemissions
     #include "comp_sidemission_artillery.hpp"

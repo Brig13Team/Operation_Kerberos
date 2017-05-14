@@ -30,7 +30,7 @@ private _fnc_getWeapons = {
     _weapons;
 };
 
-If (_unittype isKindOf "Autonomous")||(_unittype in ["B_SAM_System_01_F","B_SAM_System_02_F"]) exitWith {
+If ((_unittype isKindOf "Autonomous")||(_unittype in ["B_SAM_System_01_F","B_SAM_System_02_F","B_AAA_System_01_F"])) exitWith {
     // Autonomous units can switch sides easyly
     ""
 };

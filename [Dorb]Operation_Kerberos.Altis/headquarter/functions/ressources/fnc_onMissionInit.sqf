@@ -16,8 +16,6 @@
 
 _this params ["_mission"];
 
-//if (HASH_HASKEY(_mission, "side")) exitWith { -1 };
-
 
 private _curResHash = HASH_GET(GVAR(ressources),"cas");
 HASH_SET(_curResHash,"nextexecution",-1);

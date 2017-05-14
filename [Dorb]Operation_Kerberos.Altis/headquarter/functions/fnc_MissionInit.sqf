@@ -16,8 +16,6 @@
 
 _this params ["_mission"];
 
-if (HASH_HASKEY(_mission, "side")) exitWith { -1 };
-
 private _centerpos = HASH_GET(_mission,"location") select 1;
 TRACEV_1(_centerPos);
 

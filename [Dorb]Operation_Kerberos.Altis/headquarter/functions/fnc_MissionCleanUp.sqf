@@ -15,8 +15,6 @@
 
 _this params ["_mission"];
 
-if !(HASH_GET(_mission, "type") isEqualTo "rtb") exitWith { -1 };
-
 GVAR(active) = false;
 
 //POI

@@ -244,6 +244,9 @@
             <Key ID="STR_DORB_MISSION_DEVICE_NEUTRAL">
                 <German>Das Gerät wurde zerstört</German>
             </Key>
+            <Key ID="STR_DORB_MISSION_DEVICE_FAILED">
+                <German>Das Gerät wurde zerstört</German>
+            </Key>
 
 
             <Key ID="STR_DORB_MISSION_DRONECOMMANDO_TITLE">
