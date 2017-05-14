@@ -132,6 +132,7 @@ HASH_SET(GVAR(handles),"ressources",_handle);
 [QEGVAR(mission,start_server),{_this call FUNC(ressources_onMissionInit);}] call CBA_fnc_addEventHandler;
 [QEGVAR(mission,end_server),{_this call FUNC(MissionCleanUp);}] call CBA_fnc_addEventHandler;
 [QGVAR(registerRadar),{_this call FUNC(registerRadar)}] call CBA_fnc_addEventHandler;
+[QGVAR(registerArtillery),{_this call FUNC(fdc_register)}] call CBA_fnc_addEventHandler;
 [QGVAR(killedUnit),{_this call FUNC(onKilled);}] call CBA_fnc_addEventHandler;
 
 // Statemachines

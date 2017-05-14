@@ -28,6 +28,7 @@ PREPS(mainmission,scarab);
 PREPS(mainmission,upload);
 PREPS(mainmission,weaponcache);
 
+PREPS(sidemission,artillery);
 PREPS(sidemission,radar);
 PREPS(sidemission,wreck);
 

@@ -103,7 +103,9 @@ private _fnc_spawnRelObj = {
         private ["_curObj"];
         If (_curType == "Land_CargoBox_V1_F") then {
             // the object is a Mission target
-            _objectives pushBack _spawnPos;
+            private _temp = + _spawnPos;
+            _temp set [3,_spawnDir];
+            _objectives pushBack _temp;
         }else{
             If ((_curType isKindOf "CAManBase")) then {
                 If (isNull _group) then {_group = createGroup GVARMAIN(side);};
@@ -195,7 +197,9 @@ private _allClasses = configProperties [_config, "isClass(_x)", true];
     private "_curObj";
     If (_curType == "Land_CargoBox_V1_F") then {
         // the object is a Mission target
-        _objectives pushBack _spawnPos;
+        private _temp = + _spawnPos;
+        _temp set [3,_spawnDir];
+        _objectives pushBack _temp;
     }else{
         If ((_curType isKindOf "CAManBase")) then {
             If (isNull _group) then {_group = createGroup GVARMAIN(side);};
@@ -212,7 +216,7 @@ private _allClasses = configProperties [_config, "isClass(_x)", true];
                 _curObj setDir _spawnDir;
                 _curObj setVectorUp _spawnVecUp;
             }else{
-                //LOG_5(_curPos,_group,_curType,_curDir,_hasCrew);
+                LOG_5(_curPos,_group,_curType,_curDir,_hasCrew);
                 If (isNull _group) then {_group = createGroup GVARMAIN(side);};
                 _curObj = ([ASLToATL _spawnPos,_group,_curType,_spawnDir,_hasCrew,true] call FUNC(vehicle)) select 1;
                 _curObj setPosWorld _spawnPos;

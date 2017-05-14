@@ -14,6 +14,7 @@ PREP(doload);
 PREP(doRemoveTrack);
 PREP(dounload);
 PREP(getCargoCfg);
+PREP(initialize);
 PREP(load);
 PREP(unload);
 

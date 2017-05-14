@@ -2,6 +2,7 @@
 
 ADDON = false;
 
+PREP(addVehicleSpecial);
 PREP(animBttn);
 PREP(canOpenMenu);
 PREP(checkPosEmpty);

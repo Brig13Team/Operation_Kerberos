@@ -67,7 +67,7 @@ waituntil {! isnull player};
 If (GVARMAIN(isKerberos)) then {
     [
         {
-            If ((vehicle player == player)&&{player distance2D GVARMAIN(respawnmarker) < 250}) then {
+            If ((vehicle player == player)&&{(player distance2D (_this select 0)) < 250}) then {
                 If (isDamageAllowed player) then {
                     player allowDamage false;
                 };
@@ -77,7 +77,8 @@ If (GVARMAIN(isKerberos)) then {
                 };
             };
         },
-        1
+        1,
+        getMarkerPos GVARMAIN(respawnmarker)
     ] call CBA_fnc_addPerFrameHandler;
 
 };

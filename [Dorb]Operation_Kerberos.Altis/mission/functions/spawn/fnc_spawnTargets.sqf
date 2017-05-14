@@ -62,6 +62,11 @@ for "_i" from 1 to _amount do {
     if (_targetPositions isEqualTo []) exitWith { [] };
     private _pos =+ (selectRandom _targetPositions);
     /* if !(_house) then { */ _targetPositions = _targetPositions - [_pos]; // };
+    private _spawnDir = If (count _pos > 3) then {
+        _pos select 3;
+    }else{
+        random 360;
+    };
     _pos resize 3;
     private _class = selectRandom ([_type] call FUNC(spawn_getObjects));
 
@@ -81,10 +86,12 @@ for "_i" from 1 to _amount do {
 
         _target = _group createUnit [_class, [0,0,0], [], 0, "CAN_COLLIDE"];
         _target setPosASL _pos;
+        _target setDir _spawnDir;
     } else {
         _target = createVehicle [_class, [0,0,0], [], 0, "CAN_COLLIDE"];
         _target setPosASL _pos;
         _target setVectorUp [0,0,1];
+        _target setDir _spawnDir;
     };
 
     #ifdef DEBUG_MODE_FULL

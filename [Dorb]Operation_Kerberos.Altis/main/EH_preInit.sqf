@@ -18,6 +18,8 @@ TRIPLES(PREFIX,makro,iscasvehicle) = {
 FUNCMAIN(recompile) = FUNCSYS(recompile);
 FUNCMAIN(recompileComponent) = FUNCSYS(recompilecomponent);
 
+GVAR(logging) = [];
+
 PREP(addMapToLog);
 PREP(addToLog);
 PREP(debug_performance);

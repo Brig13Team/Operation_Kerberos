@@ -109,6 +109,8 @@ private _allTargetPositions = [];
     If !(_curTargetPos isEqualTo []) then {
         _allTargetPositions append _curTargetPos;
     };
+    // if we have enough positions, we exit
+    If ((count _allTargetPositions)>=_amount) exitWith {};
 
 }forEach _possibleSpawnpositions;
 TRACEV_1(_allTargetPositions);

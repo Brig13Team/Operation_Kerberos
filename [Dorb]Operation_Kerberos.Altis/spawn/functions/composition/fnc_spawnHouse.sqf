@@ -69,7 +69,9 @@ private _objectives = [];
     private _targetPos = _housePos vectorAdd ([_curPos,-1 * _houseDir] call BIS_fnc_rotateVector2D);
 
     If (_curType == "Land_CargoBox_V1_F") then {
-        _objectives pushBack _targetPos;
+        private _temp = + _targetPos;
+        _temp set [3,(_curDir + (getDir _house))];
+        _objectives pushBack _temp;
     }else{
         If (_curType isKindOf "CAManBase") then {
             If (isNull _group) then {_group = createGroup GVARMAIN(side);};

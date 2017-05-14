@@ -481,6 +481,24 @@
                 <German>Es konnten keine Informationen geborgen werden.</German>
             </Key>
 
+
+            <Key ID="STR_DORB_MISSION_ARTILLERY_TITLE">
+                <German>Artilleriestellung</German>
+                <English>Artillery Position</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_ARTILLERY_DESC">
+                <German>Der Gegner verfügt über Artilerieunterstützung finden und vernichten sie die Geschütze. Wir haben keine Informationen, wo sie sich befinden.</German>
+                <English>The enemy has an artillery position. We don't know where it is located. Find the artillery and destroy it.</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_ARTILLERY_COUNTER">
+                <German>Ein Artilleriegeschütz wurde zerstört</German>
+                <English>A artillery has been destroyed.</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_ARTILLERY_SUCCEEDED">
+                <German>Die feindliche Artilleriestellung wurde neutralisiert</German>
+                <German>The enemy artillery position has been destroyed.</German>
+            </Key>
+
         </Container>
 
 
@@ -777,10 +795,6 @@
         <Key ID="STR_DORB_GUI_TELEPORT_VEHICLES">
             <German>Fahrzeuge</German>
             <English>Vehicles</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_TELEPORT_AIRFIELD">
-            <German>Flugfeld</German>
-            <English>Airfield</English>
         </Key>
         <Key ID="STR_DORB_GUI_TELEPORT_LOGISTIC">
             <German>Logistik</German>

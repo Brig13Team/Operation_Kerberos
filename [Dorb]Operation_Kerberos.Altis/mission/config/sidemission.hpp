@@ -52,19 +52,26 @@ class side {
         disableMarker = 1;
     };
 
-    /*
+
     class artillery : __base {
         conditiontype = "oneCounter";
         class location : location {
-            radius = 500;
+            areas[] = {QGVAR(industrie), QGVAR(military), QGVAR(other)};
+            minDistance = 7000;
+            maxDistance = 15000;
         };
         class defence {
             target = "composition";
             composition_types[] = {"artillery"};
         };
+        class object {
+            min = 3;
+            max = 3;
+
+        };
         disableMarker = 1;
     };
-    */
+
 
 /*
     class wreck : __base {

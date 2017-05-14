@@ -16,53 +16,55 @@ _this params ["_type"];
 
 private _config = missionConfigFile >> QEGVAR(spawn,unitlists);
 if (isNil QGVARMAIN(side_type)) then {
-    _config = _config >> format["base_%1", GVARMAIN(side)] >> "mission";
+    _config = _config >> format["base_%1", GVARMAIN(side)];
 } else {
-    _config = _config >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "mission";
+    _config = _config >> str GVARMAIN(side) >> GVARMAIN(side_type);
 };
 
 TRACEV_1(_type);
 
+private _return = [];
+
 switch _type do {
     case "hostage" : {
-        _config = _config >> "pow";
+        _return = getArray(_config >> "mission" >> "pow");
     };
     case "capture" : {
-        _config = _config >> "commander";
+        _return = getArray(_config >> "mission" >> "commander");
     };
     case "radiotower" : {
-        _config = _config >> "tower";
+        _return = getArray(_config >> "mission" >> "tower");
     };
     case "dronecommando" : {
-        _config = _config >> "hq_mobile";
+        _return = getArray(_config >> "mission" >> "hq_mobile");
     };
     case "upload" : {
-         _config = _config >> "laptop_open";
+         _return = getArray(_config >> "mission" >> "laptop_open");
     };
     case "wreck" : {
-         _config = _config >> "wreck_air";
+         _return = getArray(_config >> "mission" >> "wreck_air");
     };
     case "jammer" : {
-        _config = _config >> "hq_mobile";
+        _return = getArray(_config >> "mission" >> "hq_mobile");
     };
     case "supplys" : {
-        _config = _config >> "supplys";
+        _return = getArray(_config >> "mission" >> "supplys");
     };
     case "konvoi" : {
-        _config = _config >> "konvoi";
+        _return = getArray(_config >> "mission" >> "konvoi");
     };
     case "chopper" : {
-        _config = _config >> "chopper";
+        _return = getArray(_config >> "mission" >> "chopper");
     };
+    case "artillery" : {
+        _return = getArray(_config >> "art_rocket") + getArray(_config >> "art_shells");
+    };
+
     default {
-        _config = _config >> _type;
+        _return = getArray(_config >> "mission" >> _type);
     };
 };
 
-TRACEV_1(_config);
+TRACEV_2(_config,_return);
 
-if (isArray _config) exitWith {
-   getArray(_config)
-};
-
-[]
+_return

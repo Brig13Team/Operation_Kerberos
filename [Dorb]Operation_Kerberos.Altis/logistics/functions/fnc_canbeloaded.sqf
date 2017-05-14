@@ -15,6 +15,7 @@
 _this params ["_target","_cargo"];
 
 If ((typeOf _cargo in ["RHS_M119_WD","RHS_M119_WD","rhs_D30_vdv","rhs_D30_at_vdv"])&&{(_cargo doorPhase 'fold_arty' == 0)}) exitWith {false};
+If ((typeOf _cargo == "Land_DataTerminal_01_F")&&{(_cargo animationSourcePhase "Antenna_source")!=0}) exitWith {false};
 If (!((_cargo getVariable [QGVAR(aceactions),[]]) isEqualTo [])) exitWith {};
 private _cargo_class = [_cargo] call FUNC(getCargoCfg);
 If ((_cargo_class isEqualTo "")||{!(isNull (attachedTo _cargo))}) exitWith {false};

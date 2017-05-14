@@ -22,7 +22,7 @@ class main {
 
         class side {
             min = 1;
-            max = 1;
+            max = 3;
             types[] = {"__base"};
         };
 

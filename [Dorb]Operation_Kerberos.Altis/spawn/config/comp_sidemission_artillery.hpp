@@ -277,7 +277,7 @@ class composition_251068 {
                 pos[] = {-0.350477,1.59378,3.7916};
                 issimpleobj = 0;
                 vecup[] = {1.58957e-005,0.000845578,2};
-                hascrew = 0;
+                hascrew = 1;
                 stance = "";
                 type = "B_SAM_System_01_F";
                 dir = -268.923;
@@ -349,7 +349,7 @@ class composition_251068 {
                 pos[] = {0.379436,1.94003,4.19639};
                 issimpleobj = 0;
                 vecup[] = {0,0,2};
-                hascrew = 0;
+                hascrew = 1;
                 stance = "";
                 type = "B_SAM_System_01_F";
                 dir = -88.8473;
