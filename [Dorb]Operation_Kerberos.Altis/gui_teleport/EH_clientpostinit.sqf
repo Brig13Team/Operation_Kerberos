@@ -32,19 +32,18 @@ _carrierPos set [2,23.8];
 ] call FUNC(registerTeleportPosition);
 
 [getMarkerPos "bay_east",localize LSTRING(BAY_EAST),["default","infanterie"],{!(_this call FUNC(nearEnemys))},[getMarkerPos "bay_east"]] call FUNC(registerTeleportTarget);
-[getMarkerPos "bay_east",localize LSTRING(BAY_EAST),"ship",{!(_this call FUNC(nearEnemys))},[getMarkerPos "bay_east"]] call FUNC(registerTeleportTarget);
+[getMarkerPos "bay_east",localize LSTRING(BAY_EAST),"ship",{!(_this call FUNC(nearEnemys))},[getMarkerPos "bay_east_sea"]] call FUNC(registerTeleportTarget);
 [getMarkerPos "bay_east",localize LSTRING(BAY_EAST),"infanterie",{!(_this call FUNC(nearEnemys))},[getMarkerPos "bay_east"]] call FUNC(registerTeleportPosition);
 
 [getMarkerPos "bay_west",localize LSTRING(BAY_WEST),["default","infanterie"],{!(_this call FUNC(nearEnemys))},[getMarkerPos "bay_west"]] call FUNC(registerTeleportTarget);
-[getMarkerPos "bay_west",localize LSTRING(BAY_EAST),"ship",{!(_this call FUNC(nearEnemys))},[getMarkerPos "bay_west"]] call FUNC(registerTeleportTarget);
+[getMarkerPos "bay_west",localize LSTRING(BAY_EAST),"ship",{!(_this call FUNC(nearEnemys))},[getMarkerPos "bay_west_sea"]] call FUNC(registerTeleportTarget);
 [getMarkerPos "bay_west",localize LSTRING(BAY_WEST),"infanterie",{!(_this call FUNC(nearEnemys))},[getMarkerPos "bay_west"]] call FUNC(registerTeleportPosition);
 
 [getMarkerPos "bay_north",localize LSTRING(BAY_NORTH),["default","infanterie"],{!(_this call FUNC(nearEnemys))},[getMarkerPos "bay_north"]] call FUNC(registerTeleportTarget);
-[getMarkerPos "bay_north",localize LSTRING(BAY_EAST),"ship",{!(_this call FUNC(nearEnemys))},[getMarkerPos "bay_north"]] call FUNC(registerTeleportTarget);
 [getMarkerPos "bay_north",localize LSTRING(BAY_NORTH),"infanterie",{!(_this call FUNC(nearEnemys))},[getMarkerPos "bay_north"]] call FUNC(registerTeleportPosition);
 
 [getMarkerPos "bay_south",localize LSTRING(BAY_SOUTH),["default","infanterie"],{!(_this call FUNC(nearEnemys))},[getMarkerPos "bay_south"]] call FUNC(registerTeleportTarget);
-[getMarkerPos "bay_south",localize LSTRING(BAY_EAST),"ship",{!(_this call FUNC(nearEnemys))},[getMarkerPos "bay_south"]] call FUNC(registerTeleportTarget);
+[getMarkerPos "bay_south",localize LSTRING(BAY_EAST),"ship",{!(_this call FUNC(nearEnemys))},[getMarkerPos "bay_south_sea"]] call FUNC(registerTeleportTarget);
 [getMarkerPos "bay_south",localize LSTRING(BAY_SOUTH),"infanterie",{!(_this call FUNC(nearEnemys))},[getMarkerPos "bay_south"]] call FUNC(registerTeleportPosition);
 
 [

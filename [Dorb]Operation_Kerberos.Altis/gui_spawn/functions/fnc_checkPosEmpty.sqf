@@ -16,4 +16,4 @@
 
 _this params ["_position"];
 _position = ASLtoAGL (+ _position);
-((nearestObjects [_position, ["LandVehicle","Air","CAManBase"], CHECK_RADIUS]) select {_x getVariable [QGVARMAIN(canDelete),true]}) isEqualTo [];
+((nearestObjects [_position, ["AllVehicles"], CHECK_RADIUS]) select {_x getVariable [QGVARMAIN(canDelete),true]}) isEqualTo [];
