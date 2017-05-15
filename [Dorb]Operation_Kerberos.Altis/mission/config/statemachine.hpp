@@ -188,7 +188,7 @@ class GVAR(statemachine_Taskmanager) {
         onStateLeaving = "";
         class succeeded {
             // we want to cleanup, after the units are back in base
-            targetState = "cleanup"
+            targetState = "cleanup";
             // check inf the units are all back to base
             condition = QUOTE({_x distance2D (getMarkerPos GVARMAIN(respawnmarker)) > 200} count ([] call CBA_fnc_players) == 0);
             // mark the task as finished and display the message
@@ -261,7 +261,7 @@ class GVAR(statemachine_Taskmanager) {
         };
         // the provided conditiotype is not supported
         class errorout {
-            targetState = "error"
+            targetState = "error";
             condition = "true";
             onTransition = "";
         };
@@ -273,17 +273,17 @@ class GVAR(statemachine_Taskmanager) {
         onStateLeaving = "";
         class twoCounter {
             targetState = "twoCounter";
-            condition = "((_this getvariable ['delaycheck',1E20])<CBA_missiontime)&&{(_this getVariable ['conditiontype','none']) == 'twoCounter'}";
+            condition = "((_this getvariable ['delaycheck',0])<CBA_missiontime)&&{(_this getVariable ['conditiontype','none']) == 'twoCounter'}";
             onTransition = QFUNC(statemachine_inittwoCounter);
         };
         class oneCounter {
             targetState = "oneCounter";
-            condition = "((_this getvariable ['delaycheck',1E20])<CBA_missiontime)&&{(_this getVariable ['conditiontype','none']) == 'oneCounter'}";
+            condition = "((_this getvariable ['delaycheck',0])<CBA_missiontime)&&{(_this getVariable ['conditiontype','none']) == 'oneCounter'}";
             onTransition = QFUNC(statemachine_initOneCounter);
         };
         class hold {
             targetState = "oneCounter";
-            condition = "((_this getvariable ['delaycheck',1E20])<CBA_missiontime)&&{(_this getVariable ['conditiontype','none']) == 'hold'}";
+            condition = "((_this getvariable ['delaycheck',0])<CBA_missiontime)&&{(_this getVariable ['conditiontype','none']) == 'hold'}";
             onTransition = QFUNC(statemachine_initHold);
         };
     };

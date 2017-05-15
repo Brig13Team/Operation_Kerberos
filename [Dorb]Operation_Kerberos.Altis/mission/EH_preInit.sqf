@@ -29,15 +29,21 @@ PREPS(mainmission,upload);
 PREPS(mainmission,weaponcache);
 
 PREPS(sidemission,artillery);
+PREPS(sidemission,chopper);
+PREPS(sidemission,chopper_failed);
 PREPS(sidemission,radar);
+PREPS(sidemission,supplys_succeeded);
 PREPS(sidemission,wreck);
 
 PREPS(spawn,chooseLocation);
 PREPS(spawn,chooseMission);
+PREPS(spawn,createAtRescuePoint);
 PREPS(spawn,getAmount);
 PREPS(spawn,getObjects);
 PREPS(spawn,getRadius);
 PREPS(spawn,spawnTargets);
+
+PREPS(spawnfunctions,supplys);
 
 PREPS(statemachine,addSide);
 PREPS(statemachine,addTask);

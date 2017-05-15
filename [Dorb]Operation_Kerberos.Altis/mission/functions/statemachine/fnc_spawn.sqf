@@ -33,7 +33,7 @@ _mission spawn {
     If (_spawnFunction isEqualTo "") then {
         _objects = [_type,_centerpos,_mainOrSide] call FUNC(spawn_spawnTargets);
     }else{
-        _objects = [_centerpos] call (missionNamespace getVariable [_spawnFunction,{}]);
+        _objects = [_centerpos,_mission] call (missionNamespace getVariable [_spawnFunction,{}]);
     };
 
 
@@ -44,17 +44,17 @@ _mission spawn {
         {((getPos _x) distance2D [0,0,0])>10}
     };
 
+    {
+        _x setVariable [QGVAR(mission),_mission];
+    } forEach _objects;
+    _mission setVariable ["objects",_objects];
+
     If (_mainOrSide == "main") then {
         [_mission] call FUNC(statemachine_addSide);
         [_mission, _objects] call (missionNamespace getVariable [format ["%1_%2", QFUNC(mainmission), _type], {}]);
     }else{
         [_mission, _objects] call (missionNamespace getVariable [format ["%1_%2", QFUNC(sidemission), _type], {}]);
     };
-
-    {
-        _x setVariable [QGVAR(mission),_mission];
-    } forEach _objects;
-    _mission setVariable ["objects",_objects];
 
     If (_mainOrSide == "main") then {
         // if the spawning of units errors out, the mission will still stay playable
@@ -67,6 +67,7 @@ _mission spawn {
         ] call CBA_fnc_waitAndExecute;
         // spawn the big part of the units
         [_centerpos] call EFUNC(spawn,createMission);
+        uisleep 30;
     };
     // the spawning has been finished, next state
     _mission setVariable ["spawningfinished",true];

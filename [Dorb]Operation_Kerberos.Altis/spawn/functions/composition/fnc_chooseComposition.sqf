@@ -19,7 +19,7 @@ _this params [["_type","",["",[]]],["_position",[],[[]],[2,3]]];
 private _allConfigs = [];
 
 IF (_type isEqualTo "") then {
-    _allConfigs = configProperties [(missionConfigFile >> "CfgCompositions" >> "positions"),"(getNumber(_x >> 'isObective') == 0)",true];
+    _allConfigs = configProperties [(missionConfigFile >> "CfgCompositions" >> "positions"),"(getNumber(_x >> 'isObjective') == 0)",true];
 }else{
     If (IS_STRING(_type)) then {
         _type = [_type];

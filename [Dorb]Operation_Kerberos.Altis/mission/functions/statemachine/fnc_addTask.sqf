@@ -21,7 +21,7 @@ private _showMarker = _mission getVariable ["showmarker",true];
 private _markerpos = (_mission getVariable ["location",[[]]]) select 1;
 private _type = _mission getVariable ["type",""];
 private _isMain = _mission getVariable ["isMain",true];
-
+TRACEV_5(_objects,_showMarker,_markerpos._type,_isMain);
 If (_isMain) then {
     private _missionCfg = (missionconfigfile >> "mission" >> "main" >> _type);
     If (isNumber(_missionCfg >> "timeout")) then {
@@ -50,8 +50,8 @@ private _showMarker = _mission getVariable ["showMarker",true];
 private _markerpos = (_mission getVariable "location")select 1;
 TRACEV_3(_type,_taskID,_showMarker);
 
-private _taskdelay = _mission getVariable ["taskdelay",0];
-
+private _taskdelay = (_mission getVariable ["taskdelay",0])+5;
+TRACEV_6(_taskdelay,_mission,_taskID,_type,_showmarker,_markerpos);
 [
     {
         _this params ["_mission","_taskID","_type","_showmarker","_markerpos"];
@@ -64,6 +64,7 @@ private _taskdelay = _mission getVariable ["taskdelay",0];
             default {"CREATED"};
         };
         private _tasktype = getText(missionConfigFile >> "CfgTaskDescriptions" >> _type >> "tasktype");
+        TRACEV_2(_progress,_tasktype);
         [
             _taskID,
             GVARMAIN(playerside),
@@ -78,7 +79,7 @@ private _taskdelay = _mission getVariable ["taskdelay",0];
         ] call BIS_fnc_setTask;
     },
     [_mission,_taskID,_type,_showmarker,_markerpos],
-    (CBA_missiontime + _taskdelay)
+    _taskdelay
 ] call CBA_fnc_waitandExecute;
 
 

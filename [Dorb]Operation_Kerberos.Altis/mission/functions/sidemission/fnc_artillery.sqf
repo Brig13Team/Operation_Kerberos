@@ -1,5 +1,5 @@
 /*
- *  Author: iJesuz
+ *  Author: Dorbedo
  *
  *  Description:
  *      Mission "Artillery"
@@ -15,10 +15,8 @@
 
 _this params ["_mission", "_targets"];
 
-private _group = createGroup GVARMAIN(side);
-
 {
-    [_x,_group,false] call EFUNC(spawn,crew);
+    [_x,GVARMAIN(side),false] call EFUNC(spawn,crew);
     _x setFuel 0;
     _x addEventHandler ["Killed", LINKFUNC(obj__increaseCounter)];
     [QEGVAR(headquarter,registerArtillery),_x] call CBA_fnc_localEvent;

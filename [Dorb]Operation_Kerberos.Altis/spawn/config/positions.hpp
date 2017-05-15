@@ -12,6 +12,7 @@ class positions {
 
     // sidemissions
     #include "comp_sidemission_artillery.hpp"
+    #include "comp_sidemission_chopper.hpp"
 
 
 };

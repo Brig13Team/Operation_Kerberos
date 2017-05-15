@@ -499,8 +499,31 @@
             </Key>
             <Key ID="STR_DORB_MISSION_ARTILLERY_SUCCEEDED">
                 <German>Die feindliche Artilleriestellung wurde neutralisiert</German>
-                <German>The enemy artillery position has been destroyed.</German>
+                <English>The enemy artillery position has been destroyed.</English>
             </Key>
+
+
+            <Key ID="STR_DORB_MISSION_CHOPPER_TITLE">
+                <German>Gegnerischer Hubschauber</German>
+                <English>Enemy Chopper</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_CHOPPER_DESC">
+                <German>Ein Gegnerischer Hubschrauber ist Notgelandet. Verhindern sie seine Reperatur.</German>
+                <English>An enemy chopper made an emergency landing. Prevent the repair of the chopper.</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_CHOPPER_COUNTER">
+                <German>Ein Pilot wurde ausgeschaltet</German>
+                <English>A Pilot has been killed.</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_CHOPPER_SUCCEEDED">
+                <German>Die Reperatur des Hubschraubers konnte verhindert werden.</German>
+                <English>The Repair of the enemy chopper was prevented.</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_CHOPPER_FAILED">
+                <German>Die Reperatur des Hubschraubers konnte nicht verhindert werden.</German>
+                <English>The Repair of the enemy chopper couldn't be prevented.</English>
+            </Key>
+
 
         </Container>
 

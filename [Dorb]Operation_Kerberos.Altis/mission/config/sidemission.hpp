@@ -39,7 +39,7 @@ class side {
 
     /*
      *  playable missions
-     */
+     *//*
     class radar : __base {
         conditiontype = "oneCounter";
         class location : location {
@@ -70,7 +70,7 @@ class side {
 
         };
         disableMarker = 1;
-    };
+    };*/
 
 
 /*
@@ -85,15 +85,16 @@ class side {
  *  deliver goods from rescuepoint to a civilian town
  *  Reward: POI-Position gets marked
  */
- /*
+/*
     class supplys : __base {
+        conditiontype = "oneCounter";
         class location : location {
             areas[] = {QGVAR(town)};
             minDistance = 4000;
             maxDistance = -1;
         };
         spawnfunction = QFUNC(spawnfunctions_supplys);
-        spawndelay = 600;
+        //spawndelay = 600;
         probability = 0.2;
         onSucceeded = QFUNC(sidemission_supplys_succeeded);
     };
@@ -120,14 +121,20 @@ class side {
  *  Reward: the chopper
  *  Failure: the chopper is ready for combat
  */
-/*
+
     class chopper : __base {
+        conditiontype = "oneCounter";
         class location : location {
             radius = 8000;
         };
-        spawndelay = 650;
-        probability = 0.2;
+        class defence {
+            target = "composition";
+            composition_types[] = {"chopper"};
+        };
+        //spawndelay = 650;
+        //probability = 0.2;
+        timeout = 900;
         onFailed = QFUNC(sidemission_chopper_failed);
     };
-*/
+
 };

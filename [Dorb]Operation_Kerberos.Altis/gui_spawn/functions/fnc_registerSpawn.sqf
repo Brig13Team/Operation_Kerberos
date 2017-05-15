@@ -37,7 +37,7 @@ If (surfaceIsWater _spawnposition) then {
     };
     _spawnposition set [2,_offset];
 }else{
-    _spawnposition = AGLtoASL _spawnposition
+    _spawnposition = AGLtoASL _spawnposition;
 };
 
 private _id = HASH_GET_DEF(GVAR(spawns),"id",-1) + 1;

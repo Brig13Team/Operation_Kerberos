@@ -12,9 +12,9 @@
 */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-_this params[["_vehicle",objNull,[objNull]],["_gruppe",grpNull,[grpNull]],["_withCargo",false,[true]]];
+_this params[["_vehicle",objNull,[objNull]],["_gruppe",grpNull,[grpNull,east]],["_withCargo",false,[true]]];
 
-CHECKRET(((isNull _vehicle)||(isNull _gruppe)),[]);
+CHECKRET(((isNull _vehicle)||(IS_GROUP(_gruppe)&&{isNull _gruppe})),[]);
 private _crew = [];
 If (IS_SIDE(_gruppe)) then {
     _gruppe = createGroup _gruppe;
