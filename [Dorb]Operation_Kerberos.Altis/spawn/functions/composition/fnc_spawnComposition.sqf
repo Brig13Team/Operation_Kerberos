@@ -31,6 +31,9 @@ private _fnc_setObject = {
     _this params ["_curObj"];
     //TRACEV_1(_curObj);
     switch (true) do {
+        case (_curObj isKindOf "MineBase") : {
+            GVARMAIN(side) revealMine _curObj;
+        };
         case (_curObj isKindOf "StaticWeapon"): {
             // prevent the static units from looking north by default
             private _watchpos = [_spawnPos,250,_spawnDir] call BIS_fnc_relPos;
