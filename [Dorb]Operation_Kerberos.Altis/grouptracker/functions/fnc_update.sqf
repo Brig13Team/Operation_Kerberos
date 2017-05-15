@@ -5,10 +5,11 @@
  *      updates the groupmaker of a group
  *
  *  Parameter(s):
- *      0 : [TYPE] - [argument name]
+ *      0 : GROUP - the group to be updated
+ *      1 : BOOL - delete
  *
  *  Returns:
- *      [TYPE] - [return name]
+ *      none
  *
  */
 #include "script_component.hpp"
@@ -42,7 +43,14 @@ If !(HASH_HASKEY(_groupHash,"marker1")) then {
 
     private _symbol = HASH_GET(_grouphash,"prefix") + _symbolpost;
     _marker1 setMarkerPosLocal _position;
-    _marker1 setMarkerTextLocal (groupID _group);
+    If !(isPlayer (leader _group)) then {
+        If ((vehicle (leader _group)) in allUnitsUAV) then {
+            _marker1 setMarkerTextLocal (format ["%1 (%2)",groupID _group,name ((UAVControl (vehicle (leader _group))) select 0)]);
+        };
+        _marker1 setMarkerTextLocal (groupID _group);
+    }else{
+        _marker1 setMarkerTextLocal (groupID _group);
+    };
     _marker1 setMarkerTypeLocal _symbol;
 
     _marker2 setMarkerPosLocal _position;
