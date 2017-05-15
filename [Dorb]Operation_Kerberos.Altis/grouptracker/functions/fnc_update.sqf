@@ -45,9 +45,11 @@ If !(HASH_HASKEY(_groupHash,"marker1")) then {
     _marker1 setMarkerPosLocal _position;
     If !(isPlayer (leader _group)) then {
         If ((vehicle (leader _group)) in allUnitsUAV) then {
-            _marker1 setMarkerTextLocal (format ["%1 (%2)",groupID _group,name ((UAVControl (vehicle (leader _group))) select 0)]);
+            private _operator = ((UAVControl (vehicle (leader _group))) select 0);
+            _marker1 setMarkerTextLocal (format ["%1 (%2)",groupID _group,If (isNull _operator) then {" "}else{name _operator}]);
+        }else{
+            _marker1 setMarkerTextLocal (groupID _group);
         };
-        _marker1 setMarkerTextLocal (groupID _group);
     }else{
         _marker1 setMarkerTextLocal (groupID _group);
     };

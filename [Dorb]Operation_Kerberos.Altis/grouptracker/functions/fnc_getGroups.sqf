@@ -23,13 +23,13 @@ If ((!(isNull (getAssignedCuratorLogic player)))||(GVAR(showAll))) then {
             If ((side(leader _x ) == playerSide) and (({alive _x}count (units _x)) >0)) then {
                 _groups pushBack _x;
             };
-        } forEach allGroups;
+        } forEach (allGroups - (missionNamespace getVariable [QGVAR(hiddenGroups),[]]));
     }else{
         {
             If ((isPlayer (leader _x)) and (side(leader _x) == playerSide)and((count (units _x)) >0)) then {
                 _groups pushBack _x;
             };
-        } forEach allGroups;
+        } forEach (allGroups - (missionNamespace getVariable [QGVAR(hiddenGroups),[]]));
     };
 };
 _groups;
