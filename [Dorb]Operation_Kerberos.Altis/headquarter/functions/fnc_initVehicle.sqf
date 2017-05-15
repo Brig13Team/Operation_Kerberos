@@ -33,7 +33,7 @@ private _fnc_getWeapons = {
 };
 
 private "_value";
-If (_unittype isKindOf "Autonomous") exitWith {
+If (getText(configFile >> "CfgVehicles" >> _unittype >> "vehicleClass") == "Autonomous") exitWith {
     If !(_unittype isKindOf "Air") exitWith {
         _value = getArray(missionConfigFile>>"costs">>"drone_ground");
         HASH_SET(GVAR(costs),_unittype,_value select 0);

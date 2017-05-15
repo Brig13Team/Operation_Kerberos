@@ -44,7 +44,7 @@ if (IS_ARRAY(_target)) then {
         case (vehicle _target isKindOf "Tank") : {"armor"};
         case (vehicle _target isKindOf "Car") : {"motor_inf";};
         case ((vehicle _target isKindOf "Ship")or(vehicle _target isKindOf "Submarine")) : {"naval"};
-        case ((vehicle _target isKindOf "Autonomous")or(vehicle _target isKindOf "UAV")) : {"uav"};
+        case ((getText(configFile >> "CfgVehicles" >> typeOf (vehicle _target) >> "vehicleClass") == "Autonomous")) : {"uav"};
         case (vehicle _target isKindOf "Plane") : {"plane"};
         case (vehicle _target isKindOf "Air") : {"air"};
         case (vehicle _target isKindOf "Man") : {"inf"};
