@@ -21,7 +21,7 @@
         None
 
 */
-#define DEBUG_MODE_OFF
+//#define DEBUG_MODE_OFF
 #include "script_component.hpp"
 
 _this params [

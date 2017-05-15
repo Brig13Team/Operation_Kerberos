@@ -15,7 +15,7 @@
  *      [getPos Player,15,getDir player] call dorb_spawn_fnc_composition_exportPosition;
  *
  */
-#define DEBUG_MODE_FULL
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 _this params [

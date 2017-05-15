@@ -1122,6 +1122,7 @@ class composition_404602 {
         dir = -83.384;
     };
 };
+/*
 class composition_760411 {
     class obj_6 {
         pos[] = {7.53666,3.32503,1.58811};
@@ -1418,6 +1419,7 @@ class composition_760411 {
         dir = -0.0414371;
     };
 };
+*/
 class composition_369390 {
     class obj_6 {
         pos[] = {0.527494,-4.29669,0.398823};
@@ -2804,6 +2806,7 @@ class composition_13031 {
         dir = -0.919982;
     };
 };
+/*
 class composition_380988 {
     class obj_6 {
         pos[] = {8.45808,-6.87204,1.76441};
@@ -3084,6 +3087,7 @@ class composition_380988 {
         dir = -295.613;
     };
 };
+*/
 class composition_869810 {
     class obj_6 {
         pos[] = {1.04692,10.2622,0.740517};

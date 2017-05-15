@@ -13,7 +13,7 @@
  *      ARRAY - Position for Missionobjective, empty if none availlible
  *
  */
-#define DEBUG_MODE_OFF
+//#define DEBUG_MODE_OFF
 #include "script_component.hpp"
 
 _this params ["_centerPos","_config","_centerDir"];

@@ -47,7 +47,7 @@ If (_isMain) then {
 
 private _taskID = _mission getVariable "taskID";
 private _showMarker = _mission getVariable ["showMarker",true];
-private _markerpos = (_mission getVariable "location")select 1;
+private _markerpos = _mission getVariable "centerpos";
 TRACEV_3(_type,_taskID,_showMarker);
 
 private _taskdelay = (_mission getVariable ["taskdelay",0])+5;

@@ -11,7 +11,7 @@
  *      none
  *
  */
-#define DEBUG_MODE_FULL
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 _this params ["_mainmission"];
@@ -109,6 +109,17 @@ for "_i" from 1 to _amount do {
     INC(GVAR(taskCounter));
     private _taskID = format[QGVAR(mission_%1_side),GVAR(taskcounter)];
     _hash setVariable ["taskID",[_taskID,_mainID]];
+
+    // adding the events
+    private _events = (configProperties [_missionCfg,"isText _x"]) select {(configname _x) select [0,2] == "on"};
+    {
+        private _value = getText _x;
+        If !(isNil _value) then {
+            _hash setVariable [configname _x,_value];
+        }else{
+            _hash setVariable [configname _x,compile _value];
+        };
+    } forEach _events;
 
     // now add the mission to the machine
     GVAR(missions) pushBack _hash;

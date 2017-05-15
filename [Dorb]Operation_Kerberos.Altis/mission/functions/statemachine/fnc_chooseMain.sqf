@@ -53,6 +53,17 @@ INC(GVAR(taskCounter));
 private _taskID = format[QGVAR(mission_%1),GVAR(taskcounter)];
 _mission setVariable ["taskID",_taskID];
 
+// adding the events
+private _events = (configProperties [_missionCfg,"isText _x"]) select {(configname _x) select [0,2] == "on"};
+{
+    private _value = getText _x;
+    If !(isNil (missionNamespace getVariable _value)) then {
+        _hash setVariable [configname _x,_value];
+    }else{
+        _hash setVariable [configname _x,compile _value];
+    };
+} forEach _events;
+
 // now we check if we have already a new mainmission defined
 If !(isNull (missionNamespace getVariable [QGVAR(forcedNextMain),locationNull])) then {
     // we transfer the variables of the forced next main onto the current hash and delete the main

@@ -11,7 +11,7 @@
  *  Returns:
  *      -
  */
-#define DEBUG_MODE_FULL
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 _this params ["_mission", "_targets"];
@@ -24,7 +24,7 @@ private _crew = [];
 } forEach _targets;
 TRACEV_2(_targets,_crew);
 {
-    _x addEventHandler ["Killed", LINKFUNC(obj__increaseCounter)]
+    _x addEventHandler ["Killed", LINKFUNC(obj__increaseCounter)];
     _x setVariable [QGVAR(mission),_mission];
 } forEach _crew;
 

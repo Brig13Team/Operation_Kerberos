@@ -39,7 +39,7 @@ class side {
 
     /*
      *  playable missions
-     *//*
+     */
     class radar : __base {
         conditiontype = "oneCounter";
         class location : location {
@@ -70,7 +70,7 @@ class side {
 
         };
         disableMarker = 1;
-    };*/
+    };
 
 
 /*
@@ -135,6 +135,7 @@ class side {
         //probability = 0.2;
         timeout = 900;
         onFailed = QFUNC(sidemission_chopper_failed);
+        onTimeout = QFUNC(sidemission_chopper_failed);
     };
 
 };

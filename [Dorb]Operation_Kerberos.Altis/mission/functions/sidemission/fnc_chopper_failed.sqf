@@ -10,11 +10,12 @@
  *  Returns:
  *      -
  */
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 _this params ["_mission"];
 
-_mission getVariable ["objects",[]];
+private _objects = _mission getVariable ["objects",[]];
 _objects = _objects - [objNull];
 TRACEV_2(_mission,_objects);
 CHECK(_objects isEqualTo [])

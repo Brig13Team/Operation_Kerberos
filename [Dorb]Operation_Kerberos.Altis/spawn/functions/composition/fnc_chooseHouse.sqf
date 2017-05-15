@@ -11,7 +11,7 @@
  *      CONFIG - the targetConfig
  *
  */
-#define DEBUG_MODE_OFF
+//#define DEBUG_MODE_OFF
 #include "script_component.hpp"
 
 _this params [["_house",objNull,[objNull]],["_missionTargetType","",["",[]]]];
