@@ -34,6 +34,7 @@ class CfgComponents {
     mod_acre = 1;
     mod_asrai = 1;
     mod_bwa3 = 1;
+    mod_rhs = 1;
     patch_acre = 1;
     patch_bwa3 = 1;
     /// gui
@@ -63,6 +64,7 @@ class CfgComponents {
 #include "mod_acre\CfgComponent.hpp"
 #include "mod_asrai\CfgComponent.hpp"
 #include "mod_bwa3\CfgComponent.hpp"
+#include "mod_rhs\CfgComponent.hpp"
 #include "patch_acre\CfgComponent.hpp"
 #include "patch_bwa3\CfgComponent.hpp"
 #include "player\CfgComponent.hpp"
