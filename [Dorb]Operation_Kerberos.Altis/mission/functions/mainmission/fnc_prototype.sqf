@@ -16,7 +16,7 @@
 _this params ["_mission", "_targets"];
 
 {
-    _x setVariable [QGVAR(rescueEvent), QFUNC(obj__increaseCounter)];
+    _x setVariable [QGVAR(rescueEvent), QFUNC(mainmission_prototype_rescued)];
     _x addEventHandler["Killed", LINKFUNC(obj__triggerFailed)];
     HASH_SET(_mission, "prototype", typeOf _x);
 } forEach _targets;

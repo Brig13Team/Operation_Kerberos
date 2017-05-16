@@ -22,6 +22,7 @@ PREPS(mainmission,hostage);
 PREPS(mainmission,intel);
 PREPS(mainmission,jammer);
 PREPS(mainmission,prototype);
+PREPS(mainmission,prototype_rescued);
 PREPS(mainmission,radiotower);
 PREPS(mainmission,rtb);
 PREPS(mainmission,scarab);
