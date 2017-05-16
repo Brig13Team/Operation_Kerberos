@@ -41,7 +41,7 @@ _this params [
 CHECK(isNull _group)
 
 _group = _group call CBA_fnc_getGroup;
-CHECK(!local _group)
+CHECK(!isServer)
 
 private "_args";
 if !(_centerpos isEqualTo []) then {
