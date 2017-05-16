@@ -35,9 +35,7 @@ class DOUBLES(CfgComponent,ADDON) {
 #include "config\gear.hpp"
 
 class CfgCompositions {
-    class houses {
-        #include "config\compositions_houses.hpp"
-    };
+    #include "config\houses.hpp"
     #include "config\positions.hpp"
     #include "config\compositions_housepositions.hpp"
 };
