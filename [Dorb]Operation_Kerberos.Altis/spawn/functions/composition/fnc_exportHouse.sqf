@@ -5,10 +5,14 @@
  *      exports a houseComposition
  *
  *  Parameter(s):
- *      0 : [TYPE] - [argument name]
+ *      0 : OBJECT - the house
+ *      1 : SCALAR - Radius
+ *      2 : STRING - author
  *
  *  Returns:
- *      [TYPE] - [return name]
+ *      none
+ *
+ *   [cursorTarget,30] call dorb_spawn_fnc_composition_exportHouse;
  *
  */
 //#define DEBUG_MODE_FULL
