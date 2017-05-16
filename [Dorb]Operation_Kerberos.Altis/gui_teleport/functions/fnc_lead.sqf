@@ -59,7 +59,11 @@ if ((vehicle _caller) == _caller) then {
                     If (_stance in ["STAND","CROUCH","PRONE"]) then {
                         _caller playActionNow _stance;
                     };
-                    _caller setPos _position;
+                    If (surfaceIsWater _position) then {
+                        _caller setPosASL (getPosASL leader _caller);
+                    }else{
+                        _caller setPos _position;
+                    };
                     _isTeleported = true;
                 };
             }else{

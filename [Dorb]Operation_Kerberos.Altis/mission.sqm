@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={18384.018,78.2901,26723.982};
-		dir[]={-0.19395721,-0.58394581,-0.78830612};
-		up[]={-0.13951583,0.81178927,-0.56704038};
-		aside[]={-0.97105837,-1.7491402e-007,0.23892191};
+		pos[]={18371.344,67.345062,26793.418};
+		dir[]={0.2858668,-0.55907488,-0.77831084};
+		up[]={0.19275883,0.82910168,-0.52480853};
+		aside[]={-0.93871051,7.7546429e-007,-0.34478125};
 	};
 };
 binarizationWanted=0;
@@ -5934,6 +5934,7 @@ class Mission
 					{
 						init="call{this setVariable [""DORB_ISCASPILOT"",1,true]; " \n "}";
 						description="Kampfpilot";
+						isPlayer=1;
 						isPlayable=1;
 						class Inventory
 						{
@@ -6937,7 +6938,7 @@ class Mission
 			name="respawn_west";
 			text="USS Freedom";
 			type="Empty";
-			angle=195.43698;
+			angle=195.43697;
 			id=193;
 			atlOffset=185.97;
 		};
@@ -7223,7 +7224,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={18353.049,19.890642,26708.246};
-				angles[]={-0,1.5949692,0};
+				angles[]={0,1.5949692,0};
 			};
 			name="cratespawner1";
 			id=265;
