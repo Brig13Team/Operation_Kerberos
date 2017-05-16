@@ -84,6 +84,8 @@ for "_i" from 1 to _amount do {
     _hash setVariable ["location",_location];
     _hash setVariable ["centerpos",_centerpos];
 
+    EGVAR(spawn,cleanup_positions) pushBack _centerpos;
+
     // showMarker flag
     private _showMarker = ((getNumber(_missionCfg >> "disableMarker")) == 0);
     _hash setVariable ["showmarker",_showMarker];
