@@ -13,7 +13,7 @@
  *      ARRAY - The generated waypoints
  *
  */
-#define DEBUG_MODE_FULL
+#define DEBUG_MODE_OFF
 #include "script_component.hpp"
 
 _this params[
