@@ -9,9 +9,9 @@
 #include "script_component.hpp"
 
 class DOUBLES(CfgComponent,ADDON) {
-    class hitpart {};
+    class initPostServer {client = 0;};
     class dependencies {
-        CfgPatches[] = {"BWA3_Tracked","rhs_main"};
+        CfgPatches[] = {'rhs_main'};
         CfgComponents[] = {};
     };
 };
