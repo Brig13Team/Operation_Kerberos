@@ -27,6 +27,12 @@ _mobileaa append _staticaa;
 private _targets = HASH_GET(GVAR(radars),"targets");
 
 {
+    GVARMAIN(side) reportRemoteTarget [_x, 60];
+    nil;
+} count _targets;
+
+
+{
     private _assignedTarget = assignedTarget _x;
     If !(isNull _assignedTarget) then {
         if ((_x distance _assignedTarget)<3400) then {
