@@ -54,6 +54,11 @@ _this params ["_pos",["_rad",2500,[0]]];
 
 {
     GVAR(cleanup_Dump_int) pushBackUnique [-1,_x];
+} forEach (allMissionObjects "Land_HelipadEmpty_F");
+
+
+{
+    GVAR(cleanup_Dump_int) pushBackUnique [-1,_x];
     nil;
 } count GVAR(cleanUpDump);
 GVAR(cleanup_Dump_int) sort true;

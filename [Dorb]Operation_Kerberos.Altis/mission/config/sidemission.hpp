@@ -131,8 +131,8 @@ class side {
             target = "composition";
             composition_types[] = {"chopper"};
         };
-        //spawndelay = 650;
-        //probability = 0.2;
+        spawndelay = 650;
+        probability = 0.2;
         timeout = 900;
         onFailed = QFUNC(sidemission_chopper_failed);
         onTimeout = QFUNC(sidemission_chopper_failed);
