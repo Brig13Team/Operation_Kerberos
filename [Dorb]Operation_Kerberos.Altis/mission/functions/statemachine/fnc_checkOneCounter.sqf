@@ -34,3 +34,8 @@ private _counter       = HASH_GET(_mission, "obj_counter");
 if (_counter >= _counter_total) exitWith {
     _mission setVariable ["progress","succeeded"];
 };
+
+private _objs = HASH_GET(_mission, "objects");
+if (({!isNull _x} count _objs) == 0) then {
+    _mission setVariable ["progress","canceled"];
+};
