@@ -13,6 +13,9 @@ CHECK(!hasInterface)
 [] call FUNC(obj_initACEAction_device);
 [] call FUNC(obj_initACEAction_upload);
 [] call FUNC(obj_initACEAction_wreck);
+[
+    "Land_DataTerminal_01_F"
+] call FUNC(obj_initACEAction_DataTerminal);
 
 // events
 [QGVAR(effectDownload_Client),LINKFUNC(obj_effectDownloadClient)] call CBA_fnc_addEventHandler;

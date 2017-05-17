@@ -32,6 +32,9 @@ class GVAR(unitlists) {
             commander[] = {"rhs_vdv_officer"};
             hq_mobile[] = {"rhs_gaz66_r142_vdv"};
             wreck_air[] = {"rhs_Mi8mt_vdv","rhs_Mi8mt_Cargo_vdv","rhs_Mi8MTV3_vdv","rhs_Mi8MTV3_UPK23_vdv","rhs_Mi8MTV3_FAB_vdv","rhs_Mi8AMT_vdv"};
+            konvoi[] = {"rhs_t72ba_tv","rhs_gaz66_vdv","rhs_btr80a_vdv","rhs_zsu234_aa"};
+            supplys[] = {"B_Slingload_01_Cargo_F","B_Slingload_01_Fuel_F","B_Slingload_01_Medevac_F","B_Slingload_01_Repair_F"};
+            chopper[] = {"RHS_Ka52_UPK23_vvs"};
         };
         attack_uavs[] = {"O_UAV_02_F"};
         recon_uavs[] = {"rhs_pchela1t_vvs","O_UAV_01_F"};

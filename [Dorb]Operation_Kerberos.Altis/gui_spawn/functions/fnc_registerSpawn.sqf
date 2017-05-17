@@ -20,17 +20,24 @@ If ((_spawnposition isEqualTo [])||(_vehicleList isEqualTo [])) exitWith {""};
 
 If ((count _spawnposition)<3) then {_spawnposition pushBack 0;};
 
-// carrier detection
-private _nearCarriers = _spawnposition nearObjects ["Land_Carrier_01_base_F",400];
-If !(_nearCarriers isEqualTo []) then {
-    private _offset = ((getPosASL (_nearCarriers select 0)) select 2) + 23.7;
-    _spawnposition set[2,_offset];
-}else{
-    If (surfaceIsWater _spawnposition) then {
-        _spawnposition set [2,0];
-    }else{
-        _spawnposition = AGLtoASL _spawnposition;
+// detecting carrier/harbour
+If (surfaceIsWater _spawnposition) then {
+    // carrier detection:
+    private _tempos1 = + _spawnposition;
+    private _tempos2 = + _tempos1;
+    _tempos1 set [2,0];
+    _tempos2 set [2,40];
+    private _objects = lineIntersectsWith[_tempos1,_tempos2];
+    private _offset = 0.5;
+    If (({(typeOf _x isKindOf "Land_Carrier_01_hull_base_F")||{(typeOf _x isKindOf "Land_Carrier_01_hull_GEO_Base_F")}} count _objects)>0) then {
+        private _nearCarriers = _spawnposition nearObjects ["Land_Carrier_01_base_F",400];
+        If !(_nearCarriers isEqualTo []) then {
+            _offset = ((getPosASL (_nearCarriers select 0)) select 2) + 23.7;
+        };
     };
+    _spawnposition set [2,_offset];
+}else{
+    _spawnposition = AGLtoASL _spawnposition;
 };
 
 private _id = HASH_GET_DEF(GVAR(spawns),"id",-1) + 1;

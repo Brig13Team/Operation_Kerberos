@@ -23,4 +23,4 @@ _this params ["_mission", "_targets"];
     _x addEventHandler ["Killed", { [getPos (_this select 0)] call FUNC(obj_spawnNuke); }];
 } forEach _targets;
 
-[_mission, _targets, 60] call FUNC(mainmission__oneCounter);
+//[_mission, _targets, 60] call FUNC(mainmission__oneCounter);

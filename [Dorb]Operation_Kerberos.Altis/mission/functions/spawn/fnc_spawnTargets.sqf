@@ -12,6 +12,7 @@
  *  Returns:
  *      [OBJECT]    - mission targets
  */
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 _this params ["_type", "_centerposition", ["_mainOrSide", "main", [""]]];
@@ -45,10 +46,13 @@ switch (_defenceStructure) do {
 
 if (_targetPositions isEqualTo []) then {
     for "_i" from 1 to _amount do {
-        _targetPositions pushBack (ATLtoASL ([_centerposition, 15, _radius] call EFUNC(common,pos_randomFlatEmpty)));
+        private _temp = [_centerposition, 15, _radius] call EFUNC(common,pos_randomFlatEmpty);
+        if ((!isNil "_temp")&&{count _temp == 3}) then {
+            _targetPositions pushBack (ATLtoASL _temp);
+        };
     };
     if (_targetPositions isEqualTo []) then {
-        _targetPositions = [_centerposition];
+        _targetPositions = [ATLtoASL[_centerposition select 0,_centerposition select 1,0]];
     };
 };
 
@@ -58,6 +62,11 @@ for "_i" from 1 to _amount do {
     if (_targetPositions isEqualTo []) exitWith { [] };
     private _pos =+ (selectRandom _targetPositions);
     /* if !(_house) then { */ _targetPositions = _targetPositions - [_pos]; // };
+    private _spawnDir = If (count _pos > 3) then {
+        _pos select 3;
+    }else{
+        random 360;
+    };
     _pos resize 3;
     private _class = selectRandom ([_type] call FUNC(spawn_getObjects));
 
@@ -77,10 +86,12 @@ for "_i" from 1 to _amount do {
 
         _target = _group createUnit [_class, [0,0,0], [], 0, "CAN_COLLIDE"];
         _target setPosASL _pos;
+        _target setDir _spawnDir;
     } else {
         _target = createVehicle [_class, [0,0,0], [], 0, "CAN_COLLIDE"];
         _target setPosASL _pos;
         _target setVectorUp [0,0,1];
+        _target setDir _spawnDir;
     };
 
     #ifdef DEBUG_MODE_FULL

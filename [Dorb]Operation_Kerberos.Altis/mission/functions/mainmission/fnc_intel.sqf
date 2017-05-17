@@ -19,4 +19,4 @@ _this params ["_mission", "_targets"];
     _x setPos ((getPos _x) vectorAdd [0,0,1]);
 } forEach _targets;
 
-[_mission, _targets] call FUNC(mainmission__oneCounter);
+//[_mission, _targets] call FUNC(mainmission__oneCounter);

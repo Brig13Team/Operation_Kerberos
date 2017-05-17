@@ -25,7 +25,7 @@ switch (true) do {
     case (vehicle _leader isKindOf "Tank") : {"armor"};
     case (vehicle _leader isKindOf "Car") : {"motor_inf";};
     case ((vehicle _leader isKindOf "Ship")or(vehicle _leader isKindOf "Submarine")) : {"naval"};
-    case ((vehicle _leader isKindOf "Autonomous")or(vehicle _leader isKindOf "UAV")) : {"uav"};
+    case ((getText(configFile >> "CfgVehicles" >> typeOf (vehicle _leader) >> "vehicleClass") == "Autonomous")) : {"uav"};
     case (vehicle _leader isKindOf "Plane") : {"plane"};
     case (vehicle _leader isKindOf "Air") : {"air"};
     case (vehicle _leader isKindOf "Man") : {"inf"};

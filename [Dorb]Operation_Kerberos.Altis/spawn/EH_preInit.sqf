@@ -27,8 +27,6 @@ PREP(onHit);
 PREP(onMissionEnding);
 PREP(onMissionStart);
 
-PREP(patrol_task);
-
 PREP(spawnCivCarGarage);
 PREP(spawnCivVehRoadside);
 PREP(spawnExplosive);
@@ -48,12 +46,13 @@ PREPS(composition,chooseComposition);
 PREPS(composition,chooseHouse);
 PREPS(composition,createFromHouse);
 PREPS(composition,createFromPosition);
-PREPS(composition,getReplacement);
-PREPS(composition,hasCrew);
-PREPS(composition,helperRoad);
 PREPS(composition,exportHouse);
 PREPS(composition,exportPosition);
 PREPS(composition,exportToHpp);
+PREPS(composition,getReplacement);
+PREPS(composition,getReplacementType);
+PREPS(composition,hasCrew);
+PREPS(composition,helperRoad);
 PREPS(composition,issimpleobject);
 PREPS(composition,onFiredNear);
 PREPS(composition,spawnComposition);

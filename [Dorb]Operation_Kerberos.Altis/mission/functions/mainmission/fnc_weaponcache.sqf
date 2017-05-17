@@ -23,4 +23,4 @@ _this params ["_mission", "_targets"];
     _x setVariable ["ace_cookOff_enable", false, true];
 } forEach _targets;
 
-[_mission, _targets] call FUNC(mainmission__oneCounter);
+//[_mission, _targets] call FUNC(mainmission__oneCounter);

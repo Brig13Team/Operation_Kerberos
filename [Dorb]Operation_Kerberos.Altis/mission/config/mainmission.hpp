@@ -22,14 +22,17 @@ class main {
 
         class side {
             min = 1;
-            max = 1;
+            max = 3;
             types[] = {"__base"};
         };
 
         probability = 1.0;
+        // used to delay the evaluation by seconds. (use 1E18 to delay BOOL-like)
+        delaycheck = 0;
     };
 
     class __oneCounter : __base {
+        conditiontype = "oneCounter";
         class defence : defence {
             target = "composition";
             armys[] = {{"regular",1}, {"armored",1}, {"infanterie",1}, {"airborne",1}, {"guards",1}};
@@ -37,6 +40,7 @@ class main {
     };
 
     class __twoCounter : __oneCounter {
+        conditiontype = "twoCounter";
         class defence : defence {
             target = "house";
         };
@@ -120,7 +124,7 @@ class main {
 
         class object : object {
             min = 2;
-            max = 10;
+            max = 6;
         };
     };
 
@@ -147,17 +151,6 @@ class main {
         };
     };
 
-    class rtb : __base {
-       class object : object {
-           radius   = 250;
-           position = "respawn_west";
-       };
-
-       class side : side {
-           types[] = {};
-       };
-    };
-
 /*
     // internal rhs script produces too much script errors
     class scarab : radiotower {
@@ -181,7 +174,7 @@ class main {
 
         class object : object {
             min = 5;
-            max = 10;
+            max = 8;
         };
     };
 };

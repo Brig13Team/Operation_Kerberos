@@ -13,7 +13,7 @@
  *      ARRAY - Position for Missionobjective, empty if none availlible
  *
  */
-#define DEBUG_MODE_OFF
+//#define DEBUG_MODE_OFF
 #include "script_component.hpp"
 
 _this params ["_centerPos","_config","_centerDir"];
@@ -31,6 +31,9 @@ private _fnc_setObject = {
     _this params ["_curObj"];
     //TRACEV_1(_curObj);
     switch (true) do {
+        case (_curObj isKindOf "MineBase") : {
+            GVARMAIN(side) revealMine _curObj;
+        };
         case (_curObj isKindOf "StaticWeapon"): {
             // prevent the static units from looking north by default
             private _watchpos = [_spawnPos,250,_spawnDir] call BIS_fnc_relPos;
@@ -103,7 +106,9 @@ private _fnc_spawnRelObj = {
         private ["_curObj"];
         If (_curType == "Land_CargoBox_V1_F") then {
             // the object is a Mission target
-            _objectives pushBack _spawnPos;
+            private _temp = + _spawnPos;
+            _temp set [3,_spawnDir];
+            _objectives pushBack _temp;
         }else{
             If ((_curType isKindOf "CAManBase")) then {
                 If (isNull _group) then {_group = createGroup GVARMAIN(side);};
@@ -161,7 +166,9 @@ private _allClasses = configProperties [_config, "isClass(_x)", true];
     private _checkPos1 = _relPos vectorAdd [0,0,30];
     private _checkPos2 = _relPos vectorAdd [0,0,-30];
 
-    ((lineIntersectsSurfaces[_checkPos1,_checkPos2,objNull,objNull,false]) select 0) params ["_spawnPos","_surfaceNormal"];
+    private _spawnPos = terrainIntersectAtASL[_checkPos1,_checkPos2];
+    private _surfaceNormal = surfaceNormal _spawnPos;
+
 
     // normalize the area
 
@@ -193,7 +200,9 @@ private _allClasses = configProperties [_config, "isClass(_x)", true];
     private "_curObj";
     If (_curType == "Land_CargoBox_V1_F") then {
         // the object is a Mission target
-        _objectives pushBack _spawnPos;
+        private _temp = + _spawnPos;
+        _temp set [3,_spawnDir];
+        _objectives pushBack _temp;
     }else{
         If ((_curType isKindOf "CAManBase")) then {
             If (isNull _group) then {_group = createGroup GVARMAIN(side);};
@@ -210,7 +219,7 @@ private _allClasses = configProperties [_config, "isClass(_x)", true];
                 _curObj setDir _spawnDir;
                 _curObj setVectorUp _spawnVecUp;
             }else{
-                //LOG_5(_curPos,_group,_curType,_curDir,_hasCrew);
+                LOG_5(_curPos,_group,_curType,_curDir,_hasCrew);
                 If (isNull _group) then {_group = createGroup GVARMAIN(side);};
                 _curObj = ([ASLToATL _spawnPos,_group,_curType,_spawnDir,_hasCrew,true] call FUNC(vehicle)) select 1;
                 _curObj setPosWorld _spawnPos;
@@ -228,6 +237,9 @@ private _allClasses = configProperties [_config, "isClass(_x)", true];
     //LOG_1(_forEachIndex);
 } forEach _allClasses;
 
+If ((!(isNull _group))&&{!(isNil QEFUNC(headquarter,registergroup))}) then {
+    [_group,"static"] call EFUNC(headquarter,registergroup);
+};
 
 //TRACEV_1(_objectives);
 

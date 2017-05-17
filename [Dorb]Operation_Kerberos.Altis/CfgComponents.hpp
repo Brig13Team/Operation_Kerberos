@@ -34,6 +34,7 @@ class CfgComponents {
     mod_acre = 1;
     mod_asrai = 1;
     mod_bwa3 = 1;
+    mod_rhs = 1;
     patch_acre = 1;
     patch_bwa3 = 1;
     /// gui
@@ -49,6 +50,8 @@ class CfgComponents {
 };
 
 #include "main\CfgComponent.hpp"
+#include "gui\CfgComponent.hpp"
+
 #include "common\CfgComponent.hpp"
 #include "advertisements\CfgComponent.hpp"
 #include "grouptracker\CfgComponent.hpp"
@@ -61,6 +64,7 @@ class CfgComponents {
 #include "mod_acre\CfgComponent.hpp"
 #include "mod_asrai\CfgComponent.hpp"
 #include "mod_bwa3\CfgComponent.hpp"
+#include "mod_rhs\CfgComponent.hpp"
 #include "patch_acre\CfgComponent.hpp"
 #include "patch_bwa3\CfgComponent.hpp"
 #include "player\CfgComponent.hpp"
@@ -70,7 +74,7 @@ class CfgComponents {
 #include "database\CfgComponent.hpp"
 #include "doorbreach\CfgComponent.hpp"
 
-#include "gui\CfgComponent.hpp"
+
 #include "gui_echidna\CfgComponent.hpp"
 #include "gui_spawn\CfgComponent.hpp"
 #include "gui_teleport\CfgComponent.hpp"

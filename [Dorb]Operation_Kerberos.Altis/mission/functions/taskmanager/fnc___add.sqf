@@ -36,13 +36,17 @@ private "_taskID";
 if (HASH_HASKEY(_taskhandler, "state")) then { // _taskhandler is a mission too
     _taskID = [_name, HASH_GET(_taskhandler, "name")];
     HASH_SET(_mission, "BIS_taskID", _taskID);
+    [_taskID, GVARMAIN(playerside), _type, nil, "CREATED", 2, false, true, _type, false] call BIS_fnc_setTask;
 } else {
     _taskID = _name;
     HASH_SET(_mission, "BIS_taskID", _taskID);
+    GVAR(targets_client) = [] call FUNC(taskmanager_getMissionTargets);
+    publicVariable QGVAR(targets_client);
+    [_taskID, GVARMAIN(playerside), _type, _pos, "ASSIGNED", 1, false, true, _type, false] call BIS_fnc_setTask;
 };
 
 [QEGVAR(mission,start_server), [_mission]] call CBA_fnc_localEvent;
-[_taskID, GVARMAIN(playerside), _type, _pos, "AUTOASSIGNED", 1, false, true, _type, false] call BIS_fnc_setTask;
+
 
 TRACEV_3(_taskID, _type, _pos);
 

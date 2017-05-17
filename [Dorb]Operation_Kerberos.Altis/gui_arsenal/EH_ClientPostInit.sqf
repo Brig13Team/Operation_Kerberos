@@ -30,6 +30,8 @@ GVAR(allowedradius) = 12;
  *
  */
 
+GVAR(isPreloaded) = false;
+
 IF !(IS_SCALAR(GVAR(allowedradius))) then {
     GVAR(allowedradius) = 5;
 };
@@ -95,5 +97,11 @@ If !(IS_SCALAR(GVAR(fullArsenal))) then {
         ] call CBA_fnc_waitUntilAndExecute;
     }
 ] call CBA_fnc_addEventHandler;
+
+[
+    QGVAR(cleanCargo),
+    LINKFUNC(cleanCargo)
+] call CBA_fnc_addEventHandler;
+
 
 GVAR(postInit) = true;

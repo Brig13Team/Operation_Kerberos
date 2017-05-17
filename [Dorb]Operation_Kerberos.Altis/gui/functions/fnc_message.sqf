@@ -35,6 +35,7 @@ If (isClass(missionconfigfile>>"CfgMessages">>_title)) then {
             case "red" : {[RAL3024,1]};
             case "green" : {[RAL6018,1]};
             case "blue" : {[RAL5015,1]};
+            case "yellow" : {[RAL1026,1]};
             default {[RAL1013,1]};
         };
     }else{

@@ -18,8 +18,10 @@ If ((isNull _target)/*||{!isPlayer _target}*/) exitWith {false};
 
 If !((vehicle ace_player == ace_player)&&(vehicle _target == _target)&&(side ace_player == side _target)) exitWith {false};
 
+If (_target getVariable [QEGVAR(gui_arsenal,ArsenalIsOpened),false]) exitWith {false};
+
 private _respawnPos = getMarkerPos GVARMAIN(respawnMarker);
 
-If (_target getVariable [QEGVAR(gui_arsenal,ArsenalIsOpened),false]) exitWith {false};
+if (_respawnPos isEqualTo [0,0,0]) exitWith {false};
 
 ((ace_player distance2D _respawnPos) < 20)

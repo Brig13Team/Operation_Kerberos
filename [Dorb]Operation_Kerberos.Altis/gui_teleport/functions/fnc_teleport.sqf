@@ -38,6 +38,7 @@ switch (true) do {
     };
     case ((vehicle ace_player) isKindof "Ship") : {
         _position = [_position, 0, 100, 3, 1, 0.5, 0, [], [_position getPos[random 75,random 360],_position getPos[random 75,random 360]]] call BIS_fnc_findSafePos;
+        _position set[2,0];
     };
     default {
         _position = [_position, 0, 100, 3, 0, 0.5, 0, [], [_position getPos[random 75,random 360],_position getPos[random 75,random 360]]] call BIS_fnc_findSafePos;

@@ -21,6 +21,9 @@ _this params [
     ["_rad",200,[0]],
     ["_typ",0,[0]]
 ];
+
+If (_start isEqualTo []) exitWith {ERROR(FORMAT_1("Wrong Input detected = %1",_this))};
+
 #ifdef DEBUG_MODE_FULL
     If (count _start < 2) then {
         TRACEV_4(_this,_start,_rad,_typ);

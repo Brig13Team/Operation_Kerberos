@@ -11,7 +11,7 @@
  *      none
  *
  */
-#define DEBUG_MODE_FULL
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 private _PreinitStartTime = diag_tickTime;
@@ -153,7 +153,14 @@ TRACEV_3(GVAR(Events_preinit),GVAR(Events_postinit),GVAR(Events_all));
                     (_this select 1) call CBA_fnc_removePerFrameHandler;
                 };
                 private _current = GVAR(Events_postinit) deleteAt 0;
+                #ifdef DEBUG_MODE_FULL
+                    private _time = diag_tickTime;
+                    diag_log text (format["[MissionFile] (postInit) Compiling %1 started",_current]);
+                #endif
                 [] call compile preprocessFileLineNumbers _current;
+                #ifdef DEBUG_MODE_FULL
+                    diag_log text (format["[MissionFile] (postInit) Compiling %1 finished in %2",_current,_time - diag_tickTime]);
+                #endif
             },
             0,
             []
@@ -172,7 +179,14 @@ TRACEV_3(GVAR(Events_preinit),GVAR(Events_postinit),GVAR(Events_all));
                     (_this select 1) call CBA_fnc_removePerFrameHandler;
                 };
                 private _current = GVAR(Events_all) deleteAt 0;
+                #ifdef DEBUG_MODE_FULL
+                    private _time = diag_tickTime;
+                    diag_log text (format["[MissionFile] (Events) Compiling %1 started",_current]);
+                #endif
                 [] call compile preprocessFileLineNumbers _current;
+                #ifdef DEBUG_MODE_FULL
+                    diag_log text (format["[MissionFile] (Events) Compiling %1 finished in %2",_current,_time - diag_tickTime]);
+                #endif
             },
             0,
             []
@@ -185,7 +199,14 @@ TRACEV_3(GVAR(Events_preinit),GVAR(Events_postinit),GVAR(Events_all));
 private _time = diag_tickTime + 60;
 while {(diag_tickTime < _time)&&(!(GVAR(Events_preinit) isEqualTo []))} do {
     private _current = GVAR(Events_preinit) deleteAt 0;
+    #ifdef DEBUG_MODE_FULL
+        private _time = diag_tickTime;
+        diag_log text (format["[MissionFile] (preInit) Compiling %1 started",_current]);
+    #endif
     [] call compile preprocessFileLineNumbers _current;
+    #ifdef DEBUG_MODE_FULL
+        diag_log text (format["[MissionFile] (preInit) Compiling %1 finished in %2",_current,_time - diag_tickTime]);
+    #endif
 };
 
 IF (!(GVAR(Events_preinit) isEqualTo [])) then {

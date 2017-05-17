@@ -30,8 +30,8 @@ private _possibleTargets = allPlayers select {
 };
 _possibleTargets append (allUnitsUAV select {
     (alive _x)&&
-    (_x isKindOf "Plane")&&
-    (side _x == GVARMAIN(playerside))
+    {_x isKindOf "Plane"}&&
+    {side _x == GVARMAIN(playerside)}
     });
 //TRACEV_1(_possibleTargets);
 private _targets = [];
@@ -41,8 +41,8 @@ private _targets = [];
     _radarpos set [2,(_radarpos select 2)+2];
     {
         if (
-                (((getPos _x) distance _radarpos) < 5000)&&
-                {(!(lineintersects[_radarpos,(getPosASL _x),_radar,_x]))}
+                (((getPos _x) distance2D _radarpos) < 5000)&&
+                {(!(terrainIntersectASL[_radarpos,(getPosASL _x)]))}
             ) then {
             _targets pushBackUnique _x;
         };

@@ -12,8 +12,10 @@
  *  Returns:
  *      HASH - the composition
  *
+ *      [getPos Player,15,getDir player] call dorb_spawn_fnc_composition_exportPosition;
+ *
  */
-#define DEBUG_MODE_FULL
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 _this params [
@@ -34,7 +36,7 @@ _center = ATLtoASL _center;
 private _vectorUp = [0,0,1];
 
 
-private _nearObjects = nearestObjects [_center,["Static","Thing","AllVehicles"],_radius];
+private _nearObjects = nearestObjects [_center,[],_radius];
 TRACEV_1(_nearObjects);
 private _mainhash = HASH_CREATE;
 GVAR(tempHash) = _mainhash;
@@ -93,6 +95,9 @@ private _fnc_setObjAtt = {
     private _isSimpleObject = [_obj,true] call FUNC(composition_isSimpleObject);
     HASH_SET(_hash,"hascrew",_hasCrew);
     HASH_SET(_hash,"issimpleobj",_isSimpleObject);
+    private _replacementtype = [typeOf _obj] call FUNC(composition_getReplacementType);
+    HASH_SET(_temphash,"replacementtype",_replacementtype);
+    HASH_SET(_temphash,"stance",stance _obj);
 };
 
 private _fnc_setObjAttBottom = {
@@ -116,6 +121,9 @@ private _fnc_setObjAttBottom = {
     private _isSimpleObject = [_obj] call FUNC(composition_isSimpleObject);
     HASH_SET(_hash,"hascrew",_hasCrew);
     HASH_SET(_hash,"issimpleobj",_isSimpleObject);
+    private _replacementtype = [typeOf _obj] call FUNC(composition_getReplacementType);
+    HASH_SET(_temphash,"replacementtype",_replacementtype);
+    HASH_SET(_temphash,"stance",stance _obj);
 };
 
 

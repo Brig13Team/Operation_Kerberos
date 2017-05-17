@@ -58,8 +58,12 @@ if ((getText(configFile >> "CfgVehicles" >> _vehicleType >> "vehicleClass"))isEq
 
 _vehicle lock 0;
 
+[_vehicle] call FUNC(addVehicleSpecial);
+
 closeDialog (ctrlIDD _dialog);
 [] call EFUNC(gui_echidna,close);
+
+[QEGVAR(gui_arsenal,cleanCargo),[_vehicle]] call CBA_fnc_localEvent;
 
 If (GVAR(vehiclesHashModified)) then {
     [] spawn {

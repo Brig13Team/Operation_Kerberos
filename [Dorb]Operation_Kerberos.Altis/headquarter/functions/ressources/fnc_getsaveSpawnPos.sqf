@@ -2,7 +2,7 @@
  *  Author: Dorbedo
  *
  *  Description:
- *      Dorbedo
+ *      returns a spawnposition with a distance big enaugh to players/playerunits
  *
  *  Parameter(s):
  *      0 : ARRAY - TargetPos
@@ -13,37 +13,27 @@
  */
 #include "script_component.hpp"
 
-_this params ["_targetPos",["_vehicletype","",[""]]];
+_this params [["_targetPos",[],[[]]],["_mindistance",4000,[0]],["_mindistancePlayer",4000,[0]],["_maxdistance",9000,[0]]];
 
-private _towns = configProperties [(configFile >> "CfgWorlds" >> worldName >> "Names"),"(getText (_x >> 'type') in ['NameCityCapital','NameCity','NameVillage'])",true];
+private _positionBlacklist = [getMarkerPos GVARMAIN(respawnmarker),HASH_GET_DEF(GVAR(dangerzones),"centerpos",getMarkerPos GVARMAIN(respawnmarker))] + ((allUnits select {side _x == GVARMAIN(playerside)}) apply {getPos _x});
+private _errorcounter = 1000; //
+private _spawnpos = [];
 
-_towns = _towns call BIS_fnc_arrayShuffle;
-
-private _return = [];
-
-{
-    private _pos = getArray(_x >> "position");
-    If (
-            ((_pos distance2D _targetPos) > 4000)&&
-            ((_pos distance2D _targetPos) < 10000)&&
-            (({(_x distance2D _pos)<3000} count allPlayers)<1)
-        ) exitWith {
-        _return = _pos;
-    };
-} forEach _towns;
-
-_return set [2,0];
-_return = [_return,200,0] call EFUNC(common,pos_random);
-
-If ((count (_return nearRoads 50))>0) then {
-    _return = getPos ((_return nearRoads 50) select 0);
-};
-
-If ((!(_vehicletype isEqualTo ""))&&{isClass(configfile>>"CfgVehicles">>_vehicletype)}) then {
-    private _temp = _return findEmptyPosition [0,30,_vehicletype];
-    If !(_temp isEqualTo []) then {
-        _return = _temp;
+while {(_errorcounter > 0)} do {
+    private _tempPos = [_targetPos,((random(_maxdistance - _mindistance)) + _mindistance),1] call EFUNC(common,pos_random);
+    private _roads = _tempPos nearRoads 200;
+    If !(_roads isEqualTo []) then {
+        _tempPos = getPos (selectRandom _roads);
+        If (({(_x distance2D _tempPos)<_mindistance} count _positionBlacklist)>0) then {
+            DEC(_errorcounter);
+        }else{
+            _spawnpos = _tempPos;
+            _errorcounter = -1;
+        };
     };
 };
 
-_return;
+if !(_spawnpos isEqualTo []) exitWith {_spawnpos};
+
+// fallback
+[_targetPos,_maxdistance,0] call EFUNC(common,pos_random);

@@ -676,6 +676,7 @@ class composition_590962 {
     };
 };
 */
+/*
 class composition_477841 {
     class obj_6 {
         pos[] = {9.74506,-10.4458,3.8754};
@@ -1266,6 +1267,7 @@ class composition_477841 {
         dir = 0;
     };
 };
+*/
 class composition_37414 {
     class obj_6 {
         pos[] = {5.9683,-3.54084,0.272358};
@@ -1375,6 +1377,7 @@ class composition_37414 {
     dronecommando=1;
     isobjective = 0;
 };
+/*
 class composition_80947 {
     class obj_6 {
         pos[] = {-8.41297,4.64932,0.798342};
@@ -1613,6 +1616,7 @@ class composition_80947 {
         dir = 184.805;
     };
 };
+*/
 class composition_961514 {
     class obj_6 {
         pos[] = {-5.21131,0.161073,0.702106};

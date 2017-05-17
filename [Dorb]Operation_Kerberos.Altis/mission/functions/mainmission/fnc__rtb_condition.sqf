@@ -12,6 +12,8 @@
  */
 #include "script_component.hpp"
 
+_this params ["_mission"];
+
 private _position = HASH_GET(_mission, "location") select 1;
 private _radius   = HASH_GET(_mission, "radius");
 

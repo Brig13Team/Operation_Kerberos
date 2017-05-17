@@ -57,19 +57,34 @@ PREPS(state,retreat);
 PREPS(state,set);
 PREPS(state,wait);
 
+PREPS(statemachine,airinterception);
+PREPS(statemachine,attack);
+PREPS(statemachine,attackfinished);
+PREPS(statemachine,canBeDeletedUnseen);
+PREPS(statemachine,cas);
+PREPS(statemachine,delete);
+PREPS(statemachine,getAIGroups);
+PREPS(statemachine,OffMapreturn);
+PREPS(statemachine,patrol);
+PREPS(statemachine,patrolCombat);
+PREPS(statemachine,patrolDefence);
+PREPS(statemachine,PatrolTask);;
+PREPS(statemachine,return);
+PREPS(statemachine,supply);
+PREPS(statemachine,transport);
+PREPS(statemachine,transportUnload);
+
 PREPS(strategy,_checkisWorking);
 PREPS(strategy,_choose);
 PREPS(strategy,_onfinished);
 PREPS(strategy,_onFinishAir);
 PREPS(strategy,_onFinishSAD);
 PREPS(strategy,airinterception);
-PREPS(strategy,armored);
 PREPS(strategy,artillery);
 PREPS(strategy,cas);
 PREPS(strategy,drones);
 PREPS(strategy,groundattack);
 PREPS(strategy,helicopter);
-PREPS(strategy,infanterie);
 PREPS(strategy,mortar);
 PREPS(strategy,rocket);
 

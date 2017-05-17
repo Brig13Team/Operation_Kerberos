@@ -25,4 +25,4 @@ If !(_nearPlayers isEqualTo []) then {
     _targetPos = getPosATL (selectRandom _nearPlayers);
 };
 
-[_targetPos,2,_amount] call FUNC(fdc_placeOrder);
+[_targetPos,1,_amount] call FUNC(fdc_placeOrder);

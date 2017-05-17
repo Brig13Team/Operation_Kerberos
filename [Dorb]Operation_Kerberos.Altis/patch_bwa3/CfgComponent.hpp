@@ -11,7 +11,7 @@
 class DOUBLES(CfgComponent,ADDON) {
     class hitpart {};
     class dependencies {
-        CfgPatches[] = {"BWA3_Tracked"};
+        CfgPatches[] = {"BWA3_Tracked","rhs_main"};
         CfgComponents[] = {};
     };
 };

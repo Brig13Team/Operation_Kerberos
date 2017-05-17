@@ -22,7 +22,7 @@ private _action = [
         [
             30,
             [_target],
-            { (_this select 0) call FUNC(obj__increaseCounterOne); },
+            { [QFUNC(obj__increaseCounter),[_this select 0]] call CBA_fnc_serverEvent;},
             { (_this select 0 select 0) setVariable [QGVAR(isActive), true, true]; },
             localize LSTRING(OBJECTS_GATHERING_INTEL)
         ] call ace_common_fnc_progressBar;

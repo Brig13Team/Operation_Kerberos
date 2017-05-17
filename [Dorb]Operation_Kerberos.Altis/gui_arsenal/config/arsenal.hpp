@@ -22,7 +22,8 @@ class GVARMAIN(arsenal) {
     };
     ItemsWhitelist[] = {
         "ItemRadioAcreFlagged",
-        "BWA3_acc_LLM01_flash","BWA3_acc_LLM01_flash_underbarrel","BWA3_acc_LLM01_laser","BWA3_acc_LLM01_laser_underbarrel"
+        "BWA3_acc_LLM01_flash","BWA3_acc_LLM01_flash_underbarrel","BWA3_acc_LLM01_laser","BWA3_acc_LLM01_laser_underbarrel";
+        "Laserdesignator","Laserdesignator_01_khk_F","Laserdesignator_02","Laserdesignator_02_ghex_F","Laserdesignator_02_ghex_F"
     };
     WeaponsWhitelist[] = {
         
@@ -31,7 +32,7 @@ class GVARMAIN(arsenal) {
 
     };
     MagazineWhitelist[] = {
-        "ACE_SpareBarrel"
+        "ACE_SpareBarrel","Laserbatteries"
     };
 
 };

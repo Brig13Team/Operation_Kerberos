@@ -10,12 +10,14 @@
  *  Returns:
  *      -
  */
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 if !(isServer) exitWith { -1 };
 
 _this params ["_obj"];
 private _mission = _obj;
+TRACEV_1(_this);
 if ((typeName _obj) isEqualTo "OBJECT") then {
     _obj setVariable [QGVAR(isActive), false, true]; // if needed
     _mission = _obj getVariable QGVAR(mission);

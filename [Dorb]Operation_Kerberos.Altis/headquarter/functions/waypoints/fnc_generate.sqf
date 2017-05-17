@@ -13,7 +13,7 @@
  *      ARRAY - The generated waypoints
  *
  */
-#define DEBUG_MODE_FULL
+#define DEBUG_MODE_OFF
 #include "script_component.hpp"
 
 _this params[
@@ -43,6 +43,9 @@ _targetKeypos = getArray(missionconfigFile >> "maps" >> worldname >> _targetKey 
 _distance = _startKeypos distance2D _targetKeypos;
 _Keydifferenz = getNumber(missionconfigFile >> "maps" >> worldname >> "raster") / 10;
 
+If (_distance < (_Keydifferenz * 1.4)) exitWith {
+    [_start,_startKeypos,_targetKeypos,_target]
+};
 
 #ifdef DEBUG_MODE_FULL
     #define DEBUG_MARKER
@@ -52,7 +55,7 @@ _Keydifferenz = getNumber(missionconfigFile >> "maps" >> worldname >> "raster") 
 
 //#undef DEBUG_MODE_FULL
 /// waypoint = [value,distance to target, distance to start, key]
-_active = true;
+private _active = true;
 _waypointsActivated = [[0,floor((_startKeypos distance2D _targetKeypos)*10),0,_startKey]];
 _waypointsDeactivated = [];
 while {_active} do {

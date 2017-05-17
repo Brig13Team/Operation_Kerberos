@@ -12,7 +12,7 @@
 */
 #include "script_component.hpp"
 
-_this params [["_target",objNull,[objNull,[]]],["_caller",objNull,[objNull]]];
+_this params [["_target",objNull,[objNull,[]]],["_caller",objNull,[objNull,locationNull]]];
 
 if !([] call FUNC(drones_canDoAirstrike)) exitWith {false};
 GVAR(drones_lastAttackRequest) = CBA_missiontime;

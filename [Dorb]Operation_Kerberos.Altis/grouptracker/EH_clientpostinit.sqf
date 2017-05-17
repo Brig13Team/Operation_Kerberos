@@ -32,3 +32,5 @@ GVAR(showAll) = false; // for debug purpose
     {[] call FUNC(init);},
     60
 ] call CBA_fnc_waitAndExecute;
+
+ISNIL(hiddenGroups,[])

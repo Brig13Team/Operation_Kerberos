@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=267;
+		nextID=273;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={18365.016,38.290894,26761.35};
-		dir[]={0.18754917,-0.26550972,-0.94572967};
-		up[]={0.051655624,0.96409726,-0.26047644};
-		aside[]={-0.98093599,8.6686487e-007,-0.19453087};
+		pos[]={18371.344,67.345062,26793.418};
+		dir[]={0.2858668,-0.55907488,-0.77831084};
+		up[]={0.19275883,0.82910168,-0.52480853};
+		aside[]={-0.93871051,7.7546429e-007,-0.34478125};
 	};
 };
 binarizationWanted=0;
@@ -6934,12 +6934,13 @@ class Mission
 		class Item75
 		{
 			dataType="Marker";
-			position[]={18353.123,199.19295,26672.256};
+			position[]={18353.123,0,26672.256};
 			name="respawn_west";
+			text="USS Freedom";
 			type="Empty";
-			angle=195.43658;
+			angle=195.43697;
 			id=193;
-			atlOffset=154.69841;
+			atlOffset=185.97;
 		};
 		class Item76
 		{
@@ -7092,7 +7093,7 @@ class Mission
 		class Item80
 		{
 			dataType="Marker";
-			position[]={18352.439,-185.97,26672.313};
+			position[]={18350.854,-185.97,26546.736};
 			name="rescue_marker";
 			type="Empty";
 			angle=123.12496;
@@ -7222,13 +7223,12 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={18345.418,19.890991,26723.131};
+				position[]={18353.049,19.890642,26708.246};
 				angles[]={0,1.5949692,0};
 			};
 			name="cratespawner1";
 			id=265;
 			type="Logic";
-			atlOffset=0.0003490448;
 		};
 		class Item83
 		{

@@ -47,29 +47,18 @@ TRACEV_2(_again,_curValue);
 
 
 // cycle through current availible groups
-private _availableGroups = [];
-{
-    private _grouphash = _x;
-    private _group = _grouphash getVariable "group";
-    If !(isNil "_grouphash") then {
-        private _state = HASH_GET(_grouphash,"state");
-        If ((_state in ["idle","wait"])) then {
-            _availableGroups pushBack _group;
-        };
-    };
-} forEach (HASH_GET_DEF(GVAR(groups),"attackGroups",[]));
+private _availableGroups = (["combat_ready"] call FUNC(statemachine_getAIGroups));
 TRACEV_1(_availableGroups);
 // add the availible groups
 {
     private _curGroup = _x;
 
     private _possibility = 0;
-    private _grouphash = _curGroup getVariable QGVAR(grouphash);
-    private _groupValue = HASH_GET_DEF(_grouphash,"value",0);
-    private _groupstrength = HASH_GET_DEF(_grouphash,"strength",[ARR_3(0,0,0)]);
-    private _groupdefence = HASH_GET_DEF(_grouphash,"defence",[ARR_3(0,0,0)]);
-    private _grouptype = HASH_GET_DEF(_grouphash,"type",0);
-    TRACEV_7(_curGroup,_possibility,_grouphash,_groupValue,_groupstrength,_groupdefence,_grouptype);
+    private _groupValue = _curGroup getVariable [QGVAR(value),0];
+    private _groupstrength = _curGroup getVariable [QGVAR(strength),[0,0,0]];
+    private _groupdefence = _curGroup getVariable [QGVAR(defence),[0,0,0]];
+    private _grouptype = _curGroup getVariable [QGVAR(type),0];
+
     If !(_groupValue isEqualTo 0) then {
         private _valueDiffMod = (1/(_groupValue/_enemyValue));
         private _possibility = selectMax [
@@ -92,7 +81,7 @@ TRACEV_1(_availableGroups);
             _possibleStrategys pushBack [_possibility,_curStratValue,"groundattack",_parameter];
         };
     };
-} forEach (_availableGroups select {!isNull _x});
+} forEach _availableGroups;
 
 // add the offmap support
 {

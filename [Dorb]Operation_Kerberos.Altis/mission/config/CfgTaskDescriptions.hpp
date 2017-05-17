@@ -35,6 +35,9 @@ class CfgTaskDescriptions {
     // sidemissions
     TASK_DESC2(radar,target);
     TASK_DESC2(wreck,interact);
+    TASK_DESC2(artillery,destroy);
+    TASK_DESC2(chopper,kill);
+    TASK_DESC2(supplys,meet);
 
     // Vanilla
 /*

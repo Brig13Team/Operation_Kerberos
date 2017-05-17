@@ -24,3 +24,4 @@ class DOUBLES(CfgComponent,ADDON) {
 #include "config\CfgTaskEnhancements.hpp"
 #include "config\CfgTaskDescriptions.hpp"
 #include "config\mission.hpp"
+#include "config\statemachine.hpp"

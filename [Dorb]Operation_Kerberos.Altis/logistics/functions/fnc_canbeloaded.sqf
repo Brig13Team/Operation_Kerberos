@@ -15,6 +15,7 @@
 _this params ["_target","_cargo"];
 
 If ((typeOf _cargo in ["RHS_M119_WD","RHS_M119_WD","rhs_D30_vdv","rhs_D30_at_vdv"])&&{(_cargo doorPhase 'fold_arty' == 0)}) exitWith {false};
+If ((typeOf _cargo == "Land_DataTerminal_01_F")&&{(_cargo animationSourcePhase "Antenna_source")!=0}) exitWith {false};
 If (!((_cargo getVariable [QGVAR(aceactions),[]]) isEqualTo [])) exitWith {};
 private _cargo_class = [_cargo] call FUNC(getCargoCfg);
 If ((_cargo_class isEqualTo "")||{!(isNull (attachedTo _cargo))}) exitWith {false};
@@ -68,6 +69,18 @@ if (((_max_width - _row_width >= _cargo_width + SPACE_BETWEEN_CARGO) && (_left_l
 if (!(((_row_length < _cargo_length + SPACE_BETWEEN_CARGO) || (_max_width < _cargo_width)) && ((_row_length < _cargo_width + SPACE_BETWEEN_CARGO) || (_max_width < _cargo_length)))) exitWith { true };
 
 /// STACKING
+// check if the item is stackable
+private _cargo_stackable = false;
+If (
+    (isNumber (missionConfigFile >> "logistics" >> "cargos" >> _cargo_class >> "stackable"))&&
+    {getNumber (missionConfigFile >> "logistics" >> "cargos" >> _cargo_class >> "stackable") < 0 }
+    ) then {
+    _cargo_stackable = true;
+};
+If (!_cargo_stackable) exitWIth {false};
+
+
+// check if the item can be put somewhere on top
 private _stackable = false;
 for [{_i = 0},{_i < (count _last_row)},{_i = _i + 1}] do {
     if (((getModelInfo (_last_row select _i select 0) select 0) == (getModelInfo _cargo select 0)) && (!(_last_row select _i select 5)) && (((_last_row select _i select 1 select 3 select 2) + 2 * _cargo_height) <= _max_height)) exitWith { _stackable = true; };
