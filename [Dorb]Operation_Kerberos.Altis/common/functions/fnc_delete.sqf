@@ -26,8 +26,10 @@ switch (typeName _delete) do {
     };
     case "GROUP" : {
         If !(local _delete) then {
+            _delete deleteGroupWhenEmpty true;
             [QGVAR(delete),[_delete],_delete] call CBA_fnc_targetEvent;
         }else{
+            _delete deleteGroupWhenEmpty true;
             (units _delete) call EFUNC(COMPONENT,delete);;
             {deleteWaypoint _x} forEach (wayPoints _delete);
             deleteGroup _delete;
