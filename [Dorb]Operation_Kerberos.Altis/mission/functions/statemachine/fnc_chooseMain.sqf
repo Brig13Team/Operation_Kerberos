@@ -40,7 +40,7 @@ private _radius = getNumber (_missionCfg >> "location" >> "radius");
 
 private _centerpos = [_location select 1, _radius] call EFUNC(common,pos_random);
 _mission setVariable ["centerpos",_centerpos];
-[QEGVAR(headquarter,registerCenterPos),[_centerpos]] call CBA_fnc_localEvent;
+//[QEGVAR(headquarter,registerCenterPos),[_centerpos]] call CBA_fnc_localEvent;
 // showMarker flag
 private _showMarker = ((getNumber(_missionCfg >> "disableMarker")) == 0);
 _mission setVariable ["showmarker",_showMarker];

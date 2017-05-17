@@ -65,6 +65,16 @@ class GVAR(statemachine_AIGroups) {
             condition = QUOTE((_this getVariable [ARR_2('GVAR(state)','none')])=='ai_support');
             onTransition = "";
         };
+        class toSupply {
+            targetState = "supply";
+            condition = QUOTE((_this getVariable [ARR_2('GVAR(state)','none')])=='supply');
+            onTransition = "";
+        };
+        class toTransport {
+            targetState = "transport";
+            condition = QUOTE((_this getVariable [ARR_2('GVAR(state)','none')])=='transporter');
+            onTransition = "";
+        };
 
     };
 
@@ -184,6 +194,39 @@ class GVAR(statemachine_AIGroups) {
         onStateEntered = QFUNC(statemachine_airinterception);
     };
 
+
+    class supply {
+        onState = "";
+        onStateEntered = QFUNC(statemachine_supply);
+        onStateLeaving = "";
+        class timeout {
+            targetState = "return";
+            condition = QUOTE((_this getVariable [ARR_2('GVAR(timeout)',-1)])<CBA_missiontime);
+            onTransition = "";
+        };
+        class tocombat {
+            targetState = "combat";
+            condition = QUOTE(((leader _this) distance2D (_this getVariable 'GVAR(droppos)'))<800);
+            onTransition = QUOTE(_this setVariable [ARR_2(GVAR(state),'combat')]);
+        };
+    };
+
+    class transport {
+        onState = "";
+        onStateEntered = QFUNC(statemachine_transport);
+        onStateLeaving = "";
+        class timeout {
+            targetState = "return";
+            condition = QUOTE((_this getVariable [ARR_2('GVAR(timeout)',-1)])<CBA_missiontime);
+            onTransition = "";
+        };
+        class dropandreturn {
+            targetState = "return";
+            condition = QUOTE(((leader _this) distance2D (_this getVariable 'GVAR(droppos)'))<800);
+            onTransition = QFUNC(statemachine_transportUnload);
+        };
+    };
+
     // return to spawnpos and delete
     class return {
         onState = "";
@@ -203,7 +246,7 @@ class GVAR(statemachine_AIGroups) {
     // delete a group and it's units mostly for off-map support or transport groups
     class delete {
         onState = "";
-        onStateEntered = QEFUNC(statemachine_delete);
+        onStateEntered = QFUNC(statemachine_delete);
         onStateLeaving = "";
     };
 };

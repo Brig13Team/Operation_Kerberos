@@ -11,15 +11,27 @@
  *      none
  *
  */
-//#define DEBUG_MODE_FULL
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 _this params ["_group"];
-
+TRACEV_1(_group);
 private _transporter = vehicle (leader _group);
 private _isAir = _transporter isKindOf "Air";
-private _unitsToUnload = (units _transporter) select {group _x != _group};
+private _unitsToUnload = [];
 
+{
+    if (group (_x select 0) != _group) then {
+        _unitsToUnload pushBack (_x select 0);
+    };
+    nil;
+} count (fullCrew [_transporter, "cargo", false]);
+
+{
+    [QGVAR(disableCollisionWith),[_x,_transporter],_x] call CBA_fnc_targetEvent;
+    [QGVAR(disableCollisionWith),[_transporter,_x],_transporter] call CBA_fnc_targetEvent;
+} forEach _unitsToUnload;
+TRACEV_3(_unitsToUnload,_transporter,);
 If (_isAir) then {
     private _droppos = getPos _transporter;
     _droppos set [2,(_droppos select 2)-4];
@@ -41,6 +53,8 @@ If (_isAir) then {
     } forEach _unitsToUnload;
 };
 
-
+{
+    (group _x) setVariable [QGVAR(state),"combat"];
+} forEach _unitsToUnload;
 
 //

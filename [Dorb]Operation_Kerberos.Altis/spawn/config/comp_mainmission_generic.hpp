@@ -267,7 +267,7 @@ class composition_322865 {
         class objects {
             class obj_0 {
                 replacementtype = "staticweapon";
-                pos[] = {-0.0133023,1.20478,4.26589};
+                pos[] = {-0.0133023,1.20478,4.6589};
                 issimpleobj = 0;
                 vecup[] = {0.000272363,-4.79346e-006,2};
                 hascrew = 1;
