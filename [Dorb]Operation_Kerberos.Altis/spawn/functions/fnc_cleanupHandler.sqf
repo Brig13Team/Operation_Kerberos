@@ -20,6 +20,7 @@ If (GVAR(cleanup_objectsToCheck) isEqualTo []) then {
             + (allMissionObjects "WeaponHolderSimulated")
             + (allMissionObjects "CraterLong_small")
             + (allMissionObjects "CraterLong")
+            + (allMissionObjects "Ejection_Seat_Base_F")
             + allDead
             + (allGroups select {(count units _x) < 1});
 }else{
