@@ -31,6 +31,12 @@ private _fnc_setObject = {
     _this params ["_curObj"];
     //TRACEV_1(_curObj);
     switch (true) do {
+        case (toLower (typeOf _vehicle) in ["b_sam_system_01_f","b_sam_system_02_f","b_aaa_system_01_f"]) : {
+            _curObj setVehicleReportRemoteTargets true;
+            _curObj setVehicleReceiveRemoteTargets true;
+            _curObj setVehicleReportOwnPosition true;
+            _curObj setVehicleRadar 0;
+        };
         case (_curObj isKindOf "MineBase") : {
             GVARMAIN(side) revealMine _curObj;
         };
@@ -239,6 +245,7 @@ private _allClasses = configProperties [_config, "isClass(_x)", true];
 
 If ((!(isNull _group))&&{!(isNil QEFUNC(headquarter,registergroup))}) then {
     [_group,"static"] call EFUNC(headquarter,registergroup);
+    _group setBehaviour "COMBAT";
 };
 
 //TRACEV_1(_objectives);
