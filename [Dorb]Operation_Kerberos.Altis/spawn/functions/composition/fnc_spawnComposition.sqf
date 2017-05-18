@@ -31,7 +31,7 @@ private _fnc_setObject = {
     _this params ["_curObj"];
     //TRACEV_1(_curObj);
     switch (true) do {
-        case (toLower (typeOf _vehicle) in ["b_sam_system_01_f","b_sam_system_02_f","b_aaa_system_01_f"]) : {
+        case (toLower (typeOf _curObj) in ["b_sam_system_01_f","b_sam_system_02_f","b_aaa_system_01_f"]) : {
             _curObj setVehicleReportRemoteTargets true;
             _curObj setVehicleReceiveRemoteTargets true;
             _curObj setVehicleReportOwnPosition true;
