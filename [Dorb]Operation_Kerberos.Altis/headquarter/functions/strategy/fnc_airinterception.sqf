@@ -22,7 +22,7 @@ private _spawnPos = [_pos,10000,10000,15000] call FUNC(ressources_getsavespawnpo
 _spawnPos set [2,3000];
 
 private _plane = ["plane_ai"] call EFUNC(spawn,getUnit);
-private _dir = [_spawnpos, _currentPos] call BIS_fnc_dirTo;
+private _dir = [_spawnpos, _pos] call BIS_fnc_dirTo;
 ([_spawnpos,GVARMAIN(side),_plane,_dir,true,true,"FLY"] call EFUNC(spawn,vehicle)) params ["_attackGroup","_attackVeh"];
 private _ressourcesHash = HASH_GET_DEF(GVAR(ressources),"airinterception",locationNull);
 

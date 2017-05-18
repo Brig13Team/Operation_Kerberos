@@ -394,6 +394,9 @@
             <Key ID="STR_DORB_MISSION_RADIOTOWER_FAILED">
                 <German>Die Feindliche Kommunikation wurde erfolgreich gestört.</German>
             </Key>
+            <Key ID="STR_DORB_MISSION_RADIOTOWER_SUCCEEDED">
+                <German>Sie haben die feindliche Kommunikation erfolgreich gestört.</German>
+            </Key>
 
 
             <Key ID="STR_DORB_MISSION_SCARAB_TITLE">
