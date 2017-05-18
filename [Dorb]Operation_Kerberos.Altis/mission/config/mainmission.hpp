@@ -167,7 +167,7 @@ class main {
         };
     };
 
-    class weaponcache : hostage {
+    class weaponcache : __oneCounter {
         class location : location {
             areas[] = {QGVAR(town), QGVAR(military)};
         };
