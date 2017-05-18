@@ -32,9 +32,6 @@ switch (typeOf _object) do {
         };
         _vehicle setVariable ["ace_medical_isMedicalFacility",true];
     };
-    case "Land_DataTerminal_01_F" : {
-        [_vehicle, true,[1,0,0],90] call ace_dragging_fnc_setDraggable;
-    };
 };
 
 if ((GVARMAIN(playerside) == west)&&{(typeOf _object) in ["I_MRAP_03_F","I_MRAP_03_gmg_F","I_MRAP_03_hmg_F"]}) then {
