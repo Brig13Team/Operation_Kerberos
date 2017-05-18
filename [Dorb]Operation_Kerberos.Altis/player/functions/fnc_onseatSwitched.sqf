@@ -12,7 +12,7 @@
 #include "script_component.hpp"
 SCRIPT(EH_seatSwitched);
 
-params["_vehicle","_unit1","_unit2"];
+params["_unit1","_unit2","_vehicle"];
 private["_assignedVehicleRole","_parameter"];
 
 if (isPlayer _unit1) then {
