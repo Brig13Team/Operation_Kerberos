@@ -20,7 +20,7 @@ private _targetPos = _pos;
 
 private _nearPlayers = allPlayers select { ((_x distance _pos)<300) && (!((vehicle _x) isKindOf "Air")) };
 
-private _amount = floor((count _nearPlayers) max 10);
+private _amount = ((count _nearPlayers) min 4) max 15;
 If !(_nearPlayers isEqualTo []) then {
     _targetPos = getPosATL (selectRandom _nearPlayers);
 };

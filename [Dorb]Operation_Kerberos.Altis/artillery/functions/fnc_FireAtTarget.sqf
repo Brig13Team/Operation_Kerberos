@@ -23,6 +23,10 @@ _this params [
 ];
 TRACEV_2((typeOf _artillery),_this);
 switch (typeOf _artillery) do {
+    case "RHS_BM21_chdkz";
+    case "RHS_BM21_VDV_01";
+    case "RHS_BM21_VMF_01";
+    case "RHS_BM21_VV_01";
     case "RHS_BM21_MSV_01" : {
         private _distance = _artillery distance _target;
         private _mode = switch (true) do {
