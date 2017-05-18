@@ -284,7 +284,7 @@ class vehicles {
     class rhs_gaz66_vv : rhs_gaz66_msv {};
 
     class rhs_gaz66_flat_msv : rhs_gaz66_Base {
-        cargo_pos = {};
+        cargo_pos[] = {};
         max_width = 2;
     };
     class rhs_gaz66_flat_vdv : rhs_gaz66_flat_msv {};
@@ -301,7 +301,7 @@ class vehicles {
 
 
     class rhs_gaz66o_flat_msv : rhs_gaz66o_msv {
-        cargo_pos = {};
+        cargo_pos[] = {};
         max_width = 2;
         max_height = 3;
     };

@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=273;
+		nextID=274;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={18371.344,67.345062,26793.418};
-		dir[]={0.2858668,-0.55907488,-0.77831084};
-		up[]={0.19275883,0.82910168,-0.52480853};
-		aside[]={-0.93871051,7.7546429e-007,-0.34478125};
+		pos[]={18392.551,61.467888,26775.895};
+		dir[]={-0.0062033422,-0.37953562,-0.92521536};
+		up[]={-0.0025438908,0.92514843,-0.37957597};
+		aside[]={-1.0000359,9.3108258e-007,0.0067063756};
 	};
 };
 binarizationWanted=0;
@@ -253,7 +253,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=84;
+		items=85;
 		class Item0
 		{
 			dataType="Object";
@@ -1841,19 +1841,19 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={18347.205,20.974068,26713.73};
-				angles[]={0,5.6452127,0};
+				position[]={18347.205,20.973812,26713.73};
+				angles[]={0,5.645215,0};
 			};
 			side="Empty";
 			flags=1;
 			class Attributes
 			{
-				init="call{this setVariable [""Dorb_canDelete"",false]}";
+				init="call{this setVariable [""Dorb_canDelete"",false];this setVariable [""ace_dragging_canDrag"",false];this setVariable [""ace_dragging_canCarry"",false];}";
 				aiRadarUsage=-1046592512;
 			};
 			id=71;
 			type="Land_PortableLight_double_F";
-			atlOffset=205.86026;
+			atlOffset=205.86;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -1883,19 +1883,19 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={18354.844,20.974068,26698.32};
-				angles[]={0,2.6431806,0};
+				position[]={18354.844,20.973812,26698.32};
+				angles[]={0,2.6431789,0};
 			};
 			side="Empty";
 			flags=1;
 			class Attributes
 			{
-				init="call{this setVariable [""Dorb_canDelete"",false]}";
+				init="call{this setVariable [""Dorb_canDelete"",false];this setVariable [""ace_dragging_canDrag"",false];this setVariable [""ace_dragging_canCarry"",false];}";
 				aiRadarUsage=-1046592512;
 			};
 			id=72;
 			type="Land_PortableLight_double_F";
-			atlOffset=205.86026;
+			atlOffset=205.86;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -2337,19 +2337,19 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={18340.539,20.974068,26645.887};
+				position[]={18340.539,20.973812,26645.887};
 				angles[]={0,5.5850534,0};
 			};
 			side="Empty";
 			flags=1;
 			class Attributes
 			{
-				init="call{this setVariable [""Dorb_canDelete"",false]}";
+				init="call{this setVariable [""Dorb_canDelete"",false];this setVariable [""ace_dragging_canDrag"",false];this setVariable [""ace_dragging_canCarry"",false];}";
 				aiRadarUsage=-1046592512;
 			};
 			id=100;
 			type="Land_PortableLight_double_F";
-			atlOffset=205.86026;
+			atlOffset=205.86;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -2398,19 +2398,19 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={18355.957,20.974068,26643.998};
+				position[]={18355.957,20.973812,26643.998};
 				angles[]={0,0.52359879,0};
 			};
 			side="Empty";
 			flags=1;
 			class Attributes
 			{
-				init="call{this setVariable [""Dorb_canDelete"",false]}";
+				init="call{this setVariable [""Dorb_canDelete"",false];this setVariable [""ace_dragging_canDrag"",false];this setVariable [""ace_dragging_canCarry"",false];}";
 				aiRadarUsage=-1046592512;
 			};
 			id=101;
 			type="Land_PortableLight_double_F";
-			atlOffset=205.86026;
+			atlOffset=205.86;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -2459,19 +2459,19 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={18355.996,20.974068,26621.57};
+				position[]={18355.996,20.973812,26621.57};
 				angles[]={0,2.2689281,0};
 			};
 			side="Empty";
 			flags=1;
 			class Attributes
 			{
-				init="call{this setVariable [""Dorb_canDelete"",false]}";
+				init="call{this setVariable [""Dorb_canDelete"",false];this setVariable [""ace_dragging_canDrag"",false];this setVariable [""ace_dragging_canCarry"",false];}";
 				aiRadarUsage=-1046592512;
 			};
 			id=102;
 			type="Land_PortableLight_double_F";
-			atlOffset=205.86026;
+			atlOffset=205.86;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -2527,7 +2527,7 @@ class Mission
 			flags=1;
 			class Attributes
 			{
-				init="call{this setVariable [""Dorb_canDelete"",false]}";
+				init="call{this setVariable [""Dorb_canDelete"",false];this setVariable [""ace_dragging_canDrag"",false];this setVariable [""ace_dragging_canCarry"",false];}";
 				aiRadarUsage=-1046592512;
 			};
 			id=103;
@@ -3148,19 +3148,19 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={18424.219,20.974068,26697.146};
-				angles[]={0,0.4991518,0};
+				position[]={18424.219,20.973812,26697.146};
+				angles[]={0,0.49914673,0};
 			};
 			side="Empty";
 			flags=1;
 			class Attributes
 			{
-				init="call{this setVariable [""Dorb_canDelete"",false]}";
+				init="call{this setVariable [""Dorb_canDelete"",false];this setVariable [""ace_dragging_canDrag"",false];this setVariable [""ace_dragging_canCarry"",false];}";
 				aiRadarUsage=-1046592512;
 			};
 			id=123;
 			type="Land_PortableLight_double_F";
-			atlOffset=205.86026;
+			atlOffset=205.86;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -7240,6 +7240,67 @@ class Mission
 			colorName="ColorRed";
 			id=266;
 			atlOffset=185.97;
+		};
+		class Item84
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={18401.045,17.193768,26717.285};
+				angles[]={0,3.9326944,0};
+			};
+			side="Empty";
+			flags=1;
+			class Attributes
+			{
+				init="call{this setVariable [""Dorb_canDelete"",false];this setVariable [""ace_dragging_canDrag"",false];this setVariable [""ace_dragging_canCarry"",false];}";
+				aiRadarUsage=-1046592512;
+			};
+			id=273;
+			type="Land_PortableLight_double_F";
+			atlOffset=202.07996;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ace_isMedicalFacility";
+					expression="_this setVariable [""ace_medical_isMedicalFacility"",_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				nAttributes=2;
+			};
 		};
 	};
 };
