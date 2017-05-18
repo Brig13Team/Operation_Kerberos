@@ -24,7 +24,6 @@ private _droppoint = [_centerpos,200,0] call EFUNC(common,pos_random);
 _group setVariable [QGVAR(timeout),CBA_missiontime + 15*60];
 _group setVariable [QGVAR(droppos),_droppoint];
 
-
 If (_isAir) then {
     [_group] call CBA_fnc_clearWaypoints;
     [_group, [_droppoint], 25, "UNLOAD", "CARELESS", "BLUE", "FULL", "NO CHANGE", "", [1,3,5], 50] call FUNC(waypoints_add);
