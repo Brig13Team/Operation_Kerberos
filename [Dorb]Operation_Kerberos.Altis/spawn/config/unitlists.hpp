@@ -42,7 +42,7 @@ class GVAR(unitlists) {
         static_high[] = {"rhs_KORD_high_VDV"};
         static_aa[] = {"rhs_Igla_AA_pod_vdv"};
         art_mortar[] = {"rhs_2b14_82mm_vdv"};
-        art_shells[] = {"rhs_2s3_tv","rhs_D30_vdv"};
+        art_shells[] = {"rhs_D30_vdv"};
         art_rocket[] = {"RHS_BM21_VDV_01"};
 
         trucks[] = {"RHS_Ural_VDV_01","RHS_Ural_Open_VDV_01","rhs_gaz66_vdv","rhs_gaz66o_vdv"};
@@ -253,7 +253,7 @@ class GVAR(unitlists) {
             static_high[] = {"rhs_KORD_high_MSV"};
             static_aa[] = {"rhs_Igla_AA_pod_MSV"};
             art_mortar[] = {"rhs_2b14_82mm_MSV"};
-            art_shells[] = {"rhs_2s3_tv","rhs_D30_MSV"};
+            art_shells[] = {"rhs_2s3_tv"};
             art_rocket[] = {"RHS_BM21_MSV_01"};
 
             trucks[] = {"RHS_Ural_MSV_01","RHS_Ural_Open_MSV_01","rhs_gaz66_MSV","rhs_gaz66o_MSV"};
@@ -451,7 +451,7 @@ class GVAR(unitlists) {
             static_high[] = {"rhs_KORD_high_VDV"};
             static_aa[] = {"rhs_Igla_AA_pod_VDV"};
             art_mortar[] = {"rhs_2b14_82mm_VDV"};
-            art_shells[] = {"rhs_2s3_tv","rhs_D30_VDV"};
+            art_shells[] = {"rhs_D30_VDV"};
             art_rocket[] = {"RHS_BM21_VDV_01"};
 
             trucks[] = {"RHS_Ural_VDV_01","RHS_Ural_Open_VDV_01","rhs_gaz66_VDV","rhs_gaz66o_VDV"};
@@ -662,6 +662,7 @@ class GVAR(unitlists) {
             };
         };
         class infanterie : msv {
+            art_shells[] = {"rhs_D30_MSV"};
             soldiers[] = {
                 "rhs_msv_rifleman","rhs_msv_LAT","rhs_msv_RShG2","rhs_msv_grenadier","rhs_msv_arifleman","rhs_msv_machinegunner",
                 "rhs_msv_machinegunner_assistant","rhs_msv_grenadier_rpg","rhs_msv_strelok_rpg_assist","rhs_msv_marksman","rhs_msv_efreitor",
@@ -817,7 +818,7 @@ class GVAR(unitlists) {
             static_high[] = {"rhs_KORD_high_VDV"};
             static_aa[] = {"rhs_Igla_AA_pod_VDV"};
             art_mortar[] = {"rhs_2b14_82mm_VDV"};
-            art_shells[] = {"rhs_2s3_tv","rhs_D30_VDV"};
+            art_shells[] = {"rhs_D30_VDV"};
             art_rocket[] = {"RHS_BM21_VDV_01"};
 
             trucks[] = {"RHS_Ural_VDV_01","RHS_Ural_Open_VDV_01","rhs_gaz66_VDV","rhs_gaz66o_VDV"};
