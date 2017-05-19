@@ -23,4 +23,4 @@ private _spawnpos = _group getVariable [QGVAR(spawnpos),[0,0,0]];
 [_group] call CBA_fnc_clearWaypoints;
 
 private _statement = QUOTE(this setVariable [ARR_2('GVAR(state)','delete')]);
-[_group,[_spawnpos],25,"MOVE","CARELESS","BLUE","FULL","NO CHANGE",_statement,[1,3,5],150] call FUNC(waypoints_add);
+[_group,[_spawnpos],25,"MOVE","CARELESS","BLUE","FULL","NO CHANGE",_statement,[0,0,0],150] call FUNC(waypoints_add);

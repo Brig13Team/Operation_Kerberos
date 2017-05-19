@@ -37,6 +37,12 @@ private _newGroup = [_spawnpos, _grouptype] call EFUNC(spawn,group);
     _x moveInCargo _transportVehicle;
 }forEach units _newGroup;
 
+if ((floor(random 2)) > 0) then {
+    _spawnPos = [0,random(worldsize),400];
+}else{
+    _spawnPos = [random(worldsize),0,400];
+};
+
 _transportGroup setVariable [QGVAR(spawnpos),_spawnPos];
 _transportGroup setVariable [QGVAR(timeout),15*60];
 _transportGroup setVariable [QGVAR(state),"transporter"];
