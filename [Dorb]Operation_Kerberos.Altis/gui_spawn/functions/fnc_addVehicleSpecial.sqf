@@ -32,6 +32,9 @@ switch (typeOf _object) do {
         };
         _vehicle setVariable ["ace_medical_isMedicalFacility",true];
     };
+    case "Land_DataTerminal_01_F" : {
+        [QEGVAR(mission,MakeDataTerminalDraggable),[_object]] call CBA_fnc_globalEvent;
+    };
 };
 
 if ((GVARMAIN(playerside) == west)&&{(typeOf _object) in ["I_MRAP_03_F","I_MRAP_03_gmg_F","I_MRAP_03_hmg_F"]}) then {
