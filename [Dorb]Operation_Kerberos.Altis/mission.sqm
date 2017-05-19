@@ -5,7 +5,7 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=1;
+	toggles=129;
 	class ItemIDProvider
 	{
 		nextID=274;
@@ -5612,7 +5612,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
-						init="call{this setVariable [""DORB_ISCASPILOT"",1,true]; " \n "}";
+						init="call{this setVariable [""DORB_ISCASPILOT"",true,true]; " \n "}";
 						description="Kampfpilot";
 						isPlayable=1;
 						class Inventory
@@ -5676,7 +5676,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="call{this setVariable [""DORB_ISCASPILOT"",1,true]; " \n "}";
+						init="call{this setVariable [""DORB_ISCASPILOT"",true,true]; " \n "}";
 						description="Kampfpilot";
 						isPlayable=1;
 						class Inventory
@@ -5740,7 +5740,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="call{this setVariable [""DORB_ISCASPILOT"",1,true]; " \n "}";
+						init="call{this setVariable [""DORB_ISCASPILOT"",true,true]; " \n "}";
 						description="Kampfpilot";
 						isPlayable=1;
 						class Inventory
@@ -5804,7 +5804,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="call{this setVariable [""DORB_ISCASPILOT"",1,true]; " \n "}";
+						init="call{this setVariable [""DORB_ISCASPILOT"",true,true]; " \n "}";
 						description="Kampfpilot";
 						isPlayable=1;
 						class Inventory
@@ -5868,7 +5868,7 @@ class Mission
 					flags=1;
 					class Attributes
 					{
-						init="call{this setVariable [""DORB_ISCASPILOT"",1,true]; " \n "}";
+						init="call{this setVariable [""DORB_ISCASPILOT"",true,true]; " \n "}";
 						description="Kampfpilot";
 						isPlayable=1;
 						class Inventory
@@ -5932,7 +5932,7 @@ class Mission
 					flags=1;
 					class Attributes
 					{
-						init="call{this setVariable [""DORB_ISCASPILOT"",1,true]; " \n "}";
+						init="call{this setVariable [""DORB_ISCASPILOT"",true,true]; " \n "}";
 						description="Kampfpilot";
 						isPlayer=1;
 						isPlayable=1;
