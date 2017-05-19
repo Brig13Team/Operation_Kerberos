@@ -18,6 +18,7 @@ params["_unit","_position","_vehicle","_turret"];
 
 CHECK(!isPlayer _unit)
 CHECK((vehicle player) isKindOf "ParachuteBase")
+CHECK(!_vehicle isKindOf "AIR")
 
 if (!(((_turret isEqualTo [0]) || (_position == "driver")))) exitWith {};
 

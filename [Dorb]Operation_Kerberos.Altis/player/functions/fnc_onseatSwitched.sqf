@@ -14,7 +14,7 @@ SCRIPT(EH_seatSwitched);
 
 params["_unit1","_unit2","_vehicle"];
 private["_assignedVehicleRole","_parameter"];
-
+CHECK(!_vehicle isKindOf "AIR")
 if (isPlayer _unit1) then {
     _assignedVehicleRole = assignedVehicleRole _unit1;
     _parameter = [group _unit1,_assignedVehicleRole select 0,_unit1];
