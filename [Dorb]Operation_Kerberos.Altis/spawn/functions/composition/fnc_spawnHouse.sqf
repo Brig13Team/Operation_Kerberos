@@ -20,6 +20,8 @@ TRACEV_3(_this,_house,_config);
 [] call FUNC(delaySpawn);
 
 private _housetype = getText(_config>>"type");
+private _author = getText(_config>>"author");
+EGVAR(mission,CompositionDesigners) pushBack _author;
 private _housePos = getPosWorld _house;
 private _houseDir = getDir _house;
 

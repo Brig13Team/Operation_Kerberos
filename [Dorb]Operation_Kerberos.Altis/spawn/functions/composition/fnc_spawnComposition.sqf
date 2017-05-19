@@ -149,6 +149,8 @@ private _fnc_spawnRelObj = {
 };
 
 private _allClasses = configProperties [_config, "isClass(_x)", true];
+private _author = getText(_config>>"author");
+EGVAR(mission,CompositionDesigners) pushBack _author;
 //LOG_1(_allClasses);
 
 {
