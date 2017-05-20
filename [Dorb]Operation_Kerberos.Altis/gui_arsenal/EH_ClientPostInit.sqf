@@ -21,7 +21,7 @@ GVAR(fullArsenal) = false;
  *
  */
 GVAR(level) = 2;
-GVAR(allowedradius) = 12;
+GVAR(allowedradius) = 25;
 
 [getmarkerpos GVARMAIN(RESPAWNMARKER)] call FUNC(addArsenalArea);
 
