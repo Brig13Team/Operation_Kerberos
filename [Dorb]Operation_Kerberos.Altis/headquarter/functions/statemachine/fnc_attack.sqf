@@ -27,7 +27,7 @@ private _lastWaypoint = _waypoints deleteAt ((count _waypoints)-1);
 
 [_group] call CBA_fnc_clearWaypoints;
 
-[_group, _waypoints, 25, "MOVE", "AWARE", "YELLOW", "FULL", "NO CHANGE", "", [1,3,5], 50] call FUNC(waypoints_add);
+[_group, _waypoints, 25, "MOVE", "AWARE", "YELLOW", "FULL", "NO CHANGE", "", [0,0,0], 50] call FUNC(waypoints_add);
 
 private _statement = QUOTE(this setVariable [ARR_2('GVAR(state)','finished')]);
 [_group, _lastWaypoint, 25, "SAD", "COMBAT", "RED", "FULL", "NO CHANGE", _statement, [3,6,9], 30] call FUNC(waypoints_add);

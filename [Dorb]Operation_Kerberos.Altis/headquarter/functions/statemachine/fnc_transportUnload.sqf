@@ -35,15 +35,25 @@ TRACEV_3(_unitsToUnload,_transporter,);
 If (_isAir) then {
     private _droppos = getPos _transporter;
     _droppos set [2,(_droppos select 2)-4];
-    {
-        _x enableAI "Move";
-        unassignVehicle (_x);
-        _x allowDamage false;
-        moveOut _x;
-        private _parachute = createVehicle ["NonSteerable_Parachute_F",_droppos, [], 0, "FLY"];
-        _x moveInDriver _parachute;
-        _x allowDamage true;
-    } forEach _unitsToUnload;
+    [_unitsToUnload,_droppos] spawn {
+        _this params ["_unitsToUnload","_droppos"];
+        {
+            _x enableAI "Move";
+            unassignVehicle (_x);
+            _x allowDamage false;
+            If ((backpack _x) isEqualTo "") then {
+                _x addBackPack "rhs_d6_Parachute_backpack";
+                moveOut _x;
+            }else{
+                moveOut _x;
+                private _parachute = createVehicle ["rhs_d6_Parachute",_droppos, [], 0, "FLY"];
+                uisleep 1;
+                _x moveInDriver _parachute;
+            };
+
+            _x allowDamage true;
+        } forEach _unitsToUnload;
+    };
 } else {
     {
         unassignVehicle (_x);

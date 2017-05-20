@@ -29,8 +29,21 @@ _this params ["_pos",["_rad",2500,[0]]];
 } foreach vehicles;
 
 {
+    if ((alive _x)&&{
+        _x distance (getMarkerPos GVARMAIN(respawnmarker)) > 1000
+        }) then {
+        GVAR(cleanup_Dump_int) pushBackUnique [-1,_x];
+    };
+} foreach vehicles;
+
+{
     GVAR(cleanup_Dump_int) pushBackUnique [-1,_x];
-} forEach allDead;
+} forEach ((allMissionObjects "WeaponHolder")
+        + (allMissionObjects "GroundWeaponHolder")
+        + (allMissionObjects "WeaponHolderSimulated")
+        + (allMissionObjects "CraterLong_small")
+        + (allMissionObjects "CraterLong")
+        + (allMissionObjects "Ejection_Seat_Base_F"));
 
 {
     GVAR(cleanup_Dump_int) pushBackUnique [-1,_x];

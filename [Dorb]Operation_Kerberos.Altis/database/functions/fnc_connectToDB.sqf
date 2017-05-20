@@ -11,6 +11,7 @@
  *      BOOL - is Connected
  *
  */
+#define DEBUG_MODE_NORMAL
 #include "script_component.hpp"
 
 

@@ -1,6 +1,6 @@
 /*
     Author: Dorbedo
-    
+
     Description:
         adds Medical Supplys to a unit
 */
@@ -8,6 +8,7 @@
 CHECKRET((!(isClass(configFile >> "CfgPatches" >> "ace_medical"))),true);
 _this params[["_vehicle",objNull,[objNull]]];
 CHECKRET(((isNull _vehicle)||(isNil "ace_medical_level")),true);
+CHECK(!local _vehicle)
 
 If (ace_medical_level<2) then {
     _vehicle addItemCargoGlobal ["ACE_fieldDressing"    , 150];

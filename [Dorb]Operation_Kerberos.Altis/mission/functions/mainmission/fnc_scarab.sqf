@@ -16,7 +16,7 @@
 _this params ["_mission", "_targets"];
 
 {
-    [_curTarget, createGroup GVARMAIN(side), false] call EFUNC(spawn,crew);
+    [_curTarget, GVARMAIN(side), false] call EFUNC(spawn,crew);
 
     (gunner _x) addEventHandler ["Killed", { [vehicle (_this select 0)] call FUNC(obj__increaseCounter); }];
     _x addEventHandler ["Killed", LINKFUNC(obj__triggerFailed)];

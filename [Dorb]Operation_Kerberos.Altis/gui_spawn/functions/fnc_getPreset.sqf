@@ -36,6 +36,7 @@ switch (_preset) do {
     case "boat" : {
         _return = configProperties [configfile>>"CfgVehicles",format ["((isClass _x)&&{getNumber(_x>>'side')==%1}&&{getNumber(_x>>'scope')>1}&&{((configName _x) isKindOf 'Ship_F')}&&{!(getText(_x>>'vehicleClass')=='Autonomous')})",_sideNumber], true];
         _return = _return apply {configName _x};
+        _return append ["C_Boat_Transport_02_F"];
     };
     case "drones" : {
         _return = configProperties [configfile>>"CfgVehicles",format ["((isClass _x)&&{getNumber(_x>>'side')==%1}&&{getNumber(_x>>'scope')>1}&&{getText(_x>>'vehicleClass')=='Autonomous'})",_sideNumber], true];

@@ -10,6 +10,7 @@
  *  Returns:
  *      -
  */
+
 #include "script_component.hpp"
 
 _this params ["_type"];
@@ -21,7 +22,7 @@ if (isNil QGVARMAIN(side_type)) then {
     _config = _config >> str GVARMAIN(side) >> GVARMAIN(side_type);
 };
 
-TRACEV_1(_type);
+//TRACEV_1(_type);
 
 private _return = [];
 
@@ -65,6 +66,6 @@ switch _type do {
     };
 };
 
-TRACEV_2(_config,_return);
+//TRACEV_2(_config,_return);
 
 _return

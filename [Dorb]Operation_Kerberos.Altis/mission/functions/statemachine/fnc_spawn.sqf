@@ -67,7 +67,10 @@ _mission spawn {
         ] call CBA_fnc_waitAndExecute;
         // spawn the big part of the units
         [_centerpos] call EFUNC(spawn,createMission);
-        uisleep 30;
+        TRACEV_1(GVAR(CompositionDesigners));
+        GVAR(CompositionDesigners) = GVAR(CompositionDesigners) arrayIntersect GVAR(CompositionDesigners);
+        [QGVAR(showCompositionDesigners),[GVAR(CompositionDesigners)]] call CBA_fnc_globalEvent;
+        GVAR(CompositionDesigners) = [];
     };
     // the spawning has been finished, next state
     _mission setVariable ["spawningfinished",true];

@@ -20,6 +20,10 @@ _objects = _objects - [objNull];
 TRACEV_2(_mission,_objects);
 CHECK(_objects isEqualTo [])
 
+{
+    _x removeAllEventhandlers "killed";
+} forEach _objects;
+
 private _group = group (_objects select 0);
 (vehicle (leader _group)) setFuel 1;
 TRACEV_2(_group,(vehicle (leader _group)));

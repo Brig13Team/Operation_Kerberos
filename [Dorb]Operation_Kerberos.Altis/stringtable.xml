@@ -187,6 +187,17 @@
     </Package>
     <Package name="MISSION">
         <Container name="MAINMISSION">
+            <Key ID="STR_DORB_MISSION_COMPOSITIONS_TITLE">
+                <German>Stellungen</German>
+                <English>Compositions</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_COMPOSITIONS">
+                <German>Vielen Dank an die Stellungsbauer: </German>
+                <English>Thanks to all Composition designers: </English>
+            </Key>
+
+
+
             <Key ID="STR_DORB_MISSION_RTB_TITLE">
                 <German>RTB</German>
                 <English>RTB</English>
@@ -393,6 +404,9 @@
             </Key>
             <Key ID="STR_DORB_MISSION_RADIOTOWER_FAILED">
                 <German>Die Feindliche Kommunikation wurde erfolgreich gestört.</German>
+            </Key>
+            <Key ID="STR_DORB_MISSION_RADIOTOWER_SUCCEEDED">
+                <German>Sie haben die feindliche Kommunikation erfolgreich gestört.</German>
             </Key>
 
 

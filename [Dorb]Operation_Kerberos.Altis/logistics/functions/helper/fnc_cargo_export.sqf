@@ -25,7 +25,7 @@ private _export = _tab + format ["class %1 {",typeOf GVAR(helper_vehicle)] + end
 + _tab2 + format["width = %1;",GVAR(helper_cargo_w)] + endl
 + _tab2 + format["length = %1;",GVAR(helper_cargo_l)] + endl
 + _tab2 + format["height = %1;",GVAR(helper_cargo_h)] + endl
-+ _tab2 + format["offset[] = %1;",[GVAR(helper_cargo_x),GVAR(helper_cargo_y),GVAR(helper_cargo_z)]] + endl
++ _tab2 + format["offset[] = {%1,%2,%3};",GVAR(helper_cargo_x),GVAR(helper_cargo_y),GVAR(helper_cargo_z)] + endl
 + _tab + "};" + endl;
 
 copyToClipboard _export;

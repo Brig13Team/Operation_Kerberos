@@ -70,6 +70,11 @@ class GVAR(statemachine_AIGroups) {
             condition = QUOTE((_this getVariable [ARR_2('GVAR(state)','none')])=='supply');
             onTransition = "";
         };
+        class toSupplyUnload {
+            targetState = "supply";
+            condition = QUOTE((_this getVariable [ARR_2('GVAR(state)','none')])=='supplyunload');
+            onTransition = "";
+        };
         class toTransport {
             targetState = "transport";
             condition = QUOTE((_this getVariable [ARR_2('GVAR(state)','none')])=='transporter');
@@ -203,6 +208,11 @@ class GVAR(statemachine_AIGroups) {
             targetState = "return";
             condition = QUOTE((_this getVariable [ARR_2('GVAR(timeout)',-1)])<CBA_missiontime);
             onTransition = "";
+        };
+        class Unloadtocombat {
+            targetState = "combat";
+            condition = QUOTE(((_this getVariable [ARR_2('GVAR(state)','none')])=='supplyunload')&&{((leader _this) distance2D (_this getVariable 'GVAR(droppos)'))<800});
+            onTransition = QUOTE(_this setVariable [ARR_2(GVAR(state),'combat')];_this call FUNC(statemachine_transportUnload));
         };
         class tocombat {
             targetState = "combat";

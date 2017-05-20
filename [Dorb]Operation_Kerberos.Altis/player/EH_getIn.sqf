@@ -8,7 +8,7 @@
 #include "script_component.hpp"
 
 If (hasInterface) then {
-    ["Air", "getIn", {
-        ['pilotcheck',_this,(_this select 2)] call CBA_fnc_targetEvent;
+    ["CAManBase", "GetInMan", {
+        ["pilotcheck",_this,(_this select 0)] call CBA_fnc_targetEvent;
     },true,[],true] call CBA_fnc_addClassEventHandler;
 };

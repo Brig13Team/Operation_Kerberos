@@ -13,9 +13,9 @@ disableSerialization;
 _this params ["_dialog"];
 
 private _type = switch (true) do {
-    case (vehicle ace_player == ace_player): {"infanterie"};
-    case (vehicle ace_player isKindOf "Air"): {"air"};
-    case (vehicle ace_player isKindOf "Ship"): {"ship"};
+    case ((vehicle ace_player) == ace_player): {"infanterie"};
+    case ((vehicle ace_player) isKindOf "Air"): {"air"};
+    case ((vehicle ace_player) isKindOf "Ship"): {"ship"};
     default {"default"};
 };
 

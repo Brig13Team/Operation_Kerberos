@@ -228,4 +228,41 @@ class cargos {
         offset[] = {0,0,0};
         stackable = -1;
     };
+
+    class Land_DataTerminal_01_F {
+        width = 1.4;
+        length = 0.6;
+        height = 0.5;
+        offset[] = {0,0,0.25};
+    };
+
+    class Proxy_UsBasicAmmoBox {
+        width = 0.7;
+        length = 0.55;
+        height = 0.5;
+        offset[] = {0,0,0};
+    };
+
+    class Proxy_UsBasicWeaponBox {
+        width = 0.9;
+        length = 0.45;
+        height = 0.2;
+        offset[] = {0,0,0};
+    };
+
+    class Equipment_Box_F {
+        width = 0.6;
+        length = 1.15;
+        height = 0.75;
+        offset[] = {0,0,0};
+    };
+
+    class Uniforms_Box_F {
+        width = 0.6;
+        length = 1.15;
+        height = 0.75;
+        offset[] = {0,0,0};
+    };
+
+
 };

@@ -20,6 +20,8 @@ TRACEV_3(_this,_house,_config);
 [] call FUNC(delaySpawn);
 
 private _housetype = getText(_config>>"type");
+private _author = getText(_config>>"author");
+EGVAR(mission,CompositionDesigners) pushBack _author;
 private _housePos = getPosWorld _house;
 private _houseDir = getDir _house;
 
@@ -78,7 +80,7 @@ private _objectives = [];
             _object = [[0,0,0],_group,_curType,"NONE",0] call FUNC(unit);
         }else{
             If (_isSimpleObject) then {
-                _object = createSimpleObject [getText(configFile>>"CfgVehicles">>_curType>>"model"), [0,0,100]];
+                _object = createSimpleObject [/*getText(configFile>>"CfgVehicles">>_curType>>"model")*/_curType, [0,0,100]];
             }else{
                 If (isNull _group) then {_group = createGroup GVARMAIN(side);};
                 _object = ([[0,0,0],_group,_curType,(_curDir + (getDir _house)),((_hasCrew)||{_curType isKindOf "StaticWeapon"}),true] call FUNC(vehicle)) select 1;

@@ -116,3 +116,4 @@ PREPS(obj,triangulate);
 ADDON = true;
 
 ISNIL(rescuepositions,[]);
+ISNIL(CompositionDesigners,[]);

@@ -7,7 +7,6 @@
  */
 #include "script_component.hpp"
 
-EGVAR(player,whitelistenabled) = true;
 EGVAR(player,reserved_pilot_slot) = true;
 
 [QGVAR(pilot_whitelist), "onPlayerConnected", {

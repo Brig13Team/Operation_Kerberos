@@ -5,19 +5,20 @@
         part of only pilots
 
     parameter:
-        0: GROUP - group of player
-        1: ARRAY - position of player
-        2: UNIT - player
+        0: OBJECT - the player
+        1: STRING - position of player
+        2: OBJECT - the vehicle
         3: ARRAY - turret
     returns:
         true
 */
 #include "script_component.hpp"
 
-params["_group","_position","_unit","_turret"];
+params["_unit","_position","_vehicle","_turret"];
 
 CHECK(!isPlayer _unit)
 CHECK((vehicle player) isKindOf "ParachuteBase")
+CHECK(!(_vehicle isKindOf "AIR"))
 
 if (!(((_turret isEqualTo [0]) || (_position == "driver")))) exitWith {};
 

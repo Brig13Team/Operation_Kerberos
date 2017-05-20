@@ -33,7 +33,7 @@ switch (typeOf _object) do {
         _vehicle setVariable ["ace_medical_isMedicalFacility",true];
     };
     case "Land_DataTerminal_01_F" : {
-        [_vehicle, true,[1,0,0],90] call ace_dragging_fnc_setDraggable;
+        [QEGVAR(mission,MakeDataTerminalDraggable),[_object]] call CBA_fnc_globalEvent;
     };
 };
 

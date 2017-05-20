@@ -28,7 +28,7 @@ If (_isAir) then {
     [_group] call CBA_fnc_clearWaypoints;
     [_group, [_droppoint], 25, "MOVE", "AWARE", "YELLOW", "FULL", "NO CHANGE", "", [1,3,5], 50] call FUNC(waypoints_add);
 } else {
-    private _waypoints = [getPos (leader _group),_droppoint] call FUNC(waypoints_generate);
+    //private _waypoints = [getPos (leader _group),_droppoint] call FUNC(waypoints_generate);
     [_group] call CBA_fnc_clearWaypoints;
-    [_group, _waypoints, 25, "MOVE", "AWARE", "YELLOW", "FULL", "NO CHANGE", "", [1,3,5], 50] call FUNC(waypoints_add);
+    [_group, [_droppoint], 25, "MOVE", "AWARE", "YELLOW", "NORMAL", "NO CHANGE", "", [1,3,5], 50] call FUNC(waypoints_add);
 };
