@@ -22,7 +22,7 @@ If (_movetoChest) then {
     _backpack addBackpackCargoGlobal [(backpack player), 1];
     _backpack attachTo [player,[-0.1,0.75,-0.4],"pelvis"];
     _backpack setVectorDirAndUp [[0,0,-1],[0,1,0]];
-    _backpack setVariable [QGVARMAIN(canDelete),true,true];
+    _backpack setVariable [QGVARMAIN(canDelete),false,true];
     SETVAR(player,GVAR(backpack_pack),_backpack);
     SETVAR(player,GVAR(backpack_anim),(animationState player));
     removebackpackglobal player;
