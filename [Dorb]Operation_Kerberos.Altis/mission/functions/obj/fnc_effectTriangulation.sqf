@@ -11,7 +11,7 @@
  *      [TYPE] - [return name]
  *
  */
-//#define DEBUG_MODE_FULL
+#define DEBUG_MODE_OFF
 #include "script_component.hpp"
 #define BLINK_TIME 30
 
