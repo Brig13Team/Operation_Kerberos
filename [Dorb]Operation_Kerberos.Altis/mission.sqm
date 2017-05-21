@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={12084.577,34.029499,28860.838};
-		dir[]={-0.65328288,-0.48340547,0.5827347};
-		up[]={-0.36074877,0.87538815,0.3217921};
-		aside[]={0.66567558,-2.4703331e-007,0.74626517};
+		pos[]={12025.862,88.511627,28792.523};
+		dir[]={0.4548206,-0.47196296,0.75527304};
+		up[]={0.24348359,0.88160622,0.40433094};
+		aside[]={0.856686,3.8882717e-007,-0.51588494};
 	};
 };
 binarizationWanted=0;
@@ -265,8 +265,8 @@ class Mission
 		year=2035;
 		month=6;
 		day=24;
-		hour=12;
-		minute=-7;
+		hour=6;
+		minute=0;
 		startFogDecay=0.014;
 		forecastFogDecay=0.014;
 	};
@@ -6952,7 +6952,7 @@ class Mission
 			name="respawn_west";
 			text="USS Freedom";
 			type="Empty";
-			angle=67.071236;
+			angle=67.071228;
 			id=193;
 			atlOffset=185.12044;
 		};
@@ -7113,7 +7113,7 @@ class Mission
 			position[]={12182.214,-185.68875,22906.494};
 			name="rescue_marker";
 			type="Empty";
-			angle=354.75919;
+			angle=354.75909;
 			id=263;
 			atlOffset=-191.72104;
 		};
@@ -7265,11 +7265,11 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={11985.81,17.378689,28893.301};
-				angles[]={0,1.6922903,0};
+				position[]={12045.996,20.540541,28863.348};
+				angles[]={0,3.3997524,0};
 			};
 			side="Empty";
-			flags=1;
+			flags=5;
 			class Attributes
 			{
 				init="call{this setVariable [""Dorb_canDelete"",false];this setVariable [""ace_dragging_canDrag"",false];this setVariable [""ace_dragging_canCarry"",false];}";
@@ -7277,7 +7277,6 @@ class Mission
 			};
 			id=273;
 			type="Land_PortableLight_double_F";
-			atlOffset=0.61883163;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -7327,7 +7326,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={12165.361,7.6341038,22904.109};
-				angles[]={6.1703339,5.7121487,6.2618566};
+				angles[]={6.1703324,5.7121487,6.2618575};
 			};
 			side="Empty";
 			flags=4;
@@ -7626,8 +7625,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={12151.2,5.9241881,22887.854};
-				angles[]={6.2805333,3.3546228,0.010664274};
+				position[]={12151.2,5.9245973,22887.854};
+				angles[]={6.2805324,3.3546274,0.010663962};
 			};
 			side="Empty";
 			flags=4;
@@ -7641,7 +7640,7 @@ class Mission
 			};
 			id=288;
 			type="WaterPump_01_forest_F";
-			atlOffset=-0.01240921;
+			atlOffset=-0.012000084;
 		};
 		class Item97
 		{
@@ -7679,7 +7678,6 @@ class Mission
 			{
 				init="call{this setVariable [""Dorb_canDelete"",false];}";
 				presence=0.74144375;
-				disableSimulation=1;
 			};
 			id=290;
 			type="Land_JumpTarget_F";
@@ -8016,11 +8014,10 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={12182.771,6.0143361,22905.994};
-				angles[]={6.2591867,2.3751836,6.2725215};
+				position[]={12183.106,6.6519589,22906.086};
+				angles[]={0,2.3751836,0};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 				init="call{this setVariable [""Dorb_canDelete"",false];}";
@@ -8029,6 +8026,7 @@ class Mission
 			};
 			id=295;
 			type="Land_HelipadRescue_F";
+			atlOffset=0.63899994;
 		};
 		class Item104
 		{
@@ -8218,8 +8216,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={12183.759,7.0770273,22915.471};
-				angles[]={0,0.23915823,0};
+				position[]={12183.759,7.0913835,22915.471};
+				angles[]={0,0.23916246,0};
 			};
 			side="Empty";
 			flags=5;
@@ -8231,7 +8229,6 @@ class Mission
 			};
 			id=299;
 			type="Land_PortableLight_double_F";
-			atlOffset=-0.014356136;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -8282,7 +8279,7 @@ class Mission
 			name="respawn_west_Tonos";
 			text="Tonos Bay";
 			type="Empty";
-			angle=67.070976;
+			angle=67.070969;
 			id=300;
 			atlOffset=-5.6141405;
 		};
