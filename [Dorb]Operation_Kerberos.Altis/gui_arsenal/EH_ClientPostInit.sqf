@@ -24,6 +24,10 @@ GVAR(level) = 2;
 GVAR(allowedradius) = 25;
 
 [getmarkerpos GVARMAIN(RESPAWNMARKER)] call FUNC(addArsenalArea);
+If (((getMarkerpos "respawn_west_tonos") distance2D [0,0,0])>100) then {
+    [getmarkerpos "respawn_west_tonos"] call FUNC(addArsenalArea);
+};
+
 
 /*
  *  no edit below needed
