@@ -23,4 +23,3 @@ GVAR(initialized) = false;
 
 call FUNC(connectToDB);
 ["constructTablePlayers"] call FUNC(sendNoReturn);
-["constructTableAdvertisements"] call FUNC(sendNoReturn);
