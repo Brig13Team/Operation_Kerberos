@@ -16,12 +16,6 @@
 
 _this params ["_barrellenght","_pressure","_mass"];
 
-
-
-
-
-
-
 private _q = _projectilemass/_crossSectionArea;
 
 private _muzzlespeed = sqrt((2 * _pressure * _barrellenght)/_q);
