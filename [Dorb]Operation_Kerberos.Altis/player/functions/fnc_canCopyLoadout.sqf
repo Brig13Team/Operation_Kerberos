@@ -20,8 +20,8 @@ If !((vehicle ace_player == ace_player)&&(vehicle _target == _target)&&(side ace
 
 If (_target getVariable [QEGVAR(gui_arsenal,ArsenalIsOpened),false]) exitWith {false};
 
-private _respawnPos = getMarkerPos GVARMAIN(respawnMarker);
-
-if (_respawnPos isEqualTo [0,0,0]) exitWith {false};
-
-((ace_player distance2D _respawnPos) < 20)
+(
+    {
+        ((!(_x isEqualTo [0,0,0]))&&{(ace_player distance2D _x) < 20})
+    } count [getMarkerPos GVARMAIN(respawnMarker),getMarkerPos "respawn_west_tonos"]
+)>0

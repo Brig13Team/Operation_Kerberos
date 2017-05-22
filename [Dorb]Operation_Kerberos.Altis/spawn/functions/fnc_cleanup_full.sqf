@@ -9,7 +9,9 @@
 _this params ["_pos",["_rad",2500,[0]]];
 
 {
-    GVAR(cleanup_Dump_int) pushBackUnique [-1,_x];
+    If (_x getVariable [QGVARMAIN(canDelete),true]) then {
+        GVAR(cleanup_Dump_int) pushBackUnique [-1,_x];
+    };
 } foreach (_pos nearObjects ["ALL", _rad]);
 
 {
@@ -23,14 +25,17 @@ _this params ["_pos",["_rad",2500,[0]]];
 } foreach allunits;
 
 {
-    if (!(alive _x)) then {
+    if ((!(alive _x))&&{(_x getVariable [QGVARMAIN(canDelete),true])}) then {
         GVAR(cleanup_Dump_int) pushBackUnique [-1,_x];
     };
 } foreach vehicles;
 
 {
     if ((alive _x)&&{
-        _x distance (getMarkerPos GVARMAIN(respawnmarker)) > 1000
+        _x getVariable [QGVARMAIN(canDelete),true]
+        }&&{
+            (_x distance (getMarkerPos GVARMAIN(respawnmarker)) > 500)||
+            (_x distance (getMarkerPos "respawn_west_tonos") > 500)
         }) then {
         GVAR(cleanup_Dump_int) pushBackUnique [-1,_x];
     };

@@ -27,7 +27,7 @@ If (worldName == "Altis") then {
         _name         = getText(_ort >> "name");
         _position    = getArray(_ort >> "position");
         _typ        = getText(_ort >> "type");
-        If ((_position distance (getmarkerpos GVARMAIN(RESPAWNMARKER)) > 2000)) then {
+        If ((_position distance (getmarkerpos GVARMAIN(RESPAWNMARKER)) > 2000)&&(_position distance (getMarkerPos "respawn_west_tonos") > 2000)) then {
             If ((_typ in ["NameCityCapital","NameCity","NameVillage"])and(_name != "Sagonisi")) exitWith {
                 _loc_civ pushBack [_name,_position];
             };
