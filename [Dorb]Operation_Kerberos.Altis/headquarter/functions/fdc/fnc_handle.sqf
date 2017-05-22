@@ -77,6 +77,11 @@ _unit setVariable [QGVAR(lastShotdone),CBA_missiontime + 6*_amount + 10];
 TRACE_5("ArtilleryOrder = %1 - [%2,%3,%4]",_unit,_position,_shelltype,_amount);
 ///// Add fired Eventhandler -> removes status
 //_unit addEventHandler ["Fired",{_this params ["_unit"];_unit setVehicleAmmoDef 1;_unit setVariable [ARR_2(QGVAR(fdc_ready),true)];_unit removeEventHandler [ARR_2("Fired",_thisEventHandler)];}];
+
+// a fix if the wrong ammo is given
+private _shellArray = getArtilleryAmmo [_unit];
+If !(_shelltype in _shellArray) then {_shelltype = ""};
+
 [_unit,_position,_shelltype,_amount,{(_this select 0) setVehicleAmmoDef 1;}] call EFUNC(artillery,fireAtTarget);
 //_unit commandArtilleryFire [_position,_shelltype,_amount];
 [] spawn FUNC(fdc_handle);
