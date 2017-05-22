@@ -73,11 +73,21 @@ switch (_preset) do {
     };
     case "carrier_vehicles" : {
         // vehicles
+        _return = (configProperties [configfile>>"CfgVehicles",format ["((isClass _x)&&{getNumber(_x>>'side')==%1}&&{getNumber(_x>>'scope')>1}&&{((configName _x) isKindOf 'Truck_F')}&&{!(getText(_x>>'vehicleClass')=='Autonomous')})",_sideNumber], true])
+        // slingload
+        + (configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'scope')>1}&&{(configName _x) isKindOf 'Slingload_01_Base_F'})", true]);
+        _return = _return apply {configName _x};
+        _return pushBack "Box_NATO_AmmoVeh_F";
+        // remove doubled
+        _return arrayIntersect _return;
+    };
+    case "carrier_landingbay_vehicles" : {
+        // vehicles
         _return = (configProperties [configfile>>"CfgVehicles",format ["((isClass _x)&&{getNumber(_x>>'side')==%1}&&{getNumber(_x>>'scope')>1}&&{((configName _x) isKindOf 'LandVehicle')}&&{!(getText(_x>>'vehicleClass')=='Autonomous')}&&{!(getText(_x>>'vehicleClass')=='Static')})",_sideNumber], true])
         // cars
         + (configProperties [configfile>>"CfgVehicles",format ["((isClass _x)&&{getNumber(_x>>'side')==%1}&&{getNumber(_x>>'scope')>1}&&{((configName _x) isKindOf 'Truck_F')}&&{!(getText(_x>>'vehicleClass')=='Autonomous')})",_sideNumber], true])
         // slingload
-        + (configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'scope')>1}&&{(configName _x) isKindOf 'Slingload_01_Base_F'})", true]);
+        + (configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'scope')>1}&&{(configName _x) isKindOf 'Slingload_01_Base_F'})", true])
         // static units
         + (configProperties [configfile>>"CfgVehicles",format ["((isClass _x)&&{getNumber(_x>>'side')==%1}&&{getNumber(_x>>'scope')>1}&&{(getText(_x>>'vehicleClass')=='Static')}&&{!(getText(_x>>'vehicleClass')=='Autonomous')})",_sideNumber], true]);
         _return = _return apply {configName _x};
@@ -85,6 +95,7 @@ switch (_preset) do {
             _return append ["I_MRAP_03_F","I_MRAP_03_gmg_F","I_MRAP_03_hmg_F"];
         };
         _return pushBack "Land_DataTerminal_01_F";
+        _return pushBack "Box_NATO_AmmoVeh_F";
         // remove doubled
         _return arrayIntersect _return;
     };
