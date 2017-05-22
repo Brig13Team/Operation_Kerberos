@@ -21,6 +21,12 @@ _this params [
     ["_amount",1,[0]],
     ["_OnFinish",{true},[{}]]
 ];
+If (_shelltype isEqualTo "") then {
+    private _shellArray = getArtilleryAmmo [_unit];
+    If (_shellArray isEqualTo []) exitWith {};
+    _shelltype = (_shellArray select 0);
+};
+CHECK(_shelltype isEqualTo "")
 TRACEV_2((typeOf _artillery),_this);
 switch (typeOf _artillery) do {
     case "RHS_BM21_chdkz";
