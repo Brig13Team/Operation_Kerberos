@@ -57,8 +57,8 @@ class side {
         conditiontype = "oneCounter";
         class location : location {
             areas[] = {QGVAR(industrie), QGVAR(military), QGVAR(other)};
-            minDistance = 7000;
-            maxDistance = 15000;
+            minDistance = 5000;
+            maxDistance = 9000;
         };
         class defence {
             target = "composition";

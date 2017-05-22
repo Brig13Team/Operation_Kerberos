@@ -120,7 +120,6 @@ PREP(MissionCleanUp);
 PREP(MissionInit);
 PREP(onKilled);
 PREP(onUnconscious);
-PREP(radar_airInterceptionGroup_return);
 PREP(radar_airInterceptionGroup);
 PREP(registerAA);
 PREP(registerGroup);
