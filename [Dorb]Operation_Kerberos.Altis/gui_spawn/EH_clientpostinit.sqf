@@ -51,5 +51,6 @@ GVAR(vehiclesHashModified) = false;
     //["logistic",    spawn_logistic2,    "logistic", 2],
     ["carrier_air",    carrier_air,    "heli", 2],
     ["carrier_vehicles",    carrier_vehicles,    "tank", 2],
+    ["carrier_landingbay_vehicles",    carrier_landingbay_vehicles,    "tank", 2],
     ["carrier_marine",    carrier_marine,    "harbour", 2]
 ];

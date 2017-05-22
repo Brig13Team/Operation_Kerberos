@@ -826,6 +826,10 @@
             <German>Westliche Landeküste</German>
             <English>Western Landingbay</English>
         </Key>
+        <Key ID="STR_DORB_GUI_TELEPORT_BAY_TONOS">
+            <German>Tonos Bucht</German>
+            <English>Tonos Bay</English>
+        </Key>
 
 
         <Key ID="STR_DORB_GUI_TELEPORT_BASE">
