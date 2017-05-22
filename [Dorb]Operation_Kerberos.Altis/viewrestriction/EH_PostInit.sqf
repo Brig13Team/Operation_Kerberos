@@ -28,3 +28,9 @@ GVAR(EH) = [
     },
     true
 ] call CBA_fnc_addPlayerEventHandler;
+
+["vehicle", {
+    If ((_this select 0) == player) then {
+        ["", cameraOn] call FUNC(onCameraChanged);
+    };
+},true] call CBA_fnc_addPlayerEventHandler;
