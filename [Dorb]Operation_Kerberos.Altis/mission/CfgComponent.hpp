@@ -16,7 +16,7 @@ class DOUBLES(CfgComponent,ADDON) {
     class preinit {};
     class dependencies {
         CfgPatches[] = {};
-        CfgComponents[] = {"spawn"};
+        CfgComponents[] = {"spawn","worlds"};
     };
 };
 

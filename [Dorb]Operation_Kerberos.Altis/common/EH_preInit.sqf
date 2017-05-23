@@ -28,6 +28,8 @@ PREP(debug_marker_clean);
 PREP(debug_marker_create);
 PREP(delete);
 
+PREP(exportHashtoHpp);
+
 PREP(get_buildings);
 PREP(get_cfg_subclasses);
 PREP(get_cfglocations);

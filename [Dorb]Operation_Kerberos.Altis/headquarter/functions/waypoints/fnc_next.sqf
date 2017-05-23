@@ -17,7 +17,7 @@ _this params[
     ["_position",[],[[]]]
     ];
 TRACEV_1(_position);
-private _raster = getNumber(missionconfigFile >> "maps" >> worldname >> "raster");
+private _raster = getNumber(missionConfigFile >> TRIPLES(CfgComponent,PREFIX,worlds) >> "config" >> worldName >> "wayoints" >> "raster");
 
 TRACEV_1(_raster);
 private _keyX = round(((_position select 0)-_raster*0.5)/_raster)*(_raster/10);
