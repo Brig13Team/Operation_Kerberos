@@ -11,7 +11,7 @@
  *      [TYPE] - [return name]
  *
  */
-//#define DEBUG_MODE_FULL
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 _this params [
@@ -21,7 +21,13 @@ _this params [
     ["_amount",1,[0]],
     ["_OnFinish",{true},[{}]]
 ];
-TRACEV_2((typeOf _artillery),_this);
+If (_shelltype isEqualTo "") then {
+    private _shellArray = getArtilleryAmmo [_unit];
+    If (_shellArray isEqualTo []) exitWith {};
+    _shelltype = (_shellArray select 0);
+};
+CHECK(_shelltype isEqualTo "")
+
 switch (typeOf _artillery) do {
     case "RHS_BM21_chdkz";
     case "RHS_BM21_VDV_01";
@@ -46,7 +52,7 @@ switch (typeOf _artillery) do {
             case (_distance < 20500) : {"M11"}; // 15700-20500
             default {""}
         };
-        TRACEV_2(_distance,_mode);
+        //TRACEV_2(_distance,_mode);
         CHECK(_mode isEqualTo "")
         private _initSpeed = getNumber (configFile >> "CfgMagazines" >> _shelltype >> "initspeed");
         private _weapon = _artillery currentWeaponTurret [0];
@@ -55,10 +61,11 @@ switch (typeOf _artillery) do {
         private _muzzlespeed = _initSpeed * _charge;
         private _shotVector = [_artillery,_target,_muzzlespeed,true] call FUNC(getShotVector);
         private _reloadSpeed = getNumber(configfile >> "CfgWeapons" >> _weapon >> _mode >> "reloadtime");
-        TRACEV_6(_artillery,_shotVector,_amount,_weapon,_mode,_reloadSpeed);
+        TRACEV_7(_artillery,_shotVector,_amount,_weapon,_mode,_reloadSpeed,_OnFinish);
         [_artillery,_shotVector,_amount,_weapon,_mode,_reloadSpeed,_OnFinish] call FUNC(AIFire);
     };
     default {
+        TRACEV_4(_artillery,_position,_shelltype,_amount);
         _artillery commandArtilleryFire [_position,_shelltype,_amount];
     };
 };

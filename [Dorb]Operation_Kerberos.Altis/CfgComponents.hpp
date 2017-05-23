@@ -29,7 +29,6 @@ class CfgComponents {
     headquarter = 1;
     artillery = 1;
     mission = 1;
-    advertisements = 0;
     /// mod specific components
     mod_ace = 1;
     mod_acre = 1;
@@ -54,7 +53,6 @@ class CfgComponents {
 #include "gui\CfgComponent.hpp"
 
 #include "common\CfgComponent.hpp"
-#include "advertisements\CfgComponent.hpp"
 #include "grouptracker\CfgComponent.hpp"
 #include "headless\CfgComponent.hpp"
 #include "headquarter\CfgComponent.hpp"

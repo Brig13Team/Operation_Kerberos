@@ -21,7 +21,7 @@ private _isAir = (vehicle (leader _group)) isKindOf "Air";
 private _centerpos = HASH_GET(GVAR(dangerzones),"centerpos");
 private _droppoint = [_centerpos,200,0] call EFUNC(common,pos_random);
 
-_group setVariable [QGVAR(timeout),CBA_missiontime + 15*60];
+_group setVariable [QGVAR(timeout),CBA_missiontime + 20*60];
 _group setVariable [QGVAR(droppos),_droppoint];
 
 If (_isAir) then {

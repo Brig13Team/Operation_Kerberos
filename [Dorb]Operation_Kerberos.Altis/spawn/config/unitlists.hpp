@@ -36,7 +36,7 @@ class GVAR(unitlists) {
             supplys[] = {"B_Slingload_01_Cargo_F","B_Slingload_01_Fuel_F","B_Slingload_01_Medevac_F","B_Slingload_01_Repair_F"};
             chopper[] = {"RHS_Ka52_UPK23_vvs"};
         };
-        attack_uavs[] = {"O_UAV_02_F"};
+        attack_uavs[] = {"O_UAV_02_F","O_T_UAV_04_CAS_F"};
         recon_uavs[] = {"rhs_pchela1t_vvs","O_UAV_01_F"};
         static[] = {"RHS_NSV_TriPod_VDV","RHS_AGS30_TriPod_VDV","rhs_Igla_AA_pod_vdv","rhs_KORD_high_VDV","rhs_KORD_VDV","rhs_Metis_9k115_2_vdv"};
         static_high[] = {"rhs_KORD_high_VDV"};

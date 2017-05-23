@@ -7,12 +7,12 @@
         0 : ARRAY/OBJECT - position or target object
 
 */
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-SCRIPT(doAirstrike);
 
 params [["_target",objNull,[objNull,[]]]];
 private ["_adrones","_drone","_ret","_dir","_pos","_posBegin","_posEnd","_height","_pos","_onExit","_logic"];
-
+TRACEV_1(_this);
 _onExit = {
     GVAR(drones_availableAttackDrones) pushback (typeOf _this);
     deleteVehicle _this;

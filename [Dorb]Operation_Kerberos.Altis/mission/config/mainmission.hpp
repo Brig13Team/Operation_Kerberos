@@ -169,7 +169,12 @@ class main {
 
     class weaponcache : __oneCounter {
         class location : location {
-            areas[] = {QGVAR(town), QGVAR(military)};
+        areas[] = {QGVAR(town)/*, QGVAR(military)*/};
+        };
+
+        class defence : defence {
+            target = "house";
+            house_types[] = {"hasmissiontarget","weaponcache"};
         };
 
         class object : object {

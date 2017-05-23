@@ -27,7 +27,6 @@ PREPS(drones,requestAirstrike);
 PREPS(drones,requestReconnaissance);
 PREPS(drones,scan);
 
-PREPS(fdc,defend_artypos);
 PREPS(fdc,handle);
 PREPS(fdc,placeOrder);
 PREPS(fdc,ready);
@@ -121,7 +120,6 @@ PREP(MissionCleanUp);
 PREP(MissionInit);
 PREP(onKilled);
 PREP(onUnconscious);
-PREP(radar_airInterceptionGroup_return);
 PREP(radar_airInterceptionGroup);
 PREP(registerAA);
 PREP(registerGroup);

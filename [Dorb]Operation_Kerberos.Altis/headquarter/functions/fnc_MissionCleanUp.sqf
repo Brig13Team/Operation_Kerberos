@@ -64,4 +64,11 @@ GVAR(AIGroups) = [];
 } forEach HASH_GET_DEF(GVAR(attackPos),"locations",[]);
 HASH_SET(GVAR(attackPos),"locations",[]);
 
+// FDC
+GVAR(FDC_mortars) = [];
+GVAR(FDC_artilleries) = [];
+GVAR(FDC_rockets) = [];
+GVAR(FDC_firemissions) = [];
+
+
 [] call FUNC(drones_onMissionEnd);
