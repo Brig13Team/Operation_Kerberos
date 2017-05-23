@@ -14,13 +14,17 @@
 #include "script_component.hpp"
 
 _this params ["_attackPos"];
-CHECK(isNull _groupleader)
 
-private _group = [_groupleader] call CBA_fnc_getGroup;
-private _target = _group getVariable [QGVAR(target),locationNull];
-[_target] call FUNC(attackpos_delete);
-_group setVariable [QGVAR(target),locationNull];
+If (IS_GROUP(_attackpos)) then {
+    private _group = _attackpos;
+    _attackpos = _group getVariable [QGVAR(target),locationNull];
+    _group setVariable [QGVAR(target),locationNull];
+    private _stategy = _group getVariable [QGVAR(strategy),locationNull];
+    if !(isNull _stategy) then {
+        HASH_DELETE(_strategy);
+    };
+};
 
-private _stategy = _group getVariable [QGVAR(strategy),locationNull];
-CHECK(!(isNull _strategy))
-HASH_DELETE(_strategy);
+CHECK(isNull _attackpos)
+
+[_attackpos] call FUNC(attackpos_delete);
