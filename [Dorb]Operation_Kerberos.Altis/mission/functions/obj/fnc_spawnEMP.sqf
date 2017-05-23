@@ -32,7 +32,7 @@ private _allVehicles = _position nearEntities [["LandVehicle","Air","Ship_F"],20
                 If (_damagecount < 0) exitWith {};
                 private _engine = (vehicle _curVehicle) getHitPointDamage _x;
                 If !(isNil "_engine") then {
-                    (vehicle _curVehicle) setHitPointDamage [_engine,1];
+                    (vehicle _curVehicle) setHitPointDamage [_x,1];
                     _damagecount = _damagecount - 1;
                 };
             } forEach _hitpoints;
