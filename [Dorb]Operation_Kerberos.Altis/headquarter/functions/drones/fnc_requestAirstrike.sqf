@@ -19,7 +19,7 @@ GVAR(drones_lastAttackRequest) = CBA_missiontime;
 
 private _task = [
     _target,
-    serverTime + 600,
+    CBA_missiontime + 120,
     _caller
 ];
 

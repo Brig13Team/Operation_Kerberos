@@ -21,11 +21,14 @@ private _rdrones = ["rdrones"] call EFUNC(spawn,getUnit);
 private _avail_adrones = [];
 private _avail_rdrones = [];
 
+
+_avail_rdrones pushBack (selectRandom _rdrones);
 if (_playerAmount  >=  5) then { _avail_rdrones pushBack (selectRandom _rdrones); };
 if (_playerAmount  >= 15) then { _avail_rdrones pushBack (selectRandom _rdrones); };
 if (_playerAmount  >= 25) then { _avail_rdrones pushBack (selectRandom _rdrones); };
 if (_playerAmount  >= 35) then { _avail_rdrones pushBack (selectRandom _rdrones); };
 
+_avail_adrones pushBack (selectRandom _adrones); 
 if (_playerAmount  >= 10) then { _avail_adrones pushBack (selectRandom _adrones); };
 if (_playerAmount  >= 20) then { _avail_adrones pushBack (selectRandom _adrones); };
 if (_playerAmount  >= 30) then { _avail_adrones pushBack (selectRandom _adrones); };
