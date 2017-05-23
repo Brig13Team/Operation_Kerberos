@@ -24,6 +24,7 @@ If ((getMarkerPos GVARMAIN(rescuemarker)) isEqualTo [0,0,0]) then {
 [QFUNC(obj__increaseCounter), { _this call FUNC(obj__increaseCounter); deleteVehicle (_this select 0); }] call CBA_fnc_addEventHandler;
 [QFUNC(obj__increaseCounterOne), { _this call FUNC(obj__increaseCounterOne); deleteVehicle (_this select 0); }] call CBA_fnc_addEventHandler;
 [QFUNC(obj__increaseCounterTwo), { _this call FUNC(obj__increaseCounterTwo); deleteVehicle (_this select 0); }] call CBA_fnc_addEventHandler;
+[QFUNC(mainmission_prototype_rescued), { _this call FUNC(mainmission_prototype_rescued); deleteVehicle (_this select 0); }] call CBA_fnc_addEventHandler;
 
 // initialize missions
 If ((toUpper worldName) isEqualTo "VR") exitWith {};
