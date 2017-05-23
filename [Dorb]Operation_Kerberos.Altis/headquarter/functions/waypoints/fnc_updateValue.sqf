@@ -23,7 +23,7 @@ CHECK(_key isEqualTo "");
 
 If (_value < 0) then {
     _value = 0;
-    private _dangerkey = (getArray(missionConfigFile >> TRIPLES(CfgComponent,PREFIX,worlds) >> "config" >> worldName >> "wayoints" >> _startKey >> "pos")) call FUNC(dzconvert);
+    private _dangerkey = (getArray(missionConfigFile >> QUOTE(TRIPLES(CfgComponent,PREFIX,worlds)) >> "config" >> worldName >> "wayoints" >> _startKey >> "pos")) call FUNC(dzconvert);
     private _keyX = parsenumber ((_dangerkey splitString "_") select 0);
     private _keyY = parsenumber ((_dangerkey splitString "_") select 1);
     private _maxKey = (HASH_GET(GVAR(dangerzones),"distance") * 2)/HASH_GET(GVAR(dangerzones),"gridsize");

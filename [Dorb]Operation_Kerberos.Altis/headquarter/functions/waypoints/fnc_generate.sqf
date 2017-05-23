@@ -26,7 +26,7 @@ If (IS_OBJECT(_start)) then {_start = getPos _start;};
 If (IS_OBJECT(_target)) then {_target = getPos _target;};
 
 // fallback if map is not registered
-If !(isClass(missionConfigFile >> TRIPLES(CfgComponent,PREFIX,worlds) >> "config" >> worldName >> "wayoints")) exitWith {
+If !(isClass(missionConfigFile >> QUOTE(TRIPLES(CfgComponent,PREFIX,worlds)) >> "config" >> worldName >> "wayoints")) exitWith {
     ERROR("Waypoints for this map are not availlible");
     [_start,_target]
 };
@@ -38,10 +38,10 @@ If (_startKey isEqualTo _targetKey) exitWith {
     [_start,_target]
 };
 private ["_startKeypos","_targetKeypos","_distance","_Keydifferenz","_waypointsActivated","_waypointsDeactivated"];
-_startKeypos = getArray(missionConfigFile >> TRIPLES(CfgComponent,PREFIX,worlds) >> "config" >> worldName >> "wayoints" >> _startKey >> "pos");
-_targetKeypos = getArray(missionConfigFile >> TRIPLES(CfgComponent,PREFIX,worlds) >> "config" >> worldName >> "wayoints" >> _targetKey >> "pos");
+_startKeypos = getArray(missionConfigFile >> QUOTE(TRIPLES(CfgComponent,PREFIX,worlds)) >> "config" >> worldName >> "wayoints" >> _startKey >> "pos");
+_targetKeypos = getArray(missionConfigFile >> QUOTE(TRIPLES(CfgComponent,PREFIX,worlds)) >> "config" >> worldName >> "wayoints" >> _targetKey >> "pos");
 _distance = _startKeypos distance2D _targetKeypos;
-_Keydifferenz = getNumber(missionConfigFile >> TRIPLES(CfgComponent,PREFIX,worlds) >> "config" >> worldName >> "wayoints" >> "raster") / 10;
+_Keydifferenz = getNumber(missionConfigFile >> QUOTE(TRIPLES(CfgComponent,PREFIX,worlds)) >> "config" >> worldName >> "wayoints" >> "raster") / 10;
 
 If (_distance < (_Keydifferenz * 1.4)) exitWith {
     [_start,_startKeypos,_targetKeypos,_target]
@@ -70,11 +70,11 @@ while {_active} do {
     _currentKeyY = parseNumber(_currentKeyY);
     /*XP*/
     _nextKey = format["%1_%2",_currentKeyX + _Keydifferenz,_currentKeyY];
-    _nextValue = getNumber(missionConfigFile >> TRIPLES(CfgComponent,PREFIX,worlds) >> "config" >> worldName >> "wayoints" >> _nextKey >> "XM");
+    _nextValue = getNumber(missionConfigFile >> QUOTE(TRIPLES(CfgComponent,PREFIX,worlds)) >> "config" >> worldName >> "wayoints" >> _nextKey >> "XM");
     TRACEV_2(_nextKey,_nextValue);
     if (_nextValue > 0) then {
         private ["_nextPos","_value","_inside"];
-        _nextPos = getArray(missionConfigFile >> TRIPLES(CfgComponent,PREFIX,worlds) >> "config" >> worldName >> "wayoints" >> _nextKey >> "pos");
+        _nextPos = getArray(missionConfigFile >> QUOTE(TRIPLES(CfgComponent,PREFIX,worlds)) >> "config" >> worldName >> "wayoints" >> _nextKey >> "pos");
         _value = _currentWay + _currentDistance + (If (_evade) then {[_nextKey,_distance] call FUNC(waypoints_evade)}else{0});
         _inside = 0;
         _inside = ({
@@ -100,10 +100,10 @@ while {_active} do {
     };
     /*XM*/
     _nextKey = format["%1_%2",_currentKeyX - _Keydifferenz,_currentKeyY];
-    _nextValue = getNumber(missionConfigFile >> TRIPLES(CfgComponent,PREFIX,worlds) >> "config" >> worldName >> "wayoints" >> _nextKey >> "XP");
+    _nextValue = getNumber(missionConfigFile >> QUOTE(TRIPLES(CfgComponent,PREFIX,worlds)) >> "config" >> worldName >> "wayoints" >> _nextKey >> "XP");
     if (_nextValue > 0) then {
         private ["_nextPos","_value","_inside"];
-        _nextPos = getArray(missionConfigFile >> TRIPLES(CfgComponent,PREFIX,worlds) >> "config" >> worldName >> "wayoints" >> _nextKey >> "pos");
+        _nextPos = getArray(missionConfigFile >> QUOTE(TRIPLES(CfgComponent,PREFIX,worlds)) >> "config" >> worldName >> "wayoints" >> _nextKey >> "pos");
         _value = _currentWay + _currentDistance + (If (_evade) then {[_nextKey,_distance] call FUNC(waypoints_evade)}else{0});
         _inside = 0;
         _inside = ({
@@ -129,10 +129,10 @@ while {_active} do {
     };
     /*YP*/
     _nextKey = format["%1_%2",_currentKeyX,_currentKeyY + _Keydifferenz];
-    _nextValue = getNumber(missionConfigFile >> TRIPLES(CfgComponent,PREFIX,worlds) >> "config" >> worldName >> "wayoints" >> _nextKey >> "YM");
+    _nextValue = getNumber(missionConfigFile >> QUOTE(TRIPLES(CfgComponent,PREFIX,worlds)) >> "config" >> worldName >> "wayoints" >> _nextKey >> "YM");
     if (_nextValue > 0) then {
         private ["_nextPos","_value","_inside"];
-        _nextPos = getArray(missionConfigFile >> TRIPLES(CfgComponent,PREFIX,worlds) >> "config" >> worldName >> "wayoints" >> _nextKey >> "pos");
+        _nextPos = getArray(missionConfigFile >> QUOTE(TRIPLES(CfgComponent,PREFIX,worlds)) >> "config" >> worldName >> "wayoints" >> _nextKey >> "pos");
         _value = _currentWay + _currentDistance + (If (_evade) then {[_nextKey,_distance] call FUNC(waypoints_evade)}else{0});
         _inside = 0;
         _inside = ({
@@ -158,10 +158,10 @@ while {_active} do {
     };
     /*YM*/
     _nextKey = format["%1_%2",_currentKeyX,_currentKeyY - _Keydifferenz];
-    _nextValue = getNumber(missionConfigFile >> TRIPLES(CfgComponent,PREFIX,worlds) >> "config" >> worldName >> "wayoints" >> _nextKey >> "YP");
+    _nextValue = getNumber(missionConfigFile >> QUOTE(TRIPLES(CfgComponent,PREFIX,worlds)) >> "config" >> worldName >> "wayoints" >> _nextKey >> "YP");
     if (_nextValue > 0) then {
         private ["_nextPos","_value","_inside"];
-        _nextPos = getArray(missionConfigFile >> TRIPLES(CfgComponent,PREFIX,worlds) >> "config" >> worldName >> "wayoints" >> _nextKey >> "pos");
+        _nextPos = getArray(missionConfigFile >> QUOTE(TRIPLES(CfgComponent,PREFIX,worlds)) >> "config" >> worldName >> "wayoints" >> _nextKey >> "pos");
         _value = _currentWay + _currentDistance + (If (_evade) then {[_nextKey,_distance] call FUNC(waypoints_evade)}else{0});
         _inside = 0;
         _inside = ({
@@ -190,10 +190,10 @@ while {_active} do {
     ////////
     /*XPYP*/
     _nextKey = format["%1_%2",_currentKeyX + _Keydifferenz,_currentKeyY + _Keydifferenz];
-    _nextValue = getNumber(missionConfigFile >> TRIPLES(CfgComponent,PREFIX,worlds) >> "config" >> worldName >> "wayoints" >> _nextKey >> "XMYM");
+    _nextValue = getNumber(missionConfigFile >> QUOTE(TRIPLES(CfgComponent,PREFIX,worlds)) >> "config" >> worldName >> "wayoints" >> _nextKey >> "XMYM");
     if (_nextValue > 0) then {
         private ["_nextPos","_value","_inside"];
-        _nextPos = getArray(missionConfigFile >> TRIPLES(CfgComponent,PREFIX,worlds) >> "config" >> worldName >> "wayoints" >> _nextKey >> "pos");
+        _nextPos = getArray(missionConfigFile >> QUOTE(TRIPLES(CfgComponent,PREFIX,worlds)) >> "config" >> worldName >> "wayoints" >> _nextKey >> "pos");
         _value = _currentWay + _currentDistance + (If (_evade) then {[_nextKey,_distance] call FUNC(waypoints_evade)}else{0});
         _inside = 0;
         _inside = ({
@@ -219,10 +219,10 @@ while {_active} do {
     };
     /*XMYM*/
     _nextKey = format["%1_%2",_currentKeyX - _Keydifferenz,_currentKeyY - _Keydifferenz];
-    _nextValue = getNumber(missionConfigFile >> TRIPLES(CfgComponent,PREFIX,worlds) >> "config" >> worldName >> "wayoints" >> _nextKey >> "XPYP");
+    _nextValue = getNumber(missionConfigFile >> QUOTE(TRIPLES(CfgComponent,PREFIX,worlds)) >> "config" >> worldName >> "wayoints" >> _nextKey >> "XPYP");
     if (_nextValue > 0) then {
         private ["_nextPos","_value","_inside"];
-        _nextPos = getArray(missionConfigFile >> TRIPLES(CfgComponent,PREFIX,worlds) >> "config" >> worldName >> "wayoints" >> _nextKey >> "pos");
+        _nextPos = getArray(missionConfigFile >> QUOTE(TRIPLES(CfgComponent,PREFIX,worlds)) >> "config" >> worldName >> "wayoints" >> _nextKey >> "pos");
         _value = _currentWay + _currentDistance + (If (_evade) then {[_nextKey,_distance] call FUNC(waypoints_evade)}else{0});
         _inside = 0;
         _inside = ({
@@ -248,10 +248,10 @@ while {_active} do {
     };
     /*XMYP*/
     _nextKey = format["%1_%2",_currentKeyX - _Keydifferenz,_currentKeyY + _Keydifferenz];
-    _nextValue = getNumber(missionConfigFile >> TRIPLES(CfgComponent,PREFIX,worlds) >> "config" >> worldName >> "wayoints" >> _nextKey >> "XPYM");
+    _nextValue = getNumber(missionConfigFile >> QUOTE(TRIPLES(CfgComponent,PREFIX,worlds)) >> "config" >> worldName >> "wayoints" >> _nextKey >> "XPYM");
     if (_nextValue > 0) then {
         private ["_nextPos","_value","_inside"];
-        _nextPos = getArray(missionConfigFile >> TRIPLES(CfgComponent,PREFIX,worlds) >> "config" >> worldName >> "wayoints" >> _nextKey >> "pos");
+        _nextPos = getArray(missionConfigFile >> QUOTE(TRIPLES(CfgComponent,PREFIX,worlds)) >> "config" >> worldName >> "wayoints" >> _nextKey >> "pos");
         _value = _currentWay + _currentDistance + (If (_evade) then {[_nextKey,_distance] call FUNC(waypoints_evade)}else{0});
         _inside = 0;
         _inside = ({
@@ -277,10 +277,10 @@ while {_active} do {
     };
     /*XPYM*/
     _nextKey = format["%1_%2",_currentKeyX + _Keydifferenz,_currentKeyY - _Keydifferenz];
-    _nextValue = getNumber(missionConfigFile >> TRIPLES(CfgComponent,PREFIX,worlds) >> "config" >> worldName >> "wayoints" >> _nextKey >> "XMYP");
+    _nextValue = getNumber(missionConfigFile >> QUOTE(TRIPLES(CfgComponent,PREFIX,worlds)) >> "config" >> worldName >> "wayoints" >> _nextKey >> "XMYP");
     if (_nextValue > 0) then {
         private ["_nextPos","_value","_inside"];
-        _nextPos = getArray(missionConfigFile >> TRIPLES(CfgComponent,PREFIX,worlds) >> "config" >> worldName >> "wayoints" >> _nextKey >> "pos");
+        _nextPos = getArray(missionConfigFile >> QUOTE(TRIPLES(CfgComponent,PREFIX,worlds)) >> "config" >> worldName >> "wayoints" >> _nextKey >> "pos");
         _value = _currentWay + _currentDistance + (If (_evade) then {[_nextKey,_distance] call FUNC(waypoints_evade)}else{0});
         _inside = 0;
         _inside = ({
@@ -312,10 +312,10 @@ while {_active} do {
 
 #ifdef DEBUG_MARKER
 {
-    [getArray(missionConfigFile >> TRIPLES(CfgComponent,PREFIX,worlds) >> "config" >> worldName >> "wayoints" >> (_x select 3) >> "pos"),format["%1_%2_%3",_x select 0,_x select 1,_x select 2]] call EFUNC(common,debug_marker_create);
+    [getArray(missionConfigFile >> QUOTE(TRIPLES(CfgComponent,PREFIX,worlds)) >> "config" >> worldName >> "wayoints" >> (_x select 3) >> "pos"),format["%1_%2_%3",_x select 0,_x select 1,_x select 2]] call EFUNC(common,debug_marker_create);
 }forEach _waypointsActivated;
 {
-    [getArray(missionConfigFile >> TRIPLES(CfgComponent,PREFIX,worlds) >> "config" >> worldName >> "wayoints" >> (_x select 3) >> "pos"),format["%1_%2_%3",_x select 0,_x select 1,_x select 2],"ColorBlue"] call EFUNC(common,debug_marker_create);
+    [getArray(missionConfigFile >> QUOTE(TRIPLES(CfgComponent,PREFIX,worlds)) >> "config" >> worldName >> "wayoints" >> (_x select 3) >> "pos"),format["%1_%2_%3",_x select 0,_x select 1,_x select 2],"ColorBlue"] call EFUNC(common,debug_marker_create);
 }forEach _waypointsDeactivated;
 #endif
 
@@ -364,7 +364,7 @@ while {_active} do {
     If !(_nextWP isEqualTo "") then {
         _waypoints append [_nextWP];
         #ifdef DEBUG_MARKER
-            [getArray(missionConfigFile >> TRIPLES(CfgComponent,PREFIX,worlds) >> "config" >> worldName >> "wayoints" >> _nextWP >> "pos"),"","ColorBlack","hd_objective"] call EFUNC(common,debug_marker_create);
+            [getArray(missionConfigFile >> QUOTE(TRIPLES(CfgComponent,PREFIX,worlds)) >> "config" >> worldName >> "wayoints" >> _nextWP >> "pos"),"","ColorBlack","hd_objective"] call EFUNC(common,debug_marker_create);
         #endif
     };
 };
@@ -374,7 +374,7 @@ reverse _waypoints;
 _return = [_start];
 {
     private ["_temp"];
-    _temp = (getArray(missionConfigFile >> TRIPLES(CfgComponent,PREFIX,worlds) >> "config" >> worldName >> "wayoints" >> _x >> "pos"));
+    _temp = (getArray(missionConfigFile >> QUOTE(TRIPLES(CfgComponent,PREFIX,worlds)) >> "config" >> worldName >> "wayoints" >> _x >> "pos"));
     TRACEV_1(_temp);
     _return pushBack _temp;
 } forEach _waypoints;
