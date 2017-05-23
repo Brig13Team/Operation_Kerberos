@@ -24,30 +24,22 @@ If (isClass(missionConfigFile >> DOUBLES(CfgComponent,ADDON) >> "config" >> worl
     {
         private _type = getText(_x >> "classification");
         private _configName = configName _x;
+        private _cfg = configFile >> "CfgWorlds" >> worldName >> "Names" >> _configName;
+        private _temp = [getText(_cfg >> "text"),getArray(_cfg >> "position")];
         switch (_type) do {
             case "city" : {
-                private _cfg = configFile >> "CfgWorlds" >> worldName >> "Names" >> _configName;
-                private _temp = [getText(_cfg >> "text"),getArray(_cfg >> "position")];
                 EGVAR(mission,town) pushBack _temp;
             };
             case "water" : {
-                private _cfg = configFile >> "CfgWorlds" >> worldName >> "Names" >> _configName;
-                private _temp = [getText(_cfg >> "text"),getArray(_cfg >> "position")];
                 EGVAR(mission,water) pushBack _temp;
             };
             case "military" : {
-                private _cfg = configFile >> "CfgWorlds" >> worldName >> "Names" >> _configName;
-                private _temp = [getText(_cfg >> "text"),getArray(_cfg >> "position")];
                 EGVAR(mission,military) pushBack _temp;
             };
             case "industry" : {
-                private _cfg = configFile >> "CfgWorlds" >> worldName >> "Names" >> _configName;
-                private _temp = [getText(_cfg >> "text"),getArray(_cfg >> "position")];
                 EGVAR(mission,industrie) pushBack _temp;
             };
             case "other" : {
-                private _cfg = configFile >> "CfgWorlds" >> worldName >> "Names" >> _configName;
-                private _temp = [getText(_cfg >> "text"),getArray(_cfg >> "position")];
                 EGVAR(mission,other) pushBack _temp;
             };
         };
