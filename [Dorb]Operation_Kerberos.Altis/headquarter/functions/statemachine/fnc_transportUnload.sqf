@@ -31,7 +31,7 @@ private _unitsToUnload = [];
     [QGVAR(disableCollisionWith),[_x,_transporter],_x] call CBA_fnc_targetEvent;
     [QGVAR(disableCollisionWith),[_transporter,_x],_transporter] call CBA_fnc_targetEvent;
 } forEach _unitsToUnload;
-TRACEV_3(_unitsToUnload,_transporter,);
+TRACEV_3(_unitsToUnload,_transporter,_isAir);
 If (_isAir) then {
     private _droppos = getPos _transporter;
     _droppos set [2,(_droppos select 2)-4];

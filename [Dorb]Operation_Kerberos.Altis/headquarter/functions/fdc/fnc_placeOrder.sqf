@@ -52,10 +52,10 @@ If (!(_modearray isEqualTo [])) then {
                             }forEach _positions_array;
                         };
         case "smoke" : {
-                            HASH_GET(GVAR(FDC),"firemissions") pushBack [_attackpos,_type,"Smoke_120mm_AMOS_White",_amount];
+                            GVAR(FDC_firemissions) pushBack [_attackpos,_type,"Smoke_120mm_AMOS_White",_amount];
                         };
         case "flare" : {
-                            HASH_GET(GVAR(FDC),"firemissions") pushBack [_attackpos,1,"Flare_82mm_AMOS_White",_amount];
+                            GVAR(FDC_firemissions) pushBack [_attackpos,1,"Flare_82mm_AMOS_White",_amount];
                         };
     };
 };
@@ -65,16 +65,16 @@ _cancel = switch (_type) do {
     default {true;};
     case -1 : {
                 _type = [];
-                If !(HASH_GET(GVAR(FDC),"artilleries") isEqualTo []) then {_type pushBack 0;};
-                If !(HASH_GET(GVAR(FDC),"mortars") isEqualTo []) then {_type pushBack 1;};
-                If !(HASH_GET(GVAR(FDC),"rockets") isEqualTo []) then {_type pushBack 2;};
+                If !(GVAR(FDC_artilleries) isEqualTo []) then {_type pushBack 0;};
+                If !(GVAR(FDC_mortars) isEqualTo []) then {_type pushBack 1;};
+                If !(GVAR(FDC_rockets) isEqualTo []) then {_type pushBack 2;};
                 If (_type isEqualTo []) exitWith {true};
                 [_attackpos,selectRandom _type,-1] call FUNC(fdc_placeOrder);
                 true;
             };
     case 0 : {
-                If (HASH_GET(GVAR(FDC),"artilleries") isEqualTo []) exitWith {true};
-                _unit = selectRandom (HASH_GET(GVAR(FDC),"artilleries"));
+                If (GVAR(FDC_artilleries) isEqualTo []) exitWith {true};
+                _unit = selectRandom (GVAR(FDC_artilleries));
                 private _shellArray = getArtilleryAmmo [_unit];
                 If (_shellArray isEqualTo []) exitWith {_cancel = true;};
                 _shelltype = (_shellArray select 0);
@@ -82,8 +82,8 @@ _cancel = switch (_type) do {
                 false;
             };
     case 1 : {
-                If (HASH_GET(GVAR(FDC),"mortars") isEqualTo []) exitWith {true};
-                _unit = selectRandom (HASH_GET(GVAR(FDC),"mortars"));
+                If (GVAR(FDC_mortars) isEqualTo []) exitWith {true};
+                _unit = selectRandom (GVAR(FDC_mortars));
                 private _shellArray = getArtilleryAmmo [_unit];
                 If (_shellArray isEqualTo []) exitWith {_cancel = true;};
                 _shelltype = (_shellArray select 0);
@@ -91,8 +91,8 @@ _cancel = switch (_type) do {
                 false;
             };
     case 2 : {
-                If (HASH_GET(GVAR(FDC),"rockets") isEqualTo []) exitWith {true};
-                _unit = selectRandom (HASH_GET(GVAR(FDC),"rockets"));
+                If (GVAR(FDC_rockets) isEqualTo []) exitWith {true};
+                _unit = selectRandom (GVAR(FDC_rockets));
                 private _shellArray = getArtilleryAmmo [_unit];
                 If (_shellArray isEqualTo []) exitWith {_cancel = true;};
                 _shelltype = (_shellArray select 0);
@@ -108,5 +108,5 @@ _cancel = switch (_type) do {
 
 TRACEV_5(_cancel,_attackpos,_type,_shelltype,_amount);
 if (_cancel) exitWith {false};
-HASH_GET(GVAR(FDC),"firemissions") pushBack [_attackpos,_type,_shelltype,_amount];
+GVAR(FDC_firemissions) pushBack [_attackpos,_type,_shelltype,_amount];
 true

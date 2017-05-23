@@ -19,7 +19,7 @@ _this params ["_group"];
 private _target = _group getVariable [QGVAR(target),locationNull];
 
 private _targetPos = [_target] call CBA_fnc_getPos;
-_targetPos set [2,400];
+_targetPos set [2,1000];
 
 
 [_group] call CBA_fnc_clearWaypoints;

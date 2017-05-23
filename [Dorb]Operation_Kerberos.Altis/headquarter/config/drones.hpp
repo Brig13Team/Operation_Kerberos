@@ -51,6 +51,9 @@ class drones
 
     class O_UAV_02_F : B_UAV_02_F {};
     class O_UAV_02_CAS_F : B_UAV_02_CAS_F {};
+    class O_T_UAV_04_CAS_F : B_UAV_02_CAS_F {
+        muzzle = "missiles_Jian";
+    };
 
     class rhs_pchela1t_vvs
     {

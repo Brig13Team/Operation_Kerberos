@@ -15,20 +15,20 @@
 
 CHECK(!GVAR(active))
 
-If (HASH_GET(GVAR(FDC),"firemissions") isEqualTo []) exitWith {
+If (GVAR(FDC_firemissions) isEqualTo []) exitWith {
     //TRACE("no firemissions");
 };
-private _current_firemission = HASH_GET(GVAR(FDC),"firemissions") deleteAt 0;
+private _current_firemission = GVAR(FDC_firemissions) deleteAt 0;
 _current_firemission params ["_position","_type","_shelltype","_amount"];
 TRACEV_4(_position,_type,_shelltype,_amount);
-HASH_SET(GVAR(FDC),"artilleries",(HASH_GET(GVAR(FDC),"artilleries") select {alive _x}));
-HASH_SET(GVAR(FDC),"mortars",(HASH_GET(GVAR(FDC),"mortars") select {alive _x}));
-HASH_SET(GVAR(FDC),"rockets",(HASH_GET(GVAR(FDC),"rockets") select {alive _x}));
+GVAR(FDC_mortars) = GVAR(FDC_mortars) select {alive _x};
+GVAR(FDC_artilleries) = GVAR(FDC_artilleries) select {alive _x};
+GVAR(FDC_rockets) = GVAR(FDC_rockets) select {alive _x};
 
 private _current_artillerys_array = switch(_type) do {
-    case 0 : {HASH_GET(GVAR(FDC),"artilleries") call BIS_fnc_arrayShuffle};
-    case 1 : {HASH_GET(GVAR(FDC),"mortars") call BIS_fnc_arrayShuffle};
-    case 2 : {HASH_GET(GVAR(FDC),"rockets") call BIS_fnc_arrayShuffle};
+    case 0 : {[GVAR(FDC_artilleries)] call CBA_fnc_shuffle};
+    case 1 : {[GVAR(FDC_mortars)] call CBA_fnc_shuffle};
+    case 2 : {[GVAR(FDC_rockets)] call CBA_fnc_shuffle};
     default {[]};
 };
 
@@ -61,20 +61,27 @@ If (_current_artillerys_array isEqualTo []) exitwith {
 };
 
 
-_current_artillerys_array = _current_artillerys_array select {_x getVariable [QGVAR(fdc_ready),true]};
+_current_artillerys_array = _current_artillerys_array select {
+    (_x getVariable [QGVAR(lastShotdone),0])<CBA_missiontime
+};
 
 If (_current_artillerys_array isEqualTo []) exitwith {
     TRACE("Artillery not ready, pushback the command");
-    HASH_GET(GVAR(FDC),"firemissions") pushBack _current_firemission;
+    GVAR(FDC_firemissions) pushBack _current_firemission;
     [LINKFUNC(fdc_handle),[],10] call CBA_fnc_waitAndExecute;
 };
 
 private _unit = selectRandom _current_artillerys_array;
 
-SETVAR(_unit,GVAR(fdc_ready),false);
+_unit setVariable [QGVAR(lastShotdone),CBA_missiontime + 6*_amount + 10];
 TRACE_5("ArtilleryOrder = %1 - [%2,%3,%4]",_unit,_position,_shelltype,_amount);
 ///// Add fired Eventhandler -> removes status
 //_unit addEventHandler ["Fired",{_this params ["_unit"];_unit setVehicleAmmoDef 1;_unit setVariable [ARR_2(QGVAR(fdc_ready),true)];_unit removeEventHandler [ARR_2("Fired",_thisEventHandler)];}];
-[_unit,_position,_shelltype,_amount,{(_this select 0) setVariable [QGVAR(fdc_ready),true];_unit setVehicleAmmoDef 1;}] call EFUNC(artillery,fireAtTarget);
+
+// a fix if the wrong ammo is given
+private _shellArray = getArtilleryAmmo [_unit];
+If !(_shelltype in _shellArray) then {_shelltype = ""};
+
+[_unit,_position,_shelltype,_amount,{(_this select 0) setVehicleAmmoDef 1;}] call EFUNC(artillery,fireAtTarget);
 //_unit commandArtilleryFire [_position,_shelltype,_amount];
 [] spawn FUNC(fdc_handle);

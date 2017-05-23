@@ -65,6 +65,11 @@ class GVAR(statemachine_AIGroups) {
             condition = QUOTE((_this getVariable [ARR_2('GVAR(state)','none')])=='ai_support');
             onTransition = "";
         };
+        class toAIRadar {
+            targetState = "ai_radar";
+            condition = QUOTE((_this getVariable [ARR_2('GVAR(state)','none')])=='ai_radar');
+            onTransition = "";
+        };
         class toSupply {
             targetState = "supply";
             condition = QUOTE((_this getVariable [ARR_2('GVAR(state)','none')])=='supply');
@@ -197,6 +202,21 @@ class GVAR(statemachine_AIGroups) {
     };
     class ai_support : cas_support {
         onStateEntered = QFUNC(statemachine_airinterception);
+    };
+    class ai_radar {
+        onState = "";
+        onStateEntered = QFUNC(statemachine_airinterception);
+        onStateLeaving = "";
+        class timeout {
+            targetState = "return";
+            condition = QUOTE((_this getVariable [ARR_2('GVAR(timeout)',-1)])<CBA_missiontime);
+            onTransition = "";
+        };
+        class strategyFinished {
+            targetState = "return";
+            condition = QUOTE((GVAR(radars) getVariable [ARR_2('targets',[])]) isEqualTo []);
+            onTransition = "";
+        };
     };
 
 
