@@ -14,7 +14,7 @@
 #include "script_component.hpp"
 
 
-[(getPos GVAR(currentSpawn)),8] call FUNC(clearPos);
+[GVAR(currentSpawn),8] call FUNC(clearPos);
 GVAR(current) = [[],[],[],[],[],[]];
 GVAR(current_boxid) = 0;
 [] call FUNC(onLoad);

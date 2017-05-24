@@ -14,7 +14,7 @@ private _spawnpos = getPos GVAR(currentSpawn);
 private _spawndir = getDir GVAR(currentSpawn);
 private _spawnposASL = getPosASL GVAR(currentSpawn);
 
-[ASLtoAGL _spawnpos,_check_radius] call FUNC(clearPos);
+[GVAR(currentSpawn),_check_radius] call FUNC(clearPos);
 
 private _padempty = (nearestObjects [_spawnpos, ["LandVehicle","Air"], _check_radius]) select {_x getVariable [QGVARMAIN(canDelete),true]};
 
