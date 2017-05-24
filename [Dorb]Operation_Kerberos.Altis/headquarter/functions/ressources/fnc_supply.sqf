@@ -19,7 +19,10 @@ If (
         {[] call FUNC(ressources_CanCallInUnits)}
     ) then {
 
-    private _callinType = selectRandom ["infanterie","airdrop","mounted","sniper","tanks","mechanized"];
+    private _callinTypes = getArray(missionConfigFile >> QEGVAR(spawn,unitlists) >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "callIn" >> "supplyarray");
+    private _callinType = ([_callinTypes,1] call EFUNC(common,sel_array_weighted)) select 0;
+    TRACEV_2(_callinTypes,_callinType);
+
     TRACE(FORMAT_1("Calling in Units: %1",_callinType));
     private _costs = switch (_callinType) do {
         case "infanterie" : {
