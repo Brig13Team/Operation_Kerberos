@@ -25,6 +25,7 @@ class CfgComponents {
     database = 1;
     doorbreach = 1;
     /// mission specific components
+    worlds = 1;
     headquarter = 1;
     artillery = 1;
     mission = 1;
@@ -57,6 +58,7 @@ class CfgComponents {
 #include "headquarter\CfgComponent.hpp"
 #include "artillery\CfgComponent.hpp"
 #include "logistics\CfgComponent.hpp"
+#include "worlds\CfgComponent.hpp"
 #include "mission\CfgComponent.hpp"
 #include "mod_ace\CfgComponent.hpp"
 #include "mod_acre\CfgComponent.hpp"

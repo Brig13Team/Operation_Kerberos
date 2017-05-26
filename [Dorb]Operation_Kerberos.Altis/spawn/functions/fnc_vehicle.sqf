@@ -31,7 +31,7 @@ TRACEV_6(_position,_unittype,_group,_direction,_withcrew,_precisePos,_special);
 private _changeleader = false;
 If (IS_SIDE(_group)) then {
     _group = createGroup _group;
-    _changeleader=true;
+    _changeleader = true;
 };
 
 CHECKRET(((_position isEqualTo [])||(_unittype isEqualTo "")||(isNull _group)),[]);

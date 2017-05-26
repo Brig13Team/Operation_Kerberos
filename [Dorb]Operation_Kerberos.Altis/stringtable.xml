@@ -108,6 +108,10 @@
             <German>Fahrzeugspawn</German>
             <English>Vehicle Spawn</English>
         </Key>
+        <Key ID="STR_DORB_GUI_SPAWN_CARRIER_LANDINGBAY_VEHICLES">
+            <German>Fahrzeugspawn</German>
+            <English>Vehicle Spawn</English>
+        </Key>
         <Key ID="STR_DORB_GUI_SPAWN_CARRIER_AIR">
             <German>Luftwaffenspawn</German>
             <English>Aircraft Spawn</English>

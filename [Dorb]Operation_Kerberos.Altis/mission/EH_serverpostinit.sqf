@@ -31,16 +31,6 @@ If ((toUpper worldName) isEqualTo "VR") exitWith {};
 [] spawn {
     SCRIPTIN(XEH_SERVERPOSTINIT,mission_init);
 
-    [] call EFUNC(common,setCfgLocations);
-    HASH_SET(GVAR(locations),"HQ",(getMarkerPos format [ARR_2("respawn_%1",toLower (str GVARMAIN(playerside)))]));
-
-    GVAR(town) = HASH_GET(GVAR(locations),"city");
-    GVAR(industrie) = HASH_GET(GVAR(locations),"industrie");
-    GVAR(military) = HASH_GET(GVAR(locations),"military");
-    GVAR(water) = HASH_GET(GVAR(locations),"water");
-    GVAR(other) = HASH_GET(GVAR(locations),"other");
-    GVAR(base) = HASH_GET(GVAR(locations),"HQ");
-
     GVAR(taskCounter) = 0;
     [missionConfigFile >> QGVAR(statemachine_Taskmanager)] call CBA_statemachine_fnc_createFromConfig;
     uiSleep 30;

@@ -26,7 +26,7 @@ private _newGroup = [_spawnpos, _grouptype] call EFUNC(spawn,group);
 {
     _x assignAsCargo _transportVehicle;
     _x moveInCargo _transportVehicle;
-}forEach units _newGroup;
+}forEach (units _newGroup);
 
 _transportGroup setVariable [QGVAR(spawnpos),_spawnPos];
 _transportGroup setVariable [QGVAR(timeout),15*60];

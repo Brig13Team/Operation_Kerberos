@@ -64,4 +64,6 @@ _group = _group call CBA_fnc_getGroup;
     #endif
 }forEach _positions;
 
+_goup setCurrentWaypoint [_group,0];
+
 _waypoints
