@@ -48,7 +48,7 @@ class main {
 
     /*
      *  playable missions
-     */
+     *//*
     class capture : __twoCounter {
         class location : location {
             areas[] = {QGVAR(town)};
@@ -59,7 +59,7 @@ class main {
             min = 1;
             max = 3;
         };
-    };
+    };*/
 
     class device : __oneCounter {
         class location : location {
@@ -102,21 +102,21 @@ class main {
         };
     };
 */
-
+/*
     class hostage : capture {
         class object : object {
             min = 1;
             max = 5;
         };
     };
-
+*/
     class prototype : __oneCounter {
         class location : location {
             areas[] = {QGVAR(industrie), QGVAR(military), QGVAR(other)};
             radius = 500;
         };
     };
-
+/*
     class intel : hostage {
         class location : location {
             radius = 250;
@@ -127,7 +127,7 @@ class main {
             max = 6;
         };
     };
-
+*/
     class jammer : __oneCounter {
         class location : location {
             radius = 1500;
@@ -159,17 +159,18 @@ class main {
         };
     };
 */
-
+/*
     class upload : device {
         class location : location {
             areas[] = {QGVAR(military)};
             radius = 200;
         };
     };
-
+*/
+/*
     class weaponcache : __oneCounter {
         class location : location {
-        areas[] = {QGVAR(town)/*, QGVAR(military)*/};
+        areas[] = {QGVAR(town)};
         };
 
         class defence : defence {
@@ -182,4 +183,5 @@ class main {
             max = 8;
         };
     };
+*/
 };

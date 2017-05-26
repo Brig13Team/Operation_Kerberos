@@ -6,6 +6,7 @@ PREP(initialize);
 PREP(exportLocations);
 PREP(getLocations);
 PREP(showLocations);
+PREP(chooseLocation);
 
 
 ADDON = true;

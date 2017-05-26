@@ -46,17 +46,19 @@ PREPS(spawn,spawnTargets);
 
 PREPS(spawnfunctions,supplys);
 
+PREPS(statemachine,addMain);
 PREPS(statemachine,addSide);
 PREPS(statemachine,addTask);
 PREPS(statemachine,cancelALL);
+PREPS(statemachine,checkCounter);
 PREPS(statemachine,checkOneCounter);
 PREPS(statemachine,checkTwoCounter);
-PREPS(statemachine,chooseMain);
 PREPS(statemachine,cleanup);
 PREPS(statemachine,endmission);
 PREPS(statemachine,getMissions);
 PREPS(statemachine,HoldPFH);
 PREPS(statemachine,initHold);
+PREPS(statemachine,initCounter);
 PREPS(statemachine,initOneCounter);
 PREPS(statemachine,initTwoCounter);
 PREPS(statemachine,onTransition);

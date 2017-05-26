@@ -518,3 +518,16 @@ Author:
 ------------------------------------------- */
 #define LINKFUNC(VAR1) FUNC(VAR1)
 #define LINKEFUNC(VAR1,VAR2) EFUNC(VAR1,VAR2)
+/* -------------------------------------------
+Macro: componentConfigFile
+    configfile helper
+
+Parameters:
+    none
+
+Example:
+
+Author:
+    Dorbedo
+------------------------------------------- */
+#define COMPONENTCONFIGFILE missionConfigFile >> QUOTE(DOUBLES(CfgComponent,ADDON)) >> "config"

@@ -26,6 +26,8 @@ If !([_TaskID] call BIS_fnc_taskExists) exitWith {
     /* the task is finihed but not created yet. */
 };
 
+private _missionCfg = _mission getVariable "missionCfg";
+
 switch _thisTransition do {
     case "succeeded" : {
         [
@@ -33,7 +35,9 @@ switch _thisTransition do {
             "SUCCEEDED",
             false
         ] call BIS_fnc_taskSetState;
-        [QEGVAR(gui,message),[format[LSTRING(%1_TITLE),_type],format[LSTRING(%1_SUCCEEDED),_type],"green"]] call CBA_fnc_globalEvent;
+        private _title = getText(_missionCfg >> "task" >> "title");
+        private _text = getText(_missionCfg >> "task" >> "onSuccess");
+        [QEGVAR(gui,message),[[_title,_text],"green"]] call CBA_fnc_globalEvent;
     };
     case "neutral" : {
         [
@@ -41,7 +45,9 @@ switch _thisTransition do {
             "CANCELED",
             false
         ] call BIS_fnc_taskSetState;
-        [QEGVAR(gui,message),[format[LSTRING(%1_TITLE),_type],format[LSTRING(%1_NEUTRAL),_type],"yellow"]] call CBA_fnc_globalEvent;
+        private _title = getText(_missionCfg >> "task" >> "title");
+        private _text = getText(_missionCfg >> "task" >> "onSuccess");
+        [QEGVAR(gui,message),[[_title,_text],"green"]] call CBA_fnc_globalEvent;
     };
     case "timeout";
     case "failed" : {
@@ -50,7 +56,9 @@ switch _thisTransition do {
             "FAILED",
             false
         ] call BIS_fnc_taskSetState;
-        [QEGVAR(gui,message),[format[LSTRING(%1_TITLE),_type],format[LSTRING(%1_FAILED),_type],"red"]] call CBA_fnc_globalEvent;
+        private _title = getText(_missionCfg >> "task" >> "title");
+        private _text = getText(_missionCfg >> "task" >> "onSuccess");
+        [QEGVAR(gui,message),[[_title,_text],"green"]] call CBA_fnc_globalEvent;
     };
     default {
         // something happend, the task gets canceled
