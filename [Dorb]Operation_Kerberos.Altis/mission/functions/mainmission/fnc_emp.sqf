@@ -17,15 +17,23 @@ _this params ["_mission", "_targets"];
 
 {
     _x setVariable [QGVAR(isActive), true, true];
-    _x addEventHandler ["Killed", LINKFUNC(obj__triggerFailed)];
+    _x addEventHandler ["Killed", LINKFUNC(obj__decreaseCounter)];
 } forEach _targets;
 
-//[_mission, _targets] call FUNC(mainmission__oneCounter);
-
-// init device event
-HASH_SET(_mission, "event_callback",  QFUNC(obj_callEvent));
-HASH_SET(_mission, "event_name",      QGVAR(emp));
-HASH_SET(_mission, "event_parameter", {getPos (_this select 0) });
-HASH_SET(_mission, "event_last",      CBA_missionTime);
-HASH_SET(_mission, "event_interval",  900);
-HASH_SET(_mission, "event_active",    true);
+[
+    {
+        _this params [["_mission",locationNull,[locationNull]],"_handle"];
+        private _progress = _mission getVariable ["progress","none"];
+        If ((isNull _mission)||{_progress in ["cancel","succeeded","neutral","failed"]}) exitWith {
+            [_handle] call CBA_fnc_removePerFrameHandler;
+        };
+        private _objects = _mission getVariable ["objects",[]];
+        {
+            If ((!isNull _x)&&{alive _x}&&{_x getVariable [QGVAR(isActive),true]}) then {
+                [QGVAR(emp),[getPos _x]] call CBA_fnc_serverEvent;
+            };
+        } forEach _objects;
+    },
+    floor(800 + random 200),
+    _mission
+] call CBA_fnc_addPerFrameHandler;

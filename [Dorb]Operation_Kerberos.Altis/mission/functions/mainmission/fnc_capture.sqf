@@ -17,9 +17,7 @@ _this params ["_mission", "_targets"];
 
 {
     _x allowFleeing 0;
-
-    _x setVariable [QGVAR(rescueEvent), QFUNC(obj__increaseCounterOne)];
-    _x addEventHandler ["Killed", LINKFUNC(obj__increaseCounterTwo)];
+    _x addEventHandler ["Killed", LINKFUNC(obj__decreaseCounter)];
 } forEach _targets;
 
 [
@@ -31,8 +29,8 @@ _this params ["_mission", "_targets"];
         };
         private _objects = _mission getVariable ["objects",[]];
         {
-            If ((!isNull _x)&&{vehicle _x == _x}&&{(_x distance2D (getMarkerPos GVARMAIN(rescuemarker)))<5}) then {
-                _mission setVariable["obj_counter",(_mission getVariable "obj_counter")+1];
+            If ((!isNull _x)&&{alive _x}&&{vehicle _x == _x}&&{(_x distance2D (getMarkerPos GVARMAIN(rescuemarker)))<5}) then {
+                [_x] call FUNC(obj__increaseCounter);
                 deleteVehicle _x;
             };
         } forEach _objects;

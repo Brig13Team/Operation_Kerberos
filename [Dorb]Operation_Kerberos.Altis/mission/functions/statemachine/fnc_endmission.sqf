@@ -36,8 +36,8 @@ switch _thisTransition do {
             false
         ] call BIS_fnc_taskSetState;
         private _title = getText(_missionCfg >> "task" >> "title");
-        private _text = getText(_missionCfg >> "task" >> "onSuccess");
-        [QEGVAR(gui,message),[[_title,_text],"green"]] call CBA_fnc_globalEvent;
+        private _text = getText(_missionCfg >> "task" >> "onSucceeded");
+        [QEGVAR(gui,message),[_title,_text,"green"]] call CBA_fnc_globalEvent;
     };
     case "neutral" : {
         [
@@ -46,8 +46,8 @@ switch _thisTransition do {
             false
         ] call BIS_fnc_taskSetState;
         private _title = getText(_missionCfg >> "task" >> "title");
-        private _text = getText(_missionCfg >> "task" >> "onSuccess");
-        [QEGVAR(gui,message),[[_title,_text],"green"]] call CBA_fnc_globalEvent;
+        private _text = getText(_missionCfg >> "task" >> "onNeutral");
+        [QEGVAR(gui,message),[_title,_text,"yellow"]] call CBA_fnc_globalEvent;
     };
     case "timeout";
     case "failed" : {
@@ -58,8 +58,8 @@ switch _thisTransition do {
             false
         ] call BIS_fnc_taskSetState;
         private _title = getText(_missionCfg >> "task" >> "title");
-        private _text = getText(_missionCfg >> "task" >> "onSuccess");
-        [QEGVAR(gui,message),[[_title,_text],"green"]] call CBA_fnc_globalEvent;
+        private _text = getText(_missionCfg >> "task" >> "onFailed");
+        [QEGVAR(gui,message),[_title,_text,"red"]] call CBA_fnc_globalEvent;
     };
     default {
         // something happend, the task gets canceled

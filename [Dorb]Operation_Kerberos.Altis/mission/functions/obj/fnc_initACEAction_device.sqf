@@ -18,12 +18,11 @@ private _action = [
     localize LSTRING(OBJECTS_DEVICE_DISABLE),
     "",
     {
-        _target setVariable [QGVAR(isActive), false, true];
         [
             5,
             [_target],
             { [QFUNC(obj__increaseCounter),_this select 0] call CBA_fnc_serverEvent;},
-            { (_this select 0 select 0) setVariable [QGVAR(isActive), true, true]; },
+            {},
             localize LSTRING(OBJECTS_DEVICE_DISABLING)
         ] call ace_common_fnc_progressBar;
     },

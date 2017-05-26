@@ -40,7 +40,7 @@ class baseMission {
         description = LSTRING(baseMission_description);
         tasktype = "";
 
-        onSuccess = LSTRING(baseMission_success);
+        onSucceeded = LSTRING(baseMission_success);
         onFailed = LSTRING(baseMission_failed);
         onNeutral = LSTRING(baseMission_neutral);
 
@@ -49,11 +49,11 @@ class baseMission {
 
     class condition {
         // conditionfunction
-        conditiontype = "";
+        conditiontype = "counter";
         timeout = 0; // timeout if needed
 
         // completion functions
-        onSuccess = "";
+        onSucceeded = "";
         onFailed = "";
         onNeutral = "";
     };

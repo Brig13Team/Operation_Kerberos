@@ -33,7 +33,8 @@ If ((toUpper worldName) isEqualTo "VR") exitWith {};
 
     GVAR(taskCounter) = 0;
     [missionConfigFile >> QGVAR(statemachine_Taskmanager)] call CBA_statemachine_fnc_createFromConfig;
-    uiSleep 30;
+    //uiSleep 30;
+    uiSleep 5;
     [] call EFUNC(spawn,army_set);
     GVAR(missions) = [HASH_CREATE];
 };

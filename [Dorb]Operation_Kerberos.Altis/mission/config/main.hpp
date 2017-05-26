@@ -31,13 +31,13 @@ class baseMission {
         tasktype = "";
         showMarker = 1;
 
-        onSuccess = "";
+        onSucceeded = "";
         onFailed = "";
         onNeutral = "";
     };
     class condition {
-        conditionfunction = QFUNC(counter);
-        onSuccess = "";
+        conditiontype = "counter";
+        onSucceeded = "";
         onFailed = "";
         onNeutral = "";
     };
@@ -59,7 +59,7 @@ class capture : baseMainmission {
     class task : task {
         title = LSTRING(main_capture_title);
         description = LSTRING(main_capture_desc);
-        onSuccess = LSTRING(main_capture_success);
+        onSucceeded = LSTRING(main_capture_succeeded);
         onFailed = LSTRING(main_capture_failed);
         onNeutral = LSTRING(main_capture_neutral);
     };
@@ -74,7 +74,7 @@ class hostage : capture {
     class task : task {
         title = LSTRING(main_hostage_title);
         description = LSTRING(main_hostage_desc);
-        onSuccess = LSTRING(main_hostage_success);
+        onSucceeded = LSTRING(main_hostage_succeeded);
         onFailed = LSTRING(main_hostage_failed);
         onNeutral = LSTRING(main_hostage_neutral);
     };
@@ -89,7 +89,7 @@ class intel : capture {
     class task : task {
         title = LSTRING(main_intel_title);
         description = LSTRING(main_intel_desc);
-        onSuccess = LSTRING(main_intel_success);
+        onSucceeded = LSTRING(main_intel_succeeded);
         onFailed = "";
         onNeutral = "";
     };
@@ -104,7 +104,7 @@ class upload : intel {
     class task : task {
         title = LSTRING(main_upload_title);
         description = LSTRING(main_upload_desc);
-        onSuccess = LSTRING(main_upload_success);
+        onSucceeded = LSTRING(main_upload_succeeded);
     };
 };
 
@@ -117,7 +117,7 @@ class weaponcache : intel {
     class task : task {
         title = LSTRING(main_weaponcache_title);
         description = LSTRING(main_weaponcache_desc);
-        onSuccess = LSTRING(main_weaponcache_success);
+        onSucceeded = LSTRING(main_weaponcache_succeeded);
     };
 };
 
@@ -136,7 +136,7 @@ class device : baseMainmission {
     class task : task {
         title = LSTRING(main_device_title);
         description = LSTRING(main_device_desc);
-        onSuccess = LSTRING(main_device_success);
+        onSucceeded = LSTRING(main_device_succeeded);
         onNeutral = LSTRING(main_device_neutral);
     };
 };
@@ -150,7 +150,7 @@ class emp : device {
     class task : task {
         title = LSTRING(main_emp_title);
         description = LSTRING(main_emp_desc);
-        onSuccess = LSTRING(main_emp_success);
+        onSucceeded = LSTRING(main_emp_succeeded);
         onFailed = "";
         onNeutral = LSTRING(main_emp_neutral);
     };
@@ -166,7 +166,7 @@ class dronecommando : device {
     class task : task {
         title = LSTRING(main_dronecommando_title);
         description = LSTRING(main_dronecommando_desc);
-        onSuccess = LSTRING(main_dronecommando_success);
+        onSucceeded = LSTRING(main_dronecommando_succeeded);
         onFailed = "";
         onNeutral = "";
     };
@@ -181,7 +181,7 @@ class prototype : device {
     class task : task {
         title = LSTRING(main_prototype_title);
         description = LSTRING(main_prototype_desc);
-        onSuccess = LSTRING(main_prototype_success);
+        onSucceeded = LSTRING(main_prototype_succeeded);
         onFailed = LSTRING(main_prototype_failed);
         onNeutral = "";
     };
@@ -199,7 +199,7 @@ class jammer : device {
     class task : task {
         title = LSTRING(main_jammer_title);
         description = LSTRING(main_jammer_desc);
-        onSuccess = LSTRING(main_jammer_success);
+        onSucceeded = LSTRING(main_jammer_succeeded);
         onFailed = "";
         onNeutral = "";
     };
@@ -214,7 +214,7 @@ class radiotower : jammer {
     class task : task {
         title = LSTRING(main_radiotower_title);
         description = LSTRING(main_radiotower_desc);
-        onSuccess = LSTRING(main_radiotower_success);
+        onSucceeded = LSTRING(main_radiotower_succeeded);
         onFailed = "";
         onNeutral = "";
     };
@@ -229,7 +229,7 @@ class scarab : device {
     class task : task {
         title = LSTRING(main_scarab_title);
         description = LSTRING(main_scarab_desc);
-        onSuccess = LSTRING(main_scarab_success);
+        onSucceeded = LSTRING(main_scarab_succeeded);
         onFailed = LSTRING(main_scarab_failed);
         onNeutral = "";
     };

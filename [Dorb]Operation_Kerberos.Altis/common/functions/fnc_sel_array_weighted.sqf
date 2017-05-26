@@ -1,14 +1,14 @@
 /*
     Author: Dorbedo
-    
+
     Description:
         Selects weighted from an array
-    
+
     Parameter(s):
         0 : ARRAY    - Array to choose from
         1 : SCALAR    - Pos of Weight inside Element
         2 : BOOL    - Return just the Pos of the Element
-    
+
     Return:
         ARRAY/SCALAR - Index or Value
 */
@@ -31,8 +31,8 @@ private _i = 0;
 _weightsum = 0;
 {
     _weightsum = _weightsum + abs(_x select _weightpos);
-    If (_weightsum > _choosenWeight) exitWith {};
     _i = _forEachIndex;
+    If (_weightsum >= _choosenWeight) exitWith {};
 }forEach _array;
 
 If (_returnPos) exitWith {_i};

@@ -11,7 +11,7 @@
  *      none
  *
  */
-//#define DEBUG_MODE_FULL
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 _this params ["_mission"];
@@ -56,16 +56,16 @@ TRACEV_6(_taskdelay,_mission,_taskID,_type,_showmarker,_markerpos);
             case "neutral" : {"CANCELED"};
             default {"CREATED"};
         };
-        private _tasktype = getText(_missionCfg >> "tasktype");
-        private _description = getText(_missionCfg >> "description");
-        private _title = getText(_missionCfg >> "title");
-        TRACEV_2(_progress,_tasktype);
+        private _tasktype = getText(_missionCfg >> "task" >> "tasktype");
+        private _description = getText(_missionCfg >> "task" >> "description");
+        private _title = getText(_missionCfg >> "task" >> "title");
+        TRACEV_4(_progress,_tasktype,_description,_title);
         [
             _taskID,
             GVARMAIN(playerside),
             [
-                _title,
                 _description,
+                _title,
                 ""
             ],
             if ((_showMarker)&&{!isNil "_markerpos"}) then {_markerpos}else{nil},

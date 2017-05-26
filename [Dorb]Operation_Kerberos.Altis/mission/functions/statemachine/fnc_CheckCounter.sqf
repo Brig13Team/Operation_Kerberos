@@ -18,14 +18,14 @@ _this params ["_mission"];
 
 private _objs = HASH_GET(_mission, "objects");
 
-If (({(alive _x)&&{_x getVariable [QGVAR(isActive),true]}} count _obj) != 0) exitWith {
+If (({(alive _x)&&{_x getVariable [QGVAR(isActive),true]}} count _objs) > 0) exitWith {
     /* the mission has not been finished */
 };
 
 // the mission has finished
 private _amount = count _objs;
 private _counter = HASH_GET(_mission, "obj_counter");
-
+TRACEV_3(_amount,_counter,((_amount/3)*2));
 If (_counter > ((_amount/3)*2)) exitWith {
     _mission setVariable ["progress","succeeded"];
 };
