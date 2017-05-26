@@ -35,7 +35,7 @@ _mission spawn {
         _objects = [_type,_centerpos,_missionCfg] call FUNC(spawn_spawnTargets);
 
         If (_mainOrSide == "main") then {
-            //[_mission] call FUNC(statemachine_addSide);
+            [_mission] call FUNC(statemachine_addSide);
             private _objectsfunction = getText(_missionCfg >> "objective" >> "objectsfunction");
             TRACEV_1(_objectsfunction);
             [_mission, _objects] call (missionNamespace getVariable [_objectsfunction, {}]);

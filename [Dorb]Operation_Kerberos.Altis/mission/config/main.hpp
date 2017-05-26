@@ -62,6 +62,7 @@ class capture : baseMainmission {
         onSucceeded = LSTRING(main_capture_succeeded);
         onFailed = LSTRING(main_capture_failed);
         onNeutral = LSTRING(main_capture_neutral);
+        tasktype = "target";
     };
 };
 
@@ -77,6 +78,7 @@ class hostage : capture {
         onSucceeded = LSTRING(main_hostage_succeeded);
         onFailed = LSTRING(main_hostage_failed);
         onNeutral = LSTRING(main_hostage_neutral);
+        tasktype = "heal";
     };
 };
 
@@ -92,6 +94,7 @@ class intel : capture {
         onSucceeded = LSTRING(main_intel_succeeded);
         onFailed = "";
         onNeutral = "";
+        tasktype = "download";
     };
 };
 
@@ -105,6 +108,7 @@ class upload : intel {
         title = LSTRING(main_upload_title);
         description = LSTRING(main_upload_desc);
         onSucceeded = LSTRING(main_upload_succeeded);
+        tasktype = "upload";
     };
 };
 
@@ -118,6 +122,7 @@ class weaponcache : intel {
         title = LSTRING(main_weaponcache_title);
         description = LSTRING(main_weaponcache_desc);
         onSucceeded = LSTRING(main_weaponcache_succeeded);
+        tasktype = "upload";
     };
 };
 
@@ -138,6 +143,7 @@ class device : baseMainmission {
         description = LSTRING(main_device_desc);
         onSucceeded = LSTRING(main_device_succeeded);
         onNeutral = LSTRING(main_device_neutral);
+        tasktype = "interact";
     };
 };
 
@@ -153,6 +159,7 @@ class emp : device {
         onSucceeded = LSTRING(main_emp_succeeded);
         onFailed = "";
         onNeutral = LSTRING(main_emp_neutral);
+        tasktype = "interact";
     };
 };
 
@@ -169,6 +176,7 @@ class dronecommando : device {
         onSucceeded = LSTRING(main_dronecommando_succeeded);
         onFailed = "";
         onNeutral = "";
+        tasktype = "destroy";
     };
 };
 
@@ -184,6 +192,7 @@ class prototype : device {
         onSucceeded = LSTRING(main_prototype_succeeded);
         onFailed = LSTRING(main_prototype_failed);
         onNeutral = "";
+        tasktype = "Default";
     };
 };
 
@@ -202,6 +211,7 @@ class jammer : device {
         onSucceeded = LSTRING(main_jammer_succeeded);
         onFailed = "";
         onNeutral = "";
+        tasktype = "destroy";
     };
 };
 
@@ -217,6 +227,7 @@ class radiotower : jammer {
         onSucceeded = LSTRING(main_radiotower_succeeded);
         onFailed = "";
         onNeutral = "";
+        tasktype = "destroy";
     };
 };
 /*

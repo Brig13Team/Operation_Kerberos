@@ -437,7 +437,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={11984.67,7.1933827,28846.17};
+						position[]={11984.67,7.1933832,28846.17};
 						angles[]={0,4.0427818,0};
 					};
 					side="West";
@@ -447,6 +447,7 @@ class Mission
 					};
 					id=26;
 					type="B_UAV_AI";
+					atlOffset=4.7683716e-007;
 				};
 			};
 			class Attributes
@@ -6375,7 +6376,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={12178.091,5.7248993,22895.891};
+						position[]={12173.012,5.444603,22888.584};
 						angles[]={0,1.4153405,0};
 					};
 					side="West";
@@ -6408,7 +6409,6 @@ class Mission
 					};
 					id=186;
 					type="B_crew_F";
-					atlOffset=-4.7683716e-007;
 					class CustomAttributes
 					{
 						class Attribute0
