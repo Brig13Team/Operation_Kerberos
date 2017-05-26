@@ -51,6 +51,7 @@ switch _thisTransition do {
     };
     case "timeout";
     case "failed" : {
+        _mission setVariable ["progress","failed"];
         [
             _TaskID,
             "FAILED",
@@ -67,5 +68,6 @@ switch _thisTransition do {
             "CANCELED",
             false
         ] call BIS_fnc_taskSetState;
+        _mission setVariable ["progress","cancel"];
     };
-}
+};
