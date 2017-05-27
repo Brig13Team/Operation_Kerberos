@@ -77,9 +77,9 @@ private _events = (configProperties [_missionCfg >> "condition","isText _x"]) se
 {
     private _value = getText _x;
     If !(isNil (missionNamespace getVariable _value)) then {
-        _hash setVariable [configname _x,_value];
+        _mission setVariable [configname _x,_value];
     }else{
-        _hash setVariable [configname _x,compile _value];
+        _mission setVariable [configname _x,compile _value];
     };
 } forEach _events;
 

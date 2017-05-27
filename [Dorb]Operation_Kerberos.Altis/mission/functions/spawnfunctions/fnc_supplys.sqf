@@ -36,7 +36,7 @@ private _objects = [_Unittypes] call FUNC(spawn_createAtRescuepoint);
         {
             if (((_x distance _targetpoint) < 5)&&{speed _x < 1}) then {
                 deleteVehicle _x;
-                HASH_SET(_mission, "obj_counter_1", HASH_GET(_mission, "obj_counter_1") + 1);
+                HASH_SET(_mission, "obj_counter", HASH_GET(_mission, "obj_counter") + 1);
             };
         } forEach _objects;
     },

@@ -39,7 +39,7 @@ for "_i" from 1 to _amount do {
     private _type = configname _missionCfg;
     TRACEV_2(_type,_mainType);
     _hash setVariable ["type",_type];
-    _hash setVariable ["parent",_mission];
+    _hash setVariable ["parent",_mainmission];
     _hash setVariable ["isMain",false];
 
     // select the location, if non is specified, take the main-location

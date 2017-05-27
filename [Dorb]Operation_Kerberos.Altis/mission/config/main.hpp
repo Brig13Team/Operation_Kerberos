@@ -230,7 +230,7 @@ class radiotower : jammer {
         tasktype = "destroy";
     };
 };
-/*
+
 class scarab : device {
     class objective : objective {
         objects = "scarab";
@@ -245,4 +245,3 @@ class scarab : device {
         onNeutral = "";
     };
 };
-*/

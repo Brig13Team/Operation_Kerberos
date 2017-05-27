@@ -60,6 +60,7 @@ PREPS(statemachine,initHold);
 PREPS(statemachine,initcounter);
 PREPS(statemachine,initOneCounter);
 PREPS(statemachine,initTwoCounter);
+PREPS(statemachine,isActiveMission);
 PREPS(statemachine,onTransition);
 PREPS(statemachine,rtb);
 PREPS(statemachine,spawn);
@@ -91,24 +92,31 @@ PREPS(obj,callEvent);
 // PREPS(obj,doCarry);
 // PREPS(obj,doDownload);
 PREPS(obj,doDrop);
-PREPS(obj,doTriangulate);
 // PREPS(obj,effectDownloadClient);
 // PREPS(obj,effectDownloadServer);
 PREPS(obj,effectEarthquake);
 // PREPS(obj,effectSandstorm);
-PREPS(obj,effectTriangulation);
 // PREPS(obj,handleCarry);
 // PREPS(obj,init_Download);
 // PREPS(obj,initACEAction_case);
-PREPS(obj,initACEAction_DataTerminal);
-PREPS(obj,initACEAction_device);
-PREPS(obj,initACEAction_intel);
-PREPS(obj,initACEAction_upload);
-PREPS(obj,initACEAction_wreck);
 PREPS(obj,markTargets);
+
+PREPS(obj,initACEAction_intel);
+
+PREPS(obj,initACEAction_upload);
+
+PREPS(obj,initACEAction_wreck);
+
+PREPS(obj,initACEAction_device);
 PREPS(obj,spawnEMP);
-PREPS(obj,spawnNuke);
+
+PREPS(obj,doTriangulate);
+PREPS(obj,effectTriangulation);
+PREPS(obj,initACEAction_DataTerminal);
 PREPS(obj,triangulate);
+
+PREPS(obj,launchScarab);
+PREPS(obj,spawnNuke);
 
 ADDON = true;
 

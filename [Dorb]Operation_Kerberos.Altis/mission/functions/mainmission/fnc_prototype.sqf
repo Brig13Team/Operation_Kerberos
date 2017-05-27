@@ -27,8 +27,7 @@ TRACEV_1(_targets);
 [
     {
         _this params [["_mission",locationNull,[locationNull]],"_handle"];
-        private _progress = _mission getVariable ["progress","none"];
-        If ((isNull _mission)||{_progress in ["cancel","succeeded","neutral","failed"]}) exitWith {
+        If !([_mission] call FUNC(statemachine_isActiveMission)) exitWith {
             TRACEV_3(_mission,_progress,_this);
             [_handle] call CBA_fnc_removePerFrameHandler;
         };
