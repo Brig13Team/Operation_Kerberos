@@ -41,7 +41,3 @@ If !(hasInterface) then {
         };
     }] call CBA_fnc_addEventHandler;
 };
-
-
-["CAManBase", "hit", {_this call FUNC(onHit);}] call CBA_fnc_addClassEventHandler;
-["CAManBase", "killed", {_this call FUNC(onKilled);}] call CBA_fnc_addClassEventHandler;
