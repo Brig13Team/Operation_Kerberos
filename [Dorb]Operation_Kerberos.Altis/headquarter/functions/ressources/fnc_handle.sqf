@@ -27,11 +27,11 @@ private _value = 0;
 // ressource handler intervall
 #define HANDLER_TIMEFACTOR (INTERVALL_RESSOURCES/60)
 // the mission has a targettime of 2 hours
-#define MAINMISSION_TARGETTIME (60*60*2)
+#define MAINMISSION_TARGETTIME (60*60*3.5)
 // the timefactor to prevent endless spawning of units
 #define TIMEFACTOR (1 - ((CBA_missiontime - GVAR(missionStartTime))/MAINMISSION_TARGETTIME))
 
 
-_value = (TIMEFACTOR * HANDLER_TIMEFACTOR * KILLS_PER_MINUTE * COST_PER_KILL * PLAYERAMOUNT + HASH_GET_DEF(GVAR(ressources),"amount",0)) max 0;
+_value = (TIMEFACTOR * HANDLER_TIMEFACTOR * KILLS_PER_MINUTE * COST_PER_KILL * PLAYERAMOUNT) max 0 + HASH_GET_DEF(GVAR(ressources),"amount",0);
 
 HASH_SET(GVAR(ressources),"amount",_value);
