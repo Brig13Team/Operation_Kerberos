@@ -42,6 +42,10 @@ If (GVARMAIN(side_type) in ["droneoperations","specops"]) then {
     [] call FUNC(drones_onMissionStart);
 };
 
+GVAR(ressources_CallInreplenish_airinterception) = 60*15;
+GVAR(ressources_CallInreplenish_helicopter) = 60*15;
+GVAR(ressources_CallInreplenish_CAS) = 60*15;
+
 GVAR(missionStartTime) = CBA_missiontime;
 
 GVAR(active) = true;
