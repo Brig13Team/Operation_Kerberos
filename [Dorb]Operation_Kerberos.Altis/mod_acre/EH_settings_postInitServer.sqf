@@ -12,7 +12,7 @@
 // Difficulty settings
 
 // Interference
-["acre_sys_core_interference",true,true,"server"] call CBA_Settings_fnc_set;
+["acre_sys_core_interference",false,true,"server"] call CBA_Settings_fnc_set;
 // Full duplex
 ["acre_sys_core_fullDuplex",true,true,"server"] call CBA_Settings_fnc_set;
 // Antena direction
