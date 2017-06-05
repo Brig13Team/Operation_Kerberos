@@ -14,9 +14,9 @@
 #define LOADTIME 3
 _this params["_target",["_isdrop",false,[false]]];
 
-CHECK(GETVAR(player,GVAR(isloading),false))
+If (player getVariable [QGVAR(isloading),false]) exitWith {};
 
-SETVAR(player,GVAR(isloading),true);
+player setVariable [QGVAR(isloading),true];
 GVAR(isloading_pos) = getPos player;
 private _anim = getText(missionConfigFile >> "logistics" >> "vehicles" >> (typeOf _target) >> "hatch_isclosed");
 If (!(_anim isEqualTo "")) then {
@@ -34,8 +34,8 @@ If !(_isdrop) then {
 [
     LOADTIME,
     [_target, getPos _target],
-    {(_this select 0) call FUNC(unload);SETVAR(player,GVAR(isloading),false);},
-    {SETVAR(player,GVAR(isloading),false);},
+    {(_this select 0) call FUNC(unload);player setVariable [QGVAR(isloading),false];},
+    {player setVariable [QGVAR(isloading),false];},
     "",
     _unloadcondition
     //{ if (((getPos (_this select 0 select 0)) distance (_this select 0 select 1))>0.5) exitWith { false }; true }
