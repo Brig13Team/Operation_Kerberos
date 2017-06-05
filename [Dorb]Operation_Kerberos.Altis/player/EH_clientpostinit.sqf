@@ -67,7 +67,7 @@ waituntil {! isnull player};
 If (GVARMAIN(isKerberos)) then {
     [
         {
-            If ((vehicle player == player)&&{(player distance2D ((_this select 0)select 0)) < 250}&&{(player distance2D ((_this select 0)select 1)) < 250}) then {
+            If ((vehicle player == player)&&{((player distance2D ((_this select 0)select 0)) < 250)||{(player distance2D ((_this select 0)select 1)) < 250}}) then {
                 If (isDamageAllowed player) then {
                     player allowDamage false;
                 };
