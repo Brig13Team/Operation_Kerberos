@@ -1934,6 +1934,7 @@ class composition_961514 {
         dir = -101.592;
     };
     device = 1;
+    isobjective = 2;
     class obj_14 {
         pos[] = {-4.86,4.97732,0.702106};
         issimpleobj = 0;

@@ -35,14 +35,14 @@ switch (_defenceStructure) do {
     case "composition": {
         private _compositionTypes = getArray(_missionCfg >> "objective" >> "composition_types");
         private _types = [_type] + _compositionTypes;
-
+        TRACEV_2(_compositionTypes,_types);
         _targetPositions = [_centerposition, _types, _amount, _radius] call EFUNC(spawn,createMissionComposition);
     };
     case "house": {
         _house = true;
         private _houseTypes = getArray(_missionCfg >> "objective" >> "house_types");
         private _types = [_type] + _houseTypes;
-
+        TRACEV_2(_houseTypes,_types);
         _targetPositions = [_centerposition, _types, _amount, _radius] call EFUNC(spawn,createMissionHouse);
     };
 };

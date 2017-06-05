@@ -19,7 +19,7 @@ class baseMission {
         delay = 0;
         spawnfunction = "";
         target = "";
-        composition_types[] = {"isObjective"};
+        composition_types[] = {"isobjective"};
         house_types[] = {"hasmissiontarget"};
         objects = "";
         objectsfunction = "";
@@ -143,7 +143,7 @@ class device : baseMainmission {
     };
     class objective : objective {
         target = "composition";
-        composition_types[] = {"isObjective","device"};
+        composition_types[] = {"isobjective","device"};
         objects = "device";
         objectsfunction = QFUNC(mainmission_device);
     };
@@ -160,6 +160,7 @@ class emp : device {
     probability = PROPABILITY_LAND;
     armys[] = {{"infanterie",1}, {"specops",1}, {"guards",1}};
     class objective : objective {
+        composition_types[] = {"isobjective","emp"};
         objects = "emp";
         amount = 1;
         objectsfunction = QFUNC(mainmission_emp);
@@ -179,6 +180,7 @@ class dronecommando : device {
     armys[] = {{"droneoperations",1}};
     class objective : objective {
         objects = "dronecommando";
+        composition_types[] = {"dronecommando"};
         amount = 1;
         objectsfunction = QFUNC(mainmission_dronecommando);
     };
@@ -196,6 +198,7 @@ class prototype : device {
     probability = PROPABILITY_LAND;
     class objective : objective {
         objects = "prototype";
+        composition_types[] = {"isobjective","prototype"};
         amount = 1;
         objectsfunction = QFUNC(mainmission_prototype);
     };
@@ -216,6 +219,7 @@ class jammer : device {
     };
     class objective : objective {
         objects = "jammer";
+        composition_types[] = {"isobjective","jammer"};
         amount[] = {1,3};
         objectsfunction = QFUNC(mainmission_jammer);
     };
@@ -233,6 +237,7 @@ class radiotower : jammer {
     probability = PROPABILITY_LAND;
     class objective : objective {
         objects = "radiotower";
+        composition_types[] = {"radiotower"};
         amount[] = {1,3};
         objectsfunction = QFUNC(mainmission_radiotower);
     };
@@ -249,6 +254,7 @@ class radiotower : jammer {
 class scarab : device {
     class objective : objective {
         objects = "scarab";
+        composition_types[] = {"scarab"};
         amount[] = {1,3};
         objectsfunction = QFUNC(mainmission_scarab);
     };

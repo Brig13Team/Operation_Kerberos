@@ -82,7 +82,7 @@ _mission spawn {
             10*60
         ] call CBA_fnc_waitAndExecute;
         // spawn the big part of the units
-        //[_centerpos] call EFUNC(spawn,createMission);
+        [_centerpos] call EFUNC(spawn,createMission);
         TRACEV_1(GVAR(CompositionDesigners));
         GVAR(CompositionDesigners) = GVAR(CompositionDesigners) arrayIntersect GVAR(CompositionDesigners);
         [QGVAR(showCompositionDesigners),[GVAR(CompositionDesigners)]] call CBA_fnc_globalEvent;

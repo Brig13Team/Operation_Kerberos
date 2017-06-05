@@ -26,9 +26,17 @@ IF (_type isEqualTo "") then {
     }else{
         _type =+ _type;
     };
-    private _condition = format["(getNumber(_x >> '%1')==1)",_type deleteAt 0];
+    _type arrayIntersect _type;
+    _type = _type apply {toLower _x};
+    private "_condition";
+    If ("isobjective" in _type) then {
+        _type = _type - ["isobjective"];
+        _condition = "(getNumber(_x >> 'isobjective')>0)";
+    }else{
+        _condition = format["((getNumber(_x >> '%1')==1)&&(getNumber(_x >> 'isobjective')<2))",_type deleteAt 0];
+    };
     {
-        _condition = format["%1 || (getNumber(_x >> '%2')==1)",_condition,_x];
+        _condition = format["%1 || ((getNumber(_x >> '%2')==1)&&(getNumber(_x >> 'isobjective')!=1))",_condition,_x];
     } forEach _type;
     _condition = format["(%1)",_condition];
     _allConfigs = configProperties [(missionConfigFile >> "CfgCompositions" >> "positions"),_condition,true];
