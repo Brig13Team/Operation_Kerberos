@@ -18,9 +18,12 @@ _this params ["_mission", "_targets"];
 {
     [_curTarget, GVARMAIN(side), false] call EFUNC(spawn,crew);
 
-    (gunner _x) addEventHandler ["Killed", { [vehicle (_this select 0)] call FUNC(obj__increaseCounter); }];
-    _x addEventHandler ["Killed", LINKFUNC(obj__triggerFailed)];
-    _x addEventHandler ["Killed", { [getPos (_this select 0)] call FUNC(obj_spawnNuke); }];
+    (gunner _x) addEventHandler ["Killed", {
+            [vehicle (_this select 0)] call FUNC(obj__increaseCounter);
+        }];
+    _x addEventHandler ["Killed", {
+            private _mission = (_this select 0) getVariable [QGVAR(mission),locationNull];
+            _mission setVariable ["progress","failed"];
+            [getPos (_this select 0)] call FUNC(obj_spawnNuke);
+        }];
 } forEach _targets;
-
-//[_mission, _targets, 60] call FUNC(mainmission__oneCounter);

@@ -17,9 +17,23 @@ _this params ["_mission", "_targets"];
 
 {
     _x allowFleeing 0;
-
-    _x setVariable [QGVAR(rescueEvent), QFUNC(obj__increaseCounterOne)];
-    _x addEventHandler ["Killed", LINKFUNC(obj__increaseCounterTwo)];
+    _x addEventHandler ["Killed", LINKFUNC(obj__decreaseCounter)];
 } forEach _targets;
 
-//[_mission, _targets] call FUNC(mainmission__twoCounters);
+[
+    {
+        _this params [["_mission",locationNull,[locationNull]],"_handle"];
+        If !([_mission] call FUNC(statemachine_isActiveMission)) exitWith {
+            [_handle] call CBA_fnc_removePerFrameHandler;
+        };
+        private _objects = _mission getVariable ["objects",[]];
+        {
+            If ((!isNull _x)&&{alive _x}&&{vehicle _x == _x}&&{(_x distance2D (getMarkerPos GVARMAIN(rescuemarker)))<5}) then {
+                [_x] call FUNC(obj__increaseCounter);
+                deleteVehicle _x;
+            };
+        } forEach _objects;
+    },
+    15,
+    _mission
+] call CBA_fnc_addPerFrameHandler;

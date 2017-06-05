@@ -21,6 +21,6 @@ If (_pos isEqualTo []) exitWith {false};
 (
     {
         (side _x == GVARMAIN(side))&&
-        {(_x distance2D _pos)<4000}
+        {(_x distance2D _pos)<3000}
     } count allUnits
 )>0

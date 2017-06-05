@@ -11,18 +11,32 @@
     Returns:
         BOOL
 */
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 _this params ["_target","_cargo"];
 
-If ((typeOf _cargo in ["RHS_M119_WD","RHS_M119_WD","rhs_D30_vdv","rhs_D30_at_vdv"])&&{(_cargo doorPhase 'fold_arty' == 0)}) exitWith {false};
-If ((typeOf _cargo == "Land_DataTerminal_01_F")&&{(_cargo animationSourcePhase "Antenna_source")!=0}) exitWith {false};
-If (!((_cargo getVariable [QGVAR(aceactions),[]]) isEqualTo [])) exitWith {};
+If ((typeOf _cargo in ["RHS_M119_WD","RHS_M119_WD","rhs_D30_vdv","rhs_D30_at_vdv"])&&{(_cargo doorPhase 'fold_arty' == 0)}) exitWith {
+    TRACE("Not folded");
+    false
+};
+If ((typeOf _cargo == "Land_DataTerminal_01_F")&&{(_cargo animationSourcePhase "Antenna_source")!=0}) exitWith {
+    TRACE("Not folded Dataterminal");
+    false
+};
+If (!((_cargo getVariable [QGVAR(aceactions),[]]) isEqualTo [])) exitWith {
+    TRACE("Ace Action temp save is not empty");
+    false
+};
 private _cargo_class = [_cargo] call FUNC(getCargoCfg);
-If ((_cargo_class isEqualTo "")||{!(isNull (attachedTo _cargo))}) exitWith {false};
+If ((_cargo_class isEqualTo "")||{!(isNull (attachedTo _cargo))}) exitWith {
+    TRACE("No Cargo or cargo is attached to something");
+    false
+};
 
 private _vehicle_class = typeOf _target;
 
 private _max_width = getNumber(missionConfigFile >> "logistics" >> "vehicles" >> _vehicle_class >> "max_width");
+TRACEV_2(_vehicle_class,_max_width);
 private _max_length = getNumber(missionConfigFile >> "logistics" >> "vehicles" >> _vehicle_class >> "max_length");
 private _max_height = getNumber(missionConfigFile >> "logistics" >> "vehicles" >> _vehicle_class >> "max_height");
 If (isClass(missionConfigFile >> "logistics" >> "vehicles" >> _vehicle_class >> "cargo") && {_vehicle call compile getText(missionConfigFile >> "logistics" >> "vehicles" >> _vehicle_class >> "cargo" >> "isextended")}) then {
@@ -35,7 +49,10 @@ private _cargo_width = getNumber(missionConfigFile >> "logistics" >> "cargos" >>
 private _cargo_length = getNumber(missionConfigFile >> "logistics" >> "cargos" >> _cargo_class >> "length");
 private _cargo_height = getNumber(missionConfigFile >> "logistics" >> "cargos" >> _cargo_class >> "height");
 /// Exit if no entry in cfg
-If (!(_max_width>0)) exitWith {false};
+If (!(_max_width>0)) exitWith {
+    TRACE("max_width <= 0");
+    false
+};
 /// Way to big
 If (
     (
@@ -49,7 +66,7 @@ If (
     )||(
         _cargo_height > _max_height
     )
-    ) exitWith {false};
+    ) exitWith {TRACE("cargo is too big");false};
 
 private _logistic_stack = _target getVariable [QGVAR(stack),[]];
 /// EMPTY Truck

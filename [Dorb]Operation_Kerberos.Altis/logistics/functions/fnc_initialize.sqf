@@ -21,7 +21,7 @@ If !(canSuspend) exitWith {
 waitUntil {time > 60};
 
 ISNILS(EGVAR(player,respawn_fnc),[]);
-EGVAR(player,respawn_fnc) pushBack QUOTE(player setVariable [ARR_2('GVAR(isloading)',false)];);
+EGVAR(player,respawn_fnc) pushBack QUOTE(player setVariable [ARR_3('GVAR(isloading)',false,true)];);
 
 private _cfgLog = missionconfigFile >> "logistics" >> "vehicles";
 private _mainAction = [
@@ -47,7 +47,7 @@ private _towAction = [QGVAR(action_tow), localize LSTRING(ACTION_TOW), "", {[_ta
 private _untowAction = [QGVAR(action_tow), localize LSTRING(ACTION_UNTOW), "", {[_target] spawn FUNC(simpletowing_doUnTow);}, {[_target] call FUNC(simpletowing_canUnTow);}] call ace_interact_menu_fnc_createAction;
 private _spareTrack = [QGVAR(action_spareTrack), localize LSTRING(ACTION_SPARETRACK), "", {[_target] spawn FUNC(doRemoveTrack);}, {(_target getVariable [QGVAR(spareTrackAmount),1]) > 0}] call ace_interact_menu_fnc_createAction;
 
-[localize ELSTRING(main,name), QGVAR(keybind_g), [localize LSTRING(ACTION_PARADROP), localize LSTRING(ACTION_PARADROP)], { if ([vehicle player] call FUNC(candrop)) then { [vehicle player,true] spawn FUNC(dounload)}; }, {true}, [0x22, [false, false, false]], false] call CBA_fnc_addKeybind;
+[localize ELSTRING(main,name), QGVAR(keybind_g), [localize LSTRING(ACTION_PARADROP), localize LSTRING(ACTION_PARADROP)], { if ([vehicle ace_player] call FUNC(candrop)) then { [vehicle ace_player,true] spawn FUNC(dounload)}; }, {true}, [0x22, [false, false, false]], false] call CBA_fnc_addKeybind;
 
 
 

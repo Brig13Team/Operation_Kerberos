@@ -18,6 +18,9 @@ class DOUBLES(CfgComponent,ADDON) {
         CfgPatches[] = {};
         CfgComponents[] = {"spawn","worlds"};
     };
+    class config {
+        #include "config\CfgComponent.hpp"
+    };
 };
 
 #include "config\CfgDebriefing.hpp"

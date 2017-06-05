@@ -17,15 +17,22 @@ _this params ["_mission", "_targets"];
 
 {
     _x setVariable [QGVAR(isActive), true, true];
-    _x addEventHandler ["Killed", LINKFUNC(obj__triggerFailed)];
+    _x addEventHandler ["Killed", LINKFUNC(obj__decreaseCounter)];
 } forEach _targets;
 
-//[_mission, _targets] call FUNC(mainmission__oneCounter);
-
-// init device event
-HASH_SET(_mission, "event_callback",  QFUNC(obj_callEvent));
-HASH_SET(_mission, "event_name",      QGVAR(earthquake));
-HASH_SET(_mission, "event_parameter", { floor( random 4) + 1 });
-HASH_SET(_mission, "event_last",      CBA_missionTime);
-HASH_SET(_mission, "event_interval",  900);
-HASH_SET(_mission, "event_active",    true);
+[
+    {
+        _this params [["_mission",locationNull,[locationNull]],"_handle"];
+        If !([_mission] call FUNC(statemachine_isActiveMission)) exitWith {
+            [_handle] call CBA_fnc_removePerFrameHandler;
+        };
+        private _objects = _mission getVariable ["objects",[]];
+        {
+            If ((!isNull _x)&&{alive _x}&&{_x getVariable [QGVAR(isActive),true]}) then {
+                [QGVAR(earthquake)] call CBA_fnc_globalEvent;
+            };
+        } forEach _objects;
+    },
+    floor(400 + random 200),
+    _mission
+] call CBA_fnc_addPerFrameHandler;

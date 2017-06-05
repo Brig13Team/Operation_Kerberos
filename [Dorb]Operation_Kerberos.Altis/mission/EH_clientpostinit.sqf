@@ -18,6 +18,7 @@ CHECK(!hasInterface)
 ] call FUNC(obj_initACEAction_DataTerminal);
 
 // events
+[QGVAR(earthquake),LINKFUNC(obj_effectEarthquake)] call CBA_fnc_addEventHandler;
 [QGVAR(effectDownload_Client),LINKFUNC(obj_effectDownloadClient)] call CBA_fnc_addEventHandler;
 [QFUNC(obj___message),LINKFUNC(obj___message)] call CBA_fnc_addEventHandler;
 [QGVAR(showCompositionDesigners),

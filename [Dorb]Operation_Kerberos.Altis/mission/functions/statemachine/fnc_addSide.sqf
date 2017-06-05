@@ -18,24 +18,33 @@ _this params ["_mainmission"];
 
 private _mainType = _mainmission getVariable "type";
 
-private _min = getNumber (missionConfigFile >> "mission" >> "main" >> _mainType >> "side" >> "min");
-private _max = getNumber (missionConfigFile >> "mission" >> "main" >> _mainType >> "side" >> "max");
-
+private _min = getNumber(COMPONENTCONFIGFILE >> "mainmissions" >> "side" >> "min");
+private _max = getNumber(COMPONENTCONFIGFILE >> "mainmissions" >> "side" >> "max");
 private _amount = ceil (random(_max - _min)) + _min;
+
+private _sidetypes = getArray(COMPONENTCONFIGFILE >> "mainmissions" >> "side" >> "sidemissions");
+
+If ("%ALL" in _sidetypes) then {
+    _sidetypes = configProperties [COMPONENTCONFIGFILE >> "sidemissions", "true", true];
+}else{
+    _sidetypes = _sidetypes select {isClass(COMPONENTCONFIGFILE >> "sidemissions" >> _x)};
+    _sidetypes = _sidetypes apply {COMPONENTCONFIGFILE >> "sidemissions" >> _x};
+};
+
+CHECK(_sidetypes isEqualTo [])
 
 for "_i" from 1 to _amount do {
     private _hash = HASH_CREATE;
-    private _type = [_mainType] call FUNC(spawn_chooseMission);
+    private _missionCfg = selectRandom _sidetypes;
+    private _type = configname _missionCfg;
     TRACEV_2(_type,_mainType);
     _hash setVariable ["type",_type];
-    _hash setVariable ["parent",_mission];
+    _hash setVariable ["parent",_mainmission];
     _hash setVariable ["isMain",false];
-
-    private _missionCfg = (missionConfigFile >> "mission" >> "side" >> _type);
 
     // select the location, if non is specified, take the main-location
     private _mainlocation = _mainmission getVariable "location";
-    private _locationtypes = getArray(_missionCfg >> "location" >> "areas");
+    private _locationtypes = getArray(_missionCfg >> "position" >> "locationtypes");
     private _location = [];
     TRACEV_2(_mainlocation,_locationtypes);
     // if there are locations specified, we choose from them
@@ -52,14 +61,14 @@ for "_i" from 1 to _amount do {
         // we check the locations for min/max distance
         If !(_possibleLocations isEqualTo []) then {
             // check the min distance
-            private _minDistance = getNumber(_missionCfg >> "location" >> "minDistance");
+            private _minDistance = getNumber(_missionCfg >> "position" >> "minDistance");
             If (_minDistance > 0) then {
                 _possibleLocations = _possibleLocations select {
                     ((_x select 1) distance2D (_mainlocation select 1))>_minDistance;
                 };
             };
             // check the max distance
-            private _maxDistance = getNumber(_missionCfg >> "location" >> "maxDistance");
+            private _maxDistance = getNumber(_missionCfg >> "position" >> "maxDistance");
             If (_maxDistance > 0) then {
                 _possibleLocations = _possibleLocations select {
                     ((_x select 1) distance2D (_mainlocation select 1))<_maxDistance;
@@ -78,7 +87,7 @@ for "_i" from 1 to _amount do {
     };
 
     // the targetposition around the center
-    private _radius = getNumber (_missionCfg >> "location" >> "radius");
+    private _radius = getNumber (_missionCfg >> "position" >> "radius");
     private _centerpos = [_location select 1, _radius] call EFUNC(common,pos_random);
     TRACEV_3(_radius,_location,_centerpos);
     _hash setVariable ["location",_location];
@@ -87,23 +96,23 @@ for "_i" from 1 to _amount do {
     EGVAR(spawn,cleanup_positions) pushBack _centerpos;
 
     // showMarker flag
-    private _showMarker = ((getNumber(_missionCfg >> "disableMarker")) == 0);
+    private _showMarker = getNumber(_missionCfg >> "task" >> "showMarker") > 0;
     _hash setVariable ["showmarker",_showMarker];
 
     // the conditiontype
-    private _condition = getText(_missionCfg >> "conditiontype");
+    private _condition = getText(_missionCfg >> "condition" >> "conditiontype");
     _hash setVariable ["conditiontype",_condition];
 
     // if there is a special spawning function
-    private _spawnFunction = getText(_missionCfg >> "spawnfunction");
+    private _spawnFunction = getText(_missionCfg >> "objective" >> "spawnfunction");
     _hash setVariable ["spawnfunction",_spawnFunction];
 
     // if we want to delay the task creation
-    private _taskdeplay = getNumber(_missionCfg >> "taskdeplay");
+    private _taskdeplay = getNumber(_missionCfg >> "task" >> "delay");
     _hash setVariable ["taskdelay",_taskdeplay];
 
     // if we want to delay the spawning
-    private _spawndelay = getNumber(_missionCfg >> "spawndelay");
+    private _spawndelay = getNumber(_missionCfg >> "objective" >> "delay");
     _hash setVariable ["spawndelay",_spawndelay];
 
 
@@ -113,7 +122,7 @@ for "_i" from 1 to _amount do {
     _hash setVariable ["taskID",[_taskID,_mainID]];
 
     // adding the events
-    private _events = (configProperties [_missionCfg,"isText _x"]) select {(configname _x) select [0,2] == "on"};
+    private _events = (configProperties [_missionCfg >> "condition","isText _x"]) select {(configname _x) select [0,2] == "on"};
     {
         private _value = getText _x;
         If !(isNil _value) then {

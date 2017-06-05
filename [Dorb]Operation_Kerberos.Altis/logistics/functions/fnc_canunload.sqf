@@ -14,7 +14,7 @@
 
 #define INTERVALL 5
 
-if (player getVariable [QGVAR(isloading),false]) exitWith { false };
+if (ace_player getVariable [QGVAR(isloading),false]) exitWith { false };
 _this params ["_target"];
 
 private _logistic_stack = _target getVariable [QGVAR(stack),[]];

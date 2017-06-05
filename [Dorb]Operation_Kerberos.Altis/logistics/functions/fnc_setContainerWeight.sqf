@@ -11,6 +11,12 @@
 
 _this params[["_container",objNull,[objNull]]];
 
+If !(isNil "ace_dragging_fnc_getweight") then {
+    private _mass = [_container] call ace_dragging_fnc_getweight;
+    _container setMass _mass;
+    _container setVariable [QGVAR(emptyMass),_cweight,true];
+};
+
 if (not (_container isKindOf "ReammoBox_f")) exitWith {};
 
 private _cweight = _container getVariable [QGVAR(emptyMass), getMass _container];
@@ -44,5 +50,5 @@ for "_i" from 0 to (count (_itemCargo select 0) - 1) do {
     };
 };
 
-_container setMass (_iweight + _cweight);
+_container setMass ((_iweight + _cweight)*0.5);
 _container setVariable [QGVAR(emptyMass),_cweight,true];

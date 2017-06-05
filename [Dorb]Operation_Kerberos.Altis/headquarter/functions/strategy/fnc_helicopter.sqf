@@ -23,6 +23,7 @@ _spawnPos set [2,500];
 private _helicopterType = ["helicopter"] call EFUNC(spawn,getUnit);
 
 ([_spawnPos,GVARMAIN(side),_helicopterType] call EFUNC(spawn,vehicle)) params ["_attackGroup","_attackVeh"];
+_attackVeh flyInHeight 500;
 private _ressourcesHash = HASH_GET_DEF(GVAR(ressources),"helicopter",locationNull);
 
 _attackGroup setVariable [QGVAR(target),_attackLoc];

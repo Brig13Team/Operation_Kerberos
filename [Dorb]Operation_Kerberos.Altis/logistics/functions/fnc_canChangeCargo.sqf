@@ -14,7 +14,7 @@
 #include "script_component.hpp"
 
 _this params["_target",["_shallExtend",true,[true]]];
-if (player getVariable [QGVAR(isloading),false]) exitWith { false };
+if (ace_player getVariable [QGVAR(isloading),false]) exitWith { false };
 
 private _logistic_stack = _target getVariable [QGVAR(stack),[]];
 

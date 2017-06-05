@@ -18,12 +18,11 @@ private _action = [
     localize LSTRING(OBJECTS_UPLOAD),
     "",
     {
-        _target setVariable [QGVAR(isActive), false, true];
         [
             120,
             [_target],
             {[QFUNC(obj__increaseCounter),_this select 0] call CBA_fnc_serverEvent; },
-            { (_this select 0 select 0) setVariable [QGVAR(isActive), true, true]; },
+            {},
             localize LSTRING(OBJECTS_UPLOADING)
         ] call ace_common_fnc_progressBar;
     },

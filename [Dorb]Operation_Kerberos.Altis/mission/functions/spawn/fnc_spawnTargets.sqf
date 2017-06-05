@@ -15,12 +15,15 @@
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-_this params ["_type", "_centerposition", ["_mainOrSide", "main", [""]]];
+_this params ["_type", "_centerposition", "_missionCfg"];
 
-if !(_mainOrSide in ["main", "side"]) exitWith { -1 };
-
-private _defenceStructure = getText(missionConfigFile >> "mission" >> _mainOrSide >> _type >> "defence" >> "target");
-private _amount = [_type] call FUNC(spawn_getAmount);
+private _defenceStructure = getText(_missionCfg >> "objective" >> "target");
+private _amount = If (isNumber(_missionCfg >> "objective" >> "amount")) then {
+        getNumber(_missionCfg >> "objective" >> "amount");
+    }else{
+        (getArray(_missionCfg >> "objective" >> "amount")) params ["_min","_max"];
+        floor(random(_max - _min) + _min)
+    };
 private _radius = [_type] call FUNC(spawn_getRadius);
 private _objects = [];
 
@@ -30,16 +33,16 @@ private _targetPositions = [];
 private _house = false;
 switch (_defenceStructure) do {
     case "composition": {
-        private _compositionTypes = getArray(missionConfigFile >> "mission" >> _mainOrSide >> _type >> "defence" >> "composition_types");
+        private _compositionTypes = getArray(_missionCfg >> "objective" >> "composition_types");
         private _types = [_type] + _compositionTypes;
-
+        TRACEV_2(_compositionTypes,_types);
         _targetPositions = [_centerposition, _types, _amount, _radius] call EFUNC(spawn,createMissionComposition);
     };
     case "house": {
         _house = true;
-        private _houseTypes = getArray(missionConfigFile >> "mission" >> _mainOrSide >> _type >> "defence" >> "house_types");
+        private _houseTypes = getArray(_missionCfg >> "objective" >> "house_types");
         private _types = [_type] + _houseTypes;
-
+        TRACEV_2(_houseTypes,_types);
         _targetPositions = [_centerposition, _types, _amount, _radius] call EFUNC(spawn,createMissionHouse);
     };
 };

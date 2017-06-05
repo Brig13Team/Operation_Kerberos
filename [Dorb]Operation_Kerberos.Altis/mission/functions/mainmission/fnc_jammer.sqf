@@ -26,5 +26,3 @@ _this params ["_mission", "_targets"];
     _x setVariable [QGVAR(isActive), true, true];
     _x addEventHandler ["Killed", LINKFUNC(obj__increaseCounter)];
 } forEach _targets;
-
-//[_mission, _targets] call FUNC(mainmission__oneCounter);

@@ -78,6 +78,8 @@ switch (_preset) do {
         + (configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'scope')>1}&&{(configName _x) isKindOf 'Slingload_01_Base_F'})", true]);
         _return = _return apply {configName _x};
         _return pushBack "Box_NATO_AmmoVeh_F";
+        _return pushBack "B_Quadbike_01_F";
+        _return pushBack "B_APC_Tracked_01_CRV_F";
         // remove doubled
         _return arrayIntersect _return;
     };
