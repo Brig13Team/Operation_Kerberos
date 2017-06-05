@@ -14,7 +14,7 @@
 #include "script_component.hpp"
 
 _this params["_vehicle",["_shallExtend",true,[true]]];
-if (player getVariable [QGVAR(isloading),false]) exitWith { false };
+if (ace_player getVariable [QGVAR(isloading),false]) exitWith { false };
 
 If (_shallExtend) exitWith {
     _vehicle call compile getText(missionconfigFile >> "logistics" >> "vehicles" >> typeOf _vehicle >> "cargo" >> "extend");

@@ -69,7 +69,7 @@ if (isMultiplayer && {!local _vehicle}) then {
     [_vehicle] call FUNC(updateSeats);
 };
 
-SETVAR(player,GVAR(isloading),false);
+ace_player setVariable [QGVAR(isloading),false,true];
 if ([_vehicle,false] call FUNC(candrop)) then {
     [(_last_cargo select 0),_vehicle] spawn {
         SCRIPTIN(unload,paradrop);

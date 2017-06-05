@@ -15,11 +15,11 @@
 #include "script_component.hpp"
 _this params ["_target","_caller","_params"];
 _params params [["_object",objNull,[objNull]],"_vehicle"];
-CHECK(GETVAR(player,GVAR(isloading),false))
+If (ace_player getVariable [QGVAR(isloading),false]) exitWith {};
 TRACEV_3(_target,_vehicle,_object);
 If (!isNull _object) then {
-    SETVAR(player,GVAR(isloading),true);
-    GVAR(isloading_pos)=getPos player;
+    ace_player setVariable [QGVAR(isloading),true,true];
+    GVAR(isloading_pos)=getPos ace_player;
     private _anim = getText(missionConfigFile >> "logistics" >> "vehicles" >> (typeOf _vehicle) >> "hatch_isclosed");
     TRACEV_2(_anim,(typeOf _vehicle));
     If (!(_anim isEqualTo "")) then {
@@ -43,8 +43,8 @@ If (!isNull _object) then {
     [
         LOADTIME,
         [_vehicle,_object, getPos _vehicle, getPos _object],
-        {(_this select 0) call FUNC(load);SETVAR(player,GVAR(isloading),false);},
-        {SETVAR(player,GVAR(isloading),false);},
+        {(_this select 0) call FUNC(load);player setVariable [QGVAR(isloading),false,true];},
+        {player setVariable [QGVAR(isloading),false,true];},
         "",
         {
             if (( (getPos((_this select 0) select 0)) distance ((_this select 0) select 2)) > 0.5) exitWith {TRACE("Vehicle has been moved"); false };
