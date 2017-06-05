@@ -10,7 +10,7 @@
 class baseMission {
     condition = "";
     probability = 1;
-    armys[] = {{"regular",1}, {"armored",1}, {"infanterie",1}, {"airborne",1}, {"specops",1}, {"droneoperations",1}, {"guards",1}};
+    armys[] = {{"regular",1}, {"armored",1}, {"infanterie",1}, {"airborne",1}, {"specops",1}, {"guards",1}};
     class position {
         locationtypes[] = {QGVAR(town), QGVAR(industrie), QGVAR(military), QGVAR(other)};
         radius = 500;
@@ -43,8 +43,12 @@ class baseMission {
     };
 };
 */
+// same chance to spawn a townmission as a landmission
+#define PROPABILITY_LAND 0.5/6 // 6 missiontypes
+#define PROPABILITY_TOWN 0.5/5// 5 missiontypes
 
 class capture : baseMainmission {
+    probability = PROPABILITY_TOWN;
     armys[] = {{"regular",1}, {"armored",1}, {"infanterie",1}, {"airborne",1},{"guards",1}};
     class position : position {
         locationtypes[] = {QGVAR(town)};
@@ -67,6 +71,7 @@ class capture : baseMainmission {
 };
 
 class hostage : capture {
+    probability = PROPABILITY_TOWN;
     class objective : objective {
         objects = "hostage";
         amount[] = {2,4};
@@ -83,6 +88,7 @@ class hostage : capture {
 };
 
 class intel : capture {
+    probability = PROPABILITY_TOWN;
     class objective : objective {
         objects = "intel";
         amount[] = {2,6};
@@ -99,6 +105,7 @@ class intel : capture {
 };
 
 class upload : intel {
+    probability = PROPABILITY_TOWN;
     class objective : objective {
         objects = "upload";
         amount = 1;
@@ -113,6 +120,7 @@ class upload : intel {
 };
 
 class weaponcache : intel {
+    probability = PROPABILITY_TOWN;
     class objective : objective {
         objects = "weaponcache";
         amount[] = {5,8};
@@ -127,7 +135,8 @@ class weaponcache : intel {
 };
 
 class device : baseMainmission {
-    armys[] = {{"regular",1}, {"armored",1}, {"infanterie",1}, {"airborne",1}, {"specops",1}, {"droneoperations",1}, {"guards",1}};
+    probability = PROPABILITY_LAND;
+    armys[] = {{"regular",1}, {"armored",1}, {"infanterie",1}, {"airborne",1}, {"specops",1}, {"guards",1}};
     class position : position {
         locationtypes[] = {QGVAR(industrie), QGVAR(military), QGVAR(other)};
         radius = 800;
@@ -148,6 +157,8 @@ class device : baseMainmission {
 };
 
 class emp : device {
+    probability = PROPABILITY_LAND;
+    armys[] = {{"infanterie",1}, {"specops",1}, {"guards",1}};
     class objective : objective {
         objects = "emp";
         amount = 1;
@@ -164,6 +175,7 @@ class emp : device {
 };
 
 class dronecommando : device {
+    probability = PROPABILITY_LAND;
     armys[] = {{"droneoperations",1}};
     class objective : objective {
         objects = "dronecommando";
@@ -181,6 +193,7 @@ class dronecommando : device {
 };
 
 class prototype : device {
+    probability = PROPABILITY_LAND;
     class objective : objective {
         objects = "prototype";
         amount = 1;
@@ -197,6 +210,7 @@ class prototype : device {
 };
 
 class jammer : device {
+    probability = PROPABILITY_LAND;
     class position : position {
         radius = 1200;
     };
@@ -216,6 +230,7 @@ class jammer : device {
 };
 
 class radiotower : jammer {
+    probability = PROPABILITY_LAND;
     class objective : objective {
         objects = "radiotower";
         amount[] = {1,3};
@@ -230,7 +245,7 @@ class radiotower : jammer {
         tasktype = "destroy";
     };
 };
-
+/*
 class scarab : device {
     class objective : objective {
         objects = "scarab";
@@ -245,3 +260,4 @@ class scarab : device {
         onNeutral = "";
     };
 };
+*/

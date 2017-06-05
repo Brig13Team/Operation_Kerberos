@@ -7,7 +7,7 @@ class baseMission {
     // chance to spawn the mission
     probability = 1;
     // possible armys for this mission
-    armys[] = {{"regular",1}, {"armored",1}, {"infanterie",1}, {"airborne",1}, {"specops",1}, {"droneoperations",1}, {"guards",1}};
+    armys[] = {{"regular",1}, {"armored",1}, {"infanterie",1}, {"airborne",1}, {"specops",1}, /*{"droneoperations",1},*/ {"guards",1}};
 
     class position {
         // locationtypes for the mission to be spawned inside
