@@ -1,5 +1,6 @@
+#define CBA_OFF
+#include "script_component.hpp"
 #include "statemachine.hpp"
-
 
 class baseMission {
     // condition for the task - e.g. need specific mod
