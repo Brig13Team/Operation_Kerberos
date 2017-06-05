@@ -1,0 +1,18 @@
+// Platzieren Sie Ihre Einstellungen in dieser Datei, um Standard- und Benutzereinstellungen zu überschreiben.
+{
+    "[sqf]": {
+        "editor.quickSuggestions": true,
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true,
+        "editor.detectIndentation": true,
+        "editor.trimAutoWhitespace": true,
+        "editor.autoClosingBrackets": true
+    },
+    "editor.renderWhitespace": "all",
+    "files.insertFinalNewline": true,
+    "files.associations": {
+        "*.cpp": "sqf",
+        "*.hpp": "sqf"
+    }
+
+}

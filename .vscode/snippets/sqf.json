@@ -1,0 +1,76 @@
+{
+    "Dorbedo Header": {
+		"prefix": "header",
+		"body": [
+			"#include \"script_component.hpp\"",
+			"/**",
+			" * Author: Dorbedo",
+			" * ${1:description}",
+			" *",
+			" * Arguments:",
+			" * 0: ${2:argument name} <${3:TYPENAME}>",
+			" *",
+			" * Return Value:",
+			" * ${4:return name} <${5:TYPENAME}>",
+			" *",
+			" */",
+			"",
+			"$0"
+		],
+		"description": "Creates the Function Header"
+	},
+	"CfgFunction Entry": {
+		"prefix": "CfgFunction_Entry",
+		"body": [
+			"class $1 {",
+			"    file = QPATHOF_FUNC($1);",
+			"    RECOMPILE;",
+			"};",
+			"$0"
+		],
+		"description": "Creates the Function Header"
+	},
+	"CfgFunction Entry2": {
+		"prefix": "CfgFunction_Entry2",
+		"body": [
+			"class DOUBLES($1,$2) {",
+			"    file = QPATHOF_FUNC2($1,$2);",
+			"    RECOMPILE;",
+			"};",
+			"$0"
+		],
+		"description": "Creates the Function Header"
+	},
+	"CfgFunction EH PostInit": {
+		"prefix": "CfgFunction_Event_PostInit",
+		"body": [
+			"class DOUBLES(EH,$1) {",
+			"    file = QPATHTOF(DOUBLES(EH,$1));",
+			"    RECOMPILE;",
+			"    postInit = 1;",
+			"};",
+			"$0"
+		],
+		"description": "Creates the Function Header"
+	},
+	"CfgFunction EH PreInit": {
+		"prefix": "CfgFunction_Event_PreInit",
+		"body": [
+			"class DOUBLES(EH,$1) {",
+			"    file = QPATHTOF(DOUBLES(EH,$1));",
+			"    RECOMPILE;",
+			"    preInit = 1;",
+			"};",
+			"$0"
+		],
+		"description": "Creates the Function Header"
+	},
+	"CHECK": {
+		"prefix": "CHECK",
+		"body": [
+			"If ($1) exitWith {$2};",
+			"$0"
+		],
+		"description": "Exit if condition doesn't match"
+	}
+}
