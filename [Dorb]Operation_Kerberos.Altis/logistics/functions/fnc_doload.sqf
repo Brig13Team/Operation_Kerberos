@@ -43,8 +43,8 @@ If (!isNull _object) then {
     [
         LOADTIME,
         [_vehicle,_object, getPos _vehicle, getPos _object],
-        {(_this select 0) call FUNC(load);player setVariable [QGVAR(isloading),false,true];},
-        {player setVariable [QGVAR(isloading),false,true];},
+        {(_this select 0) call FUNC(load);ace_player setVariable [QGVAR(isloading),false,true];},
+        {ace_player setVariable [QGVAR(isloading),false,true];},
         "",
         {
             if (( (getPos((_this select 0) select 0)) distance ((_this select 0) select 2)) > 0.5) exitWith {TRACE("Vehicle has been moved"); false };

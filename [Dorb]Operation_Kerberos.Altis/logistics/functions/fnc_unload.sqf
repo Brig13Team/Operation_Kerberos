@@ -41,7 +41,7 @@ if (!((_last_cargo select 4) isEqualTo [])) then {
 private "_cargo_mass";
 if (!((_last_cargo select 0) in (attachedObjects _vehicle))) exitWith {
     _cargo_mass = getMass (_last_cargo select 0);
-    _vehicle setVariable [QGVAR(stack),_logistic_stack];
+    _vehicle setVariable [QGVAR(stack),_logistic_stack,true];
     _vehicle setMass (_vehicle_mass - _cargo_mass);
 };
 
@@ -91,7 +91,7 @@ if ([_vehicle,false] call FUNC(candrop)) then {
     };
 };
 
-_vehicle setVariable [QGVAR(stack),_logistic_stack];
+_vehicle setVariable [QGVAR(stack),_logistic_stack,true];
 _vehicle setMass (_vehicle_mass - _cargo_mass);
 
 private _aceActions = (_last_cargo select 0) getVariable [QGVAR(aceactions),[]];
@@ -102,4 +102,4 @@ If (_aceActions select 0) then {
 If (_aceActions select 1) then {
     (_last_cargo select 0) setVariable ["ACE_dragging_canCarry",true,true];
 };
-(_last_cargo select 0) setVariable [QGVAR(aceactions),[]];
+(_last_cargo select 0) setVariable [QGVAR(aceactions),[],true];
