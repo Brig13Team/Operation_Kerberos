@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=302;
+		nextID=305;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={12187.068,23.257759,22883.479};
-		dir[]={-0.57272285,-0.62255067,0.53334773};
-		up[]={-0.45566213,0.78250027,0.4243356};
-		aside[]={0.68151635,-2.4224573e-007,0.73182648};
+		pos[]={21787.434,31.530275,5917.2026};
+		dir[]={0.17652738,-0.50311935,0.84599686};
+		up[]={0.1027686,0.86421639,0.49251211};
+		aside[]={0.97891629,-7.2905095e-008,-0.20426293};
 	};
 };
 binarizationWanted=0;
@@ -272,7 +272,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=110;
+		items=113;
 		class Item0
 		{
 			dataType="Object";
@@ -3264,11 +3264,11 @@ class Mission
 		class Item60
 		{
 			dataType="Marker";
-			position[]={15657.208,13.280762,881.36206};
+			position[]={14265.446,13.105591,13396.341};
 			name="bay_south_sea";
 			type="Empty";
 			id=133;
-			atlOffset=199.25076;
+			atlOffset=24.092663;
 		};
 		class Item61
 		{
@@ -8293,6 +8293,35 @@ class Mission
 			id=301;
 			type="Logic";
 			atlOffset=4.7683716e-007;
+		};
+		class Item110
+		{
+			dataType="Marker";
+			position[]={4288.3159,0,16595.824};
+			name="bay_west";
+			type="mil_pickup";
+			colorName="ColorWEST";
+			id=302;
+			atlOffset=-2.7952015;
+		};
+		class Item111
+		{
+			dataType="Marker";
+			position[]={22639.912,0,15533.056};
+			name="bay_south";
+			type="mil_pickup";
+			colorName="ColorWEST";
+			id=303;
+			atlOffset=-2.9918652;
+		};
+		class Item112
+		{
+			dataType="Marker";
+			position[]={14071.766,4.1603456,13030.792};
+			name="Tonos_Bay_3";
+			type="mil_pickup";
+			colorName="ColorWEST";
+			id=304;
 		};
 	};
 };
