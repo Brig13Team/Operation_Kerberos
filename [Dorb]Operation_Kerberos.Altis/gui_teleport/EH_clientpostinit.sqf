@@ -49,7 +49,7 @@ _carrierPos set [2,23.8];
 
 If (((getMarkerpos "respawn_west_tonos") distance2D [0,0,0])>100) then {
     [getMarkerPos "respawn_west_tonos",localize LSTRING(BAY_TONOS),["default","infanterie"],{true},[]] call FUNC(registerTeleportTarget);
-    [getMarkerPos "respawn_west_tonos",localize LSTRING(BAY_TONOS),["infanterie"],{true},[]] call FUNC(registerTeleportPosition);
+    [getMarkerPos "respawn_west_tonos",localize LSTRING(BAY_TONOS),["default","infanterie"],{true},[]] call FUNC(registerTeleportPosition);
 };
 
 

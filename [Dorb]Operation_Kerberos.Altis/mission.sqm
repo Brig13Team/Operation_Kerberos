@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=305;
+		nextID=306;
 	};
 	class MarkerIDProvider
 	{
@@ -8307,21 +8307,22 @@ class Mission
 		class Item111
 		{
 			dataType="Marker";
-			position[]={22639.912,0,15533.056};
+			position[]={14026.149,-3.9753418,13036.712};
 			name="bay_south";
 			type="mil_pickup";
 			colorName="ColorWEST";
 			id=303;
-			atlOffset=-2.9918652;
+			atlOffset=-7.4311771;
 		};
 		class Item112
 		{
 			dataType="Marker";
-			position[]={14071.766,4.1603456,13030.792};
-			name="Tonos_Bay_3";
+			position[]={22471.607,0,15402.133};
+			name="bay_east";
 			type="mil_pickup";
 			colorName="ColorWEST";
-			id=304;
+			id=305;
+			atlOffset=-3.4277465;
 		};
 	};
 };
