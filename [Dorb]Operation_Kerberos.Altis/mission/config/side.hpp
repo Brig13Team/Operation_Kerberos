@@ -50,7 +50,7 @@ class radar : basesidemission {
         radius = 500;
     };
     class objective : objective {
-        target = "composition";
+        target = "";
         objects = "radar";
         amount = 1;
         objectsfunction = QFUNC(sidemission_radar);

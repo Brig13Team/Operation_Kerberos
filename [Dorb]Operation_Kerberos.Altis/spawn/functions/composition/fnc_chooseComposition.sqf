@@ -31,12 +31,12 @@ IF (_type isEqualTo "") then {
     private "_condition";
     If ("isobjective" in _type) then {
         _type = _type - ["isobjective"];
-        _condition = "(getNumber(_x >> 'isobjective')>0)";
+        _condition = "(getNumber(_x >> 'isobjective')==1)";
     }else{
-        _condition = format["((getNumber(_x >> '%1')==1)&&(getNumber(_x >> 'isobjective')<2))",_type deleteAt 0];
+        _condition = format["(getNumber(_x >> '%1')==1)",_type deleteAt 0];
     };
     {
-        _condition = format["%1 || ((getNumber(_x >> '%2')==1)&&(getNumber(_x >> 'isobjective')!=1))",_condition,_x];
+        _condition = format["%1 || (getNumber(_x >> '%2')==1)",_condition,_x];
     } forEach _type;
     _condition = format["(%1)",_condition];
     _allConfigs = configProperties [(missionConfigFile >> "CfgCompositions" >> "positions"),_condition,true];
