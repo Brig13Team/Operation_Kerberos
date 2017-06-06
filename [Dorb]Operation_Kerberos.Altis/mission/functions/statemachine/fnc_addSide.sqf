@@ -13,24 +13,24 @@
  */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-
+TRACEV_1(_this);
 _this params ["_mainmission"];
 
 private _mainType = _mainmission getVariable "type";
 
-private _min = getNumber(COMPONENTCONFIGFILE >> "mainmissions" >> "side" >> "min");
-private _max = getNumber(COMPONENTCONFIGFILE >> "mainmissions" >> "side" >> "max");
+private _min = getNumber(COMPONENTCONFIGFILE >> "mainmissions" >> _mainType >> "side" >> "min");
+private _max = getNumber(COMPONENTCONFIGFILE >> "mainmissions" >> _mainType >> "side" >> "max");
 private _amount = ceil (random(_max - _min)) + _min;
 
-private _sidetypes = getArray(COMPONENTCONFIGFILE >> "mainmissions" >> "side" >> "sidemissions");
-
+private _sidetypes = getArray(COMPONENTCONFIGFILE >> "mainmissions" >> _mainType >> "side" >> "sidemissions");
+TRACEV_1(_sidetypes);
 If ("%ALL" in _sidetypes) then {
     _sidetypes = configProperties [COMPONENTCONFIGFILE >> "sidemissions", "true", true];
 }else{
     _sidetypes = _sidetypes select {isClass(COMPONENTCONFIGFILE >> "sidemissions" >> _x)};
     _sidetypes = _sidetypes apply {COMPONENTCONFIGFILE >> "sidemissions" >> _x};
 };
-
+TRACEV_1(_sidetypes);
 CHECK(_sidetypes isEqualTo [])
 
 for "_i" from 1 to _amount do {
@@ -94,6 +94,9 @@ for "_i" from 1 to _amount do {
     _hash setVariable ["centerpos",_centerpos];
 
     EGVAR(spawn,cleanup_positions) pushBack _centerpos;
+
+    // mission config
+    _hash setVariable ["missioncfg",_missionCfg];
 
     // showMarker flag
     private _showMarker = getNumber(_missionCfg >> "task" >> "showMarker") > 0;

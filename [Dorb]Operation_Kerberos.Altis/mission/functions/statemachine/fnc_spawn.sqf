@@ -24,8 +24,8 @@ _mission spawn {
     // we move the spawning outside the sheduled environment, adding a delay to reduce the network peaks
     private _type = _mission getVariable "type";
     private _centerpos = _mission getVariable "centerpos";
-    private _mainOrSide = If (_mission getVariable ["isMain",true]) then {"main"}else{"side"};
-    TRACEV_3(_type,_centerpos,_mainOrSide);
+    private _isMain = _mission getVariable ["isMain",true];
+    TRACEV_3(_type,_centerpos,isMain);
     private _spawnFunction = _mission getVariable ["spawnfunction",""];
     private _missionCfg = _mission getVariable "missioncfg";
     TRACEV_2(_spawnFunction,_missionCfg);
@@ -34,8 +34,7 @@ _mission spawn {
     If (_spawnFunction isEqualTo "") then {
         _objects = [_type,_centerpos,_missionCfg] call FUNC(spawn_spawnTargets);
 
-        If (_mainOrSide == "main") then {
-            [_mission] call FUNC(statemachine_addSide);
+        If (_isMain) then {
             private _objectsfunction = getText(_missionCfg >> "objective" >> "objectsfunction");
             TRACEV_1(_objectsfunction);
             [_mission, _objects] call (missionNamespace getVariable [_objectsfunction, {}]);
@@ -72,7 +71,8 @@ _mission spawn {
         _mission setVariable ["objects",_objects];
     };
 
-    If (_mainOrSide == "main") then {
+    If (_isMain) then {
+        [_mission] call FUNC(statemachine_addSide);
         // if the spawning of units errors out, the mission will still stay playable
         [
             {
