@@ -35,7 +35,7 @@ TRACEV_1(_targets);
         TRACEV_1(_objects);
         {
             If ((!isNull _x)&&{alive _x}&&{crew _x isEqualTo []}&&{(_x distance2D (getMarkerPos GVARMAIN(rescuemarker)))<5}) then {
-                [_x] call FUNC(obj__decreaseCounter);
+                [_x] call FUNC(obj__increaseCounter);
                 deleteVehicle _x;
                 [typeOf _object] spawn FUNC(spawn_createAtRescuePoint);
             };
