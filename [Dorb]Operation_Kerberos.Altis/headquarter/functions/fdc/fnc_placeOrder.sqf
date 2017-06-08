@@ -107,6 +107,6 @@ _cancel = switch (_type) do {
 };
 
 TRACEV_5(_cancel,_attackpos,_type,_shelltype,_amount);
-if (_cancel) exitWith {false};
+if ((!IS_BOOL(_cancel))||{_cancel}) exitWith {false};
 GVAR(FDC_firemissions) pushBack [_attackpos,_type,_shelltype,_amount];
 true

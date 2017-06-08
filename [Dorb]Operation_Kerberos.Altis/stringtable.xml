@@ -344,6 +344,7 @@
             <Key ID="STR_DORB_MISSION_MAIN_EMP_DESC">
                 <German>Der Feind hat eine Waffe zur Aussendung elektromagnetische Impulse im Einsatzgebiet stationiert. Wir wissen nicht, wie diese auf Außeneinwirkung reagiert. Deshalb müssen sie die Waffe von Hand deaktivieren.</German>
                 <English>The enemy has a EMP-weapon stationed in the area. The weapons reactions to destruction and deformation are unknown. Because of that our mission is to deactivate it by hand.</English>
+            </Key>
             <Key ID="STR_DORB_MISSION_MAIN_EMP_SUCCEEDED">
                 <German>Der EMP wurde erfolgreich deaktiviert.</German>
                 <English>The EMP has been deactivated.</English>
