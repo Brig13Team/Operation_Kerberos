@@ -34,7 +34,7 @@ private _blacklist = switch (toLower worldName) do {
     private _position = getArray(_cur >> "position");
     private _type = toLower (getText(_cur >> "type"));
     switch (true) do {
-    case (_name in _blacklist) : {/*nothing*/};
+        case (_name in _blacklist) : {/*nothing*/};
         case (_type in [LOCATIONS_CITY]) : {
             private _temp = HASH_CREATE;
             HASH_SET(_temp,"classification","city");

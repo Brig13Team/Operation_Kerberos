@@ -124,6 +124,14 @@
             <German>Fahrzeugspawn</German>
             <English>Vehicle Spawn</English>
         </Key>
+        <Key ID="STR_DORB_GUI_SPAWN_HELICOPTER">
+            <German>Helicopter</German>
+            <English>Helicopter Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_SPAWN_PLANES">
+            <German>Flugzeuge</German>
+            <English>Planes Spawn</English>
+        </Key>
         <Key ID="STR_DORB_GUI_SPAWN_AIR">
             <German>Luftwaffenspawn</German>
             <English>Aircraft Spawn</English>
@@ -834,6 +842,23 @@
         <Key ID="STR_DORB_GUI_TELEPORT_BAY_TONOS">
             <German>Tonos Bucht</German>
             <English>Tonos Bay</English>
+        </Key>
+
+        <Key ID="STR_DORB_GUI_TELEPORT_NORTH">
+            <German>Eintrittspunkt Nord</German>
+            <English>Entrypoint North</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_TELEPORT_EAST">
+            <German>Eintrittspunkt Ost</German>
+            <English>Entrypoint East</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_TELEPORT_WEST">
+            <German>Eintrittspunkt West</German>
+            <English>Entrypoint West</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_TELEPORT_SOUTH">
+            <German>Eintrittspunkt Süd</German>
+            <English>Entrypoint South</English>
         </Key>
 
 

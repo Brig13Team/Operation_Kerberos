@@ -101,6 +101,14 @@ switch (_preset) do {
         // remove doubled
         _return arrayIntersect _return;
     };
+    case "planes" : {
+        _return = configProperties [configfile>>"CfgVehicles",format ["((isClass _x)&&{getNumber(_x>>'side')==%1}&&{getNumber(_x>>'scope')>1}&&{((configName _x) isKindOf 'plane')}&&{!(getText(_x>>'vehicleClass')=='Autonomous')})",_sideNumber], true];
+        _return = _return apply {configName _x};
+    };
+    case "helicopter" : {
+        _return = configProperties [configfile>>"CfgVehicles",format ["((isClass _x)&&{getNumber(_x>>'side')==%1}&&{getNumber(_x>>'scope')>1}&&{((configName _x) isKindOf 'helicopter')}&&{!(getText(_x>>'vehicleClass')=='Autonomous')})",_sideNumber], true];
+        _return = _return apply {configName _x};
+    };
 
     default {
         _return = configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'scope')>1}&&{((configName _x) isKindOf 'Tank_F')||((configName _x) isKindOf 'Air')||((configName _x) isKindOf 'Car')||((configName _x) isKindOf 'StaticWeapon')})", true];

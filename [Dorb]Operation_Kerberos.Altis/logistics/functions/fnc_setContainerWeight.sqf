@@ -11,10 +11,12 @@
 
 _this params[["_container",objNull,[objNull]]];
 
-If !(isNil "ace_dragging_fnc_getweight") then {
+If !(isNil "ace_dragging_fnc_getweight") exitWith {
     private _mass = [_container] call ace_dragging_fnc_getweight;
     _container setMass _mass;
-    _container setVariable [QGVAR(emptyMass),_cweight,true];
+    If (isNil(_container getVariable QGVAR(emptyMass))) then {
+        _container setVariable [QGVAR(emptyMass),getMass _container,true];
+    };
 };
 
 if (not (_container isKindOf "ReammoBox_f")) exitWith {};
