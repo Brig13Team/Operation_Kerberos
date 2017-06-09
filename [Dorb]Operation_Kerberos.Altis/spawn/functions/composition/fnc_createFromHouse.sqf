@@ -20,7 +20,7 @@ CHECK(isNull _house)
 CHECK(!(_house isKindOf "house"))
 
 private _housetype = typeOf _house;
-private _nearObjects = nearestObjects [_house,["Static","Thing","AllVehicles"],_radius];
+private _nearObjects = nearestObjects [_house,["Static","Thing","AllVehicles"],_radius,true];
 private _houseDir = getDir _house;
 private _housePos = getPosWorld _house;
 
