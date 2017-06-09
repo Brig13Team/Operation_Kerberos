@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={21787.434,31.530275,5917.2026};
-		dir[]={0.17652738,-0.50311935,0.84599686};
-		up[]={0.1027686,0.86421639,0.49251211};
-		aside[]={0.97891629,-7.2905095e-008,-0.20426293};
+		pos[]={12077.218,159.82967,21009.992};
+		dir[]={0,-0.70710683,0.70710683};
+		up[]={0,0.70710677,0.70710677};
+		aside[]={0.99999994,0,-0};
 	};
 };
 binarizationWanted=0;
@@ -7331,7 +7331,6 @@ class Mission
 			class Attributes
 			{
 				init="call{this setVariable [""Dorb_canDelete"",false];}";
-				presence=0.74144375;
 				disableSimulation=1;
 				aiRadarUsage=-5072640;
 			};
@@ -7351,7 +7350,6 @@ class Mission
 			class Attributes
 			{
 				init="call{this setVariable [""Dorb_canDelete"",false];}";
-				presence=0.74144375;
 				createAsSimpleObject=1;
 				disableSimulation=1;
 				aiRadarUsage=-1054867456;
@@ -7373,7 +7371,6 @@ class Mission
 			class Attributes
 			{
 				init="call{this setVariable [""Dorb_canDelete"",false];}";
-				presence=0.74144375;
 				createAsSimpleObject=1;
 				disableSimulation=1;
 				aiRadarUsage=-1054867456;
@@ -7395,7 +7392,6 @@ class Mission
 			class Attributes
 			{
 				init="call{this setVariable [""Dorb_canDelete"",false];}";
-				presence=0.74144375;
 				createAsSimpleObject=1;
 				disableSimulation=1;
 				aiRadarUsage=-5072640;
@@ -7417,7 +7413,6 @@ class Mission
 			class Attributes
 			{
 				init="call{this setVariable [""Dorb_canDelete"",false];}";
-				presence=0.74144375;
 				createAsSimpleObject=1;
 				disableSimulation=1;
 				aiRadarUsage=-5072640;
@@ -7439,7 +7434,6 @@ class Mission
 			class Attributes
 			{
 				init="call{this setVariable [""Dorb_canDelete"",false];}";
-				presence=0.74144375;
 				createAsSimpleObject=1;
 				disableSimulation=1;
 				aiRadarUsage=-5072640;
@@ -7461,7 +7455,6 @@ class Mission
 			class Attributes
 			{
 				init="call{this setVariable [""Dorb_canDelete"",false];}";
-				presence=0.74144375;
 				createAsSimpleObject=1;
 				disableSimulation=1;
 				aiRadarUsage=-5072640;
@@ -7483,7 +7476,6 @@ class Mission
 			class Attributes
 			{
 				init="call{this setVariable [""Dorb_canDelete"",false];}";
-				presence=0.74144375;
 				createAsSimpleObject=1;
 				disableSimulation=1;
 				aiRadarUsage=-1054867456;
@@ -7504,7 +7496,6 @@ class Mission
 			class Attributes
 			{
 				init="call{this setVariable [""Dorb_canDelete"",false];}";
-				presence=0.74144375;
 				createAsSimpleObject=1;
 				disableSimulation=1;
 				aiRadarUsage=-1054867456;
@@ -7525,7 +7516,6 @@ class Mission
 			class Attributes
 			{
 				init="call{this setVariable [""Dorb_canDelete"",false];}";
-				presence=0.74144375;
 				createAsSimpleObject=1;
 				disableSimulation=1;
 				aiRadarUsage=-1054867456;
@@ -7547,7 +7537,6 @@ class Mission
 			class Attributes
 			{
 				init="call{this setVariable [""Dorb_canDelete"",false];}";
-				presence=0.74144375;
 				disableSimulation=1;
 				aiRadarUsage=-1054867456;
 			};
@@ -7567,7 +7556,6 @@ class Mission
 			class Attributes
 			{
 				init="call{this setVariable [""Dorb_canDelete"",false];}";
-				presence=0.74144375;
 				disableSimulation=1;
 				aiRadarUsage=-1054867456;
 			};
@@ -7587,7 +7575,6 @@ class Mission
 			class Attributes
 			{
 				init="call{this setVariable [""Dorb_canDelete"",false];}";
-				presence=0.74144375;
 				createAsSimpleObject=1;
 				disableSimulation=1;
 				aiRadarUsage=1057582103;
@@ -7609,7 +7596,6 @@ class Mission
 			class Attributes
 			{
 				init="call{this setVariable [""Dorb_canDelete"",false];}";
-				presence=0.74144375;
 				createAsSimpleObject=1;
 				disableSimulation=1;
 				aiRadarUsage=-1054867456;
@@ -7631,7 +7617,6 @@ class Mission
 			class Attributes
 			{
 				init="call{this setVariable [""Dorb_canDelete"",false];}";
-				presence=0.74144375;
 				createAsSimpleObject=1;
 				disableSimulation=1;
 				aiRadarUsage=1057582103;
@@ -7653,7 +7638,6 @@ class Mission
 			class Attributes
 			{
 				init="call{this setVariable [""Dorb_canDelete"",false];}";
-				presence=0.74144375;
 				createAsSimpleObject=1;
 				disableSimulation=1;
 				aiRadarUsage=-1054867456;
@@ -7675,7 +7659,6 @@ class Mission
 			class Attributes
 			{
 				init="call{this setVariable [""Dorb_canDelete"",false];}";
-				presence=0.74144375;
 			};
 			id=290;
 			type="Land_JumpTarget_F";
@@ -7694,7 +7677,6 @@ class Mission
 			class Attributes
 			{
 				init="call{this setVariable [""Dorb_canDelete"",false];}";
-				presence=0.74144375;
 				disableSimulation=1;
 				aiRadarUsage=-1054867456;
 			};
@@ -7794,7 +7776,6 @@ class Mission
 			class Attributes
 			{
 				init="call{this setVariable [""Dorb_canDelete"",false];}";
-				presence=0.74144375;
 				disableSimulation=1;
 				aiRadarUsage=1818386755;
 			};
@@ -7876,7 +7857,6 @@ class Mission
 			class Attributes
 			{
 				init="call{this setVariable [""Dorb_canDelete"",false];}";
-				presence=0.74144375;
 				disableSimulation=1;
 			};
 			id=293;
@@ -7957,7 +7937,6 @@ class Mission
 			class Attributes
 			{
 				init="call{this setVariable [""Dorb_canDelete"",false];}";
-				presence=0.74144375;
 				disableSimulation=1;
 				aiRadarUsage=-1054867456;
 			};
@@ -8019,7 +7998,6 @@ class Mission
 			class Attributes
 			{
 				init="call{this setVariable [""Dorb_canDelete"",false];}";
-				presence=0.74144375;
 				aiRadarUsage=1057582104;
 			};
 			id=295;
@@ -8039,7 +8017,6 @@ class Mission
 			class Attributes
 			{
 				init="call{this setVariable [""Dorb_canDelete"",false];this setVariable [""ace_dragging_canDrag"",false];this setVariable [""ace_dragging_canCarry"",false];}";
-				presence=0.74144375;
 				aiRadarUsage=-1046592512;
 			};
 			id=296;
@@ -8100,7 +8077,6 @@ class Mission
 			class Attributes
 			{
 				init="call{this setVariable [""Dorb_canDelete"",false];this setVariable [""ace_dragging_canDrag"",false];this setVariable [""ace_dragging_canCarry"",false];}";
-				presence=0.74144375;
 				aiRadarUsage=-1046592512;
 			};
 			id=297;
@@ -8161,7 +8137,6 @@ class Mission
 			class Attributes
 			{
 				init="call{this setVariable [""Dorb_canDelete"",false];this setVariable [""ace_dragging_canDrag"",false];this setVariable [""ace_dragging_canCarry"",false];}";
-				presence=0.74144375;
 				aiRadarUsage=-1046592512;
 			};
 			id=298;
@@ -8222,7 +8197,6 @@ class Mission
 			class Attributes
 			{
 				init="call{this setVariable [""Dorb_canDelete"",false];this setVariable [""ace_dragging_canDrag"",false];this setVariable [""ace_dragging_canCarry"",false];}";
-				presence=0.74144375;
 				aiRadarUsage=-1046592512;
 			};
 			id=299;
