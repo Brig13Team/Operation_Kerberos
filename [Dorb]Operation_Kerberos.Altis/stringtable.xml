@@ -282,11 +282,11 @@
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_HOSTAGE_NEUTRAL">
                 <German>Es konnten nur einige Geiseln befreit werden</German>
-                <English>Only some hostages have been captured.</English>
+                <English>Only some hostages have been rescued.</English>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_HOSTAGE_FAILED">
                 <German>Zu viele Gefangene sind gestorben</German>
-                <English>It was not possible to return the prisoners alive</English>
+                <English>It was not possible to return the hostages alive</English>
             </Key>
 
             <Key ID="STR_DORB_MISSION_MAIN_INTEL_TITLE">
@@ -295,11 +295,11 @@
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_INTEL_DESC">
                 <German>Im Missionsgebiet befinden sich Informationen, die uns entscheidene Vorteile im Verlauf des Konfliktes verschaffen können. Stellen Sie diese Informationen sicher.</German>
-                <English>Our intel tells, that the enemy has some important informations in this Area. Take them and return them into our Base.</English>
+                <English>Our intel tells, that the enemy has some important informations in this Area. Secure it and bring it back to base.</English>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_INTEL_SUCCEEDED">
                 <German>Alle Informationen wurden sichergestellt</German>
-                <English>The intel has been secured.</English>
+                <English>The informations have been secured.</English>
             </Key>
 
             <Key ID="STR_DORB_MISSION_MAIN_UPLOAD_TITLE">
@@ -330,7 +330,7 @@
 
             <Key ID="STR_DORB_MISSION_MAIN_DEVICE_TITLE">
                 <German>Erdbebengerät deaktivieren</German>
-                <English>Deaktivate Tectonic Device</English>
+                <English>Deactivate Tectonic Device</English>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_DEVICE_DESC">
                 <German>Der Feind setzt ein neuartiges Gerät zur tektonischen Kriegsführung ein. Finden und deaktivieren Sie es. Achten Sie darauf das Gerät nicht grob zu beschädigen damit wir es später untersuchen können.</German>
@@ -347,7 +347,7 @@
 
             <Key ID="STR_DORB_MISSION_MAIN_EMP_TITLE">
                 <German>EMP-Waffe deaktivieren</German>
-                <English>Deaktivate EMP</English>
+                <English>Deactivate EMP</English>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_EMP_DESC">
                 <German>Der Feind hat eine Waffe zur Aussendung elektromagnetische Impulse im Einsatzgebiet stationiert. Wir wissen nicht, wie diese auf Außeneinwirkung reagiert. Deshalb müssen sie die Waffe von Hand deaktivieren.</German>
@@ -398,7 +398,7 @@
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_JAMMER_DESC">
                 <German>Der Feind hat Jammer platziert, um unseren Funk zu stören. Finden und zerstören Sie diese.</German>
-                <English>The enemy placed a jammers to disturb our radio. Find and destroy them.</English>
+                <English>The enemy placed jammers to disturb our radio. Find and destroy them.</English>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_JAMMER_SUCCEEDED">
                 <German>Der Jammer wurde erfolgreich neutralisiert.</German>
@@ -508,7 +508,7 @@
             </Key>
             <Key ID="STR_DORB_MISSION_SIDE_WRECK_FAILED">
                 <German>Es konnten keine Informationen geborgen werden.</German>
-                <English>No intel could be found.</English>
+                <English>No intel could be recovered.</English>
             </Key>
 
 
