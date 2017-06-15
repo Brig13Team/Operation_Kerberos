@@ -54,6 +54,7 @@ joinUnassigned = 1;
 skipLobby = 0;
 allowFunctionsLog = 0;
 enableDebugConsole = 1;
+enableTargetDebug = 1;
 
 corpseManagerMode = 0;
 wreckManagerMode = 0;
