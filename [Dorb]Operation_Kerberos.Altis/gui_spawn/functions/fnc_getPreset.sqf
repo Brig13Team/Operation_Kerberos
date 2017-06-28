@@ -69,6 +69,7 @@ switch (_preset) do {
         _return = (configProperties [configfile>>"CfgVehicles",format ["((isClass _x)&&{getNumber(_x>>'side')==%1}&&{getNumber(_x>>'scope')>1}&&{((configName _x) isKindOf 'Air')}&&{!(getText(_x>>'vehicleClass')=='Autonomous')})",_sideNumber], true])
         + (configProperties [configfile>>"CfgVehicles",format ["((isClass _x)&&{getNumber(_x>>'side')==%1}&&{getNumber(_x>>'scope')>1}&&{getText(_x>>'vehicleClass')=='Autonomous'})",_sideNumber], true]);
         _return = _return apply {configName _x};
+        _return = _return select {!(_x in ["B_SAM_System_01_F","B_SAM_System_02_F","B_AAA_System_01_F"])};
         _return arrayIntersect _return;
     };
     case "carrier_vehicles" : {
