@@ -81,6 +81,8 @@ switch (_preset) do {
         _return pushBack "B_Quadbike_01_F";
         _return pushBack "B_APC_Tracked_01_CRV_F";
         // remove doubled
+        private _ace = ["ACE_medicalSupplyCrate","ACE_medicalSupplyCrate_advanced","ACE_Box_Misc","ACE_Box_Ammo","ACE_Track","ACE_Wheel","ACE_Box_82mm_Mo_Combo","ACE_Box_82mm_Mo_HE","ACE_Box_82mm_Mo_Illum","ACE_Box_82mm_Mo_Smoke"] select {isClass(configFile >> "CfgVehicles" >> _x)};
+        _return append _ace;
         _return arrayIntersect _return;
     };
     case "carrier_landingbay_vehicles" : {
