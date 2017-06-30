@@ -166,10 +166,10 @@ If ((_unittype isKindOf "LandVehicle")||{_unittype isKindOf "Ship_F"}) exitWith 
                 {isClass(configFile >> "CfgVehicles" >> _unittype >> "ACE_Actions" >> "ACE_MainActions" >> "ACE_Rearm_TakeAmmo")}
             )||
             {
-                (!isNull _object)&&(
+                (!isNull _object)&&{
                     ([_object] call ace_medical_fnc_isMedic)||
                     {[_object] call ACE_rearm_fnc_canTakeAmmo}
-                )
+                }
             }
         ) then {
             (getArray(missionConfigFile>>"costs">>"vehicle_special")) call _fnc_valueAdd;
