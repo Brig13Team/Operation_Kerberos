@@ -1,0 +1,12 @@
+name = "Operation Kerberos - Servermod";
+picture = "";
+actionName = "GitHub";
+action = "https://github.com/Brig13Team/Operation_Kerberos";
+description = "Kerberos Server - Version 1.0.0";
+logo = "";
+logoOver = "";
+tooltip = "Kerberos Server";
+tooltipOwned = "Brig13 Owned";
+overview = "The Server side mod of Operation Kerberos";
+author = "Brigade 13 Team";
+overviewPicture = "";
