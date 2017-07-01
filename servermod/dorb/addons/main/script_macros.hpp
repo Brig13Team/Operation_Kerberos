@@ -1,4 +1,7 @@
 #include "\x\cba\addons\main\script_macros_common.hpp"
+#undef PREP
+#undef PREPMAIN
+#undef SCRIPT
 /* -------------------------------------------
 Macros:
     CfgFunction Macros
@@ -84,12 +87,10 @@ Author:
     Dorbedo
 ------------------------------------------- */
 #ifdef PART
-    #undef SCRIPT
     #define SCRIPT(NAME) \
     private _fnc_scriptName = QUOTE(DOUBLES(ADDON,TRIPLES(fnc,PART,NAME))); \
     scriptName _fnc_scriptName
 #else
-    #undef SCRIPT
     #define SCRIPT(NAME) \
     private _fnc_scriptName = QUOTE(TRIPLES(ADDON,fnc,NAME)); \
     scriptName _fnc_scriptName
@@ -124,12 +125,15 @@ Author:
     #define INCLUDE_HEADER 1
 #endif
 #ifdef DEBUG_MODE_NORMAL
+    #undef INCLUDE_HEADER
     #define INCLUDE_HEADER 2
 #endif
 #ifdef DEBUG_MODE_FULL
+    #undef INCLUDE_HEADER
     #define INCLUDE_HEADER 3
 #endif
 #ifdef DEBUG_MODE_OFF
+    #undef INCLUDE_HEADER
     #define INCLUDE_HEADER 0
 #endif
 #define PATHTO_SYS_LONG(var1,var2,var3,var4) ##var1\##var2\##var3\##var4.sqf
@@ -152,9 +156,6 @@ Example:
 Author:
     Dorbedo
 ------------------------------------------- */
-#ifdef PREP
-    #undef PREP
-#endif
 #define PREP(var1) ['\MAINPREFIX\PREFIX\addons\COMPONENT\functions\TRIPLES(fnc,var1,.sqf))', 'TRIPLES(ADDON,fnc,var1)',INCLUDE_HEADER] COMPILE_SYS
 /* -------------------------------------------
 Macro: PREPS(VAR1,VAR2)
@@ -176,9 +177,6 @@ Example:
 Author:
     Dorbedo
 ------------------------------------------- */
-#ifdef PREPS
-    #undef PREPS
-#endif
 #define PREPS(var1,var2) ['\MAINPREFIX\PREFIX\addons\COMPONENT\functions\var1\TRIPLES(fnc,var2,.sqf))', 'TRIPLES(ADDON,fnc,DOUBLES(var1,var2))',INCLUDE_HEADER] COMPILE_SYS
 /* -------------------------------------------
 Macro: PREPMAIN(VAR)
@@ -199,9 +197,6 @@ Example:
 Author:
     Dorbedo
 ------------------------------------------- */
-#ifdef PREPMAIN
-    #undef PREPMAIN
-#endif
 #define PREPMAIN(var1) ['\MAINPREFIX\PREFIX\addons\COMPONENT\functions\TRIPLES(fnc,var1,.sqf))', 'TRIPLES(PREFIX,fnc,var1)',INCLUDE_HEADER] COMPILE_SYS
 
 
@@ -286,54 +281,6 @@ Author:
 ------------------------------------------- */
 #define isHeadless (!IsDedicated && !hasInterface)
 
-/* -------------------------------------------
-Macro:
-    Some config helper
-
-Parameters:
-    none
-
-Example:
-    none
-
-Author:
-    Dorbedo
-------------------------------------------- */
-#define SOLDIER_SYS(VAR1,VAR2,VAR3,VAR4) class VAR1 { \
-                            vehicle = QUOTE(VAR2); \
-                            rank = QUOTE(VAR3); \
-                            position[] = VAR4; \
-                        };
-#define SOLDIERR_1(TYPE,RANK) SOLDIER_SYS(soldier_1,TYPE,RANK,{ARR_3(0,0,0)})
-#define SOLDIER_1(TYPE) SOLDIERR_1(TYPE,PRIVATE)
-#define SOLDIERR_2(TYPE,RANK) SOLDIER_SYS(soldier_2,TYPE,RANK,{ARR_3(-1,-1,0)})
-#define SOLDIER_2(TYPE) SOLDIERR_2(TYPE,PRIVATE)
-#define SOLDIERR_3(TYPE,RANK) SOLDIER_SYS(soldier_3,TYPE,RANK,{ARR_3(1,-1,0)})
-#define SOLDIER_3(TYPE) SOLDIERR_3(TYPE,PRIVATE)
-#define SOLDIERR_4(TYPE,RANK) SOLDIER_SYS(soldier_4,TYPE,RANK,{ARR_3(-2,-2,0)})
-#define SOLDIER_4(TYPE) SOLDIERR_4(TYPE,PRIVATE)
-#define SOLDIERR_5(TYPE,RANK) SOLDIER_SYS(soldier_5,TYPE,RANK,{ARR_3(2,-2,0)})
-#define SOLDIER_5(TYPE) SOLDIERR_5(TYPE,PRIVATE)
-#define SOLDIERR_6(TYPE,RANK) SOLDIER_SYS(soldier_6,TYPE,RANK,{ARR_3(-3,-3,0)})
-#define SOLDIER_6(TYPE) SOLDIERR_6(TYPE,PRIVATE)
-#define SOLDIERR_7(TYPE,RANK) SOLDIER_SYS(soldier_7,TYPE,RANK,{ARR_3(3,-3,0)})
-#define SOLDIER_7(TYPE) SOLDIERR_7(TYPE,PRIVATE)
-#define SOLDIERR_8(TYPE,RANK) SOLDIER_SYS(soldier_8,TYPE,RANK,{ARR_3(-4,-4,0)})
-#define SOLDIER_8(TYPE) SOLDIERR_8(TYPE,PRIVATE)
-#define SOLDIERR_9(TYPE,RANK) SOLDIER_SYS(soldier_9,TYPE,RANK,{ARR_3(4,-4,0)})
-#define SOLDIER_9(TYPE) SOLDIERR_9(TYPE,PRIVATE)
-#define SOLDIERR_10(TYPE,RANK) SOLDIER_SYS(soldier_10,TYPE,RANK,{ARR_3(-5,-5,0)})
-#define SOLDIER_10(TYPE) SOLDIERR_10(TYPE,PRIVATE)
-#define SOLDIERR_11(TYPE,RANK) SOLDIER_SYS(soldier_11,TYPE,RANK,{ARR_3(5,-5,0)})
-#define SOLDIER_11(TYPE) SOLDIERR_11(TYPE,PRIVATE)
-#define SOLDIERR_12(TYPE,RANK) SOLDIER_SYS(soldier_12,TYPE,RANK,{ARR_3(-6,-6,0)})
-#define SOLDIER_12(TYPE) SOLDIERR_12(TYPE,PRIVATE)
-#define SOLDIERR_13(TYPE,RANK) SOLDIER_SYS(soldier_13,TYPE,RANK,{ARR_3(6,-6,0)})
-#define SOLDIER_13(TYPE) SOLDIERR_13(TYPE,PRIVATE)
-#define SOLDIERR_14(TYPE,RANK) SOLDIER_SYS(soldier_14,TYPE,RANK,{ARR_3(-7,-7,0)})
-#define SOLDIER_14(TYPE) SOLDIERR_14(TYPE,PRIVATE)
-#define SOLDIERR_15(TYPE,RANK) SOLDIER_SYS(soldier_15,TYPE,RANK,{ARR_3(7,-7,0)})
-#define SOLDIER_15(TYPE) SOLDIERR_15(TYPE,PRIVATE)
 
 /* -------------------------------------------
 Macro: HASH-System

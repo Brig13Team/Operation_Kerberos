@@ -1,5 +1,3 @@
-
-#include "script_component.hpp"
 #include "statemachine.hpp"
 
 class baseMission {

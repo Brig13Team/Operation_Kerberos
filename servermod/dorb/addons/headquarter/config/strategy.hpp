@@ -2,8 +2,6 @@
     Author: Dorbedo
     v1.0
 */
-
-#include "script_component.hpp"
 class strategy {
 
     class groundattack {

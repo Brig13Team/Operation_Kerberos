@@ -6,9 +6,6 @@
  *
  */
 
-#include "script_component.hpp"
-
-
 class GVAR(statemachine_Taskmanager) {
 
     list = QUOTE(call FUNC(statemachine_getMissions));

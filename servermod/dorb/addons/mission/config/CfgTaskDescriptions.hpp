@@ -1,4 +1,3 @@
-#include "script_component.hpp"
 
 #define TASK_DESC(VAR) class VAR { \
     description = CSTRING(DOUBLES(VAR,DESC)); \

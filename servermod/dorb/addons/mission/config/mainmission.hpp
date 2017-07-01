@@ -1,6 +1,3 @@
-
-#include "script_component.hpp"
-
 class main {
     /*
      *  abstact missions

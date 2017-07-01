@@ -4,8 +4,6 @@
 
 */
 
-#include "script_component.hpp"
-
 class CfgDebriefing {
     class Win {
         title = "Mission Abgeschlossen";

@@ -5,8 +5,42 @@
  *      Unitslists
  *
  */
+#define SOLDIER_SYS(VAR1,VAR2,VAR3,POS_X,POS_Y,POS_Z) class VAR1 { \
+                            vehicle = QUOTE(VAR2); \
+                            rank = QUOTE(VAR3); \
+                            position[] = {POS_X,POS_Y,POS_Z}; \
+                        }
+#define SOLDIERR_1(TYPE,RANK) SOLDIER_SYS(soldier_1,TYPE,RANK,0,0,0)
+#define SOLDIER_1(TYPE) SOLDIERR_1(TYPE,PRIVATE)
+#define SOLDIERR_2(TYPE,RANK) SOLDIER_SYS(soldier_2,TYPE,RANK,-1,-1,0)
+#define SOLDIER_2(TYPE) SOLDIERR_2(TYPE,PRIVATE)
+#define SOLDIERR_3(TYPE,RANK) SOLDIER_SYS(soldier_3,TYPE,RANK,1,-1,0)
+#define SOLDIER_3(TYPE) SOLDIERR_3(TYPE,PRIVATE)
+#define SOLDIERR_4(TYPE,RANK) SOLDIER_SYS(soldier_4,TYPE,RANK,-2,-2,0)
+#define SOLDIER_4(TYPE) SOLDIERR_4(TYPE,PRIVATE)
+#define SOLDIERR_5(TYPE,RANK) SOLDIER_SYS(soldier_5,TYPE,RANK,2,-2,0)
+#define SOLDIER_5(TYPE) SOLDIERR_5(TYPE,PRIVATE)
+#define SOLDIERR_6(TYPE,RANK) SOLDIER_SYS(soldier_6,TYPE,RANK,-3,-3,0)
+#define SOLDIER_6(TYPE) SOLDIERR_6(TYPE,PRIVATE)
+#define SOLDIERR_7(TYPE,RANK) SOLDIER_SYS(soldier_7,TYPE,RANK,3,-3,0)
+#define SOLDIER_7(TYPE) SOLDIERR_7(TYPE,PRIVATE)
+#define SOLDIERR_8(TYPE,RANK) SOLDIER_SYS(soldier_8,TYPE,RANK,-4,-4,0)
+#define SOLDIER_8(TYPE) SOLDIERR_8(TYPE,PRIVATE)
+#define SOLDIERR_9(TYPE,RANK) SOLDIER_SYS(soldier_9,TYPE,RANK,4,-4,0)
+#define SOLDIER_9(TYPE) SOLDIERR_9(TYPE,PRIVATE)
+#define SOLDIERR_10(TYPE,RANK) SOLDIER_SYS(soldier_10,TYPE,RANK,-5,-5,0)
+#define SOLDIER_10(TYPE) SOLDIERR_10(TYPE,PRIVATE)
+#define SOLDIERR_11(TYPE,RANK) SOLDIER_SYS(soldier_11,TYPE,RANK,5,-5,0)
+#define SOLDIER_11(TYPE) SOLDIERR_11(TYPE,PRIVATE)
+#define SOLDIERR_12(TYPE,RANK) SOLDIER_SYS(soldier_12,TYPE,RANK,-6,-6,0)
+#define SOLDIER_12(TYPE) SOLDIERR_12(TYPE,PRIVATE)
+#define SOLDIERR_13(TYPE,RANK) SOLDIER_SYS(soldier_13,TYPE,RANK,6,-6,0)
+#define SOLDIER_13(TYPE) SOLDIERR_13(TYPE,PRIVATE)
+#define SOLDIERR_14(TYPE,RANK) SOLDIER_SYS(soldier_14,TYPE,RANK,-7,-7,0)
+#define SOLDIER_14(TYPE) SOLDIERR_14(TYPE,PRIVATE)
+#define SOLDIERR_15(TYPE,RANK) SOLDIER_SYS(soldier_15,TYPE,RANK,7,-7,0)
+#define SOLDIER_15(TYPE) SOLDIERR_15(TYPE,PRIVATE)
 
-#include "script_component.hpp"
 class GVAR(unitlists) {
     class base {
         class mission {
@@ -937,7 +971,7 @@ class GVAR(unitlists) {
         trucks[] = {"rhsusf_M1078A1P2_B_d_fmtv_usarmy","rhsusf_M1078A1P2_B_d_open_fmtv_usarmy","rhsusf_M1078A1P2_B_d_flatbed_fmtv_usarmy","rhsusf_M1078A1P2_d_fmtv_usarmy","rhsusf_M1078A1P2_d_open_fmtv_usarmy","rhsusf_M1078A1P2_d_flatbed_fmtv_usarmy","rhsusf_M1083A1P2_B_d_fmtv_usarmy","rhsusf_M1083A1P2_B_d_open_fmtv_usarmy","rhsusf_M1083A1P2_B_d_flatbed_fmtv_usarmy","rhsusf_M1083A1P2_d_fmtv_usarmy","rhsusf_M1083A1P2_d_open_fmtv_usarmy",
                     "rhsusf_M1083A1P2_d_flatbed_fmtv_usarmy","rhsusf_M1078A1P2_B_M2_d_fmtv_usarmy","rhsusf_M1078A1P2_B_M2_d_open_fmtv_usarmy","rhsusf_M1078A1P2_B_M2_d_flatbed_fmtv_usarmy","rhsusf_M1083A1P2_B_M2_d_fmtv_usarmy","rhsusf_M1083A1P2_B_M2_d_open_fmtv_usarmy","rhsusf_M1083A1P2_B_M2_d_flatbed_fmtv_usarmy"};
         ifv[] = {"rhsusf_m113d_usarmy","rhsusf_m113d_usarmy_supply","rhsusf_m113d_usarmy_unarmed","rhsusf_m113d_usarmy_medical","rhsusf_m113d_usarmy_M240","rhsusf_m113d_usarmy_MK19","RHS_M2A2","RHS_M2A2_BUSKI","RHS_M2A3","RHS_M2A3_BUSKI","RHS_M2A3_BUSKIII","RHS_M6"};
-        cars[] = {"rhsusf_m998_d_2dr","rhsusf_m998_d_2dr_halftop","rhsusf_m998_d_2dr_fulltop","rhsusf_m998_d_4dr","rhsusf_m998_d_4dr_halftop","rhsusf_m998_d_4dr_fulltop","rhsusf_m1025_d","rhsusf_m1025_d_m2","rhsusf_m1025_d_Mk19",};
+        cars[] = {"rhsusf_m998_d_2dr","rhsusf_m998_d_2dr_halftop","rhsusf_m998_d_2dr_fulltop","rhsusf_m998_d_4dr","rhsusf_m998_d_4dr_halftop","rhsusf_m998_d_4dr_fulltop","rhsusf_m1025_d","rhsusf_m1025_d_m2","rhsusf_m1025_d_Mk19"};
         tanks[] = {"rhsusf_m1a1aimd_usarmy","rhsusf_m1a1aim_tuski_d","rhsusf_m1a2sep1d_usarmy","rhsusf_m1a2sep1tuskid_usarmy","rhsusf_m1a2sep1tuskiid_usarmy"};
         divers[] = {"B_diver_f","B_diver_exp_f","B_diver_TL_f"};
         boats[] = {"rhsusf_mkvsoc"};

@@ -1,4 +1,3 @@
-#include "script_component.hpp"
 class GVAR(gear) {
     class basesoldier {
         uniform = "";

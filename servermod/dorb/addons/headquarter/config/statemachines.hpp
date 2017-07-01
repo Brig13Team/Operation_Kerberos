@@ -6,9 +6,6 @@
  *
  */
 
-#include "script_component.hpp"
-
-
 class GVAR(statemachine_AIGroups) {
     // Class properties have the same name as the corresponding function parameters
     // and code goes into strings.

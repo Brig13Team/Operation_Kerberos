@@ -1,5 +1,4 @@
 
-#include "script_component.hpp"
 class CfgTaskEnhancements {
     enable       = 1;            //0: disable new task features (default), 1: enable new task features & add new task markers and task widgets into the map
     3d           = 0;            //0: do not use new 3D markers (default), 1: replace task waypoints with new 3D markers
