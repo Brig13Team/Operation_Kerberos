@@ -31,4 +31,4 @@ If (_size == 1) exitWith {_return};
     nil;
 } count _array;
 
-_return apply {_x/_count};
+_return apply {_x/_size};
