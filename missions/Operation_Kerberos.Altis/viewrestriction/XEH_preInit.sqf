@@ -10,7 +10,7 @@ RECOMPILE_END;
 
 ADDON = true;
 
-ISNIL(active,true);
+ISNIL(active,false);
 ISNIL(forcealwaysFirst,false);
 ISNIL(forcefoot,true);
 ISNIL(forcevehicle,true);
