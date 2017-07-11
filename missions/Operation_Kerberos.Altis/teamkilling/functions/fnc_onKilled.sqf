@@ -41,6 +41,6 @@ private _killerIsPlayer = (!isNull _killer) && {_unit != _killer} && {[_killer] 
 if (!(_unitIsPlayer || _killerIsPlayer)) exitWith {};
 
 [
-    QGVAR(teamkill),
-    [_unit,_killer]
+    QGVAR(teamfire),
+    [_unit,_killer,1]
 ] call CBA_fnc_serverEvent;
