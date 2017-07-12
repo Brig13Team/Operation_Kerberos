@@ -1,31 +1,31 @@
-#include "uksf_ai.hpp"
+#include "dorb_hq.hpp"
 
 void __cdecl intercept::pre_start() {
     LOG(DEBUG) << "MAIN PRESTART";
-    uksf_ai::getInstance()->preStart();
+    dorb_hq::getInstance()->preStart();
 }
 
 void __cdecl intercept::pre_init() {
     LOG(DEBUG) << "MAIN PREINIT";
     uksf_common::getFunctions();
-    uksf_ai::getInstance()->preInit();
+    dorb_hq::getInstance()->preInit();
 }
 
 void __cdecl intercept::post_init() {
     LOG(DEBUG) << "MAIN POSTINIT";
-    uksf_ai::getInstance()->postInit();
+    dorb_hq::getInstance()->postInit();
 }
 
 void __cdecl intercept::on_frame() {
-    uksf_ai::getInstance()->onFrame();
+    dorb_hq::getInstance()->onFrame();
 }
 
 void __cdecl intercept::mission_end() {
     LOG(DEBUG) << "MAIN MISSION ENDED";
-    uksf_ai::getInstance()->missionEnded();
+    dorb_hq::getInstance()->missionEnded();
 };
 
-uksf_ai::uksf_ai() {
-    new uksf_ai_caching();
-    new uksf_ai_cleanup();
+dorb_hq::dorb_hq() {
+    new dorb_hq_caching();
+    new dorb_hq_cleanup();
 }

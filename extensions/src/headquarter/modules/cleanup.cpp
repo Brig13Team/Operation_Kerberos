@@ -1,13 +1,13 @@
 #include "cleanup.hpp"
 
-bool uksf_ai_cleanup::cleanupEnabled = CLEANUP_ENABLED_DEFAULT;
-float uksf_ai_cleanup::cleanupDelay = CLEANUP_DELAY_DEFAULT;
+bool dorb_ai_cleanup::cleanupEnabled = CLEANUP_ENABLED_DEFAULT;
+float dorb_ai_cleanup::cleanupDelay = CLEANUP_DELAY_DEFAULT;
 
-bool uksf_ai_cleanup::serverThreadStop = true;
+bool dorb_ai_cleanup::serverThreadStop = true;
 std::unordered_map<size_t, killed_map_type> killedMap{};
 
-uksf_ai_cleanup::uksf_ai_cleanup() {
-    uksf_ai::getInstance()->preStart.connect([this]() {
+dorb_ai_cleanup::dorb_ai_cleanup() {
+    dorb_ai::getInstance()->preStart.connect([this]() {
         LOG(DEBUG) << "CLEANUP SIGNAL PRESTART";
         uksfCleanupKilled = client::host::registerFunction(
             "uksfCleanupKilled",
@@ -25,36 +25,36 @@ uksf_ai_cleanup::uksf_ai_cleanup() {
         );
     });
 
-    uksf_ai::getInstance()->preInit.connect([this]() {
+    dorb_ai::getInstance()->preInit.connect([this]() {
         LOG(DEBUG) << "CLEANUP SIGNAL PREINIT";
         game_value enabled_args({
-            "uksf_ai_cleanup_enabled",
+            "dorb_ai_cleanup_enabled",
             "CHECKBOX",
             "Cleanup System",
             "UKSF",
             CLEANUP_ENABLED_DEFAULT,
             true
         });
-        sqf::call(uksf_common::CBA_Settings_fnc_init, enabled_args);
+        sqf::call(dorb_common::CBA_Settings_fnc_init, enabled_args);
         game_value delay_args({
-            "uksf_ai_cleanup_delay",
+            "dorb_ai_cleanup_delay",
             "SLIDER",
             "Cleanup System Delay",
             "UKSF",
             { 30, 600, CLEANUP_DELAY_DEFAULT, 0 },
             true
         });
-        sqf::call(uksf_common::CBA_Settings_fnc_init, delay_args);
+        sqf::call(dorb_common::CBA_Settings_fnc_init, delay_args);
 
         if (sqf::is_server()) {
             getInstance()->stopServerThread();
         }
     });
 
-    uksf_ai::getInstance()->postInit.connect([this]() {
+    dorb_ai::getInstance()->postInit.connect([this]() {
         LOG(DEBUG) << "CLEANUP SIGNAL POSTINIT";
-        cleanupEnabled = (sqf::get_variable(sqf::mission_namespace(), "uksf_ai_cleanup_enabled", CLEANUP_ENABLED_DEFAULT));
-        cleanupDelay = (sqf::get_variable(sqf::mission_namespace(), "uksf_ai_cleanup_distance", CLEANUP_DELAY_DEFAULT));
+        cleanupEnabled = (sqf::get_variable(sqf::mission_namespace(), "dorb_ai_cleanup_enabled", CLEANUP_ENABLED_DEFAULT));
+        cleanupDelay = (sqf::get_variable(sqf::mission_namespace(), "dorb_ai_cleanup_distance", CLEANUP_DELAY_DEFAULT));
 
         if (!cleanupEnabled) {
             LOG(INFO) << "Cleanup system is disabled";
@@ -66,34 +66,34 @@ uksf_ai_cleanup::uksf_ai_cleanup() {
         };
     });
 
-    uksf_ai::getInstance()->onFrame.connect([this]() {
+    dorb_ai::getInstance()->onFrame.connect([this]() {
 
     });
 
-    uksf_ai::getInstance()->missionEnded.connect([this]() {
+    dorb_ai::getInstance()->missionEnded.connect([this]() {
         LOG(DEBUG) << "CLEANUP SIGNAL MISSION ENDED";
         getInstance()->stopServerThread();
     });
 }
 
-uksf_ai_cleanup::~uksf_ai_cleanup() {
+dorb_ai_cleanup::~dorb_ai_cleanup() {
     stopServerThread();
 }
 
-void uksf_ai_cleanup::startServerThread() {
+void dorb_ai_cleanup::startServerThread() {
     serverThreadStop = false;
-    serverThread = std::thread(&uksf_ai_cleanup::serverThreadFunction, this);
+    serverThread = std::thread(&dorb_ai_cleanup::serverThreadFunction, this);
     serverThread.detach();
 }
 
-void uksf_ai_cleanup::stopServerThread() {
+void dorb_ai_cleanup::stopServerThread() {
     if (serverThread.joinable()) {
         serverThreadStop = true;
         serverThread.join();
     }
 }
 
-void uksf_ai_cleanup::serverThreadFunction() {
+void dorb_ai_cleanup::serverThreadFunction() {
     while (!serverThreadStop) {
         {
             client::invoker_lock cleanupLock(true);
@@ -115,7 +115,7 @@ void uksf_ai_cleanup::serverThreadFunction() {
     }
 }
 
-game_value uksf_ai_cleanup::uksfCleanupKilledFunction(game_value rawKilled) {
+game_value dorb_ai_cleanup::uksfCleanupKilledFunction(game_value rawKilled) {
     if (cleanupEnabled) {
         object killed = (object)rawKilled;
         auto &killedMap = getInstance()->killedMap;
@@ -131,7 +131,7 @@ game_value uksf_ai_cleanup::uksfCleanupKilledFunction(game_value rawKilled) {
     return "";
 }
 
-game_value uksf_ai_cleanup::uksfCleanupToggleFunction(game_value params) {
+game_value dorb_ai_cleanup::uksfCleanupToggleFunction(game_value params) {
     if (cleanupEnabled) {
         object killed = (object)params[0];
         bool forceExclude = (bool)params[1];
@@ -142,7 +142,7 @@ game_value uksf_ai_cleanup::uksfCleanupToggleFunction(game_value params) {
             if (!std::get<2>(entry->second) || forceExclude) { // Not excluded
                 std::get<2>(entry->second) = true; // Exclude
             } else {
-                std::get<2>(entry->second) = false; // Include    
+                std::get<2>(entry->second) = false; // Include
                 message = "Included in cleanup";
             }
         } else {

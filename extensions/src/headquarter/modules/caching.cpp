@@ -1,13 +1,13 @@
 #include "caching.hpp"
 
-bool uksf_ai_caching::cachingEnabled = CACHING_ENABLED_DEFAULT;
-float uksf_ai_caching::cachingDistance = CACHING_DISTNACE_DEFAULT;
+bool dorb_ai_caching::cachingEnabled = CACHING_ENABLED_DEFAULT;
+float dorb_ai_caching::cachingDistance = CACHING_DISTNACE_DEFAULT;
 
-bool uksf_ai_caching::serverThreadStop = true;
-bool uksf_ai_caching::clientThreadStop = true;
+bool dorb_ai_caching::serverThreadStop = true;
+bool dorb_ai_caching::clientThreadStop = true;
 
-uksf_ai_caching::uksf_ai_caching() {
-    uksf_ai::getInstance()->preStart.connect([this]() {
+dorb_ai_caching::dorb_ai_caching() {
+    dorb_ai::getInstance()->preStart.connect([this]() {
         LOG(DEBUG) << "CACHING SIGNAL PRESTART";
         uksfCachingToggle = client::host::registerFunction(
             "uksfCachingToggle",
@@ -18,26 +18,26 @@ uksf_ai_caching::uksf_ai_caching() {
         );
     });
 
-    uksf_ai::getInstance()->preInit.connect([this]() {
+    dorb_ai::getInstance()->preInit.connect([this]() {
         LOG(DEBUG) << "CACHING SIGNAL PREINIT";
         game_value enabled_args({
-            "uksf_ai_caching_enabled",
+            "dorb_ai_caching_enabled",
             "CHECKBOX",
             "Caching System",
             "UKSF",
             CACHING_ENABLED_DEFAULT,
             true
         });
-        sqf::call(uksf_common::CBA_Settings_fnc_init, enabled_args);
+        sqf::call(dorb_common::CBA_Settings_fnc_init, enabled_args);
         game_value distance_args({
-            "uksf_ai_caching_distance",
+            "dorb_ai_caching_distance",
             "SLIDER",
             "Caching System Distance",
             "UKSF",
             { 500, 2000, CACHING_DISTNACE_DEFAULT, 0 },
             true
         });
-        sqf::call(uksf_common::CBA_Settings_fnc_init, distance_args);
+        sqf::call(dorb_common::CBA_Settings_fnc_init, distance_args);
 
         if (sqf::is_server()) {
             getInstance()->stopServerThread();
@@ -47,10 +47,10 @@ uksf_ai_caching::uksf_ai_caching() {
         }
     });
 
-    uksf_ai::getInstance()->postInit.connect([this]() {
+    dorb_ai::getInstance()->postInit.connect([this]() {
         LOG(DEBUG) << "CACHING SIGNAL POSTINIT";
-        cachingEnabled = (sqf::get_variable(sqf::mission_namespace(), "uksf_ai_caching_enabled", CACHING_ENABLED_DEFAULT));
-        cachingDistance = (sqf::get_variable(sqf::mission_namespace(), "uksf_ai_caching_distance", CACHING_DISTNACE_DEFAULT));
+        cachingEnabled = (sqf::get_variable(sqf::mission_namespace(), "dorb_ai_caching_enabled", CACHING_ENABLED_DEFAULT));
+        cachingDistance = (sqf::get_variable(sqf::mission_namespace(), "dorb_ai_caching_distance", CACHING_DISTNACE_DEFAULT));
 
         if (!cachingEnabled) {
             LOG(INFO) << "Caching system is disabled";
@@ -73,49 +73,49 @@ uksf_ai_caching::uksf_ai_caching() {
         };
     });
 
-    uksf_ai::getInstance()->onFrame.connect([this]() {
+    dorb_ai::getInstance()->onFrame.connect([this]() {
         //getInstance()->onFrameFunction();
     });
 
-    uksf_ai::getInstance()->missionEnded.connect([this]() {
+    dorb_ai::getInstance()->missionEnded.connect([this]() {
         LOG(DEBUG) << "CACHING SIGNAL MISSION ENDED";
         getInstance()->stopServerThread();
         getInstance()->stopClientThread();
     });
 }
 
-uksf_ai_caching::~uksf_ai_caching() {
+dorb_ai_caching::~dorb_ai_caching() {
     stopServerThread();
     stopClientThread();
 }
 
-void uksf_ai_caching::startServerThread() {
+void dorb_ai_caching::startServerThread() {
     serverThreadStop = false;
-    serverThread = std::thread(&uksf_ai_caching::serverThreadFunction, this);
+    serverThread = std::thread(&dorb_ai_caching::serverThreadFunction, this);
     serverThread.detach();
 }
 
-void uksf_ai_caching::startClientThread() {
+void dorb_ai_caching::startClientThread() {
     clientThreadStop = false;
-    clientThread = std::thread(&uksf_ai_caching::clientThreadFunction, this);
+    clientThread = std::thread(&dorb_ai_caching::clientThreadFunction, this);
     clientThread.detach();
 }
 
-void uksf_ai_caching::stopServerThread() {
+void dorb_ai_caching::stopServerThread() {
     if (serverThread.joinable()) {
         serverThreadStop = true;
         serverThread.join();
     }
 }
 
-void uksf_ai_caching::stopClientThread() {
+void dorb_ai_caching::stopClientThread() {
     if (clientThread.joinable()) {
         clientThreadStop = true;
         clientThread.join();
     };
 }
 
-void uksf_ai_caching::serverThreadFunction() {
+void dorb_ai_caching::serverThreadFunction() {
     //TODO: improve caching time with some sort of hashmap/cache
     while (!serverThreadStop) {
         {
@@ -126,7 +126,7 @@ void uksf_ai_caching::serverThreadFunction() {
             auto groups = sqf::all_groups();
             for (auto& group : groups) {
                 auto leader = sqf::leader(group);
-                if (!(sqf::get_variable(group, "uksf_ai_caching_excluded", false)) && !sqf::dynamic_simulation_enabled(group) && !sqf::is_player(leader) && !sqf::is_kind_of(sqf::vehicle(leader), "Air") && (((float)sqf::get_variable(group, "uksf_ai_caching_time", 0) + 15) < sqf::diag_ticktime())) {
+                if (!(sqf::get_variable(group, "dorb_ai_caching_excluded", false)) && !sqf::dynamic_simulation_enabled(group) && !sqf::is_player(leader) && !sqf::is_kind_of(sqf::vehicle(leader), "Air") && (((float)sqf::get_variable(group, "dorb_ai_caching_time", 0) + 15) < sqf::diag_ticktime())) {
                     sqf::remote_exec_call({ group, true }, "enableDynamicSimulation", 0, false);
                 }
             }
@@ -135,7 +135,7 @@ void uksf_ai_caching::serverThreadFunction() {
     }
 }
 
-void uksf_ai_caching::clientThreadFunction() {
+void dorb_ai_caching::clientThreadFunction() {
     while (!clientThreadStop) {
         {
             client::invoker_lock cachingLock(true);
@@ -149,13 +149,13 @@ void uksf_ai_caching::clientThreadFunction() {
             auto groups = sqf::all_groups();
             for (auto& group : groups) {
                 auto leader = sqf::leader(group);
-                if (!(sqf::get_variable(group, "uksf_ai_caching_excluded", false)) && !sqf::is_player(leader) && !sqf::is_kind_of(sqf::vehicle(leader), "Air")) {
+                if (!(sqf::get_variable(group, "dorb_ai_caching_excluded", false)) && !sqf::is_player(leader) && !sqf::is_kind_of(sqf::vehicle(leader), "Air")) {
                     auto distance = (sqf::get_pos_world(leader)).distance(sqf::get_pos_world(player));
-                    if (distance > cachingDistance && (distance < sqf::get_object_view_distance().object_distance) && ((((float)sqf::get_variable(group, "uksf_ai_caching_time", 0) + 10) < sqf::diag_ticktime()) || !sqf::simulation_enabled(leader)) && uksf_common::lineOfSight(leader, player, true, true)) {
+                    if (distance > cachingDistance && (distance < sqf::get_object_view_distance().object_distance) && ((((float)sqf::get_variable(group, "dorb_ai_caching_time", 0) + 10) < sqf::diag_ticktime()) || !sqf::simulation_enabled(leader)) && dorb_common::lineOfSight(leader, player, true, true)) {
                         if (sqf::dynamic_simulation_enabled(group)) {
                             sqf::remote_exec_call({ group, false }, "enableDynamicSimulation", 0, false);
                         }
-                        sqf::set_variable(group, "uksf_ai_caching_time", sqf::diag_ticktime());
+                        sqf::set_variable(group, "dorb_ai_caching_time", sqf::diag_ticktime());
                     }
                 }
             }
@@ -164,14 +164,14 @@ void uksf_ai_caching::clientThreadFunction() {
     }
 }
 
-game_value uksf_ai_caching::uksfCachingToggleFunction(game_value params) {
+game_value dorb_ai_caching::uksfCachingToggleFunction(game_value params) {
     if (cachingEnabled) {
         object cached = (object)params[0];
         bool forceExclude = (bool)params[1];
         auto group = sqf::get_group(cached);
         auto message = "Excluded from caching";
-        if (!(sqf::get_variable(group, "uksf_ai_caching_excluded", false)) || forceExclude) { // Not excluded
-            sqf::set_variable(group, "uksf_ai_caching_excluded", true); // Exclude
+        if (!(sqf::get_variable(group, "dorb_ai_caching_excluded", false)) || forceExclude) { // Not excluded
+            sqf::set_variable(group, "dorb_ai_caching_excluded", true); // Exclude
             if (sqf::dynamic_simulation_enabled(group)) {
                 sqf::enable_dynamic_simulation(group, false);
                 auto units = sqf::units(group);
@@ -183,11 +183,11 @@ game_value uksf_ai_caching::uksfCachingToggleFunction(game_value params) {
                 units.insert(std::end(units), std::begin(crewUnits), std::end(crewUnits));
                 for (auto unit : units) {
                     sqf::enable_simulation_global(unit, true);
-                    sqf::set_variable(sqf::get_group(unit), "uksf_ai_caching_excluded", true);
+                    sqf::set_variable(sqf::get_group(unit), "dorb_ai_caching_excluded", true);
                 }
             }
         } else {
-            sqf::set_variable(group, "uksf_ai_caching_excluded", false); // Include            
+            sqf::set_variable(group, "dorb_ai_caching_excluded", false); // Include
             message = "Included in caching";
         }
 
@@ -199,7 +199,7 @@ game_value uksf_ai_caching::uksfCachingToggleFunction(game_value params) {
     return "";
 }
 
-void uksf_ai_caching::onFrameFunction() {
+void dorb_ai_caching::onFrameFunction() {
     auto groups = sqf::all_groups();
     for (auto& group : groups) {
         auto unit = sqf::leader(group);
