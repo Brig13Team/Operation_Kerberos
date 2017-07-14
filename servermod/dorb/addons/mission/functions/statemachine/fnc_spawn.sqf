@@ -25,7 +25,7 @@ _mission spawn {
     private _type = _mission getVariable "type";
     private _centerpos = _mission getVariable "centerpos";
     private _isMain = _mission getVariable ["isMain",true];
-    TRACEV_3(_type,_centerpos,isMain);
+    TRACEV_3(_type,_centerpos,_isMain);
     private _spawnFunction = _mission getVariable ["spawnfunction",""];
     private _missionCfg = _mission getVariable "missioncfg";
     TRACEV_2(_spawnFunction,_missionCfg);

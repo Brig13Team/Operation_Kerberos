@@ -39,7 +39,7 @@ _classes = _classes select {
 };
 TRACEV_3(_classes,_mainOrSide,_name);
 if (_mainOrSide isEqualTo "side") then {
-    private _types = getArray(ConfigFile >> "CfgKerberos" >> "mission" >> "main" >> _name >> "side" >> "types") apply { ConfigFile >> "CfgKerberos" >> "mission" >> "side" >> _x };
+    private _types = getArray(ConfigFile >> "CfgKerberos" >> "mainmissions" >> _name >> "side" >> "types") apply { ConfigFile >> "CfgKerberos" >> "sidemissions" >> _x };
     _classes = _classes select { count ([_x,false] call BIS_fnc_returnParents arrayIntersect _types) > 0 };
 };
 

@@ -1,5 +1,3 @@
-#include "statemachine.hpp"
-
 class baseMission {
     // condition for the task - e.g. need specific mod
     taskcondition = "";

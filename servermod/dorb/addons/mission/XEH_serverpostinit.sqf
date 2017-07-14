@@ -5,7 +5,7 @@
  *      Server Post-Init
  *
  */
-//#define DEBUG_MODE_FULL
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 // initialize rescuemarker
@@ -33,8 +33,9 @@ If ((toUpper worldName) isEqualTo "VR") exitWith {};
 
     GVAR(taskCounter) = 0;
     [ConfigFile >> "CfgKerberos" >> QGVAR(statemachine_Taskmanager)] call CBA_statemachine_fnc_createFromConfig;
-    //uiSleep 30;
-    uiSleep 5;
+    uiSleep 30;
+    //uiSleep 5;
     [] call EFUNC(spawn,army_set);
+    TRACEV_1(GVARMAIN(side_type));
     GVAR(missions) = [HASH_CREATE];
 };

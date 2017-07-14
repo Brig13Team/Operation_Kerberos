@@ -17,8 +17,8 @@
 _this params ["_mission"];
 
 private _position = HASH_GET(_mission, "location") select 1;
-private _tickets = getNumber(ConfigFile >> "CfgKerberos" >> "mission" >> "main" >> "hold" >> "object" >> "tickets");
-private _multiplier = getNumber(ConfigFile >> "CfgKerberos" >> "mission" >> "main" >> "hold" >> "object" >> "multiplier");
+private _tickets = getNumber(ConfigFile >> "CfgKerberos" >> "mainmissions" >> "hold" >> "object" >> "tickets");
+private _multiplier = getNumber(ConfigFile >> "CfgKerberos" >> "mainmissions" >> "hold" >> "object" >> "multiplier");
 private _radius = ["hold"] call FUNC(spawn_getRadius);
 
 

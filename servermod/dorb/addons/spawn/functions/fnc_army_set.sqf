@@ -31,3 +31,4 @@ If ((_army isEqualTo "")||{!isClass(ConfigFile >> "CfgKerberos" >> QGVAR(unitlis
 }else{
     GVARMAIN(side_type) = _army;
 };
+_army

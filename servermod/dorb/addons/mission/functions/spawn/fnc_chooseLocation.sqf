@@ -14,7 +14,7 @@
 
 _this params ["_name"];
 
-private _pos = getArray (ConfigFile >> "CfgKerberos" >> "mission" >> "main" >> _name >> "location" >> "areas");
+private _pos = getArray (ConfigFile >> "CfgKerberos" >> "mainmissions" >> _name >> "location" >> "areas");
 private _newPos = [];
 
 {

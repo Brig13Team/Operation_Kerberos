@@ -17,8 +17,8 @@ private _type = HASH_GET(_mission, "type");
 
 HASH_SET(_mission, "condition", QFUNC(mainmission__rtb_condition));
 
-private _marker = getText(ConfigFile >> "CfgKerberos" >> "mission" >> "main" >> _type >> "object" >> "position");
-private _radius = getNumber(ConfigFile >> "CfgKerberos" >> "mission" >> "main" >> _type >> "object" >> "radius");
+private _marker = getText(ConfigFile >> "CfgKerberos" >> "mainmissions" >> _type >> "object" >> "position");
+private _radius = getNumber(ConfigFile >> "CfgKerberos" >> "mainmissions" >> _type >> "object" >> "radius");
 //private _location =  ["Base", getMarkerPos _marker];
 private _location =  ["Base", getMarkerPos GVARMAIN(respawnmarker)];
 

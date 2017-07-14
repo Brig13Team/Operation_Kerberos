@@ -21,6 +21,6 @@ class CfgKerberos {
     #include "config\CfgTaskTypes.hpp"
     #include "config\CfgTaskEnhancements.hpp"
     #include "config\CfgTaskDescriptions.hpp"
-    #include "config\mission.hpp"
+    #include "config\missionconfig.hpp"
     #include "config\statemachine.hpp"
 };

@@ -16,7 +16,7 @@
 
 _this params [["_parent", "", [""]], ["_name", "", [""]]];
 if !(HASH_HASKEY(GVAR(master), _parent)) exitWith { -1 };
-if !(isClass(ConfigFile >> "CfgKerberos" >> "mission" >> "side" >> _name)) exitWith { -1 };
+if !(isClass(ConfigFile >> "CfgKerberos" >> "sidemissions" >> _name)) exitWith { -1 };
 
 _this spawn {
     _this params [["_parent", "", [""]], ["_type", "", [""]], ["_targets", [], [[]]]];
@@ -35,7 +35,7 @@ _this spawn {
 
     // spawn targets
     if (_targets isEqualTo []) then {
-       _targets = [_type, _location select 1,(ConfigFile >> "CfgKerberos" >> "mission" >> "main" >> _type)] call FUNC(spawn_spawnTargets);
+       _targets = [_type, _location select 1,(ConfigFile >> "CfgKerberos" >> "mainmissions" >> _type)] call FUNC(spawn_spawnTargets);
     };
     { _x setVariable [QGVAR(mission),_hash]; } forEach _targets;
 
