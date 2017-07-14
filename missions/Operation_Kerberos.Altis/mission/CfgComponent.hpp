@@ -18,4 +18,3 @@ class DOUBLES(CfgComponent,ADDON) {
         CfgComponents[] = {};
     };
 };
-

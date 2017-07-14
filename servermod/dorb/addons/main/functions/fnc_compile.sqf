@@ -14,7 +14,7 @@
  */
 private _fnc_scriptName = 'Main compiling function';
 scriptName _fnc_scriptName;
-_this params [["_path","",[""]],["_funcName","",[""]],["_headertype",0,[1]]];
+_this params [["_pathstring","",[""]],["_funcName","",[""]],["_headertype",0,[1]]];
 
 private _headerstring = switch (_headertype) do { \
     case 2 : {

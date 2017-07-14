@@ -35,7 +35,7 @@ _this spawn {
 
     // spawn targets
     if (_targets isEqualTo []) then {
-       _targets = [_type, _location select 1] call FUNC(spawn_spawnTargets);
+       _targets = [_type, _location select 1,(ConfigFile >> "CfgKerberos" >> "mission" >> "main" >> _type)] call FUNC(spawn_spawnTargets);
     };
     { _x setVariable [QGVAR(mission),_hash]; } forEach _targets;
 

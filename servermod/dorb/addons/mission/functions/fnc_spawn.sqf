@@ -34,7 +34,7 @@ if !(isClass(ConfigFile >> "CfgKerberos" >> "mission" >> "main" >> _type)) exitW
         HASH_SET(_hash, "location", _location);
 
         // spawn targets
-        private _targets = [_type, _position] call FUNC(spawn_spawnTargets);
+        private _targets = [_type, _position,(ConfigFile >> "CfgKerberos" >> "mission" >> "main" >> _type)] call FUNC(spawn_spawnTargets);
         { _x setVariable [QGVAR(mission),_hash]; } forEach _targets;
 
         TRACEV_1(_targets);

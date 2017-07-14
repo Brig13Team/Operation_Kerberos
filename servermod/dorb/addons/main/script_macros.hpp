@@ -177,7 +177,7 @@ Example:
 Author:
     Dorbedo
 ------------------------------------------- */
-#define PREPS(var1,var2) ['\MAINPREFIX\PREFIX\addons\COMPONENT\functions\var1\DOUBLES(fnc,var1).sqf', 'TRIPLES(ADDON,fnc,DOUBLES(var1,var2))',INCLUDE_HEADER] call EFUNC(main,compile)
+#define PREPS(var1,var2) ['\MAINPREFIX\PREFIX\addons\COMPONENT\functions\var1\DOUBLES(fnc,var2).sqf', 'TRIPLES(ADDON,fnc,DOUBLES(var1,var2))',INCLUDE_HEADER] call EFUNC(main,compile)
 /* -------------------------------------------
 Macro: PREPMAIN(VAR)
    compiling functions
@@ -327,3 +327,6 @@ Author:
 ------------------------------------------- */
 #define LINKFUNC(VAR1) FUNC(VAR1)
 #define LINKEFUNC(VAR1,VAR2) EFUNC(VAR1,VAR2)
+
+#include "script_hashes.hpp"
+#include "script_debug.hpp"

@@ -9,7 +9,7 @@ Author:
 
 #define RECOMPILE_START if (isNil QGVARMAIN(recompile_cache)) then {GVARMAIN(recompile_cache)=[] call CBA_fnc_createNamespace;}; private _cache = {
 
-#define RECOMPILE_END }; GVARMAIN(recompile_cache) setVariable [QUOTE(ADDON),_cache]; call _cache;
+#define RECOMPILE_END }; (GVARMAIN(recompile_cache)) setVariable [QUOTE(ADDON),_cache]; call _cache;
 
 
 

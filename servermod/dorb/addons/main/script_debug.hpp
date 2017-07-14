@@ -7,8 +7,26 @@ Author:
     Dorbedo
 ------------------------------------------- */
 
-
-
+#ifdef LOG
+    #undef LOG
+    #undef LOG_1
+    #undef LOG_2
+    #undef LOG_3
+    #undef LOG_4
+    #undef LOG_5
+    #undef LOG_6
+    #undef LOG_7
+    #undef LOG_8
+#endif
+#ifdef TRACE
+    #undef TRACE
+#endif
+#ifdef WARNING
+    #undef WARNING
+#endif
+#ifdef ERROR
+    #undef ERROR
+#endif
 
 /* -------------------------------------------
 Macro: FORMAT_#(STR, ARG1)
@@ -68,7 +86,7 @@ Author:
         Spooner (original)
         Dorbedo
     ------------------------------------------- */
-    #define TRACE_SYS(STRING) [STRING,"TRACE",DEBUG_COMPONENTNAME,__FILE__,__LINE__,diag_frameNo,If (isNil "_fnc_scriptName") then {""}else{if (isNil "_fnc_scriptNameParent") then {_fnc_scriptName}else{[_fnc_scriptName,_fnc_scriptNameParent]}}] call EFUNC(main,addToLog)
+    #define TRACE_SYS(STRING) [STRING,"TRACE",DEBUG_COMPONENTNAME,__FILE__,__LINE__,diag_frameNo,If (isNil "_fnc_scriptName") then {""}else{if (isNil "_fnc_scriptNameParent") then {_fnc_scriptName}else{[_fnc_scriptName,_fnc_scriptNameParent]}}] call EFUNC(main,addToLogMod)
     #define TRACE(MESSAGE) TRACE_SYS(MESSAGE)
     #define TRACE_1(MESSAGE,A) TRACE_SYS(PFORMAT_1(MESSAGE,A))
     #define TRACE_2(MESSAGE,A,B) TRACE_SYS(PFORMAT_2(MESSAGE,A,B))
@@ -94,7 +112,7 @@ Author:
     Author:
         Dorbedo
     ------------------------------------------- */
-    #define TRACE_MAP [If (isNil "_fnc_scriptMap") then {[]}else{_fnc_scriptMap},"TRACEMAP",DEBUG_COMPONENTNAME,__FILE__,__LINE__,diag_frameNo,If (isNil "_fnc_scriptName") then {""}else{if (isNil "_fnc_scriptNameParent") then {_fnc_scriptName}else{[_fnc_scriptName,_fnc_scriptNameParent]}}] call EFUNC(main,addToLog)
+    #define TRACE_MAP [If (isNil "_fnc_scriptMap") then {[]}else{_fnc_scriptMap},"TRACEMAP",DEBUG_COMPONENTNAME,__FILE__,__LINE__,diag_frameNo,If (isNil "_fnc_scriptName") then {""}else{if (isNil "_fnc_scriptNameParent") then {_fnc_scriptName}else{[_fnc_scriptName,_fnc_scriptNameParent]}}] call EFUNC(main,addToLogMod)
     /* -------------------------------------------
     Macro: TRACEV_n(VAR)
         Logs 1-9 Variables into LOG
@@ -201,7 +219,7 @@ Author:
         Spooner (original)
         Dorbedo
     ------------------------------------------- */
-    #define LOG(STRING) [STRING,"LOG",DEBUG_COMPONENTNAME,__FILE__,__LINE__,diag_frameNo,If (isNil "_fnc_scriptName") then {""}else{if (isNil "_fnc_scriptNameParent") then {_fnc_scriptName}else{[_fnc_scriptName,_fnc_scriptNameParent]}}] call EFUNC(main,addToLog)
+    #define LOG(STRING) [STRING,"LOG",DEBUG_COMPONENTNAME,__FILE__,__LINE__,diag_frameNo,If (isNil "_fnc_scriptName") then {""}else{if (isNil "_fnc_scriptNameParent") then {_fnc_scriptName}else{[_fnc_scriptName,_fnc_scriptNameParent]}}] call EFUNC(main,addToLogMod)
     /* -------------------------------------------
     Macro: LOG_n(VAR)
         Log a timestamped Variable into the RPT log.
@@ -225,8 +243,10 @@ Author:
     #define LOG_7(VAR1,VAR2,VAR3,VAR4,VAR5,VAR6,VAR7) LOG(FORMAT_14("%1 = %2\n%3 = %4\n%5 = %6\n%7 = %8\n%9 = %10\n%11 = %12\n%13 = %14",QUOTE(VAR1),RETNIL(VAR1),QUOTE(VAR2),RETNIL(VAR2),QUOTE(VAR3),RETNIL(VAR3),QUOTE(VAR4),RETNIL(VAR4),QUOTE(VAR5),RETNIL(VAR5),QUOTE(VAR6),RETNIL(VAR6),QUOTE(VAR7),RETNIL(VAR7)))
     #define LOG_8(VAR1,VAR2,VAR3,VAR4,VAR5,VAR6,VAR7,VAR8) LOG(FORMAT_16("%1 = %2\n%3 = %4\n%5 = %6\n%7 = %8\n%9 = %10\n%11 = %12\n%13 = %14\n%15 = %16",QUOTE(VAR1),RETNIL(VAR1),QUOTE(VAR2),RETNIL(VAR2),QUOTE(VAR3),RETNIL(VAR3),QUOTE(VAR4),RETNIL(VAR4),QUOTE(VAR5),RETNIL(VAR5),QUOTE(VAR6),RETNIL(VAR6),QUOTE(VAR7),RETNIL(VAR7),QUOTE(VAR8),RETNIL(VAR8)))
     #define LOG_9(VAR1,VAR2,VAR3,VAR4,VAR5,VAR6,VAR7,VAR8,VAR9) LOG(FORMAT_18("%1 = %2\n%3 = %4\n%5 = %6\n%7 = %8\n%9 = %10\n%11 = %12\n%13 = %14\n%15 = %16\n%17 = %18",QUOTE(VAR1),RETNIL(VAR1),QUOTE(VAR2),RETNIL(VAR2),QUOTE(VAR3),RETNIL(VAR3),QUOTE(VAR4),RETNIL(VAR4),QUOTE(VAR5),RETNIL(VAR5),QUOTE(VAR6),RETNIL(VAR6),QUOTE(VAR7),RETNIL(VAR7),QUOTE(VAR8),RETNIL(VAR8),QUOTE(VAR9),RETNIL(VAR9)))
-    #define WARNING(STRING) [STRING,"WARNING",DEBUG_COMPONENTNAME,__FILE__,__LINE__,diag_frameNo,If (isNil "_fnc_scriptName") then {""}else{if (isNil "_fnc_scriptNameParent") then {_fnc_scriptName}else{[_fnc_scriptName,_fnc_scriptNameParent]}}] call EFUNC(main,addToLog)
+    #define WARNING(STRING) [STRING,"WARNING",DEBUG_COMPONENTNAME,__FILE__,__LINE__,diag_frameNo,If (isNil "_fnc_scriptName") then {""}else{if (isNil "_fnc_scriptNameParent") then {_fnc_scriptName}else{[_fnc_scriptName,_fnc_scriptNameParent]}}] call EFUNC(main,addToLogMod)
 
+    #undef LINKFUNC
+    #undef LINKEFUNC
     #define LINKFUNC(VAR1) {_this call FUNC(VAR1);}
     #define LINKEFUNC(VAR1,VAR2) {_this call EFUNC(VAR1,VAR2);}
 
@@ -250,7 +270,7 @@ Author:
 
 #ifdef DEBUG_MODE_MINIMAL
 
-    #define ERROR(STRING) [STRING,"ERROR",DEBUG_COMPONENTNAME,__FILE__,__LINE__,diag_frameNo,If (isNil "_fnc_scriptName") then {""}else{if (isNil "_fnc_scriptNameParent") then {_fnc_scriptName}else{[_fnc_scriptName,_fnc_scriptNameParent]}}] call EFUNC(main,addToLog)
+    #define ERROR(STRING) [STRING,"ERROR",DEBUG_COMPONENTNAME,__FILE__,__LINE__,diag_frameNo,If (isNil "_fnc_scriptName") then {""}else{if (isNil "_fnc_scriptNameParent") then {_fnc_scriptName}else{[_fnc_scriptName,_fnc_scriptNameParent]}}] call EFUNC(main,addToLogMod)
 
 #else
 

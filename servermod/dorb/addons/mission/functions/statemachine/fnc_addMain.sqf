@@ -18,7 +18,7 @@ _this params ["_mission"];
 
 // choose the type of the mission
 private _missionsWeighted = configProperties [
-    configfile >> "CfgKerberos" >> "mission" >> "mainmissions",
+    configfile >> "CfgKerberos" >> "mission" >> "main",
     "true",
     true
 ];

@@ -211,7 +211,7 @@ class GVAR(statemachine_AIGroups) {
         };
         class strategyFinished {
             targetState = "return";
-            condition = QUOTE((GVAR(radars) getVariable [ARR_2('targets',[])]) isEqualTo []);
+            condition = QUOTE(((GVAR(radars)) getVariable [ARR_2('targets',[])]) isEqualTo []);
             onTransition = "";
         };
     };

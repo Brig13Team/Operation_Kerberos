@@ -1,12 +1,11 @@
 PREP(arithmeticMean);
-PREP(arrayGetArithmeticMean);
+PREP(arraysGetArithmeticMean);
 PREP(arraysGetMax);
 PREP(arraySum);
 PREP(debug_marker_clean);
 PREP(debug_marker_create);
 PREP(delete);
 PREP(exportHashToHpp);
-PREP(get_cfg_sublasses);
 PREP(getGunLenght);
 PREP(players);
 PREP(pos_between);

@@ -18,17 +18,17 @@ _this params ["_mainmission"];
 
 private _mainType = _mainmission getVariable "type";
 
-private _min = getNumber(configfile >> "CfgKerberos" >> "mission" >> "mainmissions" >> _mainType >> "side" >> "min");
-private _max = getNumber(configfile >> "CfgKerberos" >> "mission" >> "mainmissions" >> _mainType >> "side" >> "max");
+private _min = getNumber(configfile >> "CfgKerberos" >> "mission" >> "main" >> _mainType >> "side" >> "min");
+private _max = getNumber(configfile >> "CfgKerberos" >> "mission" >> "main" >> _mainType >> "side" >> "max");
 private _amount = ceil (random(_max - _min)) + _min;
 
-private _sidetypes = getArray(configfile >> "CfgKerberos" >> "mission" >> "mainmissions" >> _mainType >> "side" >> "sidemissions");
+private _sidetypes = getArray(configfile >> "CfgKerberos" >> "mission" >> "main" >> _mainType >> "side" >> "sidemissions");
 TRACEV_1(_sidetypes);
 If ("%ALL" in _sidetypes) then {
-    _sidetypes = configProperties [configfile >> "CfgKerberos" >> "mission" >> "sidemissions", "true", true];
+    _sidetypes = configProperties [configfile >> "CfgKerberos" >> "mission" >> "side", "true", true];
 }else{
-    _sidetypes = _sidetypes select {isClass(configfile >> "CfgKerberos" >> "mission" >> "sidemissions" >> _x)};
-    _sidetypes = _sidetypes apply {configfile >> "CfgKerberos" >> "mission" >> "sidemissions" >> _x};
+    _sidetypes = _sidetypes select {isClass(configfile >> "CfgKerberos" >> "mission" >> "side" >> _x)};
+    _sidetypes = _sidetypes apply {configfile >> "CfgKerberos" >> "mission" >> "side" >> _x};
 };
 TRACEV_1(_sidetypes);
 CHECK(_sidetypes isEqualTo [])

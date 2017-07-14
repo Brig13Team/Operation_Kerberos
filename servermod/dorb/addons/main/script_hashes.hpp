@@ -67,7 +67,7 @@ Example:
 Author:
     ACRE2-Team
 ------------------------------------------- */
-#define HASH_DELETE(hash) (DORB_HASH_TO_DELETE pushBack hash)
+#define HASH_DELETE(hash) ((DORB_HASH_TO_DELETE) pushBack hash)
 #define LHASH_DELETE(hash) HASH_DELETE(hash)
 #define GHASH_DELETE(hash) HASH_DELETE(hash)
 #define AHASH_DELETE(hash) ([hash] call CBA_fnc_deleteNamespace)

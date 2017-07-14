@@ -25,7 +25,7 @@ For "_i" from 0 to ((count _spawnposarray)-1) do {
     _typ = selectRandom _unitarray;
     _gruppe = createGroup (GVARMAIN(side));
     /// Prevent ASR-AI Option "JoinLast" - No compatibility Issues if no ASR-AI is enabled
-    SETPVAR(_gruppe,asr_ai3_main_initgroupsize,1);
+    _gruppe setVariable ["asr_ai3_main_initgroupsize",1];
     _dir = (_spawnposarray select _i)select 3;
     _position = [(_spawnposarray select _i)select 0,(_spawnposarray select _i)select 1,(_spawnposarray select _i)select 2];
     _spawnedunit = _gruppe createUnit [_typ,_position, [], 0, "NONE"];
