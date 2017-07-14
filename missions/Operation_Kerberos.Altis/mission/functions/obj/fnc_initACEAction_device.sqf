@@ -28,10 +28,11 @@ private _action = [
     },
     { _target getVariable [QGVAR(isActive), false]; }
 ] call ace_interact_menu_fnc_createAction;
-
+/*
 private _classes = ["device"] call FUNC(spawn_getObjects);
 _classes = _classes + (["emp"] call FUNC(spawn_getObjects));
-
+*/
+private _classes = ["Land_Device_assembled_F","Land_Device_disassembled_F","rhs_typhoon_vdv"];
 {
     [_x, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToClass;
 } forEach _classes;

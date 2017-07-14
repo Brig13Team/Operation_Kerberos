@@ -11,7 +11,7 @@
 #define MOD_Kerberos 'dorb_main','dorb_common','dorb_artillery','dorb_database','dorb_headless','dorb_headquarter','dorb_intercept','dorb_mission','dorb_spawn','dorb_worlds'
 
 class ace_common_checkPBOsWhitelist {
-    value = QUOTE([ARR_6(MOD_CBA,MOD_BWA3,MOD_STHUD,MOD_EXTDB3,MOD_ASRAI,MOD_3rdPerson)]);
+    value = QUOTE([ARR_7(MOD_Kerberos,MOD_CBA,MOD_BWA3,MOD_STHUD,MOD_EXTDB3,MOD_ASRAI,MOD_3rdPerson)]);
     typeName = "STRING";
     force = 1;
 };
