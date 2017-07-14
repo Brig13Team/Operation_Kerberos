@@ -1,12 +1,12 @@
 #include "common.hpp"
 
-game_value uksf_common::CBA_Settings_fnc_init = {};
+game_value dorb_common::CBA_Settings_fnc_init = {};
 
-void uksf_common::getFunctions() {
-    uksf_common::CBA_Settings_fnc_init = sqf::get_variable(sqf::ui_namespace(), "CBA_Settings_fnc_init");
+void dorb_common::getFunctions() {
+    dorb_common::CBA_Settings_fnc_init = sqf::get_variable(sqf::ui_namespace(), "CBA_Settings_fnc_init");
 }
 
-float uksf_common::getZoom() {
+float dorb_common::getZoom() {
     float safeZoneW = sqf::safe_zone_w();
     float deltaX = ((sqf::world_to_screen(sqf::position_camera_to_world(vector3(5000, 0, 10000))).x) - 0.5f);
     float trigRatio = (((safeZoneW / 2.0f) * 5000.0f) / (10000.0f * deltaX));
@@ -14,7 +14,7 @@ float uksf_common::getZoom() {
     return (0.75f / configFOV);
 }
 
-bool uksf_common::lineOfSight(object& target, object& source, bool zoomCheck, bool groupCheck) {
+bool dorb_common::lineOfSight(object& target, object& source, bool zoomCheck, bool groupCheck) {
     bool los = false;
     bool inScreen = false;
     vector2 screenPosition = sqf::world_to_screen(sqf::get_pos(target), inScreen);
@@ -41,7 +41,7 @@ bool uksf_common::lineOfSight(object& target, object& source, bool zoomCheck, bo
         if (!sqf::is_kind_of(sqf::vehicle(target), "CAManBase")) {
             distanceMultiplier *= 2.5f;
         }
-        float distanceCheck = std::min(sqf::get_object_view_distance().object_distance, 1000 + (distanceMultiplier * uksf_common::getZoom()));
+        float distanceCheck = std::min(sqf::get_object_view_distance().object_distance, 1000 + (distanceMultiplier * dorb_common::getZoom()));
         float distance = (sqf::get_pos_world(target)).distance(sqf::get_pos_world(source));
         los = (distance < distanceCheck);
     }

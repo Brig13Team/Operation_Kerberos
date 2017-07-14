@@ -1,14 +1,14 @@
 #pragma once
 #include "common.hpp"
-#include "uksf_ai.hpp"
+#include "dorb_ai.hpp"
 
 #define CACHING_ENABLED_DEFAULT true
 #define CACHING_DISTNACE_DEFAULT 750
 
-class uksf_ai_caching: public singleton<uksf_ai_caching> {
+class dorb_ai_caching: public singleton<dorb_ai_caching> {
 public:
-    uksf_ai_caching();
-    ~uksf_ai_caching();
+    dorb_ai_caching();
+    ~dorb_ai_caching();
 
     void startServerThread();
     void startClientThread();

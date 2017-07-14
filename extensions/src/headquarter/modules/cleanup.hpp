@@ -1,16 +1,16 @@
 #pragma once
 #include "common.hpp"
-#include "uksf_ai.hpp"
+#include "dorb_ai.hpp"
 
 #define CLEANUP_ENABLED_DEFAULT true
 #define CLEANUP_DELAY_DEFAULT 300
 
 typedef std::tuple<object, clock_t, bool> killed_map_type;
 
-class uksf_ai_cleanup : public singleton<uksf_ai_cleanup> {
+class dorb_ai_cleanup : public singleton<dorb_ai_cleanup> {
 public:
-    uksf_ai_cleanup();
-    ~uksf_ai_cleanup();
+    dorb_ai_cleanup();
+    ~dorb_ai_cleanup();
 
     void startServerThread();
     void stopServerThread();

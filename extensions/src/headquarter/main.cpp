@@ -1,5 +1,5 @@
 #include "common.hpp"
-#include "dorb_headquarter.hpp"
+#include "dorb_hq.hpp"
 
 INITIALIZE_EASYLOGGINGPP
 
@@ -23,7 +23,7 @@ void init(void) {
     LOG(INFO) << "****************************";
     LOG(INFO) << "Kerberos headquarter DLL Loaded";
 
-    new dorb_headquarter();
+    new dorb_hq();
 }
 
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserved) {

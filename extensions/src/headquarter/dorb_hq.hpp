@@ -3,9 +3,9 @@
 #include "caching.hpp"
 #include "cleanup.hpp"
 
-class uksf_ai: public singleton<uksf_ai> {
+class dorb_hq: public singleton<dor_hq> {
 public:
-    uksf_ai();
+    dorb_hq();
 
     Signal<void()> preStart;
     Signal<void()> preInit;
