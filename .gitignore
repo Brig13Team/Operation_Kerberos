@@ -2,5 +2,4 @@
 *.biprivatekey
 *.cache
 *.pbo
-servermod/dorb/release/*
-
+**/release/*
