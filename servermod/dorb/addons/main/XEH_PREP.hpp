@@ -1,7 +1,7 @@
 
 //PREP(recompile);
-PREP(addMapToLog);
-PREP(addToLog);
+PREP(addMapToLogMod);
+PREP(addToLogMod);
 PREP(debug_performance);
 PREP(getComponents);
 
