@@ -1,5 +1,3 @@
-#include "script_component.hpp"
-
 PREPS(attackpos,add);
 PREPS(attackpos,atPosition);
 PREPS(attackpos,check);

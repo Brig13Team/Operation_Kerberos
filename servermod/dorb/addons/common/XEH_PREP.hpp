@@ -1,5 +1,3 @@
-#include "script_component.hpp"
-
 PREP(arithmeticMean);
 PREP(arrayGetArithmeticMean);
 PREP(arraysGetMax);

@@ -156,7 +156,7 @@ Example:
 Author:
     Dorbedo
 ------------------------------------------- */
-#define PREP(var1) ['\MAINPREFIX\PREFIX\addons\COMPONENT\functions\TRIPLES(fnc,var1,.sqf))', 'TRIPLES(ADDON,fnc,var1)',INCLUDE_HEADER] COMPILE_SYS
+#define PREP(var1) ['\MAINPREFIX\PREFIX\addons\COMPONENT\functions\DOUBLES(fnc,var1).sqf', 'TRIPLES(ADDON,fnc,var1)',INCLUDE_HEADER] call EFUNC(main,compile)
 /* -------------------------------------------
 Macro: PREPS(VAR1,VAR2)
    compiling functions
@@ -177,7 +177,7 @@ Example:
 Author:
     Dorbedo
 ------------------------------------------- */
-#define PREPS(var1,var2) ['\MAINPREFIX\PREFIX\addons\COMPONENT\functions\var1\TRIPLES(fnc,var2,.sqf))', 'TRIPLES(ADDON,fnc,DOUBLES(var1,var2))',INCLUDE_HEADER] COMPILE_SYS
+#define PREPS(var1,var2) ['\MAINPREFIX\PREFIX\addons\COMPONENT\functions\var1\DOUBLES(fnc,var1).sqf', 'TRIPLES(ADDON,fnc,DOUBLES(var1,var2))',INCLUDE_HEADER] call EFUNC(main,compile)
 /* -------------------------------------------
 Macro: PREPMAIN(VAR)
    compiling functions
@@ -197,7 +197,7 @@ Example:
 Author:
     Dorbedo
 ------------------------------------------- */
-#define PREPMAIN(var1) ['\MAINPREFIX\PREFIX\addons\COMPONENT\functions\TRIPLES(fnc,var1,.sqf))', 'TRIPLES(PREFIX,fnc,var1)',INCLUDE_HEADER] COMPILE_SYS
+#define PREPMAIN(var1) ['\MAINPREFIX\PREFIX\addons\COMPONENT\functions\DOUBLES(fnc,var1).sqf', 'TRIPLES(PREFIX,fnc,var1)',INCLUDE_HEADER] call EFUNC(main,compile)
 
 
 #ifndef STRING_MACROS_GUARD

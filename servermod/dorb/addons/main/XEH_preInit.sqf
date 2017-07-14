@@ -4,7 +4,9 @@ ISNILS(logging,[]);
 
 ADDON = false;
 
-#include "PREP.sqf"
+EFUNC(main,compile) = compile preProcessFileLineNumbers '\MAINPREFIX\PREFIX\addons\main\functions\fnc_compile.sqf';
+
+#include "XEH_PREP.hpp"
 
 ADDON = true;
 

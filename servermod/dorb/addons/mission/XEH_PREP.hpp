@@ -1,5 +1,3 @@
-#include "script_component.hpp"
-
 PREP(end);
 PREP(handleRescuePoint);
 PREP(spawn);

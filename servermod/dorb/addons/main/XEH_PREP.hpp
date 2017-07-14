@@ -1,6 +1,5 @@
-#include "script_component.hpp"
 
-PREP(recompile)
+PREP(recompile);
 PREP(addMapToLog);
 PREP(addToLog);
 PREP(debug_performance);

@@ -1,5 +1,3 @@
-#include "script_component.hpp"
-
 PREP(initialize);
 PREP(exportLocations);
 PREP(getLocations);

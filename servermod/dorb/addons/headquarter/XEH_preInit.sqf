@@ -6,6 +6,6 @@
 
 ADDON = false;
 
-#include "XEH_preinit.sqf"
+#include "XEH_PREP.hpp"
 
 ADDON = true;

@@ -1,5 +1,3 @@
-#include "script_component.hpp"
-
 PREP(bigData);
 PREP(connectToDB);
 PREP(getSingleValue);

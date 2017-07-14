@@ -23,6 +23,17 @@
             <Russian>Dorbedo, iJesuz</Russian>
             <Spanish>Dorbedo, iJesuz</Spanish>
         </Key>
+        <Key ID="STR_DORB_MAIN_BRIGTEAM">
+            <English>Brigade 13 Team</English>
+            <Czech>Brigade 13 Team</Czech>
+            <French>Brigade 13 Team</French>
+            <German>Brigade 13 Team</German>
+            <Italian>Brigade 13 Team</Italian>
+            <Polish>Brigade 13 Team</Polish>
+            <Portuguese>Brigade 13 Team</Portuguese>
+            <Russian>Brigade 13 Team</Russian>
+            <Spanish>Brigade 13 Team</Spanish>
+        </Key>
         <Key ID="STR_DORB_MAIN_SUPPORTER">
             <English>Maverick2044, Cypherstalker, Kiwa, Dagobert, Bonecrusher, Nico, doubleK, McSeby, Floid</English>
             <Czech>Maverick2044, Cypherstalker, Kiwa, Dagobert, Bonecrusher, Nico, doubleK, McSeby, Floid</Czech>
@@ -504,7 +515,7 @@
             <Key ID="STR_DORB_MISSION_SIDE_WRECK_SUCCEEDED">
                 <German>Die Informationen konnten sichergestellt werden.</German>
                 <English>The intel got secured.</English>
-                
+
             </Key>
             <Key ID="STR_DORB_MISSION_SIDE_WRECK_FAILED">
                 <German>Es konnten keine Informationen geborgen werden.</German>

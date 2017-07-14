@@ -235,7 +235,7 @@ class GVAR(statemachine_Taskmanager) {
             // wait until everything is cleaned up
             condition = QUOTE(!(missionNamespace getVariable [ARR_2('EGVAR(spawn,cleaningUp)',true)]));
             // create a new blank Mission
-            onTransition = QUOTE(GVAR(Missions) pushBack HASH_CREATE);
+            onTransition = QUOTE(GVAR(Missions) pushBack HASH_CREATE;);
         };
     };
 

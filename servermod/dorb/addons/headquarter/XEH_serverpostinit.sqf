@@ -101,7 +101,7 @@ HASH_SET(GVAR(dangerzones),"distance",2000);
 GVAR(UnitKilledCoeff) = 1;
 
 /// Strategy
-GVAR(strategy_memory) = HASH_SERIALIZE(profileNamespace getVariabe [QGVAR(strategy_memory),HASH_CREATE]);
+GVAR(strategy_memory) = HASH_SERIALIZE(profileNamespace getVariable [QGVAR(strategy_memory),HASH_CREATE]);
 
 /// AttaclPos
 GVAR(attackpos) = HASH_CREATE;
