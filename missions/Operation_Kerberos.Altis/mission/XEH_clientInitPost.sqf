@@ -10,6 +10,8 @@
 
 CHECK(!hasInterface)
 
+CHECK(!((getMissionConfigValue ["isKerberos", 0]) > 0))
+
 [QGVAR(MakeDataTerminalDraggable),{
     _this params ["_unit"];
     [_unit, true,[0,1,0],90] call ace_dragging_fnc_setDraggable;

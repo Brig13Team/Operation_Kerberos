@@ -16,7 +16,7 @@
 
 If !(hasInterface) then {
     [QGVAR(teamfire), {
-        _this params [["_target",objNull,[objNull]],["_shooter",objNull,[objNull]]];
+        _this params [["_target",objNull,[objNull]],["_shooter",objNull,[objNull]],["_damage",-1,[0]]];
         private _msg = If (_shooter in allUnitsUAV) then {
             private _drone = _shooter;
             _shooter = ((UAVControl (vehicle (leader _group))) select 0);

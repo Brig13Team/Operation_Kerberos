@@ -22,7 +22,9 @@ class CfgComponents {
     viewrestriction = 1;
     doorbreach = 1;
     whitelist = 1;
+    // kerberos specific
     mission = 1;
+    headquarter = 1;
     /// mod specific components
     mod_ace = 1;
     mod_acre = 1;
@@ -61,7 +63,9 @@ class CfgComponents {
 #include "viewrestriction\CfgComponent.hpp"
 #include "whitelist\CfgComponent.hpp"
 #include "doorbreach\CfgComponent.hpp"
+
 #include "mission\CfgComponent.hpp"
+#include "headquarter\CfgComponent.hpp"
 
 #include "gui_echidna\CfgComponent.hpp"
 #include "gui_spawn\CfgComponent.hpp"

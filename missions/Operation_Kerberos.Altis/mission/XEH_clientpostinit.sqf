@@ -8,6 +8,8 @@
 #include "script_component.hpp"
 CHECK(!hasInterface)
 
+CHECK(!((getMissionConfigValue ["isKerberos", 0]) > 0))
+
 // Initialization Stuff
 [] call FUNC(obj_initACEAction_intel);
 [] call FUNC(obj_initACEAction_device);
