@@ -1,3 +1,6 @@
 *.project
-release/
-tools/*.cache
+*.biprivatekey
+*.cache
+*.pbo
+servermod/dorb/release/*
+
