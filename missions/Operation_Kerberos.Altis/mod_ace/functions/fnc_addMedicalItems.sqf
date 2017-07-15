@@ -5,10 +5,9 @@
         adds Medical Supplys to a unit
 */
 #include "script_component.hpp"
-CHECKRET((!(isClass(configFile >> "CfgPatches" >> "ace_medical"))),true);
 _this params[["_vehicle",objNull,[objNull]]];
-CHECKRET(((isNull _vehicle)||(isNil "ace_medical_level")),true);
-CHECK(!local _vehicle)
+
+If (isNull _vehicle) exitWith {};
 
 If (ace_medical_level<2) then {
     _vehicle addItemCargoGlobal ["ACE_fieldDressing"    , 150];
@@ -37,4 +36,3 @@ If (ace_medical_level<2) then {
     _vehicle addItemCargoGlobal ["ACE_surgicalKit"        , 30];
     _vehicle addItemCargoGlobal ["ACE_tourniquet"        , 40];
 };
-true;

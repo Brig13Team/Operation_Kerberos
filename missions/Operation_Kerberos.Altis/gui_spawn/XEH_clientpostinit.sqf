@@ -54,3 +54,5 @@ GVAR(vehiclesHashModified) = false;
     ["carrier_landingbay_vehicles",    carrier_landingbay_vehicles,    "tank", 2],
     ["carrier_marine",    carrier_marine,    "harbour", 2]
 ];
+
+[QGVAR(addVehicleSpecial),LINKFUNC(addVehicleSpecial)] call CBA_fnc_addEventHandler;
