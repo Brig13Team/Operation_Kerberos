@@ -69,6 +69,7 @@ switch (_preset) do {
         _return = (configProperties [configfile>>"CfgVehicles",format ["((isClass _x)&&{getNumber(_x>>'side')==%1}&&{getNumber(_x>>'scope')>1}&&{((configName _x) isKindOf 'Air')}&&{!(getText(_x>>'vehicleClass')=='Autonomous')})",_sideNumber], true])
         + (configProperties [configfile>>"CfgVehicles",format ["((isClass _x)&&{getNumber(_x>>'side')==%1}&&{getNumber(_x>>'scope')>1}&&{getText(_x>>'vehicleClass')=='Autonomous'})",_sideNumber], true]);
         _return = _return apply {configName _x};
+        _return = _return select {!(_x in ["B_SAM_System_01_F","B_SAM_System_02_F","B_AAA_System_01_F"])};
         _return arrayIntersect _return;
     };
     case "carrier_vehicles" : {
@@ -80,6 +81,8 @@ switch (_preset) do {
         _return pushBack "Box_NATO_AmmoVeh_F";
         _return pushBack "B_Quadbike_01_F";
         _return pushBack "B_APC_Tracked_01_CRV_F";
+        private _ace = ["ACE_medicalSupplyCrate","ACE_medicalSupplyCrate_advanced","ACE_Box_Misc","ACE_Box_Ammo","ACE_Track","ACE_Wheel","ACE_Box_82mm_Mo_Combo","ACE_Box_82mm_Mo_HE","ACE_Box_82mm_Mo_Illum","ACE_Box_82mm_Mo_Smoke"] select {isClass(configFile >> "CfgVehicles" >> _x)};
+        _return append _ace;
         // remove doubled
         _return arrayIntersect _return;
     };
@@ -115,7 +118,7 @@ switch (_preset) do {
         _return = _return apply {configName _x};
         #ifdef DEBUG_MODE_FULL
             _return pushBack "Land_VR_Block_05_F";
-        #endif        
+        #endif
     };
 };
 // forced blacklist
