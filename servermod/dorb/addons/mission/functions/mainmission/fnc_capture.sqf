@@ -33,11 +33,19 @@ _this params ["_mission", "_targets"];
                     [_x] call FUNC(obj__increaseCounter);
                     deleteVehicle _x;
                 }else{
-                    // behavior of the commander
+                    // commander surrendors if there are are more players near him then own units
                     If !(_x getVariable [QGVAR(isSurrendering), false]) then {
-                        private _nearUnits = _x nearEntities ["Man", 40];
+                        private _nearUnits = _x nearEntities ["Man", 35];
                         If ((GVARMAIN(playerside) countSide _nearUnits)>(GVARMAIN(side) countSide _nearUnits)) then {
                             ["ace_captives_setSurrendered",[_x,true],_x] call CBA_fnc_targetEvent;
+                        };
+                    }else{
+                        // if he is not handcuffed, he will rejoin the battle
+                        if !(_unit getVariable [QGVAR(isHandcuffed), false]) then {
+                            private _nearUnits = _x nearEntities ["Man", 25];
+                            If ((GVARMAIN(playerside) countSide _nearUnits)<(GVARMAIN(side) countSide _nearUnits)) then {
+                                ["ace_captives_setSurrendered",[_x,false],_x] call CBA_fnc_targetEvent;
+                            };
                         };
                     };
                 };
