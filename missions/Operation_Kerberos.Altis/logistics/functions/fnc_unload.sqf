@@ -103,3 +103,4 @@ If (_aceActions select 1) then {
     (_last_cargo select 0) setVariable ["ACE_dragging_canCarry",true,true];
 };
 (_last_cargo select 0) setVariable [QGVAR(aceactions),[],true];
+[QGVAR(enableCollision),[_vehicle,(_last_cargo select 0)],[_vehicle,(_last_cargo select 0)]] call CBA_fnc_targetEvent;

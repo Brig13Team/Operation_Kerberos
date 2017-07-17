@@ -30,6 +30,16 @@ If (!(_anim isEqualTo "")) then {
 
 TRACEV_1(_isdrop);
 
+private _logistic_stack = _target getVariable [QGVAR(stack),[]];
+if !(_logistic_stack isEqualTo []) then {
+    private _cargo = _logistic_stack select ((count _logistic_stack) - 1);
+    _cargo = _cargo select ((count _cargo) - 1);
+    private _cargoObject = _cargo select 0;
+    If ((IS_OBJECT(_cargoObject))&&{!isNull _cargoObject}) then {
+        [QGVAR(disableCollision),[_target,_cargoObject],[_target,_cargoObject]] call CBA_fnc_targetEvent;
+    };
+};
+
 If (_isdrop) then {
     [
         LOADTIME,

@@ -1,12 +1,12 @@
 /*
     Author: Dorbedo, iJesuz
-    
+
     Description:
         Checks if Unit can unload
-        
+
     Parameter(s):
         0 : OBJECT - Target
-        
+
     Returns:
         BOOL
 */
@@ -21,7 +21,8 @@ private _logistic_stack = _target getVariable [QGVAR(stack),[]];
 if (_logistic_stack isEqualTo []) exitWith { false };
 private _load_point = getArray(missionConfigFile >> "logistics" >> "vehicles" >> _vehicle_class >> "load_point");
 
-private _cargo = _logistic_stack select ((count _logistic_stack) - 1); _cargo = _cargo select ((count _cargo) - 1);
+private _cargo = _logistic_stack select ((count _logistic_stack) - 1);
+_cargo = _cargo select ((count _cargo) - 1);
 private _width  = _cargo select 1 select 0;
 private _length = _cargo select 1 select 1;
 private _height = _cargo select 1 select 2;
