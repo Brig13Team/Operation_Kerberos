@@ -1,14 +1,5 @@
-PREP(end);
 PREP(handleRescuePoint);
-PREP(spawn);
-PREP(spawnSide);
 
-PREPS(mainmission,_holdPFH);
-PREPS(mainmission,_oneCounter_condition);
-PREPS(mainmission,_oneCounter);
-PREPS(mainmission,_rtb_condition);
-PREPS(mainmission,_twoCounters_condition);
-PREPS(mainmission,_twoCounters);
 PREPS(mainmission,capture);
 PREPS(mainmission,device);
 PREPS(mainmission,dronecommando);
@@ -60,22 +51,6 @@ PREPS(statemachine,isActiveMission);
 PREPS(statemachine,onTransition);
 PREPS(statemachine,rtb);
 PREPS(statemachine,spawn);
-
-PREPS(taskmanager,__add);
-PREPS(taskmanager,__cancelAll);
-PREPS(taskmanager,__handle);
-PREPS(taskmanager,__remove);
-PREPS(taskmanager,__setState);
-PREPS(taskmanager,add);
-PREPS(taskmanager,addChild);
-PREPS(taskmanager,getMissionTargets);
-PREPS(taskmanager,handle);
-PREPS(taskmanager,hasActiveMissions);
-PREPS(taskmanager,init);
-PREPS(taskmanager,remove);
-PREPS(taskmanager,removeChild);
-PREPS(taskmanager,setState);
-PREPS(taskmanager,setStateChild);
 
 PREPS(obj,_decreaseCounter);
 PREPS(obj,_increaseCounter);
