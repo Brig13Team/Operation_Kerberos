@@ -105,11 +105,6 @@
               "rightLabel": "BRIG Macro",
               "descriptionMoreURL": ""
             }, {
-              "description": "Expands to: (isClass(configFile >> \"CfgPatches\" >> \"task_force_radio\"))",
-              "text": "ACTIVEMOD_TFAR",
-              "rightLabel": "BRIG Macro",
-              "descriptionMoreURL": ""
-            }, {
               "description": "Expands to: (isClass(configFile >> \"CfgPatches\" >> \"acre_main\"))",
               "text": "ACTIVEMOD_ACRE",
               "rightLabel": "BRIG Macro",

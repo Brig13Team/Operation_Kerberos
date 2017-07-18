@@ -1,0 +1,5 @@
+*.project
+*.biprivatekey
+*.cache
+*.pbo
+**/release/*
