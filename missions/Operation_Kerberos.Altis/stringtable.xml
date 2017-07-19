@@ -232,32 +232,6 @@
                 <English>All Soldiers returned</English>
             </Key>
 
-            <!--
-            <Key ID="STR_DORB_MISSION_MAIN_CAPTURE_TITLE">
-                <German>Offizier gefangen nehmen</German>
-                <English>Capture Commander</English>
-            </Key>
-            <Key ID="STR_DORB_MISSION_MAIN_CAPTURE_DESC">
-                <German>Nehmen Sie die feindlichen Befehlshaber der Region gefangen. Bringen Sie diese anschließend zum Verhör in die Basis.</German>
-            </Key>
-            <Key ID="STR_DORB_MISSION_MAIN_CAPTURE_SUCCEEDED">
-                <German>Die Offiziere konnten gefangen genommen werden</German>
-            </Key>
-            <Key ID="STR_DORB_MISSION_MAIN_CAPTURE_NEUTRAL">
-                <German>Einige Offiziere konnten gefangen genommen werden</German>
-            </Key>
-            <Key ID="STR_DORB_MISSION_MAIN_CAPTURE_FAILED">
-                <German>Es konnten nicht genügend Offiziere gefangen genommen werden</German>
-            </Key>
-
-            <Key ID="STR_DORB_MISSION_CAPTURE_COUNTER_1">
-                <German>Der Offizier %1 wurde gefangen genommen und erfolgreich in unsere Basis überführt.</German>
-            </Key>
-            <Key ID="STR_DORB_MISSION_CAPTURE_COUNTER_2">
-                <German>Der Offizier %1 kam bei Feuergefechten ums Leben.</German>
-            </Key>
-            -->
-
             <Key ID="STR_DORB_MISSION_MAIN_CAPTURE_TITLE">
                 <German>Offizier gefangen nehmen</German>
                 <English>Capture Commander</English>
