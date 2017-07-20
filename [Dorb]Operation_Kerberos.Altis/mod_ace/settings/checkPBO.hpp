@@ -7,7 +7,7 @@
 #define MOD_3DENENHANCED '3denenhanced'
 #define MOD_ARES 'ares_zeusextensions','ares'
 #define MOD_ACHILLES 'achilles_data_f_achilles','achilles_data_f_ares','achilles_language_f','achilles_functions_f_ares','achilles_functions_f_achilles','achilles_modules_f_achilles','achilles_modules_f_ares','achilles_ui_f','achilles_settings_f'
-#define MOD_3rdPerson 'operation_kerberos_3rdperson_man','operation_kerberos_3rdperson_vehicles'
+#define MOD_3rdPerson 'kerb_main','kerb_man','kerb_vehicles'
 
 class ace_common_checkPBOsWhitelist {
     value = QUOTE([ARR_6(MOD_CBA,MOD_BWA3,MOD_STHUD,MOD_EXTDB3,MOD_ASRAI,MOD_3rdPerson)]);
