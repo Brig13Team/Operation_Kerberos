@@ -591,6 +591,7 @@
             </Key>
         </Container>
     </Package>
+    <Package name="player">
         <Key ID="STR_DORB_PLAYER_HALO">
             <German>Halo</German>
             <English>Halo</English>
