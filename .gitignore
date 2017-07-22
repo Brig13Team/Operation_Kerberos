@@ -3,3 +3,5 @@
 *.cache
 *.pbo
 **/release/*
+*.tmp
+*.cache

@@ -18,6 +18,6 @@ class CfgPatches {
 
 class CfgKerberos {
     class worlds {
-        #include "config/worlds.hpp"
+        #include "config\worlds.hpp"
     };
 };

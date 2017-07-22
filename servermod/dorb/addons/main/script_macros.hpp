@@ -17,18 +17,6 @@ Author:
 #define QPATHOF_FUNC2(var1,var2) QUOTE(\MAINPREFIX\PREFIX\SUBPREFIX\COMPONENT\functions\##var1\fnc_##var2)
 
 /* -------------------------------------------
-Macro: MPATH(VAR)
-    this marco is used to convert a missiopath for the description.ext
-
-Parameters:
-    VAR - NAME
-
-Author:
-    Dorbedo
-------------------------------------------- */
-#define MPATH(VAR) __EVAL(MISSION_ROOT + 'VAR')
-
-/* -------------------------------------------
 Macro: CHECK()
     Checks Condition - Exit if true
 

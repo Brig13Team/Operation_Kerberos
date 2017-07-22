@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Package name="CBA">
+    <Key ID="STR_cba_statemachine_Component">
+        <English>Community Base Addons - State Machine Component</English>
+        <Japanese>Community Base Addons - ステート マシーン要素</Japanese>
+    </Key>
+</Package>
