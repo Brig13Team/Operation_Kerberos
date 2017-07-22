@@ -11,7 +11,7 @@ for /d %%f in (servermod\dorb\addons\*) do (
     set folder=%%f
     set name=!folder:servermod\dorb\addons\=!
     echo   PBO  release\@dorb\addons\dorb_!name!.pbo
-    !armake! build -w unquoted-string -w redefinition-wo-undef -f !folder! release\@dorb\addons\dorb_!name!.pbo
+    !armake! build -i include -w unquoted-string -w redefinition-wo-undef -f !folder! release\@dorb\addons\dorb_!name!.pbo
 )
 
 for /R servermod\dorb\intercept\ %%f in (*.dll) do copy %%f release\@dorb\intercept\ 1>NUL
