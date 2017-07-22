@@ -1,4 +1,4 @@
-# author: iJesuz
+# author: iJesuz, extended by Dorbedo
 #
 # description:
 #   This is a simple xml validator for TravisCI.
@@ -9,7 +9,7 @@
 import os
 import sys
 
-# description: 
+# description:
 #   returns index before pattern
 #   if pattern isn't found a ValueError is thrown
 #
@@ -51,7 +51,7 @@ def checkHeader(string : str) -> str:
     #
     # return:
     #   bool
-    def checkAttributes(string : str, __name = "", __equal = False, __names = []) -> bool:
+    def checkAttributes(string : str, __name = "", __equal = False, __names = [], __isKey = False) -> bool:
         if (len(string) == 0):
             if (len(__name) > 0):
                 raise ValueError("Non finished assignment for attribute '" + __name + "'!")
@@ -78,6 +78,11 @@ def checkHeader(string : str) -> str:
                             if (not string[skip+1] == " "):
                                 raise ValueError("Missing ' ' after attribute assignment!")
                         __names.append(__name)
+                        if (__name.lower() == "id"):
+                            if (string in allKeys):
+                                raise ValueError("Doubled String detected:" + string)
+                            else:
+                                allKeys.append(string)
                         return checkAttributes(string[skip+1:],"",False,__names)
                     else:
                         raise ValueError("Encountered '\"' before '='!")
@@ -86,7 +91,6 @@ def checkHeader(string : str) -> str:
 
             elif (string[0] == " "):
                 return checkAttributes(string[1:],__name,__equal,__names)
-                
             else:
                 if (len(__name) > 0):
                     if (__equal):
@@ -94,7 +98,7 @@ def checkHeader(string : str) -> str:
                 return checkAttributes(string[1:],__name + string[0],__equal,__names)
 
     if ('<' in string):
-        raise ValueError("Encountered illegal character inside a tag header: '<'")            
+        raise ValueError("Encountered illegal character inside a tag header: '<'")
     # shouldn't be inside (see calling function)
     # if ('>' in string):
     #     raise ValueError("Encountered illegal character inside a tag header: '>'")
@@ -132,14 +136,14 @@ def validate_xml(filepath : str) -> bool:
                 # processing instruction
                 elif (content[index:index+2] == "<?"):
                     index = skipUntil(content, index, "?>", "Missing '?>' in processing instruction!")
-                    
+
 
                 # end tag
                 elif (content[index:index+2] == "</"):
                     first = index + 2
                     last = skipUntil(content, first, ">", "End Tag never closed!")
                     closedName = content[first:last]
-                    
+
                     if (len(stack) == 0):
                         raise ValueError("Element '" + closedName + "' closed but not opened before!")
 
@@ -153,25 +157,24 @@ def validate_xml(filepath : str) -> bool:
                 else:
                     first = index + 1
                     last = skipUntil(content, first, ">", "Start Tag never closed!")
-                    
+
                     # not an empty-element tag
                     if (content[last-1] == '/'):
                         tag = checkHeader(content[first:last-1])
                     else:
                         tag = checkHeader(content[first:last])
                         stack.append(tag)
-
                     index = last
-                        
+
             index += 1
-            
+
     except ValueError as error:
         print(error)
 
         last = ""
         count = 0
         countLines = 0
-        
+
         file.seek(0)
         for line in file:
             if (count <= index):
@@ -195,11 +198,12 @@ def validate_xml(filepath : str) -> bool:
 # return
 #   int - 0 (on success) or 1 (if errors are found)
 def main():
-    dirToCheck = "../[Dorb]Operation_Kerberos.Altis"
-
+    dirToCheck = "../"
+    global allKeys
     errors = 0;
     for root, subdirs, files in os.walk(dirToCheck):
         for name in list(filter(lambda x: x.endswith(".xml"),files)):
+            allKeys = []
             if (not validate_xml(os.path.join(root,name))):
                 errors = errors + 1
 

@@ -132,17 +132,23 @@ def main():
     args = parser.parse_args()
 
     # Allow running from root directory as well as from inside the tools directory
-    rootDir = "../addons"
-    if (os.path.exists("addons")):
-        rootDir = "addons"
-    if (os.path.exists("[Dorb]Operation_Kerberos.Altis")):
-        rootDir = "[Dorb]Operation_Kerberos.Altis"
-    
+    rootDir = "../missions"
+    if (os.path.exists("missions")):
+        rootDir = "missions"
     for root, dirnames, filenames in os.walk(rootDir + '/' + args.module):
-      for filename in fnmatch.filter(filenames, '*.cpp'):
-        sqf_list.append(os.path.join(root, filename))
-      for filename in fnmatch.filter(filenames, '*.hpp'):
-        sqf_list.append(os.path.join(root, filename))
+        for filename in fnmatch.filter(filenames, '*.cpp'):
+            sqf_list.append(os.path.join(root, filename))
+        for filename in fnmatch.filter(filenames, '*.hpp'):
+            sqf_list.append(os.path.join(root, filename))
+
+    rootDir = "../servermod"
+    if (os.path.exists("servermod")):
+        rootDir = "servermod"
+    for root, dirnames, filenames in os.walk(rootDir + '/' + args.module):
+        for filename in fnmatch.filter(filenames, '*.cpp'):
+            sqf_list.append(os.path.join(root, filename))
+        for filename in fnmatch.filter(filenames, '*.hpp'):
+            sqf_list.append(os.path.join(root, filename))
 
     for filename in sqf_list:
         bad_count = bad_count + check_config_style(filename)
