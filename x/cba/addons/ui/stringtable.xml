@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<Project name="CBA_A3">
-    <Package name="Ui">
-        <Key ID="STR_CBA_Ui_Component">
-            <English>Community Base Addons - User Interface</English>
-            <Japanese>Community Base Addons - ユーザー インターフェイス</Japanese>
-        </Key>
-    </Package>
-</Project>

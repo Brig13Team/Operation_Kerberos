@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<Project name="CBA_A3">
-    <Package name="Vectors">
-        <Key ID="STR_CBA_Vectors_Component">
-            <English>Community Base Addons - Vectors</English>
-            <Japanese>Community Base Addons - ベクター</Japanese>
-        </Key>
-    </Package>
-</Project>
