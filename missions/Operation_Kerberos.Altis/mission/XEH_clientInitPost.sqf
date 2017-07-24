@@ -10,7 +10,7 @@
 
 CHECK(!hasInterface)
 
-CHECK(!((getMissionConfigValue ["isKerberos", 0]) > 0))
+If (!((getMissionConfigValue ["isKerberos", 0]) > 0)) exitWith {};
 
 [QGVAR(MakeDataTerminalDraggable),{
     _this params ["_unit"];

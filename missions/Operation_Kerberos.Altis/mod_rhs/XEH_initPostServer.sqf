@@ -9,7 +9,7 @@
 #include "script_component.hpp"
 
 
-CHECK(!((getMissionConfigValue ["isKerberos", 0]) > 0))
+If (!((getMissionConfigValue ["isKerberos", 0]) > 0)) exitWith {};
 
 // disable tire prssure
 profilenamespace setvariable ['rhs_activeTirePressure',0];

@@ -8,7 +8,7 @@
 #include "script_component.hpp"
 CHECK(!hasInterface)
 
-CHECK(!((getMissionConfigValue ["isKerberos", 0]) > 0))
+If (!((getMissionConfigValue ["isKerberos", 0]) > 0)) exitWith {};
 
 // Initialization Stuff
 [] call FUNC(obj_initACEAction_intel);
