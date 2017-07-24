@@ -59,11 +59,11 @@ def create_mission_pbos():
             copy_tree(os.path.normpath(path_missions + "/" + file), newdir)
 
     for folder in os.listdir(path_temp):
-        cmd_armake = path_armake + " build -p -w unquoted-string -w redefinition-wo-undef -f " + \
+        cmd_armake = path_armake + " build  -w unquoted-string -w redefinition-wo-undef -f " + \
             os.path.normpath(path_temp + "/" + folder) + " " + \
             os.path.normpath(path_release + "/" + folder + ".pbo")
         os.system(cmd_armake)
-        print("Creating %s.pbo" % (folder))
+        #print("Creating %s.pbo" % (folder))
 
     shutil.rmtree(path_temp, ignore_errors=True)
     return True
