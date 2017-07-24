@@ -72,10 +72,10 @@ def main():
     """main"""
     if create_mission_pbos():
         print("\n No errors found.")
-        return 1
+        return 0
     else:
         print("Errors found.")
-        return 0
+        return 1
 
 if __name__ == '__main__':
     sys.exit(main())
