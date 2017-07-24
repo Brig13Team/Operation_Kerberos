@@ -36,7 +36,7 @@ def create_mission_pbos():
         else:
             path_armake = os.path.normpath(path_root + "/tools/armake_w32.exe")
     else:
-        path_armake = os.path.normpath(path_root + "armake")
+        path_armake = "armake"
 
     if not os.path.exists(path_release):
         os.makedirs(path_release)
