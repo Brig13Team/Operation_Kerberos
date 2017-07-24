@@ -73,9 +73,10 @@ def main():
     try:
         back = create_mission_pbos()
         if not back:
-            ValueError
-        print("\n No errors found.")
+            ValueError('Armake failed')
+        print("No errors found.")
     except:
+        print("Error occured found.")
         return 1
     else:
         return 0
