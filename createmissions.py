@@ -59,7 +59,7 @@ def create_mission_pbos():
             copy_tree(os.path.normpath(path_missions + "/" + file), newdir)
 
     for folder in os.listdir(path_temp):
-        cmd_armake = path_armake + " build  -w unquoted-string -w redefinition-wo-undef -f " + \
+        cmd_armake = path_armake + " build -p -w unquoted-string -w redefinition-wo-undef -f " + \
             os.path.normpath(path_temp + "/" + folder) + " " + \
             os.path.normpath(path_release + "/" + folder + ".pbo")
         os.system(cmd_armake)
@@ -70,12 +70,13 @@ def create_mission_pbos():
 
 def main():
     """main"""
-    if create_mission_pbos():
+    try:
+        back = create_mission_pbos()
         print("\n No errors found.")
-        return 0
-    else:
-        print("Errors found.")
+    except:
         return 1
+    else:
+        return 0
 
 if __name__ == '__main__':
     sys.exit(main())
