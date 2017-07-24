@@ -72,6 +72,8 @@ def main():
     """main"""
     try:
         back = create_mission_pbos()
+        if not back:
+            ValueError
         print("\n No errors found.")
     except:
         return 1
