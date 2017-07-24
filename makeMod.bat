@@ -17,6 +17,6 @@ for /d %%f in (servermod\dorb\addons\*) do (
 for /R servermod\dorb\intercept\ %%f in (*.dll) do copy %%f release\@dorb\intercept\ 1>NUL
 for /R servermod\dorb\intercept\ %%f in (*.so) do copy %%f release\@dorb\intercept\ 1>NUL
 
-!armake! build -p -w unquoted-string -w redefinition-wo-undef -f missions\Operation_Kerberos.Altis release\Operation_Kerberos.Altis.pbo
+REM !armake! build -p -w unquoted-string -w redefinition-wo-undef -f missions\Operation_Kerberos.Altis release\Operation_Kerberos.Altis.pbo
 
 pause
