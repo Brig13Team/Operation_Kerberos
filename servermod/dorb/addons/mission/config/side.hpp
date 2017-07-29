@@ -97,9 +97,9 @@ class chopper : radar {
         objectsfunction = QFUNC(sidemission_chopper);
     };
     class task : task {
-        title = LSTRING(side_artillery_title);
-        description = LSTRING(side_artillery_desc);
-        onSucceeded = LSTRING(side_artillery_succeeded);
+        title = LSTRING(side_chopper_title);
+        description = LSTRING(side_chopper_desc);
+        onSucceeded = LSTRING(side_chopper_succeeded);
         tasktype = "kill";
     };
     class condition : condition {
