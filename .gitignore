@@ -5,3 +5,4 @@
 **/release/*
 *.tmp
 *.cache
+.vscode/launch.json
