@@ -22,6 +22,13 @@ private _missionsWeighted = configProperties [
     "true",
     true
 ];
+_missionsWeighted = _missionsWeighted select {
+    If (getText(_x>>"condition") isEqualTo "") then {
+        true
+    } else {
+        (call compile getText(_x>>"condition"))
+    }
+};
 TRACEV_1(_missionsWeighted);
 _missionsWeighted = _missionsWeighted apply {[_x,getNumber(_x>>"probability")]};
 TRACEV_1(_missionsWeighted);

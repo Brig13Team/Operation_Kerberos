@@ -213,6 +213,7 @@ class prototype : device {
 };
 
 class jammer : device {
+    condition = "isClass(configfile>>'CfgPatches'>>'acre_main')";
     probability = PROPABILITY_LAND;
     class position : position {
         radius = 1200;
