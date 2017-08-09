@@ -22,7 +22,7 @@ If (IS_STRING(_array)) then {
 
 private _return = false;
 {
-    If ((IS_STRING(_x))&&{!(_x isEqualTo "")}&&{!((_x select [0, 4]) == "acre")}&&{!((toLower _x) in GVAR(curList))}) exitWith {
+    If ((IS_STRING(_x))&&{!(_x isEqualTo "")}&&{!((_x select [0, 4]) == "acre")}&&{!((_x select [0, 2]) == "tf")}&&{!((toLower _x) in GVAR(curList))}) exitWith {
         TRACEV_2(_x,_array);
         _return = true;
     };
