@@ -7,7 +7,7 @@
  */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-
+If (!isClass(configFile >> "CfgPatches" >> "acre_main")) exitWith {};
 acre_api_basicMissionSetup = true;
 acre_player setVariable ["acre_api_basicMissionSetup", true, true];
 // diable the basic mission setup
