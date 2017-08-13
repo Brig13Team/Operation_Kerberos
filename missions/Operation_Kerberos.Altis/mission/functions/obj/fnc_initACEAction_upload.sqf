@@ -29,7 +29,8 @@ private _action = [
     { _target getVariable [QGVAR(isActive), false] }
 ] call ace_interact_menu_fnc_createAction;
 
-private _classes = ["upload"] call FUNC(spawn_getObjects);
+//private _classes = ["upload"] call FUNC(spawn_getObjects);
+private _classes = ["Land_Laptop_unfolded_F", "Land_Laptop_device_F"];
 
 {
     [_x, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToClass;

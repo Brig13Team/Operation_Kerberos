@@ -21,7 +21,8 @@ private _action = [
     { _target getVariable [QGVAR(isActive),true]; }
 ] call ace_interact_menu_fnc_createAction;
 
-private _classes = ["intel"] call FUNC(spawn_getObjects);
+//private _classes = ["intel"] call FUNC(spawn_getObjects);
+private _classes = ["Land_File1_F","Land_File2_F","Land_FilePhotos_F","Land_SatellitePhone_F","Land_MobilePhone_smart_F"];
 
 {
     [_x, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToClass;
