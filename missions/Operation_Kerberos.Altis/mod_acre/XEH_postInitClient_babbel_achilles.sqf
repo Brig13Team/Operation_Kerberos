@@ -7,7 +7,7 @@
  */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-If (!isClass(configFile >> "CfgPatches" >> "acre_main")) exitWith {};
+
 [
     "Babbel",
     "Add English",

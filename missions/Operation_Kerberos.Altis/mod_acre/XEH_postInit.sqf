@@ -8,7 +8,7 @@
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-If (!isClass(configFile >> "CfgPatches" >> "acre_main")) exitWith {};
+
 
 // setting up the jammer
 [LINKFUNC(getSignal)] call acre_api_fnc_setCustomSignalFunc;
