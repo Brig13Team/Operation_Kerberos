@@ -7244,7 +7244,7 @@ class Mission
 			dataType="Marker";
 			position[]={11901.025,-0.88834381,26902.826};
 			name="TS";
-			text="TS-IP: ts.brigade13.de";
+			text="TS-IP: ts3.xxxxxx.xxx";
 			type="mil_warning";
 			colorName="ColorRed";
 			id=266;
