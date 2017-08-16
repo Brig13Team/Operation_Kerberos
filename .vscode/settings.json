@@ -8,11 +8,22 @@
         "editor.trimAutoWhitespace": true,
         "editor.autoClosingBrackets": true
     },
+    "[cpp]": {
+        "editor.quickSuggestions": false
+    },
     "editor.renderWhitespace": "all",
     "files.insertFinalNewline": true,
     "files.associations": {
         "*.cpp": "sqf",
-        "*.hpp": "sqf"
-    }
-
+        "*.hpp": "sqf",
+        "*.ext": "sqf"
+    },
+    "sqflint.checkPaths": false,
+    "sqf.enableCBA": true,
+    "sqf.enableACE3": true,
+    "files.trimTrailingWhitespace": true,
+    "editor.detectIndentation": false,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000,
+    "git.confirmSync": false
 }

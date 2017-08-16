@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project name="dorb">
+    <Package name="main">
+        <Key ID="STR_DORB_MAIN_NAME">
+            <English>Operation Kerberos</English>
+            <Czech>Operation Kerberos</Czech>
+            <French>Operation Kerberos</French>
+            <German>Operation Kerberos</German>
+            <Italian>Operation Kerberos</Italian>
+            <Polish>Operation Kerberos</Polish>
+            <Portuguese>Operation Kerberos</Portuguese>
+            <Russian>Operation Kerberos</Russian>
+            <Spanish>Operation Kerberos</Spanish>
+        </Key>
+        <Key ID="STR_DORB_MAIN_BRIGTEAM">
+            <English>Brigade 13 Team</English>
+            <Czech>Brigade 13 Team</Czech>
+            <French>Brigade 13 Team</French>
+            <German>Brigade 13 Team</German>
+            <Italian>Brigade 13 Team</Italian>
+            <Polish>Brigade 13 Team</Polish>
+            <Portuguese>Brigade 13 Team</Portuguese>
+            <Russian>Brigade 13 Team</Russian>
+            <Spanish>Brigade 13 Team</Spanish>
+        </Key>
+        <Key ID="STR_DORB_MAIN_AUTHOR">
+            <English>Dorbedo, iJesuz</English>
+            <Czech>Dorbedo, iJesuz</Czech>
+            <French>Dorbedo, iJesuz</French>
+            <German>Dorbedo, iJesuz</German>
+            <Italian>Dorbedo, iJesuz</Italian>
+            <Polish>Dorbedo, iJesuz</Polish>
+            <Portuguese>Dorbedo, iJesuz</Portuguese>
+            <Russian>Dorbedo, iJesuz</Russian>
+            <Spanish>Dorbedo, iJesuz</Spanish>
+        </Key>
+        <Key ID="STR_DORB_MAIN_SUPPORTER">
+            <English>Maverick2044, Cypherstalker, Kiwa, Dagobert, Bonecrusher, Nico, doubleK, McSeby, Floid</English>
+            <Czech>Maverick2044, Cypherstalker, Kiwa, Dagobert, Bonecrusher, Nico, doubleK, McSeby, Floid</Czech>
+            <French>Maverick2044, Cypherstalker, Kiwa, Dagobert, Bonecrusher, Nico, doubleK, McSeby, Floid</French>
+            <German>Maverick2044, Cypherstalker, Kiwa, Dagobert, Bonecrusher, Nico, doubleK, McSeby, Floid</German>
+            <Italian>Maverick2044, Cypherstalker, Kiwa, Dagobert, Bonecrusher, Nico, doubleK, McSeby, Floid</Italian>
+            <Polish>Maverick2044, Cypherstalker, Kiwa, Dagobert, Bonecrusher, Nico, doubleK, McSeby, Floid</Polish>
+            <Portuguese>Maverick2044, Cypherstalker, Kiwa, Dagobert, Bonecrusher, Nico, doubleK, McSeby, Floid</Portuguese>
+            <Russian>Maverick2044, Cypherstalker, Kiwa, Dagobert, Bonecrusher, Nico, doubleK, McSeby, Floid</Russian>
+            <Spanish>Maverick2044, Cypherstalker, Kiwa, Dagobert, Bonecrusher, Nico, doubleK, McSeby, Floid</Spanish>
+        </Key>
+    </Package>
+</Project>

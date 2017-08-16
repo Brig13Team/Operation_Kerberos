@@ -1,1 +1,8 @@
 *.project
+*.biprivatekey
+*.cache
+*.pbo
+**/release/*
+*.tmp
+*.cache
+.vscode/launch.json
