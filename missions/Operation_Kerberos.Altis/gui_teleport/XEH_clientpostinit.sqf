@@ -47,9 +47,9 @@ _carrierPos set [2,23.8];
 [getMarkerPos "bay_south",localize LSTRING(BAY_SOUTH),"infanterie",{!(_this call FUNC(nearEnemys))},[getMarkerPos "bay_south"]] call FUNC(registerTeleportPosition);
 
 
-If (((getMarkerpos "respawn_west_tonos") distance2D [0,0,0])>100) then {
-    [getMarkerPos "respawn_west_tonos",localize LSTRING(BAY_TONOS),["default","infanterie"],{true},[]] call FUNC(registerTeleportTarget);
-    [getMarkerPos "respawn_west_tonos",localize LSTRING(BAY_TONOS),["default","infanterie"],{true},[]] call FUNC(registerTeleportPosition);
+If (((getMarkerpos "respawn_west_land") distance2D [0,0,0])>100) then {
+    [getMarkerPos "respawn_west_land",localize LSTRING(BAY_TONOS),["default","infanterie"],{true},[]] call FUNC(registerTeleportTarget);
+    [getMarkerPos "respawn_west_land",localize LSTRING(BAY_TONOS),["default","infanterie"],{true},[]] call FUNC(registerTeleportPosition);
 };
 
 

@@ -19,7 +19,7 @@ _this params ["_mission"];
 private _centerpos = HASH_GET(_mission,"location") select 1;
 TRACEV_1(_centerPos);
 
-CHECK(((_centerPos distance2d (getMarkerPos GVARMAIN(RESPAWNMARKER)))<1500)||((_centerPos distance2d (getMarkerPos "respawn_west_tonos"))<1500))
+CHECK(((_centerPos distance2d (getMarkerPos GVARMAIN(RESPAWNMARKER)))<1500)||((_centerPos distance2d (getMarkerPos "respawn_west_land"))<1500))
 
 private _gridsize = HASH_GET(GVAR(dangerzones),"gridsize");
 private _distance = HASH_GET(GVAR(dangerzones),"distance");

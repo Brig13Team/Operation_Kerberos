@@ -35,7 +35,7 @@ _this params ["_pos",["_rad",2500,[0]]];
         _x getVariable [QGVARMAIN(canDelete),true]
         }&&{!(
             (_x distance (getMarkerPos GVARMAIN(respawnmarker)) < 500)||
-            (_x distance (getMarkerPos "respawn_west_tonos") < 500)
+            (_x distance (getMarkerPos "respawn_west_land") < 500)
         )}) then {
         GVAR(cleanup_Dump_int) pushBackUnique [-1,_x];
     };

@@ -829,6 +829,10 @@
             <German>Tonos Bucht</German>
             <English>Tonos Bay</English>
         </Key>
+        <Key ID="STR_DORB_GUI_TELEPORT_BAY_LAND">
+            <German>Landebucht</German>
+            <English>Landing Bay</English>
+        </Key>
 
         <Key ID="STR_DORB_GUI_TELEPORT_NORTH">
             <German>Eintrittspunkt Nord</German>

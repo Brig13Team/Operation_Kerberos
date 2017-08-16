@@ -78,7 +78,7 @@ If ((getMissionConfigValue ["isKerberos", 0]) > 0) then {
             };
         },
         1,
-        [getMarkerPos GVARMAIN(respawnmarker),getMarkerPos "respawn_west_tonos"]
+        [getMarkerPos GVARMAIN(respawnmarker),getMarkerPos "respawn_west_land"]
     ] call CBA_fnc_addPerFrameHandler;
 
 };

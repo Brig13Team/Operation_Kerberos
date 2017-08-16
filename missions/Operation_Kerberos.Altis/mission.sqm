@@ -8242,7 +8242,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={12169.784,0,22894.977};
-			name="respawn_west_Tonos";
+			name="respawn_west_land";
 			text="Tonos Bay";
 			type="Empty";
 			angle=67.070969;

@@ -16,7 +16,7 @@
 
 _this params ["_targetPos",["_mindistance",5000,[0]],["_mindistancePlayer",5000,[0]],["_maxdistance",12000,[0]]];
 
-private _positionBlacklist = [getMarkerPos GVARMAIN(respawnmarker),HASH_GET_DEF(GVAR(dangerzones),"centerpos",getMarkerPos GVARMAIN(respawnmarker)),getMarkerPos "respawn_west_tonos"] + ((allUnits select {side _x == GVARMAIN(playerside)}) apply {getPos _x});
+private _positionBlacklist = [getMarkerPos GVARMAIN(respawnmarker),HASH_GET_DEF(GVAR(dangerzones),"centerpos",getMarkerPos GVARMAIN(respawnmarker)),getMarkerPos "respawn_west_land"] + ((allUnits select {side _x == GVARMAIN(playerside)}) apply {getPos _x});
 private _errorcounter = 1000; //
 private _spawnpos = [];
 
