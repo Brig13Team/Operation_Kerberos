@@ -13473,7 +13473,7 @@ class Mission
 			name="respawn_west";
 			text="USS Freedom";
 			type="Empty";
-			angle=67.070984;
+			angle=67.070969;
 			id=507;
 			atlOffset=185.97;
 		};
@@ -13841,12 +13841,13 @@ class Mission
 		class Item214
 		{
 			dataType="Marker";
-			position[]={24267.436,3.6105468,18055.678};
-			name="respawn_west_Tonos";
+			position[]={24267.436,0,18055.678};
+			name="respawn_west_land";
 			text="Tonos Bay";
 			type="Empty";
-			angle=143.54492;
+			angle=143.54497;
 			id=543;
+			atlOffset=-3.6105468;
 		};
 		class Item215
 		{
@@ -13934,11 +13935,11 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={24586.404,0,15994.679};
+				position[]={24586.404,-0.00048446655,15994.679};
 			};
 			id=549;
 			type="tfar_ModuleTaskForceRadioEnforceUsage";
-			atlOffset=31.786484;
+			atlOffset=31.785999;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -13994,7 +13995,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="Public_TFAR";
+							value="Publicserver_TFAR";
 						};
 					};
 				};
