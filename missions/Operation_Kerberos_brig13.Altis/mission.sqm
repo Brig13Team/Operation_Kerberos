@@ -9774,7 +9774,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={24275.512,3.1940818,18066.918};
-			name="Tonos_Bay";
+			name="Landing Zone";
 			type="mil_pickup";
 			colorName="ColorWEST";
 			id=444;
@@ -13843,7 +13843,7 @@ class Mission
 			dataType="Marker";
 			position[]={24267.436,0,18055.678};
 			name="respawn_west_land";
-			text="Tonos Bay";
+			text="Landing Zone";
 			type="Empty";
 			angle=143.54497;
 			id=543;
