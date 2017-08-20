@@ -23,6 +23,7 @@ If (!((getMissionConfigValue ["isKerberos", 0]) > 0)) exitWith {};
 [QGVAR(earthquake),LINKFUNC(obj_effectEarthquake)] call CBA_fnc_addEventHandler;
 [QGVAR(effectDownload_Client),LINKFUNC(obj_effectDownloadClient)] call CBA_fnc_addEventHandler;
 [QFUNC(obj___message),LINKFUNC(obj___message)] call CBA_fnc_addEventHandler;
+[QGVAR(effectEMPLocal),LINKFUNC(obj_effectEMP)] call CBA_fnc_localEvent;
 [QGVAR(showCompositionDesigners),
     {
         _this params [["_authors",[],[[]]]];

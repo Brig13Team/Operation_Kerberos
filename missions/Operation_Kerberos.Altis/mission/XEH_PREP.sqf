@@ -14,6 +14,7 @@ PREPS(obj,doDrop);
 // PREPS(obj,effectDownloadClient);
 // PREPS(obj,effectDownloadServer);
 PREPS(obj,effectEarthquake);
+PREPS(obj,effectEMP);
 // PREPS(obj,effectSandstorm);
 // PREPS(obj,handleCarry);
 // PREPS(obj,init_Download);
