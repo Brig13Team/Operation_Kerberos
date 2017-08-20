@@ -41,8 +41,8 @@ TRACEV_3(_triangulatedTargets,_checker,_possibleTargets);
 If (isNil QGVAR(obj_triangulationMarker)) then {GVAR(obj_triangulationMarker) = [];};
 
 {
-    private _initsize = ((_x distance (_checker select 0)) min (_x distance (_checker select 1)) min (_x distance (_checker select 2)) max 200);
-    private _pos = [_x,200] call EFUNC(common,pos_random);
+    private _initsize = ((_x distance (_checker select 0)) min (_x distance (_checker select 1)) min (_x distance (_checker select 2)) max 150);
+    private _pos = [_x,140] call EFUNC(common,pos_random);
     private _markName = format[QGVAR(obj_triangulationMarker_%1),_forEachIndex];
     private _mark = createMarkerLocal [_markName, _pos];
     TRACEV_3(_initsize,_pos,_mark);
