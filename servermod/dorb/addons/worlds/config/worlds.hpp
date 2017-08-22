@@ -14,3 +14,11 @@ class takistan {
         #include "takistan\waypoints.hpp"
     };
 };
+class pja310 {
+    class locations {
+        #include "pja310\locations.hpp"
+    };
+    class waypoints {
+        #include "pja310\waypoints.hpp"
+    };
+};
