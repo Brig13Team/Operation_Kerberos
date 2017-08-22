@@ -809,6 +809,10 @@
             <English>You have to wait %1 minute(s) and %2 second(s)!</English>
         </Key>
 
+        <Key ID="STR_DORB_GUI_TELEPORT_BASE">
+            <German>Hauptquartier</German>
+            <English>Headquarter</English>
+        </Key>
         <Key ID="STR_DORB_GUI_TELEPORT_CARRIER">
             <German>USS Freedom</German>
             <English>USS Freedom</English>

@@ -64,6 +64,12 @@ switch (_preset) do {
         _return = _return apply {configName _x};
         private _ace = ["ACE_medicalSupplyCrate","ACE_medicalSupplyCrate_advanced","ACE_Box_Misc","ACE_Box_Ammo","ACE_Track","ACE_Wheel","ACE_Box_82mm_Mo_Combo","ACE_Box_82mm_Mo_HE","ACE_Box_82mm_Mo_Illum","ACE_Box_82mm_Mo_Smoke"] select {isClass(configFile >> "CfgVehicles" >> _x)};
         _return append _ace;
+        switch _sideNumber do {
+            case 0 : {_return append ["Box_East_AmmoVeh_F"];};
+            case 2 : {_return append ["Box_IND_AmmoVeh_F"];};
+            default {_return append ["Box_NATO_AmmoVeh_F"];}
+        };
+        _return arrayIntersect _return;
     };
     case "carrier_air" : {
         _return = (configProperties [configfile>>"CfgVehicles",format ["((isClass _x)&&{getNumber(_x>>'side')==%1}&&{getNumber(_x>>'scope')>1}&&{((configName _x) isKindOf 'Air')}&&{!(getText(_x>>'vehicleClass')=='Autonomous')})",_sideNumber], true])
