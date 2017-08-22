@@ -531,6 +531,10 @@
                 <German>Die Reperatur des Hubschraubers konnte verhindert werden.</German>
                 <English>The Repair of the enemy chopper was prevented.</English>
             </Key>
+            <Key ID="STR_DORB_MISSION_SIDE_CHOPPER_NEUTRAL">
+                <German>Der Helikopter wurde zerstört.</German>
+                <English>The Helicopter was destroyed.</English>
+            </Key>
             <Key ID="STR_DORB_MISSION_SIDE_CHOPPER_FAILED">
                 <German>Die Reperatur des Hubschraubers konnte nicht verhindert werden.</German>
                 <English>The Repair of the enemy chopper couldn't be prevented.</English>
