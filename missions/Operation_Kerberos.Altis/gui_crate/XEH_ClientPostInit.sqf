@@ -8,7 +8,7 @@
 
 CHECK(!hasInterface)
 
-GVAR(cratelogics) = [];
+GVAR(crateLogics) = [];
 
 /// get the crate-logics
 
@@ -18,6 +18,8 @@ for "_i" from 1 to 9 do {
         GVAR(cratelogics) pushBack (missionNamespace getVariable [_logicname,objNull]);
     };
 };
+
+If (GVAR(crateLogics) isEqualTo []) exitWith {};
 
 [
     QGVAR(crateIcon),
