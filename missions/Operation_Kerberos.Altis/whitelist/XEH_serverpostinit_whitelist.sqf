@@ -7,6 +7,8 @@
  */
 #include "script_component.hpp"
 
+If (!((getMissionConfigValue ["isKerberos", 0]) > 0)) exitWith {};
+
 EGVAR(player,reserved_pilot_slot) = true;
 
 [QGVAR(pilot_whitelist), "onPlayerConnected", {
