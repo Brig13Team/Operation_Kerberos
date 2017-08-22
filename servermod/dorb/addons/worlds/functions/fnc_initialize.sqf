@@ -26,8 +26,17 @@ If (isClass(configfile >> "CfgKerberos" >> "worlds" >> (toLower worldName) >> "l
         private _type = getText(_x >> "classification");
         private _configName = configName _x;
         private _cfg = configFile >> "CfgWorlds" >> worldName >> "Names" >> _configName;
-        private _position = getArray(_cfg >> "position");
-        private _name = getText(_cfg >> "name");
+
+        private _position = If (isArray(_x >> "position")) then {
+            getArray(_x >> "position");
+        } else {
+            getArray(_cfg >> "position");
+        }:
+        private _name = If (isText(_x >> "name")) then {
+            getText(_x >> "name");
+        } else {
+            getText(_cfg >> "name");
+        };
         If ((_position distance2D _respawnPos)>2000) then {
             switch (_type) do {
                 case "city" : {
