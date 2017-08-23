@@ -22,6 +22,6 @@ If (_target getVariable [QEGVAR(gui_arsenal,ArsenalIsOpened),false]) exitWith {f
 
 (
     {
-        ((!(_x isEqualTo [0,0,0]))&&{(ace_player distance2D _x) < 20})
+        ((!(_x isEqualTo [0,0,0]))&&{(ace_player distance2D _x) < 30})
     } count [getMarkerPos GVARMAIN(respawnMarker),getMarkerPos "respawn_west_land"]
 )>0
