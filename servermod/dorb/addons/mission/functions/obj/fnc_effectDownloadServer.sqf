@@ -33,7 +33,7 @@ private _handlerID = [
             ERROR("The Download Object has been deleted.");
             [_handler] call CBA_fnc_removePerFrameHandler;
         };
-        private _nearPlayers = {(_x distance2D _laptop) < DOWNLOAD_MAX_DISTANCE} count allPlayers;
+        private _nearPlayers = {(_x distance2D _laptop) < DOWNLOAD_MAX_DISTANCE} count (allPlayers select {side _x == GVARMAIN(playerside)});
         If (_nearPlayers <1) exitWith {};
         private _progress = _laptop getVariable [QGVAR(DownloadProgress),0];
         private _downloadTime = _laptop getVariable [QGVAR(DownloadTime),600];

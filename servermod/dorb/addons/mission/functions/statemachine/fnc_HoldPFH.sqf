@@ -27,7 +27,7 @@ if (_tickets > _max) exitWith {
    [_mission] call FUNC(obj__increaseCounter);
 };
 
-private _players = { (_x distance2D _position) < _radius } count allPlayers;
+private _players = { (_x distance2D _position) < _radius } count (allPlayers select {side _x == GVARMAIN(playerside)});
 private _increase = 0;
 
 if (_players == 0 && { _tickets > 0 }) exitWith {

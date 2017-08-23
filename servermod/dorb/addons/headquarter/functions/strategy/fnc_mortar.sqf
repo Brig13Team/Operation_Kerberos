@@ -18,7 +18,7 @@ _this params ["_attackLoc"];
 private _pos = locationPosition _attackLoc;
 private _targetPos = _pos;
 
-private _nearPlayers = allPlayers select { ((_x distance _pos)<300) && (!((vehicle _x) isKindOf "Air")) };
+private _nearPlayers = allPlayers select { ((_x distance _pos)<300) && (!((vehicle _x) isKindOf "Air")) && {side _x == GVARMAIN(playerside)} };
 
 private _amount = floor(((count _nearPlayers) * 1.5) max 5);
 If !(_nearPlayers isEqualTo []) then {

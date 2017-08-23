@@ -23,6 +23,7 @@ CHECK(_radars isEqualTo [])
 
 private _possibleTargets = allPlayers select {
     (alive _x)&&
+    {side _x == GVARMAIN(playerside)}&&
     {!(vehicle _x == _x)}&&
     {!((vehicle _x)isKindOf "ParachuteBase")}&&
     {(vehicle _x)isKindOf "Plane"}&&
