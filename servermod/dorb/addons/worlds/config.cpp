@@ -17,7 +17,5 @@ class CfgPatches {
 #include "CfgEventhandlers.hpp"
 
 class CfgKerberos {
-    class worlds {
-        #include "config\worlds.hpp"
-    };
+    #include "config\worlds.hpp"
 };
