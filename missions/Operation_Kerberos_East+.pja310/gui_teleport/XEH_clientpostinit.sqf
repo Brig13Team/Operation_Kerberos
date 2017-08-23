@@ -11,8 +11,10 @@ CHECK(!hasInterface)
 GVAR(teleport_lead_active) = true;
 
 
+private _carrierPos = getMarkerPos GVARMAIN(RESPAWNMARKER);
+_carrierPos set [2,23.8];
 [
-    getMarkerPos GVARMAIN(RESPAWNMARKER), // Position as Array or code
+    _carrierPos, // Position as Array or code
     localize LSTRING(BASE), // The Name wich will be displayed
     "infanterie", // teleporter Type ("air","infanterie","sea","default")
     {true}, // condition
