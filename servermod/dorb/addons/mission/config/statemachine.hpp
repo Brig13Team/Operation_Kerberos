@@ -8,7 +8,7 @@
 
 class GVAR(statemachine_Taskmanager) {
 
-    list = QUOTE(call FUNC(statemachine_getMissions));
+    list = QUOTE([-1] call FUNC(statemachine_getMissions));
     skipNull = 1;
 
     class initial {

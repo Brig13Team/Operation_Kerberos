@@ -21,6 +21,7 @@
 // handler ressources
 #define INTERVALL_RESSOURCES 60
 
+#define STATEMACHINEINTERVALL 10
 
 #define ATTACKPOS_DISTANCE 300
 #define HQ_DANGERMOD 0.333
