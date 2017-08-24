@@ -1,20 +1,22 @@
-/*
- *  Author: Dorbedo
+/**
+ * Author: Dorbedo
+ * artillery fires at given target
  *
- *  Description:
- *      [Description]
+ * Arguments:
+ * 0: <OBJECT> the artillery
+ * 1: <ARRAY/OBJECT> the target
+ * 2: <STRING> shelltype
+ * 3: <SCALAR> amount
+ * 4: <CODE> code called on finish
  *
- *  Parameter(s):
- *      0 : [TYPE] - [argument name]
- *
- *  Returns:
- *      [TYPE] - [return name]
+ * Return Value:
+ * <TYPENAME> return name
  *
  */
-#define DEBUG_MODE_FULL
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-_this params [
+params [
     "_artillery",
     "_target",
     ["_shelltype","",[""]],

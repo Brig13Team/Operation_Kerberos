@@ -1,20 +1,21 @@
-/*
- *  Author: [Name of Author(s)]
+/**
+ * Author: Dorbedo
+ * returns the shotvector of a artillery
  *
- *  Description:
- *      [Description]
+ * Arguments:
+ * 0: <OBJECT> the artillery
+ * 1: <OBJECT> the target
+ * 2: <SCALAR> muzzlespeed
+ * 3: <BOOL> shoot in an high angle
  *
- *  Parameter(s):
- *      0 : [TYPE] - [argument name]
- *
- *  Returns:
- *      [TYPE] - [return name]
+ * Return Value:
+ * <ARRAY> the shotvector
  *
  */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-_this params ["_artillery","_target","_muzzleSpeed",["_HighAngle",true,[false]]];
+params ["_artillery","_target","_muzzleSpeed",["_HighAngle",true,[false]]];
 
 If (IS_OBJECT(_artillery)) then {_artillery = getPosASL _artillery};
 If (IS_OBJECT(_target)) then {_target = getPosASL _target};
