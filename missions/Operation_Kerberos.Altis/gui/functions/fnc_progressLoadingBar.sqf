@@ -26,7 +26,7 @@ TRACEV_1(_display);
 if (!isNull _display) then {
     private _ctrl = _display displayCtrl IDC_LOADINGBAR_BAR;
     _ctrl progressSetPosition _progress;
-    _ctrl ctrlSetTextColor (_this call FUNC(getGradient));
+    _ctrl ctrlSetTextColor (_this call FUNC(getColorGradient));
     _ctrl ctrlCommit 0;
 
     _ctrl = _display displayCtrl IDC_LOADINGBAR_STATE;

@@ -1,10 +1,3 @@
-/*
-Author: Dorbedo
-*/
-
-#define CBA_OFF
-#include "script_component.hpp"
-
 class RscTitles {
     class APP(message_1) {
         idd = IDD_MSG_MESSAGE_1;
@@ -14,7 +7,7 @@ class RscTitles {
         h = GUI_MSG_H;
         fade = 1;
         duration = 15;
-        onLoad = QUOTE(with missionnameSpace do {disableSerialization; GVAR(msg_cur) - [_this select 0];GVAR(msg_cur) pushBack (_this select 0);};); /// pushbackunique is wrong at this point -> the new control needs to be at the last position
+        onLoad = QUOTE(with missionnameSpace do {disableSerialization; GVAR(msg_cur) - [_this select 0];GVAR(msg_cur) pushBack (_this select 0);};);
         class controls {
             class background : RSC(BaseText) {
                 idc = IDC_MSG_background;
@@ -31,7 +24,7 @@ class RscTitles {
                 y = GUI_MSG_Y;
                 w = GUI_MSG_COL;
                 h = GUI_MSG_HEAD + GUI_MSG_TEXT;
-                colorBackground[]   = {RAL6018,1};
+                colorBackground[] = {RAL6018, 1};
                 text = "";
             };
             class header : RSC(BaseStructuredText) {
@@ -43,11 +36,11 @@ class RscTitles {
                 text = "ERROR: No Header";
                 size = GUI_MSG_TEXTSIZE;
                 shadow = 0;
-                colorBackground[] = {0,0,0,0};
-                colorText[] = { RAL7047 ,1};
+                colorBackground[] = {0, 0, 0, 0};
+                colorText[] = {0.8156862, 0.8156862, 0.8156862, 1};
                 class Attributes : Attributes {
                     shadow = 0;
-                    font = GUI_FONT_BOLD;
+                    font = FONT_BOLD;
                     align = "left";
                     valign = "top";
                 };
@@ -60,12 +53,12 @@ class RscTitles {
                 h = GUI_MSG_TEXT;
                 text = "ERROR: No Text";
                 shadow = 0;
-                colorBackground[] = {0,0,0,0};
-                colorText[] = {RAL7047,1};
+                colorBackground[] = {0, 0, 0, 0};
+                colorText[] = {0.8156862, 0.8156862, 0.8156862, 1};
                 size = GUI_MSG_TEXTSIZE*0.8;
                 class Attributes : Attributes {
                     shadow = 0;
-                    font = GUI_FONT_THIN;
+                    font = FONT_THIN;
                 };
             };
         };
@@ -79,45 +72,6 @@ class RscTitles {
     class APP(message_8) : APP(message_1) {idd = IDD_MSG_MESSAGE_8;};
     class APP(message_9) : APP(message_1) {idd = IDD_MSG_MESSAGE_9;};
 
-    class APP(timer) {
-        duration = 61;
-        fadein = 0;
-        fadeout = 0;
-        idd = IDD_TIMER;
-        movingenable = 0;
-        onLoad = QUOTE(uiNamespace setVariable [ARR_2('GVAR(timer)', _this select 0)];);
-        class controls {
-            class background : RSC(BaseText) {
-                idc = IDC_TIMER_BACKGROUND;
-                x = GUI_TIMER_BACK_X;
-                y = GUI_TIMER_BACK_Y;
-                w = GUI_TIMER_BACK_W;
-                h = GUI_TIMER_BACK_H;
-                colorBackground[] = COLOR_BACKGROUND_HUD;
-                text = "";
-            };
-            class picture : RSC(BasePicture) {
-                idc = IDC_TIMER_PICTURE;
-                x = GUI_TIMER_PIC_X;
-                y = GUI_TIMER_PIC_Y;
-                w = GUI_TIMER_PIC_W;
-                h = GUI_TIMER_PIC_H;
-                colorBackground[] = COLOR_DISABLED;
-                text = "A3\ui_f\data\gui\cfg\cursors\wait_gs.paa";
-                colorText[] = COLOR_FONT;
-            };
-            class text : RSC(BaseText) {
-                idc = IDC_TIMER_TEXT;
-                x = GUI_TIMER_TEXT_X;
-                y = GUI_TIMER_TEXT_Y;
-                w = GUI_TIMER_TEXT_W;
-                h = GUI_TIMER_TEXT_H;
-                colorBackground[] = COLOR_DISABLED;
-                text = "";
-                style = 0x01;
-            };
-        };
-    };
 
     class APP(notification_1) {
         duration = 20;
@@ -249,7 +203,7 @@ class RscTitles {
                 w = GUI_LOADINGBAR_BAR_W;
                 h = GUI_LOADINGBAR_BAR_H;
                 colorFrame[] = COLOR_BACKGROUND_HUD;
-                texture = QEPAAPATH(texture\progressbar_texture);
+                texture = QUOTE(COMPONENT\data\texture\progressbar_texture.paa);
             };
             class arrow : RSC(BasePicture) {
                 idc = IDC_LOADINGBAR_ARROW;
@@ -273,5 +227,4 @@ class RscTitles {
             };
         };
     };
-
 };

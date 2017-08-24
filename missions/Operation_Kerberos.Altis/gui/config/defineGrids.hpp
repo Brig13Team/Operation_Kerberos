@@ -12,24 +12,8 @@
 #define GUI_DLG_HAbs (3*GUI_DLG_Abs*pixelH * pixelGridNoUIScale)
 #define GUI_DLG_X (0.5-0.5*GUI_DLG_WAbs)
 #define GUI_DLG_Y (0.5-0.5*GUI_DLG_HAbs)
-
-// the maximum 4:3 display is reduced by 25% to make it possible to view the frame of the ECHIDNA-System
-#define GUI_ECHIDNA_WAbs (0.75*GUI_DLG_WAbs)
-#define GUI_ECHIDNA_HAbs (0.75*GUI_DLG_HAbs)
-#define GUI_ECHIDNA_X (0.5-0.5*GUI_ECHIDNA_WAbs)
-#define GUI_ECHIDNA_Y (0.5-0.5*GUI_ECHIDNA_HAbs)
-#define GUI_ECHIDNA_W (GUI_ECHIDNA_WAbs/40)
-#define GUI_ECHIDNA_H (GUI_ECHIDNA_HAbs/30)
-
-#define GUI_ECHIDNA_METRO_BTTN_X (GUI_ECHIDNA_W*2)
-#define GUI_ECHIDNA_METRO_BTTN_Y (GUI_ECHIDNA_H*3.5)
-#define GUI_ECHIDNA_METRO_BTTN_W (GUI_ECHIDNA_W*4)
-#define GUI_ECHIDNA_METRO_BTTN_H (GUI_ECHIDNA_H*4)
-#define GUI_ECHIDNA_METRO_BTTN_DIST (pixelH*pixelGrid)
-#define GUI_ECHIDNA_METRO_ROW_DIST (pixelH*pixelGrid*5)
-#define GUI_ECHIDNA_METRO_SIDE (GUI_ECHIDNA_W*2)
-#define GUI_ECHIDNA_METRO_W (GUI_ECHIDNA_W*40-GUI_ECHIDNA_METRO_SIDE)
-#define GUI_ECHIDNA_METRO_H (GUI_ECHIDNA_H*27.5)
+#define GUI_DLG_W (GUI_DLG_WAbs/40)
+#define GUI_DLG_H (GUI_DLG_HAbs/25)
 
 // the maximum display size with the 16:9 Ratio
 #define GUI_DISP_Abs (floor(((SafeZoneW/(pixelW*pixelGridNoUIScale))/16)min((SafeZoneH/(pixelH*pixelGridNoUIScale))/9)))
@@ -57,9 +41,14 @@
 #define GUI_NOTIFICATION_PIC_X (GUI_NOTIFICATION_X+GUI_NOTIFICATION_W*0.25)
 #define GUI_NOTIFICATION_PIC_W (GUI_NOTIFICATION_W*0.5)
 
+#define TEXT_SIZE_SMALL (GUI_DLG_H*0.8)
+#define TEXT_SIZE_MEDIUM (GUI_DLG_H*1)
+#define TEXT_SIZE_LARGE (GUI_DLG_H*1.2)
+
 
 /*
  *  Old Version below only for backwards compatibility
+ * TODO: Remove this
  */
 
 #define GUI_GRID_WAbs ((safezoneW / safezoneH) min 1.2)
