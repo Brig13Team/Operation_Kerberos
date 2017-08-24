@@ -2,7 +2,6 @@
     "Dorbedo Header": {
 		"prefix": "header",
 		"body": [
-			"#include \"script_component.hpp\"",
 			"/**",
 			" * Author: Dorbedo",
 			" * ${1:description}",
@@ -13,7 +12,9 @@
 			" * Return Value:",
 			" * ${4:return name} <${5:TYPENAME}>",
 			" *",
-			" */",
+            " */",
+            "",
+            "#include \"script_component.hpp\"",
 			"",
 			"$0"
 		],
