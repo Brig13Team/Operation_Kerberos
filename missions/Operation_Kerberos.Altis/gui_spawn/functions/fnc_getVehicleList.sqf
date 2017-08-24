@@ -1,81 +1,57 @@
-/**
- * Author: Dorbedo
- * interface for vehiclelist
+/*
+ *  Author: Dorbedo
  *
- * Arguments:
- * 0: <STRING> vehiclelist preset
+ *  Description:
+ *      returns the vehicleList
  *
- * Return Value:
- * <ARRAY> array with classnames
+ *  Parameter(s):
+ *      none
+ *
+ *  Returns:
+ *      ARRAY - array with the data for the list
  *
  */
-
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-params ["_presetName"];
+private _curList = missionNamespace getVariable [QGVAR(curVehList),[]];
 
 private _return = [];
 
-switch (_presetName) do {
-    case "vehicles_west" : {
-        _return = configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'scope')>1}&&{getNumber(_x>>'side')==1}&&{((configName _x) isKindOf 'Tank_F')||((configName _x) isKindOf 'Car')||((configName _x) isKindOf 'StaticWeapon')})", true];
-        _return = _return apply {configName _x};
-    };
-    case "air_west" : {
-        _return = configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'scope')>1}&&{getNumber(_x>>'side')==1}&&{((configName _x) isKindOf 'Air')})", true];
-        _return = _return apply {configName _x};
-    };
-    case "naval_west" : {
-        _return = configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'scope')>1}&&{getNumber(_x>>'side')==1}&&{((configName _x) isKindOf 'Ship')})", true];
-        _return = _return apply {configName _x};
-    };
+{
+    private _vehicleType = _x;
+    private _cfg = (configFile >> "CfgVehicles" >> _vehicleType);
+    If (isClass(_cfg)) then {
+        private ["_mod","_picture","_displayName"];
+        If !(HASH_HASKEY(GVAR(vehiclesHash),_vehicleType)) then {
+            private _temp = HASH_CREATE;
+            HASH_SET(GVAR(vehiclesHash),_vehicleType,_temp);
 
-    case "vehicles_east" : {
-        _return = configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'scope')>1}&&{getNumber(_x>>'side')==0}&&{((configName _x) isKindOf 'Tank_F')||((configName _x) isKindOf 'Car')||((configName _x) isKindOf 'StaticWeapon')})", true];
-        _return = _return apply {configName _x};
-        _return = _return select {!((toLower _x) in ["rhs_9k79_b"])};
-    };
-    case "air_east" : {
-        _return = configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'scope')>1}&&{getNumber(_x>>'side')==0}&&{((configName _x) isKindOf 'Air')})", true];
-        _return = _return apply {configName _x};
-    };
-    case "naval_east" : {
-        _return = configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'scope')>1}&&{getNumber(_x>>'side')==0}&&{((configName _x) isKindOf 'Ship')})", true];
-        _return = _return apply {configName _x};
-    };
+            // listIcon
+            _displayName = getText(configFile >> "cfgvehicles" >> _vehicleType >> "displayName");
+            HASH_SET(_temp,"displayName",_displayName);
 
-    case "vehicles_resistance" : {
-        _return = configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'scope')>1}&&{getNumber(_x>>'side')==2}&&{((configName _x) isKindOf 'Tank_F')||((configName _x) isKindOf 'Car')||((configName _x) isKindOf 'StaticWeapon')})", true];
-        _return = _return apply {configName _x};
-    };
-    case "air_resistance" : {
-        _return = configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'scope')>1}&&{getNumber(_x>>'side')==2}&&{((configName _x) isKindOf 'Air')})", true];
-        _return = _return apply {configName _x};
-    };
-    case "naval_resistance" : {
-        _return = configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'scope')>1}&&{getNumber(_x>>'side')==2}&&{((configName _x) isKindOf 'Ship')})", true];
-        _return = _return apply {configName _x};
-    };
+            // listIcon
+            _picture = getText(configFile >> "cfgvehicles" >> _vehicleType >> "Icon");
+            If (_picture in ["pictureThing","pictureStaticObject","iconobject_1x3"]) then {_picture = "";};
+            HASH_SET(_temp,"picture",_picture);
 
+            // get the mod
+            _mod = toArray( configSourceMod (configFile >> "CfgVehicles">>_vehicleType));
+            If (((count _mod) > 0)&&{(_mod select 0) == 64}) then {
+                _mod deleteAt 0;
+            };
+            _mod = toString _mod;
+            HASH_SET(_temp,"mod",_mod);
 
-    default {
-        _return = configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'scope')>1}&&{((configName _x) isKindOf 'Tank_F')||((configName _x) isKindOf 'Air')||((configName _x) isKindOf 'Car')||((configName _x) isKindOf 'StaticWeapon')})", true];
-        _return = _return apply {configName _x};
-        #ifdef DEBUG_MODE_FULL
-            _return pushBack "Land_VR_Block_05_F";
-        #endif
-        _return = _return select {!((toLower _x) in ["rhs_9k79_b"])};
+        }else{
+            private _vehicleHash = HASH_GET(GVAR(vehiclesHash),_vehicleType);
+            _picture = HASH_GET(_vehicleHash,"picture");
+            _mod = HASH_GET(_vehicleHash,"mod");
+            _displayName = HASH_GET(_vehicleHash,"displayName");
+        };
+        private _value = 0;
+        _return pushBack [[_displayName,_mod],_picture,_vehicleType,_value];
     };
-};
-
-_return = _return apply {
-    [
-        [configfile >> "CfgVehicles" >> _x] call EFUNC(common,getModPicture),
-        [configfile >> "CfgVehicles" >> _x] call EFUNC(common,getMod),
-        [configfile >> "CfgVehicles" >> _x] call FUNC(getVehicleIcon),
-        getText(configFile >> "CfgVehicles" >> _x >> "displayName"),
-        _x
-    ]
-};
-
-_return;
+} forEach _curList;
+_return

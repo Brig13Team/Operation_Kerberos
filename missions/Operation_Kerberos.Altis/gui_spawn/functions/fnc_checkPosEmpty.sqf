@@ -1,17 +1,19 @@
-/**
- * Author: Dorbedo
- * checks if the spawn is clear
+/*
+ *  Author: Dorbedo
  *
- * Arguments:
- * 0: <ARRAY> the spawnposition
+ *  Description:
+ *      Spawn Position is empty
  *
- * Return Value:
- * <BOOL> the spawn is empty
+ *  Parameter(s):
+ *      0 : ARRAY - Position
+ *
+ *  Returns:
+ *      BOOL - pad is empty
  *
  */
-
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-params [["_position",GVAR(curPos),[[]],[3]]];
-_position = ASLToAGL _position;
-((nearestObjects [_position, ["AllVehicles","Land_DataTerminal_01_F"], CHECK_RADIUS_MIN]) select {_x getVariable [QGVARMAIN(canDelete),true]}) isEqualTo []
+_this params ["_position"];
+_position = ASLtoAGL (+ _position);
+((nearestObjects [_position, ["AllVehicles","Land_DataTerminal_01_F"], CHECK_RADIUS]) select {_x getVariable [QGVARMAIN(canDelete),true]}) isEqualTo [];

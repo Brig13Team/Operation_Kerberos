@@ -1,138 +1,62 @@
-/**
- * Author: Dorbedo
- * onLoad Event
+/*
+ *  Author: Dorbedo
  *
- * Arguments:
- * 0: <DIALOG> the Dialog
+ *  Description:
+ *      onLoad Event of the dialog
  *
- * Return Value:
- * Nothing
+ *  Parameter(s):
+ *      0 : DIALOG - Main dialog
+ *
+ *  Returns:
+ *      none
  *
  */
-
+//#define DEBUG_MODE_FULL
+#define INCLUDE_GUI
 #include "script_component.hpp"
 
+
 disableSerialization;
-params ["_display"];
+_this params ["_dialog"];
 
-private _ctrl = _display displayCtrl IDC_GUI_MAIN_HEADERTEXT;
-_ctrl ctrlSetText (localize LSTRING(HEADER));
+private _vehicleList = _dialog displayCtrl IDC_ECHIDNA_SPAWN_VEHICLELIST;
 
-// informations
-(["create",
-    [GUI_DISP_X + GUI_DISP_W*73,
-    GUI_DISP_Y + GUI_DISP_H*10,
-    GUI_DISP_W*10,
-    GUI_DISP_H*10,
-    _display]
-] call EFUNC(gui,animButton)) params ["_ctrlButton", "_ctrlBackground"];
-_ctrlButton ctrlSetText "\A3\ui_f\data\igui\cfg\simpletasks\types\search_ca.paa";
-_ctrlButton ctrlSetTooltip (localize LSTRING(BTTN_INFO));
-_ctrlButton ctrlAddEventHandler ["ButtonClick",{["info"] call FUNC(displayProperties)}];
-_ctrlBackground ctrlSetTextColor [COLOR_SPAWN_BTTN_INFO_SQF];
-// 3D-View
-(["create",
-    [GUI_DISP_X + GUI_DISP_W*73,
-    GUI_DISP_Y + GUI_DISP_H*21,
-    GUI_DISP_W*10,
-    GUI_DISP_H*10,
-    _display]
-] call EFUNC(gui,animButton)) params ["_ctrlButton", "_ctrlBackground"];
-_ctrlButton ctrlSetText "\A3\ui_f\data\igui\cfg\simpletasks\types\search_ca.paa";
-_ctrlButton ctrlSetTooltip (localize LSTRING(BTTN_OBJ));
-_ctrlButton ctrlAddEventHandler ["ButtonClick",{["picture"] call FUNC(displayProperties)}];
-_ctrlBackground ctrlSetTextColor [COLOR_SPAWN_BTTN_PIC_SQF];
-// Ammo-Options
-(["create",
-    [GUI_DISP_X + GUI_DISP_W*73,
-    GUI_DISP_Y + GUI_DISP_H*32,
-    GUI_DISP_W*10,
-    GUI_DISP_H*10,
-    _display]
-] call EFUNC(gui,animButton)) params ["_ctrlButton", "_ctrlBackground"];
-_ctrlButton ctrlSetText "\A3\ui_f\data\igui\cfg\simpletasks\types\rearm_ca.paa";
-_ctrlButton ctrlSetTooltip (localize LSTRING(BTTN_AMMO));
-_ctrlButton ctrlAddEventHandler ["ButtonClick",{["ammo"] call FUNC(displayProperties)}];
-_ctrlBackground ctrlSetTextColor [COLOR_SPAWN_BTTN_AMMO_SQF];
-// Options
-(["create",
-    [GUI_DISP_X + GUI_DISP_W*73,
-    GUI_DISP_Y + GUI_DISP_H*43,
-    GUI_DISP_W*10,
-    GUI_DISP_H*10,
-    _display]
-] call EFUNC(gui,animButton)) params ["_ctrlButton", "_ctrlBackground"];
-_ctrlButton ctrlSetText "\A3\ui_f\data\GUI\rsc\rscdisplaymain\menu_options_ca.paa";
-_ctrlButton ctrlSetTooltip (localize LSTRING(BTTN_OPT));
-_ctrlButton ctrlAddEventHandler ["ButtonClick",{["options"] call FUNC(displayProperties)}];
-_ctrlBackground ctrlSetTextColor [COLOR_SPAWN_BTTN_OPT_SQF];
-// clear the pad
-(["create",
-    [GUI_DISP_X + GUI_DISP_WAbs - GUI_DISP_W*14,
-    GUI_DISP_Y + GUI_DISP_HAbs - GUI_DISP_H*12,
-    GUI_DISP_W*10,
-    GUI_DISP_H*10,
-    _display]
-] call EFUNC(gui,animButton)) params ["_ctrlButton", "_ctrlBackground"];
-_ctrlButton ctrlSetText ((parsingNamespace getVariable "MISSION_ROOT")+"gui\data\tree\add_b_nb.paa");
-_ctrlButton ctrlSetTooltip (localize LSTRING(BTTN_CREATE));
-_ctrlButton ctrladdEventHandler ["ButtonClick",LINKFUNC(createVehicle)];
-_ctrlBackground ctrlSetTextColor [COLOR_SPAWN_BTTN_CREATE_SQF];
-// spawn the vehicle
-(["create",
-    [GUI_DISP_X + GUI_DISP_WAbs - GUI_DISP_W*26,
-    GUI_DISP_Y + GUI_DISP_HAbs - GUI_DISP_H*12,
-    GUI_DISP_W*10,
-    GUI_DISP_H*10,
-    _display]
-] call EFUNC(gui,animButton)) params ["_ctrlButton", "_ctrlBackground"];
-_ctrlButton ctrlSetText ((parsingNamespace getVariable "MISSION_ROOT")+"gui\data\tree\dec_b_nb.paa");
-_ctrlButton ctrlSetTooltip (localize LSTRING(BTTN_CLEAR));
-_ctrlButton ctrladdEventHandler ["ButtonClick",{[] call FUNC(clearPosition)}];
-_ctrlBackground ctrlSetTextColor [COLOR_SPAWN_BTTN_CLEAR_SQF];
+// Events
+_vehicleList ctrlAddEventHandler ["LBSelChanged",{_this call FUNC(onSelection)}];
 
-private _lnb = _display displayCtrl IDC_GUI_SPAWN_VEHICLELIST;
-_lnb ctrlAddEventHandler ["LBSelChanged",{_this call FUNC(onLnbSelect);}];
+private _pos_x = GUI_ECHIDNA_X + GUI_ECHIDNA_W*31;
+private _pos_y = GUI_ECHIDNA_Y + GUI_ECHIDNA_H*23.5;
+private _pos_w = GUI_ECHIDNA_W*3;
+private _pos_h = GUI_ECHIDNA_H*3;
+private _picture = ((parsingNamespace getVariable ["MISSION_ROOT",""]) + 'COMPONENT\data\dec_w.paa');
+private _displayName = localize LSTRING(BTTN_CLEAR);
+private _ctrl = _dialog displayCtrl IDC_ECHIDNA_SPAWN_VEHICLEBUTTON_2;
+_ctrl ctrlAddEventHandler ["ButtonClick",{_this call FUNC(clearPos);true}];
+["changepos",[_ctrl,[_pos_x, _pos_y, _pos_w, _pos_h]]] call FUNC(AnimBttn);
+_ctrl ctrlSetText _picture;
+_ctrl ctrlSetTooltip _displayName;
+_ctrl ctrlSetFontHeight (GUI_ECHIDNA_METRO_BTTN_H * 0.1);
+_ctrl ctrlSetTextColor [1,1,1,1];
 
-private _ctrl = _display displayCtrl IDC_GUI_SPAWN_VEHICLELIST_SORTMODS;
-_ctrl ctrlAddEventHandler ["ButtonClick",{
-    ["switch",_this] call EFUNC(gui,sortButton);
-    ["mod"] call FUNC(sortLnb);
-    true
-}];
 
-private _ctrl = _display displayCtrl IDC_GUI_SPAWN_VEHICLELIST_SORTNAMES;
-_ctrl ctrlAddEventHandler ["ButtonClick",{
-    ["switch",_this] call EFUNC(gui,sortButton);
-    ["names"] call FUNC(sortLnb);
-    true
-}];
+_pos_x = GUI_ECHIDNA_X + GUI_ECHIDNA_W*35;
+private _picture = ((parsingNamespace getVariable ["MISSION_ROOT",""]) + 'COMPONENT\data\add_w.paa');
+private _displayName = localize LSTRING(BTTN_SPAWN);
+private _ctrl = _dialog displayCtrl IDC_ECHIDNA_SPAWN_VEHICLEBUTTON_1;
+_ctrl ctrlAddEventHandler ["ButtonClick",{_this call FUNC(spawnVehicle);true}];
+["changepos",[_ctrl,[_pos_x, _pos_y, _pos_w, _pos_h]]] call FUNC(AnimBttn);
+_ctrl ctrlSetText _picture;
+_ctrl ctrlSetTooltip _displayName;
+_ctrl ctrlSetFontHeight (GUI_ECHIDNA_METRO_BTTN_H * 0.1);
+_ctrl ctrlSetTextColor [1,1,1,1];
 
-GVAR(filterName) = "";
-GVAR(filterMod) = "";
-GVAR(curVehListFiltered) = nil;
 
-If (isNil QGVAR(FilterHandleID)) then {
-    private _ctrlName = _display displayCtrl IDC_GUI_SPAWN_VEHICLELIST_NAMES;
-    private _ctrlMod = _display displayCtrl IDC_GUI_SPAWN_VEHICLELIST_MODS;
-    private _ctrlEditName = _display displayCtrl IDC_GUI_SPAWN_VEHICLELIST_EDITNAMES;
-    private _ctrlEditMod = _display displayCtrl IDC_GUI_SPAWN_VEHICLELIST_EDITMODS;
+TRACE("OnLoad Finished");
 
-    GVAR(FilterHandleID) = [
-        LINKFUNC(filterPFH),
-        0.5,
-        [
-            _display,
-            _ctrlName,
-            _ctrlEditName,
-            _ctrlMod,
-            _ctrlEditMod
-        ]
-    ] call CBA_fnc_addPerFrameHandler;
+[] call FUNC(showVehicleList);
+If (((lnbsize _vehicleList) select 0)>0) then {
+    _vehicleList lnbSetCurSelRow 0;
+}else{
+    [] call FUNC(setObject);
+    [] call FUNC(showProperties);
 };
-
-
-
-[_display] call FUNC(showList);
-["names"] call FUNC(sortLnb);
-[] call FUNC(displayProperties);
