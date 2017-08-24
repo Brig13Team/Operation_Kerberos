@@ -1,40 +1,18 @@
-/*
- *  Author: Dorbedo
+/**
+ * Author: Dorbedo
+ * possibility to add spawning restrictions
  *
- *  Description:
- *      Checks if the player is allowed to spawn a vehicleclass
+ * Arguments:
+ * 0: <OBJECT> the spawning player
+ * 1: <STRING> the spawned vehicle
  *
- *  Parameter(s):
- *      0 : OBJECT - player
- *      1 : STRING - vehicletype
- *
- *  Returns:
- *      BOOL - true if the player is not allowed to spawn
+ * Return Value:
+ * <BOOL> unit can spawn vehicle
  *
  */
-//#define DEBUG_MODE_FULL
+
 #include "script_component.hpp"
 
-_this params ["_player","_vehicleType"];
+params ["_player","_vehicleClass"];
 
-private _return = false;
-/*
-private _vclass = getText(configFile >> "CfgVehicles" >> _vehicleType >> "vehicleClass");
-if (
-    (_vclass in ["rhs_vehclass_ifv","rhs_vehclass_tank","rhs_vehclass_artillery","Armored",
-                 "BWA3_VehClass_Tracked_Tropen","BWA3_VehClass_Tracked_Fleck","BWA3_VehClass_Wheeled_Tropen",
-                 "BWA3_VehClass_Wheeled_Fleck"])
-     && {typeOf player != "B_Crew_F"}
-     ) then {
-         _return = true;
-     };
-*/
-If ((_vehicleType isKindOf "Air")&&{!(_vehiclewahl isKindOf "UAV")}) then {
-    If (!(
-        (((toLower (typeOf _unit)) in ["b_pilot_F","b_helipilot_f","o_pilot_f","o_helipilot_f"])||(_player getVariable [QGVARMAIN(ISPILOT),false]))
-    )) then {
-        _return = true;
-    };
-};
-
-_return;
+true

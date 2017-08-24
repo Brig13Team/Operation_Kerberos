@@ -1,37 +1,32 @@
-/*
- *  Author: Dorbedo
+/**
+ * Author: Dorbedo
+ * the user is allowed to open the spawn menu
  *
- *  Description:
- *      returns if the player can open the vehiclespawn menu
+ * Arguments:
+ * 0: <OBJECT> the player
+ * 1: <STRING> the spawnID
  *
- *  Parameter(s):
- *      0 : OBJECT - player
- *
- *  Returns:
- *      BOOL - is allowed to open the list
+ * Return Value:
+ * <BOOL> the user can open the menu
  *
  */
-//#define DEBUG_MODE_FULL
+
 #include "script_component.hpp"
 
-_this params [["_player",objNull,[objNull]],["_spawnID","",[""]]];
+params [
+    ["_target",objNull,[objNull]],
+    ["_player",objNull,[objNull]],
+    ["_spawnID","",[""]]
+];
 
-If ((isNull _player)||(!(isPlayer _player))||(!(vehicle ace_player == ace_player))) exitWith {false;};
+If ((isNull player)||{_spawnID isEqualTo ""}||(!(_player == vehicle ace_player))) exitWith {false};
 
-private _spawnArray = HASH_GET_DEF(GVAR(spawns),_spawnID,[]);
+private _spawnArray = GVAR(spawns) getVariable [_spawnID,[]];
 
-If (_spawnArray isEqualTo []) exitWith {false;};
+if (_spawnArray isEqualTo []) exitWith {false};
 
-If (((getPosASL _player) distance2D (_spawnArray select 1)) > (5 + CHECK_RADIUS)) exitWith {false};
+private _distance = (getPosASL _player) distance (_spawnArray select 1);
 
-If (((getPosASL _player) distance2D (_spawnArray select 1)) < (CHECK_RADIUS)) exitWith {false};
+If ((_distance > CHECK_RADIUS_MAX)||{_distance < CHECK_RADIUS_MIN}) exitWith {false};
 
-/*
-private _cur =+ (_spawnArray select 1):
-_cur set[2,(_cur select 2)+1];
-private _pPos = getPos _player;
-_pPos set[2,(_pPos select 2)+1];
-
-!(terrainIntersect [_cur,_pPos]);
-*/
 true

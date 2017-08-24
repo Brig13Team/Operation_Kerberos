@@ -6,5 +6,5 @@
 
 #ifdef INCLUDE_GUI
     #undef INCLUDE_GUI
-    #include "gui\rsc_def.hpp"
+    #include "gui\script_gui.hpp"
 #endif

@@ -1,5 +1,5 @@
-#define COMPONENT gui_spawn
-#define COMPONENT_BEAUTIFIED GUI_Spawn
+#define COMPONENT gui_main
+#define COMPONENT_BEAUTIFIED GUI_Main
 #include "..\main\script_mission.hpp"
 
 #define DEBUG_MODE_MINIMAL
@@ -7,12 +7,9 @@
 // #define DISABLE_COMPILE_CACHE
 // #define ENABLE_PERFORMANCE_COUNTERS
 
-#ifdef DEBUG_ENABLED_gui_spawn
+#ifdef DEBUG_ENABLED_gui_main
     #define DEBUG_MODE_FULL
 #endif
 
 #include "..\main\script_macros.hpp"
 #include "..\gui\script_gui.hpp"
-
-#define CHECK_RADIUS_MIN 5
-#define CHECK_RADIUS_MAX 15
