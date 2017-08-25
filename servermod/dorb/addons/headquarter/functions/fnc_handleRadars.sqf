@@ -50,4 +50,16 @@ private _targets = [];
     } forEach _possibleTargets;
 } forEach _radars;
 
+{
+    _x params ["_curTarget","_lastSeen"];
+    If (
+        ((side _curTarget) == GVARMAIN(playerside))&&
+        {_curTarget isKindOf "Air"}&&
+        {!isTouchingGround _curTarget}&&
+        {_lastSeen < 30}
+        ) then {
+            _targets pushBackUnique _curTarget;
+    };
+} forEach (listRemoteTargets GVARMAIN(side));
+
 HASH_SET(GVAR(radars),"targets",_targets);

@@ -15,12 +15,10 @@
 
 CHECK(!GVAR(active))
 
-private _mobileaa = HASH_GET(GVAR(anitair),"mobile");
-_mobileaa select {alive _x;};
+private _mobileaa = (HASH_GET(GVAR(anitair),"mobile")) select {alive _x;};
 HASH_SET(GVAR(anitair),"mobile",_mobileaa);
 
-private _staticaa = HASH_GET(GVAR(anitair),"static");
-_staticaa select {alive _x;};
+private _staticaa = (HASH_GET(GVAR(anitair),"static")) select {alive _x;};
 HASH_SET(GVAR(anitair),"static",_staticaa);
 
 _mobileaa append _staticaa;
@@ -57,7 +55,6 @@ private _targets = HASH_GET(GVAR(radars),"targets");
         _currentAA commandTarget _nearestTarget;
     };
 } forEach _mobileaa;
-
 private _airInterceptionAvailible = ["radar_airinterception"] call FUNC(ressources_canUseCallIn);
 TRACEV_2(_airInterceptionAvailible,_targets);
 
