@@ -2,6 +2,7 @@
 *.biprivatekey
 *.cache
 *.pbo
+*.dump
 **/release/*
 *.tmp
 *.cache
