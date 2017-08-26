@@ -37,11 +37,15 @@ if ((!_error)&&{GVAR(camouflage)>0}) then {
 };
 
 // check if a whitelist is given
-If ((!_error)&&{!(GVAR(armysWhitelist) isEqualTo [])}) then {
-    _allArmys = _allArmys select {(configName _x) in GVAR(armysWhitelist)};
+If ((!_error)&&{(!(GVAR(armysWhitelist) isEqualTo []))||(!(GVAR(armysBlacklist) isEqualTo []))}) then {
+    _allArmys = _allArmys select {
+        ((configName _x) in GVAR(armysWhitelist))&&
+        (!((configName _x) in GVAR(armysBlacklist)))
+    };
     if (_allArmys isEqualTo []) then {
-        ERROR("No army found inside the whitelist - deleting whitelist");
+        ERROR("No army found inside the white/blacklist - deleting white/blacklist");
         GVAR(armysWhitelist) = [];
+        GVAR(armysBlacklist) = [];
         _error = true;
     };
 };

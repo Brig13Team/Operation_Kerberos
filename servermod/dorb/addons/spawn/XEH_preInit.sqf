@@ -16,3 +16,5 @@ GVAR(cleanUpDump) = [];
 ISNIL(camouflage,0);
 
 GVAR(armysWhitelist) = getMissionConfigValue["kerberos_armyWhitelist",[]];
+GVAR(armysBlacklist) = getMissionConfigValue["kerberos_armyBlacklist",["vanilla"]];
+GVAR(armysBlacklist) = GVAR(armysBlacklist) select {!(_x in GVAR(armysWhitelist))};

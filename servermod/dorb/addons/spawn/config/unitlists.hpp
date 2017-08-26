@@ -309,6 +309,114 @@ class GVAR(unitlists) {
         };
     };
     class east {
+        class vanilla : base_east {
+            camouflage = 0;
+            cfgPatches[] = {};
+            armytypes[] = {"guards","infanterie","armored","airborne","specops"};
+            class mission : mission {
+                radar[] = {"Land_Radar_Small_F"};
+                emp[] = {"O_Truck_03_device_F"};
+                scarab[] = {};
+                commander[] = {"O_Officer_F"};
+                hq_mobile[] = {"O_Truck_03_covered_F"};
+                wreck_air[] = {"Land_Wrack_Heli_Attack_01_F"};
+                konvoi[] = {"O_MBT_02_cannon_F","O_APC_Tracked_02_AA_F","O_APC_Tracked_02_cannon_F","O_MBT_02_cannon_F"};
+                chopper[] = {"O_Heli_Attack_02_dynamicLoadout_F"};
+            };
+            attack_uavs[] = {"O_UAV_02_F","O_T_UAV_04_CAS_F"};
+            recon_uavs[] = {"O_UAV_01_F"};
+            static[] = {"O_HMG_01_F","O_static_AA_F","O_static_AT_F","O_GMG_01_F","O_GMG_01_high_F","O_HMG_01_high_F"};
+            static_high[] = {"O_GMG_01_high_F","O_HMG_01_high_F"};
+            static_aa[] = {"O_static_AA_F"};
+            art_mortar[] = {"O_Mortar_01_F"};
+            art_shells[] = {"O_MBT_02_arty_F"};
+            art_rocket[] = {"O_MBT_02_arty_F"};
+            trucks[] = {"O_Truck_02_covered_F","O_Truck_02_transport_F"};
+            ifv[] = {"O_APC_Wheeled_02_rcws_F","O_APC_Tracked_02_cannon_F"};
+            cars[] = {"O_MRAP_02_gmg_F","O_MRAP_02_hmg_F","O_MRAP_02_F"};
+            tanks[] = {"O_MBT_02_cannon_F"};
+            divers[] = {"O_diver_f","O_diver_exp_f","O_diver_TL_f","O_diver_f","O_diver_exp_f","O_diver_f"};
+            boats[] = {"O_Boat_Armed_01_hmg_F"};
+            soldiers[] = {"O_Soldier_02_F","O_Soldier_A_F","O_Soldier_AA_F","O_Soldier_AAA_F","O_Soldier_AAR_F",
+                        "O_Soldier_AAT_F","O_Soldier_AR_F","O_Soldier_AT_F","O_soldier_exp_F",
+                        "O_Soldier_GL_F","O_Soldier_LAT_F","O_Soldier_lite_F",
+                        "O_soldier_M_F","O_soldier_PG_F","O_soldier_repair_F","O_Soldier_SL_F",
+                        "O_Soldier_TL_F","O_soldier_UAV_F","O_Soldier_universal_F"};
+            crewmen[] = {"O_crew_F"};
+            class callIn : callIn {
+                supplyarray[] = {{"infanterie",1},{"airdrop",1},{"mounted",1},{"sniper",1},{"tanks",1},{"mechanized",1}};
+                helicopter_transport[] = {"O_Heli_Transport_04_bench_F"};
+                helicopter_cas[] = {"O_Heli_Attack_02_dynamicLoadout_F"};
+                planeAI[] = {"O_Plane_Fighter_02_Stealth_F"};
+                planeCAS[] = {"O_Plane_CAS_02_dynamicLoadout_F"};
+                amountHeli = 1;
+                amountAI = 1;
+                amountCAS = 1;
+                group_infantry[] = {
+                    {"configfile","CfgGroups","East","OPF_F","Infantry","OIA_InfSquad"},
+                    {"configfile","CfgGroups","East","OPF_F","Infantry","OIA_InfSquad_Weapons"}
+                };
+            };
+
+
+            class groups {
+                groups_patrol[] = {
+                    {"configfile","CfgGroups","East","OPF_F","Infantry","OI_reconPatrol"},
+                    {"configfile","CfgGroups","East","OPF_F","Infantry","OI_reconTeam"},
+                    {"configfile","CfgGroups","East","OPF_F","Infantry","OIA_ReconSquad"},
+                    {"configfile","CfgGroups","East","OPF_F","Infantry","OIA_InfTeam_AA"},
+                    {"configfile","CfgGroups","East","OPF_F","Infantry","OIA_InfTeam_AT"}
+
+                };
+                groups_attack[] = {
+                    {"configfile","CfgGroups","East","OPF_F","Motorized_MTP","OIA_MotInf_AA"},
+                    {"configfile","CfgGroups","East","OPF_F","Motorized_MTP","OIA_MotInf_AT"},
+                    {"configfile","CfgGroups","East","OPF_F","Motorized_MTP","OIA_MotInf_Reinforce"},
+                    {"configfile","CfgGroups","East","OPF_F","Motorized_MTP","OIA_MotInf_Team"},
+
+                    {"configfile","CfgGroups","East","OPF_F","Armored","OIA_TankSection"},
+                    {"configfile","CfgGroups","East","OPF_F","Armored","OIA_TankPlatoon"},
+                    {"configfile","CfgGroups","East","OPF_F","Armored","OIA_TankPlatoon_AA"},
+
+                    {"configfile","CfgGroups","East","OPF_F","Infantry","OIA_InfAssault"},
+                    {"configfile","CfgGroups","East","OPF_F","Infantry","OIA_InfSentry"},
+                    {"configfile","CfgGroups","East","OPF_F","Infantry","OIA_InfSquad"},
+                    {"configfile","CfgGroups","East","OPF_F","Infantry","OIA_InfTeam_AA"},
+                    {"configfile","CfgGroups","East","OPF_F","Infantry","OIA_InfTeam"},
+                    {"configfile","CfgGroups","East","OPF_F","Infantry","OIA_InfTeam_AA"},
+                    {"configfile","CfgGroups","East","OPF_F","Infantry","OIA_InfTeam_AT"},
+                    {"configfile","CfgGroups","East","OPF_F","Infantry","OIA_InfTeam_AA"},
+                    {"configfile","CfgGroups","East","OPF_F","Infantry","OI_recon_EOD"},
+
+                    {"configfile","CfgGroups","East","OPF_F","Mechanized","OIA_MechInf_AA"},
+                    {"configfile","CfgGroups","East","OPF_F","Mechanized","OIA_MechInf_AA"},
+                    {"configfile","CfgGroups","East","OPF_F","Mechanized","OIA_MechInf_AA"}
+                };
+                groups_defence[] = {
+                    {"configfile","CfgGroups","East","OPF_F","Infantry","OIA_InfTeam"},
+                    {"configfile","CfgGroups","East","OPF_F","Infantry","OIA_InfTeam_AA"},
+                    {"configfile","CfgGroups","East","OPF_F","Infantry","OIA_InfTeam_AT"},
+                    {"configfile","CfgGroups","East","OPF_F","Infantry","OIA_InfTeam_AA"}
+                };
+                groups_mechanized[] = {
+                    {"configfile","CfgGroups","East","OPF_F","Mechanized","OIA_MechInf_AA"},
+                    {"configfile","CfgGroups","East","OPF_F","Mechanized","OIA_MechInf_AT"},
+                    {"configfile","CfgGroups","East","OPF_F","Mechanized","OIA_MechInf_Support"},
+                    {"configfile","CfgGroups","East","OPF_F","Mechanized","OIA_MechInfSquad"}
+                };
+                groups_sniper[] = {};
+                class patrol {};
+                class strikeforce {};
+                class defence {};
+                class sniper {
+                    class E_Snip_01 {
+                        SOLDIERR_1(O_ghillie_ard_F,CORPORAL);
+                        SOLDIER_2(O_ghillie_ard_F);
+                        SOLDIER_3(O_ghillie_ard_F);
+                    };
+                };
+            };
+        };
         class msv : base_east {
             armytypes[] = {"infanterie"};
             static[] = {"RHS_NSV_TriPod_MSV","RHS_AGS30_TriPod_MSV","rhs_Igla_AA_pod_MSV","rhs_KORD_high_MSV","rhs_KORD_MSV","rhs_Metis_9k115_2_MSV"};

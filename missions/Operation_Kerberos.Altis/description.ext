@@ -71,7 +71,8 @@ scriptedPlayer = 1;
  * Kerberos specific stuff
  */
 isKerberos = 1; //activates the servermod
-//kerberos_armywhitelist = {}; //used to specify the possible armys on missionside
+//kerberos_armywhitelist[] = {"vanilla"}; //used to specify the possible armys on missionside
+//kerberos_armyblacklist[] = {}; //used to specify the possible armys on missionside
 
  #include "CfgComponents.hpp"
  #include "CfgSounds.hpp"
