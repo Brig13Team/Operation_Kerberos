@@ -12,3 +12,7 @@ GVAR(targetHouses) = [];
 GVAR(usedHouses) = [];
 GVAR(spawnedCompositions) = [];
 GVAR(cleanUpDump) = [];
+
+ISNIL(camouflage,0);
+
+GVAR(armysWhitelist) = getMissionConfigValue["kerberos_armyWhitelist",[]];

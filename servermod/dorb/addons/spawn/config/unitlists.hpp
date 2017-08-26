@@ -43,6 +43,28 @@
 
 class GVAR(unitlists) {
     class base {
+        /*
+         * usually only one armytype should be defined.
+         * If you don't want to specify an armytype, just make
+         * sure, that the type is used in some army
+         */
+        armytypes[] = {
+            "guards", // mainly infanterie with some light vehicles
+            "infanterie", // infanterie with some medium vehicles
+            "armored", // tanks,
+            "airborne", // infanterie with heavy airsupport
+            "specops" // skilled infanterie with some specials
+        };
+        /*
+         * possibility to define the camo: 0=all, 1=woodland, 2=desert
+         * used in CfgWorlds
+         */
+        camouflage = 0;
+        /*
+         * possibility to make armys modspecific so that they won't be loaded if the mod is missing
+         */
+        cfgPatches[] = {"rhs_main"};
+
         class mission {
             weaponcache[] = {"Box_IND_Wps_F","Box_IND_WpsSpecial_F","Box_IND_WpsLaunch_F","Box_IND_Ammo_F","Box_IND_Grenades_F","Box_IND_Support_F"};
             pow[] = {"C_scientist_F","C_journalist_F"};
@@ -61,6 +83,7 @@ class GVAR(unitlists) {
         civ_smallcars[] = {"C_Offroad_01_F","C_Quadbike_01_F","C_Hatchback_01_F","C_Hatchback_01_sport_F","C_SUV_01_F"};
     };
     class base_east : base {
+        cfgPatches[] = {"rhs_main"};
         class mission: mission {
             prototype[] = {"B_MBT_01_TUSK_F","B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F"};
             commander[] = {"rhs_vdv_officer"};
@@ -287,6 +310,7 @@ class GVAR(unitlists) {
     };
     class east {
         class msv : base_east {
+            armytypes[] = {"infanterie"};
             static[] = {"RHS_NSV_TriPod_MSV","RHS_AGS30_TriPod_MSV","rhs_Igla_AA_pod_MSV","rhs_KORD_high_MSV","rhs_KORD_MSV","rhs_Metis_9k115_2_MSV"};
             static_high[] = {"rhs_KORD_high_MSV"};
             static_aa[] = {"rhs_Igla_AA_pod_MSV"};
@@ -487,6 +511,7 @@ class GVAR(unitlists) {
             };
         };
         class vdv : base_east {
+            armytypes[] = {"airborne"};
             static[] = {"RHS_NSV_TriPod_VDV","RHS_AGS30_TriPod_VDV","rhs_Igla_AA_pod_VDV","rhs_KORD_high_VDV","rhs_KORD_VDV","rhs_Metis_9k115_2_VDV"};
             static_high[] = {"rhs_KORD_high_VDV"};
             static_aa[] = {"rhs_Igla_AA_pod_VDV"};
@@ -675,7 +700,8 @@ class GVAR(unitlists) {
             };
 
         };
-        class armored : msv {
+        class tv : msv {
+            armytypes[] = {"armored"};
             art_shells[] = {"rhs_2s3_tv"};
             trucks[] = {"rhs_kamaz5350_msv","rhs_kamaz5350_msv_open"};
             cars[] = {"rhs_tigr_3camo_msv","rhs_tigr_ffv_3camo_msv","rhs_tigr_ffv_msv","rhs_tigr_m_3camo_msv"};
@@ -703,7 +729,8 @@ class GVAR(unitlists) {
                 };
             };
         };
-        class infanterie : msv {
+        class light_infanterie : msv {
+            armytypes[] = {"guards"};
             art_shells[] = {"rhs_D30_MSV"};
             soldiers[] = {
                 "rhs_msv_rifleman","rhs_msv_LAT","rhs_msv_RShG2","rhs_msv_grenadier","rhs_msv_arifleman","rhs_msv_machinegunner",
@@ -861,6 +888,7 @@ class GVAR(unitlists) {
             };
         };
         class specops : msv {
+            armytypes[] = {"specops"};
             static[] = {"RHS_NSV_TriPod_VDV","RHS_AGS30_TriPod_VDV","rhs_Igla_AA_pod_VDV","rhs_KORD_high_VDV","rhs_KORD_VDV","rhs_Metis_9k115_2_VDV"};
             static_high[] = {"rhs_KORD_high_VDV"};
             static_aa[] = {"rhs_Igla_AA_pod_VDV"};
@@ -937,6 +965,7 @@ class GVAR(unitlists) {
             };
         };
         class droneoperations : specops {
+            armytypes[] = {"specops"};
             ifv[] = {"rhs_tigr_sts_vdv"};
             class callIn : callIn {
                 supplyarray[] = {{"infanterie",1},{"airdrop",0},{"mounted",1},{"sniper",0.2},{"tanks",0},{"mechanized",0}};
@@ -952,9 +981,10 @@ class GVAR(unitlists) {
             };
             */
         };
-        class guards  : infanterie {};
     };
     class base_west : base {
+        cfgPatches[] = {"rhsusf_main"};
+        armytypes[] = {"guards","infanterie","armored","airborne","specops"};
         class mission: mission {
             prototype[] = {"O_MBT_02_cannon_F","O_APC_Wheeled_02_rcws_F","O_APC_Tracked_02_cannon_F"};
             commander[] = {"rhsusf_army_ocp_officer"};
@@ -1089,8 +1119,11 @@ class GVAR(unitlists) {
         };
     };
     class west {
-        class us_army : base_west {};
-        class us_army_wd : us_army {
+        class us_army : base_west {
+            camouflage = 2;
+        };
+        class us_army_wd : base_west {
+            camouflage = 1;
             trucks[] = {"rhsusf_M1078A1P2_B_wd_fmtv_usarmy","rhsusf_M1078A1P2_B_wd_open_fmtv_usarmy","rhsusf_M1078A1P2_B_wd_flatbed_fmtv_usarmy","rhsusf_M1078A1P2_wd_fmtv_usarmy","rhsusf_M1078A1P2_wd_open_fmtv_usarmy","rhsusf_M1078A1P2_wd_flatbed_fmtv_usarmy","rhsusf_M1083A1P2_B_d_fmtv_usarmy","rhsusf_M1083A1P2_B_wd_open_fmtv_usarmy","rhsusf_M1083A1P2_B_wd_flatbed_fmtv_usarmy","rhsusf_M1083A1P2_wd_fmtv_usarmy","rhsusf_M1083A1P2_wd_open_fmtv_usarmy",
                         "rhsusf_M1083A1P2_wd_flatbed_fmtv_usarmy","rhsusf_M1078A1P2_B_M2_wd_fmtv_usarmy","rhsusf_M1078A1P2_B_M2_wd_open_fmtv_usarmy","rhsusf_M1078A1P2_B_M2_wd_flatbed_fmtv_usarmy","rhsusf_M1083A1P2_B_M2_wd_fmtv_usarmy","rhsusf_M1083A1P2_B_M2_wd_open_fmtv_usarmy","rhsusf_M1083A1P2_B_M2_wd_flatbed_fmtv_usarmy"};
             ifv[] = {"rhsusf_m113_usarmy","rhsusf_m113_usarmy_supply","rhsusf_m113_usarmy_unarmed","rhsusf_m113_usarmy_medical","rhsusf_m113_usarmy_M240","rhsusf_m113_usarmy_MK19","RHS_M2A2_wd","RHS_M2A2_BUSKI_wd","RHS_M2A3_wd","RHS_M2A3_BUSKI_wd","RHS_M2A3_BUSKIII_wd","RHS_M6_wd"};
@@ -1119,6 +1152,7 @@ class GVAR(unitlists) {
             };
         };
         class us_marine : base_west {
+            camouflage = 2;
             trucks[] = {"rhsusf_rg33_usmc_d"};
             ifv[] = {"rhsusf_rg33_m2_usmc_d","rhsusf_m1025_d_s_m2","rhsusf_m1025_d_s_Mk19"};
             cars[] = {"rhsusf_m998_d_s_2dr","rhsusf_m998_d_s_2dr_halftop","rhsusf_m998_d_s_2dr_fulltop","rhsusf_m998_d_s_4dr","rhsusf_m998_d_s_4dr_halftop","rhsusf_m998_d_s_4dr_fulltop"};
@@ -1214,6 +1248,7 @@ class GVAR(unitlists) {
             };
         };
         class us_marine_wd : base_west {
+            camouflage = 1;
             trucks[] = {"rhsusf_rg33_usmc_wd"};
             ifv[] = {"rhsusf_rg33_m2_usmc_wd","rhsusf_m1025_wd_s_m2","rhsusf_m1025_wd_s_Mk19"};
             cars[] = {"rhsusf_m998_wd_s_2dr","rhsusf_m998_wd_s_2dr_halftop","rhsusf_m998_wd_s_2dr_fulltop","rhsusf_m998_wd_s_4dr","rhsusf_m998_wd_s_4dr_halftop","rhsusf_m998_wd_s_4dr_fulltop"};
@@ -1307,7 +1342,8 @@ class GVAR(unitlists) {
                 };
             };
         };
-        class specops : us_marine {
+        class specops : us_marine_d {
+            camouflage = 2;
             tanks[] = {};
             class callIn : callIn {
                 amountHeli = 0;
@@ -1350,17 +1386,10 @@ class GVAR(unitlists) {
                 class strikeforce {};
             };
         };
-        class dronecommando : specops {
-            class callIn {
-                class callIn : callIn {
-                    amountHeli = 0;
-                    amountAI = 1;
-                    amountCAS = 0;
-                };
-            };
-        };
 
-        class bundeswehr : base_west {
+        class bundeswehr_fleck : base_west {
+            cfgPatches[] = {"bwa3_units","rhsusf_main"};
+            camouflage = 2;
             class mission: mission {
                 commander[] = {"BWA3_Officer_Fleck"};
                 wreck_air[] = {"BWA3_Tiger_Gunpod_Heavy", "BWA3_Tiger_Gunpod_PARS"};

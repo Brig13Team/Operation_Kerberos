@@ -67,8 +67,11 @@ saving = 0;
 showGroupIndicator = 0;
 scriptedPlayer = 1;
 
-isKerberos = 1;
-
+/*
+ * Kerberos specific stuff
+ */
+isKerberos = 1; //activates the servermod
+//kerberos_armywhitelist = {}; //used to specify the possible armys on missionside
 
  #include "CfgComponents.hpp"
  #include "CfgSounds.hpp"

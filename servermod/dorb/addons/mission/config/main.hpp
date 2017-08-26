@@ -10,7 +10,7 @@
 class baseMission {
     condition = "";
     probability = 1;
-    armys[] = {{"regular",1}, {"armored",1}, {"infanterie",1}, {"airborne",1}, {"specops",1}, {"guards",1}};
+    armys[] = {{"guards", 1}, {"infanterie", 1}, {"armored", 1}, {"airborne", 1}, {"specops", 1}};
     class position {
         locationtypes[] = {QGVAR(town), QGVAR(industrie), QGVAR(military), QGVAR(other)};
         radius = 500;
@@ -49,7 +49,7 @@ class baseMission {
 
 class capture : baseMainmission {
     probability = PROPABILITY_TOWN;
-    armys[] = {{"regular",1}, {"armored",1}, {"infanterie",1}, {"airborne",1},{"guards",1}};
+    armys[] = {{"guards", 1}, {"infanterie", 1}, {"armored", 1}, {"airborne", 1}};
     class position : position {
         locationtypes[] = {QGVAR(town)};
         radius = 200;
@@ -136,7 +136,7 @@ class weaponcache : intel {
 
 class device : baseMainmission {
     probability = PROPABILITY_LAND;
-    armys[] = {{"regular",1}, {"armored",1}, {"infanterie",1}, {"airborne",1}, {"specops",1}, {"guards",1}};
+    armys[] = {{"guards", 1}, {"infanterie", 1}, {"armored", 1}, {"airborne", 1}, {"specops", 1}};
     class position : position {
         locationtypes[] = {QGVAR(industrie), QGVAR(military), QGVAR(other)};
         radius = 800;
@@ -158,7 +158,7 @@ class device : baseMainmission {
 
 class emp : device {
     probability = PROPABILITY_LAND;
-    armys[] = {{"infanterie",1}, {"specops",1}, {"guards",1}};
+    armys[] = {{"guards", 1}, {"infanterie", 1}, {"specops", 1}};
     class objective : objective {
         composition_types[] = {"isobjective","emp"};
         objects = "emp";
@@ -177,7 +177,7 @@ class emp : device {
 
 class dronecommando : device {
     probability = PROPABILITY_LAND;
-    armys[] = {{"droneoperations",1}};
+    armys[] = {{"specops", 1}};
     class objective : objective {
         objects = "dronecommando";
         composition_types[] = {"dronecommando"};

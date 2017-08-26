@@ -22,6 +22,7 @@ If (isClass(configfile >> "CfgKerberos" >> "worlds" >> (toLower worldName) >> "l
     EGVAR(mission,other) = [];
     private _respawnPos = getMarkerPos GVARMAIN(respawnmarker);
     private _configs = configProperties [configfile >> "CfgKerberos" >> "worlds" >> (toLower worldName) >> "locations", "true",true];
+    EGVAR(spawn,camouflage) = getNumber(configFile >> "CfgKerberos" >> "worlds" >> (toLower worldName) >> "camouflage");
     {
         private _type = getText(_x >> "classification");
         private _configName = configName _x;
@@ -60,4 +61,5 @@ If (isClass(configfile >> "CfgKerberos" >> "worlds" >> (toLower worldName) >> "l
 }else{
     ERROR("Map not initialized, using fallback");
     [] call FUNC(setCfgLocations);
+    EGVAR(spawn,camouflage) = 0;
 };
