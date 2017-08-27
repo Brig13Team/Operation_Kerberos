@@ -82,9 +82,19 @@ class GVAR(statemachine_AIGroups) {
             condition = QUOTE((_this getVariable [ARR_2('GVAR(state)','none')])=='transporter');
             onTransition = "";
         };
+        class toMission {
+            targetState = "mission";
+            condition = QUOTE((_this getVariable [ARR_2('GVAR(state)','none')])=='mission');
+            onTransition = "";
+        };
 
     };
 
+    class mission {
+        onState = "";
+        onStateEntered = "";
+        onStateLeaving = "";
+    };
 
     // patrol recoursively around the Area
     class patrol {

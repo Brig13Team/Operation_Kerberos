@@ -580,7 +580,22 @@
                 <English>A radar has been neutralized.</English>
             </Key>
 
-
+            <Key ID="STR_DORB_MISSION_SIDE_AIRSUPERIORITY_TITLE">
+                <German>Luftüberlegenheit</German>
+                <English>Air-Superiority</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_SIDE_AIRSUPERIORITY_DESC">
+                <German>Der Gegner hat die Luftüberlegenheit erlangt. Erobern Sie den Luftraum zurück.</German>
+                <English>Gain the air-superiority over the area.</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_SIDE_AIRSUPERIORITY_COUNTER">
+                <German>Ein Abfangjäger wurde neutralisiert.</German>
+                <English>An air-interception plane has been shot down.</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_SIDE_AIRSUPERIORITY_SUCCEEDED">
+                <German>Die Luftüberlegenheit wurde hergestellt.</German>
+                <English>The air-superiority has been regained.</English>
+            </Key>
 
             <Key ID="STR_DORB_MISSION_SIDE_WRECK_TITLE">
                 <German>Wrack finden</German>

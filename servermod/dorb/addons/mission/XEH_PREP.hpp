@@ -15,6 +15,7 @@ PREPS(mainmission,scarab);
 PREPS(mainmission,upload);
 PREPS(mainmission,weaponcache);
 
+PREPS(sidemission,airsuperiority);
 PREPS(sidemission,artillery);
 PREPS(sidemission,chopper);
 PREPS(sidemission,chopper_failed);
@@ -22,6 +23,7 @@ PREPS(sidemission,radar);
 PREPS(sidemission,supplys_succeeded);
 PREPS(sidemission,wreck);
 
+PREPS(spawn,airsuperiority);
 PREPS(spawn,chooseLocation);
 PREPS(spawn,chooseMission);
 PREPS(spawn,createAtRescuePoint);
