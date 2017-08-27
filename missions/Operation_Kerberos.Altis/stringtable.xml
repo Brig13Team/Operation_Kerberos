@@ -309,6 +309,19 @@
     </Package>
     <Package name="MISSION">
         <Container name="MAINMISSION">
+            <Key ID="STR_DORB_MISSION_BASEMISSION_SUCCEEDED">
+                <German>Die Mission war ein Erfolg.</German>
+                <English>The misson was a success</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_BASEMISSION_NEUTRAL">
+                <German>Die Mission hätte besser laufen können.</German>
+                <English>The mission could have been ended in a better way.</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_BASEMISSION_FAILED">
+                <German>Mission gescheitert.</German>
+                <English>Mission failed.</English>
+            </Key>
+
             <Key ID="STR_DORB_MISSION_COMPOSITIONS_TITLE">
                 <German>Stellungen</German>
                 <English>Compositions</English>
