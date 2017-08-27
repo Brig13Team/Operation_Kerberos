@@ -37,19 +37,14 @@ if ((!_error)&&{GVAR(camouflage)>0}) then {
 };
 
 // check if a whitelist is given
-If ((!_error)&&{(!(GVAR(armysWhitelist) isEqualTo []))||(!(GVAR(armysBlacklist) isEqualTo []))}) then {
-    _allArmys = _allArmys select {
-        ((configName _x) in GVAR(armysWhitelist))&&
-        (!((configName _x) in GVAR(armysBlacklist)))
-    };
+If ((!_error)&&{(!(GVAR(armysWhitelist) isEqualTo []))}) then {
+    _allArmys = _allArmys select {((configName _x) in GVAR(armysWhitelist))};
     if (_allArmys isEqualTo []) then {
-        ERROR("No army found inside the white/blacklist - deleting white/blacklist");
+        ERROR("No army found inside the whitelist - deleting whitelist");
         GVAR(armysWhitelist) = [];
-        GVAR(armysBlacklist) = [];
         _error = true;
     };
 };
-
 
 // check if a type was given
 If ((!_error)&&{!(_armyType isEqualTo "")}) then {
@@ -58,6 +53,15 @@ If ((!_error)&&{!(_armyType isEqualTo "")}) then {
     if (_allArmys isEqualTo []) then {
         ERROR(FORMAT_1("No possible army with given type found: %1",_armytype));
         _armyType = "";
+        _error = true;
+    };
+};
+
+If ((!_error)&&{(!(GVAR(armysBlacklist) isEqualTo []))}) then {
+    _allArmys = _allArmys select {(!((configName _x) in GVAR(armysBlacklist)))};
+    if (_allArmys isEqualTo []) then {
+        ERROR("No more armys left after Blacklist check - deleting blacklist");
+        GVAR(armysBlacklist) = [];
         _error = true;
     };
 };
