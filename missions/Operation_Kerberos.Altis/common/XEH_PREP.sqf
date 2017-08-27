@@ -18,6 +18,9 @@ PREP(exportHashtoHpp);
 PREP(get_buildings);
 PREP(get_cfg_subclasses);
 PREP(get_cfglocations);
+PREP(getMod);
+PREP(getModName);
+PREP(getModPicture);
 PREP(getRollPitchYaw);
 PREP(getRotMat);
 
