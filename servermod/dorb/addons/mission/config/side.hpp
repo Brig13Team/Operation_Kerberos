@@ -108,3 +108,21 @@ class chopper : radar {
         onTimeout = QFUNC(sidemission_chopper_failed);
     };
 };
+
+class airsuperiority : radar {
+    class position : position {
+        locationtypes[] = {};
+        radius = 100;
+    };
+    class objective : objective {
+        spawnfunction = QFUNC(spawnfunctions_airsuperiority);
+        objectsfunction = QFUNC(sidemission_airsuperiority);
+    };
+    class task : task {
+        title = LSTRING(side_airsuperiority_title);
+        description = LSTRING(side_airsuperiority_desc);
+        onSucceeded = LSTRING(side_airsuperiority_succeeded);
+        showMarker = 0;
+        tasktype = "target";
+    };
+};

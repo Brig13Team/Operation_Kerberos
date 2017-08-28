@@ -43,7 +43,7 @@ class baseMission {
         description = LSTRING(baseMission_description);
         tasktype = "";
 
-        onSucceeded = LSTRING(baseMission_success);
+        onSucceeded = LSTRING(baseMission_succeeded);
         onFailed = LSTRING(baseMission_failed);
         onNeutral = LSTRING(baseMission_neutral);
 

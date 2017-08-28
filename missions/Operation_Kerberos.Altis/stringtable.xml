@@ -309,6 +309,19 @@
     </Package>
     <Package name="MISSION">
         <Container name="MAINMISSION">
+            <Key ID="STR_DORB_MISSION_BASEMISSION_SUCCEEDED">
+                <German>Die Mission war ein Erfolg.</German>
+                <English>The misson was a success</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_BASEMISSION_NEUTRAL">
+                <German>Die Mission hätte besser laufen können.</German>
+                <English>The mission could have been ended in a better way.</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_BASEMISSION_FAILED">
+                <German>Mission gescheitert.</German>
+                <English>Mission failed.</English>
+            </Key>
+
             <Key ID="STR_DORB_MISSION_COMPOSITIONS_TITLE">
                 <German>Stellungen</German>
                 <English>Compositions</English>
@@ -319,8 +332,8 @@
             </Key>
 
             <Key ID="STR_DORB_MISSION_RTB_TITLE">
-                <German>RTB</German>
-                <English>RTB</English>
+                <German>Return to Base</German>
+                <English>Return to Base</English>
             </Key>
             <Key ID="STR_DORB_MISSION_RTB_DESC">
                 <German>Return To Base</German>
@@ -567,7 +580,22 @@
                 <English>A radar has been neutralized.</English>
             </Key>
 
-
+            <Key ID="STR_DORB_MISSION_SIDE_AIRSUPERIORITY_TITLE">
+                <German>Luftüberlegenheit</German>
+                <English>Air-Superiority</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_SIDE_AIRSUPERIORITY_DESC">
+                <German>Der Gegner hat die Luftüberlegenheit erlangt. Erobern Sie den Luftraum zurück.</German>
+                <English>Gain the air-superiority over the area.</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_SIDE_AIRSUPERIORITY_COUNTER">
+                <German>Ein Abfangjäger wurde neutralisiert.</German>
+                <English>An air-interception plane has been shot down.</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_SIDE_AIRSUPERIORITY_SUCCEEDED">
+                <German>Die Luftüberlegenheit wurde hergestellt.</German>
+                <English>The air-superiority has been regained.</English>
+            </Key>
 
             <Key ID="STR_DORB_MISSION_SIDE_WRECK_TITLE">
                 <German>Wrack finden</German>

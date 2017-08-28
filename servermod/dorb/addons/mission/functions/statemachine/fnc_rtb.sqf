@@ -22,15 +22,21 @@ _TaskID = format["%1_RTB",_TaskID];
 If (_thisTransition == "toRTB") then {
     // the RTB-Task should be created
     [
-        GVARMAIN(playerside),
         _TaskID,
-        "rtb",
+        GVARMAIN(playerside),
+        [
+            LSTRING(RTB_DESC),
+            LSTRING(RTB_TITLE),
+            ""
+        ],
         getMarkerPos GVARMAIN(respawnmarker),
-        true,
+        "ASSIGNED",
         100,
         false,
-        "run"
-    ] call BIS_fnc_taskCreate;
+        true,
+        "run",
+        false
+    ] call BIS_fnc_setTask;
     [QEGVAR(gui,message),[LSTRING(RTB_TITLE),LSTRING(RTB_DESC),"blue"]] call CBA_fnc_globalEvent;
 }else{
     // RTB is Finished
