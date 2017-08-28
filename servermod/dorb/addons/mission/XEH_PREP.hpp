@@ -23,7 +23,6 @@ PREPS(sidemission,radar);
 PREPS(sidemission,supplys_succeeded);
 PREPS(sidemission,wreck);
 
-PREPS(spawn,airsuperiority);
 PREPS(spawn,chooseLocation);
 PREPS(spawn,chooseMission);
 PREPS(spawn,createAtRescuePoint);
@@ -32,6 +31,7 @@ PREPS(spawn,getObjects);
 PREPS(spawn,getRadius);
 PREPS(spawn,spawnTargets);
 
+PREPS(spawnfunctions,airsuperiority);
 PREPS(spawnfunctions,supplys);
 
 PREPS(statemachine,addMain);
