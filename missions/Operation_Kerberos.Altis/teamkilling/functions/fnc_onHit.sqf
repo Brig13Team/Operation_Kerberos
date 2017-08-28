@@ -40,6 +40,8 @@ private _killerIsPlayer = (!isNull _killer) && {_unit != _killer} && {[_killer,t
 // Don't do anything if neither are players
 if (!(_unitIsPlayer || _killerIsPlayer)) exitWith {};
 
+If ((_unit == _killer)||{side _unit != side _killer}) exitWith {};
+
 [
     QGVAR(teamfire),
     [_unit,_killer,_damage]
