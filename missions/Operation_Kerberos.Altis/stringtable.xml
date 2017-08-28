@@ -332,8 +332,8 @@
             </Key>
 
             <Key ID="STR_DORB_MISSION_RTB_TITLE">
-                <German>RTB</German>
-                <English>RTB</English>
+                <German>Return to Base</German>
+                <English>Return to Base</English>
             </Key>
             <Key ID="STR_DORB_MISSION_RTB_DESC">
                 <German>Return To Base</German>

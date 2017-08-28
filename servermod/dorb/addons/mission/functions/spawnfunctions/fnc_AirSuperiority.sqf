@@ -19,13 +19,15 @@ private _amount = 2 + (floor (random 3));
 private _objects = [];
 
 for "_i" from 0 to _amount do {
-    private _spawnPos = [_centerpos,10000,10000,15000] call FUNC(ressources_getsavespawnposair);
+    private _spawnPos = [_centerpos,10000,10000,15000] call EFUNC(headquarter,ressources_getsavespawnposair);
     _spawnPos set [2,3000];
 
     private _plane = ["plane_ai"] call EFUNC(spawn,getUnit);
-    private _dir = [_spawnpos, _pos] call BIS_fnc_dirTo;
+    private _dir = [_spawnpos, _centerpos] call BIS_fnc_dirTo;
     ([_spawnpos,GVARMAIN(side),_plane,_dir,true,true,"FLY"] call EFUNC(spawn,vehicle)) params ["_attackGroup","_attackVeh"];
-
+    {
+        _x setSkill 1;
+    } forEach (units _attackGroup);
     _attackGroup setVariable [QGVAR(state),"mission"];
 
     private _loiterpos = _centerpos getPos [500,random 360];

@@ -18,3 +18,23 @@ params ["_mission", "_targets"];
 {
     _x addEventHandler ["Killed", LINKFUNC(obj__increaseCounter)];
 } forEach _targets;
+
+[
+    {
+        params ["_planes","_handler"];
+        if (({
+            _x params [["_unit",objNull]];
+            If (isNull _unit) then {
+                false
+            } else {
+                _unit setVehicleAmmo 1;
+                _unit setFuel 1;
+                true
+            };
+        } count _planes)==0) exitWith {
+            [_handler] call CBA_fnc_removePerFrameHandler;
+        };
+    },
+    60,
+    [_targets]
+] call CBA_fnc_addPerFrameHandler;
