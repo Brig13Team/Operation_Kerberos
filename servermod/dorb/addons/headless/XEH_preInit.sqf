@@ -6,6 +6,10 @@ ADDON = false;
 
 ADDON = true;
 
+GVAR(HC_enabled) = true;
+GVAR(istransfering) = false;
+GVAR(HeadlessClients) = [];
+
 if (isServer) then {
     ["AllVehicles", "init", {
         _this spawn FUNC(onInit);

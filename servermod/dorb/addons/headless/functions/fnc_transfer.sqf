@@ -69,8 +69,9 @@ private _loadBalance = ((count _headlessOwnerIDs) > 1);
         };
     };
 } forEach allGroups;
+
 #ifdef DEBUG_MODE_FULL
 LOG_2(_headlessOwnerIDs,_headlessBalance);
 #endif
+
 GVAR(istransfering) = false;
-nil;

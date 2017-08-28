@@ -10,10 +10,6 @@
  * Nothing
  *
  */
- 
-GVAR(HC_enabled)=true;
-GVAR(istransfering) = false;
-GVAR(HeadlessClients) = [];
 
 [QGVAR(HCjoined),{_this call FUNC(HCconnect);}] call CBA_fnc_addEventHandler;
 addMissionEventHandler ["HandleDisconnect",{_this call FUNC(HCdisconnect);false;}];
