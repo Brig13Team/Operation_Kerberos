@@ -15,7 +15,7 @@
 
 params ["_centerpos","_mission"];
 
-private _amount = 2 + (floor (random 3));
+private _amount = 3 + (floor (random 3));
 private _objects = [];
 
 for "_i" from 0 to _amount do {
@@ -30,17 +30,18 @@ for "_i" from 0 to _amount do {
     } forEach (units _attackGroup);
     _attackGroup setVariable [QGVAR(state),"mission"];
 
-    private _loiterpos = _centerpos getPos [500,random 360];
+    private _loiterpos = [_centerpos,500,10000,5000] call EFUNC(headquarter,ressources_getsavespawnposair);
     _loiterpos set [2,1000 + (random 500)];
 
     [_attackGroup] call CBA_fnc_clearWaypoints;
     private _wp = _attackGroup addWaypoint [_loiterpos, 0];
     _wp setWaypointType "LOITER";
-    _wp setWaypointLoiterType "CIRCLE";
-    _wp setWaypointLoiterRadius 1500;
+    _wp setWaypointLoiterType (["CIRCLE","CIRCLE_L"] select (floor (random 2)));
+    _wp setWaypointLoiterRadius (1000+random 2000);
     _wp setWaypointBehaviour "SAD";
     _wp setWaypointCombatMode "RED";
 
     _objects pushBack _attackVeh;
 };
-_objects
+
+_objects select {alive _x}
