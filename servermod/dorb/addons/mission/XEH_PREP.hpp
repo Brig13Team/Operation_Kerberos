@@ -32,13 +32,15 @@ PREPS(spawn,getRadius);
 PREPS(spawn,spawnTargets);
 
 PREPS(spawnfunctions,airsuperiority);
+PREPS(spawnfunctions,minefield);
 PREPS(spawnfunctions,supplys);
 
 PREPS(statemachine,addMain);
 PREPS(statemachine,addSide);
 PREPS(statemachine,addTask);
 PREPS(statemachine,cancelALL);
-PREPS(statemachine,checkcounter);
+PREPS(statemachine,checkCounter);
+PREPS(statemachine,checkClear);
 PREPS(statemachine,checkOneCounter);
 PREPS(statemachine,checkTwoCounter);
 PREPS(statemachine,cleanup);

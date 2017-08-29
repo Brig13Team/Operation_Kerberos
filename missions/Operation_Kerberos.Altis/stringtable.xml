@@ -597,6 +597,19 @@
                 <English>The air-superiority has been regained.</English>
             </Key>
 
+            <Key ID="STR_DORB_MISSION_SIDE_MINEFIELD_TITLE">
+                <German>Minenfeld räumen</German>
+                <English>Clear Minefield</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_SIDE_AIRSUPERIORITY_DESC">
+                <German>Wir haben in Erfahrung gebracht, dass der Feind ein Minenfeld mit einem Radius von ca. 150m ausgelegt hat. Räumen sie dieses.</German>
+                <English>The enemy has placed mines in an area of about 150m. Clear the Minefield.</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_SIDE_AIRSUPERIORITY_SUCCEEDED">
+                <German>Das Minenfeld wurde geräumt.</German>
+                <English>The Minefield has been cleared.</English>
+            </Key>
+
             <Key ID="STR_DORB_MISSION_SIDE_WRECK_TITLE">
                 <German>Wrack finden</German>
                 <English>Find Wreck</English>

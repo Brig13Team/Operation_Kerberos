@@ -126,3 +126,24 @@ class airsuperiority : radar {
         tasktype = "target";
     };
 };
+
+class minefield : radar {
+    class position : position {
+        locationtypes[] = {QGVAR(other)};
+        radius = 100;
+    };
+    class objective : objective {
+        spawnfunction = QFUNC(spawnfunctions_minefield);
+        spawnfunction = "";
+    };
+    class task : task {
+        title = LSTRING(side_minefieldy_title);
+        description = LSTRING(side_minefield_desc);
+        onSucceeded = LSTRING(side_minefield_succeeded);
+        showMarker = 1;
+        tasktype = "map";
+    };
+    class condition : condition {
+        conditiontype = "clear";
+    };
+};
