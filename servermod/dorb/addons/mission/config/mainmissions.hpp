@@ -251,8 +251,9 @@ class radiotower : jammer {
         tasktype = "destroy";
     };
 };
-/*
+
 class scarab : device {
+    taskcondition = QUOTE(isClass(configFile>>'CfgPatches'>>'rhs_main'));
     class objective : objective {
         objects = "scarab";
         composition_types[] = {"scarab"};
@@ -266,5 +267,7 @@ class scarab : device {
         onFailed = LSTRING(main_scarab_failed);
         onNeutral = "";
     };
+    class condition : condition {
+        timeout = 5400;
+    };
 };
-*/

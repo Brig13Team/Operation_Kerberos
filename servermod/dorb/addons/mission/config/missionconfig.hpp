@@ -83,8 +83,8 @@ class baseSidemission : baseMission {
 };
 
 class mainmissions {
-    #include "main.hpp"
+    #include "mainmissions.hpp"
 };
 class sidemissions {
-    #include "side.hpp"
+    #include "sidemissions.hpp"
 };

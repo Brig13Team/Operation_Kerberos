@@ -17,7 +17,9 @@ _this params ["_mission", "_targets"];
 
 {
     [_curTarget, GVARMAIN(side), false] call EFUNC(spawn,crew);
-
+    {
+        _x allowFleeing 0;
+    } forEach (crew _x);
     (gunner _x) addEventHandler ["Killed", {
             [vehicle (_this select 0)] call FUNC(obj__increaseCounter);
         }];
@@ -27,3 +29,9 @@ _this params ["_mission", "_targets"];
             [getPos (_this select 0)] call FUNC(obj_spawnNuke);
         }];
 } forEach _targets;
+
+private _missionCfg = _mission getVariable "missioncfg";
+
+[
+    getNumber(_missionCfg >> "condition" >> "timer")
+] call EFUNC(gui,setTimerGlobal);
