@@ -24,5 +24,5 @@ private _targets = [_parent] call EFUNC(mission,taskmanager_getMissionTargets);
     _marker setMarkerBrush "Border";
     _marker setMarkerColor "ColorRed";
     _marker setMarkerSize [100,100];
-    GVAR(markerDump) pushBack _marker;
+    GVAR(mission,markerDump) pushBack _marker;
 } forEach _targets;
