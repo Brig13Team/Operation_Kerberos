@@ -890,6 +890,10 @@
             <German>Am Herunterladen</German>
             <German>Downloading</German>
         </Key>
+        <Key ID="STR_DORB_GUI_SHOWTIMER">
+            <German>Timer anzeigen</German>
+            <German>Show timer</German>
+        </Key>
     </Package>
     <Package name="Gui_teleport">
         <Key ID="STR_DORB_GUI_TELEPORT_TELEPORT">

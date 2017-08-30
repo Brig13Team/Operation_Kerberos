@@ -8,12 +8,13 @@ PREP(onLoadLoadingscreen);
 PREP(progressLoadingScreen);
 PREP(startLoadingScreen);
 PREP(endLoadingScreen);
+PREP(hideTimer);
 PREP(noise);
 PREP(noise_square);
 
-PREP(handleTimer);
 PREP(setTimer);
 PREP(setTimerGlobal);
+PREP(showTimer);
 PREP(stopTimer);
 PREP(stopTimerGlobal);
 
