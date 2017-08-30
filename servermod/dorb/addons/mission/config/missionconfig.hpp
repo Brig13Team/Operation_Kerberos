@@ -59,6 +59,7 @@ class baseMission {
         onSucceeded = "";
         onFailed = "";
         onNeutral = "";
+        onTimeout = "";
     };
 
 };

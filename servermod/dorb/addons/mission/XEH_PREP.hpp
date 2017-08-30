@@ -10,8 +10,8 @@ PREPS(mainmission,intel);
 PREPS(mainmission,jammer);
 PREPS(mainmission,prototype);
 PREPS(mainmission,radiotower);
-PREPS(mainmission,rtb);
 PREPS(mainmission,scarab);
+PREPS(mainmission,scarab_failed);
 PREPS(mainmission,upload);
 PREPS(mainmission,weaponcache);
 
@@ -44,9 +44,11 @@ PREPS(statemachine,checkClear);
 PREPS(statemachine,checkOneCounter);
 PREPS(statemachine,checkTwoCounter);
 PREPS(statemachine,cleanup);
+PREPS(statemachine,decreaseCounter);
 PREPS(statemachine,endmission);
 PREPS(statemachine,getMissions);
 PREPS(statemachine,HoldPFH);
+PREPS(statemachine,increaseCounter);
 PREPS(statemachine,initHold);
 PREPS(statemachine,initcounter);
 PREPS(statemachine,initOneCounter);
@@ -55,40 +57,3 @@ PREPS(statemachine,isActiveMission);
 PREPS(statemachine,onTransition);
 PREPS(statemachine,rtb);
 PREPS(statemachine,spawn);
-
-PREPS(obj,_decreaseCounter);
-PREPS(obj,_increaseCounter);
-PREPS(obj,callEvent);
-// PREPS(obj,canCarry);
-// PREPS(obj,canDownload);
-// PREPS(obj,canDrop);
-// PREPS(obj,createSandstorm);
-// PREPS(obj,disableSandstorm);
-// PREPS(obj,doCarry);
-// PREPS(obj,doDownload);
-PREPS(obj,doDrop);
-// PREPS(obj,effectDownloadClient);
-// PREPS(obj,effectDownloadServer);
-PREPS(obj,effectEarthquake);
-// PREPS(obj,effectSandstorm);
-// PREPS(obj,handleCarry);
-// PREPS(obj,init_Download);
-// PREPS(obj,initACEAction_case);
-PREPS(obj,markTargets);
-
-PREPS(obj,initACEAction_intel);
-
-PREPS(obj,initACEAction_upload);
-
-PREPS(obj,initACEAction_wreck);
-
-PREPS(obj,initACEAction_device);
-PREPS(obj,spawnEMP);
-
-PREPS(obj,doTriangulate);
-PREPS(obj,effectTriangulation);
-PREPS(obj,initACEAction_DataTerminal);
-PREPS(obj,triangulate);
-
-PREPS(obj,launchScarab);
-PREPS(obj,spawnNuke);

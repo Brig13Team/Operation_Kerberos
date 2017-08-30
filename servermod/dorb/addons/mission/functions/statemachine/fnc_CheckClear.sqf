@@ -11,7 +11,7 @@
  *      none
  *
  */
-//#define DEBUG_MODE_FULL
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 _this params ["_mission"];
@@ -19,6 +19,8 @@ _this params ["_mission"];
 private _list = HASH_GET_DEF(_mission,"list",(HASH_GET_DEF(_mission,"objects",[])));
 private _distance = HASH_GET_DEF(_mission,"distance",500);
 private _centerpos = HASH_GET(_mission,"centerpos");
+
+TRACEV_4(_list,_distance,_centerpos,HASH_GET(_mission,'list'));
 
 If (IS_CODE(_list)) then {_list = [] call _list};
 

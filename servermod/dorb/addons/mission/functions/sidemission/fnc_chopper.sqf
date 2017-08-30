@@ -24,7 +24,7 @@ private _crew = [];
 } forEach _targets;
 TRACEV_2(_targets,_crew);
 {
-    _x addEventHandler ["Killed", LINKFUNC(obj__increaseCounter)];
+    _x addEventHandler ["Killed", LINKFUNC(statemachine_increaseCounter)];
     _x setVariable [QGVAR(mission),_mission];
 } forEach _crew;
 

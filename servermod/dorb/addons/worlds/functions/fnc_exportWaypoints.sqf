@@ -1,12 +1,6 @@
 /*
     Author: Dorbedo
 
-    called via:
-        [(getPos player),25,(getDir player)] execVM "fnc_export_obj_sqf.sqf";
-        [player,25] execVM "fnc_export_obj_sqf.sqf";
-        [cursorTarget,25] execVM "fnc_export_obj_sqf.sqf";
-
-
     class map {
         class 11_12 {
             surface = 0; // (0:water ; 1:land ; 2:road);

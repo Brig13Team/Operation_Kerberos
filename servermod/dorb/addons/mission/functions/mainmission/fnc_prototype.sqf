@@ -17,7 +17,7 @@ TRACEV_1(_this);
 _this params ["_mission", "_targets"];
 
 {
-    _x addEventHandler["Killed", LINKFUNC(obj__decreaseCounter)];
+    _x addEventHandler["Killed", LINKFUNC(statemachine_decreaseCounter)];
     HASH_SET(_mission, "prototype", typeOf _x);
     _x lock 0;
 } forEach _targets;
@@ -35,7 +35,7 @@ TRACEV_1(_targets);
         TRACEV_1(_objects);
         {
             If ((!isNull _x)&&{alive _x}&&{crew _x isEqualTo []}&&{(_x distance2D (getMarkerPos GVARMAIN(rescuemarker)))<5}) then {
-                [_x] call FUNC(obj__increaseCounter);
+                [_x] call FUNC(statemachine_increaseCounter);
                 deleteVehicle _x;
                 [typeOf _object] spawn FUNC(spawn_createAtRescuePoint);
             };

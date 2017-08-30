@@ -134,10 +134,10 @@ class minefield : radar {
     };
     class objective : objective {
         spawnfunction = QFUNC(spawnfunctions_minefield);
-        spawnfunction = "";
+        objectsfunction = "";
     };
     class task : task {
-        title = LSTRING(side_minefieldy_title);
+        title = LSTRING(side_minefield_title);
         description = LSTRING(side_minefield_desc);
         onSucceeded = LSTRING(side_minefield_succeeded);
         showMarker = 1;

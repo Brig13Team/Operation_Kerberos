@@ -23,7 +23,7 @@ _this params ["_mission", "_targets"];
             _this params ["_radiotower"];
             private _damage = damage _radiotower;
             if ((_damage > 0.9) && {_radiotower getVariable [QGVAR(isActive), true]}) then {
-                [_radiotower] call FUNC(obj__increaseCounter);
+                [_radiotower] call FUNC(statemachine_increaseCounter);
             };
             nil;
         }];

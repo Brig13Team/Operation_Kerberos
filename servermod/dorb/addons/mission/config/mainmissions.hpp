@@ -44,8 +44,8 @@ class baseMission {
 };
 */
 // same chance to spawn a townmission as a landmission
-#define PROPABILITY_LAND 0.5/6 // 6 missiontypes
-#define PROPABILITY_TOWN 0.5/5// 5 missiontypes
+#define PROPABILITY_LAND 0.5/7 // 7 missiontypes
+#define PROPABILITY_TOWN 0.5/5 // 5 missiontypes
 
 class capture : baseMainmission {
     probability = PROPABILITY_TOWN;
@@ -253,11 +253,12 @@ class radiotower : jammer {
 };
 
 class scarab : device {
+    probability = PROPABILITY_LAND;
     taskcondition = QUOTE(isClass(configFile>>'CfgPatches'>>'rhs_main'));
     class objective : objective {
         objects = "scarab";
         composition_types[] = {"scarab"};
-        amount[] = {1,3};
+        amount[] = {2,3};
         objectsfunction = QFUNC(mainmission_scarab);
     };
     class task : task {
@@ -269,5 +270,9 @@ class scarab : device {
     };
     class condition : condition {
         timeout = 5400;
+        onSucceeded = QEFUNC(gui,stopTimerGlobal);
+        onFailed = QFUNC(mainmission_scarab_failed);
+        onNeutral = QFUNC(mainmission_scarab_failed);
+        onTimeout = QFUNC(mainmission_scarab_failed);
     };
 };
