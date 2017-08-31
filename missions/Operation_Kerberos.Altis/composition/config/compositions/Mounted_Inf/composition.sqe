@@ -1,0 +1,208 @@
+version=53;
+center[]={2561.7246,5,3813.5911};
+class items
+{
+	items=3;
+	class Item0
+	{
+		dataType="Group";
+		side="East";
+		class Entities
+		{
+			items=1;
+			class Item0
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={0,0.0014390945,0.050048828};
+				};
+				side="East";
+				flags=6;
+				class Attributes
+				{
+					isPlayer=1;
+				};
+				id=2;
+				type="O_Soldier_F";
+			};
+		};
+		class Attributes
+		{
+		};
+		class CrewLinks
+		{
+			class LinkIDProvider
+			{
+				nextID=1;
+			};
+			class Links
+			{
+				items=1;
+				class Item0
+				{
+					linkID=0;
+					item0=2;
+					item1=1;
+					class CustomData
+					{
+						role=1;
+					};
+				};
+			};
+		};
+		id=0;
+	};
+	class Item1
+	{
+		dataType="Group";
+		side="East";
+		class Entities
+		{
+			items=4;
+			class Item0
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={0,0.0014390945,0.050048828};
+					angles[]={0,4.5923891,0};
+				};
+				side="East";
+				flags=7;
+				class Attributes
+				{
+					rank="SERGEANT";
+				};
+				id=4;
+				type="O_Soldier_TL_F";
+			};
+			class Item1
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={0,0.0014390945,0.050048828};
+					angles[]={0,4.5923891,0};
+				};
+				side="East";
+				flags=5;
+				class Attributes
+				{
+					skill=0.44999999;
+					rank="CORPORAL";
+				};
+				id=5;
+				type="O_Soldier_AR_F";
+			};
+			class Item2
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={0,0.0014390945,0.050048828};
+					angles[]={0,4.5923891,0};
+				};
+				side="East";
+				flags=5;
+				class Attributes
+				{
+					skill=0.40000001;
+				};
+				id=6;
+				type="O_Soldier_GL_F";
+			};
+			class Item3
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={0,0.0014390945,0.050048828};
+					angles[]={0,4.5923891,0};
+				};
+				side="East";
+				flags=5;
+				class Attributes
+				{
+					skill=0.40000001;
+				};
+				id=7;
+				type="O_Soldier_LAT_F";
+			};
+		};
+		class Attributes
+		{
+		};
+		class CrewLinks
+		{
+			class LinkIDProvider
+			{
+				nextID=4;
+			};
+			class Links
+			{
+				items=4;
+				class Item0
+				{
+					linkID=0;
+					item0=4;
+					item1=1;
+					class CustomData
+					{
+						role=2;
+						turretPath[]={0};
+					};
+				};
+				class Item1
+				{
+					linkID=1;
+					item0=5;
+					item1=1;
+					class CustomData
+					{
+						role=2;
+						turretPath[]={1};
+					};
+				};
+				class Item2
+				{
+					linkID=2;
+					item0=6;
+					item1=1;
+					class CustomData
+					{
+						role=3;
+						cargoIndex=0;
+					};
+				};
+				class Item3
+				{
+					linkID=3;
+					item0=7;
+					item1=1;
+					class CustomData
+					{
+						role=3;
+						cargoIndex=1;
+					};
+				};
+			};
+		};
+		id=3;
+	};
+	class Item2
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={0,2.416501,-0.0012207031};
+		};
+		side="East";
+		flags=6;
+		class Attributes
+		{
+		};
+		id=1;
+		type="O_Truck_03_transport_F";
+	};
+};
