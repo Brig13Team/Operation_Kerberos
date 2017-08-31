@@ -15,6 +15,7 @@ PREPS(mainmission,scarab);
 PREPS(mainmission,upload);
 PREPS(mainmission,weaponcache);
 
+PREPS(sidemission,airsuperiority);
 PREPS(sidemission,artillery);
 PREPS(sidemission,chopper);
 PREPS(sidemission,chopper_failed);
@@ -30,6 +31,7 @@ PREPS(spawn,getObjects);
 PREPS(spawn,getRadius);
 PREPS(spawn,spawnTargets);
 
+PREPS(spawnfunctions,airsuperiority);
 PREPS(spawnfunctions,supplys);
 
 PREPS(statemachine,addMain);

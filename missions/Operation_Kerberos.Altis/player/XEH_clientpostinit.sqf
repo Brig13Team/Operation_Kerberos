@@ -52,13 +52,14 @@ private _action = [
 waituntil {! isnull player};
 ["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;
 
-[
-    QGVARMAIN(arsenalClosed),
-    {
-        [player,QGVARMAIN(insignia)] call BIS_fnc_setUnitInsignia;
-    }
-] call CBA_fnc_addEventHandler;
-
+If ((getMissionConfigValue ["isKerberos", 0]) > 0) then {
+    [
+        QGVARMAIN(arsenalClosed),
+        {
+            [player,QGVARMAIN(insignia)] call BIS_fnc_setUnitInsignia;
+        }
+    ] call CBA_fnc_addEventHandler;
+};
 /*
  *
  *      Base Protection
