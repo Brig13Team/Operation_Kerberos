@@ -6,6 +6,7 @@ PREP(debug_marker_clean);
 PREP(debug_marker_create);
 PREP(delete);
 PREP(exportHashToHpp);
+PREP(getConfigClass);
 PREP(getGunLenght);
 PREP(getMod);
 PREP(getModName);
