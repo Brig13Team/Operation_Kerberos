@@ -18,6 +18,7 @@ PREP(exportHashtoHpp);
 PREP(get_buildings);
 PREP(get_cfg_subclasses);
 PREP(get_cfglocations);
+PREP(getConfigClass);
 PREP(getMod);
 PREP(getModName);
 PREP(getModPicture);
