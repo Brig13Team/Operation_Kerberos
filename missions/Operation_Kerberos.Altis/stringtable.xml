@@ -332,11 +332,11 @@
             </Key>
 
             <Key ID="STR_DORB_MISSION_RTB_TITLE">
-                <German>Return to Base</German>
+                <German>Zurück zur Basis</German>
                 <English>Return to Base</English>
             </Key>
             <Key ID="STR_DORB_MISSION_RTB_DESC">
-                <German>Return To Base</German>
+                <German>Kehren Sie zur Basis zurück</German>
                 <English>Return To Base</English>
             </Key>
             <Key ID="STR_DORB_MISSION_RTB_SUCCESS">
@@ -490,15 +490,15 @@
             </Key>
 
             <Key ID="STR_DORB_MISSION_MAIN_JAMMER_TITLE">
-                <German>Jammer zerstören</German>
+                <German>Störsender zerstören</German>
                 <English>Destroy Jammer</English>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_JAMMER_DESC">
-                <German>Der Feind hat Jammer platziert, um unseren Funk zu stören. Finden und zerstören Sie diese.</German>
+                <German>Der Feind hat einen Störsender platziert, um unseren Funk zu stören. Finden und zerstören Sie diese.</German>
                 <English>The enemy placed jammers to disturb our radio. Find and destroy them.</English>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_JAMMER_SUCCEEDED">
-                <German>Der Jammer wurde erfolgreich neutralisiert.</German>
+                <German>Der Störsender wurde erfolgreich neutralisiert.</German>
                 <English>The jammer has been successfully neutralized.</English>
             </Key>
 
@@ -511,7 +511,7 @@
                 <English>The enemy stationed nuclear missiles in the area of operation and is preparing their launch. Prevent this nuclear strike.</English>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_SCARAB_SUCCEEDED">
-                <German>Die Abschüsse der Rakten wurden verhindert.</German>
+                <German>Die Abschüsse der Raketten wurden verhindert.</German>
                 <English>The missile launch has been prevented.</English>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_SCARAB_FAILED">
@@ -764,7 +764,7 @@
             <English>Move backpack to chest</English>
         </Key>
         <Key ID="STR_DORB_PLAYER_BACKPACK_BACK">
-            <German>Rucksack auf den Ruecken schnallen</German>
+            <German>Rucksack auf den Rücken schnallen</German>
             <English>Move backpack to back</English>
         </Key>
         <Key ID="STR_DORB_PLAYER_ACTION_KNOCKKNOCK">
