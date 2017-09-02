@@ -3,7 +3,9 @@
  * creates the object from the config entry
  *
  * Arguments:
- * 0: <CONFIG> the configpath of the Object
+ * 0: <ARRAY> Centerposition
+ * 1: <SCALAR> Centerdir
+ * 2: <CONFIG> Configpath
  *
  * Return Value:
  * <OBJECT> the created Object
