@@ -41,7 +41,7 @@ If (getText(_curCfg >> "dataType") == "Object") then {
     private _spawnPos = terrainIntersectAtASL[_checkPos1,_checkPos2];
     private _surfaceNormal = surfaceNormal _spawnPos;
     // add the height
-    private _height = _posZ - 0.42; // remove the VR height
+    private _height = _posZ - 0.0014390945; // remove the VR height
     // if the height value is high, it has to take
     if (abs _height > 0.3) then {
         private _heightVec = _surfaceNormal vectorMultiply _height;
