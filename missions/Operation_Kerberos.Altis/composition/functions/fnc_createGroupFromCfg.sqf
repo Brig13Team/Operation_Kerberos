@@ -95,11 +95,4 @@ private _group = createGroup [GVARMAIN(side),true];
     _unit enableSimulationGlobal true;
 } forEach (configProperties[_curCfg >> "CrewLinks" >> "Links","(isClass _x)",true]);
 
-
-
-
-
-
-
-
-
+HASH_DELETE(_LinkHash);

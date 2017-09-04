@@ -60,3 +60,13 @@ class twoGroups {
         #include "compositions\twoGroups\composition.sqe"
     };
 };
+
+class test1 {
+    class header {
+        #include "compositions\test1\header.sqe"
+    };
+    class composition {
+        #include "compositions\test1\composition.sqe"
+    };
+};
+

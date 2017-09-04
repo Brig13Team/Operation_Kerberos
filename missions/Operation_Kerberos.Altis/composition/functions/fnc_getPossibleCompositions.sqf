@@ -22,27 +22,26 @@ If (isClass(missionConfigFile >> "CfgKerberos" >> "CfgComposition")) then {
 };
 
 private _return = [];
-TRACEV_1(_allCompositions);
 
-_fnc_allObjectsAreValid = {
+
+private _fnc_allObjectsAreValid = {
     params ["_cfgToCheck"];
-    private _Objects = configProperties [_cfgToCheck,"(isClass _x)&&{getText(_x >> 'dataType') == 'Object'}","true",true];
+    private _Objects = configProperties [_cfgToCheck,"(isClass _x)&&{getText(_x >> 'dataType') == 'Object'}",true];
     ({!(isClass(configFile >> 'CfgVehicles' >> getText(_x >> 'type')))} count _Objects) == 0
 };
 
 
 {
     if (isClass _x) then {
-        private _cfg = _x >> "composition" >> "items" >> "Item0" >> "Entities";
+        private _cfg = _x >> "composition" >> "items";
         If (isClass _cfg) then {
             private _objectsAreValid = _cfg call _fnc_allObjectsAreValid;
-            private _Groups = configProperties [_cfg,"(isClass _x)&&{getText(_x >> 'dataType') == 'Group'}","true",true];
-
+            private _Groups = configProperties [_cfg,"(isClass _x)&&{getText(_x >> 'dataType') == 'Group'}",true];
             {
-                If !(_x call _fnc_allObjectsAreValid) exitWith {
+                If !((_x >> "Entities") call _fnc_allObjectsAreValid) exitWith {
                     _objectsAreValid = false;
                 };
-            } forEach _groups;
+            } forEach _Groups;
 
             if (_objectsAreValid) then {
                 _return pushBack _x;
