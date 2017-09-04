@@ -34,31 +34,34 @@ If (getText(_curCfg >> "dataType") == "Object") then {
     ];
 
     // get the relative spawnposition
-    private _relPos = ([[_posX, _posY, _posZ],_dir] call BIS_fnc_rotateVector2D) vectorAdd _centerPosition;
+    private _relPos = ([[_posX, _posY, _posZ],-_dir] call BIS_fnc_rotateVector2D) vectorAdd _centerPosition;
     // terrain surface
     private _checkPos1 = _relPos vectorAdd [0,0,30];
     private _checkPos2 = _relPos vectorAdd [0,0,-30];
     private _spawnPos = terrainIntersectAtASL[_checkPos1,_checkPos2];
     private _surfaceNormal = surfaceNormal _spawnPos;
     // add the height
-    private _height = _posZ - 0.0014390945; // remove the VR height
+    private _height = _posZ - 0.00001; // remove the VR height
     // if the height value is high, it has to take
+    TRACEV_4(_type,_spawnPos,_height,_centerPosition);
     if (abs _height > 0.3) then {
         private _heightVec = _surfaceNormal vectorMultiply _height;
         _spawnPos = _spawnPos vectorAdd _heightVec;
-        _spawnPos set [2, (_spawnPos select 2) + _posZ];
+        //_spawnPos set [2, (_spawnPos select 2) + _posZ];
     };
 
     private _createAsSimpleObject = [false,true] select (getNumber(_curCfg >> "Attributes" >> "createAsSimpleObject"));
-    private _object = if (_createAsSimpleObject) then {
+    _object = if (_createAsSimpleObject) then {
         createSimpleObject [_type, [0,0,0]];
     } else {
-        createVehicle ["_type", [0,0,10000], [], "", "NONE"]
+        createVehicle [_type, [0,0,10000], [], 0, "NONE"]
     };
     _object enableSimulationGlobal false;
 
-    _object setDir _yaw;
-    _object setPosASL _spawnPos;
+    _object setDir (_dir + (deg _yaw));
+    //_object setPosASL _spawnPos;
+    _object setPosWorld _spawnPos;
+    TRACEV_2(_spawnPos,_yaw);
     [_object, deg _pitch, deg _roll] call BIS_fnc_setPitchBank;
 
     private _lock = getText(_curCfg >> "Attributes" >> "lock");
@@ -80,7 +83,7 @@ If (getText(_curCfg >> "dataType") == "Object") then {
     If (isNumber(_curCfg >> "Attributes" >> "ammo")) then {
         _object setVehicleAmmo (getNumber(_curCfg >> "Attributes" >> "ammo"));
     };
-    private _texture = getText(_cfg >> "Attributes" >> "textures");
+    private _texture = getText(_curCfg >> "Attributes" >> "textures");
     If !(_texture isEqualTo "") then {
         _object setObjectTextureGlobal [0, _texture];
     };
@@ -107,3 +110,5 @@ If (getText(_curCfg >> "dataType") == "Object") then {
 
 
 };
+
+_object
