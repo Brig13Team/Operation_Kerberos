@@ -13,3 +13,5 @@
 
 //#include "\x\dorb\addons\main\script_macros.hpp"
 #include "..\script_mission.hpp"
+
+#define CENTERPOS_OFFSET 15000

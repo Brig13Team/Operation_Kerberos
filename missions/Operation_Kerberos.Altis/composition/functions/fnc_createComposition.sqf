@@ -3,7 +3,7 @@
  * creates given componsition at given position
  *
  * Arguments:
- * 0: <ARRAY> the centerposition
+ * 0: <ARRAY> the centerposition (only 2D coordiantes are used)
  * 1: <CONFIG> the config of the composition
  * 2: <SCALAR> the direction
  *
@@ -14,14 +14,19 @@
 #define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-params ["_centerPosition", "_dir", "_compositionCfg"];
+params ["_centerPosition", "_compositionCfg", "_dir"];
 
-_centerPosition set [2,0];
-_centerPosition = ATLToASL _centerPosition;
+_centerPosition set [2,CENTERPOS_OFFSET];
+
 
 private _spawnedObjects = [];
 private _tempHash = HASH_CREATE;
 TRACEV_1(_compositionCfg);
+
+/*
+ * The Objects need to be spawned first, to make it possible to move some units inside of vehicles
+ */
+
 {
     private _curCfg = _x;
     private _curObj = [_centerPosition, _dir, _curCfg] call FUNC(createObjectFromCfg);
@@ -36,10 +41,24 @@ TRACEV_1(_compositionCfg);
 
 {
     private _curCfg = _x;
-    [_centerPosition, _dir, _curCfg, _tempHash] call FUNC(createGroupFromCfg);
+    private _units = [_centerPosition, _dir, _curCfg, _tempHash] call FUNC(createGroupFromCfg);
+    _spawnedObjects append _units;
     nil
 } count (configProperties [_compositionCfg >>"composition" >> "items", "((isClass _x)&&{getText(_x >> 'dataType') == 'Group'})", true]);
 
+
+/*
+ * Move on ground
+ */
+
+[_spawnedObjects] call FUNC(alignWithSurface);
+
+{
+    If (_x getVariable [QGVAR(simulationEnabled),false]) then {
+        _x enableSimulationGlobal true;
+    };
+    nil
+} count _spawnedObjects;
 
 HASH_DELETE(_tempHash);
 

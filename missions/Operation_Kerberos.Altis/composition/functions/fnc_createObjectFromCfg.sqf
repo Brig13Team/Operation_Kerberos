@@ -34,21 +34,9 @@ If (getText(_curCfg >> "dataType") == "Object") then {
     ];
 
     // get the relative spawnposition
-    private _relPos = ([[_posX, _posY, _posZ],-_dir] call BIS_fnc_rotateVector2D) vectorAdd _centerPosition;
-    // terrain surface
-    private _checkPos1 = _relPos vectorAdd [0,0,30];
-    private _checkPos2 = _relPos vectorAdd [0,0,-30];
-    private _spawnPos = terrainIntersectAtASL[_checkPos1,_checkPos2];
-    private _surfaceNormal = surfaceNormal _spawnPos;
-    // add the height
-    private _height = _posZ - 0.00001; // remove the VR height
-    // if the height value is high, it has to take
-    TRACEV_4(_type,_spawnPos,_height,_centerPosition);
-    if (abs _height > 0.3) then {
-        private _heightVec = _surfaceNormal vectorMultiply _height;
-        _spawnPos = _spawnPos vectorAdd _heightVec;
-        //_spawnPos set [2, (_spawnPos select 2) + _posZ];
-    };
+    private _spawnPos = ([[_posX, _posY, _posZ],-_dir] call BIS_fnc_rotateVector2D) vectorAdd _centerPosition;
+//    _spawnPos set [2, (getTerrainHeightASL _spawnPos) + _posZ];
+//    private _surfaceNormal = surfaceNormal _spawnPos;
 
     private _createAsSimpleObject = [false,true] select (getNumber(_curCfg >> "Attributes" >> "createAsSimpleObject"));
     _object = if (_createAsSimpleObject) then {
@@ -59,10 +47,18 @@ If (getText(_curCfg >> "dataType") == "Object") then {
     _object enableSimulationGlobal false;
 
     _object setDir (_dir + (deg _yaw));
-    //_object setPosASL _spawnPos;
     _object setPosWorld _spawnPos;
     TRACEV_2(_spawnPos,_yaw);
     [_object, deg _pitch, deg _roll] call BIS_fnc_setPitchBank;
+
+/*
+    If !((_object isKindOf "HouseBase")||(_object isKindOf "LandVehicle")||(_object isKindOf "Air")) then {
+        private _objVec = vectorUp _object;
+        private _heightVec = _surfaceNormal vectorMultiply ((getPosATL _object)select 2);
+        _objVec = (_objVec) vectorAdd _heightVec;
+        _object setVectorUp (vectorNormalized _objVec);
+    };
+*/
 
     private _lock = getText(_curCfg >> "Attributes" >> "lock");
     If !(_lock isEqualTo "") then {
@@ -71,10 +67,7 @@ If (getText(_curCfg >> "dataType") == "Object") then {
     If (isNumber(_curCfg >> "Attributes" >> "fuel")) then {
         _object setFuel (getNumber(_curCfg >> "Attributes" >> "fuel"));
     };
-    If ((_type isKindOf "Air")&&{
-        ((surfaceIsWater _spawnpos) && ((_spawnpos select 2)>5))||
-        {(ATLToASL [_spawnpos select 0, _spawnpos select 1, 0] distance _spawnpos)>18}
-        }) then {
+    If ((_type isKindOf "Air")&&{((surfaceIsWater _spawnpos) || (((_spawnpos select 2)-(_centerpos select 2))>5))}) then {
             _object engineOn true;
     };
     If (isNumber(_curCfg >> "Attributes" >> "health")) then {
@@ -88,9 +81,8 @@ If (getText(_curCfg >> "dataType") == "Object") then {
         _object setObjectTextureGlobal [0, _texture];
     };
 
-    //private _objectInit = getText(_curCfg >> "Attributes" >> "init");
-    private _disableSimulation = [false,true] select (getNumber(_curCfg >> "Attributes" >> "disableSimulation"));
-    _object enableSimulationGlobal (!_disableSimulation);
+    private _simulationEnabled = [true,false] select (getNumber(_curCfg >> "Attributes" >> "disableSimulation"));
+    _object setVariable [QGVAR(simulationEnabled), _simulationEnabled];
 
     private _dynamicSimulation = [false,true] select (getNumber(_curCfg >> "Attributes" >> "dynamicSimulation"));
     _object enableDynamicSimulation _dynamicSimulation;

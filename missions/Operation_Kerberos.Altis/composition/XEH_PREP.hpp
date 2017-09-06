@@ -1,6 +1,9 @@
 
+PREP(alignWithSurface);
 PREP(createComposition);
-PREP(createObjectFromCfg);
 PREP(createGroupFromCfg);
+PREP(createMissionComposition);
+PREP(createObjectFromCfg);
 PREP(getPossibleCompositions);
+PREP(getPossibleMissionComposition);
 PREP(getReplacement);

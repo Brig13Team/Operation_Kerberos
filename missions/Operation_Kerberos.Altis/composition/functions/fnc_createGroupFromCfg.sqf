@@ -22,6 +22,7 @@ TRACEV_1(_curCfg);
 If !(getText(_curCfg >> "dataType") == "Group") exitWith {};
 
 private _LinkHash = HASH_CREATE;
+private _spawnedUnits = [];
 If (isClass(_curCfg >> "CrewLinks")) then {
     {
         private _id = getNumber(_x >> "item0");
@@ -66,22 +67,11 @@ private _group = createGroup [GVARMAIN(side),true];
         ];
 
         // get the relative spawnposition
-        private _relPos = ([[_posX, _posY, _posZ],-_dir] call BIS_fnc_rotateVector2D) vectorAdd _centerPosition;
-        // terrain surface
-        private _checkPos1 = _relPos vectorAdd [0,0,30];
-        private _checkPos2 = _relPos vectorAdd [0,0,-30];
-        private _spawnPos = terrainIntersectAtASL[_checkPos1,_checkPos2];
-        private _surfaceNormal = surfaceNormal _spawnPos;
-        // add the height
-        private _height = _posZ - 5; // remove the VR height
-        // if the height value is high, it has to take
-        if (abs _height > 0.3) then {
-            private _heightVec = _surfaceNormal vectorMultiply _height;
-            _spawnPos = _spawnPos vectorAdd _heightVec;
-            _spawnPos set [2, (_spawnPos select 2) + _posZ];
-        };
+        private _spawnPos = ([[_posX, _posY, _posZ],-_dir] call BIS_fnc_rotateVector2D) vectorAdd _centerPosition;
+
         _unit = _group createUnit [_type,[0,0,10000],[],0,"NONE"];
         _unit enableSimulationGlobal false;
+
         _unit setDir (_dir + (deg _yaw));
         _unit setPosWorld _spawnPos;
     };
@@ -93,8 +83,12 @@ private _group = createGroup [GVARMAIN(side),true];
         _unit setSkill (getNumber(_x >> "Attributes" >> "skill"));
     };
 
+    _spawnedUnits pushBack ([_unit] param [0,objNull,[objNull]]);
 
-    _unit enableSimulationGlobal true;
+    _unit setVariable [QGVAR(simulationEnabled), true];
+    //_unit enableSimulationGlobal true;
 } forEach (configProperties[_curCfg >> "Entities","(isClass _x)",true]);
 
 HASH_DELETE(_LinkHash);
+
+_spawnedUnits
