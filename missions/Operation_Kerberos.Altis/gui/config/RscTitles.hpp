@@ -80,7 +80,7 @@ class RscTitles {
     class APP(message_9) : APP(message_1) {idd = IDD_MSG_MESSAGE_9;};
 
     class APP(timer) {
-        duration = 61;
+        duration = 9999999;
         fadein = 0;
         fadeout = 0;
         idd = IDD_TIMER;
@@ -104,7 +104,7 @@ class RscTitles {
                 h = GUI_TIMER_PIC_H;
                 colorBackground[] = COLOR_DISABLED;
                 text = "A3\ui_f\data\gui\cfg\cursors\wait_gs.paa";
-                colorText[] = COLOR_FONT;
+                colorText[] = {1,1,1,1};
             };
             class text : RSC(BaseText) {
                 idc = IDC_TIMER_TEXT;
@@ -113,6 +113,7 @@ class RscTitles {
                 w = GUI_TIMER_TEXT_W;
                 h = GUI_TIMER_TEXT_H;
                 colorBackground[] = COLOR_DISABLED;
+                sizeEx = GUI_TIMER_TEXT_H;
                 text = "";
                 style = 0x01;
             };

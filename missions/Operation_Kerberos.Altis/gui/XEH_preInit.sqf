@@ -16,3 +16,12 @@ GVAR(msg_cur) = [];
 GVAR(msg_cur_ID) = 0;
 GVAR(msg_waiting) = [];
 GVAR(notifications) = HASH_CREATE;
+
+ISNIL(timer_finish,-1);
+ISNIL(timer_code,{});
+ISNIL(timer_parameter,[]);
+
+If (isServer) then {
+    [QGVAR(setTimerServer),LINKFUNC(setTimerGlobal)] call CBA_fnc_localEvent;
+};
+

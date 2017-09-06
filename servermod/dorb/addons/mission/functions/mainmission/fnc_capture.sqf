@@ -17,7 +17,7 @@ _this params ["_mission", "_targets"];
 
 {
     _x allowFleeing 0;
-    _x addEventHandler ["Killed", LINKFUNC(obj__decreaseCounter)];
+    _x addEventHandler ["Killed", LINKFUNC(statemachine_decreaseCounter)];
 } forEach _targets;
 
 [
@@ -30,7 +30,7 @@ _this params ["_mission", "_targets"];
         {
             If ((!isNull _x)&&{alive _x}&&{vehicle _x == _x}) then {
                 If ((_x distance2D (getMarkerPos GVARMAIN(rescuemarker)))<5) then {
-                    [_x] call FUNC(obj__increaseCounter);
+                    [_x] call FUNC(statemachine_increaseCounter);
                     deleteVehicle _x;
                 }else{
                     // commander surrendors if there are are more players near him then own units

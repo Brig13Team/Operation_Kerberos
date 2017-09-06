@@ -23,7 +23,7 @@ class CfgComponents {
     doorbreach = 1;
     whitelist = 1;
     // kerberos specific
-    mission = 1;
+    missionobjects = 1;
     headquarter = 1;
     /// mod specific components
     mod_ace = 1;
@@ -66,7 +66,7 @@ class CfgComponents {
 #include "whitelist\CfgComponent.hpp"
 #include "doorbreach\CfgComponent.hpp"
 
-#include "mission\CfgComponent.hpp"
+#include "missionobjects\CfgComponent.hpp"
 #include "headquarter\CfgComponent.hpp"
 
 #include "gui_echidna\CfgComponent.hpp"

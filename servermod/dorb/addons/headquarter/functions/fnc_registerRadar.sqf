@@ -21,6 +21,6 @@ HASH_GET(GVAR(radars),"objects") pushBackUnique _radar;
 
 private _radarposition = getPosASL _radar;
 private _height = ((boundingBox _radar) select 1) select 2;
-_radarposition set [2,(_radarposition + _height + 0.3)];
+_radarposition set [2,((_radarposition select 2) + _height + 0.3)];
 
 _radar setVariable [QGVAR(radarpos),_radarposition];

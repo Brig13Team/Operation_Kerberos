@@ -18,6 +18,6 @@ _this params ["_mission", "_targets"];
 {
     _x setDamage 0;
 
-    _x addEventHandler ["Killed", LINKFUNC(obj__increaseCounter)];
+    _x addEventHandler ["Killed", LINKFUNC(statemachine_increaseCounter)];
     _x setVariable ["ace_cookOff_enable", false, true];
 } forEach _targets;

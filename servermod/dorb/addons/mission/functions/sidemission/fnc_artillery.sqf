@@ -18,6 +18,7 @@ _this params ["_mission", "_targets"];
 {
     [_x,GVARMAIN(side),false] call EFUNC(spawn,crew);
     _x setFuel 0;
-    _x addEventHandler ["Killed", LINKFUNC(obj__increaseCounter)];
+    _x setVariable [QGVAR(isActive),true];
+    _x addEventHandler ["Killed", LINKFUNC(statemachine_increaseCounter)];
     [QEGVAR(headquarter,registerArtillery),_x] call CBA_fnc_localEvent;
 } forEach _targets;

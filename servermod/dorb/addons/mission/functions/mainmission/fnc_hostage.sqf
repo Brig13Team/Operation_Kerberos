@@ -21,7 +21,7 @@ _this params ["_mission", "_targets"];
     removeAllWeapons _x;
     removeBackpack _x;
 
-    _x addEventHandler ["Killed", LINKFUNC(obj__decreaseCounter)];
+    _x addEventHandler ["Killed", LINKFUNC(statemachine_decreaseCounter)];
 } forEach _targets;
 
 [
@@ -33,7 +33,7 @@ _this params ["_mission", "_targets"];
         private _objects = _mission getVariable ["objects",[]];
         {
             If ((!isNull _x)&&{alive _x}&&{vehicle _x == _x}&&{(_x distance2D (getMarkerPos GVARMAIN(rescuemarker)))<5}) then {
-                [_x] call FUNC(obj__increaseCounter);
+                [_x] call FUNC(statemachine_increaseCounter);
                 deleteVehicle _x;
             };
         } forEach _objects;

@@ -20,10 +20,13 @@ uiNamespace setVariable [QGVAR(lastNotificationHandle),CBA_missiontime];
     };
 }] call CBA_fnc_addEventHandler;
 
-[QGVAR(showTimer),{
-    If ((!(isNil QGVAR(timer_finish)))&&{isNil QGVAR(timer_handle)}) then {
-        GVAR(timer_handle) = [LINKFUNC(handleTimer),10,[]] call CBA_fnc_addPerFrameHandler;
+[localize ELSTRING(main,name), QGVAR(showTimer), localize LSTRING(showTimer), {
+    if !([ACE_player, objNull, ["isNotEscorting", "isNotInside"]] call ace_common_fnc_canInteractWith) exitWith {false};
+    if (!(missionNamespace getVariable [QGVAR(timerIsShown), false])) then {
+        call FUNC(showTimer);
+    } else {
+        call FUNC(hideTimer);
     };
-}] call CBA_fnc_addEventHandler;
+    true
+}, {false}, [24, [false, false, false]], false] call CBA_fnc_addKeybind;
 
-[QGVAR(showTimer)] call CBA_fnc_localEvent;
