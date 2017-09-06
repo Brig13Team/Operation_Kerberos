@@ -345,8 +345,8 @@
             </Key>
 
             <Key ID="STR_DORB_MISSION_MAIN_CAPTURE_TITLE">
-                <German>Offizier gefangen nehmen</German>
-                <English>Capture Commander</English>
+                <German>Offizier(e) gefangen nehmen</German>
+                <English>Capture Commander(s)</English>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_CAPTURE_DESC">
                 <German>Nehmen Sie die feindlichen Befehlshaber der Region gefangen. Bringen Sie diese anschließend zum Verhör in die Basis.</German>
