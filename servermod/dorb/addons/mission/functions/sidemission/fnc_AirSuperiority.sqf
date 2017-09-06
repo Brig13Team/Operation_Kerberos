@@ -16,7 +16,7 @@
 params ["_mission", "_targets"];
 
 {
-    _x addEventHandler ["Killed", LINKFUNC(obj__increaseCounter)];
+    _x addEventHandler ["Killed", LINKFUNC(statemachine_increaseCounter)];
 } forEach _targets;
 
 [

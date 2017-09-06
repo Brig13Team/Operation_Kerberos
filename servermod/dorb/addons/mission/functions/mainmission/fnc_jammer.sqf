@@ -24,5 +24,5 @@ _this params ["_mission", "_targets"];
         [_x,1,true] call RHS_fnc_fmtv_Deploy;
     };
     _x setVariable [QGVAR(isActive), true, true];
-    _x addEventHandler ["Killed", LINKFUNC(obj__increaseCounter)];
+    _x addEventHandler ["Killed", LINKFUNC(statemachine_increaseCounter)];
 } forEach _targets;
