@@ -68,6 +68,8 @@ private _group = createGroup [GVARMAIN(side),true];
 
         // get the relative spawnposition
         private _spawnPos = ([[_posX, _posY, _posZ],-_dir] call BIS_fnc_rotateVector2D) vectorAdd _centerPosition;
+        private _atlOffset = getNumber(_x >> "atlOffset");
+        _spawnPos = _spawnPos vectorAdd [0, 0, _atlOffset];
 
         _unit = _group createUnit [_type,[0,0,10000],[],0,"NONE"];
         _unit enableSimulationGlobal false;
