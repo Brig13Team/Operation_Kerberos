@@ -90,6 +90,9 @@ private _group = createGroup [GVARMAIN(side),true];
 
     _spawnedUnits pushBack ([_unit] param [0,objNull,[objNull]]);
 
+    _unit disableAI "PATH";
+    _unit addEventHandler ["FiredNear",LINKFUNC(onFiredNear)];
+
     _unit setVariable [QGVAR(simulationEnabled), true];
     //_unit enableSimulationGlobal true;
 } forEach (configProperties[_curCfg >> "Entities","(isClass _x)",true]);

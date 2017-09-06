@@ -70,6 +70,11 @@ If (getText(_curCfg >> "dataType") == "Object") then {
     If ((_type isKindOf "Air")&&{((surfaceIsWater _spawnpos) || (((_spawnpos select 2)-(_centerpos select 2))>5))}) then {
             _object engineOn true;
     };
+
+    If (_type isKindOf "MineBase") then {
+        GVARMAIN(side) revealMine _object;
+    };
+
     If (isNumber(_curCfg >> "Attributes" >> "health")) then {
         _object setDamage (1-(getNumber(_curCfg >> "Attributes" >> "health")));
     };
