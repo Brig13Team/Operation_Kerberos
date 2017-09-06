@@ -15,7 +15,7 @@
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-params ["_centerposition","_dir","_objecttype","_onlyPos"];
+params ["_centerposition",["_dir",0,[0]],["_objecttype","Land_CargoBox_V1_F",[""]],["_onlyPos",true,[false]]];
 
 private _configs = [_objecttype] call FUNC(getPossibleMissionComposition);
 private _cfg = selectRandom(_configs);

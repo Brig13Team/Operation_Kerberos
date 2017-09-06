@@ -79,8 +79,13 @@ private _group = createGroup [GVARMAIN(side),true];
     If (isText(_x >> "Attributes" >> "rank")) then {
         _unit setUnitRank (getText(_x >> "Attributes" >> "rank"));
     };
+
     If (isNumber(_x >> "Attributes" >> "skill")) then {
         _unit setSkill (getNumber(_x >> "Attributes" >> "skill"));
+    };
+
+    If (isText(_x >> "Attributes" >> "stance")) then {
+        _unit setUnitPos (getText(_x >> "Attributes" >> "stance"));
     };
 
     _spawnedUnits pushBack ([_unit] param [0,objNull,[objNull]]);
