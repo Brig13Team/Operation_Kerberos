@@ -16,6 +16,8 @@
 
 params ["_centerPosition", "_compositionCfg", "_dir"];
 
+GVAR(spawnedCompositions) pushBack _centerpos;
+
 _centerPosition set [2,CENTERPOS_OFFSET];
 
 

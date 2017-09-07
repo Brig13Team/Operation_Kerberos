@@ -5,7 +5,6 @@
  * Arguments:
  * 0: <OBJECT> the House
  * 1: <CONFIG> the config of the composition
- * 2: <SCALAR> the direction
  *
  * Return Value:
  * <ARRAY> the spawned objects
@@ -14,7 +13,9 @@
 #define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-params ["_house", "_compositionCfg", "_dir"];
+params ["_house", "_compositionCfg"];
+
+GVAR(usedHouses) pushBack _house;
 
 private _houseType = typeOf _house;
 private _dir = getDir _house;

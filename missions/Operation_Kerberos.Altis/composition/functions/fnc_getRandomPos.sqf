@@ -5,7 +5,8 @@
  * Arguments:
  * 0: <ARRAY> centerposition
  * 1: <SCALAR> searchradius
- * 2: <SCALAR> size
+ * 2: <SCALAR> amount
+ * 3: <SCALAR> size
  *
  * Return Value:
  * <TYPENAME> return name
