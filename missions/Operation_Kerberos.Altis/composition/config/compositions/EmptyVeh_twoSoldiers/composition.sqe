@@ -1,0 +1,65 @@
+version=53;
+center[]={2539.3723,5,3817.9893};
+class items
+{
+	items=2;
+	class Item0
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={3.2834473,2.416501,0.049316406};
+		};
+		side="Empty";
+		flags=4;
+		class Attributes
+		{
+		};
+		id=18;
+		type="O_Truck_03_covered_F";
+	};
+	class Item1
+	{
+		dataType="Group";
+		side="East";
+		class Entities
+		{
+			items=2;
+			class Item0
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={-1.1262207,0.0014390945,1.2770996};
+				};
+				side="East";
+				flags=7;
+				class Attributes
+				{
+					isPlayer=1;
+				};
+				id=20;
+				type="O_Soldier_AAR_F";
+			};
+			class Item1
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={-1.0307617,0.0014390945,-2.4550781};
+				};
+				side="East";
+				flags=5;
+				class Attributes
+				{
+				};
+				id=21;
+				type="O_support_AMG_F";
+			};
+		};
+		class Attributes
+		{
+		};
+		id=19;
+	};
+};
