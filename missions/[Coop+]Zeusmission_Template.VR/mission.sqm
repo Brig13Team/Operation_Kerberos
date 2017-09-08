@@ -227,7 +227,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayer=1;
 						isPlayable=1;
@@ -291,7 +291,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -331,7 +331,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -371,7 +371,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -411,7 +411,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -474,7 +474,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -514,7 +514,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -554,7 +554,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -594,7 +594,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -634,7 +634,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -674,7 +674,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -714,7 +714,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -754,7 +754,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -794,7 +794,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -834,7 +834,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -887,7 +887,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Sanitäter";
 						isPlayable=1;
 						class Inventory
@@ -927,7 +927,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Sanitäter";
 						isPlayable=1;
 						class Inventory
@@ -967,7 +967,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Sanitäter";
 						isPlayable=1;
 						class Inventory
@@ -1007,7 +1007,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Sanitäter";
 						isPlayable=1;
 						class Inventory
@@ -1060,7 +1060,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Spotter";
 						isPlayable=1;
 						class Inventory
@@ -1100,7 +1100,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Sniper";
 						isPlayable=1;
 						class Inventory
@@ -1140,7 +1140,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Spotter";
 						isPlayable=1;
 						class Inventory
@@ -1180,7 +1180,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Sniper";
 						isPlayable=1;
 						class Inventory
@@ -1452,7 +1452,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Kampfpilot";
 						isPlayable=1;
 						class Inventory
@@ -1492,7 +1492,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Kampfpilot";
 						isPlayable=1;
 						class Inventory
@@ -1532,7 +1532,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Kampfpilot";
 						isPlayable=1;
 						class Inventory
@@ -1572,7 +1572,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Kampfpilot";
 						isPlayable=1;
 						class Inventory
@@ -3339,7 +3339,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -3402,7 +3402,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -3442,7 +3442,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -3482,7 +3482,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -3522,7 +3522,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -3562,7 +3562,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -3602,7 +3602,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -3642,7 +3642,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -3682,7 +3682,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -3722,7 +3722,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -3762,7 +3762,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -3802,7 +3802,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -3843,7 +3843,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -3883,7 +3883,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -3924,7 +3924,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -3977,7 +3977,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Sanitäter";
 						isPlayable=1;
 						class Inventory
@@ -4018,7 +4018,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Sanitäter";
 						isPlayable=1;
 						class Inventory
@@ -4059,7 +4059,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Sanitäter";
 						isPlayable=1;
 						class Inventory
@@ -4099,7 +4099,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Sanitäter";
 						isPlayable=1;
 						class Inventory
@@ -4153,7 +4153,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Spotter";
 						isPlayable=1;
 						class Inventory
@@ -4193,7 +4193,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Sniper";
 						isPlayable=1;
 						class Inventory
@@ -4234,7 +4234,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Spotter";
 						isPlayable=1;
 						class Inventory
@@ -4274,7 +4274,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Sniper";
 						isPlayable=1;
 						class Inventory
@@ -4973,7 +4973,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Kampfpilot";
 						isPlayable=1;
 						class Inventory
@@ -5013,7 +5013,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Kampfpilot";
 						isPlayable=1;
 						class Inventory
@@ -5054,7 +5054,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Kampfpilot";
 						isPlayable=1;
 						class Inventory
@@ -5094,7 +5094,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Kampfpilot";
 						isPlayable=1;
 						class Inventory
@@ -5352,7 +5352,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -5404,7 +5404,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -5456,7 +5456,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -5508,7 +5508,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -5560,7 +5560,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -5612,7 +5612,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -5664,7 +5664,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -5716,7 +5716,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -5768,7 +5768,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -5820,7 +5820,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -5872,7 +5872,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -5924,7 +5924,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -5976,7 +5976,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -6028,7 +6028,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -6080,7 +6080,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Schütze";
 						isPlayable=1;
 						class Inventory
@@ -6500,7 +6500,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Sanitäter";
 						isPlayable=1;
 						class Inventory
@@ -6552,7 +6552,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Sanitäter";
 						isPlayable=1;
 						class Inventory
@@ -6604,7 +6604,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Sanitäter";
 						isPlayable=1;
 						class Inventory
@@ -6656,7 +6656,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Sanitäter";
 						isPlayable=1;
 						class Inventory
@@ -6942,7 +6942,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Spotter";
 						isPlayable=1;
 						class Inventory
@@ -6994,7 +6994,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Sniper";
 						isPlayable=1;
 						class Inventory
@@ -7046,7 +7046,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Spotter";
 						isPlayable=1;
 						class Inventory
@@ -7098,7 +7098,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Sniper";
 						isPlayable=1;
 						class Inventory
@@ -7384,7 +7384,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Kampfpilot";
 						isPlayable=1;
 						class Inventory
@@ -7436,7 +7436,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Kampfpilot";
 						isPlayable=1;
 						class Inventory
@@ -7488,7 +7488,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Kampfpilot";
 						isPlayable=1;
 						class Inventory
@@ -7540,7 +7540,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",1,true];";
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
 						description="Kampfpilot";
 						isPlayable=1;
 						class Inventory

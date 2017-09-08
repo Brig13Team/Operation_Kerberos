@@ -13101,7 +13101,7 @@ class Mission
 					flags=3;
 					class Attributes
 					{
-						init="call{this setVariable [""ACE_isEOD"",1,true];}";
+						init="call{this setVariable [""ACE_isEOD"",true,true];}";
 						description="Pionier";
 						isPlayable=1;
 						class Inventory
@@ -13184,7 +13184,7 @@ class Mission
 					flags=1;
 					class Attributes
 					{
-						init="call{this setVariable [""ACE_isEOD"",1,true];}";
+						init="call{this setVariable [""ACE_isEOD"",true,true];}";
 						description="Pionier";
 						isPlayable=1;
 						class Inventory
@@ -13305,7 +13305,7 @@ class Mission
 					flags=1;
 					class Attributes
 					{
-						init="call{this setVariable [""ACE_isEOD"",1,true];}";
+						init="call{this setVariable [""ACE_isEOD"",true,true];}";
 						description="Pionier";
 						isPlayable=1;
 						class Inventory
@@ -13388,7 +13388,7 @@ class Mission
 					flags=1;
 					class Attributes
 					{
-						init="call{this setVariable [""ACE_isEOD"",1,true];}";
+						init="call{this setVariable [""ACE_isEOD"",true,true];}";
 						description="Pionier";
 						isPlayable=1;
 						class Inventory
