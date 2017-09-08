@@ -22,7 +22,7 @@ _checker = _checker apply {If (IS_OBJECT(_x)) then {getPos _x}else{_x};};
 _possibleTargets = _possibleTargets apply {
     If (IS_OBJECT(_x)) then {
         // ignore the already disabled targets
-        If ((_x getVariable [QGVAR(mission,isActive),true])&&(alive _x)) then {
+        If ((_x getVariable [QEGVAR(mission,isActive),true])&&(alive _x)) then {
             getPos _x;
         }else{
             objNull;
