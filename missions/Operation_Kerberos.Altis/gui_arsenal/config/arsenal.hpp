@@ -25,13 +25,14 @@ class GVARMAIN(arsenal) {
         "ItemRadioAcreFlagged",
         "BWA3_acc_LLM01_flash","BWA3_acc_LLM01_flash_underbarrel","BWA3_acc_LLM01_laser","BWA3_acc_LLM01_laser_underbarrel",
         "Laserdesignator","Laserdesignator_01_khk_F","Laserdesignator_02","Laserdesignator_02_ghex_F","Laserdesignator_02_ghex_F",
-        "V_DeckCrew_blue_F","V_DeckCrew_brown_F","V_DeckCrew_green_F","V_DeckCrew_red_F","V_DeckCrew_violet_F","V_DeckCrew_white_F","V_DeckCrew_yellow_F"
+        "V_DeckCrew_blue_F","V_DeckCrew_brown_F","V_DeckCrew_green_F","V_DeckCrew_red_F","V_DeckCrew_violet_F","V_DeckCrew_white_F","V_DeckCrew_yellow_F",
+        "V_LegStrapBag_black_F","V_LegStrapBag_coyote_F","V_LegStrapBag_olive_F"
     };
     WeaponsWhitelist[] = {
 
     };
     BackpackWhitelist[] = {
-
+        "B_UAV_06_backpack_F","B_UAV_06_medical_backpack_F"
     };
     MagazineWhitelist[] = {
         "ACE_SpareBarrel","Laserbatteries"
