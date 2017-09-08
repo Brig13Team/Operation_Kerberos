@@ -25,5 +25,11 @@ class CfgKerberos {
         class houses {
             #include "config\houses.hpp"
         };
+        class missionhouses {
+            #include "config\missionhouses.hpp"
+        };
+        class missioncompositions {
+            #include "config\missioncompositions.hpp"
+        };
     };
 };

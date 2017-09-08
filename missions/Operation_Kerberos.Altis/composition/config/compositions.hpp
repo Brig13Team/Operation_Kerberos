@@ -25,12 +25,39 @@ class Kerb_Hill3234_Stellung_Versorgung {
     };
 };
 
-class Kerb_Hill3234_Wartung_Verschiedene {
+class Kerb_Hill3234_Wartung_01 {
     class header {
-        #include "compositions\Kerb_Hill3234_Wartung_Verschiedene\header.sqe"
+        #include "compositions\Kerb_Hill3234_Wartung_01\header.sqe"
     };
     class composition {
-        #include "compositions\Kerb_Hill3234_Wartung_Verschiedene\composition.sqe"
+        #include "compositions\Kerb_Hill3234_Wartung_01\composition.sqe"
+    };
+};
+
+class Kerb_Hill3234_Wartung_02 {
+    class header {
+        #include "compositions\Kerb_Hill3234_Wartung_02\header.sqe"
+    };
+    class composition {
+        #include "compositions\Kerb_Hill3234_Wartung_02\composition.sqe"
+    };
+};
+
+class Kerb_Hill3234_Wartung_03 {
+    class header {
+        #include "compositions\Kerb_Hill3234_Wartung_03\header.sqe"
+    };
+    class composition {
+        #include "compositions\Kerb_Hill3234_Wartung_03\composition.sqe"
+    };
+};
+
+class Kerb_Hill3234_Wartung_04 {
+    class header {
+        #include "compositions\Kerb_Hill3234_Wartung_04\header.sqe"
+    };
+    class composition {
+        #include "compositions\Kerb_Hill3234_Wartung_04\composition.sqe"
     };
 };
 
