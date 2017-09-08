@@ -14,7 +14,7 @@
 #include "script_component.hpp"
 
 params ["_cfg","_datatype"];
-
+//TRACEV_2(_cfg,_datatype);
 _dataType = toLower _datatype;
 
 private _return = [];
@@ -25,6 +25,7 @@ private _return = [];
         _return pushBack _x;
     } else {
         If (_curDataType == "layer") then {
+            //TRACEV_2(_curDataType,_x);
             private _temp = [_x >> "Entities", _datatype] call FUNC(getCfgDataType);
             _return append _temp;
         };

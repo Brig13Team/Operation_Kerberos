@@ -28,19 +28,19 @@ If (isClass(configFile >> "CfgKerberos" >> "CfgComposition")) then {
 If (isClass(missionConfigFile >> "CfgKerberos" >> "CfgComposition")) then {
     _allCompositions append (configProperties [missionconfigFile >> "CfgKerberos" >> "CfgComposition" >> _target,"true",true]);
 };
-TRACEV_2(_target,_allCompositions);
+//TRACEV_2(_target,_allCompositions);
 private _return = HASH_CREATE;
 
 
 private _fnc_allObjectsAreValid = {
     params ["_cfgToCheck"];
-    private _Objects = [_compositionCfg >>"composition" >> "items", "Object"] call FUNC(getCfgDataType);
+    private _Objects = [_cfgToCheck, "Object"] call FUNC(getCfgDataType);
     ({!(isClass(configFile >> 'CfgVehicles' >> getText(_x >> 'type')))} count _Objects) == 0
 };
 
 private _fnc_findHouse = {
     params ["_cfgToCheck"];
-    private _Objects = [_compositionCfg >>"composition" >> "items", "Object"] call FUNC(getCfgDataType);
+    private _Objects = [_cfgToCheck, "Object"] call FUNC(getCfgDataType);
     _objects = _objects select {getText(_x >> 'type') isKindOf "HouseBase"};
     If (_objects isEqualTo []) then {
         ""
@@ -55,7 +55,7 @@ private _fnc_findHouse = {
         private _cfg = _x >> "composition" >> "items";
         If (isClass _cfg) then {
             private _objectsAreValid = _cfg call _fnc_allObjectsAreValid;
-            private _Groups = [_compositionCfg >>"composition" >> "items", "Group"] call FUNC(getCfgDataType);
+            private _Groups = [_cfg, "Group"] call FUNC(getCfgDataType);
             {
                 If !((_x >> "Entities") call _fnc_allObjectsAreValid) exitWith {
                     _objectsAreValid = false;
@@ -64,7 +64,7 @@ private _fnc_findHouse = {
 
             if (_objectsAreValid) then {
                 private _house = _cfg call _fnc_findHouse;
-                TRACEV_3(_objectsAreValid,_house,_cfg);
+                //TRACEV_3(_objectsAreValid,_house,_cfg);
                 If !(_house isEqualTo "") then {
                     If (HASH_HASKEY(_return,_house)) then {
                         HASH_GET(_return,_house) pushBack _x;
