@@ -14,10 +14,25 @@
 #include "script_component.hpp"
 
 params [
-    ["_centerposition",[],[[]],[2,3]],
-    ["_radius",200,[0]]
+    "_House",
+    "_cfg",
+    ["_onlyPos",true,[true]],
+    ["_objecttype","Land_CargoBox_V1_F",[""]]
 ];
 
-// TODO: this just returns something for the other component
+private _objects = [_house,_cfg] call FUNC(createHouse);
 
-[(_centerposition getPos [random _radius, random 360])]
+private _return = [];
+If (_onlyPos) then {
+    {
+        If (_x isKindOf _objectType) then {
+            _return pushBack (getPosASL _x);
+            deleteVehicle _x;
+        };
+        nil
+    } count _objects;
+} else {
+    _return = _objects select {_x isKindOf _objectType};
+};
+
+_return

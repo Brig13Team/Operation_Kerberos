@@ -3,7 +3,7 @@
  * creates given componsition at given position
  *
  * Arguments:
- * 0: <ARRAY> the centerposition
+ * 0: <ARRAY> the centerposition (only 2D coordiantes are used)
  * 1: <CONFIG> the config of the composition
  * 2: <SCALAR> the direction
  *
@@ -11,64 +11,59 @@
  * <ARRAY> the spawned objects
  *
  */
-
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-params ["_centerPosition","_compositionCfg","_dir"];
+params ["_centerPosition", "_compositionCfg", ["_dir", random 360, [0]]];
+
+TRACEV_3(_centerPosition,_compositionCfg,_dir);
+
+GVAR(spawnedCompositions) pushBack _centerpos;
+
+_centerPosition set [2,CENTERPOS_OFFSET];
+
 
 private _spawnedObjects = [];
+private _tempHash = HASH_CREATE;
+TRACEV_1(_compositionCfg);
+
+/*
+ * The Objects need to be spawned first, to make it possible to move some units inside of vehicles
+ */
 
 {
     private _curCfg = _x;
-    If (getText(_x >> "dataType") == "Object") then {
-        private _type = getText(_x >> "type");
-        private _side = getText(_x >> "side");
-        (getArray(_x >> "PositionInfo" >> "position")) params [
-            ["_posX",0,[0]],
-            ["_posZ",0,[0]],
-            ["_posy",0,[0]]
-        ];
-        (getArray(_x >> "PositionInfo" >> "angles")) params [
-            ["_roll",0,[0]],
-            ["_yaw",0,[0]],
-            ["_pitch",0,[0]]
-        ];
-
-        private _createAsSimpleObject = 0 < (getNumber(_x >> "Attributes" >> "createAsSimpleObject"));
-        private _objectInit = getText(_x >> "Attributes" >> "init");
-
-
-        // get the relative spawnposition
-        private _relPos = ([[_posX, _posY, _posZ],_dir] call BIS_fnc_rotateVector2D) vectorAdd _centerPosition;
-        // terrain surface
-        private _checkPos1 = _relPos vectorAdd [0,0,30];
-        private _checkPos2 = _relPos vectorAdd [0,0,-30];
-        private _spawnPos = terrainIntersectAtASL[_checkPos1,_checkPos2];
-        private _surfaceNormal = surfaceNormal _spawnPos;
-        // add the height
-        private _height = _posZ - 0.42; // remove the VR height
-        // if the height value is high, it has to take
-        if (abs _height > 0.3) then {
-            private _heightVec = _surfaceNormal vectorMultiply _height;
-            _spawnPos = _spawnPos vectorAdd _heightVec;
-            _spawnPos set [2, (_spawnPos select 2) + _posZ];
-        };
-        private _object = if (_createAsSimpleObject) then {
-            createSimpleObject [_type, [0,0,0]];
-        } else {
-            If (_curType isKindOf "CAManBase") then {
-                // createUnit
-            } else {
-                createVehicle ["_type", [0,0,0], [], "", "NONE"]
-            };
-        };
-
-
-        _object setDir _yaw;
-        _object setPosASL _spawnPos;
-        [_object, deg _pitch, deg _roll] call BIS_fnc_setPitchBank;
-
-        _spawnedObjects pushBack _object;
+    private _curObj = [_centerPosition, _dir, _curCfg] call FUNC(createObjectFromCfg);
+    //TRACEV_2(_curObj,_curCfg);
+    If !(isNull _curObj) then {
+        private _id = str (getNumber(_curCfg >> "id"));
+        HASH_SET(_tempHash, _id, _curObj);
+        _spawnedObjects pushBack _curObj;
     };
-} count (configProperties [_compositionCfg, "isClass(_x)", true]);
+    nil
+} count ([_compositionCfg >>"composition" >> "items", "Object"] call FUNC(getCfgDataType));
 
+{
+    private _curCfg = _x;
+    private _units = [_centerPosition, _dir, _curCfg, _tempHash] call FUNC(createGroupFromCfg);
+    _spawnedObjects append _units;
+    nil
+} count ([_compositionCfg >>"composition" >> "items", "Group"] call FUNC(getCfgDataType));
+
+
+/*
+ * Move on ground
+ */
+
+[_spawnedObjects] call FUNC(alignWithSurface);
+
+{
+    If (_x getVariable [QGVAR(simulationEnabled),false]) then {
+        _x enableSimulationGlobal true;
+    };
+    nil
+} count _spawnedObjects;
+
+HASH_DELETE(_tempHash);
+
+_spawnedObjects

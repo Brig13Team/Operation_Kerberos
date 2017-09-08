@@ -6,7 +6,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"dorb_common"};
+        requiredAddons[] = {"dorb_common","dorb_spawn"};
         author = ECSTRING(main,BrigTeam);
         authors[] = {"Dorbedo"};
         url = ECSTRING(main,URL);
@@ -23,6 +23,12 @@ class CfgKerberos {
         };
         class houses {
             #include "config\houses.hpp"
+        };
+        class missionhouses {
+            #include "config\missionhouses.hpp"
+        };
+        class missioncompositions {
+            #include "config\missioncompositions.hpp"
         };
     };
 };
