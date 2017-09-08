@@ -34,13 +34,13 @@ private _return = HASH_CREATE;
 
 private _fnc_allObjectsAreValid = {
     params ["_cfgToCheck"];
-    private _Objects = configProperties [_cfgToCheck,"(isClass _x)&&{getText(_x >> 'dataType') == 'Object'}",true];
+    private _Objects = [_compositionCfg >>"composition" >> "items", "Object"] call FUNC(getCfgDataType);
     ({!(isClass(configFile >> 'CfgVehicles' >> getText(_x >> 'type')))} count _Objects) == 0
 };
 
 private _fnc_findHouse = {
     params ["_cfgToCheck"];
-    private _Objects = configProperties [_cfgToCheck,"(isClass _x)&&{getText(_x >> 'dataType') == 'Object'}",true];
+    private _Objects = [_compositionCfg >>"composition" >> "items", "Object"] call FUNC(getCfgDataType);
     _objects = _objects select {getText(_x >> 'type') isKindOf "HouseBase"};
     If (_objects isEqualTo []) then {
         ""
@@ -55,7 +55,7 @@ private _fnc_findHouse = {
         private _cfg = _x >> "composition" >> "items";
         If (isClass _cfg) then {
             private _objectsAreValid = _cfg call _fnc_allObjectsAreValid;
-            private _Groups = configProperties [_cfg,"(isClass _x)&&{getText(_x >> 'dataType') == 'Group'}",true];
+            private _Groups = [_compositionCfg >>"composition" >> "items", "Group"] call FUNC(getCfgDataType);
             {
                 If !((_x >> "Entities") call _fnc_allObjectsAreValid) exitWith {
                     _objectsAreValid = false;

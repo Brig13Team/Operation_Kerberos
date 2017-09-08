@@ -41,14 +41,14 @@ TRACEV_1(_compositionCfg);
         _spawnedObjects pushBack _curObj;
     };
     nil
-} count (configProperties [_compositionCfg >>"composition" >> "items", "((isClass _x)&&{getText(_x >> 'dataType') == 'Object'})", true]);
+} count ([_compositionCfg >>"composition" >> "items", "Object"] call FUNC(getCfgDataType));
 
 {
     private _curCfg = _x;
     private _units = [_centerPosition, _dir, _curCfg, _tempHash] call FUNC(createGroupFromCfg);
     _spawnedObjects append _units;
     nil
-} count (configProperties [_compositionCfg >>"composition" >> "items", "((isClass _x)&&{getText(_x >> 'dataType') == 'Group'})", true]);
+} count ([_compositionCfg >>"composition" >> "items", "Group"] call FUNC(getCfgDataType));
 
 
 /*

@@ -6,6 +6,7 @@ PREP(createHouse);
 PREP(createMissionComposition);
 PREP(createMissionHouse);
 PREP(createObjectFromCfg);
+PREP(getCfgDataType);
 PREP(getPossibleCompositions);
 PREP(getPossibleHouseCompositions);
 PREP(getRandomHouse);
