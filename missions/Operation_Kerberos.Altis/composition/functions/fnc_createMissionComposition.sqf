@@ -17,7 +17,7 @@
 
 params ["_centerposition","_cfg",["_dir",0,[0]],["_onlyPos",true,[false]],["_objecttype","Land_CargoBox_V1_F",[""]]];
 
-private _objects = [_centerposition, _dir, _cfg] call FUNC(createComposition);
+private _objects = [_centerposition, _cfg, _dir] call FUNC(createComposition);
 
 private _return = [];
 If (_onlyPos) then {

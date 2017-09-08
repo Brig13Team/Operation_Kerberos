@@ -24,7 +24,7 @@ _objects = _objects select {vehicle _x == _x};
     _objects = _objects select {!(_x isEqualTo _curObj)};
     If !(_objects isEqualTo []) then {
         private _parent = _objects select 0;
-        TRACEV_4(typeOf _curObj,_parent,getDir _curObj,getDir _parent);
+        //TRACEV_4(typeOf _curObj,_parent,getDir _curObj,getDir _parent);
         If !((attachedTo _parent) isEqualTo objNull) then {
             _parent = attachedTo _parent;
         };

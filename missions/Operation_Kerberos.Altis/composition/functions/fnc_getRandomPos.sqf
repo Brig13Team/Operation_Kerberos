@@ -28,7 +28,7 @@ private _errorcounter = 0;
 while {((count _possibleSpawnpositions)<_amount)&&(_errorcounter < (300+_amount))} do {
     // random position inside radius, not in water
     private _tempPos = [_centerpos, _searchradius, 0] call EFUNC(common,pos_random);
-    TRACEV_3(_tempPos,_centerpos,_searchradius);
+    //TRACEV_3(_tempPos,_centerpos,_searchradius);
     // get a flat position
     private _spawnpos = [_tempPos, _size, _searchradius, 20, 0.09] call EFUNC(common,pos_flatempty);
 

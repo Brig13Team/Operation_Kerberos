@@ -17,7 +17,7 @@
 
 params ["_centerPosition","_dir","_curCfg","_objectsHash"];
 
-TRACEV_1(_curCfg);
+//TRACEV_1(_curCfg);
 
 If !(getText(_curCfg >> "dataType") == "Group") exitWith {};
 

@@ -14,7 +14,7 @@
 #define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-params ["_centerPosition", "_compositionCfg", "_dir"];
+params ["_centerPosition", "_compositionCfg", ["_dir", random 360, [0]]];
 
 TRACEV_3(_centerPosition,_compositionCfg,_dir);
 

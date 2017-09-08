@@ -23,6 +23,7 @@ params [
     ["_radius", 300, [0]],
     ["_onlyPos", true, [true]]
 ];
+TRACEV_5(_centerpos,_type,_amount,_radius,_onlyPos);
 
 private _possibleCompositions = If !(_onlyPos) then {
     GVAR(mission) select {(getText(_x >> "type") isEqualTo _type)};
@@ -38,5 +39,7 @@ private _return = [];
     private _temp = [_curCenter, _curCfg, _curDir, _onlyPos] call FUNC(createMissionComposition);
     _return append _temp;
 } forEach _possiblePositions;
+
+TRACEV_2(_centerpos, _return);
 
 _return

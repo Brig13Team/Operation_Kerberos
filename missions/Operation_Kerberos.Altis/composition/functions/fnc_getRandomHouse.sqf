@@ -31,6 +31,6 @@ private _allHouses = _centerpos nearObjects ["House", _searchradius];
 _types = _types apply {toLower _x};
 
 private _return = _allHouses select {(toLower (typeof _x) in _types)&&{!(_x in GVAR(usedHouses))}};
-TRACEV_2(_return,_allHouses);
+//TRACEV_2(_return,_allHouses);
 _return resize _amount;
 _return

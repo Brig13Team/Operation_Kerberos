@@ -19,7 +19,7 @@ params [
     ["_amount", 1, [0]],
     ["_radius", 300, [0]]
 ];
-
+TRACEV_3(_centerpos,_amount,_radius);
 
 private _possiblePositions = [_centerpos,_radius,_amount] call FUNC(getRandomPos);
 private _return = [];

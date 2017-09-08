@@ -23,13 +23,14 @@ params [
     ["_radius", 300, [0]],
     ["_onlyPos", true, [true]]
 ];
+TRACEV_5(_centerpos,_type,_amount,_radius,_onlyPos);
 
 private _possibleHouseTypes = HASH_CREATE;
 If !(_onlyPos) then {
     {
         private _curKey = _x;
         private _allCfgs = HASH_GET_DEF(GVAR(missionhouses),_curKey,[]);
-        TRACEV_1(_allCfgs);
+        //TRACEV_1(_allCfgs);
         {
             If (getText(_x >> "type") isEqualTo _type) then {
                 If (HASH_HASKEY(_possibleHouseTypes,_curKey)) then {
@@ -57,15 +58,16 @@ If !(_onlyPos) then {
 };
 
 private _possibleHouses = [_centerpos, _radius, _amount, HASH_KEYS(_possibleHouseTypes)] call FUNC(getRandomHouse);
-TRACEV_3(_possibleHouses,HASH_KEYS(_possibleHouseTypes),HASH_KEYS(GVAR(missionhouses)));
+//TRACEV_3(_possibleHouses,HASH_KEYS(_possibleHouseTypes),HASH_KEYS(GVAR(missionhouses)));
 private _return = [];
 {
     _x params ["_curHouse"];
     private _curHouseType = typeOf _curHouse;
     private _curCfg = selectRandom HASH_GET(_possibleHouseTypes,_curHouseType);
-    TRACEV_3(_curHouse, _curCfg, _onlyPos);
+    //TRACEV_3(_curHouse, _curCfg, _onlyPos);
     private _temp = [_curHouse, _curCfg, _onlyPos] call FUNC(createMissionHouse);
     _return append _temp;
 } forEach _possibleHouses;
 
+TRACEV_2(_centerpos, _return);
 _return

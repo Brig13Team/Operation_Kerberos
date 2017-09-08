@@ -26,7 +26,7 @@ private _centerPosition = getPosASL _house;
 
 private _spawnedObjects = [];
 private _tempHash = HASH_CREATE;
-TRACEV_1(_compositionCfg);
+TRACEV_2(_house, _compositionCfg);
 
 /*
  * The Objects need to be spawned first, to make it possible to move some units inside of vehicles

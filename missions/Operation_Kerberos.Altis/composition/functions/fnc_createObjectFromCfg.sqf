@@ -52,7 +52,7 @@ If (getText(_curCfg >> "dataType") == "Object") then {
 
     _object setDir (_dir + (deg _yaw));
     _object setPosWorld _spawnPos;
-    TRACEV_2(_spawnPos,_yaw);
+    //TRACEV_2(_spawnPos,_yaw);
     [_object, deg _pitch, deg _roll] call BIS_fnc_setPitchBank;
 
 /*
