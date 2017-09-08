@@ -30,9 +30,11 @@ waitUntil {!isNil QGVAR(objects)};
     HASH_GET(GVAR(objects),"upload")
 ] call FUNC(initACEAction_upload);
 
+/*
 [
     HASH_GET(GVAR(objects),"wreck")
 ] call FUNC(initACEAction_wreck);
+*/
 
 [
     HASH_GET(GVAR(objects),"dataTerminal")
