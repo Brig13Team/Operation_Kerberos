@@ -14,7 +14,7 @@
 
 #include "script_component.hpp"
 
-params ["_spawnposition","_dir","_curCfg"];
+params ["_spawnposition","_dir","_curCfg",["_ignoreOffset",false,[true]]];
 
 private _object = objNull;
 
@@ -35,8 +35,10 @@ If (getText(_curCfg >> "dataType") == "Object") then {
 
     // get the relative spawnposition
     private _spawnPos = ([[_posX, _posY, _posZ],-_dir] call BIS_fnc_rotateVector2D) vectorAdd _centerPosition;
-    private _atlOffset = getNumber(_x >> "atlOffset");
-    _spawnPos = _spawnPos vectorAdd [0, 0, _atlOffset];
+    if !(_ignoreOffset) then {
+        private _atlOffset = getNumber(_x >> "atlOffset");
+        //_spawnPos = _spawnPos vectorAdd [0, 0, _atlOffset];
+    };
 //    _spawnPos set [2, (getTerrainHeightASL _spawnPos) + _posZ];
 //    private _surfaceNormal = surfaceNormal _spawnPos;
 

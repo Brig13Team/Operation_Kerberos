@@ -9,7 +9,7 @@
  * <LOCATION> possible composition configs
  *
  */
-#define DEBUG_MODE_FULL
+#define DEBUG_MODE_OFF
 #include "script_component.hpp"
 
 params [["_isobjective",false,[true]]];
@@ -28,7 +28,7 @@ If (isClass(configFile >> "CfgKerberos" >> "CfgComposition")) then {
 If (isClass(missionConfigFile >> "CfgKerberos" >> "CfgComposition")) then {
     _allCompositions append (configProperties [missionconfigFile >> "CfgKerberos" >> "CfgComposition" >> _target,"true",true]);
 };
-
+TRACEV_2(_target,_allCompositions);
 private _return = HASH_CREATE;
 
 
@@ -64,11 +64,12 @@ private _fnc_findHouse = {
 
             if (_objectsAreValid) then {
                 private _house = _cfg call _fnc_findHouse;
+                TRACEV_3(_objectsAreValid,_house,_cfg);
                 If !(_house isEqualTo "") then {
                     If (HASH_HASKEY(_return,_house)) then {
                         HASH_GET(_return,_house) pushBack _x;
                     } else {
-                        HASH_SET(_house,[_x]);
+                        HASH_SET(_return,_house,[_x]);
                     };
                 };
             };

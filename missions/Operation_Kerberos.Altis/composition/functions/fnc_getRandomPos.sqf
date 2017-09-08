@@ -27,13 +27,14 @@ private _errorcounter = 0;
 
 while {((count _possibleSpawnpositions)<_amount)&&(_errorcounter < (300+_amount))} do {
     // random position inside radius, not in water
-    private _tempPos = [_centerposition, _radius, 0] call EFUNC(common,pos_random);
+    private _tempPos = [_centerpos, _searchradius, 0] call EFUNC(common,pos_random);
+    TRACEV_3(_tempPos,_centerpos,_searchradius);
     // get a flat position
-    private _spawnpos = [_tempPos, _size, _radius, 20, 0.09] call EFUNC(common,pos_flatempty);
+    private _spawnpos = [_tempPos, _size, _searchradius, 20, 0.09] call EFUNC(common,pos_flatempty);
 
     // fallback search
     If ((_spawnpos isEqualTo [])&&(_errorcounter > 200)) then {
-        _spawnpos = [_tempPos, _size, _radius, 20, 0.5] call EFUNC(common,pos_flatempty);
+        _spawnpos = [_tempPos, _size, _searchradius, 20, 0.5] call EFUNC(common,pos_flatempty);
     };
 
     // if no position was found exit
@@ -93,7 +94,7 @@ private _allCompositionPositions = [];
     // If there is no bestdir (because of terrain) -> randomize
     If (_bestdir < 0) then {_bestdir = random 360;};
 
-    _allCompositionPositions pushBack [_centerposition, _bestdir];
+    _allCompositionPositions pushBack [_x, _bestdir];
 
 } forEach _possibleSpawnpositions;
 

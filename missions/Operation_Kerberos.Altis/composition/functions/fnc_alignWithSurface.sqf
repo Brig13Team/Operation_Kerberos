@@ -62,7 +62,7 @@ _objects = _objects select {vehicle _x == _x};
                 detach _x;
                 _x setDir (_x getVariable [QGVAR(dir),getDirVisual _x]);
                 _x setVectorDirAndUp (_x getVariable [QGVAR(vecDirAndUp),[vectorDirVisual _x,vectorUpVisual _x]]);
-                TRACEV_2(typeOf _x,getDir _x);
+                //TRACEV_2(typeOf _x,getDir _x);
             };
             nil
         } count _objects;

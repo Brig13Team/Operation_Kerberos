@@ -13,17 +13,16 @@
 #define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-params ["_house", "_compositionCfg"];
+params [["_house",objNull,[objNull]], ["_compositionCfg",configNull,[configNull]]];
 
+If ((isNull _house)||{isNull _compositionCfg}) exitWith {
+    ERROR(FORMAT_1("Wrong iput this=%1",_this));
+};
 GVAR(usedHouses) pushBack _house;
 
 private _houseType = typeOf _house;
 private _dir = getDir _house;
-private _dir2 = (getPosASL _house) getDir (_house modelToWorld [0,1,0]);
-TRACEV_5(_house,_compositionCfg,_dir,_dir2,_houseType);
-_dir = _dir2;
 private _centerPosition = getPosASL _house;
-
 
 private _spawnedObjects = [];
 private _tempHash = HASH_CREATE;
@@ -47,22 +46,23 @@ private _offset = [0,0,0];
             ["_yaw",0,[0]],
             ["_pitch",0,[0]]
         ];
+        private _atlOffset = getNumber(_x >> "atlOffset");
         _offset = [
-            _posX,
-            _posY,
-            ((getPosWorld _house) select 2)-((getPosASL _house) select 2)-(_posZ)
+            ((getPosWorld _house) select 0)-((getPosASL _house) select 0)-(_posX),
+            ((getPosWorld _house) select 1)-((getPosASL _house) select 1)-(_posY),
+            ((getPosWorld _house) select 2)-((getPosASL _house) select 2)-(_posZ)-_atlOffset
         ];
-        _offset = [_offset,-_yaw] call BIS_fnc_rotateVector2D;
+        _offset = [_offset,- deg _yaw - _dir] call BIS_fnc_rotateVector2D;
     };
     nil
 } count (configProperties [_compositionCfg >>"composition" >> "items", "((isClass _x)&&{getText(_x >> 'dataType') == 'Object'})", true]);
 
-_centerPosition = _centerPosition vectorDiff _offset;
+_centerPosition = _centerPosition vectorAdd _offset;
 
 {
     private _curCfg = _x;
     If !(getText(_curCfg >> "type") isKindOf _houseType) then {
-        private _curObj = [_centerPosition, _dir, _curCfg] call FUNC(createObjectFromCfg);
+        private _curObj = [_centerPosition, _dir, _curCfg, true] call FUNC(createObjectFromCfg);
         //TRACEV_2(_curObj,_curCfg);
         If !(isNull _curObj) then {
             private _id = str (getNumber(_curCfg >> "id"));

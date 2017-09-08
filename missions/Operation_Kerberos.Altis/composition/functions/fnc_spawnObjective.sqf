@@ -24,7 +24,7 @@ params [
     ["_onlyPos", true, [true]]
 ];
 
-private _possibleCompositions = If (_onlyPos) then {
+private _possibleCompositions = If !(_onlyPos) then {
     GVAR(mission) select {(getText(_x >> "type") isEqualTo _type)};
 } else {
     GVAR(mission) select {(getText(_x >> "type") isEqualTo _type)||{getText(_x >> "type") isEqualTo "%ALL"}};
