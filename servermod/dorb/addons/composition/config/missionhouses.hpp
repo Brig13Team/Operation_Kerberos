@@ -139,7 +139,8 @@ class generic_Land_Metal_Shed_F_01 {
 };
 
 class laptop_Land_i_House_Small_01_V2_F_laptop_01 {
-    type = "laptop";
+    type = "upload";
+    objecttypes = {"Land_Laptop_unfolded_F"};
     class header {
         #include "missionhouses\laptop_Land_i_House_Small_01_V2_F_laptop_01\header.sqe"
     };
@@ -149,7 +150,8 @@ class laptop_Land_i_House_Small_01_V2_F_laptop_01 {
 };
 
 class pow_Land_i_Shed_Ind_F_01 {
-    type = "pow"; // C_scientist_F
+    type = "pow";
+    objecttypes = {"C_scientist_F"};
     class header {
         #include "missionhouses\pow_Land_i_Shed_Ind_F_01\header.sqe"
     };

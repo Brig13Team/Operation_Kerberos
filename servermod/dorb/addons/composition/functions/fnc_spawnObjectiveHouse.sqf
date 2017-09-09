@@ -58,7 +58,7 @@ If !(_onlyPos) then {
 };
 
 private _possibleHouses = [_centerpos, _radius, _amount, HASH_KEYS(_possibleHouseTypes)] call FUNC(getRandomHouse);
-//TRACEV_3(_possibleHouses,HASH_KEYS(_possibleHouseTypes),HASH_KEYS(GVAR(missionhouses)));
+TRACEV_4(_centerpos,_possibleHouses,HASH_KEYS(_possibleHouseTypes),HASH_KEYS(GVAR(missionhouses)));
 private _return = [];
 {
     _x params ["_curHouse"];

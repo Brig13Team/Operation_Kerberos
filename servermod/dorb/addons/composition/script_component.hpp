@@ -1,6 +1,6 @@
 #define COMPONENT composition
 #define COMPONENT_BEAUTIFIED Composition
-//#include "\x\dorb\addons\main\script_mod.hpp"
+#include "\x\dorb\addons\main\script_mod.hpp"
 
 #define DEBUG_MODE_MINIMAL
  #define DEBUG_MODE_FULL
@@ -11,7 +11,6 @@
     #define DEBUG_MODE_FULL
 #endif
 
-//#include "\x\dorb\addons\main\script_macros.hpp"
-#include "..\script_mission.hpp"
+#include "\x\dorb\addons\main\script_macros.hpp"
 
 #define CENTERPOS_OFFSET 15000

@@ -8,7 +8,7 @@
 #define MOD_ARES 'ares_zeusextensions','ares'
 #define MOD_ACHILLES 'achilles_data_f_achilles','achilles_data_f_ares','achilles_language_f','achilles_functions_f_ares','achilles_functions_f_achilles','achilles_modules_f_achilles','achilles_modules_f_ares','achilles_ui_f','achilles_settings_f'
 #define MOD_thirdPerson 'kerb_main','kerb_man','kerb_vehicles'
-#define MOD_Kerberos 'dorb_main','dorb_common','dorb_artillery','dorb_database','dorb_headless','dorb_headquarter','dorb_intercept','dorb_mission','dorb_spawn','dorb_worlds'
+#define MOD_Kerberos 'dorb_main','dorb_common','dorb_composition','dorb_artillery','dorb_database','dorb_headless','dorb_headquarter','dorb_intercept','dorb_mission','dorb_spawn','dorb_worlds'
 
 class ace_common_checkPBOsWhitelist {
     value = QUOTE([ARR_6(MOD_Kerberos,MOD_CBA,MOD_BWA3,MOD_EXTDB3,MOD_ASRAI,MOD_thirdPerson)]);

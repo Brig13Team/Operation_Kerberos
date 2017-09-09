@@ -1,1 +1,1 @@
-#include "..\script_component.hpp"
+#include "\x\dorb\addons\composition\script_component.hpp"
