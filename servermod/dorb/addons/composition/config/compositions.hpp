@@ -1,3 +1,66 @@
+class AA_V1 {
+    class header {
+        #include "compositions\AA_V1\header.sqe"
+    };
+    class composition {
+        #include "compositions\AA_V1\composition.sqe"
+    };
+};
+
+class AA_V2 {
+    class header {
+        #include "compositions\AA_V2\header.sqe"
+    };
+    class composition {
+        #include "compositions\AA_V2\composition.sqe"
+    };
+};
+
+class AA_V3 {
+    class header {
+        #include "compositions\AA_V3\header.sqe"
+    };
+    class composition {
+        #include "compositions\AA_V3\composition.sqe"
+    };
+};
+
+class AA_V4 {
+    class header {
+        #include "compositions\AA_V4\header.sqe"
+    };
+    class composition {
+        #include "compositions\AA_V4\composition.sqe"
+    };
+};
+
+class AA_V5 {
+    class header {
+        #include "compositions\AA_V5\header.sqe"
+    };
+    class composition {
+        #include "compositions\AA_V5\composition.sqe"
+    };
+};
+
+class AA_V6 {
+    class header {
+        #include "compositions\AA_V6\header.sqe"
+    };
+    class composition {
+        #include "compositions\AA_V6\composition.sqe"
+    };
+};
+
+class Bunker_V1 {
+    class header {
+        #include "compositions\Bunker_V1\header.sqe"
+    };
+    class composition {
+        #include "compositions\Bunker_V1\composition.sqe"
+    };
+};
+
 class KERB_Hill3234_Stellung_Lite {
     class header {
         #include "compositions\KERB_Hill3234_Stellung_Lite\header.sqe"
@@ -301,6 +364,33 @@ class Kerb_Land_ZSU {
     };
     class composition {
         #include "compositions\Kerb_Land_ZSU\composition.sqe"
+    };
+};
+
+class MortarPit_V1 {
+    class header {
+        #include "compositions\MortarPit_V1\header.sqe"
+    };
+    class composition {
+        #include "compositions\MortarPit_V1\composition.sqe"
+    };
+};
+
+class MortarPit_V2 {
+    class header {
+        #include "compositions\MortarPit_V2\header.sqe"
+    };
+    class composition {
+        #include "compositions\MortarPit_V2\composition.sqe"
+    };
+};
+
+class MortarPit_V3 {
+    class header {
+        #include "compositions\MortarPit_V3\header.sqe"
+    };
+    class composition {
+        #include "compositions\MortarPit_V3\composition.sqe"
     };
 };
 

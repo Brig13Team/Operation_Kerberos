@@ -1,3 +1,12 @@
+class Kiosk(Befestigt) {
+    class header {
+        #include "houses\Kiosk(Befestigt)\header.sqe"
+    };
+    class composition {
+        #include "houses\Kiosk(Befestigt)\composition.sqe"
+    };
+};
+
 class Land_BellTower_02_V2_F_01 {
     class header {
         #include "houses\Land_BellTower_02_V2_F_01\header.sqe"
@@ -76,6 +85,15 @@ class Land_u_Addon_01_V1_F_01 {
     };
     class composition {
         #include "houses\Land_u_Addon_01_V1_F_01\composition.sqe"
+    };
+};
+
+class Tower_V1 {
+    class header {
+        #include "houses\Tower_V1\header.sqe"
+    };
+    class composition {
+        #include "houses\Tower_V1\composition.sqe"
     };
 };
 
