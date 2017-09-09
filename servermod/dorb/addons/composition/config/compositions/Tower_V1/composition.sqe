@@ -1,0 +1,109 @@
+version=53;
+center[]={1506.1412,5,3261.9756};
+class items
+{
+	items=1;
+	class Item0
+	{
+		dataType="Layer";
+		name="Verteidigungstellung_V1";
+		class Entities
+		{
+			items=3;
+			class Item0
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={-0.019775391,10.38139,1.230957};
+				};
+				side="Empty";
+				flags=5;
+				class Attributes
+				{
+				};
+				id=1211;
+				type="Land_Castle_01_tower_F";
+			};
+			class Item1
+			{
+				dataType="Group";
+				side="East";
+				class Entities
+				{
+					items=3;
+					class Item0
+					{
+						dataType="Object";
+						class PositionInfo
+						{
+							position[]={-1.9018555,0.0014390945,-2.590332};
+							angles[]={0,3.1624432,0};
+						};
+						side="East";
+						flags=5;
+						class Attributes
+						{
+						};
+						id=1219;
+						type="rhs_msv_emr_rifleman";
+					};
+					class Item1
+					{
+						dataType="Object";
+						class PositionInfo
+						{
+							position[]={1.4918213,0.0014600754,-2.4069824};
+							angles[]={0,3.469243,0};
+						};
+						side="East";
+						flags=5;
+						class Attributes
+						{
+						};
+						id=1220;
+						type="rhs_msv_emr_rifleman";
+						atlOffset=2.0980835e-005;
+					};
+					class Item2
+					{
+						dataType="Object";
+						class PositionInfo
+						{
+							position[]={0.082763672,0.90143871,2.3481445};
+							angles[]={0,3.1300583,0};
+						};
+						side="East";
+						flags=5;
+						class Attributes
+						{
+						};
+						id=1223;
+						type="rhs_msv_emr_machinegunner";
+					};
+				};
+				class Attributes
+				{
+				};
+				id=1212;
+			};
+			class Item2
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={0.34680176,1.3193111,1.5686035};
+				};
+				side="Empty";
+				flags=4;
+				class Attributes
+				{
+				};
+				id=1222;
+				type="Land_BagFence_Long_F";
+			};
+		};
+		id=1224;
+		atlOffset=6.4209375;
+	};
+};
