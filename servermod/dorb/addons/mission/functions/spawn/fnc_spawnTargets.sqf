@@ -29,6 +29,26 @@ private _objects = [];
 
 TRACEV_5(_type,_centerposition,_amount,_radius,_defenceStructure);
 
+private _newComposition = [false, true] select (getNumber(_missionCfg >> "objective" >> "newComposition"));
+
+If (_newComposition) exitWith {
+    private _targets = [];
+    switch (_defenceStructure) do {
+        case "composition": {
+            _targets = [_centerposition, _type, _amount, _radius, false] call EFUNC(composition,spawnObjective);
+        };
+        case "house": {
+            _targets = [_centerposition, _type, _amount, _radius, false] call EFUNC(composition,spawnObjectiveHouse);
+        };
+    };
+    {
+        [_x] call EFUNC(headquarter,registerPOI);
+    } forEach _targets;
+    _targets
+};
+
+
+
 private _targetPositions = [];
 private _house = false;
 switch (_defenceStructure) do {

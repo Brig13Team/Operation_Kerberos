@@ -67,7 +67,7 @@ private _return = [];
     //TRACEV_3(_curHouse, _curCfg, _onlyPos);
     private _temp = [_curHouse, _curCfg, _onlyPos] call FUNC(createMissionHouse);
     _return append _temp;
-} forEach _possibleHouses;
+} forEach (_possibleHouses select {(!isNil "_x")&&{!isNull _x}});
 
 TRACEV_2(_centerpos, _return);
 _return

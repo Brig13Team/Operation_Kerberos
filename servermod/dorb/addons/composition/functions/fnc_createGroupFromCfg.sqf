@@ -99,6 +99,10 @@ private _group = createGroup [GVARMAIN(side),true];
     //_unit enableSimulationGlobal true;
 } forEach (configProperties[_curCfg >> "Entities","(isClass _x)",true]);
 
+If (!(isNil QEFUNC(headquarter,registergroup))) then {
+    [_group,"static"] call EFUNC(headquarter,registergroup);
+};
+
 HASH_DELETE(_LinkHash);
 
 _spawnedUnits

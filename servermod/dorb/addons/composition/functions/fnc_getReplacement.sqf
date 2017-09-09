@@ -35,21 +35,23 @@ switch (true) do {
         // nothing, just use the same unit
     };
     case (_unittype isKindOf "CAManBase") : {
-        _return = ["soldier"] call FUNC(getUnit);
+        _return = ["soldier"] call FUNC(spawn,getUnit);
     };
     case (_unittype isKindOf "Tank") : {
-        _return = ["tanks"] call FUNC(getUnit);
+        _return = ["tanks"] call FUNC(spawn,getUnit);
     };
     case (_unittype isKindOf "Truck_F") : {
-        _return = ["transporter_lorry"] call FUNC(getUnit);
+        _return = ["transporter_lorry"] call FUNC(spawn,getUnit);
     };
     case (_unittype isKindOf "helicopter") : {
-        _return = ["helicopter"] call FUNC(getUnit);
+        _return = ["helicopter"] call FUNC(spawn,getUnit);
     };
     case (_unittype isKindOf "Car_F") : {
-        _return = ["transporter_sniper"] call FUNC(getUnit);
+        _return = ["transporter_sniper"] call FUNC(spawn,getUnit);
     };
     default {TRACEV_1(_unittype);};
 };
+
+TRACEV_3(_unittype,_unitside,_return);
 
 _return;
