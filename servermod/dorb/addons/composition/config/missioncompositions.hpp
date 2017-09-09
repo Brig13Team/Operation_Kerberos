@@ -1,3 +1,25 @@
+class CommTower_V1 {
+    type = "radiotower";
+    objecttypes = {"Land_TTowerBig_1_F"};
+    class header {
+        #include "missioncompositions\CommTower_V1\header.sqe"
+    };
+    class composition {
+        #include "missioncompositions\CommTower_V1\composition.sqe"
+    };
+};
+
+class CommTower_V2 {
+    type = "radiotower";
+    objecttypes = {"Land_TTowerBig_2_F"};
+    class header {
+        #include "missioncompositions\CommTower_V2\header.sqe"
+    };
+    class composition {
+        #include "missioncompositions\CommTower_V2\composition.sqe"
+    };
+};
+
 class Kerb_Hill3234_Abschussrampe_02_big_Final {
     type = "scarab";
     objecttypes = {"rhs_9k79_B"};
