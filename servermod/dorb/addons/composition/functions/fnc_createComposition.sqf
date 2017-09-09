@@ -18,7 +18,7 @@ params ["_centerPosition", "_compositionCfg", ["_dir", random 360, [0]]];
 
 TRACEV_3(_centerPosition,_compositionCfg,_dir);
 
-GVAR(spawnedCompositions) pushBack _centerpos;
+GVAR(spawnedCompositions) pushBack _centerPosition;
 
 _centerPosition set [2,CENTERPOS_OFFSET];
 
