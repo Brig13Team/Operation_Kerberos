@@ -5053,7 +5053,6 @@ class Mission
 					flags=7;
 					class Attributes
 					{
-						init="call{this setVariable [""DORB_ISCASPILOT"",1,true];}";
 						isPlayable=1;
 					};
 					id=245;
@@ -5093,7 +5092,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="call{this setVariable [""DORB_ISCASPILOT"",1,true];}";
 						isPlayable=1;
 					};
 					id=246;
@@ -5133,7 +5131,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="call{this setVariable [""DORB_ISCASPILOT"",1,true];}";
 						isPlayable=1;
 					};
 					id=247;
@@ -5173,7 +5170,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="call{this setVariable [""DORB_ISCASPILOT"",1,true];}";
 						isPlayable=1;
 					};
 					id=248;
@@ -5213,7 +5209,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="call{this setVariable [""DORB_ISCASPILOT"",1,true];}";
 						isPlayable=1;
 					};
 					id=249;
@@ -5253,7 +5248,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="call{this setVariable [""DORB_ISCASPILOT"",1,true];}";
 						isPlayer=1;
 						isPlayable=1;
 					};

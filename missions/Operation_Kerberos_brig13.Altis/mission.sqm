@@ -12146,7 +12146,6 @@ class Mission
 					flags=7;
 					class Attributes
 					{
-						init="call{this setVariable [""DORB_ISCASPILOT"",true,true]; " \n "}";
 						description="Kampfpilot";
 						isPlayable=1;
 						class Inventory
@@ -12209,7 +12208,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="call{this setVariable [""DORB_ISCASPILOT"",true,true]; " \n "}";
 						description="Kampfpilot";
 						isPlayable=1;
 						class Inventory
@@ -12272,7 +12270,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="call{this setVariable [""DORB_ISCASPILOT"",true,true]; " \n "}";
 						description="Kampfpilot";
 						isPlayable=1;
 						class Inventory
@@ -12335,7 +12332,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="call{this setVariable [""DORB_ISCASPILOT"",true,true]; " \n "}";
 						description="Kampfpilot";
 						isPlayable=1;
 						class Inventory
@@ -12398,7 +12394,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="call{this setVariable [""DORB_ISCASPILOT"",true,true]; " \n "}";
 						description="Kampfpilot";
 						isPlayable=1;
 						class Inventory
@@ -12461,7 +12456,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="call{this setVariable [""DORB_ISCASPILOT"",true,true]; " \n "}";
 						description="Kampfpilot";
 						isPlayer=1;
 						isPlayable=1;
