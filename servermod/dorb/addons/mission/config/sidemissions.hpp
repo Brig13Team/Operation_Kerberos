@@ -73,7 +73,7 @@ class artillery : radar {
         newComposition = 1;
         target = "composition";
         composition_types[] = {"artillery"};
-        amount[] = {2,3};
+        amount[] = {1,1};
         objectsfunction = QFUNC(sidemission_artillery);
     };
     class task : task {
