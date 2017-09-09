@@ -29,5 +29,5 @@ private _possibleHouses = [_centerpos, _radius, _amount, HASH_KEYS(GVAR(houses))
     _x params ["_curHouse"];
     private _curHouseType = typeOf _curHouse;
     private _curCfg = selectRandom HASH_GET(GVAR(houses),_curHouseType);
-    [_curHouse, _curCfg, _onlyPos] call FUNC(createMissionHouse);
+    [_curHouse, _curCfg] call FUNC(createMissionHouse);
 } forEach _possibleHouses;
