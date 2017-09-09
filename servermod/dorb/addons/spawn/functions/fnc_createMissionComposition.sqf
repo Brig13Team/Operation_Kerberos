@@ -38,7 +38,7 @@ while {((count _possibleSpawnpositions)<_amount)&&(_errorcounter < (300+_amount)
     If (!(_spawnpos isEqualTo [])) then {
         // _spawnpos is not too close to other positions
         If ((({((_spawnpos distance2D _x)<60)} count _possibleSpawnpositions)<1)&&
-            {({((_spawnpos distance2D _x)<60)} count GVAR(spawnedCompositions))<1})
+            {({((_spawnpos distance2D _x)<60)} count EGVAR(composition,spawnedCompositions))<1})
          then {
             // spawnposition is not on a road
             private _checkpos = ([_spawnpos,3,10] call EFUNC(common,pos_square)) select 1;
@@ -104,7 +104,7 @@ private _allTargetPositions = [];
     private _currentComposition = [_type,_centerposition] call FUNC(composition_chooseComposition);
 
     private _curTargetPos = [_x,_currentComposition,_bestdir] call FUNC(composition_spawnComposition);
-    GVAR(spawnedCompositions) pushBack _x;
+    EGVAR(composition,spawnedCompositions) pushBack _x;
     TRACEV_1(_curTargetPos);
     If !(_curTargetPos isEqualTo []) then {
         _allTargetPositions append _curTargetPos;

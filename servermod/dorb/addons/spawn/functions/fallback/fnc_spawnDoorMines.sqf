@@ -17,7 +17,7 @@
 _this params ["_centerposition","_radius","_spawnamount"];
 
 private _buildings = _centerposition nearObjects ["HouseBase", _radius];
-_buildings = _buildings - (missionNamespace getVariable [QGVAR(usedHouses),[]]);
+_buildings = _buildings - (missionNamespace getVariable [QEGVAR(composition,usedHouses),[]]);
 _buildings = _buildings call BIS_fnc_arrayShuffle;
 
 private _errorCounter = 5000;
