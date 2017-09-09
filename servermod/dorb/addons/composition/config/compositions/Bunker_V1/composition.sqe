@@ -1,0 +1,241 @@
+version=53;
+center[]={8001.7456,5,3938.821};
+class items
+{
+	items=7;
+	class Item0
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={-2.3491211,1.1120052,-4.473877};
+		};
+		side="Empty";
+		flags=5;
+		class Attributes
+		{
+		};
+		id=400;
+		type="Land_Bunker_01_HQ_F";
+	};
+	class Item1
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={3.4174805,0.41931152,1.6582031};
+			angles[]={0,4.712389,0};
+		};
+		side="Empty";
+		flags=4;
+		class Attributes
+		{
+		};
+		id=403;
+		type="Land_BagFence_Long_F";
+	};
+	class Item2
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={2.8066406,0.41931152,4.0187988};
+			angles[]={0,3.9269907,0};
+		};
+		side="Empty";
+		flags=4;
+		class Attributes
+		{
+		};
+		id=404;
+		type="Land_BagFence_Round_F";
+	};
+	class Item3
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={-1.3154297,0.41931152,3.1652832};
+			angles[]={0,4.712389,0};
+		};
+		side="Empty";
+		flags=4;
+		class Attributes
+		{
+		};
+		id=405;
+		type="Land_BagFence_Long_F";
+	};
+	class Item4
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={-0.60009766,0.41428328,4.6899414};
+		};
+		side="Empty";
+		flags=4;
+		class Attributes
+		{
+		};
+		id=407;
+		type="Land_BagFence_Short_F";
+	};
+	class Item5
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={-3.0375977,0.54794216,-4.1040039};
+			angles[]={0,1.6452869,0};
+		};
+		side="Empty";
+		flags=4;
+		class Attributes
+		{
+			disableSimulation=1;
+		};
+		id=408;
+		type="rhs_launcher_crate";
+		atlOffset=0.13000011;
+		class CustomAttributes
+		{
+			class Attribute0
+			{
+				property="ammoBox";
+				expression="[_this,_value] call bis_fnc_initAmmoBox;";
+				class Value
+				{
+					class data
+					{
+						class type
+						{
+							type[]=
+							{
+								"STRING"
+							};
+						};
+						value="[[[[],[]],[[],[]],[[],[]],[[],[]]],true]";
+					};
+				};
+			};
+			nAttributes=1;
+		};
+	};
+	class Item6
+	{
+		dataType="Group";
+		side="East";
+		class Entities
+		{
+			items=6;
+			class Item0
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={2.1660156,0.0014390945,3.7163086};
+				};
+				side="East";
+				flags=7;
+				class Attributes
+				{
+					rank="SERGEANT";
+					isPlayer=1;
+				};
+				id=410;
+				type="rhs_msv_emr_sergeant";
+			};
+			class Item1
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={-6.7299805,0.13158321,-4.5148926};
+					angles[]={0,4.4946699,0};
+				};
+				side="East";
+				flags=5;
+				class Attributes
+				{
+					skill=0.44999999;
+					rank="CORPORAL";
+				};
+				id=411;
+				type="rhs_msv_emr_machinegunner";
+			};
+			class Item2
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={-0.69482422,0.0014390945,3.7163086};
+				};
+				side="East";
+				flags=5;
+				class Attributes
+				{
+					skill=0.40000001;
+				};
+				id=412;
+				type="rhs_msv_emr_machinegunner_assistant";
+			};
+			class Item3
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={2.4887695,0.0014390945,1.5998535};
+					angles[]={0,1.5950361,0};
+				};
+				side="East";
+				flags=5;
+				class Attributes
+				{
+					skill=0.44999999;
+					rank="CORPORAL";
+				};
+				id=413;
+				type="rhs_msv_emr_machinegunner";
+			};
+			class Item4
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={-0.28417969,0.13158321,-8.3742676};
+					angles[]={0,3.1206434,0};
+				};
+				side="East";
+				flags=5;
+				class Attributes
+				{
+					skill=0.40000001;
+				};
+				id=415;
+				type="rhs_msv_emr_machinegunner";
+			};
+			class Item5
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={1.9667969,0.13158321,-4.4699707};
+					angles[]={0,1.4201776,0};
+				};
+				side="East";
+				flags=5;
+				class Attributes
+				{
+					skill=0.40000001;
+				};
+				id=416;
+				type="rhs_msv_emr_machinegunner_assistant";
+			};
+		};
+		class Attributes
+		{
+		};
+		id=409;
+	};
+};

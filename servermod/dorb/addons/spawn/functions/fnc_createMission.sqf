@@ -21,7 +21,8 @@ If (count _centerposition <3) then {_centerposition set[2,0];};
 private _nearLoc = nearestLocations [_centerposition, ["NameCityCapital","NameCity","NameVillage"], 250];
 TRACEV_1(_nearLoc);
 If ((count _nearLoc)>0) then {
-    [_centerposition,"",8] call FUNC(createMissionHouse);
+    //[_centerposition,"",8] call FUNC(createMissionHouse);
+    [_centerposition,8] call EFUNC(composition,spawnHouse);
     [_centerposition,2] call FUNC(spawnGroup_defence);
     for "_i" from 1 to 20 do {
         If ([] call FUNC(UnitLimit)) exitWith {TRACE("Unitlimit reached");};
@@ -38,7 +39,8 @@ If ((count _nearLoc)>0) then {
     _nearRoads = [_nearRoads,(count _nearRoads)*0.1 min 10] call FUNC(spawnCivVehRoadside);
     [_centerposition,(count _nearRoads)*0.1 min 5] call FUNC(spawnCivCarGarage);
 }else{
-    [_centerposition,"",4] call FUNC(createMissionComposition);
+    //[_centerposition,"",4] call FUNC(createMissionComposition);
+    [_centerposition,4] call EFUNC(composition,spawn);
     [_centerposition,2] call FUNC(spawnGroup_defence);
     for "_i" from 1 to 20 do {
         If ([] call FUNC(UnitLimit)) exitWith {TRACE("Unitlimit reached");};

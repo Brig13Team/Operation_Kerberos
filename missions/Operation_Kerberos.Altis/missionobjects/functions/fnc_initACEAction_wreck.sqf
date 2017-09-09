@@ -27,7 +27,7 @@ private _action = [
             localize LSTRING(OBJECTS_GATHERING_INTEL)
         ] call ace_common_fnc_progressBar;
     },
-    { (_target getVariable [QEGVAR(mission,isActive), false]) && (_target getVariable [QGVAR(mission,isMissionTarget), false]) && (getDammage _target < 1) }
+    { (_target getVariable [QEGVAR(mission,isActive), false]) && (_target getVariable [QEGVAR(mission,isMissionTarget), false]) && (getDammage _target < 1) }
 ] call ace_interact_menu_fnc_createAction;
 
 params ["_classes"];

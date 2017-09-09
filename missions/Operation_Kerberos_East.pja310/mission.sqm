@@ -5345,7 +5345,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
-						init="call{this setVariable [""ACE_isEOD"",1,true];}";
+						init="call{this setVariable [""ACE_isEOD"",true,true];}";
 						isPlayable=1;
 					};
 					id=252;
@@ -5385,7 +5385,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="call{this setVariable [""ACE_isEOD"",1,true];}";
+						init="call{this setVariable [""ACE_isEOD"",true,true];}";
 						isPlayable=1;
 					};
 					id=253;
@@ -5425,7 +5425,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="call{this setVariable [""ACE_isEOD"",1,true];}";
+						init="call{this setVariable [""ACE_isEOD"",true,true];}";
 						isPlayable=1;
 					};
 					id=255;
@@ -5465,7 +5465,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="call{this setVariable [""ACE_isEOD"",1,true];}";
+						init="call{this setVariable [""ACE_isEOD"",true,true];}";
 						isPlayable=1;
 					};
 					id=257;

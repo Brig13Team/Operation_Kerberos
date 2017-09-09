@@ -42,7 +42,7 @@ private _objectSortArray = [];
 _objectSortArray sort true;
 private _checker = [_target,(_objectSortArray select 0) select 1,(_objectSortArray select 1) select 1];
 private _checkerPositions = [_target,(_objectSortArray select 0) select 1,(_objectSortArray select 1) select 1];
-private _allMissionTargets = missionNamespace getVariable [QGVAR(mission,targets_client),[]];
+private _allMissionTargets = missionNamespace getVariable [QEGVAR(mission,targets_client),[]];
 
 [
     15,

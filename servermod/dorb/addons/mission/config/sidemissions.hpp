@@ -70,9 +70,10 @@ class artillery : radar {
         maxDistance = 9000;
     };
     class objective : objective {
+        newComposition = 1;
         target = "composition";
         composition_types[] = {"artillery"};
-        amount[] = {3,3};
+        amount[] = {2,3};
         objectsfunction = QFUNC(sidemission_artillery);
     };
     class task : task {

@@ -1,0 +1,96 @@
+version=53;
+center[]={1472.6221,5,3296.2124};
+class items
+{
+	items=1;
+	class Item0
+	{
+		dataType="Layer";
+		name="MG-Nest_V2";
+		class Entities
+		{
+			items=3;
+			class Item0
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={-0.67797852,0.4336381,0.84765625};
+				};
+				side="Empty";
+				flags=4;
+				class Attributes
+				{
+				};
+				id=738;
+				type="Land_GarbageBags_F";
+			};
+			class Item1
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={0.33886719,1.3065662,-0.42382813};
+				};
+				side="East";
+				flags=6;
+				class Attributes
+				{
+				};
+				id=745;
+				type="RHS_NSV_TriPod_MSV";
+			};
+			class Item2
+			{
+				dataType="Group";
+				side="East";
+				class Entities
+				{
+					items=1;
+					class Item0
+					{
+						dataType="Object";
+						class PositionInfo
+						{
+							position[]={0.33886719,0.0014390945,-0.3737793};
+						};
+						side="East";
+						flags=6;
+						class Attributes
+						{
+						};
+						id=746;
+						type="rhs_msv_rifleman";
+					};
+				};
+				class Attributes
+				{
+				};
+				class CrewLinks
+				{
+					class LinkIDProvider
+					{
+						nextID=1;
+					};
+					class Links
+					{
+						items=1;
+						class Item0
+						{
+							linkID=0;
+							item0=746;
+							item1=745;
+							class CustomData
+							{
+								role=2;
+								turretPath[]={0};
+							};
+						};
+					};
+				};
+				id=734;
+			};
+		};
+		id=750;
+	};
+};
