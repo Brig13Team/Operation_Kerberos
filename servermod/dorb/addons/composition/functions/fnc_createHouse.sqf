@@ -89,4 +89,9 @@ _centerPosition = _centerPosition vectorAdd _offset;
 
 HASH_DELETE(_tempHash);
 
+If (IS_ARRAY(EGVAR(mission,CompositionDesigners))) then {
+    private _designer = getText(_compositionCfg >> "header" >> "author");
+    GVAR(mission,CompositionDesigners) pushBack _designer;
+};
+
 _spawnedObjects

@@ -64,6 +64,11 @@ TRACEV_1(_compositionCfg);
     nil
 } count _spawnedObjects;
 
+If (IS_ARRAY(EGVAR(mission,CompositionDesigners))) then {
+    private _designer = getText(_compositionCfg >> "header" >> "author");
+    GVAR(mission,CompositionDesigners) pushBack _designer;
+};
+
 HASH_DELETE(_tempHash);
 
 _spawnedObjects
