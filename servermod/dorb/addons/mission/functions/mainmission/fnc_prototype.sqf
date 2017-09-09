@@ -32,7 +32,7 @@ TRACEV_1(_targets);
             [_handle] call CBA_fnc_removePerFrameHandler;
         };
         private _objects = _mission getVariable ["objects",[]];
-        TRACEV_1(_objects);
+        //TRACEV_1(_objects);
         {
             If ((!isNull _x)&&{alive _x}&&{crew _x isEqualTo []}&&{(_x distance2D (getMarkerPos GVARMAIN(rescuemarker)))<5}) then {
                 [_x] call FUNC(statemachine_increaseCounter);
