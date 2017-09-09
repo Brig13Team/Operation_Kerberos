@@ -52,7 +52,7 @@ class items
 							init="call{this enableSimulation false;}";
 						};
 						id=335;
-						type="rhs_msv_emr_driver";
+						type="O_UAV_AI";
 					};
 					class Item1
 					{
@@ -69,7 +69,7 @@ class items
 							init="call{this enableSimulation false;}";
 						};
 						id=338;
-						type="rhs_msv_emr_driver";
+						type="O_UAV_AI";
 					};
 					class Item2
 					{
@@ -86,7 +86,7 @@ class items
 							init="call{this enableSimulation false;}";
 						};
 						id=332;
-						type="rhs_msv_emr_driver";
+						type="O_UAV_AI";
 					};
 				};
 				class Attributes

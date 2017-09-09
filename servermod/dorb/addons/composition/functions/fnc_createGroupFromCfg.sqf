@@ -37,11 +37,19 @@ private _group = createGroup [GVARMAIN(side),true];
 
     private "_unit";
     If (HASH_HASKEY(_LinkHash,str _id)) then {
-        _unit = _group createUnit [_type,[0,0,10000],[],0,"NONE"];
-        _unit enableSimulationGlobal false;
-        _linkCfg = HASH_GET(_LinkHash,str _id);
-        _targetVeh = HASH_GET(_objectsHash,str(getNumber(_linkCfg >> "item1")));
-        _role = getNumber(_linkCfg >> "CustomData" >> "role");
+        private _linkCfg = HASH_GET(_LinkHash,str _id);
+        private _targetVeh = HASH_GET(_objectsHash,str(getNumber(_linkCfg >> "item1")));
+        private _role = getNumber(_linkCfg >> "CustomData" >> "role");
+
+        If ((typeOf _targetVeh) in ["B_SAM_System_01_F","B_SAM_System_02_F","B_AAA_System_01_F"]) then {
+            createVehicleCrew _targetVeh;
+            (crew _targetVeh) joinSilent _group;
+            _unit = (crew _targetVeh) param [0,objNull];
+            _role = -1;
+        } else {
+            _unit = _group createUnit [_type,[0,0,10000],[],0,"NONE"];
+            _unit enableSimulationGlobal false;
+        };
         switch _role do {
             case 1 : {_unit moveInDriver _targetVeh};
             case 2 : {

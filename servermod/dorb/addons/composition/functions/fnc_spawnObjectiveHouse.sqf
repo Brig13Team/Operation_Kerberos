@@ -61,13 +61,15 @@ private _possibleHouses = [_centerpos, _radius, _amount, HASH_KEYS(_possibleHous
 TRACEV_4(_centerpos,_possibleHouses,HASH_KEYS(_possibleHouseTypes),HASH_KEYS(GVAR(missionhouses)));
 private _return = [];
 {
-    _x params ["_curHouse"];
-    private _curHouseType = typeOf _curHouse;
-    private _curCfg = selectRandom HASH_GET(_possibleHouseTypes,_curHouseType);
-    //TRACEV_3(_curHouse, _curCfg, _onlyPos);
-    private _temp = [_curHouse, _curCfg, _onlyPos] call FUNC(createMissionHouse);
-    _return append _temp;
-} forEach (_possibleHouses select {(!isNil "_x")&&{!isNull _x}});
+    _x params [["_curHouse",objNull,[objNull]]];
+    If !(isNull _curHouse) then {
+        private _curHouseType = typeOf _curHouse;
+        private _curCfg = selectRandom HASH_GET(_possibleHouseTypes,_curHouseType);
+        //TRACEV_3(_curHouse, _curCfg, _onlyPos);
+        private _temp = [_curHouse, _curCfg, _onlyPos] call FUNC(createMissionHouse);
+        _return append _temp;
+    };
+} forEach _possibleHouses;
 
 TRACEV_2(_centerpos, _return);
 _return

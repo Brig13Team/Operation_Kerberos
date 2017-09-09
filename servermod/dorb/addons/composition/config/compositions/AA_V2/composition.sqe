@@ -596,7 +596,7 @@ class items
 							init="call{this enableSimulation false;}";
 						};
 						id=191;
-						type="rhs_msv_emr_driver";
+						type="O_UAV_AI";
 					};
 				};
 				class Attributes

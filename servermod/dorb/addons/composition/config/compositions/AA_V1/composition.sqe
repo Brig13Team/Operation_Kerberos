@@ -443,7 +443,7 @@ class items
 						{
 						};
 						id=329;
-						type="rhs_msv_emr_driver";
+						type="O_UAV_AI";
 					};
 					class Item2
 					{
@@ -458,7 +458,7 @@ class items
 						{
 						};
 						id=330;
-						type="rhs_msv_emr_driver";
+						type="O_UAV_AI";
 					};
 				};
 				class Attributes
