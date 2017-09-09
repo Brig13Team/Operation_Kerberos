@@ -19,8 +19,8 @@
 _this params [["_centerposition",[],[[]]],["_amount",0,[0]],["_radius",200,[0]]];
 
 private _garages = (_centerPosition nearObjects ["Land_i_Garage_V1_F", _radius]);// + (_centerPosition nearObjects ["Land_i_Garage_V2_F", _radius]);
-_garages = _garages - EGVAR(composition,targetHouses);
-_garages = _garages - EGVAR(composition,usedHouses);
+_garages = _garages - (missionNamespace getVariable [QEGVAR(composition,targetHouses),[]]);
+_garages = _garages - (missionNamespace getVariable [QEGVAR(composition,usedHouses),[]]);
 
 _garages = _garages call BIS_fnc_arrayshuffle;
 _garages resize (((count _garages) min _amount) max 0);

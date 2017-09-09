@@ -25,8 +25,8 @@ _this params [
 ];
 
 private _allHouses = _centerPosition nearObjects ["House", _radius];
-_allHouses = _allHouses - EGVAR(composition,targetHouses);
-_allHouses = _allHouses - EGVAR(composition,usedHouses);
+_allHouses = _allHouses - (missionNamespace getVariable [QEGVAR(composition,targetHouses),[]]);
+_allHouses = _allHouses - (missionNamespace getVariable [QEGVAR(composition,usedHouses),[]]);
 
 _allGarages = _allHouses select {(typeOf _x) in ["Land_i_Garage_V1_F","Land_i_Garage_V2_F"]};
 _allHouses = _allHouses - _allGarages;
