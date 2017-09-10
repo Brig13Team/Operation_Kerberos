@@ -168,7 +168,6 @@ class vehicles {
     class rhsusf_M1083A1P2_B_M2_wd_open_fmtv_usarmy : rhsusf_M1078A1P2_Base {};
     class rhsusf_M1083A1P2_B_wd_open_fmtv_usarmy : rhsusf_M1078A1P2_Base {};
     class rhsusf_M1078A1P2_B_d_open_fmtv_usarmy : rhsusf_M1078A1P2_Base {};
-    class rhsusf_M1078A1P2_B_wd_open_fmtv_usarmy : rhsusf_M1078A1P2_Base {};
 
     // open
     class rhsusf_M1078A1P2_B_d_flatbed_fmtv_usarmy : rhsusf_M1078A1P2_Base {
