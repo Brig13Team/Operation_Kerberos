@@ -15,7 +15,7 @@
 _this params [["_cargo",objNull,[objNull]]];
 CHECKRET(isNull _cargo,[]);
 
-private _nearVehicles = nearestObjects[getPos _cargo, ["AllVehicles"], VEHICLE_DETECTION_DISTANCE];
+private _nearVehicles = nearestObjects[getPos _cargo, ["AllVehicles"], VEHICLE_DETECTION_DISTANCE, true];
 private _loadActions = [];
 
 {
@@ -26,7 +26,7 @@ private _loadActions = [];
         {isClass(missionConfigFile >> "logistics" >> "vehicles" >> typeOf _vehicle)}&&
         {[_vehicle,_cargo] call FUNC(canbeLoaded)}&&
         {
-            ((_vehicle modelToWorld getArray(missionConfigFile >> "logistics" >> "vehicles" >> (typeOf _vehicle) >> "load_point")) distance _cargo) < LOADING_DISTANCE
+            ((_vehicle modelToWorldWorld getArray(missionConfigFile >> "logistics" >> "vehicles" >> (typeOf _vehicle) >> "load_point")) distance (getPosASL _cargo)) < LOADING_DISTANCE
         }
         ) then {
         private _action = [

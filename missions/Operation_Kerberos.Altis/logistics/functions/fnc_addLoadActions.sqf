@@ -17,7 +17,7 @@ CHECKRET(isNull _vehicle,[]);
 
 private _load_point_offset = getArray(missionConfigFile >> "logistics" >> "vehicles" >> (typeOf _vehicle) >> "load_point");
 private _load_point = _vehicle modelToWorld _load_point_offset;
-private _nearObjects = nearestObjects[_load_point, ["AllVehicles","ThingX"], LOADING_DISTANCE];
+private _nearObjects = nearestObjects[_load_point, ["AllVehicles","ThingX"], LOADING_DISTANCE, true];
 
 
 private _loadActions = [];
