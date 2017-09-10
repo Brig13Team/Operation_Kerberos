@@ -61,7 +61,7 @@ private _possibleHouses = [_centerpos, _radius, _amount, HASH_KEYS(_possibleHous
 TRACEV_4(_centerpos,_possibleHouses,HASH_KEYS(_possibleHouseTypes),HASH_KEYS(GVAR(missionhouses)));
 private _return = [];
 {
-    _x params [["_curHouse",objNull,[objNull]]];
+    [_x] params [["_curHouse",objNull,[objNull]]];
     If !(isNull _curHouse) then {
         private _curHouseType = typeOf _curHouse;
         private _curCfg = selectRandom HASH_GET(_possibleHouseTypes,_curHouseType);
