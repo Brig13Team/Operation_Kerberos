@@ -728,10 +728,6 @@
             <German>Virtuelles Arsenal öffnen</German>
             <English>Open Virtual Arsenal</English>
         </Key>
-        <Key ID="STR_DORB_PLAYER_NURPILOTEN">
-            <German>%1, du besitzt keine ausreichende Qualifizierung um das Fahrzeug zu bewegen.</German>
-            <English>%1: you don't have the right qualifications to move this vehicle.</English>
-        </Key>
         <Key ID="STR_DORB_PLAYER_BACKPACK_CHEST">
             <German>Rucksack auf den Bauch schnallen</German>
             <English>Move backpack to chest</English>
@@ -1335,6 +1331,16 @@
         <Key ID="STR_DORB_GUI_MAIL_DATE">
             <German>%1.%2.%3 %4:%5</German>
             <English>%2-%1-%3 %4:%5</English>
+        </Key>
+    </Package>
+    <Package name="whitelist">
+        <Key ID="STR_DORB_WHITELIST_TITLE">
+            <German>Pilotenwhitelist</German>
+            <English>pilot-whitelist</English>
+        </Key>
+        <Key ID="STR_DORB_WHITELIST_NOTALLOWED">
+            <German>Du besitzt keine ausreichende Qualifizierung um das Fahrzeug zu bewegen.</German>
+            <English>You don't have the right qualifications to move this vehicle.</English>
         </Key>
     </Package>
     <Package name="gui_Echidna">
