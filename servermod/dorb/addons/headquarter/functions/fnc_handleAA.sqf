@@ -15,14 +15,17 @@
 
 CHECK(!GVAR(active))
 
-private _mobileaa = (HASH_GET(GVAR(anitair),"mobile")) select {alive _x;};
-HASH_SET(GVAR(anitair),"mobile",_mobileaa);
+private _mobileaa = (HASH_GET(GVAR(antiair),"mobile")) select {alive _x;};
+HASH_SET(GVAR(antiair),"mobile",_mobileaa);
 
-private _staticaa = (HASH_GET(GVAR(anitair),"static")) select {alive _x;};
-HASH_SET(GVAR(anitair),"static",_staticaa);
+private _staticaa = (HASH_GET(GVAR(antiair),"static")) select {alive _x;};
+HASH_SET(GVAR(antiair),"static",_staticaa);
+
+private _autonomousaa = (HASH_GET(GVAR(antiair),"autonomous")) select {alive _x;};
+HASH_SET(GVAR(antiair),"autonomous",_autonomousaa);
 
 _mobileaa append _staticaa;
-private _targets = HASH_GET(GVAR(radars),"targets");
+private _targets = HASH_GET_DEF(GVAR(radars),"targets",[]);
 
 {
     GVARMAIN(side) reportRemoteTarget [_x, 60];
@@ -31,16 +34,24 @@ private _targets = HASH_GET(GVAR(radars),"targets");
 
 
 {
-    private _assignedTarget = assignedTarget _x;
+    private _aa = _x;
+    private _assignedTarget = assignedTarget _aa;
     If !(isNull _assignedTarget) then {
-        if ((_x distance _assignedTarget)<3400) then {
+        if ((_aa distance _assignedTarget)<3400) then {
             {
                 _x commandWatch objNull;
             } forEach (crew _unit);
-            [QGVAR(setVehicleAmmo),[_unit,1],_unit] call CBA_fnc_targetEvent;
+            [QGVAR(setVehicleAmmo),[_aa,1],_aa] call CBA_fnc_targetEvent;
         };
     };
 } forEach _mobileaa;
+
+
+{
+    [QGVAR(setVehicleAmmo),[_x,1],_x] call CBA_fnc_targetEvent;
+} forEach _autonomousaa;
+
+
 
 {
     private _currentAA = _x;

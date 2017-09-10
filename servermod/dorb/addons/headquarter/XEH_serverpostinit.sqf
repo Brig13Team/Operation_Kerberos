@@ -44,6 +44,7 @@ HASH_SET(GVAR(handles),"fdc_main",_handle);
 GVAR(antiair) = HASH_CREATE;
 HASH_SET(GVAR(antiair),"mobile",[]);
 HASH_SET(GVAR(antiair),"static",[]);
+HASH_SET(GVAR(antiair),"autonomous",[]);
 /*************************
 *
 *       Headquarter
