@@ -94,6 +94,7 @@ for "_i" from 1 to _amount do {
         random 360;
     };
     _pos resize 3;
+    _pos = _pos vectorAdd [0,0,0.2];
     private _class = selectRandom ([_type] call FUNC(spawn_getObjects));
 
     TRACEV_2(_class,_pos);
