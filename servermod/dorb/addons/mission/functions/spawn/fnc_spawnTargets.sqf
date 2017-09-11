@@ -109,11 +109,11 @@ for "_i" from 1 to _amount do {
         };
         _pos resize 3;
 
-        _target = _group createUnit [_class, [0,0,0], [], 0, "CAN_COLLIDE"];
+        _target = _group createUnit [_class, [0,0,10000], [], 0, "CAN_COLLIDE"];
         _target setPosASL _pos;
         _target setDir _spawnDir;
     } else {
-        _target = createVehicle [_class, [0,0,0], [], 0, "CAN_COLLIDE"];
+        _target = createVehicle [_class, [0,0,10000], [], 0, "CAN_COLLIDE"];
         _target setPosASL _pos;
         _target setVectorUp [0,0,1];
         _target setDir _spawnDir;

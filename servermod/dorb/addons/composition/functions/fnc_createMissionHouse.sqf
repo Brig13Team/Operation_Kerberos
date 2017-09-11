@@ -29,7 +29,9 @@ private _return = [];
 If (_onlyPos) then {
     {
         If ((toLower (typeOf _x)) in _objectTypes) then {
-            _return pushBack (getPosASL _x);
+            private _temp = getPosASL _x;
+            _temp set[3,getDir _x];
+            _return pushBack _temp;
             deleteVehicle _x;
         };
         nil
