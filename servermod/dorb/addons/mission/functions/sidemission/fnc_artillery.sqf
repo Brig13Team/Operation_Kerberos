@@ -14,7 +14,7 @@
 #include "script_component.hpp"
 
 _this params ["_mission", "_targets"];
-
+TRACEV_2(_mission,_targets);
 {
     [_x,GVARMAIN(side),false] call EFUNC(spawn,crew);
     _x setFuel 0;

@@ -43,6 +43,7 @@ If (_newComposition) exitWith {
     };
     {
         [_x] call EFUNC(headquarter,registerPOI);
+        _x setVariable [QGVAR(isActive),true];
     } forEach _targets;
     _targets
 };

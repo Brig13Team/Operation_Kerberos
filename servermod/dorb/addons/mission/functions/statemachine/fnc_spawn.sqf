@@ -42,33 +42,27 @@ _mission spawn {
             private _objectsfunction = getText(_missionCfg >> "objective" >> "objectsfunction");
             [_mission, _objects] call (missionNamespace getVariable [_objectsfunction, {}]);
         };
-        TRACEV_1(_objects);
         // remove wrong spawned objects (0,0,0) or ATL
         _objects = _objects - [objNull];
-        _objects = _objects select {
-            (((getPosATL _x) select 2) >= 0)&&
-            {((getPos _x) distance2D [0,0,0])>10}
-        };
+        _objects = _objects select {((getPos _x) distance2D [0,0,0])>10};
 
         {
             _x setVariable [QGVAR(mission),_mission];
         } forEach _objects;
         _mission setVariable ["objects",_objects];
-        TRACEV_1(_objects);
+        TRACEV_2(_objects,_type);
     }else{
         _objects = [_centerpos,_mission] call (missionNamespace getVariable [_spawnFunction,{}]);
 
         // remove wrong spawned objects (0,0,0) or ATL
         _objects = _objects - [objNull];
-        _objects = _objects select {
-            (((getPosATL _x) select 2) >= 0)&&
-            {((getPos _x) distance2D [0,0,0])>10}
-        };
+        _objects = _objects select {((getPos _x) distance2D [0,0,0])>10};
 
         {
             _x setVariable [QGVAR(mission),_mission];
         } forEach _objects;
         _mission setVariable ["objects",_objects];
+        TRACEV_2(_objects,_type);
     };
 
     If (_isMain) then {
