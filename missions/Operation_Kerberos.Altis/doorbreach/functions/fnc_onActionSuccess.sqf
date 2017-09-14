@@ -21,7 +21,7 @@ _door = _door select 0;
 
 private _triggerPos = _house selectionPosition (_door + "_trigger");
 private _axisPos = _house selectionPosition (_door + "_axis");
-private _dir = [_triggerPos,_axisPos] call BIS_fnc_dirTo;
+private _dir = (_triggerpos getDir _axisPos) + getDir _house;;
 private _chargePos = _house modelToWorld _triggerPos;
 
 // TODO: place only one charge on the right side of the door
