@@ -25,7 +25,9 @@ If (({(alive _x)&&{_x getVariable [QGVAR(isActive),true]}} count _objs) > 0) exi
 // the mission has finished
 private _amount = count _objs;
 private _counter = HASH_GET(_mission, "obj_counter");
-TRACEV_4(_amount,_counter,((_amount/3)*2),_objs);
+
+private _type = HASH_GET(_mission,"type");
+TRACEV_5(_type,_amount,_counter,((_amount/3)*2),_objs);
 If (_counter > ((_amount/3)*2)) exitWith {
     _mission setVariable ["progress","succeeded"];
 };

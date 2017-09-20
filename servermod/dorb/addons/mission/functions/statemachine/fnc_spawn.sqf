@@ -44,7 +44,7 @@ _mission spawn {
         };
         // remove wrong spawned objects (0,0,0) or ATL
         _objects = _objects - [objNull];
-        _objects = _objects select {((getPos _x) distance2D [0,0,0])>10};
+        //_objects = _objects select {((getPos _x) distance2D [0,0,0])>10};
 
         {
             _x setVariable [QGVAR(mission),_mission];
@@ -56,7 +56,7 @@ _mission spawn {
 
         // remove wrong spawned objects (0,0,0) or ATL
         _objects = _objects - [objNull];
-        _objects = _objects select {((getPos _x) distance2D [0,0,0])>10};
+        //_objects = _objects select {((getPos _x) distance2D [0,0,0])>10};
 
         {
             _x setVariable [QGVAR(mission),_mission];
