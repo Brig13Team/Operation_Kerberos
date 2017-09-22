@@ -42,6 +42,7 @@ PREPS(statemachine,cancelALL);
 PREPS(statemachine,checkCounter);
 PREPS(statemachine,checkClear);
 PREPS(statemachine,checkOneCounter);
+PREPS(statemachine,CheckRTB);
 PREPS(statemachine,checkTwoCounter);
 PREPS(statemachine,cleanup);
 PREPS(statemachine,decreaseCounter);

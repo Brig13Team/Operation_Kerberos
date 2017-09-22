@@ -15,7 +15,22 @@ If ((getMarkerPos GVARMAIN(rescuemarker)) isEqualTo [0,0,0]) then {
     [LINKFUNC(handleRescuePoint), 30, []] call CBA_fnc_addPerFrameHandler;
 };
 
+GVAR(allRespawnMarkerLocations) = [
+    ([east] call BIS_fnc_getRespawnMarkers) apply {getMarkerPos _x},
+    ([west] call BIS_fnc_getRespawnMarkers) apply {getMarkerPos _x},
+    ([resistance] call BIS_fnc_getRespawnMarkers) apply {getMarkerPos _x},
+    ([civilian] call BIS_fnc_getRespawnMarkers)apply {getMarkerPos _x}
+];
+
 // events
+[QEGVAR(mission,start_server),{
+    GVAR(allRespawnMarkerLocations) = [
+        ([east] call BIS_fnc_getRespawnMarkers) apply {getMarkerPos _x},
+        ([west] call BIS_fnc_getRespawnMarkers) apply {getMarkerPos _x},
+        ([resistance] call BIS_fnc_getRespawnMarkers) apply {getMarkerPos _x},
+        ([civilian] call BIS_fnc_getRespawnMarkers)apply {getMarkerPos _x}
+    ];
+}] call CBA_fnc_addEventHandler;
 [QEGVAR(mission,end_server), LINKFUNC(end)] call CBA_fnc_addEventHandler;
 
 // rescue point events

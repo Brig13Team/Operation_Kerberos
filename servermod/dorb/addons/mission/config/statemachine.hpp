@@ -249,7 +249,7 @@ class GVAR(statemachine_Taskmanager) {
             // we want to cleanup, after the units are back in base
             targetState = "cleanup";
             // check inf the units are all back to base
-            condition = QUOTE({_x distance2D (getMarkerPos GVARMAIN(respawnmarker)) > 200} count (([] call CBA_fnc_players) select {alive _x}) == 0);
+            condition = QUOTE([] call FUNC(CheckRTB));
             // mark the task as finished and display the message
             onTransition = QFUNC(statemachine_rtb);
         };
