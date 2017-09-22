@@ -249,7 +249,7 @@ class GVAR(statemachine_Taskmanager) {
             // we want to cleanup, after the units are back in base
             targetState = "cleanup";
             // check inf the units are all back to base
-            condition = QUOTE([] call FUNC(CheckRTB));
+            condition = QUOTE([] call FUNC(statemachine_CheckRTB));
             // mark the task as finished and display the message
             onTransition = QFUNC(statemachine_rtb);
         };
