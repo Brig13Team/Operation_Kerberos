@@ -8,6 +8,7 @@ PREP(candrop);
 PREP(canload);
 PREP(canunload);
 PREP(disp_cargo);
+PREP(disableACECargo);
 PREP(doload);
 PREP(doRemoveTrack);
 PREP(dounload);
