@@ -23,9 +23,10 @@ GVAR(fullArsenal) = false;
 GVAR(level) = 2;
 GVAR(allowedradius) = 25;
 
-{
-    [getMarkerPos _x] call FUNC(addArsenalArea)
-} forEach ([side player] call BIS_fnc_getRespawnMarkers);
+[getmarkerpos GVARMAIN(RESPAWNMARKER)] call FUNC(addArsenalArea);
+If (((getMarkerpos "respawn_west_land") distance2D [0,0,0])>100) then {
+    [getmarkerpos "respawn_west_land"] call FUNC(addArsenalArea);
+};
 
 
 /*

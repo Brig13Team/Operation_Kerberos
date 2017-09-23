@@ -4,66 +4,70 @@
 
 #define CBA_OFF
 #include "script_component.hpp"
-class APP(dialog) : RSC(echidna) {
-    idd = IDD_ECHIDNA_ARSENAL;
+class APP(dialog) : RSC(guiMenu) {
+    idd = IDD_GUI_ARSENAL;
     controlsBackground[] = {
-        background_taskbar,
-        background_display,
-        display_background
+        background_header,
+        background_body,
+        background_gradiend,
+        background_templatelist
     };
     controls[] = {
+        headertext,
         clock,
+        player_button,
         menu_button,
-
-        display_background,
-        properties_list,
-        loadButton,
-
-        metro_back,
-        metro,
-        metro_side,
-        background_device
+        templatelist,
+        loadButton
     };
 
-    onLoad = QUOTE(uiNamespace setVariable [ARR_2('EGVAR(gui_Echidna,dialog)',_this select 0)]; [ARR_2('GVAR(dialog)',true)] call EFUNC(gui,blur); _this spawn EFUNC(gui_echidna,OnLoad);_this spawn FUNC(OnLoad););
-    onUnload = QUOTE([ARR_2('GVAR(dialog)',false)] call EFUNC(gui,blur);_this call EFUNC(gui_Echidna,OnUnLoad););
+    onLoad = QUOTE(uiNamespace setVariable [ARR_2('EGVAR(gui_main,dialog)',_this select 0)]; [ARR_2('GVAR(dialog)',true)] call EFUNC(gui,blur); _this call EFUNC(gui_main,OnLoad); _this call FUNC(OnLoad););
+    onUnload = QUOTE([ARR_2('GVAR(dialog)',false)] call EFUNC(gui,blur);_this call EFUNC(gui_main,OnUnload););
 
-    class display_background: RSC(BaseText) {
+    class background_body : background_body {
+        colorBackground[] = COLOR_ARSENAL_BACKGROUND;
+    };
+
+    class background_gradiend : background_gradiend {
+        colorText[] = COLOR_ARSENAL_BACKGROUND_GRADIEND;
+    };
+
+    class background_templatelist: RSC(BaseText) {
         idc = -1;
-        x = GUI_ECHIDNA_X;
-        y = GUI_ECHIDNA_Y;
-        w = GUI_ECHIDNA_W * 40;
-        h = GUI_ECHIDNA_H * 27.5;
+        x = GUI_DISP_X+GUI_DISP_W*2;
+        y = GUI_DISP_Y+GUI_DISP_H*10;
+        w = GUI_DISP_W*70;
+        h = GUI_DISP_H*78;
         text = "";
-        colorBackground[] = {RAL9010,1};
+        colorBackground[] = COLOR_ARSENAL_BACKGROUND2;
         colorText[] = COLOR_DISABLED;
     };
-    class properties_list : RSC(BaseListbox) {
+    class templatelist : RSC(BaseListbox) {
         access = 1;
-        idc = IDC_ECHIDNA_ARSENAL_LIST;
-        x = GUI_ECHIDNA_X + GUI_ECHIDNA_W;
-        y = GUI_ECHIDNA_Y + GUI_ECHIDNA_H;
-        w = GUI_ECHIDNA_W * 38;
-        h = GUI_ECHIDNA_H * 23;
-        sizeEx = GUI_ECHIDNA_H;
-        rowHeight = GUI_ECHIDNA_H;
+        idc = IDC_GUI_ARSENAL_LIST;
+        x = GUI_DISP_X+GUI_DISP_W*3;
+        y = GUI_DISP_Y+GUI_DISP_H*16;
+        w = GUI_DISP_W*68;
+        h = GUI_DISP_H*71;
+        sizeEx = GUI_DISP_H*3;
+        rowHeight = GUI_DISP_H*3.5;
         tooltip = "";
-        color[] = {RAL9005,1};
-        colorScrollbar[] = {RAL9005,1};
-        colorSelect[] = {RAL9005,1};
-        colorSelect2[] = {RAL9005,1};
+        color[] = COLOR_ARSENAL_LIST_TEXT;
+        colorScrollbar[] = COLOR_ARSENAL_BACKGROUND;
+        colorSelect[] = COLOR_ARSENAL_LIST_TEXT;
+        colorSelect2[] = COLOR_ARSENAL_LIST_TEXT;
         colorDisabled[] = COLOR_DISABLED;
-        colorSelectBackground[] = {RAL9002,1};
-        colorSelectBackground2[] = {RAL9002,1};
-        colorText[] = {RAL9005,1};
-        colorBackground[] = {RAL7047,1};
+        colorSelectBackground[] = COLOR_ARSENAL_LIST_SELECTBG;
+        colorSelectBackground2[] = COLOR_ARSENAL_LIST_SELECTBG;
+        colorText[] = COLOR_ARSENAL_LIST_TEXT;
+        colorBackground[] = COLOR_ARSENAL_BACKGROUND;
     };
     class loadButton : RSC(BaseButton) {
-        idc = IDC_ECHIDNA_ARSENAL_BTTN;
-        x = GUI_ECHIDNA_X + GUI_ECHIDNA_W * 34;
-        y = GUI_ECHIDNA_Y + GUI_ECHIDNA_H * 25;
-        w = GUI_ECHIDNA_W * 5;
-        h = GUI_ECHIDNA_H * 2;
+        idc = IDC_GUI_ARSENAL_BTTN;
+        x = GUI_DISP_X+GUI_DISP_WAbs-GUI_DISP_W*26;
+        y = GUI_DISP_Y+GUI_DISP_HAbs-GUI_DISP_H*12;
+        w = GUI_DISP_W*10;
+        h = GUI_DISP_H*10;
         text = "load";
     };
 };
