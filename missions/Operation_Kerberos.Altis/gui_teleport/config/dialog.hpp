@@ -1,141 +1,96 @@
-/*
-    Author: Dorbedo
-*/
-#define INCLUDE_GUI
-#define CBA_OFF
-#include "script_component.hpp"
 
-class APP(dialog) : RSC(Echidna) {
-    idd = IDD_ECHIDNA_TELEPORT;
+class APP(dialog) : RSC(guiMenu) {
+    idd = IDD_GUI_TELEPORT;
     name = "Teleporter";
 
-    movingEnable = 0;
-    enableSimulation = 1;
-    fadein = 0;
-    fadeout = 0;
-    duration = 1000000;
-
-    onLoad = QUOTE(uiNamespace setVariable [ARR_2('EGVAR(gui_Echidna,dialog)',_this select 0)]; [ARR_2('GVAR(dialog)',true)] call EFUNC(gui,blur); _this spawn EFUNC(gui_echidna,OnLoad);_this call FUNC(OnLoad););
-    onUnload = QUOTE([ARR_2('GVAR(dialog)',false)] call EFUNC(gui,blur);_this call EFUNC(gui_Echidna,OnUnLoad););
+    onLoad = QUOTE(uiNamespace setVariable [ARR_2('EGVAR(gui_main,dialog)',_this select 0)]; [ARR_2('GVAR(dialog)',true)] call EFUNC(gui,blur); _this call EFUNC(gui_main,OnLoad); _this call FUNC(OnLoad););
+    onUnload = QUOTE([ARR_2('GVAR(dialog)',false)] call EFUNC(gui,blur);_this call EFUNC(gui_main,OnUnload););
 
     controlsBackground[] = {
-        background_taskbar,
-        background_display,
-        table_background
+        background_header,
+        background_body,
+        background_gradiend,
+        background_table
     };
     controls[] = {
+        //background_logo,
+        headertext,
         clock,
+        player_button,
         menu_button,
-
-        map_bttn_background,
-        map_bttn,
-
-        controlTable,
-
-        metro_back,
-        metro,
-        metro_side,
-        background_device
+        controlTable
     };
 
+    class background_body : background_body {
+        colorBackground[] = COLOR_TELEPORT_BACKGROUND;
+    };
 
-    #define BUTTON_HELPER(NUMBER) class DOUBLES(map_bttn,background) : RSC(BasePicture) { \
-        idc = -(IDC_ECHIDNA_TELEPORT_BTTN_MAP); \
-        x = 0;y = 0;w = 0;h = 0; \
-        text = QEPAAPATH(buttons,button_256_normal); \
-        shadow = 0; \
-        style = "48"; \
-        colorShadow[] = COLOR_DISABLED; \
-        font = FONT_DEFAULT; \
-        colorBackground[] = {0,0,0,1}; \
-        colorText[] = {0,0,0,1}; \
-    }; \
-    class map_bttn : RSC(BaseButton) { \
-        idc = IDC_ECHIDNA_TELEPORT_BTTN_MAP; \
-        x = 0;y = 0;w = 0;h = 0; \
-        sizeEx = GUI_ECHIDNA_H * 0.7; \
-        text = ""; \
-        style = "48+0x800"; \
-        colorBackground[]= COLOR_DISABLED; \
-        colorBackgroundActive[]= COLOR_DISABLED; \
-        colorFocused[]= COLOR_DISABLED; \
-        colorBackgroundDisabled[]= COLOR_DISABLED; \
-        colorText[] = COLOR_ECHIDNA_METRO_BTTN_DEFAULT_TEXT; \
-        colorDisabled[] = COLOR_ECHIDNA_METRO_BTTN_DEFAULT_TEXT_DISABLED; \
-        shadow = 0; \
-        colorShadow[] = COLOR_DISABLED; \
-        offsetX = 0; \
-        offsetY = 0; \
-        offsetPressedX = 0; \
-        offsetPressedY = 0; \
-    }
+    class background_gradiend : background_gradiend {
+        colorText[] = COLOR_TELEPORT_BACKGROUND_GRADIEND;
+    };
 
-    BUTTON_HELPER(1);
-
-
-    class table_background: RSC(BaseText) {
-        x = GUI_ECHIDNA_X + GUI_ECHIDNA_W * 1;
-        y = GUI_ECHIDNA_Y + GUI_ECHIDNA_H * 1;
-        w = GUI_ECHIDNA_W * 30;
-        h = GUI_ECHIDNA_H * 25.5;
+    class background_table: RSC(BaseText) {
+        x = GUI_DISP_X+GUI_DISP_W*4;
+        y = GUI_DISP_Y+GUI_DISP_H*10;
+        w = GUI_DISP_WAbs-GUI_DISP_W*22;
+        h = GUI_DISP_HAbs-GUI_DISP_H*18;
         style = "0x02";
-        font = GUI_FONT_BOLD;
         text = "";
-        colorText[] = COLOR_TABLET_MAIN_TEXT;
-        colorBackground[] = {RAL9005,0.2};
+        colorText[] = COLOR_TELEPORT_LIST_TEXT;
+        colorBackground[] = COLOR_TELEPORT_BACKGROUND2;
     };
 
     class controlTable : RSC(ControlsTable) {
-        idc = IDC_ECHIDNA_TELEPORT_TABLE;
-        x = GUI_ECHIDNA_X + GUI_ECHIDNA_W * 1;
-        y = GUI_ECHIDNA_Y + GUI_ECHIDNA_H * 1;
-        w = GUI_ECHIDNA_W * 30;
-        h = GUI_ECHIDNA_H * 25.5;
-        rowHeight = 1 * GUI_ECHIDNA_H;
-        headerHeight = 1 * GUI_ECHIDNA_H;
-        firstIDC = IDC_ECHIDNA_TELEPORT_TABLE_FIRST;
-        lastIDC = IDC_ECHIDNA_TELEPORT_TABLE_LAST;
+        idc = IDC_GUI_TELEPORT_TABLE;
+        x = GUI_DISP_X+GUI_DISP_W*6;
+        y = GUI_DISP_Y+GUI_DISP_H*12;
+        w = GUI_DISP_WAbs-GUI_DISP_W*24;
+        h = GUI_DISP_HAbs-GUI_DISP_H*20;
+        rowHeight = GUI_DISP_H*3.5;
+        headerHeight = GUI_DISP_H*3.5;
+        firstIDC = IDC_GUI_TELEPORT_TABLE_FIRST;
+        lastIDC = IDC_GUI_TELEPORT_TABLE_LAST;
 
         class RowTemplate {
             class RowBackground {
                 controlBaseClassPath[] = {"RscText"};
                 columnX = 0;
-                columnW = GUI_ECHIDNA_W * 29.5;
+                columnW = GUI_DISP_WAbs-GUI_DISP_W*15;
                 controlOffsetY = 0;
             };
             class Column1 {
                 controlBaseClassPath[] = {"RscText"};
                 columnX = 0;
-                columnW = 2 * GUI_ECHIDNA_W;
+                columnW = GUI_DISP_W*4;
                 controlOffsetY = 0;
-                controlH = 1 * GUI_ECHIDNA_H;
+                controlH = GUI_DISP_H*3.5;
             };
             class Column2 {
                 controlBaseClassPath[] = {"RscText"};
-                columnX = 2 * GUI_ECHIDNA_W;
-                columnW = 23 * GUI_ECHIDNA_W;
-                controlOffsetY = 0.1 * GUI_ECHIDNA_H;
+                columnX = GUI_DISP_W*4;
+                columnW = GUI_DISP_WAbs-GUI_DISP_W*38;
+                controlOffsetY = GUI_DISP_H*0.1;
             };
             class Column3 {
                 controlBaseClassPath[] = {"RscButton"};
                 columnX = 25 * GUI_GRID_W;
-                columnW = 5 * GUI_GRID_W;
-                controlOffsetY = 0.1 * GUI_ECHIDNA_H;
+                columnW = GUI_DISP_WAbs-GUI_DISP_W*28;
+                controlOffsetY = GUI_DISP_H*0.1;
             };
         };
         class HeaderTemplate {
             class HeaderBackground {
                 controlBaseClassPath[] = {"RscText"};
                 columnX = 0;
-                columnW = GUI_ECHIDNA_W * 29.5;
+                columnW = GUI_DISP_WAbs-GUI_DISP_W*15;
                 controlOffsetY = 0;
             };
             class Column1 {
                 controlBaseClassPath[] = {"RscText"};
-                columnX = 2* GUI_ECHIDNA_W;
-                columnW = 25 * GUI_ECHIDNA_W;
-                controlOffsetY = 0.1 * GUI_GRID_H;
-                controlH = 0.8 * GUI_GRID_H;
+                columnX = GUI_DISP_W*4;
+                columnW = GUI_DISP_WAbs-GUI_DISP_W*28;
+                controlOffsetY = GUI_DISP_H*0.1;
+                controlH = GUI_DISP_H*3;
             };
         };
     };

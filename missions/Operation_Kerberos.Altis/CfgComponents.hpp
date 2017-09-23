@@ -48,6 +48,7 @@ class CfgComponents {
     gui_main = 1;
     gui_vehiclesspawn = 1;
     gui_arsenal = 1;
+    gui_teleport = 1;
 };
 
 #include "main\CfgComponent.hpp"
@@ -82,5 +83,6 @@ class CfgComponents {
 //#include "gui_mail\CfgComponent.hpp"
 
 #include "gui_main\CfgComponent.hpp"
-#include "gui_arsenal\CfgComponent.hpp"
 #include "gui_vehiclespawn\CfgComponent.hpp"
+#include "gui_teleport\CfgComponent.hpp"
+#include "gui_arsenal\CfgComponent.hpp"

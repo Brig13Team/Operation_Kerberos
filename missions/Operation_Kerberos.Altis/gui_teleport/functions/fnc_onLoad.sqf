@@ -23,7 +23,7 @@ private _teleportTargets = missionNamespace getVariable [(format[QGVAR(%1),_type
 
 
 
-private _table = _dialog displayCtrl IDC_ECHIDNA_TELEPORT_TABLE;
+private _table = _dialog displayCtrl IDC_GUI_TELEPORT_TABLE;
 
 (ctAddHeader _table) params ["_headerindex","_headercontrols"];
 _headercontrols params ["_background","_headertext"];
@@ -56,16 +56,17 @@ If ((GVAR(teleport_lead_active))&&{_type == "infanterie"}) then {
     };
 } forEach _teleportTargets;
 
-private _pos_x = GUI_ECHIDNA_X + GUI_ECHIDNA_W*32;
-private _pos_y = GUI_ECHIDNA_Y + GUI_ECHIDNA_H*19.5;
-private _pos_w = GUI_ECHIDNA_W*7;
-private _pos_h = GUI_ECHIDNA_H*7;
-private _picture = "A3\ui_f\data\gui\cfg\Hints\map_ca.paa";
-private _displayName = localize LSTRING(MAP);
-private _ctrl = _dialog displayCtrl IDC_ECHIDNA_TELEPORT_BTTN_MAP;
-_ctrl ctrlAddEventHandler ["ButtonClick",format['[%1] call FUNC(openMap)',str _type]];
-["changepos",[_ctrl,[_pos_x, _pos_y, _pos_w, _pos_h]]] call FUNC(AnimBttn);
-_ctrl ctrlSetText _picture;
-_ctrl ctrlSetTooltip _displayName;
-_ctrl ctrlSetFontHeight (GUI_ECHIDNA_METRO_BTTN_H * 0.1);
-_ctrl ctrlSetTextColor [1,1,1,1];
+// mapButton
+(["create",
+    [
+        GUI_DISP_X+GUI_DISP_WAbs-GUI_DISP_W*14,
+        GUI_DISP_Y+GUI_DISP_HAbs-GUI_DISP_H*14,
+        GUI_DISP_W*10,
+        GUI_DISP_H*10,
+        _display
+    ]
+] call EFUNC(gui,animButton)) params ["_ctrlButton", "_ctrlBackground"];
+_ctrlButton ctrlSetText "A3\ui_f\data\gui\cfg\Hints\map_ca.paa";
+_ctrlButton ctrlSetTooltip (localize LSTRING(MAP));
+_ctrlButton ctrlAddEventHandler ["ButtonClick",format['[%1] call FUNC(openMap)',str _type]];
+_ctrlBackground ctrlSetTextColor [COLOR_TELEPORT_BTTN_MAP_SQF];

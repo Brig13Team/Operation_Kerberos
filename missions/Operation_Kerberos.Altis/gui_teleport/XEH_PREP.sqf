@@ -1,6 +1,5 @@
 #include "script_component.hpp"
 
-PREP(animBttn);
 PREP(canOpenMenu);
 PREP(lead);
 PREP(nearEnemys);

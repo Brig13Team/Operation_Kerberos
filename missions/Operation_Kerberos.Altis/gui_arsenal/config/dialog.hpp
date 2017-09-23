@@ -1,9 +1,4 @@
-/*
-    Author: Dorbedo
-*/
 
-#define CBA_OFF
-#include "script_component.hpp"
 class APP(dialog) : RSC(guiMenu) {
     idd = IDD_GUI_ARSENAL;
     controlsBackground[] = {
