@@ -12,7 +12,7 @@ CHECK(!hasInterface)
 
 If (!((getMissionConfigValue ["isKerberos", 0]) > 0)) exitWith {};
 
-[QGVAR(MakeDataTerminalDraggable),{
+[QEGVAR(mission,MakeDataTerminalDraggable),{
     _this params ["_unit"];
     [_unit, true,[0,1,0],90] call ace_dragging_fnc_setDraggable;
 }] call CBA_fnc_addEventHandler;

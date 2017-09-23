@@ -10,8 +10,8 @@
 
 If (!((getMissionConfigValue ["isKerberos", 0]) > 0)) exitWith {};
 
-[QGVAR(sandstorm),LINKFUNC(createSandstorm)] call CBA_fnc_addEventHandler;
+[QEGVAR(mission,sandstorm),LINKFUNC(createSandstorm)] call CBA_fnc_addEventHandler;
 
-[QGVAR(pickUpSuitcase),{
+[QEGVAR(mission,pickUpSuitcase),{
     [LINKFUNC(handleCarry),15,_this] call CBA_fnc_addPerFrameHandler;
 }] call CBA_fnc_addEventHandler;

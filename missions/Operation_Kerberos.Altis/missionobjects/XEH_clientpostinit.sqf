@@ -11,11 +11,11 @@ CHECK(!hasInterface)
 If (!((getMissionConfigValue ["isKerberos", 0]) > 0)) exitWith {};
 
 // events
-[QGVAR(earthquake),LINKFUNC(effectEarthquake)] call CBA_fnc_addEventHandler;
-[QGVAR(effectDownload_Client),LINKFUNC(effectDownloadClient)] call CBA_fnc_addEventHandler;
-[QGVAR(effectEMPLocal),LINKFUNC(effectEMP)] call CBA_fnc_localEvent;
+[QEGVAR(mission,earthquake),LINKFUNC(effectEarthquake)] call CBA_fnc_addEventHandler;
+[QEGVAR(mission,effectDownload_Client),LINKFUNC(effectDownloadClient)] call CBA_fnc_addEventHandler;
+[QEGVAR(mission,effectEMPLocal),LINKFUNC(effectEMP)] call CBA_fnc_localEvent;
 
-[QGVAR(showCompositionDesigners),
+[QEGVAR(mission,showCompositionDesigners),
     {
         _this params [["_authors",[],[[]]]];
         CHECK(_authors isEqualTo [])
