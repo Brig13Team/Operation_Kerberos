@@ -8,7 +8,7 @@
 #include "script_component.hpp"
 
 class DOUBLES(CfgComponent,ADDON) {
-    class PostInit {};
+    class PostInitClient {server = 0;};
     class Preinit {};
     class dependencies {
         CfgPatches[] = {"CBA_common"};
