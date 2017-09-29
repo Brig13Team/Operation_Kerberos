@@ -1,3 +1,9 @@
+/*
+    Author: Dorbedo
+*/
+
+#define CBA_OFF
+#include "script_component.hpp"
 
 class APP(dialog) {
     idd = IDD_CRATE_DLG;
