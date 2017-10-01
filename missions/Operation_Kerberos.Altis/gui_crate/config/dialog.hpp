@@ -1,4 +1,67 @@
 
+class APP(dialog) : RSC(guiMenu) {
+    idd = IDD_GUI_CRATE;
+    name = "Cratespawner";
+
+    onLoad = QUOTE(uiNamespace setVariable [ARR_2('EGVAR(gui_main,dialog)',_this select 0)]; [ARR_2('GVAR(dialog)',true)] call EFUNC(gui,blur); _this call EFUNC(gui_main,OnLoad); _this call FUNC(OnLoad););
+    onUnload = QUOTE([ARR_2('GVAR(dialog)',false)] call EFUNC(gui,blur);_this call EFUNC(gui_main,OnUnload););
+
+    controlsBackground[] = {
+        background_header,
+        background_body,
+        background_gradiend,
+        background_items
+    };
+    controls[] = {
+        //background_logo,
+        headertext,
+        clock,
+        player_button,
+        menu_button,
+        itemlist
+    };
+
+    class background_body : background_body {
+        colorBackground[] = COLOR_CRATE_BACKGROUND;
+    };
+
+    class background_gradiend : background_gradiend {
+        colorText[] = COLOR_CRATE_BACKGROUND_GRADIEND;
+    };
+
+    class background_items: RSC(BaseText) {
+        x = GUI_DISP_X+GUI_DISP_W*4;
+        y = GUI_DISP_Y+GUI_DISP_H*10;
+        w = GUI_DISP_WAbs-GUI_DISP_W*22;
+        h = GUI_DISP_HAbs-GUI_DISP_H*18;
+        style = "0x02";
+        text = "";
+        colorText[] = COLOR_TELEPORT_LIST_TEXT;
+        colorBackground[] = COLOR_TELEPORT_BACKGROUND2;
+    };
+
+    class itemlist : RSC(BaseListboxN) {
+        idc = IDC_GUI_CRATE_ITEMLIST;
+        access = 2;
+        x = GUI_DISP_X+GUI_DISP_W*4;
+        y = GUI_DISP_Y+GUI_DISP_H*10;
+        w = GUI_DISP_WAbs/2-GUI_DISP_W*8;
+        h = GUI_DISP_HAbs-GUI_DISP_H*18;
+        rowHeight = GUI_DISP_H*4;
+        sizeEx = GUI_DISP_H*3.5;
+        columns[] = {GUI_DISP_W*5,GUI_DISP_W*16,GUI_DISP_W*21,GUI_DISP_W*28};
+        drawSideArrows = 1;
+        idcLeft = 1001;
+        idcRight = 1000;
+        colorText[] = {RAL9005,1};
+    };
+
+};
+
+
+
+
+
 class APP(dialog) {
     idd = IDD_CRATE_DLG;
     name = "Kisten-Füller";
