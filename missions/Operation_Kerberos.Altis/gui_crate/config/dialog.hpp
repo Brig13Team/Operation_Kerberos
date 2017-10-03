@@ -14,6 +14,23 @@ class APP(dialog) : RSC(guiMenu) {
     };
     controls[] = {
         //background_logo,
+        crate_button1,
+        crate_button2,
+        crate_button3,
+        crate_button4,
+        crate_button5,
+        crate_button6,
+        crate_button7,
+        crate_button8,
+        crate_button9,
+        crate_button10,
+        crate_button11,
+        crate_button12,
+        crate_button13,
+        crate_button14,
+        crate_button15,
+        crate_button16,
+        crate_button17,
         headertext,
         clock,
         player_button,
@@ -36,25 +53,165 @@ class APP(dialog) : RSC(guiMenu) {
         h = GUI_DISP_HAbs-GUI_DISP_H*18;
         style = "0x02";
         text = "";
-        colorText[] = COLOR_TELEPORT_LIST_TEXT;
-        colorBackground[] = COLOR_TELEPORT_BACKGROUND2;
+        colorText[] = COLOR_DISABLED;
+        colorBackground[] = COLOR_CRATE_BACKGROUND2;
     };
 
     class itemlist : RSC(BaseListboxN) {
         idc = IDC_GUI_CRATE_ITEMLIST;
         access = 2;
-        x = GUI_DISP_X+GUI_DISP_W*4;
+        x = GUI_DISP_X+GUI_DISP_W*3;
         y = GUI_DISP_Y+GUI_DISP_H*10;
-        w = GUI_DISP_WAbs/2-GUI_DISP_W*8;
-        h = GUI_DISP_HAbs-GUI_DISP_H*18;
+        w = GUI_DISP_W*74;
+        h = GUI_DISP_HAbs-GUI_DISP_H*34;
         rowHeight = GUI_DISP_H*4;
         sizeEx = GUI_DISP_H*3.5;
         columns[] = {GUI_DISP_W*5,GUI_DISP_W*16,GUI_DISP_W*21,GUI_DISP_W*28};
         drawSideArrows = 1;
         idcLeft = 1001;
         idcRight = 1000;
-        colorText[] = {RAL9005,1};
+        colorText[] = COLOR_CRATE_ITEMLIST_TEXT;
     };
+
+    class itemfilter : RSC(BaseEditBox) {
+        idc = IDC_GUI_CRATE_ITEMLIST;
+        x = GUI_DISP_X+GUI_DISP_W*3;
+        y = GUI_DISP_Y+GUI_DISP_H*40;
+        w = GUI_DISP_W*74;
+        h = GUI_DISP_H*5;
+        sizeEx = GUI_DISP_H*3.5;
+    };
+
+    class search_button : RSC(BaseButton) {
+        idc = IDC_GUI_CRATE_ITEMLIST;
+        x = GUI_DISP_X+GUI_DISP_W*3;
+        y = GUI_DISP_Y+GUI_DISP_H*10;
+        w = GUI_DISP_W*5;
+        h = GUI_DISP_H*5;
+    };
+
+    class crate_button1 : RSC(BaseButton) {
+        idc = IDC_GUI_CRATE_BTTN1;
+        x = GUI_DISP_X+GUI_DISP_W*6;
+        y = GUI_DISP_Y+GUI_DISP_H*10;
+        w = GUI_DISP_W*9;
+        h = GUI_DISP_H*9;
+        shadow = 0;
+        sizeEx = GUI_DISP_W*9;
+        color[] = COLOR_DISABLED;
+
+        colorBackground[] = UI_CL_CTRL_GRAU4;
+        colorBackgroundActive[] = UI_CL_CTRL_GRAU2;
+        colorFocused[] = UI_CL_CTRL_GRAU3;
+
+        colorText[] = UI_CL_CTRL_GRAU1;
+        colorTextSelect[] = UI_CL_CTRL_GRAU4;
+
+        colorShadow[] = UI_CL_CTRL_GRAU4;
+        colorBorder[] = UI_CL_CTRL_GRAU4;
+
+        colorDisabled[] = {0.1, 0.1, 0.1, 0.4};
+        colorBackgroundDisabled[] = {0, 0, 0, 0.2};
+
+        offsetX = 0;
+        offsetY = 0;
+
+        toolTip = CSTRING(BTTN_1);
+        style = 48;
+        text = "A3\ui_f\data\gui\cfg\Hints\rifle_ca.paa";
+    };
+    class crate_button2 : crate_button1 {
+        idc = IDC_GUI_CRATE_BTTN2;
+        y = GUI_DISP_H*20;
+        x = GUI_DISP_X+GUI_DISP_W*(6+9*0);
+        toolTip = CSTRING(BTTN_2);
+        text = "A3\ui_f\data\gui\cfg\Hints\automatic_ca.paa";
+    };
+    class crate_button3 : crate_button1 {
+        idc = IDC_GUI_CRATE_BTTN3;
+        x = GUI_DISP_X+GUI_DISP_W*(6+9*1);
+        toolTip = CSTRING(BTTN_3);
+        text = "A3\ui_f\data\gui\cfg\Hints\Sniper_ca.paa";
+    };
+    class crate_button4 : crate_button2 {
+        idc = IDC_GUI_CRATE_BTTN4;
+        x = GUI_DISP_X+GUI_DISP_W*(6+9*1);
+        toolTip = CSTRING(BTTN_4);
+        text = "A3\ui_f\data\gui\cfg\Hints\Launcher_ca.paa";
+    };
+    class crate_button5 : crate_button1 {
+        idc = IDC_GUI_CRATE_BTTN5;
+        x = GUI_DISP_X+GUI_DISP_W*(6+9*2);
+        toolTip = CSTRING(BTTN_5);
+        text = "A3\ui_f\data\gui\cfg\Hints\Handgun_ca.paa";
+    };
+    class crate_button6 : crate_button2 {
+        idc = IDC_GUI_CRATE_BTTN6;
+        x = GUI_DISP_X+GUI_DISP_W*(6+9*2);
+        toolTip = CSTRING(BTTN_6);
+        text = "A3\ui_f\data\gui\cfg\Hints\Optics_ca.paa";
+    };
+    class crate_button7 : crate_button1 {
+        idc = IDC_GUI_CRATE_BTTN7;
+        x = GUI_DISP_X+GUI_DISP_W*(6+9*3);
+        toolTip = CSTRING(BTTN_7);
+        text = "A3\ui_f\data\gui\cfg\Hints\Granades_ca.paa";
+    };
+    class crate_button8 : crate_button2 {
+        idc = IDC_GUI_CRATE_BTTN8;
+        x = GUI_DISP_X+GUI_DISP_W*(6+9*3);
+        toolTip = CSTRING(BTTN_8);
+        text = "A3\ui_f\data\gui\cfg\Hints\Mines_ca.paa";
+    };
+    class crate_button9 : crate_button1 {
+        idc = IDC_GUI_CRATE_BTTN9;
+        x = GUI_DISP_X+GUI_DISP_W*(6+9*4);
+        toolTip = CSTRING(BTTN_9);
+        text = "A3\ui_f\data\gui\Rsc\RscDisplayArsenal\uniform_ca.paa";
+    };
+    class crate_button10 : crate_button2 {
+        idc = IDC_GUI_CRATE_BTTN10;
+        x = GUI_DISP_X+GUI_DISP_W*(6+9*4);
+        toolTip = CSTRING(BTTN_10);
+        text = "A3\ui_f\data\gui\Rsc\RscDisplayArsenal\vest_ca.paa";
+    };
+    class crate_button11 : crate_button1 {
+        idc = IDC_GUI_CRATE_BTTN11;
+        x = GUI_DISP_X+GUI_DISP_W*(6+9*5);
+        toolTip = CSTRING(BTTN_11);
+        text = "A3\ui_f\data\gui\Rsc\RscDisplayArsenal\headgear_ca.paa";
+    };
+    class crate_button12 : crate_button2 {
+        idc = IDC_GUI_CRATE_BTTN12;
+        x = GUI_DISP_X+GUI_DISP_W*(6+9*5);
+        toolTip = CSTRING(BTTN_12);
+        text = "A3\ui_f\data\gui\cfg\Hints\Gear_CA.paa";
+    };
+    class crate_button13 : crate_button1 {
+        idc = IDC_GUI_CRATE_BTTN13;
+        x = GUI_DISP_X+GUI_DISP_W*(6+9*6);
+        toolTip = CSTRING(BTTN_13);
+        text = "A3\ui_f\data\gui\cfg\Hints\CallSupport_CA.paa";
+    };
+    class crate_button14 : crate_button2 {
+        idc = IDC_GUI_CRATE_BTTN14;
+        x = GUI_DISP_X+GUI_DISP_W*(6+9*6);
+        toolTip = CSTRING(BTTN_14);
+        text = "A3\ui_f\data\gui\cfg\Hints\Direction_ca.paa";
+    };
+    class crate_button15 : crate_button1 {
+        idc = IDC_GUI_CRATE_BTTN15;
+        x = GUI_DISP_X+GUI_DISP_W*(6+9*7);
+        toolTip = CSTRING(BTTN_15);
+        text = "A3\ui_f\data\gui\cfg\Hints\Injury_ca.paa";
+    };
+    class crate_button16 : crate_button2 {
+        idc = IDC_GUI_CRATE_BTTN16;
+        x = GUI_DISP_X+GUI_DISP_W*(6+9*7);
+        toolTip = CSTRING(BTTN_16);
+        text = "A3\ui_f\data\gui\cfg\Hints\Take_ca.paa";
+    };
+
 
 };
 
@@ -345,7 +502,7 @@ class APP(dialog) {
 
         toolTip = CSTRING(BTTN_1);
         style = 48;
-        text = "\A3\ui_f\data\IGUI\Cfg\MPTable\total_ca.paa";
+        text = "A3\ui_f\data\gui\cfg\Hints\rifle_ca.paa";
     };
 
     class crate_button2 : crate_button1 {
