@@ -22,11 +22,11 @@ If (!(local _vehicle)) exitWith {[QGVAR(addVehicleSpecial),[_vehicle],_vehicle] 
 switch (true) do {
     case ((typeOf _object) in ["B_Truck_01_medical_F","B_Slingload_01_Medevac_F","O_Heli_Transport_04_medevac_F","Truck_02_medical_base_F","O_Truck_03_medical_F"]);
     case (_object isKindOf "RHS_UH60M_base");
-    case (_object isKindOf "rhs_gaz66_ap2_base") : {
+    case (_object isKindOf "rhs_gaz66_ap2_base");
+    case ([_object] call ace_medical_fnc_isMedicalVehicle) : {
         If !(isNil QEFUNC(mod_ace,addMedicalItems)) then {
             [_vehicle] call EFUNC(mod_ace,addMedicalItems);
         };
-        _vehicle setVariable ["ace_medical_isMedicalFacility",true];
     };
     case ((typeOf _object) isKindOf "Land_DataTerminal_01_F") : {
         [QEGVAR(mission,MakeDataTerminalDraggable),[_object]] call CBA_fnc_globalEvent;

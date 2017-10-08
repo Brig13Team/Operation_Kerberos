@@ -322,15 +322,6 @@
                 <English>Mission failed.</English>
             </Key>
 
-            <Key ID="STR_DORB_MISSION_COMPOSITIONS_TITLE">
-                <German>Stellungen</German>
-                <English>Compositions</English>
-            </Key>
-            <Key ID="STR_DORB_MISSION_COMPOSITIONS">
-                <German>Vielen Dank an die Stellungsbauer: </German>
-                <English>Thanks to all Composition designers: </English>
-            </Key>
-
             <Key ID="STR_DORB_MISSION_RTB_TITLE">
                 <German>Return to Base</German>
                 <English>Return to Base</English>
@@ -1132,6 +1123,14 @@
         </Key>
     </Package>
     <Package name="missionobjects">
+        <Key ID="STR_DORB_MISSIONOBJECTS_COMPOSITIONS_TITLE">
+            <German>Stellungen</German>
+            <English>Compositions</English>
+        </Key>
+        <Key ID="STR_DORB_MISSIONOBJECTS_COMPOSITIONS">
+            <German>Vielen Dank an die Stellungsbauer: </German>
+            <English>Thanks to all Composition designers: </English>
+        </Key>
         <Key ID="STR_DORB_MISSIONOBJECTS_CASE_CARRY">
             <English>carray</English>
             <German>tragen</German>
