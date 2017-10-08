@@ -43,7 +43,7 @@ GVAR(allRespawnMarkerLocations) = [
 If ((toUpper worldName) isEqualTo "VR") exitWith {};
 [] spawn {
     SCRIPTIN(XEH_SERVERPOSTINIT,mission_init);
-
+    waitUntil {!isNil QEGVAR(worlds,isInitialized)};
     GVAR(taskCounter) = 0;
     [ConfigFile >> "CfgKerberos" >> QGVAR(statemachine_Taskmanager)] call CBA_statemachine_fnc_createFromConfig;
     uiSleep 30;

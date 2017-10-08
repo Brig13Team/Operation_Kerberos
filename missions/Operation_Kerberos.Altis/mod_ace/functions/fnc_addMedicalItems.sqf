@@ -13,7 +13,7 @@ If ((missionNamespace getVariable ["ace_medical_level", 0])<2) then {
     [_vehicle,"Medikit",9999,false] call CBA_fnc_removeItemCargo;
     [_vehicle,"FirstAidKit",9999,false] call CBA_fnc_removeItemCargo;
     {
-        _x params ["_classname","_count"]
+        _x params ["_classname","_count"];
         [_vehicle,_classname,9999,false] call CBA_fnc_removeItemCargo;
         [_vehicle,_classname,_count,false] call CBA_fnc_addItemCargo;
         nil
@@ -27,7 +27,7 @@ If ((missionNamespace getVariable ["ace_medical_level", 0])<2) then {
     [_vehicle,"Medikit",9999,false] call CBA_fnc_removeItemCargo;
     [_vehicle,"FirstAidKit",9999,false] call CBA_fnc_removeItemCargo;
     {
-        _x params ["_classname","_count"]
+        _x params ["_classname","_count"];
         [_vehicle,_classname,9999,false] call CBA_fnc_removeItemCargo;
         [_vehicle,_classname,_count,false] call CBA_fnc_addItemCargo;
         nil

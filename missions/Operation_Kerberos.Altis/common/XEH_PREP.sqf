@@ -22,6 +22,7 @@ PREP(getConfigClass);
 PREP(getMod);
 PREP(getModName);
 PREP(getModPicture);
+PREP(getRespawnPos);
 PREP(getRollPitchYaw);
 PREP(getRotMat);
 

@@ -11,6 +11,7 @@ PREP(getGunLenght);
 PREP(getMod);
 PREP(getModName);
 PREP(getModPicture);
+PREP(getRespawnPos);
 PREP(players);
 PREP(pos_between);
 PREP(pos_flatEmpty);
