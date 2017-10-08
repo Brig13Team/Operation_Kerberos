@@ -9,7 +9,7 @@
 #include "script_component.hpp"
 
 class DOUBLES(CfgComponent,ADDON) {
-    class postinit {server = 0;};
+    //class postinit {server = 0;};
     class preinit {};
     class dependencies {
         CfgPatches[] = {};

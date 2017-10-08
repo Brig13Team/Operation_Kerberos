@@ -14,7 +14,7 @@ If !(canSuspend) exitWIth {
 
 _this params [["_fastArsenal",false,[true]]];
 TRACEV_2(_fastArsenal,_this);
-[] call EFUNC(gui_echidna,close);
+[] call EFUNC(gui_main,close);
 
 If (GVAR(level)<1) exitWith {
     GVAR(isPreloaded) = true;

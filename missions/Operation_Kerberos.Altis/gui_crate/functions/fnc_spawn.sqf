@@ -60,4 +60,4 @@ _anzahl = GVAR(current) select 3;
 ["CRATE_SPAWNED",[_box]] spawn CBA_fnc_ServerEvent;
 disableSerialization;
 closeDialog IDD_CRATE_DLG;
-[] spawn EFUNC(gui_echidna,close);
+[] spawn EFUNC(gui_main,close);

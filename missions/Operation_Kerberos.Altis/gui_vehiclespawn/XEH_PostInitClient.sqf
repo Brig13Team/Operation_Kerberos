@@ -6,7 +6,7 @@ switch (side player) do {
         private _id = ["vehicles_west",vehiclesspawn_west] call FUNC(registerSpawn);
         [
             LSTRING(HEADER),
-            LSTRING(CATEGORIE),
+            LSTRING(CATEGORY_DEPOT),
             "",
             LINKFUNC(openMenu),
             LINKFUNC(canOpenMenu),
@@ -16,7 +16,7 @@ switch (side player) do {
         _id = ["air_west",airspawn_west] call FUNC(registerSpawn);
         [
             LSTRING(HEADER),
-            LSTRING(CATEGORIE),
+            LSTRING(CATEGORY_DEPOT),
             "",
             LINKFUNC(openMenu),
             LINKFUNC(canOpenMenu),
@@ -26,7 +26,7 @@ switch (side player) do {
         _id = ["naval_west",marinespawn_west] call FUNC(registerSpawn);
         [
             LSTRING(HEADER),
-            LSTRING(CATEGORIE),
+            LSTRING(CATEGORY_DEPOT),
             "",
             LINKFUNC(openMenu),
             LINKFUNC(canOpenMenu),
@@ -37,7 +37,7 @@ switch (side player) do {
         private _id = ["vehicles_east",vehiclesspawn_east] call FUNC(registerSpawn);
         [
             LSTRING(HEADER),
-            LSTRING(CATEGORIE),
+            LSTRING(CATEGORY_DEPOT),
             "",
             LINKFUNC(openMenu),
             LINKFUNC(canOpenMenu),
@@ -47,7 +47,7 @@ switch (side player) do {
         _id = ["air_east",airspawn_east] call FUNC(registerSpawn);
         [
             LSTRING(HEADER),
-            LSTRING(CATEGORIE),
+            LSTRING(CATEGORY_DEPOT),
             "",
             LINKFUNC(openMenu),
             LINKFUNC(canOpenMenu),
@@ -57,7 +57,7 @@ switch (side player) do {
         _id = ["naval_east",marinespawn_east] call FUNC(registerSpawn);
         [
             LSTRING(HEADER),
-            LSTRING(CATEGORIE),
+            LSTRING(CATEGORY_DEPOT),
             "",
             LINKFUNC(openMenu),
             LINKFUNC(canOpenMenu),
@@ -68,7 +68,7 @@ switch (side player) do {
         private _id = ["vehicles_resistance",vehiclesspawn_resistance] call FUNC(registerSpawn);
         [
             LSTRING(HEADER),
-            LSTRING(CATEGORIE),
+            LSTRING(CATEGORY_DEPOT),
             "",
             LINKFUNC(openMenu),
             LINKFUNC(canOpenMenu),
@@ -78,7 +78,7 @@ switch (side player) do {
         _id = ["air_resistance",airspawn_resistance] call FUNC(registerSpawn);
         [
             LSTRING(HEADER),
-            LSTRING(CATEGORIE),
+            LSTRING(CATEGORY_DEPOT),
             "",
             LINKFUNC(openMenu),
             LINKFUNC(canOpenMenu),
@@ -88,7 +88,7 @@ switch (side player) do {
         _id = ["naval_resistance",marinespawn_resistance] call FUNC(registerSpawn);
         [
             LSTRING(HEADER),
-            LSTRING(CATEGORIE),
+            LSTRING(CATEGORY_DEPOT),
             "",
             LINKFUNC(openMenu),
             LINKFUNC(canOpenMenu),

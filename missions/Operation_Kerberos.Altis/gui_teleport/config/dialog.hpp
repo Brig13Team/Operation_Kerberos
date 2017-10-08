@@ -44,7 +44,7 @@ class APP(dialog) : RSC(guiMenu) {
         idc = IDC_GUI_TELEPORT_TABLE;
         x = GUI_DISP_X+GUI_DISP_W*6;
         y = GUI_DISP_Y+GUI_DISP_H*12;
-        w = GUI_DISP_WAbs-GUI_DISP_W*24;
+        w = GUI_DISP_W*136;
         h = GUI_DISP_HAbs-GUI_DISP_H*20;
         rowHeight = GUI_DISP_H*3.5;
         headerHeight = GUI_DISP_H*3.5;
@@ -55,7 +55,7 @@ class APP(dialog) : RSC(guiMenu) {
             class RowBackground {
                 controlBaseClassPath[] = {"RscText"};
                 columnX = 0;
-                columnW = GUI_DISP_WAbs-GUI_DISP_W*15;
+                columnW = GUI_DISP_W*136;
                 controlOffsetY = 0;
             };
             class Column1 {
@@ -68,13 +68,13 @@ class APP(dialog) : RSC(guiMenu) {
             class Column2 {
                 controlBaseClassPath[] = {"RscText"};
                 columnX = GUI_DISP_W*4;
-                columnW = GUI_DISP_WAbs-GUI_DISP_W*38;
+                columnW = GUI_DISP_W*102;
                 controlOffsetY = GUI_DISP_H*0.1;
             };
             class Column3 {
                 controlBaseClassPath[] = {"RscButton"};
                 columnX = 25 * GUI_GRID_W;
-                columnW = GUI_DISP_WAbs-GUI_DISP_W*28;
+                columnW = GUI_DISP_W*30;
                 controlOffsetY = GUI_DISP_H*0.1;
             };
         };
@@ -82,13 +82,13 @@ class APP(dialog) : RSC(guiMenu) {
             class HeaderBackground {
                 controlBaseClassPath[] = {"RscText"};
                 columnX = 0;
-                columnW = GUI_DISP_WAbs-GUI_DISP_W*15;
+                columnW = GUI_DISP_W*136;
                 controlOffsetY = 0;
             };
             class Column1 {
                 controlBaseClassPath[] = {"RscText"};
                 columnX = GUI_DISP_W*4;
-                columnW = GUI_DISP_WAbs-GUI_DISP_W*28;
+                columnW = GUI_DISP_W*102;
                 controlOffsetY = GUI_DISP_H*0.1;
                 controlH = GUI_DISP_H*3;
             };

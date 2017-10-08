@@ -85,6 +85,10 @@
         </Key>
     </Package>
     <Package name="GUI_ARSENAL">
+        <Key ID="STR_DORB_GUI_ARSENAL_CATEGORY">
+            <German>Arsenal</German>
+            <English>Arsenal</English>
+        </Key>
         <Key ID="STR_DORB_GUI_ARSENAL_NOTEMPTY">
             <German>Arsenal öffnen</German>
             <English>open arsenal</English>
@@ -1292,12 +1296,16 @@
             <English>%2-%1-%3 %4:%5</English>
         </Key>
     </Package>
-    <Package name="gui_Echidna">
-        <Key ID="STR_DORB_GUI_ECHIDNA_SELFACTIONGROUP">
+    <Package name="gui_MAIN">
+        <Key ID="STR_DORB_GUI_MAIN_CATEGORY_DEPOT">
+            <German>Depot</German>
+            <English>Depot</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_MAIN_SELFACTIONGROUP">
             <German>Echidna</German>
             <English>echidna</English>
         </Key>
-        <Key ID="STR_DORB_GUI_ECHIDNA_SHUTDOWN">
+        <Key ID="STR_DORB_GUI_MAIN_SHUTDOWN">
             <German>Ausschalten</German>
             <English>shutdown</English>
         </Key>

@@ -17,7 +17,7 @@
 
 disableSerialization;
 
-private _dialog = uiNamespace getVariable [QEGVAR(gui_Echidna,dialog),(findDisplay IDD_ECHIDNA_ARSENAL)];
+private _dialog = uiNamespace getVariable [QEGVAR(gui_main,dialog),(findDisplay IDD_GUI_ARSENAL)];
 private _list = _dialog displayCtrl IDC_GUI_ARSENAL_LIST;
 TRACEV_2(_dialog,_list);
 private _selIndex = lbCurSel _list;

@@ -4,10 +4,10 @@ PREP(blur);
 
 PREP(endLoadingBar);
 PREP(endLoadingScreen);
-PREP(getColor)
-PREP(getColorGreadient);
+PREP(getColor);
+PREP(getColorGradient);
 
-PREP(handleNotification);
+PREP(handleNotifications);
 PREP(handleTimer);
 PREP(isLoadingBarShown);
 
@@ -19,7 +19,7 @@ PREP(onLoadLoadingscreen);
 PREP(progressLoadingBar);
 PREP(progressLoadingScreen);
 PREP(removeAllNotifications);
-PREP(removeNotifications);
+PREP(removeNotification);
 
 PREP(setTimer);
 PREP(setTimerGlobal);

@@ -69,4 +69,4 @@ If (GVAR(option_spawnAsDriver)) then {
 };
 
 (uiNamespace getVariable [QEGVAR(gui_main,dialog),(findDisplay IDD_GUI_MAIN)]) closeDisplay 0;
-[] call EFUNC(gui_echidna,close);
+[] call EFUNC(gui_main,close);

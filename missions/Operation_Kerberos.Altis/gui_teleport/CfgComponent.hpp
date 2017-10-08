@@ -14,7 +14,7 @@ class DOUBLES(CfgComponent,ADDON) {
     class preinit {};
     class dependencies {
         CfgPatches[] = {};
-        CfgComponents[] = {"common","gui"};
+        CfgComponents[] = {"common","gui","gui_main"};
     };
 };
 

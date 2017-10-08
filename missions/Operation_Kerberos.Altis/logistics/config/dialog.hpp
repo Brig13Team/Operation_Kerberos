@@ -34,8 +34,8 @@ class APP(helper) {
         style = "0x02";
         font = GUI_FONT_BOLD;
         text = "";
-        colorText[] = COLOR_TABLET_MAIN_TEXT;
-        colorBackground[] = {RAL9005,1};
+        colorText[] = COLOR_BASE_WHITE;
+        colorBackground[] = COLOR_BASE_BLACK;
     };
 
     class controlTable : RSC(ControlsTable) {
