@@ -104,16 +104,3 @@
 #define GUI_GRID_CENTER_H GUI_GRID_H
 #define GUI_GRID_CENTER_X (safezoneX + (safezoneW - GUI_GRID_CENTER_WAbs)/2)
 #define GUI_GRID_CENTER_Y (safezoneY + (safezoneH - GUI_GRID_CENTER_HAbs)/2)
-
-#define GUI_TIMER_BACK_X (safezoneX + 0.5 * GUI_GRID_W)
-#define GUI_TIMER_BACK_Y (safezoneY + safezoneH - 5.5 * GUI_GRID_H)
-#define GUI_TIMER_BACK_H (2 * GUI_GRID_H)
-#define GUI_TIMER_BACK_W (4 * GUI_GRID_W)
-#define GUI_TIMER_PIC_X GUI_TIMER_BACK_X
-#define GUI_TIMER_PIC_Y GUI_TIMER_BACK_Y
-#define GUI_TIMER_PIC_H (2 * GUI_GRID_H)
-#define GUI_TIMER_PIC_W (2 * GUI_GRID_W)
-#define GUI_TIMER_TEXT_X (GUI_TIMER_BACK_X + GUI_TIMER_PIC_W * 0.9)
-#define GUI_TIMER_TEXT_Y GUI_TIMER_BACK_Y
-#define GUI_TIMER_TEXT_H (2 * GUI_GRID_H)
-#define GUI_TIMER_TEXT_W (1.8 * GUI_GRID_W)
