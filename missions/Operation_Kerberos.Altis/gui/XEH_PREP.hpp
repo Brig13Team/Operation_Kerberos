@@ -8,7 +8,7 @@ PREP(getColor);
 PREP(getColorGradient);
 
 PREP(handleNotifications);
-PREP(handleTimer);
+PREP(hideTimer);
 PREP(isLoadingBarShown);
 
 PREP(message);
@@ -23,6 +23,7 @@ PREP(removeNotification);
 
 PREP(setTimer);
 PREP(setTimerGlobal);
+PREP(showTimer);
 PREP(sortButton);
 PREP(startLoadingBar);
 PREP(startLoadingScreen);

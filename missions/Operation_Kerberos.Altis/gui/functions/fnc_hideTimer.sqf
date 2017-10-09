@@ -1,6 +1,6 @@
 /**
  * Author: Dorbedo
- * stops the timer
+ * hides the timer
  *
  * Arguments:
  * Nothing
@@ -12,6 +12,5 @@
 
 #include "script_component.hpp"
 
-GVAR(timer_code) = {};
-GVAR(timer_parameter) = [];
-GVAR(timer_finish) = -1;
+GVAR(timerIsShown) = false;
+([QGVAR(timer)] call BIS_fnc_rscLayer) cutText ["","PLAIN",0,true];
