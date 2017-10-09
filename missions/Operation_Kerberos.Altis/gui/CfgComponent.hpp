@@ -20,3 +20,4 @@ class DOUBLES(CfgComponent,ADDON) {
 #include "script_gui.hpp"
 #include "config\rsc_base.hpp"
 #include "config\rsc_titles.hpp"
+#include "config\dialog.hpp"

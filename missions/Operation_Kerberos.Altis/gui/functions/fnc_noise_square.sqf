@@ -1,35 +1,32 @@
-/*
- *  Author: Dorbedo
+/**
+ * Author: Dorbedo
+ * shows the square noise
  *
- *  Description:
- *      Shows the square noise
+ * Arguments:
+ * 0: <DISPLAY> the noise display
  *
- *  Parameter(s):
- *      0 : DISPLAY - the display to show the noise
- *
- *  Returns:
- *      none
+ * Return Value:
+ * Nothing
  *
  */
-#define INCLUDE_GUI
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 #define ALPHA_MAX 0.3
 #define ALPHA_INTERVALL 0.001
 
-#define COLOR RAL8022
+#define COLOR 0.1294117,0.1294117,0.1294117
 
 disableSerialization;
-_this params [["_display",displayNull,[displayNull]]];
+params [["_display",displayNull,[displayNull]]];
 
-CHECK(isNull _display)
+If (isNull _display) exitWith {};
 
 private _noise = _display displayCtrl IDC_LOADING_NOISE;
 
-CHECK(isNull _noise)
+If (isNull _noise) exitWith {};
 
-
-/// init
+// init
 
 for "_i" from 0 to 5 do {
     for "_j" from 0 to 5 do {
@@ -62,7 +59,6 @@ GVAR(loading_alpha4) = (2*ALPHA_MAX / 3);
         If (GVAR(loading_alpha3)>ALPHA_MAX) then {GVAR(loading_alpha3) = - ALPHA_MAX;};
         If (GVAR(loading_alpha4)>ALPHA_MAX) then {GVAR(loading_alpha4) = - ALPHA_MAX;};
 
-        //for "_i" from 0 to 49 do {
         for "_i" from 0 to 35 do {
 
             private _ctrl = _controlsGrp controlsGroupCtrl (IDC_LOADING_NOISE1 + _i);
@@ -72,19 +68,7 @@ GVAR(loading_alpha4) = (2*ALPHA_MAX / 3);
                 case 1 : { _ctrl ctrlSetBackgroundColor [COLOR, abs GVAR(loading_alpha3)];};
                 case 0 : { _ctrl ctrlSetBackgroundColor [COLOR, abs GVAR(loading_alpha2)];};
                 default { _ctrl ctrlSetBackgroundColor [COLOR, abs GVAR(loading_alpha)];};
-
-
-
             };
-            /*
-            If ((_i mod 2)==0) then {
-                _ctrl ctrlSetBackgroundColor [COLOR, abs GVAR(loading_alpha)];
-            }else{
-                _ctrl ctrlSetBackgroundColor [COLOR,abs GVAR(loading_alpha2)];
-            };
-            */
-
-
             _ctrl ctrlCommit 0;
         };
     },

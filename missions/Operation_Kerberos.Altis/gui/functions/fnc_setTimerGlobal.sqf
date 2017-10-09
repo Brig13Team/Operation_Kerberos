@@ -20,7 +20,7 @@ if (!isServer) exitWith {
     [QGVAR(setTimerServer),_this] call CBA_fnc_serverEvent;
 };
 
-_this params [["_timer",-1,[0]],["_code",{},["",{}]],["_parameter",[],[[]]]];
+params [["_timer",-1,[0]],["_code",{},["",{}]],["_parameter",[],[[]]]];
 
 GVAR(timer_finish) = CBA_missiontime + _timer;
 GVAR(timer_code) = _code;

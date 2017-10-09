@@ -15,10 +15,6 @@
 
 params ["_event", "_params"];
 
-//private _display = uiNamespace getVariable [QEGVAR(gui_main, dialog), (findDisplay IDD_GUI_MAIN)];
-
-LOG_1("_this",_this);
-
 switch (toLower _event) do {
     case "switch" : {
         _params params ["_ctrl"];

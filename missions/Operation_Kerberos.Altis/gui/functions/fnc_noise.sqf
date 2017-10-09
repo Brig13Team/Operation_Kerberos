@@ -16,7 +16,7 @@
 #include "script_component.hpp"
 
 disableSerialization;
-_this params [["_display",displayNull,[displayNull]]];
+params [["_display",displayNull,[displayNull]]];
 
 CHECK(isNull _display)
 

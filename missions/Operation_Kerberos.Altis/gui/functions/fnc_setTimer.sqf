@@ -16,7 +16,7 @@
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-_this params [["_timer",-1,[0]],["_code",{},["",{}]],["_parameter",[],[[]]]];
+params [["_timer",-1,[0]],["_code",{},["",{}]],["_parameter",[],[[]]]];
 
 GVAR(timer_finish) = CBA_missiontime + _timer;
 GVAR(timer_code) = _code;

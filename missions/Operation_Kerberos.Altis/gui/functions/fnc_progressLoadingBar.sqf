@@ -14,10 +14,9 @@
  *
  */
 //#define DEBUG_MODE_FULL
-#define INCLUDE_GUI
 #include "script_component.hpp"
 
-_this params [["_value",0,[0]],["_value_min",0,[0]],["_value_max",1,[0]]];
+params [["_value",0,[0]],["_value_min",0,[0]],["_value_max",1,[0]]];
 
 private _progress = _value / (_value_max - _value_min);
 
