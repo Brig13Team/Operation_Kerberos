@@ -11,7 +11,7 @@
  * <TYPENAME> return name
  *
  */
-
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 params [
@@ -20,12 +20,14 @@ params [
     ["_spawnDir",nil,[0]]
 ];
 
-If (isNil "_spawnDir") then {
-    if (IS_OBJECT(_spawnPosition)) then {
-        _spawnDir = getDir _spawnPosition;
-    } else {
-        _spawnDir = 0;
-    };
+If (_spawnPosition isEqualTo []) exitWith {
+    ERROR("No spawnposition");
+};
+
+If ((isNil "_spawnDir")&&{IS_OBJECT(_spawnPosition)}) then {
+    _spawnDir = getDir _spawnPosition;
+} else {
+    _spawnDir = 0;
 };
 
 if (IS_OBJECT(_spawnPosition)) then {
@@ -34,5 +36,6 @@ if (IS_OBJECT(_spawnPosition)) then {
 
 private _id = str GVAR(spawnID);
 INC(GVAR(spawnID));
+TRACEV_5(_id,_vehicleList,_spawnPosition,_spawnDir,_this);
 GVAR(spawns) setVariable [_id,[_vehicleList,_spawnPosition,_spawnDir]];
 _id

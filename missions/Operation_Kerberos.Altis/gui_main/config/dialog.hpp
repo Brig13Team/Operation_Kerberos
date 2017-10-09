@@ -179,9 +179,9 @@ class RSC(MetroBttn) : RSC(BaseButton) {
     colorFocused[]= COLOR_DISABLED;
     colorBackgroundDisabled[]= COLOR_DISABLED;
     //colorText[] = COLOR_DISABLED;
-    colorDisabled[] = COLOR_DISABLED;
+    //colorDisabled[] = COLOR_DISABLED;
     colorText[] = COLOR_METRO_BTTN_TEXT;
-    //colorDisabled[] = COLOR_METRO_BTTN_TEXT_DISABLED;
+    colorDisabled[] = COLOR_METRO_BTTN_TEXT_DISABLED;
     shadow = 0;
     colorShadow[] = COLOR_DISABLED;
     font = FONT_DEFAULT;

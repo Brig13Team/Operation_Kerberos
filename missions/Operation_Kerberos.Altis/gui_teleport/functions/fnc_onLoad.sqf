@@ -63,7 +63,7 @@ If ((GVAR(teleport_lead_active))&&{_type == "infanterie"}) then {
         GUI_DISP_Y+GUI_DISP_HAbs-GUI_DISP_H*14,
         GUI_DISP_W*10,
         GUI_DISP_H*10,
-        _display
+        _dialog
     ]
 ] call EFUNC(gui,animButton)) params ["_ctrlButton", "_ctrlBackground"];
 _ctrlButton ctrlSetText "A3\ui_f\data\gui\cfg\Hints\map_ca.paa";

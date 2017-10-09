@@ -15,7 +15,7 @@
  * Nothing
  *
  */
-
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 If !(hasInterface) exitWith {};
@@ -30,7 +30,7 @@ params [
     ["_color", "randomMetro", ["",[]],[3,4]],
     ["_preventAction", false, [true]]
 ];
-
+TRACEV_3(_displayName,_categorie,_picture);
 If (isLocalized _displayName) then {
     _displayName = localize _displayName;
 };

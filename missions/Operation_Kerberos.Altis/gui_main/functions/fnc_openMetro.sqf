@@ -9,7 +9,7 @@
  * <TYPENAME> return name
  *
  */
-
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 disableSerialization;
@@ -27,7 +27,7 @@ If !(isNull _ctrlGroup) exitWith {
 
 _ctrlGroup = _display ctrlCreate [QRSC(Metro),IDC_GUI_MAIN_METRO_GRP];
 _display setVariable [QGVAR(metro),_ctrlGroup];
-
+//TRACEV_2(_ctrlGroup,_display);
 private _ctrlGroupbackground = _ctrlGroup controlsGroupCtrl IDC_GUI_MAIN_METRO_BACK;
 private _allCategories = allVariables GVAR(Applications);
 
@@ -43,7 +43,7 @@ private _yNull = GUI_DISP_H*14;
 {
     private _curCategorie = _x;
     private _curButtons = GVAR(Applications) getVariable _curCategorie;
-
+    //TRACEV_2(_display,_curButtons);
     private _catName = _display ctrlCreate [QRSC(MetroCategorie), -1, _ctrlGroup];
     _catName ctrlSetPosition [_xNull, _yNull - GUI_DISP_H * 10];
     _catName ctrlSetText _curCategorie;
@@ -61,7 +61,6 @@ private _yNull = GUI_DISP_H*14;
     private _index = 0;
     {
         _x params ["_displayName", "_picture", "_function", "_condition", "_parameter", "_color"];
-        //LOG_6("_active=%6 - _disp=%1 - _pic=%2 - _func=%3 - _cond=%4 - _param=%5", _displayName, _picture, _function, _condition, _parameter, _parameter call _condition);
         private _posX = _xNull;
         private _posY = _yNull + _index * (METRO_BTTN_SIZEH+METRO_BTTN_DISTH);
         _index = If (_index >= 4) then {
@@ -72,28 +71,35 @@ private _yNull = GUI_DISP_H*14;
         };
         private ["_ctrl", "_ctrlBack"];
         If (_picture isEqualTo "") then {
-            _ctrl = ["createText", [_posX, _posY]] call FUNC(metroBttn);
+            _ctrl = ["createText", [_posX, _posY], _ctrlGroup] call FUNC(metroBttn);
             _ctrlBack = _ctrl select 1;
             _ctrl = _ctrl select 0;
             _ctrl ctrlSetText _displayName;
         } else {
-            _ctrl = ["create", [_posX, _posY]] call FUNC(metroBttn);
+            _ctrl = ["create", [_posX, _posY], _ctrlGroup] call FUNC(metroBttn);
             _ctrlBack = _ctrl select 1;
             _ctrl = _ctrl select 0;
             _ctrl ctrlSetText _picture;
         };
+        TRACEV_4(_displayname,_picture,uiNamespace getvariable 'GVAR(metroBttns)',_ctrl);
         _ctrl ctrlSetTooltip _displayName;
         _ctrl ctrlSetTextColor [1, 1, 1, 1];
 
         If ([ace_player,ace_player,_parameter] call _condition) then {
             _ctrl ctrlEnable true;
             _ctrl setVariable [QGVAR(function), _function];
-            _ctrl setVariable [QGVAR(params), _parameter];
-            _ctrl ctrlAddEventHandler ["ButtonClick", {((_this select 0) getVariable QGVAR(params)) call ((_this select 0) getVariable QGVAR(function))}];
+            _ctrl setVariable [QGVAR(params), [ace_player,ace_player,_parameter]];
+            _ctrl ctrlAddEventHandler ["ButtonClick", {
+                private _params = (_this select 0) getVariable QGVAR(params);
+                private _fnc = (_this select 0) getVariable QGVAR(function);
+                [ctrlParent (_this select 0)] call FUNC(close);
+                _params call _fnc;
+                false;
+            }];
         } else {
             _ctrl ctrlEnable false;
             _ctrl ctrlRemoveAllEventHandlers "ButtonClick";
-            _ctrl ctrlSetTextColor [1, 1, 1, 0.4];
+            _ctrl ctrlSetTextColor [1, 1, 1, 0.7];
         };
         _ctrl ctrlCommit 0;
         _ctrlBack ctrlSetTextColor _color;

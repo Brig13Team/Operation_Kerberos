@@ -118,195 +118,287 @@
             <English>Fast Arsenal Template Loading</English>
         </Key>
     </Package>
-    <Package name="GUI_SPAWN">
-        <Key ID="STR_DORB_GUI_SPAWN_CARRIER_VEHICLES">
-            <German>Fahrzeugspawn</German>
-            <English>Vehicle Spawn</English>
+    <Package name="GUI_VEHICLESPAWN">
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_CATEGORIE">
+            <German>Fahrzeugdepots</German>
         </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_CARRIER_LANDINGBAY_VEHICLES">
-            <German>Fahrzeugspawn</German>
-            <English>Vehicle Spawn</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_CARRIER_AIR">
-            <German>Luftwaffenspawn</German>
-            <English>Aircraft Spawn</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_CARRIER_MARINE">
-            <German>Marinespawn</German>
-            <English>Naval Spawn</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_VEHICLES">
-            <German>Fahrzeugspawn</German>
-            <English>Vehicle Spawn</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_HELICOPTER">
-            <German>Helicopter</German>
-            <English>Helicopter Spawn</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_PLANES">
-            <German>Flugzeuge</German>
-            <English>Planes Spawn</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_AIR">
-            <German>Luftwaffenspawn</German>
-            <English>Aircraft Spawn</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_AIR_LIGHT">
-            <German>Luftwaffenspawn</German>
-            <English>Aircraft Spawn</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_BOAT">
-            <German>Marinespawn</German>
-            <English>Naval Spawn</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_DRONES">
-            <German>Drohnenspawn</German>
-            <English>Drone Spawn</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_LOGISTIC">
-            <German>Versorgungsdepot</German>
-            <English>Supply Depot</English>
-        </Key>
-
-        <Key ID="STR_DORB_GUI_SPAWN_VEHICLES_WEST">
-            <German>Fahrzeugspawn</German>
-            <English>Vehicle Spawn</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_HELICOPTER_WEST">
-            <German>Helicopter</German>
-            <English>Helicopter Spawn</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_PLANES_WEST">
-            <German>Flugzeuge</German>
-            <English>Planes Spawn</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_AIR_WEST">
-            <German>Luftwaffenspawn</German>
-            <English>Aircraft Spawn</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_AIR_LIGHT_WEST">
-            <German>Luftwaffenspawn</German>
-            <English>Aircraft Spawn</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_BOAT_WEST">
-            <German>Marinespawn</German>
-            <English>Naval Spawn</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_DRONES_WEST">
-            <German>Drohnenspawn</German>
-            <English>Drone Spawn</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_LOGISTIC_WEST">
-            <German>Versorgungsdepot</German>
-            <English>Supply Depot</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_VEHICLES_EAST">
-            <German>Fahrzeugspawn</German>
-            <English>Vehicle Spawn</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_HELICOPTER_EAST">
-            <German>Helicopter</German>
-            <English>Helicopter Spawn</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_PLANES_EAST">
-            <German>Flugzeuge</German>
-            <English>Planes Spawn</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_AIR_EAST">
-            <German>Luftwaffenspawn</German>
-            <English>Aircraft Spawn</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_AIR_LIGHT_EAST">
-            <German>Luftwaffenspawn</German>
-            <English>Aircraft Spawn</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_BOAT_EAST">
-            <German>Marinespawn</German>
-            <English>Naval Spawn</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_DRONES_EAST">
-            <German>Drohnenspawn</German>
-            <English>Drone Spawn</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_LOGISTIC_EAST">
-            <German>Versorgungsdepot</German>
-            <English>Supply Depot</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_VEHICLES_RESISTANCE">
-            <German>Fahrzeugspawn</German>
-            <English>Vehicle Spawn</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_HELICOPTER_RESISTANCE">
-            <German>Helicopter</German>
-            <English>Helicopter Spawn</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_PLANES_RESISTANCE">
-            <German>Flugzeuge</German>
-            <English>Planes Spawn</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_AIR_RESISTANCE">
-            <German>Luftwaffenspawn</German>
-            <English>Aircraft Spawn</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_AIR_LIGHT_RESISTANCE">
-            <German>Luftwaffenspawn</German>
-            <English>Aircraft Spawn</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_BOAT_RESISTANCE">
-            <German>Marinespawn</German>
-            <English>Naval Spawn</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_DRONES_RESISTANCE">
-            <German>Drohnenspawn</German>
-            <English>Drone Spawn</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_LOGISTIC_RESISTANCE">
-            <German>Versorgungsdepot</German>
-            <English>Supply Depot</English>
-        </Key>
-
-
-        <Key ID="STR_DORB_GUI_SPAWN_PROPERTY_DISPLAYNAME">
-            <German>Name</German>
-            <English>Name</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_PROPERTY_EMPTY">
-            <German> </German>
-            <English> </English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_PROPERTY_MASS">
-            <German>Fahrzeuggewicht</German>
-            <English>Vehiclemass</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_PROPERTY_WEAPONS">
-            <German>Waffen:</German>
-            <English>Weapons:</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_PROPERTY_cargonumber">
-            <German>Pasagieranzahl:</German>
-            <English>Number of Passengers:</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_HEADER">
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_HEADER">
             <German>Fahrzeugdepot</German>
-            <English>Vehicle Spawn</English>
         </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_ERRORMSG">
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_BTTN_INFO">
+            <German>Informationen</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_BTTN_OBJ">
+            <German>3D Ansicht</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_BTTN_AMMO">
+            <German>Munition</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_BTTN_OPT">
+            <German>Optionen</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_BTTN_CLEAR">
+            <German>Position leeren</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_BTTN_CREATE">
+            <German>Fahrzeug erschaffen</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_HEADER_MODS">
+            <German>Mods</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_HEADER_NAME">
+            <German>Fahrzeug</German>
+        </Key>
+
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROP_NOAMMO">
+            <German>Ohne Munition</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROP_SPAWNEMPTY">
+            <German>Inventar leeren</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROP_NOSPAREPARTS">
+            <German>Keine Ersatzteile</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROP_SPAWNASDRIVER">
+            <German>Als Fahrer erschaffen</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROP_NOVEHICLE">
+            <German>Kein Fahrzeug ausgewählt</German>
+        </Key>
+
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROP_YES">
+            <German>Ja</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROP_NO">
+            <German>Nein</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROP_MAXSPEED">
+            <German>Höchstgeschwindigkeit:</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROP_FUELSIZE">
+            <German>Tankvolumen:</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROP_ISMEDIC">
+            <German>Ist Medic-Fahrzeug:</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROP_ISAMMO">
+            <German>Ist Munitions-Fahrzeug:</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROP_CARGOSPACE">
+            <German>ACE-Frachtplätze:</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROP_ARMOR">
+            <German>Panzerungswert:</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROP_WEAPONS">
+            <German>Waffen:</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROP_NOWEAPONS">
+            <German>Keine</German>
+        </Key>
+
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_ERRORMSG">
             <German>Fehler</German>
             <English>Error</English>
         </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_NOTEMPTY">
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_NOTEMPTY">
             <German>Spawnfläche ist nicht leer</German>
             <English>Spawn point is not empty</English>
         </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_ISRESTRICTED">
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_ISRESTRICTED">
+            <German>Du hast keine Berechtigung das Fahrzeug zu spawnen</German>
+            <English>You are not allowed to spawn this vehicle</English>
+        </Key>
+    </Package>
+    <Package name="GUI_VEHICLESPAWN">
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_CARRIER_VEHICLES">
+            <German>Fahrzeugspawn</German>
+            <English>Vehicle Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_CARRIER_LANDINGBAY_VEHICLES">
+            <German>Fahrzeugspawn</German>
+            <English>Vehicle Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_CARRIER_AIR">
+            <German>Luftwaffenspawn</German>
+            <English>Aircraft Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_CARRIER_MARINE">
+            <German>Marinespawn</German>
+            <English>Naval Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_VEHICLES">
+            <German>Fahrzeugspawn</German>
+            <English>Vehicle Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_HELICOPTER">
+            <German>Helicopter</German>
+            <English>Helicopter Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_PLANES">
+            <German>Flugzeuge</German>
+            <English>Planes Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_AIR">
+            <German>Luftwaffenspawn</German>
+            <English>Aircraft Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_AIR_LIGHT">
+            <German>Luftwaffenspawn</German>
+            <English>Aircraft Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_BOAT">
+            <German>Marinespawn</German>
+            <English>Naval Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_DRONES">
+            <German>Drohnenspawn</German>
+            <English>Drone Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_LOGISTIC">
+            <German>Versorgungsdepot</German>
+            <English>Supply Depot</English>
+        </Key>
+
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_VEHICLES_WEST">
+            <German>Fahrzeugspawn</German>
+            <English>Vehicle Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_HELICOPTER_WEST">
+            <German>Helicopter</German>
+            <English>Helicopter Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_PLANES_WEST">
+            <German>Flugzeuge</German>
+            <English>Planes Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_AIR_WEST">
+            <German>Luftwaffenspawn</German>
+            <English>Aircraft Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_AIR_LIGHT_WEST">
+            <German>Luftwaffenspawn</German>
+            <English>Aircraft Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_BOAT_WEST">
+            <German>Marinespawn</German>
+            <English>Naval Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_DRONES_WEST">
+            <German>Drohnenspawn</German>
+            <English>Drone Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_LOGISTIC_WEST">
+            <German>Versorgungsdepot</German>
+            <English>Supply Depot</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_VEHICLES_EAST">
+            <German>Fahrzeugspawn</German>
+            <English>Vehicle Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_HELICOPTER_EAST">
+            <German>Helicopter</German>
+            <English>Helicopter Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_PLANES_EAST">
+            <German>Flugzeuge</German>
+            <English>Planes Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_AIR_EAST">
+            <German>Luftwaffenspawn</German>
+            <English>Aircraft Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_AIR_LIGHT_EAST">
+            <German>Luftwaffenspawn</German>
+            <English>Aircraft Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_BOAT_EAST">
+            <German>Marinespawn</German>
+            <English>Naval Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_DRONES_EAST">
+            <German>Drohnenspawn</German>
+            <English>Drone Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_LOGISTIC_EAST">
+            <German>Versorgungsdepot</German>
+            <English>Supply Depot</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_VEHICLES_RESISTANCE">
+            <German>Fahrzeugspawn</German>
+            <English>Vehicle Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_HELICOPTER_RESISTANCE">
+            <German>Helicopter</German>
+            <English>Helicopter Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_PLANES_RESISTANCE">
+            <German>Flugzeuge</German>
+            <English>Planes Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_AIR_RESISTANCE">
+            <German>Luftwaffenspawn</German>
+            <English>Aircraft Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_AIR_LIGHT_RESISTANCE">
+            <German>Luftwaffenspawn</German>
+            <English>Aircraft Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_BOAT_RESISTANCE">
+            <German>Marinespawn</German>
+            <English>Naval Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_DRONES_RESISTANCE">
+            <German>Drohnenspawn</German>
+            <English>Drone Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_LOGISTIC_RESISTANCE">
+            <German>Versorgungsdepot</German>
+            <English>Supply Depot</English>
+        </Key>
+
+
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROPERTY_DISPLAYNAME">
+            <German>Name</German>
+            <English>Name</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROPERTY_EMPTY">
+            <German> </German>
+            <English> </English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROPERTY_MASS">
+            <German>Fahrzeuggewicht</German>
+            <English>Vehiclemass</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROPERTY_WEAPONS">
+            <German>Waffen:</German>
+            <English>Weapons:</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROPERTY_cargonumber">
+            <German>Pasagieranzahl:</German>
+            <English>Number of Passengers:</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_HEADER">
+            <German>Fahrzeugdepot</German>
+            <English>Vehicle Spawn</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_ERRORMSG">
+            <German>Fehler</German>
+            <English>Error</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_NOTEMPTY">
+            <German>Spawnfläche ist nicht leer</German>
+            <English>Spawn point is not empty</English>
+        </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_ISRESTRICTED">
             <German>Du hast keine Berechtigung das Fahrzeug zu bestellen</German>
             <English>You are not allowed to spawn this vehicle</English>
         </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_BTTN_CLEAR">
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_BTTN_CLEAR">
             <German>Bereich säubern</German>
             <English>Clear Spawn Area</English>
         </Key>
-        <Key ID="STR_DORB_GUI_SPAWN_BTTN_SPAWN">
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_BTTN_SPAWN">
             <German>Erschaffen</German>
             <English>Spawn</English>
         </Key>
@@ -1297,6 +1389,14 @@
         </Key>
     </Package>
     <Package name="gui_MAIN">
+        <Key ID="STR_DORB_GUI_MAIN_HEADER">
+            <English>Echidna</English>
+            <German>Echidna</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_MAIN_DATEFORMAT">
+            <English>%1:%2%3%6-%4-%5</English>
+            <German>%1:%2%3%4.%5.%6</German>
+        </Key>
         <Key ID="STR_DORB_GUI_MAIN_CATEGORY_DEPOT">
             <German>Depot</German>
             <English>Depot</English>

@@ -10,21 +10,21 @@
  * <CONTROL> the button
  *
  */
-
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 params ["_event", ["_params", [controlNull]]];
 
 private _display = uiNamespace getVariable [QEGVAR(gui_main, dialog), (findDisplay IDD_GUI_MAIN)];
-private _ctrlGroup = _display displayCtrl IDC_GUI_MAIN_METRO_GRP;
+//private _ctrlGroup = _display displayCtrl IDC_GUI_MAIN_METRO_GRP;
 //LOG_3("%1 - %2  - %3", _display, _ctrlGroup, _params);
-
+//TRACEV_2(_display,_ctrlGroup);
 
 switch (toLower _event) do {
     case "create" : {
-        _params params [["_posX", 0, [0]], ["_posY", 0, [0]]];
+        _params params [["_posX", 0, [0]], ["_posY", 0, [0]],["_ctrlGroup", _display displayCtrl IDC_GUI_MAIN_METRO_GRP]];
         private _idc = (count (uiNamespace getVariable [QGVAR(metroBttns), []]))*3 + IDC_GUI_MAIN_METRO_BTTN_START;
-        //LOG_2("idc=%1 - %2", _idc, (uiNamespace getVariable [ARR_2(QGVAR(metroBttns), [])]));
+        //TRACEV_4(_display,_ctrlGroup,_idc, (uiNamespace getVariable [ARR_2('GVAR(metroBttns)', [])]));
         private _ctrlPicture = _display ctrlCreate [QRSC(MetroBttn_background), _idc, _ctrlGroup];
         _ctrlPicture ctrlSetPosition [_posX + GUI_DISP_W, _posY];
         _ctrlPicture ctrlCommit 0;
@@ -46,7 +46,7 @@ switch (toLower _event) do {
         [_ctrlBttn, _ctrlPicture]
     };
     case "createtext" : {
-        _params params [["_posX", 0, [0]], ["_posY", 0, [0]]];
+        _params params [["_posX", 0, [0]], ["_posY", 0, [0]],["_ctrlGroup", _display displayCtrl IDC_GUI_MAIN_METRO_GRP]];
         private _idc = (count (uiNamespace getVariable [QGVAR(metroBttns), []]))*3 + IDC_GUI_MAIN_METRO_BTTN_START;
         //LOG_2("TEXT:idc=%1 - %2", _idc, (uiNamespace getVariable [ARR_2(QGVAR(metroBttns), [])]));
         private _ctrlPicture = _display ctrlCreate [QRSC(MetroBttn_background), _idc, _ctrlGroup];

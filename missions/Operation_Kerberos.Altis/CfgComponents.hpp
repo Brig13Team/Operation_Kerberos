@@ -46,7 +46,7 @@ class CfgComponents {
 
     gui = 1;
     gui_main = 1;
-    gui_vehiclesspawn = 1;
+    gui_vehiclespawn = 1;
     gui_arsenal = 1;
     gui_teleport = 1;
 };

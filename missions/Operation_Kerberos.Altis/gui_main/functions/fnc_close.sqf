@@ -14,5 +14,7 @@
 
 If (!dialog) exitWith {};
 
+[] call FUNC(closeMetro);
+
 closeDialog IDD_GUI_MAIN;
 nil;

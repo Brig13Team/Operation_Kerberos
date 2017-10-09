@@ -31,7 +31,7 @@ class APP(dialog) : RSC(guiMenu) {
         idc = -1;
         x = GUI_DISP_X+GUI_DISP_W*2;
         y = GUI_DISP_Y+GUI_DISP_H*10;
-        w = GUI_DISP_W*70;
+        w = GUI_DISP_W*121;
         h = GUI_DISP_H*78;
         text = "";
         colorBackground[] = COLOR_ARSENAL_BACKGROUND2;
@@ -41,9 +41,9 @@ class APP(dialog) : RSC(guiMenu) {
         access = 1;
         idc = IDC_GUI_ARSENAL_LIST;
         x = GUI_DISP_X+GUI_DISP_W*3;
-        y = GUI_DISP_Y+GUI_DISP_H*16;
-        w = GUI_DISP_W*68;
-        h = GUI_DISP_H*71;
+        y = GUI_DISP_Y+GUI_DISP_H*11;
+        w = GUI_DISP_W*120;
+        h = GUI_DISP_H*76;
         sizeEx = GUI_DISP_H*3;
         rowHeight = GUI_DISP_H*3.5;
         tooltip = "";
@@ -59,10 +59,10 @@ class APP(dialog) : RSC(guiMenu) {
     };
     class loadButton : RSC(BaseButton) {
         idc = IDC_GUI_ARSENAL_BTTN;
-        x = GUI_DISP_X+GUI_DISP_WAbs-GUI_DISP_W*26;
-        y = GUI_DISP_Y+GUI_DISP_HAbs-GUI_DISP_H*12;
+        x = GUI_DISP_X+GUI_DISP_WAbs-GUI_DISP_W*14;
+        y = GUI_DISP_Y+GUI_DISP_HAbs-GUI_DISP_H*6;
         w = GUI_DISP_W*10;
-        h = GUI_DISP_H*10;
+        h = GUI_DISP_H*4;
         text = "load";
     };
 };
