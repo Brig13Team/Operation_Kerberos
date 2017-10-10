@@ -5,10 +5,7 @@ class Extended_PreInit_EventHandlers {
 };
 
 class Extended_PostInit_EventHandlers {
-    class DOUBLES(ADDON,SERVER) {
-        serverinit = QUOTE(call COMPILE_FILE(XEH_ServerpostInit));
-    };
-    class DOUBLES(ADDON,CLIENT) {
-        clientinit = QUOTE(call COMPILE_FILE(XEH_ClientpostInit));
+    class ADDON {
+        init = QUOTE(call COMPILE_FILE(XEH_postInit));
     };
 };
