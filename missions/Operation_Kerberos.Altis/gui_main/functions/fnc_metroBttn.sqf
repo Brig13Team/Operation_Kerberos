@@ -15,22 +15,16 @@
 
 params ["_event", ["_params", [controlNull]]];
 
-private _display = uiNamespace getVariable [QEGVAR(gui_main, dialog), (findDisplay IDD_GUI_MAIN)];
-//private _ctrlGroup = _display displayCtrl IDC_GUI_MAIN_METRO_GRP;
-//LOG_3("%1 - %2  - %3", _display, _ctrlGroup, _params);
-//TRACEV_2(_display,_ctrlGroup);
-
 switch (toLower _event) do {
     case "create" : {
-        _params params [["_posX", 0, [0]], ["_posY", 0, [0]],["_ctrlGroup", _display displayCtrl IDC_GUI_MAIN_METRO_GRP]];
+        _params params ["_ctrlGroup",["_posX", 0, [0]], ["_posY", 0, [0]]];
         private _idc = (count (uiNamespace getVariable [QGVAR(metroBttns), []]))*3 + IDC_GUI_MAIN_METRO_BTTN_START;
-        //TRACEV_4(_display,_ctrlGroup,_idc, (uiNamespace getVariable [ARR_2('GVAR(metroBttns)', [])]));
-        private _ctrlPicture = _display ctrlCreate [QRSC(MetroBttn_background), _idc, _ctrlGroup];
+        private _ctrlPicture = (ctrlParent _ctrlGroup) ctrlCreate [QRSC(MetroBttn_background), _idc, _ctrlGroup];
         _ctrlPicture ctrlSetPosition [_posX + GUI_DISP_W, _posY];
         _ctrlPicture ctrlCommit 0;
 
         INC(_idc);
-        private _ctrlBttn = _display ctrlCreate [QRSC(MetroBttn), _idc, _ctrlGroup];
+        private _ctrlBttn = (ctrlParent _ctrlGroup) ctrlCreate [QRSC(MetroBttn), _idc, _ctrlGroup];
         _ctrlBttn ctrlSetPosition [_posX + GUI_DISP_W, _posY];
         _ctrlBttn ctrlCommit 0;
         _ctrlBttn ctrlAddEventHandler ["MouseEnter", {["onMouseEnter", _this] call FUNC(metroBttn);}];
@@ -43,18 +37,18 @@ switch (toLower _event) do {
         private _temp = (uiNamespace getVariable [QGVAR(metroBttns), []]);
         _temp pushBack [_ctrlBttn, _ctrlPicture];
         uiNamespace setVariable [QGVAR(metroBttns), _temp];
+        TRACEV_4(_ctrlGroup,ctrlParent _ctrlGroup,_ctrlBttn, _ctrlPicture);
         [_ctrlBttn, _ctrlPicture]
     };
     case "createtext" : {
-        _params params [["_posX", 0, [0]], ["_posY", 0, [0]],["_ctrlGroup", _display displayCtrl IDC_GUI_MAIN_METRO_GRP]];
+        _params params ["_ctrlGroup",["_posX", 0, [0]], ["_posY", 0, [0]]];
         private _idc = (count (uiNamespace getVariable [QGVAR(metroBttns), []]))*3 + IDC_GUI_MAIN_METRO_BTTN_START;
-        //LOG_2("TEXT:idc=%1 - %2", _idc, (uiNamespace getVariable [ARR_2(QGVAR(metroBttns), [])]));
-        private _ctrlPicture = _display ctrlCreate [QRSC(MetroBttn_background), _idc, _ctrlGroup];
+        private _ctrlPicture = (ctrlParent _ctrlGroup) ctrlCreate [QRSC(MetroBttn_background), _idc, _ctrlGroup];
         _ctrlPicture ctrlSetPosition [_posX + GUI_DISP_W, _posY];
         _ctrlPicture ctrlCommit 0;
 
         INC(_idc);
-        private _ctrlBttn = _display ctrlCreate [QRSC(MetroTextBttn), _idc, _ctrlGroup];
+        private _ctrlBttn = (ctrlParent _ctrlGroup) ctrlCreate [QRSC(MetroTextBttn), _idc, _ctrlGroup];
         _ctrlBttn ctrlSetPosition [_posX + GUI_DISP_W, _posY];
         _ctrlBttn ctrlCommit 0;
         _ctrlBttn ctrlAddEventHandler ["MouseEnter", {["onMouseEnter", _this] call FUNC(metroBttn);}];
@@ -67,6 +61,7 @@ switch (toLower _event) do {
         private _temp = (uiNamespace getVariable [QGVAR(metroBttns), []]);
         _temp pushBack [_ctrlBttn, _ctrlPicture];
         uiNamespace setVariable [QGVAR(metroBttns), _temp];
+        TRACEV_4(_ctrlGroup,ctrlParent _ctrlGroup,_ctrlBttn, _ctrlPicture);
         [_ctrlBttn, _ctrlPicture]
     };
     case "delete" : {

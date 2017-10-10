@@ -22,8 +22,8 @@ params [["_option",GVAR(option_current),[""]]];
 
 GVAR(option_current) = _option;
 
-private _display = uiNamespace getVariable [QEGVAR(gui_main,dialog),(findDisplay IDD_GUI_MAIN)];
-private _ctrlGroup = _display displayCtrl IDC_GUI_SPAWN_PROPERTIES;
+private _display = uiNamespace getVariable [QEGVAR(gui_main,dialog),(findDisplay IDD_GUI_VEHICLESPAWN)];
+private _ctrlGroup = _display displayCtrl IDC_GUI_VEHICLESPAWN_PROPERTIES;
 {
     ctrlDelete _x;
 } forEach (_ctrlGroup getVariable ["controls",[]]);
@@ -40,7 +40,7 @@ _ctrlBackground ctrlCommit 0;
 
 
 
-private _idc = IDC_GUI_SPAWN_PROPERTIES_START;
+private _idc = IDC_GUI_VEHICLESPAWN_PROPERTIES_START;
 If (GVAR(curVeh) isEqualTo "") then {_option = "noVehicle"};
 
 private _fnc_getWeapons = {

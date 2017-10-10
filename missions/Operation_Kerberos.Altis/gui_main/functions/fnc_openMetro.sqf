@@ -17,18 +17,19 @@ disableSerialization;
 params [["_MainBttn", controlNull, [controlNull]]];
 TRACEV_1(_mainbttn);
 
-private _display = uiNamespace getVariable [QEGVAR(gui_main,dialog),(findDisplay IDD_GUI_MAIN)];
-
+private _display = ctrlParent _mainbttn;
 
 private _ctrlGroup = _display getVariable [QGVAR(metro),controlNull];
+
+TRACEV_3(ctrlParent _mainbttn,_display,_ctrlGroup);
 
 If !(isNull _ctrlGroup) exitWith {
     [_display] call FUNC(closeMetro);
 };
-
-_ctrlGroup = _display ctrlCreate [QRSC(Metro),IDC_GUI_MAIN_METRO_GRP];
+TRACEV_4(_ctrlGroup,_display displayCtrl IDC_GUI_MAIN_METRO_GRP,allControls _display,allDisplays);
+_ctrlGroup = _display ctrlCreate [QRSC(Metro), IDC_GUI_MAIN_METRO_GRP];
 _display setVariable [QGVAR(metro),_ctrlGroup];
-//TRACEV_2(_ctrlGroup,_display);
+TRACEV_2(_ctrlGroup,_display);
 private _ctrlGroupbackground = _ctrlGroup controlsGroupCtrl IDC_GUI_MAIN_METRO_BACK;
 private _allCategories = allVariables GVAR(Applications);
 
@@ -49,7 +50,11 @@ private _yNull = GUI_DISP_H*14;
     _catName ctrlSetPosition [_xNull, _yNull - GUI_DISP_H * 10];
     _catName ctrlSetText _curCategorie;
     _catName ctrlCommit 0;
-
+    TRACEV_2(_curCategorie,uiNamespace getvariable 'GVAR(metroBttns)');
+    If !((uiNamespace getvariable 'GVAR(metroBttns)')isEqualTo []) then {
+        private _buttons = (uiNamespace getvariable 'GVAR(metroBttns)') select 0;
+        TRACEV_1(ctrlPosition (_buttons select 1));
+    };
     if (_forEachIndex > 0) then {
         private _catSplit = _display ctrlCreate [QRSC(MetroSplit), -1, _ctrlGroup];
         _catSplit ctrlSetPosition [
@@ -72,12 +77,12 @@ private _yNull = GUI_DISP_H*14;
         };
         private ["_ctrl", "_ctrlBack"];
         If (_picture isEqualTo "") then {
-            _ctrl = ["createText", [_posX, _posY], _ctrlGroup] call FUNC(metroBttn);
+            _ctrl = ["createText", [_ctrlGroup,_posX, _posY]] call FUNC(metroBttn);
             _ctrlBack = _ctrl select 1;
             _ctrl = _ctrl select 0;
             _ctrl ctrlSetText _displayName;
         } else {
-            _ctrl = ["create", [_posX, _posY], _ctrlGroup] call FUNC(metroBttn);
+            _ctrl = ["create", [_ctrlGroup,_posX, _posY]] call FUNC(metroBttn);
             _ctrlBack = _ctrl select 1;
             _ctrl = _ctrl select 0;
             _ctrl ctrlSetText _picture;
@@ -90,11 +95,13 @@ private _yNull = GUI_DISP_H*14;
             _ctrl ctrlEnable true;
             _ctrl setVariable [QGVAR(function), _function];
             _ctrl setVariable [QGVAR(params), [ace_player,ace_player,_parameter]];
-            _ctrl ctrlAddEventHandler ["ButtonClick", {
+            _ctrl ctrlAddEventHandler ["ButtonClick", {/*
                 private _params = (_this select 0) getVariable QGVAR(params);
                 private _fnc = (_this select 0) getVariable QGVAR(function);
                 [ctrlParent (_this select 0)] call FUNC(close);
-                _params call _fnc;
+                _params call _fnc;*/
+                ((_this select 0) getVariable QGVAR(params)) call ((_this select 0) getVariable QGVAR(function));
+                _this call FUNC(close);
                 false;
             }];
         } else {

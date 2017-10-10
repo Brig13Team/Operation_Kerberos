@@ -9,12 +9,18 @@
  * Nothing
  *
  */
-//#define DEBUG_MODE_FULL
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-If (!dialog) exitWith {};
+params [["_display", displayNull]];
 
-[] call FUNC(closeMetro);
+if (isNull _display) exitWith {};
 
-closeDialog IDD_GUI_MAIN;
+If (IS_CONTROL(_display)) then {
+    _display = ctrlParent _display;
+};
+
+TRACEV_2(_this,_display);
+
+_display closeDisplay 0;
 nil;

@@ -1,4 +1,5 @@
 class APP(dialog) : RSC(guiMenu) {
+    iddd = IDD_GUI_VEHICLESPAWN;
     onLoad = QUOTE(uiNamespace setVariable [ARR_2('EGVAR(gui_main,dialog)',_this select 0)]; [ARR_2('GVAR(dialog)',true)] call EFUNC(gui,blur); _this call EFUNC(gui_main,OnLoad); _this call FUNC(OnLoad););
     onUnload = QUOTE([ARR_2('GVAR(dialog)',false)] call EFUNC(gui,blur);_this call EFUNC(gui_main,OnUnload););
 
@@ -43,7 +44,7 @@ class APP(dialog) : RSC(guiMenu) {
     };
 
     class properties : RSC(BaseControlsGroupNoHScrollbar) {
-        idc = IDC_GUI_SPAWN_PROPERTIES;
+        idc = IDC_GUI_VEHICLESPAWN_PROPERTIES;
         x = GUI_DISP_X+GUI_DISP_W*84;
         y = GUI_DISP_Y+GUI_DISP_H*10;
         w = GUI_DISP_WAbs-GUI_DISP_W*86;
@@ -71,7 +72,7 @@ class APP(dialog) : RSC(guiMenu) {
     };
 
     class vehiclelist : RSC(BaseListboxN) {
-        idc = IDC_GUI_SPAWN_VEHICLELIST;
+        idc = IDC_GUI_VEHICLESPAWN_VEHICLELIST;
 
         x = GUI_DISP_X+GUI_DISP_W*3;
         y = GUI_DISP_Y+GUI_DISP_H*16;
@@ -98,7 +99,7 @@ class APP(dialog) : RSC(guiMenu) {
     };
 
     class vehiclelist_names : RSC(BaseText) {
-        idc = IDC_GUI_SPAWN_VEHICLELIST_NAMES;
+        idc = IDC_GUI_VEHICLESPAWN_VEHICLELIST_NAMES;
         text = CSTRING(HEADER_NAME);
         x = GUI_DISP_X+GUI_DISP_W*3;
         y = GUI_DISP_Y+GUI_DISP_H*11;
@@ -109,7 +110,7 @@ class APP(dialog) : RSC(guiMenu) {
         colorText[] = COLOR_SPAWN_EDIT_TEXT_BACK;
     };
     class vehiclelist_editNames : RSC(BaseEditBox) {
-        idc = IDC_GUI_SPAWN_VEHICLELIST_EDITNAMES;
+        idc = IDC_GUI_VEHICLESPAWN_VEHICLELIST_EDITNAMES;
         x = GUI_DISP_X+GUI_DISP_W*3;
         y = GUI_DISP_Y+GUI_DISP_H*11;
         w = GUI_DISP_W*44;
@@ -120,7 +121,7 @@ class APP(dialog) : RSC(guiMenu) {
         colorSelection[] = COLOR_SPAWN_EDIT_SELECT;
     };
     class vehiclelist_sortNames : RSC(SortButton) {
-        idc = IDC_GUI_SPAWN_VEHICLELIST_SORTNAMES;
+        idc = IDC_GUI_VEHICLESPAWN_VEHICLELIST_SORTNAMES;
         x = GUI_DISP_X+GUI_DISP_W*48;
         y = GUI_DISP_Y+GUI_DISP_H*11.5;
         w = GUI_DISP_W*3;
@@ -128,18 +129,18 @@ class APP(dialog) : RSC(guiMenu) {
     };
 
     class vehiclelist_mods : vehiclelist_names {
-        idc = IDC_GUI_SPAWN_VEHICLELIST_MODS;
+        idc = IDC_GUI_VEHICLESPAWN_VEHICLELIST_MODS;
         text = CSTRING(HEADER_MODS);
         x = GUI_DISP_X+GUI_DISP_W*52;
         w = GUI_DISP_W*14;
     };
     class vehicleList_editMods : vehiclelist_editNames {
-        idc = IDC_GUI_SPAWN_VEHICLELIST_EDITMODS;
+        idc = IDC_GUI_VEHICLESPAWN_VEHICLELIST_EDITMODS;
         x = GUI_DISP_X+GUI_DISP_W*52;
         w = GUI_DISP_W*14;
     };
     class vehiclelist_sortMods : vehiclelist_sortNames {
-        idc = IDC_GUI_SPAWN_VEHICLELIST_SORTMODS;
+        idc = IDC_GUI_VEHICLESPAWN_VEHICLELIST_SORTMODS;
         x = GUI_DISP_X+GUI_DISP_W*67;
     };
 };

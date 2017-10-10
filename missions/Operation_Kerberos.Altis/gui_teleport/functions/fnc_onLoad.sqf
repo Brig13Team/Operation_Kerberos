@@ -59,11 +59,11 @@ If ((GVAR(teleport_lead_active))&&{_type == "infanterie"}) then {
 // mapButton
 (["create",
     [
+        _dialog,
         GUI_DISP_X+GUI_DISP_WAbs-GUI_DISP_W*14,
         GUI_DISP_Y+GUI_DISP_HAbs-GUI_DISP_H*14,
         GUI_DISP_W*10,
-        GUI_DISP_H*10,
-        _dialog
+        GUI_DISP_H*10
     ]
 ] call EFUNC(gui,animButton)) params ["_ctrlButton", "_ctrlBackground"];
 _ctrlButton ctrlSetText "A3\ui_f\data\gui\cfg\Hints\map_ca.paa";

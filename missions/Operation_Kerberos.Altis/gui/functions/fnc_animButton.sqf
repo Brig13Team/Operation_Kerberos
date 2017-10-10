@@ -10,29 +10,35 @@
  * <TYPENAME> return name
  *
  */
-
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 params ["_event", "_params"];
 
-private _display = uiNamespace getVariable [QEGVAR(gui_main, dialog), (findDisplay IDD_GUI_MAIN)];
-
 switch (toLower _event) do {
     case "create" : {
         _params params [
+            "_display",
             ["_posX", 0, [0]],
             ["_posY", 0, [0]],
             ["_posW", GUI_DISP_W*10, [0]],
-            ["_posH", GUI_DISP_H*10, [0]],
-            ["_display",uiNamespace getVariable [QEGVAR(gui_main, dialog), (findDisplay IDD_GUI_MAIN)],[displayNull]]
+            ["_posH", GUI_DISP_H*10, [0]]
         ];
         private _idc = (count (uiNamespace getVariable [QGVAR(animBttns), []]))*3 + IDC_GUI_ANIM_BTTN_START;
-        private _ctrlPicture = _display ctrlCreate [QRSC(AnimBttn_background), _idc];
+        private ["_ctrlPicture","_ctrlBttn"];
+        If (IS_CONTROL(_display)) then {
+            _ctrlPicture = (ctrlParent _display) ctrlCreate [QRSC(AnimBttn_background), _idc, _display];
+            INC(_idc);
+            _ctrlBttn = (ctrlParent _display) ctrlCreate [QRSC(AnimBttn), _idc, _display];
+        } else {
+            _ctrlPicture = _display ctrlCreate [QRSC(AnimBttn_background), _idc];
+            INC(_idc);
+            _ctrlBttn = _display ctrlCreate [QRSC(AnimBttn), _idc];
+        };
+
         _ctrlPicture ctrlSetPosition [_posX, _posY, _posW, _posH];
         _ctrlPicture ctrlCommit 0;
 
-        INC(_idc);
-        private _ctrlBttn = _display ctrlCreate [QRSC(AnimBttn), _idc];
         _ctrlBttn ctrlSetPosition [
             _posX+GUI_DISP_W*0.5,
             _posY+GUI_DISP_W*0.5,
@@ -50,15 +56,16 @@ switch (toLower _event) do {
         private _temp = (uiNamespace getVariable [QGVAR(animBttns), []]);
         _temp pushBack [_ctrlBttn, _ctrlPicture];
         uiNamespace setVariable [QGVAR(animBttns), _temp];
+        //TRACEV_2(_ctrlBttn, _ctrlPicture);
         [_ctrlBttn, _ctrlPicture]
     };
     case "createText" : {
         _params params [
+            "_display",
             ["_posX", 0, [0]],
             ["_posY", 0, [0]],
             ["_posW", GUI_DISP_W*10, [0]],
-            ["_posH", GUI_DISP_H*10, [0]],
-            ["_display",uiNamespace getVariable [QEGVAR(gui_main, dialog), (findDisplay IDD_GUI_MAIN)],[displayNull]]
+            ["_posH", GUI_DISP_H*10, [0]]
         ];
         private _idc = (count (uiNamespace getVariable [QGVAR(animBttns), []]))*3 + IDC_GUI_ANIM_BTTN_START;
         private _ctrlPicture = _display ctrlCreate [QRSC(AnimBttn_background), _idc];

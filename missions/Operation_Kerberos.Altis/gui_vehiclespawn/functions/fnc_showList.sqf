@@ -14,7 +14,7 @@
 
 params ["_display"];
 
-private _lnb = _display displayCtrl IDC_GUI_SPAWN_VEHICLELIST;
+private _lnb = _display displayCtrl IDC_GUI_VEHICLESPAWN_VEHICLELIST;
 
 lnbClear _lnb;
 {

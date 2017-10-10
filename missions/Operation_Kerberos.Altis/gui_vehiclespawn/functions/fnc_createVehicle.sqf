@@ -68,5 +68,5 @@ If (GVAR(option_spawnAsDriver)) then {
     ace_player moveInDriver _vehicle;
 };
 
-(uiNamespace getVariable [QEGVAR(gui_main,dialog),(findDisplay IDD_GUI_MAIN)]) closeDisplay 0;
+(findDisplay IDD_GUI_VEHICLESPAWN) closeDisplay 0;
 [] call EFUNC(gui_main,close);
