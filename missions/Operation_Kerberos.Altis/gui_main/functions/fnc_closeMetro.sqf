@@ -14,6 +14,12 @@
 disableSerialization;
 params ["_display"];
 
+{
+    {
+        ctrlDelete _x
+    } forEach _x;
+} forEach (uiNamespace getVariable [QGVAR(metroBttns), []]);
+
 uiNamespace setVariable [QGVAR(metroBttns), []];
 
 private _ctrl = _display displayCtrl IDC_GUI_MAIN_METRO_GRP;

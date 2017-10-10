@@ -15,6 +15,7 @@
 disableSerialization;
 
 params [["_MainBttn", controlNull, [controlNull]]];
+TRACEV_1(_mainbttn);
 
 private _display = uiNamespace getVariable [QEGVAR(gui_main,dialog),(findDisplay IDD_GUI_MAIN)];
 
@@ -81,7 +82,7 @@ private _yNull = GUI_DISP_H*14;
             _ctrl = _ctrl select 0;
             _ctrl ctrlSetText _picture;
         };
-        TRACEV_4(_displayname,_picture,uiNamespace getvariable 'GVAR(metroBttns)',_ctrl);
+        //TRACEV_4(_displayname,_picture,uiNamespace getvariable 'GVAR(metroBttns)',_ctrl);
         _ctrl ctrlSetTooltip _displayName;
         _ctrl ctrlSetTextColor [1, 1, 1, 1];
 
