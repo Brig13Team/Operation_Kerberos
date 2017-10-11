@@ -16,6 +16,10 @@ params [["_presetName","",[""]]];
 
 private _return = [];
 
+If !(HASH_GET_DEF(GVAR(preset),_presetName,[]) isEqualTo []) exitWith {
+    HASH_GET_DEF(GVAR(preset),_presetName);
+};
+
 switch (_presetName) do {
 
     default {
@@ -36,15 +40,6 @@ switch (_presetName) do {
     };
 };
 
-_return = _return apply {
-    [
-        configname _x,
-        [_x] call EFUNC(common,getModPicture),
-        [_x] call EFUNC(common,getMod),
-        [_x] call FUNC(getVehicleIcon),
-        getText(_x >> "displayName"),
-        _x
-    ]
-};
+HASH_SET(GVAR(preset),_presetName,_return);
 
 _return;

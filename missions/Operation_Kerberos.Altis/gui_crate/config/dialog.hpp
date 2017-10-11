@@ -44,6 +44,10 @@ class APP(dialog) : RSC(guiMenu) {
         inventory
     };
 
+    class background_header : background_header {
+        text = CSTRING(header);
+    };
+
     class background_body : background_body {
         colorBackground[] = COLOR_CRATE_BACKGROUND;
     };
@@ -80,7 +84,7 @@ class APP(dialog) : RSC(guiMenu) {
     };
 
     class itemfilter : RSC(BaseEditBox) {
-        idc = IDC_GUI_CRATE_ITEMLIST;
+        idc = IDC_GUI_CRATE_FILTER;
         x = GUI_DISP_X+GUI_DISP_W*3;
         y = GUI_DISP_Y+GUI_DISP_H*40;
         w = GUI_DISP_W*74;
@@ -89,7 +93,7 @@ class APP(dialog) : RSC(guiMenu) {
     };
 
     class searchbutton : RSC(BaseButton) {
-        idc = IDC_GUI_CRATE_ITEMLIST;
+        idc = IDC_GUI_CRATE_SEARCH;
         x = GUI_DISP_X+GUI_DISP_W*3;
         y = GUI_DISP_Y+GUI_DISP_H*10;
         w = GUI_DISP_W*5;
@@ -218,16 +222,34 @@ class APP(dialog) : RSC(guiMenu) {
         text = "A3\ui_f\data\gui\cfg\Hints\Take_ca.paa";
     };
 
+    class boxtitle : RSC(BaseText) {
+        idc = ID_GUI_CRATE_BOXLIST_HEADER;
+        x = GUI_DISP_X + GUI_DISP_W*90;
+        y = GUI_DISP_Y + GUI_DISP_H*10;
+        w = GUI_DISP_W*60
+        h = GUI_DISP_H*6;
+        text = CSTRING(header_box);
+    };
+
     class boxlist : RSC(BaseCombobox) {
         idc = IDC_GUI_CRATE_BOXLIST;
         x = GUI_DISP_X + GUI_DISP_W*90;
-        y = GUI_DISP_Y + GUI_DISP_H*20;
+        y = GUI_DISP_Y + GUI_DISP_H*18;
         w = GUI_DISP_W*60
         h = GUI_DISP_H*6;
         sizeEx = GUI_DISP_H*6;
         rowHeight = GUI_DISP_H*6;
         wholeHeight = GUI_DISP_H*50;
         onLBSelChanged = QFUNC(onBoxChanged);
+    };
+
+    class inventorytitle : RSC(BaseText) {
+        idc = ID_GUI_CRATE_INVENTORY_HEADER;
+        x = GUI_DISP_X + GUI_DISP_W*90;
+        y = GUI_DISP_Y + GUI_DISP_H*10;
+        w = GUI_DISP_W*60
+        h = GUI_DISP_H*6;
+        text = CSTRING(header_inventory);
     };
 
     class inventory : itemlist {

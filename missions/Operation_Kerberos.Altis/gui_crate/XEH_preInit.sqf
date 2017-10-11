@@ -13,3 +13,4 @@ ADDON = true;
 GVAR(spawns) = [] call CBA_fnc_createNamespace;
 GVAR(spawnID) = 1;
 GVAR(filter) = "";
+GVAR(preset) = HASH_CREATE;

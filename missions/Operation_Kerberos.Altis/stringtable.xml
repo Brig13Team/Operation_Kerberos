@@ -1070,24 +1070,32 @@
     </Package>
     <Package name="gui_crate">
         <Key ID="STR_DORB_GUI_CRATE_HEADER">
-            <German>Kistenfüller</German>
             <English>Crate Filler</English>
+            <German>Kistenfüller</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_CRATE_HEADER_INVENTORY">
+            <English>Inventory</English>
+            <German>Inventar</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_CRATE_HEADER_BOX">
+            <English>Target</English>
+            <German>Ziel</German>
         </Key>
         <Key ID="STR_DORB_GUI_CRATE_SPAWN">
-            <German>Erschaffen</German>
             <English>Spawn</English>
+            <German>Erschaffen</German>
         </Key>
         <Key ID="STR_DORB_GUI_CRATE_CLEAR">
-            <German>Löschen</German>
             <English>Clear</English>
+            <German>Löschen</German>
         </Key>
         <Key ID="STR_DORB_GUI_CRATE_LOAD">
-            <German>Laden</German>
             <English>Load</English>
+            <German>Laden</German>
         </Key>
         <Key ID="STR_DORB_GUI_CRATE_SAVE">
-            <German>Speichern</German>
             <English>Save</English>
+            <German>Speichern</German>
         </Key>
         <Key ID="STR_DORB_GUI_CRATE_SIZE1">
             <German>Kleine Kiste</German>

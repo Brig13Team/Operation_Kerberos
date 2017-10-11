@@ -54,9 +54,10 @@ If (IS_ARRAY(_list)) then {
             };
         };
     };
-    _list = _list select {!isNull _x};
-    _list = [_list] call FUNC(filterList);
+    _list = _list - [configNull];
+    _list = [_list] call FUNC(filterItemList);
 };
 
 GVAR(spawns) setVariable [_id,[_List,_spawnPosition,_spawnDir]];
+
 _id
