@@ -20,7 +20,7 @@ params [
     ["_spawnDir",nil,[0]]
 ];
 
-If (_spawnPosition isEqualTo []) exitWith {
+If ((_spawnPosition isEqualTo [])||{_spawnPosition isEqualTo objNull}) exitWith {
     ERROR("No spawnposition");
 };
 

@@ -14,6 +14,10 @@ class APP(dialog) : RSC(guiMenu) {
     };
     controls[] = {
         //background_logo,
+        headertext,
+        clock,
+        player_button,
+        menu_button,
         crate_button1,
         crate_button2,
         crate_button3,
@@ -31,11 +35,13 @@ class APP(dialog) : RSC(guiMenu) {
         crate_button15,
         crate_button16,
         crate_button17,
-        headertext,
-        clock,
-        player_button,
-        menu_button,
-        itemlist
+        itemlist,
+        itemfilter,
+        searchbar,
+        searchbutton,
+
+        boxlist,
+        inventory
     };
 
     class background_body : background_body {
@@ -82,7 +88,7 @@ class APP(dialog) : RSC(guiMenu) {
         sizeEx = GUI_DISP_H*3.5;
     };
 
-    class search_button : RSC(BaseButton) {
+    class searchbutton : RSC(BaseButton) {
         idc = IDC_GUI_CRATE_ITEMLIST;
         x = GUI_DISP_X+GUI_DISP_W*3;
         y = GUI_DISP_Y+GUI_DISP_H*10;
@@ -211,6 +217,27 @@ class APP(dialog) : RSC(guiMenu) {
         toolTip = CSTRING(BTTN_16);
         text = "A3\ui_f\data\gui\cfg\Hints\Take_ca.paa";
     };
+
+    class boxlist : RSC(BaseCombobox) {
+        idc = IDC_GUI_CRATE_BOXLIST;
+        x = GUI_DISP_X + GUI_DISP_W*90;
+        y = GUI_DISP_Y + GUI_DISP_H*20;
+        w = GUI_DISP_W*60
+        h = GUI_DISP_H*6;
+        sizeEx = GUI_DISP_H*6;
+        rowHeight = GUI_DISP_H*6;
+        wholeHeight = GUI_DISP_H*50;
+        onLBSelChanged = QFUNC(onBoxChanged);
+    };
+
+    class inventory : itemlist {
+        idc = IDC_GUI_CRATE_INVENTORY;
+        x = GUI_DISP_X + GUI_DISP_W*90;
+        y = GUI_DISP_Y + GUI_DISP_H*30;
+        w = GUI_DISP_W*60;
+        h = GUI_DISP_H*40;
+    };
+
 
 
 };
