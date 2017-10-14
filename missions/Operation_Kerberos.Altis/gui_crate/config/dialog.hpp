@@ -67,6 +67,26 @@ class APP(dialog) : RSC(guiMenu) {
         colorBackground[] = COLOR_CRATE_BACKGROUND2;
     };
 
+    class itemlist_button_add : RSC(BaseButton) {
+        idc = IDC_GUI_CRATE_ITEMLIST_ADD;
+        text = "+";
+        borderSize = 0;
+        colorShadow[] = {0,0,0,0};
+        action = QUOTE([ARR_2((ctrlParent (_this select 0)) displayCtrl IDC_GUI_CRATE_ITEMLIST,true)] call FUNC(add);false);
+    };
+    class inventory_button_add : itemlist_button_add {
+        idc = IDC_GUI_CRATE_INVENTORY_ADD;
+    };
+
+    class itemlist_button_reduce : crate_list_button_add {
+        idc = IDC_GUI_CRATE_ITEMLIST_REDUCE;
+        text = "-";
+        action = QUOTE([ARR_2((ctrlParent (_this select 0)) displayCtrl IDC_GUI_CRATE_ITEMLIST,false)] call FUNC(add);false);
+    };
+    class inventory_button_reduce : itemlist_button_reduce {
+        idc = IDC_GUI_CRATE_INVENTORY_REDUCE;
+    };
+
     class itemlist : RSC(BaseListboxN) {
         idc = IDC_GUI_CRATE_ITEMLIST;
         access = 2;
@@ -78,8 +98,8 @@ class APP(dialog) : RSC(guiMenu) {
         sizeEx = GUI_DISP_H*3.5;
         columns[] = {GUI_DISP_W*5,GUI_DISP_W*16,GUI_DISP_W*21,GUI_DISP_W*28};
         drawSideArrows = 1;
-        idcLeft = 1001;
-        idcRight = 1000;
+        idcLeft = IDC_GUI_CRATE_ITEMLIST_REDUCE;
+        idcRight = IDC_GUI_CRATE_ITEMLIST_ADD;
         colorText[] = COLOR_CRATE_ITEMLIST_TEXT;
     };
 
@@ -258,6 +278,8 @@ class APP(dialog) : RSC(guiMenu) {
         y = GUI_DISP_Y + GUI_DISP_H*30;
         w = GUI_DISP_W*60;
         h = GUI_DISP_H*40;
+        idcLeft = IDC_GUI_CRATE_INVENTORY_REDUCE;
+        idcRight = IDC_GUI_CRATE_INVENTORYT_ADD;
     };
 
 

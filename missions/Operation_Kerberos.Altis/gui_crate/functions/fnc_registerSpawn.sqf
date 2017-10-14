@@ -15,7 +15,7 @@
 #include "script_component.hpp"
 
 params [
-    ["_List",[],["",[]]],
+    ["_List","",["",[]]],
     ["_spawnPosition",[],[[],objNull],[3]],
     ["_spawnDir",nil,[0]]
 ];
@@ -55,8 +55,12 @@ If (IS_ARRAY(_list)) then {
         };
     };
     _list = _list - [configNull];
-    _list = [_list] call FUNC(filterItemList);
+    _list = [_list appy {[_x,""] call BIS_fnc_configPath}] call FUNC(updateLibary);
+} else {
+    _list = [_list] call FUNC(getItemList);
 };
+
+_list = [_list] call FUNC(sortItemList);
 
 GVAR(spawns) setVariable [_id,[_List,_spawnPosition,_spawnDir]];
 

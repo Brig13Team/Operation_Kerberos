@@ -15,6 +15,10 @@
 disableSerialization;
 params ["_display"];
 
+GVAR(curInventory) = HASH_CREATE;
+
+_display displayAddEventHandler ["KeyDown",QUOTE([ARR_2(_this select 1,true)] call FUNC(keyEvent);)];
+_display displayAddEventHandler ["KeyUp",QUOTE([ARR_2(_this select 1,false)] call FUNC(keyEvent);)];
 
 // load
 (["createText",
@@ -76,16 +80,19 @@ _ctrlButton ctrlSetTooltip (localize LSTRING(BTTN_SPAWN));
 _ctrlButton ctrlAddEventHandler ["ButtonClick",{[] call FUNC(spawn)}];
 _ctrlBackground ctrlSetTextColor [COLOR_CRATE_BTTN_SPAWN];
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+(_display displayCtrl IDC_GUI_CRATE_BTTN1) ctrlAddEventHandler ["ButtonClick",{[(_this select 0),ID_RIFLES] call FUNC(filterList)}];
+(_display displayCtrl IDC_GUI_CRATE_BTTN2) ctrlAddEventHandler ["ButtonClick",{[(_this select 0),ID_AUTOMATIC] call FUNC(filterList)}];
+(_display displayCtrl IDC_GUI_CRATE_BTTN3) ctrlAddEventHandler ["ButtonClick",{[(_this select 0),ID_SNIPER] call FUNC(filterList)}];
+(_display displayCtrl IDC_GUI_CRATE_BTTN4) ctrlAddEventHandler ["ButtonClick",{[(_this select 0),ID_LAUNCHER] call FUNC(filterList)}];
+(_display displayCtrl IDC_GUI_CRATE_BTTN5) ctrlAddEventHandler ["ButtonClick",{[(_this select 0),ID_HANDGUN] call FUNC(filterList)}];
+(_display displayCtrl IDC_GUI_CRATE_BTTN6) ctrlAddEventHandler ["ButtonClick",{[(_this select 0),ID_OPTICS] call FUNC(filterList)}];
+(_display displayCtrl IDC_GUI_CRATE_BTTN7) ctrlAddEventHandler ["ButtonClick",{[(_this select 0),ID_GRANADES] call FUNC(filterList)}];
+(_display displayCtrl IDC_GUI_CRATE_BTTN8) ctrlAddEventHandler ["ButtonClick",{[(_this select 0),ID_MINES] call FUNC(filterList)}];
+(_display displayCtrl IDC_GUI_CRATE_BTTN9) ctrlAddEventHandler ["ButtonClick",{[(_this select 0),ID_UNIFORM] call FUNC(filterList)}];
+(_display displayCtrl IDC_GUI_CRATE_BTTN10) ctrlAddEventHandler ["ButtonClick",{[(_this select 0),ID_VEST] call FUNC(filterList)}];
+(_display displayCtrl IDC_GUI_CRATE_BTTN11) ctrlAddEventHandler ["ButtonClick",{[(_this select 0),ID_HEADGEAR] call FUNC(filterList)}];
+(_display displayCtrl IDC_GUI_CRATE_BTTN12) ctrlAddEventHandler ["ButtonClick",{[(_this select 0),ID_BACKPACK] call FUNC(filterList)}];
+(_display displayCtrl IDC_GUI_CRATE_BTTN13) ctrlAddEventHandler ["ButtonClick",{[(_this select 0),ID_RADIO] call FUNC(filterList)}];
+(_display displayCtrl IDC_GUI_CRATE_BTTN14) ctrlAddEventHandler ["ButtonClick",{[(_this select 0),ID_NAVIGATION] call FUNC(filterList)}];
+(_display displayCtrl IDC_GUI_CRATE_BTTN15) ctrlAddEventHandler ["ButtonClick",{[(_this select 0),ID_MEDIC] call FUNC(filterList)}];
+(_display displayCtrl IDC_GUI_CRATE_BTTN16) ctrlAddEventHandler ["ButtonClick",{[(_this select 0),ID_OTHER] call FUNC(filterList)}];

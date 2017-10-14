@@ -36,9 +36,10 @@ switch (_presetName) do {
             "((isClass _x)&&{getNumber(_x>>'scope')>1}&&{getText(_x>>'vehicleClass')=='Backpacks'})",
             true
         ];
-
     };
 };
+
+_return = _return apply {[_x,""] call BIS_fnc_configPath};
 
 HASH_SET(GVAR(preset),_presetName,_return);
 
