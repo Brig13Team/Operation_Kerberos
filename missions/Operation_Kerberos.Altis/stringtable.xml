@@ -1188,6 +1188,10 @@
         </Key>
     </Package>
     <Package name="doorbreach">
+        <Key ID="STR_DORB_DOORBREACH_MAIN">
+            <English>doorbreach</English>
+            <German>Tür knacken</German>
+        </Key>
         <Key ID="STR_DORB_DOORBREACH_PLACE_CHARGE">
             <English>place charge</English>
             <German>Sprengladung platzieren</German>
@@ -1195,6 +1199,14 @@
         <Key ID="STR_DORB_DOORBREACH_PLACING_CHARGE">
             <English>placing charge</English>
             <German>Sprengladung wird platziert</German>
+        </Key>
+        <Key ID="STR_DORB_DOORBREACH_PICK_LOCK">
+            <English>pick lock</English>
+            <German>Schloss knacken</German>
+        </Key>
+        <Key ID="STR_DORB_DOORBREACH_PICKING_LOCK">
+            <English>picking lock</English>
+            <German>Das Schloss wird geknackt</German>
         </Key>
     </Package>
     <Package name="mission_obj">
