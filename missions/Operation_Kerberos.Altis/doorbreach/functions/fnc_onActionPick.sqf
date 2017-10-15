@@ -21,7 +21,7 @@ _door = _door select 0;
 _house setVariable [format[QGVAR(%1),_door],true,true];
 
 [
-    60,
+    PICK_TIMER,
     _this,
     {
         (_this select 0) params ["_house","_caller","_door"];
