@@ -21,7 +21,7 @@ params [
 ];
 
 If ((_spawnPosition isEqualTo [])||{_spawnPosition isEqualTo objNull}) exitWith {
-    ERROR("No spawnposition");
+    TRACEV_2(_this,_spawnPosition);ERROR("No spawnposition");
 };
 
 If ((isNil "_spawnDir")&&{IS_OBJECT(_spawnPosition)}) then {
@@ -55,7 +55,7 @@ If (IS_ARRAY(_list)) then {
         };
     };
     _list = _list - [configNull];
-    _list = [_list appy {[_x,""] call BIS_fnc_configPath}] call FUNC(updateLibary);
+    _list = [_list apply {[_x,""] call BIS_fnc_configPath}] call FUNC(updateLibary);
 } else {
     _list = [_list] call FUNC(getItemList);
 };

@@ -19,4 +19,4 @@ private _display = ctrlParent _button;
 HASH_DELETE(GVAR(inventory));
 GVAR(inventory) = HASH_CREATE;
 
-[_display displayCtrl ]
+[_display displayCtrl IDC_GUI_CRATE_INVENTORY,[]] call FUNC(showItemList);

@@ -4,6 +4,7 @@ TRACEV_1(side player);
 switch (str(side player)) do {
     case "WEST" : {
         private _id = ["west",cratespawner1] call FUNC(registerSpawn);
+        TRACEV_1(_id);
         [
             LSTRING(HEADER),
             ELSTRING(gui_main,CATEGORY_DEPOT),

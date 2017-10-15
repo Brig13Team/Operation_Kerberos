@@ -15,7 +15,8 @@
 #include "..\gui\script_gui.hpp"
 
 
-#define CHECK_RADIUS 8
+#define CHECK_RADIUS_MIN 5
+#define CHECK_RADIUS_MAX 15
 
 #define ID_RIFLE 0
 #define ID_AUTOMATIC 1
