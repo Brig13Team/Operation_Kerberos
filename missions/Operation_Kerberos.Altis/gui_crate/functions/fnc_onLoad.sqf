@@ -15,8 +15,6 @@
 disableSerialization;
 params ["_display"];
 
-GVAR(curInventory) = HASH_CREATE;
-
 _display displayAddEventHandler ["KeyDown",QUOTE([ARR_2(_this select 1,true)] call FUNC(keyEvent);)];
 _display displayAddEventHandler ["KeyUp",QUOTE([ARR_2(_this select 1,false)] call FUNC(keyEvent);)];
 
@@ -96,3 +94,11 @@ _ctrlBackground ctrlSetTextColor [COLOR_CRATE_BTTN_SPAWN];
 (_display displayCtrl IDC_GUI_CRATE_BTTN14) ctrlAddEventHandler ["ButtonClick",{[(_this select 0),ID_NAVIGATION] call FUNC(filterList)}];
 (_display displayCtrl IDC_GUI_CRATE_BTTN15) ctrlAddEventHandler ["ButtonClick",{[(_this select 0),ID_MEDIC] call FUNC(filterList)}];
 (_display displayCtrl IDC_GUI_CRATE_BTTN16) ctrlAddEventHandler ["ButtonClick",{[(_this select 0),ID_OTHER] call FUNC(filterList)}];
+
+[(_display displayCtrl IDC_GUI_CRATE_ITEMLIST),GVAR(curItemList) select GVAR(curID)] call FUNC(showItemList);
+[_display] call FUNC(showBoxes);
+
+private _ctrlLb = _display displayCtrl IDD_GUI_CRATE_BOXLIST;
+_ctrlLb lbSetCurSel 0;
+_ctrlLb ctrlAddEventHandler ["LBSelChanged",LINKFUNC(onBoxSelect)];
+[_ctrlLb,0] call FUNC(onBoxSelect);

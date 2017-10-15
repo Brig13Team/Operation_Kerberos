@@ -3,8 +3,9 @@
  * opens the spawn menu
  *
  * Arguments:
- * 0: <OBJECT> the caller
- * 1: <STRING> spawn ID
+ * 0: <OBJECT> the target (ACE)
+ * 1: <OBJECT> the caller (ACE)
+ * 2: <STRING> spawn ID
  *
  * Return Value:
  * Nothing

@@ -1074,8 +1074,8 @@
             <German>Kistenfüller</German>
         </Key>
         <Key ID="STR_DORB_GUI_CRATE_HEADER_INVENTORY">
-            <English>Inventory</English>
-            <German>Inventar</German>
+            <English>%1 (New)</English>
+            <German>%1 (Neu)</German>
         </Key>
         <Key ID="STR_DORB_GUI_CRATE_HEADER_BOX">
             <English>Target</English>

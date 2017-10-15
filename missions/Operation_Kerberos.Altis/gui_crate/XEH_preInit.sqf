@@ -13,7 +13,8 @@ ADDON = true;
 GVAR(spawns) = [] call CBA_fnc_createNamespace;
 GVAR(spawnID) = 1;
 GVAR(multiplicator) = 1;
-GVAR(filter) = "";
+
+GVAR(filterName) = "";
 
 GVAR(curItemList) = [];
 GVAR(curItemListID) = 0;
