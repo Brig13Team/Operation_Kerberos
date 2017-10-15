@@ -15,8 +15,8 @@
 disableSerialization;
 params ["_display"];
 
-_display displayAddEventHandler ["KeyDown",QUOTE([ARR_2(_this select 1,true)] call FUNC(keyEvent);)];
-_display displayAddEventHandler ["KeyUp",QUOTE([ARR_2(_this select 1,false)] call FUNC(keyEvent);)];
+_display displayAddEventHandler ["KeyDown",QUOTE([ARR_2(_this select 1,true)] call FUNC(keyEvent);false)];
+_display displayAddEventHandler ["KeyUp",QUOTE([ARR_2(_this select 1,false)] call FUNC(keyEvent);false)];
 
 // load
 (["createText",

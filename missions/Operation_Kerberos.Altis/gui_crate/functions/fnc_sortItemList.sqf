@@ -59,6 +59,7 @@ private _return = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]];
         };
         (_return select _index) pushBack _x;
     };
+    nil
 } count _list;
 
 _return
