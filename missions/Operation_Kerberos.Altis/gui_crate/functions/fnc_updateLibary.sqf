@@ -15,7 +15,7 @@
 params [["_itemlist",[],[[]]]];
 
 {
-    private _itemCfg = _x
+    private _itemCfg = _x;
     If !(HASH_HASKEY(GVAR(libary),_itemCfg)) then {
         private _temp = [
             [_x] call EFUNC(common,getModPicture),
