@@ -13,9 +13,9 @@
  *     none
  *
  */
-#define DEBUG_MODE_FULL
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-_this params ["_house","_caller","_door"];
+params ["_house","_caller","_door"];
 
 _door = _door select 0;
 _house setVariable [format[QGVAR(%1),_door],true,true];

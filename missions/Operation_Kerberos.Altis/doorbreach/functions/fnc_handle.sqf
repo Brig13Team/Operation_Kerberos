@@ -26,7 +26,8 @@ If (CBA_missiontime > _explosiontimeStamp) then {
     [_this select 1] call CBA_fnc_removePerFrameHandler;
     _house setVariable [format[QGVAR(%1),_door],nil,true];
     private _expPos = getPos (_democharges select 0);
-    "rhs_ammo_empty" createVehicle _expPos;
+    "MissileCore" createVehicle _expPos;
+    playSound3D ["a3\sounds_f\weapons\explosion\expl_shell_1.wss",_house,false,_expPos];
     {deleteVehicle _x} forEach _democharges;
     _house animate [(_door + "_rot"),1,10];
 };

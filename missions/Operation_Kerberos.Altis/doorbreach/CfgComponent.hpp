@@ -14,7 +14,7 @@ class DOUBLES(CfgComponent,ADDON) {
     };
     class preinit {};
     class dependencies {
-        CfgPatches[] = {"rhs_main"};
+        CfgPatches[] = {};
         CfgComponents[] = {"main"};
     };
 };
