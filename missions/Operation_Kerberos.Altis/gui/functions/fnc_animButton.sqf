@@ -59,7 +59,7 @@ switch (toLower _event) do {
         //TRACEV_2(_ctrlBttn, _ctrlPicture);
         [_ctrlBttn, _ctrlPicture]
     };
-    case "createText" : {
+    case "createtext" : {
         _params params [
             "_display",
             ["_posX", 0, [0]],
@@ -91,6 +91,7 @@ switch (toLower _event) do {
         private _temp = (uiNamespace getVariable [QGVAR(animBttns), []]);
         _temp pushBack [_ctrlBttn, _ctrlPicture];
         uiNamespace setVariable [QGVAR(animBttns), _temp];
+        TRACEV_2(_ctrlBttn, _ctrlPicture);
         [_ctrlBttn, _ctrlPicture]
     };
     case "delete" : {

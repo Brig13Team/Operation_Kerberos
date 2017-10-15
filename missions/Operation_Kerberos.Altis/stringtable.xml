@@ -1072,19 +1072,19 @@
             <English>Target</English>
             <German>Ziel</German>
         </Key>
-        <Key ID="STR_DORB_GUI_CRATE_SPAWN">
+        <Key ID="STR_DORB_GUI_CRATE_BTTN_SPAWN">
             <English>Spawn</English>
             <German>Erschaffen</German>
         </Key>
-        <Key ID="STR_DORB_GUI_CRATE_CLEAR">
+        <Key ID="STR_DORB_GUI_CRATE_BTTN_CLEAR">
             <English>Clear</English>
             <German>Löschen</German>
         </Key>
-        <Key ID="STR_DORB_GUI_CRATE_LOAD">
+        <Key ID="STR_DORB_GUI_CRATE_BTTN_LOAD">
             <English>Load</English>
             <German>Laden</German>
         </Key>
-        <Key ID="STR_DORB_GUI_CRATE_SAVE">
+        <Key ID="STR_DORB_GUI_CRATE_BTTN_SAVE">
             <English>Save</English>
             <German>Speichern</German>
         </Key>

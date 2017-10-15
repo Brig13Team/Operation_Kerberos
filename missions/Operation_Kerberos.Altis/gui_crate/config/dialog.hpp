@@ -10,7 +10,8 @@ class APP(dialog) : RSC(guiMenu) {
         background_header,
         background_body,
         background_gradiend,
-        background_items
+        background_itemlist,
+        background_inventory
     };
     controls[] = {
         //background_logo,
@@ -34,7 +35,6 @@ class APP(dialog) : RSC(guiMenu) {
         crate_button14,
         crate_button15,
         crate_button16,
-        crate_button17,
         itemlist,
         itemfilter,
         itemfilter_watermark,
@@ -57,15 +57,22 @@ class APP(dialog) : RSC(guiMenu) {
         colorText[] = COLOR_CRATE_BACKGROUND_GRADIEND;
     };
 
-    class background_items: RSC(BaseText) {
-        x = GUI_DISP_X+GUI_DISP_W*4;
-        y = GUI_DISP_Y+GUI_DISP_H*10;
-        w = GUI_DISP_WAbs-GUI_DISP_W*22;
-        h = GUI_DISP_HAbs-GUI_DISP_H*18;
+    class background_itemlist: RSC(BaseText) {
+        x = GUI_DISP_X+GUI_DISP_W*3;
+        y = GUI_DISP_Y+GUI_DISP_H*23;
+        w = GUI_DISP_W*72;
+        h = GUI_DISP_H*65;
         style = "0x02";
         text = "";
         colorText[] = COLOR_DISABLED;
         colorBackground[] = COLOR_CRATE_BACKGROUND2;
+    };
+
+    class background_inventory: background_itemlist {
+        x = GUI_DISP_X+GUI_DISP_W*92;
+        y = GUI_DISP_Y+GUI_DISP_H*30;
+        w = GUI_DISP_W*86;
+        h = GUI_DISP_H*40;
     };
 
     class itemlist_button_add : RSC(BaseButton) {
@@ -92,9 +99,9 @@ class APP(dialog) : RSC(guiMenu) {
         idc = IDC_GUI_CRATE_ITEMLIST;
         access = 2;
         x = GUI_DISP_X+GUI_DISP_W*3;
-        y = GUI_DISP_Y+GUI_DISP_H*10;
-        w = GUI_DISP_W*74;
-        h = GUI_DISP_HAbs-GUI_DISP_H*34;
+        y = GUI_DISP_Y+GUI_DISP_H*23;
+        w = GUI_DISP_W*72;
+        h = GUI_DISP_H*65;
         rowHeight = GUI_DISP_H*4;
         sizeEx = GUI_DISP_H*3.5;
         columns[] = {GUI_DISP_W*5,GUI_DISP_W*16,GUI_DISP_W*21,GUI_DISP_W*28};
@@ -106,20 +113,20 @@ class APP(dialog) : RSC(guiMenu) {
 
     class itemfilter : RSC(BaseEditBox) {
         idc = IDC_GUI_CRATE_FILTER;
-        x = GUI_DISP_X+GUI_DISP_W*3;
-        y = GUI_DISP_Y+GUI_DISP_H*40;
-        w = GUI_DISP_W*74;
+        x = GUI_DISP_X+GUI_DISP_W*37;
+        y = GUI_DISP_Y+GUI_DISP_H*16;
+        w = GUI_DISP_W*40;
         h = GUI_DISP_H*5;
-        sizeEx = GUI_DISP_H*3.5;
+        sizeEx = GUI_DISP_H*4.5;
     };
 
     class itemfilter_watermark : RSC(BaseText) {
         idc = IDC_GUI_CRATE_FILTER_WATERMARK;
-        x = GUI_DISP_X+GUI_DISP_W*3;
-        y = GUI_DISP_Y+GUI_DISP_H*40;
-        w = GUI_DISP_W*74;
+        x = GUI_DISP_X+GUI_DISP_W*37;
+        y = GUI_DISP_Y+GUI_DISP_H*16;
+        w = GUI_DISP_W*40;
         h = GUI_DISP_H*5;
-        sizeEx = GUI_DISP_H*3.5;
+        sizeEx = GUI_DISP_H*4.5;
         text = CSTRING(FILTER);
         colorBackground[] = COLOR_CRATE_EDIT_BACKGROUND;
         colorText[] = COLOR_CRATE_EDIT_TEXT_BACK;
@@ -127,12 +134,12 @@ class APP(dialog) : RSC(guiMenu) {
 
     class crate_button1 : RSC(BaseButton) {
         idc = IDC_GUI_CRATE_BTTN1;
-        x = GUI_DISP_X+GUI_DISP_W*6;
+        x = GUI_DISP_X+GUI_DISP_W*3;
         y = GUI_DISP_Y+GUI_DISP_H*10;
-        w = GUI_DISP_W*9;
-        h = GUI_DISP_H*9;
+        w = GUI_DISP_W*4.5;
+        h = GUI_DISP_H*4.5;
         shadow = 0;
-        sizeEx = GUI_DISP_W*9;
+        sizeEx = GUI_DISP_W*4;
         color[] = COLOR_DISABLED;
 
         colorBackground[] = COLOR_BASE_GREY_LIGHT;
@@ -157,109 +164,109 @@ class APP(dialog) : RSC(guiMenu) {
     };
     class crate_button2 : crate_button1 {
         idc = IDC_GUI_CRATE_BTTN2;
-        y = GUI_DISP_H*20;
-        x = GUI_DISP_X+GUI_DISP_W*(6+9*0);
+        x = GUI_DISP_X+GUI_DISP_W*(3+4.5*1);
         toolTip = CSTRING(BTTN_2);
         text = "A3\ui_f\data\gui\cfg\Hints\automatic_ca.paa";
     };
     class crate_button3 : crate_button1 {
         idc = IDC_GUI_CRATE_BTTN3;
-        x = GUI_DISP_X+GUI_DISP_W*(6+9*1);
+        x = GUI_DISP_X+GUI_DISP_W*(3+4.5*2);
         toolTip = CSTRING(BTTN_3);
         text = "A3\ui_f\data\gui\cfg\Hints\Sniper_ca.paa";
     };
-    class crate_button4 : crate_button2 {
+    class crate_button4 : crate_button1 {
         idc = IDC_GUI_CRATE_BTTN4;
-        x = GUI_DISP_X+GUI_DISP_W*(6+9*1);
+        x = GUI_DISP_X+GUI_DISP_W*(3+4.5*3);
         toolTip = CSTRING(BTTN_4);
         text = "A3\ui_f\data\gui\cfg\Hints\Launcher_ca.paa";
     };
     class crate_button5 : crate_button1 {
         idc = IDC_GUI_CRATE_BTTN5;
-        x = GUI_DISP_X+GUI_DISP_W*(6+9*2);
+        x = GUI_DISP_X+GUI_DISP_W*(3+4.5*4);
         toolTip = CSTRING(BTTN_5);
         text = "A3\ui_f\data\gui\cfg\Hints\Handgun_ca.paa";
     };
-    class crate_button6 : crate_button2 {
+    class crate_button6 : crate_button1 {
         idc = IDC_GUI_CRATE_BTTN6;
-        x = GUI_DISP_X+GUI_DISP_W*(6+9*2);
+        x = GUI_DISP_X+GUI_DISP_W*(3+4.5*5);
         toolTip = CSTRING(BTTN_6);
         text = "A3\ui_f\data\gui\cfg\Hints\Optics_ca.paa";
     };
     class crate_button7 : crate_button1 {
         idc = IDC_GUI_CRATE_BTTN7;
-        x = GUI_DISP_X+GUI_DISP_W*(6+9*3);
+        x = GUI_DISP_X+GUI_DISP_W*(3+4.5*6);
         toolTip = CSTRING(BTTN_7);
-        text = "A3\ui_f\data\gui\cfg\Hints\Granades_ca.paa";
+        text = "A3\ui_f\data\gui\cfg\Hints\grenades_ca.paa";
     };
-    class crate_button8 : crate_button2 {
+    class crate_button8 : crate_button1 {
         idc = IDC_GUI_CRATE_BTTN8;
-        x = GUI_DISP_X+GUI_DISP_W*(6+9*3);
+        x = GUI_DISP_X+GUI_DISP_W*(3+4.5*7);
         toolTip = CSTRING(BTTN_8);
         text = "A3\ui_f\data\gui\cfg\Hints\Mines_ca.paa";
     };
     class crate_button9 : crate_button1 {
         idc = IDC_GUI_CRATE_BTTN9;
-        x = GUI_DISP_X+GUI_DISP_W*(6+9*4);
+        x = GUI_DISP_X+GUI_DISP_W*(3+4.5*8);
         toolTip = CSTRING(BTTN_9);
         text = "A3\ui_f\data\gui\Rsc\RscDisplayArsenal\uniform_ca.paa";
     };
-    class crate_button10 : crate_button2 {
+    class crate_button10 : crate_button1 {
         idc = IDC_GUI_CRATE_BTTN10;
-        x = GUI_DISP_X+GUI_DISP_W*(6+9*4);
+        x = GUI_DISP_X+GUI_DISP_W*(3+4.5*9);
         toolTip = CSTRING(BTTN_10);
         text = "A3\ui_f\data\gui\Rsc\RscDisplayArsenal\vest_ca.paa";
     };
     class crate_button11 : crate_button1 {
         idc = IDC_GUI_CRATE_BTTN11;
-        x = GUI_DISP_X+GUI_DISP_W*(6+9*5);
+        x = GUI_DISP_X+GUI_DISP_W*(3+4.5*10);
         toolTip = CSTRING(BTTN_11);
         text = "A3\ui_f\data\gui\Rsc\RscDisplayArsenal\headgear_ca.paa";
     };
-    class crate_button12 : crate_button2 {
+    class crate_button12 : crate_button1 {
         idc = IDC_GUI_CRATE_BTTN12;
-        x = GUI_DISP_X+GUI_DISP_W*(6+9*5);
+        x = GUI_DISP_X+GUI_DISP_W*(3+4.5*11);
         toolTip = CSTRING(BTTN_12);
         text = "A3\ui_f\data\gui\cfg\Hints\Gear_CA.paa";
     };
     class crate_button13 : crate_button1 {
         idc = IDC_GUI_CRATE_BTTN13;
-        x = GUI_DISP_X+GUI_DISP_W*(6+9*6);
+        x = GUI_DISP_X+GUI_DISP_W*(3+4.5*12);
         toolTip = CSTRING(BTTN_13);
         text = "A3\ui_f\data\gui\cfg\Hints\CallSupport_CA.paa";
     };
-    class crate_button14 : crate_button2 {
+    class crate_button14 : crate_button1 {
         idc = IDC_GUI_CRATE_BTTN14;
-        x = GUI_DISP_X+GUI_DISP_W*(6+9*6);
+        x = GUI_DISP_X+GUI_DISP_W*(3+4.5*13);
         toolTip = CSTRING(BTTN_14);
         text = "A3\ui_f\data\gui\cfg\Hints\Direction_ca.paa";
     };
     class crate_button15 : crate_button1 {
         idc = IDC_GUI_CRATE_BTTN15;
-        x = GUI_DISP_X+GUI_DISP_W*(6+9*7);
+        x = GUI_DISP_X+GUI_DISP_W*(3+4.5*14);
         toolTip = CSTRING(BTTN_15);
         text = "A3\ui_f\data\gui\cfg\Hints\Injury_ca.paa";
     };
-    class crate_button16 : crate_button2 {
+    class crate_button16 : crate_button1 {
         idc = IDC_GUI_CRATE_BTTN16;
-        x = GUI_DISP_X+GUI_DISP_W*(6+9*7);
+        x = GUI_DISP_X+GUI_DISP_W*(3+4.5*15);
         toolTip = CSTRING(BTTN_16);
         text = "A3\ui_f\data\gui\cfg\Hints\Take_ca.paa";
     };
 
     class boxtitle : RSC(BaseText) {
-        idc = ID_GUI_CRATE_BOXLIST_HEADER;
-        x = GUI_DISP_X + GUI_DISP_W*90;
+        idc = IDC_GUI_CRATE_BOXLIST_HEADER;
+        x = GUI_DISP_X + GUI_DISP_W*92;
         y = GUI_DISP_Y + GUI_DISP_H*10;
-        w = GUI_DISP_W*60
-        h = GUI_DISP_H*6;
+        w = GUI_DISP_W*30
+        h = GUI_DISP_H*4;
+        sizeEx = GUI_DISP_H*4;
         text = CSTRING(header_box);
     };
 
     class boxlist : RSC(BaseCombobox) {
         idc = IDC_GUI_CRATE_BOXLIST;
-        x = GUI_DISP_X + GUI_DISP_W*90;
-        y = GUI_DISP_Y + GUI_DISP_H*18;
+        x = GUI_DISP_X + GUI_DISP_W*92;
+        y = GUI_DISP_Y + GUI_DISP_H*16;
         w = GUI_DISP_W*60
         h = GUI_DISP_H*6;
         sizeEx = GUI_DISP_H*6;
@@ -268,20 +275,17 @@ class APP(dialog) : RSC(guiMenu) {
         onLBSelChanged = QFUNC(onBoxChanged);
     };
 
-    class inventorytitle : RSC(BaseText) {
-        idc = ID_GUI_CRATE_INVENTORY_HEADER;
-        x = GUI_DISP_X + GUI_DISP_W*90;
-        y = GUI_DISP_Y + GUI_DISP_H*10;
-        w = GUI_DISP_W*60
-        h = GUI_DISP_H*6;
+    class inventorytitle : boxtitle {
+        idc = IDC_GUI_CRATE_INVENTORY_HEADER;
+        y = GUI_DISP_Y + GUI_DISP_H*24;
         text = CSTRING(header_inventory);
     };
 
     class inventory : itemlist {
         idc = IDC_GUI_CRATE_INVENTORY;
-        x = GUI_DISP_X + GUI_DISP_W*90;
+        x = GUI_DISP_X + GUI_DISP_W*92;
         y = GUI_DISP_Y + GUI_DISP_H*30;
-        w = GUI_DISP_W*60;
+        w = GUI_DISP_W*86;
         h = GUI_DISP_H*40;
         idcLeft = IDC_GUI_CRATE_INVENTORY_REDUCE;
         idcRight = IDC_GUI_CRATE_INVENTORYT_ADD;

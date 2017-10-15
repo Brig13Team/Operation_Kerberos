@@ -14,7 +14,7 @@
 #include "script_component.hpp"
 
 params ["_ctrl",["_list",[],[[]]]];
-
+TRACEV_2(_ctrl,_list);
 lnbClear _ctrl;
 {
     private _configString = _x;

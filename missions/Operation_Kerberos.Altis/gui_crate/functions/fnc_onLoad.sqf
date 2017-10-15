@@ -25,7 +25,7 @@ _display displayAddEventHandler ["KeyUp",QUOTE([ARR_2(_this select 1,false)] cal
         GUI_DISP_X + GUI_DISP_W*90,
         GUI_DISP_Y + GUI_DISP_H*74,
         GUI_DISP_W*10,
-        GUI_DISP_H*10
+        GUI_DISP_H*5
     ]
 ] call EFUNC(gui,animButton)) params ["_ctrlButton", "_ctrlBackground"];
 _ctrlButton ctrlSetText (localize LSTRING(BTTN_LOAD));

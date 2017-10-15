@@ -19,13 +19,17 @@ HASH_DELETE(GVAR(curInventory));
 
 private _value = _control lbValue _index;
 If (_value isEqualTo 0) then {
-    GVAR(curInventory) = [];
+    HASH_DELETE(GVAR(curInventory));
+    GVAR(curInventory) = HASH_CREATE;
 } else {
-    GVAR(curInventory) = [];
+    HASH_DELETE(GVAR(curInventory));
+    GVAR(curInventory) = HASH_CREATE;
     private _object = [_control lbData _index] call BIS_fnc_objectFromNetId;
     {
         private _curCfg = [_x] call CBA_fnc_getItemConfig;
-        GVAR(curInventory) pushBack ([_curCfg,""] call BIS_fnc_configPath);
+        private _key = [_curCfg,""] call BIS_fnc_configPath;
+        private _value = HASH_GET_DEF(GVAR(curInventory),_key,0) + 1;
+        HASH_SET(GVAR(curInventory),_key,_value);
     } forEach ((weaponCargo _object) + (itemCargo _object) + (magazineCargo _object));
 };
 
