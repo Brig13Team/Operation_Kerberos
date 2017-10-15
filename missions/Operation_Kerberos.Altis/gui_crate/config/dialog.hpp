@@ -112,12 +112,16 @@ class APP(dialog) : RSC(guiMenu) {
         sizeEx = GUI_DISP_H*3.5;
     };
 
-    class searchbutton : RSC(BaseButton) {
-        idc = IDC_GUI_CRATE_SEARCH;
+    class searchbutton : RSC(BaseText) {
+        idc = IDC_GUI_CRATE_FILTER_WATERMARK;
         x = GUI_DISP_X+GUI_DISP_W*3;
-        y = GUI_DISP_Y+GUI_DISP_H*10;
-        w = GUI_DISP_W*5;
+        y = GUI_DISP_Y+GUI_DISP_H*40;
+        w = GUI_DISP_W*74;
         h = GUI_DISP_H*5;
+        sizeEx = GUI_DISP_H*3.5;
+        text = CSTRING(FILTER);
+        colorBackground[] = COLOR_CRATE_EDIT_BACKGROUND;
+        colorText[] = COLOR_CRATE_EDIT_TEXT_BACK;
     };
 
     class crate_button1 : RSC(BaseButton) {

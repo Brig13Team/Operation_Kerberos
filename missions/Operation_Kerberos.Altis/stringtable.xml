@@ -89,10 +89,6 @@
             <German>Arsenal</German>
             <English>Arsenal</English>
         </Key>
-        <Key ID="STR_DORB_GUI_ARSENAL_NOTEMPTY">
-            <German>Arsenal öffnen</German>
-            <English>open arsenal</English>
-        </Key>
         <Key ID="STR_DORB_GUI_ARSENAL_CREATE_LIST">
             <German>Erstelle Arsenallisten</German>
             <English>creating arsenal lists</English>
@@ -1097,113 +1093,85 @@
             <English>Save</English>
             <German>Speichern</German>
         </Key>
-        <Key ID="STR_DORB_GUI_CRATE_SIZE1">
-            <German>Kleine Kiste</German>
-            <English>Small Box</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_CRATE_SIZE2">
-            <German>Mittlere Kiste</German>
-            <English>Medium Box</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_CRATE_SIZE3">
-            <German>Große Kiste</German>
-            <English>Large Box</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_CRATE_SIZE4">
-            <German>Sehr Große Kiste</German>
-            <English>Very Large Box</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_CRATE_SIZE5">
-            <German>Nachschubkiste</German>
-            <English>Supply Crate</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_CRATE_SIZE6">
-            <German>Frachtpalette</German>
-            <English>Cargo Pallet</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_CRATE_SIZE7">
-            <German>Frachtcontainer</German>
-            <English>Shipping Container</English>
+        <Key ID="STR_DORB_GUI_CRATE_FILTER">
+            <English>filter</English>
+            <German>Filter</German>
         </Key>
         <Key ID="STR_DORB_GUI_CRATE_BTTN_1">
-            <German>Aktuell</German>
-            <English>Current</English>
+            <English>Rifles</English>
+            <German>Sturmgewehre</German>
         </Key>
         <Key ID="STR_DORB_GUI_CRATE_BTTN_2">
-            <German>Sturmgewehre</German>
-            <English>Rifles</English>
+            <English>Automatic Rifles</English>
+            <German>Maschinengewehre</German>
         </Key>
         <Key ID="STR_DORB_GUI_CRATE_BTTN_3">
-            <German>Maschinengewehre</German>
-            <English>Automatic Rifles</English>
+            <English>Sniper Rifles</English>
+            <German>Scharfschützengewehre</German>
         </Key>
         <Key ID="STR_DORB_GUI_CRATE_BTTN_4">
-            <German>Scharfschützengewehre</German>
-            <English>Sniper Rifles</English>
+            <English>Launchers</English>
+            <German>Raktenwerfer</German>
         </Key>
         <Key ID="STR_DORB_GUI_CRATE_BTTN_5">
-            <German>Andere Waffen</German>
-            <English>Other Weapons</English>
+            <English>Pistols</English>
+            <German>Pistolen</German>
         </Key>
         <Key ID="STR_DORB_GUI_CRATE_BTTN_6">
-            <German>Raktenwerfer</German>
-            <English>Launchers</English>
+            <English>Attachments</English>
+            <German>Anbauteile</German>
         </Key>
         <Key ID="STR_DORB_GUI_CRATE_BTTN_7">
-            <German>Pistolen</German>
-            <English>Pistols</English>
+            <English>Grenades</English>
+            <German>Granaten</German>
         </Key>
         <Key ID="STR_DORB_GUI_CRATE_BTTN_8">
-            <German>Anbauteile</German>
-            <English>Attachments</English>
+            <English>Explosives</English>
+            <German>Sprengmittel</German>
         </Key>
         <Key ID="STR_DORB_GUI_CRATE_BTTN_9">
-            <German>Granaten</German>
-            <English>Grenades</English>
+            <English>Backpacks</English>
+            <German>Rucksäcke</German>
         </Key>
         <Key ID="STR_DORB_GUI_CRATE_BTTN_10">
-            <German>Sprengmittel</German>
-            <English>Explosives</English>
+            <English>Vests</English>
+            <German>Westen</German>
         </Key>
         <Key ID="STR_DORB_GUI_CRATE_BTTN_11">
-            <German>Rucksäcke</German>
-            <English>Backpacks</English>
+            <English>Uniforms</English>
+            <German>Uniformen</German>
         </Key>
         <Key ID="STR_DORB_GUI_CRATE_BTTN_12">
-            <German>Westen</German>
-            <English>Vests</English>
+            <English>Head</English>
+            <German>Kopf</German>
         </Key>
         <Key ID="STR_DORB_GUI_CRATE_BTTN_13">
-            <German>Uniformen</German>
-            <English>Uniforms</English>
+            <English>Radios</English>
+            <German>Funkgeräte</German>
         </Key>
         <Key ID="STR_DORB_GUI_CRATE_BTTN_14">
-            <German>Kopf</German>
-            <English>Head</English>
+            <English>Nav Tools</English>
+            <German>Orientierungshilfen</German>
         </Key>
         <Key ID="STR_DORB_GUI_CRATE_BTTN_15">
-            <German>Funkgeräte</German>
-            <English>Radios</English>
+            <English>Medical Supplies</English>
+            <German>Sanitätsmaterial</German>
         </Key>
         <Key ID="STR_DORB_GUI_CRATE_BTTN_16">
-            <German>Orientierungshilfen</German>
-            <English>Nav Tools</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_CRATE_BTTN_17">
-            <German>Sanitätsmaterial</German>
-            <English>Medical Supplies</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_CRATE_BTTN_18">
-            <German>Gegenstände</German>
             <English>Items</English>
+            <German>Gegenstände</German>
         </Key>
-        <Key ID="STR_DORB_GUI_CRATE_BTTN_19">
-            <German>Sonstiges</German>
-            <English>Other</English>
+        <Key ID="STR_DORB_GUI_CRATE_ERRORMSG">
+            <English>Error</English>
+            <German>Fehler</German>
         </Key>
-        <Key ID="STR_DORB_GUI_CRATE_BTTN_20">
-            <German>Sonstiges</German>
-            <English>Other</English>
+        <Key ID="STR_DORB_GUI_CRATE_NOTEMPTY">
+            <English>Spawn point is not empty</English>
+            <German>Spawnfläche ist nicht leer</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_CRATE_NOBOX">
+            <English>Box missing</English>
+            <German>Box fehlt</German>
         </Key>
     </Package>
     <Package name="gui_save">

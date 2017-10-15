@@ -30,7 +30,7 @@ _display displayAddEventHandler ["KeyUp",QUOTE([ARR_2(_this select 1,false)] cal
 ] call EFUNC(gui,animButton)) params ["_ctrlButton", "_ctrlBackground"];
 _ctrlButton ctrlSetText (localize LSTRING(BTTN_LOAD));
 _ctrlButton ctrlSetTooltip (localize LSTRING(BTTN_LOAD));
-_ctrlButton ctrlAddEventHandler ["ButtonClick",{[] call FUNC(load)}];
+_ctrlButton ctrlAddEventHandler ["ButtonClick",{[_this select 0] call FUNC(load)}];
 _ctrlBackground ctrlSetTextColor [COLOR_CRATE_BTTN_LOAD];
 
 // save
@@ -45,7 +45,7 @@ _ctrlBackground ctrlSetTextColor [COLOR_CRATE_BTTN_LOAD];
 ] call EFUNC(gui,animButton)) params ["_ctrlButton", "_ctrlBackground"];
 _ctrlButton ctrlSetText (localize LSTRING(BTTN_SAVE));
 _ctrlButton ctrlSetTooltip (localize LSTRING(BTTN_SAVE));
-_ctrlButton ctrlAddEventHandler ["ButtonClick",{[] call FUNC(save)}];
+_ctrlButton ctrlAddEventHandler ["ButtonClick",{[_this select 0] call FUNC(save)}];
 _ctrlBackground ctrlSetTextColor [COLOR_CRATE_BTTN_SAVE];
 
 // clear
@@ -60,7 +60,7 @@ _ctrlBackground ctrlSetTextColor [COLOR_CRATE_BTTN_SAVE];
 ] call EFUNC(gui,animButton)) params ["_ctrlButton", "_ctrlBackground"];
 _ctrlButton ctrlSetText (localize LSTRING(BTTN_CLEAR));
 _ctrlButton ctrlSetTooltip (localize LSTRING(BTTN_CLEAR));
-_ctrlButton ctrlAddEventHandler ["ButtonClick",{[] call FUNC(clear)}];
+_ctrlButton ctrlAddEventHandler ["ButtonClick",{[_this select 0] call FUNC(clear)}];
 _ctrlBackground ctrlSetTextColor [COLOR_CRATE_BTTN_CLEAR];
 
 // spawn
@@ -75,7 +75,7 @@ _ctrlBackground ctrlSetTextColor [COLOR_CRATE_BTTN_CLEAR];
 ] call EFUNC(gui,animButton)) params ["_ctrlButton", "_ctrlBackground"];
 _ctrlButton ctrlSetText (localize LSTRING(BTTN_SPAWN));
 _ctrlButton ctrlSetTooltip (localize LSTRING(BTTN_SPAWN));
-_ctrlButton ctrlAddEventHandler ["ButtonClick",{[] call FUNC(spawn)}];
+_ctrlButton ctrlAddEventHandler ["ButtonClick",{[_this select 0] call FUNC(setInventory)}];
 _ctrlBackground ctrlSetTextColor [COLOR_CRATE_BTTN_SPAWN];
 
 (_display displayCtrl IDC_GUI_CRATE_BTTN1) ctrlAddEventHandler ["ButtonClick",{[(_this select 0),ID_RIFLES] call FUNC(filterList)}];
@@ -102,3 +102,19 @@ private _ctrlLb = _display displayCtrl IDD_GUI_CRATE_BOXLIST;
 _ctrlLb lbSetCurSel 0;
 _ctrlLb ctrlAddEventHandler ["LBSelChanged",LINKFUNC(onBoxSelect)];
 [_ctrlLb,0] call FUNC(onBoxSelect);
+
+
+If (isNil QGVAR(FilterHandleID)) then {
+    private _ctrlWatermark = _display displayCtrl IDC_GUI_CRATE_FILTER_WATERMARK;
+    private _ctrlEditBox = _display displayCtrl IDC_GUI_CRATE_FILTER;
+
+    GVAR(FilterHandleID) = [
+        LINKFUNC(filterPFH),
+        0.5,
+        [
+            _display,
+            _ctrlWatermark,
+            _ctrlEditBox
+        ]
+    ] call CBA_fnc_addPerFrameHandler;
+};
