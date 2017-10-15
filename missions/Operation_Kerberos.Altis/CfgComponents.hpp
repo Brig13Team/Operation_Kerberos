@@ -49,6 +49,8 @@ class CfgComponents {
     gui_vehiclespawn = 1;
     gui_arsenal = 1;
     gui_teleport = 1;
+    gui_crate = 1;
+    gui_save = 1;
 };
 
 #include "main\CfgComponent.hpp"
@@ -86,3 +88,5 @@ class CfgComponents {
 #include "gui_vehiclespawn\CfgComponent.hpp"
 #include "gui_teleport\CfgComponent.hpp"
 #include "gui_arsenal\CfgComponent.hpp"
+#include "gui_crate\CfgComponent.hpp"
+#include "gui_save\CfgComponent.hpp"

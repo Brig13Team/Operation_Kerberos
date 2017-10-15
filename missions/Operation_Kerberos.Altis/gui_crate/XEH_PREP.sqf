@@ -1,15 +1,20 @@
-#include "script_component.hpp"
 
 PREP(add);
 PREP(canOpenMenu);
 PREP(clear);
-PREP(clearPos);
-PREP(createlists);
-PREP(filter);
-PREP(getMod);
+PREP(clearPosition);
+PREP(filterList);
+PREP(filterPFH);
+PREP(getCurAmount);
+PREP(getItemList);
 PREP(keyEvent);
-PREP(mass);
-PREP(OnLoad);
+PREP(onBoxSelect);
+PREP(onLoad);
+PREP(onUnload);
 PREP(OpenMenu);
-PREP(save);
-PREP(spawn);
+PREP(registerSpawn);
+PREP(setInventory);
+PREP(showBoxes);
+PREP(showItemList);
+PREP(sortItemList);
+PREP(updateLibary);
