@@ -10,11 +10,11 @@
  * Nothing
  *
  */
-//#define DEBUG_MODE_FULL
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 params ["_buttonsCtrl","_id"];
-
+TRACEV_2(_buttonsCtrl,_id);
 private _display = ctrlParent _buttonsCtrl;
 
 

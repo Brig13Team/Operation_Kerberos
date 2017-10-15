@@ -10,7 +10,7 @@
  * Nothing
  *
  */
-
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 params ["_ctrl",["_list",[],[[]]]];
@@ -18,8 +18,9 @@ TRACEV_2(_ctrl,_list);
 lnbClear _ctrl;
 {
     private _configString = _x;
-    HASH_GET(GVAR(libary),_x) params ["_modpicture","_getMod","_picture","_displayname"];
-    private _curIndex = _ctrl lnbAddRow ["",_modname,"",_displayname,[_configString] call FUNC(getCurAmount)];
+    HASH_GET(GVAR(libary),_x) params ["_modpicture","_modname","_picture","_displayname"];
+    //TRACEV_6(_configString,_modpicture,_modname,_picture,_displayname,[_configString] call FUNC(getCurAmount));
+    private _curIndex = _ctrl lnbAddRow ["",_modname,"",_displayname,str ([_configString] call FUNC(getCurAmount))];
     _ctrl lnbSetPicture [[_curIndex,0],_modPicture];
     _ctrl lnbSetPictureColor [[_curIndex,0],[1,1,1,1]];
     _ctrl lnbSetPicture [[_curIndex,2],_Picture];

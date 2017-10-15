@@ -15,8 +15,6 @@
 
 params ["_control","_index"];
 
-HASH_DELETE(GVAR(curInventory));
-
 private _value = _control lbValue _index;
 If (_value isEqualTo 0) then {
     HASH_DELETE(GVAR(curInventory));

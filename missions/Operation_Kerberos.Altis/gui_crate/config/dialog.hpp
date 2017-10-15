@@ -36,16 +36,20 @@ class APP(dialog) : RSC(guiMenu) {
         crate_button15,
         crate_button16,
         itemlist,
-        itemfilter,
+        itemlist_button_add,
+        itemlist_button_reduce,
         itemfilter_watermark,
+        itemfilter,
 
         boxtitle,
         boxlist,
         inventorytitle,
-        inventory
+        inventory,
+        inventory_button_add,
+        inventory_button_reduce
     };
 
-    class background_header : background_header {
+    class headertext : headertext {
         text = CSTRING(header);
     };
 
@@ -68,31 +72,31 @@ class APP(dialog) : RSC(guiMenu) {
         colorBackground[] = COLOR_CRATE_BACKGROUND2;
     };
 
-    class background_inventory: background_itemlist {
-        x = GUI_DISP_X+GUI_DISP_W*92;
-        y = GUI_DISP_Y+GUI_DISP_H*30;
-        w = GUI_DISP_W*86;
-        h = GUI_DISP_H*40;
-    };
-
     class itemlist_button_add : RSC(BaseButton) {
         idc = IDC_GUI_CRATE_ITEMLIST_ADD;
+        x = GUI_DISP_X;
+        y = GUI_DISP_Y;
+        w = GUI_DISP_W*4;
+        h = GUI_DISP_H*4;
+        sizeEx = GUI_DISP_W*3.5;
         text = "+";
         borderSize = 0;
         colorShadow[] = {0,0,0,0};
-        action = QUOTE([ARR_2((ctrlParent (_this select 0)) displayCtrl IDC_GUI_CRATE_ITEMLIST,true)] call FUNC(add);false);
+        onButtonClick = QUOTE([ARR_2((ctrlParent (_this select 0)) displayCtrl IDC_GUI_CRATE_ITEMLIST,true)] call FUNC(add);false);
     };
     class inventory_button_add : itemlist_button_add {
         idc = IDC_GUI_CRATE_INVENTORY_ADD;
+        onButtonClick = QUOTE([ARR_2((ctrlParent (_this select 0)) displayCtrl IDC_GUI_CRATE_INVENTORY,true)] call FUNC(add);false);
     };
 
     class itemlist_button_reduce : itemlist_button_add {
         idc = IDC_GUI_CRATE_ITEMLIST_REDUCE;
         text = "-";
-        action = QUOTE([ARR_2((ctrlParent (_this select 0)) displayCtrl IDC_GUI_CRATE_ITEMLIST,false)] call FUNC(add);false);
+        onButtonClick = QUOTE([ARR_2((ctrlParent (_this select 0)) displayCtrl IDC_GUI_CRATE_ITEMLIST,false)] call FUNC(add);false);
     };
     class inventory_button_reduce : itemlist_button_reduce {
         idc = IDC_GUI_CRATE_INVENTORY_REDUCE;
+        onButtonClick = QUOTE([ARR_2((ctrlParent (_this select 0)) displayCtrl IDC_GUI_CRATE_INVENTORY,false)] call FUNC(add);false);
     };
 
     class itemlist : RSC(BaseListboxN) {
@@ -103,33 +107,48 @@ class APP(dialog) : RSC(guiMenu) {
         w = GUI_DISP_W*72;
         h = GUI_DISP_H*65;
         rowHeight = GUI_DISP_H*4;
-        sizeEx = GUI_DISP_H*3.5;
-        columns[] = {GUI_DISP_W*5,GUI_DISP_W*16,GUI_DISP_W*21,GUI_DISP_W*28};
+        sizeEx = GUI_DISP_H*3;
+        columns[] = {GUI_DISP_W*3.2,GUI_DISP_W*7,GUI_DISP_W*25,GUI_DISP_W*33,GUI_DISP_W*58};
         drawSideArrows = 1;
         idcLeft = IDC_GUI_CRATE_ITEMLIST_REDUCE;
         idcRight = IDC_GUI_CRATE_ITEMLIST_ADD;
+
+        color[] = COLOR_CRATE_ITEMLIST_TEXT;
+        colorScrollbar[] = COLOR_CRATE_BACKGROUND;
+        colorSelect[] = COLOR_CRATE_ITEMLIST_TEXT;
+        colorSelect2[] = COLOR_CRATE_ITEMLIST_TEXT;
+        colorDisabled[] = COLOR_DISABLED;
+        colorSelectBackground[] = COLOR_CRATE_ITEMLIST_SELECTBG;
+        colorSelectBackground2[] = COLOR_CRATE_ITEMLIST_SELECTBG;
         colorText[] = COLOR_CRATE_ITEMLIST_TEXT;
+        colorBackground[] = COLOR_CRATE_BACKGROUND;
+
+        pictureColor[] = COLOR_BASE_WHITE;
+        pictureColorSelect[] = COLOR_BASE_WHITE;
+        pictureColorDisabled[] = COLOR_BASE_WHITE;
     };
 
     class itemfilter : RSC(BaseEditBox) {
         idc = IDC_GUI_CRATE_FILTER;
         x = GUI_DISP_X+GUI_DISP_W*37;
         y = GUI_DISP_Y+GUI_DISP_H*16;
-        w = GUI_DISP_W*40;
+        w = GUI_DISP_W*38;
         h = GUI_DISP_H*5;
         sizeEx = GUI_DISP_H*4.5;
+        colorBackground[] = COLOR_DISABLED;
     };
 
     class itemfilter_watermark : RSC(BaseText) {
         idc = IDC_GUI_CRATE_FILTER_WATERMARK;
         x = GUI_DISP_X+GUI_DISP_W*37;
         y = GUI_DISP_Y+GUI_DISP_H*16;
-        w = GUI_DISP_W*40;
+        w = GUI_DISP_W*38;
         h = GUI_DISP_H*5;
         sizeEx = GUI_DISP_H*4.5;
-        text = CSTRING(FILTER);
+        text = CSTRING(WATERMARK_FILTER);
         colorBackground[] = COLOR_CRATE_EDIT_BACKGROUND;
-        colorText[] = COLOR_CRATE_EDIT_TEXT_BACK;
+        //colorText[] = COLOR_CRATE_EDIT_TEXT_BACK;
+        colorText[] = COLOR_BASE_WHITE;
     };
 
     class crate_button1 : RSC(BaseButton) {
@@ -139,15 +158,15 @@ class APP(dialog) : RSC(guiMenu) {
         w = GUI_DISP_W*4.5;
         h = GUI_DISP_H*4.5;
         shadow = 0;
-        sizeEx = GUI_DISP_W*4;
+        sizeEx = GUI_DISP_W*4.5;
         color[] = COLOR_DISABLED;
 
-        colorBackground[] = COLOR_BASE_GREY_LIGHT;
-        colorBackgroundActive[] = COLOR_BASE_GREY_LIGHT;
-        colorFocused[] = COLOR_BASE_GREY;
+        colorBackground[] = COLOR_BASE_WHITE;
+        colorBackgroundActive[] = COLOR_BASE_WHITE;
+        colorFocused[] = COLOR_BASE_BLACK;
 
         colorText[] = COLOR_BASE_BLACK;
-        colorTextSelect[] = COLOR_BASE_GREY_LIGHT;
+        colorTextSelect[] = COLOR_BASE_BLACK;
 
         colorShadow[] = COLOR_BASE_GREY_LIGHT;
         colorBorder[] = COLOR_BASE_GREY_LIGHT;
@@ -209,14 +228,20 @@ class APP(dialog) : RSC(guiMenu) {
         x = GUI_DISP_X+GUI_DISP_W*(3+4.5*8);
         toolTip = CSTRING(BTTN_9);
         text = "A3\ui_f\data\gui\Rsc\RscDisplayArsenal\uniform_ca.paa";
+        colorBackground[] = COLOR_BASE_BLACK;
+        colorBackgroundActive[] = COLOR_BASE_BLACK;
+
+        colorFocused[] = COLOR_BASE_WHITE;
+        colorText[] = COLOR_BASE_WHITE;
+        colorTextSelect[] = COLOR_BASE_WHITE;
     };
-    class crate_button10 : crate_button1 {
+    class crate_button10 : crate_button9 {
         idc = IDC_GUI_CRATE_BTTN10;
         x = GUI_DISP_X+GUI_DISP_W*(3+4.5*9);
         toolTip = CSTRING(BTTN_10);
         text = "A3\ui_f\data\gui\Rsc\RscDisplayArsenal\vest_ca.paa";
     };
-    class crate_button11 : crate_button1 {
+    class crate_button11 : crate_button9 {
         idc = IDC_GUI_CRATE_BTTN11;
         x = GUI_DISP_X+GUI_DISP_W*(3+4.5*10);
         toolTip = CSTRING(BTTN_11);
@@ -255,7 +280,7 @@ class APP(dialog) : RSC(guiMenu) {
 
     class boxtitle : RSC(BaseText) {
         idc = IDC_GUI_CRATE_BOXLIST_HEADER;
-        x = GUI_DISP_X + GUI_DISP_W*92;
+        x = GUI_DISP_X + GUI_DISP_W*82;
         y = GUI_DISP_Y + GUI_DISP_H*10;
         w = GUI_DISP_W*30
         h = GUI_DISP_H*4;
@@ -265,13 +290,13 @@ class APP(dialog) : RSC(guiMenu) {
 
     class boxlist : RSC(BaseCombobox) {
         idc = IDC_GUI_CRATE_BOXLIST;
-        x = GUI_DISP_X + GUI_DISP_W*92;
+        x = GUI_DISP_X + GUI_DISP_W*82;
         y = GUI_DISP_Y + GUI_DISP_H*16;
         w = GUI_DISP_W*60
-        h = GUI_DISP_H*6;
-        sizeEx = GUI_DISP_H*6;
-        rowHeight = GUI_DISP_H*6;
-        wholeHeight = GUI_DISP_H*50;
+        h = GUI_DISP_H*5;
+        sizeEx = GUI_DISP_H*4;
+        rowHeight = GUI_DISP_H*4;
+        wholeHeight = GUI_DISP_H*40;
         onLBSelChanged = QFUNC(onBoxChanged);
     };
 
@@ -283,11 +308,16 @@ class APP(dialog) : RSC(guiMenu) {
 
     class inventory : itemlist {
         idc = IDC_GUI_CRATE_INVENTORY;
-        x = GUI_DISP_X + GUI_DISP_W*92;
+        x = GUI_DISP_X + GUI_DISP_W*82;
         y = GUI_DISP_Y + GUI_DISP_H*30;
-        w = GUI_DISP_W*86;
         h = GUI_DISP_H*40;
         idcLeft = IDC_GUI_CRATE_INVENTORY_REDUCE;
-        idcRight = IDC_GUI_CRATE_INVENTORYT_ADD;
+        idcRight = IDC_GUI_CRATE_INVENTORY_ADD;
+    };
+
+    class background_inventory: background_itemlist {
+        x = GUI_DISP_X+GUI_DISP_W*82;
+        y = GUI_DISP_Y+GUI_DISP_H*30;
+        h = GUI_DISP_H*40;
     };
 };

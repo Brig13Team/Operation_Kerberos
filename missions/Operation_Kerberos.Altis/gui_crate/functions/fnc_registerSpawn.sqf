@@ -55,11 +55,11 @@ If (IS_ARRAY(_list)) then {
         };
     };
     _list = _list - [configNull];
-    _list = [_list apply {[_x,""] call BIS_fnc_configPath}] call FUNC(updateLibary);
+    _list = _list apply {[_x,""] call BIS_fnc_configPath};
 } else {
     _list = [_list] call FUNC(getItemList);
 };
-
+[_list] call FUNC(updateLibary);
 _list = [_list] call FUNC(sortItemList);
 
 GVAR(spawns) setVariable [_id,[_List,_spawnPosition,_spawnDir]];

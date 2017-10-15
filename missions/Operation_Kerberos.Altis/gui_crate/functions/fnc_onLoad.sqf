@@ -78,7 +78,7 @@ _ctrlButton ctrlSetTooltip (localize LSTRING(BTTN_SPAWN));
 _ctrlButton ctrlAddEventHandler ["ButtonClick",{[_this select 0] call FUNC(setInventory)}];
 _ctrlBackground ctrlSetTextColor [COLOR_CRATE_BTTN_SPAWN];
 
-(_display displayCtrl IDC_GUI_CRATE_BTTN1) ctrlAddEventHandler ["ButtonClick",{[(_this select 0),ID_RIFLES] call FUNC(filterList)}];
+(_display displayCtrl IDC_GUI_CRATE_BTTN1) ctrlAddEventHandler ["ButtonClick",{[(_this select 0),ID_RIFLE] call FUNC(filterList)}];
 (_display displayCtrl IDC_GUI_CRATE_BTTN2) ctrlAddEventHandler ["ButtonClick",{[(_this select 0),ID_AUTOMATIC] call FUNC(filterList)}];
 (_display displayCtrl IDC_GUI_CRATE_BTTN3) ctrlAddEventHandler ["ButtonClick",{[(_this select 0),ID_SNIPER] call FUNC(filterList)}];
 (_display displayCtrl IDC_GUI_CRATE_BTTN4) ctrlAddEventHandler ["ButtonClick",{[(_this select 0),ID_LAUNCHER] call FUNC(filterList)}];
@@ -97,6 +97,7 @@ _ctrlBackground ctrlSetTextColor [COLOR_CRATE_BTTN_SPAWN];
 
 [(_display displayCtrl IDC_GUI_CRATE_ITEMLIST),GVAR(curItemList) select GVAR(curID)] call FUNC(showItemList);
 [_display] call FUNC(showBoxes);
+[_display displayCtrl IDC_GUI_CRATE_BTTN1,ID_RIFLE] call FUNC(filterList);
 
 private _ctrlLb = _display displayCtrl IDD_GUI_CRATE_BOXLIST;
 _ctrlLb lbSetCurSel 0;

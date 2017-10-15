@@ -14,7 +14,7 @@
 
 params ["_display"];
 
-private _nearObjects = nearestObjects [GVAR(curPos), ["AllVehicles"], _check_radius];
+private _nearObjects = nearestObjects [GVAR(curPos), ["AllVehicles"], CHECK_RADIUS_MIN];
 
 // filter the Objects
 
@@ -25,7 +25,7 @@ private _nearObjects = nearestObjects [GVAR(curPos), ["AllVehicles"], _check_rad
 private _list = [];
 {
     _list pushBack [
-        format ["%1 (New)",getText(configFile >> "CfgVehicles" >> _x)],
+        format ["%1 (New)",getText(configFile >> "CfgVehicles" >> _x >> "displayName")],
         _x,
         0
     ];
@@ -34,7 +34,7 @@ private _list = [];
 
 {
     _list pushBack [
-        format [localize LSTRING(NEWBOX),getText(configFile >> "CfgVehicles" >> (typeOf _x))],
+        format [localize LSTRING(NEWBOX),getText(configFile >> "CfgVehicles" >> (typeOf _x) >> "displayName")],
         [_x] call BIS_fnc_netId,
         1
     ];
@@ -42,10 +42,13 @@ private _list = [];
 
 
 
-private _ctrlLb = (_display) displayCtrl IDD_GUI_CRATE_BOXLIST;
+private _ctrlLb = (_display) displayCtrl IDC_GUI_CRATE_BOXLIST;
 {
     _x params ["_text","_data","_value"];
     private _index = _ctrlLb lbAdd _text;
     _ctrlLb lbSetData [_index,_data];
     _ctrlLb lbSetValue [_index,_value];
 } forEach _list;
+
+_ctrlLb lbSetCurSel 0;
+[_ctrlLb,0] call FUNC(onBoxSelect);

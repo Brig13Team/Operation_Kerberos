@@ -1065,6 +1065,10 @@
             <German>Kistenfüller</German>
         </Key>
         <Key ID="STR_DORB_GUI_CRATE_HEADER_INVENTORY">
+            <English>Inventory</English>
+            <German>Inventar</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_CRATE_NEWBOX">
             <English>%1 (New)</English>
             <German>%1 (Neu)</German>
         </Key>
@@ -1088,7 +1092,7 @@
             <English>Save</English>
             <German>Speichern</German>
         </Key>
-        <Key ID="STR_DORB_GUI_CRATE_FILTER">
+        <Key ID="STR_DORB_GUI_CRATE_WATERMARK_FILTER">
             <English>filter</English>
             <German>Filter</German>
         </Key>

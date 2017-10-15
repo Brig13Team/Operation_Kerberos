@@ -41,9 +41,9 @@ switch (toLower _event) do {
 
         _ctrlBttn ctrlSetPosition [
             _posX+GUI_DISP_W*0.5,
-            _posY+GUI_DISP_W*0.5,
+            _posY+GUI_DISP_H*0.5,
             _posW-GUI_DISP_W*1,
-            _posH-GUI_DISP_W*1
+            _posH-GUI_DISP_H*1
         ];
         _ctrlBttn ctrlCommit 0;
         _ctrlBttn ctrlAddEventHandler ["MouseEnter", {["onMouseEnter", _this] call FUNC(animButton);}];
@@ -76,9 +76,9 @@ switch (toLower _event) do {
         private _ctrlBttn = _display ctrlCreate [QRSC(AnimTextBttn), _idc];
         _ctrlBttn ctrlSetPosition [
             _posX+GUI_DISP_W*0.5,
-            _posY+GUI_DISP_W*0.5,
+            _posY+GUI_DISP_H*0.5,
             _posW-GUI_DISP_W*1,
-            _posH-GUI_DISP_W*1
+            _posH-GUI_DISP_H*1
         ];
         _ctrlBttn ctrlCommit 0;
         _ctrlBttn ctrlAddEventHandler ["MouseEnter", {["onMouseEnter", _this] call FUNC(animButton);}];
