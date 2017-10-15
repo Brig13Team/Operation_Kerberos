@@ -59,7 +59,7 @@
         </Key>
     </Package>
     <Package name="MOD_ACE">
-            <Key ID="STR_DORB_MOD_ACE_COLOR_MAINMENU">
+        <Key ID="STR_DORB_MOD_ACE_COLOR_MAINMENU">
             <English>Team-Managment</English>
             <German>Team-Managment</German>
         </Key>
@@ -86,130 +86,153 @@
     </Package>
     <Package name="GUI_ARSENAL">
         <Key ID="STR_DORB_GUI_ARSENAL_CATEGORY">
-            <German>Arsenal</German>
             <English>Arsenal</English>
+            <German>Arsenal</German>
         </Key>
         <Key ID="STR_DORB_GUI_ARSENAL_CREATE_LIST">
-            <German>Erstelle Arsenallisten</German>
             <English>creating arsenal lists</English>
+            <German>Erstelle Arsenallisten</German>
         </Key>
         <Key ID="STR_DORB_GUI_ARSENAL_DEBUGARSENAL">
-            <German>Aktiviere Arsenal Debugmodus</German>
             <English>activate arsenal debugging</English>
+            <German>Aktiviere Arsenal Debugmodus</German>
         </Key>
         <Key ID="STR_DORB_GUI_ARSENAL_DEBUGARSENAL_TOOLTIP">
-            <German>Logging um bei den Arsenal-Templates Fehler festzustellen</German>
             <English>This option is used to debug the arsenal templates and log the errors, why certain templates can not be used.</English>
+            <German>Logging um bei den Arsenal-Templates Fehler festzustellen</German>
         </Key>
         <Key ID="STR_DORB_GUI_ARSENAL_forceReload">
-            <German>Neuerstellung der Arsenalliste erzwingen</German>
             <English>Force reloading of the arsenal list</English>
+            <German>Neuerstellung der Arsenalliste erzwingen</German>
         </Key>
         <Key ID="STR_DORB_GUI_ARSENAL_forceReload_TOOLTIP">
-            <German>Neuerstellung der Arsenalliste erzwingen</German>
             <English>Force reloading of the arsenal list</English>
+            <German>Neuerstellung der Arsenalliste erzwingen</German>
         </Key>
         <Key ID="STR_DORB_GUI_ARSENAL_FASTARSENAL">
-            <German>Arsenalklassen Schnelladefunktion</German>
             <English>Fast Arsenal Template Loading</English>
+            <German>Arsenalklassen Schnelladefunktion</German>
         </Key>
     </Package>
     <Package name="GUI_VEHICLESPAWN">
         <Key ID="STR_DORB_GUI_VEHICLESPAWN_CATEGORIE">
+            <English>Vehicle-Depot</English>
             <German>Fahrzeugdepots</German>
         </Key>
         <Key ID="STR_DORB_GUI_VEHICLESPAWN_HEADER">
+            <English>Vehicle-Depot</English>
             <German>Fahrzeugdepot</German>
         </Key>
         <Key ID="STR_DORB_GUI_VEHICLESPAWN_BTTN_INFO">
+            <English>Informations</English>
             <German>Informationen</German>
         </Key>
         <Key ID="STR_DORB_GUI_VEHICLESPAWN_BTTN_OBJ">
-            <German>3D Ansicht</German>
+            <English>View</English>
+            <German>Ansicht</German>
         </Key>
         <Key ID="STR_DORB_GUI_VEHICLESPAWN_BTTN_AMMO">
+            <English>Ammo</English>
             <German>Munition</German>
         </Key>
         <Key ID="STR_DORB_GUI_VEHICLESPAWN_BTTN_OPT">
+            <English>Options</English>
             <German>Optionen</German>
         </Key>
         <Key ID="STR_DORB_GUI_VEHICLESPAWN_BTTN_CLEAR">
+            <English>Clear Position</English>
             <German>Position leeren</German>
         </Key>
         <Key ID="STR_DORB_GUI_VEHICLESPAWN_BTTN_CREATE">
+            <English>Create Vehicle</English>
             <German>Fahrzeug erschaffen</German>
         </Key>
         <Key ID="STR_DORB_GUI_VEHICLESPAWN_HEADER_MODS">
+            <English>Mods</English>
             <German>Mods</German>
         </Key>
         <Key ID="STR_DORB_GUI_VEHICLESPAWN_HEADER_NAME">
+            <English>Vehiclename</English>
             <German>Fahrzeug</German>
         </Key>
 
         <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROP_NOAMMO">
+            <English>Without Ammo</English>
             <German>Ohne Munition</German>
         </Key>
         <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROP_SPAWNEMPTY">
+            <English>Empty Inventory</English>
             <German>Inventar leeren</German>
         </Key>
         <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROP_NOSPAREPARTS">
+            <English>No Spareparts</English>
             <German>Keine Ersatzteile</German>
         </Key>
         <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROP_SPAWNASDRIVER">
+            <English>As Driver</English>
             <German>Als Fahrer erschaffen</German>
         </Key>
         <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROP_NOVEHICLE">
+            <English>No Vehicle chosen</English>
             <German>Kein Fahrzeug ausgewählt</German>
         </Key>
 
         <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROP_YES">
+            <English>Yes</English>
             <German>Ja</German>
         </Key>
         <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROP_NO">
+            <English>No</English>
             <German>Nein</German>
         </Key>
         <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROP_MAXSPEED">
+            <English>max speed:</English>
             <German>Höchstgeschwindigkeit:</German>
         </Key>
         <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROP_FUELSIZE">
+            <English>Fuel:</English>
             <German>Tankvolumen:</German>
         </Key>
         <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROP_ISMEDIC">
+            <English>is medic-vehicle</English>
             <German>Ist Medic-Fahrzeug:</German>
         </Key>
         <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROP_ISAMMO">
+            <English>is ammo-vehicle</English>
             <German>Ist Munitions-Fahrzeug:</German>
         </Key>
         <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROP_CARGOSPACE">
+            <English>ACE-Cargospace</English>
             <German>ACE-Frachtplätze:</German>
         </Key>
         <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROP_ARMOR">
+            <English>Armor:</English>
             <German>Panzerungswert:</German>
         </Key>
         <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROP_WEAPONS">
+            <English>Weapons</English>
             <German>Waffen:</German>
         </Key>
         <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROP_NOWEAPONS">
+            <English>None</English>
             <German>Keine</German>
         </Key>
-
         <Key ID="STR_DORB_GUI_VEHICLESPAWN_ERRORMSG">
-            <German>Fehler</German>
             <English>Error</English>
+            <German>Fehler</German>
         </Key>
         <Key ID="STR_DORB_GUI_VEHICLESPAWN_NOTEMPTY">
-            <German>Spawnfläche ist nicht leer</German>
             <English>Spawn point is not empty</English>
+            <German>Spawnfläche ist nicht leer</German>
         </Key>
         <Key ID="STR_DORB_GUI_VEHICLESPAWN_ISRESTRICTED">
-            <German>Du hast keine Berechtigung das Fahrzeug zu spawnen</German>
             <English>You are not allowed to spawn this vehicle</English>
+            <German>Du hast keine Berechtigung das Fahrzeug zu spawnen</German>
         </Key>
-    </Package>
-    <Package name="GUI_VEHICLESPAWN">
+
         <Key ID="STR_DORB_GUI_VEHICLESPAWN_CARRIER_VEHICLES">
-            <German>Fahrzeugspawn</German>
             <English>Vehicle Spawn</English>
+            <German>Fahrzeugspawn</German>
         </Key>
         <Key ID="STR_DORB_GUI_VEHICLESPAWN_CARRIER_LANDINGBAY_VEHICLES">
             <German>Fahrzeugspawn</German>
@@ -730,8 +753,6 @@
                 <German>Die Reperatur des Hubschraubers konnte nicht verhindert werden.</German>
                 <English>The Repair of the enemy chopper couldn't be prevented.</English>
             </Key>
-
-
         </Container>
 
 
@@ -788,56 +809,56 @@
     </Package>
     <Package name="player">
         <Key ID="STR_DORB_PLAYER_HALO">
-            <German>Halo</German>
             <English>Halo</English>
+            <German>Halo</German>
         </Key>
         <Key ID="STR_DORB_PLAYER_HALO_OPEN_CHUTE">
-            <German>Fallschirm öffnen</German>
             <English>open parachute</English>
+            <German>Fallschirm öffnen</German>
         </Key>
         <Key ID="STR_DORB_PLAYER_HALO_DISABLED">
-            <German>Halo deaktiviert</German>
             <English>Halo jump deactivated</English>
+            <German>Halo deaktiviert</German>
         </Key>
-        <Key ID="STR_DORB_PLAYER_HALO_KlICK">
-            <German>Klicke mit deiner linken Maustaste auf dein Wunschziel.</German>
+        <Key ID="STR_DORB_PLAYER_HALO_KLICK">
             <English>Left-click your destination</English>
+            <German>Klicke mit deiner linken Maustaste auf dein Wunschziel.</German>
         </Key>
         <Key ID="STR_DORB_PLAYER_HALO_ABORT">
-            <German>Abgebrochen</German>
             <English>Cancelled</English>
+            <German>Abgebrochen</German>
         </Key>
         <Key ID="STR_DORB_PLAYER_BASE">
-            <German>Basis</German>
             <English>Base</English>
+            <German>Basis</German>
         </Key>
         <Key ID="STR_DORB_PLAYER_BASE_FIRE">
-            <German>Das Feuern in der Basis ist nicht erlaubt!</German>
             <English>Firing inside the base is strictly prohibited!</English>
+            <German>Das Feuern in der Basis ist nicht erlaubt!</German>
         </Key>
         <Key ID="STR_DORB_PLAYER_ARSENAL_OPEN_DESC">
-            <German>Virtuelles Arsenal öffnen</German>
             <English>Open Virtual Arsenal</English>
+            <German>Virtuelles Arsenal öffnen</German>
         </Key>
         <Key ID="STR_DORB_PLAYER_NURPILOTEN">
-            <German>%1, du besitzt keine ausreichende Qualifizierung um das Fahrzeug zu bewegen.</German>
             <English>%1: you don't have the right qualifications to move this vehicle.</English>
+            <German>%1, du besitzt keine ausreichende Qualifizierung um das Fahrzeug zu bewegen.</German>
         </Key>
         <Key ID="STR_DORB_PLAYER_BACKPACK_CHEST">
-            <German>Rucksack auf den Bauch schnallen</German>
             <English>Move backpack to chest</English>
+            <German>Rucksack auf den Bauch schnallen</German>
         </Key>
         <Key ID="STR_DORB_PLAYER_BACKPACK_BACK">
-            <German>Rucksack auf den Ruecken schnallen</German>
             <English>Move backpack to back</English>
+            <German>Rucksack auf den Ruecken schnallen</German>
         </Key>
         <Key ID="STR_DORB_PLAYER_ACTION_KNOCKKNOCK">
-            <German>Anklopfen</German>
             <English>knock</English>
+            <German>Anklopfen</German>
         </Key>
         <Key ID="STR_DORB_PLAYER_ACTION_COPY_LOADOUT">
-            <German>Kopiere Ausrüstung</German>
             <English>copy loadout</English>
+            <German>Kopiere Ausrüstung</German>
         </Key>
     </Package>
     <Package name="logistics">
@@ -910,158 +931,132 @@
             <English>Remove spare Track</English>
         </Key>
     </Package>
-    <Package name="Common">
-        <Key ID="STR_DORB_COMMON_REP_POINT">
-            <German>Reperatur</German>
-            <English>Repairs</English>
-        </Key>
-        <Key ID="STR_DORB_COMMON_REP_POINT2">
-            <German>&lt;t size='1.5' shadow='2' color='#ff0000'&gt;Repariere Fahrzeug&lt;/t&gt;</German>
-            <English>&lt;t size='1.5' shadow='2' color='#ff0000'&gt;Repair Vehicle&lt;/t&gt;</English>
-        </Key>
-        <Key ID="STR_DORB_COMMON_REP_CANCELED">
-            <German>Abgebrochen</German>
-            <English>Cancelled</English>
-        </Key>
-        <Key ID="STR_DORB_COMMON_REP_EXECUTED">
-            <German>Wird durchgeführt</German>
-            <English>In progress</English>
-        </Key>
-        <Key ID="STR_DORB_COMMON_REP_WAIT">
-            <German>Bitte warten...</German>
-            <English>Please wait...</English>
-        </Key>
-        <Key ID="STR_DORB_COMMON_REP_FINISHED">
-            <German>Abgeschlossen</German>
-            <English>Completed</English>
-        </Key>
-    </Package>
     <Package name="Gui">
         <Key ID="STR_DORB_GUI_LOADINGBAR">
+            <English>Downloading</English>
             <German>Am Herunterladen</German>
-            <German>Downloading</German>
         </Key>
     </Package>
     <Package name="Gui_teleport">
         <Key ID="STR_DORB_GUI_TELEPORT_TELEPORT">
-            <German>Teleport</German>
             <English>Teleport</English>
+            <German>Teleport</German>
         </Key>
         <Key ID="STR_DORB_GUI_TELEPORT_DOTELEPORT">
-            <German>Teleportieren</German>
             <English>Teleport</English>
+            <German>Teleportieren</German>
         </Key>
         <Key ID="STR_DORB_GUI_TELEPORT_MAP_SELECTPOSITION">
-            <German>Zielposition auswählen</German>
             <English>Select Target</English>
+            <German>Zielposition auswählen</German>
         </Key>
         <Key ID="STR_DORB_GUI_TELEPORT_MAP">
-            <German>Karte öffnen</German>
             <English>Open Map</English>
+            <German>Karte öffnen</German>
         </Key>
         <Key ID="STR_DORB_GUI_TELEPORT_MAP_DESCRIPTION">
-            <German>Zum Ziel teleportieren</German>
             <English>Teleport to Target</English>
+            <German>Zum Ziel teleportieren</German>
         </Key>
         <Key ID="STR_DORB_GUI_TELEPORT_DEACTIVATED">
-            <German>Deaktiviert</German>
             <English>Deactivated</English>
+            <German>Deaktiviert</German>
         </Key>
         <Key ID="STR_DORB_GUI_TELEPORT_LEADER">
-            <German>Squadleader</German>
             <English>Squadleader</English>
+            <German>Squadleader</German>
         </Key>
         <Key ID="STR_DORB_GUI_TELEPORT_LEAD">
-            <German>Teleport zum Teamleader</German>
             <English>Teleport to squad leader</English>
+            <German>Teleport zum Teamleader</German>
         </Key>
         <Key ID="STR_DORB_GUI_TELEPORT_LEAD_FAIL">
-            <German>Teleport fehlgeschlagen</German>
             <English>Teleport failed</English>
+            <German>Teleport fehlgeschlagen</German>
         </Key>
         <Key ID="STR_DORB_GUI_TELEPORT_LEAD_ISLEADER">
-            <German>Du bist selbst der Teamleader.</German>
             <English>You are the squad leader yourself.</English>
+            <German>Du bist selbst der Teamleader.</German>
         </Key>
         <Key ID="STR_DORB_GUI_TELEPORT_LEAD_NEARENEMY">
-            <German>Gegner in der Nähe</German>
             <English>Enemies nearby.</English>
+            <German>Gegner in der Nähe</German>
         </Key>
         <Key ID="STR_DORB_GUI_TELEPORT_LEAD_NOPLACE">
-            <German>Kein Passagier-Platz im Fahrzeug</German>
             <English>No seat left in the vehicle</English>
+            <German>Kein Passagier-Platz im Fahrzeug</German>
         </Key>
         <Key ID="STR_DORB_GUI_TELEPORT_LEAD_INAIR">
-            <German>Teamleader befindet sich nicht am Boden</German>
             <English>Squad leader is not touching ground.</English>
+            <German>Teamleader befindet sich nicht am Boden</German>
         </Key>
         <Key ID="STR_DORB_GUI_TELEPORT_LEAD_WAIT">
-            <German>Du musst noch %1 Minute(n) und %2 Sekunde(n) warten!</German>
             <English>You have to wait %1 minute(s) and %2 second(s)!</English>
+            <German>Du musst noch %1 Minute(n) und %2 Sekunde(n) warten!</German>
         </Key>
 
         <Key ID="STR_DORB_GUI_TELEPORT_CARRIER">
-            <German>USS Freedom</German>
             <English>USS Freedom</English>
+            <German>USS Freedom</German>
         </Key>
         <Key ID="STR_DORB_GUI_TELEPORT_BAY_SOUTH">
-            <German>Südliche Landeküste</German>
             <English>Southern Landingbay</English>
+            <German>Südliche Landeküste</German>
         </Key>
         <Key ID="STR_DORB_GUI_TELEPORT_BAY_NORTH">
-            <German>Nördliche Landeküste</German>
             <English>Northern Landingbay</English>
+            <German>Nördliche Landeküste</German>
         </Key>
         <Key ID="STR_DORB_GUI_TELEPORT_BAY_EAST">
-            <German>Östliche Landeküste</German>
             <English>Eastern Landingbay</English>
+            <German>Östliche Landeküste</German>
         </Key>
         <Key ID="STR_DORB_GUI_TELEPORT_BAY_WEST">
-            <German>Westliche Landeküste</German>
             <English>Western Landingbay</English>
+            <German>Westliche Landeküste</German>
         </Key>
         <Key ID="STR_DORB_GUI_TELEPORT_BAY_TONOS">
-            <German>Tonos Bucht</German>
             <English>Tonos Bay</English>
+            <German>Tonos Bucht</German>
         </Key>
         <Key ID="STR_DORB_GUI_TELEPORT_BAY_LAND">
-            <German>Landebucht</German>
             <English>Landing Bay</English>
+            <German>Landebucht</German>
         </Key>
 
         <Key ID="STR_DORB_GUI_TELEPORT_NORTH">
-            <German>Eintrittspunkt Nord</German>
             <English>Entrypoint North</English>
+            <German>Eintrittspunkt Nord</German>
         </Key>
         <Key ID="STR_DORB_GUI_TELEPORT_EAST">
-            <German>Eintrittspunkt Ost</German>
             <English>Entrypoint East</English>
+            <German>Eintrittspunkt Ost</German>
         </Key>
         <Key ID="STR_DORB_GUI_TELEPORT_WEST">
-            <German>Eintrittspunkt West</German>
             <English>Entrypoint West</English>
+            <German>Eintrittspunkt West</German>
         </Key>
         <Key ID="STR_DORB_GUI_TELEPORT_SOUTH">
-            <German>Eintrittspunkt Süd</German>
             <English>Entrypoint South</English>
+            <German>Eintrittspunkt Süd</German>
         </Key>
 
 
         <Key ID="STR_DORB_GUI_TELEPORT_BASE">
-            <German>Basis</German>
             <English>Base</English>
+            <German>Basis</German>
         </Key>
         <Key ID="STR_DORB_GUI_TELEPORT_VEHICLES">
-            <German>Fahrzeuge</German>
             <English>Vehicles</English>
+            <German>Fahrzeuge</German>
         </Key>
         <Key ID="STR_DORB_GUI_TELEPORT_LOGISTIC">
-            <German>Logistik</German>
             <English>Logistics</English>
+            <German>Logistik</German>
         </Key>
         <Key ID="STR_DORB_GUI_TELEPORT_MARINA">
-            <German>Hafen</German>
             <English>Harbour</English>
+            <German>Hafen</German>
         </Key>
     </Package>
     <Package name="gui_crate">
@@ -1176,30 +1171,30 @@
     </Package>
     <Package name="gui_save">
         <Key ID="STR_DORB_GUI_SAVE_SAVE">
-            <German>Speichern</German>
             <English>Save</English>
+            <German>Speichern</German>
         </Key>
         <Key ID="STR_DORB_GUI_SAVE_LOAD">
-            <German>Laden</German>
             <English>Load</English>
+            <German>Laden</German>
         </Key>
         <Key ID="STR_DORB_GUI_SAVE_DELETE">
-            <German>Löschen</German>
             <English>Delete</English>
+            <German>Löschen</German>
         </Key>
         <Key ID="STR_DORB_GUI_SAVE_CANCEL">
-            <German>Abbrechen</German>
             <English>Cancel</English>
+            <German>Abbrechen</German>
         </Key>
     </Package>
     <Package name="doorbreach">
         <Key ID="STR_DORB_DOORBREACH_PLACE_CHARGE">
-            <German>Sprengladung platzieren</German>
             <English>place charge</English>
+            <German>Sprengladung platzieren</German>
         </Key>
         <Key ID="STR_DORB_DOORBREACH_PLACING_CHARGE">
-            <German>Sprengladung wird platziert</German>
             <English>placing charge</English>
+            <German>Sprengladung wird platziert</German>
         </Key>
     </Package>
     <Package name="mission_obj">
@@ -1344,24 +1339,6 @@
         <Key ID="STR_DORB_MOD_ACRE_ANTENNA_CONNECTED_MSG">
             <German>Du hast dein Funkgerät mit der Antenne verbunden. Die Reichweite ist nun erhöht.</German>
             <English>You have connected your Radio to the radio-tower. Your Range has been extended.</English>
-        </Key>
-    </Package>
-    <Package name="gui_mail">
-        <Key ID="STR_DORB_GUI_MAIL_INBOX">
-            <German>Posteingang</German>
-            <English>inbox</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_MAIL_SENDER">
-            <German>Leitstand</German>
-            <English>High Command</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_MAIL_APPNAME">
-            <German>E-Mail</German>
-            <English>E-Mail</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_MAIL_DATE">
-            <German>%1.%2.%3 %4:%5</German>
-            <English>%2-%1-%3 %4:%5</English>
         </Key>
     </Package>
     <Package name="gui_MAIN">
