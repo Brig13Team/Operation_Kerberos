@@ -27,5 +27,14 @@ If !(GVAR(filterName) isEqualTo "") then {
 };
 
 private _ctrl = _display displayCtrl IDC_GUI_CRATE_ITEMLIST;
+/*
+private _magazines = [];
 
+{
+    private _mags =+ (HASH_GET_DEF(GVAR(libary),_x,[ARR_5("","","","",[])]) select 4);
+    _magazines append _mags;
+} count _curList;
+
+_curList append _magazines;
+*/
 [_ctrl,_curList] call FUNC(showItemList);

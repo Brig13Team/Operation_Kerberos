@@ -74,10 +74,10 @@ class APP(dialog) : RSC(guiMenu) {
 
     class itemlist_button_add : RSC(BaseButton) {
         idc = IDC_GUI_CRATE_ITEMLIST_ADD;
-        x = GUI_DISP_X;
-        y = GUI_DISP_Y;
-        w = GUI_DISP_W*4;
-        h = GUI_DISP_H*4;
+        x = GUI_DISP_XAbs;
+        y = GUI_DISP_YAbs;
+        w = 0;
+        h = 0;
         sizeEx = GUI_DISP_W*3.5;
         text = "+";
         borderSize = 0;
@@ -282,7 +282,7 @@ class APP(dialog) : RSC(guiMenu) {
         idc = IDC_GUI_CRATE_BOXLIST_HEADER;
         x = GUI_DISP_X + GUI_DISP_W*82;
         y = GUI_DISP_Y + GUI_DISP_H*10;
-        w = GUI_DISP_W*30
+        w = GUI_DISP_W*30;
         h = GUI_DISP_H*4;
         sizeEx = GUI_DISP_H*4;
         text = CSTRING(header_box);
@@ -292,7 +292,7 @@ class APP(dialog) : RSC(guiMenu) {
         idc = IDC_GUI_CRATE_BOXLIST;
         x = GUI_DISP_X + GUI_DISP_W*82;
         y = GUI_DISP_Y + GUI_DISP_H*16;
-        w = GUI_DISP_W*60
+        w = GUI_DISP_W*60;
         h = GUI_DISP_H*5;
         sizeEx = GUI_DISP_H*4;
         rowHeight = GUI_DISP_H*4;
@@ -310,7 +310,7 @@ class APP(dialog) : RSC(guiMenu) {
         idc = IDC_GUI_CRATE_INVENTORY;
         x = GUI_DISP_X + GUI_DISP_W*82;
         y = GUI_DISP_Y + GUI_DISP_H*30;
-        h = GUI_DISP_H*40;
+        h = GUI_DISP_H*46;
         idcLeft = IDC_GUI_CRATE_INVENTORY_REDUCE;
         idcRight = IDC_GUI_CRATE_INVENTORY_ADD;
     };
@@ -318,6 +318,6 @@ class APP(dialog) : RSC(guiMenu) {
     class background_inventory: background_itemlist {
         x = GUI_DISP_X+GUI_DISP_W*82;
         y = GUI_DISP_Y+GUI_DISP_H*30;
-        h = GUI_DISP_H*40;
+        h = GUI_DISP_H*46;
     };
 };

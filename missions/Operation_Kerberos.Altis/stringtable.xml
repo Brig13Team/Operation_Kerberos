@@ -1081,8 +1081,12 @@
             <German>Erschaffen</German>
         </Key>
         <Key ID="STR_DORB_GUI_CRATE_BTTN_CLEAR">
-            <English>Clear</English>
-            <German>Löschen</German>
+            <English>Clear List</English>
+            <German>Liste Löschen</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_CRATE_BTTN_CLEARPOS">
+            <English>Clear position</English>
+            <German>Position säubern</German>
         </Key>
         <Key ID="STR_DORB_GUI_CRATE_BTTN_LOAD">
             <English>Load</English>

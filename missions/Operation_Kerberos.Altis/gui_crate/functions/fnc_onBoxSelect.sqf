@@ -16,13 +16,15 @@
 params ["_control","_index"];
 
 private _value = _control lbValue _index;
+TRACEV_3(_control,_index,_value);
 If (_value isEqualTo 0) then {
     HASH_DELETE(GVAR(curInventory));
     GVAR(curInventory) = HASH_CREATE;
 } else {
     HASH_DELETE(GVAR(curInventory));
     GVAR(curInventory) = HASH_CREATE;
-    private _object = [_control lbData _index] call BIS_fnc_objectFromNetId;
+    private _object = (_control lbData _index) call BIS_fnc_objectFromNetId;
+    TRACEV_2(_object,((weaponCargo _object) + (itemCargo _object) + (magazineCargo _object)));
     {
         private _curCfg = [_x] call CBA_fnc_getItemConfig;
         private _key = [_curCfg,""] call BIS_fnc_configPath;

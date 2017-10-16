@@ -22,25 +22,25 @@ _display displayAddEventHandler ["KeyUp",QUOTE([ARR_2(_this select 1,false)] cal
 (["createText",
     [
         _display,
-        GUI_DISP_X + GUI_DISP_W*90,
-        GUI_DISP_Y + GUI_DISP_H*74,
-        GUI_DISP_W*10,
-        GUI_DISP_H*5
+        GUI_DISP_X + GUI_DISP_W*82,
+        GUI_DISP_Y + GUI_DISP_H*78,
+        GUI_DISP_H*10,
+        GUI_DISP_H*10
     ]
 ] call EFUNC(gui,animButton)) params ["_ctrlButton", "_ctrlBackground"];
 _ctrlButton ctrlSetText (localize LSTRING(BTTN_LOAD));
 _ctrlButton ctrlSetTooltip (localize LSTRING(BTTN_LOAD));
-_ctrlButton ctrlAddEventHandler ["ButtonClick",{[_this select 0] call FUNC(load)}];
+_ctrlButton ctrlAddEventHandler ["ButtonClick",{[_this select 0] spawn FUNC(load)}];
 _ctrlBackground ctrlSetTextColor [COLOR_CRATE_BTTN_LOAD];
 
 // save
 (["createText",
     [
         _display,
-        GUI_DISP_X + GUI_DISP_W*90,
-        GUI_DISP_Y + GUI_DISP_H*80,
-        GUI_DISP_W*10,
-        GUI_DISP_H*5
+        GUI_DISP_X + GUI_DISP_W*94,
+        GUI_DISP_Y + GUI_DISP_H*78,
+        GUI_DISP_H*10,
+        GUI_DISP_H*10
     ]
 ] call EFUNC(gui,animButton)) params ["_ctrlButton", "_ctrlBackground"];
 _ctrlButton ctrlSetText (localize LSTRING(BTTN_SAVE));
@@ -52,10 +52,10 @@ _ctrlBackground ctrlSetTextColor [COLOR_CRATE_BTTN_SAVE];
 (["createText",
     [
         _display,
-        GUI_DISP_X + GUI_DISP_W*140,
-        GUI_DISP_Y + GUI_DISP_H*74,
-        GUI_DISP_W*10,
-        GUI_DISP_H*5
+        GUI_DISP_X + GUI_DISP_W*106,
+        GUI_DISP_Y + GUI_DISP_H*78,
+        GUI_DISP_H*10,
+        GUI_DISP_H*10
     ]
 ] call EFUNC(gui,animButton)) params ["_ctrlButton", "_ctrlBackground"];
 _ctrlButton ctrlSetText (localize LSTRING(BTTN_CLEAR));
@@ -63,14 +63,30 @@ _ctrlButton ctrlSetTooltip (localize LSTRING(BTTN_CLEAR));
 _ctrlButton ctrlAddEventHandler ["ButtonClick",{[_this select 0] call FUNC(clear)}];
 _ctrlBackground ctrlSetTextColor [COLOR_CRATE_BTTN_CLEAR];
 
+// clearPos
+(["createText",
+    [
+        _display,
+        GUI_DISP_X + GUI_DISP_W*132,
+        GUI_DISP_Y + GUI_DISP_H*78,
+        GUI_DISP_H*10,
+        GUI_DISP_H*10
+    ]
+] call EFUNC(gui,animButton)) params ["_ctrlButton", "_ctrlBackground"];
+_ctrlButton ctrlSetText (localize LSTRING(BTTN_CLEARPOS));
+_ctrlButton ctrlSetTooltip (localize LSTRING(BTTN_CLEARPOS));
+_ctrlButton ctrlAddEventHandler ["ButtonClick",{[] call FUNC(clearPosition)}];
+_ctrlBackground ctrlSetTextColor [COLOR_CRATE_BTTN_CLEARPOS];
+
+
 // spawn
 (["createText",
     [
         _display,
-        GUI_DISP_X + GUI_DISP_W*140,
-        GUI_DISP_Y + GUI_DISP_H*80,
-        GUI_DISP_W*10,
-        GUI_DISP_H*5
+        GUI_DISP_X + GUI_DISP_W*144,
+        GUI_DISP_Y + GUI_DISP_H*78,
+        GUI_DISP_H*10,
+        GUI_DISP_H*10
     ]
 ] call EFUNC(gui,animButton)) params ["_ctrlButton", "_ctrlBackground"];
 _ctrlButton ctrlSetText (localize LSTRING(BTTN_SPAWN));
@@ -99,7 +115,7 @@ _ctrlBackground ctrlSetTextColor [COLOR_CRATE_BTTN_SPAWN];
 [_display] call FUNC(showBoxes);
 [_display displayCtrl IDC_GUI_CRATE_BTTN1,ID_RIFLE] call FUNC(filterList);
 
-private _ctrlLb = _display displayCtrl IDD_GUI_CRATE_BOXLIST;
+private _ctrlLb = _display displayCtrl IDC_GUI_CRATE_BOXLIST;
 _ctrlLb lbSetCurSel 0;
 _ctrlLb ctrlAddEventHandler ["LBSelChanged",LINKFUNC(onBoxSelect)];
 [_ctrlLb,0] call FUNC(onBoxSelect);

@@ -9,13 +9,13 @@
  * Nothing
  *
  */
-
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 params ["_display"];
 
-private _nearObjects = nearestObjects [GVAR(curPos), ["AllVehicles"], CHECK_RADIUS_MIN];
-
+private _nearObjects = nearestObjects [ASLToAGL GVAR(curPos), ["AllVehicles"], CHECK_RADIUS_MIN];
+TRACEV_2(GVAR(curPos),_nearObjects);
 // filter the Objects
 
 //TODO
@@ -35,12 +35,13 @@ private _list = [];
 {
     _list pushBack [
         format [localize LSTRING(NEWBOX),getText(configFile >> "CfgVehicles" >> (typeOf _x) >> "displayName")],
-        [_x] call BIS_fnc_netId,
+        _x call BIS_fnc_netId,
         1
     ];
+    nil
 } count _nearObjects;
 
-
+TRACEV_1(_list);
 
 private _ctrlLb = (_display) displayCtrl IDC_GUI_CRATE_BOXLIST;
 {

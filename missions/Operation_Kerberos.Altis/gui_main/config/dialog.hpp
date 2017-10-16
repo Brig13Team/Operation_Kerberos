@@ -127,8 +127,8 @@ class RSC(Metro) : RSC(BaseControlsGroupNoHScrollbar) {
     idc = IDC_GUI_MAIN_METRO_GRP;
     x = GUI_DISP_X+GUI_DISP_W*2;
     y = GUI_DISP_Y+GUI_DISP_H*10;
-    w = GUI_DISP_WAbs-GUI_DISP_W*60;
-    h = GUI_DISP_HAbs-GUI_DISP_H*14;
+    w = GUI_DISP_W*100;
+    h = GUI_DISP_H*76;
 
     class VScrollbar : VScrollbar {
         color[] = COLOR_METRO_SCROLLBAR;
@@ -144,10 +144,12 @@ class RSC(Metro) : RSC(BaseControlsGroupNoHScrollbar) {
             idc = IDC_GUI_MAIN_METRO_BACK;
             x = 0;
             y = 0;
-            w = GUI_DISP_WAbs-GUI_DISP_W*60;
-            h = GUI_DISP_HAbs-GUI_DISP_H*14;
+            w = GUI_DISP_W*100;
+            h = GUI_DISP_H*76;
             colorBackground[] = COLOR_METRO_BACKGROUND;
             colorText[] = COLOR_DISABLED;
+            colorShadow[] = COLOR_BASE_BLACK;
+            shadow = 1;
         };
     };
 };

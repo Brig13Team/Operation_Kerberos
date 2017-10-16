@@ -9,7 +9,7 @@
  * Nothing
  *
  */
-
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 params ["_ctrlBttn"];
@@ -30,7 +30,7 @@ If (_curBoxSelectVal isEqualTo 0) then {
     _curBox = createVehicle [_curBoxSelectData, ASLtoAGL GVAR(curPos),[],0,"NONE"];
     _curBox setDir GVAR(curDir);
 } else {
-    _curBox = [_curBoxSelectData] call BIS_fnc_objectFromNetId;
+    _curBox = _curBoxSelectData call BIS_fnc_objectFromNetId;
 };
 
 If (isNull _curBox) exitWith {
@@ -44,11 +44,13 @@ clearItemCargoGlobal _curBox;
 
 {
     private _curCfgString = _x;
-    _curCfgArray = [_curCfgString,[]] call BIS_fnc_configPath;
-    If (_curCfgArray select 1) == "CfgVehicles" then {
+    private _curCfgArray = [_curCfgString,[]] call BIS_fnc_configPath;
+    TRACEV_1(_curCfgArray);
+    If ((_curCfgArray select 1) == "CfgVehicles") then {
         [_curBox,_curCfgArray select 2,[_curCfgString] call FUNC(getCurAmount)] call CBA_fnc_addBackpackCargo;
     } else {
-        switch (([_curCfgArray select 2] call FUNC(getItemType)) select 0) do {
+        TRACEV_1((([_curCfgArray select 2] call ace_common_fnc_getItemType) select 0));
+        switch (([_curCfgArray select 2] call ace_common_fnc_getItemType) select 0) do {
             case "weapon" : {
                 [_curBox,_curCfgArray select 2,[_curCfgString] call FUNC(getCurAmount)] call CBA_fnc_addWeaponCargo;
             };
@@ -60,7 +62,7 @@ clearItemCargoGlobal _curBox;
             };
         };
     };
-} forEach GVAR(inventory);
+} forEach HASH_KEYS(GVAR(curinventory));
 
 
 _display closeDisplay 0;
