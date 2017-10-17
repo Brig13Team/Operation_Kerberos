@@ -42,9 +42,11 @@ class APP(dialog) : RSC(guiMenu) {
         itemfilter,
 
         boxtitle,
+        boxweight,
         boxlist,
         inventorytitle,
         inventory,
+        inventoryweight,
         inventory_button_add,
         inventory_button_reduce
     };
@@ -107,8 +109,9 @@ class APP(dialog) : RSC(guiMenu) {
         w = GUI_DISP_W*72;
         h = GUI_DISP_H*65;
         rowHeight = GUI_DISP_H*4;
-        sizeEx = GUI_DISP_H*3;
-        columns[] = {GUI_DISP_W*3.2,GUI_DISP_W*7,GUI_DISP_W*25,GUI_DISP_W*33,GUI_DISP_W*58};
+        sizeEx = GUI_DISP_H*2;
+        //columns[] = {GUI_DISP_W*3.2,GUI_DISP_W*7,GUI_DISP_W*25,GUI_DISP_W*33,GUI_DISP_W*58};
+        columns[] = {GUI_DISP_W*3.2,GUI_DISP_W*12,GUI_DISP_W*37,GUI_DISP_W*41,GUI_DISP_W*58};
         drawSideArrows = 1;
         idcLeft = IDC_GUI_CRATE_ITEMLIST_REDUCE;
         idcRight = IDC_GUI_CRATE_ITEMLIST_ADD;
@@ -130,7 +133,7 @@ class APP(dialog) : RSC(guiMenu) {
 
     class itemfilter : RSC(BaseEditBox) {
         idc = IDC_GUI_CRATE_FILTER;
-        x = GUI_DISP_X+GUI_DISP_W*37;
+        x = GUI_DISP_X+GUI_DISP_W*3;
         y = GUI_DISP_Y+GUI_DISP_H*16;
         w = GUI_DISP_W*38;
         h = GUI_DISP_H*5;
@@ -140,7 +143,7 @@ class APP(dialog) : RSC(guiMenu) {
 
     class itemfilter_watermark : RSC(BaseText) {
         idc = IDC_GUI_CRATE_FILTER_WATERMARK;
-        x = GUI_DISP_X+GUI_DISP_W*37;
+        x = GUI_DISP_X+GUI_DISP_W*3;
         y = GUI_DISP_Y+GUI_DISP_H*16;
         w = GUI_DISP_W*38;
         h = GUI_DISP_H*5;
@@ -163,13 +166,13 @@ class APP(dialog) : RSC(guiMenu) {
 
         colorBackground[] = COLOR_BASE_WHITE;
         colorBackgroundActive[] = COLOR_BASE_WHITE;
-        colorFocused[] = COLOR_BASE_BLACK;
+        colorFocused[] = COLOR_BASE_WHITE;
 
         colorText[] = COLOR_BASE_BLACK;
-        colorTextSelect[] = COLOR_BASE_BLACK;
+        colorTextSelect[] = COLOR_BASE_WHITE;
 
-        colorShadow[] = COLOR_BASE_GREY_LIGHT;
-        colorBorder[] = COLOR_BASE_GREY_LIGHT;
+        colorShadow[] = COLOR_BASE_BLACK;
+        colorBorder[] = COLOR_BASE_BLACK;
 
         colorDisabled[] = {0.1, 0.1, 0.1, 0.4};
         colorBackgroundDisabled[] = {0, 0, 0, 0.2};
@@ -231,7 +234,7 @@ class APP(dialog) : RSC(guiMenu) {
         colorBackground[] = COLOR_BASE_BLACK;
         colorBackgroundActive[] = COLOR_BASE_BLACK;
 
-        colorFocused[] = COLOR_BASE_WHITE;
+        colorFocused[] = COLOR_BASE_BLACK;
         colorText[] = COLOR_BASE_WHITE;
         colorTextSelect[] = COLOR_BASE_WHITE;
     };
@@ -286,16 +289,26 @@ class APP(dialog) : RSC(guiMenu) {
         h = GUI_DISP_H*4;
         sizeEx = GUI_DISP_H*4;
         text = CSTRING(header_box);
+        colorBackground[] = COLOR_DISABLED;
+        colorText[] = COLOR_BASE_BLACK;
+    };
+
+    class boxweight : boxtitle {
+        idc = IDC_GUI_CRATE_BOXLIST_WEIGHT;
+        style = 0x01;
+        x = GUI_DISP_X + GUI_DISP_W*144;
+        w = GUI_DISP_W*10;
+        text = "0 kg";
     };
 
     class boxlist : RSC(BaseCombobox) {
         idc = IDC_GUI_CRATE_BOXLIST;
         x = GUI_DISP_X + GUI_DISP_W*82;
         y = GUI_DISP_Y + GUI_DISP_H*16;
-        w = GUI_DISP_W*60;
+        w = GUI_DISP_W*72;
         h = GUI_DISP_H*5;
-        sizeEx = GUI_DISP_H*4;
-        rowHeight = GUI_DISP_H*4;
+        sizeEx = GUI_DISP_H*3;
+        rowHeight = GUI_DISP_H*3.5;
         wholeHeight = GUI_DISP_H*40;
         onLBSelChanged = QFUNC(onBoxChanged);
     };
@@ -304,6 +317,14 @@ class APP(dialog) : RSC(guiMenu) {
         idc = IDC_GUI_CRATE_INVENTORY_HEADER;
         y = GUI_DISP_Y + GUI_DISP_H*24;
         text = CSTRING(header_inventory);
+    };
+
+    class inventoryweight : inventorytitle {
+        idc = IDC_GUI_CRATE_INVENTORY_WEIGHT;
+        style = 0x01;
+        x = GUI_DISP_X + GUI_DISP_W*144;
+        w = GUI_DISP_W*10;
+        text = "0 kg";
     };
 
     class inventory : itemlist {

@@ -52,3 +52,5 @@ If (_isNewItem) then {
 
 _ctrlList = _display displayCtrl IDC_GUI_CRATE_INVENTORY;
 [_ctrlList,HASH_KEYS(GVAR(curInventory))] call FUNC(showItemList);
+
+[_display] call FUNC(updateWeight);

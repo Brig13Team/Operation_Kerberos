@@ -1133,20 +1133,20 @@
             <German>Sprengmittel</German>
         </Key>
         <Key ID="STR_DORB_GUI_CRATE_BTTN_9">
-            <English>Backpacks</English>
-            <German>Rucksäcke</German>
+            <English>Uniforms</English>
+            <German>Uniformen</German>
         </Key>
         <Key ID="STR_DORB_GUI_CRATE_BTTN_10">
             <English>Vests</English>
             <German>Westen</German>
         </Key>
         <Key ID="STR_DORB_GUI_CRATE_BTTN_11">
-            <English>Uniforms</English>
-            <German>Uniformen</German>
-        </Key>
-        <Key ID="STR_DORB_GUI_CRATE_BTTN_12">
             <English>Head</English>
             <German>Kopf</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_CRATE_BTTN_12">
+            <English>Backpacks</English>
+            <German>Rucksäcke</German>
         </Key>
         <Key ID="STR_DORB_GUI_CRATE_BTTN_13">
             <English>Radios</English>

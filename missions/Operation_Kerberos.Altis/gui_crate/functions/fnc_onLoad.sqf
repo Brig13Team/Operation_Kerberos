@@ -28,6 +28,7 @@ _display displayAddEventHandler ["KeyUp",QUOTE([ARR_2(_this select 1,false)] cal
         GUI_DISP_H*10
     ]
 ] call EFUNC(gui,animButton)) params ["_ctrlButton", "_ctrlBackground"];
+_ctrlButton ctrlSetFontHeight (GUI_DISP_H*3);
 _ctrlButton ctrlSetText (localize LSTRING(BTTN_LOAD));
 _ctrlButton ctrlSetTooltip (localize LSTRING(BTTN_LOAD));
 _ctrlButton ctrlAddEventHandler ["ButtonClick",{[_this select 0] spawn FUNC(load)}];
@@ -43,6 +44,7 @@ _ctrlBackground ctrlSetTextColor [COLOR_CRATE_BTTN_LOAD];
         GUI_DISP_H*10
     ]
 ] call EFUNC(gui,animButton)) params ["_ctrlButton", "_ctrlBackground"];
+_ctrlButton ctrlSetFontHeight (GUI_DISP_H*3);
 _ctrlButton ctrlSetText (localize LSTRING(BTTN_SAVE));
 _ctrlButton ctrlSetTooltip (localize LSTRING(BTTN_SAVE));
 _ctrlButton ctrlAddEventHandler ["ButtonClick",{[_this select 0] call FUNC(save)}];
@@ -58,6 +60,7 @@ _ctrlBackground ctrlSetTextColor [COLOR_CRATE_BTTN_SAVE];
         GUI_DISP_H*10
     ]
 ] call EFUNC(gui,animButton)) params ["_ctrlButton", "_ctrlBackground"];
+_ctrlButton ctrlSetFontHeight (GUI_DISP_H*3);
 _ctrlButton ctrlSetText (localize LSTRING(BTTN_CLEAR));
 _ctrlButton ctrlSetTooltip (localize LSTRING(BTTN_CLEAR));
 _ctrlButton ctrlAddEventHandler ["ButtonClick",{[_this select 0] call FUNC(clear)}];
@@ -73,6 +76,7 @@ _ctrlBackground ctrlSetTextColor [COLOR_CRATE_BTTN_CLEAR];
         GUI_DISP_H*10
     ]
 ] call EFUNC(gui,animButton)) params ["_ctrlButton", "_ctrlBackground"];
+_ctrlButton ctrlSetFontHeight (GUI_DISP_H*2);
 _ctrlButton ctrlSetText (localize LSTRING(BTTN_CLEARPOS));
 _ctrlButton ctrlSetTooltip (localize LSTRING(BTTN_CLEARPOS));
 _ctrlButton ctrlAddEventHandler ["ButtonClick",{[] call FUNC(clearPosition)}];
@@ -89,6 +93,7 @@ _ctrlBackground ctrlSetTextColor [COLOR_CRATE_BTTN_CLEARPOS];
         GUI_DISP_H*10
     ]
 ] call EFUNC(gui,animButton)) params ["_ctrlButton", "_ctrlBackground"];
+_ctrlButton ctrlSetFontHeight (GUI_DISP_H*3);
 _ctrlButton ctrlSetText (localize LSTRING(BTTN_SPAWN));
 _ctrlButton ctrlSetTooltip (localize LSTRING(BTTN_SPAWN));
 _ctrlButton ctrlAddEventHandler ["ButtonClick",{[_this select 0] call FUNC(setInventory)}];

@@ -1,12 +1,16 @@
 
 PREP(add);
 PREP(canOpenMenu);
+PREP(checkPosEmpty);
 PREP(clear);
 PREP(clearPosition);
 PREP(filterList);
 PREP(filterPFH);
+PREP(getContainerSize);
 PREP(getCurAmount);
+PREP(getCurWeight);
 PREP(getItemList);
+PREP(getMass);
 PREP(keyEvent);
 PREP(load);
 PREP(onBoxSelect);
@@ -20,3 +24,4 @@ PREP(showBoxes);
 PREP(showItemList);
 PREP(sortItemList);
 PREP(updateLibary);
+PREP(updateWeight);

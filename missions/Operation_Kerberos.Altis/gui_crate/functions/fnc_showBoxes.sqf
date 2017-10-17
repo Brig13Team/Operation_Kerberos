@@ -14,7 +14,7 @@
 
 params ["_display"];
 
-private _nearObjects = nearestObjects [ASLToAGL GVAR(curPos), ["AllVehicles"], CHECK_RADIUS_MIN];
+private _nearObjects = nearestObjects [ASLToAGL GVAR(curPos), ["AllVehicles","ReammoBox_F"], CHECK_RADIUS_MIN];
 TRACEV_2(GVAR(curPos),_nearObjects);
 // filter the Objects
 
@@ -25,7 +25,7 @@ TRACEV_2(GVAR(curPos),_nearObjects);
 private _list = [];
 {
     _list pushBack [
-        format ["%1 (New)",getText(configFile >> "CfgVehicles" >> _x >> "displayName")],
+        format [localize LSTRING(NEWBOX),getText(configFile >> "CfgVehicles" >> _x >> "displayName")],
         _x,
         0
     ];
@@ -34,7 +34,7 @@ private _list = [];
 
 {
     _list pushBack [
-        format [localize LSTRING(NEWBOX),getText(configFile >> "CfgVehicles" >> (typeOf _x) >> "displayName")],
+        getText(configFile >> "CfgVehicles" >> (typeOf _x) >> "displayName"),
         _x call BIS_fnc_netId,
         1
     ];

@@ -35,3 +35,4 @@ If (_value isEqualTo 0) then {
 
 private _ctrlList = (ctrlParent _control) displayCtrl IDC_GUI_CRATE_INVENTORY;
 [_ctrlList,HASH_KEYS(GVAR(curInventory))] call FUNC(showItemList);
+[ctrlParent _control] call FUNC(updateWeight);

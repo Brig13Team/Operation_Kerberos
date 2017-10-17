@@ -25,7 +25,7 @@ switch (_presetName) do {
     default {
         _return = configProperties [
             configfile>>"CfgWeapons",
-            "((isClass _x)&&{getNumber(_x>>'scope')>1}&&{!(getText(_x>>'displayName') isEqualTo '')})",
+            "((isClass _x)&&{getNumber(_x>>'scope')>1}&&{!(getText(_x>>'displayName') isEqualTo '')}&&{((configName _x) call bis_fnc_baseWeapon == (configName _x))})",
             true
         ] + configProperties [
             configfile>>"CfgGlasses",

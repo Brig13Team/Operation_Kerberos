@@ -30,16 +30,17 @@ private _magazines = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]];
             case "sniperrifle" : {ID_SNIPER};
             case "launcher";
             case "missilelauncher";
-            case "submachinegun" : {ID_LAUNCHER};
+            case "rocketlauncher" : {ID_LAUNCHER};
             case "handgun" : {ID_HANDGUN};
             case "accessorymuzzle";
             case "accessorypointer";
+            case "accessorybipod";
             case "accessorysights" : {ID_OPTICS};
             case "smokeshell";
             case "unknownmagazine";
             case "grenade";
             case "shell";
-            case "flair";
+            case "flare";
             case "throw" : {ID_GRANADES};
             case "mine";
             case "minebounding";
@@ -72,12 +73,12 @@ private _magazines = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]];
             };
         };
         (_return select _index) pushBack _x;
-        private _curMags = getArray(_cfg >> "magazines");
-        (_magazines select _index) append _curMags;
+        //private _curMags = getArray(_cfg >> "magazines");
+        //(_magazines select _index) append _curMags;
     };
     nil
 } count _list;
-
+/*
 {
     private _curMags = _x;
     private _index = _forEachIndex;
@@ -89,5 +90,5 @@ private _magazines = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]];
         nil
     } count _curMags;
 } forEach _magazines;
-
+*/
 _return

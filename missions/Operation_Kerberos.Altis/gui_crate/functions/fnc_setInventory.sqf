@@ -21,7 +21,7 @@ private _curBoxSelectVal = _ctrlBoxes lbValue (lbCurSel _ctrlBoxes);
 private _curBoxSelectData = _ctrlBoxes lbData (lbCurSel _ctrlBoxes);
 
 // new box needs to be spawned, but the space is taken
-If ((_curBoxSelectVal isEqualTo 0)&&{!(call FUNC(checkPosEmpty))}) exitWith {
+If ((_curBoxSelectVal isEqualTo 0)&&{!([] call FUNC(checkPosEmpty))}) exitWith {
     [LSTRING(ERRORMSG),LSTRING(NOTEMPTY),"red"] call EFUNC(gui,message);
 };
 
