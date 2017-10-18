@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={26753.146,34.395409,24592.602};
-		dir[]={-0.4542968,-0.71657068,-0.52945465};
-		up[]={-0.46663192,0.6974895,-0.54382962};
-		aside[]={-0.75897986,1.0762888e-006,0.65124387};
+		pos[]={26787.217,34.395409,24646.514};
+		dir[]={0.25364763,-0.40359238,0.87918222};
+		up[]={0.11189626,0.91489744,0.38784933};
+		aside[]={0.96089381,-3.9197039e-007,-0.27722511};
 	};
 };
 binarizationWanted=0;
@@ -1218,6 +1218,7 @@ class Mission
 			};
 			id=73;
 			type="PortableHelipadLight_01_white_F";
+			atlOffset=-3.4332275e-005;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -1260,6 +1261,7 @@ class Mission
 			};
 			id=74;
 			type="PortableHelipadLight_01_white_F";
+			atlOffset=-5.7220459e-005;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -1302,7 +1304,7 @@ class Mission
 			};
 			id=77;
 			type="PortableHelipadLight_01_white_F";
-			atlOffset=1.9073486e-006;
+			atlOffset=-0.00011062622;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -1345,6 +1347,7 @@ class Mission
 			};
 			id=78;
 			type="PortableHelipadLight_01_white_F";
+			atlOffset=4.5776367e-005;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -1387,6 +1390,7 @@ class Mission
 			};
 			id=79;
 			type="PortableHelipadLight_01_green_F";
+			atlOffset=-8.0108643e-005;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -1429,6 +1433,7 @@ class Mission
 			};
 			id=81;
 			type="PortableHelipadLight_01_white_F";
+			atlOffset=-0.00010681152;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -1471,6 +1476,7 @@ class Mission
 			};
 			id=83;
 			type="PortableHelipadLight_01_white_F";
+			atlOffset=-6.2942505e-005;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -1513,6 +1519,7 @@ class Mission
 			};
 			id=84;
 			type="PortableHelipadLight_01_white_F";
+			atlOffset=-3.8146973e-005;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -1555,6 +1562,7 @@ class Mission
 			};
 			id=85;
 			type="PortableHelipadLight_01_white_F";
+			atlOffset=-4.196167e-005;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -5179,7 +5187,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={26741.908,21.044914,24588.91};
+						position[]={26784.301,20.093077,24673.482};
 						angles[]={0,2.5408435,0};
 					};
 					side="West";
