@@ -42,25 +42,46 @@ clearWeaponCargoGlobal _curBox;
 clearMagazineCargoGlobal _curBox;
 clearItemCargoGlobal _curBox;
 
+private _containersize = [] call FUNC(getContainerSize)
+
 {
     private _curCfgString = _x;
     private _curCfgArray = [_curCfgString,[]] call BIS_fnc_configPath;
     TRACEV_1(_curCfgArray);
-    If ((_curCfgArray select 1) == "CfgVehicles") then {
-        [_curBox,_curCfgArray select 2,[_curCfgString] call FUNC(getCurAmount)] call CBA_fnc_addBackpackCargo;
+    private _amount = [_curCfgString] call FUNC(getCurAmount);
+    // check if the item can be added
+    private _MassChange = [_curCfgString,_amount] call FUNC(getMass);
+    If ((_MassChange > _containersize)&&{_amount > 1}) then {
+        // reduce the amount
+        _MassChange = [_curCfgString,1] call FUNC(getMass);
+        while {_amount > 1} do {
+            _containersize = _containersize - _massChange;
+            _amount = _amount - 1;
+            If (_containersize < 0) exitWith {};
+        };
     } else {
-        TRACEV_1((([_curCfgArray select 2] call ace_common_fnc_getItemType) select 0));
-        switch (([_curCfgArray select 2] call ace_common_fnc_getItemType) select 0) do {
+        _containersize = _containersize - _MassChange;
+    };
+
+    If ((_curCfgArray select 1) == "CfgVehicles") then {
+        [_curBox,(_curCfgArray select 2),_amount] call CBA_fnc_addBackpackCargo;
+    } else {
+        TRACEV_1((([(_curCfgArray select 2)] call ace_common_fnc_getItemType) select 0));
+        switch (([itemtype] call ace_common_fnc_getItemType) select 0) do {
             case "weapon" : {
-                [_curBox,_curCfgArray select 2,[_curCfgString] call FUNC(getCurAmount)] call CBA_fnc_addWeaponCargo;
+                [_curBox,(_curCfgArray select 2),_amount] call CBA_fnc_addWeaponCargo;
             };
             case "magazine" : {
-                [_curBox,_curCfgArray select 2,[_curCfgString] call FUNC(getCurAmount)] call CBA_fnc_addMagazineCargo;
+                [_curBox,(_curCfgArray select 2),_amount] call CBA_fnc_addMagazineCargo;
             };
             default {
-                [_curBox,_curCfgArray select 2,[_curCfgString] call FUNC(getCurAmount)] call CBA_fnc_addItemCargo;
+                [_curBox,(_curCfgArray select 2),_amount] call CBA_fnc_addItemCargo;
             };
         };
+    };
+    If (_containersize < 0) exitWith {
+        [LSTRING(ERRORMSG),LSTRING(OVERLOAD),"red"] call EFUNC(gui,message);
+        TRACE("Container is full");
     };
 } forEach HASH_KEYS(GVAR(curinventory));
 

@@ -1168,6 +1168,10 @@
             <English>Error</English>
             <German>Fehler</German>
         </Key>
+        <Key ID="STR_DORB_GUI_CRATE_OVERLOAD">
+            <English>Not every Items was added due to overloading.</English>
+            <German>Nicht alle Gegenstände konnten in den Container geladen werden.</German>
+        </Key>
         <Key ID="STR_DORB_GUI_CRATE_NOTEMPTY">
             <English>Spawn point is not empty</English>
             <German>Spawnfläche ist nicht leer</German>
