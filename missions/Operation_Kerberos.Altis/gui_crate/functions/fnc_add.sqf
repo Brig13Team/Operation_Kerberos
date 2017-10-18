@@ -26,16 +26,15 @@ private _isNewItem = !(HASH_HASKEY(GVAR(curInventory),_config));
 HASH_SET(GVAR(curInventory),_config,_curAmount);
 
 private _display = ctrlParent _ctrlList;
-
 // update the itemlist
-private _itemlist = GVAR(curItemList) select GVAR(curItemListID);
+//private _itemlist = GVAR(curItemList) select GVAR(curItemListID);
 TRACEV_3((_config in _itemlist),GVAR(curItemList),GVAR(curItemListID));
-If (_config in _itemlist) then {
+//If (_config in _itemlist) then {
     _ctrlList = _display displayCtrl IDC_GUI_CRATE_ITEMLIST;
     private _curSelIndex = lnbCurSelRow _ctrlList;
     [_ctrlList,GVAR(curItemList) select GVAR(curItemListID)] call FUNC(showItemList);
     _ctrlList lnbSetCurSelRow _curSelIndex;
-};
+//};
 
 // update the inventory
 

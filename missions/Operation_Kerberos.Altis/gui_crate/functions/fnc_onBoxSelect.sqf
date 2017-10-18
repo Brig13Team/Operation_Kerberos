@@ -18,8 +18,8 @@ params ["_control","_index"];
 private _value = _control lbValue _index;
 TRACEV_3(_control,_index,_value);
 If (_value isEqualTo 0) then {
-    HASH_DELETE(GVAR(curInventory));
-    GVAR(curInventory) = HASH_CREATE;
+    /*HASH_DELETE(GVAR(curInventory));
+    GVAR(curInventory) = HASH_CREATE;*/
 } else {
     HASH_DELETE(GVAR(curInventory));
     GVAR(curInventory) = HASH_CREATE;
@@ -36,3 +36,6 @@ If (_value isEqualTo 0) then {
 private _ctrlList = (ctrlParent _control) displayCtrl IDC_GUI_CRATE_INVENTORY;
 [_ctrlList,HASH_KEYS(GVAR(curInventory))] call FUNC(showItemList);
 [ctrlParent _control] call FUNC(updateWeight);
+
+_ctrlList = (ctrlParent _control) displayCtrl IDC_GUI_CRATE_ITEMLIST;
+[_ctrlList,GVAR(curItemList) select GVAR(curItemListID)] call FUNC(showItemList);

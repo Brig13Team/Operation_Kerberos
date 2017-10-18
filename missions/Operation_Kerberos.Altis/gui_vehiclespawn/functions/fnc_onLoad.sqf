@@ -86,7 +86,7 @@ _ctrlBackground ctrlSetTextColor [COLOR_SPAWN_BTTN_OPT_SQF];
 ] call EFUNC(gui,animButton)) params ["_ctrlButton", "_ctrlBackground"];
 _ctrlButton ctrlSetText ((parsingNamespace getVariable "MISSION_ROOT")+"gui\data\tree\add_b_nb.paa");
 _ctrlButton ctrlSetTooltip (localize LSTRING(BTTN_CREATE));
-_ctrlButton ctrladdEventHandler ["ButtonClick",LINKFUNC(createVehicle)];
+_ctrlButton ctrladdEventHandler ["ButtonClick",{[(_this select 0)] call FUNC(createVehicle)}];
 _ctrlBackground ctrlSetTextColor [COLOR_SPAWN_BTTN_CREATE_SQF];
 // spawn the vehicle
 (["create",

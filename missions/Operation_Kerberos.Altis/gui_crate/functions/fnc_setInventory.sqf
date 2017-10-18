@@ -9,7 +9,7 @@
  * Nothing
  *
  */
-#define DEBUG_MODE_FULL
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 params ["_ctrlBttn"];
@@ -42,7 +42,7 @@ clearWeaponCargoGlobal _curBox;
 clearMagazineCargoGlobal _curBox;
 clearItemCargoGlobal _curBox;
 
-private _containersize = [] call FUNC(getContainerSize)
+private _containersize = [] call FUNC(getContainerSize);
 
 {
     private _curCfgString = _x;
@@ -51,6 +51,7 @@ private _containersize = [] call FUNC(getContainerSize)
     private _amount = [_curCfgString] call FUNC(getCurAmount);
     // check if the item can be added
     private _MassChange = [_curCfgString,_amount] call FUNC(getMass);
+    TRACEV_3(_amount,_masschange,_containersize);
     If ((_MassChange > _containersize)&&{_amount > 1}) then {
         // reduce the amount
         _MassChange = [_curCfgString,1] call FUNC(getMass);
@@ -66,8 +67,8 @@ private _containersize = [] call FUNC(getContainerSize)
     If ((_curCfgArray select 1) == "CfgVehicles") then {
         [_curBox,(_curCfgArray select 2),_amount] call CBA_fnc_addBackpackCargo;
     } else {
-        TRACEV_1((([(_curCfgArray select 2)] call ace_common_fnc_getItemType) select 0));
-        switch (([itemtype] call ace_common_fnc_getItemType) select 0) do {
+        TRACEV_4(_curBox,_curCfgArray,(([(_curCfgArray select 2)] call ace_common_fnc_getItemType) select 0),_amount);
+        switch (([(_curCfgArray select 2)] call ace_common_fnc_getItemType) select 0) do {
             case "weapon" : {
                 [_curBox,(_curCfgArray select 2),_amount] call CBA_fnc_addWeaponCargo;
             };

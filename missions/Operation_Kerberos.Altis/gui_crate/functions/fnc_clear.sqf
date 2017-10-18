@@ -20,3 +20,5 @@ HASH_DELETE(GVAR(curInventory));
 GVAR(curInventory) = HASH_CREATE;
 
 [_display displayCtrl IDC_GUI_CRATE_INVENTORY,[]] call FUNC(showItemList);
+[_display displayCtrl IDC_GUI_CRATE_ITEMLIST,GVAR(curItemList) select GVAR(curItemListID)] call FUNC(showItemList);
+[_display] call FUNC(updateWeight);

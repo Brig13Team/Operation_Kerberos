@@ -12,6 +12,8 @@
 
 #include "script_component.hpp"
 
+params ["_control"];
+
 If (GVAR(curVeh) isEqualTo "") exitWith {};
 
 private _vehicleType = GVAR(curVeh);
@@ -68,5 +70,5 @@ If (GVAR(option_spawnAsDriver)) then {
     ace_player moveInDriver _vehicle;
 };
 
-(findDisplay IDD_GUI_VEHICLESPAWN) closeDisplay 0;
+(ctrlParent _control) closeDisplay 0;
 [] call EFUNC(gui_main,close);
