@@ -9,7 +9,7 @@
  * Nothing
  *
  */
-
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 #define GUI_DISP_PROPW getNumber(missionConfigFile >> QAPP(dialog) >> "properties" >> "w")
@@ -51,8 +51,15 @@ private _fnc_getWeapons = {
         _weapons append getArray(_x>>"weapons");
         nil;
     } count _turrets;
-    _weapons = _weapons select {!((toUpper _x) in ["CMFLARELAUNCHER","ACE_AIR_SAFETY","RHS_WEAP_MASTERSAFE","RHS_LWIRCM_MELB"])};
-    _weapons;
+    _weapons = _weapons select {!((toUpper _x) in ["CMFLARELAUNCHER","ACE_AIR_SAFETY","RHS_WEAP_MASTERSAFE","RHS_LWIRCM_MELB","RHSUSF_WEAP_DUMMYLAUNCHER","RHSAFRF_WEAP_DUMMYLAUNCHER"])};
+
+    private _pylons = "true" configClasses (configfile >> "CfgVehicles" >> _unittype >> "Components" >> "TransportPylonsComponent" >> "pylons");
+    private _magazines = [];
+    {
+        _magazines pushBack getText(_x>>"attachment");
+        nil;
+    } count _pylons;
+    [_weapons,_magazines - [""]];
 };
 
 switch _option do {
@@ -186,8 +193,9 @@ switch _option do {
         _ctrl ctrlCommit 0;
         (_ctrlGroup getVariable "controls") pushBack _ctrl;
         INC(_idc);
-        private _weapons = [GVAR(curVeh)] call _fnc_getWeapons;
-        If !(_weapons isEqualTo []) then {
+        ([GVAR(curVeh)] call _fnc_getWeapons) params ["_weapons","_magazines"];
+        TRACEV_2(_weapons,_magazines);
+        If !((_weapons isEqualTo [])&&(_magazines isEqualTo [])) then {
             {
                 private _value = getText(configFile >> "CfgWeapons" >> _x >> "displayName");
                 _ctrl = _display ctrlCreate [QRSC(SpawnPropText),_idc,_ctrlGroup];
@@ -197,7 +205,17 @@ switch _option do {
                 (_ctrlGroup getVariable "controls") pushBack _ctrl;
                 INC(_idc);
                 INCROW;
-            } forEach ([GVAR(curVeh)] call _fnc_getWeapons);
+            } forEach (_weapons);
+            {
+                private _value = getText(configFile >> "CfgMagazines" >> _x >> "displayName");
+                _ctrl = _display ctrlCreate [QRSC(SpawnPropText),_idc,_ctrlGroup];
+                _ctrl ctrlSetPosition GUI_DISP_PROP_VAL(_row);
+                _ctrl ctrlSetText format["%1",_value];
+                _ctrl ctrlCommit 0;
+                (_ctrlGroup getVariable "controls") pushBack _ctrl;
+                INC(_idc);
+                INCROW;
+            } forEach (_magazines);
         } else {
             _ctrl = _display ctrlCreate [QRSC(SpawnPropText),_idc,_ctrlGroup];
             _ctrl ctrlSetPosition GUI_DISP_PROP_VAL(_row);
@@ -214,9 +232,6 @@ switch _option do {
         _pos set[3,(GUI_DISP_H*(_row-5))max(getNumber(missionConfigFile >> QAPP(dialog) >> "properties" >> "h"))];
         _ctrlBackground ctrlSetPosition _pos;
         _ctrlBackground ctrlCommit 0;
-    };
-    case "picture" : {
-        // TODO: Create Object and switches to rotate and zoom
     };
     case "options" : {
         // spawn as driver
@@ -298,14 +313,10 @@ switch _option do {
         (_ctrlGroup getVariable "controls") pushBack _ctrl;
         INC(_idc);
 
-
-    };
-    case "ammo" : {
-        // spawn without ammo
         private _ctrl = _display ctrlCreate [QRSC(SpawnPropSwitch),_idc,_ctrlGroup];
         _ctrl ctrlSetPosition [
             GUI_DISP_W*2,
-            GUI_DISP_H*5,
+            GUI_DISP_H*(5+21),
             GUI_DISP_W*6,
             GUI_DISP_H*3
         ];
@@ -318,7 +329,7 @@ switch _option do {
         _ctrl = _display ctrlCreate [QRSC(SpawnPropText),_idc,_ctrlGroup];
         _ctrl ctrlSetPosition [
             GUI_DISP_W*10,
-            GUI_DISP_H*4,
+            GUI_DISP_H*(4+21),
             GUI_DISP_PROPW - GUI_DISP_W*12,
             GUI_DISP_H*5
         ];

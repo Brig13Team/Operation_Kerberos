@@ -662,3 +662,75 @@ class RSC(BaseCombobox) {
         shadow = 0;
     };
 };
+
+class RSC(BaseTree) {
+    idc = -1;
+    type = 12;
+    style = 0;
+    default = 0;
+    enable = 1;
+    show = 1;
+    fade = 0;
+    blinkingPeriod = 0;
+    x = 0;
+    y = 0;
+    w = 0;
+    h = 0;
+    rowHeight=0.043909099;
+    sizeEx = (pixelH * pixelGrid * 3);
+    font = FONT_DEFAULT;
+    shadow = 0;
+
+    colorDisabled[] = COLOR_DISABLED; // not used
+    colorArrow[] = COLOR_DISABLED; // not used
+
+    borderSize=0;
+    colorBorder[] = COLOR_DISABLED;
+    colorLines[]={0,0,0,0};
+
+    colorBackground[] = {0.2,0.2,0.2,1};
+    colorText[] = {1,1,1,1};
+
+    colorSelectBackground[]={0,0,0,0.5};
+    colorSelectText[] = {1,1,1,1};
+    colorSelect[] = {1,0.5,0,1};
+
+    colorMarked[] = {1,0.5,0,0.5};
+    colorMarkedSelected[] = {1,0.5,0,1};
+    colorMarkedText[] = {1,1,1,1};
+
+    colorPicture[]={1,1,1,1};
+    colorPictureSelected[]={0,0,0,1};
+    colorPictureDisabled[]={1,1,1,0.25};
+    colorPictureRight[]={1,1,1,1};
+    colorPictureRightSelected[]={0,0,0,1};
+    colorPictureRightDisabled[]={1,1,1,0.25};
+
+    colorSearch[]={
+        "(profilenamespace getvariable ['GUI_BCG_RGB_R',0.13])",
+        "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.54])",
+        "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.21])",
+        "(profilenamespace getvariable ['GUI_BCG_RGB_A',0.8])"
+    };
+
+    tooltip = "";
+    tooltipColorShade[] = {0,0,0,1};
+    tooltipColorText[] = {1,1,1,1};
+    tooltipColorBox[] = {1,1,1,1};
+    multiselectEnabled = 1;
+    expandOnDoubleclick = 1;
+    hiddenTexture = "A3\ui_f\data\gui\rsccommon\rsctree\hiddenTexture_ca.paa";
+    expandedTexture = "A3\ui_f\data\gui\rsccommon\rsctree\expandedTexture_ca.paa";
+    maxHistoryDelay = 1;
+    disableKeyboardSearch = 1;
+    class ScrollBar {
+        width = 0;
+        height = 0;
+        scrollSpeed = 0.0099999998;
+        arrowEmpty = "\A3\ui_f\data\gui\cfg\scrollbar\arrowEmpty_ca.paa";
+        arrowFull = "\A3\ui_f\data\gui\cfg\scrollbar\arrowFull_ca.paa";
+        border = "\A3\ui_f\data\gui\cfg\scrollbar\border_ca.paa";
+        thumb = "\A3\ui_f\data\gui\cfg\scrollbar\thumb_ca.paa";
+        color[] = {1,1,1,1};
+    };
+};

@@ -45,9 +45,9 @@ class APP(dialog) : RSC(guiMenu) {
 
     class properties : RSC(BaseControlsGroupNoHScrollbar) {
         idc = IDC_GUI_VEHICLESPAWN_PROPERTIES;
-        x = GUI_DISP_X+GUI_DISP_W*84;
+        x = GUI_DISP_X+GUI_DISP_W*74;
         y = GUI_DISP_Y+GUI_DISP_H*10;
-        w = GUI_DISP_WAbs-GUI_DISP_W*86;
+        w = GUI_DISP_WAbs-GUI_DISP_W*78;
         h = GUI_DISP_HAbs-GUI_DISP_H*24;
 
         class VScrollbar : VScrollbar {
@@ -80,8 +80,8 @@ class APP(dialog) : RSC(guiMenu) {
         h = GUI_DISP_H*71;
 
         columns[] = {GUI_DISP_W,GUI_DISP_W*49};
-        sizeEx = GUI_DISP_H*3;
-        rowHeight = GUI_DISP_H*3.5;
+        sizeEx = GUI_DISP_H*2;
+        rowHeight = GUI_DISP_H*3;
         tooltip = "";
         color[] = COLOR_SPAWN_VEHICLELIST_TEXT;
         colorScrollbar[] = COLOR_SPAWN_BACKGROUND;
@@ -104,8 +104,8 @@ class APP(dialog) : RSC(guiMenu) {
         x = GUI_DISP_X+GUI_DISP_W*3;
         y = GUI_DISP_Y+GUI_DISP_H*11;
         w = GUI_DISP_W*44;
-        h = GUI_DISP_H*4;
-        sizeEx = GUI_DISP_H*4;
+        h = GUI_DISP_H*3;
+        sizeEx = GUI_DISP_H*2;
         colorBackground[] = COLOR_SPAWN_EDIT_BACKGROUND;
         colorText[] = COLOR_SPAWN_EDIT_TEXT_BACK;
     };
@@ -114,8 +114,8 @@ class APP(dialog) : RSC(guiMenu) {
         x = GUI_DISP_X+GUI_DISP_W*3;
         y = GUI_DISP_Y+GUI_DISP_H*11;
         w = GUI_DISP_W*44;
-        h = GUI_DISP_H*4;
-        sizeEx = GUI_DISP_H*4;
+        h = GUI_DISP_H*3;
+        sizeEx = GUI_DISP_H*2;
         colorBackground[] = COLOR_DISABLED;
         text = "";
         colorSelection[] = COLOR_SPAWN_EDIT_SELECT;
@@ -147,8 +147,8 @@ class APP(dialog) : RSC(guiMenu) {
 
 class RSC(SpawnPropText) : RSC(BaseText) {
     w = GUI_DISP_W*30;
-    h = GUI_DISP_H*5;
-    sizeEx = GUI_DISP_H*4;
+    h = GUI_DISP_H*3;
+    sizeEx = GUI_DISP_H*2;
     colorText[] = COLOR_SPAWN_PROP_TEXT;
     colorBackground[] = COLOR_SPAWN_PROP_BACK;
 };

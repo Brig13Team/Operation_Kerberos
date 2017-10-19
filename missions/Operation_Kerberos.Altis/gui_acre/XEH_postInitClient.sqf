@@ -16,11 +16,12 @@ GVAR(tempProperties) = [];
 
 [
     localize LSTRING(HEADER),
+    "NONE",
+    getText(configfile >> "CfgMods" >> "ACRE2" >> "picture"),
     {[] spawn FUNC(OpenMenu);},
     {[ace_player] call FUNC(canOpenMenu);},
-    getText(configfile >> "CfgMods" >> "ACRE2" >> "picture"),
-    3
-] call EFUNC(gui_echidna,addApp);
+    []
+] call EFUNC(gui_main,addApp);
 
 [
     localize ELSTRING(main,name),

@@ -24,7 +24,7 @@ GVAR(radioSettingsTarget) = _target;
 [] call FUNC(hideAll);
 
 // get the tree and the propertiesList
-private _display = uiNamespace getVariable QEGVAR(gui_Echidna,dialog);
+private _display = uiNamespace getVariable QEGVAR(gui_main,dialog);
 private _itemlist = _display displayCtrl IDC_ACRE_MENU_ITEMLIST;
 private _radiolist = _display displayCtrl IDC_ACRE_MENU_RADIOLIST;
 private _properties = _display displayCtrl IDC_ACRE_MENU_PROPERTIES;
@@ -38,56 +38,56 @@ lbClear _itemlist;
 lbClear _radiolist;
 
 _back1 ctrlSetPosition [
-    GUI_ECHIDNA_X + 5.5*GUI_ECHIDNA_W,
-    GUI_ECHIDNA_Y + 2.5*GUI_ECHIDNA_H,
-    5*GUI_ECHIDNA_W,
-    24.5*GUI_ECHIDNA_H
+    GUI_DISP_X + GUI_DISP_W*16,
+    GUI_DISP_Y + GUI_DISP_H*9,
+    GUI_DISP_W*30,
+    GUI_DISP_H*80
 ];
 _itemlist ctrlSetPosition [
-    GUI_ECHIDNA_X + 5.5*GUI_ECHIDNA_W,
-    GUI_ECHIDNA_Y + 2.5*GUI_ECHIDNA_H,
-    5*GUI_ECHIDNA_W,
-    24.5*GUI_ECHIDNA_H
+    GUI_DISP_X + GUI_DISP_W*16,
+    GUI_DISP_Y + GUI_DISP_H*9,
+    GUI_DISP_W*30,
+    GUI_DISP_H*80
 ];
 
 _back2 ctrlSetPosition [
-    GUI_ECHIDNA_X + 11*GUI_ECHIDNA_W,
-    GUI_ECHIDNA_Y + 2.5*GUI_ECHIDNA_H,
-    10*GUI_ECHIDNA_W,
-    24.5*GUI_ECHIDNA_H
+    GUI_DISP_X + GUI_DISP_W*47,
+    GUI_DISP_Y + GUI_DISP_H*9,
+    GUI_DISP_W*30,
+    GUI_DISP_H*80
 ];
 _radiolist ctrlSetPosition [
-    GUI_ECHIDNA_X + 11.5*GUI_ECHIDNA_W,
-    GUI_ECHIDNA_Y + 3*GUI_ECHIDNA_H,
-    9*GUI_ECHIDNA_W,
-    23.5*GUI_ECHIDNA_H
+    GUI_DISP_X + GUI_DISP_W*47,
+    GUI_DISP_Y + GUI_DISP_H*9,
+    GUI_DISP_W*30,
+    GUI_DISP_H*80
 ];
 
 _back3 ctrlSetPosition [
-    GUI_ECHIDNA_X + 21.5*GUI_ECHIDNA_W,
-    GUI_ECHIDNA_Y + 2.5*GUI_ECHIDNA_H,
-    18*GUI_ECHIDNA_W,
-    20.5*GUI_ECHIDNA_H
+    GUI_DISP_X + GUI_DISP_W*78,
+    GUI_DISP_Y + GUI_DISP_H*9,
+    GUI_DISP_W*81,
+    GUI_DISP_H*68
 ];
 _properties ctrlSetPosition [
-    GUI_ECHIDNA_X + 22*GUI_ECHIDNA_W,
-    GUI_ECHIDNA_Y + 3*GUI_ECHIDNA_H,
-    17*GUI_ECHIDNA_W,
-    19.5*GUI_ECHIDNA_H
+    GUI_DISP_X + GUI_DISP_W*78,
+    GUI_DISP_Y + GUI_DISP_H*9,
+    GUI_DISP_W*81,
+    GUI_DISP_H*58
 ];
 
 
 _properties_combo ctrlSetPosition [
-    GUI_ECHIDNA_W,
-    GUI_ECHIDNA_H,
-    15.5*GUI_ECHIDNA_W,
-    1*GUI_ECHIDNA_H
+    GUI_DISP_W*3,
+    GUI_DISP_H*3,
+    GUI_DISP_W*75,
+    GUI_DISP_H*3
 ];
 
-private _pos_x = GUI_ECHIDNA_X + 36.5*GUI_ECHIDNA_W;
-private _pos_y = GUI_ECHIDNA_Y + 24*GUI_ECHIDNA_H;
-private _pos_w = GUI_ECHIDNA_W*3;
-private _pos_h = GUI_ECHIDNA_H*3;
+private _pos_x = GUI_DISP_X + GUI_DISP_W*149;
+private _pos_y = GUI_DISP_Y + GUI_DISP_H*78;
+private _pos_w = GUI_DISP_W*10;
+private _pos_h = GUI_DISP_H*10;
 private _picture = ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QUOTE(COMPONENT\data\save.paa));
 private _displayName = localize LSTRING(RADIOS_TRANSMITT);
 private _ctrl = _display displayCtrl IDC_ACRE_MENU_BTTN6;
@@ -95,10 +95,10 @@ _ctrl ctrlAddEventHandler ["ButtonClick",{[GVAR(radioSettingsTarget)] call FUNC(
 ["changepos",[_ctrl,[_pos_x, _pos_y, _pos_w, _pos_h]]] call FUNC(AnimBttn);
 _ctrl ctrlSetText _picture;
 _ctrl ctrlSetTooltip _displayName;
-_ctrl ctrlSetFontHeight (GUI_ECHIDNA_METRO_BTTN_H * 0.1);
+_ctrl ctrlSetFontHeight (GUI_DISP_H*12 * 0.1);
 _ctrl ctrlSetTextColor [1,1,1,1];
 
-private _pos_x = GUI_ECHIDNA_X + 33*GUI_ECHIDNA_W;
+private _pos_x = GUI_DISP_X + GUI_DISP_W*138;
 private _picture = ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QUOTE(COMPONENT\data\delete.paa));
 private _displayName = localize LSTRING(RADIOS_RESET);
 private _ctrl2 = _display displayCtrl IDC_ACRE_MENU_BTTN7;
@@ -106,22 +106,22 @@ _ctrl2 ctrlAddEventHandler ["ButtonClick",{[GVAR(radioSettingsTarget)] call FUNC
 ["changepos",[_ctrl2,[_pos_x, _pos_y, _pos_w, _pos_h]]] call FUNC(AnimBttn);
 _ctrl2 ctrlSetText _picture;
 _ctrl2 ctrlSetTooltip _displayName;
-_ctrl2 ctrlSetFontHeight (GUI_ECHIDNA_METRO_BTTN_H * 0.1);
+_ctrl2 ctrlSetFontHeight (GUI_DISP_H*12 * 0.1);
 _ctrl2 ctrlSetTextColor [1,1,1,1];
 
 
 _watermark ctrlSetPosition [
-    GUI_ECHIDNA_X + GUI_ECHIDNA_W * 10,
-    GUI_ECHIDNA_Y + GUI_ECHIDNA_H * 2.5,
-    25*GUI_ECHIDNA_W,
-    25*GUI_ECHIDNA_H
+    GUI_DISP_X + GUI_DISP_W*50,
+    GUI_DISP_Y + GUI_DISP_H*3.5,
+    GUI_DISP_W*75,
+    GUI_DISP_H*75
 ];
 If (_target isEqualType grpNull) then {
     _watermark ctrlSetText ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QUOTE(COMPONENT\data\radio_multi.paa));
 }else{
     _watermark ctrlSetText ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QUOTE(COMPONENT\data\radio_single.paa));
 };
-_watermark ctrlSetTextColor [RAL9022,0.15];
+_watermark ctrlSetTextColor [COLOR_BASE_GREY_LIGHT_DISABLED2_SQF];
 TRACEV_3(_watermark,ctrlText _watermark,ctrlPosition _watermark);
 _watermark ctrlCommit 0;
 _back1 ctrlCommit 0;

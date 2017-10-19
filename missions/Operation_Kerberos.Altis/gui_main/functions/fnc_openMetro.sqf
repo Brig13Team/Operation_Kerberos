@@ -48,7 +48,7 @@ private _yNull = GUI_DISP_H*14;
     //TRACEV_2(_display,_curButtons);
     private _catName = _display ctrlCreate [QRSC(MetroCategorie), -1, _ctrlGroup];
     _catName ctrlSetPosition [_xNull, _yNull - GUI_DISP_H * 10];
-    _catName ctrlSetText _curCategorie;
+    _catName ctrlSetText (If (toUpper _curCategorie == "NONE") then {""} else {_curCategorie});
     _catName ctrlCommit 0;
     TRACEV_2(_curCategorie,uiNamespace getvariable 'GVAR(metroBttns)');
     If !((uiNamespace getvariable 'GVAR(metroBttns)')isEqualTo []) then {

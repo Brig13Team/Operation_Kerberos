@@ -106,7 +106,7 @@ If ((getMissionConfigValue ["isKerberos", 0]) > 0) then {
 _return = _return apply {
     [
         [configfile >> "CfgVehicles" >> _x] call EFUNC(common,getModPicture),
-        [configfile >> "CfgVehicles" >> _x] call EFUNC(common,getMod),
+        [configfile >> "CfgVehicles" >> _x] call EFUNC(common,getModName),
         [configfile >> "CfgVehicles" >> _x] call FUNC(getVehicleIcon),
         getText(configFile >> "CfgVehicles" >> _x >> "displayName"),
         _x

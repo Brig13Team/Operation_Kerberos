@@ -19,7 +19,7 @@ disableSerialization;
 [] call FUNC(hideAll);
 
 // get the tree and the propertiesList
-private _display = uiNamespace getVariable QEGVAR(gui_Echidna,dialog);
+private _display = uiNamespace getVariable QEGVAR(gui_main,dialog);
 private _tree = _display displayCtrl IDC_ACRE_MENU_TREE;
 private _list = _display displayCtrl IDC_ACRE_MENU_PROPERTIESLIST;
 private _background = _display displayCtrl IDC_ACRE_MENU_BACK_1;
@@ -29,31 +29,25 @@ lnbClear _list;
 
 // move the tree and the propertieslist to their positions
 _tree ctrlSetPosition [
-    GUI_ECHIDNA_X + 6*GUI_ECHIDNA_W,
-    GUI_ECHIDNA_Y + 3*GUI_ECHIDNA_H,
-    21*GUI_ECHIDNA_W,
-    23.5*GUI_ECHIDNA_H
+    GUI_DISP_X+GUI_DISP_W*16,
+    GUI_DISP_Y+GUI_DISP_H*9,
+    GUI_DISP_W*70,
+    GUI_DISP_H*80
 ];
 _list ctrlSetPosition [
-    GUI_ECHIDNA_X + 28*GUI_ECHIDNA_W,
-    GUI_ECHIDNA_Y + 3*GUI_ECHIDNA_H,
-    11*GUI_ECHIDNA_W,
-    23.5*GUI_ECHIDNA_H
+    GUI_DISP_X+GUI_DISP_W*87,
+    GUI_DISP_Y+GUI_DISP_H*9,
+    GUI_DISP_W*72,
+    GUI_DISP_H*80
 ];
 _background ctrlSetPosition [
-    GUI_ECHIDNA_X + 28*GUI_ECHIDNA_W,
-    GUI_ECHIDNA_Y + 3*GUI_ECHIDNA_H,
-    11*GUI_ECHIDNA_W,
-    23.5*GUI_ECHIDNA_H
+    GUI_DISP_X+GUI_DISP_W*87,
+    GUI_DISP_Y+GUI_DISP_H*9,
+    GUI_DISP_W*72,
+    GUI_DISP_H*80
 ];
 
-/*
-_tree ctrlSetBackgroundColor [RAL9002,1];
-_background ctrlSetBackgroundColor [RAL9002,1];
-_tree ctrlSetTextColor [RAL9005,1];
-_list ctrlSetTextColor [RAL9005,1];
-*/
-_list lnbAddColumn 0.7;
+_list lnbAddColumn 0.5;
 _tree ctrlCommit 0;
 _list ctrlCommit 0;
 _background ctrlCommit 0;

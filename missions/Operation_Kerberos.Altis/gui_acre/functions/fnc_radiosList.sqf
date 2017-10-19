@@ -14,7 +14,7 @@
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 TRACE("LISTING RADIOS");
-private _display = uiNamespace getVariable QEGVAR(gui_Echidna,dialog);
+private _display = uiNamespace getVariable QEGVAR(gui_main,dialog);
 private _radiolist = _display displayCtrl IDC_ACRE_MENU_RADIOLIST;
 
 lbClear _radiolist;
