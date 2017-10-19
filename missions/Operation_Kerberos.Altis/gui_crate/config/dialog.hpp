@@ -108,7 +108,7 @@ class APP(dialog) : RSC(guiMenu) {
         y = GUI_DISP_Y+GUI_DISP_H*23;
         w = GUI_DISP_W*72;
         h = GUI_DISP_H*65;
-        rowHeight = GUI_DISP_H*4;
+        rowHeight = GUI_DISP_H*3;
         sizeEx = GUI_DISP_H*2;
         //columns[] = {GUI_DISP_W*3.2,GUI_DISP_W*7,GUI_DISP_W*25,GUI_DISP_W*33,GUI_DISP_W*58};
         columns[] = {GUI_DISP_W*3.2,GUI_DISP_W*12,GUI_DISP_W*37,GUI_DISP_W*41,GUI_DISP_W*58};
@@ -136,8 +136,8 @@ class APP(dialog) : RSC(guiMenu) {
         x = GUI_DISP_X+GUI_DISP_W*3;
         y = GUI_DISP_Y+GUI_DISP_H*16;
         w = GUI_DISP_W*38;
-        h = GUI_DISP_H*5;
-        sizeEx = GUI_DISP_H*4.5;
+        h = GUI_DISP_H*4;
+        sizeEx = GUI_DISP_H*3;
         colorBackground[] = COLOR_DISABLED;
     };
 
@@ -146,8 +146,8 @@ class APP(dialog) : RSC(guiMenu) {
         x = GUI_DISP_X+GUI_DISP_W*3;
         y = GUI_DISP_Y+GUI_DISP_H*16;
         w = GUI_DISP_W*38;
-        h = GUI_DISP_H*5;
-        sizeEx = GUI_DISP_H*4.5;
+        h = GUI_DISP_H*4;
+        sizeEx = GUI_DISP_H*3;
         text = CSTRING(WATERMARK_FILTER);
         colorBackground[] = COLOR_CRATE_EDIT_BACKGROUND;
         //colorText[] = COLOR_CRATE_EDIT_TEXT_BACK;
@@ -296,8 +296,8 @@ class APP(dialog) : RSC(guiMenu) {
     class boxweight : boxtitle {
         idc = IDC_GUI_CRATE_BOXLIST_WEIGHT;
         style = 0x01;
-        x = GUI_DISP_X + GUI_DISP_W*144;
-        w = GUI_DISP_W*10;
+        x = GUI_DISP_X + GUI_DISP_W*134;
+        w = GUI_DISP_W*20;
         text = "0 kg";
     };
 
@@ -306,9 +306,9 @@ class APP(dialog) : RSC(guiMenu) {
         x = GUI_DISP_X + GUI_DISP_W*82;
         y = GUI_DISP_Y + GUI_DISP_H*16;
         w = GUI_DISP_W*72;
-        h = GUI_DISP_H*5;
+        h = GUI_DISP_H*4;
         sizeEx = GUI_DISP_H*3;
-        rowHeight = GUI_DISP_H*3.5;
+        rowHeight = GUI_DISP_H*3;
         wholeHeight = GUI_DISP_H*40;
         onLBSelChanged = QFUNC(onBoxChanged);
     };
@@ -322,8 +322,8 @@ class APP(dialog) : RSC(guiMenu) {
     class inventoryweight : inventorytitle {
         idc = IDC_GUI_CRATE_INVENTORY_WEIGHT;
         style = 0x01;
-        x = GUI_DISP_X + GUI_DISP_W*144;
-        w = GUI_DISP_W*10;
+        x = GUI_DISP_X + GUI_DISP_W*134;
+        w = GUI_DISP_W*20;
         text = "0 kg";
     };
 

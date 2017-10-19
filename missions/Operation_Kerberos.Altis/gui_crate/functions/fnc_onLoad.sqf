@@ -28,7 +28,7 @@ _display displayAddEventHandler ["KeyUp",QUOTE([ARR_2(_this select 1,false)] cal
         GUI_DISP_H*10
     ]
 ] call EFUNC(gui,animButton)) params ["_ctrlButton", "_ctrlBackground"];
-_ctrlButton ctrlSetFontHeight (GUI_DISP_H*3);
+_ctrlButton ctrlSetFontHeight (GUI_DISP_H*2);
 _ctrlButton ctrlSetText (localize LSTRING(BTTN_LOAD));
 _ctrlButton ctrlSetTooltip (localize LSTRING(BTTN_LOAD));
 _ctrlButton ctrlAddEventHandler ["ButtonClick",{[_this select 0] spawn FUNC(load)}];
@@ -44,7 +44,7 @@ _ctrlBackground ctrlSetTextColor [COLOR_CRATE_BTTN_LOAD];
         GUI_DISP_H*10
     ]
 ] call EFUNC(gui,animButton)) params ["_ctrlButton", "_ctrlBackground"];
-_ctrlButton ctrlSetFontHeight (GUI_DISP_H*3);
+_ctrlButton ctrlSetFontHeight (GUI_DISP_H*2);
 _ctrlButton ctrlSetText (localize LSTRING(BTTN_SAVE));
 _ctrlButton ctrlSetTooltip (localize LSTRING(BTTN_SAVE));
 _ctrlButton ctrlAddEventHandler ["ButtonClick",{[_this select 0] call FUNC(save)}];
@@ -60,7 +60,7 @@ _ctrlBackground ctrlSetTextColor [COLOR_CRATE_BTTN_SAVE];
         GUI_DISP_H*10
     ]
 ] call EFUNC(gui,animButton)) params ["_ctrlButton", "_ctrlBackground"];
-_ctrlButton ctrlSetFontHeight (GUI_DISP_H*3);
+_ctrlButton ctrlSetFontHeight (GUI_DISP_H*2);
 _ctrlButton ctrlSetText (localize LSTRING(BTTN_CLEAR));
 _ctrlButton ctrlSetTooltip (localize LSTRING(BTTN_CLEAR));
 _ctrlButton ctrlAddEventHandler ["ButtonClick",{[_this select 0] call FUNC(clear)}];
@@ -70,7 +70,7 @@ _ctrlBackground ctrlSetTextColor [COLOR_CRATE_BTTN_CLEAR];
 (["createText",
     [
         _display,
-        GUI_DISP_X + GUI_DISP_W*132,
+        GUI_DISP_X + GUI_DISP_W*128,
         GUI_DISP_Y + GUI_DISP_H*78,
         GUI_DISP_H*10,
         GUI_DISP_H*10
@@ -87,13 +87,13 @@ _ctrlBackground ctrlSetTextColor [COLOR_CRATE_BTTN_CLEARPOS];
 (["createText",
     [
         _display,
-        GUI_DISP_X + GUI_DISP_W*144,
+        GUI_DISP_X + GUI_DISP_W*140,
         GUI_DISP_Y + GUI_DISP_H*78,
         GUI_DISP_H*10,
         GUI_DISP_H*10
     ]
 ] call EFUNC(gui,animButton)) params ["_ctrlButton", "_ctrlBackground"];
-_ctrlButton ctrlSetFontHeight (GUI_DISP_H*3);
+_ctrlButton ctrlSetFontHeight (GUI_DISP_H*2);
 _ctrlButton ctrlSetText (localize LSTRING(BTTN_SPAWN));
 _ctrlButton ctrlSetTooltip (localize LSTRING(BTTN_SPAWN));
 _ctrlButton ctrlAddEventHandler ["ButtonClick",{[_this select 0] call FUNC(setInventory)}];
