@@ -81,8 +81,8 @@ If (_sideNumber < 0) exitWith {
     ERROR(FORMAT_1("Wrong side given",_side));
 };
 
-//private _loadingScreenStep = 1/(count _configArray);
-//private _loadingScreenID = [localize LSTRING(CREATE_LIST)] call EFUNC(gui,startLoadingScreen);
+private _loadingScreenStep = 1/(count _configArray);
+private _loadingScreenID = [localize LSTRING(CREATE_LIST)] call EFUNC(gui,startLoadingScreen);
 
 {
     private _class = _x;
@@ -152,7 +152,7 @@ If (_sideNumber < 0) exitWith {
             };
         };
     };
-    //[_loadingScreenID,(_forEachIndex * _loadingScreenStep)] call EFUNC(gui,progressLoadingScreen);
+    [_loadingScreenID,(_forEachIndex * _loadingScreenStep)] call EFUNC(gui,progressLoadingScreen);
 } foreach _configArray;
 {
     private _weapon = _x;
@@ -189,7 +189,7 @@ If (_sideNumber < 0) exitWith {
         _addBackpacks pushBackUnique _x;
     };
 } foreach _BackpackWhitelist;
-//[_loadingScreenID] call EFUNC(gui,endLoadingScreen);
+[_loadingScreenID] call EFUNC(gui,endLoadingScreen);
 
 _list = [_addWeapons,_addMagazines,_addItems,_addBackpacks,_fixWeapons,_fixMagazines,_fixItems,_fixBackpacks];
 

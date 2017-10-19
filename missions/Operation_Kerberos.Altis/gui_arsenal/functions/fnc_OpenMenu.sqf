@@ -8,6 +8,10 @@
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
+If !(canSuspend) exitWIth {
+    _this spawn FUNC(OpenMenu);
+};
+
 params [["_fastArsenal",false,[true]]];
 TRACEV_2(_fastArsenal,_this);
 [] call EFUNC(gui_main,close);
