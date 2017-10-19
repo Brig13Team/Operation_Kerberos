@@ -143,7 +143,7 @@ class RSC(AnimBttn_background) : RSC(BasePicture) {
     y = 0;
     w = GUI_DISP_W*10;
     h = GUI_DISP_H*10;
-    text = __EVAL(MISSION_ROOT + 'gui\data\buttons\button_256_normal.paa');
+    text = __EVAL(MISSION_ROOT + 'COMPONENT\data\buttons\button_256_normal.paa');
     shadow = 0;
     colorShadow[] = COLOR_DISABLED;
     font = FONT_DEFAULT;
@@ -586,12 +586,12 @@ class RSC(loadingScreen) {
             y = GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 5;
             w = GUI_GRID_CENTER_W * 20;
             h = GUI_GRID_CENTER_H * 20;
-            text = QPAAPATH(loading_backIn);
+            text = QUOTE(COMPONENT\data\loadingscreen\loading_backIn.paa);
         };
         class circle : backgroundcircle {
             idc = IDD_LOADING_CIRCLE;
             colorText[] = COLOR_LOADING_CIRCLE;
-            text = QPAAPATH(loading_circle);
+            text = QUOTE(COMPONENT\data\loadingscreen\loading_circle.paa);
         };
         class backgroundLogo : backgroundcircle {
             x = GUI_GRID_CENTER_X + GUI_GRID_CENTER_W * 13;
@@ -600,7 +600,7 @@ class RSC(loadingScreen) {
             h = GUI_GRID_CENTER_H * 14;
             colorBackground[] = COLOR_LOADING_BACKGROUND;
             colorText[] = COLOR_LOADING_LOGO;
-            text = QEPAAPATH(logo,logo_512w);
+            text = QUOTE(COMPONENT\data\logo\logo_512w.paa);
         };
         class title : RSC(BaseText) {
             idc = IDD_LOADING_TITLE;

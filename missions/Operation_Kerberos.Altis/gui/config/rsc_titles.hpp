@@ -89,7 +89,7 @@ class RscTitles {
                 h = GUI_NOTIFICATION_H;
                 colorBackground[] = COLOR_DISABLED;
                 colorText[] = COLOR_BACKGROUND_HUD;
-                text = QEPAAPATH(texture,notification_tex);
+                text = QUOTE(COMPONENT\data\texture\notification_tex.paa);
                 style = "48";
             };
             class picture : RSC(BasePicture) {

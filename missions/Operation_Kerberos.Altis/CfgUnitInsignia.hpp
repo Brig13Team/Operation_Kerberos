@@ -9,7 +9,7 @@ class CfgUnitInsignia {
     class GVARMAIN(insignia) {
         displayName = ELSTRING(MAIN,NAME);
         author = ELSTRING(MAIN,AUTHOR);
-        texture = QEPAAPATH(logo,logo_512);
-        textureVehicle = QEPAAPATH(logo,logo_512);
+        texture = QUOTE(gui\data\logo\logo_512.paa);
+        textureVehicle = QUOTE(gui\data\logo\logo_512.paa);
     };
 };
