@@ -20,8 +20,7 @@ GVAR(Applications) = [] call CBA_fnc_createNamespace;
         private _ACE_Action = [
             QGVAR(selfactiongroup),
             localize LSTRING(SELFACTIONGROUP),
-            //(parsingNamespace getVariable ["MISSION_ROOT",""]) + QEPAAPATH(logo,logo_512),
-            "",
+            (parsingNamespace getVariable ["MISSION_ROOT",""]) + QUOTE(gui\data\logo\logo_512.paa),
             LINKFUNC(openMenu),
             LINKFUNC(canOpenMenu)
         ] call ace_interact_menu_fnc_createAction;

@@ -80,7 +80,7 @@ class APP(dialog) : RSC(echidna) {
     #define BUTTON_HELPER(NUMBER) class TRIPLES(menubutton,NUMBER,background) : RSC(BasePicture) { \
         idc = -(IDC_ACRE_MENU_BTTN + NUMBER); \
         x = 0;y = 0;w = 0;h = 0; \
-        text = QEPAAPATH(buttons,button_256_normal); \
+        text = QUOTE(gui\data\buttons\button_256_normal.paa); \
         shadow = 0; \
         style = "48"; \
         colorShadow[] = COLOR_DISABLED; \
