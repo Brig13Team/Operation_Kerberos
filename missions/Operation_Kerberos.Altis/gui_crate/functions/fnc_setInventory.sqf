@@ -55,10 +55,13 @@ private _containersize = [] call FUNC(getContainerSize);
     If ((_MassChange > _containersize)&&{_amount > 1}) then {
         // reduce the amount
         _MassChange = [_curCfgString,1] call FUNC(getMass);
-        while {_amount > 1} do {
+        private _newAmount = 0;
+        while {_newAmount < _amount} do {
             _containersize = _containersize - _massChange;
-            _amount = _amount - 1;
-            If (_containersize < 0) exitWith {};
+            If (_containersize < 0) exitWith {
+                _amount = _newAmount;
+            };
+            _newAmount = _newAmount + 1;
         };
     } else {
         _containersize = _containersize - _MassChange;

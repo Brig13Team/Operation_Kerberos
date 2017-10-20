@@ -9,7 +9,7 @@
  * Nothing
  *
  */
-#define DEBUG_MODE_FULL
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 params ["_display"];
@@ -30,7 +30,7 @@ private _list = [];
         0
     ];
     nil
-} count ["Box_NATO_Ammo_F","Box_NATO_WpsLaunch_F","Box_NATO_Wps_F","Box_NATO_WpsSpecial_F","IG_supplyCrate_F","B_CargoNet_01_ammo_F","B_Slingload_01_Cargo_F"];
+} count DEFAULT_BOXES;
 
 {
     _list pushBack [

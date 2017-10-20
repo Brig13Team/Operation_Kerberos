@@ -9,7 +9,7 @@
  * <ARRAY> array with classnames
  *
  */
-
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 params [["_presetName","",[""]]];
@@ -21,7 +21,7 @@ If !(HASH_GET_DEF(GVAR(preset),_presetName,[]) isEqualTo []) exitWith {
 };
 
 switch (_presetName) do {
-    case "WEST" {
+    case "WEST" : {
         _return = configProperties [
             configfile>>"CfgWeapons",
             "((isClass _x)&&{getNumber(_x>>'scope')>1}&&{!(getText(_x>>'displayName') isEqualTo '')}&&{If(isNumber(_x>>'side'))then{getNumber(_x>>'side')==1}else{true}}&&{((configName _x) call bis_fnc_baseWeapon == (configName _x))})",
@@ -122,6 +122,8 @@ switch (_presetName) do {
         } count configProperties [configfile>>"cfgweapons">>"put","isClass(_x)",true] + configProperties [configfile>>"cfgweapons">>"throw","isClass(_x)",true];
     };
 };
+
+TRACEV_2(_presetName,_return);
 
 _return = _return apply {[_x,""] call BIS_fnc_configPath};
 

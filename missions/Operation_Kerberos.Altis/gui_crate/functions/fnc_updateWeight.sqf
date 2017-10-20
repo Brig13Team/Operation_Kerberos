@@ -22,7 +22,7 @@ private _containerweight = if ((_control lbValue (lbCurSel _control)) isEqualTo 
 };
 
 private _ctrl = _display displayCtrl IDC_GUI_CRATE_BOXLIST_WEIGHT;
-_ctrl ctrlSetText format["%1 kg",MASS_CORRECTION*_containerweight];
+_ctrl ctrlSetText format["%1 kg",_containerweight];
 
 private _ctrl = _display displayCtrl IDC_GUI_CRATE_INVENTORY_WEIGHT;
-_ctrl ctrlSetText format["%1 kg",MASS_CORRECTION*([] call FUNC(getCurWeight))];
+_ctrl ctrlSetText format["%1 kg",[] call FUNC(getCurWeight)];

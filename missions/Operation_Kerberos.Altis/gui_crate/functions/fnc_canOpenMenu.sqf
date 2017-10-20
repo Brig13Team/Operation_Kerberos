@@ -10,7 +10,7 @@
  * <BOOL> the user can open the menu
  *
  */
-#define DEBUG_MODE_FULL
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 TRACEV_1(_this);
 params [

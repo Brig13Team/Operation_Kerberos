@@ -20,8 +20,10 @@
 
 #define MASS_CORRECTION 0.5
 #define DEFAULT_MASS 250
-#define DEFAULT_BOXES ["box_nato_ammo_f","box_nato_wpslaunch_f","box_nato_wps_f","box_nato_wpsspecial_f","ig_supplycrate_f","b_cargonet_01_ammo_f","b_slingload_01_cargo_f"]
-#define DEFAULT_BOXES_MASS [250,170,375,500,1250,2625,10000]
+#define DEFAULT_BOXES ["box_nato_ammo_f","Box_NATO_Equip_F","CargoNet_01_box_F","b_slingload_01_cargo_f"]
+#define DEFAULT_BOXES_MASS [250,500,1250,6000]
+
+
 
 #define ID_RIFLE 0
 #define ID_AUTOMATIC 1

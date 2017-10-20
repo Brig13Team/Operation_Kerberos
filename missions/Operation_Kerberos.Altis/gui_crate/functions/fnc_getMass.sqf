@@ -28,4 +28,4 @@ If (_mass isEqualTo 0) then {
         _mass = getnumber (_config>>"WeaponSlotsInfo">>"mass");
     };
 };
-(_mass * _amount)
+(_mass * _amount * MASS_CORRECTION)
