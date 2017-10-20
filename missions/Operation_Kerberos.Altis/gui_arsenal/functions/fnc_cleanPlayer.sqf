@@ -14,7 +14,9 @@
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-_this params [["_player",objNull,[objNull]]];
+If (GVAR(level)<1) exitWith {};
+
+params [["_player",objNull,[objNull]]];
 
 CHECK((isNull _player)||{!isPlayer _player})
 

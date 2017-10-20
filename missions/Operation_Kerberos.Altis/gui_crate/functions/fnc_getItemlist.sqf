@@ -21,7 +21,81 @@ If !(HASH_GET_DEF(GVAR(preset),_presetName,[]) isEqualTo []) exitWith {
 };
 
 switch (_presetName) do {
-
+    case "WEST" {
+        _return = configProperties [
+            configfile>>"CfgWeapons",
+            "((isClass _x)&&{getNumber(_x>>'scope')>1}&&{!(getText(_x>>'displayName') isEqualTo '')}&&{If(isNumber(_x>>'side'))then{getNumber(_x>>'side')==1}else{true}}&&{((configName _x) call bis_fnc_baseWeapon == (configName _x))})",
+            true
+        ] + configProperties [
+            configfile>>"CfgGlasses",
+            "((isClass _x)&&{getNumber(_x>>'scope')>1}&&{If(isNumber(_x>>'side'))then{getNumber(_x>>'side')==1}else{true}}&&{!(getText(_x>>'displayName') isEqualTo '')})",
+            true
+        ] + configProperties [
+            configfile>>"CfgVehicles",
+            "((isClass _x)&&{getNumber(_x>>'scope')>1}&&{getText(_x>>'vehicleClass')=='Backpacks'}&&{If(isNumber(_x>>'side'))then{getNumber(_x>>'side')==1}else{true}}&&{!(getText(_x>>'displayName') isEqualTo '')})",
+            true
+        ];
+        // throw and put
+        {
+            {
+                if (getnumber (configfile >> "cfgmagazines" >> _x >> "scope") > 1) then {
+                    _return pushBack (configfile >> "cfgmagazines" >> _x);
+                };
+                nil
+            } count getArray(_x>>"magazines");
+            nil
+        } count configProperties [configfile>>"cfgweapons">>"put","isClass(_x)",true] + configProperties [configfile>>"cfgweapons">>"throw","isClass(_x)",true];
+    };
+    case "EAST" : {
+        _return = configProperties [
+            configfile>>"CfgWeapons",
+            "((isClass _x)&&{getNumber(_x>>'scope')>1}&&{!(getText(_x>>'displayName') isEqualTo '')}&&{If(isNumber(_x>>'side'))then{getNumber(_x>>'side')==0}else{true}}&&{((configName _x) call bis_fnc_baseWeapon == (configName _x))})",
+            true
+        ] + configProperties [
+            configfile>>"CfgGlasses",
+            "((isClass _x)&&{getNumber(_x>>'scope')>1}&&{If(isNumber(_x>>'side'))then{getNumber(_x>>'side')==0}else{true}}&&{!(getText(_x>>'displayName') isEqualTo '')})",
+            true
+        ] + configProperties [
+            configfile>>"CfgVehicles",
+            "((isClass _x)&&{getNumber(_x>>'scope')>1}&&{getText(_x>>'vehicleClass')=='Backpacks'}&&{If(isNumber(_x>>'side'))then{getNumber(_x>>'side')==0}else{true}}&&{!(getText(_x>>'displayName') isEqualTo '')})",
+            true
+        ];
+        // throw and put
+        {
+            {
+                if (getnumber (configfile >> "cfgmagazines" >> _x >> "scope") > 1) then {
+                    _return pushBack (configfile >> "cfgmagazines" >> _x);
+                };
+                nil
+            } count getArray(_x>>"magazines");
+            nil
+        } count configProperties [configfile>>"cfgweapons">>"put","isClass(_x)",true] + configProperties [configfile>>"cfgweapons">>"throw","isClass(_x)",true];
+    };
+    case "GUER" : {
+        _return = configProperties [
+            configfile>>"CfgWeapons",
+            "((isClass _x)&&{getNumber(_x>>'scope')>1}&&{!(getText(_x>>'displayName') isEqualTo '')}&&{If(isNumber(_x>>'side'))then{getNumber(_x>>'side')==2}else{true}}&&{((configName _x) call bis_fnc_baseWeapon == (configName _x))})",
+            true
+        ] + configProperties [
+            configfile>>"CfgGlasses",
+            "((isClass _x)&&{getNumber(_x>>'scope')>1}&&{If(isNumber(_x>>'side'))then{getNumber(_x>>'side')==2}else{true}}&&{!(getText(_x>>'displayName') isEqualTo '')})",
+            true
+        ] + configProperties [
+            configfile>>"CfgVehicles",
+            "((isClass _x)&&{getNumber(_x>>'scope')>1}&&{getText(_x>>'vehicleClass')=='Backpacks'}&&{If(isNumber(_x>>'side'))then{getNumber(_x>>'side')==2}else{true}}&&{!(getText(_x>>'displayName') isEqualTo '')})",
+            true
+        ];
+        // throw and put
+        {
+            {
+                if (getnumber (configfile >> "cfgmagazines" >> _x >> "scope") > 1) then {
+                    _return pushBack (configfile >> "cfgmagazines" >> _x);
+                };
+                nil
+            } count getArray(_x>>"magazines");
+            nil
+        } count configProperties [configfile>>"cfgweapons">>"put","isClass(_x)",true] + configProperties [configfile>>"cfgweapons">>"throw","isClass(_x)",true];
+    };
     default {
         _return = configProperties [
             configfile>>"CfgWeapons",
