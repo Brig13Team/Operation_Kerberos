@@ -86,6 +86,7 @@ private _containersize = [] call FUNC(getContainerSize);
     };
 } forEach HASH_KEYS(GVAR(curinventory));
 
+[QEGVAR(arsenal,cleanCargo),_curBox] call CBA_fnc_localEvent;
 
 _display closeDisplay 0;
 [] call EFUNC(gui_main,close);
