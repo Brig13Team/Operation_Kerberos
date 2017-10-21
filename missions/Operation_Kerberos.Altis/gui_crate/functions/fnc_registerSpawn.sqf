@@ -22,6 +22,7 @@ params [
 
 If ((_spawnPosition isEqualTo [])||{_spawnPosition isEqualTo objNull}) exitWith {
     TRACEV_2(_this,_spawnPosition);ERROR("No spawnposition");
+    ""
 };
 
 If ((isNil "_spawnDir")&&{IS_OBJECT(_spawnPosition)}) then {
