@@ -1,6 +1,6 @@
 #define COMPONENT gui_teleport
 #define COMPONENT_BEAUTIFIED GUI_Teleport
-#include "..\script_mission.hpp"
+#include "..\main\script_mission.hpp"
 
 #define DEBUG_MODE_MINIMAL
 // #define DEBUG_MODE_FULL

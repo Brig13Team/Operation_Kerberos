@@ -9,7 +9,7 @@
  * <BOOL> the spawn is empty
  *
  */
-
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 params [["_position",GVAR(curPos),[[]],[3]]];

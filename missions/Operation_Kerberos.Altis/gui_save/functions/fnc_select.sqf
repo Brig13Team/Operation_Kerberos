@@ -8,7 +8,7 @@
         1:SCALAR    - Row
 
 */
-#define INCLUDE_GUI
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 disableSerialization;

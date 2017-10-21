@@ -11,7 +11,7 @@
  *     none
  *
  */
-#define INCLUDE_GUI
+
 #include "script_component.hpp"
 disableSerialization;
 params [["_key","NOKEY",[""]]];

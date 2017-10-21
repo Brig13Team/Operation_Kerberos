@@ -5,7 +5,7 @@
         Teleports Caller to his Squadleader
 
 */
-#define INCLUDE_GUI
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 closeDialog IDD_GUI_TELEPORT;

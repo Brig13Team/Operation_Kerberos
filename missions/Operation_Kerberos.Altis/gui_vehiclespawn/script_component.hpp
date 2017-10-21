@@ -1,6 +1,6 @@
 #define COMPONENT gui_vehiclespawn
 #define COMPONENT_BEAUTIFIED GUI_Vehicle_Spawn
-#include "..\script_mission.hpp"
+#include "..\main\script_mission.hpp"
 
 #define DEBUG_MODE_MINIMAL
 // #define DEBUG_MODE_FULL

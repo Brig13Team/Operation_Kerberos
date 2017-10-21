@@ -10,7 +10,7 @@
  * <BOOL> unit can spawn vehicle
  *
  */
-
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 params ["_player","_vehicleClass"];

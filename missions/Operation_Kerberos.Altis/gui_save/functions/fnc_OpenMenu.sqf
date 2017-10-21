@@ -9,7 +9,7 @@
         1 : BOOL        - Is Save - else is Load
 
 */
-#define INCLUDE_GUI
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 CHECK(!hasInterface)

@@ -490,3 +490,5 @@ Author:
     Dorbedo
 ------------------------------------------- */
 #define COMPONENTCONFIGFILE missionConfigFile >> QUOTE(DOUBLES(CfgComponent,ADDON)) >> "config"
+
+#include "script_debug.hpp"

@@ -12,7 +12,7 @@
  */
 #define CBA_OFF
 #define COMPONENT SYSTEM
-#include "..\script_mission.hpp"
+#include "script_macros.hpp"
 
 /*
     Name: dorb_system_fnc_compile

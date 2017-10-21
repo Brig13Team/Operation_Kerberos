@@ -1,6 +1,6 @@
 #define COMPONENT gui_main
 #define COMPONENT_BEAUTIFIED GUI_Main
-#include "..\script_mission.hpp"
+#include "..\main\script_mission.hpp"
 
 #define DEBUG_MODE_MINIMAL
 // #define DEBUG_MODE_FULL

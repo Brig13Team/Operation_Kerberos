@@ -10,7 +10,7 @@
  * <SCALAR> the mass
  *
  */
-
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 params [["_config","",["",configNull]],["_amount",1,[1]]];

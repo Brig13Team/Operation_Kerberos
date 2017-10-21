@@ -11,8 +11,8 @@
 __EXEC (MISSION_ROOT = __FILE__ select [0, count __FILE__ - 15]);
 
 onLoadMissionTime = 1;
-onLoadName = __EVAL(format[ARR_6('%1 v%2.%3.%4.%5',localize LSTRING(NAME),MAJOR,MINOR,PATCHLVL,BUILD)]);
-onLoadMission = LSTRING(NAME);
+onLoadName = ECSTRING(MAIN,NAME);
+onLoadMission = __EVAL((localize LSTRING(NAME)) + ' Version: ' + 'VERSION');
 loadScreen = MPATH(gui\data\logo\logo_512.paa);
 
 author = CSTRING(AUTHOR);

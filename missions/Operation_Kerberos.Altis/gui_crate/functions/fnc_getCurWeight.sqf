@@ -9,7 +9,7 @@
  * <SCLALAR> the current weight
  *
  */
-
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 private _weight = 0;
