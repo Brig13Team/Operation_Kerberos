@@ -16,6 +16,16 @@
 
 params ["_target","_caller","_spawnID"];
 
+If ((!isNil QEFUNC(gui_arsenal,preload))&&{!(missionNamespace getVariable [QEGVAR(gui_arsenal,isPreloaded),true])}) exitWith {
+    [] spawn EFUNC(gui_arsenal,preload);
+    [
+        {missionNamespace getVariable [QEGVAR(gui_arsenal,isPreloaded),false]},
+        {_this spawn FUNC(OpenMenu)},
+        _this,
+        5
+    ] call CBA_fnc_waitUntilAndExecute;
+};
+
 (GVAR(spawns) getVariable _spawnID) params ["_list","_spawnPosition","_spawnDir"];
 
 GVAR(curItemListID) = 0;

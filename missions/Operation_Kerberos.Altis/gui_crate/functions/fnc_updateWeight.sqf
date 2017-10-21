@@ -16,9 +16,9 @@ params ["_display"];
 
 private _control = _display displayCtrl IDC_GUI_CRATE_BOXLIST;
 private _containerweight = if ((_control lbValue (lbCurSel _control)) isEqualTo 0) then {
-    [(_control lbData _index)] call FUNC(getContainerSize);
+    [(_control lbData (lbCurSel _control))] call FUNC(getContainerSize);
 } else {
-    [(_control lbData _index) call BIS_fnc_objectFromNetId] call FUNC(getContainerSize);
+    [(_control lbData (lbCurSel _control)) call BIS_fnc_objectFromNetId] call FUNC(getContainerSize);
 };
 
 private _ctrl = _display displayCtrl IDC_GUI_CRATE_BOXLIST_WEIGHT;

@@ -43,7 +43,14 @@ clearWeaponCargoGlobal _curBox;
 clearMagazineCargoGlobal _curBox;
 clearItemCargoGlobal _curBox;
 
-private _containersize = [] call FUNC(getContainerSize);
+private _Combocontrol = _display displayCtrl IDC_GUI_CRATE_BOXLIST;
+TRACEV_4(_Combocontrol,(lbCurSel _Combocontrol),(_Combocontrol lbValue (lbCurSel _Combocontrol)),(_Combocontrol lbData (lbCurSel _Combocontrol)));
+private _containersize = if ((_Combocontrol lbValue (lbCurSel _Combocontrol)) isEqualTo 0) then {
+    [(_Combocontrol lbData (lbCurSel _Combocontrol))] call FUNC(getContainerSize);
+} else {
+    [(_Combocontrol lbData (lbCurSel _Combocontrol)) call BIS_fnc_objectFromNetId] call FUNC(getContainerSize);
+};
+
 
 {
     private _curCfgString = _x;

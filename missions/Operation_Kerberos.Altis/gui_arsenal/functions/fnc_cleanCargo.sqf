@@ -11,9 +11,9 @@
  *      none
  *
  */
-//#define DEBUG_MODE_FULL
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-
+TRACEV_2(GVAR(level),_this);
 If (GVAR(level)<1) exitWith {};
 
 If !(canSuspend) exitWIth {
@@ -25,7 +25,7 @@ If (!GVAR(isPreloaded)) then {
 };
 
 params [["_container",objNull,[objNull]]];
-
+TRACEV_1(_container);
 private _weapons = weaponCargo _container;
 private _backpacks = BackpackCargo _container;
 private _items = itemCargo _container;
@@ -57,7 +57,7 @@ If (_Flag_items) then {
     {
         private _curValue = _x;
         If ([_curValue] call FUNC(isRestrictedArray)) then {
-            [_container,_curValue,999999] call CBA_fnc_removeWeaponCargo;
+            [_container,_curValue,999999] call CBA_fnc_removeItemCargo;
         };
     } count (_items arrayIntersect _items);
 };
@@ -65,7 +65,7 @@ If (_Flag_magazines) then {
     {
         private _curValue = _x;
         If ([_curValue] call FUNC(isRestrictedArray)) then {
-            [_container,_curValue,999999] call CBA_fnc_removeWeaponCargo;
+            [_container,_curValue,999999] call CBA_fnc_removeMagazineCargo;
         };
     } count (_magazines arrayIntersect _magazines);
 };

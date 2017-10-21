@@ -1,6 +1,7 @@
 #include "script_component.hpp"
 
 PREP(canOpenMenu);
+PREP(cleanCargo);
 PREP(OpenMenu);
 
 PREP(addArsenal);
@@ -20,3 +21,5 @@ PREP(getFastArsenalList);
 PREP(OnLoad);
 PREP(onRespawn);
 PREP(loadFast);
+
+PREP(preload);

@@ -46,6 +46,7 @@ TRACEV_1(_list);
 private _ctrlLb = (_display) displayCtrl IDC_GUI_CRATE_BOXLIST;
 {
     _x params ["_text","_data","_value"];
+    TRACEV_3(_text,_data,_value);
     private _index = _ctrlLb lbAdd _text;
     _ctrlLb lbSetData [_index,_data];
     _ctrlLb lbSetValue [_index,_value];
