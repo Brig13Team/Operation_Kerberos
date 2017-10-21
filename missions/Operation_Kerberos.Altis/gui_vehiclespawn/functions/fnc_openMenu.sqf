@@ -26,8 +26,6 @@ If (IS_STRING(_vehicleList)) then {
     GVAR(curVehList) =+ _vehicleList;
 };
 
-LOG_2("_vehicleList=%1 GVAR=%2",_vehicleList,GVAR(curVehList));
-
 GVAR(curPos) =+ _spawnPosition;
 GVAR(curDir) =+ _spawnDir;
 GVAR(curVeh) = "";

@@ -46,7 +46,6 @@ GVAR(Applications) setVariable [_categorie, _temp];
 
 // register the ace-action
 If (_preventAction) exitWith {};
-LOG_1("adding ace:%1",_parameter);
 private _ACE_Action = [
     format [QGVAR(Action_%1_%2), _categorie, count _temp],
     _displayName,

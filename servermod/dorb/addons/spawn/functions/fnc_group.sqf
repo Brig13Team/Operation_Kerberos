@@ -20,7 +20,6 @@ If ((IS_ARRAY(_type))&&{isClass(missionConfigFile >> (_type select 0))}) exitWit
     _temp call FUNC(groupFromArray);
 };
 
-LOG_2(_position,_type);
 CHECKRET((_position isEqualTo []),grpNull);
 //CHECKRET(((IS_STRING(_type))&&{_type isEqualTo ""}),grpNull);
 

@@ -70,7 +70,6 @@ for "_i" from 0 to _amount_diver do {
         };
         _spawnpos = (_bestpos select 0) select 0;
         _spawnpos set[2,0];
-        LOG_1(_spawnpos);
         #ifdef DEBUG_MODE_FULL
             [_spawnpos,"Boat","ColorRed","n_inf"] call EFUNC(common,debug_marker_create);
         #endif

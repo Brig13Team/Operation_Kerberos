@@ -47,7 +47,7 @@ if (isNull(findDisplay IDD_LOADING)) then {
         };
     }];
 };
-LOG_2(_title,_this);
+
 ((findDisplay IDD_LOADING) displayCtrl IDD_LOADING_DESCRIPTION) ctrlsetText _title;
 
 
