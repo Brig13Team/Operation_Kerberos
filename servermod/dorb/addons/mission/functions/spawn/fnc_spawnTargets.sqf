@@ -29,6 +29,27 @@ private _objects = [];
 
 TRACEV_5(_type,_centerposition,_amount,_radius,_defenceStructure);
 
+private _newComposition = [false, true] select (getNumber(_missionCfg >> "objective" >> "newComposition"));
+
+If (_newComposition) exitWith {
+    private _targets = [];
+    switch (_defenceStructure) do {
+        case "composition": {
+            _targets = [_centerposition, _type, _amount, _radius, false] call EFUNC(composition,spawnObjective);
+        };
+        case "house": {
+            _targets = [_centerposition, _type, _amount, _radius, false] call EFUNC(composition,spawnObjectiveHouse);
+        };
+    };
+    {
+        [_x] call EFUNC(headquarter,registerPOI);
+        _x setVariable [QGVAR(isActive),true];
+    } forEach _targets;
+    _targets
+};
+
+
+
 private _targetPositions = [];
 private _house = false;
 switch (_defenceStructure) do {
@@ -36,14 +57,16 @@ switch (_defenceStructure) do {
         private _compositionTypes = getArray(_missionCfg >> "objective" >> "composition_types");
         private _types = [_type] + _compositionTypes;
         TRACEV_2(_compositionTypes,_types);
-        _targetPositions = [_centerposition, _types, _amount, _radius] call EFUNC(spawn,createMissionComposition);
+        //_targetPositions = [_centerposition, _types, _amount, _radius] call EFUNC(spawn,createMissionComposition);
+        _targetPositions = [_centerposition, _type, _amount, _radius, true] call EFUNC(composition,spawnObjective);
     };
     case "house": {
         _house = true;
         private _houseTypes = getArray(_missionCfg >> "objective" >> "house_types");
         private _types = [_type] + _houseTypes;
         TRACEV_2(_houseTypes,_types);
-        _targetPositions = [_centerposition, _types, _amount, _radius] call EFUNC(spawn,createMissionHouse);
+        //_targetPositions = [_centerposition, _types, _amount, _radius] call EFUNC(spawn,createMissionHouse);
+        _targetPositions = [_centerposition, _type, _amount, _radius, true] call EFUNC(composition,spawnObjectiveHouse);
     };
 };
 
@@ -71,6 +94,7 @@ for "_i" from 1 to _amount do {
         random 360;
     };
     _pos resize 3;
+    _pos = _pos vectorAdd [0,0,0.2];
     private _class = selectRandom ([_type] call FUNC(spawn_getObjects));
 
     TRACEV_2(_class,_pos);
@@ -87,11 +111,11 @@ for "_i" from 1 to _amount do {
         };
         _pos resize 3;
 
-        _target = _group createUnit [_class, [0,0,0], [], 0, "CAN_COLLIDE"];
+        _target = _group createUnit [_class, [0,0,10000], [], 0, "CAN_COLLIDE"];
         _target setPosASL _pos;
         _target setDir _spawnDir;
     } else {
-        _target = createVehicle [_class, [0,0,0], [], 0, "CAN_COLLIDE"];
+        _target = createVehicle [_class, [0,0,10000], [], 0, "CAN_COLLIDE"];
         _target setPosASL _pos;
         _target setVectorUp [0,0,1];
         _target setDir _spawnDir;

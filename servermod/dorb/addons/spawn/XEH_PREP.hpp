@@ -37,22 +37,6 @@ PREP(unit);
 
 PREP(vehicle);
 
-PREPS(composition,chooseComposition);
-PREPS(composition,chooseHouse);
-PREPS(composition,createFromHouse);
-PREPS(composition,createFromPosition);
-PREPS(composition,exportHouse);
-PREPS(composition,exportPosition);
-PREPS(composition,exportToHpp);
-PREPS(composition,getReplacement);
-PREPS(composition,getReplacementType);
-PREPS(composition,hasCrew);
-PREPS(composition,helperRoad);
-PREPS(composition,issimpleobject);
-PREPS(composition,onFiredNear);
-PREPS(composition,spawnComposition);
-PREPS(composition,spawnHouse);
-
 PREPS(fallback,createBuildingsLib);
 PREPS(fallback,fortifyBuildings);
 PREPS(fallback,patrolBuildings);

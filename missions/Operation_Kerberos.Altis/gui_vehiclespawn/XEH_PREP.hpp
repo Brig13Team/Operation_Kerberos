@@ -1,4 +1,4 @@
-
+PREP(addVehicleSpecial);
 PREP(canOpenMenu);
 PREP(checkPosEmpty);
 PREP(checkRestrictions);

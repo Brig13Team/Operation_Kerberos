@@ -12,15 +12,3 @@ class Extended_PostInit_EventHandlers {
         clientinit = QUOTE(call COMPILE_FILE(XEH_Clientpostinit));
     };
 };
-
-class Extended_initPost_EventHandlers {
-    class ADDON {
-        Serverinit = QUOTE(call COMPILE_FILE(XEH_initPostServer));
-    };
-};
-
-class Extended_Killed_EventHandlers {
-    class ADDON {
-        init = QUOTE(call COMPILE_FILE(XEH_Killed));
-    };
-};

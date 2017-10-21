@@ -84,7 +84,6 @@
 #define GUI_LOADINGBAR_ARROW_W (GUI_DISP_W*5)
 
 
-
 /*
  *  Old Version below only for backwards compatibility
  * TODO: Remove this
@@ -104,3 +103,4 @@
 #define GUI_GRID_CENTER_H GUI_GRID_H
 #define GUI_GRID_CENTER_X (safezoneX + (safezoneW - GUI_GRID_CENTER_WAbs)/2)
 #define GUI_GRID_CENTER_Y (safezoneY + (safezoneH - GUI_GRID_CENTER_HAbs)/2)
+

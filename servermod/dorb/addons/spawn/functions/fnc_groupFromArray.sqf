@@ -36,9 +36,9 @@ private _group = createGroup _side;
         _spawnpos = _centerPos;
     };
     If (_isMan) then {
-        _unit = [_spawnpos,_group,_x,"FORM",random(360)] call FUNC(unit);
+        _unit = [_spawnpos,_group,_x,"NONE",random(360)] call FUNC(unit);
     }else{
-        _unit = ([_spawnpos,_group,_x,random(360),true,true,"FORM"] call FUNC(vehicle)) select 1;
+        _unit = ([_spawnpos,_group,_x,random(360),true,true,"NONE"] call FUNC(vehicle)) select 1;
     };
 
     if ((count _ranks) > _forEachIndex) then {

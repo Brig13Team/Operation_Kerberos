@@ -3,8 +3,14 @@ class baseMission {
     taskcondition = "";
     // chance to spawn the mission
     probability = 1;
-    // possible armys for this mission
-    armys[] = {{"regular",1}, {"armored",1}, {"infanterie",1}, {"airborne",1}, {"specops",1}, /*{"droneoperations",1},*/ {"guards",1}};
+    // possible armys for this mission - see component spawn
+    armys[] = {
+        {"guards",1}, // mainly infanterie with some light vehicles
+        {"infanterie",1}, // infanterie with some medium vehicles
+        {"armored",1}, // tanks,
+        {"airborne",1}, // infanterie with heavy airsupport
+        {"specops",1} // skilled infanterie with some specials
+    };
 
     class position {
         // locationtypes for the mission to be spawned inside
@@ -37,7 +43,7 @@ class baseMission {
         description = LSTRING(baseMission_description);
         tasktype = "";
 
-        onSucceeded = LSTRING(baseMission_success);
+        onSucceeded = LSTRING(baseMission_succeeded);
         onFailed = LSTRING(baseMission_failed);
         onNeutral = LSTRING(baseMission_neutral);
 
@@ -53,6 +59,7 @@ class baseMission {
         onSucceeded = "";
         onFailed = "";
         onNeutral = "";
+        onTimeout = "";
     };
 
 };
@@ -77,8 +84,8 @@ class baseSidemission : baseMission {
 };
 
 class mainmissions {
-    #include "main.hpp"
+    #include "mainmissions.hpp"
 };
 class sidemissions {
-    #include "side.hpp"
+    #include "sidemissions.hpp"
 };

@@ -1,0 +1,127 @@
+version=53;
+center[]={1501.0914,5,3327.2798};
+class items
+{
+	items=1;
+	class Item0
+	{
+		dataType="Layer";
+		name="AT-Nest_V2";
+		class Entities
+		{
+			items=5;
+			class Item0
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={0.30810547,1.0090313,-0.15356445};
+				};
+				side="East";
+				flags=6;
+				class Attributes
+				{
+				};
+				id=760;
+				type="rhs_Metis_9k115_2_msv";
+			};
+			class Item1
+			{
+				dataType="Group";
+				side="East";
+				class Entities
+				{
+					items=1;
+					class Item0
+					{
+						dataType="Object";
+						class PositionInfo
+						{
+							position[]={0.30810547,0.0014390945,-0.10351563};
+						};
+						side="East";
+						flags=6;
+						class Attributes
+						{
+						};
+						id=761;
+						type="rhs_msv_rifleman";
+					};
+				};
+				class Attributes
+				{
+				};
+				class CrewLinks
+				{
+					class LinkIDProvider
+					{
+						nextID=1;
+					};
+					class Links
+					{
+						items=1;
+						class Item0
+						{
+							linkID=0;
+							item0=761;
+							item1=760;
+							class CustomData
+							{
+								role=2;
+								turretPath[]={0};
+							};
+						};
+					};
+				};
+				id=759;
+			};
+			class Item2
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={0.76135254,0.2324667,0.075195313};
+				};
+				side="Empty";
+				flags=4;
+				class Attributes
+				{
+				};
+				id=765;
+				type="Land_CratesPlastic_F";
+			};
+			class Item3
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={-0.39599609,0.39727259,0.31225586};
+					angles[]={0,3.9645088,0};
+				};
+				side="Empty";
+				flags=4;
+				class Attributes
+				{
+				};
+				id=766;
+				type="Land_Sack_F";
+			};
+			class Item4
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={-0.98168945,0.34450245,-0.080078125};
+				};
+				side="Empty";
+				flags=4;
+				class Attributes
+				{
+				};
+				id=768;
+				type="Land_Basket_F";
+			};
+		};
+		id=769;
+	};
+};

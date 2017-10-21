@@ -17,7 +17,7 @@ _this params ["_mission", "_targets"];
 
 {
     _x setVariable [QGVAR(isActive), true, true];
-    _x addEventHandler ["Killed", LINKFUNC(obj__decreaseCounter)];
+    _x addEventHandler ["Killed", LINKFUNC(statemachine_decreaseCounter)];
 } forEach _targets;
 
 [

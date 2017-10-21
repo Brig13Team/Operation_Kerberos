@@ -22,6 +22,8 @@ ADDON = false;
 
 ADDON = true;
 
+FUNCMAIN(recompile) = FUNC(recompile);
+
 [] call FUNC(hash_initialize);
 
 #include "missionsettings.sqf"

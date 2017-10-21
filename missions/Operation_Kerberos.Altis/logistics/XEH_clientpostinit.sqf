@@ -6,7 +6,9 @@
 */
 #include "script_component.hpp"
 
-CHECK(!hasInterface)
-CHECK(!isClass(missionconfigFile >> "logistics"))
+If ((!hasInterface)||(!isClass(missionconfigFile >> "logistics"))) exitWith {};
 
-[] spawn FUNC(initialize);
+[
+    {time > 20},
+    LINKFUNC(initialize)
+] call CBA_fnc_waitUntilAndExecute;

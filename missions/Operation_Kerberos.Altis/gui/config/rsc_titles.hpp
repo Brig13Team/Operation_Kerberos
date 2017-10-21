@@ -73,6 +73,47 @@ class RscTitles {
     class APP(message_9) : APP(message_1) {idd = IDD_MSG_MESSAGE_9;};
 
 
+    class APP(timer) {
+        duration = 9999999;
+        fadein = 0;
+        fadeout = 0;
+        idd = IDD_TIMER;
+        movingenable = 0;
+        onLoad = QUOTE(uiNamespace setVariable [ARR_2('GVAR(timer)', _this select 0)];);
+        class controls {
+            class background : RSC(BaseText) {
+                idc = IDC_TIMER_BACKGROUND;
+                x = GUI_TIMER_BACK_X;
+                y = GUI_TIMER_BACK_Y;
+                w = GUI_TIMER_BACK_W;
+                h = GUI_TIMER_BACK_H;
+                colorBackground[] = COLOR_BACKGROUND_HUD;
+                text = "";
+            };
+            class picture : RSC(BasePicture) {
+                idc = IDC_TIMER_PICTURE;
+                x = GUI_TIMER_PIC_X;
+                y = GUI_TIMER_PIC_Y;
+                w = GUI_TIMER_PIC_W;
+                h = GUI_TIMER_PIC_H;
+                colorBackground[] = COLOR_DISABLED;
+                text = "A3\ui_f\data\gui\cfg\cursors\wait_gs.paa";
+                colorText[] = {1,1,1,1};
+            };
+            class text : RSC(BaseText) {
+                idc = IDC_TIMER_TEXT;
+                x = GUI_TIMER_TEXT_X;
+                y = GUI_TIMER_TEXT_Y;
+                w = GUI_TIMER_TEXT_W;
+                h = GUI_TIMER_TEXT_H;
+                colorBackground[] = COLOR_DISABLED;
+                sizeEx = GUI_TIMER_TEXT_H;
+                text = "";
+                style = 0x01;
+            };
+        };
+    };
+
     class APP(notification_1) {
         duration = 20;
         fadein = 0;

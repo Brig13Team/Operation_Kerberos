@@ -36,8 +36,8 @@ private _export = _tab + format ["class %1 {",typeOf GVAR(helper_vehicle)] + end
 + _tab2 + format["max_width = %1;",GVAR(helper_veh_w)] + endl
 + _tab2 + format["max_length = %1;",GVAR(helper_veh_l)] + endl
 + _tab2 + format["max_height = %1;",GVAR(helper_veh_h)] + endl
-+ _tab2 + format["cargo_point[] = %1;",[GVAR(helper_veh_x),GVAR(helper_veh_y),GVAR(helper_veh_z)]] + endl
-+ _tab2 + format["load_point[] = %1;",[GVAR(helper_veh_load_x),GVAR(helper_veh_load_y),GVAR(helper_veh_load_z)]] + endl
++ _tab2 + format["cargo_point[] = {%1,%2,%3};",GVAR(helper_veh_x),GVAR(helper_veh_y),GVAR(helper_veh_z)] + endl
++ _tab2 + format["load_point[] = {%1,%2,%3};",GVAR(helper_veh_load_x),GVAR(helper_veh_load_y),GVAR(helper_veh_load_z)] + endl
 + _tab2 + format["cargo_pos[] = %1;",_passenger] + endl
 + _tab + "};" + endl;
 

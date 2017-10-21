@@ -17,6 +17,10 @@ _this params [["_unit",objNull,[objNull]]];
 
 CHECK(isNull _unit);
 
+If ((typeOf _unit) in ["B_SAM_System_01_F","B_SAM_System_02_F","B_AAA_System_01_F"]) then {
+    HASH_GET(GVAR(antiair),"autonomous") pushBack _unit;
+};
+
 // check side - don't set playside units as radar
 private _unitside = getNumber(configFile >> "CfgVehicles" >> (typeOf _unit) >> "side");
 private _exit = switch _unitside do {

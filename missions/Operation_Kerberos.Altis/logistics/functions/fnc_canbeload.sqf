@@ -19,7 +19,7 @@ if (!(isNull attachedTo _cargo)) exitWith {false;};
 private _width = getNumber(missionConfigFile >> "logistics" >> "cargos" >> [_cargo] call FUNC(getCargoCfg) >> "width");
 If (!(_width>0)) exitWith {false};
 
-private _nearVehicles = nearestObjects[getPos _cargo, ["AllVehicles"], VEHICLE_DETECTION_DISTANCE];
+private _nearVehicles = nearestObjects[getPos _cargo, ["AllVehicles"], VEHICLE_DETECTION_DISTANCE, true];
 
 (
     ({(
@@ -28,7 +28,7 @@ private _nearVehicles = nearestObjects[getPos _cargo, ["AllVehicles"], VEHICLE_D
         {isClass(missionConfigFile >> "logistics" >> "cargos" >> [_cargo] call FUNC(getCargoCfg))}&&
         {[_x,_cargo] call FUNC(canbeLoaded)}&&
         {
-            ((_x modelToWorld getArray(missionConfigFile >> "logistics" >> "vehicles" >> (typeOf _x) >> "load_point")) distance _cargo) < LOADING_DISTANCE
+            ((_x modelToWorldWorld getArray(missionConfigFile >> "logistics" >> "vehicles" >> (typeOf _x) >> "load_point")) distance (getPosASL _cargo)) < LOADING_DISTANCE
         }
     )} count _nearVehicles)
 >0)

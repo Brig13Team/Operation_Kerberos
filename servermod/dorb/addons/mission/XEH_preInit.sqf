@@ -6,5 +6,6 @@ ADDON = false;
 
 ADDON = true;
 
+ISNIL(allRespawnMarkerLocations,[ARR_4([],[],[],[])]);
 ISNIL(rescuepositions,[]);
 ISNIL(CompositionDesigners,[]);

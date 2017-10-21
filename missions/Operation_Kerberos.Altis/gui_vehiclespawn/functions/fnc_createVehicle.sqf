@@ -70,5 +70,7 @@ If (GVAR(option_spawnAsDriver)) then {
     ace_player moveInDriver _vehicle;
 };
 
+[_vehicle] call FUNC(addVehicleSpecial);
+
 (ctrlParent _control) closeDisplay 0;
 [] call EFUNC(gui_main,close);

@@ -15,3 +15,12 @@ GVAR(notifications) = HASH_CREATE;
 GVAR(animBttns) = [];
 
 [QGVAR(message), LINKFUNC(message)] call CBA_fnc_addEventHandler;
+
+ISNIL(timer_finish,-1);
+ISNIL(timer_code,{});
+ISNIL(timer_parameter,[]);
+
+If (isServer) then {
+    [QGVAR(setTimerServer),LINKFUNC(setTimerGlobal)] call CBA_fnc_localEvent;
+};
+

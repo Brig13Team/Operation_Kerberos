@@ -1,4 +1,5 @@
-PREP(HCconnect);
-PREP(HCdisconnect);
-PREP(onInit);
-PREP(transfer);
+PREP(handleConnectHC);
+PREP(handleDisconnect);
+PREP(handleSpawn);
+PREP(rebalance);
+PREP(transferGroups);

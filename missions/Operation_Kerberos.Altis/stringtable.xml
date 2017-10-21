@@ -424,18 +424,22 @@
     </Package>
     <Package name="MISSION">
         <Container name="MAINMISSION">
-            <Key ID="STR_DORB_MISSION_COMPOSITIONS_TITLE">
-                <German>Stellungen</German>
-                <English>Compositions</English>
+            <Key ID="STR_DORB_MISSION_BASEMISSION_SUCCEEDED">
+                <German>Die Mission war ein Erfolg.</German>
+                <English>The misson was a success</English>
             </Key>
-            <Key ID="STR_DORB_MISSION_COMPOSITIONS">
-                <German>Vielen Dank an die Stellungsbauer: </German>
-                <English>Thanks to all Composition designers: </English>
+            <Key ID="STR_DORB_MISSION_BASEMISSION_NEUTRAL">
+                <German>Die Mission hätte besser laufen können.</German>
+                <English>The mission could have been ended in a better way.</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_BASEMISSION_FAILED">
+                <German>Mission gescheitert.</German>
+                <English>Mission failed.</English>
             </Key>
 
             <Key ID="STR_DORB_MISSION_RTB_TITLE">
-                <German>RTB</German>
-                <English>RTB</English>
+                <German>Return to Base</German>
+                <English>Return to Base</English>
             </Key>
             <Key ID="STR_DORB_MISSION_RTB_DESC">
                 <German>Return To Base</German>
@@ -447,8 +451,8 @@
             </Key>
 
             <Key ID="STR_DORB_MISSION_MAIN_CAPTURE_TITLE">
-                <German>Offizier gefangen nehmen</German>
-                <English>Capture Commander</English>
+                <German>Offizier(e) gefangen nehmen</German>
+                <English>Capture Commander(s)</English>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_CAPTURE_DESC">
                 <German>Nehmen Sie die feindlichen Befehlshaber der Region gefangen. Bringen Sie diese anschließend zum Verhör in die Basis.</German>
@@ -682,7 +686,35 @@
                 <English>A radar has been neutralized.</English>
             </Key>
 
+            <Key ID="STR_DORB_MISSION_SIDE_AIRSUPERIORITY_TITLE">
+                <German>Luftüberlegenheit</German>
+                <English>Air-Superiority</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_SIDE_AIRSUPERIORITY_DESC">
+                <German>Der Gegner hat die Luftüberlegenheit erlangt. Erobern Sie den Luftraum zurück.</German>
+                <English>Gain the air-superiority over the area.</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_SIDE_AIRSUPERIORITY_COUNTER">
+                <German>Ein Abfangjäger wurde neutralisiert.</German>
+                <English>An air-interception plane has been shot down.</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_SIDE_AIRSUPERIORITY_SUCCEEDED">
+                <German>Die Luftüberlegenheit wurde hergestellt.</German>
+                <English>The air-superiority has been regained.</English>
+            </Key>
 
+            <Key ID="STR_DORB_MISSION_SIDE_MINEFIELD_TITLE">
+                <German>Minenfeld räumen</German>
+                <English>Clear Minefield</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_SIDE_MINEFIELD_DESC">
+                <German>Wir haben in Erfahrung gebracht, dass der Feind ein Minenfeld mit einem Radius von ca. 150m ausgelegt hat. Räumen sie dieses.</German>
+                <English>The enemy has placed mines in an area of about 150m. Clear the Minefield.</English>
+            </Key>
+            <Key ID="STR_DORB_MISSION_SIDE_MINEFIELD_SUCCEEDED">
+                <German>Das Minenfeld wurde geräumt.</German>
+                <English>The Minefield has been cleared.</English>
+            </Key>
 
             <Key ID="STR_DORB_MISSION_SIDE_WRECK_TITLE">
                 <German>Wrack finden</German>
@@ -757,46 +789,6 @@
 
 
         <Container name="OBJ">
-            <Key ID="STR_DORB_MISSION_OBJECTS_DEVICE_DISABLE">
-                <German>Deaktivieren</German>
-                <English>Deactivate</English>
-            </Key>
-            <Key ID="STR_DORB_MISSION_OBJECTS_DEVICE_DISABLING">
-                <German>deaktiviere ...</German>
-                <English>deactivating ...</English>
-            </Key>
-            <Key ID="STR_DORB_MISSION_OBJECTS_INTEL_GRAB">
-                <German>Informationen sicherstellen</German>
-                <English>Secure Information</English>
-            </Key>
-            <Key ID="STR_DORB_MISSION_OBJECTS_UPLOAD">
-                <German>Virus hochladen</German>
-                <English>Upload Virus</English>
-            </Key>
-            <Key ID="STR_DORB_MISSION_OBJECTS_UPLOADING">
-                <German>Virus wird hochgeladen ...</German>
-                <English>Uploading Virus ...</English>
-            </Key>
-            <Key ID="STR_DORB_MISSION_OBJECTS_GATHER_INTEL">
-                <German>Nach Informationen suchen</German>
-                <English>Gather Intel</English>
-            </Key>
-            <Key ID="STR_DORB_MISSION_OBJECTS_GATHERING_INTEL">
-                <German>Suche nach Informationen ...</German>
-                <English>Gathering Intel ...</English>
-            </Key>
-            <Key ID="STR_DORB_MISSION_OBJECTS_CARRY">
-                <German>Tragen</German>
-                <English>Carry</English>
-            </Key>
-            <Key ID="STR_DORB_MISSION_OBJECTS_DROP">
-                <German>Abstellen</German>
-                <English>Drop</English>
-            </Key>
-            <Key ID="STR_DORB_MISSION_OBJECTS_DISABLE">
-                <German>Deaktivieren</German>
-                <English>Disable</English>
-            </Key>
             <Key ID="STR_DORB_MISSION_EXAMINE">
                 <German>Verhör</German>
                 <English>Interrogate</English>
@@ -935,6 +927,10 @@
         <Key ID="STR_DORB_GUI_LOADINGBAR">
             <English>Downloading</English>
             <German>Am Herunterladen</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_SHOWTIMER">
+            <German>Timer anzeigen</German>
+            <German>Show timer</German>
         </Key>
     </Package>
     <Package name="Gui_teleport">
@@ -1221,106 +1217,154 @@
             <German>Das Schloss wird geknackt</German>
         </Key>
     </Package>
-    <Package name="mission_obj">
-        <Key ID="STR_DORB_MISSION_OBJ_CASE_CARRY">
+    <Package name="missionobjects">
+        <Key ID="STR_DORB_MISSIONOBJECTS_COMPOSITIONS_TITLE">
+            <German>Stellungen</German>
+            <English>Compositions</English>
+        </Key>
+        <Key ID="STR_DORB_MISSIONOBJECTS_COMPOSITIONS">
+            <German>Vielen Dank an die Stellungsbauer: </German>
+            <English>Thanks to all Composition designers: </English>
+        </Key>
+        <Key ID="STR_DORB_MISSIONOBJECTS_CASE_CARRY">
             <English>carray</English>
             <German>tragen</German>
         </Key>
-        <Key ID="STR_DORB_MISSION_OBJ_CASE_DROP">
+        <Key ID="STR_DORB_MISSIONOBJECTS_CASE_DROP">
             <English>drop</English>
             <German>ablegen</German>
         </Key>
         <!-- hostage -->
-        <Key ID="STR_DORB_MISSION_OBJ_HOSTAGE_KILLED_MSG_TITLE">
+        <Key ID="STR_DORB_MISSIONOBJECTS_HOSTAGE_KILLED_MSG_TITLE">
             <German>Gefanger getötet</German>
             <English>Hostage killed</English>
         </Key>
-        <Key ID="STR_DORB_MISSION_OBJ_HOSTAGE_KILLED_MSG">
+        <Key ID="STR_DORB_MISSIONOBJECTS_HOSTAGE_KILLED_MSG">
             <German>Eine Geisel wurde von %1 getötet.</German>
             <English>A Hostage got killed by %1.</English>
         </Key>
-        <Key ID="STR_DORB_MISSION_OBJ_HOSTAGE_CAPTURED_MSG_TITLE">
+        <Key ID="STR_DORB_MISSIONOBJECTS_HOSTAGE_CAPTURED_MSG_TITLE">
             <German>Gefanger befreit</German>
             <English>Hostage rescued</English>
         </Key>
-        <Key ID="STR_DORB_MISSION_OBJ_HOSTAGE_CAPTURED_MSG">
+        <Key ID="STR_DORB_MISSIONOBJECTS_HOSTAGE_CAPTURED_MSG">
             <German>Ein Gefangener wurde befreit.</German>
             <English>A hostage has been rescued.</English>
         </Key>
         <!-- prototype -->
-        <Key ID="STR_DORB_MISSION_OBJ_PROTOTYPE_KILLED_MSG_TITLE">
+        <Key ID="STR_DORB_MISSIONOBJECTS_PROTOTYPE_KILLED_MSG_TITLE">
             <German>Prototyp zerstört</German>
             <English>Prototype destroyed</English>
         </Key>
-        <Key ID="STR_DORB_MISSION_OBJ_PROTOTYPE_KILLED_MSG">
+        <Key ID="STR_DORB_MISSIONOBJECTS_PROTOTYPE_KILLED_MSG">
             <German>Ein Prototyp wurde vernichtet.</German>
             <English>A prototype got destroyed</English>
         </Key>
-        <Key ID="STR_DORB_MISSION_OBJ_PROTOTYPE_CAPTURED_MSG_TITLE">
+        <Key ID="STR_DORB_MISSIONOBJECTS_PROTOTYPE_CAPTURED_MSG_TITLE">
             <German>Prototyp gesichert</German>
             <English>Prototype secured</English>
         </Key>
-        <Key ID="STR_DORB_MISSION_OBJ_PROTOTYPE_CAPTURED_MSG">
+        <Key ID="STR_DORB_MISSIONOBJECTS_PROTOTYPE_CAPTURED_MSG">
             <German>Ein Prototyp wurde gesichert. Er steht nun zu Ihrer Verfügung.</German>
             <English>A prototype got secured. It is now at your disposal.</English>
         </Key>
         <!-- dataterminal -->
-        <Key ID="STR_DORB_MISSION_OBJ_DATATERMINAL_ACTIVATE">
+        <Key ID="STR_DORB_MISSIONOBJECTS_DATATERMINAL_ACTIVATE">
             <German>Terminal Aktivieren</German>
             <English>Activate Terminal</English>
         </Key>
-        <Key ID="STR_DORB_MISSION_OBJ_DATATERMINAL_DEACTIVATE">
+        <Key ID="STR_DORB_MISSIONOBJECTS_DATATERMINAL_DEACTIVATE">
             <German>Terminal Deaktivieren</German>
             <English>Deactivate Terminal</English>
         </Key>
-        <Key ID="STR_DORB_MISSION_OBJ_DATATERMINAL_TRIANGULATE">
+        <Key ID="STR_DORB_MISSIONOBJECTS_DATATERMINAL_TRIANGULATE">
             <German>Starte Triangulation</German>
             <English>Start Triangulation</English>
         </Key>
-        <Key ID="STR_DORB_MISSION_OBJ_DATATERMINAL_TRIANGULATING">
+        <Key ID="STR_DORB_MISSIONOBJECTS_DATATERMINAL_TRIANGULATING">
             <German>trianguliere</German>
             <English>triangulating</English>
         </Key>
-        <Key ID="STR_DORB_MISSION_OBJ_TRIANGULATE_MISSING_MSG_TITLE">
+        <Key ID="STR_DORB_MISSIONOBJECTS_TRIANGULATE_MISSING_MSG_TITLE">
             <German>Triangulation fehlgeschlagen</German>
             <English>Triangulation failed</English>
         </Key>
-        <Key ID="STR_DORB_MISSION_OBJ_TRIANGULATE_MISSING_MSG">
+        <Key ID="STR_DORB_MISSIONOBJECTS_TRIANGULATE_MISSING_MSG">
             <German>Die Triangulation ist fehlgeschlagen. Es befinden sich nicht ausreichend Sender im Bereich.</German>
             <English>The triangulation failed. There are not enough transmitters in range.</English>
         </Key>
-        <Key ID="STR_DORB_MISSION_OBJ_TRIANGULATE_MOVED_MSG_TITLE">
+        <Key ID="STR_DORB_MISSIONOBJECTS_TRIANGULATE_MOVED_MSG_TITLE">
             <German>Triangulation abgebrochen</German>
             <English>Triangulation aborted</English>
         </Key>
-        <Key ID="STR_DORB_MISSION_OBJ_TRIANGULATE_MOVED_MSG">
+        <Key ID="STR_DORB_MISSIONOBJECTS_TRIANGULATE_MOVED_MSG">
             <German>Die Triangulation wurde abgebrochen. Die Empfänger wurden bewegt.</German>
             <English>The triangulation got aborted. The receivers were moved.</English>
         </Key>
         <!-- Laptop -->
-        <Key ID="STR_DORB_MISSION_OBJ_LAPTOP_DOWNLOAD">
+        <Key ID="STR_DORB_MISSIONOBJECTS_LAPTOP_DOWNLOAD">
             <German>Download starten</German>
             <English>Start download</English>
         </Key>
-        <Key ID="STR_DORB_MISSION_OBJ_LAPTOP_DOWNLOAD_PREPARE">
+        <Key ID="STR_DORB_MISSIONOBJECTS_LAPTOP_DOWNLOAD_PREPARE">
             <German>Download wird vorbereitet</German>
             <English>Preparing download</English>
         </Key>
-        <Key ID="STR_DORB_MISSION_OBJ_LAPTOP_DOWNLOAD_CANCEL_MSG_TITLE">
+        <Key ID="STR_DORB_MISSIONOBJECTS_LAPTOP_DOWNLOAD_CANCEL_MSG_TITLE">
             <German>Download abgebrochen</German>
             <English>Download aborted</English>
         </Key>
-        <Key ID="STR_DORB_MISSION_OBJ_LAPTOP_DOWNLOAD_CANCEL_MSG">
+        <Key ID="STR_DORB_MISSIONOBJECTS_LAPTOP_DOWNLOAD_CANCEL_MSG">
             <German>Der Download wurde abgebrochen.</German>
             <English>The download got aborted.</English>
         </Key>
-        <Key ID="STR_DORB_MISSION_OBJ_LAPTOP_DOWNLOAD_FINISHED_MSG_TITLE">
+        <Key ID="STR_DORB_MISSIONOBJECTS_LAPTOP_DOWNLOAD_FINISHED_MSG_TITLE">
             <German>Download abgeschlossen</German>
             <English>Download complete</English>
         </Key>
-        <Key ID="STR_DORB_MISSION_OBJ_LAPTOP_DOWNLOAD_FINISHED_MSG">
+        <Key ID="STR_DORB_MISSIONOBJECTS_LAPTOP_DOWNLOAD_FINISHED_MSG">
             <German>Der Download ist komplett.</German>
             <English>The download is complete.</English>
+        </Key>
+        <Key ID="STR_DORB_MISSIONOBJECTS_OBJECTS_DEVICE_DISABLE">
+            <German>Deaktivieren</German>
+            <English>Deactivate</English>
+        </Key>
+        <Key ID="STR_DORB_MISSIONOBJECTS_OBJECTS_DEVICE_DISABLING">
+            <German>deaktiviere ...</German>
+            <English>deactivating ...</English>
+        </Key>
+        <Key ID="STR_DORB_MISSIONOBJECTS_OBJECTS_INTEL_GRAB">
+            <German>Informationen sicherstellen</German>
+            <English>Secure Information</English>
+        </Key>
+        <Key ID="STR_DORB_MISSIONOBJECTS_OBJECTS_UPLOAD">
+            <German>Virus hochladen</German>
+            <English>Upload Virus</English>
+        </Key>
+        <Key ID="STR_DORB_MISSIONOBJECTS_OBJECTS_UPLOADING">
+            <German>Virus wird hochgeladen ...</German>
+            <English>Uploading Virus ...</English>
+        </Key>
+        <Key ID="STR_DORB_MISSIONOBJECTS_OBJECTS_GATHER_INTEL">
+            <German>Nach Informationen suchen</German>
+            <English>Gather Intel</English>
+        </Key>
+        <Key ID="STR_DORB_MISSIONOBJECTS_OBJECTS_GATHERING_INTEL">
+            <German>Suche nach Informationen ...</German>
+            <English>Gathering Intel ...</English>
+        </Key>
+        <Key ID="STR_DORB_MISSIONOBJECTS_OBJECTS_CARRY">
+            <German>Tragen</German>
+            <English>Carry</English>
+        </Key>
+        <Key ID="STR_DORB_MISSIONOBJECTS_OBJECTS_DROP">
+            <German>Abstellen</German>
+            <English>Drop</English>
+        </Key>
+        <Key ID="STR_DORB_MISSIONOBJECTS_OBJECTS_DISABLE">
+            <German>Deaktivieren</German>
+            <English>Disable</English>
         </Key>
     </Package>
     <Package name="MOD_ACRE">
@@ -1378,7 +1422,19 @@
             <German>Depot</German>
             <English>Depot</English>
         </Key>
-        <Key ID="STR_DORB_GUI_MAIN_SELFACTIONGROUP">
+    </Package>
+    <Package name="whitelist">
+        <Key ID="STR_DORB_WHITELIST_TITLE">
+            <German>Pilotenwhitelist</German>
+            <English>pilot-whitelist</English>
+        </Key>
+        <Key ID="STR_DORB_WHITELIST_NOTALLOWED">
+            <German>Du besitzt keine ausreichende Qualifizierung um das Fahrzeug zu bewegen.</German>
+            <English>You don't have the right qualifications to move this vehicle.</English>
+        </Key>
+    </Package>
+    <Package name="gui_Echidna">
+        <Key ID="STR_DORB_GUI_ECHIDNA_SELFACTIONGROUP">
             <German>Echidna</German>
             <English>echidna</English>
         </Key>

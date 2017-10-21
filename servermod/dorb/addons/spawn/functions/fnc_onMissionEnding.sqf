@@ -21,10 +21,6 @@ GVAR(cleanup_positions) pushback (_location select 1);
 
 GVAR(cleanup_positions) = GVAR(cleanup_positions) + (missionNamespace getVariable [QGVAR(rescuepositions),[]]);
 
-GVAR(targetHouses) = [];
-GVAR(usedHouses) = [];
-GVAR(spawnedCompositions) = [];
-
 {
     [_x,2200] call FUNC(cleanup_full);
 } forEach GVAR(cleanup_positions);

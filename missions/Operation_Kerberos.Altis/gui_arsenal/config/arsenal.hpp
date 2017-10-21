@@ -7,7 +7,8 @@ class GVARMAIN(arsenal) {
         "ACE_bodyBag",
         "ACE_SpraypaintBlack","ACE_SpraypaintBlue","ACE_SpraypaintGreen","ACE_SpraypaintRed",
         "ACE_key_civ","ACE_key_east","ACE_key_indp","ACE_key_lockpick","ACE_key_master","ACE_key_west",
-        "U_B_Protagonist_VR","U_I_Protagonist_VR","U_O_Protagonist_VR"
+        "U_B_Protagonist_VR","U_I_Protagonist_VR","U_O_Protagonist_VR",
+        "rhsusf_hgu56p_mask_pink","rhsusf_hgu56p_pink","rhsusf_hgu56p_visor_mask_pink","rhsusf_hgu56p_visor_pink"
         };
     WeaponsBlacklist[] = {
         "launch_B_Titan_F","launch_B_Titan_short_F","launch_B_Titan_short_tna_F","launch_B_Titan_tna_F",
@@ -25,13 +26,18 @@ class GVARMAIN(arsenal) {
         "ItemRadioAcreFlagged",
         "BWA3_acc_LLM01_flash","BWA3_acc_LLM01_flash_underbarrel","BWA3_acc_LLM01_laser","BWA3_acc_LLM01_laser_underbarrel",
         "Laserdesignator","Laserdesignator_01_khk_F","Laserdesignator_02","Laserdesignator_02_ghex_F","Laserdesignator_02_ghex_F",
-        "V_DeckCrew_blue_F","V_DeckCrew_brown_F","V_DeckCrew_green_F","V_DeckCrew_red_F","V_DeckCrew_violet_F","V_DeckCrew_white_F","V_DeckCrew_yellow_F"
+        "V_DeckCrew_blue_F","V_DeckCrew_brown_F","V_DeckCrew_green_F","V_DeckCrew_red_F","V_DeckCrew_violet_F","V_DeckCrew_white_F","V_DeckCrew_yellow_F",
+        "V_LegStrapBag_black_F","V_LegStrapBag_coyote_F","V_LegStrapBag_olive_F",
+        "H_WirelessEarpiece_F",
+        "V_EOD_coyote_F","V_EOD_olive_F",
+        "H_PASGT_basic_olive_F"
     };
     WeaponsWhitelist[] = {
 
     };
     BackpackWhitelist[] = {
-
+        "B_UAV_06_backpack_F","B_UAV_06_medical_backpack_F",
+        "B_LegStrapBag_black_F","B_LegStrapBag_coyote_F","B_LegStrapBag_olive_F"
     };
     MagazineWhitelist[] = {
         "ACE_SpareBarrel","Laserbatteries"
