@@ -11,7 +11,7 @@
 __EXEC (MISSION_ROOT = __FILE__ select [0, count __FILE__ - 15]);
 
 onLoadMissionTime = 1;
-onLoadName = LSTRING(NAME);
+onLoadName = __EVAL(format[ARR_2('%1 vMAJOR.MINOR.PATCHLVL.BUILD',localize LSTRING(NAME))]);
 onLoadMission = LSTRING(NAME);
 loadScreen = MPATH(gui\data\logo\logo_512.paa);
 
