@@ -28,6 +28,7 @@ If ((_curBoxSelectVal isEqualTo 0)&&{!([] call FUNC(checkPosEmpty))}) exitWith {
 private _curBox = objNull;
 If (_curBoxSelectVal isEqualTo 0) then {
     _curBox = createVehicle [_curBoxSelectData, ASLtoAGL GVAR(curPos),[],0,"NONE"];
+    _curBox setPosASL GVAR(curPos);
     _curBox setDir GVAR(curDir);
 } else {
     _curBox = _curBoxSelectData call BIS_fnc_objectFromNetId;

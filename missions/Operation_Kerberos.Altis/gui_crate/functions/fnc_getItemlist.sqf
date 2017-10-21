@@ -17,7 +17,7 @@ params [["_presetName","",[""]]];
 private _return = [];
 
 If !(HASH_GET_DEF(GVAR(preset),_presetName,[]) isEqualTo []) exitWith {
-    HASH_GET_DEF(GVAR(preset),_presetName);
+    HASH_GET(GVAR(preset),_presetName);
 };
 
 switch (_presetName) do {

@@ -7,7 +7,7 @@
 */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-
+disableSerialization;
 If !(canSuspend) exitWIth {
     _this spawn FUNC(OpenMenu);
 };
