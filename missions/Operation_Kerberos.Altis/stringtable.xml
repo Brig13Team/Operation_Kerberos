@@ -3,47 +3,19 @@
     <Package name="main">
         <Key ID="STR_DORB_MAIN_NAME">
             <English>Operation Kerberos</English>
-            <Czech>Operation Kerberos</Czech>
-            <French>Operation Kerberos</French>
             <German>Operation Kerberos</German>
-            <Italian>Operation Kerberos</Italian>
-            <Polish>Operation Kerberos</Polish>
-            <Portuguese>Operation Kerberos</Portuguese>
-            <Russian>Operation Kerberos</Russian>
-            <Spanish>Operation Kerberos</Spanish>
         </Key>
         <Key ID="STR_DORB_MAIN_AUTHOR">
             <English>Dorbedo, iJesuz</English>
-            <Czech>Dorbedo, iJesuz</Czech>
-            <French>Dorbedo, iJesuz</French>
             <German>Dorbedo, iJesuz</German>
-            <Italian>Dorbedo, iJesuz</Italian>
-            <Polish>Dorbedo, iJesuz</Polish>
-            <Portuguese>Dorbedo, iJesuz</Portuguese>
-            <Russian>Dorbedo, iJesuz</Russian>
-            <Spanish>Dorbedo, iJesuz</Spanish>
         </Key>
         <Key ID="STR_DORB_MAIN_BRIGTEAM">
             <English>Brigade 13 Team</English>
-            <Czech>Brigade 13 Team</Czech>
-            <French>Brigade 13 Team</French>
             <German>Brigade 13 Team</German>
-            <Italian>Brigade 13 Team</Italian>
-            <Polish>Brigade 13 Team</Polish>
-            <Portuguese>Brigade 13 Team</Portuguese>
-            <Russian>Brigade 13 Team</Russian>
-            <Spanish>Brigade 13 Team</Spanish>
         </Key>
         <Key ID="STR_DORB_MAIN_SUPPORTER">
             <English>Maverick2044, Cypherstalker, Kiwa, Dagobert, Bonecrusher, Nico, doubleK, McSeby, Floid</English>
-            <Czech>Maverick2044, Cypherstalker, Kiwa, Dagobert, Bonecrusher, Nico, doubleK, McSeby, Floid</Czech>
-            <French>Maverick2044, Cypherstalker, Kiwa, Dagobert, Bonecrusher, Nico, doubleK, McSeby, Floid</French>
             <German>Maverick2044, Cypherstalker, Kiwa, Dagobert, Bonecrusher, Nico, doubleK, McSeby, Floid</German>
-            <Italian>Maverick2044, Cypherstalker, Kiwa, Dagobert, Bonecrusher, Nico, doubleK, McSeby, Floid</Italian>
-            <Polish>Maverick2044, Cypherstalker, Kiwa, Dagobert, Bonecrusher, Nico, doubleK, McSeby, Floid</Polish>
-            <Portuguese>Maverick2044, Cypherstalker, Kiwa, Dagobert, Bonecrusher, Nico, doubleK, McSeby, Floid</Portuguese>
-            <Russian>Maverick2044, Cypherstalker, Kiwa, Dagobert, Bonecrusher, Nico, doubleK, McSeby, Floid</Russian>
-            <Spanish>Maverick2044, Cypherstalker, Kiwa, Dagobert, Bonecrusher, Nico, doubleK, McSeby, Floid</Spanish>
         </Key>
         <Key ID="STR_DORB_MAIN_WELCOME1">
             <German>Willkommen bei Operation Kerberos.</German>
@@ -380,217 +352,217 @@
     <Package name="MISSION">
         <Container name="MAINMISSION">
             <Key ID="STR_DORB_MISSION_BASEMISSION_SUCCEEDED">
-                <German>Die Mission war ein Erfolg.</German>
                 <English>The misson was a success</English>
+                <German>Die Mission war ein Erfolg.</German>
             </Key>
             <Key ID="STR_DORB_MISSION_BASEMISSION_NEUTRAL">
-                <German>Die Mission hätte besser laufen können.</German>
                 <English>The mission could have been ended in a better way.</English>
+                <German>Die Mission hätte besser laufen können.</German>
             </Key>
             <Key ID="STR_DORB_MISSION_BASEMISSION_FAILED">
-                <German>Mission gescheitert.</German>
                 <English>Mission failed.</English>
+                <German>Mission gescheitert.</German>
             </Key>
 
             <Key ID="STR_DORB_MISSION_RTB_TITLE">
-                <German>Return to Base</German>
                 <English>Return to Base</English>
+                <German>Zurück zur Basis</German>
             </Key>
             <Key ID="STR_DORB_MISSION_RTB_DESC">
-                <German>Return To Base</German>
                 <English>Return To Base</English>
+                <German>Kehren Sie zur Basis zurück</German>
             </Key>
             <Key ID="STR_DORB_MISSION_RTB_SUCCESS">
-                <German>Alle Soldaten sind zurückgekehrt</German>
                 <English>All Soldiers returned</English>
+                <German>Alle Soldaten sind zurückgekehrt</German>
             </Key>
 
             <Key ID="STR_DORB_MISSION_MAIN_CAPTURE_TITLE">
-                <German>Offizier(e) gefangen nehmen</German>
                 <English>Capture Commander(s)</English>
+                <German>Offizier(e) gefangen nehmen</German>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_CAPTURE_DESC">
-                <German>Nehmen Sie die feindlichen Befehlshaber der Region gefangen. Bringen Sie diese anschließend zum Verhör in die Basis.</German>
                 <English>Capture the enemy commander and bring him back to base. He'll be interrogated.</English>
+                <German>Nehmen Sie die feindlichen Befehlshaber der Region gefangen. Bringen Sie diese anschließend zum Verhör in die Basis.</German>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_CAPTURE_SUCCEEDED">
-                <German>Die Offiziere konnten gefangen genommen werden</German>
                 <English>The enemy lead has been captured</English>
+                <German>Die Offiziere konnten gefangen genommen werden</German>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_CAPTURE_NEUTRAL">
-                <German>Einige Offiziere konnten gefangen genommen werden</German>
                 <English>Some officers have been captured.</English>
+                <German>Einige Offiziere konnten gefangen genommen werden</German>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_CAPTURE_FAILED">
-                <German>Es konnten nicht genügend Offiziere gefangen genommen werden</German>
                 <English>It was not possible to return enough officers alive</English>
+                <German>Es konnten nicht genügend Offiziere gefangen genommen werden</German>
             </Key>
 
             <Key ID="STR_DORB_MISSION_MAIN_HOSTAGE_TITLE">
-                <German>Gefangene befreien</German>
                 <English>Rescue Prisoners</English>
+                <German>Gefangene befreien</German>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_HOSTAGE_DESC">
-                <German>Der Feind hat einige wichtige Personen als Geiseln genommen. Befreien Sie die Gefangenen.</German>
                 <English>The Enemy took some Prisoners. Rescue them.</English>
+                <German>Der Feind hat einige wichtige Personen als Geiseln genommen. Befreien Sie die Gefangenen.</German>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_HOSTAGE_SUCCEEDED">
-                <German>Die Gefangenen wurden befreit.</German>
                 <English>The hostages have been rescued.</English>
+                <German>Die Gefangenen wurden befreit.</German>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_HOSTAGE_NEUTRAL">
-                <German>Es konnten nur einige Geiseln befreit werden</German>
                 <English>Only some hostages have been rescued.</English>
+                <German>Es konnten nur einige Geiseln befreit werden</German>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_HOSTAGE_FAILED">
-                <German>Zu viele Gefangene sind gestorben</German>
                 <English>It was not possible to return the hostages alive</English>
+                <German>Zu viele Gefangene sind gestorben</German>
             </Key>
 
             <Key ID="STR_DORB_MISSION_MAIN_INTEL_TITLE">
-                <German>Informationen beschaffen</German>
                 <English>Find Intel</English>
+                <German>Informationen beschaffen</German>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_INTEL_DESC">
-                <German>Im Missionsgebiet befinden sich Informationen, die uns entscheidene Vorteile im Verlauf des Konfliktes verschaffen können. Stellen Sie diese Informationen sicher.</German>
                 <English>Our intel tells, that the enemy has some important informations in this Area. Secure it and bring it back to base.</English>
+                <German>Im Missionsgebiet befinden sich Informationen, die uns entscheidene Vorteile im Verlauf des Konfliktes verschaffen können. Stellen Sie diese Informationen sicher.</German>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_INTEL_SUCCEEDED">
-                <German>Alle Informationen wurden sichergestellt</German>
                 <English>The informations have been secured.</English>
+                <German>Alle Informationen wurden sichergestellt</German>
             </Key>
 
             <Key ID="STR_DORB_MISSION_MAIN_UPLOAD_TITLE">
-                <German>Virus hochladen</German>
                 <English>Upload a virus</English>
+                <German>Virus hochladen</German>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_UPLOAD_DESC">
-                <German>Wir können den Gegner erheblich schwächen, indem wir einen Virus in ihr Netzwerk einschleusen. Finden Sie eine Möglichkeit den Virus hochzuladen.</German>
                 <English>We can weaken the enemy by uploading a virus into their system. Find a device to upload the virus.</English>
+                <German>Wir können den Gegner erheblich schwächen, indem wir einen Virus in ihr Netzwerk einschleusen. Finden Sie eine Möglichkeit den Virus hochzuladen.</German>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_UPLOAD_SUCCEEDED">
-                <German>Der Virus wurde hochgeladen.</German>
                 <English>The virus has been uploaded.</English>
+                <German>Der Virus wurde hochgeladen.</German>
             </Key>
 
             <Key ID="STR_DORB_MISSION_MAIN_WEAPONCACHE_TITLE">
-                <German>Waffenverstecke vernichten</German>
                 <English>Destroy Weaponcaches</English>
+                <German>Waffenverstecke vernichten</German>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_WEAPONCACHE_DESC">
-                <German>Wir haben Informationen über Waffenverstecke im Missionsgebiet erhalten. Finden und zerstören Sie diese.</German>
                 <English>We have received intel about hidden weaponcaches in the area of operation. Find and destroy them.</English>
+                <German>Wir haben Informationen über Waffenverstecke im Missionsgebiet erhalten. Finden und zerstören Sie diese.</German>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_WEAPONCACHE_SUCCEEDED">
-                <German>Die Waffenlager wurden vernichtet.</German>
                 <English>The weaponcaches have been destroyed.</English>
+                <German>Die Waffenlager wurden vernichtet.</German>
             </Key>
 
             <Key ID="STR_DORB_MISSION_MAIN_DEVICE_TITLE">
-                <German>Erdbebengerät deaktivieren</German>
                 <English>Deactivate Tectonic Device</English>
+                <German>Erdbebengerät deaktivieren</German>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_DEVICE_DESC">
-                <German>Der Feind setzt ein neuartiges Gerät zur tektonischen Kriegsführung ein. Finden und deaktivieren Sie es. Achten Sie darauf das Gerät nicht grob zu beschädigen damit wir es später untersuchen können.</German>
                 <English>The enemy is using a new tectonical warfare device. Find and deactivate it. Try not to damage the device to heavy, so we can use it for research.</English>
+                <German>Der Feind setzt ein neuartiges Gerät zur tektonischen Kriegsführung ein. Finden und deaktivieren Sie es. Achten Sie darauf das Gerät nicht grob zu beschädigen damit wir es später untersuchen können.</German>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_DEVICE_SUCCEEDED">
-                <German>Das Gerät wurde erfolgreich deaktiviert.</German>
                 <English>The device has been deactivated.</English>
+                <German>Das Gerät wurde erfolgreich deaktiviert.</German>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_DEVICE_NEUTRAL">
-                <German>Das Gerät wurde zerstört</German>
                 <English>The device has been destroyed</English>
+                <German>Das Gerät wurde zerstört</German>
             </Key>
 
             <Key ID="STR_DORB_MISSION_MAIN_EMP_TITLE">
-                <German>EMP-Waffe deaktivieren</German>
                 <English>Deactivate EMP</English>
+                <German>EMP-Waffe deaktivieren</German>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_EMP_DESC">
-                <German>Der Feind hat eine Waffe zur Aussendung elektromagnetische Impulse im Einsatzgebiet stationiert. Wir wissen nicht, wie diese auf Außeneinwirkung reagiert. Deshalb müssen sie die Waffe von Hand deaktivieren.</German>
                 <English>The enemy has a EMP-weapon stationed in the area. The weapons reactions to destruction and deformation are unknown. Because of that our mission is to deactivate it by hand.</English>
+                <German>Der Feind hat eine Waffe zur Aussendung elektromagnetische Impulse im Einsatzgebiet stationiert. Wir wissen nicht, wie diese auf Außeneinwirkung reagiert. Deshalb müssen sie die Waffe von Hand deaktivieren.</German>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_EMP_SUCCEEDED">
-                <German>Der EMP wurde erfolgreich deaktiviert.</German>
                 <English>The EMP has been deactivated.</English>
+                <German>Der EMP wurde erfolgreich deaktiviert.</German>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_EMP_NEUTRAL">
-                <German>Der EMP wurde zerstört</German>
                 <English>The EMP has been destroyed.</English>
+                <German>Der EMP wurde zerstört</German>
             </Key>
 
             <Key ID="STR_DORB_MISSION_MAIN_DRONECOMMANDO_TITLE">
-                <German>Drohnencommando zerstören</German>
                 <English>Destroy Dronecommando</English>
+                <German>Drohnencommando zerstören</German>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_DRONECOMMANDO_DESC">
-                <German>Der Feind setzt Drohnen ein. Finden und zerstören Sie deren Steuerungszentrale.</German>
                 <English>The enemey is using drones. Find and destroy the drone command center.</English>
+                <German>Der Feind setzt Drohnen ein. Finden und zerstören Sie deren Steuerungszentrale.</German>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_DRONECOMMANDO_SUCCEEDED">
-                <German>Das Drohnenkommando wurde zerstört.</German>
                 <English>The drone command center has been destroyed.</English>
+                <German>Das Drohnenkommando wurde zerstört.</German>
             </Key>
 
             <Key ID="STR_DORB_MISSION_MAIN_PROTOTYPE_TITLE">
-                <German>Prototyp zurückholen</German>
                 <English>Recover Prototype</English>
+                <German>Prototyp zurückholen</German>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_PROTOTYPE_DESC">
-                <German>Der Feind ist in Besitz eines unserer Prototypen gekommen. Finden Sie diesen und bringen Sie ihn in Sicherheit. Sicherheit kann auf unserem Träger, sowie an den Ladnungspunkten gewährleistet werden, wenn sich im Umkreis von 5km keine Feindkräfte mehr befinden.</German>
                 <English>The enemy got his hands on one of our prototypes. Find it and take it to safety. Safety can be ensured on our carrier, as well as at the landingbays, if there are no more enemy forces within a radius of 5 km.</English>
+                <German>Der Feind ist in Besitz eines unserer Prototypen gekommen. Finden Sie diesen und bringen Sie ihn in Sicherheit. Sicherheit kann auf unserem Träger, sowie an den Ladnungspunkten gewährleistet werden, wenn sich im Umkreis von 5km keine Feindkräfte mehr befinden.</German>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_PROTOTYPE_SUCCEDED">
-                <German>Der Prototyp wurde geborgen.</German>
                 <English>The prototype has been recoverd.</English>
+                <German>Der Prototyp wurde geborgen.</German>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_PROTOTYPE_FAILED">
-                <German>Der Prototyp wurde zerstört.</German>
                 <English>The prototype has been destroyed.</English>
+                <German>Der Prototyp wurde zerstört.</German>
             </Key>
 
             <Key ID="STR_DORB_MISSION_MAIN_JAMMER_TITLE">
-                <German>Jammer zerstören</German>
                 <English>Destroy Jammer</English>
+                <German>Störsender zerstören</German>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_JAMMER_DESC">
-                <German>Der Feind hat Jammer platziert, um unseren Funk zu stören. Finden und zerstören Sie diese.</German>
                 <English>The enemy placed jammers to disturb our radio. Find and destroy them.</English>
+                <German>Der Feind hat Störsender platziert, um unseren Funk zu stören. Finden und zerstören Sie diese.</German>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_JAMMER_SUCCEEDED">
-                <German>Der Jammer wurde erfolgreich neutralisiert.</German>
                 <English>The jammer has been successfully neutralized.</English>
+                <German>Der Störsender wurde erfolgreich neutralisiert.</German>
             </Key>
 
             <Key ID="STR_DORB_MISSION_MAIN_SCARAB_TITLE">
-                <German>Raketenabschuss verhindern</German>
                 <English>Prevent missile launch</English>
+                <German>Raketenabschuss verhindern</German>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_SCARAB_DESC">
-                <German>Der Feind hat Atomraketen im Missionsgebiet stationiert und bereitet ihren Abschuss vor. Verhindern Sie diesen Nuklearschlag.</German>
                 <English>The enemy stationed nuclear missiles in the area of operation and is preparing their launch. Prevent this nuclear strike.</English>
+                <German>Der Feind hat Atomraketen im Missionsgebiet stationiert und bereitet ihren Abschuss vor. Verhindern Sie diesen Nuklearschlag.</German>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_SCARAB_SUCCEEDED">
-                <German>Die Abschüsse der Rakten wurden verhindert.</German>
                 <English>The missile launch has been prevented.</English>
+                <German>Die Abschüsse der Raketen wurden verhindert.</German>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_SCARAB_FAILED">
-                <German>Es kam zu einen nuklearen Fallout.</German>
                 <English>There was a nuclear fallout.</English>
+                <German>Es kam zu einen nuklearen Fallout.</German>
             </Key>
 
             <Key ID="STR_DORB_MISSION_MAIN_RADIOTOWER_TITLE">
-                <German>Funkmasten zerstören</German>
                 <English>Destroy Radiotower</English>
+                <German>Funkmasten zerstören</German>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_RADIOTOWER_DESC">
-                <German>Durch die im Missionsgebiet errichteten Funkmasten steuert der Feind einen Großteil seiner Truppen in der Region. Zerstören Sie diese Funkmasten.</German>
                 <English>Through the radio towers build in the area of operation, the enemy is controling a large part of his troops. Destroy the radio towers.</English>
+                <German>Durch die im Missionsgebiet errichteten Funkmasten steuert der Feind einen Großteil seiner Truppen in der Region. Zerstören Sie diese Funkmasten.</German>
             </Key>
             <Key ID="STR_DORB_MISSION_MAIN_RADIOTOWER_SUCCEEDED">
-                <German>Sie haben die feindliche Kommunikation erfolgreich gestört.</German>
                 <English>You have successfully disturbed the enemy communication.</English>
+                <German>Sie haben die feindliche Kommunikation erfolgreich gestört.</German>
             </Key>
 
 
@@ -598,159 +570,159 @@
 
 
             <Key ID="STR_DORB_MISSION_HOLD_TITLE">
-                <German>Position halten</German>
                 <English>Hold Position</English>
+                <German>Position halten</German>
             </Key>
             <Key ID="STR_DORB_MISSION_HOLD_DESC">
-                <German>Halten Sie die Position um jeden Preis.</German>
                 <English>Hold the position at any cost.</English>
+                <German>Halten Sie die Position um jeden Preis.</German>
             </Key>
             <Key ID="STR_DORB_MISSION_HOLD_COUNTER">
-                <German>Die Position wurde erfolgreich gehalten.</German>
                 <English>The position was successfully held.</English>
+                <German>Die Position wurde erfolgreich gehalten.</German>
             </Key>
             <Key ID="STR_DORB_MISSION_HOLD_TRIGGER_FAILED">
-                <German>Die Position ist verloren.</German>
                 <English>The position is lost.</English>
+                <German>Die Position ist verloren.</German>
             </Key>
             <Key ID="STR_DORB_MISSION_HOLD_SUCCEEDED">
+                <English>The position was successfully defended.</English>
                 <German>Die Position wurde erfolgreich verteidigt.</German>
-                    <English>The position was successfully defended.</English>
             </Key>
             <Key ID="STR_DORB_MISSION_HOLD_FAILED">
-                <German>Die Position konnte nicht verteidigt werden.</German>
                 <English>The position could not be defended.</English>
+                <German>Die Position konnte nicht verteidigt werden.</German>
             </Key>
 
         </Container>
         <Container name="SIDEMISSION">
             <Key ID="STR_DORB_MISSION_SIDE_RADAR_TITLE">
-                <German>Radar ausschalten</German>
                 <English>Destroy Radar</English>
+                <German>Radar ausschalten</German>
             </Key>
             <Key ID="STR_DORB_MISSION_SIDE_RADAR_DESC">
-                <German>Nach Informationen der Aufklärung setzt der Feind ein Radar zur Luftaufklärung ein. Neutralisieren Sie dieses.</German>
                 <English>Our Intel says that the enemy is using a radar for aerial reconnaissance. Neutralize it.</English>
+                <German>Nach Informationen der Aufklärung setzt der Feind ein Radar zur Luftaufklärung ein. Neutralisieren Sie dieses.</German>
             </Key>
             <Key ID="STR_DORB_MISSION_SIDE_RADAR_COUNTER">
-                <German>Ein Radar wurde neutralisiert.</German>
                 <English>A radar has been neutralized.</English>
+                <German>Ein Radar wurde neutralisiert.</German>
             </Key>
             <Key ID="STR_DORB_MISSION_SIDE_RADAR_SUCCEEDED">
-                <German>Ein Radar wurde neutralisiert.</German>
                 <English>A radar has been neutralized.</English>
+                <German>Ein Radar wurde neutralisiert.</German>
             </Key>
 
             <Key ID="STR_DORB_MISSION_SIDE_AIRSUPERIORITY_TITLE">
-                <German>Luftüberlegenheit</German>
                 <English>Air-Superiority</English>
+                <German>Luftüberlegenheit</German>
             </Key>
             <Key ID="STR_DORB_MISSION_SIDE_AIRSUPERIORITY_DESC">
-                <German>Der Gegner hat die Luftüberlegenheit erlangt. Erobern Sie den Luftraum zurück.</German>
                 <English>Gain the air-superiority over the area.</English>
+                <German>Der Gegner hat die Luftüberlegenheit erlangt. Erobern Sie den Luftraum zurück.</German>
             </Key>
             <Key ID="STR_DORB_MISSION_SIDE_AIRSUPERIORITY_COUNTER">
-                <German>Ein Abfangjäger wurde neutralisiert.</German>
                 <English>An air-interception plane has been shot down.</English>
+                <German>Ein Abfangjäger wurde neutralisiert.</German>
             </Key>
             <Key ID="STR_DORB_MISSION_SIDE_AIRSUPERIORITY_SUCCEEDED">
-                <German>Die Luftüberlegenheit wurde hergestellt.</German>
                 <English>The air-superiority has been regained.</English>
+                <German>Die Luftüberlegenheit wurde hergestellt.</German>
             </Key>
 
             <Key ID="STR_DORB_MISSION_SIDE_MINEFIELD_TITLE">
-                <German>Minenfeld räumen</German>
                 <English>Clear Minefield</English>
+                <German>Minenfeld räumen</German>
             </Key>
             <Key ID="STR_DORB_MISSION_SIDE_MINEFIELD_DESC">
-                <German>Wir haben in Erfahrung gebracht, dass der Feind ein Minenfeld mit einem Radius von ca. 150m ausgelegt hat. Räumen sie dieses.</German>
                 <English>The enemy has placed mines in an area of about 150m. Clear the Minefield.</English>
+                <German>Wir haben in Erfahrung gebracht, dass der Feind ein Minenfeld mit einem Radius von ca. 150m ausgelegt hat. Räumen sie dieses.</German>
             </Key>
             <Key ID="STR_DORB_MISSION_SIDE_MINEFIELD_SUCCEEDED">
-                <German>Das Minenfeld wurde geräumt.</German>
                 <English>The Minefield has been cleared.</English>
+                <German>Das Minenfeld wurde geräumt.</German>
             </Key>
 
             <Key ID="STR_DORB_MISSION_SIDE_WRECK_TITLE">
-                <German>Wrack finden</German>
                 <English>Find Wreck</English>
+                <German>Wrack finden</German>
             </Key>
             <Key ID="STR_DORB_MISSION_SIDE_WRECK_DESC">
-                <German>Ein feindliches Luftfahrzeug ist abgestürtzt. Finden Sie dessen Wrack und durchsuchen Sie es nach Informationen.</German>
                 <English>A enemy aircraft has crashed. Find the wreck and search for intel.</English>
+                <German>Ein feindliches Luftfahrzeug ist abgestürtzt. Finden Sie dessen Wrack und durchsuchen Sie es nach Informationen.</German>
             </Key>
             <Key ID="STR_DORB_MISSION_SIDE_WRECK_COUNTER_1">
-                <German>Wrack wurde durchsucht.</German>
                 <English>Wreck was searched.</English>
+                <German>Wrack wurde durchsucht.</German>
             </Key>
             <Key ID="STR_DORB_MISSION_SIDE_WRECK_COUNTER_2">
-                <German>Die Informationen wurden zusammen mit dem Wrack zerstört.</German>
                 <English>The intel was destroyed along with the wreck.</English>
+                <German>Die Informationen wurden zusammen mit dem Wrack zerstört.</German>
             </Key>
             <Key ID="STR_DORB_MISSION_SIDE_WRECK_SUCCEEDED">
-                <German>Die Informationen konnten sichergestellt werden.</German>
                 <English>The intel got secured.</English>
+                <German>Die Informationen konnten sichergestellt werden.</German>
 
             </Key>
             <Key ID="STR_DORB_MISSION_SIDE_WRECK_FAILED">
-                <German>Es konnten keine Informationen geborgen werden.</German>
                 <English>No intel could be recovered.</English>
+                <German>Es konnten keine Informationen geborgen werden.</German>
             </Key>
 
 
             <Key ID="STR_DORB_MISSION_SIDE_ARTILLERY_TITLE">
-                <German>Artilleriestellung</German>
                 <English>Artillery Position</English>
+                <German>Artilleriestellung</German>
             </Key>
             <Key ID="STR_DORB_MISSION_SIDE_ARTILLERY_DESC">
-                <German>Der Gegner verfügt über Artilerieunterstützung finden und vernichten sie die Geschütze. Wir haben keine Informationen, wo sie sich befinden.</German>
                 <English>The enemy has an artillery position. We don't know where it is located. Find the artillery and destroy it.</English>
+                <German>Der Gegner verfügt über Artilerieunterstützung finden und vernichten sie die Geschütze. Wir haben keine Informationen, wo sie sich befinden.</German>
             </Key>
             <Key ID="STR_DORB_MISSION_SIDE_ARTILLERY_COUNTER">
-                <German>Ein Artilleriegeschütz wurde zerstört</German>
                 <English>A artillery has been destroyed.</English>
+                <German>Ein Artilleriegeschütz wurde zerstört</German>
             </Key>
             <Key ID="STR_DORB_MISSION_SIDE_ARTILLERY_SUCCEEDED">
-                <German>Die feindliche Artilleriestellung wurde neutralisiert</German>
                 <English>The enemy artillery position has been destroyed.</English>
+                <German>Die feindliche Artilleriestellung wurde neutralisiert</German>
             </Key>
 
 
             <Key ID="STR_DORB_MISSION_SIDE_CHOPPER_TITLE">
-                <German>Gegnerischer Hubschauber</German>
                 <English>Enemy Chopper</English>
+                <German>Gegnerischer Hubschauber</German>
             </Key>
             <Key ID="STR_DORB_MISSION_SIDE_CHOPPER_DESC">
-                <German>Ein Gegnerischer Hubschrauber ist Notgelandet. Verhindern sie seine Reperatur.</German>
                 <English>An enemy chopper made an emergency landing. Prevent the repair of the chopper.</English>
+                <German>Ein Gegnerischer Hubschrauber ist Notgelandet. Verhindern sie seine Reperatur.</German>
             </Key>
             <Key ID="STR_DORB_MISSION_SIDE_CHOPPER_COUNTER">
-                <German>Ein Pilot wurde ausgeschaltet</German>
                 <English>A Pilot has been killed.</English>
+                <German>Ein Pilot wurde ausgeschaltet</German>
             </Key>
             <Key ID="STR_DORB_MISSION_SIDE_CHOPPER_SUCCEEDED">
-                <German>Die Reperatur des Hubschraubers konnte verhindert werden.</German>
                 <English>The Repair of the enemy chopper was prevented.</English>
+                <German>Die Reperatur des Hubschraubers konnte verhindert werden.</German>
             </Key>
             <Key ID="STR_DORB_MISSION_SIDE_CHOPPER_NEUTRAL">
-                <German>Der Helikopter wurde zerstört.</German>
                 <English>The Helicopter was destroyed.</English>
+                <German>Der Helikopter wurde zerstört.</German>
             </Key>
             <Key ID="STR_DORB_MISSION_SIDE_CHOPPER_FAILED">
-                <German>Die Reperatur des Hubschraubers konnte nicht verhindert werden.</German>
                 <English>The Repair of the enemy chopper couldn't be prevented.</English>
+                <German>Die Reperatur des Hubschraubers konnte nicht verhindert werden.</German>
             </Key>
         </Container>
 
 
         <Container name="OBJ">
             <Key ID="STR_DORB_MISSION_EXAMINE">
-                <German>Verhör</German>
                 <English>Interrogate</English>
+                <German>Verhör</German>
             </Key>
             <Key ID="STR_DORB_MISSION_EXAMINE_DESC">
-                <German>Der Gegner wurde verhört.</German>
                 <English>The enemy has been interrogated.</English>
+                <German>Der Gegner wurde verhört.</German>
             </Key>
         </Container>
     </Package>
@@ -797,7 +769,7 @@
         </Key>
         <Key ID="STR_DORB_PLAYER_BACKPACK_BACK">
             <English>Move backpack to back</English>
-            <German>Rucksack auf den Ruecken schnallen</German>
+            <German>Rucksack auf den Rücken schnallen</German>
         </Key>
         <Key ID="STR_DORB_PLAYER_ACTION_KNOCKKNOCK">
             <English>knock</English>
@@ -810,72 +782,72 @@
     </Package>
     <Package name="logistics">
         <Key ID="STR_DORB_LOGISTICS_ACTION_MAIN">
-            <German>Logistik</German>
             <English>Logistics</English>
+            <German>Logistik</German>
         </Key>
         <Key ID="STR_DORB_LOGISTICS_ACTION_LOAD">
-            <German>Einladen</German>
             <English>Load</English>
+            <German>Einladen</German>
         </Key>
         <Key ID="STR_DORB_LOGISTICS_ACTION_UNLOAD">
-            <German>Ausladen</German>
             <English>Unload</English>
+            <German>Ausladen</German>
         </Key>
         <Key ID="STR_DORB_LOGISTICS_ACTION_DISP_CARGO">
-            <German>Zeige Ladungsinformationen</German>
             <English>Display Cargo Information</English>
+            <German>Zeige Ladungsinformationen</German>
         </Key>
         <Key ID="STR_DORB_LOGISTICS_ACTION_PARADROP">
-            <German>Abwerfen</German>
             <English>Drop</English>
+            <German>Abwerfen</German>
         </Key>
         <Key ID="STR_DORB_LOGISTICS_ACTION_CHECK">
-            <German>Ladung</German>
             <English>View Load</English>
+            <German>Ladung</German>
         </Key>
         <Key ID="STR_DORB_LOGISTICS_ACTION_EXTEND">
-            <German>Laderaum erweitern</German>
             <English>Extend Cargo</English>
+            <German>Laderaum erweitern</German>
         </Key>
         <Key ID="STR_DORB_LOGISTICS_ACTION_REDUCE">
-            <German>Laderaum reduzieren</German>
             <English>Reduce Cargo</English>
+            <German>Laderaum reduzieren</German>
         </Key>
         <Key ID="STR_DORB_LOGISTICS_CARGO_INFO">
-            <German>Ladungsinformationen</German>
             <English>Cargo Info</English>
+            <German>Ladungsinformationen</German>
         </Key>
         <Key ID="STR_DORB_LOGISTICS_VEHICLE_MASS">
-            <German>Fahrzeuggewicht: %1</German>
             <English>Vehicle weight: %1</English>
+            <German>Fahrzeuggewicht: %1</German>
         </Key>
         <Key ID="STR_DORB_LOGISTICS_FULL_MASS">
-            <German>Gesamtgewicht: %1</German>
             <English>Total weight: %1</English>
+            <German>Gesamtgewicht: %1</German>
         </Key>
         <Key ID="STR_DORB_LOGISTICS_COUNT_CARGO">
-            <German>Kistenanzahl: %1</German>
             <English>Crate number: %1</English>
+            <German>Kistenanzahl: %1</German>
         </Key>
         <Key ID="STR_DORB_LOGISTICS_CARGO_MASS">
-            <German>Ladungsgewicht: %1</German>
             <English>Cargo weight: %1</English>
+            <German>Ladungsgewicht: %1</German>
         </Key>
         <Key ID="STR_DORB_LOGISTICS_FREE_SPACE">
-            <German>freie Ladefläche: %1</German>
             <English>Free space: %1</English>
+            <German>freie Ladefläche: %1</German>
         </Key>
         <Key ID="STR_DORB_LOGISTICS_ACTION_TOW">
-            <German>Anhängen (Simple)</German>
             <English>Tow (Simple)</English>
+            <German>Anhängen (Simple)</German>
         </Key>
         <Key ID="STR_DORB_LOGISTICS_ACTION_UNTOW">
-            <German>Abkoppeln (Simple)</German>
             <English>Untow (Simple)</English>
+            <German>Abkoppeln (Simple)</German>
         </Key>
         <Key ID="STR_DORB_LOGISTICS_ACTION_SPARETRACK">
-            <German>Ersatzkette entladen</German>
             <English>Remove spare Track</English>
+            <German>Ersatzkette entladen</German>
         </Key>
     </Package>
     <Package name="Gui">
@@ -1174,12 +1146,12 @@
     </Package>
     <Package name="missionobjects">
         <Key ID="STR_DORB_MISSIONOBJECTS_COMPOSITIONS_TITLE">
-            <German>Stellungen</German>
             <English>Compositions</English>
+            <German>Stellungen</German>
         </Key>
         <Key ID="STR_DORB_MISSIONOBJECTS_COMPOSITIONS">
-            <German>Vielen Dank an die Stellungsbauer: </German>
             <English>Thanks to all Composition designers: </English>
+            <German>Vielen Dank an die Stellungsbauer: </German>
         </Key>
         <Key ID="STR_DORB_MISSIONOBJECTS_CASE_CARRY">
             <English>carray</English>
@@ -1191,177 +1163,177 @@
         </Key>
         <!-- hostage -->
         <Key ID="STR_DORB_MISSIONOBJECTS_HOSTAGE_KILLED_MSG_TITLE">
-            <German>Gefanger getötet</German>
             <English>Hostage killed</English>
+            <German>Gefanger getötet</German>
         </Key>
         <Key ID="STR_DORB_MISSIONOBJECTS_HOSTAGE_KILLED_MSG">
-            <German>Eine Geisel wurde von %1 getötet.</German>
             <English>A Hostage got killed by %1.</English>
+            <German>Eine Geisel wurde von %1 getötet.</German>
         </Key>
         <Key ID="STR_DORB_MISSIONOBJECTS_HOSTAGE_CAPTURED_MSG_TITLE">
-            <German>Gefanger befreit</German>
             <English>Hostage rescued</English>
+            <German>Gefanger befreit</German>
         </Key>
         <Key ID="STR_DORB_MISSIONOBJECTS_HOSTAGE_CAPTURED_MSG">
-            <German>Ein Gefangener wurde befreit.</German>
             <English>A hostage has been rescued.</English>
+            <German>Ein Gefangener wurde befreit.</German>
         </Key>
         <!-- prototype -->
         <Key ID="STR_DORB_MISSIONOBJECTS_PROTOTYPE_KILLED_MSG_TITLE">
-            <German>Prototyp zerstört</German>
             <English>Prototype destroyed</English>
+            <German>Prototyp zerstört</German>
         </Key>
         <Key ID="STR_DORB_MISSIONOBJECTS_PROTOTYPE_KILLED_MSG">
-            <German>Ein Prototyp wurde vernichtet.</German>
             <English>A prototype got destroyed</English>
+            <German>Ein Prototyp wurde vernichtet.</German>
         </Key>
         <Key ID="STR_DORB_MISSIONOBJECTS_PROTOTYPE_CAPTURED_MSG_TITLE">
-            <German>Prototyp gesichert</German>
             <English>Prototype secured</English>
+            <German>Prototyp gesichert</German>
         </Key>
         <Key ID="STR_DORB_MISSIONOBJECTS_PROTOTYPE_CAPTURED_MSG">
-            <German>Ein Prototyp wurde gesichert. Er steht nun zu Ihrer Verfügung.</German>
             <English>A prototype got secured. It is now at your disposal.</English>
+            <German>Ein Prototyp wurde gesichert. Er steht nun zu Ihrer Verfügung.</German>
         </Key>
         <!-- dataterminal -->
         <Key ID="STR_DORB_MISSIONOBJECTS_DATATERMINAL_ACTIVATE">
-            <German>Terminal Aktivieren</German>
             <English>Activate Terminal</English>
+            <German>Terminal Aktivieren</German>
         </Key>
         <Key ID="STR_DORB_MISSIONOBJECTS_DATATERMINAL_DEACTIVATE">
-            <German>Terminal Deaktivieren</German>
             <English>Deactivate Terminal</English>
+            <German>Terminal Deaktivieren</German>
         </Key>
         <Key ID="STR_DORB_MISSIONOBJECTS_DATATERMINAL_TRIANGULATE">
-            <German>Starte Triangulation</German>
             <English>Start Triangulation</English>
+            <German>Starte Triangulation</German>
         </Key>
         <Key ID="STR_DORB_MISSIONOBJECTS_DATATERMINAL_TRIANGULATING">
-            <German>trianguliere</German>
             <English>triangulating</English>
+            <German>trianguliere</German>
         </Key>
         <Key ID="STR_DORB_MISSIONOBJECTS_TRIANGULATE_MISSING_MSG_TITLE">
-            <German>Triangulation fehlgeschlagen</German>
             <English>Triangulation failed</English>
+            <German>Triangulation fehlgeschlagen</German>
         </Key>
         <Key ID="STR_DORB_MISSIONOBJECTS_TRIANGULATE_MISSING_MSG">
-            <German>Die Triangulation ist fehlgeschlagen. Es befinden sich nicht ausreichend Sender im Bereich.</German>
             <English>The triangulation failed. There are not enough transmitters in range.</English>
+            <German>Die Triangulation ist fehlgeschlagen. Es befinden sich nicht ausreichend Sender im Bereich.</German>
         </Key>
         <Key ID="STR_DORB_MISSIONOBJECTS_TRIANGULATE_MOVED_MSG_TITLE">
-            <German>Triangulation abgebrochen</German>
             <English>Triangulation aborted</English>
+            <German>Triangulation abgebrochen</German>
         </Key>
         <Key ID="STR_DORB_MISSIONOBJECTS_TRIANGULATE_MOVED_MSG">
-            <German>Die Triangulation wurde abgebrochen. Die Empfänger wurden bewegt.</German>
             <English>The triangulation got aborted. The receivers were moved.</English>
+            <German>Die Triangulation wurde abgebrochen. Die Empfänger wurden bewegt.</German>
         </Key>
         <!-- Laptop -->
         <Key ID="STR_DORB_MISSIONOBJECTS_LAPTOP_DOWNLOAD">
-            <German>Download starten</German>
             <English>Start download</English>
+            <German>Download starten</German>
         </Key>
         <Key ID="STR_DORB_MISSIONOBJECTS_LAPTOP_DOWNLOAD_PREPARE">
-            <German>Download wird vorbereitet</German>
             <English>Preparing download</English>
+            <German>Download wird vorbereitet</German>
         </Key>
         <Key ID="STR_DORB_MISSIONOBJECTS_LAPTOP_DOWNLOAD_CANCEL_MSG_TITLE">
-            <German>Download abgebrochen</German>
             <English>Download aborted</English>
+            <German>Download abgebrochen</German>
         </Key>
         <Key ID="STR_DORB_MISSIONOBJECTS_LAPTOP_DOWNLOAD_CANCEL_MSG">
-            <German>Der Download wurde abgebrochen.</German>
             <English>The download got aborted.</English>
+            <German>Der Download wurde abgebrochen.</German>
         </Key>
         <Key ID="STR_DORB_MISSIONOBJECTS_LAPTOP_DOWNLOAD_FINISHED_MSG_TITLE">
-            <German>Download abgeschlossen</German>
             <English>Download complete</English>
+            <German>Download abgeschlossen</German>
         </Key>
         <Key ID="STR_DORB_MISSIONOBJECTS_LAPTOP_DOWNLOAD_FINISHED_MSG">
-            <German>Der Download ist komplett.</German>
             <English>The download is complete.</English>
+            <German>Der Download ist komplett.</German>
         </Key>
         <Key ID="STR_DORB_MISSIONOBJECTS_OBJECTS_DEVICE_DISABLE">
-            <German>Deaktivieren</German>
             <English>Deactivate</English>
+            <German>Deaktivieren</German>
         </Key>
         <Key ID="STR_DORB_MISSIONOBJECTS_OBJECTS_DEVICE_DISABLING">
-            <German>deaktiviere ...</German>
             <English>deactivating ...</English>
+            <German>deaktiviere ...</German>
         </Key>
         <Key ID="STR_DORB_MISSIONOBJECTS_OBJECTS_INTEL_GRAB">
-            <German>Informationen sicherstellen</German>
             <English>Secure Information</English>
+            <German>Informationen sicherstellen</German>
         </Key>
         <Key ID="STR_DORB_MISSIONOBJECTS_OBJECTS_UPLOAD">
-            <German>Virus hochladen</German>
             <English>Upload Virus</English>
+            <German>Virus hochladen</German>
         </Key>
         <Key ID="STR_DORB_MISSIONOBJECTS_OBJECTS_UPLOADING">
-            <German>Virus wird hochgeladen ...</German>
             <English>Uploading Virus ...</English>
+            <German>Virus wird hochgeladen ...</German>
         </Key>
         <Key ID="STR_DORB_MISSIONOBJECTS_OBJECTS_GATHER_INTEL">
-            <German>Nach Informationen suchen</German>
             <English>Gather Intel</English>
+            <German>Nach Informationen suchen</German>
         </Key>
         <Key ID="STR_DORB_MISSIONOBJECTS_OBJECTS_GATHERING_INTEL">
-            <German>Suche nach Informationen ...</German>
             <English>Gathering Intel ...</English>
+            <German>Suche nach Informationen ...</German>
         </Key>
         <Key ID="STR_DORB_MISSIONOBJECTS_OBJECTS_CARRY">
-            <German>Tragen</German>
             <English>Carry</English>
+            <German>Tragen</German>
         </Key>
         <Key ID="STR_DORB_MISSIONOBJECTS_OBJECTS_DROP">
-            <German>Abstellen</German>
             <English>Drop</English>
+            <German>Abstellen</German>
         </Key>
         <Key ID="STR_DORB_MISSIONOBJECTS_OBJECTS_DISABLE">
-            <German>Deaktivieren</German>
             <English>Disable</English>
+            <German>Deaktivieren</German>
         </Key>
     </Package>
     <Package name="MOD_ACRE">
         <Key ID="STR_DORB_MOD_ACRE_ARAB">
-            <German>Arabisch</German>
             <English>arabic</English>
+            <German>Arabisch</German>
         </Key>
         <Key ID="STR_DORB_MOD_ACRE_ENGLISH">
-            <German>Englisch</German>
             <English>english</English>
+            <German>Englisch</German>
         </Key>
         <Key ID="STR_DORB_MOD_ACRE_GERMAN">
-            <German>Deutsch</German>
             <English>german</English>
+            <German>Deutsch</German>
         </Key>
         <Key ID="STR_DORB_MOD_ACRE_ANTENNA_ACTION_MAIN">
-            <German>Antenne</German>
             <English>antenna</English>
+            <German>Antenne</German>
         </Key>
         <Key ID="STR_DORB_MOD_ACRE_ANTENNA_ACTION_CONNECT">
-            <German>Funkgerät mit Antenne verbinden</German>
             <English>Connect radio to antenna</English>
+            <German>Funkgerät mit Antenne verbinden</German>
         </Key>
         <Key ID="STR_DORB_MOD_ACRE_ANTENNA_ACTION_DISCONNECT">
-            <German>Funkgerät von Antenne trennen</German>
             <English>Disconnect radio from antenna</English>
+            <German>Funkgerät von Antenne trennen</German>
         </Key>
         <Key ID="STR_DORB_MOD_ACRE_ANTENNA_DISCONNECT">
-            <German>Funkgerät getrennt</German>
             <English>radio disconnected</English>
+            <German>Funkgerät getrennt</German>
         </Key>
         <Key ID="STR_DORB_MOD_ACRE_ANTENNA_DISCONNECT_DISTANCE">
-            <German>Entfernung zur Antenne zu groß</German>
             <English>Distance to antenna was to high</English>
+            <German>Entfernung zur Antenne zu groß</German>
         </Key>
         <Key ID="STR_DORB_MOD_ACRE_ANTENNA_CONNECTED">
-            <German>Funkgerät verbunden</German>
             <English>radio connected</English>
+            <German>Funkgerät verbunden</German>
         </Key>
         <Key ID="STR_DORB_MOD_ACRE_ANTENNA_CONNECTED_MSG">
-            <German>Du hast dein Funkgerät mit der Antenne verbunden. Die Reichweite ist nun erhöht.</German>
             <English>You have connected your Radio to the radio-tower. Your Range has been extended.</English>
+            <German>Du hast dein Funkgerät mit der Antenne verbunden. Die Reichweite ist nun erhöht.</German>
         </Key>
     </Package>
     <Package name="gui_MAIN">
@@ -1374,159 +1346,159 @@
             <German>%1:%2%3%4.%5.%6</German>
         </Key>
         <Key ID="STR_DORB_GUI_MAIN_CATEGORY_DEPOT">
-            <German>Depot</German>
             <English>Depot</English>
+            <German>Depot</German>
         </Key>
     </Package>
     <Package name="whitelist">
         <Key ID="STR_DORB_WHITELIST_TITLE">
-            <German>Pilotenwhitelist</German>
             <English>pilot-whitelist</English>
+            <German>Pilotenwhitelist</German>
         </Key>
         <Key ID="STR_DORB_WHITELIST_NOTALLOWED">
-            <German>Du besitzt keine ausreichende Qualifizierung um das Fahrzeug zu bewegen.</German>
             <English>You don't have the right qualifications to move this vehicle.</English>
+            <German>Du besitzt keine ausreichende Qualifizierung um das Fahrzeug zu bewegen.</German>
         </Key>
     </Package>
     <Package name="gui_Echidna">
-        <Key ID="STR_DORB_GUI_ECHIDNA_SELFACTIONGROUP">
-            <German>Echidna</German>
+        <Key ID="STR_DORB_GUI_MAIN_SELFACTIONGROUP">
             <English>echidna</English>
+            <German>Echidna</German>
         </Key>
         <Key ID="STR_DORB_GUI_MAIN_SHUTDOWN">
-            <German>Ausschalten</German>
             <English>shutdown</English>
+            <German>Ausschalten</German>
         </Key>
     </Package>
     <Package name="gui_acre">
         <Key ID="STR_DORB_GUI_ACRE_NOSQUADRADIOS">
-            <German>Keine Gruppen-Funkgeräte eingetragen</German>
             <English>no squad-radios registered</English>
+            <German>Keine Gruppen-Funkgeräte eingetragen</German>
         </Key>
         <Key ID="STR_DORB_GUI_ACRE_PRESETCHANNELNAME">
-            <German>Standardfunkkanal:</German>
             <English>Preset Channel:</English>
+            <German>Standardfunkkanal:</German>
         </Key>
         <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_description">
-            <German>Name</German>
             <English>name</English>
+            <German>Name</German>
         </Key>
         <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_label">
-            <German>Name</German>
             <English>name</English>
+            <German>Name</German>
         </Key>
         <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_name">
-            <German>Name</German>
             <English>name</English>
+            <German>Name</German>
         </Key>
 
         <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_frequencyrx">
-            <German>Empfangsfrequenz</German>
             <English>receiving frequency</English>
+            <German>Empfangsfrequenz</German>
         </Key>
         <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_frequencytx">
-            <German>Sendefrequenz</German>
             <English>transmitting frequency</English>
+            <German>Sendefrequenz</German>
         </Key>
         <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_rxonly">
-            <German>Nur Empfangen</German>
             <English>Only Receiving</English>
+            <German>Nur Empfangen</German>
         </Key>
         <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_ctcssrx">
-            <German>Empfangs-Entstörungscode</German>
             <English>Receiving tone squelch</English>
+            <German>Empfangs-Entstörungscode</German>
         </Key>
         <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_ctcsstx">
-            <German>Sende-Entstörungscode</German>
             <English>Sending tone squelch</English>
+            <German>Sende-Entstörungscode</German>
         </Key>
         <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_squelch">
-            <German>Entstörstärke</German>
             <English>Squelch-value</English>
+            <German>Entstörstärke</German>
         </Key>
         <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_modulation">
-            <German>Modulation</German>
             <English>modulation</English>
+            <German>Modulation</German>
         </Key>
         <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_encryption">
-            <German>Verschlüsselung</German>
             <English>encryption</English>
+            <German>Verschlüsselung</German>
         </Key>
         <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_synclength">
-            <German>synclength</German>
             <English>synclength</English>
+            <German>synclength</German>
         </Key>
         <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_power">
-            <German>Sendeleistung</German>
             <English>power</English>
+            <German>Sendeleistung</German>
         </Key>
         <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_phase">
-            <German>Phase</German>
             <English>phase</English>
+            <German>Phase</German>
         </Key>
         <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_channelmode">
-            <German>channelmode</German>
             <English>channelmode</English>
+            <German>channelmode</German>
         </Key>
         <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_deviation">
-            <German>deviation</German>
             <English>deviation</English>
+            <German>deviation</German>
         </Key>
         <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_trafficrate">
-            <German>Übertrangungsrate</German>
             <English>trafficrate</English>
+            <German>Übertrangungsrate</German>
         </Key>
         <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_tek">
-            <German>Verschlüsselungsschlüssel</German>
             <English>Encryption Key</English>
+            <German>Verschlüsselungsschlüssel</German>
         </Key>
         <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_active">
-            <German>Aktiv</German>
             <English>active</English>
+            <German>Aktiv</German>
         </Key>
         <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_fade">
-            <German>fade</German>
             <English>fade</English>
+            <German>fade</German>
         </Key>
         <Key ID="STR_DORB_GUI_ACRE_PROPERTYNAME_rptr">
-            <German>Repeater Delay</German>
             <English>Repeater Delay</English>
+            <German>Repeater Delay</German>
         </Key>
         <Key ID="STR_DORB_GUI_ACRE_MENU_MODERN">
-            <German>Moderne Ansicht</German>
             <English>modern-view</English>
+            <German>Moderne Ansicht</German>
         </Key>
         <Key ID="STR_DORB_GUI_ACRE_MENU_TREE">
-            <German>Baumansicht</German>
             <English>tree-view</English>
+            <German>Baumansicht</German>
         </Key>
         <Key ID="STR_DORB_GUI_ACRE_MENU_GROUP">
-            <German>Gruppenfunkgeräte</German>
             <English>group-radios</English>
+            <German>Gruppenfunkgeräte</German>
         </Key>
         <Key ID="STR_DORB_GUI_ACRE_MENU_SINGLE">
-            <German>Spielerfunkteräte</German>
             <English>player-radios</English>
+            <German>Spielerfunkteräte</German>
         </Key>
         <Key ID="STR_DORB_GUI_ACRE_RADIOS_TRANSMITT">
-            <German>Einstellungen übertragen</German>
             <English>transmitt settings</English>
+            <German>Einstellungen übertragen</German>
         </Key>
         <Key ID="STR_DORB_GUI_ACRE_RADIOS_RESET">
-            <German>Einstellungen zurücksetzen</German>
             <English>discard settings</English>
+            <German>Einstellungen zurücksetzen</German>
         </Key>
         <Key ID="STR_DORB_GUI_ACRE_HEADER">
-            <German>ACRE2 - Frequenzübersicht</German>
             <English>ACRE2 - Frequencies overview</English>
+            <German>ACRE2 - Frequenzübersicht</German>
         </Key>
         <Key ID="STR_DORB_GUI_ACRE_KEYBIND">
-            <German>ACRE2 - Frequenzübersicht</German>
             <English>ACRE2 - Freqencies overview</English>
+            <German>ACRE2 - Frequenzübersicht</German>
         </Key>
         <Key ID="STR_DORB_GUI_ACRE_KEYBIND_TOOLTIP">
-            <German>Taste um das Menu zu öffnen</German>
             <English>Shortcut for opening the menu</English>
+            <German>Taste um das Menu zu öffnen</German>
         </Key>
     </Package>
 </Project>
