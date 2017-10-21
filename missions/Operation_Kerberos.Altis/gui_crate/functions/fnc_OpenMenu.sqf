@@ -1,36 +1,34 @@
-/*
-    Author: Dorbedo
+/**
+ * Author: Dorbedo
+ * opens the spawn menu
+ *
+ * Arguments:
+ * 0: <OBJECT> the target (ACE)
+ * 1: <OBJECT> the caller (ACE)
+ * 2: <STRING> spawn ID
+ *
+ * Return Value:
+ * Nothing
+ *
+ */
 
-    Description:
-        Opens the crate-interface
-
-*/
 #include "script_component.hpp"
 
-GVAR(currentSpawn) = objNull;
-{
-    If ((_x distance player)<(GVAR(currentSpawn) distance _player)) then {
-        GVAR(currentSpawn) = _x;
-    };
-} forEach GVAR(cratelogics);
+params ["_target","_caller","_spawnID"];
 
-If ((missionNamespace getVariable [QGVAR(crate_items),[]]) isEqualTo []) exitWith {
-    [
-        {!((missionNamespace getVariable [QGVAR(crate_items),[]]) isEqualTo [])},
-        FUNC(OpenMenu),
-        _this
-    ] call CBA_fnc_waitUntilAndExecute;
-    [] spawn FUNC(createlists);
+(GVAR(spawns) getVariable _spawnID) params ["_list","_spawnPosition","_spawnDir"];
+
+GVAR(curItemListID) = 0;
+GVAR(curItemList) =+ _list;
+GVAR(curPos) =+ _spawnPosition;
+GVAR(curDir) =+ _spawnDir;
+
+If ((isNil QGVAR(curInventory))||{isNull GVAR(curInventory)}) then {
+    GVAR(curInventory) = HASH_CREATE;
+} else {
+    HASH_DELETE(GVAR(curInventory));
+    GVAR(curInventory) = HASH_CREATE;
 };
 
-//[] call FUNC(createlists);
-
-if (isnil QGVAR(current)) then {
-    GVAR(current) = [[],[],[],[],[],[]];
-};
-
-if (isnil QGVAR(current_boxid)) then {
-    GVAR(current_boxid) = 0;
-};
-
+disableSerialization;
 createDialog QAPP(dialog);

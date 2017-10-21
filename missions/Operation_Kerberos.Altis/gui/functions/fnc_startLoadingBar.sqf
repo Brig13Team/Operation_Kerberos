@@ -12,7 +12,6 @@
  *
  */
 //#define DEBUG_MODE_FULL
-#define INCLUDE_GUI
 #include "script_component.hpp"
 
 _this params [["_title","",[""]]];

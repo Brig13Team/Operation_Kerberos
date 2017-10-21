@@ -1,5 +1,15 @@
 #define COMPONENT gui
-#define DEBUG_MODE_MINIMAL
+#define COMPONENT_BEAUTIFIED GUI
 #include "..\script_mission.hpp"
 
-#define NOTIFICATION_SHOW_DELAY 15
+#define DEBUG_MODE_MINIMAL
+#define DEBUG_MODE_FULL
+// #define DISABLE_COMPILE_CACHE
+// #define ENABLE_PERFORMANCE_COUNTERS
+
+#ifdef DEBUG_ENABLED_gui
+    #define DEBUG_MODE_FULL
+#endif
+
+#include "..\main\script_macros.hpp"
+#include "script_gui.hpp"

@@ -1,59 +1,32 @@
-/*
- *  Author: Dorbedo
+/**
+ * Author: Dorbedo
+ * the user is allowed to open the spawn menu
  *
- *  Description:
- *      returns if the player can open the menu
+ * Arguments:
+ * 0: <OBJECT> the player
+ * 1: <STRING> the spawnID
  *
- *  Parameter(s):
- *      0 : OBJECT - player
- *
- *  Returns:
- *      BOOL - is allowed to open the list
+ * Return Value:
+ * <BOOL> the user can open the menu
  *
  */
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-_this params [["_player",objNull,[objNull]]];
+TRACEV_1(_this);
+params [
+    ["_target",objNull,[objNull]],
+    ["_player",objNull,[objNull]],
+    ["_spawnID","",[""]]
+];
 
-If ((isNull _player)||(!(isPlayer _player))) exitWith {
-    TRACE("player != player");
-    false;
-};
-If !(vehicle player == player) exitWith {
-    TRACE("vehicle player != player");
-    false;
-};
+If ((isNull player)||{_spawnID isEqualTo ""}||(!(_player == vehicle ace_player))) exitWith {false};
 
-private _spawnpositions = GVAR(cratelogics);
+private _spawnArray = GVAR(spawns) getVariable [_spawnID,[]];
+//TRACEV_1(_spawnArray);
+if (_spawnArray isEqualTo []) exitWith {false};
 
-If ((isNil "_spawnpositions")) exitWith {
-    TRACE("spawnposition == nil||null");
-    false;
-};
+private _distance = (getPosASL _player) distance (_spawnArray select 1);
 
+If ((_distance > CHECK_RADIUS_MAX)||{_distance < CHECK_RADIUS_MIN}) exitWith {false};
 
-Private _possiblePos = [];
-If !(({
-    If (((_player distance2D _x)<(5 + CHECK_RADIUS))&&
-    ((_player distance2D _x)>CHECK_RADIUS)) then {
-        _possiblePos pushBack _x;
-        true;
-    }else{false;};
-} count _spawnpositions)>0) exitWith {
-    TRACE("wrong distance");
-    false;
-};
-
-TRACEV_1(_possiblePos);
-
-(({
-    //[_x] call FUNC(clearPos);
-    private _cur = getPos _x;
-    _cur set[2,(_cur select 2)+1];
-    private _pPos = getPos player;
-    _pPos set[2,(_pPos select 2)+1];
-    //private _intersects = !( lineIntersects [_cur,_pPos,player]);
-    private _intersects = !( terrainIntersect [_cur,_pPos]);
-    TRACEV_3(_intersects,_cur,_pPos);
-    _intersects;
-} count _possiblePos)>0);
-/// TODO - check sight (lineintersects), add distance, remove actionposition
+true

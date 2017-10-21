@@ -1,15 +1,27 @@
-#include "script_component.hpp"
 
 PREP(add);
 PREP(canOpenMenu);
+PREP(checkPosEmpty);
 PREP(clear);
-PREP(clearPos);
-PREP(createlists);
-PREP(filter);
-PREP(getMod);
+PREP(clearPosition);
+PREP(filterList);
+PREP(filterPFH);
+PREP(getContainerSize);
+PREP(getCurAmount);
+PREP(getCurWeight);
+PREP(getItemList);
+PREP(getMass);
 PREP(keyEvent);
-PREP(mass);
-PREP(OnLoad);
+PREP(load);
+PREP(onBoxSelect);
+PREP(onLoad);
+PREP(onUnload);
 PREP(OpenMenu);
+PREP(registerSpawn);
 PREP(save);
-PREP(spawn);
+PREP(setInventory);
+PREP(showBoxes);
+PREP(showItemList);
+PREP(sortItemList);
+PREP(updateLibary);
+PREP(updateWeight);

@@ -33,16 +33,15 @@ class CfgComponents {
     mod_rhs = 1;
     patch_acre = 1;
     patch_bwa3 = 1;
-    /// gui
+
     gui = 1;
-    gui_spawn = 1;
+    gui_main = 1;
+    gui_vehiclespawn = 1;
+    gui_arsenal = 1;
     gui_teleport = 1;
     gui_crate = 1;
     gui_save = 1;
-    gui_arsenal = 1;
     gui_acre = 1;
-    gui_echidna = 1;
-    gui_mail = 1;
 };
 
 #include "main\CfgComponent.hpp"
@@ -67,11 +66,10 @@ class CfgComponents {
 #include "missionobjects\CfgComponent.hpp"
 #include "headquarter\CfgComponent.hpp"
 
-#include "gui_echidna\CfgComponent.hpp"
-#include "gui_spawn\CfgComponent.hpp"
+#include "gui_main\CfgComponent.hpp"
+#include "gui_vehiclespawn\CfgComponent.hpp"
 #include "gui_teleport\CfgComponent.hpp"
+#include "gui_arsenal\CfgComponent.hpp"
 #include "gui_crate\CfgComponent.hpp"
 #include "gui_save\CfgComponent.hpp"
-#include "gui_arsenal\CfgComponent.hpp"
 #include "gui_acre\CfgComponent.hpp"
-#include "gui_mail\CfgComponent.hpp"

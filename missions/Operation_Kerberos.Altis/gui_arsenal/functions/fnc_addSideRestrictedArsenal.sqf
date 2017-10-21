@@ -6,7 +6,7 @@
         can be called via unit-init
 */
 #include "script_component.hpp"
-_this params [["_target",objNull,[objNull]],["_side",west,[west]],["_onlyGear",false,[true]]];
+params [["_target",objNull,[objNull]],["_side",west,[west]],["_onlyGear",false,[true]]];
 
 CHECK(isNull _target)
 

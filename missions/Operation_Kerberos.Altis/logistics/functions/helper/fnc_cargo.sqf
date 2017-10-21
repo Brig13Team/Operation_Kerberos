@@ -102,10 +102,10 @@ _targetBttn ctrlAddEventHandler ["ButtonClick",
         };
     }];
 _targetBttn ctrlSetPosition [
-    SafeZoneX + GUI_ECHIDNA_W * 1.5,
-    SafeZoneY + GUI_ECHIDNA_H * 19,
-    GUI_ECHIDNA_W * 5,
-    GUI_ECHIDNA_H * 2
+    SafeZoneX + GUI_DISP_W*3 * 1.5,
+    SafeZoneY + GUI_DISP_H*3 * 19,
+    GUI_DISP_W*3 * 5,
+    GUI_DISP_H*3 * 2
 ];
 _targetBttn ctrlCommit 0;
 
@@ -113,10 +113,10 @@ private _exportBttn = _display ctrlCreate ["RscButton",9999];
 _exportBttn ctrlsetText "Export";
 _exportBttn ctrlAddEventHandler ["ButtonClick",{[] call FUNC(helper_cargo_export)}];
 _exportBttn ctrlSetPosition [
-    SafeZoneX + GUI_ECHIDNA_W * 7,
-    SafeZoneY + GUI_ECHIDNA_H * 19,
-    GUI_ECHIDNA_W * 5,
-    GUI_ECHIDNA_H * 2
+    SafeZoneX + GUI_DISP_W*3 * 7,
+    SafeZoneY + GUI_DISP_H*3 * 19,
+    GUI_DISP_W*3 * 5,
+    GUI_DISP_H*3 * 2
 ];
 _exportBttn ctrlCommit 0;
 

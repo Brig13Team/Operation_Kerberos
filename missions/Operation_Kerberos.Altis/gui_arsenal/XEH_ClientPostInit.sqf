@@ -23,10 +23,9 @@ GVAR(fullArsenal) = false;
 GVAR(level) = 2;
 GVAR(allowedradius) = 25;
 
-[getmarkerpos GVARMAIN(RESPAWNMARKER)] call FUNC(addArsenalArea);
-If (((getMarkerpos "respawn_west_land") distance2D [0,0,0])>100) then {
-    [getmarkerpos "respawn_west_land"] call FUNC(addArsenalArea);
-};
+{
+    [getMarkerPos _x] call FUNC(addArsenalArea)
+} forEach ([side player] call BIS_fnc_getRespawnMarkers);
 
 
 /*
@@ -45,19 +44,21 @@ If !(IS_SCALAR(GVAR(fullArsenal))) then {
 
 [
     localize "str_a3_cfghints_learn_arsenal0",
+    "NONE",
+    "\A3\ui_f\data\logos\arsenal_1024_ca.paa",
     {[false] spawn FUNC(OpenMenu);},
     {[ace_player] call FUNC(canOpenMenu);},
-    "\A3\ui_f\data\logos\arsenal_1024_ca.paa",
-    2
-] call EFUNC(gui_echidna,addApp);
+    []
+] call EFUNC(gui_main,addApp);
 
 [
     localize LSTRING(FASTARSENAL),
+    "NONE",
+    "\A3\ui_f\data\logos\arsenal_1024_ca.paa",
     {[true] spawn FUNC(OpenMenu);},
     {[ace_player] call FUNC(canOpenMenu);},
-    "\A3\ui_f\data\logos\arsenal_1024_ca.paa",
-    1
-] call EFUNC(gui_echidna,addApp);
+    []
+] call EFUNC(gui_main,addApp);
 
 
 [

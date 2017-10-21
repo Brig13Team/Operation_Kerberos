@@ -16,7 +16,7 @@ class DOUBLES(CfgComponent,ADDON) {
     class preinit {};
     class dependencies {
         CfgPatches[] = {};
-        CfgComponents[] = {"common","gui","gui_echidna"};
+        CfgComponents[] = {"common","gui","gui_main"};
     };
 };
 #include "config\arsenal.hpp"

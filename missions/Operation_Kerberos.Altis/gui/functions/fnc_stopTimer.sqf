@@ -15,4 +15,3 @@
 GVAR(timer_code) = {};
 GVAR(timer_parameter) = [];
 GVAR(timer_finish) = -1;
-

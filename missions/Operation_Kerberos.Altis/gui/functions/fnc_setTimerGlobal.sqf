@@ -25,4 +25,3 @@ GVAR(timer_code) = _code;
 GVAR(timer_parameter) = _parameter;
 
 publicVariable QGVAR(timer_finish);
-

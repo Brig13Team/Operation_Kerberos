@@ -31,4 +31,3 @@ GVAR(timerIsShown) = true;
     private _ctrl = _display displayCtrl IDC_TIMER_TEXT;
     _ctrl ctrlsetText _formatedTime;
 }, 0.2, [uiNamespace getVariable [QGVAR(timer), displayNull]]] call CBA_fnc_addPerFrameHandler;
-

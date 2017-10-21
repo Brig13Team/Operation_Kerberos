@@ -20,7 +20,7 @@
 
 _this params ["_ctrl","_PosX","_PosY","_sourceID","_valueArray"];
 
-private _sourceCtrl = (uiNamespace getVariable QEGVAR(gui_Echidna,dialog)) displayCtrl _sourceID;
+private _sourceCtrl = (uiNamespace getVariable QEGVAR(gui_main,dialog)) displayCtrl _sourceID;
 If (_ctrl isEqualTo _sourceCtrl) exitWith {};
 
 (_valueArray select 0) params ["_text","_value","_data"];

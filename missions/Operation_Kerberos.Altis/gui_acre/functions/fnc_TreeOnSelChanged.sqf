@@ -21,7 +21,7 @@ _this params ["_tree","_selection"];
 TRACEV_1(_selection);
 private _data = _tree tvData _selection;
 
-private _display = uiNamespace getVariable QEGVAR(gui_Echidna,dialog);
+private _display = uiNamespace getVariable QEGVAR(gui_main,dialog);
 private _list = _display displayCtrl IDC_ACRE_MENU_PROPERTIESLIST;
 
 lnbClear _list;

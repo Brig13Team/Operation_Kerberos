@@ -169,10 +169,10 @@ _targetBttn ctrlAddEventHandler ["ButtonClick",
         };
     }];
 _targetBttn ctrlSetPosition [
-    SafeZoneX + GUI_ECHIDNA_W * 1.5,
-    SafeZoneY + GUI_ECHIDNA_H * 19,
-    GUI_ECHIDNA_W * 5,
-    GUI_ECHIDNA_H * 2
+    SafeZoneX + GUI_DISP_W*3 * 1.5,
+    SafeZoneY + GUI_DISP_H*3 * 19,
+    GUI_DISP_W*3 * 5,
+    GUI_DISP_H*3 * 2
 ];
 _targetBttn ctrlCommit 0;
 
@@ -180,10 +180,10 @@ private _exportBttn = _display ctrlCreate ["RscButton",9999];
 _exportBttn ctrlsetText "Export";
 _exportBttn ctrlAddEventHandler ["ButtonClick",{[] call FUNC(helper_vehicle_export)}];
 _exportBttn ctrlSetPosition [
-    SafeZoneX + GUI_ECHIDNA_W * 7,
-    SafeZoneY + GUI_ECHIDNA_H * 19,
-    GUI_ECHIDNA_W * 5,
-    GUI_ECHIDNA_H * 2
+    SafeZoneX + GUI_DISP_W*3 * 7,
+    SafeZoneY + GUI_DISP_H*3 * 19,
+    GUI_DISP_W*3 * 5,
+    GUI_DISP_H*3 * 2
 ];
 _exportBttn ctrlCommit 0;
 
@@ -274,10 +274,10 @@ private _AddBttn = _display ctrlCreate ["RscButton",9997];
 _AddBttn ctrlsetText "Add VR-Men";
 _AddBttn ctrlAddEventHandler ["ButtonClick",{[] call FUNC(helper_passenger)}];
 _AddBttn ctrlSetPosition [
-    SafeZoneX + GUI_ECHIDNA_W * 1.5,
-    SafeZoneY + GUI_ECHIDNA_H * 21.5,
-    GUI_ECHIDNA_W * 5,
-    GUI_ECHIDNA_H * 2
+    SafeZoneX + GUI_DISP_W*3 * 1.5,
+    SafeZoneY + GUI_DISP_H*3 * 21.5,
+    GUI_DISP_W*3 * 5,
+    GUI_DISP_H*3 * 2
 ];
 _AddBttn ctrlCommit 0;
 
@@ -290,10 +290,10 @@ _clearBttn ctrlAddEventHandler ["ButtonClick",
         } forEach GVAR(helper_passenger)
     }];
 _clearBttn ctrlSetPosition [
-    SafeZoneX + GUI_ECHIDNA_W * 7,
-    SafeZoneY + GUI_ECHIDNA_H * 21.5,
-    GUI_ECHIDNA_W * 5,
-    GUI_ECHIDNA_H * 2
+    SafeZoneX + GUI_DISP_W*3 * 7,
+    SafeZoneY + GUI_DISP_H*3 * 21.5,
+    GUI_DISP_W*3 * 5,
+    GUI_DISP_H*3 * 2
 ];
 _clearBttn ctrlCommit 0;
 

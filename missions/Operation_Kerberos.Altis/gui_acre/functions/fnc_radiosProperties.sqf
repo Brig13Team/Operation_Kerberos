@@ -17,7 +17,7 @@
 
 _this params [["_index",-1,[0]]];
 
-private _display = uiNamespace getVariable QEGVAR(gui_Echidna,dialog);
+private _display = uiNamespace getVariable QEGVAR(gui_main,dialog);
 private _ctrlGroup = _display displayCtrl IDC_ACRE_MENU_PROPERTIES;
 private _combobox = _ctrlGroup controlsGroupCtrl IDC_ACRE_MENU_PROPERTIES_COMBO;
 

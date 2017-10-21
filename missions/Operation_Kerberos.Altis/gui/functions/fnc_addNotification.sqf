@@ -17,7 +17,7 @@
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-_this params [
+params [
     ["_ID","",[""]],
     ["_imgPath","",[""]],
     ["_conditionToShow",{false},[{}]],
@@ -42,7 +42,7 @@ If (HASH_HASKEY(GVAR(notifications),_ID)) then {
     _hash = HASH_CREATE;
     HASH_SET(GVAR(notifications),_ID,_hash);
 };
-TRACEV_4(_hash,_imgPath,_conditionToShow,_parameter);
+//TRACEV_4(_hash,_imgPath,_conditionToShow,_parameter);
 HASH_SET(_hash,"img",_imgPath);
 HASH_SET(_hash,"condition",_conditionToShow);
 HASH_SET(_hash,"parameter",_parameter);

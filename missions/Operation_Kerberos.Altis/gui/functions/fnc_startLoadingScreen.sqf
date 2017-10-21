@@ -12,7 +12,6 @@
  *      STRING - ID
  *
  */
-#define INCLUDE_GUI
 #define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
@@ -20,7 +19,7 @@ If !(canSuspend) then {_this spawn FUNC(startLoadingScreen);};
 
 disableSerialization;
 
-_this params [["_title","",[""]]];
+params [["_title","",[""]]];
 
 If (isNil QGVAR(loading)) then {
     GVAR(loading) = HASH_CREATE;
@@ -34,9 +33,6 @@ If (_title isEqualTo "") then {
     GVAR(loadingtitle) = _title;
 };
 
-//startLoadingScreen [_title, QAPP(loadingScreen)];
-
-//(findDisplay 46) createDisplay QAPP(loadingScreen);
 if (isNull(findDisplay IDD_LOADING)) then {
     createDialog QAPP(loadingScreen);
     (findDisplay IDD_LOADING) displayAddEventHandler ["KeyDown", {

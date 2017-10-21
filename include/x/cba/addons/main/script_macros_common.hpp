@@ -128,11 +128,6 @@ Author:
 #define DEBUG_MODE_MINIMAL
 #endif
 
-// If no debug modes specified, use DEBUG_MODE_NORMAL (+ DEBUG_MODE_MINIMAL).
-#ifndef DEBUG_MODE_MINIMAL
-#define DEBUG_MODE_NORMAL
-#define DEBUG_MODE_MINIMAL
-#endif
 
 #define LOG_SYS_FORMAT(LEVEL,MESSAGE) format ['[%1] (%2) %3: %4', toUpper 'PREFIX', 'COMPONENT', LEVEL, MESSAGE]
 
