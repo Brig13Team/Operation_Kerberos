@@ -13,6 +13,13 @@ switch (str(side player)) do {
             LINKFUNC(canOpenMenu),
             _id
         ] call EFUNC(gui_main,addApp);
+        [
+            format[QGVAR(interface_%1),_id],
+            (parsingNamespace getVariable ["MISSION_ROOT",""]) + 'COMPONENT\data\icon_robot.paa',
+            {[ace_player,ace_player,_this] call FUNC(canOpenMenu);},
+            _id
+        ] call EFUNC(gui,addNotification);
+
         _id = ["west",cratespawner2] call FUNC(registerSpawn);
         TRACEV_1(_id);
         [
@@ -23,6 +30,12 @@ switch (str(side player)) do {
             LINKFUNC(canOpenMenu),
             _id
         ] call EFUNC(gui_main,addApp);
+        [
+            format[QGVAR(interface_%1),_id],
+            (parsingNamespace getVariable ["MISSION_ROOT",""]) + 'COMPONENT\data\icon_robot.paa',
+            {[ace_player,ace_player,_this] call FUNC(canOpenMenu);},
+            _id
+        ] call EFUNC(gui,addNotification);
     };
     case "EAST" : {
         private _id = ["east",cratespawner4] call FUNC(registerSpawn);
@@ -34,6 +47,12 @@ switch (str(side player)) do {
             LINKFUNC(canOpenMenu),
             _id
         ] call EFUNC(gui_main,addApp);
+        [
+            format[QGVAR(interface_%1),_id],
+            (parsingNamespace getVariable ["MISSION_ROOT",""]) + 'COMPONENT\data\icon_robot.paa',
+            {[ace_player,ace_player,_this] call FUNC(canOpenMenu);},
+            _id
+        ] call EFUNC(gui,addNotification);
     };
     case "GUER" : {
         private _id = ["guer",cratespawner5] call FUNC(registerSpawn);
@@ -45,6 +64,12 @@ switch (str(side player)) do {
             LINKFUNC(canOpenMenu),
             _id
         ] call EFUNC(gui_main,addApp);
+        [
+            format[QGVAR(interface_%1),_id],
+            (parsingNamespace getVariable ["MISSION_ROOT",""]) + 'COMPONENT\data\icon_robot.paa',
+            {[ace_player,ace_player,_this] call FUNC(canOpenMenu);},
+            _id
+        ] call EFUNC(gui,addNotification);
     };
     default {
         private _id = ["",cratespawner6] call FUNC(registerSpawn);
@@ -56,5 +81,11 @@ switch (str(side player)) do {
             LINKFUNC(canOpenMenu),
             _id
         ] call EFUNC(gui_main,addApp);
+        [
+            format[QGVAR(interface_%1),_id],
+            (parsingNamespace getVariable ["MISSION_ROOT",""]) + 'COMPONENT\data\icon_robot.paa',
+            {[ace_player,ace_player,_this] call FUNC(canOpenMenu);},
+            _id
+        ] call EFUNC(gui,addNotification);
     };
 };

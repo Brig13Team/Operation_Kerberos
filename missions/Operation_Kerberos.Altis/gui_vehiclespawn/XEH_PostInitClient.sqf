@@ -14,6 +14,12 @@ switch (str(side player)) do {
             LINKFUNC(canOpenMenu),
             _id
         ] call EFUNC(gui_main,addApp);
+        [
+            format[QGVAR(interface_%1),_id],
+            (parsingNamespace getVariable ["MISSION_ROOT",""]) + 'COMPONENT\data\icon_tank.paa',
+            {[ace_player,ace_player,_this] call FUNC(canOpenMenu);},
+            _id
+        ] call EFUNC(gui,addNotification);
         _id = ["air_west",airspawn_west] call FUNC(registerSpawn);
         [
             LSTRING(HEADER),
@@ -23,6 +29,12 @@ switch (str(side player)) do {
             LINKFUNC(canOpenMenu),
             _id
         ] call EFUNC(gui_main,addApp);
+        [
+            format[QGVAR(interface_%1),_id],
+            (parsingNamespace getVariable ["MISSION_ROOT",""]) + 'COMPONENT\data\icon_heli.paa',
+            {[ace_player,ace_player,_this] call FUNC(canOpenMenu);},
+            _id
+        ] call EFUNC(gui,addNotification);
         _id = ["naval_west",marinespawn_west] call FUNC(registerSpawn);
         [
             LSTRING(HEADER),
@@ -32,6 +44,12 @@ switch (str(side player)) do {
             LINKFUNC(canOpenMenu),
             _id
         ] call EFUNC(gui_main,addApp);
+        [
+            format[QGVAR(interface_%1),_id],
+            (parsingNamespace getVariable ["MISSION_ROOT",""]) + 'COMPONENT\data\icon_harbour.paa',
+            {[ace_player,ace_player,_this] call FUNC(canOpenMenu);},
+            _id
+        ] call EFUNC(gui,addNotification);
     };
     case "EAST" : {
         private _id = ["vehicles_east",vehiclespawn_east] call FUNC(registerSpawn);
@@ -43,6 +61,12 @@ switch (str(side player)) do {
             LINKFUNC(canOpenMenu),
             _id
         ] call EFUNC(gui_main,addApp);
+        [
+            format[QGVAR(interface_%1),_id],
+            (parsingNamespace getVariable ["MISSION_ROOT",""]) + 'COMPONENT\data\icon_tank.paa',
+            {[ace_player,ace_player,_this] call FUNC(canOpenMenu);},
+            _id
+        ] call EFUNC(gui,addNotification);
 
         _id = ["air_east",airspawn_east] call FUNC(registerSpawn);
         [
@@ -53,6 +77,12 @@ switch (str(side player)) do {
             LINKFUNC(canOpenMenu),
             _id
         ] call EFUNC(gui_main,addApp);
+        [
+            format[QGVAR(interface_%1),_id],
+            (parsingNamespace getVariable ["MISSION_ROOT",""]) + 'COMPONENT\data\icon_heli.paa',
+            {[ace_player,ace_player,_this] call FUNC(canOpenMenu);},
+            _id
+        ] call EFUNC(gui,addNotification);
 
         _id = ["naval_east",marinespawn_east] call FUNC(registerSpawn);
         [
@@ -63,6 +93,12 @@ switch (str(side player)) do {
             LINKFUNC(canOpenMenu),
             _id
         ] call EFUNC(gui_main,addApp);
+        [
+            format[QGVAR(interface_%1),_id],
+            (parsingNamespace getVariable ["MISSION_ROOT",""]) + 'COMPONENT\data\icon_harbour.paa',
+            {[ace_player,ace_player,_this] call FUNC(canOpenMenu);},
+            _id
+        ] call EFUNC(gui,addNotification);
     };
     case "GUER" : {
         private _id = ["vehicles_resistance",vehiclespawn_resistance] call FUNC(registerSpawn);
@@ -74,6 +110,12 @@ switch (str(side player)) do {
             LINKFUNC(canOpenMenu),
             _id
         ] call EFUNC(gui_main,addApp);
+        [
+            format[QGVAR(interface_%1),_id],
+            (parsingNamespace getVariable ["MISSION_ROOT",""]) + 'COMPONENT\data\icon_tank.paa',
+            {[ace_player,ace_player,_this] call FUNC(canOpenMenu);},
+            _id
+        ] call EFUNC(gui,addNotification);
 
         _id = ["air_resistance",airspawn_resistance] call FUNC(registerSpawn);
         [
@@ -84,6 +126,12 @@ switch (str(side player)) do {
             LINKFUNC(canOpenMenu),
             _id
         ] call EFUNC(gui_main,addApp);
+        [
+            format[QGVAR(interface_%1),_id],
+            (parsingNamespace getVariable ["MISSION_ROOT",""]) + 'COMPONENT\data\icon_heli.paa',
+            {[ace_player,ace_player,_this] call FUNC(canOpenMenu);},
+            _id
+        ] call EFUNC(gui,addNotification);
 
         _id = ["naval_resistance",marinespawn_resistance] call FUNC(registerSpawn);
         [
@@ -94,5 +142,11 @@ switch (str(side player)) do {
             LINKFUNC(canOpenMenu),
             _id
         ] call EFUNC(gui_main,addApp);
+        [
+            format[QGVAR(interface_%1),_id],
+            (parsingNamespace getVariable ["MISSION_ROOT",""]) + 'COMPONENT\data\icon_harbour.paa',
+            {[ace_player,ace_player,_this] call FUNC(canOpenMenu);},
+            _id
+        ] call EFUNC(gui,addNotification);
     };
 };
