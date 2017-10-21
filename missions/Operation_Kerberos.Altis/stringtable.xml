@@ -376,51 +376,6 @@
             <English>Supply Depot</English>
         </Key>
 
-
-        <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROPERTY_DISPLAYNAME">
-            <German>Name</German>
-            <English>Name</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROPERTY_EMPTY">
-            <German> </German>
-            <English> </English>
-        </Key>
-        <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROPERTY_MASS">
-            <German>Fahrzeuggewicht</German>
-            <English>Vehiclemass</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROPERTY_WEAPONS">
-            <German>Waffen:</German>
-            <English>Weapons:</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROPERTY_cargonumber">
-            <German>Pasagieranzahl:</German>
-            <English>Number of Passengers:</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_VEHICLESPAWN_HEADER">
-            <German>Fahrzeugdepot</German>
-            <English>Vehicle Spawn</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_VEHICLESPAWN_ERRORMSG">
-            <German>Fehler</German>
-            <English>Error</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_VEHICLESPAWN_NOTEMPTY">
-            <German>Spawnfläche ist nicht leer</German>
-            <English>Spawn point is not empty</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_VEHICLESPAWN_ISRESTRICTED">
-            <German>Du hast keine Berechtigung das Fahrzeug zu bestellen</German>
-            <English>You are not allowed to spawn this vehicle</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_VEHICLESPAWN_BTTN_CLEAR">
-            <German>Bereich säubern</German>
-            <English>Clear Spawn Area</English>
-        </Key>
-        <Key ID="STR_DORB_GUI_VEHICLESPAWN_BTTN_SPAWN">
-            <German>Erschaffen</German>
-            <English>Spawn</English>
-        </Key>
     </Package>
     <Package name="MISSION">
         <Container name="MAINMISSION">
