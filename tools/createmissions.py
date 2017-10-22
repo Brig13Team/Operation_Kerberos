@@ -7,10 +7,12 @@
 
 import sys
 import os
+import re
 import shutil
 import struct
 import platform
 from distutils.dir_util import copy_tree
+from colorama import Fore
 
 def is_python_64bit():
     """checks if it is 64-bit OS"""
@@ -50,8 +52,10 @@ def create_mission_pbos():
         return False
 
     path_primary_mission = os.path.normpath(path_missions + "/" + primary_missionname)
+    update_version(os.path.normpath(path_primary_mission + "/main/script_version.hpp"))
     shutil.copytree(path_primary_mission, os.path.normpath(path_temp + "/" + primary_missionname))
 
+    print_yellow("Copying files")
     for file in os.listdir(path_missions):
         if not file.lower() == primary_missionname.lower():
             newdir = os.path.normpath(path_temp + "/" + file)
@@ -63,22 +67,63 @@ def create_mission_pbos():
             os.path.normpath(path_temp + "/" + folder) + " " + \
             os.path.normpath(path_release + "/" + folder + ".pbo")
         os.system(cmd_armake)
-        #print("Creating %s.pbo" % (folder))
+        print_yellow("Creating %s.pbo" % (folder))
 
     shutil.rmtree(path_temp, ignore_errors=True)
     return True
 
+def update_version(filepath):
+    """update the build version"""
+    versionfile = open(filepath, "r")
+    hpptext = versionfile.read()
+    versionfile.close()
+
+    if hpptext:
+        majortext = re.search(r"#define MAJOR (.*\b)", hpptext).group(1)
+        minortext = re.search(r"#define MINOR (.*\b)", hpptext).group(1)
+        patchtext = re.search(r"#define PATCHLVL (.*\b)", hpptext).group(1)
+        buildtext = re.search(r"#define BUILD (.*\b)", hpptext).group(1)
+
+
+        buildtext = int(buildtext) + 1
+
+        print_yellow("Incrementing version to {}.{}.{}.{}".format(majortext,\
+            minortext, patchtext, buildtext))
+        with open(filepath, "w", newline="\n") as file:
+            file.writelines([
+                "#define MAJOR {}\n".format(majortext),
+                "#define MINOR {}\n".format(minortext),
+                "#define PATCHLVL {}\n".format(patchtext),
+                "#define BUILD {}\n".format(buildtext)
+            ])
+
+def print_green(text):
+    """print green colored"""
+    print(Fore.GREEN + text)
+
+def print_red(text):
+    """print red colored"""
+    print(Fore.RED + text)
+
+def print_yellow(text):
+    """print yellow colored"""
+    print(Fore.YELLOW + text)
+
 def main():
     """main"""
+    print_green("Creating mission pbos")
+
     try:
         back = create_mission_pbos()
         if not back:
             ValueError('Armake failed')
-        print("No errors found.")
+        print_green("No errors found.")
     except:
-        print("Error occured found.")
+        print_red("Error occured found.")
+        print(Fore.RESET)
         return 1
     else:
+        print(Fore.RESET)
         return 0
 
 if __name__ == '__main__':
