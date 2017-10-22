@@ -7,7 +7,7 @@
 
 
 */
-#define INCLUDE_GUI
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 private _ctrlList = findDisplay IDD_SAVE_DLG displayCtrl IDC_SAVE_LIST;

@@ -7,6 +7,8 @@
  */
 #include "script_component.hpp"
 
+If (!((getMissionConfigValue ["isKerberos", 0]) > 0)) exitWith {};
+
 If (hasInterface) then {
     ["Air", "SeatSwitchedMan", {
         _this call FUNC(onseatswitched);

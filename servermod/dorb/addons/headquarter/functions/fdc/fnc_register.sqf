@@ -27,7 +27,7 @@ private _weapons = weapons _newUnit;
 {
     private _curWeapon = _x;
     ([_curWeapon] call BIS_fnc_itemType)params ["_itemclass","_itemtype"];
-    If (_itemtype in ["RocketLauncher"]) exitWith {
+    If ((_itemtype in ["RocketLauncher"])||{_curWeapon in ["rhs_weap_grad"]}) exitWith {
         _type = "rocket";
     };
     If (_itemtype in ["Mortar"]) exitWith {

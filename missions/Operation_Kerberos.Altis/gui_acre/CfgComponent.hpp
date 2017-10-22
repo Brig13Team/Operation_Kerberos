@@ -13,7 +13,7 @@ class DOUBLES(CfgComponent,ADDON) {
     class postInitClient {server=0;};
     class dependencies {
         CfgPatches[] = {"acre_main"};
-        CfgComponents[] = {"common","gui","gui_echidna"};
+        CfgComponents[] = {"common","gui","gui_main"};
     };
 };
 

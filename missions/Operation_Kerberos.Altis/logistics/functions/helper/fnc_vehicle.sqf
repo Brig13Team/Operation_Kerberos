@@ -101,7 +101,7 @@ _button ctrlAddEventHandler ["ButtonClick",_update_fnc];
 (ctAddRow _table) params ["_index","_controls"];
 _controls params ["_background","_text","_edit","_button"];
 _text ctrlsetText "offset z";
-_edit ctrlsetText str GVAR(helper_veh_x);
+_edit ctrlsetText str GVAR(helper_veh_z);
 _button ctrlsetText "ok";
 _button ctrlAddEventHandler ["ButtonClick",_update_fnc];
 
@@ -134,11 +134,34 @@ _targetBttn ctrlAddEventHandler ["ButtonClick",
         private _obj = cursorTarget;
         if (_obj isEqualType objNull) then {
             GVAR(helper_vehicle) = _obj;
-            hint format ["New Vehicle = %1",typeOf GVAR(helper_vehicle)];
+            hint format ["New Vehicle = %1%2%3",
+                typeOf GVAR(helper_vehicle),
+                endl,
+                getText(configFile >> "cfgVehicles" >> typeOf GVAR(helper_vehicle) >> "displayName")];
 
             GVAR(helper_passenger_pos) = [];
             for "_i" from 0 to ((GVAR(helper_vehicle) emptyPositions "cargo")-1) do {
                 GVAR(helper_passenger_pos) set [_i,[]];
+            };
+
+            If (isClass(missionconfigfile >> "logistics" >> "vehicles" >> (typeOf GVAR(helper_vehicle)))) then {
+                hint format ["Found Vehicle = %1%2%3",
+                    typeOf GVAR(helper_vehicle),
+                    endl,
+                    getText(configFile >> "cfgVehicles" >> typeOf GVAR(helper_vehicle) >> "displayName")
+                ];
+                copyToClipboard format ["%1 %2",typeOf GVAR(helper_vehicle),getText(configFile >> "cfgVehicles" >> typeOf GVAR(helper_vehicle) >> "displayName")];
+                GVAR(helper_veh_w) = getNumber(missionconfigfile >> "logistics" >> "vehicles" >> (typeOf GVAR(helper_vehicle)) >> "max_width");
+                GVAR(helper_veh_l) = getNumber(missionconfigfile >> "logistics" >> "vehicles" >> (typeOf GVAR(helper_vehicle)) >> "max_length");
+                GVAR(helper_veh_h) = getNumber(missionconfigfile >> "logistics" >> "vehicles" >> (typeOf GVAR(helper_vehicle)) >> "max_height");
+                [getArray(missionconfigfile >> "logistics" >> "vehicles" >> (typeOf GVAR(helper_vehicle)) >> "cargo_point")] params [["_temp",[0,0,0],[[]],[3]]];
+                GVAR(helper_veh_x) = _temp select 0;
+                GVAR(helper_veh_y) = _temp select 1;
+                GVAR(helper_veh_z) = _temp select 2;
+                [getArray(missionconfigfile >> "logistics" >> "vehicles" >> (typeOf GVAR(helper_vehicle)) >> "load_point")] params [["_temp",[0,0,0],[[]],[3]]];
+                GVAR(helper_veh_load_x) = _temp select 0;
+                GVAR(helper_veh_load_y) = _temp select 1;
+                GVAR(helper_veh_load_z) = _temp select 2;
             };
 
             closeDialog 10000;
@@ -146,10 +169,10 @@ _targetBttn ctrlAddEventHandler ["ButtonClick",
         };
     }];
 _targetBttn ctrlSetPosition [
-    SafeZoneX + GUI_ECHIDNA_W * 1.5,
-    SafeZoneY + GUI_ECHIDNA_H * 19,
-    GUI_ECHIDNA_W * 5,
-    GUI_ECHIDNA_H * 2
+    SafeZoneX + GUI_DISP_W*3 * 1.5,
+    SafeZoneY + GUI_DISP_H*3 * 19,
+    GUI_DISP_W*3 * 5,
+    GUI_DISP_H*3 * 2
 ];
 _targetBttn ctrlCommit 0;
 
@@ -157,10 +180,10 @@ private _exportBttn = _display ctrlCreate ["RscButton",9999];
 _exportBttn ctrlsetText "Export";
 _exportBttn ctrlAddEventHandler ["ButtonClick",{[] call FUNC(helper_vehicle_export)}];
 _exportBttn ctrlSetPosition [
-    SafeZoneX + GUI_ECHIDNA_W * 7,
-    SafeZoneY + GUI_ECHIDNA_H * 19,
-    GUI_ECHIDNA_W * 5,
-    GUI_ECHIDNA_H * 2
+    SafeZoneX + GUI_DISP_W*3 * 7,
+    SafeZoneY + GUI_DISP_H*3 * 19,
+    GUI_DISP_W*3 * 5,
+    GUI_DISP_H*3 * 2
 ];
 _exportBttn ctrlCommit 0;
 
@@ -251,10 +274,10 @@ private _AddBttn = _display ctrlCreate ["RscButton",9997];
 _AddBttn ctrlsetText "Add VR-Men";
 _AddBttn ctrlAddEventHandler ["ButtonClick",{[] call FUNC(helper_passenger)}];
 _AddBttn ctrlSetPosition [
-    SafeZoneX + GUI_ECHIDNA_W * 1.5,
-    SafeZoneY + GUI_ECHIDNA_H * 21.5,
-    GUI_ECHIDNA_W * 5,
-    GUI_ECHIDNA_H * 2
+    SafeZoneX + GUI_DISP_W*3 * 1.5,
+    SafeZoneY + GUI_DISP_H*3 * 21.5,
+    GUI_DISP_W*3 * 5,
+    GUI_DISP_H*3 * 2
 ];
 _AddBttn ctrlCommit 0;
 
@@ -267,10 +290,10 @@ _clearBttn ctrlAddEventHandler ["ButtonClick",
         } forEach GVAR(helper_passenger)
     }];
 _clearBttn ctrlSetPosition [
-    SafeZoneX + GUI_ECHIDNA_W * 7,
-    SafeZoneY + GUI_ECHIDNA_H * 21.5,
-    GUI_ECHIDNA_W * 5,
-    GUI_ECHIDNA_H * 2
+    SafeZoneX + GUI_DISP_W*3 * 7,
+    SafeZoneY + GUI_DISP_H*3 * 21.5,
+    GUI_DISP_W*3 * 5,
+    GUI_DISP_H*3 * 2
 ];
 _clearBttn ctrlCommit 0;
 

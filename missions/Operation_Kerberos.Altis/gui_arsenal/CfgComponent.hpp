@@ -9,14 +9,14 @@
 #include "script_component.hpp"
 
 class DOUBLES(CfgComponent,ADDON) {
-    version = "2017.08.09";
+    version = "2017.10.09";
     class clientpostinit {server = 0;};
     class postinitServer {client = 0;};
     class clientRespawn {server = 0;};
     class preinit {};
     class dependencies {
         CfgPatches[] = {};
-        CfgComponents[] = {"common","gui","gui_echidna"};
+        CfgComponents[] = {"common","gui","gui_main"};
     };
 };
 #include "config\arsenal.hpp"

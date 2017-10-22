@@ -83,7 +83,7 @@ _mission setVariable ["conditiontype",_condition];
 private _events = (configProperties [_missionCfg >> "condition","isText _x"]) select {(configname _x) select [0,2] == "on"};
 {
     private _value = getText _x;
-    If !(isNil (missionNamespace getVariable _value)) then {
+    If !(isNil {missionNamespace getVariable _value}) then {
         _mission setVariable [configname _x,_value];
     }else{
         _mission setVariable [configname _x,compile _value];

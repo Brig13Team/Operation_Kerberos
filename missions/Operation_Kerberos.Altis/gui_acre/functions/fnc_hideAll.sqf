@@ -15,7 +15,7 @@
 #define INCLUDE_GUI
 #include "script_component.hpp"
 disableSerialization;
-private _display = uiNamespace getVariable QEGVAR(gui_Echidna,dialog);
+private _display = uiNamespace getVariable QEGVAR(gui_main,dialog);
 {
     _x params ["_idc",["_handler",[],[[]]]];
     private _ctrl = _display displayCtrl _idc;
@@ -39,7 +39,7 @@ private _display = uiNamespace getVariable QEGVAR(gui_Echidna,dialog);
 {
     private _ctrl = _display displayCtrl _x;
     _ctrl ctrlsetText "";
-} forEach [IDC_ACRE_MENU_WATERMARK,IDC_ACRE_MENU_HEADER];
+} forEach [IDC_ACRE_MENU_WATERMARK];
 
 {
     {ctrlDelete _x;} forEach _x;

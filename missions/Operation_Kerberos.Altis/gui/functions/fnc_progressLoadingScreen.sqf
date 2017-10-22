@@ -12,11 +12,10 @@
  *      none
  *
  */
-#define INCLUDE_GUI
-#define DEBUG_MODE_FULL
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 disableSerialization;
-_this params [["_curKey","",[""]],["_val",0,[0]]];
+params [["_curKey","",[""]],["_val",0,[0]]];
 
 If ((!(_curKey isEqualTo ""))&&(HASH_HASKEY(GVAR(loading),_curkey))) then {
     _val = (_val min 1) max 0;
@@ -29,7 +28,7 @@ private _loadingprocesses = [];
     private _curKey = _x;
     _loadingprocesses pushBack (HASH_GET(GVAR(loading),_curKey));
 } forEach HASH_KEYS(GVAR(loading));
-//LOG_4(_loadingprocesses,_curKey,_val,_this);
+
 private _process = [_loadingprocesses] call EFUNC(common,arithmeticMean);
 
 //progressLoadingScreen _process;
@@ -38,6 +37,5 @@ If ((isNull _disp)||(isNil "_process")) exitWith {
     uisleep 1;
     [] call FUNC(endLoadingScreen);
 };
-
 
 ((findDisplay IDD_LOADING) displayCtrl IDD_LOADING_PROGRESS) progressSetPosition _process;

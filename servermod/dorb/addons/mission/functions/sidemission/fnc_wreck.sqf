@@ -27,7 +27,7 @@ _this params ["_mission", "_targets"];
     _x setVariable ["ace_cookOff_enable", false, true];
     _x setDammage 0.8;
 
-    _x addEventHandler ["Killed", LINKFUNC(obj__increaseCounterTwo)];
+    _x addEventHandler ["Killed", LINKFUNC(statemachine_increaseCounterTwo)];
 } forEach _targets;
 
 //[_mission, _targets] call FUNC(mainmission__twoCounters);

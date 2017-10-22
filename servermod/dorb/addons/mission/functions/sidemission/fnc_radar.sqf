@@ -16,8 +16,9 @@
 _this params ["_mission", "_targets"];
 
 {
-    _x addEventHandler ["Killed", LINKFUNC(obj__increaseCounter)];
-    [QEGVAR(headquarter,registerRadar),_x] call CBA_fnc_localEvent;
+    _x addEventHandler ["Killed", LINKFUNC(statemachine_increaseCounter)];
+    [QEGVAR(headquarter,registerRadar),[_x]] call CBA_fnc_serverEvent;
+    _x setVariable [QGVAR(isActive),true];
 } forEach _targets;
 
 //[_mission, _targets] call FUNC(mainmission__oneCounter);

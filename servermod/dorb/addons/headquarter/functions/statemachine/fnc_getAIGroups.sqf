@@ -32,8 +32,17 @@ private _return = switch (_type) do {
             {isNull (_x getVariable [QGVAR(target),locationNull])}
         };
     };
-
-    default { GVAR(AIGroups) };
+    case "all" : {
+        GVAR(AIGroups)
+    };
+    default {
+        If (CBA_missiontime < (missionNamespace getVariable [QGVAR(statemachineIntervall),CBA_missiontime])) then {
+            []
+        } else {
+            GVAR(statemachineIntervall) = CBA_missiontime + STATEMACHINEINTERVALL;
+            GVAR(AIGroups)
+        };
+    };
 };
 //TRACEV_2(_this,_return);
 _return

@@ -1,20 +1,20 @@
-/*
- *  Author: [Name of Author(s)]
+/**
+ * Author: Dorbedo
+ * calculate the muzzlespeed
  *
- *  Description:
- *      [Description]
+ * Arguments:
+ * 0: <SCALAR> lenght of the barrel
+ * 1: <SCALAR> pressure
+ * 2: <SCALAR> projectilemass
  *
- *  Parameter(s):
- *      0 : [TYPE] - [argument name]
- *
- *  Returns:
- *      [TYPE] - [return name]
+ * Return Value:
+ * <SCALAR> muzzlespeed
  *
  */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-_this params ["_barrellenght","_pressure","_mass"];
+params ["_barrellenght","_pressure","_mass"];
 
 private _q = _projectilemass/_crossSectionArea;
 

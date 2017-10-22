@@ -1,20 +1,24 @@
-/*
- *  Author: Dorbedo
+/**
+ * Author: Dorbedo
+ * clear the inventory-list
  *
- *  Description:
- *      clears the current box and empties the pad
+ * Arguments:
+ * 0: <CONTROL> the button
  *
- *  Parameter(s):
- *      none
- *
- *  Returns:
- *      none
+ * Return Value:
+ * Nothing
  *
  */
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
+params ["_button"];
 
-[GVAR(currentSpawn),8] call FUNC(clearPos);
-GVAR(current) = [[],[],[],[],[],[]];
-GVAR(current_boxid) = 0;
-[] call FUNC(onLoad);
+private _display = ctrlParent _button;
+
+HASH_DELETE(GVAR(curInventory));
+GVAR(curInventory) = HASH_CREATE;
+
+[_display displayCtrl IDC_GUI_CRATE_INVENTORY,[]] call FUNC(showItemList);
+[_display displayCtrl IDC_GUI_CRATE_ITEMLIST,GVAR(curItemList) select GVAR(curItemListID)] call FUNC(showItemList);
+[_display] call FUNC(updateWeight);

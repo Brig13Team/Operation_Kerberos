@@ -61,7 +61,7 @@ private _allGroups = [];
         _allGroups pushBackUnique (group _x);
     };
     nil
-} count allPlayers;
+} count (allPlayers select {side _x == GVARMAIN(playerside)});
 {
     [_attackLoc,_x] call FUNC(attackpos_add);
     nil

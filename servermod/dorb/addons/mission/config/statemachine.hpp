@@ -8,7 +8,7 @@
 
 class GVAR(statemachine_Taskmanager) {
 
-    list = QUOTE(call FUNC(statemachine_getMissions));
+    list = QUOTE([-1] call FUNC(statemachine_getMissions));
     skipNull = 1;
 
     class initial {
@@ -81,6 +81,37 @@ class GVAR(statemachine_Taskmanager) {
 
     class counter {
         onState = QFUNC(statemachine_checkCounter);
+        onStateEntered = "_this setvariable ['progress','none']";
+        onStateLeaving = "";
+        class succeeded {
+            targetState = "endmission";
+            condition = "(_this getvariable ['progress','none'])=='succeeded'";
+            onTransition = QFUNC(statemachine_onTransition);
+        };
+        class failed {
+            targetState = "endmission";
+            condition = "(_this getvariable ['progress','none'])=='failed'";
+            onTransition = QFUNC(statemachine_onTransition);
+        };
+        class neutral {
+            targetState = "endmission";
+            condition = "(_this getvariable ['progress','none'])=='neutral'";
+            onTransition = QFUNC(statemachine_onTransition);
+        };
+        class timeout {
+            targetState = "endmission";
+            condition = "(_this getvariable ['timeout',1E20])<CBA_missiontime";
+            onTransition = QFUNC(statemachine_onTransition);
+        };
+        class cancel {
+            targetState = "endmission";
+            condition = "(_this getvariable ['progress','none'])=='cancel'";
+            onTransition = QFUNC(statemachine_onTransition);
+        };
+    };
+
+    class clear {
+        onState = QFUNC(statemachine_checkclear);
         onStateEntered = "_this setvariable ['progress','none']";
         onStateLeaving = "";
         class succeeded {
@@ -218,7 +249,7 @@ class GVAR(statemachine_Taskmanager) {
             // we want to cleanup, after the units are back in base
             targetState = "cleanup";
             // check inf the units are all back to base
-            condition = QUOTE({_x distance2D (getMarkerPos GVARMAIN(respawnmarker)) > 200} count (([] call CBA_fnc_players) select {alive _x}) == 0);
+            condition = QUOTE([] call FUNC(statemachine_CheckRTB));
             // mark the task as finished and display the message
             onTransition = QFUNC(statemachine_rtb);
         };
@@ -275,6 +306,11 @@ class GVAR(statemachine_Taskmanager) {
             targetState = "counter";
             condition = "(_this getVariable ['conditiontype','none']) == 'counter'";
             onTransition = QFUNC(statemachine_initcounter);
+        };
+        class toclear {
+            targetState = "clear";
+            condition = "(_this getVariable ['conditiontype','none']) == 'clear'";
+            onTransition = QFUNC(statemachine_initclear);
         };
         class twoCounter {
             targetState = "twoCounter";

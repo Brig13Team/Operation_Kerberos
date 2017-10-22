@@ -4,21 +4,21 @@
 
 #define CBA_OFF
 #include "script_component.hpp"
-class APP(dialog) : RSC(echidna) {
+class APP(dialog) : RSC(guiMenu) {
+    idd = IDD_GUI_ACRE;
 
     controlsBackground[] = {
-        background_taskbar,
-        background_display
+        background_header,
+        background_body,
+        background_gradiend
     };
     controls[] = {
+        headertext,
         clock,
+        player_button,
         menu_button,
 
         display_background,
-        display_header,
-
-        header_text,
-        header_picture,
 
         spare_back1,
         spare_back2,
@@ -35,6 +35,7 @@ class APP(dialog) : RSC(echidna) {
         treeview,
 
         menubutton_background,
+        menubutton_background_empty,
         menubutton_1_background,
         menubutton_2_background,
         menubutton_3_background,
@@ -48,16 +49,15 @@ class APP(dialog) : RSC(echidna) {
         menubutton_4,
         menubutton_5,
         menubutton_6,
-        menubutton_7,
-
-        metro_back,
-        metro,
-        metro_side,
-        background_device
+        menubutton_7
     };
 
-    onLoad = QUOTE(uiNamespace setVariable [ARR_2('EGVAR(gui_Echidna,dialog)',_this select 0)]; [ARR_2('GVAR(dialog)',true)] call EFUNC(gui,blur); _this spawn EFUNC(gui_echidna,OnLoad);_this spawn FUNC(OnLoad););
-    onUnload = QUOTE([ARR_2('GVAR(dialog)',false)] call EFUNC(gui,blur);_this call EFUNC(gui_Echidna,OnUnLoad););
+    onLoad = QUOTE(uiNamespace setVariable [ARR_2('EGVAR(gui_main,dialog)',_this select 0)]; [ARR_2('GVAR(dialog)',true)] call EFUNC(gui,blur); _this call EFUNC(gui_main,OnLoad);_this call FUNC(OnLoad););
+    onUnload = QUOTE([ARR_2('GVAR(dialog)',false)] call EFUNC(gui,blur);_this call EFUNC(gui_main,OnUnLoad););
+
+    class headertext: headertext {
+        text = CSTRING(HEADER);
+    };
 
     class display_background: RSC(BaseText) {
         idc = IDC_ACRE_MENU_BACK_REST;
@@ -72,15 +72,15 @@ class APP(dialog) : RSC(echidna) {
     class menubutton_background: display_background {
         idc = IDC_ACRE_MENU_BACK_LEFT;
     };
-    class display_header: display_background {
-        idc = IDC_ACRE_MENU_HEADER;
+    class menubutton_background_empty: menubutton_background {
+        idc = IDC_ACRE_MENU_BACK_LEFT2;
     };
 
 
     #define BUTTON_HELPER(NUMBER) class TRIPLES(menubutton,NUMBER,background) : RSC(BasePicture) { \
         idc = -(IDC_ACRE_MENU_BTTN + NUMBER); \
         x = 0;y = 0;w = 0;h = 0; \
-        text = QEPAAPATH(buttons,button_256_normal); \
+        text = QUOTE(gui\data\buttons\button_256_normal.paa); \
         shadow = 0; \
         style = "48"; \
         colorShadow[] = COLOR_DISABLED; \
@@ -91,15 +91,15 @@ class APP(dialog) : RSC(echidna) {
     class DOUBLES(menubutton,NUMBER) : RSC(BaseButton) { \
         idc = IDC_ACRE_MENU_BTTN + NUMBER; \
         x = 0;y = 0;w = 0;h = 0; \
-        sizeEx = GUI_ECHIDNA_H * 0.7; \
+        sizeEx = GUI_DISP_H * 2.1; \
         text = ""; \
         style = "48+0x800"; \
         colorBackground[]= COLOR_DISABLED; \
         colorBackgroundActive[]= COLOR_DISABLED; \
         colorFocused[]= COLOR_DISABLED; \
         colorBackgroundDisabled[]= COLOR_DISABLED; \
-        colorText[] = COLOR_ECHIDNA_METRO_BTTN_DEFAULT_TEXT; \
-        colorDisabled[] = COLOR_ECHIDNA_METRO_BTTN_DEFAULT_TEXT_DISABLED; \
+        colorText[] = COLOR_MENU_HEADER_MENUBUTTON_TEXT; \
+        colorDisabled[] = COLOR_MENU_HEADER_MENUBUTTON_TEXT_DISABLED; \
         shadow = 0; \
         colorShadow[] = COLOR_DISABLED; \
         offsetX = 0; \
@@ -124,14 +124,14 @@ class APP(dialog) : RSC(echidna) {
         h = 0;
         access = 1;
         canDrag = 1;
-        rowHeight = 4*GUI_ECHIDNA_H;
+        rowHeight = GUI_DISP_H*12;
         colorBackground[] = COLOR_DISABLED;
         colorSelectBackground[] = COLOR_DISABLED;
         colorSelectBackground2[] = COLOR_DISABLED;
-        colorText[] = {RAL9005,1};
-        colorDisabled[] = {RAL9005,0.5};
-        colorSelect[] = {RAL9010,1};
-        colorSelect2[] = {RAL9010,1};
+        colorText[] = COLOR_BASE_BLACK;
+        colorDisabled[] = COLOR_BASE_BLACK_DISABLED;
+        colorSelect[] = COLOR_BASE_WHITE;
+        colorSelect2[] = COLOR_BASE_WHITE;
         colorPictureSelected[] = {1,1,1,1};
         colorPictureDisabled[] = {1,1,1,0.5};
         colorPictureRight[] = {1,1,1,0.5};
@@ -145,15 +145,15 @@ class APP(dialog) : RSC(echidna) {
         w = 0;
         h = 0;
         canDrag = 1;
-        rowHeight = 3*GUI_ECHIDNA_H;
+        rowHeight = GUI_DISP_H*9;
         style = 16;
         colorBackground[] = COLOR_DISABLED;
-        colorSelectBackground[] = {RAL9022,1};
-        colorSelectBackground2[] = {RAL9022,1};
-        colorText[] = {RAL9005,1};
-        colorDisabled[] = {RAL9005,0.5};
-        colorSelect[] = {RAL9010,1};
-        colorSelect2[] = {RAL9010,1};
+        colorSelectBackground[] = COLOR_BASE_GREY_LIGHT;
+        colorSelectBackground2[] = COLOR_BASE_GREY_LIGHT;
+        colorText[] = COLOR_BASE_BLACK;
+        colorDisabled[] = COLOR_BASE_BLACK_DISABLED;
+        colorSelect[] = COLOR_BASE_WHITE;
+        colorSelect2[] = COLOR_BASE_WHITE;
         colorPictureSelected[] = {1,1,1,1};
         colorPictureDisabled[] = {1,1,1,0.5};
         colorPictureRight[] = {1,1,1,0.5};
@@ -167,25 +167,17 @@ class APP(dialog) : RSC(echidna) {
         w = 0;
         h = 0;
         text = "";
-        colorBackground[] = {RAL9002,1};
+        colorBackground[] = COLOR_BASE_GREY_LIGHT;
         colorText[] = COLOR_DISABLED;
     };
-    class header_text : RSC(BaseText) {
-        idc = IDC_ACRE_MENU_HEADER_TEXT;
+    class watermark : RSC(BasePicture) {
+        idc = IDC_ACRE_MENU_WATERMARK;
         x = 0;
         y = 0;
         w = 0;
         h = 0;
         colorBackground[] = COLOR_DISABLED;
         colorText[] = COLOR_DISABLED;
-    };
-    class header_picture : RSC(BasePicture) {
-        idc = IDC_ACRE_MENU_HEADER_PIC;
-        colorBackground[] = COLOR_DISABLED;
-        colorText[] = COLOR_DISABLED;
-    };
-    class watermark : header_picture {
-        idc = IDC_ACRE_MENU_WATERMARK;
     };
 
     class spare_back2: spare_back1 {
@@ -207,17 +199,17 @@ class APP(dialog) : RSC(echidna) {
                 y = 0;
                 w = 0;
                 h = 0;
-                wholeHeight = GUI_ECHIDNA_H * 15;
-                colorSelect[]={RAL9005,1};
-                colorText[]={RAL9005,1};
-                colorBackground[]={RAL9018,1};
-                colorSelectBackground[]={RAL9010,1};
-                colorScrollbar[]={RAL9022,1};
-                colorActive[]={RAL9018,1};
-                colorDisabled[]={RAL9002,0.25};
-                colorTextRight[]={RAL9018,1};
-                colorSelectRight[]={RAL9010,1};
-                colorSelect2Right[]={RAL9010,1};
+                wholeHeight = GUI_DISP_H*45;
+                colorSelect[]=COLOR_BASE_BLACK;
+                colorText[]=COLOR_BASE_BLACK;
+                colorBackground[]=COLOR_BASE_GREY_LIGHT;
+                colorSelectBackground[]=COLOR_BASE_WHITE;
+                colorScrollbar[]=COLOR_BASE_GREY_LIGHT;
+                colorActive[]=COLOR_BASE_GREY_LIGHT;
+                colorDisabled[]=COLOR_BASE_GREY_LIGHT_DISABLED;
+                colorTextRight[]=COLOR_BASE_GREY_LIGHT;
+                colorSelectRight[]=COLOR_BASE_WHITE;
+                colorSelect2Right[]=COLOR_BASE_WHITE;
             };
         };
     };
@@ -228,15 +220,15 @@ class APP(dialog) : RSC(echidna) {
         w = 0;
         h = 0;
         columns[] = {-0.01};
-        color[] = {RAL9005,1};
-        colorScrollbar[] = {RAL9005,1};
-        colorSelect[] = {RAL9005,1};
-        colorSelect2[] = {RAL9005,1};
+        color[] = COLOR_BASE_BLACK;
+        colorScrollbar[] = COLOR_BASE_BLACK;
+        colorSelect[] = COLOR_BASE_BLACK;
+        colorSelect2[] = COLOR_BASE_BLACK;
         colorDisabled[] = COLOR_DISABLED;
-        colorSelectBackground[] = {RAL9002,1};
-        colorSelectBackground2[] = {RAL9002,1};
-        colorText[] = {RAL9005,1};
-        colorBackground[] = {RAL9002,1};
+        colorSelectBackground[] = COLOR_BASE_GREY_LIGHT;
+        colorSelectBackground2[] = COLOR_BASE_GREY_LIGHT;
+        colorText[] = COLOR_BASE_BLACK;
+        colorBackground[] = COLOR_BASE_GREY_LIGHT;
     };
     class treeview : RSC(BaseTree) {
         idc = IDC_ACRE_MENU_TREE;
@@ -244,13 +236,13 @@ class APP(dialog) : RSC(echidna) {
         y = 0;
         w = 0;
         h = 0;
-        colorBackground[] = {RAL9002,1};
-        colorArrow[] = {RAL9005,1};
-        colorText[] = {RAL9005,1};
-        colorSelect[] = {RAL9022,1};
+        colorBackground[] = COLOR_BASE_GREY_LIGHT;
+        colorArrow[] = COLOR_BASE_BLACK;
+        colorText[] = COLOR_BASE_BLACK;
+        colorSelect[] = COLOR_BASE_GREY_LIGHT;
         multiselectEnabled = 0;
         class ScrollBar : ScrollBar {
-            color[] = {RAL9005,1};
+            color[] = COLOR_BASE_BLACK;
         };
         colorPicture[]={1,1,1,1};
         colorPictureSelected[]={1,1,1,1};

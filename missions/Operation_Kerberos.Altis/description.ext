@@ -11,12 +11,12 @@
 __EXEC (MISSION_ROOT = __FILE__ select [0, count __FILE__ - 15]);
 
 onLoadMissionTime = 1;
-onLoadName = LSTRING(NAME);
-onLoadMission = LSTRING(NAME);
-loadScreen = MPATH(EPAAPATH(logo,logo_512));
+onLoadName = ECSTRING(MAIN,NAME);
+onLoadMission = __EVAL((localize LSTRING(NAME)) + ' - Version: ' + 'VERSION');
+loadScreen = MPATH(gui\data\logo\logo_512.paa);
 
 author = CSTRING(AUTHOR);
-//overviewPicture = MPATH(EPAAPATH(logo,logo_512));
+//overviewPicture = MPATH(gui\data\logo\logo_512.paa);
 overviewPicture = "";
 overviewText = "";
 overviewTextLocked = "";
@@ -67,8 +67,12 @@ saving = 0;
 showGroupIndicator = 0;
 scriptedPlayer = 1;
 
-isKerberos = 1;
-
+/*
+ * Kerberos specific stuff
+ */
+isKerberos = 1; //activates the servermod
+//kerberos_armywhitelist[] = {"vanilla"}; //used to specify the possible armys on missionside
+kerberos_armyblacklist[] = {"vanilla"}; //used to specify the possible armys on missionside
 
  #include "CfgComponents.hpp"
  #include "CfgSounds.hpp"

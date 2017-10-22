@@ -23,4 +23,5 @@ for /R servermod\dorb\intercept\ %%f in (*.so) do copy %%f release\@dorb\interce
 
 REM !armake! build -p -w unquoted-string -w redefinition-wo-undef -f missions\Operation_Kerberos.Altis release\Operation_Kerberos.Altis.pbo
 
-pause
+echo 
+ping 127.0.0.1 -n 2 > nul

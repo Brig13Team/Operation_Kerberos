@@ -39,7 +39,11 @@ GVAR(handleLoading) = [
         If (_deg > 360) then {_deg = 0};
         _disp setVariable [QGVAR(deg),_deg];
 
-        _ctrl ctrlSetAngle [_deg, (GUI_GRID_CENTER_X + GUI_GRID_CENTER_W * 20),(GUI_GRID_CENTER_Y + GUI_GRID_CENTER_H * 12.5)];
+        _ctrl ctrlSetAngle [
+            _deg,
+            GUI_DISP_X + GUI_DISP_WAbs/2,
+            GUI_DISP_Y + GUI_DISP_HAbs/2
+        ];
         _ctrl ctrlCommit 0;
     },
     0,

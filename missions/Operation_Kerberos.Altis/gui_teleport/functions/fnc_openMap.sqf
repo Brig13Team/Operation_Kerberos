@@ -53,7 +53,7 @@ If ((GVAR(teleport_lead_active))&&{_type == "infanterie"}) then {
 
 
 CHECK(_fakeMissions isEqualTo [])
-closeDialog IDD_ECHIDNA_TELEPORT;
+closeDialog IDD_GUI_TELEPORT;
 
 [
     [] call bis_fnc_displayMission,

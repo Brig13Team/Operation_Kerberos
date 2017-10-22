@@ -12,7 +12,7 @@
         none
 */
 #include "script_component.hpp"
-_this params ["_side",["_onlyGear",false,[true]]];
+params ["_side",["_onlyGear",false,[true]]];
 
 If !(isClass(missionConfigFile>>QGVARMAIN(arsenal))) then {
     ERROR("No Arsenal config found");

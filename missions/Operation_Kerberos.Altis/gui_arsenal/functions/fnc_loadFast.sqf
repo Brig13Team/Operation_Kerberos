@@ -17,8 +17,8 @@
 
 disableSerialization;
 
-private _dialog = uiNamespace getVariable [QEGVAR(gui_Echidna,dialog),(findDisplay IDD_ECHIDNA_ARSENAL)];
-private _list = _dialog displayCtrl IDC_ECHIDNA_ARSENAL_LIST;
+private _dialog = uiNamespace getVariable [QEGVAR(gui_main,dialog),(findDisplay IDD_GUI_ARSENAL)];
+private _list = _dialog displayCtrl IDC_GUI_ARSENAL_LIST;
 TRACEV_2(_dialog,_list);
 private _selIndex = lbCurSel _list;
 TRACEV_1(_selIndex);
@@ -28,6 +28,6 @@ private _names = (missionNamespace getVariable [QGVAR(fastArsenalList),[[],[]]])
 private _index = _names find _name;
 TRACEV_3(_name,_names,_index);
 CHECK(_index < 0)
-closeDialog IDD_ECHIDNA_ARSENAL;
+closeDialog IDD_GUI_ARSENAL;
 
 [player,[profilenamespace,_name]] call bis_fnc_loadinventory;

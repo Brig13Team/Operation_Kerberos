@@ -24,16 +24,16 @@ _args params ["_position", "_radius", "_multiplier", "_max", "_mission"];
 private _tickets = HASH_GET(_mission, "obj_counter");
 if (_tickets > _max) exitWith {
    [_id] call CBA_fnc_removePerFrameHandler;
-   [_mission] call FUNC(obj__increaseCounter);
+   [_mission] call FUNC(statemachine_increaseCounter);
 };
 
-private _players = { (_x distance2D _position) < _radius } count allPlayers;
+private _players = { (_x distance2D _position) < _radius } count (allPlayers select {side _x == GVARMAIN(playerside)});
 private _increase = 0;
 
 if (_players == 0 && { _tickets > 0 }) exitWith {
    // position lost ...
    [_id] call CBA_fnc_removePerFrameHandler;
-   [_mission] call FUNC(obj__triggerFailed);
+   [_mission] call FUNC(statemachine_triggerFailed);
 };
 if (_players > 0) then {
    // position is hold

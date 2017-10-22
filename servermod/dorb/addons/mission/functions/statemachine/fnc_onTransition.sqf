@@ -11,10 +11,10 @@
  *      none
  *
  */
-//#define DEBUG_MODE_FULL
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-_this params ["_mission"];
+params ["_mission"];
 
 private _eventName = format["on%1",_thisTransition];
 private _value = _mission getVariable _eventName;
@@ -24,6 +24,6 @@ If (!isNil "_value") then {
         _this call _value;
     };
     If (IS_STRING(_value)) then {
-        _this call (missionNamespace getVariable _value);
+        _this call (missionNamespace getVariable [_value,{}]);
     };
 };

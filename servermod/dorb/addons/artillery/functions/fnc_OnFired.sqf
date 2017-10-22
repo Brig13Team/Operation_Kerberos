@@ -1,21 +1,25 @@
-/*
- *  Author: Dorbedo
+/**
+ * Author: Dorbedo
+ * on fired event
  *
- *  Description:
- *      [Description]
+ * Arguments:
+ * 0: <OBJECT> the vehicle
+ * 0: <STRING> weapon
+ * 0: <STRING> muzzle
+ * 0: <STRING> firemode
+ * 0: <STRING> ammotype
+ * 0: <STRING> magazine
+ * 0: <OBJECT> projectile
+ * 0: <OBJECT> gunnter
  *
- *  Parameter(s):
- *      0 : [TYPE] - [argument name]
- *
- *  Returns:
- *      [TYPE] - [return name]
+ * Return Value:
+ * Nothing
  *
  */
-#define DEBUG_MODE_FULL
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-
-_this params ["_vehicle","_weapon","_muzzle","_mode","_ammo","_magazine","_projectile","_gunner"];
+params ["_vehicle","_weapon","_muzzle","_mode","_ammo","_magazine","_projectile","_gunner"];
 
 private _muzzleSpeed = _vehicle getVariable [QGVAR(muzzleSpeed),vectorMagnitude (velocity _projectile)];
 

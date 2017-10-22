@@ -55,18 +55,18 @@ If (((getMarkerpos "respawn_west_land") distance2D [0,0,0])>100) then {
 
 
 
-
 [
     localize LSTRING(TELEPORT),
+    "NONE",
+    (parsingNamespace getVariable ["MISSION_ROOT",""]) + 'COMPONENT\data\icon_teleport.paa',
     {createDialog QAPP(dialog);},
-    {[] call FUNC(canOpenMenu)},
-    ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QEPAAPATH(icon,icon_teleport)),
-    3
-] call EFUNC(gui_echidna,addApp);
+    {[ace_player] call FUNC(canOpenMenu);},
+    []
+] call EFUNC(gui_main,addApp);
 
 [
     QGVAR(teleporterIcon),
-    (parsingNamespace getVariable ["MISSION_ROOT",""]) + QEPAAPATH(icon,icon_teleport),
+    (parsingNamespace getVariable ["MISSION_ROOT",""]) + 'COMPONENT\data\icon_teleport.paa',
     {[] call FUNC(canOpenMenu)},
     []
 ] call EFUNC(gui,addNotification);

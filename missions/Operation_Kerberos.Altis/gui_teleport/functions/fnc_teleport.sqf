@@ -11,7 +11,6 @@
  *      none
  *
  */
-#define INCLUDE_GUI
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 TRACEV_1(_this);
@@ -23,7 +22,7 @@ If ((isNil "_position")||{!(_params call _condition)}) exitWith {
     [localize LSTRING(TELEPORT),localize LSTRING(DEACTIVATED),"red"] call EFUNC(gui,message);
 };
 
-closeDialog IDD_ECHIDNA_TELEPORT;
+closeDialog IDD_GUI_TELEPORT;
 
 If (IS_CODE(_position)) then {
     _position = _params call _position;

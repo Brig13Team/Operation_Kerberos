@@ -6,12 +6,14 @@ ADDON = false;
 
 ADDON = true;
 
+GVAR(isInitialized) = false;
+
 If (isServer) then {
     // it can happen, that this is running before it's secure to retreive the respawnmarkerposition
     [
         {
             (!isNil QGVARMAIN(respawnmarker))&&
-            {!((getMarkerPos GVARMAIN(respawnmarker)) isEqualTo [0,0,0])}
+            {!(([GVARMAIN(playerside)] call EFUNC(common,getRespawnPos)) isEqualTo [])}
         },
         LINKFUNC(initialize),
         [],

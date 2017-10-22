@@ -1,3 +1,14 @@
 #define COMPONENT mod_ace
+#define COMPONENT_BEAUTIFIED Mod_ACE
+#include "..\main\script_mission.hpp"
+
 #define DEBUG_MODE_MINIMAL
-#include "..\script_mission.hpp"
+// #define DEBUG_MODE_FULL
+// #define DISABLE_COMPILE_CACHE
+// #define ENABLE_PERFORMANCE_COUNTERS
+
+#ifdef DEBUG_ENABLED_mod_ace
+    #define DEBUG_MODE_FULL
+#endif
+
+#include "..\main\script_macros.hpp"

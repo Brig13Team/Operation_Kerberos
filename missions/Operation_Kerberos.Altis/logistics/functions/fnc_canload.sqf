@@ -22,7 +22,7 @@ private _load_point_offset = getArray(missionConfigFile >> "logistics" >> "vehic
 If (!(_max_width>0)) exitWith {false};
 
 private _load_point = _target modelToWorld _load_point_offset;
-private _nearObjects = nearestObjects[_load_point, ["AllVehicles","ThingX"], LOADING_DISTANCE];
+private _nearObjects = nearestObjects[_load_point, ["AllVehicles","ThingX"], LOADING_DISTANCE, true];
 
 (
     ({([_target,_x] call FUNC(canbeloaded))} count _nearObjects)

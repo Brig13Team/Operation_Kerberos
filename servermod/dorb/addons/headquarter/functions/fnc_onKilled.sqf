@@ -40,6 +40,7 @@ If (!isServer) exitWith {
 
 If (isPlayer _unit) then {
     TRACE("Player killed");
+    CHECK((side _x) != GVARMAIN(playerside))
     /// reduce the enemystrength, if a player was killed
     private _DZkey = [(getPos _unit)] call FUNC(dzconvert);
     private _zoneHash = HASH_GET(GVAR(dangerzones),_DZkey);

@@ -7,6 +7,8 @@
  */
 #include "script_component.hpp"
 
+If (!((getMissionConfigValue ["isKerberos", 0]) > 0)) exitWith {};
+
 If (hasInterface) then {
     ["CAManBase", "GetInMan", {
         ["pilotcheck",_this,(_this select 0)] call CBA_fnc_targetEvent;

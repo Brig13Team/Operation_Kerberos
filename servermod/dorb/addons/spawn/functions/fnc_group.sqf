@@ -20,7 +20,6 @@ If ((IS_ARRAY(_type))&&{isClass(missionConfigFile >> (_type select 0))}) exitWit
     _temp call FUNC(groupFromArray);
 };
 
-LOG_2(_position,_type);
 CHECKRET((_position isEqualTo []),grpNull);
 //CHECKRET(((IS_STRING(_type))&&{_type isEqualTo ""}),grpNull);
 
@@ -64,9 +63,9 @@ CHECKRET((_types isEqualTo []),grpNull);
         _spawnpos = _position;
     };
     If (_isMan) then {
-        _unit = [_spawnpos,_group,_x,"FORM",random(360)] call FUNC(unit);
+        _unit = [_spawnpos,_group,_x,"NONE",random(360)] call FUNC(unit);
     }else{
-        _unit = ([_spawnpos,_group,_x,random(360),true,false,"FORM"] call FUNC(vehicle)) select 1;
+        _unit = ([_spawnpos,_group,_x,random(360),true,false,"NONE"] call FUNC(vehicle)) select 1;
     };
 
     if ((count _ranks) > _forEachIndex) then {

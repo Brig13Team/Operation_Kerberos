@@ -18,7 +18,7 @@ _this params ["_attackLoc"];
 //TRACEV_1(_attackLoc);
 private _pos = locationPosition _attackLoc;
 
-private _nearPlayers = allPlayers select { ((_x distance _pos)<500) && ((GVARMAIN(side) knowsAbout _x)>1) && (!((vehicle _x) isKindOf "Air")) };
+private _nearPlayers = allPlayers select { ((_x distance _pos)<500) && ((GVARMAIN(side) knowsAbout _x)>1) && (!((vehicle _x) isKindOf "Air")) && {side _x == GVARMAIN(playerside)} };
 
 private _weightArray = [];
 {

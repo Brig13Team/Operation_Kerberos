@@ -1,24 +1,46 @@
 {
-    "Dorbedo Header": {
+    "Brig13 Header": {
 		"prefix": "header",
-		"body": [
+        "body": [
+			"/**",
+			" * Author: ${1:author}",
+			" * ${2:description}",
+			" *",
+			" * Arguments:",
+			" * 0: <${3:TYPENAME}> ${4:argument name}",
+			" *",
+			" * Return Value:",
+			" * <${5:TYPENAME}> ${6:return name}",
+			" *",
+			" */",
+			"",
 			"#include \"script_component.hpp\"",
+			"",
+			"$0"
+		],
+		"description": "Creates the Function Header"
+    },
+    "Dorbedo Header": {
+		"prefix": "header_dorbedo",
+        "body": [
 			"/**",
 			" * Author: Dorbedo",
 			" * ${1:description}",
 			" *",
 			" * Arguments:",
-			" * 0: ${2:argument name} <${3:TYPENAME}>",
+			" * 0: <${2:TYPENAME}> ${3:argument name}",
 			" *",
 			" * Return Value:",
-			" * ${4:return name} <${5:TYPENAME}>",
+			" * <${4:TYPENAME}> ${5:return name}",
 			" *",
 			" */",
+			"//#define DEBUG_MODE_FULL",
+			"#include \"script_component.hpp\"",
 			"",
 			"$0"
 		],
-		"description": "Creates the Function Header"
-	},
+		"description": "Creates Dorbedos Function Header"
+    },
 	"CHECK": {
 		"prefix": "CHECK",
 		"body": [

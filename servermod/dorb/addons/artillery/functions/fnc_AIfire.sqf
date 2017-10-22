@@ -1,20 +1,24 @@
-/*
- *  Author: [Name of Author(s)]
+/**
+ * Author: Dorbedo
+ * lets the ai fire at given position. function is used to make some mod artillery compatible
  *
- *  Description:
- *      [Description]
+ * Arguments:
+ * 0: <OBJECT> the artillery
+ * 1: <ARRAY> shotvecotr
+ * 2: <SCALAR> amount
+ * 3: <STRING> the weaponclass
+ * 4: <STRING> firemode
+ * 5: <SCALAR> reloadspeed
+ * 6: <CODE> code called on after the order has finished
  *
- *  Parameter(s):
- *      0 : [TYPE] - [argument name]
- *
- *  Returns:
- *      [TYPE] - [return name]
+ * Return Value:
+ * <TYPENAME> return name
  *
  */
-#define DEBUG_MODE_FULL
+
 #include "script_component.hpp"
 
-_this params ["_artillery","_shotVector","_amount","_weapon","_firemode","_reloadSpeed","_OnFinish"];
+params ["_artillery","_shotVector","_amount","_weapon","_firemode","_reloadSpeed","_OnFinish"];
 
 
 #ifdef DEBUG_MODE_FULL

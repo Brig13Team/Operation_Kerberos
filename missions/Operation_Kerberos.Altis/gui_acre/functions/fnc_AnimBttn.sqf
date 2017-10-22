@@ -11,13 +11,12 @@
  *      none
  *
  */
-#define INCLUDE_GUI
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 _this params ["_event","_params"];
 _params params ["_ctrlBttn"];
-private _display = uiNamespace getVariable [QEGVAR(gui_Echidna,dialog),(findDisplay IDD_ECHIDNA_MAIN)];
+private _display = uiNamespace getVariable [QEGVAR(gui_main,dialog),(findDisplay IDD_GUI_ACRE)];
 private _ctrlIDC = parseNumber ((str _ctrlBttn) select [9]);
 private _ctrlPicture = _display displayCtrl (-_ctrlIDC);
 TRACEV_4(_event,_ctrlBttn,_ctrlIDC,_ctrlPicture);
@@ -56,33 +55,33 @@ switch (toLower _event) do {
         _ctrlPicture ctrlCommit 0;
     };
     case "onmouseenter" : {
-        _ctrlPicture ctrlSetText ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QEPAAPATH(buttons,button_256_over));
+        _ctrlPicture ctrlSetText ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QUOTE(gui\data\buttons\button_256_over.paa));
         _ctrlPicture ctrlSetBackgroundColor [1,1,1,1];
         _ctrlPicture ctrlCommit 0;
          TRACEV_1(ctrlText _ctrlPicture);
     };
     case "onmouseexit" : {
-        _ctrlPicture ctrlSetText ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QEPAAPATH(buttons,button_256_normal));
+        _ctrlPicture ctrlSetText ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QUOTE(gui\data\buttons\button_256_normal.paa));
         _ctrlPicture ctrlSetBackgroundColor [0,0,0,1];
         _ctrlPicture ctrlCommit 0;
     };
     case "onbuttondown" : {
-        _ctrlPicture ctrlSetText ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QEPAAPATH(buttons,button_256_pressed));
+        _ctrlPicture ctrlSetText ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QUOTE(gui\data\buttons\button_256_pressed.paa));
         _ctrlPicture ctrlSetBackgroundColor [1,1,1,1];
         _ctrlPicture ctrlCommit 0;
     };
     case "onbuttonup" : {
-        _ctrlPicture ctrlSetText ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QEPAAPATH(buttons,button_256_normal));
+        _ctrlPicture ctrlSetText ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QUOTE(gui\data\buttons\button_256_normal.paa));
         _ctrlPicture ctrlSetBackgroundColor [0,0,0,1];
         _ctrlPicture ctrlCommit 0;
     };
     case "onsetfocus" : {
-        _ctrlPicture ctrlSetText ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QEPAAPATH(buttons,button_256_focused));
+        _ctrlPicture ctrlSetText ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QUOTE(gui\data\buttons\button_256_focused.paa));
         _ctrlPicture ctrlSetBackgroundColor [1,1,1,1];
         _ctrlPicture ctrlCommit 0;
     };
     case "onkillfocus" : {
-        _ctrlPicture ctrlSetText ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QEPAAPATH(buttons,button_256_normal));
+        _ctrlPicture ctrlSetText ((parsingNamespace getVariable ["MISSION_ROOT",""]) + QUOTE(gui\data\buttons\button_256_normal.paa));
         _ctrlPicture ctrlSetBackgroundColor [1,1,1,1];
         _ctrlPicture ctrlCommit 0;
     };

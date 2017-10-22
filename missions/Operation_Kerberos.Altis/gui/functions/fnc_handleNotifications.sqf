@@ -12,7 +12,7 @@
  *
  */
 #define DEBUG_MODE_OFF
-#define INCLUDE_GUI
+
 #include "script_component.hpp"
 
 disableSerialization;

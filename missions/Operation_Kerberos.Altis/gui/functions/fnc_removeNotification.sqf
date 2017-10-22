@@ -14,7 +14,7 @@
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-_this params [["_id","",[""]]];
+params [["_id","",[""]]];
 
 HASH_REM(GVAR(notifications),_id);
 

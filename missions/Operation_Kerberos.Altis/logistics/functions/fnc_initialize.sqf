@@ -14,11 +14,7 @@
 #define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-If !(canSuspend) exitWith {
-    [] spawn FUNC(initialize);
-};
-
-waitUntil {time > 60};
+If !(missionNamespace getVariable [QGVAR(active),true]) exitWith {};
 
 ISNILS(EGVAR(player,respawn_fnc),[]);
 EGVAR(player,respawn_fnc) pushBack QUOTE(player setVariable [ARR_3('GVAR(isloading)',false,true)];);
@@ -78,6 +74,7 @@ GVAR(initializedVehicles) = LHASH_CREATE;
         If (_canPara) then {
             [_vehicle, 1, ["ACE_SelfActions",QGVAR(action_main)], _paraAction,false] call ace_interact_menu_fnc_addActionToClass;
         };
+        [_vehicle] call FUNC(disableACECargo);
     };
 
     if (_vehicle isKindOf "Quadbike_01_base_F") then {
@@ -97,6 +94,8 @@ GVAR(initializedVehicles) = LHASH_CREATE;
         [_vehicle, 0, ["ACE_MainActions",QGVAR(action_main)], _untowAction,false] call ace_interact_menu_fnc_addActionToClass;
     };
 
+    /*
+
     If (isClass(configfile >> "cfgvehicles" >> _vehicle >> "HitPoints" >> "HitRTrack")) then {
         If (!HASH_GET_DEF(GVAR(initializedVehicles),_vehicle,false)) then {
             [_vehicle, 0, ["ACE_MainActions"], _mainAction,false] call ace_interact_menu_fnc_addActionToClass;
@@ -104,7 +103,7 @@ GVAR(initializedVehicles) = LHASH_CREATE;
         HASH_SET(GVAR(initializedVehicles),_vehicle,true);
         [_vehicle, 0, ["ACE_MainActions",QGVAR(action_main)], _spareTrack,false] call ace_interact_menu_fnc_addActionToClass;
     };
-
+    */
 } forEach _allVehicles;
 
 /// Cargo

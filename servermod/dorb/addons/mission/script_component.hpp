@@ -17,6 +17,6 @@
 
 // download distance
 #define DOWNLOAD_MAX_DISTANCE 12
-
+#define STATEMACHINEINTERVALL 15
 
 #include "\x\dorb\addons\main\script_macros.hpp"

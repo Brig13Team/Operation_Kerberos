@@ -22,11 +22,11 @@
 
 _this params [["_centerpos",[],[[]],[2,3]],["_spawnrad",25,[0]],["_type",0,[0]],["_amount",15,[0]]];
 CHECK(_centerpos isEqualTo [])
-
+/*
 if (_type < 1) then {
     _amount = _amount * 2;
 };
-
+*/
 for "_i" from 0 to _amount do {
     private _pos = [_centerpos,_spawnrad,0] call EFUNC(common,pos_random);
 

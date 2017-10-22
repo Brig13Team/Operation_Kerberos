@@ -23,6 +23,7 @@ CHECK(_radars isEqualTo [])
 
 private _possibleTargets = allPlayers select {
     (alive _x)&&
+    {side _x == GVARMAIN(playerside)}&&
     {!(vehicle _x == _x)}&&
     {!((vehicle _x)isKindOf "ParachuteBase")}&&
     {(vehicle _x)isKindOf "Plane"}&&
@@ -36,17 +37,27 @@ _possibleTargets append (allUnitsUAV select {
 //TRACEV_1(_possibleTargets);
 private _targets = [];
 {
-    private _radarpos = (getPosASL _x);
-    private _radar = _x;
-    _radarpos set [2,(_radarpos select 2)+2];
+    private _radarpos = _x getVariable [QGVAR(radarpos),(getPosASL _x) vectorAdd [0,0,3]];
     {
         if (
-                (((getPos _x) distance2D _radarpos) < 5000)&&
+                (((getPos _x) distance _radarpos) < 7000)&&
                 {(!(terrainIntersectASL[_radarpos,(getPosASL _x)]))}
             ) then {
             _targets pushBackUnique _x;
         };
     } forEach _possibleTargets;
 } forEach _radars;
+
+{
+    _x params ["_curTarget","_lastSeen"];
+    If (
+        ((side _curTarget) == GVARMAIN(playerside))&&
+        {_curTarget isKindOf "Air"}&&
+        {!isTouchingGround _curTarget}&&
+        {_lastSeen < 30}
+        ) then {
+            _targets pushBackUnique _curTarget;
+    };
+} forEach (listRemoteTargets GVARMAIN(side));
 
 HASH_SET(GVAR(radars),"targets",_targets);

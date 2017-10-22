@@ -11,10 +11,10 @@
  *     none
  *
  */
-#define INCLUDE_GUI
+
 #include "script_component.hpp"
 disableSerialization;
-_this params [["_key","NOKEY",[""]]];
+params [["_key","NOKEY",[""]]];
 
 If (HASH_HASKEY(GVAR(loading),_key)) then {
     HASH_REM(GVAR(loading),_key);

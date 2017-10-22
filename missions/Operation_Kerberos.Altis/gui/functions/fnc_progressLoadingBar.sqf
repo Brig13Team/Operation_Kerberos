@@ -14,10 +14,9 @@
  *
  */
 //#define DEBUG_MODE_FULL
-#define INCLUDE_GUI
 #include "script_component.hpp"
 
-_this params [["_value",0,[0]],["_value_min",0,[0]],["_value_max",1,[0]]];
+params [["_value",0,[0]],["_value_min",0,[0]],["_value_max",1,[0]]];
 
 private _progress = _value / (_value_max - _value_min);
 
@@ -26,7 +25,7 @@ TRACEV_1(_display);
 if (!isNull _display) then {
     private _ctrl = _display displayCtrl IDC_LOADINGBAR_BAR;
     _ctrl progressSetPosition _progress;
-    _ctrl ctrlSetTextColor (_this call FUNC(getGradient));
+    _ctrl ctrlSetTextColor (_this call FUNC(getColorGradient));
     _ctrl ctrlCommit 0;
 
     _ctrl = _display displayCtrl IDC_LOADINGBAR_STATE;

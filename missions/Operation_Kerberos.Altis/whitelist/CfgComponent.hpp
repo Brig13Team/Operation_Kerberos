@@ -13,7 +13,9 @@ class DOUBLES(CfgComponent,ADDON) {
     class preinit {};
     class seatSwitched {};
     class getIn {};
-    class serverpostInit_whitelist {};
+    class serverpostInit_whitelist {
+        client = 0;
+    };
     class dependencies {
         CfgPatches[] = {"cba_events"};
         CfgComponents[] = {"main"};

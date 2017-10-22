@@ -25,8 +25,8 @@ _this params [
 ];
 
 private _allHouses = _centerPosition nearObjects ["House", _radius];
-_allHouses = _allHouses - GVAR(targetHouses);
-_allHouses = _allHouses - GVAR(usedHouses);
+_allHouses = _allHouses - (missionNamespace getVariable [QEGVAR(composition,targetHouses),[]]);
+_allHouses = _allHouses - (missionNamespace getVariable [QEGVAR(composition,usedHouses),[]]);
 
 _allGarages = _allHouses select {(typeOf _x) in ["Land_i_Garage_V1_F","Land_i_Garage_V2_F"]};
 _allHouses = _allHouses - _allGarages;
@@ -81,7 +81,7 @@ while {(_amountDefHouses > 0)&&(count _allHouses > 0)} do {
                 _tempStaticPos pushBack _spawnpos;
             };
         } forEach _soldierPositions;
-        GVAR(usedHouses) pushBack _curHouse;
+        EGVAR(composition,usedHouses) pushBack _curHouse;
         [_tempStaticPos] call FUNC(fallback_spawnStatic);
         [_tempSoldierPos] call FUNC(fallback_spawnUnit);
         DEC(_amountDefHouses);

@@ -9,3 +9,5 @@ RECOMPILE_START;
 RECOMPILE_END;
 
 ADDON = true;
+
+ISNIL(active,true);

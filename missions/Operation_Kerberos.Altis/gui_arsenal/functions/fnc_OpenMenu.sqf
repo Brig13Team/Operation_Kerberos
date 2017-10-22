@@ -7,14 +7,14 @@
 */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-
+disableSerialization;
 If !(canSuspend) exitWIth {
     _this spawn FUNC(OpenMenu);
 };
 
-_this params [["_fastArsenal",false,[true]]];
+params [["_fastArsenal",false,[true]]];
 TRACEV_2(_fastArsenal,_this);
-[] call EFUNC(gui_echidna,close);
+[] call EFUNC(gui_main,close);
 
 If (GVAR(level)<1) exitWith {
     GVAR(isPreloaded) = true;

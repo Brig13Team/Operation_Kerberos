@@ -5,10 +5,10 @@
         Teleports Caller to his Squadleader
 
 */
-#define INCLUDE_GUI
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-closeDialog IDD_ECHIDNA_TELEPORT;
+closeDialog IDD_GUI_TELEPORT;
 
 private _caller = ace_player;
 private["_position","_platzanzahl","_nearestEnemy","_time"];

@@ -8,4 +8,4 @@
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-enableEnvironment [false,false];
+enableEnvironment [false,true];
