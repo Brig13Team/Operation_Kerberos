@@ -12,7 +12,9 @@ import shutil
 import struct
 import platform
 from distutils.dir_util import copy_tree
-from colorama import Fore
+from colorama import init, Fore
+init()
+
 
 def is_python_64bit():
     """checks if it is 64-bit OS"""
