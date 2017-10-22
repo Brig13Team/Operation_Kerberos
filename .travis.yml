@@ -14,6 +14,7 @@ before_script:
 - if [ -n "${GH_TOKEN}" ] && [ "${TRAVIS_BRANCH}" == "master" ] && [ "${TRAVIS_PULL_REQUEST}" == "false" ]; then
     pip install pygithub;
     pip install pygithub3;
+    pip install colorama;
   fi
 script:
 - python3 tools/validator_cfg.py
