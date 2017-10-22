@@ -15,7 +15,7 @@ before_script:
     pip install pygithub;
     pip install pygithub3;
   fi
-  pip install colorama
+  pip install colorama;
 script:
 - python3 tools/validator_cfg.py
 - python3 tools/validator_sqf.py
