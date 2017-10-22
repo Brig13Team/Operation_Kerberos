@@ -14,12 +14,14 @@ switch (str(side player)) do {
             LINKFUNC(canOpenMenu),
             _id
         ] call EFUNC(gui_main,addApp);
+        TRACEV_1(_id);
         [
             format[QGVAR(interface_%1),_id],
             (parsingNamespace getVariable ["MISSION_ROOT",""]) + 'COMPONENT\data\icon_tank.paa',
             {[ace_player,ace_player,_this] call FUNC(canOpenMenu);},
             _id
         ] call EFUNC(gui,addNotification);
+
         _id = ["air_west",airspawn_west] call FUNC(registerSpawn);
         [
             LSTRING(HEADER),
@@ -35,6 +37,7 @@ switch (str(side player)) do {
             {[ace_player,ace_player,_this] call FUNC(canOpenMenu);},
             _id
         ] call EFUNC(gui,addNotification);
+
         _id = ["naval_west",marinespawn_west] call FUNC(registerSpawn);
         [
             LSTRING(HEADER),

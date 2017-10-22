@@ -12,7 +12,7 @@
  */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-//TRACEV_1(_this);
+TRACEV_1(_this);
 params [
     ["_target",objNull,[objNull]],
     ["_player",objNull,[objNull]],

@@ -313,6 +313,8 @@ switch _option do {
         (_ctrlGroup getVariable "controls") pushBack _ctrl;
         INC(_idc);
 
+
+        // spawn without Ammo
         private _ctrl = _display ctrlCreate [QRSC(SpawnPropSwitch),_idc,_ctrlGroup];
         _ctrl ctrlSetPosition [
             GUI_DISP_W*2,
@@ -334,6 +336,33 @@ switch _option do {
             GUI_DISP_H*5
         ];
         _ctrl ctrlSetText (localize LSTRING(PROP_NOAMMO));
+        _ctrl ctrlCommit 0;
+        (_ctrlGroup getVariable "controls") pushBack _ctrl;
+        INC(_idc);
+
+
+        // Open ACE3 Pylon Dialog
+        private _ctrl = _display ctrlCreate [QRSC(SpawnPropSwitch),_idc,_ctrlGroup];
+        _ctrl ctrlSetPosition [
+            GUI_DISP_W*2,
+            GUI_DISP_H*(5+28),
+            GUI_DISP_W*6,
+            GUI_DISP_H*3
+        ];
+        _ctrl cbSetChecked GVAR(option_openPylon);
+        _ctrl ctrladdEventHandler ["CheckedChanged",{GVAR(option_openPylon) = (_this select 1) > 0;}];
+        _ctrl ctrlCommit 0;
+        (_ctrlGroup getVariable "controls") pushBack _ctrl;
+        INC(_idc);
+
+        _ctrl = _display ctrlCreate [QRSC(SpawnPropText),_idc,_ctrlGroup];
+        _ctrl ctrlSetPosition [
+            GUI_DISP_W*10,
+            GUI_DISP_H*(4+28),
+            GUI_DISP_PROPW - GUI_DISP_W*12,
+            GUI_DISP_H*5
+        ];
+        _ctrl ctrlSetText (localize LSTRING(PROP_OPENPYLON));
         _ctrl ctrlCommit 0;
         (_ctrlGroup getVariable "controls") pushBack _ctrl;
         INC(_idc);

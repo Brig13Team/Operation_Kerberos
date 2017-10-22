@@ -20,4 +20,5 @@ ISNIL(option_spawnEmtpy,false);
 ISNIL(option_noSpareParts,false);
 ISNIL(option_spawnAsDriver,false);
 ISNIL(option_noAmmo,false);
+ISNIL(option_openPylon,false);
 ISNIL(option_current,"info");

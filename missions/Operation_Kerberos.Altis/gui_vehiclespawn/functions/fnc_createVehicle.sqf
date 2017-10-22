@@ -74,3 +74,7 @@ If (GVAR(option_spawnAsDriver)) then {
 
 (ctrlParent _control) closeDisplay 0;
 [] call EFUNC(gui_main,close);
+
+If (GVAR(option_openPylon)) then {
+    [_vehicle,true] call ace_pylons_fnc_showDialog;
+};

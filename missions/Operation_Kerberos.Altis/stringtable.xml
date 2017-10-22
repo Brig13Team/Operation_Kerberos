@@ -148,6 +148,10 @@
             <English>No Vehicle chosen</English>
             <German>Kein Fahrzeug ausgewählt</German>
         </Key>
+        <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROP_OPENPYLON">
+            <English>Open pylon dialog</English>
+            <German>Pylonen Dialog öffnen</German>
+        </Key>
 
         <Key ID="STR_DORB_GUI_VEHICLESPAWN_PROP_YES">
             <English>Yes</English>
