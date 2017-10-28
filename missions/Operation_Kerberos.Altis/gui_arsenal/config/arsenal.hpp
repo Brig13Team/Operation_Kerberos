@@ -20,7 +20,8 @@ class GVARMAIN(arsenal) {
         "ACRE_testBag"
     };
     MagazineBlackList[] = {
-        "BWA3_10Rnd_127x99_G82_Raufoss","BWA3_10Rnd_127x99_G82_Raufoss_Tracer","BWA3_10Rnd_127x99_G82_Raufoss_Tracer_Dim"
+        "BWA3_10Rnd_127x99_G82_Raufoss","BWA3_10Rnd_127x99_G82_Raufoss_Tracer","BWA3_10Rnd_127x99_G82_Raufoss_Tracer_Dim",
+        "rhsusf_8Rnd_doomsday_Buck"
     };
     ItemsWhitelist[] = {
         "ItemRadioAcreFlagged",
@@ -30,7 +31,8 @@ class GVARMAIN(arsenal) {
         "V_LegStrapBag_black_F","V_LegStrapBag_coyote_F","V_LegStrapBag_olive_F",
         "H_WirelessEarpiece_F",
         "V_EOD_coyote_F","V_EOD_olive_F",
-        "H_PASGT_basic_olive_F"
+        "H_PASGT_basic_olive_F",
+        "V_HarnessOGL_brn","V_HarnessOGL_gry","V_HarnessO_gry","V_HarnessO_brn"
     };
     WeaponsWhitelist[] = {
 
