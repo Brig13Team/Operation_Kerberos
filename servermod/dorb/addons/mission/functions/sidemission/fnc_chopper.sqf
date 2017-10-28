@@ -29,3 +29,5 @@ TRACEV_2(_targets,_crew);
 } forEach _crew;
 
 _mission setVariable ["objects",_crew];
+
+_crew

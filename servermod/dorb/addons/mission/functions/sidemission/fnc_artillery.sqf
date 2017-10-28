@@ -22,3 +22,5 @@ TRACEV_2(_mission,_targets);
     _x addEventHandler ["Killed", LINKFUNC(statemachine_increaseCounter)];
     [QEGVAR(headquarter,registerArtillery),_x] call CBA_fnc_localEvent;
 } forEach _targets;
+
+_targets

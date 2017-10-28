@@ -24,6 +24,7 @@ private _objectTypes = If (isText(_cfg >> "ObjectTypes")) then {
 } else {
     getArray(_cfg >> "ObjectTypes")
 };
+TRACEV_2(_objectTypes,_objectType);
 _objectTypes pushBack _objectType;
 _objectTypes = _objectTypes apply {toLower _x};
 
@@ -41,5 +42,5 @@ If (_onlyPos) then {
 } else {
     _return = _objects select {(toLower (typeOf _x)) in _objectTypes};
 };
-
+TRACEV_4(_onlyPos,_return,_objectTypes,_objects);
 _return

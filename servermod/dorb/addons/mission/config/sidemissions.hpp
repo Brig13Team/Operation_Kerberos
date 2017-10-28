@@ -73,7 +73,7 @@ class artillery : radar {
         newComposition = 1;
         target = "composition";
         composition_types[] = {"artillery"};
-        amount[] = {1,1};
+        amount = 1;
         objectsfunction = QFUNC(sidemission_artillery);
     };
     class task : task {
@@ -129,6 +129,7 @@ class airsuperiority : radar {
 };
 
 class minefield : radar {
+    probability = 0.1;
     class position : position {
         locationtypes[] = {QGVAR(other)};
         radius = 100;
