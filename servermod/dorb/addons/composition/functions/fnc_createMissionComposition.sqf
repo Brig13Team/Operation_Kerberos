@@ -24,7 +24,7 @@ private _objectTypes = If (isText(_cfg >> "ObjectTypes")) then {
 } else {
     getArray(_cfg >> "ObjectTypes")
 };
-TRACEV_2(_objectTypes,_objectType);
+TRACEV_4(_objectTypes,_objectType,_objects,_objects apply {typeOf _x});
 _objectTypes pushBack _objectType;
 _objectTypes = _objectTypes apply {toLower _x};
 

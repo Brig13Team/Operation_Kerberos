@@ -9,14 +9,14 @@ switch (str(side player)) do {
         [
             LSTRING(HEADER),
             ELSTRING(gui_main,CATEGORY_DEPOT),
-            (parsingNamespace getVariable ["MISSION_ROOT",""]) + 'COMPONENT\data\icon_tank.paa',
+            (parsingNamespace getVariable ["MISSION_ROOT",""]) + 'COMPONENT\data\icon_heli.paa',
             LINKFUNC(openMenu),
             LINKFUNC(canOpenMenu),
             _id
         ] call EFUNC(gui_main,addApp);
         [
             format[QGVAR(interface_%1),_id],
-            (parsingNamespace getVariable ["MISSION_ROOT",""]) + 'COMPONENT\data\icon_tank.paa',
+            (parsingNamespace getVariable ["MISSION_ROOT",""]) + 'COMPONENT\data\icon_heli.paa',
             {[ace_player,ace_player,_this] call FUNC(canOpenMenu);},
             _id
         ] call EFUNC(gui,addNotification);
@@ -25,14 +25,14 @@ switch (str(side player)) do {
         [
             LSTRING(HEADER),
             ELSTRING(gui_main,CATEGORY_DEPOT),
-            (parsingNamespace getVariable ["MISSION_ROOT",""]) + 'COMPONENT\data\icon_heli.paa',
+            (parsingNamespace getVariable ["MISSION_ROOT",""]) + 'COMPONENT\data\icon_tank.paa',
             LINKFUNC(openMenu),
             LINKFUNC(canOpenMenu),
             _id
         ] call EFUNC(gui_main,addApp);
         [
             format[QGVAR(interface_%1),_id],
-            (parsingNamespace getVariable ["MISSION_ROOT",""]) + 'COMPONENT\data\icon_heli.paa',
+            (parsingNamespace getVariable ["MISSION_ROOT",""]) + 'COMPONENT\data\icon_tank.paa',
             {[ace_player,ace_player,_this] call FUNC(canOpenMenu);},
             _id
         ] call EFUNC(gui,addNotification);
