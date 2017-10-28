@@ -235,6 +235,7 @@ class jammer : device {
 };
 
 class radiotower : jammer {
+    condition = "";
     probability = PROPABILITY_LAND;
     class objective : objective {
         objects = "radiotower";
