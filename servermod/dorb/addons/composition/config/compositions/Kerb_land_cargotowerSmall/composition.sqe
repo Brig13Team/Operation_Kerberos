@@ -1,14 +1,14 @@
 version=53;
-center[]={2192.7002,5.0000005,4000.5603};
+center[]={6446.0146,5,724.92621};
 class items
 {
-	items=6;
+	items=3;
 	class Item0
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-0.96191406,4.9050002,-0.56567383};
+			position[]={-0.64941406,4.9050007,-0.23620605};
 			angles[]={0,1.5669742,0};
 		};
 		side="Empty";
@@ -16,9 +16,50 @@ class items
 		class Attributes
 		{
 		};
-		id=272;
+		id=954;
 		type="Land_Cargo_Patrol_V1_F";
-		atlOffset=4.7683716e-007;
+		class CustomAttributes
+		{
+			class Attribute0
+			{
+				property="allowDamage";
+				expression="_this allowdamage _value;";
+				class Value
+				{
+					class data
+					{
+						class type
+						{
+							type[]=
+							{
+								"BOOL"
+							};
+						};
+						value=0;
+					};
+				};
+			};
+			class Attribute1
+			{
+				property="hideObject";
+				expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+				class Value
+				{
+					class data
+					{
+						class type
+						{
+							type[]=
+							{
+								"BOOL"
+							};
+						};
+						value=1;
+					};
+				};
+			};
+			nAttributes=2;
+		};
 	};
 	class Item1
 	{
@@ -26,52 +67,71 @@ class items
 		side="East";
 		class Entities
 		{
-			items=1;
+			items=4;
 			class Item0
 			{
 				dataType="Object";
 				class PositionInfo
 				{
-					position[]={2.4631348,0.0014662743,1.5588379};
+					position[]={-1.5634766,4.3454809,-1.5967407};
+					angles[]={0,4.1201544,0};
 				};
 				side="East";
 				flags=7;
 				class Attributes
 				{
 				};
-				id=274;
-				type="rhs_msv_officer";
-				atlOffset=2.7656555e-005;
+				id=963;
+				type="rhs_msv_marksman";
 			};
-		};
-		class Attributes
-		{
-		};
-		id=273;
-		atlOffset=2.7656555e-005;
-	};
-	class Item2
-	{
-		dataType="Group";
-		side="East";
-		class Entities
-		{
-			items=1;
-			class Item0
+			class Item1
 			{
 				dataType="Object";
 				class PositionInfo
 				{
-					position[]={-2.0905762,4.3454814,1.1625977};
-					angles[]={0,4.7176704,0};
+					position[]={2.7753906,0.0014667511,1.8881226};
 				};
 				side="East";
-				flags=6;
+				flags=5;
 				class Attributes
 				{
 				};
-				id=276;
+				id=956;
+				type="rhs_msv_officer";
+				atlOffset=2.7656555e-005;
+			};
+			class Item2
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={-1.7783203,4.3454819,1.4918213};
+					angles[]={-0,4.7176704,0};
+				};
+				side="East";
+				flags=4;
+				class Attributes
+				{
+				};
+				id=958;
 				type="rhs_vdv_rifleman";
+			};
+			class Item3
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={2.7783203,0.0014514923,0.29925537};
+					angles[]={0,2.2469184,0};
+				};
+				side="East";
+				flags=5;
+				class Attributes
+				{
+				};
+				id=961;
+				type="rhs_msv_medic";
+				atlOffset=1.2397766e-005;
 			};
 		};
 		class Attributes
@@ -89,8 +149,8 @@ class items
 				class Item0
 				{
 					linkID=0;
-					item0=276;
-					item1=277;
+					item0=958;
+					item1=959;
 					class CustomData
 					{
 						role=2;
@@ -99,82 +159,22 @@ class items
 				};
 			};
 		};
-		id=275;
+		id=962;
 	};
-	class Item3
+	class Item2
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-2.0905762,5.9630256,1.1125488};
-			angles[]={0,4.7176704,0};
+			position[]={-1.7783203,5.963026,1.4418335};
+			angles[]={-0,4.7176704,0};
 		};
 		side="East";
-		flags=6;
+		flags=4;
 		class Attributes
 		{
 		};
-		id=277;
+		id=959;
 		type="rhs_KORD_high_VDV";
-	};
-	class Item4
-	{
-		dataType="Group";
-		side="East";
-		class Entities
-		{
-			items=1;
-			class Item0
-			{
-				dataType="Object";
-				class PositionInfo
-				{
-					position[]={2.4658203,0.0014510155,-0.030029297};
-					angles[]={0,2.2469184,0};
-				};
-				side="East";
-				flags=7;
-				class Attributes
-				{
-				};
-				id=351;
-				type="rhs_msv_medic";
-				atlOffset=1.2397766e-005;
-			};
-		};
-		class Attributes
-		{
-		};
-		id=350;
-		atlOffset=1.2397766e-005;
-	};
-	class Item5
-	{
-		dataType="Group";
-		side="East";
-		class Entities
-		{
-			items=1;
-			class Item0
-			{
-				dataType="Object";
-				class PositionInfo
-				{
-					position[]={-1.8759766,4.3454804,-1.9260254};
-					angles[]={0,4.1201544,0};
-				};
-				side="East";
-				flags=7;
-				class Attributes
-				{
-				};
-				id=353;
-				type="rhs_msv_marksman";
-			};
-		};
-		class Attributes
-		{
-		};
-		id=352;
 	};
 };
