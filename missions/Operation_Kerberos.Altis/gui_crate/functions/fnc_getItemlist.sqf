@@ -125,6 +125,10 @@ switch (_presetName) do {
 
 TRACEV_2(_presetName,_return);
 
+If (isClass(configFile >> "CfgMagazines" >> "ACE_SpareBarrel")) then {
+    _return pushBack (configfile >> "CfgMagazines" >> "ACE_SpareBarrel");
+};
+
 _return = _return apply {[_x,""] call BIS_fnc_configPath};
 
 HASH_SET(GVAR(preset),_presetName,_return);
