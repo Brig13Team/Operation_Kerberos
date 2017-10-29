@@ -26,10 +26,3 @@ If (isNil QGVARMAIN(side)) then {
 
 GVARMAIN(missionkey) = format ["Missionkey:%1",random(100000)];
 publicVariable QGVARMAIN(missionkey);
-
-[
-    {
-        [true,false] spawn FUNC(debug_performance);
-    },
-    60
-] call CBA_fnc_addPerFrameHandler;
