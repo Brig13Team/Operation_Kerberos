@@ -66,7 +66,7 @@ class Kerb_Hill3234_Arty {
 
 class mission_artillery_01 {
     type = "artillery";
-    objecttypes[] = {"rhs_D30_vdv"};
+    objecttypes[] = {"rhs_D30_msv"};
     class header {
         #include "missioncompositions\mission_artillery_01\header.sqe"
     };

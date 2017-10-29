@@ -33,6 +33,6 @@ _this params ["_mission", "_targets"];
             };
         } forEach _objects;
     },
-    floor(800 + random 200),
+    floor(500 + random 200),
     _mission
 ] call CBA_fnc_addPerFrameHandler;

@@ -65,6 +65,12 @@ class strategy {
         function = QFUNC(strategy_cas);
     };
 
+    class bombdrop : cas {
+        value = 3500;
+        strength[] = {0.8,0.3,0};
+        function = QFUNC(strategy_bombdrop);
+    };
+
     class drones {
         condition = QUOTE(['drones'] call FUNC(ressources_canUseCallIn));
 

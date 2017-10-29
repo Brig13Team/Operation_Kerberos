@@ -32,6 +32,7 @@ private _return = switch _grouptype do {
         private _allUnits = getArray(_cfg >> "callIn" >> "planeAI");
         selectRandom _allUnits;
     };
+    case "plane_bomb";
     case "plane_cas" : {
         private _allUnits = getArray(_cfg >> "callIn" >> "planeCAS");
         selectRandom _allUnits;
