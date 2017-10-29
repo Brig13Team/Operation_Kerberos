@@ -36,6 +36,14 @@ _attackGroup setVariable [QGVAR(state),"cas_support"];
 HASH_GET_DEF(_ressourcesHash,"units",[]) pushBack _attackVeh;
 HASH_SET(_ressourcesHash,"nextexecution",CBA_missiontime + GVAR(ressources_CallInreplenish_CAS));
 
+private _nearPlayers = ([] call CBA_fnc_players) select {(_x distance _pos)<400};
+{
+    If ((GVARMAIN(side) knowsAbout _x)>1.5) then {
+        [QGVAR(reveal),[_attackGroup,[_x,4]],_attackGroup] call CBA_fnc_targetEvent;
+    };
+} count _nearPlayers;
+
+
 /*
 _attackVeh flyInHeight 500;
 private _wp = _attackGroup addWaypoint [_pos, 100];

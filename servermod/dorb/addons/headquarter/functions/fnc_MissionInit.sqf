@@ -38,7 +38,8 @@ HASH_DELETE(GVAR(waypoints));
 GVAR(waypoints) = HASH_CREATE;
 HASH_SET(GVAR(waypoints),"deactivated",[]);
 
-If (GVARMAIN(side_type) in ["droneoperations","specops"]) then {
+
+If (getNumber(ConfigFile >> "CfgKerberos" >> QGVAR(unitlists) >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "callIn" >> "drones")>0) then {
     [] call FUNC(drones_onMissionStart);
 };
 

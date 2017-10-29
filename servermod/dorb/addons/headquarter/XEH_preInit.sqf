@@ -28,3 +28,4 @@ If (isServer) then {
     _this spawn FUNC(onKilled);
 },true,[],true] call CBA_fnc_addClassEventHandler;
 
+[QGVAR(reveal),{(_this select 0) reveal (_this select 1)}] call CBA_fnc_addEventHandler;

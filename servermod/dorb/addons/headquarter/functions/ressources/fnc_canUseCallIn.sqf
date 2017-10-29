@@ -29,7 +29,7 @@ switch (_type) do {
         ((GVAR(radar_nextAI) < CBA_missiontime)&&{({alive _x} count HASH_GET(GVAR(radars),"objects"))>0})
     };
     case "drones" : {
-        (GVARMAIN(side_type) == "droneoperations")
+        (["drones"] call FUNC(ressources_CheckIntervall))
     };
     // replenish soldiers
     default {[_type] call FUNC(ressources_CanCallInUnits);};

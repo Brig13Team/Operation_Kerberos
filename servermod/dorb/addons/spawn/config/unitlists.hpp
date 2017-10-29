@@ -133,6 +133,7 @@ class GVAR(unitlists) {
             amountHeli = 1;
             amountAI = 1;
             amountCAS = 1;
+            drones = 0;
 
             group_infantry[] = {
                 {"configfile","CfgGroups","East","rhs_faction_vdv","rhs_group_rus_vdv_infantry","rhs_group_rus_vdv_infantry_fireteam"},
@@ -1020,6 +1021,7 @@ class GVAR(unitlists) {
                 amountHeli = 0;
                 amountAI = 1;
                 amountCAS = 2;
+                drones = 1;
                 group_infantry[] = {
                     {"configfile","CfgGroups","East","rhs_faction_vdv","rhs_group_rus_vdv_infantry_recon","rhs_group_rus_vdv_infantry_recon_fireteam"},
                     {"configfile","CfgGroups","East","rhs_faction_vdv","rhs_group_rus_vdv_infantry_recon","rhs_group_rus_vdv_infantry_recon_MANEUVER"},
