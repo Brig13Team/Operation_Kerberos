@@ -264,5 +264,11 @@ class cargos {
         offset[] = {0,0,0};
     };
 
+    class CargoNet_01_box_F {
+        width = 1.5;
+        length = 1.5;
+        height = 1.3;
+        offset[] = {0,0,0};
+    };
 
 };
