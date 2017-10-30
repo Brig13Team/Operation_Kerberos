@@ -8,7 +8,7 @@ class EditorData
 	toggles=1025;
 	class ItemIDProvider
 	{
-		nextID=554;
+		nextID=557;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={24276.865,28.235132,18053.127};
-		dir[]={0.6746093,-0.6434738,-0.36180156};
-		up[]={0.56708384,0.7654472,-0.30413592};
-		aside[]={-0.47264332,-3.7517748e-007,-0.88128436};
+		pos[]={30409.549,68.352242,15510.384};
+		dir[]={0.29787639,-0.58706218,0.75276035};
+		up[]={0.21601108,0.80953866,0.54587811};
+		aside[]={0.92985243,1.208391e-007,-0.36795387};
 	};
 };
 binarizationWanted=0;
@@ -338,7 +338,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=220;
+		items=223;
 		class Item0
 		{
 			dataType="Object";
@@ -3510,8 +3510,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={24283.031,2.9093981,18025.619};
-				angles[]={6.2578578,4.5935621,6.2418742};
+				position[]={24280.695,3.1053669,18026.031};
+				angles[]={0.086449943,4.5935621,6.1310372};
 			};
 			side="Empty";
 			flags=4;
@@ -3523,7 +3523,6 @@ class Mission
 			};
 			id=131;
 			type="Land_WoodenBox_F";
-			atlOffset=-0.00098133087;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -3591,8 +3590,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={24283.611,2.8868906,18025.678};
-				angles[]={6.2578578,4.5935621,6.2418742};
+				position[]={24281.275,3.0112875,18026.09};
+				angles[]={0.086449943,4.5935621,6.1310372};
 			};
 			side="Empty";
 			flags=4;
@@ -3604,7 +3603,6 @@ class Mission
 			};
 			id=132;
 			type="Land_WoodenBox_F";
-			atlOffset=-0.00098133087;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -3691,8 +3689,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={24282.957,3.3449202,18025.609};
-				angles[]={6.2578578,4.5935621,6.2418599};
+				position[]={24280.621,3.5501177,18026.021};
+				angles[]={0.086449943,4.5935621,6.130476};
 			};
 			side="Empty";
 			class Attributes
@@ -3703,7 +3701,7 @@ class Mission
 			};
 			id=133;
 			type="Land_WoodenBox_F";
-			atlOffset=0.43174553;
+			atlOffset=0.43272686;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -3771,11 +3769,10 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={24283.537,3.329828,18025.668};
-				angles[]={6.2578578,4.5935621,6.2418599};
+				position[]={24281.201,3.4633777,18026.08};
+				angles[]={0.086449943,4.5935621,6.130476};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 				init="call{this setVariable [""Dorb_canDelete"",false];}";
@@ -3784,7 +3781,7 @@ class Mission
 			};
 			id=134;
 			type="Land_WoodenBox_F";
-			atlOffset=0.0049901009;
+			atlOffset=0.44006634;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -3871,8 +3868,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={24294.164,2.8300357,18023.133};
-				angles[]={6.2618575,0.24078561,6.2272477};
+				position[]={24295.717,2.6820133,18020.945};
+				angles[]={6.2525291,0.24078561,6.2272439};
 			};
 			side="Empty";
 			flags=4;
@@ -3932,11 +3929,10 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={24294.193,3.888876,18023.139};
-				angles[]={6.2618566,0.24078561,6.2272353};
+				position[]={24295.746,3.7409048,18020.951};
+				angles[]={6.2525311,0.24078561,6.2272182};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 				init="call{this setVariable [""Dorb_canDelete"",false];}";
@@ -3945,6 +3941,7 @@ class Mission
 			};
 			id=136;
 			type="CargoNet_01_barrels_F";
+			atlOffset=1.0603638;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -5170,8 +5167,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={24282.469,4.1731076,18021.975};
-				angles[]={0,3.8706739,0};
+				position[]={24280.348,4.539907,18022.311};
+				angles[]={0,4.1371818,0};
 			};
 			side="Empty";
 			flags=5;
@@ -5182,7 +5179,6 @@ class Mission
 			};
 			id=156;
 			type="Land_PortableLight_single_F";
-			atlOffset=-0.029167414;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -5661,6 +5657,7 @@ class Mission
 			};
 			id=171;
 			type="Land_CargoBox_V1_F";
+			atlOffset=-0.00062346458;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -6276,7 +6273,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="images\1.jpg,images\2.jpg,images\3.jpg,images\4.jpg,images\5.jpg,images\5.jpg,images\6.jpg,images\7.jpg";
+							value="images\1.jpg,images\2.jpg,images\3.jpg,images\4.jpg,images\5.jpg,images\6.jpg,images\7.jpg";
 						};
 					};
 				};
@@ -13949,6 +13946,7 @@ class Mission
 			};
 			id=553;
 			type="Land_CargoBox_V1_F";
+			atlOffset=2.9802322e-008;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -13967,6 +13965,74 @@ class Mission
 								};
 							};
 							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item220
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={24288.08,2.6397333,18024.621};
+				angles[]={6.2578578,0.77034348,6.233892};
+			};
+			name="west_logistic2";
+			init="call{this setVariable [""Dorb_canDelete"",false];}";
+			id=554;
+			type="Logic";
+			atlOffset=-0.012000084;
+		};
+		class Item221
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={30411.463,23.528442,15530.155};
+				angles[]={0,5.970942,0};
+			};
+			name="west_logistic";
+			init="call{this setVariable [""Dorb_canDelete"",false];}";
+			id=555;
+			type="Logic";
+			atlOffset=13.410786;
+		};
+		class Item222
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={24311.854,2.4083252,18062.859};
+				angles[]={6.1401687,0,6.2525291};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{this setVariable [""Dorb_canDelete"",false];}";
+			};
+			id=556;
+			type="Land_JumpTarget_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ace_isRepairFacility";
+					expression="_this setVariable ['ace_isRepairFacility',_value, true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=1;
 						};
 					};
 				};
