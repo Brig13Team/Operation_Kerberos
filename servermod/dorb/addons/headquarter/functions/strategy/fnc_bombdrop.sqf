@@ -9,11 +9,11 @@
  * Nothing
  *
  */
-#define DEBUG_MODE_FULL
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 params ["_attackLoc"];
-TRACEV_1(_attackLoc);
+//TRACEV_1(_attackLoc);
 
 private _pos = locationPosition _attackLoc;
 private _spawnPos = [_pos,5000,5000,10000] call FUNC(ressources_getsavespawnposair);
@@ -50,7 +50,7 @@ private _weapons = [];
         };
         nil
     } count _curMags;
-    TRACEV_2(_curMagsWeighted,typeOf _attackVeh);
+    //TRACEV_2(_curMagsWeighted,typeOf _attackVeh);
     if (_curMags isEqualTo []) then {
         _attackVeh setPylonLoadOut [1+_forEachIndex,"",true];
     } else {
@@ -60,7 +60,7 @@ private _weapons = [];
     };
 } forEach (_attackVeh getCompatiblePylonMagazines 0);
 
-TRACEV_5(_attackGroup,_attackLoc,locationPosition _attackLoc,_target,getPos _target);
+//TRACEV_5(_attackGroup,_attackLoc,locationPosition _attackLoc,_target,getPos _target);
 
 _attackGroup setVariable [QGVAR(target),_target];
 _attackGroup setVariable [QGVAR(timeout),CBA_missiontime + 10*60];
@@ -73,9 +73,9 @@ _attackGroup setVariable [QGVAR(state),"cas_support_bomb"];
         (_vehicle distance _target)<600
     },
     {
-        TRACEV_1(_this);
+        //TRACEV_1(_this);
         _this spawn {
-            params ["_vehicle","_target","_weapons"];
+            params ["_vehicle","_target","_weapons","_attackLoc"];
             private _Lasertarget = createvehicle ["LaserTargetC", getPos _target, [], 0, "none"];
             {
                 _vehicle fireattarget [_Lasertarget,_x];
@@ -83,12 +83,14 @@ _attackGroup setVariable [QGVAR(state),"cas_support_bomb"];
             } foreach _weapons;
             sleep 10;
             deleteVehicle _target;
+            _attackLoc setVariable [QGVAR(timeout),0];
         };
     },
-    [_attackVeh,_target,_weapons],
+    [_attackVeh,_target,_weapons,_attackLoc],
     60*6,
     {
-        deleteVehicle (_this select 1)
+        deleteVehicle (_this select 1);
+        (_this select 3) setVariable [QGVAR(timeout),0];
     }
 ] call CBA_fnc_waitUntilAndExecute;
 
