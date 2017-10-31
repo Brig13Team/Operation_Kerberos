@@ -1,9 +1,9 @@
-class Kiosk(Befestigt) {
+class Kiosk_Befestigt {
     class header {
-        #include "houses\Kiosk(Befestigt)\header.sqe"
+        #include "houses\Kiosk_Befestigt\header.sqe"
     };
     class composition {
-        #include "houses\Kiosk(Befestigt)\composition.sqe"
+        #include "houses\Kiosk_Befestigt\composition.sqe"
     };
 };
 
