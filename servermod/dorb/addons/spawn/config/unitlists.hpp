@@ -1453,7 +1453,7 @@ class GVAR(unitlists) {
                 };
             };
         };
-        class specops : us_marine_d {
+        class specops : us_marine {
             camouflage = 2;
             tanks[] = {};
             class callIn : callIn {

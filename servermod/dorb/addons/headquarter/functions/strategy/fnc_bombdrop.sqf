@@ -30,7 +30,7 @@ HASH_SET(_ressourcesHash,"nextexecution",CBA_missiontime + GVAR(ressources_CallI
 
 private _nearPlayers = ([] call CBA_fnc_players) select {((_x distance _pos)<400)&&{((getPosATL _x) select 2)<10}&&{(GVARMAIN(side) knowsAbout _x)>1.5}};
 
-if !(_nearPlayer isEqualTo []) then {_pos = getPos (selectRandom _nearPlayers)};
+if !(_nearPlayers isEqualTo []) then {_pos = getPos (selectRandom _nearPlayers)};
 
 private _target =  ([sideLogic] call CBA_fnc_getSharedGroup) createUnit ["LOGIC", _pos, [], 0, "NONE"];
 (group _target) deleteGroupWhenEmpty true;
