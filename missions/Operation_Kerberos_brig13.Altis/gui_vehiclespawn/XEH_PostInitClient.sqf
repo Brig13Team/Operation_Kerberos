@@ -21,7 +21,7 @@ switch (str(side player)) do {
             _id
         ] call EFUNC(gui,addNotification);
 
-        _id = ["vehicles_west",west_landvehicles] call FUNC(registerSpawn);
+        _id = ["vehicles_west_public",west_landvehicles] call FUNC(registerSpawn);
         [
             LSTRING(NAME_VEHICLES),
             ELSTRING(gui_main,CATEGORY_DEPOT),
