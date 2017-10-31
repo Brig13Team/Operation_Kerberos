@@ -1,21 +1,21 @@
 version=53;
-center[]={1470.6077,5,3262.5759};
+center[]={1056.9414,5,4930.856};
 class items
 {
-	items=5;
+	items=3;
 	class Item0
 	{
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-0.49133301,1.1250415,0.51147461};
+			position[]={-0.76940918,1.1250415,0.77978516};
 		};
 		side="Empty";
 		flags=5;
 		class Attributes
 		{
 		};
-		id=913;
+		id=293;
 		type="Land_i_House_Small_02_V2_F";
 	};
 	class Item1
@@ -23,16 +23,17 @@ class items
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={6.0511475,1.1560955,-0.23779297};
-			angles[]={0,0,0.0012918708};
+			position[]={5.7730713,1.1564178,0.030761719};
+			angles[]={-0,0,0.0012918708};
 		};
 		side="Empty";
 		flags=4;
 		class Attributes
 		{
 		};
-		id=920;
+		id=294;
 		type="Land_CargoBox_V1_F";
+		atlOffset=0.00032234192;
 	};
 	class Item2
 	{
@@ -40,85 +41,58 @@ class items
 		side="East";
 		class Entities
 		{
-			items=1;
+			items=3;
 			class Item0
 			{
 				dataType="Object";
 				class PositionInfo
 				{
-					position[]={-5.017334,0.0014390945,-0.28173828};
+					position[]={1.3205566,0.41947842,-1.6899414};
+				};
+				side="East";
+				flags=7;
+				class Attributes
+				{
+				};
+				id=298;
+				type="rhs_msv_emr_rifleman";
+			};
+			class Item1
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={-2.3503418,0.42419052,2.7817383};
+				};
+				side="East";
+				flags=5;
+				class Attributes
+				{
+				};
+				id=300;
+				type="rhs_msv_emr_rifleman";
+				atlOffset=0.00085401535;
+			};
+			class Item2
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={-5.2954102,0.0014390945,-0.013183594};
 					angles[]={0,4.5393281,0};
 				};
 				side="East";
-				flags=7;
+				flags=5;
 				class Attributes
 				{
 				};
-				id=922;
+				id=296;
 				type="rhs_msv_emr_rifleman";
 			};
 		};
 		class Attributes
 		{
 		};
-		id=921;
-	};
-	class Item3
-	{
-		dataType="Group";
-		side="East";
-		class Entities
-		{
-			items=1;
-			class Item0
-			{
-				dataType="Object";
-				class PositionInfo
-				{
-					position[]={1.5291748,0.41938877,-2.3557129};
-				};
-				side="East";
-				flags=7;
-				class Attributes
-				{
-				};
-				id=924;
-				type="rhs_msv_emr_rifleman";
-			};
-		};
-		class Attributes
-		{
-		};
-		id=923;
-	};
-	class Item4
-	{
-		dataType="Group";
-		side="East";
-		class Entities
-		{
-			items=1;
-			class Item0
-			{
-				dataType="Object";
-				class PositionInfo
-				{
-					position[]={-2.0722656,0.42333603,2.5131836};
-				};
-				side="East";
-				flags=7;
-				class Attributes
-				{
-				};
-				id=926;
-				type="rhs_msv_emr_rifleman";
-				atlOffset=4.7683716e-007;
-			};
-		};
-		class Attributes
-		{
-		};
-		id=925;
-		atlOffset=4.7683716e-007;
+		id=297;
 	};
 };
