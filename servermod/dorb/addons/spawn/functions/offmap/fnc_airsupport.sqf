@@ -19,3 +19,7 @@ params [
     ["_type","",[""]],
     ["_callback","",[{},""]]
 ];
+
+if (isNil QGVARMAIN(side_type)) then {
+    [] call FUNC(army_set);
+};
