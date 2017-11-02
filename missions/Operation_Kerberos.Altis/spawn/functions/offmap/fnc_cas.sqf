@@ -5,8 +5,8 @@
  * Arguments:
  * 0: <ARRAY/OBJECT> the target can be an unit or a position
  * 1: <STRING> the type of cas
- * 1: <CODE> callback
- * 1: <ANY> callbackparams
+ * 2: <CODE> callback
+ * 3: <ANY> callbackparams
  *
  * Return Value:
  * nothing
@@ -23,9 +23,10 @@ private _spawnPos = [_targetPos,3000,1000,4000] call FUNC(offmap_getsavespawnpos
 
 _spawnPos set [2,300];
 private _dir = _spawnPos getDir _targetPos;
-private _attackVehType = [/*_type*/ "plane_bomb"] call EFUNC(spawn,getUnit);
-private _attackVehType = "B_Plane_CAS_01_dynamicLoadout_F";
+private _attackVehType = ["plane_cas"] call EFUNC(spawn,getUnit);
+
 ([_spawnPos, GVARMAIN(side), _attackVehType, _dir, true, true, "FLY"] call EFUNC(spawn,vehicle)) params ["_attackGroup", "_attackVeh"];
+_attackGroup setVariable [QEGVAR(headquarter,state),"mission"];
 
 private _targetLogic =  ([sideLogic] call CBA_fnc_getSharedGroup) createUnit ["LOGIC", _targetPos, [], 0, "NONE"];
 (group _targetLogic) deleteGroupWhenEmpty true;
@@ -36,10 +37,12 @@ If !(IS_ARRAY(_target)) then {
 
 private _weapons = [];
 private _attackPosIntervall = 5;
+private _isBomb = false;
 
 switch (_type) do {
     case "plane_bomb";
-    case "cas_cluster" : {
+    case "cluster" : {
+        _isBomb = true;
         {
             private _curMags = _x;
             _curMags = _curMags select {((([getText(configFile >> "CfgMagazines" >> _x >> "pylonWeapon")] call BIS_fnc_itemtype) param [1,""]) == "BombLauncher")};
@@ -106,27 +109,7 @@ _attackVeh doTarget _targetLogic;
         (alive (_this select 0))&&
         {((_this select 0) distance (_this select 1))<800}
     },
-    /*
-    {
-        If !(alive (_this select 0)) exitWIth {
-            deleteVehicle (_this select 1);
-            [false, (_this select 4)] call (_this select 3);
-        };
-        _this spawn {
-            params ["_vehicle","_target","_weapons","_callback","_callbackparams"];
-            private _Lasertarget = createvehicle ["LaserTargetC", getPos _target, [], 0, "none"];
-            {
-                _vehicle fireattarget [_Lasertarget,_x];
-                sleep 0.2;
-            } foreach _weapons;
-            sleep 10;
-            deleteVehicle _target;
-            [_vehicle] call FUNC(offmap_rtb);
-            [true, _callbackParams] call _callback;
-        };
-    },
-    */
-    LINKFUNC(offmap_casStrike),
+    If (_isBomb) then {LINKFUNC(offmap_casBombStrike)} else {LINKFUNC(offmap_casStrike)},
     [_attackVeh,_targetLogic,_weapons,_callback,_callbackParams,_attackPosIntervall],
     60*6,
     {

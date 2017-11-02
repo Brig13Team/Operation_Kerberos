@@ -23,7 +23,7 @@ If (IS_SIDE(_gruppe)) then {
 Private ["_crewmen","_unit"];
 
 private _list_crewmen = ["crewmen"] call EFUNC(spawn,getUnit);
-If ((_vehicle isKindOf "UAV_base_01_F")||(_vehicle isKindOf "UAV_base_01_F")||(_vehicle isKindOf "UGV_base_01_F")||(toLower (typeOf _vehicle) in ["b_sam_system_01_f","b_sam_system_02_f","b_aaa_system_01_f"])) exitWith {
+If ((_vehicle isKindOf "UAV")||{_vehicle isKindOf "UAV_01_base_F"}||{_vehicle isKindOf "UAV_03_base_F"}||{_vehicle isKindOf "UGV_base_01_F"}||(toLower (typeOf _vehicle) in ["b_sam_system_01_f","b_sam_system_02_f","b_aaa_system_01_f"])) exitWith {
     switch (side _gruppe) do {
         case (civilian);
         case (west) : {

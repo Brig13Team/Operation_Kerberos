@@ -27,8 +27,6 @@ _transportVehicle flyInHeight 400;
 _transportVehicle setSpeedMode "FULL";
 _transportVehicle setBehaviour "CARELESS";
 
-
-
 private _groupType = ["airdrop"] call EFUNC(spawn,getGroup);
 private _newGroup = [_spawnpos, _grouptype] call EFUNC(spawn,group);
 

@@ -48,9 +48,11 @@ private _switch = - (ceil ((count _weapons)/2));
 #define VEHICLESPEED (300/3.6)
 
 private _planepos = (getPos _vehicle);
-private _vectorDir = [_planepos,(_attackarray select 0) select 1] call bis_fnc_vectorFromXtoY;
+private _vectorDir = [_planepos,_targetPos getPos [_attackPosIntervall * _switch, _dir]] call bis_fnc_vectorFromXtoY;
 private _velocity = [_vectorDir, VEHICLESPEED] call bis_fnc_vectorMultiply;
 private _vectorUp = vectorup _vehicle;
+
+TRACEV_5(_weapons,_planepos,_velocity,_vectorDir,_vectorUp);
 
 _vehicle setVelocityTransformation [
     _planepos, //(_vehicle getPos [(VEHICLESPEED * SHOOTINGINTERVALL), getDir _vehicle]) vectorAdd [0,0,(_planepos select 2)],
