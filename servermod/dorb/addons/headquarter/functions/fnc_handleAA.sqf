@@ -71,7 +71,7 @@ private _airInterceptionAvailible = ["radar_airinterception"] call FUNC(ressourc
 TRACEV_2(_airInterceptionAvailible,_targets);
 
 If ((!(_targets isEqualTo []))&&{_airInterceptionAvailible}) then {
-    private _curTarget = selectRandom _targets;
+    private _curTarget = vehicle (selectRandom _targets);
     TRACEV_2(_airInterceptionAvailible,_curTarget);
     [_curTarget, "airinterception"] call EFUNC(spawn,offmap_airsupport);
 };
