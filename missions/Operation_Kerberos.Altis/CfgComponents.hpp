@@ -42,8 +42,6 @@ class CfgComponents {
     gui_crate = 1;
     gui_save = 1;
     gui_acre = 1;
-
-    spawn = 1;
 };
 
 #include "main\CfgComponent.hpp"
@@ -75,5 +73,3 @@ class CfgComponents {
 #include "gui_crate\CfgComponent.hpp"
 #include "gui_save\CfgComponent.hpp"
 #include "gui_acre\CfgComponent.hpp"
-
-#include "spawn\CfgComponent.hpp"
