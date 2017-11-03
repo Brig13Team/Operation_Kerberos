@@ -70,9 +70,7 @@ private _airInterceptionAvailible = ["radar_airinterception"] call FUNC(ressourc
 TRACEV_2(_airInterceptionAvailible,_targets);
 
 If (_airInterceptionAvailible) then {
-    {
-        if (_x isKindOf "Plane") exitWith {
-            [_x] call FUNC(radar_airInterceptionGroup);
-        };
-    } forEach _targets;
+    private _curTarget = selectRandom _targets;
+    TRACEV_2(_airInterceptionAvailible,_curTarget);
+    [_curTarget, "airinterception"] call EFUNC(spawn,offmap_airsupport);
 };
