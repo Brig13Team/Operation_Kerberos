@@ -16,11 +16,11 @@
 
 _this params ["_mission"];
 
-#define SUPPORT_TIMER (15*60)
+private _supportTimer = If ((count([] call CBA_fnc_players))>30) then {9*60} else {15*60};
 
 private _curResHash = HASH_GET(GVAR(ressources),"cas");
 HASH_SET(_curResHash,"nextexecution",-1);
-HASH_SET(_curResHash,"replenish",SUPPORT_TIMER);
+HASH_SET(_curResHash,"replenish",_supportTimer);
 private _isactive = 0 < (
     getNumber(ConfigFile >> "CfgKerberos" >> QEGVAR(spawn,unitlists) >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "callIn" >> "cas_cluster")+
     getNumber(ConfigFile >> "CfgKerberos" >> QEGVAR(spawn,unitlists) >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "callIn" >> "cas_gun")+
@@ -31,18 +31,18 @@ HASH_SET(_curResHash,"isActive",_isactive);
 
 private _curResHash = HASH_GET(GVAR(ressources),"helicopter");
 HASH_SET(_curResHash,"nextexecution",-1);
-HASH_SET(_curResHash,"replenish",SUPPORT_TIMER);
+HASH_SET(_curResHash,"replenish",_supportTimer);
 private _isactive = 0 < (getNumber(ConfigFile >> "CfgKerberos" >> QEGVAR(spawn,unitlists) >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "callIn" >> "cas_helicopter"));
 HASH_SET(_curResHash,"isActive",_isactive);
 
 private _curResHash = HASH_GET(GVAR(ressources),"airinterception");
 HASH_SET(_curResHash,"nextexecution",-1);
-HASH_SET(_curResHash,"replenish",SUPPORT_TIMER);
+HASH_SET(_curResHash,"replenish",_supportTimer);
 private _isactive = 0 < (getNumber(ConfigFile >> "CfgKerberos" >> QEGVAR(spawn,unitlists) >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "callIn" >> "ai"));
 HASH_SET(_curResHash,"isActive",_isactive);
 
 private _curResHash = HASH_GET(GVAR(ressources),"drones");
 HASH_SET(_curResHash,"nextexecution",-1);
-HASH_SET(_curResHash,"replenish",SUPPORT_TIMER);
+HASH_SET(_curResHash,"replenish",_supportTimer);
 private _isactive = 0 < (getNumber(ConfigFile >> "CfgKerberos" >> QEGVAR(spawn,unitlists) >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "callIn" >> "cas_drones"));
 HASH_SET(_curResHash,"isActive",_isactive);

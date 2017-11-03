@@ -25,7 +25,7 @@ params [
 if (isNil QGVARMAIN(side_type)) then {
     [] call FUNC(army_set);
 };
-
+TRACEV_5(_target,_type,_callback,_callbackParams,_this);
 switch (_type) do {
     case "plane_bomb" : {
         [_target,"cluster",_callback,_callbackParams] call FUNC(offmap_cas);
