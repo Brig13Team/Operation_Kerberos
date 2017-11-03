@@ -21,6 +21,7 @@ private _targetPos = [_target] call CBA_fnc_getPos;
 
 private _spawnPos = [
     _target
+    ,12000,7000,20000
 //    ,3000,1000,4000
 ] call FUNC(offmap_getsavespawnposair);
 
