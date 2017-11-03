@@ -16,7 +16,13 @@
 
 _this params ["_mission"];
 
-private _supportTimer = If ((count([] call CBA_fnc_players))>30) then {9*60} else {15*60};
+private _supportTimer = 15*60;
+If ((count([] call CBA_fnc_players))<30) then {
+    _supportTimer = 35*60;
+};
+If ((count([] call CBA_fnc_players))>30) then {
+    _supportTimer = 9*60;
+};
 
 private _curResHash = HASH_GET(GVAR(ressources),"cas");
 HASH_SET(_curResHash,"nextexecution",-1);

@@ -138,7 +138,7 @@ class GVAR(unitlists) {
             };
             supply_tankdrop = 0;
 
-            cas_types[] = {"RHS_Su25SM_KH29_vvs","RHS_Su25SM_CAS_vvs","RHS_Su25SM_vvs"};
+            cas_types[] = {"RHS_Su25SM_vvs","RHS_Su25SM_vvsc"};
             //cas_types[] = {"O_Plane_CAS_02_dynamicLoadout_F"};
             cas_cluster = 1;
             cas_gun = 1;
