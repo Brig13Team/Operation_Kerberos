@@ -76,6 +76,7 @@ PREPS(strategy,artillery);
 PREPS(strategy,bombdrop);
 PREPS(strategy,cas);
 PREPS(strategy,drones);
+PREPS(strategy,offmap);
 PREPS(strategy,groundattack);
 PREPS(strategy,helicopter);
 PREPS(strategy,mortar);

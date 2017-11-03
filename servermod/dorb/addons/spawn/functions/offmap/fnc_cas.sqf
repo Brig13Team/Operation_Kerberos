@@ -35,7 +35,7 @@ private _targetLogic =  ([sideLogic] call CBA_fnc_getSharedGroup) createUnit ["L
 (group _targetLogic) deleteGroupWhenEmpty true;
 
 If !(IS_ARRAY(_target)) then {
-    _targetLogic attachTo _target;
+    _targetLogic attachTo [_target,[0,0,0]];
 };
 
 private _weapons = [];
@@ -91,7 +91,7 @@ switch (_type) do {
                 _weapons = [_curWeapon,_curWeapon,_curWeapon,_curWeapon,_curWeapon,_curWeapon,_curWeapon,_curWeapon,_curWeapon,_curWeapon,_curWeapon,_curWeapon,_curWeapon,_curWeapon,_curWeapon,_curWeapon];
             };
         } forEach (weapons _attackVeh);
-        _attackPosIntervall = 2
+        _attackPosIntervall = 4
     };
     default {/* use the standard weapons */};
 };

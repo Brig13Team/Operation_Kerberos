@@ -27,13 +27,13 @@ class strategy {
         defence[] = {0.3,0.3,0.3};
         type = 2;
 
-        function = QFUNC(strategy_helicopter);
+        function = QFUNC(strategy_offmap);
 
         timeout = 1000;
         finishcondition = "(!(alive (_this select 0)))";
-        parameter[] = {};
+        parameter[] = {"helicopter"};
 
-        onFinish = QFUNC(strategy_onFinishAir);
+        onFinish = "";
 
     };
 

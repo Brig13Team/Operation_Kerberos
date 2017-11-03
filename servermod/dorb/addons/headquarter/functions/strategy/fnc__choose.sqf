@@ -149,6 +149,7 @@ TRACEV_2(_currentStrategies,_possibleStrategys);
             _parameter = [_attackPos,_strategyhash,_curparameter] call compile _function;
         };
     };
+    ISNILS(_parameter,[]);
 
     HASH_SET(_strategyhash,"value",_curStratValue);
 

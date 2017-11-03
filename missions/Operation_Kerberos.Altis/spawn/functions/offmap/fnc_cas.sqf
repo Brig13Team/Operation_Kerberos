@@ -35,7 +35,7 @@ private _targetLogic =  ([sideLogic] call CBA_fnc_getSharedGroup) createUnit ["L
 (group _targetLogic) deleteGroupWhenEmpty true;
 
 If !(IS_ARRAY(_target)) then {
-    _targetLogic attachTo _target;
+    _targetLogic attachTo [_target,[0,0,0]];
 };
 
 private _weapons = [];

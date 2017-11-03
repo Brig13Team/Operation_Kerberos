@@ -11,6 +11,7 @@
  *      none
  *
  */
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 CHECK(!GVAR(active))
@@ -69,7 +70,7 @@ private _targets = HASH_GET_DEF(GVAR(radars),"targets",[]);
 private _airInterceptionAvailible = ["radar_airinterception"] call FUNC(ressources_canUseCallIn);
 TRACEV_2(_airInterceptionAvailible,_targets);
 
-If (_airInterceptionAvailible) then {
+If ((!(_targets isEqualTo []))&&{_airInterceptionAvailible}) then {
     private _curTarget = selectRandom _targets;
     TRACEV_2(_airInterceptionAvailible,_curTarget);
     [_curTarget, "airinterception"] call EFUNC(spawn,offmap_airsupport);

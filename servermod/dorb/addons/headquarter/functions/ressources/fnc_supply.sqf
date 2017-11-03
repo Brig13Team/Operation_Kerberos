@@ -19,7 +19,7 @@ If (
         {[] call FUNC(ressources_CanCallInUnits)}
     ) then {
         private _cfg = (ConfigFile >> "CfgKerberos" >> QEGVAR(spawn,unitlists) >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "callIn");
-        private _callInTypes = selectRandomWeighted [
+        private _callInTypes = [
             "supply_infanterie",getNumber(_cfg >> "supply_infanterie"),
             "supply_mounted",getNumber(_cfg >> "supply_mounted"),
             "supply_tanks",getNumber(_cfg >> "supply_tanks"),

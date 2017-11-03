@@ -55,8 +55,8 @@ private _vectorUp = vectorup _vehicle;
 TRACEV_5(_weapons,_planepos,_velocity,_vectorDir,_vectorUp);
 
 _vehicle setVelocityTransformation [
-    _planepos, //(_vehicle getPos [(VEHICLESPEED * SHOOTINGINTERVALL), getDir _vehicle]) vectorAdd [0,0,(_planepos select 2)],
-    _planepos vectoradd (_velocity vectorMultiply SHOOTINGINTERVALL),
+    ATLToASL _planepos, //(_vehicle getPos [(VEHICLESPEED * SHOOTINGINTERVALL), getDir _vehicle]) vectorAdd [0,0,(_planepos select 2)],
+    ATLToASL (_planepos vectoradd (_velocity vectorMultiply SHOOTINGINTERVALL)),
     _velocity, _velocity,
     vectorDir _vehicle, _vectorDir,
     vectorUp _vehicle, _vectorUp,
@@ -77,8 +77,8 @@ _vehicle setVelocityTransformation [
         private _vectorUp = vectorup _vehicle;
 
         _vehicle setVelocityTransformation [
-            _planepos, //(_vehicle getPos [(VEHICLESPEED * SHOOTINGINTERVALL), getDir _vehicle]) vectorAdd [0,0,(_planepos select 2)],
-            _planepos vectoradd (_velocity vectorMultiply SHOOTINGINTERVALL),
+            ATLToASL _planepos, //(_vehicle getPos [(VEHICLESPEED * SHOOTINGINTERVALL), getDir _vehicle]) vectorAdd [0,0,(_planepos select 2)],
+            ATLToASL (_planepos vectoradd (_velocity vectorMultiply SHOOTINGINTERVALL)),
             _velocity, _velocity,
             _vectorDir, _vectorDir,
             _vectorDir, _vectorUp,
