@@ -17,6 +17,8 @@
 
 params ["_targetPos", ["_mindistance", 8000, [0]], ["_mindistancePlayer", 5000, [0]], ["_maxdistance", 15000, [0]]];
 
+_targetPos = _targetPos call CBA_fnc_getPos;
+
 private _posBlacklist = ([GVARMAIN(side)] call BIS_fnc_getRespawnMarkers) apply {getMarkerPos _x};
 _posBlacklist = _posBlacklist select {((_x distance2D [0,0,0])>10)};
 

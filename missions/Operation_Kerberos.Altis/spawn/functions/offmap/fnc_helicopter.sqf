@@ -19,7 +19,10 @@ params ["_target", ["_callback", {}, [{}]], ["_callbackParams", []]];
 
 private _targetPos = [_target] call CBA_fnc_getPos;
 
-private _spawnPos = [_targetPos,3000,1000,4000] call FUNC(offmap_getsavespawnposair);
+private _spawnPos = [
+    _target
+//    ,3000,1000,4000
+] call FUNC(offmap_getsavespawnposair);
 
 If ((getTerrainHeightASL _spawnPos)<0) then {
     _spawnPos set [2, abs (getTerrainHeightASL _spawnPos) + 100];

@@ -16,7 +16,10 @@
 
 params ["_target", "_vehicletype", ["_callback", {}, [{}]], ["_callbackParams", []]];
 
-private _spawnPos = [_target,3000,1000,4000] call FUNC(offmap_getsavespawnposair);
+private _spawnPos = [
+    _target
+//    ,3000,1000,4000
+] call FUNC(offmap_getsavespawnposair);
 _spawnPos set [2,800];
 
 If ((getTerrainHeightASL _spawnPos)<0) then {
