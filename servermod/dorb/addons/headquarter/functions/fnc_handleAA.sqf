@@ -74,4 +74,6 @@ If ((!(_targets isEqualTo []))&&{_airInterceptionAvailible}) then {
     private _curTarget = vehicle (selectRandom _targets);
     TRACEV_2(_airInterceptionAvailible,_curTarget);
     [_curTarget, "airinterception"] call EFUNC(spawn,offmap_airsupport);
+    private _radaramount = (count HASH_GET_DEF(GVAR(radars),"objects",[])) max 1;
+    GVAR(radar_nextAI) = CBA_missiontime + 60 * (12 / _radaramount);
 };

@@ -23,18 +23,20 @@ private _spawnPos = [
 //    ,3000,1000,4000
 ] call FUNC(offmap_getsavespawnposair);
 
-_spawnPos set [2,800];
+_spawnPos set [2,500];
 
 If ((getTerrainHeightASL _spawnPos)<0) then {
-    _spawnPos set [2, abs (getTerrainHeightASL _spawnPos) + 300];
+    _spawnPos set [2, abs (getTerrainHeightASL _spawnPos) + 500];
 } else {
-    _spawnPos set [2,300];
+    _spawnPos set [2,500];
 };
 
 private _dir = _spawnPos getDir _target;
 private _attackVehType = ["plane_ai"] call EFUNC(spawn,getUnit);
 
 ([_spawnPos, GVARMAIN(side), _attackVehType, _dir] call EFUNC(spawn,vehicle)) params ["_attackgroup", "_attackVeh"];
+
+(driver _attackVeh) setSkill 0.9;
 
 {
     private _curMags = _x;
