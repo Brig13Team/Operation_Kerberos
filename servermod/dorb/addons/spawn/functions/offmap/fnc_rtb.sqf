@@ -24,6 +24,8 @@ If (isNull _group) exitWith {};
 
 If !(isGroupDeletedWhenEmpty _group) then {_group deleteGroupWhenEmpty true;};
 
+[_group] call CBA_fnc_clearWaypoints;
+_transportVehicle doMove _position;
 [
     _group,
     _position,
@@ -34,12 +36,12 @@ If !(isGroupDeletedWhenEmpty _group) then {_group deleteGroupWhenEmpty true;};
     "FULL"
 ] call CBA_fnc_addWaypoint;
 
-_vehicle flyInHeight 2000;
+//_vehicle flyInHeight 600;
 
 [
     {((_this select 0) distance2D (_this select 1))<500},
-    {[_this select 0] call EFUNC(common,delete);},
-    [_vehicle, _position],
-    (5*60),
-    {[_this select 0] call EFUNC(common,delete);}
+    {[_this select 1,_this select 2] call EFUNC(common,delete);},
+    [_position, _vehicle, group (driver _vehicle)],
+    (10*60),
+    {[_this select 1,_this select 2] call EFUNC(common,delete);}
 ] call CBA_fnc_waitUntilAndExecute;

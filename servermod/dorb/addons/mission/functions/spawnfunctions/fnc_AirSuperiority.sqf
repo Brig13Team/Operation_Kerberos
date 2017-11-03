@@ -38,7 +38,7 @@ for "_i" from 0 to _amount do {
     _wp setWaypointType "LOITER";
     _wp setWaypointLoiterType (["CIRCLE","CIRCLE_L"] select (floor (random 2)));
     _wp setWaypointLoiterRadius (1000+random 2000);
-    _wp setWaypointBehaviour "SAD";
+    _wp setWaypointBehaviour "COMBAT";
     _wp setWaypointCombatMode "RED";
 
     _objects pushBack _attackVeh;

@@ -49,8 +49,8 @@ switch (_type) do {
             private _curMagsWeighted = [];
             {
                 _curMagsWeighted pushBack _x;
-                private _curAmmo = getText(configFile >> "CfgMagazines" >> _x >> "ammp");
-                If ((getArray(configFile >> "CfgMagazines" >> _curAmmo >> "submunitionAmmo")) isEqualTo []) then {
+                private _curAmmo = getText(configFile >> "CfgMagazines" >> _x >> "ammo");
+                If ((getArray(configFile >> "CfgAmmo" >> _curAmmo >> "submunitionAmmo")) isEqualTo []) then {
                     _curMagsWeighted pushBack 0.001;
                 } else {
                     _curMagsWeighted pushBack 1;
@@ -118,3 +118,5 @@ _attackVeh doTarget _targetLogic;
         [false, (_this select 4)] call (_this select 3);
     }
 ] call CBA_fnc_waitUntilAndExecute;
+
+[_attackVeh,_attackGroup,_spawnpos]

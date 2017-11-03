@@ -27,7 +27,7 @@ private _possibleTargets = allPlayers select {
     {!(vehicle _x == _x)}&&
     {!((vehicle _x)isKindOf "ParachuteBase")}&&
     {(vehicle _x)isKindOf "Plane"}&&
-    {isTouchingGround (vehicle _x)}
+    {!(isTouchingGround (vehicle _x))}
 };
 _possibleTargets append (allUnitsUAV select {
     (alive _x)&&

@@ -50,11 +50,14 @@ switch _grouptype do {
         _allConfigs append _addition;
         selectRandom _allConfigs;
     };
-    case "mounted";
     case "airdrop" : {
         private _allConfigs = configProperties [(_cfg >> "defence"), "true", true];
         private _addition = (getArray(_cfg >> "groups_defence")) apply {[_x,configfile] call BIS_fnc_configPath};
         _allConfigs append _addition;
+        selectRandom _allConfigs;
+    };
+    case "mounted" : {
+        private _allConfigs = getArray(ConfigFile >> "CfgKerberos" >> QGVAR(unitlists) >> str GVARMAIN(side) >> GVARMAIN(side_type) >> "callIn" >> "supply_airdrop_typesGroup");
         selectRandom _allConfigs;
     };
     default {configNull};

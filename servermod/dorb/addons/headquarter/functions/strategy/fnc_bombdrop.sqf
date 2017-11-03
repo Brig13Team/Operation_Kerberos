@@ -42,8 +42,8 @@ private _weapons = [];
     private _curMagsWeighted = [];
     {
         _curMagsWeighted pushBack _x;
-        private _curAmmo = getText(configFile >> "CfgMagazines" >> _x >> "ammp");
-        If ((getArray(configFile >> "CfgMagazines" >> _curAmmo >> "submunitionAmmo")) isEqualTo []) then {
+        private _curAmmo = getText(configFile >> "CfgMagazines" >> _x >> "ammo");
+        If ((getArray(configFile >> "CfgAmmo" >> _curAmmo >> "submunitionAmmo")) isEqualTo []) then {
             _curMagsWeighted pushBack 0.001;
         } else {
             _curMagsWeighted pushBack 1;

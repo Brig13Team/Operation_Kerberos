@@ -6,6 +6,7 @@
  * 0: <ARRAY> the target position
  * 1: <STRING> the type
  * 2: <CODE> callback
+ * 3: <ANY> callbackparams
  *
  * Return Value:
  * <TYPENAME> return name
@@ -50,6 +51,9 @@ switch (_type) do {
         ] call FUNC(offmap_vehicledrop);
     };
     case "airinterception" : {
-
+        [_target,_callback,_callbackParams] call FUNC(offmap_airinterception);
+    };
+    case "helicopter" : {
+        [_target,_callback,_callbackParams] call FUNC(offmap_helicopter);
     };
 };
