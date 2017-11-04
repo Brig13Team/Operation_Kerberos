@@ -6,4 +6,4 @@ ADDON = false;
 
 ADDON = true;
 
-[QGVAR(delete),FUNC(delete)] call CBA_fnc_addEventHandler;
+//[QGVAR(delete),FUNC(delete)] call CBA_fnc_addEventHandler;

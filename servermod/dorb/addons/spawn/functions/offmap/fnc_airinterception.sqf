@@ -42,10 +42,10 @@ private _attackVehType = ["plane_ai"] call EFUNC(spawn,getUnit);
     private _curMags = _x;
     _curMags = _curMags select {getNumber(configFile >> "CfgAmmo" >> (getText(configFile >> "CfgMagazines" >> _x >> "ammo")) >> "airLock") > 1};
     if (_curMags isEqualTo []) then {
-        _attackVeh setPylonLoadOut [1+_forEachIndex,"",true];
+        [QEGVAR(common,setPylonLoadOut),_attackVeh,1+_forEachIndex] call CBA_fnc_globalEvent;
     } else {
         private _pylonMag = selectRandom _curMags;
-        _attackVeh setPylonLoadOut [1+_forEachIndex,_pylonMag,true];
+        [QEGVAR(common,setPylonLoadOut),_attackVeh,1+_forEachIndex,_pylonMag] call CBA_fnc_globalEvent;
     };
 } forEach (_attackVeh getCompatiblePylonMagazines 0);
 

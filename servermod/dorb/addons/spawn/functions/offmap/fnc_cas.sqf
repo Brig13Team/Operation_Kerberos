@@ -62,11 +62,11 @@ switch (_type) do {
                 nil
             } count _curMags;
             if (_curMags isEqualTo []) then {
-                _attackVeh setPylonLoadOut [1+_forEachIndex,"",true];
+                [QEGVAR(common,setPylonLoadOut),_attackVeh,1+_forEachIndex] call CBA_fnc_globalEvent;
             } else {
                 private _pylonMag = selectRandomWeighted _curMagsWeighted;
                 _weapons pushBack (getText(configFile >> "CfgMagazines" >> _pylonMag >> "pylonWeapon"));
-                _attackVeh setPylonLoadOut [1+_forEachIndex,_pylonMag,true];
+                [QEGVAR(common,setPylonLoadOut),_attackVeh,1+_forEachIndex,_pylonMag] call CBA_fnc_globalEvent;
             };
         } forEach (_attackVeh getCompatiblePylonMagazines 0);
         _attackPosIntervall = 8
@@ -76,11 +76,11 @@ switch (_type) do {
             private _curMags = _x;
             _curMags = _curMags select {((([getText(configFile >> "CfgMagazines" >> _x >> "pylonWeapon")] call BIS_fnc_itemtype) param [1,""]) == "MissileLauncher")};
             if (_curMags isEqualTo []) then {
-                _attackVeh setPylonLoadOut [1+_forEachIndex,"",true];
+                [QEGVAR(common,setPylonLoadOut),_attackVeh,1+_forEachIndex] call CBA_fnc_globalEvent;
             } else {
                 private _pylonMag = selectRandom _curMags;
                 _weapons pushBack (getText(configFile >> "CfgMagazines" >> _pylonMag >> "pylonWeapon"));
-                _attackVeh setPylonLoadOut [1+_forEachIndex,_pylonMag,true];
+                [QEGVAR(common,setPylonLoadOut),_attackVeh,1+_forEachIndex,_pylonMag] call CBA_fnc_globalEvent;
             };
         } forEach (_attackVeh getCompatiblePylonMagazines 0);
         _attackPosIntervall = 5
@@ -96,6 +96,8 @@ switch (_type) do {
     };
     default {/* use the standard weapons */};
 };
+
+TRACEV_3(_type,_attackVehType,_weapons);
 
 // hardpoints[] = {"RHS_HP_LGB_500","RHS_HP_FFAR_USAF","RHS_HP_AGM65_3x","RHS_HP_BOMB_500_3x"};
 // weapons[] = {"Gatling_30mm_Plane_CAS_01_F","Laserdesignator_pilotCamera","CMFlareLauncher"};
