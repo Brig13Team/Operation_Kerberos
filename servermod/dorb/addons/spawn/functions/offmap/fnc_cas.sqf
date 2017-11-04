@@ -69,7 +69,7 @@ switch (_type) do {
                 [QEGVAR(common,setPylonLoadOut),[_attackVeh,1+_forEachIndex,_pylonMag]] call CBA_fnc_globalEvent;
             };
         } forEach (_attackVeh getCompatiblePylonMagazines 0);
-        _attackPosIntervall = 8
+        _attackPosIntervall = 5;
     };
     case "missiles" : {
         {
@@ -83,7 +83,7 @@ switch (_type) do {
                 [QEGVAR(common,setPylonLoadOut),[_attackVeh,1+_forEachIndex,_pylonMag]] call CBA_fnc_globalEvent;
             };
         } forEach (_attackVeh getCompatiblePylonMagazines 0);
-        _attackPosIntervall = 3
+        _attackPosIntervall = 3;
     };
     case "gattling" : {
         {
@@ -92,7 +92,7 @@ switch (_type) do {
                 _weapons = [_curWeapon,_curWeapon,_curWeapon,_curWeapon,_curWeapon,_curWeapon,_curWeapon,_curWeapon,_curWeapon,_curWeapon,_curWeapon,_curWeapon,_curWeapon,_curWeapon,_curWeapon,_curWeapon];
             };
         } forEach (weapons _attackVeh);
-        _attackPosIntervall = 4
+        _attackPosIntervall = 4;
     };
     default {/* use the standard weapons */};
 };
@@ -115,7 +115,7 @@ If (_isBomb) then {
     [
         {
             (alive (_this select 0))&&
-            {((_this select 0) distance2D (_this select 1))<2000}
+            {((_this select 0) distance2D (_this select 1))<1000}
         },
         LINKFUNC(offmap_casBombStrike),
         [_attackVeh,_targetLogic,_weapons,_callback,_callbackParams,_attackPosIntervall],

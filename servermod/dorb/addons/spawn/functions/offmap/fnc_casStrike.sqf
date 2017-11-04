@@ -50,10 +50,10 @@ private _switch = - (ceil ((count _weapons)/2));
 #define VEHICLESPEED (300/3.6)
 
 private _planepos = (getPosASL _vehicle);
-private _vectorDir = [_planepos,(_attackarray select 0) select 1] call bis_fnc_vectorFromXtoY;
+private _vectorDir = [_planepos,_targetPos] call bis_fnc_vectorFromXtoY;
 private _velocity = [_vectorDir, VEHICLESPEED] call bis_fnc_vectorMultiply;
-private _distance = _planepos distance2D ((_attackarray select 0) select 1);
-private _alt = (_planepos select 2) - (((_attackarray select 0) select 1) select 2);
+private _distance = _planepos distance2D _targetPos;
+private _alt = (_planepos select 2) - (_targetPos select 2);
 [_vehicle,-90 + atan (_dis / _alt),0] call bis_fnc_setpitchbank;
 private _vectorUp = vectorup _vehicle;
 
@@ -90,8 +90,8 @@ _vehicle setVelocityTransformation [
             SHOOTINGINTERVALL
         ];
         _vehicle fireAtTarget [_lasertarget, _weapon];
-        [{deleteVehicle _this}, _lasertarget, 3] call CBA_fnc_waitAndExecute;
-        [_vehicle] call FUNC(offmap_rtb);
+        [{deleteVehicle _this}, _lasertarget, 10] call CBA_fnc_waitAndExecute;
+        [FUNC(offmap_rtb),[_vehicle],4] call CBA_fnc_waitAndExecute;
     },
     SHOOTINGINTERVALL,
     [_vehicle, _attackarray]

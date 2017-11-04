@@ -46,10 +46,6 @@ private _switch = - (ceil ((count _weapons)/2));
 
 TRACEV_2(_weapons,_attackarray);
 
-private _planepos = (getPos _vehicle);
-private _distance = _planepos distance2D ((_attackarray select 0) select 1);
-private _alt = (_planepos select 2) - (((_attackarray select 0) select 1) select 2);
-[_vehicle,-90 + atan (_dis / _alt),0] call bis_fnc_setpitchbank;
 
 [
     {
@@ -62,7 +58,7 @@ private _alt = (_planepos select 2) - (((_attackarray select 0) select 1) select
 
         _vehicle fireAtTarget [_lasertarget, _weapon];
         [{deleteVehicle _this}, _lasertarget, 10] call CBA_fnc_waitAndExecute;
-        [_vehicle] call FUNC(offmap_rtb);
+        [FUNC(offmap_rtb),[_vehicle],4] call CBA_fnc_waitAndExecute;
     },
     _shootingintervall,
     [_vehicle, _attackarray]
