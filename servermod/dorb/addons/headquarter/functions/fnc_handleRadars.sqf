@@ -40,8 +40,8 @@ private _targets = [];
     private _radarpos = _x getVariable [QGVAR(radarpos),(getPosASL _x) vectorAdd [0,0,3]];
     {
         if (
-                (((getPos _x) distance _radarpos) < 7000)&&
-                {(!(terrainIntersectASL[_radarpos,(getPosASL _x)]))}
+                (((getPos _x) distance _radarpos) < 7000)
+                //&&{(!(terrainIntersectASL[_radarpos,(getPosASL _x)]))}
             ) then {
             _targets pushBackUnique _x;
         };

@@ -51,7 +51,7 @@ _transportVehicle setCombatMode "GREEN";
     nil;
 } count (units _targetGroup);
 
-_targetGroup setVariable [QEGVAR(headquarter,state),"mission"];
+
 _targetVehicle setVariable [QGVAR(oldmass), getMass _targetVehicle];
 
 If ((getMass _targetVehicle)>6000) then {
@@ -80,10 +80,10 @@ _transportVehicle doMove _target;
         _transportVehicle setSlingLoad objNull;
         [_transportVehicle] call FUNC(offmap_rtb);
 
-        _targetGroup setVariable [QEGVAR(headquarter,state), "combat"];
         _targetVehicle setMass [_targetVehicle getVariable QGVAR(oldmass),0];
 
         [_targetVehicle] call FUNC(offmap_parachute);
+        [_targetGroup,"combat"] call EFUNC(headquarter,registerGroup);
         _callbackparams call _callback;
     },
     10,

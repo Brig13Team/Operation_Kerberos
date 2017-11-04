@@ -43,7 +43,7 @@ _transportVehicle setCombatMode "GREEN";
 
 private _groupType = ["airdrop"] call EFUNC(spawn,getGroup);
 private _newGroup = [_spawnpos, _grouptype] call EFUNC(spawn,group);
-_newGroup setVariable [QEGVAR(headquarter,state),"mission"];
+
 {
     _x assignAsCargo _transportVehicle;
     _x moveInCargo _transportVehicle;
@@ -81,7 +81,7 @@ _newGroup setVariable [QEGVAR(headquarter,state),"mission"];
             0.8,
             [(units _newGroup)]
         ] call CBA_fnc_addPerFrameHandler;
-        _newGroup setVariable [QEGVAR(headquarter,state), "combat"];
+        [_newGroup,"combat"] call EFUNC(headquarter,registerGroup);
         [_transportVehicle] call FUNC(offmap_rtb);
         _callbackparams call _callback;
     },

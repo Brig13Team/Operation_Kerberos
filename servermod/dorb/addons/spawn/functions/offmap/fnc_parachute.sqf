@@ -16,8 +16,8 @@ params [["_object", objNull, [objNull]]];
 
 If (isNull _object) exitWith {};
 
-If (_object isKindOf "CAManBase") then {
-    private _para = (createVehicle ["NonSteerable_Parachute_F", (getPos _object), [], 0, "FLY"]);
+If (_object isKindOf "CAManBase") exitWith {
+    private _para = createVehicle ["NonSteerable_Parachute_F", (getPos _object), [], 0, "FLY"];
     _para setPos ((getPos _object) vectorAdd [0,0,1.5]);
     _object moveInDriver _para;
 };

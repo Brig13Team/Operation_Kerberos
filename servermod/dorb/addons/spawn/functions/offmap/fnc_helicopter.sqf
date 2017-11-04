@@ -34,6 +34,7 @@ private _attackVehType = ["helicopter"] call EFUNC(spawn,getUnit);
 
 ([_spawnPos, GVARMAIN(side), _attackVehType, _dir, true, true, "FLY"] call EFUNC(spawn,vehicle)) params ["_attackGroup", "_attackVeh"];
 _attackGroup setVariable [QEGVAR(headquarter,state),"mission"];
+(driver _attackVeh) setSkill 0.9;
 
 _targetPos set [2,100];
 private _wp = _attackGroup addWaypoint [_targetPos, 200];

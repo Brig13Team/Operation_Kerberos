@@ -31,6 +31,7 @@ private _attackVehType = ["plane_cas"] call EFUNC(spawn,getUnit);
 
 ([_spawnPos, GVARMAIN(side), _attackVehType, _dir, true, true, "FLY"] call EFUNC(spawn,vehicle)) params ["_attackGroup", "_attackVeh"];
 _attackGroup setVariable [QEGVAR(headquarter,state),"mission"];
+(driver _attackVeh) setSkill 0.8;
 
 private _targetLogic =  ([sideLogic] call CBA_fnc_getSharedGroup) createUnit ["LOGIC", _targetPos, [], 0, "NONE"];
 (group _targetLogic) deleteGroupWhenEmpty true;

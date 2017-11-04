@@ -469,10 +469,10 @@ class GVAR(unitlists) {
                     {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry_emr","rhs_group_rus_MSV_infantry_emr_squad_2mg"}
                 };
                 supply_infanterie = 1;
-                supply_mounted = 1;
+                supply_mounted = 0.8;
                 supply_tanks = 0.2;
-                supply_sniper = 0.5;
-                supply_mechanized = 0.5;
+                supply_sniper = 0.3;
+                supply_mechanized = 0.3;
 
                 supply_airdrop = 0;
                 supply_tankdrop = 0;
