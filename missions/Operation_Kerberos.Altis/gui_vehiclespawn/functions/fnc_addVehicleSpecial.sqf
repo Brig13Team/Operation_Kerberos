@@ -35,6 +35,6 @@ switch (true) do {
     };
 };
 
-if ((GVARMAIN(playerside) == west)&&{(typeOf _object) in ["I_MRAP_03_F","I_MRAP_03_gmg_F","I_MRAP_03_hmg_F"]}) then {
+if (((side ace_player) == west)&&{(typeOf _object) in ["I_MRAP_03_F","I_MRAP_03_gmg_F","I_MRAP_03_hmg_F"]}) then {
     [_object,"blufor",true] call BIS_fnc_initVehicle;
 };

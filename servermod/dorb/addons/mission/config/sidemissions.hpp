@@ -49,8 +49,9 @@ class radar : basesidemission {
         radius = 500;
     };
     class objective : objective {
-        target = "";
-        objects = "radar";
+        newComposition = 1;
+        target = "composition";
+        composition_types[] = {"radar"};
         amount = 1;
         objectsfunction = QFUNC(sidemission_radar);
     };
