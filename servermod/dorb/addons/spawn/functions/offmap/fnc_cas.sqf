@@ -62,11 +62,11 @@ switch (_type) do {
                 nil
             } count _curMags;
             if (_curMags isEqualTo []) then {
-                [QEGVAR(common,setPylonLoadOut),_attackVeh,1+_forEachIndex] call CBA_fnc_globalEvent;
+                [QEGVAR(common,setPylonLoadOut),[_attackVeh,1+_forEachIndex]] call CBA_fnc_globalEvent;
             } else {
                 private _pylonMag = selectRandomWeighted _curMagsWeighted;
                 _weapons pushBack (getText(configFile >> "CfgMagazines" >> _pylonMag >> "pylonWeapon"));
-                [QEGVAR(common,setPylonLoadOut),_attackVeh,1+_forEachIndex,_pylonMag] call CBA_fnc_globalEvent;
+                [QEGVAR(common,setPylonLoadOut),[_attackVeh,1+_forEachIndex,_pylonMag]] call CBA_fnc_globalEvent;
             };
         } forEach (_attackVeh getCompatiblePylonMagazines 0);
         _attackPosIntervall = 8
@@ -76,14 +76,14 @@ switch (_type) do {
             private _curMags = _x;
             _curMags = _curMags select {((([getText(configFile >> "CfgMagazines" >> _x >> "pylonWeapon")] call BIS_fnc_itemtype) param [1,""]) == "MissileLauncher")};
             if (_curMags isEqualTo []) then {
-                [QEGVAR(common,setPylonLoadOut),_attackVeh,1+_forEachIndex] call CBA_fnc_globalEvent;
+                [QEGVAR(common,setPylonLoadOut),[_attackVeh,1+_forEachIndex]] call CBA_fnc_globalEvent;
             } else {
                 private _pylonMag = selectRandom _curMags;
                 _weapons pushBack (getText(configFile >> "CfgMagazines" >> _pylonMag >> "pylonWeapon"));
-                [QEGVAR(common,setPylonLoadOut),_attackVeh,1+_forEachIndex,_pylonMag] call CBA_fnc_globalEvent;
+                [QEGVAR(common,setPylonLoadOut),[_attackVeh,1+_forEachIndex,_pylonMag]] call CBA_fnc_globalEvent;
             };
         } forEach (_attackVeh getCompatiblePylonMagazines 0);
-        _attackPosIntervall = 5
+        _attackPosIntervall = 3
     };
     case "gattling" : {
         {
@@ -110,19 +110,37 @@ _wp setWaypointCombatMode "RED";
 _attackVeh flyInHeight 300;
 _attackVeh doTarget _targetLogic;
 
-[
-    {
-        (alive (_this select 0))&&
-        {((_this select 0) distance (_this select 1))<800}
-    },
-    If (_isBomb) then {LINKFUNC(offmap_casBombStrike)} else {LINKFUNC(offmap_casStrike)},
-    [_attackVeh,_targetLogic,_weapons,_callback,_callbackParams,_attackPosIntervall],
-    60*6,
-    {
-        deleteVehicle (_this select 1);
-        [_this select 0] call FUNC(offmap_rtb);
-        [false, (_this select 4)] call (_this select 3);
-    }
-] call CBA_fnc_waitUntilAndExecute;
+If (_isBomb) then {
+    _attackVeh flyInHeight 180;
+    [
+        {
+            (alive (_this select 0))&&
+            {((_this select 0) distance2D (_this select 1))<2000}
+        },
+        LINKFUNC(offmap_casBombStrike),
+        [_attackVeh,_targetLogic,_weapons,_callback,_callbackParams,_attackPosIntervall],
+        60*6,
+        {
+            deleteVehicle (_this select 1);
+            [_this select 0] call FUNC(offmap_rtb);
+            [false, (_this select 4)] call (_this select 3);
+        }
+    ] call CBA_fnc_waitUntilAndExecute;
+} else {
+    [
+        {
+            (alive (_this select 0))&&
+            {((_this select 0) distance2D (_this select 1))<800}
+        },
+        LINKFUNC(offmap_casStrike),
+        [_attackVeh,_targetLogic,_weapons,_callback,_callbackParams,_attackPosIntervall],
+        60*6,
+        {
+            deleteVehicle (_this select 1);
+            [_this select 0] call FUNC(offmap_rtb);
+            [false, (_this select 4)] call (_this select 3);
+        }
+    ] call CBA_fnc_waitUntilAndExecute;
+};
 
 [_attackVeh,_attackGroup,_spawnpos]

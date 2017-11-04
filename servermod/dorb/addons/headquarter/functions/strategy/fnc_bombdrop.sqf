@@ -52,11 +52,11 @@ private _weapons = [];
     } count _curMags;
     //TRACEV_2(_curMagsWeighted,typeOf _attackVeh);
     if (_curMags isEqualTo []) then {
-        [QEGVAR(common,setPylonLoadOut),_attackVeh,1+_forEachIndex] call CBA_fnc_globalEvent;
+        [QEGVAR(common,setPylonLoadOut),[_attackVeh,1+_forEachIndex]] call CBA_fnc_globalEvent;
     } else {
         private _pylonMag = selectRandomWeighted _curMagsWeighted;
         _weapons pushBack (getText(configFile >> "CfgMagazines" >> _pylonMag >> "pylonWeapon"));
-        [QEGVAR(common,setPylonLoadOut),_attackVeh,1+_forEachIndex,_pylonMag] call CBA_fnc_globalEvent;
+        [QEGVAR(common,setPylonLoadOut),[_attackVeh,1+_forEachIndex,_pylonMag]] call CBA_fnc_globalEvent;
     };
 } forEach (_attackVeh getCompatiblePylonMagazines 0);
 

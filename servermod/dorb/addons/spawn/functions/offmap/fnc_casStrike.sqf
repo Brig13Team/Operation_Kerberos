@@ -39,7 +39,9 @@ private _dir = getDir _vehicle;
 private _switch = - (ceil ((count _weapons)/2));
 
 {
-    _attackarray pushBack [_x, _targetPos getPos [_attackPosIntervall * (_switch + _forEachIndex), _dir]];
+    private _newPos = _targetPos getPos [_attackPosIntervall * (_switch + _forEachIndex), _dir];
+    _newPos set [2,0];
+    _attackarray pushBack [_x, AGLToASL _newPos];
 } forEach _weapons;
 
 
@@ -47,19 +49,22 @@ private _switch = - (ceil ((count _weapons)/2));
 #define SHOOTINGINTERVALL 0.15
 #define VEHICLESPEED (300/3.6)
 
-private _planepos = (getPos _vehicle);
-private _vectorDir = [_planepos,_targetPos getPos [_attackPosIntervall * _switch, _dir]] call bis_fnc_vectorFromXtoY;
+private _planepos = (getPosASL _vehicle);
+private _vectorDir = [_planepos,(_attackarray select 0) select 1] call bis_fnc_vectorFromXtoY;
 private _velocity = [_vectorDir, VEHICLESPEED] call bis_fnc_vectorMultiply;
+private _distance = _planepos distance2D ((_attackarray select 0) select 1);
+private _alt = (_planepos select 2) - (((_attackarray select 0) select 1) select 2);
+[_vehicle,-90 + atan (_dis / _alt),0] call bis_fnc_setpitchbank;
 private _vectorUp = vectorup _vehicle;
 
 TRACEV_5(_weapons,_planepos,_velocity,_vectorDir,_vectorUp);
 
 _vehicle setVelocityTransformation [
-    ATLToASL _planepos, //(_vehicle getPos [(VEHICLESPEED * SHOOTINGINTERVALL), getDir _vehicle]) vectorAdd [0,0,(_planepos select 2)],
-    ATLToASL (_planepos vectoradd (_velocity vectorMultiply SHOOTINGINTERVALL)),
+    _planepos, //(_vehicle getPos [(VEHICLESPEED * SHOOTINGINTERVALL), getDir _vehicle]) vectorAdd [0,0,(_planepos select 2)],
+    (_planepos vectoradd (_velocity vectorMultiply SHOOTINGINTERVALL)),
     _velocity, _velocity,
-    vectorDir _vehicle, _vectorDir,
-    vectorUp _vehicle, _vectorUp,
+    _vectorDir, _vectorDir,
+    _vectorUp, _vectorUp,
     SHOOTINGINTERVALL
 ];
 
@@ -77,8 +82,8 @@ _vehicle setVelocityTransformation [
         private _vectorUp = vectorup _vehicle;
 
         _vehicle setVelocityTransformation [
-            ATLToASL _planepos, //(_vehicle getPos [(VEHICLESPEED * SHOOTINGINTERVALL), getDir _vehicle]) vectorAdd [0,0,(_planepos select 2)],
-            ATLToASL (_planepos vectoradd (_velocity vectorMultiply SHOOTINGINTERVALL)),
+            _planepos, //(_vehicle getPos [(VEHICLESPEED * SHOOTINGINTERVALL), getDir _vehicle]) vectorAdd [0,0,(_planepos select 2)],
+            (_planepos vectoradd (_velocity vectorMultiply SHOOTINGINTERVALL)),
             _velocity, _velocity,
             _vectorDir, _vectorDir,
             _vectorDir, _vectorUp,

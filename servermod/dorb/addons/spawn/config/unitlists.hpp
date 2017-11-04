@@ -141,6 +141,7 @@ class GVAR(unitlists) {
             cas_types[] = {"RHS_Su25SM_vvs","RHS_Su25SM_vvsc"};
             //cas_types[] = {"O_Plane_CAS_02_dynamicLoadout_F"};
             cas_cluster = 1;
+            cas_cluster_types[] = {"O_Plane_CAS_02_dynamicLoadout_F"};
             cas_gun = 1;
             cas_missiles = 1;
             cas_drones = 0;

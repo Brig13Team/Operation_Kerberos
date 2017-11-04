@@ -39,10 +39,17 @@ private _dir = getDir _vehicle;
 private _switch = - (ceil ((count _weapons)/2));
 
 {
-    _attackarray pushBack [_x, _targetPos getPos [_attackPosIntervall * (_switch + _forEachIndex), _dir]];
+    private _newPos = _targetPos getPos [_attackPosIntervall * (_switch + _forEachIndex), _dir];
+    _newPos set [2,0];
+    _attackarray pushBack [_x,_newPos];
 } forEach _weapons;
 
 TRACEV_2(_weapons,_attackarray);
+
+private _planepos = (getPos _vehicle);
+private _distance = _planepos distance2D ((_attackarray select 0) select 1);
+private _alt = (_planepos select 2) - (((_attackarray select 0) select 1) select 2);
+[_vehicle,-90 + atan (_dis / _alt),0] call bis_fnc_setpitchbank;
 
 [
     {
@@ -54,7 +61,7 @@ TRACEV_2(_weapons,_attackarray);
         private _lasertarget = createVehicle ["LaserTargetC", _attackpos, [], 0, "none"];
 
         _vehicle fireAtTarget [_lasertarget, _weapon];
-        [{deleteVehicle _this}, _lasertarget, 3] call CBA_fnc_waitAndExecute;
+        [{deleteVehicle _this}, _lasertarget, 10] call CBA_fnc_waitAndExecute;
         [_vehicle] call FUNC(offmap_rtb);
     },
     _shootingintervall,
