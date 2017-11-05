@@ -25,6 +25,16 @@ for "_i" from 0 to _amount do {
     private _plane = ["plane_ai"] call EFUNC(spawn,getUnit);
     private _dir = [_spawnpos, _centerpos] call BIS_fnc_dirTo;
     ([_spawnpos,GVARMAIN(side),_plane,_dir,true,true,"FLY"] call EFUNC(spawn,vehicle)) params ["_attackGroup","_attackVeh"];
+
+    {
+        private _curMags = _x;
+        _curMags = _curMags select {getNumber(configFile >> "CfgAmmo" >> (getText(configFile >> "CfgMagazines" >> _x >> "ammo")) >> "airLock") > 1};
+        if !(_curMags isEqualTo []) then {
+            private _pylonMag = selectRandom _curMags;
+            [QEGVAR(common,setPylonLoadOut),[_attackVeh,1+_forEachIndex,_pylonMag]] call CBA_fnc_globalEvent;
+        };
+    } forEach (_attackVeh getCompatiblePylonMagazines 0);
+
     {
         _x setSkill 1;
     } forEach (units _attackGroup);
@@ -35,9 +45,10 @@ for "_i" from 0 to _amount do {
 
     [_attackGroup] call CBA_fnc_clearWaypoints;
     private _wp = _attackGroup addWaypoint [_loiterpos, 0];
-    _wp setWaypointType "LOITER";
-    _wp setWaypointLoiterType (["CIRCLE","CIRCLE_L"] select (floor (random 2)));
-    _wp setWaypointLoiterRadius (1000+random 2000);
+    //_wp setWaypointType "LOITER";
+    //_wp setWaypointLoiterType (["CIRCLE","CIRCLE_L"] select (floor (random 2)));
+    //_wp setWaypointLoiterRadius (1000+random 2000);
+    _wp setWaypointType "SAD";
     _wp setWaypointBehaviour "COMBAT";
     _wp setWaypointCombatMode "RED";
 
