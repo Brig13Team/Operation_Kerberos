@@ -62,17 +62,18 @@ If (IS_OBJECT(_target)) then {
 
     [
         {
-            (!(Alive(_this select 2)))||(!(canMove _attackVeh))
+            (!(Alive(_this select 2)))||(!(canMove (_this select 1)))
         },
         {
-            if (canMove (_this select 0)) then {
-                [_attackVeh] call FUNC(offmap_rtb);
+            if (canMove (_this select 1)) then {
+                [_this select 1] call FUNC(offmap_rtb);
                 (_this select 5) call (_this select 4);
             };
         },
+        [_attackgroup, _attackVeh, _target, CBA_missiontime + 10*60, _callback, _callbackparams],
         60*10,
         {
-            [_attackVeh] call FUNC(offmap_rtb);
+            [_this select 1] call FUNC(offmap_rtb);
         }
     ] call CBA_fnc_waitUntilAndExecute;
 
