@@ -68,7 +68,7 @@ If ((getMissionConfigValue ["isKerberos", 0]) > 0) then {
 If ((getMissionConfigValue ["isKerberos", 0]) > 0) then {
     [
         {
-            If ((vehicle player == player)&&{((player distance2D ((_this select 0)select 0)) < 250)||{(player distance2D ((_this select 0)select 1)) < 250}}) then {
+            If ((vehicle player == player)&&{0<({(player distance2D _x)<250} count (_this select 0))}) then {
                 If (isDamageAllowed player) then {
                     player allowDamage false;
                 };
@@ -78,8 +78,8 @@ If ((getMissionConfigValue ["isKerberos", 0]) > 0) then {
                 };
             };
         },
-        1,
-        [getMarkerPos GVARMAIN(respawnmarker),getMarkerPos "respawn_west_land"]
+        5,
+        (([side player] call BIS_fnc_getRespawnMarkers) apply {getMarkerPos _x})
     ] call CBA_fnc_addPerFrameHandler;
 
 };

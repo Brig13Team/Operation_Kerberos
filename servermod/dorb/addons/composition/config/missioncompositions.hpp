@@ -158,3 +158,13 @@ class mission_generic_04 {
     };
 };
 
+class radar {
+    type = "radar";
+    objecttypes[] = {"Land_Radar_Small_F"};
+    class header {
+        #include "missioncompositions\radar\header.sqe"
+    };
+    class composition {
+        #include "missioncompositions\radar\composition.sqe"
+    };
+};

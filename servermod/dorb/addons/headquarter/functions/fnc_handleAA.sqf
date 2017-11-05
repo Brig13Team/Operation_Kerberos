@@ -11,6 +11,7 @@
  *      none
  *
  */
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 CHECK(!GVAR(active))
@@ -69,10 +70,10 @@ private _targets = HASH_GET_DEF(GVAR(radars),"targets",[]);
 private _airInterceptionAvailible = ["radar_airinterception"] call FUNC(ressources_canUseCallIn);
 TRACEV_2(_airInterceptionAvailible,_targets);
 
-If (_airInterceptionAvailible) then {
-    {
-        if (_x isKindOf "Plane") exitWith {
-            [_x] call FUNC(radar_airInterceptionGroup);
-        };
-    } forEach _targets;
+If ((!(_targets isEqualTo []))&&{_airInterceptionAvailible}) then {
+    private _curTarget = vehicle (selectRandom _targets);
+    TRACEV_2(_airInterceptionAvailible,_curTarget);
+    [_curTarget, "airinterception"] call EFUNC(spawn,offmap_airsupport);
+    private _radaramount = (count HASH_GET_DEF(GVAR(radars),"objects",[])) max 1;
+    GVAR(radar_nextAI) = CBA_missiontime + 60 * (6 / _radaramount);
 };

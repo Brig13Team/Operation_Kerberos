@@ -42,8 +42,8 @@ private _weapons = [];
     private _curMagsWeighted = [];
     {
         _curMagsWeighted pushBack _x;
-        private _curAmmo = getText(configFile >> "CfgMagazines" >> _x >> "ammp");
-        If ((getArray(configFile >> "CfgMagazines" >> _curAmmo >> "submunitionAmmo")) isEqualTo []) then {
+        private _curAmmo = getText(configFile >> "CfgMagazines" >> _x >> "ammo");
+        If ((getArray(configFile >> "CfgAmmo" >> _curAmmo >> "submunitionAmmo")) isEqualTo []) then {
             _curMagsWeighted pushBack 0.001;
         } else {
             _curMagsWeighted pushBack 1;
@@ -52,11 +52,11 @@ private _weapons = [];
     } count _curMags;
     //TRACEV_2(_curMagsWeighted,typeOf _attackVeh);
     if (_curMags isEqualTo []) then {
-        _attackVeh setPylonLoadOut [1+_forEachIndex,"",true];
+        [QEGVAR(common,setPylonLoadOut),[_attackVeh,1+_forEachIndex]] call CBA_fnc_globalEvent;
     } else {
         private _pylonMag = selectRandomWeighted _curMagsWeighted;
         _weapons pushBack (getText(configFile >> "CfgMagazines" >> _pylonMag >> "pylonWeapon"));
-        _attackVeh setPylonLoadOut [1+_forEachIndex,_pylonMag,true];
+        [QEGVAR(common,setPylonLoadOut),[_attackVeh,1+_forEachIndex,_pylonMag]] call CBA_fnc_globalEvent;
     };
 } forEach (_attackVeh getCompatiblePylonMagazines 0);
 

@@ -79,7 +79,8 @@ GVAR(ressources) = HASH_CREATE;
 HASH_GET(GVAR(ressources),"amount",0);
 {
     HASH_SET(GVAR(ressources),_x,HASH_CREATE);
-} forEach ["cas","helicopter","airinterception"];
+    HASH_SET(GVAR(ressources),_x,HASH_CREATE);
+} forEach ["cas","helicopter","airinterception","drones"];
 
 /// groups - player & ai
 GVAR(AIGroups) = [];

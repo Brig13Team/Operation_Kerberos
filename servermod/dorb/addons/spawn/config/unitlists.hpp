@@ -121,19 +121,39 @@ class GVAR(unitlists) {
                     "rhs_vdv_crew_commander","rhs_vdv_driver","rhs_vdv_driver_armored"};
 
         class callIn {
-            supplyarray[] = {{"infanterie",1},{"airdrop",1},{"mounted",1},{"sniper",1},{"tanks",1},{"mechanized",1}};
 
-            helicopter_transport[] = {"rhs_Mi8mt_vdv","rhs_Mi8mt_Cargo_vdv","rhs_Mi8MTV3_vdv","rhs_Mi8MTV3_UPK23_vdv","rhs_Mi8MTV3_FAB_vdv","rhs_Mi8AMT_vdv"};
-            helicopter_cas[] = {"rhs_mi28n_vvsc"};
+            supply_infanterie = 1;
+            supply_mounted = 1;
+            supply_tanks = 1;
+            supply_sniper = 1;
+            supply_mechanized = 1;
 
-            planeAI[] = {"O_Plane_Fighter_02_Stealth_F"};
-            planeCAS[] = {"O_Plane_CAS_02_dynamicLoadout_F"};
-            //planeAI[] = {"RHS_T50_vvs_054","RHS_T50_vvs_053","RHS_T50_vvs_052"};
-            //planeCAS[] = {"RHS_Su25SM_KH29_vvs","RHS_Su25SM_CAS_vvs","RHS_Su25SM_vvs"};
-            amountHeli = 1;
-            amountAI = 1;
-            amountCAS = 1;
-            drones = 0;
+            supply_airdrop = 0;
+            supply_airdrop_types[] = {"rhs_Mi8mt_vdv","rhs_Mi8mt_Cargo_vdv","rhs_Mi8MTV3_vdv","rhs_Mi8MTV3_UPK23_vdv","rhs_Mi8MTV3_FAB_vdv","rhs_Mi8AMT_vdv"};
+            supply_airdrop_typesGroup[] = {
+                "configfile", "CfgGroups", "East", "rhs_faction_vdv", "rhs_group_rus_vdv_infantry", "rhs_group_rus_vdv_infantry_squad_sniper",
+                "configfile", "CfgGroups", "East", "rhs_faction_vdv", "rhs_group_rus_vdv_infantry", "rhs_group_rus_vdv_infantry_squad_mg_sniper",
+                "configfile", "CfgGroups", "East", "rhs_faction_vdv", "rhs_group_rus_vdv_infantry", "rhs_group_rus_vdv_infantry_squad_2mg",
+                "configfile", "CfgGroups", "East", "rhs_faction_vdv", "rhs_group_rus_vdv_infantry", "rhs_group_rus_vdv_infantry_squad"
+            };
+            supply_tankdrop = 0;
+
+            cas_types[] = {"RHS_Su25SM_vvs","RHS_Su25SM_vvsc"};
+            //cas_types[] = {"O_Plane_CAS_02_dynamicLoadout_F"};
+            cas_cluster = 1;
+            cas_cluster_types[] = {"O_Plane_CAS_02_dynamicLoadout_F"};
+            cas_gun = 1;
+            cas_missiles = 1;
+            cas_drones = 0;
+            cas_drones_types[] = {"O_T_UAV_04_CAS_F","B_UAV_02_F"};
+
+
+            cas_helicopter = 1;
+            cas_helicopter_types[] = {"rhs_mi28n_vvsc"};
+
+            ai = 1;
+            ai_types[] = {"RHS_T50_vvs_054","RHS_T50_vvs_053","RHS_T50_vvs_052"};
+            //ai_types[] = {"O_Plane_Fighter_02_Stealth_F"};
 
             group_infantry[] = {
                 {"configfile","CfgGroups","East","rhs_faction_vdv","rhs_group_rus_vdv_infantry","rhs_group_rus_vdv_infantry_fireteam"},
@@ -348,9 +368,9 @@ class GVAR(unitlists) {
             class callIn : callIn {
                 supplyarray[] = {{"infanterie",1},{"airdrop",1},{"mounted",1},{"sniper",1},{"tanks",1},{"mechanized",1}};
                 helicopter_transport[] = {"O_Heli_Transport_04_bench_F"};
-                helicopter_cas[] = {"O_Heli_Attack_02_dynamicLoadout_F"};
-                planeAI[] = {"O_Plane_Fighter_02_Stealth_F"};
-                planeCAS[] = {"O_Plane_CAS_02_dynamicLoadout_F"};
+                cas_helicopter_types[] = {"O_Heli_Attack_02_dynamicLoadout_F"};
+                ai_types[] = {"O_Plane_Fighter_02_Stealth_F"};
+                cas_types[] = {"O_Plane_CAS_02_dynamicLoadout_F"};
                 amountHeli = 1;
                 amountAI = 1;
                 amountCAS = 1;
@@ -439,7 +459,6 @@ class GVAR(unitlists) {
             };
             crewmen[] = {"rhs_msv_emr_driver_armored","rhs_msv_emr_driver","rhs_msv_emr_crew","rhs_msv_emr_armoredcrew","rhs_msv_emr_combatcrew","rhs_msv_emr_crew_commander"};
             class callIn : callIn {
-                supplyarray[] = {{"infanterie",1},{"airdrop",0},{"mounted",1},{"sniper",0.5},{"tanks",0.2},{"mechanized",0.5}};
                 group_infantry[] = {
                     {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry_emr","rhs_group_rus_MSV_infantry_emr_fireteam"},
                     {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry_emr","rhs_group_rus_MSV_infantry_emr_MANEUVER"},
@@ -449,6 +468,23 @@ class GVAR(unitlists) {
                     {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry_emr","rhs_group_rus_MSV_infantry_emr_squad"},
                     {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry_emr","rhs_group_rus_MSV_infantry_emr_squad_2mg"}
                 };
+                supply_infanterie = 1;
+                supply_mounted = 0.8;
+                supply_tanks = 0.2;
+                supply_sniper = 0.3;
+                supply_mechanized = 0.3;
+
+                supply_airdrop = 0;
+                supply_tankdrop = 0;
+
+                cas_cluster = 0;
+                cas_gun = 0;
+                cas_missiles = 0;
+                cas_drones = 0;
+
+                cas_helicopter = 1;
+                ai = 1;
+
             };
             class groups : groups {
                 groups_patrol[] = {
@@ -639,10 +675,6 @@ class GVAR(unitlists) {
             };
             crewmen[] = {"rhs_VDV_driver_armored","rhs_VDV_driver","rhs_VDV_crew","rhs_VDV_armoredcrew","rhs_VDV_combatcrew","rhs_VDV_crew_commander"};
             class callIn : callIn {
-                supplyarray[] = {{"infanterie",0},{"airdrop",1},{"mounted",0},{"sniper",0.5},{"tanks",0.3},{"mechanized",0}};
-                amountHeli = 0;
-                amountAI = 1;
-                amountCAS = 1;
                 group_infantry[] = {
                     {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_infantry_emr","rhs_group_rus_VDV_infantry_emr_fireteam"},
                     {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_infantry_emr","rhs_group_rus_VDV_infantry_emr_MANEUVER"},
@@ -652,6 +684,23 @@ class GVAR(unitlists) {
                     {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_infantry_emr","rhs_group_rus_VDV_infantry_emr_squad"},
                     {"configfile","CfgGroups","East","rhs_faction_VDV","rhs_group_rus_VDV_infantry_emr","rhs_group_rus_VDV_infantry_emr_squad_2mg"}
                 };
+
+                supply_infanterie = 0;
+                supply_mounted = 0;
+                supply_tanks = 0;
+                supply_sniper = 0;
+                supply_mechanized = 0;
+
+                supply_airdrop = 1;
+                supply_tankdrop = 1;
+
+                cas_cluster = 1;
+                cas_gun = 1;
+                cas_missiles = 1;
+                cas_drones = 0;
+
+                cas_helicopter = 1;
+                ai = 1;
             };
             class groups : groups {
                 groups_patrol[] = {
@@ -824,10 +873,6 @@ class GVAR(unitlists) {
                             "rhs_msv_at","rhs_msv_aa","rhs_msv_engineer","rhs_msv_medic"};
             crewmen[] = {"rhs_msv_driver_armored","rhs_msv_driver","rhs_msv_crew","rhs_msv_armoredcrew","rhs_msv_combatcrew","rhs_msv_crew_commander"};
             class callIn : callIn {
-                supplyarray[] = {{"infanterie",0},{"airdrop",0},{"mounted",1},{"sniper",0.2},{"tanks",1},{"mechanized",1}};
-                amountHeli = 0;
-                amountAI = 1;
-                amountCAS = 0;
                 group_infantry[] = {
                     {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_fireteam"},
                     {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_MANEUVER"},
@@ -837,6 +882,23 @@ class GVAR(unitlists) {
                     {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_squad"},
                     {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_squad_2mg"}
                 };
+
+                supply_infanterie = 0;
+                supply_mounted = 0;
+                supply_tanks = 1;
+                supply_sniper = 0.2;
+                supply_mechanized = 1;
+
+                supply_airdrop = 0;
+                supply_tankdrop = 0;
+
+                cas_cluster = 0;
+                cas_gun = 1;
+                cas_missiles = 0;
+                cas_drones = 0;
+
+                cas_helicopter = 0;
+                ai = 1;
             };
         };
         class light_infanterie : msv {
@@ -850,7 +912,6 @@ class GVAR(unitlists) {
             crewmen[] = {"rhs_msv_driver_armored","rhs_msv_driver","rhs_msv_crew","rhs_msv_armoredcrew","rhs_msv_combatcrew","rhs_msv_crew_commander"};
             ifv[] = {"rhs_tigr_sts_vdv"};
             class callIn : callIn {
-                supplyarray[] = {{"infanterie",1},{"airdrop",0},{"mounted",1},{"sniper",0.2},{"tanks",0},{"mechanized",0}};
                 group_infantry[] = {
                     {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_fireteam"},
                     {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_MANEUVER"},
@@ -860,6 +921,23 @@ class GVAR(unitlists) {
                     {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_squad"},
                     {"configfile","CfgGroups","East","rhs_faction_MSV","rhs_group_rus_MSV_infantry","rhs_group_rus_MSV_infantry_squad_2mg"}
                 };
+
+                supply_infanterie = 1;
+                supply_mounted = 1;
+                supply_tanks = 0;
+                supply_sniper = 0.2;
+                supply_mechanized = 0;
+
+                supply_airdrop = 0;
+                supply_tankdrop = 0;
+
+                cas_cluster = 0;
+                cas_gun = 0;
+                cas_missiles = 0;
+                cas_drones = 1;
+
+                cas_helicopter = 0;
+                ai = 1;
             };
             class groups : groups {
                 groups_patrol[] = {
@@ -1017,11 +1095,6 @@ class GVAR(unitlists) {
             };
             crewmen[] = {"rhs_VDV_driver_armored","rhs_VDV_driver","rhs_VDV_crew","rhs_VDV_armoredcrew","rhs_VDV_combatcrew","rhs_VDV_crew_commander"};
             class callIn : callIn {
-                supplyarray[] = {{"infanterie",1},{"airdrop",0},{"mounted",0},{"sniper",1},{"tanks",0},{"mechanized",0}};
-                amountHeli = 0;
-                amountAI = 1;
-                amountCAS = 2;
-                drones = 1;
                 group_infantry[] = {
                     {"configfile","CfgGroups","East","rhs_faction_vdv","rhs_group_rus_vdv_infantry_recon","rhs_group_rus_vdv_infantry_recon_fireteam"},
                     {"configfile","CfgGroups","East","rhs_faction_vdv","rhs_group_rus_vdv_infantry_recon","rhs_group_rus_vdv_infantry_recon_MANEUVER"},
@@ -1030,6 +1103,23 @@ class GVAR(unitlists) {
                     {"configfile","CfgGroups","East","rhs_faction_vdv","rhs_group_rus_vdv_infantry_recon","rhs_group_rus_vdv_infantry_recon_squad_mg_sniper"},
                     {"configfile","CfgGroups","East","rhs_faction_vdv","rhs_group_rus_vdv_infantry_recon","rhs_group_rus_vdv_infantry_recon_squad_sniper"}
                 };
+
+                supply_infanterie = 1;
+                supply_mounted = 0;
+                supply_tanks = 0;
+                supply_sniper = 1;
+                supply_mechanized = 0;
+
+                supply_airdrop = 0;
+                supply_tankdrop = 0;
+
+                cas_cluster = 1;
+                cas_gun = 1;
+                cas_missiles = 1;
+                cas_drones = 0;
+
+                cas_helicopter = 0;
+                ai = 1;
             };
             class groups : groups {
                 groups_patrol[] = {
@@ -1079,10 +1169,23 @@ class GVAR(unitlists) {
             armytypes[] = {"specops"};
             ifv[] = {"rhs_tigr_sts_vdv"};
             class callIn : callIn {
-                supplyarray[] = {{"infanterie",1},{"airdrop",0},{"mounted",1},{"sniper",0.2},{"tanks",0},{"mechanized",0}};
-                amountHeli = 0;
-                amountAI = 1;
-                amountCAS = 0;
+
+                supply_infanterie = 1;
+                supply_mounted = 1;
+                supply_tanks = 0;
+                supply_sniper = 0.2;
+                supply_mechanized = 0;
+
+                supply_airdrop = 0;
+                supply_tankdrop = 0;
+
+                cas_cluster = 0;
+                cas_gun = 0;
+                cas_missiles = 0;
+                cas_drones = 1;
+
+                cas_helicopter = 0;
+                ai = 1;
             };
             /*
             class groups : groups {
@@ -1126,12 +1229,12 @@ class GVAR(unitlists) {
         class callIn {
             supplyarray[] = {{"infanterie",1},{"airdrop",1},{"mounted",1},{"sniper",1},{"tanks",1},{"mechanized",1}};
             helicopter_transport[] = {"RHS_CH_47F_10","RHS_CH_47F_light"};
-            helicopter_cas[] = {"RHS_AH64D_GS","RHS_AH64D_CS"};
+            cas_helicopter_types[] = {"RHS_AH64D_GS","RHS_AH64D_CS"};
 
-            //planeAI[] = {"rhsusf_f22"};
-            //planeCAS[] = {"RHS_A10","RHS_A10_AT"};
-            planeAI[] = {"B_Plane_Fighter_01_Stealth_F"};
-            planeCAS[] = {"B_Plane_CAS_01_dynamicLoadout_F"};
+            //ai_types[] = {"rhsusf_f22"};
+            //cas_types[] = {"RHS_A10","RHS_A10_AT"};
+            ai_types[] = {"B_Plane_Fighter_01_Stealth_F"};
+            cas_types[] = {"B_Plane_CAS_01_dynamicLoadout_F"};
             amountHeli = 1;
             amountAI = 1;
             amountCAS = 1;
@@ -1277,7 +1380,7 @@ class GVAR(unitlists) {
 
             class callIn : callIn {
                 helicopter_transport[] = {"RHS_UH1Y_d","RHS_UH1Y_FFAR_d","RHS_UH1Y_d_GS","rhsusf_CH53E_USMC_D"};
-                helicopter_cas[] = {"RHS_AH1Z_GS","RHS_AH1Z_CS"};
+                cas_helicopter_types[] = {"RHS_AH1Z_GS","RHS_AH1Z_CS"};
                 amountHeli = 0;
                 amountAI = 1;
                 amountCAS = 1;
@@ -1373,7 +1476,7 @@ class GVAR(unitlists) {
 
             class callIn : callIn {
                 helicopter_transport[] = {"RHS_UH1Y","RHS_UH1Y_FFAR","RHS_UH1Y_GS","rhsusf_CH53E_USMC"};
-                helicopter_cas[] = {"RHS_AH1Z_wd_GS","RHS_AH1Z_wd_CS"};
+                cas_helicopter_types[] = {"RHS_AH1Z_wd_GS","RHS_AH1Z_wd_CS"};
                 amountHeli = 0;
                 amountAI = 1;
                 amountCAS = 1;
@@ -1516,7 +1619,7 @@ class GVAR(unitlists) {
 
             class callIn : callIn {
                 helicopter_transport[] = {"RHS_UH1Y","RHS_UH1Y_FFAR"};
-                helicopter_cas[] = {"BWA3_Tiger_RMK_FZ","BWA3_Tiger_RMK_Heavy","BWA3_Tiger_RMK_PARS","BWA3_Tiger_RMK_Universal"};
+                cas_helicopter_types[] = {"BWA3_Tiger_RMK_FZ","BWA3_Tiger_RMK_Heavy","BWA3_Tiger_RMK_PARS","BWA3_Tiger_RMK_Universal"};
 
                 amountHeli = 1;
                 amountAI = 1;

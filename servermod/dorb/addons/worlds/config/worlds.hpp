@@ -31,6 +31,15 @@ class worlds {
             #include "takistan\waypoints.hpp"
         };
     };
+    class malden {
+        camouflage = 2;
+        class locations {
+            #include "malden\locations.hpp"
+        };
+        class waypoints {
+            #include "malden\waypoints.hpp"
+        };
+    };
     class pja310 {
         camouflage = 1;
         class locations {
