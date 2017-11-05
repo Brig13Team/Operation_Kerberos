@@ -11,11 +11,11 @@ ADDON = false;
 ADDON = true;
 
 If (isServer) then {
-    ["rhs_zsutank_base", "initpost", LINKFUNC(registerAA),true,[],true] call CBA_fnc_addClassEventHandler;
-    ["B_APC_Tracked_01_AA_F", "initpost", LINKFUNC(registerAA),true,[],true] call CBA_fnc_addClassEventHandler;
-    ["B_SAM_System_01_F", "initpost", LINKFUNC(registerAA),true,[],true] call CBA_fnc_addClassEventHandler;
-    ["B_SAM_System_02_F", "initpost", LINKFUNC(registerAA),true,[],true] call CBA_fnc_addClassEventHandler;
-    ["B_AAA_System_01_F", "initpost", LINKFUNC(registerAA),true,[],true] call CBA_fnc_addClassEventHandler;
+    ["rhs_zsutank_base", "init", LINKFUNC(registerAA),true,[],true] call CBA_fnc_addClassEventHandler;
+    ["B_APC_Tracked_01_AA_F", "init", LINKFUNC(registerAA),true,[],true] call CBA_fnc_addClassEventHandler;
+    ["B_SAM_System_01_F", "init", LINKFUNC(registerAA),true,[],true] call CBA_fnc_addClassEventHandler;
+    ["B_SAM_System_02_F", "init", LINKFUNC(registerAA),true,[],true] call CBA_fnc_addClassEventHandler;
+    ["B_AAA_System_01_F", "init", LINKFUNC(registerAA),true,[],true] call CBA_fnc_addClassEventHandler;
 
     ["CAManBase", "Killed", {
         /*

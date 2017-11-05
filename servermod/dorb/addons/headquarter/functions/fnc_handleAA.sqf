@@ -42,14 +42,14 @@ private _targets = HASH_GET_DEF(GVAR(radars),"targets",[]);
             {
                 _x commandWatch objNull;
             } forEach (crew _unit);
-            [QGVAR(setVehicleAmmo),[_aa,1],_aa] call CBA_fnc_targetEvent;
+            [QEGVAR(common,setVehicleAmmo),[_aa,1],_aa] call CBA_fnc_targetEvent;
         };
     };
 } forEach _mobileaa;
 
 
 {
-    [QGVAR(setVehicleAmmo),[_x,1],_x] call CBA_fnc_targetEvent;
+    [QEGVAR(common,setVehicleAmmo), [_x,1], _x] call CBA_fnc_targetEvent;
 } forEach _autonomousaa;
 
 

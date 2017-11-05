@@ -36,7 +36,7 @@ if !(_logistic_stack isEqualTo []) then {
     _cargo = _cargo select ((count _cargo) - 1);
     private _cargoObject = _cargo select 0;
     If ((IS_OBJECT(_cargoObject))&&{!isNull _cargoObject}) then {
-        [QGVAR(disableCollision),[_target,_cargoObject],[_target,_cargoObject]] call CBA_fnc_targetEvent;
+        [QEGVAR(common,disableCollision),[_target,_cargoObject],[_target,_cargoObject]] call CBA_fnc_targetEvent;
     };
 };
 
