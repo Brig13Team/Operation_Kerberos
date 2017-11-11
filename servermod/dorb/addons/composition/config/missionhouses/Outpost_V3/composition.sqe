@@ -1,5 +1,5 @@
 version=53;
-center[]={1373.0376,5,3296.3606};
+center[]={987.67474,5.000001,4948.1353};
 class items
 {
 	items=1;
@@ -15,14 +15,14 @@ class items
 				dataType="Object";
 				class PositionInfo
 				{
-					position[]={-0.49938965,1.1352696,0.76757813};
+					position[]={-0.49816895,1.1352687,0.70605469};
 				};
 				side="Empty";
 				flags=5;
 				class Attributes
 				{
 				};
-				id=1178;
+				id=702;
 				type="Land_u_House_Small_02_V1_F";
 				atlOffset=0.010228157;
 			};
@@ -38,58 +38,55 @@ class items
 						dataType="Object";
 						class PositionInfo
 						{
-							position[]={4.3580322,0.42305708,2.0986328};
-							angles[]={0,0,0.0012918708};
+							position[]={4.3591919,0.43326759,2.0371094};
+							angles[]={-0,0,0.0012918708};
 						};
 						side="East";
-						flags=2;
+						flags=6;
 						class Attributes
 						{
 						};
-						id=1181;
+						id=704;
 						type="rhs_msv_rifleman";
-						atlOffset=0.42161798;
 					};
 					class Item1
 					{
 						dataType="Object";
 						class PositionInfo
 						{
-							position[]={-3.4638672,0.42083025,1.8232422};
+							position[]={-3.4626465,0.43033171,1.7617188};
 							angles[]={0,4.5138502,0};
 						};
 						side="East";
-						flags=1;
+						flags=5;
 						class Attributes
 						{
 						};
-						id=1182;
+						id=705;
 						type="rhs_msv_emr_strelok_rpg_assist";
-						atlOffset=0.41939163;
 					};
 					class Item2
 					{
 						dataType="Object";
 						class PositionInfo
 						{
-							position[]={3.6654053,0.42215729,-2.0356445};
+							position[]={3.6577759,0.43236351,-1.6064453};
 							angles[]={0,2.4572122,0};
 						};
 						side="East";
-						flags=1;
+						flags=5;
 						class Attributes
 						{
 						};
-						id=1183;
+						id=706;
 						type="rhs_msv_emr_rifleman";
-						atlOffset=0.42071819;
 					};
 					class Item3
 					{
 						dataType="Object";
 						class PositionInfo
 						{
-							position[]={-5.1248779,0.0014390945,-2.6101074};
+							position[]={-5.1236572,0.098665237,-2.6713867};
 							angles[]={0,4.6707659,0};
 						};
 						side="East";
@@ -97,15 +94,16 @@ class items
 						class Attributes
 						{
 						};
-						id=1185;
+						id=707;
 						type="rhs_msv_emr_LAT";
+						atlOffset=0.097227097;
 					};
 					class Item4
 					{
 						dataType="Object";
 						class PositionInfo
 						{
-							position[]={-4.9912109,0.0014400482,-0.11865234};
+							position[]={-4.9899902,0.0014390945,-0.18017578};
 							angles[]={0,4.7846985,0};
 						};
 						side="East";
@@ -113,7 +111,7 @@ class items
 						class Attributes
 						{
 						};
-						id=1186;
+						id=708;
 						type="rhs_msv_emr_rifleman";
 						atlOffset=9.5367432e-007;
 					};
@@ -133,8 +131,8 @@ class items
 						class Item0
 						{
 							linkID=0;
-							item0=1181;
-							item1=1180;
+							item0=704;
+							item1=709;
 							class CustomData
 							{
 								role=2;
@@ -143,44 +141,85 @@ class items
 						};
 					};
 				};
-				id=1179;
-				atlOffset=0.42161703;
+				id=703;
 			};
 			class Item2
 			{
 				dataType="Object";
 				class PositionInfo
 				{
-					position[]={4.2183838,0.94896984,2.375};
-					angles[]={0,0,0.0012918708};
+					position[]={4.2196045,0.95918131,2.3134766};
+					angles[]={-0,0,0.0012918708};
 				};
 				side="East";
-				flags=2;
+				flags=6;
 				class Attributes
 				{
 				};
-				id=1180;
+				id=709;
 				type="rhs_Kornet_9M133_2_msv";
-				atlOffset=0.42161703;
 			};
 			class Item3
 			{
 				dataType="Object";
 				class PositionInfo
 				{
-					position[]={1.6970215,0.86826944,-1.7231445};
-					angles[]={0,0,0.0012918708};
+					position[]={1.6982422,0.8781085,-1.7841797};
+					angles[]={0,0,0.0012915437};
 				};
 				side="Empty";
 				class Attributes
 				{
+					disableSimulation=1;
 				};
-				id=1184;
+				id=710;
 				type="Land_Pallet_MilBoxes_F";
-				atlOffset=0.41815996;
+				atlOffset=0.42799997;
+				class CustomAttributes
+				{
+					class Attribute0
+					{
+						property="allowDamage";
+						expression="_this allowdamage _value;";
+						class Value
+						{
+							class data
+							{
+								class type
+								{
+									type[]=
+									{
+										"BOOL"
+									};
+								};
+								value=0;
+							};
+						};
+					};
+					class Attribute1
+					{
+						property="hideObject";
+						expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+						class Value
+						{
+							class data
+							{
+								class type
+								{
+									type[]=
+									{
+										"BOOL"
+									};
+								};
+								value=1;
+							};
+						};
+					};
+					nAttributes=2;
+				};
 			};
 		};
-		id=1187;
-		atlOffset=0.36846447;
+		id=701;
+		atlOffset=0.37721443;
 	};
 };

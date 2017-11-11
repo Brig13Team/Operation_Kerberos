@@ -31,6 +31,11 @@ _carrierPos set [2,23.8];
     [] // parameter for condition
 ] call FUNC(registerTeleportPosition);
 
+If (((getMarkerpos "respawn_west_land") distance2D [0,0,0])>100) then {
+    [getMarkerPos "respawn_west_land",localize LSTRING(BAY_LAND),["default","infanterie"],{true},[]] call FUNC(registerTeleportTarget);
+    [getMarkerPos "respawn_west_land",localize LSTRING(BAY_LAND),["default","infanterie"],{true},[]] call FUNC(registerTeleportPosition);
+};
+
 //[getMarkerPos "bay_east",localize LSTRING(BAY_EAST),["default","infanterie"],{!(_this call FUNC(nearEnemys))},[getMarkerPos "bay_east"]] call FUNC(registerTeleportTarget);
 //[getMarkerPos "bay_east_sea",localize LSTRING(BAY_EAST),"ship",{!(_this call FUNC(nearEnemys))},[getMarkerPos "bay_east_sea"]] call FUNC(registerTeleportTarget);
 //[getMarkerPos "bay_east",localize LSTRING(BAY_EAST),"infanterie",{!(_this call FUNC(nearEnemys))},[getMarkerPos "bay_east"]] call FUNC(registerTeleportPosition);
@@ -46,13 +51,6 @@ _carrierPos set [2,23.8];
 [getMarkerPos "bay_south",localize LSTRING(BAY_SOUTH),["default","infanterie"],{!(_this call FUNC(nearEnemys))},[getMarkerPos "bay_south"]] call FUNC(registerTeleportTarget);
 [getMarkerPos "bay_south_sea",localize LSTRING(BAY_SOUTH),"ship",{!(_this call FUNC(nearEnemys))},[getMarkerPos "bay_south_sea"]] call FUNC(registerTeleportTarget);
 [getMarkerPos "bay_south",localize LSTRING(BAY_SOUTH),"infanterie",{!(_this call FUNC(nearEnemys))},[getMarkerPos "bay_south"]] call FUNC(registerTeleportPosition);
-
-
-If (((getMarkerpos "respawn_west_land") distance2D [0,0,0])>100) then {
-    [getMarkerPos "respawn_west_land",localize LSTRING(BAY_LAND),["default","infanterie"],{true},[]] call FUNC(registerTeleportTarget);
-    [getMarkerPos "respawn_west_land",localize LSTRING(BAY_LAND),["default","infanterie"],{true},[]] call FUNC(registerTeleportPosition);
-};
-
 
 
 [

@@ -21,19 +21,20 @@ private _cfg = (ConfigFile >> "CfgKerberos" >> QGVAR(unitlists) >> str GVARMAIN(
 private _return = switch _grouptype do {
     // air
     case "helicopter" : {
-        private _allUnits = getArray(_cfg >> "callIn" >> "helicopter_cas");
+        private _allUnits = getArray(_cfg >> "callIn" >> "cas_helicopter_types");
         selectRandom _allUnits;
     };
-    case "transporter_airdrop" : {
-        private _allUnits = getArray(_cfg >> "callIn" >> "helicopter_transport");
+    case "supply_airdrop_types" : {
+        private _allUnits = getArray(_cfg >> "callIn" >> "supply_airdrop_types");
         selectRandom _allUnits;
     };
     case "plane_ai" : {
-        private _allUnits = getArray(_cfg >> "callIn" >> "planeAI");
+        private _allUnits = getArray(_cfg >> "callIn" >> "ai_types");
         selectRandom _allUnits;
     };
+    case "plane_bomb";
     case "plane_cas" : {
-        private _allUnits = getArray(_cfg >> "callIn" >> "planeCAS");
+        private _allUnits = getArray(_cfg >> "callIn" >> "cas_types");
         selectRandom _allUnits;
     };
 

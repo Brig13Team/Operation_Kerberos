@@ -16,7 +16,12 @@ params [["_vehicleClass","",[""]]];
 
 If !(isClass(configFile >> "CfgVehicles" >> _vehicleClass)) exitWith {};
 
-[_vehicleClass, "init", {
+[_vehicleClass, "initPost", {
     params ["_vehicle"];
-    _vehicle setVariable ["ACE_cargo_space",-999999];
-},true,[],true] call CBA_fnc_addClassEventHandler;
+    if (local _vehicle) then {
+        If !(isNil {_vehicle getVariable "ace_cargo_setSpace_jipID"}) then {
+            _vehicle setVariable ["ace_cargo_setSpace_jipID", nil, true];
+        };
+        _vehicle setVariable ["ace_cargo_space", -99999, true];
+    };
+}, false, [], true] call CBA_fnc_addClassEventHandler;

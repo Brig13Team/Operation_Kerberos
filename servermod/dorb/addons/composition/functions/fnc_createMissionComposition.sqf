@@ -19,11 +19,12 @@ params ["_centerposition", "_cfg", ["_dir", 0, [0]], ["_onlyPos", true, [false]]
 
 private _objects = [_centerposition, _cfg, _dir] call FUNC(createComposition);
 
-private _objectTypes = If (isText(_cfg >> "ObjectTypes")) then {
-    [getText(_cfg >> "ObjectTypes")]
-} else {
+private _objectTypes = If (isArray(_cfg >> "ObjectTypes")) then {
     getArray(_cfg >> "ObjectTypes")
+} else {
+    [getText(_cfg >> "ObjectTypes")]
 };
+TRACEV_4(_objectTypes,_objectType,_objects,_objects apply {typeOf _x});
 _objectTypes pushBack _objectType;
 _objectTypes = _objectTypes apply {toLower _x};
 
@@ -41,5 +42,5 @@ If (_onlyPos) then {
 } else {
     _return = _objects select {(toLower (typeOf _x)) in _objectTypes};
 };
-
+TRACEV_4(_onlyPos,_return,_objectTypes,_objects);
 _return

@@ -1,5 +1,5 @@
 version=53;
-center[]={1451.5189,5.0000024,3848.4263};
+center[]={6443.2744,5.0000024,725.30566};
 class items
 {
 	items=5;
@@ -15,14 +15,14 @@ class items
 				dataType="Object";
 				class PositionInfo
 				{
-					position[]={0.031494141,0.0014390945,2.0405273};
+					position[]={0.03125,0.0014390945,2.0407104};
 				};
 				side="East";
 				flags=4;
 				class Attributes
 				{
 				};
-				id=399;
+				id=918;
 				type="rhs_msv_armoredcrew";
 				atlOffset=2.3841858e-006;
 			};
@@ -31,14 +31,14 @@ class items
 				dataType="Object";
 				class PositionInfo
 				{
-					position[]={0.031494141,0.0014390945,2.0405273};
+					position[]={0.03125,0.0014390945,2.0407104};
 				};
 				side="East";
 				flags=6;
 				class Attributes
 				{
 				};
-				id=400;
+				id=919;
 				type="rhs_msv_armoredcrew";
 				atlOffset=2.3841858e-006;
 			};
@@ -59,8 +59,8 @@ class items
 				class Item0
 				{
 					linkID=0;
-					item0=399;
-					item1=401;
+					item0=918;
+					item1=920;
 					class CustomData
 					{
 						role=1;
@@ -69,8 +69,8 @@ class items
 				class Item1
 				{
 					linkID=1;
-					item0=400;
-					item1=401;
+					item0=919;
+					item1=920;
 					class CustomData
 					{
 						role=2;
@@ -79,7 +79,7 @@ class items
 				};
 			};
 		};
-		id=398;
+		id=917;
 		atlOffset=2.3841858e-006;
 	};
 	class Item1
@@ -87,14 +87,14 @@ class items
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={0.031494141,1.6475663,1.9907227};
+			position[]={0.03125,1.6475663,1.9907227};
 		};
 		side="East";
 		flags=6;
 		class Attributes
 		{
 		};
-		id=401;
+		id=920;
 		type="rhs_btr80a_msv";
 		atlOffset=2.3841858e-006;
 		class CustomAttributes
@@ -468,14 +468,15 @@ class items
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={-6.6490479,0.90256071,2.0234375};
+			position[]={-6.6494141,0.90256071,2.0234375};
 		};
 		side="Empty";
 		flags=5;
 		class Attributes
 		{
+			disableSimulation=1;
 		};
-		id=402;
+		id=921;
 		type="Land_Rampart_F";
 		atlOffset=2.3841858e-006;
 		class CustomAttributes
@@ -518,7 +519,26 @@ class items
 					};
 				};
 			};
-			nAttributes=2;
+			class Attribute2
+			{
+				property="hideObject";
+				expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+				class Value
+				{
+					class data
+					{
+						class type
+						{
+							type[]=
+							{
+								"BOOL"
+							};
+						};
+						value=1;
+					};
+				};
+			};
+			nAttributes=3;
 		};
 	};
 	class Item3
@@ -526,14 +546,15 @@ class items
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={6.5671387,0.90256071,1.8320313};
+			position[]={6.5664063,0.90256071,1.8320313};
 		};
 		side="Empty";
 		flags=5;
 		class Attributes
 		{
+			disableSimulation=1;
 		};
-		id=403;
+		id=922;
 		type="Land_Rampart_F";
 		atlOffset=2.3841858e-006;
 		class CustomAttributes
@@ -576,7 +597,26 @@ class items
 					};
 				};
 			};
-			nAttributes=2;
+			class Attribute2
+			{
+				property="hideObject";
+				expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+				class Value
+				{
+					class data
+					{
+						class type
+						{
+							type[]=
+							{
+								"BOOL"
+							};
+						};
+						value=1;
+					};
+				};
+			};
+			nAttributes=3;
 		};
 	};
 	class Item4
@@ -584,15 +624,16 @@ class items
 		dataType="Object";
 		class PositionInfo
 		{
-			position[]={0.018676758,0.90256071,-7.8369141};
+			position[]={0.018066406,0.90256071,-7.8369141};
 			angles[]={0,4.7595911,0};
 		};
 		side="Empty";
 		flags=5;
 		class Attributes
 		{
+			disableSimulation=1;
 		};
-		id=404;
+		id=923;
 		type="Land_Rampart_F";
 		atlOffset=2.3841858e-006;
 		class CustomAttributes
@@ -635,7 +676,26 @@ class items
 					};
 				};
 			};
-			nAttributes=2;
+			class Attribute2
+			{
+				property="hideObject";
+				expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+				class Value
+				{
+					class data
+					{
+						class type
+						{
+							type[]=
+							{
+								"BOOL"
+							};
+						};
+						value=1;
+					};
+				};
+			};
+			nAttributes=3;
 		};
 	};
 };

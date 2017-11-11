@@ -88,7 +88,7 @@ If (_unittype isKindOf "Air") exitWith {
     }else{
         private _isCAS = ["cas_heli"] in ((getArray(configfile >> "CfgVehicles" >> _unittype >> "availableForSupportTypes")) apply {tolower _x});
         If (((count _weapons) >0)||_isCAS) then {
-            _value = getArray(ConfigFile >> "CfgKerberos" >> "headquarter">>"costs">>"helicopter_cas");
+            _value = getArray(ConfigFile >> "CfgKerberos" >> "headquarter">>"costs">>"cas_helicopter_types");
             HASH_SET(GVAR(costs),_unittype,_value select 0);
             HASH_SET(GVAR(strength),_unittype,_value select 1);
             HASH_SET(GVAR(defence),_unittype,_value select 2);

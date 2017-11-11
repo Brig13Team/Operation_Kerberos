@@ -67,28 +67,16 @@ private _magazines = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]];
             case "toolkit" : {ID_OTHER};
             default {ID_OTHER};
         };
-        If (_index isEqualTo ID_OTHER) then {
+        If ((configName _cfg) isKindOf ["CBA_MiscItem",configFile >> "CfgWeapons"]) then {
             If ("medical" in ((gettext(_cfg >> "picture")) splitString "\")) then {
                 _index = ID_MEDIC;
+            } else {
+                _index = ID_OTHER;
             };
         };
         (_return select _index) pushBack _x;
-        //private _curMags = getArray(_cfg >> "magazines");
-        //(_magazines select _index) append _curMags;
     };
     nil
 } count _list;
-/*
-{
-    private _curMags = _x;
-    private _index = _forEachIndex;
-    _curMags = _curMags arrayIntersect _curMags;
-    {
-        private _cfgString = [configFile >> "CfgMagazines" >> _x, ""] call BIS_fnc_configPath;
-        [[_cfgString]] call FUNC(updateLibary);
-        (_return select _index) pushBack _cfgString;
-        nil
-    } count _curMags;
-} forEach _magazines;
-*/
+
 _return

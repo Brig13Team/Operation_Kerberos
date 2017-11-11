@@ -1,5 +1,5 @@
 version=53;
-center[]={1472.6221,5,3296.2124};
+center[]={6441.5723,5,721.15027};
 class items
 {
 	items=1;
@@ -15,29 +15,72 @@ class items
 				dataType="Object";
 				class PositionInfo
 				{
-					position[]={-0.67797852,0.4336381,0.84765625};
+					position[]={-0.50830078,0.4336381,0.63574219};
 				};
 				side="Empty";
 				flags=4;
 				class Attributes
 				{
+					disableSimulation=1;
 				};
-				id=738;
+				id=1320;
 				type="Land_GarbageBags_F";
+				class CustomAttributes
+				{
+					class Attribute0
+					{
+						property="allowDamage";
+						expression="_this allowdamage _value;";
+						class Value
+						{
+							class data
+							{
+								class type
+								{
+									type[]=
+									{
+										"BOOL"
+									};
+								};
+								value=0;
+							};
+						};
+					};
+					class Attribute1
+					{
+						property="hideObject";
+						expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+						class Value
+						{
+							class data
+							{
+								class type
+								{
+									type[]=
+									{
+										"BOOL"
+									};
+								};
+								value=1;
+							};
+						};
+					};
+					nAttributes=2;
+				};
 			};
 			class Item1
 			{
 				dataType="Object";
 				class PositionInfo
 				{
-					position[]={0.33886719,1.3065662,-0.42382813};
+					position[]={0.50878906,1.3065662,-0.63580322};
 				};
 				side="East";
 				flags=6;
 				class Attributes
 				{
 				};
-				id=745;
+				id=1321;
 				type="RHS_NSV_TriPod_MSV";
 			};
 			class Item2
@@ -52,14 +95,14 @@ class items
 						dataType="Object";
 						class PositionInfo
 						{
-							position[]={0.33886719,0.0014390945,-0.3737793};
+							position[]={0.50878906,0.0014386177,-0.58575439};
 						};
 						side="East";
 						flags=6;
 						class Attributes
 						{
 						};
-						id=746;
+						id=1323;
 						type="rhs_msv_rifleman";
 					};
 				};
@@ -78,8 +121,8 @@ class items
 						class Item0
 						{
 							linkID=0;
-							item0=746;
-							item1=745;
+							item0=1323;
+							item1=1321;
 							class CustomData
 							{
 								role=2;
@@ -88,9 +131,9 @@ class items
 						};
 					};
 				};
-				id=734;
+				id=1322;
 			};
 		};
-		id=750;
+		id=1319;
 	};
 };

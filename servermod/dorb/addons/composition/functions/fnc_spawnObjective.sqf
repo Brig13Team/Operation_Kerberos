@@ -23,7 +23,6 @@ params [
     ["_radius", 300, [0]],
     ["_onlyPos", true, [true]]
 ];
-TRACEV_5(_centerpos,_type,_amount,_radius,_onlyPos);
 
 private _possibleCompositions = If !(_onlyPos) then {
     GVAR(mission) select {(getText(_x >> "type") isEqualTo _type)};
@@ -40,6 +39,6 @@ private _return = [];
     _return append _temp;
 } forEach _possiblePositions;
 
-TRACEV_2(_centerpos, _return);
+TRACEV_6(_centerpos,_type,_amount,_radius,_onlyPos,_return);
 
 _return

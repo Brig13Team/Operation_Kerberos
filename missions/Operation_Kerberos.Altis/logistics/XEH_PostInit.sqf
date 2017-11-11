@@ -22,19 +22,3 @@
         _this call FUNC(setContainerWeight);
     }
 ] call CBA_fnc_addEventHandler;
-
-[
-    QGVAR(enableCollision),
-    {
-        params ["_vehicle","_cargo"];
-        _vehicle enableCollisionWith _cargo;
-    }
-] call CBA_fnc_addEventHandler;
-
-[
-    QGVAR(disableCollision),
-    {
-        params ["_vehicle","_cargo"];
-        _vehicle disableCollisionWith _cargo;
-    }
-] call CBA_fnc_addEventHandler;

@@ -32,7 +32,7 @@ class APP(helper) {
         w = GUI_DISP_W*3 * 15;
         h = GUI_DISP_H*3 * 30;
         style = "0x02";
-        font = GUI_FONT_BOLD;
+        font = FONT_BOLD;
         text = "";
         colorText[] = COLOR_BASE_WHITE;
         colorBackground[] = COLOR_BASE_BLACK;

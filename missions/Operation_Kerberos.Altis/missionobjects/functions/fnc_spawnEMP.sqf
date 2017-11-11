@@ -19,7 +19,7 @@ If (_position isEqualTo []) then {
 };
 
 TRACEV_2(_this,_position);
-private _allVehicles = _position nearEntities [["LandVehicle","Air","Ship_F"],2000];
+private _allVehicles = _position nearEntities [["LandVehicle","Air","Ship_F"],3000];
 {
     private _curVehicle = _x;
     if !(local _curVehicle) then {

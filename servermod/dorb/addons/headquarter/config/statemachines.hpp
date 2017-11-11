@@ -57,6 +57,11 @@ class GVAR(statemachine_AIGroups) {
             condition = QUOTE((_this getVariable [ARR_2('GVAR(state)','none')])=='cas_support');
             onTransition = "";
         };
+        class toCAS {
+            targetState = "cas_support_bomb";
+            condition = QUOTE((_this getVariable [ARR_2('GVAR(state)','none')])=='cas_support_bomb');
+            onTransition = "";
+        };
         class toAI {
             targetState = "ai_support";
             condition = QUOTE((_this getVariable [ARR_2('GVAR(state)','none')])=='ai_support');
@@ -209,6 +214,9 @@ class GVAR(statemachine_AIGroups) {
     };
     class ai_support : cas_support {
         onStateEntered = QFUNC(statemachine_airinterception);
+    };
+    class cas_support_bomb : cas_support {
+         onStateEntered = QFUNC(statemachine_bombdrop);
     };
     class ai_radar {
         onState = "";

@@ -10,6 +10,7 @@ CHECK(!hasInterface)
 // notification
 uiNamespace setVariable [QGVAR(lastNotificationHandle),CBA_missiontime];
 
+/*
 [QGVAR(message),{
     If (IS_ARRAY(_this select 1)) then {
         _thisCopy =+ _this;
@@ -19,6 +20,7 @@ uiNamespace setVariable [QGVAR(lastNotificationHandle),CBA_missiontime];
         _this spawn FUNC(message);
     };
 }] call CBA_fnc_addEventHandler;
+*/
 
 [localize ELSTRING(main,name), QGVAR(showTimer), localize LSTRING(showTimer), {
     if !([ACE_player, objNull, ["isNotEscorting", "isNotInside"]] call ace_common_fnc_canInteractWith) exitWith {false};

@@ -27,13 +27,13 @@ class strategy {
         defence[] = {0.3,0.3,0.3};
         type = 2;
 
-        function = QFUNC(strategy_helicopter);
+        function = QFUNC(strategy_offmap);
 
         timeout = 1000;
         finishcondition = "(!(alive (_this select 0)))";
-        parameter[] = {};
+        parameter[] = {"helicopter"};
 
-        onFinish = QFUNC(strategy_onFinishAir);
+        onFinish = "";
 
     };
 
@@ -45,39 +45,52 @@ class strategy {
         defence[] = {0.5,0.5,0.5};
         type = 2;
 
-        function = QFUNC(strategy_airinterception);
+        function = QFUNC(strategy_offmap);
 
         timeout = 1000;
         finishcondition = "(!(alive (_this select 0)))";
-        parameter[] = {};
+        parameter[] = {"airinterception"};
 
-        onFinish = QFUNC(strategy_onFinishAir);
+        onFinish = "";
     };
 
     class cas : airinterception {
         condition = QUOTE(['cas'] call FUNC(ressources_canUseCallIn));
 
-        value = 4000;
-        strength[] = {0.8,0.7,0};
+        value = 3000;
+        strength[] = {0.6,0.2,0};
         defence[] = {0.5,0.5,0};
         type = 2;
 
-        function = QFUNC(strategy_cas);
+        parameter[] = {"gunrun"};
+
+    };
+
+    class missiles : cas {
+        value = 4500;
+        strength[] = {0.4,0.6,0};
+        parameter[] = {"missiles"};
+    };
+
+    class bombdrop : cas {
+        value = 6000;
+        strength[] = {1,0.5,0};
+        parameter[] = {"cluster"};
     };
 
     class drones {
         condition = QUOTE(['drones'] call FUNC(ressources_canUseCallIn));
 
         value = 4000;
-        strength[] = {0.4,0.8,0};
+        strength[] = {0.4,1,0};
         defence[] = {0.5,0.5,0.5};
         type = 2;
 
-        function = QFUNC(strategy_drones);
+        function = QFUNC(strategy_offmap);
 
         timeout = 1000;
         finishcondition = "";
-        parameter[] = {};
+        parameter[] = {"dronestrike"};
     };
 
     class artillery {

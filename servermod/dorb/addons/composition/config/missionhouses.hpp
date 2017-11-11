@@ -179,13 +179,13 @@ class Outpost_V3 {
     };
 };
 
-class Outpost_V3_1 {
+class Outpost_V4 {
     type = "%ALL";
     class header {
-        #include "missionhouses\Outpost_V3_1\header.sqe"
+        #include "missionhouses\Outpost_V4\header.sqe"
     };
     class composition {
-        #include "missionhouses\Outpost_V3_1\composition.sqe"
+        #include "missionhouses\Outpost_V4\composition.sqe"
     };
 };
 

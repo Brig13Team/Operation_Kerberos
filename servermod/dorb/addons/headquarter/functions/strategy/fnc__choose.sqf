@@ -111,7 +111,7 @@ TRACEV_1(_availableGroups);
                 _valueDiffMod
         ];
         private _curStratValue = _stratValue;
-        private _parameter = [];
+        private _parameter = getArray(_curCfg >> "parameter");
         //TRACEV_5(_stratValue,_stratstrength,_stratdefence,_strattype,_possibility);
         If (_possibility > 0) then {
             _possibleStrategys pushBack [_possibility,_curStratValue,configName _curCfg,_parameter];
@@ -149,6 +149,7 @@ TRACEV_2(_currentStrategies,_possibleStrategys);
             _parameter = [_attackPos,_strategyhash,_curparameter] call compile _function;
         };
     };
+    ISNILS(_parameter,[]);
 
     HASH_SET(_strategyhash,"value",_curStratValue);
 
