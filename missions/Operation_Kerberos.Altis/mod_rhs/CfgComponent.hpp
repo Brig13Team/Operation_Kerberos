@@ -9,7 +9,7 @@
 #include "script_component.hpp"
 
 class DOUBLES(CfgComponent,ADDON) {
-    class initPostServer {client = 0;};
+    class PostInit {};
     class dependencies {
         CfgPatches[] = {'rhs_main'};
         CfgComponents[] = {};

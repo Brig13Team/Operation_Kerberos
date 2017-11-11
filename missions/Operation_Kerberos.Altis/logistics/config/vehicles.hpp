@@ -1,6 +1,118 @@
 #define CBA_OFF
 #include "script_component.hpp"
 class vehicles {
+    // Vanilla
+    class C_Van_01_transport_F {
+        max_width = 1.78;
+        max_length = 3.5;
+        max_height = 2;
+        cargo_point[] = {0,-0.27,-0.61};
+        load_point[] = {0,-4.5,-1.8};
+        cargo_pos[] = {{2,{-0.29126,-0.64624,-0.340263}},{3,{0.244141,-0.482666,-0.333824}},{4,{-0.318848,-1.2644,-0.340263}},{5,{0.292969,-1.11646,-0.333824}},{6,{-0.227539,-1.85449,-0.340256}},{7,{0.136719,-1.69946,-0.333817}},{8,{-0.336914,-2.4624,-0.340248}},{9,{0.216309,-2.34131,-0.333832}},{10,{-0.219482,-2.81885,-0.34024}},{11,{0.245361,-2.89941,-0.333817}}};
+    };
+    class B_G_Van_01_transport_F : C_Van_01_transport_F {};
+    class I_G_Van_01_transport_F : C_Van_01_transport_F {};
+    class O_G_Van_01_transport_F : C_Van_01_transport_F {};
+    class C_Van_01_transport_white_F : C_Van_01_transport_F {};
+    class C_Van_01_transport_red_F : C_Van_01_transport_F {};
+
+    class C_Offroad_01_F {
+        max_width = 1;
+        max_length = 2.1;
+        max_height = 2;
+        cargo_point[] = {0,-0.7,-0.68};
+        load_point[] = {0,-4.5,-1.5};
+        cargo_pos[] = {{1,{0.156494,-2.36548,-0.582111}},{2,{-0.401855,-2.30591,-0.539322}},{3,{0.225586,-1.03101,-0.562904}},{4,{-0.420898,-1.05713,-0.601166}}};
+    };
+
+    class C_Offroad_01_repair_F : C_Offroad_01_F {};
+    class B_G_Offroad_01_repair_F : C_Offroad_01_F {};
+    class O_G_Offroad_01_repair_F : C_Offroad_01_F {};
+    class I_G_Offroad_01_repair_F : C_Offroad_01_F {};
+    class I_G_Offroad_01_F : C_Offroad_01_F {};
+    class I_G_Offroad_01_armed_F : C_Offroad_01_F {};
+    class B_G_Offroad_01_F : C_Offroad_01_F {};
+    class O_G_Offroad_01_F : C_Offroad_01_F {};
+    class B_G_Offroad_01_armed_F : C_Offroad_01_F {};
+    class O_G_Offroad_01_armed_F : C_Offroad_01_F {};
+    class C_Offroad_01_red_F : C_Offroad_01_F {};
+    class C_Offroad_01_sand_F : C_Offroad_01_F {};
+    class C_Offroad_01_white_F : C_Offroad_01_F {};
+    class C_Offroad_01_blue_F : C_Offroad_01_F {};
+    class C_Offroad_01_darkred_F : C_Offroad_01_F {};
+    class C_Offroad_01_bluecustom_F : C_Offroad_01_F {};
+    class C_Offroad_luxe_F : C_Offroad_01_F {};
+    class C_Offroad_default_F : C_Offroad_01_F {};
+    class C_Offroad_stripped_F : C_Offroad_01_F {};
+
+    class C_Quadbike_01_F {
+        max_width = 0.95;
+        max_length = 0.5;
+        max_height = 2;
+        cargo_point[] = {0,-0.60,-0.46};
+        load_point[] = {0,-2,-1.4};
+        cargo_pos[] = {{0,{-0.000488281,-0.72876,-0.561487}}};
+    };
+    class B_Quadbike_01_F : C_Quadbike_01_F {};
+    class O_Quadbike_01_F : C_Quadbike_01_F {};
+    class I_Quadbike_01_F : C_Quadbike_01_F {};
+    class I_G_Quadbike_01_F : C_Quadbike_01_F {};
+    class B_G_Quadbike_01_F : C_Quadbike_01_F {};
+    class O_G_Quadbike_01_F : C_Quadbike_01_F {};
+    class C_Quadbike_01_black_F : C_Quadbike_01_F {};
+    class C_Quadbike_01_blue_F : C_Quadbike_01_F {};
+    class C_Quadbike_01_red_F : C_Quadbike_01_F {};
+    class C_Quadbike_01_white_F : C_Quadbike_01_F {};
+
+    class B_Truck_01_transport_F {
+        max_width = 1.35;
+        max_length = 5.67;
+        max_height = 2;
+        cargo_point[] = {0.04,0.69,-0.55};
+        load_point[] = {0,-6.5,-2};
+        cargo_pos[] = {{1,{-0.857666,0.308228,-0.0458412}},{2,{-0.752441,-1.052,-0.0814381}},{3,{-0.86084,-1.75024,-0.0367928}},{4,{-0.80835,-2.44568,-0.0177479}},{5,{-0.783691,-3.14771,-0.0728207}},{6,{-0.82373,-3.76892,-0.105639}},{7,{-0.805908,-4.53198,0.029171}},{8,{0.902588,0.256592,-0.00484848}},{9,{0.841309,-0.514404,-0.12569}},{10,{0.919434,-1.06152,0.0977821}},{11,{0.942383,-1.7262,0.0624771}},{12,{0.93042,-2.50305,-0.0330963}},{13,{0.938965,-3.2124,0.0714302}},{14,{0.911865,-3.87122,0.10149}},{15,{0.894287,-4.50146,0.0574455}},{16,{-0.720459,-0.373779,-0.0364227}}};
+    };
+    class B_Truck_01_covered_F : B_Truck_01_transport_F {
+        max_height = 1.5;
+    };
+
+    class I_Truck_02_transport_F {
+        max_width = 1.44;
+        max_length = 4.78;
+        max_height = 2;
+        cargo_point[] = {0.03,1.13,-0.78};
+        load_point[] = {0,-5,-2.1};
+        cargo_pos[] = {{2,{-0.853271,0.870605,-0.247144}},{3,{0.926758,0.834229,-0.186244}},{4,{-0.992432,0.197998,-0.275644}},{5,{0.94458,0.116943,-0.0925169}},{6,{-0.93042,-0.552734,-0.2266}},{7,{0.984131,-0.611816,-0.185123}},{8,{-0.901123,-1.21484,-0.321939}},{9,{0.832275,-1.18018,-0.210837}},{10,{-0.854736,-1.90991,-0.279305}},{11,{0.915039,-1.86792,-0.157696}},{12,{-0.976318,-2.50806,-0.234854}},{13,{0.881836,-2.52759,-0.14458}},{14,{-0.937256,-3.2251,-0.22392}},{15,{0.986816,-3.23999,-0.212337}}};
+    };
+    class O_Truck_02_transport_F : I_Truck_02_transport_F {};
+    class I_Truck_02_covered_F : I_Truck_02_transport_F {
+        max_height = 1.5;
+        load_point[] = {0,-5,-2.3};
+    };
+    class O_Truck_02_covered_F : I_Truck_02_covered_F {};
+
+    class O_Truck_03_transport_F {
+        max_width = 1.3;
+        max_length = 4.96;
+        max_height = 1.3;
+        cargo_point[] = {0.08,0,-0.4};
+        load_point[] = {0,-6.4,-2.3};
+        cargo_pos[] = {{1,{-0.855469,-0.567383,0.0992355}},{2,{-0.753418,-2.15259,0.0947189}},{3,{-0.856934,-2.90942,0.151344}},{4,{-0.815186,-3.64014,0.161163}},{5,{-0.860596,-4.49927,0.190483}},{6,{0.993896,-0.547852,0.216515}},{7,{0.940674,-1.39673,0.118469}},{8,{0.924316,-2.08667,0.151085}},{9,{-0.921875,-1.39771,0.177132}},{10,{0.992432,-3.55933,0.182732}},{11,{0.999512,-4.53369,0.198517}},{12,{0.958984,-2.8623,0.209091}}};
+    };
+    class O_Truck_03_covered_F : O_Truck_03_transport_F {
+        max_height = 2;
+    };
+
+    class B_UGV_01_F {
+        max_width = 1.2;
+        max_length = 1.1;
+        max_height = 1;
+        cargo_point[] = {0.43,0.3,-0.7};
+        load_point[] = {0,-3,-1.8};
+    };
+    class O_UGV_01_F : B_UGV_01_F {};
+    class I_UGV_01_F : B_UGV_01_F {};
+
     // Laws of War Van - cargo version
     class B_G_Van_02_transport_F {
         max_width = 1.4;
@@ -28,7 +140,16 @@ class vehicles {
     };
     class B_CTRG_LSV_01_light_F : B_LSV_01_unarmed_F {};
 
+    class B_T_Truck_01_transport_F : B_Truck_01_transport_F {};
+    class B_T_Truck_01_covered_F : B_Truck_01_covered_F {};
 
+    class O_T_Truck_03_covered_ghex_F : O_Truck_03_covered_F {};
+    class O_T_Truck_03_transport_ghex_F : O_Truck_03_transport_F {};
+
+    class B_GEN_Offroad_01_gen_F : C_Offroad_01_F {};
+    class B_T_Quadbike_01_F : C_Quadbike_01_F {};
+
+    // RHS
     class rhsusf_m1025_base {
         max_width = 1.37;
         max_length = 1.19;
@@ -443,120 +564,6 @@ class vehicles {
     class RHS_Mi8mt_Cargo_vv : RHS_Mi8mt_Cargo_vdv {};
     class RHS_Mi8mt_Cargo_vvs : RHS_Mi8mt_Cargo_vdv {};
     class RHS_Mi8mt_Cargo_vvsc : RHS_Mi8mt_Cargo_vdv {};
-
-    class C_Van_01_transport_F {
-        max_width = 1.78;
-        max_length = 3.5;
-        max_height = 2;
-        cargo_point[] = {0,-0.27,-0.61};
-        load_point[] = {0,-4.5,-1.8};
-        cargo_pos[] = {{2,{-0.29126,-0.64624,-0.340263}},{3,{0.244141,-0.482666,-0.333824}},{4,{-0.318848,-1.2644,-0.340263}},{5,{0.292969,-1.11646,-0.333824}},{6,{-0.227539,-1.85449,-0.340256}},{7,{0.136719,-1.69946,-0.333817}},{8,{-0.336914,-2.4624,-0.340248}},{9,{0.216309,-2.34131,-0.333832}},{10,{-0.219482,-2.81885,-0.34024}},{11,{0.245361,-2.89941,-0.333817}}};
-    };
-    class B_G_Van_01_transport_F : C_Van_01_transport_F {};
-    class I_G_Van_01_transport_F : C_Van_01_transport_F {};
-    class O_G_Van_01_transport_F : C_Van_01_transport_F {};
-    class C_Van_01_transport_white_F : C_Van_01_transport_F {};
-    class C_Van_01_transport_red_F : C_Van_01_transport_F {};
-
-    class C_Offroad_01_F {
-        max_width = 1;
-        max_length = 2.1;
-        max_height = 2;
-        cargo_point[] = {0,-0.7,-0.68};
-        load_point[] = {0,-4.5,-1.5};
-        cargo_pos[] = {{1,{0.156494,-2.36548,-0.582111}},{2,{-0.401855,-2.30591,-0.539322}},{3,{0.225586,-1.03101,-0.562904}},{4,{-0.420898,-1.05713,-0.601166}}};
-    };
-
-    class B_GEN_Offroad_01_gen_F : C_Offroad_01_F {};
-
-    class C_Offroad_01_repair_F : C_Offroad_01_F {};
-    class B_G_Offroad_01_repair_F : C_Offroad_01_F {};
-    class O_G_Offroad_01_repair_F : C_Offroad_01_F {};
-    class I_G_Offroad_01_repair_F : C_Offroad_01_F {};
-    class I_G_Offroad_01_F : C_Offroad_01_F {};
-    class I_G_Offroad_01_armed_F : C_Offroad_01_F {};
-    class B_G_Offroad_01_F : C_Offroad_01_F {};
-    class O_G_Offroad_01_F : C_Offroad_01_F {};
-    class B_G_Offroad_01_armed_F : C_Offroad_01_F {};
-    class O_G_Offroad_01_armed_F : C_Offroad_01_F {};
-    class C_Offroad_01_red_F : C_Offroad_01_F {};
-    class C_Offroad_01_sand_F : C_Offroad_01_F {};
-    class C_Offroad_01_white_F : C_Offroad_01_F {};
-    class C_Offroad_01_blue_F : C_Offroad_01_F {};
-    class C_Offroad_01_darkred_F : C_Offroad_01_F {};
-    class C_Offroad_01_bluecustom_F : C_Offroad_01_F {};
-    class C_Offroad_luxe_F : C_Offroad_01_F {};
-    class C_Offroad_default_F : C_Offroad_01_F {};
-    class C_Offroad_stripped_F : C_Offroad_01_F {};
-
-    class C_Quadbike_01_F {
-        max_width = 0.95;
-        max_length = 0.5;
-        max_height = 2;
-        cargo_point[] = {0,-0.60,-0.46};
-        load_point[] = {0,-2,-1.4};
-        cargo_pos[] = {{0,{-0.000488281,-0.72876,-0.561487}}};
-    };
-    class B_Quadbike_01_F : C_Quadbike_01_F {};
-    class O_Quadbike_01_F : C_Quadbike_01_F {};
-    class I_Quadbike_01_F : C_Quadbike_01_F {};
-    class I_G_Quadbike_01_F : C_Quadbike_01_F {};
-    class B_G_Quadbike_01_F : C_Quadbike_01_F {};
-    class O_G_Quadbike_01_F : C_Quadbike_01_F {};
-    class C_Quadbike_01_black_F : C_Quadbike_01_F {};
-    class C_Quadbike_01_blue_F : C_Quadbike_01_F {};
-    class C_Quadbike_01_red_F : C_Quadbike_01_F {};
-    class C_Quadbike_01_white_F : C_Quadbike_01_F {};
-
-    class B_Truck_01_transport_F {
-        max_width = 1.35;
-        max_length = 5.67;
-        max_height = 2;
-        cargo_point[] = {0.04,0.69,-0.55};
-        load_point[] = {0,-6.5,-2};
-        cargo_pos[] = {{1,{-0.857666,0.308228,-0.0458412}},{2,{-0.752441,-1.052,-0.0814381}},{3,{-0.86084,-1.75024,-0.0367928}},{4,{-0.80835,-2.44568,-0.0177479}},{5,{-0.783691,-3.14771,-0.0728207}},{6,{-0.82373,-3.76892,-0.105639}},{7,{-0.805908,-4.53198,0.029171}},{8,{0.902588,0.256592,-0.00484848}},{9,{0.841309,-0.514404,-0.12569}},{10,{0.919434,-1.06152,0.0977821}},{11,{0.942383,-1.7262,0.0624771}},{12,{0.93042,-2.50305,-0.0330963}},{13,{0.938965,-3.2124,0.0714302}},{14,{0.911865,-3.87122,0.10149}},{15,{0.894287,-4.50146,0.0574455}},{16,{-0.720459,-0.373779,-0.0364227}}};
-    };
-    class B_Truck_01_covered_F : B_Truck_01_transport_F {
-        max_height = 1.5;
-    };
-
-    class I_Truck_02_transport_F {
-        max_width = 1.44;
-        max_length = 4.78;
-        max_height = 2;
-        cargo_point[] = {0.03,1.13,-0.78};
-        load_point[] = {0,-5,-2.1};
-        cargo_pos[] = {{2,{-0.853271,0.870605,-0.247144}},{3,{0.926758,0.834229,-0.186244}},{4,{-0.992432,0.197998,-0.275644}},{5,{0.94458,0.116943,-0.0925169}},{6,{-0.93042,-0.552734,-0.2266}},{7,{0.984131,-0.611816,-0.185123}},{8,{-0.901123,-1.21484,-0.321939}},{9,{0.832275,-1.18018,-0.210837}},{10,{-0.854736,-1.90991,-0.279305}},{11,{0.915039,-1.86792,-0.157696}},{12,{-0.976318,-2.50806,-0.234854}},{13,{0.881836,-2.52759,-0.14458}},{14,{-0.937256,-3.2251,-0.22392}},{15,{0.986816,-3.23999,-0.212337}}};
-    };
-    class O_Truck_02_transport_F : I_Truck_02_transport_F {};
-    class I_Truck_02_covered_F : I_Truck_02_transport_F {
-        max_height = 1.5;
-        load_point[] = {0,-5,-2.3};
-    };
-    class O_Truck_02_covered_F : I_Truck_02_covered_F {};
-
-    class O_Truck_03_transport_F {
-        max_width = 1.3;
-        max_length = 4.96;
-        max_height = 1.3;
-        cargo_point[] = {0.08,0,-0.4};
-        load_point[] = {0,-6.4,-2.3};
-        cargo_pos[] = {{1,{-0.855469,-0.567383,0.0992355}},{2,{-0.753418,-2.15259,0.0947189}},{3,{-0.856934,-2.90942,0.151344}},{4,{-0.815186,-3.64014,0.161163}},{5,{-0.860596,-4.49927,0.190483}},{6,{0.993896,-0.547852,0.216515}},{7,{0.940674,-1.39673,0.118469}},{8,{0.924316,-2.08667,0.151085}},{9,{-0.921875,-1.39771,0.177132}},{10,{0.992432,-3.55933,0.182732}},{11,{0.999512,-4.53369,0.198517}},{12,{0.958984,-2.8623,0.209091}}};
-    };
-    class O_Truck_03_covered_F : O_Truck_03_transport_F {
-        max_height = 2;
-    };
-
-    class B_UGV_01_F {
-        max_width = 1.2;
-        max_length = 1.1;
-        max_height = 1;
-        cargo_point[] = {0.43,0.3,-0.7};
-        load_point[] = {0,-3,-1.8};
-    };
-    class O_UGV_01_F : B_UGV_01_F {};
-    class I_UGV_01_F : B_UGV_01_F {};
-
 
     // IFV
     class RHS_M2A2_wd {

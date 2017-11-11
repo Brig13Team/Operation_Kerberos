@@ -66,8 +66,7 @@ If (_Variablen) then {
         _Ausgabe pushBack format["       %1 = %2",_x,_Wert];
     }forEach _alleVariablenMNS;
 };
-_Ausgabe pushBack "DIAG END - IN (%2) SECONDS";
-_Ausgabe joinString "%1";
-diag_log text format [_Ausgabe,endl,(diag_tickTime - _tickzeit)];
+{diag_log text _x;} forEach _Ausgabe;
+diag_log text format["DIAG END - IN (%1) SECONDS",(diag_tickTime - _tickzeit)];
 
 nil;

@@ -11,8 +11,9 @@
  *
  */
 If (!isServer) exitWith {};
-
+/*
 [
     QGVAR(changeOwner),
     {_this call FUNC(changeOwner);}
 ] call CBA_fnc_addEventHandler;
+*/

@@ -21,6 +21,8 @@ If (!(local _vehicle)) exitWith {[QGVAR(addVehicleSpecial),[_vehicle],_vehicle] 
 
 switch (true) do {
     case ((typeOf _object) in ["B_Truck_01_medical_F","B_Slingload_01_Medevac_F","O_Heli_Transport_04_medevac_F","Truck_02_medical_base_F","O_Truck_03_medical_F"]);
+    case (_object isKindOf "rhsusf_M1230a1_usarmy_wd");
+    case (_object isKindOf "rhsusf_M1230a1_usarmy_d");
     case (_object isKindOf "RHS_UH60M_base");
     case (_object isKindOf "rhs_gaz66_ap2_base");
     case ([_object] call ace_medical_fnc_isMedicalVehicle) : {
@@ -33,6 +35,6 @@ switch (true) do {
     };
 };
 
-if ((GVARMAIN(playerside) == west)&&{(typeOf _object) in ["I_MRAP_03_F","I_MRAP_03_gmg_F","I_MRAP_03_hmg_F"]}) then {
+if (((side ace_player) == west)&&{(typeOf _object) in ["I_MRAP_03_F","I_MRAP_03_gmg_F","I_MRAP_03_hmg_F"]}) then {
     [_object,"blufor",true] call BIS_fnc_initVehicle;
 };

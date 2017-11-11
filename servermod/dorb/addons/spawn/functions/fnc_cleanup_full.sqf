@@ -8,25 +8,34 @@
 #include "script_component.hpp"
 _this params ["_pos",["_rad",2500,[0]]];
 
+#define DELETE_INTERVALL 0.05
+
+private _nexttime = CBA_missiontime + 10;
+
+
 {
     If (_x getVariable [QGVARMAIN(canDelete),true]) then {
-        GVAR(cleanup_Dump_int) pushBackUnique [-1,_x];
+        _nexttime = _nexttime + DELETE_INTERVALL;
+        GVAR(cleanup_Dump_int) pushBackUnique [_nexttime,_x];
     };
 } foreach (_pos nearObjects ["ALL", _rad]);
 
 {
-    GVAR(cleanup_Dump_int) pushBackUnique [-1,_x];
+    _nexttime = _nexttime + DELETE_INTERVALL;
+    GVAR(cleanup_Dump_int) pushBackUnique [_nexttime,_x];
 } forEach allMines;
 
 {
     if (side _x != GVARMAIN(playerside) ) then {
-        GVAR(cleanup_Dump_int) pushBackUnique [-1,_x];
+        _nexttime = _nexttime + DELETE_INTERVALL;
+        GVAR(cleanup_Dump_int) pushBackUnique [_nexttime,_x];
     };
 } foreach allunits;
 
 {
     if ((!(alive _x))&&{(_x getVariable [QGVARMAIN(canDelete),true])}) then {
-        GVAR(cleanup_Dump_int) pushBackUnique [-1,_x];
+        _nexttime = _nexttime + DELETE_INTERVALL;
+        GVAR(cleanup_Dump_int) pushBackUnique [_nexttime,_x];
     };
 } foreach vehicles;
 
@@ -37,12 +46,14 @@ _this params ["_pos",["_rad",2500,[0]]];
             (_x distance (getMarkerPos GVARMAIN(respawnmarker)) < 500)||
             (_x distance (getMarkerPos "respawn_west_land") < 500)
         )}) then {
-        GVAR(cleanup_Dump_int) pushBackUnique [-1,_x];
+            _nexttime = _nexttime + DELETE_INTERVALL;
+            GVAR(cleanup_Dump_int) pushBackUnique [_nexttime,_x];
     };
 } foreach vehicles;
 
 {
-    GVAR(cleanup_Dump_int) pushBackUnique [-1,_x];
+    _nexttime = _nexttime + DELETE_INTERVALL;
+    GVAR(cleanup_Dump_int) pushBackUnique [_nexttime,_x];
 } forEach ((allMissionObjects "WeaponHolder")
         + (allMissionObjects "GroundWeaponHolder")
         + (allMissionObjects "WeaponHolderSimulated")
@@ -51,32 +62,39 @@ _this params ["_pos",["_rad",2500,[0]]];
         + (allMissionObjects "Ejection_Seat_Base_F"));
 
 {
-    GVAR(cleanup_Dump_int) pushBackUnique [-1,_x];
+    _nexttime = _nexttime + DELETE_INTERVALL;
+    GVAR(cleanup_Dump_int) pushBackUnique [_nexttime,_x];
 } forEach (allMissionObjects "CraterLong");
 
 {
-    GVAR(cleanup_Dump_int) pushBackUnique [-1,_x];
+    _nexttime = _nexttime + DELETE_INTERVALL;
+    GVAR(cleanup_Dump_int) pushBackUnique [_nexttime,_x];
 } forEach (allMissionObjects "CraterLong_small");
 
 {
-    GVAR(cleanup_Dump_int) pushBackUnique [-1,_x];
+    _nexttime = _nexttime + DELETE_INTERVALL;
+    GVAR(cleanup_Dump_int) pushBackUnique [_nexttime,_x];
 } forEach (allMissionObjects "WeaponHolder");
 
 {
-    GVAR(cleanup_Dump_int) pushBackUnique [-1,_x];
+    _nexttime = _nexttime + DELETE_INTERVALL;
+    GVAR(cleanup_Dump_int) pushBackUnique [_nexttime,_x];
 } forEach (allMissionObjects "GroundWeaponHolder");
 
 {
-    GVAR(cleanup_Dump_int) pushBackUnique [-1,_x];
+    _nexttime = _nexttime + DELETE_INTERVALL;
+    GVAR(cleanup_Dump_int) pushBackUnique [_nexttime,_x];
 } forEach (allMissionObjects "GroundWeaponHolder_scripted");
 
 {
-    GVAR(cleanup_Dump_int) pushBackUnique [-1,_x];
+    _nexttime = _nexttime + DELETE_INTERVALL;
+    GVAR(cleanup_Dump_int) pushBackUnique [_nexttime,_x];
 } forEach (allMissionObjects "Land_HelipadEmpty_F");
 
 
 {
-    GVAR(cleanup_Dump_int) pushBackUnique [-1,_x];
+    _nexttime = _nexttime + DELETE_INTERVALL;
+    GVAR(cleanup_Dump_int) pushBackUnique [_nexttime,_x];
     nil;
 } count GVAR(cleanUpDump);
 GVAR(cleanup_Dump_int) sort true;

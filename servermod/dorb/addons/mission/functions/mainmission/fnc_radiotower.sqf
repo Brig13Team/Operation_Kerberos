@@ -20,8 +20,8 @@ _this params ["_mission", "_targets"];
 
     _x setVariable [QGVAR(isActive), true, true];
     _x addEventHandler ["HandleDamage", {
-            _this params ["_radiotower"];
-            private _damage = damage _radiotower;
+            _this params ["_radiotower","_selection","_newdamage"];
+            private _damage = (damage _radiotower) + _newdamage;
             if ((_damage > 0.9) && {_radiotower getVariable [QGVAR(isActive), true]}) then {
                 [_radiotower] call FUNC(statemachine_increaseCounter);
             };

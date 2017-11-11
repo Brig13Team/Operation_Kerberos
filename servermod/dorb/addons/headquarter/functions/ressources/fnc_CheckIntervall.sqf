@@ -30,7 +30,8 @@ switch (_type) do {
         (HASH_GET_DEF(_hash,"nextexecution",-1) < CBA_missiontime)
     };
     case "drones" : {
-         [] call FUNC(drones_canDoAirstrike);
+         private _hash = HASH_GET_DEF(GVAR(ressources),"drones",locationNull);
+        (HASH_GET_DEF(_hash,"nextexecution",-1) < CBA_missiontime)
     };
     default {true};
 };

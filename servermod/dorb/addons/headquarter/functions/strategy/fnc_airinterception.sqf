@@ -39,7 +39,7 @@ _attackVeh flyInHeight 800;
 private _wp = _attackGroup addWaypoint [_pos, 0];
 _wp setWaypointLoiterType "CIRCLE";
 _wp setWaypointLoiterRadius 1500;
-_wp setWaypointBehaviour "SAD";
+_wp setWaypointBehaviour "COMBAT";
 _wp setWaypointCombatMode "RED";
 
 private _wp = _attackGroup addWaypoint [_spawnPos, 1];

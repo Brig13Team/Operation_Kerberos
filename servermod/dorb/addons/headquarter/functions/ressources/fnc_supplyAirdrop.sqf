@@ -18,7 +18,7 @@ private _centerpos = HASH_GET(GVAR(dangerzones),"centerpos");
 private _spawnPos = [_centerpos,5000,5000,10000] call FUNC(ressources_getsavespawnposair);
 
 _spawnPos set [2,400];
-private _transporttype = ["transporter_airdrop"] call EFUNC(spawn,getUnit);
+private _transporttype = ["supply_airdrop_types"] call EFUNC(spawn,getUnit);
 if (_transporttype isEqualTo []) exitWith {0};
 ([_spawnPos,GVARMAIN(side),_transporttype] call EFUNC(spawn,vehicle)) params ["_transportGroup","_transportVehicle"];
 
@@ -26,8 +26,6 @@ _transportVehicle setpos _spawnpos;
 _transportVehicle flyInHeight 400;
 _transportVehicle setSpeedMode "FULL";
 _transportVehicle setBehaviour "CARELESS";
-
-
 
 private _groupType = ["airdrop"] call EFUNC(spawn,getGroup);
 private _newGroup = [_spawnpos, _grouptype] call EFUNC(spawn,group);

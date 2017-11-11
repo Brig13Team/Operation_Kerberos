@@ -24,6 +24,7 @@ params [
     ["_onlyPos", true, [true]]
 ];
 TRACEV_5(_centerpos,_type,_amount,_radius,_onlyPos);
+_type = toLower _type;
 
 private _possibleHouseTypes = HASH_CREATE;
 If !(_onlyPos) then {
@@ -46,7 +47,7 @@ If !(_onlyPos) then {
         private _curKey = _x;
         private _allCfgs = HASH_GET_DEF(GVAR(missionhouses),_curKey,[]);
         {
-            If ((getText(_x >> "type") isEqualTo _type)||{getText(_x >> "type") isEqualTo "%ALL"}) then {
+            If ((toLower (getText(_x >> "type")) isEqualTo _type)||{getText(_x >> "type") isEqualTo "%ALL"}) then {
                 If (HASH_HASKEY(_possibleHouseTypes,_curKey)) then {
                     HASH_GET(_possibleHouseTypes,_curKey) pushBackUnique _x;
                 } else {

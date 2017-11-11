@@ -27,7 +27,7 @@ private _possibleTargets = allPlayers select {
     {!(vehicle _x == _x)}&&
     {!((vehicle _x)isKindOf "ParachuteBase")}&&
     {(vehicle _x)isKindOf "Plane"}&&
-    {isTouchingGround (vehicle _x)}
+    {!(isTouchingGround (vehicle _x))}
 };
 _possibleTargets append (allUnitsUAV select {
     (alive _x)&&
@@ -40,8 +40,8 @@ private _targets = [];
     private _radarpos = _x getVariable [QGVAR(radarpos),(getPosASL _x) vectorAdd [0,0,3]];
     {
         if (
-                (((getPos _x) distance _radarpos) < 7000)&&
-                {(!(terrainIntersectASL[_radarpos,(getPosASL _x)]))}
+                (((getPos _x) distance _radarpos) < 7000)
+                //&&{(!(terrainIntersectASL[_radarpos,(getPosASL _x)]))}
             ) then {
             _targets pushBackUnique _x;
         };

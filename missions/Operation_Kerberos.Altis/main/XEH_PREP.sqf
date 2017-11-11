@@ -3,7 +3,6 @@
 PREP(recompile);
 PREP(addMapToLog);
 PREP(addToLog);
-PREP(debug_performance);
 PREP(getComponents);
 
 PREPS(hash,Acopy);

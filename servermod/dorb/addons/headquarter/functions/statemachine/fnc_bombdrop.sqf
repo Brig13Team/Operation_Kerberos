@@ -21,7 +21,7 @@ private _target = _group getVariable [QGVAR(target),locationNull];
 private _targetPos = [_target] call CBA_fnc_getPos;
 _targetPos set [2,400];
 
-TRACEV_2(_target,_targetPos);
+//TRACEV_2(_target,_targetPos);
 
 [_group] call CBA_fnc_clearWaypoints;
 private _wp = _group addWaypoint [_targetPos, 0];

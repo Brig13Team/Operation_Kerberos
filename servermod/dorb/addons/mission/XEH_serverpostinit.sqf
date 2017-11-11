@@ -40,15 +40,16 @@ GVAR(allRespawnMarkerLocations) = [
 [QFUNC(mainmission_prototype_rescued), { _this call FUNC(mainmission_prototype_rescued); deleteVehicle (_this select 0); }] call CBA_fnc_addEventHandler;
 
 // initialize missions
-If ((toUpper worldName) isEqualTo "VR") exitWith {};
-[] spawn {
-    SCRIPTIN(XEH_SERVERPOSTINIT,mission_init);
-    waitUntil {!isNil QEGVAR(worlds,isInitialized)};
-    GVAR(taskCounter) = 0;
-    [ConfigFile >> "CfgKerberos" >> QGVAR(statemachine_Taskmanager)] call CBA_statemachine_fnc_createFromConfig;
-    uiSleep 30;
-    //uiSleep 5;
-    [] call EFUNC(spawn,army_set);
-    TRACEV_1(GVARMAIN(side_type));
-    GVAR(missions) = [HASH_CREATE];
+If ((getMissionConfigValue ["isKerberos", 0]) > 0) then {
+    [] spawn {
+        SCRIPTIN(XEH_SERVERPOSTINIT,mission_init);
+        waitUntil {!isNil QEGVAR(worlds,isInitialized)};
+        GVAR(taskCounter) = 0;
+        [ConfigFile >> "CfgKerberos" >> QGVAR(statemachine_Taskmanager)] call CBA_statemachine_fnc_createFromConfig;
+        uiSleep 30;
+        //uiSleep 5;
+        [] call EFUNC(spawn,army_set);
+        TRACEV_1(GVARMAIN(side_type));
+        GVAR(missions) = [HASH_CREATE];
+    };
 };
