@@ -34,6 +34,7 @@ switch (_presetName) do {
     case "carrier_west" : {
         _return = configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'scope')>1}&&{getNumber(_x>>'side')==1}&&{((configName _x) isKindOf 'Air')})", true];
         _return = _return apply {configName _x};
+        _return = _return select {!((toLower _x) in ["rhs_a10","rhs_c130j","rhsusf_f22"])};
         _return pushBack "B_Quadbike_01_F";
     };
     case "naval_west" : {
