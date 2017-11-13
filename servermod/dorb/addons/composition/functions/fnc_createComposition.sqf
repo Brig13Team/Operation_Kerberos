@@ -61,6 +61,10 @@ TRACEV_1(_compositionCfg);
     If (_x getVariable [QGVAR(simulationEnabled),false]) then {
         _x enableSimulationGlobal true;
     };
+    EGVAR(spawn,cleanUpDump) pushBack _x;
+    If ([_x] call EFUNC(common,hasInventory)) then {
+        [_x] call EFUNC(common,clearCargo);
+    };
     nil
 } count _spawnedObjects;
 

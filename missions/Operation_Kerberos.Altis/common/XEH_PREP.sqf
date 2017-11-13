@@ -6,6 +6,7 @@ PREP(arraysGetMax);
 PREP(arraysGetArithmeticMean);
 PREP(arraySum);
 
+PREP(clearCargo);
 PREP(convertAngleToRotMat);
 PREP(convertRotMatToAngle);
 
@@ -27,6 +28,7 @@ PREP(getRollPitchYaw);
 PREP(getRotMat);
 
 PREP(handledamage_C4);
+PREP(hasInventory);
 
 PREP(list_groups);
 
