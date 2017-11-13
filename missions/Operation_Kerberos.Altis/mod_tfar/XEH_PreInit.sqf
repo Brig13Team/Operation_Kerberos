@@ -2,7 +2,7 @@
  *  Author: Dorbedo
  *
  *  Description:
- *      adds the initPost Eventhandler
+ *      adds the prePost Eventhandler
  *
  */
 //#define DEBUG_MODE_FULL
