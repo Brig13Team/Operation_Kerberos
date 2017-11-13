@@ -11,7 +11,7 @@
 class DOUBLES(CfgComponent,ADDON) {
     class PreInit {};
     class dependencies {
-        CfgPatches[] = {'task_force_radio'};
+        CfgPatches[] = {"task_force_radio"};
         CfgComponents[] = {};
     };
 };
