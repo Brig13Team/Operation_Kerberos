@@ -17,7 +17,7 @@
 params [["_configname", "", [""]], ["_valueName", "", [""]], ["_default", ""]];
 
 private _cacheEntry = (_configName+_valueName);
-private _value = GVAR(cfgMagazineCacheLocal) getVariable _valueName;
+private _value = GVAR(cfgMagazineCacheLocal) getVariable _cacheEntry;
 
 If !(isNil "_value") exitWith {_value};
 
@@ -25,22 +25,22 @@ private _cfg = configFile >> "CfgVehicles" >> _configName >> _valueName;
 
 If (isNumber _cfg) then {
     _value = getNumber _cfg;
-    GVAR(cfgMagazineCacheLocal) setVariable [_valueName, _value];
+    GVAR(cfgMagazineCacheLocal) setVariable [_cacheEntry, _value];
     _value
 };
 
 If (isText _cfg) then {
     _value = getText _cfg;
-    GVAR(cfgMagazineCacheLocal) setVariable [_valueName, _value];
+    GVAR(cfgMagazineCacheLocal) setVariable [_cacheEntry, _value];
     _value
 };
 
 If (isArray _cfg) then {
     _value = getArray _cfg;
-    GVAR(cfgMagazineCacheLocal) setVariable [_valueName, _value];
+    GVAR(cfgMagazineCacheLocal) setVariable [_cacheEntry, _value];
     _value
 };
 
-GVAR(cfgMagazineCacheLocal) setVariable [_valueName, _default];
+GVAR(cfgMagazineCacheLocal) setVariable [_cacheEntry, _default];
 
 _value
