@@ -121,7 +121,7 @@ _return = _return apply {
         [configfile >> "CfgVehicles" >> _x] call EFUNC(common,getModPicture),
         [configfile >> "CfgVehicles" >> _x] call EFUNC(common,getModName),
         [configfile >> "CfgVehicles" >> _x] call FUNC(getVehicleIcon),
-        getText(configFile >> "CfgVehicles" >> _x >> "displayName"),
+        [_x,"displayName",""] call EFUNC(common,getCfgVehicles),
         _x
     ]
 };

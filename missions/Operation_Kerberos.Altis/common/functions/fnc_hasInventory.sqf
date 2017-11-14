@@ -16,4 +16,4 @@ params [["_object", objNull, [objNull]]];
 
 if (isNull _object) exitWith {false};
 
-getNumber(configFile >> "CfgVehicles" >> (typeOf _object) >> "maximumLoad") > 0
+([typeOf _object,"maximumLoad",0] call EFUNC(common,getCfgVehicles)) > 0

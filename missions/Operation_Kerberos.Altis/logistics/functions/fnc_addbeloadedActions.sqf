@@ -31,7 +31,7 @@ private _loadActions = [];
         ) then {
         private _action = [
             _vehicle,
-            getText(configFile >> "CfgVehicles" >> typeOf _vehicle >> "displayName"),
+            [typeOf _vehicle,"displayName",""] call EFUNC(common,getCfgVehicles),
             "",
             {_this spawn FUNC(doload);},
             {true},

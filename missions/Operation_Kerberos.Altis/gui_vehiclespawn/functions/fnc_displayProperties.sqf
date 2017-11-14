@@ -97,7 +97,7 @@ switch _option do {
         _ctrl ctrlCommit 0;
         (_ctrlGroup getVariable "controls") pushBack _ctrl;
         INC(_idc);
-        private _value = getNumber(configFile >> "CfgVehicles" >> GVAR(curVeh) >> "maxSpeed");
+        private _value = ([GVAR(curVeh),"maxSpeed",0] call EFUNC(common,getCfgVehicles));
         _ctrl = _display ctrlCreate [QRSC(SpawnPropText),_idc,_ctrlGroup];
         _ctrl ctrlSetPosition GUI_DISP_PROP_VAL(_row);
         _ctrl ctrlSetText format["%1",_value];
@@ -113,7 +113,7 @@ switch _option do {
         _ctrl ctrlCommit 0;
         (_ctrlGroup getVariable "controls") pushBack _ctrl;
         INC(_idc);
-        private _value = getNumber(configFile >> "CfgVehicles" >> GVAR(curVeh) >> "ace_cargo_space");
+        private _value = ([GVAR(curVeh),"ace_cargo_space",0] call EFUNC(common,getCfgVehicles));
         _ctrl = _display ctrlCreate [QRSC(SpawnPropText),_idc,_ctrlGroup];
         _ctrl ctrlSetPosition GUI_DISP_PROP_VAL(_row);
         _ctrl ctrlSetText format["%1",_value];
@@ -129,7 +129,7 @@ switch _option do {
         _ctrl ctrlCommit 0;
         (_ctrlGroup getVariable "controls") pushBack _ctrl;
         INC(_idc);
-        private _value = getNumber(configFile >> "CfgVehicles" >> GVAR(curVeh) >> "ace_refuel_fuelCapacity");
+        private _value = ([GVAR(curVeh),"ace_refuel_fuelCapacity",0] call EFUNC(common,getCfgVehicles));
         _ctrl = _display ctrlCreate [QRSC(SpawnPropText),_idc,_ctrlGroup];
         _ctrl ctrlSetPosition GUI_DISP_PROP_VAL(_row);
         _ctrl ctrlSetText format["%1",_value];
@@ -145,7 +145,7 @@ switch _option do {
         _ctrl ctrlCommit 0;
         (_ctrlGroup getVariable "controls") pushBack _ctrl;
         INC(_idc);
-        private _value = (getNumber (configFile >> "CfgVehicles" >> GVAR(curVeh) >> "attendant"))>0;
+        private _value = ([GVAR(curVeh),"attendant",0] call EFUNC(common,getCfgVehicles))>0;
         _ctrl = _display ctrlCreate [QRSC(SpawnPropText),_idc,_ctrlGroup];
         _ctrl ctrlSetPosition GUI_DISP_PROP_VAL(_row);
         _ctrl ctrlSetText (localize ([LSTRING(PROP_NO),LSTRING(PROP_YES)] select _value));
@@ -161,7 +161,7 @@ switch _option do {
         _ctrl ctrlCommit 0;
         (_ctrlGroup getVariable "controls") pushBack _ctrl;
         INC(_idc);
-        private _value = (getNumber (configFile >> "CfgVehicles" >> GVAR(curVeh) >> "ace_rearm_defaultSupply"))>0;
+        private _value = ([GVAR(curVeh),"ace_rearm_defaultSupply",0] call EFUNC(common,getCfgVehicles))>0;
         _ctrl = _display ctrlCreate [QRSC(SpawnPropText),_idc,_ctrlGroup];
         _ctrl ctrlSetPosition GUI_DISP_PROP_VAL(_row);
         _ctrl ctrlSetText (localize ([LSTRING(PROP_NO),LSTRING(PROP_YES)] select _value));
@@ -177,7 +177,7 @@ switch _option do {
         _ctrl ctrlCommit 0;
         (_ctrlGroup getVariable "controls") pushBack _ctrl;
         INC(_idc);
-        private _value = getNumber(configFile >> "CfgVehicles" >> GVAR(curVeh) >> "armor");
+        private _value = ([GVAR(curVeh),"armor",""] call EFUNC(common,getCfgVehicles));
         _ctrl = _display ctrlCreate [QRSC(SpawnPropText),_idc,_ctrlGroup];
         _ctrl ctrlSetPosition GUI_DISP_PROP_VAL(_row);
         _ctrl ctrlSetText format["%1",_value];

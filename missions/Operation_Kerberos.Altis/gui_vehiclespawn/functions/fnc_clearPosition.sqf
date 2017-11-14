@@ -17,7 +17,7 @@ _position = ASLtoAGL _position;
 
 {
     private _veh = _x;
-    if (((getText(configFile >> "CfgVehicles" >> (typeOf _veh) >> "vehicleClass")) isEqualTo "Autonomous")) then {
+    if ((([typeOf _veh,"vehicleClass",""] call EFUNC(common,getCfgVehicles)) isEqualTo "Autonomous")) then {
         {_veh deleteVehicleCrew _x} forEach crew _veh;
     };
     { if(!(alive _x)) then {deleteVehicle _x;}; } forEach (crew _veh);

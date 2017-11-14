@@ -47,7 +47,7 @@ If (IS_ARRAY(_list)) then {
             If (isClass(configFile >> "CfgGlasses" >> _x)) then {
                 configFile >> "CfgGlasses" >> _x
             } else {
-                If ((isClass(configFile >> "CfgVehicles" >> _x))&&{getText(configFile >> "CfgVehicles" >> _x>>'vehicleClass')=='Backpacks'}) then {
+                If ((isClass(configFile >> "CfgVehicles" >> _x))&&{([_x,"vehicleClass",""] call EFUNC(common,getCfgVehicles))=='Backpacks'}) then {
                     configFile >> "CfgVehicles" >> _x
                 } else {
                     configNull

@@ -25,7 +25,7 @@ TRACEV_2(GVAR(curPos),_nearObjects);
 private _list = [];
 {
     _list pushBack [
-        format [localize LSTRING(NEWBOX),getText(configFile >> "CfgVehicles" >> _x >> "displayName")],
+        format [localize LSTRING(NEWBOX),[_x,"displayName",""] call EFUNC(common,getCfgVehicles)],
         _x,
         0
     ];
@@ -34,7 +34,7 @@ private _list = [];
 
 {
     _list pushBack [
-        getText(configFile >> "CfgVehicles" >> (typeOf _x) >> "displayName"),
+        [typeOf _x,"displayName",""] call EFUNC(common,getCfgVehicles),
         _x call BIS_fnc_netId,
         1
     ];
