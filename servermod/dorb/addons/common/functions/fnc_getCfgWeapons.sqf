@@ -23,19 +23,19 @@ If !(isNil "_value") exitWith {_value};
 
 private _cfg = configFile >> "CfgVehicles" >> _configName >> _valueName;
 
-If (isNumber _cfg) then {
+If (isNumber _cfg) exitWith {
     _value = getNumber _cfg;
     GVAR(cfgWeaponCacheLocal) setVariable [_cacheEntry, _value];
     _value
 };
 
-If (isText _cfg) then {
+If (isText _cfg) exitWith {
     _value = getText _cfg;
     GVAR(cfgWeaponCacheLocal) setVariable [_cacheEntry, _value];
     _value
 };
 
-If (isArray _cfg) then {
+If (isArray _cfg) exitWith {
     _value = getArray _cfg;
     GVAR(cfgWeaponCacheLocal) setVariable [_cacheEntry, _value];
     _value
@@ -43,4 +43,4 @@ If (isArray _cfg) then {
 
 GVAR(cfgWeaponCacheLocal) setVariable [_cacheEntry, _default];
 
-_value
+_default

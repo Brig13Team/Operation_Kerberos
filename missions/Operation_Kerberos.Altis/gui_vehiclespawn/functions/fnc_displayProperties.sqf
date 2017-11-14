@@ -177,7 +177,7 @@ switch _option do {
         _ctrl ctrlCommit 0;
         (_ctrlGroup getVariable "controls") pushBack _ctrl;
         INC(_idc);
-        private _value = ([GVAR(curVeh),"armor",""] call EFUNC(common,getCfgVehicles));
+        private _value = ([GVAR(curVeh),"armor",0] call EFUNC(common,getCfgVehicles));
         _ctrl = _display ctrlCreate [QRSC(SpawnPropText),_idc,_ctrlGroup];
         _ctrl ctrlSetPosition GUI_DISP_PROP_VAL(_row);
         _ctrl ctrlSetText format["%1",_value];
