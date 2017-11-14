@@ -14,7 +14,7 @@
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-params [["_configname", "", [""]], [["_valueName", "", [""]]], ["_default", ""]];
+params [["_configname", "", [""]], ["_valueName", "", [""]], ["_default", ""]];
 
 private _cacheEntry = (_configName+_valueName);
 private _value = GVAR(cfgMagazineCacheLocal) getVariable _valueName;

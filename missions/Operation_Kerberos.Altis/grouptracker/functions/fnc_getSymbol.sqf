@@ -24,7 +24,7 @@ switch (true) do {
     case (vehicle _leader isKindOf "Air") : {"air"};
     case (vehicle _leader isKindOf "Tank") : {"armor"};
     case ((vehicle _leader isKindOf "Wheeled_Apc_F")or(vehicle _leader isKindOf "APC_Tracked_02_base_F")or(vehicle _leader isKindOf "APC_Tracked_03_base_F")) : {"mech_inf"};
-    case (([typeOf (vehicle leader_target),"engineer",0] call EFUNC(common,getCfgVehicles)) == 1): {"maint"};
+    case (([typeOf (vehicle _leader),"engineer",0] call EFUNC(common,getCfgVehicles)) == 1): {"maint"};
     case ((vehicle _leader isKindOf "MBT_01_arty_base_F")or(vehicle _leader isKindOf "MBT_01_mlrs_base_F")) : {"art"};
     case (vehicle _leader isKindOf "Car") : {"motor_inf";};
     case ((vehicle _leader isKindOf "Ship")or(vehicle _leader isKindOf "Submarine")) : {"naval"};
