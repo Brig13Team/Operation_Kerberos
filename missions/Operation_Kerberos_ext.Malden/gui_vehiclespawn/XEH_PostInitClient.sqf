@@ -150,7 +150,7 @@ switch (str(side player)) do {
             _id
         ] call EFUNC(gui,addNotification);
 
-        _id = ["air_resistance",resistance_airspawn] call FUNC(registerSpawn);
+        _id = ["air_resistance_public",resistance_airspawn] call FUNC(registerSpawn);
         [
             LSTRING(NAME_AIR),
             ELSTRING(gui_main,CATEGORY_DEPOT),
