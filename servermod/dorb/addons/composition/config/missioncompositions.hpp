@@ -168,3 +168,14 @@ class radar {
         #include "missioncompositions\radar\composition.sqe"
     };
 };
+
+class idap_camp {
+    type = "aid";
+    objecttypes[] = {"Land_HelipadRescue_F"};
+    class header {
+        #include "missioncompositions\idap_camp\header.sqe"
+    };
+    class composition {
+        #include "missioncompositions\idap_camp\composition.sqe"
+    };
+};
