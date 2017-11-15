@@ -18,7 +18,7 @@
         TF_same_sw_frequencies_for_side = true;
         TF_same_lr_frequencies_for_side = true;
         TF_same_dd_frequencies_for_side = true;
-        tf_radio_channel_name = "Publicserver_TFAR";
+        tf_radio_channel_name = "Publicserver_Funk";
         tf_radio_channel_password = "TFAR";
         tf_west_radio_code = "_bluefor";
         tf_east_radio_code = "_bluefor";

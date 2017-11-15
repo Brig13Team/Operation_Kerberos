@@ -28,10 +28,10 @@ params ["_mission", "_targets"];
         private _nearObjects = nearestObjects [getPos _helipad, ["ReammoBox", "Helicopter", "LandVehicle"], 10, false];
         _objects select {[_x] call EFUNC(common,hasInventory)};
 
-        private _blood = _helipad getVariable [GVAR(blood), 300];
-        private _bandages = _helipad getVariable [GVAR(bandages), 1500];
-        private _morphine = _helipad getVariable [GVAR(morphine), 500];
-        private _epi = _helipad getVariable [GVAR(epipen), 300];
+        private _blood = _helipad getVariable [QGVAR(blood), 300];
+        private _bandages = _helipad getVariable [QGVAR(bandages), 1500];
+        private _morphine = _helipad getVariable [QGVAR(morphine), 500];
+        private _epi = _helipad getVariable [QGVAR(epipen), 300];
 
         {
             private _items = itemCargo _x;
@@ -59,12 +59,13 @@ params ["_mission", "_targets"];
                 [_x, "ACE_epinephrine", _curEpi] call CBA_fnc_removeItemCargo;
                 _epi = _epi - _curEpi;
             };
+            nil
         } count _nearObjects;
 
-        _helipad getVariable [GVAR(blood), _blood];
-        _helipad getVariable [GVAR(bandages), _bandages];
-        _helipad getVariable [GVAR(morphine), _morphine];
-        _helipad getVariable [GVAR(epipen), _epi];
+        _helipad getVariable [QGVAR(blood), _blood];
+        _helipad getVariable [QGVAR(bandages), _bandages];
+        _helipad getVariable [QGVAR(morphine), _morphine];
+        _helipad getVariable [QGVAR(epipen), _epi];
 
         if ((_blood <= 0) && {_bandages <= 0} && {_morphine <= 0} && {_epi <= 0}) then {
             [_handler] call CBA_fnc_removePerFrameHandler;

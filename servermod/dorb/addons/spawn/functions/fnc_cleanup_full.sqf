@@ -5,9 +5,10 @@
     Big Cleanup
 
 */
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-_this params ["_pos",["_rad",2500,[0]]];
-
+params ["_pos",["_rad",2500,[0]]];
+TRACEV_2(_pos,_rad);
 #define DELETE_INTERVALL 0.05
 
 private _nexttime = CBA_missiontime + 10;
@@ -26,7 +27,7 @@ private _nexttime = CBA_missiontime + 10;
 } forEach allMines;
 
 {
-    if (side _x != GVARMAIN(playerside) ) then {
+    if ((!(isPlayer _x)) && {side _x != GVARMAIN(playerside) }) then {
         _nexttime = _nexttime + DELETE_INTERVALL;
         GVAR(cleanup_Dump_int) pushBackUnique [_nexttime,_x];
     };

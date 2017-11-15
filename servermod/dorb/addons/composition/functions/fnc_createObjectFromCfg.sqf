@@ -48,6 +48,11 @@ If (getText(_curCfg >> "dataType") == "Object") then {
     } else {
         createVehicle [_type, [0,0,10000], [], 0, "NONE"]
     };
+
+    If ([_type] call EFUNC(common,isArtillery)) then {
+        [QEGVAR(headquarter,registerArtillery), _object] call CBA_fnc_serverEvent;
+    };
+
     _object enableSimulationGlobal false;
 
     _object setDir (_dir + (deg _yaw));
