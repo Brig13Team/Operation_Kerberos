@@ -19,7 +19,10 @@ TRACEV_2(_fastArsenal,_this);
 If (GVAR(level)<1) exitWith {
     GVAR(isPreloaded) = true;
     If (_fastArsenal) then {
-        [] call FUNC(OpenfastArsenalList);
+        If (isNil QGVAR(fastArsenalList)) then {
+            [] call FUNC(getFastArsenalList);
+        };
+        [] call FUNC(Open);
     }else{
         ["Open",true] spawn BIS_fnc_arsenal;
     };

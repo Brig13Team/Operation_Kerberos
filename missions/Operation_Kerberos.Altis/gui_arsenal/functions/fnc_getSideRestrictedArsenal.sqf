@@ -18,7 +18,7 @@ If !(isClass(missionConfigFile>>QGVARMAIN(arsenal))) then {
     ERROR("No Arsenal config found");
 };
 If ((isNil "_side")||{(_side isEqualType west)}) then {
-    _side = side player;
+    _side = side ace_player;
 };
 
 private _neededVersion = format["%1_ArsenalVersion_%2",missionName,getText(missionConfigFile >> QUOTE(DOUBLES(CfgComponent,ADDON)) >> "version")];
@@ -74,6 +74,18 @@ switch (_side) do {
         _BISClassBlack = ["_B_","_BG_","_I_","_IG_","BWA3_"];
         _BISModelBlacK = ["BLUFOR","INDEP"];
         _sideNumber = 1;
+    };
+    case independent : {
+        _dlcs = ["RHS_GREF"];
+        _BISClassBlack = ["_O_","_OG_","_B_","_BG_","BWA3_"];
+        _BISModelBlacK = ["BLUFOR","OPFOR"];
+        _sideNumber = 2;
+    };
+    default {
+        _dlcs = [];
+        _BISClassBlack = [];
+        _BISModelBlacK = [];
+        _sideNumber = 3;
     };
 };
 
