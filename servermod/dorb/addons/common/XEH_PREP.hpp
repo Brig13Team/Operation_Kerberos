@@ -16,6 +16,7 @@ PREP(getMod);
 PREP(getModName);
 PREP(getModPicture);
 PREP(getRespawnPos);
+PREP(isArtillery);
 PREP(players);
 PREP(pos_between);
 PREP(pos_flatEmpty);

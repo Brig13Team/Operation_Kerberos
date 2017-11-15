@@ -34,6 +34,8 @@ PREP(getRotMat);
 PREP(handledamage_C4);
 PREP(hasInventory);
 
+PREP(isArtillery);
+
 PREP(list_groups);
 
 PREP(players);
