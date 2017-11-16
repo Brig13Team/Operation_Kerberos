@@ -27,7 +27,7 @@ TRACEV_1(_targets);
             [_handler] call CBA_fnc_removePerFrameHandler;
         };
 
-        private _nearObjects = nearestObjects [getPos _helipad, ["ReammoBox", "Helicopter", "LandVehicle"], 10, false];
+        private _nearObjects = nearestObjects [getPos _helipad, ["ReammoBox_F", "Helicopter", "LandVehicle"], 10, false];
         _objects select {[_x] call EFUNC(common,hasInventory)};
 
         private _blood = _helipad getVariable [QGVAR(blood), 300];
