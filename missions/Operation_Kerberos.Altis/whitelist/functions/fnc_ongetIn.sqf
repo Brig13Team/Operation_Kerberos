@@ -26,7 +26,7 @@ If (missionNamespace getVariable [QEGVAR(player,whitelistenabled),false]) then {
 
     private _eject = false;
 
-    If (!((toLower (typeOf _unit)) in ["b_pilot_f","b_helipilot_f","o_pilot_f","o_helipilot_f"])) then {
+    If (!((toLower (typeOf _unit)) in ["b_pilot_f","b_helipilot_f","o_pilot_f","o_helipilot_f","i_pilot_f","i_helipilot_f"])) then {
         _eject = true;
     };
 
@@ -55,7 +55,7 @@ If (missionNamespace getVariable [QEGVAR(player,whitelistenabled),false]) then {
         };
     };
 } else {
-    if (!((toLower (typeOf _unit)) in ["b_pilot_f","b_helipilot_f","o_pilot_f","o_helipilot_f"])) then {
+    if ((!((toLower (typeOf _unit)) in ["b_pilot_f","b_helipilot_f","o_pilot_f","o_helipilot_f","i_pilot_f","i_helipilot_f"]))&&{isMultiplayer}) then {
         if ((_position == "driver") || {isNull driver (vehicle _unit)}) then { (vehicle _unit) engineOn false; };
         unassignVehicle (vehicle _unit);
         _unit action ["Eject", vehicle _unit];

@@ -24,8 +24,6 @@ If ((toLower _config) in DEFAULT_BOXES) exitWith {
     DEFAULT_BOXES_MASS select (DEFAULT_BOXES find (toLower _config))
 };
 
-_config = configFile >> "CfgVehicles" >> _config;
-
 If (([_config,"ace_cargo_hasCargo",0] call EFUNC(common,getCfgVehicles)) > 0) exitWith {
     ([_config,"ace_cargo_space",2] call EFUNC(common,getCfgVehicles)) * DEFAULT_MASS;
 };
