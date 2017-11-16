@@ -22,6 +22,6 @@ private _isJammed = false;
     If ([_jammer] call FUNC(jammer_isActive)) && {(_unit distance _jammer)<= (_range * (_unit getVariable ["tf_receivingDistanceMultiplicator", 1.0]))} exitWith {
         _isJammed = true;
     };
-} count (missionNamespace getVariable [QGVAR(jammer), []));
+} count (missionNamespace getVariable [QGVAR(jammer), []]);
 
 _isJammed

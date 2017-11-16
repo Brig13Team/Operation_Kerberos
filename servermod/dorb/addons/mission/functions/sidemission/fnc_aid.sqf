@@ -10,12 +10,14 @@
  * Nothing
  *
  */
-//#define DEBUG_MODE_FULL
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 params ["_mission", "_targets"];
 
 (_targets select 0) setVariable [QGVAR(isActive), true];
+
+TRACEV_1(_targets);
 
 [
     {
@@ -66,6 +68,8 @@ params ["_mission", "_targets"];
         _helipad getVariable [QGVAR(bandages), _bandages];
         _helipad getVariable [QGVAR(morphine), _morphine];
         _helipad getVariable [QGVAR(epipen), _epi];
+
+        TRACEV_6(_blood,_bandages,_morphine,_epi,_helipad,_nearobjects);
 
         if ((_blood <= 0) && {_bandages <= 0} && {_morphine <= 0} && {_epi <= 0}) then {
             [_handler] call CBA_fnc_removePerFrameHandler;
