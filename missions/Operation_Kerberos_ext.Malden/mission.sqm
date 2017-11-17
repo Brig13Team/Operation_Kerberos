@@ -8367,7 +8367,7 @@ class Mission
 			side="Independent";
 			class Entities
 			{
-				items=5;
+				items=3;
 				class Item0
 				{
 					dataType="Object";
@@ -8431,122 +8431,6 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={751.67279,28.921438,12125.463};
-					};
-					side="Independent";
-					flags=5;
-					class Attributes
-					{
-						isPlayable=1;
-					};
-					id=863;
-					type="I_pilot_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="ace_isMedic";
-							expression="if (_value > -1) then {_this setVariable [""ace_medical_medicClass"",_value,true];};";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=2;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="ace_isEngineer";
-							expression="if (_value != -1) then {_this setVariable ['ace_isEngineer',_value, true];}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=2;
-								};
-							};
-						};
-						nAttributes=2;
-					};
-				};
-				class Item2
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={753.48157,28.921438,12125.52};
-					};
-					side="Independent";
-					flags=5;
-					class Attributes
-					{
-						isPlayable=1;
-					};
-					id=865;
-					type="I_pilot_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="ace_isMedic";
-							expression="if (_value > -1) then {_this setVariable [""ace_medical_medicClass"",_value,true];};";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=2;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="ace_isEngineer";
-							expression="if (_value != -1) then {_this setVariable ['ace_isEngineer',_value, true];}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=2;
-								};
-							};
-						};
-						nAttributes=2;
-					};
-				};
-				class Item3
-				{
-					dataType="Object";
-					class PositionInfo
-					{
 						position[]={755.22253,28.921438,12125.918};
 					};
 					side="Independent";
@@ -8600,7 +8484,7 @@ class Mission
 						nAttributes=2;
 					};
 				};
-				class Item4
+				class Item2
 				{
 					dataType="Object";
 					class PositionInfo
