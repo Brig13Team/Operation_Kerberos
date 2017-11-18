@@ -9,7 +9,7 @@
  * <TYPENAME> return name
  *
  */
-#define DEBUG_MODE_FULL
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 params ["_vehicle", "_target", "_weapons", "_callback", "_callbackparams", "_attackPosIntervall"];
@@ -18,18 +18,6 @@ If !(alive _vehicle) exitWith {
     deleteVehicle _vehicle;
     [false, _callbackparams] call _callback;
 };
-/*
-[
-    {
-        deleteVehicle (_this select 1);
-        [_this select 0] call FUNC(offmap_rtb);
-        (_this select 3) call (_this select 2);
-    },
-    [_vehicle, _target, _callback, _callbackparams],
-    20
-] call CBA_fnc_waitAndExecute;
-*/
-
 
 private _targetPos = _target call CBA_fnc_getPos;
 private _attackarray = [];
@@ -43,8 +31,6 @@ private _switch = - (ceil ((count _weapons)/2));
     _newPos set [2,0];
     _attackarray pushBack [_x, AGLToASL _newPos];
 } forEach _weapons;
-
-
 
 #define SHOOTINGINTERVALL 0.15
 #define VEHICLESPEED (300/3.6)

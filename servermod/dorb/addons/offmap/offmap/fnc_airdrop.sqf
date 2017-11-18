@@ -47,8 +47,8 @@ private _newGroup = [_spawnpos, _grouptype] call EFUNC(spawn,group);
 {
     _x assignAsCargo _transportVehicle;
     _x moveInCargo _transportVehicle;
-    [QGVAR(disableCollisionWith),[_x,_transportVehicle],_x] call CBA_fnc_targetEvent;
-    [QGVAR(disableCollisionWith),[_transportVehicle,_x],_transportVehicle] call CBA_fnc_targetEvent;
+    [QEGVAR(common,disableCollisionWith),[_x,_transportVehicle],_x] call CBA_fnc_targetEvent;
+    [QEGVAR(common,disableCollisionWith),[_transportVehicle,_x],_transportVehicle] call CBA_fnc_targetEvent;
 } forEach (units _newGroup);
 
 [

@@ -9,7 +9,7 @@
  * Nothing
  *
  */
-#define DEBUG_MODE_FULL
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 params [["_object", objNull, [objNull]]];
