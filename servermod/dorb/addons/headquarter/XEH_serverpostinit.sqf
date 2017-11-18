@@ -133,7 +133,7 @@ HASH_SET(GVAR(handles),"ressources",_handle);
 [QGVAR(registerArtillery),{_this call FUNC(fdc_register)}] call CBA_fnc_addEventHandler;
 [QGVAR(killedUnit),{_this call FUNC(onKilled);}] call CBA_fnc_addEventHandler;
 [QGVAR(registerCenterPos),{HASH_SET(GVAR(dangerzones),"centerpos",_this select 0);}] call CBA_fnc_addEventHandler;
-[QGVAR(disableCollisionWith),
+[QEGVAR(common,disableCollisionWith),
     {
         (_this select 0) disableCollisionWith (_this select 1);
     }
