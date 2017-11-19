@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project name="dorb">
+    <Package name="mission">
+        <Container ID="CAPTURE">
+            <Key ID="STR_DORB_MISSION_CAPTURE_TITLE_WEST">
+                <English>Capture the Commander</English>
+                <German>Den Offizier gefangen nehmen</German>
+            </Key>
+            <Key ID="STR_DORB_MISSION_CAPTURE_DESC_WEST">
+                <English>Capture the enemy commander and bring him back to base. He will be interrogated.</English>
+                <German>Nehmen Sie den feindlichen Befehlshaber der Region gefangen. Bringen Sie diesen anschließend zum Verhör in die Basis.</German>
+            </Key>
+            <Key ID="STR_DORB_MISSION_CAPTURE_SUCCEEDED_WEST">
+                <English>The enemy lead has been captured.</English>
+                <German>Die Offiziere konnten gefangen genommen werden.</German>
+            </Key>
+            <Key ID="STR_DORB_MISSION_CAPTURE_NEUTRAL_WEST">
+                <English>The enemy lead has been neutralized.</English>
+                <German>Der feindliche offizier wurde getötet.</German>
+            </Key>
+            <Key ID="STR_DORB_MISSION_CAPTURE_FAILED_WEST">
+                <English>The enemy lead could not been captured.</English>
+                <German>Der gegnerische offizier konnte nicht gefangen genommen werden.</German>
+            </Key>
+            <Key ID="STR_DORB_MISSION_CAPTURE_TITLE_INDEPENDENT">
+                <English>Protect the Commander</English>
+                <German>Den Offizier beschützen</German>
+            </Key>
+            <Key ID="STR_DORB_MISSION_CAPTURE_DESC_INDEPENDENT">
+                <English>Capture the enemy commander and bring him back to base. He will be interrogated.</English>
+                <German>Nehmen Sie den feindlichen Befehlshaber der Region gefangen. Bringen Sie diesen anschließend zum Verhör in die Basis.</German>
+            </Key>
+            <Key ID="STR_DORB_MISSION_CAPTURE_SUCCEEDED_INDEPENDENT">
+                <English>The enemy lead has been captured.</English>
+                <German>Die Offiziere konnten gefangen genommen werden.</German>
+            </Key>
+            <Key ID="STR_DORB_MISSION_CAPTURE_NEUTRAL_INDEPENDENT">
+                <English>The enemy lead has been neutralized.</English>
+                <German>Der feindliche offizier wurde getötet.</German>
+            </Key>
+            <Key ID="STR_DORB_MISSION_CAPTURE_FAILED_INDEPENDENT">
+                <English>The enemy lead could not been captured.</English>
+                <German>Der gegnerische offizier konnte nicht gefangen genommen werden.</German>
+            </Key>
+        </Container>
+
+        <Container ID="HOSTAGE">
+            <Key ID="STR_DORB_MISSION_HOSTAGE_TITLE_WEST">
+                <English>Rescue Scientists</English>
+                <German>Wissenschaftler befreien</German>
+            </Key>
+            <Key ID="STR_DORB_MISSION_HOSTAGE_DESC_WEST">
+                <English>The Enemy took some scientists prisoner. Rescue them.</English>
+                <German>Der Feind hat einige wichtige Wissenschaftler als Geiseln genommen. Befreien Sie die Gefangenen.</German>
+            </Key>
+            <Key ID="STR_DORB_MISSION_HOSTAGE_SUCCEEDED_WEST">
+                <English>The hostages have been rescued.</English>
+                <German>Die Gefangenen wurden befreit.</German>
+            </Key>
+            <Key ID="STR_DORB_MISSION_HOSTAGE_NEUTRAL_WEST">
+                <English>Only some hostages have been rescued.</English>
+                <German>Es konnten nur einige Geiseln befreit werden</German>
+            </Key>
+            <Key ID="STR_DORB_MISSION_HOSTAGE_FAILED_WEST">
+                <English>It was not possible to return the hostages alive</English>
+                <German>Zu viele Gefangene sind gestorben</German>
+            </Key>
+            <Key ID="STR_DORB_MISSION_HOSTAGE_TITLE_WEST">
+                <English>Prevent the Scientists</English>
+                <German>Wissenschaftler befreien</German>
+            </Key>
+            <Key ID="STR_DORB_MISSION_HOSTAGE_DESC_WEST">
+                <English>The Enemy took some scientists prisoner. Rescue them.</English>
+                <German>Der Feind hat einige wichtige Wissenschaftler als Geiseln genommen. Befreien Sie die Gefangenen.</German>
+            </Key>
+            <Key ID="STR_DORB_MISSION_HOSTAGE_SUCCEEDED_WEST">
+                <English>The hostages have been rescued.</English>
+                <German>Die Gefangenen wurden befreit.</German>
+            </Key>
+            <Key ID="STR_DORB_MISSION_HOSTAGE_NEUTRAL_WEST">
+                <English>Only some hostages have been rescued.</English>
+                <German>Es konnten nur einige Geiseln befreit werden</German>
+            </Key>
+            <Key ID="STR_DORB_MISSION_HOSTAGE_FAILED_WEST">
+                <English>It was not possible to return the hostages alive</English>
+                <German>Zu viele Gefangene sind gestorben</German>
+            </Key>
+        </Container>
+    </Package>
+</Project>

@@ -1,3 +1,8 @@
+/*
+
+    Author: Dorbedo, iJesuz
+
+*/
 
 class CfgDebriefing {
     class Win {
