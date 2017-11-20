@@ -15,7 +15,7 @@
 
 params ["_mission"];
 
-private _allMissionsConfigs = configProperties [configfile >> "CfgKerberos" >> "missions", "((configName _x) isEqualTo 'basemission')", true];
+private _allMissionsConfigs = configProperties [configfile >> "CfgKerberos" >> "missions", "!((configName _x) isEqualTo 'basemission')", true];
 
 _allMissionsConfigs = _allMissionsConfigs select {
     If (getText(_x>>"condition") isEqualTo "") then {

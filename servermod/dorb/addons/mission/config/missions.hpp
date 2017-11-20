@@ -9,7 +9,7 @@
 #define PROPABILITY_LAND 0.5/7
 #define PROPABILITY_TOWN 0.5/5
 
-class baseMission {
+class basemission {
     // condition for the task - e.g. need specific mod
     taskcondition = "";
     // chance to spawn the mission
@@ -429,7 +429,7 @@ class scarab : device {
 
 class radar : basesidemission {
     class position : position {
-        locationtypes[] = {};
+        locationtypes[] = {QGVAR(industrie), QGVAR(military), QGVAR(other)};
         radius = 500;
     };
     class objective : objective {
@@ -467,9 +467,8 @@ class radar : basesidemission {
 
 class aid : basesidemission {
     class position : position {
-        locationtypes[] = {QGVAR(industrie), QGVAR(military), QGVAR(other)};
-        minDistance = 5000;
-        maxDistance = 9000;
+        locationtypes[] = {QGVAR(industrie), QGVAR(military), QGVAR(town)};
+        radius = 1500;
     };
     class objective : objective {
         newComposition = 1;
@@ -500,8 +499,7 @@ class aid : basesidemission {
 class artillery : radar {
     class position : position {
         locationtypes[] = {QGVAR(industrie), QGVAR(military), QGVAR(other)};
-        minDistance = 5000;
-        maxDistance = 9000;
+        radius = 500;
     };
     class objective : objective {
         newComposition = 1;
@@ -533,7 +531,8 @@ class artillery : radar {
 class chopper : radar {
     probability = 0.2;
     class position : position {
-        radius = 8000;
+        locationtypes[] = {QGVAR(industrie), QGVAR(military), QGVAR(other)};
+        radius = 2000;
     };
     class objective : objective {
         delay = 650;
@@ -568,7 +567,7 @@ class chopper : radar {
 
 class airsuperiority : radar {
     class position : position {
-        locationtypes[] = {};
+        locationtypes[] = {QGVAR(industrie), QGVAR(military), QGVAR(other)};
         radius = 100;
     };
     class objective : objective {
@@ -599,7 +598,7 @@ class minefield : radar {
     probability = 0.1;
     class position : position {
         locationtypes[] = {QGVAR(other)};
-        radius = 100;
+        radius = 600;
     };
     class objective : objective {
         spawnfunction = QFUNC(spawnfunctions_minefield);
