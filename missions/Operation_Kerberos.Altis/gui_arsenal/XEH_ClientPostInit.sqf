@@ -13,7 +13,6 @@ CHECK(!hasInterface)
  *  In addition to the arsenals added via FUNC(addArsenal)
  */
 
-GVAR(fullArsenal) = false;
 /*
  *  0 - full Arsenal (default)
  *  1 - Restricted Arsenal
@@ -24,7 +23,7 @@ GVAR(level) = 2;
 GVAR(allowedradius) = 25;
 
 {
-    [getMarkerPos _x] call FUNC(addArsenalArea)
+    [getMarkerPos _x] call FUNC(addArsenalArea);
 } forEach ([side player] call BIS_fnc_getRespawnMarkers);
 
 
@@ -34,13 +33,12 @@ GVAR(allowedradius) = 25;
  */
 
 GVAR(isPreloaded) = false;
+GVAR(fullArsenal) = false;
 
 IF !(IS_SCALAR(GVAR(allowedradius))) then {
-    GVAR(allowedradius) = 5;
+    GVAR(allowedradius) = 15;
 };
-If !(IS_SCALAR(GVAR(fullArsenal))) then {
-    GVAR(fullArsenal) = 0;
-};
+GVAR(fullArsenal) = GVAR(level) isEqualTo 0;
 
 [
     localize "str_a3_cfghints_learn_arsenal0",

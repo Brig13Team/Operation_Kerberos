@@ -21,7 +21,7 @@ If ((isNil "_side")||{(_side isEqualType west)}) then {
     _side = side ace_player;
 };
 
-private _neededVersion = format["%1_ArsenalVersion_%2",missionName,getText(missionConfigFile >> QUOTE(DOUBLES(CfgComponent,ADDON)) >> "version")];
+private _neededVersion = format["%1_ArsenalVersion_%2_%3",missionName,getText(missionConfigFile >> QUOTE(DOUBLES(CfgComponent,ADDON)) >> "version"), productVersion select 2];
 (profileNamespace getVariable [format[QGVAR(arsenalList_%1),str _side],["NotFound",[]]]) params [["_currentVersion","NotFound",[]],["_list",[],[[]]]];
 TRACEV_2(_currentVersion,_neededVersion);
 If (((!(_list isEqualTo []))&&{_currentVersion isEqualTo _neededVersion})&&{!GVAR(forceReload)}) exitWith {

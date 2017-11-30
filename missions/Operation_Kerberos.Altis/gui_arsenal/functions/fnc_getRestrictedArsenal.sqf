@@ -17,7 +17,7 @@ If !(isClass(missionConfigFile>>QGVARMAIN(arsenal))) then {
     ERROR("No Arsenal config found")
 };
 
-private _neededVersion = getText(missionConfigFile >> QUOTE(DOUBLES(CfgComponent,ADDON)) >> "version");
+private _neededVersion = format["%1_%2", getText(missionConfigFile >> QUOTE(DOUBLES(CfgComponent,ADDON)) >> "version"), productVersion select 2];
 (profileNamespace getVariable [QGVAR(arsenalList_Full),["NotFound",[]]]) params [["_currentVersion","NotFound",[]],["_list",[],[[]]]];
 TRACEV_2(_currentVersion,_neededVersion);
 If (((!(_list isEqualTo []))&&{_currentVersion isEqualTo _neededVersion})&&{!GVAR(forceReload)}) exitWith {
