@@ -11,6 +11,7 @@
     Return
         none
 */
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 params ["_side",["_onlyGear",false,[true]]];
 
@@ -21,7 +22,7 @@ If ((isNil "_side")||{(_side isEqualType west)}) then {
     _side = side ace_player;
 };
 
-private _neededVersion = format["%1_ArsenalVersion_%2_%3",missionName,getText(missionConfigFile >> QUOTE(DOUBLES(CfgComponent,ADDON)) >> "version"), productVersion select 2];
+private _neededVersion = format["%1_ArsenalVersion_%2_%3_%4",missionName,getText(missionConfigFile >> QUOTE(DOUBLES(CfgComponent,ADDON)) >> "version"), productVersion select 2,GVAR(level)];
 (profileNamespace getVariable [format[QGVAR(arsenalList_%1),str _side],["NotFound",[]]]) params [["_currentVersion","NotFound",[]],["_list",[],[[]]]];
 TRACEV_2(_currentVersion,_neededVersion);
 If (((!(_list isEqualTo []))&&{_currentVersion isEqualTo _neededVersion})&&{!GVAR(forceReload)}) exitWith {
@@ -57,75 +58,28 @@ private _configArray = (
     ("isclass _x" configclasses (configfile >> "cfgglasses"))
 );
 
-private _dlcs = [];
-private _BISClassBlack = [];
-private _BISModelBlacK = [];
-private _sideNumber = -1;
 
-switch (_side) do {
-    case west : {
-        _dlcs = ["RHS_USAF","bwa3","UK3CB_BAF_Equipment","UK3CB_BAF_Vehicles","UK3CB_BAF_Weapons"];
-        _BISClassBlack = ["_O_","_OG_","_I_","_IG_"];
-        _BISModelBlacK = ["OPFOR","INDEP"];
-        _sideNumber = 0;
-    };
-    case east : {
-        _dlcs = ["RHS_AFRF"];
-        _BISClassBlack = ["_B_","_BG_","_I_","_IG_","BWA3_"];
-        _BISModelBlacK = ["BLUFOR","INDEP"];
-        _sideNumber = 1;
-    };
-    case independent : {
-        _dlcs = ["RHS_GREF"];
-        _BISClassBlack = ["_O_","_OG_","_B_","_BG_","BWA3_"];
-        _BISModelBlacK = ["BLUFOR","OPFOR"];
-        _sideNumber = 2;
-    };
-    default {
-        _dlcs = [];
-        _BISClassBlack = [];
-        _BISModelBlacK = [];
-        _sideNumber = 3;
-    };
-};
-
-If (_sideNumber < 0) exitWith {
-    ERROR(FORMAT_1("Wrong side given",_side));
-};
-
+private _sideNumber = _side call BIS_fnc_sideID;
+TRACEV_3(_onlyGear,_side,_sidenumber);
 private _loadingScreenStep = 1/(count _configArray);
 private _loadingScreenID = [localize LSTRING(CREATE_LIST)] call EFUNC(gui,startLoadingScreen);
 
 {
     private _class = _x;
     private _className = configname _x;
-    private _isBase = if (isarray (_x >> "muzzles")) then {/*(_className call bis_fnc_baseWeapon == _className)*/true} else {true};
     private _scope = if (isnumber (_class >> "scopeArsenal")) then {getnumber (_class >> "scopeArsenal")} else {getnumber (_class >> "scope")};
-    if (((_scope > 1) && {(gettext (_class >> "model") != "")} && _isBase && {gettext (_class >> "displayName") != ""}&&{!(_className in _blacklist)})||{_className in _whitelist}) then {
+    if (((_scope > 1) && {(gettext (_class >> "model") != "")} && {gettext (_class >> "displayName") != ""}&&{!(_className in _blacklist)})||{_className in _whitelist}) then {
         (_className call bis_fnc_itemType) params ["_weaponTypeCategory","_weaponTypeSpecific"];
         if (!(_weaponTypeCategory in ["VehicleWeapon","Magazine"])) then {
-            private _hinzufuegen = true;
-            If (_className in _blacklist) then {_hinzufuegen = false;};
+            private _addThisItem = true;
+            If (_className in _blacklist) then {_addThisItem = false;};
 
-            If (((_onlyGear)&&{_weaponTypeCategory in ["Equipment"]})||(!_onlyGear)) then {
-                If ((getText(_class>>"dlc") isEqualTo "")||{getText(_class>>"dlc") in ["Mark","Expansion"]}) then {
-                    private _namestring = [getText(_class>>"model"),"\"] call CBA_fnc_split;
-                    private _namecount = {_x in _BISModelBlacK} count _namestring;
-                    If ( _namecount > 0) then {
-                        _hinzufuegen = false;
-                    }else{
-                        private _namecount = {((count([_className,_x] call CBA_fnc_split))>1)} count _BISClassBlack;
-                        If ( _namecount > 0) then {
-                            _hinzufuegen = false;
-                        };
-                    };
-                }else{
-                    if !((getText(_class>>"dlc"))in _dlcs) then {_hinzufuegen = false;};
-                };
+            If (_addThisItem && {(_onlyGear && {(_weaponTypeCategory == "Equipment") || {_weaponTypeSpecific in ["Binocular","UAVTerminal","Radio","LaserDesignator"]}}) || {!_onlyGear}}) then {
+                _addThisItem = _sideNumber in ([_className] call EFUNC(common,getItemside));
             };
-            If (_className in _whitelist) then {_hinzufuegen = false;};
+            If (_className in _whitelist) then {_addThisItem = true;};
 
-            If (_hinzufuegen) then {
+            If (_addThisItem) then {
                 switch (true) do {
                     case (_weaponTypeCategory in ["Weapon"]) : {
                         _addWeapons pushBackUnique _className;

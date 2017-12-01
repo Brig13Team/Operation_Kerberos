@@ -16,7 +16,8 @@ CHECK(!hasInterface)
 /*
  *  0 - full Arsenal (default)
  *  1 - Restricted Arsenal
- *  2 - Side restricted Arsenal
+ *  2 - Side restricted Arsenal (exept Weapons)
+ *  3 - Side restricted Arsenal
  *
  */
 GVAR(level) = 2;
