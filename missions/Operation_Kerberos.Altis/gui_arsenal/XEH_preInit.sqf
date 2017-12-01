@@ -12,3 +12,5 @@ ADDON = true;
 
 ISNIL(arsenal_boxes,[]);
 ISNIL(allowedPositions,[]);
+
+#include "CBA_settings.sqf"

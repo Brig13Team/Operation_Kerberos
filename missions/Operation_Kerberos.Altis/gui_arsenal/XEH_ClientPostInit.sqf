@@ -67,25 +67,6 @@ GVAR(fullArsenal) = GVAR(level) isEqualTo 0;
     []
 ] call EFUNC(gui,addNotification);
 
-
-[
-    QGVAR(debugArsenal),
-    "CHECKBOX",
-    [localize LSTRING(DEBUGARSENAL), localize LSTRING(DEBUGARSENAL_TOOLTIP)],
-    localize ELSTRING(main,name),
-    false,
-    0
-] call cba_settings_fnc_init;
-
-[
-    QGVAR(forceReload),
-    "CHECKBOX",
-    [localize LSTRING(forceReload), localize LSTRING(forceReload_TOOLTIP)],
-    localize ELSTRING(main,name),
-    false,
-    0
-] call cba_settings_fnc_init;
-
 [
     QGVARMAIN(arsenalOpened),
     {

@@ -11,13 +11,19 @@
     Return
         none
 */
-#define DEBUG_MODE_FULL
+//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 params ["_side",["_onlyGear",false,[true]]];
 
 If !(isClass(missionConfigFile>>QGVARMAIN(arsenal))) then {
     ERROR("No Arsenal config found");
 };
+
+If ((canSuspend)&&{GVAR(fastArsenalLoading)}) exitWith {
+    [FUNC(getSideRestrictedArsenal),_this] call CBA_fnc_directCall;
+};
+private _loadingScreenActivated = ! GVAR(fastArsenalLoading);
+
 If ((isNil "_side")||{(_side isEqualType west)}) then {
     _side = side ace_player;
 };
@@ -60,10 +66,14 @@ private _configArray = (
 
 
 private _sideNumber = _side call BIS_fnc_sideID;
-TRACEV_3(_onlyGear,_side,_sidenumber);
-private _loadingScreenStep = 1/(count _configArray);
-private _loadingScreenID = [localize LSTRING(CREATE_LIST)] call EFUNC(gui,startLoadingScreen);
 
+private _loadingScreenStep = 1/(count _configArray);
+private _loadingScreenID = 0;
+If (_loadingScreenActivated) then {
+    _loadingScreenID = [localize LSTRING(CREATE_LIST)] call EFUNC(gui,startLoadingScreen);
+} else {
+    [QEGVAR(gui,message),[LSTRING(CATEGORY), LSTRING(CREATE_LIST), "green"]] call CBA_fnc_localEvent;
+};
 {
     private _class = _x;
     private _className = configname _x;
@@ -118,7 +128,9 @@ private _loadingScreenID = [localize LSTRING(CREATE_LIST)] call EFUNC(gui,startL
             };
         };
     };
-    [_loadingScreenID,(_forEachIndex * _loadingScreenStep)] call EFUNC(gui,progressLoadingScreen);
+    If (_loadingScreenActivated) then {
+        [_loadingScreenID,(_forEachIndex * _loadingScreenStep)] call EFUNC(gui,progressLoadingScreen);
+    };
 } foreach _configArray;
 {
     private _weapon = _x;
@@ -155,7 +167,10 @@ private _loadingScreenID = [localize LSTRING(CREATE_LIST)] call EFUNC(gui,startL
         _addBackpacks pushBackUnique _x;
     };
 } foreach _BackpackWhitelist;
-[_loadingScreenID] call EFUNC(gui,endLoadingScreen);
+
+If (_loadingScreenActivated) then {
+    [_loadingScreenID] call EFUNC(gui,endLoadingScreen);
+};
 
 _list = [_addWeapons,_addMagazines,_addItems,_addBackpacks,_fixWeapons,_fixMagazines,_fixItems,_fixBackpacks];
 
