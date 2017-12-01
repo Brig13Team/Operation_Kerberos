@@ -21,7 +21,7 @@ private _value = GVAR(cfgAmmoCacheLocal) getVariable _cacheEntry;
 
 If !(isNil "_value") exitWith {_value};
 
-private _cfg = configFile >> "CfgVehicles" >> _configName >> _valueName;
+private _cfg = configFile >> "CfgAmmo" >> _configName >> _valueName;
 
 If (isNumber _cfg) exitWith {
     _value = getNumber _cfg;
