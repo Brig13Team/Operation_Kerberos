@@ -62,8 +62,13 @@ If (isClass (configFile >> "CfgWeapons" >> _className)) exitWith {
 
     // headgear
     If (isArray (configFile >> "CfgWeapons" >> _className >> "ItemInfo" >> "modelSides" )) exitWith {
-        getArray (configFile >> "CfgWeapons" >> _className >> "ItemInfo" >> "modelSides" )
+        getArray (configFile >> "CfgWeapons" >> _className >> "ItemInfo" >> "modelSides");
     };
+
+    If (isNumber (configFile >> "CfgWeapons" >> _className >> "ItemInfo" >> "side" )) exitWith {
+        [getNumber (configFile >> "CfgWeapons" >> _className >> "ItemInfo" >> "side" )];
+    };
+
 };
 
 _return
