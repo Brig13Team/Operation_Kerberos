@@ -11,13 +11,13 @@ CHECK(!hasInterface)
 
 // Settings
 
-GVAR(Intervall) = 5; // Intervall of refreshing the grouptracker
-GVAR(delayAmount) = 3; // Amount of old positions to be displayed before the current one
+ISNIL(Intervall,5); // Intervall of refreshing the grouptracker
+ISNIL(delayAmount,3); // Amount of old positions to be displayed before the current one
 /*
  *    If you set the intervall to 5 and the delayAmount to 3, the grouptracker only shows the positions 15 secondes before
  *
  */
-GVAR(AiIsVisible) = true; // shows Groups witch are not led by a player
+ISNIL(AiIsVisible,true); // shows Groups witch are not led by a player
 
 
 // Initializing
