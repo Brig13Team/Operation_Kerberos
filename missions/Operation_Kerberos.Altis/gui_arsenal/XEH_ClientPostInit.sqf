@@ -8,21 +8,6 @@
 
 CHECK(!hasInterface)
 
-/*
- *  Set the Variables
- *  In addition to the arsenals added via FUNC(addArsenal)
- */
-
-/*
- *  0 - full Arsenal (default)
- *  1 - Restricted Arsenal
- *  2 - Side restricted Arsenal (exept Weapons)
- *  3 - Side restricted Arsenal
- *
- */
-ISNIL(level,2);
-ISNIL(allowedradius,25);
-
 {
     [getMarkerPos _x] call FUNC(addArsenalArea);
 } forEach ([side player] call BIS_fnc_getRespawnMarkers);

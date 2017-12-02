@@ -1,4 +1,12 @@
 [
+    QGVAR(active),
+    "CHECKBOX",
+    LSTRING(active),
+    "Task Force Arrowhead Radio",
+    true,
+    1
+] call CBA_Settings_fnc_init;
+[
     QGVAR(Intervall),
     "SLIDER",
     LSTRING(UpdateIntervall),
@@ -15,7 +23,7 @@
     1
 ] call CBA_Settings_fnc_init;
 [
-    GVAR(AiIsVisible),
+    QGVAR(AiIsVisible),
     "CHECKBOX",
     LSTRING(AiIsVisible),
     "Task Force Arrowhead Radio",

@@ -69,6 +69,10 @@
             <English>AI is visible</English>
             <German>KI ist sichtbar</German>
         </Key>
+        <Key ID="STR_DORB_GROUPTRACKER_active">
+            <English>Activate Grouptracker</English>
+            <German>Grouptracker aktiv</German>
+        </Key>
     </Package>
     <Package name="GUI_ARSENAL">
         <Key ID="STR_DORB_GUI_ARSENAL_CATEGORY">
