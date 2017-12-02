@@ -64,6 +64,28 @@ class radar : basesidemission {
     };
 };
 
+class aid : basesidemission {
+    class position : position {
+        locationtypes[] = {QGVAR(industrie), QGVAR(military), QGVAR(other)};
+        minDistance = 5000;
+        maxDistance = 9000;
+    };
+    class objective : objective {
+        newComposition = 1;
+        target = "composition";
+        composition_types[] = {"aid"};
+        amount = 1;
+        objectsfunction = QFUNC(sidemission_aid);
+    };
+    class task : task {
+        title = LSTRING(side_aid_title);
+        description = LSTRING(side_aid_desc);
+        onSucceeded = LSTRING(side_aid_succeeded);
+        showMarker = 1;
+        tasktype = "heal";
+    };
+};
+
 class artillery : radar {
     class position : position {
         locationtypes[] = {QGVAR(industrie), QGVAR(military), QGVAR(other)};

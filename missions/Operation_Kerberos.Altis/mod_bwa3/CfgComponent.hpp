@@ -11,7 +11,7 @@
 class DOUBLES(CfgComponent,ADDON) {
     class initPostServer {client = 0;};
     class dependencies {
-        CfgPatches[] = {'BWA3_common'};
+        CfgPatches[] = {"BWA3_common"};
         CfgComponents[] = {};
     };
 };

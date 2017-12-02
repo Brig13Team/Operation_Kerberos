@@ -28,7 +28,7 @@ private _loadActions = [];
     If ((_vehicle != _cargo)&&{[_vehicle,_cargo] call FUNC(canbeLoaded)}) then {
         private _action = [
             _cargo,
-            getText(configFile >> "CfgVehicles" >> typeOf _cargo >> "displayName"),
+            [typeOf _cargo,"displayName",""] call EFUNC(common,getCfgVehicles),
             "",
             {_this spawn FUNC(doload);},
             {true},

@@ -10,7 +10,7 @@ CHECK(!hasInterface)
 
 GVAR(teleport_lead_active) = true;
 
-If ((side player) == "GUER") then {
+If (str(side player) == "GUER") then {
     [
         getmarkerPos "respawn_guerrila", // Position as Array or code
         localize LSTRING(BASE), // The Name wich will be displayed

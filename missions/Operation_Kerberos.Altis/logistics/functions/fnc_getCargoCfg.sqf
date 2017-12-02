@@ -30,7 +30,7 @@ If (isClass(missionConfigFile >> "logistics" >> "cargos" >> _modelname)) exitWit
     If (_object isEqualTo "") exitWith {""};
     If (isClass(missionConfigFile >> "logistics" >> "cargos" >> _object)) exitWith {_object};
     If (!isClass(configFile >> "CfgVehicles" >> _object)) exitWith {""};
-    private _model = getText(configFile >> "CfgVehicles" >> _object >> "model");
+    private _model = [_object,"model",""] call EFUNC(common,getCfgVehicles);
     If (_model isEqualTo "") exitWith {""};
     _model = _model splitString "\.";
     private _modelname = "FEHLER";

@@ -20,6 +20,12 @@ params [["_itemlist",[],[[]]]];
         private _cfg = [_itemCfg,configFile] call BIS_fnc_configPath;
         private _modName = [_cfg] call EFUNC(common,getModName);
         private _mags = getArray(_cfg >> "magazines");
+        {
+            If (isClass (_cfg >> _x)) then {
+                _mags = _mags + getarray(_cfg >> _x >> "magazines");
+            };
+        } foreach getarray(_cfg >> "muzzles");
+
         _mags = _mags apply {[configFile >> "CfgMagazines" >> _x,""] call BIS_fnc_configPath};
         //TRACEV_2(_itemCfg,_mags);
         [_mags] call FUNC(updateLibary);

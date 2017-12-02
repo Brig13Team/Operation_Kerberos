@@ -14,5 +14,5 @@
 #include "..\main\script_macros.hpp"
 #include "..\gui\script_gui.hpp"
 
-#define CHECK_RADIUS 14
+#define CHECK_RADIUS 25
 #define TELEPORT_TIMEOUT

@@ -65,6 +65,14 @@
             <English>creating arsenal lists</English>
             <German>Erstelle Arsenallisten</German>
         </Key>
+        <Key ID="STR_DORB_GUI_ARSENAL_fastArsenalLoading">
+            <English>fast list generating</English>
+            <German>Schnelle Listengenerierung</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARSENAL_fastArsenalLoading_TOOLTIP">
+            <English>The Arsenal-List is generated faster. Might be crash the game on slower pc.</English>
+            <German>Die Arsenalliste wird schneller erzeugt. Kann auf langsamen PC zum Absturz führen.</German>
+        </Key>
         <Key ID="STR_DORB_GUI_ARSENAL_DEBUGARSENAL">
             <English>activate arsenal debugging</English>
             <German>Aktiviere Arsenal Debugmodus</German>
@@ -498,6 +506,19 @@
             <Key ID="STR_DORB_MISSION_SIDE_RADAR_SUCCEEDED">
                 <English>A radar has been neutralized.</English>
                 <German>Ein Radar wurde neutralisiert.</German>
+            </Key>
+
+            <Key ID="STR_DORB_MISSION_SIDE_AID_TITLE">
+                <English>Deliver medical goods</English>
+                <German>Medizinische Güter liefern</German>
+            </Key>
+            <Key ID="STR_DORB_MISSION_SIDE_AID_DESC">
+                <English>The local IDAP base camp was robbed of its medical supplys. We need to deliver: 300 Blood IV, 1500 Bandages, 500 Morphine and 300 Epinephrine</English>
+                <German>Dem IDAP Basislager wurde die medizinischen Versorgungsgüter geraubt. Wir müssen 300 Blut IV, 1500 Bandagen, 500 Morphin und 300 Epinephrine liefern.</German>
+            </Key>
+            <Key ID="STR_DORB_MISSION_SIDE_AID_SUCCEEDED">
+                <English>The goods have been delivered.</English>
+                <German>Die Güter wurden geliefert.</German>
             </Key>
 
             <Key ID="STR_DORB_MISSION_SIDE_AIRSUPERIORITY_TITLE">

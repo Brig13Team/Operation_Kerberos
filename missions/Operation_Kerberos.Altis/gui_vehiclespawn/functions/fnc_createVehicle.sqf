@@ -43,7 +43,7 @@ if ((_vehicle isKindOf "SDV") or (_vehicle isKindOf "Ship")) then {
     };
 };
 
-if ((getText(configFile >> "CfgVehicles" >> _vehicleType >> "vehicleClass"))isEqualTo "Autonomous") then {
+if (([_vehicleType,"vehicleClass",""] call EFUNC(common,getCfgVehicles))isEqualTo "Autonomous") then {
     createVehicleCrew _vehicle;
 };
 
@@ -62,7 +62,7 @@ If (GVAR(option_spawnEmtpy)) then {
 
 If (GVAR(option_noSpareParts)) then {
     // TODO this needs some fixing
-    _vehicle setVariable ["ace_cargo_space", getNumber (configFile >> "CfgVehicles" >> _vehicleType >> "ace_cargo_space"),true];
+    _vehicle setVariable ["ace_cargo_space", ([_vehicleType,"ace_cargo_space",0] call EFUNC(common,getCfgVehicles)),true];
     _vehicle setVariable ["ace_cargo_loaded",[],true];
 };
 

@@ -19,9 +19,9 @@
 #define CHECK_RADIUS_MAX 15
 
 #define MASS_CORRECTION 0.5
-#define DEFAULT_MASS 250
+#define DEFAULT_MASS 200
 #define DEFAULT_BOXES ["box_nato_ammo_f","Box_NATO_Equip_F","CargoNet_01_box_F","b_slingload_01_cargo_f"]
-#define DEFAULT_BOXES_MASS [250,500,1250,6000]
+#define DEFAULT_BOXES_MASS [100,200,1200,25000]
 
 
 

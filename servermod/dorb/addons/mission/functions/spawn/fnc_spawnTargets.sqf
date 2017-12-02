@@ -44,6 +44,9 @@ If (_newComposition) exitWith {
     {
         [_x] call EFUNC(headquarter,registerPOI);
         _x setVariable [QGVAR(isActive),true];
+        If !(simulationEnabled _x) then {
+            _x enableSimulationGlobal true;
+        };
     } forEach _targets;
     _targets
 };

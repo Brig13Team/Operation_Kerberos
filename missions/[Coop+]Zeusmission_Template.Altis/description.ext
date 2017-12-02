@@ -1,0 +1,75 @@
+/*
+ *  Author: Dorbedo, iJesuz
+ *
+ *  Description:
+ *      description.ext
+ *
+ */
+ #define CBA_OFF
+ #include "script_component.hpp"
+
+__EXEC (MISSION_ROOT = __FILE__ select [0, count __FILE__ - 15]);
+
+onLoadMissionTime = 1;
+onLoadName = "Zeusmission Template";
+onLoadMission = "Zeusmission Template";
+loadScreen = MPATH(EPAAPATH(logo,logo_512));
+
+author = CSTRING(AUTHOR);
+//overviewPicture = MPATH(EPAAPATH(logo,logo_512));
+overviewPicture = "";
+overviewText = "";
+overviewTextLocked = "";
+
+/// respawn
+respawn = 3;
+respawnButton = 1;
+respawnDelay = 5;
+respawnDialog = 0;
+respawnOnStart = 0;
+respawnTemplates[] = {"MenuPosition"};
+
+/// revive
+ReviveMode = 0;
+
+disabledAI = 1;
+aiKills = 0;
+
+//showHUD[] = {true,false,false,false,false,false,false,false};
+ShowGPS = 0;
+//showCompass = 1;
+//showMap = 0;
+//showNotePad = 0;
+//showWatch = 1;
+//showUAVFeed = 1;
+showSquadRadar = 1;
+
+class Header {
+    gameType = Zeus;
+    minPlayers = 1;
+    maxPlayers = 54;
+};
+
+disableChannels[] = {{0,false,false},{1,false,false},{2,false,false},{3,false,false},{4,false,false},{5,false,false},{6,false,false}};
+
+joinUnassigned = 1;
+skipLobby = 0;
+allowFunctionsLog = 0;
+enableDebugConsole = 1;
+enableTargetDebug = 1;
+
+corpseManagerMode = 0;
+wreckManagerMode = 0;
+
+//forceRotorLibSimulation = 1;
+
+saving = 0;
+showGroupIndicator = 0;
+scriptedPlayer = 1;
+
+isKerberos = 0;
+
+
+#include "CfgComponents.hpp"
+#include "CfgSounds.hpp"
+#include "CfgUnitInsignia.hpp"
