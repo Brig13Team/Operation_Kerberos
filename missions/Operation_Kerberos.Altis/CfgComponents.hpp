@@ -29,7 +29,6 @@ class CfgComponents {
     mod_ace = 1;
     mod_acre = 1;
     mod_asrai = 1;
-    mod_bwa3 = 1;
     mod_rhs = 1;
     mod_tfar = 1;
     patch_acre = 1;
@@ -54,7 +53,6 @@ class CfgComponents {
 #include "mod_ace\CfgComponent.hpp"
 #include "mod_acre\CfgComponent.hpp"
 #include "mod_asrai\CfgComponent.hpp"
-#include "mod_bwa3\CfgComponent.hpp"
 #include "mod_rhs\CfgComponent.hpp"
 #include "mod_tfar\CfgComponent.hpp"
 #include "patch_acre\CfgComponent.hpp"
