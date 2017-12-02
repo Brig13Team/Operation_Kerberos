@@ -20,8 +20,8 @@ CHECK(!hasInterface)
  *  3 - Side restricted Arsenal
  *
  */
-GVAR(level) = 2;
-GVAR(allowedradius) = 25;
+ISNIL(level,2);
+ISNIL(allowedradius,25);
 
 {
     [getMarkerPos _x] call FUNC(addArsenalArea);
@@ -34,7 +34,6 @@ GVAR(allowedradius) = 25;
  */
 
 GVAR(isPreloaded) = false;
-GVAR(fullArsenal) = false;
 
 IF !(IS_SCALAR(GVAR(allowedradius))) then {
     GVAR(allowedradius) = 15;
