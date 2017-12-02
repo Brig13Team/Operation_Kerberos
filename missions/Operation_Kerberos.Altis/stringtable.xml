@@ -819,7 +819,7 @@
             <English>Teleport</English>
             <German>Teleportieren</German>
         </Key>
-        <Key ID="STR_DORB_GUI_TELEPORT_teleport_lead_active">
+        <Key ID="STR_DORB_GUI_TELEPORT_to_lead_active">
             <English>Teleport to squad leader allowed</English>
             <German>Teleport zum Teamleader erlaubt</German>
         </Key>

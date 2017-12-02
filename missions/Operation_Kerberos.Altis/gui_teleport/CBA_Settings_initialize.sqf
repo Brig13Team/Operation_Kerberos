@@ -1,8 +1,8 @@
 [
-    QGVAR(teleport_lead_active),
+    QGVAR(to_lead_active),
     "CHECKBOX",
-    LSTRING(teleport_lead_active),
+    LSTRING(to_lead_active),
     "Operation Kerberos",
-    false,
+    true,
     1
 ] call cba_settings_fnc_init;

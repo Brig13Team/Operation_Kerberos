@@ -8,9 +8,6 @@
 #include "script_component.hpp"
 CHECK(!hasInterface)
 
-GVAR(teleport_lead_active) = true;
-
-
 private _carrierPos = getMarkerPos GVARMAIN(RESPAWNMARKER);
 _carrierPos set [2,23.8];
 [

@@ -8,8 +8,6 @@
 #include "script_component.hpp"
 CHECK(!hasInterface)
 
-GVAR(teleport_lead_active) = true;
-
 switch (str(side player)) do {
     case "WEST" : {
         // Position as Array or code, The Name wich will be displayed ,teleporter Type ("air","infanterie","sea","default"), condition, parameter for condition

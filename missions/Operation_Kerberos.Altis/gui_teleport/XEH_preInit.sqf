@@ -20,4 +20,4 @@ ISNIL(pos_ship,[]);
 ISNIL(pos_default,[]);
 ISNIL(pos_air,[]);
 ISNIL(pos_infanterie,[]);
-ISNIL(teleport_lead_active,true);
+ISNIL(to_lead_active,true);
