@@ -24,6 +24,7 @@ PREP(getCfgMagazines);
 PREP(getCfgVehicles);
 PREP(getCfgWeapons);
 PREP(getConfigClass);
+PREP(getItemSide);
 PREP(getMod);
 PREP(getModName);
 PREP(getModPicture);
