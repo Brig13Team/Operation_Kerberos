@@ -10,6 +10,8 @@ RECOMPILE_END;
 
 ADDON = true;
 
+#include "CBA_settings.sqf"
+
 ISNIL(active,true);
 ISNIL(forcealwaysFirst,false);
 ISNIL(forcefoot,true);
