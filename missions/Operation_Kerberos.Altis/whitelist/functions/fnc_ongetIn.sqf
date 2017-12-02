@@ -22,7 +22,7 @@ If (!(_vehicle isKindOf "Air")) exitWith {};
 
 if (!(((_turret isEqualTo [0]) || (_position == "driver")))) exitWith {};
 
-If (missionNamespace getVariable [QEGVAR(player,whitelistenabled),false]) then {
+If (missionNamespace getVariable [QGVAR(whitelistenabled),false]) then {
 
     private _eject = false;
 

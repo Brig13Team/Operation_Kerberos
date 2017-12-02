@@ -11,6 +11,7 @@ If (!((getMissionConfigValue ["isKerberos", 0]) > 0)) exitWith {};
 
 If (hasInterface) then {
     ["Air", "SeatSwitchedMan", {
+        If !(missionNamespace getVariable [QGVAR(onlyPilotsFly),true]) exitWith {};
         _this call FUNC(onseatswitched);
     },true,[],true] call CBA_fnc_addClassEventHandler;
 };
