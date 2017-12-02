@@ -65,6 +65,14 @@
             <English>creating arsenal lists</English>
             <German>Erstelle Arsenallisten</German>
         </Key>
+        <Key ID="STR_DORB_GUI_ARSENAL_fastArsenalLoading">
+            <English>fast list generating</English>
+            <German>Schnelle Listengenerierung</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARSENAL_fastArsenalLoading_TOOLTIP">
+            <English>The Arsenal-List is generated faster. Might be crash the game on slower pc.</English>
+            <German>Die Arsenalliste wird schneller erzeugt. Kann auf langsamen PC zum Absturz führen.</German>
+        </Key>
         <Key ID="STR_DORB_GUI_ARSENAL_DEBUGARSENAL">
             <English>activate arsenal debugging</English>
             <German>Aktiviere Arsenal Debugmodus</German>
