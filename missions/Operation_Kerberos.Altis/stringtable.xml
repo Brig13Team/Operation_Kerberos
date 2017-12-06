@@ -822,6 +822,12 @@
             <German>Beobachtungs KI Fähigkeiten</German>
         </Key>
     </Package>
+    <Package name="Mod_TFAR">
+        <Key ID="STR_DORB_MOD_TFAR_AICanHearPlayer">
+            <English>AI can hear player</English>
+            <German>KI kann spieler hören</German>
+        </Key>
+    </Package>
     <Package name="Gui">
         <Key ID="STR_DORB_GUI_LOADINGBAR">
             <English>Downloading</English>
