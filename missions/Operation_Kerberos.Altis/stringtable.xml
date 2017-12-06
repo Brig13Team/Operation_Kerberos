@@ -800,6 +800,28 @@
             <German>Ersatzkette entladen</German>
         </Key>
     </Package>
+    <Package name="ai_skill">
+        <Key ID="STR_DORB_AI_SKILL_active">
+            <English>Set the AI Skill</English>
+            <German>KI Fähigkeiten modifizieren</German>
+        </Key>
+        <Key ID="STR_DORB_AI_SKILL_general">
+            <English>General AI Skill</English>
+            <German>Generelle KI Fähigkeiten</German>
+        </Key>
+        <Key ID="STR_DORB_AI_SKILL_accuracy">
+            <English>Accuracy AI Skill</English>
+            <German>KI Zielgenauigkeit</German>
+        </Key>
+        <Key ID="STR_DORB_AI_SKILL_handling">
+            <English>Handling AI Skill</English>
+            <German>Handhabungs KI Fähigkeiten</German>
+        </Key>
+        <Key ID="STR_DORB_AI_SKILL_spotting">
+            <English>Spotting AI Skill</English>
+            <German>Beobachtungs KI Fähigkeiten</German>
+        </Key>
+    </Package>
     <Package name="Gui">
         <Key ID="STR_DORB_GUI_LOADINGBAR">
             <English>Downloading</English>
