@@ -22,6 +22,7 @@ class CfgComponents {
     viewrestriction = 1;
     doorbreach = 1;
     whitelist = 1;
+    ai_skill = 1;
     // kerberos specific
     missionobjects = 1;
     headquarter = 1;
@@ -62,6 +63,7 @@ class CfgComponents {
 #include "viewrestriction\CfgComponent.hpp"
 #include "whitelist\CfgComponent.hpp"
 #include "doorbreach\CfgComponent.hpp"
+#include "ai_skill\CfgComponent.hpp"
 
 #include "missionobjects\CfgComponent.hpp"
 #include "headquarter\CfgComponent.hpp"
