@@ -52,6 +52,12 @@ If (isServer) then {
     [QGVAR(removeJammer), LINKFUNC(jammer_remove)] call CBA_fnc_addEventHandler;
 };
 
-
-
-
+[
+    QGVAR(AICanHearPlayer),
+    "CHECKBOX",
+    LSTRING(AICanHearPlayer),
+    "Operation Kerberos",
+    true,
+    1,
+    FUNC(onSettingChanged)
+] call CBA_Settings_fnc_init;
