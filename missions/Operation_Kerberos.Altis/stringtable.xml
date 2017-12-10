@@ -555,8 +555,8 @@
                 <German>Medizinische Güter liefern</German>
             </Key>
             <Key ID="STR_DORB_MISSION_SIDE_AID_DESC">
-                <English>The local IDAP base camp was robbed of its medical supplys. We need to deliver: 300 Blood IV, 1500 Bandages, 500 Morphine and 300 Epinephrine</English>
-                <German>Dem IDAP Basislager wurde die medizinischen Versorgungsgüter geraubt. Wir müssen 300 Blut IV, 1500 Bandagen, 500 Morphin und 300 Epinephrine liefern.</German>
+                <English>The local IDAP base camp was robbed of its medical supplys. We need to deliver: 300 Blood IV (1000ml), 1500 Bandages, 500 Morphine and 300 Epinephrine</English>
+                <German>Dem IDAP Basislager wurde die medizinischen Versorgungsgüter geraubt. Wir müssen 300 Blut IV (1000ml), 1500 Bandagen, 500 Morphin und 300 Epinephrine liefern.</German>
             </Key>
             <Key ID="STR_DORB_MISSION_SIDE_AID_SUCCEEDED">
                 <English>The goods have been delivered.</English>
