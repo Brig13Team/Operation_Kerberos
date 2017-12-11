@@ -1352,8 +1352,8 @@
     </Package>
     <Package name="viewrestriction">
         <Key ID="STR_DORB_viewrestriction_active">
-            <English>Enable</English>
-            <German>Einschalten</German>
+            <English>Enable viewrestrictions</English>
+            <German>Sichtweitenbeschränkung einschalten</German>
         </Key>
         <Key ID="STR_DORB_viewrestriction_forcealwaysFirst">
             <English>Always first person</English>
