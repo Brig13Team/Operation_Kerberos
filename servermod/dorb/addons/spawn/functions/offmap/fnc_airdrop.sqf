@@ -86,7 +86,7 @@ private _newGroup = [_spawnpos, _grouptype] call EFUNC(spawn,group);
         _callbackparams call _callback;
     },
     10,
-    [_transportGroup, _newGroup, _target, _transportVehicle, CBA_missiontime + 10*60, _callback, _callbackparams]
+    [_transportGroup, _newGroup, _target, _transportVehicle, CBA_missiontime + 15*60, _callback, _callbackparams]
 ] call CBA_fnc_addPerFrameHandler;
 
 (([_newGroup] call EFUNC(headquarter,getstrengthAIGroup)) param [0,0])
