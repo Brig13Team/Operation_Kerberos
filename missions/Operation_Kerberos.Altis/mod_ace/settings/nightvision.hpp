@@ -1,2 +1,0 @@
-
-class ace_nightvision_disableNVGsWithSights TURN_OFF;
