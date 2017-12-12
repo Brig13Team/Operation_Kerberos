@@ -8,3 +8,4 @@
 *.cache
 .vscode/launch.json
 */temp
+/~*
