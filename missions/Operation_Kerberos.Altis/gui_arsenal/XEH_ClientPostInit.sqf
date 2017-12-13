@@ -50,10 +50,10 @@ IF !(IS_SCALAR(GVAR(allowedradius))) then {
 [
     "ace_arsenal_displayClosed",
     {
-        [
+        [{
             [FUNC(cleanPlayer),[ace_player]] call CBA_fnc_directCall;
-            ace_player setVariable [QGVAR(ArsenalIsOpened),false,true];
-        ] call CBA_fnc_execNextFrame;
+            ace_player setVariable [QGVAR(ArsenalIsOpened), false, true];
+        }] call CBA_fnc_execNextFrame;
     }
 ] call CBA_fnc_addEventHandler;
 

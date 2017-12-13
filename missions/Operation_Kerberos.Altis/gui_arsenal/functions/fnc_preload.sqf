@@ -28,6 +28,7 @@ If (_targetName isEqualTo "") then {
     };
 };
 
+private _side = side ace_player;
 
 private _targetObject = [] call FUNC(createLocalArsenal);
 [
@@ -47,7 +48,7 @@ If (GVAR(level)<2) exitWith {
     ];
     (profileNamespace getVariable [format[QGVAR(arsenalList_%1),str _side],["NotFound",[]]]) params [["_currentVersion","NotFound",[]],["_list",[],[[]]]];
     TRACEV_2(_currentVersion,_neededVersion);
-    If (((!(_list isEqualTo []))&&{_currentVersion isEqualTo _neededVersion})&&{!GVAR(forceReload)}) exitWith {
+    If (((!(_list isEqualTo []))&&{_currentVersion isEqualTo _neededVersion})&&{!GVAR(forceReload)}) then {
         _arsenalList = _list;
     } else {
         _arsenalList = [] call FUNC(getRestrictedArsenal);
@@ -59,7 +60,7 @@ If (GVAR(level)<2) exitWith {
     GVAR(isPreloaded) = true;
 };
 
-If (GVAR(level)<3) exitWith {
+If (GVAR(level)<3) then {
     private _arsenalList = [];
     private _neededVersion = format[
         "%1_ArsenalVersion_%2_%3_%4",
@@ -70,7 +71,7 @@ If (GVAR(level)<3) exitWith {
     ];
     (profileNamespace getVariable [format[QGVAR(arsenalList_%1),str _side],["NotFound",[]]]) params [["_currentVersion","NotFound",[]],["_list",[],[[]]]];
     TRACEV_2(_currentVersion,_neededVersion);
-    If (((!(_list isEqualTo []))&&{_currentVersion isEqualTo _neededVersion})&&{!GVAR(forceReload)}) exitWith {
+    If (((!(_list isEqualTo []))&&{_currentVersion isEqualTo _neededVersion})&&{!GVAR(forceReload)}) then {
         _arsenalList = _list;
     } else {
         _arsenalList = [side ace_player, false] call FUNC(getSideRestrictedArsenal);
@@ -90,7 +91,7 @@ If (GVAR(level)<3) exitWith {
     ];
     (profileNamespace getVariable [format[QGVAR(arsenalList_%1),str _side],["NotFound",[]]]) params [["_currentVersion","NotFound",[]],["_list",[],[[]]]];
     TRACEV_2(_currentVersion,_neededVersion);
-    If (((!(_list isEqualTo []))&&{_currentVersion isEqualTo _neededVersion})&&{!GVAR(forceReload)}) exitWith {
+    If (((!(_list isEqualTo []))&&{_currentVersion isEqualTo _neededVersion})&&{!GVAR(forceReload)}) then {
         _arsenalList = _list;
     } else {
         _arsenalList = [side ace_player, true] call FUNC(getSideRestrictedArsenal);

@@ -40,7 +40,7 @@ If (GVAR(level)<2) exitWith {
     ] call ace_arsenal_fnc_openBox;
 };
 
-If (GVAR(level)<3) exitWith {
+If (GVAR(level)<3) then {
     If ((isNull (missionNamespace getVariable [format[QGVAR(obj_level_%1_%2), GVAR(level), side ace_player], objNull])) || {GVAR(forceReload)}) then {
         [
             format[QGVAR(obj_level_%1_%2), GVAR(level), side ace_player]
