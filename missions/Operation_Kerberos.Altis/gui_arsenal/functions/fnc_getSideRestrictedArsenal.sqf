@@ -44,7 +44,7 @@ If (_loadingScreenActivated) then {
     if !((getText(_curCfg >> "model") isEqualTo "") || {getText(_curCfg >> "displayName") isEqualTo ""}) then {
         (_curClass call bis_fnc_itemType) params ["_weaponTypeCategory", "_weaponTypeSpecific"];
         if (!(_weaponTypeCategory in ["VehicleWeapon", "Magazine"])) then {
-            TRACEV_3(_sideNumber in ([_curClass] call EFUNC(common,getItemSide)),_sideNumber,_curClass);
+            //TRACEV_3(_sideNumber in ([_curClass] call EFUNC(common,getItemSide)),_sideNumber,_curClass);
             If (
                 ((!_restrictAll) && {!(_weaponTypeCategory == "Equipment")}) ||
                 {(!_restrictAll) && {_weaponTypeCategory == "Equipment"} && {_sideNumber in ([_curClass] call EFUNC(common,getItemSide))}} ||
@@ -52,13 +52,14 @@ If (_loadingScreenActivated) then {
                 ) then {
                 _return pushBackUnique _curClass;
                 If (_weaponTypeCategory in ["Weapon"]) then {
-                    private _magazines = [_curClass, "magazines", []] call EFUNC(common,getCfgVehicles);
+                    private _magazines = [_curClass, "magazines", []] call EFUNC(common,getCfgWeapons);
+                    //TRACEV_1(_magazines);
                     {
                         If (isClass (_class >> _x)) then {
                             _magazines = _magazines + getarray(_class >> _x >> "magazines");
                         };
                         nil
-                    } count ([_curClass, "muzzles", []] call EFUNC(common,getCfgVehicles));
+                    } count ([_curClass, "muzzles", []] call EFUNC(common,getCfgWeapons));
                     {
                         private _scopeMag = if (isnumber (configFile >> "CfgMagazines" >> _x >> "scopeArsenal")) then {[_x, "scopeArsenal", 0] call EFUNC(common,getCfgMagazines)} else {[_x, "scope", 0] call EFUNC(common,getCfgMagazines)};
                         If (_scopeMag > 1) then {
