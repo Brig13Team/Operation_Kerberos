@@ -4,7 +4,7 @@
     [LSTRING(forceReload), LSTRING(forceReload_tooltip)],
     "Operation Kerberos",
     false,
-    0
+    2
 ] call cba_settings_fnc_init;
 
 [
@@ -13,16 +13,7 @@
     [LSTRING(fastArsenalLoading), LSTRING(fastArsenalLoading_tooltip)],
     "Operation Kerberos",
     false,
-    0
-] call cba_settings_fnc_init;
-
-[
-    QGVAR(debugArsenal),
-    "CHECKBOX",
-    [LSTRING(DEBUGARSENAL), LSTRING(DebugArsenal_tooltip)],
-    "Operation Kerberos",
-    false,
-    0
+    2
 ] call cba_settings_fnc_init;
 
 [

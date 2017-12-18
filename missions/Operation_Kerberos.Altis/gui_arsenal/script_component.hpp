@@ -12,4 +12,3 @@
 #endif
 
 #include "..\main\script_macros.hpp"
-#include "..\gui\script_gui.hpp"

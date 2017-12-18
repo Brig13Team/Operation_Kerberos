@@ -8,3 +8,4 @@ release/*
 *.cache
 .vscode/launch.json
 */temp
+**/~*

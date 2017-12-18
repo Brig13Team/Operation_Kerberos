@@ -13,7 +13,7 @@
  */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-_this params [["_target",objNull,[objNull]]];
+params [["_target",objNull,[objNull]]];
 
 If (!isServer) exitWith {
     [QGVAR(ArsenalRemoveAction),[_target]] call CBA_fnc_serverEvent;
