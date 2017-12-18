@@ -3,7 +3,7 @@
 *.cache
 *.pbo
 *.dump
-**/release/*
+release/*
 *.tmp
 *.cache
 .vscode/launch.json

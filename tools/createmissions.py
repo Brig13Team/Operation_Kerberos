@@ -6,6 +6,7 @@
 # pylint: disable=W1401
 
 import sys
+import subprocess
 import os
 import re
 import shutil
@@ -54,7 +55,9 @@ def create_mission_pbos():
         return False
 
     path_primary_mission = os.path.normpath(path_missions + "/" + primary_missionname)
-    update_version(os.path.normpath(path_primary_mission + "/main/script_version.hpp"))
+    update_version(os.path.normpath(path_root + "/addons/main/script_version.hpp"))
+    shutil.copy(os.path.normpath(path_root + "/addons/main/script_version.hpp"), \
+        os.path.normpath(path_primary_mission + "/main/script_version.hpp"))
     shutil.copytree(path_primary_mission, os.path.normpath(path_temp + "/" + primary_missionname))
 
     print_yellow("Copying files")
@@ -65,10 +68,11 @@ def create_mission_pbos():
             copy_tree(os.path.normpath(path_missions + "/" + file), newdir)
 
     for folder in os.listdir(path_temp):
-        cmd_armake = path_armake + " build -p -w unquoted-string -w redefinition-wo-undef -f " + \
+        cmd_armake = path_armake + \
+            " build -i include -p -w unquoted-string -w redefinition-wo-undef -f " + \
             os.path.normpath(path_temp + "/" + folder) + " " + \
             os.path.normpath(path_release + "/" + folder + ".pbo")
-        os.system(cmd_armake)
+        subprocess.check_output(cmd_armake, stderr=subprocess.STDOUT, shell=True)
         print_yellow("Creating %s.pbo" % (folder))
 
     shutil.rmtree(path_temp, ignore_errors=True)
