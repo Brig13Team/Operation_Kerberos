@@ -17,7 +17,13 @@ If !(isClass(missionConfigFile>>QGVARMAIN(arsenal))) then {
     ERROR("No Arsenal config found")
 };
 
-private _neededVersion = getText(missionConfigFile >> QUOTE(DOUBLES(CfgComponent,ADDON)) >> "version");
+If ((canSuspend)&&{GVAR(fastArsenalLoading)}) exitWith {
+    [FUNC(getRestrictedArsenal),_this] call CBA_fnc_directCall;
+};
+
+private _loadingScreenActivated = ! GVAR(fastArsenalLoading);
+
+private _neededVersion = format["%1_%2", getText(missionConfigFile >> QUOTE(DOUBLES(CfgComponent,ADDON)) >> "version"), productVersion select 2];
 (profileNamespace getVariable [QGVAR(arsenalList_Full),["NotFound",[]]]) params [["_currentVersion","NotFound",[]],["_list",[],[[]]]];
 TRACEV_2(_currentVersion,_neededVersion);
 If (((!(_list isEqualTo []))&&{_currentVersion isEqualTo _neededVersion})&&{!GVAR(forceReload)}) exitWith {
@@ -51,7 +57,12 @@ private _configArray = (
 private _loadingScreenStep = 1/(count _configArray);
 
 
-private _loadingScreenID = [localize LSTRING(CREATE_LIST)] call EFUNC(gui,startLoadingScreen);
+private _loadingScreenID = 0;
+If (_loadingScreenActivated) then {
+    _loadingScreenID = [localize LSTRING(CREATE_LIST)] call EFUNC(gui,startLoadingScreen)
+} else {
+    [QEGVAR(gui,message),[LSTRING(CATEGORY), LSTRING(CREATE_LIST), "green"]] call CBA_fnc_localEvent;
+};
 
 {
     private _class = _x;
@@ -91,7 +102,9 @@ private _loadingScreenID = [localize LSTRING(CREATE_LIST)] call EFUNC(gui,startL
             };
         };
     };
-    [_loadingScreenID,(_forEachIndex * _loadingScreenStep)] call EFUNC(gui,progressLoadingScreen);
+    If (_loadingScreenActivated) then {
+        [_loadingScreenID,(_forEachIndex * _loadingScreenStep)] call EFUNC(gui,progressLoadingScreen);
+    };
 } foreach _configArray;
 {
     private _weapon = _x;
@@ -129,8 +142,9 @@ private _loadingScreenID = [localize LSTRING(CREATE_LIST)] call EFUNC(gui,startL
     };
 } foreach (getArray(missionConfigFile>>QGVARMAIN(arsenal)>> "BackpackWhitelist"));
 
-[_loadingScreenID] call EFUNC(gui,endLoadingScreen);
-
+If (_loadingScreenActivated) then {
+    [_loadingScreenID] call EFUNC(gui,endLoadingScreen);
+};
 
 _list = [_addWeapons,_addMagazines,_addItems,_addBackpacks,_fixWeapons,_fixMagazines,_fixItems,_fixBackpacks];
 

@@ -138,8 +138,8 @@ class GVAR(unitlists) {
             };
             supply_tankdrop = 0;
 
-            cas_types[] = {"RHS_Su25SM_vvs","RHS_Su25SM_vvsc"};
-            //cas_types[] = {"O_Plane_CAS_02_dynamicLoadout_F"};
+            //cas_types[] = {"RHS_Su25SM_vvs","RHS_Su25SM_vvsc"};
+            cas_types[] = {"O_Plane_CAS_02_dynamicLoadout_F"};
             cas_cluster = 1;
             cas_cluster_types[] = {"O_Plane_CAS_02_dynamicLoadout_F"};
             cas_gun = 1;
@@ -152,8 +152,8 @@ class GVAR(unitlists) {
             cas_helicopter_types[] = {"rhs_mi28n_vvsc"};
 
             ai = 1;
-            ai_types[] = {"RHS_T50_vvs_054","RHS_T50_vvs_053","RHS_T50_vvs_052"};
-            //ai_types[] = {"O_Plane_Fighter_02_Stealth_F"};
+            //ai_types[] = {"RHS_T50_vvs_054","RHS_T50_vvs_053","RHS_T50_vvs_052"};
+            ai_types[] = {"O_Plane_Fighter_02_Stealth_F"};
 
             group_infantry[] = {
                 {"configfile","CfgGroups","East","rhs_faction_vdv","rhs_group_rus_vdv_infantry","rhs_group_rus_vdv_infantry_fireteam"},

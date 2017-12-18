@@ -21,7 +21,7 @@ TRACEV_1(_type);
 private _teleportTargets = missionNamespace getVariable [(format[QGVAR(%1),_type]),[]];
 private _fakeMissions = [];
 
-If ((GVAR(teleport_lead_active))&&{_type == "infanterie"}) then {
+If ((GVAR(to_lead_active))&&{_type == "infanterie"}) then {
     _fakeMissions pushBack [
         (getPos (leader ace_player)),
         {[] call FUNC(lead)},

@@ -6,6 +6,7 @@ PREP(arraysGetMax);
 PREP(arraysGetArithmeticMean);
 PREP(arraySum);
 
+PREP(clearCargo);
 PREP(convertAngleToRotMat);
 PREP(convertRotMatToAngle);
 
@@ -18,7 +19,12 @@ PREP(exportHashtoHpp);
 PREP(get_buildings);
 PREP(get_cfg_subclasses);
 PREP(get_cfglocations);
+PREP(getCfgAmmo);
+PREP(getCfgMagazines);
+PREP(getCfgVehicles);
+PREP(getCfgWeapons);
 PREP(getConfigClass);
+PREP(getItemSide);
 PREP(getMod);
 PREP(getModName);
 PREP(getModPicture);
@@ -27,6 +33,9 @@ PREP(getRollPitchYaw);
 PREP(getRotMat);
 
 PREP(handledamage_C4);
+PREP(hasInventory);
+
+PREP(isArtillery);
 
 PREP(list_groups);
 

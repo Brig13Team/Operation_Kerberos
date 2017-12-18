@@ -1,0 +1,8501 @@
+version=53;
+class EditorData
+{
+	moveGridStep=1;
+	angleGridStep=0.2617994;
+	scaleGridStep=1;
+	autoGroupingDist=10;
+	toggles=1;
+	class ItemIDProvider
+	{
+		nextID=217;
+	};
+	class Camera
+	{
+		pos[]={21910.732,53.462318,5908.8115};
+		dir[]={-0.81492043,-0.19696604,0.54508555};
+		up[]={-0.1637218,0.98040968,0.10951035};
+		aside[]={0.55597663,2.2954191e-007,0.8312059};
+	};
+};
+binarizationWanted=0;
+addons[]=
+{
+	"A3_Characters_F",
+	"A3_Ui_F",
+	"A3_Weapons_F",
+	"A3_Weapons_F_Items",
+	"ace_medical",
+	"ace_explosives",
+	"ace_gforces",
+	"ace_parachute",
+	"A3_Modules_F",
+	"A3_Characters_F_Orange_Facewear",
+	"ace_goggles",
+	"ace_realisticnames",
+	"ace_attach",
+	"ace_chemlights",
+	"A3_Modules_F_Curator_Curator"
+};
+class AddonsMetaData
+{
+	class List
+	{
+		items=12;
+		class Item0
+		{
+			className="A3_Characters_F";
+			name="Arma 3 Alpha - Characters and Clothing";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item1
+		{
+			className="A3_Ui_F";
+			name="Arma 3 - User Interface";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item2
+		{
+			className="A3_Weapons_F";
+			name="Arma 3 Alpha - Weapons and Accessories";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item3
+		{
+			className="ace_medical";
+			name="ACE3 - Medical";
+			author="ACE-Team";
+			url="http://ace3mod.com/";
+		};
+		class Item4
+		{
+			className="ace_explosives";
+			name="ACE3 - Explosives";
+			author="ACE-Team";
+			url="http://ace3mod.com/";
+		};
+		class Item5
+		{
+			className="ace_parachute";
+			name="ACE3 - Parachute";
+			author="ACE-Team";
+			url="http://ace3mod.com/";
+		};
+		class Item6
+		{
+			className="A3_Modules_F";
+			name="Arma 3 Alpha - Scripted Modules";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item7
+		{
+			className="A3_Characters_F_Orange";
+			name="Arma 3 Orange - Characters and Clothing";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item8
+		{
+			className="ace_goggles";
+			name="ACE3 - Goggles";
+			author="ACE-Team";
+			url="http://ace3mod.com/";
+		};
+		class Item9
+		{
+			className="ace_attach";
+			name="ACE3 - Attach";
+			author="ACE-Team";
+			url="http://ace3mod.com/";
+		};
+		class Item10
+		{
+			className="ace_chemlights";
+			name="ace_chemlights";
+			author="ACE-Team";
+			url="http://ace3mod.com/";
+		};
+		class Item11
+		{
+			className="A3_Modules_F_Curator";
+			name="Arma 3 Zeus Update - Scripted Modules";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+	};
+};
+randomSeed=11017829;
+class ScenarioData
+{
+	author="Dorbedo";
+};
+class Mission
+{
+	class Intel
+	{
+		timeOfChanges=1800.0002;
+		startWeather=0.30000001;
+		startWind=0.1;
+		startWaves=0.1;
+		forecastWeather=0.30000001;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		forecastLightnings=0.1;
+		wavesForced=1;
+		windForced=1;
+		year=2035;
+		month=6;
+		day=24;
+		hour=12;
+		minute=0;
+		startFogDecay=0.014;
+		forecastFogDecay=0.014;
+	};
+	class Entities
+	{
+		items=77;
+		class Item0
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={19619.23,0,27490.967};
+			};
+			name="HC1";
+			isPlayable=1;
+			id=0;
+			type="HeadlessClient_F";
+			atlOffset=185.97;
+		};
+		class Item1
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={19619.375,0,27489.543};
+			};
+			name="HC2";
+			isPlayable=1;
+			id=1;
+			type="HeadlessClient_F";
+			atlOffset=185.97;
+		};
+		class Item2
+		{
+			dataType="Marker";
+			position[]={14187.366,18.638273,16278.441};
+			name="respawn_west";
+			text="Base";
+			type="Empty";
+			angle=0.83346313;
+			id=2;
+			atlOffset=-0.93281937;
+		};
+		class Item3
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=15;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14166.682,19.502501,16290.432};
+						angles[]={0,0.68704653,0};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=4;
+					type="B_Soldier_F";
+					atlOffset=8.0108643e-005;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1.03;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14167.582,19.524342,16289.525};
+						angles[]={0,0.68704653,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=5;
+					type="B_Soldier_F";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14168.5,19.530058,16288.684};
+						angles[]={0,0.68704653,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=6;
+					type="B_Soldier_F";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14169.488,19.535713,16287.871};
+						angles[]={0,0.68704653,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=7;
+					type="B_Soldier_F";
+					atlOffset=9.5367432e-006;
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14170.433,19.541492,16287.023};
+						angles[]={0,0.68704653,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=8;
+					type="B_Soldier_F";
+					atlOffset=9.5367432e-006;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14169.833,19.543749,16286.449};
+						angles[]={0,0.68704653,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=9;
+					type="B_Soldier_F";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14168.954,19.538437,16287.227};
+						angles[]={0,0.68704653,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=10;
+					type="B_Soldier_F";
+					atlOffset=9.5367432e-006;
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14167.971,19.532419,16288.109};
+						angles[]={0,0.68704653,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=11;
+					type="B_Soldier_F";
+					atlOffset=9.5367432e-006;
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14167.106,19.526258,16288.949};
+						angles[]={0,0.68704653,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=12;
+					type="B_Soldier_F";
+					atlOffset=-1.9073486e-006;
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14166.238,19.519695,16289.746};
+						angles[]={0,0.68704653,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=13;
+					type="B_Soldier_F";
+					atlOffset=7.6293945e-006;
+				};
+				class Item10
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14169.451,19.546337,16285.869};
+						angles[]={0,0.68704653,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=14;
+					type="B_Soldier_F";
+				};
+				class Item11
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14168.584,19.541439,16286.57};
+						angles[]={0,0.68704653,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=15;
+					type="B_Soldier_F";
+				};
+				class Item12
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14167.522,19.535288,16287.459};
+						angles[]={0,0.68704653,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=16;
+					type="B_Soldier_F";
+					atlOffset=9.5367432e-006;
+				};
+				class Item13
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14166.696,19.528416,16288.34};
+						angles[]={0,0.68704653,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=17;
+					type="B_Soldier_F";
+					atlOffset=7.6293945e-006;
+				};
+				class Item14
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14165.751,19.520796,16289.295};
+						angles[]={0,0.68704653,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=18;
+					type="B_Soldier_F";
+					atlOffset=-1.9073486e-006;
+				};
+			};
+			class Attributes
+			{
+			};
+			id=3;
+			atlOffset=8.0108643e-005;
+		};
+		class Item4
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14170.557,19.553425,16284.816};
+						angles[]={0,0.68359041,0};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Sanitäter";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=20;
+					type="B_medic_F";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14171.036,19.550938,16285.402};
+						angles[]={0,0.68359041,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Sanitäter";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=21;
+					type="B_medic_F";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14171.976,19.556194,16284.652};
+						angles[]={0,0.68359041,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Sanitäter";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=22;
+					type="B_medic_F";
+					atlOffset=9.5367432e-006;
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14171.571,19.558773,16284.068};
+						angles[]={0,0.68359041,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Sanitäter";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=23;
+					type="B_medic_F";
+					atlOffset=9.5367432e-006;
+				};
+			};
+			class Attributes
+			{
+			};
+			id=19;
+		};
+		class Item5
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14173.169,19.568871,16282.574};
+						angles[]={0,0.68359041,0};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Spotter";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=25;
+					type="B_spotter_F";
+					atlOffset=9.5367432e-006;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14172.479,19.564991,16283.129};
+						angles[]={0,0.68359041,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Sniper";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=26;
+					type="B_sniper_F";
+					atlOffset=9.5367432e-006;
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14173.729,19.566542,16283.15};
+						angles[]={0,0.68359041,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Spotter";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=27;
+					type="B_spotter_F";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14173.062,19.562349,16283.77};
+						angles[]={0,0.68359041,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Sniper";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=28;
+					type="B_sniper_F";
+					atlOffset=9.5367432e-006;
+				};
+			};
+			class Attributes
+			{
+			};
+			id=24;
+			atlOffset=9.5367432e-006;
+		};
+		class Item6
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14177.312,19.324133,16294.525};
+						angles[]={0,3.8164742,0};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Logistiker";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=30;
+					type="B_Helipilot_F";
+					atlOffset=7.6293945e-005;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.98000002;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14177.133,19.275166,16295.824};
+						angles[]={0,3.8164742,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Logistiker";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=31;
+					type="B_Helipilot_F";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14177.92,19.299995,16295.148};
+						angles[]={0,3.8164742,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Logistiker";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=32;
+					type="B_Helipilot_F";
+					atlOffset=5.9127808e-005;
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14176.612,19.303871,16295.105};
+						angles[]={0,3.8164742,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Logistiker";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=33;
+					type="B_Helipilot_F";
+					atlOffset=7.6293945e-005;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1.01;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=29;
+			atlOffset=7.6293945e-005;
+		};
+		class Item7
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14175.17,19.264416,16296.246};
+						angles[]={0,3.8824477,0};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Kampfpilot";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=35;
+					type="B_Pilot_F";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14176.012,19.28089,16295.738};
+						angles[]={0,3.8824477,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Kampfpilot";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=36;
+					type="B_Pilot_F";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14176.424,19.250944,16296.494};
+						angles[]={0,3.8824477,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Kampfpilot";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=37;
+					type="B_Pilot_F";
+					atlOffset=5.7220459e-005;
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14175.793,19.231312,16297.027};
+						angles[]={0,3.8824477,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Kampfpilot";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=38;
+					type="B_Pilot_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=34;
+		};
+		class Item8
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=6;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14180.027,19.38073,16292.889};
+						angles[]={0,3.7602959,0};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Besatzung";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=40;
+					type="B_crew_F";
+					atlOffset=5.9127808e-005;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14180.665,19.400801,16292.34};
+						angles[]={0,3.7602959,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Besatzung";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=41;
+					type="B_crew_F";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14179.553,19.407541,16292.219};
+						angles[]={0,3.7602959,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Besatzung";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=42;
+					type="B_crew_F";
+					atlOffset=7.6293945e-005;
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14180.242,19.422029,16291.779};
+						angles[]={0,3.7602959,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Besatzung";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=43;
+					type="B_crew_F";
+					atlOffset=7.6293945e-005;
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14178.92,19.384886,16292.848};
+						angles[]={0,3.7602959,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Besatzung";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=44;
+					type="B_crew_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14179.39,19.362474,16293.379};
+						angles[]={0,3.7602959,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Besatzung";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=45;
+					type="B_crew_F";
+					atlOffset=5.9127808e-005;
+				};
+			};
+			class Attributes
+			{
+			};
+			id=39;
+			atlOffset=5.9127808e-005;
+		};
+		class Item9
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14173.431,19.199757,16298.957};
+						angles[]={0,3.7991257,0};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Pionier";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=47;
+					type="B_soldier_exp_F";
+					atlOffset=9.5367432e-006;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14174.336,19.20573,16298.363};
+						angles[]={0,3.7991257,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Pionier";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=48;
+					type="B_soldier_exp_F";
+					atlOffset=5.7220459e-006;
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14172.829,19.202566,16298.129};
+						angles[]={0,3.7991257,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Pionier";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=49;
+					type="B_soldier_exp_F";
+					atlOffset=9.5367432e-006;
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14173.692,19.207848,16297.57};
+						angles[]={0,3.7991257,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Pionier";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=50;
+					type="B_soldier_exp_F";
+					atlOffset=9.5367432e-006;
+				};
+			};
+			class Attributes
+			{
+			};
+			id=46;
+			atlOffset=9.5367432e-006;
+		};
+		class Item10
+		{
+			dataType="Marker";
+			position[]={14344.34,18.911013,16319.826};
+			name="vehiclespawn_west_marker";
+			text="Fahrzeuge";
+			type="b_armor";
+			colorName="ColorWEST";
+			id=51;
+			atlOffset=1.9073486e-006;
+		};
+		class Item11
+		{
+			dataType="Marker";
+			position[]={14400.775,0,16303.799};
+			name="airspawn_west_marker";
+			text="Flugzeuge";
+			type="b_air";
+			colorName="ColorWEST";
+			angle=359.75201;
+			id=52;
+			atlOffset=-19.247873;
+		};
+		class Item12
+		{
+			dataType="Marker";
+			position[]={14270.537,0,16295.159};
+			name="logistic_west_marker";
+			text="Logistik";
+			type="b_support";
+			id=54;
+			atlOffset=-19.358353;
+		};
+		class Item13
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={14399.458,19.259743,16303.834};
+				angles[]={6.272521,3.6719937,6.2791886};
+			};
+			name="airspawn_west";
+			id=56;
+			type="Logic";
+		};
+		class Item14
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={14271.636,19.353579,16296.542};
+				angles[]={0.0013372133,2.4693367,6.2805333};
+			};
+			name="logistic_west";
+			id=58;
+			type="Logic";
+		};
+		class Item15
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={14344.4,18.914127,16318.297};
+				angles[]={0.0026520467,3.4282331,6.2671871};
+			};
+			name="vehiclespawn_west";
+			id=59;
+			type="Logic";
+		};
+		class Item16
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={14246.114,19.469736,16279.907};
+				angles[]={0.0093286335,2.3091424,6.2791886};
+			};
+			name="cratespawner1_west";
+			id=60;
+			type="Logic";
+		};
+		class Item17
+		{
+			dataType="Marker";
+			position[]={14247.678,0,16280.907};
+			name="cratespawner1_west_marker";
+			text="Materiallager";
+			type="b_support";
+			id=61;
+			atlOffset=-19.454138;
+		};
+		class Item18
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=3;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14178.501,19.560366,16284.211};
+						angles[]={0,5.4353895,0};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						name="z1";
+						description="OPZ/Zeus";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=2;
+									class Item0
+									{
+										name="SmokeShell";
+										count=1;
+										ammoLeft=1;
+									};
+									class Item1
+									{
+										name="Chemlight_green";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=64;
+					type="B_officer_F";
+					atlOffset=1.1444092e-005;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="ace_isMedic";
+							expression="if (_value > -1) then {_this setVariable [""ace_medical_medicClass"",_value,true];};";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=-1;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="ace_isEngineer";
+							expression="if (_value != -1) then {_this setVariable ['ace_isEngineer',_value, true];}";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=-1;
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.98000002;
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14179.11,19.554348,16285.113};
+						angles[]={0,5.2551136,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						name="z2";
+						description="OPZ/Zeus";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=2;
+									class Item0
+									{
+										name="SmokeShell";
+										count=1;
+										ammoLeft=1;
+									};
+									class Item1
+									{
+										name="Chemlight_green";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=65;
+					type="B_officer_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="ace_isMedic";
+							expression="if (_value > -1) then {_this setVariable [""ace_medical_medicClass"",_value,true];};";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=-1;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="ace_isEngineer";
+							expression="if (_value != -1) then {_this setVariable ['ace_isEngineer',_value, true];}";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=-1;
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1.03;
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14180.339,19.539587,16286.164};
+						angles[]={0,5.3114209,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						name="z0";
+						description="OPZ/Zeus";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=2;
+									class Item0
+									{
+										name="SmokeShell";
+										count=1;
+										ammoLeft=1;
+									};
+									class Item1
+									{
+										name="Chemlight_green";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=66;
+					type="B_officer_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="ace_isMedic";
+							expression="if (_value > -1) then {_this setVariable [""ace_medical_medicClass"",_value,true];};";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=-1;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="ace_isEngineer";
+							expression="if (_value != -1) then {_this setVariable ['ace_isEngineer',_value, true];}";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=-1;
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1.04;
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+			};
+			class Attributes
+			{
+				name="z3";
+			};
+			id=63;
+			atlOffset=1.1444092e-005;
+		};
+		class Item19
+		{
+			dataType="Marker";
+			position[]={26732.674,15.355347,24628.648};
+			name="respawn_east";
+			text="Base";
+			type="Empty";
+			angle=130.29433;
+			id=67;
+			atlOffset=-4.9043999;
+		};
+		class Item20
+		{
+			dataType="Marker";
+			position[]={20794.766,22.754395,7264.1758};
+			name="respawn_guerilla";
+			text="Base";
+			type="Empty";
+			angle=359.24237;
+			id=68;
+			atlOffset=-5.1919403;
+		};
+		class Item21
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={19615.148,0,27500.842};
+				angles[]={0,0.68359309,0};
+			};
+			id=69;
+			type="ModuleCurator_F";
+			atlOffset=185.97;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleCurator_F_Owner";
+					expression="_this setVariable ['Owner',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="z0";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleCurator_F_Forced";
+					expression="_this setVariable ['Forced',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ModuleCurator_F_Name";
+					expression="_this setVariable ['Name',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleInfo";
+					expression="false";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="ModuleCurator_F_Addons";
+					expression="_this setVariable ['Addons',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=3;
+						};
+					};
+				};
+				nAttributes=5;
+			};
+		};
+		class Item22
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={19614.066,0,27499.576};
+				angles[]={0,0.68359041,0};
+			};
+			id=70;
+			type="ModuleCurator_F";
+			atlOffset=185.97;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleCurator_F_Owner";
+					expression="_this setVariable ['Owner',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="z2";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleCurator_F_Forced";
+					expression="_this setVariable ['Forced',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ModuleCurator_F_Name";
+					expression="_this setVariable ['Name',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleInfo";
+					expression="false";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="ModuleCurator_F_Addons";
+					expression="_this setVariable ['Addons',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=3;
+						};
+					};
+				};
+				nAttributes=5;
+			};
+		};
+		class Item23
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={19613.023,0,27498.463};
+				angles[]={0,0.68359041,0};
+			};
+			id=71;
+			type="ModuleCurator_F";
+			atlOffset=185.97;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleCurator_F_Owner";
+					expression="_this setVariable ['Owner',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="z1";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleCurator_F_Forced";
+					expression="_this setVariable ['Forced',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ModuleCurator_F_Name";
+					expression="_this setVariable ['Name',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleInfo";
+					expression="false";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="ModuleCurator_F_Addons";
+					expression="_this setVariable ['Addons',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=3;
+						};
+					};
+				};
+				nAttributes=5;
+			};
+		};
+		class Item24
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={19616.109,0,27499.975};
+				angles[]={0,0.68359041,0};
+			};
+			id=72;
+			type="ModuleCurator_F";
+			atlOffset=185.97;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleCurator_F_Owner";
+					expression="_this setVariable ['Owner',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="z6";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleCurator_F_Forced";
+					expression="_this setVariable ['Forced',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ModuleCurator_F_Name";
+					expression="_this setVariable ['Name',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleInfo";
+					expression="false";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="ModuleCurator_F_Addons";
+					expression="_this setVariable ['Addons',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=3;
+						};
+					};
+				};
+				nAttributes=5;
+			};
+		};
+		class Item25
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={19615.064,0,27498.658};
+				angles[]={0,0.68359041,0};
+			};
+			id=73;
+			type="ModuleCurator_F";
+			atlOffset=185.97;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleCurator_F_Owner";
+					expression="_this setVariable ['Owner',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="z5";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleCurator_F_Forced";
+					expression="_this setVariable ['Forced',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ModuleCurator_F_Name";
+					expression="_this setVariable ['Name',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleInfo";
+					expression="false";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="ModuleCurator_F_Addons";
+					expression="_this setVariable ['Addons',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=3;
+						};
+					};
+				};
+				nAttributes=5;
+			};
+		};
+		class Item26
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={19614.086,0,27497.686};
+				angles[]={0,0.68359041,0};
+			};
+			id=74;
+			type="ModuleCurator_F";
+			atlOffset=185.97;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleCurator_F_Owner";
+					expression="_this setVariable ['Owner',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="z4";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleCurator_F_Forced";
+					expression="_this setVariable ['Forced',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ModuleCurator_F_Name";
+					expression="_this setVariable ['Name',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleInfo";
+					expression="false";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="ModuleCurator_F_Addons";
+					expression="_this setVariable ['Addons',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=3;
+						};
+					};
+				};
+				nAttributes=5;
+			};
+		};
+		class Item27
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=15;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26712.904,19.771439,24641.225};
+						angles[]={0,0.68359041,0};
+					};
+					side="East";
+					flags=7;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=76;
+					type="O_Soldier_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.98000002;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26713.629,19.771439,24640.596};
+						angles[]={0,0.68359041,0};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=77;
+					type="O_Soldier_F";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26714.648,19.771439,24639.799};
+						angles[]={0,0.68359041,0};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=78;
+					type="O_Soldier_F";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26715.354,19.771912,24639.037};
+						angles[]={0,0.68359041,0};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=79;
+					type="O_Soldier_F";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26716.344,19.773233,24638.098};
+						angles[]={0,0.68359041,0};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=80;
+					type="O_Soldier_F";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26712.281,19.771439,24640.609};
+						angles[]={0,0.68359041,0};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=81;
+					type="O_Soldier_F";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26713.123,19.771439,24639.99};
+						angles[]={0,0.68359041,0};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=82;
+					type="O_Soldier_F";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26714.111,19.771439,24639.154};
+						angles[]={0,0.68359041,0};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=83;
+					type="O_Soldier_F";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26714.93,19.771439,24638.266};
+						angles[]={0,0.68359041,0};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=84;
+					type="O_Soldier_F";
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26715.82,19.773991,24637.395};
+						angles[]={0,0.68359041,0};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=85;
+					type="O_Soldier_F";
+					atlOffset=1.9073486e-006;
+				};
+				class Item10
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26711.799,19.771439,24640.053};
+						angles[]={0,0.68359041,0};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=86;
+					type="O_Soldier_F";
+				};
+				class Item11
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26712.631,19.771439,24639.223};
+						angles[]={0,0.68359041,0};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=87;
+					type="O_Soldier_F";
+				};
+				class Item12
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26713.594,19.771439,24638.52};
+						angles[]={0,0.68359041,0};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=88;
+					type="O_Soldier_F";
+				};
+				class Item13
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26714.51,19.771439,24637.639};
+						angles[]={0,0.68359041,0};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=89;
+					type="O_Soldier_F";
+				};
+				class Item14
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26715.477,19.776537,24636.758};
+						angles[]={0,0.68359041,0};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=90;
+					type="O_Soldier_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=75;
+		};
+		class Item28
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26716.713,19.789038,24635.908};
+						angles[]={0,0.68359041,0};
+					};
+					side="East";
+					flags=7;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Sanitäter";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=92;
+					type="O_medic_F";
+					atlOffset=1.9073486e-006;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26716.186,19.784096,24635.23};
+						angles[]={0,0.68359041,0};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Sanitäter";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=93;
+					type="O_medic_F";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26716.83,19.79097,24634.635};
+						angles[]={0,0.68359041,0};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Sanitäter";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=94;
+					type="O_medic_F";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26717.52,19.796062,24635.271};
+						angles[]={0,0.68359041,0};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Sanitäter";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=95;
+					type="O_medic_F";
+					atlOffset=1.9073486e-006;
+				};
+			};
+			class Attributes
+			{
+			};
+			id=91;
+			atlOffset=1.9073486e-006;
+		};
+		class Item29
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26718.697,19.806793,24634.291};
+						angles[]={0,0.68359041,0};
+					};
+					side="East";
+					flags=7;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Spotter";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=97;
+					type="O_spotter_F";
+					atlOffset=1.9073486e-006;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26717.873,19.802103,24633.693};
+						angles[]={0,0.68359041,0};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Sniper";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=98;
+					type="O_sniper_F";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26719.402,19.814533,24633.561};
+						angles[]={0,0.68359041,0};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Spotter";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=99;
+					type="O_spotter_F";
+					atlOffset=1.9073486e-006;
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26718.672,19.810617,24632.959};
+						angles[]={0,0.68359041,0};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Sniper";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=100;
+					type="O_sniper_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=96;
+			atlOffset=1.9073486e-006;
+		};
+		class Item30
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26717.023,19.787025,24645.363};
+						angles[]={0,3.7841158,0};
+					};
+					side="East";
+					flags=7;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Pionier";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=102;
+					type="O_soldier_exp_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.95999998;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26717.656,19.795778,24646.043};
+						angles[]={0,3.7841177,0};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Pionier";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=103;
+					type="O_soldier_exp_F";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26716.145,19.785427,24646.002};
+						angles[]={0,3.7841177,0};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Pionier";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=104;
+					type="O_soldier_exp_F";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26716.816,19.794888,24646.748};
+						angles[]={0,3.7841177,0};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Pionier";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=105;
+					type="O_soldier_exp_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=101;
+		};
+		class Item31
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=6;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26723.791,19.813713,24639.723};
+						angles[]={0,3.9297338,0};
+					};
+					side="East";
+					flags=7;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Besatzung";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=107;
+					type="O_crew_F";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26723.236,19.808029,24640.322};
+						angles[]={0,3.9297338,0};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Besatzung";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=108;
+					type="O_crew_F";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26722.523,19.800228,24640.996};
+						angles[]={0,3.9297338,0};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Besatzung";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=109;
+					type="O_crew_F";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26724.232,19.823891,24640.307};
+						angles[]={0,3.9297338,0};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Besatzung";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=110;
+					type="O_crew_F";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26723.627,19.817455,24640.918};
+						angles[]={0,3.9297338,0};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Besatzung";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=111;
+					type="O_crew_F";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26723.029,19.811594,24641.611};
+						angles[]={0,3.9297338,0};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Besatzung";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=112;
+					type="O_crew_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=106;
+		};
+		class Item32
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26720.773,19.794804,24642.211};
+						angles[]={0,3.8888471,0};
+					};
+					side="East";
+					flags=7;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Logistiker";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=114;
+					type="O_helipilot_F";
+					atlOffset=1.9073486e-006;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26720.102,19.793684,24642.842};
+						angles[]={0,3.8888528,0};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Logistiker";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=115;
+					type="O_helipilot_F";
+					atlOffset=1.9073486e-006;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26721.295,19.801409,24642.797};
+						angles[]={0,3.8888471,0};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Logistiker";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=116;
+					type="O_helipilot_F";
+					atlOffset=1.9073486e-006;
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26720.539,19.800077,24643.492};
+						angles[]={0,3.8888471,0};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Logistiker";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=117;
+					type="O_helipilot_F";
+					atlOffset=1.9073486e-006;
+				};
+			};
+			class Attributes
+			{
+			};
+			id=113;
+			atlOffset=1.9073486e-006;
+		};
+		class Item33
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26719.229,19.791544,24643.531};
+						angles[]={0,3.7835646,0};
+					};
+					side="East";
+					flags=7;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Kampfpilot";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=119;
+					type="O_Pilot_F";
+					atlOffset=1.9073486e-006;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26718.584,19.7908,24644.197};
+						angles[]={0,3.7835646,0};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Kampfpilot";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=120;
+					type="O_Pilot_F";
+					atlOffset=1.9073486e-006;
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26719.861,19.798822,24644.105};
+						angles[]={0,3.7835646,0};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Kampfpilot";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=121;
+					type="O_Pilot_F";
+					atlOffset=1.9073486e-006;
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26719.135,19.796925,24644.658};
+						angles[]={0,3.7835646,0};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Kampfpilot";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=122;
+					type="O_Pilot_F";
+					atlOffset=1.9073486e-006;
+				};
+			};
+			class Attributes
+			{
+			};
+			id=118;
+			atlOffset=1.9073486e-006;
+		};
+		class Item34
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=3;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26722.445,19.813789,24634.076};
+						angles[]={0,5.3149776,0};
+					};
+					side="East";
+					flags=7;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						name="z4";
+						description="OPZ/Zeus";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=124;
+					type="O_officer_F";
+					atlOffset=1.9073486e-006;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.95999998;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26723.123,19.831139,24634.99};
+						angles[]={0,5.3149815,0};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						name="z5";
+						description="OPZ/Zeus";
+						isPlayer=1;
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=125;
+					type="O_officer_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male01PER";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1.02;
+								};
+							};
+						};
+						nAttributes=2;
+					};
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={26723.867,19.852535,24635.99};
+						angles[]={0,5.3149776,0};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						name="z6";
+						description="OPZ/Zeus";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_O_OfficerUniform_ocamo";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=126;
+					type="O_officer_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1.04;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=123;
+			atlOffset=1.9073486e-006;
+		};
+		class Item35
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=15;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20801.209,27.782446,7272.127};
+						angles[]={0,0.68359041,0};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=128;
+					type="I_soldier_F";
+					atlOffset=1.7166138e-005;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20802.096,27.796782,7271.4375};
+						angles[]={0,0.68359041,0};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=129;
+					type="I_soldier_F";
+					atlOffset=4.0054321e-005;
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20803.172,27.814054,7270.6035};
+						angles[]={0,0.68359041,0};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=130;
+					type="I_soldier_F";
+					atlOffset=2.4795532e-005;
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20804.275,27.835119,7269.6348};
+						angles[]={0,0.68359041,0};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=131;
+					type="I_soldier_F";
+					atlOffset=2.2888184e-005;
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20805.158,27.854879,7268.8398};
+						angles[]={0,0.68359041,0};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=132;
+					type="I_soldier_F";
+					atlOffset=2.0980835e-005;
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20804.498,27.875051,7268.2227};
+						angles[]={0,0.68359041,0};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=133;
+					type="I_soldier_F";
+					atlOffset=2.0980835e-005;
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20803.607,27.85401,7269.1426};
+						angles[]={0,0.68359041,0};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=134;
+					type="I_soldier_F";
+					atlOffset=2.2888184e-005;
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20802.547,27.836767,7269.957};
+						angles[]={0,0.68359041,0};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=135;
+					type="I_soldier_F";
+					atlOffset=1.5258789e-005;
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20801.559,27.817488,7270.7891};
+						angles[]={0,0.68359041,0};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=136;
+					type="I_soldier_F";
+					atlOffset=1.7166138e-005;
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20800.654,27.800146,7271.5352};
+						angles[]={0,0.68359041,0};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=137;
+					type="I_soldier_F";
+					atlOffset=9.5367432e-006;
+				};
+				class Item10
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20800.104,27.813757,7270.7813};
+						angles[]={0,0.68359041,0};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=138;
+					type="I_soldier_F";
+					atlOffset=1.1444092e-005;
+				};
+				class Item11
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20800.908,27.831137,7270.0195};
+						angles[]={0,0.68359041,0};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=139;
+					type="I_soldier_F";
+					atlOffset=9.5367432e-006;
+				};
+				class Item12
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20802,27.849752,7269.2344};
+						angles[]={0,0.68359041,0};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=140;
+					type="I_soldier_F";
+					atlOffset=1.335144e-005;
+				};
+				class Item13
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20802.904,27.867086,7268.4883};
+						angles[]={0,0.68359041,0};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=141;
+					type="I_soldier_F";
+					atlOffset=1.1444092e-005;
+				};
+				class Item14
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20804.061,27.887907,7267.6016};
+						angles[]={0,0.68359041,0};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Schütze";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=142;
+					type="I_soldier_F";
+					atlOffset=1.335144e-005;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.98000002;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=127;
+			atlOffset=1.7166138e-005;
+		};
+		class Item36
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={19617.082,0,27499.055};
+				angles[]={0,0.68359041,0};
+			};
+			id=143;
+			type="ModuleCurator_F";
+			atlOffset=185.97;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleCurator_F_Owner";
+					expression="_this setVariable ['Owner',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="z7";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleCurator_F_Forced";
+					expression="_this setVariable ['Forced',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ModuleCurator_F_Name";
+					expression="_this setVariable ['Name',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleInfo";
+					expression="false";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="ModuleCurator_F_Addons";
+					expression="_this setVariable ['Addons',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=3;
+						};
+					};
+				};
+				nAttributes=5;
+			};
+		};
+		class Item37
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={19616.035,0,27497.738};
+				angles[]={0,0.68359041,0};
+			};
+			id=144;
+			type="ModuleCurator_F";
+			atlOffset=185.97;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleCurator_F_Owner";
+					expression="_this setVariable ['Owner',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="z8";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleCurator_F_Forced";
+					expression="_this setVariable ['Forced',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ModuleCurator_F_Name";
+					expression="_this setVariable ['Name',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleInfo";
+					expression="false";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="ModuleCurator_F_Addons";
+					expression="_this setVariable ['Addons',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=3;
+						};
+					};
+				};
+				nAttributes=5;
+			};
+		};
+		class Item38
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={19615.057,0,27496.764};
+				angles[]={0,0.68359041,0};
+			};
+			id=145;
+			type="ModuleCurator_F";
+			atlOffset=185.97;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleCurator_F_Owner";
+					expression="_this setVariable ['Owner',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="z9";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleCurator_F_Forced";
+					expression="_this setVariable ['Forced',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ModuleCurator_F_Name";
+					expression="_this setVariable ['Name',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleInfo";
+					expression="false";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="ModuleCurator_F_Addons";
+					expression="_this setVariable ['Addons',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=3;
+						};
+					};
+				};
+				nAttributes=5;
+			};
+		};
+		class Item39
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20805.553,27.904375,7265.4004};
+						angles[]={0,0.68359041,0};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Sanitäter";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=147;
+					type="I_medic_F";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20805.119,27.906607,7264.7656};
+						angles[]={0,0.68359041,0};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Sanitäter";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=148;
+					type="I_medic_F";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20804.834,27.899118,7266.0273};
+						angles[]={0,0.68359041,0};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Sanitäter";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=149;
+					type="I_medic_F";
+					atlOffset=1.9073486e-006;
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20804.309,27.900343,7265.5352};
+						angles[]={0,0.68359041,0};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Sanitäter";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=150;
+					type="I_medic_F";
+					atlOffset=3.8146973e-006;
+				};
+			};
+			class Attributes
+			{
+			};
+			id=146;
+		};
+		class Item40
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20802.381,27.734137,7273.5078};
+						angles[]={0,3.8520117,0};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Pionier";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=152;
+					type="I_Soldier_exp_F";
+					atlOffset=1.7166138e-005;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20802.951,27.74803,7272.9043};
+						angles[]={0,3.8520117,0};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Pionier";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=153;
+					type="I_Soldier_exp_F";
+					atlOffset=2.2888184e-005;
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20803.508,27.724554,7273.5781};
+						angles[]={0,3.8520117,0};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Pionier";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=154;
+					type="I_Soldier_exp_F";
+					atlOffset=2.2888184e-005;
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20802.938,27.711859,7274.1406};
+						angles[]={0,3.8520117,0};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Pionier";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=155;
+					type="I_Soldier_exp_F";
+					atlOffset=2.2888184e-005;
+				};
+			};
+			class Attributes
+			{
+			};
+			id=151;
+			atlOffset=1.7166138e-005;
+		};
+		class Item41
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20806.566,27.911818,7264.5117};
+						angles[]={0,0.68359041,0};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Spotter";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=157;
+					type="I_Spotter_F";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20805.98,27.913008,7263.9961};
+						angles[]={0,0.68359041,0};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Sniper";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=158;
+					type="I_Sniper_F";
+					atlOffset=1.9073486e-006;
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20807.393,27.917835,7263.7969};
+						angles[]={0,0.68359041,0};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Spotter";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=159;
+					type="I_Spotter_F";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20806.809,27.919058,7263.2754};
+						angles[]={0,0.68359041,0};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Sniper";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=160;
+					type="I_Sniper_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=156;
+		};
+		class Item42
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20806.963,27.842176,7269.7656};
+						angles[]={0,3.8112266,0};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Logistiker";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=162;
+					type="I_helipilot_F";
+					atlOffset=2.4795532e-005;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20806.33,27.819464,7270.3672};
+						angles[]={0,3.8112266,0};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Logistiker";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=163;
+					type="I_helipilot_F";
+					atlOffset=2.4795532e-005;
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20807.479,27.82984,7270.3262};
+						angles[]={0,3.8112266,0};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Logistiker";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=164;
+					type="I_helipilot_F";
+					atlOffset=2.0980835e-005;
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20806.83,27.808958,7270.8613};
+						angles[]={0,3.8112266,0};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Logistiker";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=165;
+					type="I_helipilot_F";
+					atlOffset=2.0980835e-005;
+				};
+			};
+			class Attributes
+			{
+			};
+			id=161;
+			atlOffset=2.4795532e-005;
+		};
+		class Item43
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20805.178,27.786642,7271.1719};
+						angles[]={0,3.8112266,0};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Kampfpilot";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=167;
+					type="I_pilot_F";
+					atlOffset=2.0980835e-005;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20804.313,27.772421,7271.7637};
+						angles[]={0,3.8112266,0};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Kampfpilot";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=168;
+					type="I_pilot_F";
+					atlOffset=2.0980835e-005;
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20805.77,27.770292,7271.8906};
+						angles[]={0,3.8112266,0};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Kampfpilot";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=169;
+					type="I_pilot_F";
+					atlOffset=2.2888184e-005;
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20804.84,27.746389,7272.5313};
+						angles[]={0,3.8112266,0};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n "this setVariable [""ACE_isEOD"",true,true];";
+						description="Kampfpilot";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=170;
+					type="I_pilot_F";
+					atlOffset=2.2888184e-005;
+				};
+			};
+			class Attributes
+			{
+			};
+			id=166;
+			atlOffset=2.0980835e-005;
+		};
+		class Item44
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=6;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20809.855,27.930286,7267.3125};
+						angles[]={0,3.8505249,0};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Besatzung";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=172;
+					type="I_crew_F";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20809.148,27.910177,7268.043};
+						angles[]={0,3.8505249,0};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Besatzung";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=173;
+					type="I_crew_F";
+					atlOffset=2.0980835e-005;
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20808.402,27.8841,7268.7285};
+						angles[]={0,3.8505249,0};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Besatzung";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=174;
+					type="I_crew_F";
+					atlOffset=2.0980835e-005;
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20810.371,27.925123,7267.8672};
+						angles[]={0,3.8505249,0};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Besatzung";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=175;
+					type="I_crew_F";
+					atlOffset=2.4795532e-005;
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20809.654,27.897947,7268.5977};
+						angles[]={0,3.8505249,0};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Besatzung";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=176;
+					type="I_crew_F";
+					atlOffset=2.2888184e-005;
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20808.971,27.87747,7269.1094};
+						angles[]={0,3.8505249,0};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",1,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						description="Besatzung";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=177;
+					type="I_crew_F";
+					atlOffset=2.0980835e-005;
+				};
+			};
+			class Attributes
+			{
+			};
+			id=171;
+		};
+		class Item45
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=3;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20808.752,27.92362,7263.3926};
+						angles[]={0,5.1960001,0};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						name="z7";
+						description="OPZ/Zeus";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=179;
+					type="I_officer_F";
+					atlOffset=1.9073486e-006;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1.04;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20809.4,27.926718,7264.2456};
+						angles[]={0,5.1971717,0};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						name="z8";
+						description="OPZ/Zeus";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=180;
+					type="I_officer_F";
+					atlOffset=6.4849854e-005;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male03GRE";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1.02;
+								};
+							};
+						};
+						nAttributes=2;
+					};
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20810.174,27.932835,7265.3105};
+						angles[]={0,5.0923443,0};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable [""ace_medical_medicClass"",2,true]; " \n " this setVariable [""ACE_IsEngineer"",1,true];";
+						name="z9";
+						description="OPZ/Zeus";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_I_CombatUniform";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="SmokeShellGreen";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="G_Aviator";
+						};
+					};
+					id=181;
+					type="I_officer_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1.01;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=178;
+			atlOffset=1.9073486e-006;
+		};
+		class Item46
+		{
+			dataType="Marker";
+			position[]={15353.906,0,15808.853};
+			name="marinespawn_west_marker";
+			text="Hafen";
+			type="b_naval";
+			colorName="ColorWEST";
+			id=182;
+			atlOffset=6.290863;
+		};
+		class Item47
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={15353.938,1.7166138e-005,15807.17};
+				angles[]={0,2.0681279,0};
+			};
+			name="marinespawn_west";
+			id=183;
+			type="Logic";
+			atlOffset=6.3169999;
+		};
+		class Item48
+		{
+			dataType="Marker";
+			position[]={26813.813,-4.7156982,24665.002};
+			name="vehiclespawn_east_marker";
+			text="Fahrzeuge";
+			type="b_armor";
+			colorName="ColorEAST";
+			id=184;
+			atlOffset=-25.922607;
+		};
+		class Item49
+		{
+			dataType="Marker";
+			position[]={26784.963,0,24631.229};
+			name="airspawn_east_marker";
+			text="Flugzeuge";
+			type="b_air";
+			colorName="ColorEAST";
+			angle=0.80899966;
+			id=185;
+			atlOffset=-21.768589;
+		};
+		class Item50
+		{
+			dataType="Marker";
+			position[]={26796.391,26.969505,24372.717};
+			name="logistic_east_marker";
+			text="Logistik";
+			type="b_support";
+			colorName="ColorEAST";
+			id=187;
+		};
+		class Item51
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={26784.928,21.858244,24629.072};
+				angles[]={0.031988446,3.6136866,0.019996032};
+			};
+			name="airspawn_east";
+			id=188;
+			type="Logic";
+		};
+		class Item52
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={26796.479,26.950144,24370.48};
+				angles[]={6.2738504,3.7619874,0.017332481};
+			};
+			name="logistic_east";
+			id=190;
+			type="Logic";
+		};
+		class Item53
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={26811.799,21.09499,24666.18};
+				angles[]={0.030656165,3.7530339,0.050623242};
+			};
+			name="vehiclespawn_east";
+			id=191;
+			type="Logic";
+		};
+		class Item54
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={26817.17,57.269814,24325.193};
+				angles[]={0,3.8336504,0};
+			};
+			name="cratespawner1_east";
+			id=192;
+			type="Logic";
+			atlOffset=31.20723;
+		};
+		class Item55
+		{
+			dataType="Marker";
+			position[]={26817.094,26.137012,24327.516};
+			name="cratespawner1_east_marker";
+			text="Materiallager";
+			type="b_support";
+			colorName="ColorEAST";
+			id=193;
+		};
+		class Item56
+		{
+			dataType="Marker";
+			position[]={26145.564,0,24163.045};
+			name="marinespawn_east_marker";
+			text="Hafen";
+			type="o_naval";
+			colorName="ColorEAST";
+			id=194;
+			atlOffset=1.9742919;
+		};
+		class Item57
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={26145.598,0.00044441223,24161.363};
+				angles[]={0,2.0681279,0};
+			};
+			name="marinespawn_east";
+			id=195;
+			type="Logic";
+			atlOffset=1.885;
+		};
+		class Item58
+		{
+			dataType="Marker";
+			position[]={20772.967,29.317415,7208.9814};
+			name="vehiclespawn_resistance_marker";
+			text="Fahrzeuge";
+			type="b_armor";
+			colorName="ColorGUER";
+			id=196;
+		};
+		class Item59
+		{
+			dataType="Marker";
+			position[]={20798.152,29.120005,7229.1719};
+			name="airspawn_resistance_marker";
+			text="Flugzeuge";
+			type="b_air";
+			colorName="ColorGUER";
+			angle=0.80899966;
+			id=197;
+		};
+		class Item60
+		{
+			dataType="Marker";
+			position[]={21210.883,0.53344727,7162.3042};
+			name="logistic_resistance_marker";
+			text="Logistik";
+			type="b_support";
+			colorName="ColorGUER";
+			id=199;
+			atlOffset=-21.238182;
+		};
+		class Item61
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={20798.119,29.126369,7227.0161};
+				angles[]={0.0026744273,0.96166778,6.2645216};
+			};
+			name="airspawn_resistance";
+			id=200;
+			type="Logic";
+		};
+		class Item62
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={21209.695,21.831505,7161.4839};
+				angles[]={0.067895547,2.3604758,6.2751846};
+			};
+			name="logistic_resistance";
+			id=202;
+			type="Logic";
+		};
+		class Item63
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={20775.225,29.21847,7210.0068};
+				angles[]={0.0039967569,5.7886567,6.2765174};
+			};
+			name="vehiclespawn_resistance";
+			id=203;
+			type="Logic";
+		};
+		class Item64
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={21212.736,23.952333,7103.105};
+				angles[]={0.022662206,5.3552151,6.2525291};
+			};
+			name="cratespawner1_resistance";
+			id=204;
+			type="Logic";
+		};
+		class Item65
+		{
+			dataType="Marker";
+			position[]={21212.66,0,7105.4268};
+			name="cratespawner1_resistance_marker";
+			text="Materiallager";
+			type="b_support";
+			colorName="ColorGUER";
+			id=205;
+			atlOffset=-23.902067;
+		};
+		class Item66
+		{
+			dataType="Marker";
+			position[]={21920.521,0,5973.1255};
+			name="marinespawn_resistance_marker";
+			text="Hafen";
+			type="b_naval";
+			colorName="ColorGUER";
+			id=206;
+			atlOffset=9.2660694;
+		};
+		class Item67
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={21916.309,0,5968.5894};
+				angles[]={0,2.0550857,0};
+			};
+			name="marinespawn_resistance";
+			id=207;
+			type="Logic";
+			atlOffset=7.6647944;
+		};
+		class Item68
+		{
+			dataType="Marker";
+			position[]={14256.046,0,16292.78};
+			name="teleport_west_logistics";
+			type="mil_pickup";
+			colorName="ColorWEST";
+			id=208;
+			atlOffset=-19.392582;
+		};
+		class Item69
+		{
+			dataType="Marker";
+			position[]={14377.914,0,16319.861};
+			name="teleport_west_vehicles";
+			type="mil_pickup";
+			colorName="ColorWEST";
+			id=209;
+			atlOffset=-18.905342;
+		};
+		class Item70
+		{
+			dataType="Marker";
+			position[]={15325.357,0,15855.597};
+			name="teleport_west_marina";
+			type="mil_pickup";
+			colorName="ColorWEST";
+			id=210;
+			atlOffset=-4.3417325;
+		};
+		class Item71
+		{
+			dataType="Marker";
+			position[]={26791.688,0,24339.563};
+			name="teleport_east_vehicles";
+			type="mil_pickup";
+			colorName="ColorEAST";
+			id=211;
+			atlOffset=-26.550507;
+		};
+		class Item72
+		{
+			dataType="Marker";
+			position[]={26790.701,-0.7142334,24656.648};
+			name="teleport_east_marina";
+			type="mil_pickup";
+			colorName="ColorEAST";
+			id=212;
+			atlOffset=-21.633818;
+		};
+		class Item73
+		{
+			dataType="Marker";
+			position[]={26237.672,0,24192.48};
+			name="teleport_east_logistics";
+			type="mil_pickup";
+			colorName="ColorEAST";
+			id=213;
+			atlOffset=-9.0112009;
+		};
+		class Item74
+		{
+			dataType="Marker";
+			position[]={21223.018,22.907812,7123.9634};
+			name="teleport_resistance_logistics";
+			type="mil_pickup";
+			colorName="ColorGUER";
+			id=214;
+		};
+		class Item75
+		{
+			dataType="Marker";
+			position[]={20792.186,6.9151611,7219.9961};
+			name="teleport_resistance_vehicles";
+			type="mil_pickup";
+			colorName="ColorGUER";
+			id=215;
+			atlOffset=-22.241924;
+		};
+		class Item76
+		{
+			dataType="Marker";
+			position[]={21819.313,0,5992.501};
+			name="teleport_resistance_marina";
+			type="mil_pickup";
+			colorName="ColorGUER";
+			id=216;
+			atlOffset=-4.6238928;
+		};
+	};
+};

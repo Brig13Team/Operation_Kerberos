@@ -16,7 +16,8 @@
 _this params ["_mission", "_targets"];
 
 {
-    [_x] call EFUNC(mod_acre,jammer_add);
+    [QEGVAR(mod_acre,addJammer), [_x]] call CBA_fnc_serverEvent;
+    [QEGVAR(mod_tfar,addJammer), [_x]] call CBA_fnc_serverEvent;
     If (_x isKindOf "rhs_gaz66_r142_base") then {
         [_x,1,true] call RHS_fnc_gaz66_radioDeploy;
     };

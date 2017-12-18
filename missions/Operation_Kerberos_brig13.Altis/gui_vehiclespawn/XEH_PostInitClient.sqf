@@ -2,7 +2,7 @@
 
 #include "script_component.hpp"
 
-TRACEV_1(side player);
+
 switch (str(side player)) do {
     case "WEST" : {
         private _id = ["carrier_west",west_carrier] call FUNC(registerSpawn);

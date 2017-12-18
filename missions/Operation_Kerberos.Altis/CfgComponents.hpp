@@ -22,6 +22,7 @@ class CfgComponents {
     viewrestriction = 1;
     doorbreach = 1;
     whitelist = 1;
+    ai_skill = 1;
     // kerberos specific
     missionobjects = 1;
     headquarter = 1;
@@ -29,8 +30,8 @@ class CfgComponents {
     mod_ace = 1;
     mod_acre = 1;
     mod_asrai = 1;
-    mod_bwa3 = 1;
     mod_rhs = 1;
+    mod_tfar = 1;
     patch_acre = 1;
     patch_bwa3 = 1;
 
@@ -53,8 +54,8 @@ class CfgComponents {
 #include "mod_ace\CfgComponent.hpp"
 #include "mod_acre\CfgComponent.hpp"
 #include "mod_asrai\CfgComponent.hpp"
-#include "mod_bwa3\CfgComponent.hpp"
 #include "mod_rhs\CfgComponent.hpp"
+#include "mod_tfar\CfgComponent.hpp"
 #include "patch_acre\CfgComponent.hpp"
 #include "patch_bwa3\CfgComponent.hpp"
 #include "player\CfgComponent.hpp"
@@ -62,6 +63,7 @@ class CfgComponents {
 #include "viewrestriction\CfgComponent.hpp"
 #include "whitelist\CfgComponent.hpp"
 #include "doorbreach\CfgComponent.hpp"
+#include "ai_skill\CfgComponent.hpp"
 
 #include "missionobjects\CfgComponent.hpp"
 #include "headquarter\CfgComponent.hpp"

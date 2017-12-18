@@ -32,5 +32,7 @@ _types = _types apply {toLower _x};
 
 private _return = _allHouses select {(toLower (typeof _x) in _types)&&{!(_x in GVAR(usedHouses))}};
 //TRACEV_2(_return,_allHouses);
-_return resize _amount;
+If (count _return > _amount) then {
+    _return resize _amount;
+};
 _return

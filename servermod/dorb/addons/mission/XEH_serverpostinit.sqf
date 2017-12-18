@@ -31,7 +31,7 @@ GVAR(allRespawnMarkerLocations) = [
         ([civilian] call BIS_fnc_getRespawnMarkers)apply {getMarkerPos _x}
     ];
 }] call CBA_fnc_addEventHandler;
-[QEGVAR(mission,end_server), LINKFUNC(end)] call CBA_fnc_addEventHandler;
+
 
 // rescue point events
 [QFUNC(statemachine_increaseCounter), { _this call FUNC(statemachine_increaseCounter); deleteVehicle (_this select 0); }] call CBA_fnc_addEventHandler;

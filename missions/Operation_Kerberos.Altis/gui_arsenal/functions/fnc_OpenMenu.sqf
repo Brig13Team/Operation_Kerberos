@@ -19,7 +19,10 @@ TRACEV_2(_fastArsenal,_this);
 If (GVAR(level)<1) exitWith {
     GVAR(isPreloaded) = true;
     If (_fastArsenal) then {
-        [] call FUNC(OpenfastArsenalList);
+        If (isNil QGVAR(fastArsenalList)) then {
+            [] call FUNC(getFastArsenalList);
+        };
+        [] call FUNC(Open);
     }else{
         ["Open",true] spawn BIS_fnc_arsenal;
     };
@@ -45,9 +48,9 @@ private _arsenalVarName = format[QGVAR(level_2_obj_%1),side ace_player];
 If (isNull(missionNamespace getVariable [_arsenalVarName,objNull])) then {
     missionNamespace setVariable [_arsenalVarName,([] call FUNC(createLocalArsenal))];
     TRACEV_2((missionNamespace getVariable _arsenalVarName),side ace_player);
-    [(missionNamespace getVariable _arsenalVarName),side ace_player,true] call FUNC(addSideRestrictedArsenal);
+    [(missionNamespace getVariable _arsenalVarName),side ace_player, GVAR(level) isEqualTo 2] call FUNC(addSideRestrictedArsenal);
 };
-If (GVAR(forceReload)) then {[(missionNamespace getVariable _arsenalVarName),side ace_player,true] call FUNC(addSideRestrictedArsenal);};
+If (GVAR(forceReload)) then {[(missionNamespace getVariable _arsenalVarName),side ace_player, GVAR(level) isEqualTo 2] call FUNC(addSideRestrictedArsenal);};
 If (GVAR(debugArsenal)) then {[(missionNamespace getVariable _arsenalVarName)] call FUNC(debugTemplate);};
 GVAR(isPreloaded) = true;
 If (_fastArsenal) then {

@@ -28,8 +28,8 @@ private _unitsToUnload = [];
 } count (fullCrew [_transporter, "cargo", false]);
 
 {
-    [QGVAR(disableCollisionWith),[_x,_transporter],_x] call CBA_fnc_targetEvent;
-    [QGVAR(disableCollisionWith),[_transporter,_x],_transporter] call CBA_fnc_targetEvent;
+    [QEGVAR(common,disableCollisionWith),[_x,_transporter],_x] call CBA_fnc_targetEvent;
+    [QEGVAR(common,disableCollisionWith),[_transporter,_x],_transporter] call CBA_fnc_targetEvent;
 } forEach _unitsToUnload;
 TRACEV_3(_unitsToUnload,_transporter,_isAir);
 If (_isAir) then {

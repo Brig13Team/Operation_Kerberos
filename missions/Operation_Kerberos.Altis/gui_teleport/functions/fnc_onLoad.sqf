@@ -29,7 +29,7 @@ _headercontrols params ["_background","_headertext"];
 _headertext ctrlsetText localize LSTRING(TELEPORT);
 
 
-If ((GVAR(teleport_lead_active))&&{_type == "infanterie"}) then {
+If ((GVAR(to_lead_active))&&{_type == "infanterie"}) then {
     (ctAddRow _table) params ["_index","_controls"];
     _controls params ["_background","_number","_text","_button"];
     _number ctrlsetText "A";

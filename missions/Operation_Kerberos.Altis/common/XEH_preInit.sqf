@@ -37,3 +37,8 @@ ADDON = true;
         _vehicle enableCollisionWith _cargo;
     }
 ] call CBA_fnc_addEventHandler;
+
+ISNIL(cfgWeaponCacheLocal,false call CBA_fnc_createNamespace);
+ISNIL(cfgVehicleCacheLocal,false call CBA_fnc_createNamespace);
+ISNIL(cfgAmmoCacheLocal,false call CBA_fnc_createNamespace);
+ISNIL(cfgMagazineCacheLocal,false call CBA_fnc_createNamespace);

@@ -102,6 +102,22 @@ switch (str(side player)) do {
             _id
         ] call EFUNC(gui,addNotification);
 
+        _id = ["logistic_east",logistic_east] call FUNC(registerSpawn);
+        [
+            LSTRING(NAME_LOGISTIC),
+            ELSTRING(gui_main,CATEGORY_DEPOT),
+            (parsingNamespace getVariable ["MISSION_ROOT",""]) + 'COMPONENT\data\icon_logistic.paa',
+            LINKFUNC(openMenu),
+            LINKFUNC(canOpenMenu),
+            _id
+        ] call EFUNC(gui_main,addApp);
+        [
+            format[QGVAR(interface_%1),_id],
+            (parsingNamespace getVariable ["MISSION_ROOT",""]) + 'COMPONENT\data\icon_logistic.paa',
+            {[ace_player,ace_player,_this] call FUNC(canOpenMenu);},
+            _id
+        ] call EFUNC(gui,addNotification);
+
         _id = ["naval_east",marinespawn_east] call FUNC(registerSpawn);
         [
             LSTRING(NAME_NAVAL),
@@ -147,6 +163,22 @@ switch (str(side player)) do {
         [
             format[QGVAR(interface_%1),_id],
             (parsingNamespace getVariable ["MISSION_ROOT",""]) + 'COMPONENT\data\icon_heli.paa',
+            {[ace_player,ace_player,_this] call FUNC(canOpenMenu);},
+            _id
+        ] call EFUNC(gui,addNotification);
+
+        _id = ["logistic_resistance",logistic_resistance] call FUNC(registerSpawn);
+        [
+            LSTRING(NAME_LOGISTIC),
+            ELSTRING(gui_main,CATEGORY_DEPOT),
+            (parsingNamespace getVariable ["MISSION_ROOT",""]) + 'COMPONENT\data\icon_logistic.paa',
+            LINKFUNC(openMenu),
+            LINKFUNC(canOpenMenu),
+            _id
+        ] call EFUNC(gui_main,addApp);
+        [
+            format[QGVAR(interface_%1),_id],
+            (parsingNamespace getVariable ["MISSION_ROOT",""]) + 'COMPONENT\data\icon_logistic.paa',
             {[ace_player,ace_player,_this] call FUNC(canOpenMenu);},
             _id
         ] call EFUNC(gui,addNotification);

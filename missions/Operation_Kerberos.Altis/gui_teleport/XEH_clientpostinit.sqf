@@ -8,8 +8,6 @@
 #include "script_component.hpp"
 CHECK(!hasInterface)
 
-GVAR(teleport_lead_active) = true;
-
 [
     getMarkerPos GVARMAIN(RESPAWNMARKER), // Position as Array or code
     localize LSTRING(BASE), // The Name wich will be displayed

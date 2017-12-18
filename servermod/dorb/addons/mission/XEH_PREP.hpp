@@ -15,6 +15,7 @@ PREPS(mainmission,scarab_failed);
 PREPS(mainmission,upload);
 PREPS(mainmission,weaponcache);
 
+PREPS(sidemission,aid);
 PREPS(sidemission,airsuperiority);
 PREPS(sidemission,artillery);
 PREPS(sidemission,chopper);
