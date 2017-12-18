@@ -18,5 +18,3 @@ class DOUBLES(CfgComponent,ADDON) {
         CfgComponents[] = {};
     };
 };
-
-#include "ace_settings.hpp"
