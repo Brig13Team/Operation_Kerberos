@@ -14,6 +14,7 @@ import platform
 ######## GLOBALS #########
 MAINPREFIX = "x"
 PREFIX = "dorb_"
+MAINMISSION = "Operation_Kerberos.Altis"
 ##########################
 
 def mod_time(path):
@@ -23,7 +24,6 @@ def mod_time(path):
     for p in os.listdir(path):
         maxi = max(mod_time(os.path.join(path, p)), maxi)
     return maxi
-
 
 def check_for_changes(addonspath, module):
     if not os.path.exists(os.path.join(addonspath, "{}{}.pbo".format(PREFIX, module))):
@@ -40,7 +40,7 @@ def check_for_obsolete_pbos(addonspath, file):
 def main():
     print("""
   #####################
-  # Addon Debug Build #
+  # Building Kerberos #
   #####################
 """)
 
@@ -48,8 +48,13 @@ def main():
     projectpath = os.path.dirname(os.path.dirname(scriptpath))
     addonspath = os.path.join(projectpath, "addons")
     missionspath = os.path.join(projectpath, "missions")
+    missionrealeasepath = os.path.join(projectpath, "mpmissions")
 
     os.chdir(addonspath)
+
+    if not os.path.exists(missionrealeasepath):
+        force_missions = True
+        os.makedirs(missionrealeasepath)
 
     made = 0
     failed = 0
@@ -63,20 +68,12 @@ def main():
                 print("  Removing obsolete file => " + file)
                 os.remove(file)
 
-
-
-
     if platform.system() == "Windows":
-        work_drive = "P:\\"
-        if struct.calcsize("P") == 8:
-            path_armake = os.path.normpath(projectpath + "/tools/armake_w64.exe")
-        else:
-            path_armake = os.path.normpath(projectpath + "/tools/armake_w32.exe")
+        path_armake = os.path.normpath(projectpath + "/tools/armake_w64.exe")
     else:
         path_armake = "armake"
-        work_drive = "/mnt/p"
 
-    print("")
+    print("Creating Servermod")
 
     for p in os.listdir(addonspath):
         path = os.path.join(addonspath, p)
@@ -92,27 +89,23 @@ def main():
         print("# Making {} ...".format(p))
 
         try:
-            if bool(USEARMAKE) or platform.system() != "Windows":
-                command = path_armake + " build -i " + os.path.normpath(work_drive) + \
-                    " -w unquoted-string" + " -w redefinition-wo-undef" + \
-                    " -f " + os.path.normpath(addonspath + "/" + p) + " " + \
-                    os.path.normpath(addonspath + "/" + PREFIX + p + ".pbo")
-                subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True)
-
-            else:
-                subprocess.check_output([
-                    "makepbo",
-                    "-NUP",
-                    "-@={}\\{}\\addons\\{}".format(MAINPREFIX, PREFIX.rstrip("_"), p),
-                    p,
-                    "{}{}.pbo".format(PREFIX, p)
-                ], stderr=subprocess.STDOUT)
+            command = path_armake + " build -i tools\include" + \
+                " -w unquoted-string" + " -w redefinition-wo-undef" + \
+                " -f " + os.path.normpath(addonspath + "/" + p) + " " + \
+                os.path.normpath(addonspath + "/" + PREFIX + p + ".pbo")
+            subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True)
         except:
             failed += 1
             print("  Failed to make {}.".format(p))
         else:
             made += 1
             print("  Successfully made {}.".format(p))
+
+    print("Creating Missionfiles")
+
+
+    if force_missions:
+        create
 
     print("\n# Done.")
     print("  Made {}, skipped {}, removed {}, failed to make {}.".format(made, \
