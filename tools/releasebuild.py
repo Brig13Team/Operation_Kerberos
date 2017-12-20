@@ -8,6 +8,8 @@
 import os
 import sys
 import re
+import time
+import timeit
 import subprocess
 import shutil
 import platform
@@ -28,6 +30,19 @@ def mod_time(path):
         maxi = max(mod_time(os.path.join(path, file)), maxi)
     return maxi
 
+def fract_sec(second):
+    """fract sec"""
+    temp = float()
+    temp = float(second) / (60*60*24)
+    days = int(temp)
+    temp = (temp - days) * 24
+    hours = int(temp)
+    temp = (temp - hours) * 60
+    minutes = int(temp)
+    temp = (temp - minutes) * 60
+    sec = temp
+    return hours, minutes, sec
+
 def check_for_changes(addonspath, module, pre):
     """checks if the a pbo needs to be rebuild"""
     if not os.path.exists(os.path.join(addonspath, "{}{}.pbo".format(pre, module))):
@@ -42,7 +57,7 @@ def check_for_obsolete_pbos(addonspath, file):
         return True
     return False
 
-def get_version(filepath):
+def get_version(filepath, version_increments=[]):
     """update the build version"""
     versionfile = open(filepath, "r")
     hpptext = versionfile.read()
@@ -54,6 +69,15 @@ def get_version(filepath):
         patchtext = re.search(r"#define PATCHLVL (.*\b)", hpptext).group(1)
         buildtext = re.search(r"#define BUILD (.*\b)", hpptext).group(1)
 
+        if "major" in version_increments:
+            majortext = int(majortext) + 1
+            minortext = 0
+            patchtext = 0
+        elif "minor" in version_increments:
+            minortext = int(minortext) + 1
+            patchtext = 0
+        elif "patch" in version_increments:
+            patchtext = int(patchtext) + 1
 
         buildtext = int(buildtext) + 1
 
@@ -67,13 +91,24 @@ def get_version(filepath):
         return majortext, minortext, patchtext, buildtext
 
 
-def main():
+def main(argv):
     """main"""
     print("""
   #####################
   # Building Kerberos #
   #####################
 """)
+
+    version_increments = []
+    if "increment_patch" in argv:
+        argv.remove("increment_patch")
+        version_increments.append("patch")
+    if "increment_minor" in argv:
+        argv.remove("increment_minor")
+        version_increments.append("minor")
+    if "increment_major" in argv:
+        argv.remove("increment_major")
+        version_increments.append("major")
 
     scriptpath = os.path.realpath(__file__)
     projectpath = os.path.dirname(os.path.dirname(scriptpath))
@@ -82,14 +117,20 @@ def main():
     workdrivepath = os.path.normpath("P:")
     temppath = os.path.join(projectpath, "temp")
 
-    releasepath = os.path.normpath(projectpath + "/release/@dorb/addons")
-    if not os.path.exists(releasepath):
-        os.makedirs(releasepath)
+    if not os.path.exists(os.path.normpath(projectpath + "/release/privatekeys/")):
+        os.makedirs(os.path.normpath(projectpath + "/release/privatekeys/"))
+    if not os.path.exists(os.path.normpath(projectpath + "/release/@dorb/keys")):
+        os.makedirs(os.path.normpath(projectpath + "/release/@dorb/keys"))
+    if os.path.exists(os.path.normpath(projectpath + "/release/@dorb/addons")):
+        shutil.rmtree(os.path.normpath(projectpath + "/release/@dorb/addons"), ignore_errors=True)
+    os.makedirs(os.path.normpath(projectpath + "/release/@dorb/addons"))
+    if os.path.exists(os.path.normpath(projectpath + "/release/@dorb/mpmissions")):
+        shutil.rmtree(os.path.normpath(projectpath + "/release/@dorb/mpmissions"),\
+            ignore_errors=True)
+    os.makedirs(os.path.normpath(projectpath + "/release/@dorb/mpmissions"))
 
     made = 0
     failed = 0
-    skipped = 0
-    removed = 0
 
     if platform.system() == "Windows":
         path_armake = os.path.normpath(projectpath + "/tools/armake_w64.exe")
@@ -98,17 +139,24 @@ def main():
         workdrivepath = os.path.normpath("/mnt/p/")
 
     major, minor, patch, build = get_version(os.path.normpath(addonspath \
-        + "/main/script_version.hpp"))
+        + "/main/script_version.hpp"), version_increments)
 
     print("  Version: {}.{}.{}.{}".format(major, minor, patch, build), "\n")
 
     if not os.path.exists(os.path.normpath(projectpath + \
-        "/release/privatekeys/Kerberos{}.{}.biprivatekey".format(major, minor))):
+        "/release/privatekeys/Kerberos_{}.{}.biprivatekey".format(major, minor))):
+        print("  Creating the new keys Kerberos_{}.{} \n".format(major, minor))
         command = path_armake + " keygen -f " + os.path.normpath(projectpath + \
-            "/release/privatekeys/Kerberos{}.{}".format(major, minor))
+            "/release/privatekeys/Kerberos_{}.{}".format(major, minor))
         subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True)
 
+    shutil.copy(os.path.normpath(projectpath + \
+        "/release/privatekeys/Kerberos_{}.{}.bikey".format(major, minor)), \
+        os.path.normpath(projectpath + \
+        "/release/@dorb/keys/Kerberos_{}.{}.bikey".format(major, minor)))
+
     print("  Creating the servermod")
+    releasepath = os.path.normpath(projectpath + "/release/@dorb/addons")
 
     for file in os.listdir(addonspath):
         path = os.path.join(addonspath, file)
@@ -125,21 +173,18 @@ def main():
                 " -f " + os.path.normpath(addonspath + "/" + file) + " " + \
                 os.path.normpath(releasepath + "/" + PREFIX + file + ".pbo")
             subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True)
+
+            command = path_armake + " sign -f " + os.path.normpath(projectpath + \
+                "/release/privatekeys/Kerberos_{}.{}.biprivatekey ".format(major, minor)) + \
+                os.path.normpath(releasepath + "/" + PREFIX + file + ".pbo")
+            subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True)
+
         except:
             failed += 1
             print("    Failed to make {}{}.".format(PREFIX, file))
         else:
             made += 1
             print("    Successfully made {}{}.".format(PREFIX, file))
-
-    print("  Signing the servermod")
-
-    if not os.path.exists(os.path.normpath(projectpath + "/keys")):
-        os.makedirs(os.path.normpath(projectpath + "/keys"))
-
-
-
-
 
     print("\n  Creating the mission files")
 
@@ -190,18 +235,30 @@ def main():
             made += 1
             print("    Successfully made {}.".format(file))
 
-    releasepath = os.path.normpath(projectpath + "release/@dorb")
+    releasepath = os.path.normpath(projectpath + "/release/@dorb")
 
-    shutil.copy(os.path.normpath(projectpath + "/LICENCSE"), \
-        os.path.normpath(releasepath + "/LICENCSE"))
+    shutil.copy(os.path.normpath(projectpath + "/LICENSE"), \
+        os.path.normpath(releasepath + "/LICENSE"))
 
     shutil.copy(os.path.normpath(projectpath + "/README.md"), \
         os.path.normpath(releasepath + "/README.md"))
 
+    releasename = "{}_{}.{}.{}.{}".format(MAINMISSION.rsplit(".", 1)[0], major, minor, patch, build)
+
+    os.chdir(os.path.normpath(projectpath + "/release"))
+    shutil.make_archive("{}".format(releasename), "zip", \
+        os.path.normpath(projectpath + "/release"), \
+        os.path.normpath(projectpath + "/release/@dorb"))
+
     print("\n  Done. \n")
-    print("  Made {}, skipped {}, removed {}, failed to make {}.\n".format(made, \
-        skipped, removed, failed))
+    print("  Made {}, failed to make {}.\n".format(made, failed))
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    STARTTIME = timeit.default_timer()
+    main(sys.argv)
+    HOURS, MINUTES, SECONDS = fract_sec(timeit.default_timer() - STARTTIME)
+    print("\nTotal Program time elapsed: {0:2}h   {1:2}m   {2:4.5f}s".format(HOURS, \
+        MINUTES, SECONDS))
+
+    input("Press Enter to continue...")

@@ -9,3 +9,4 @@ release/*
 .vscode/launch.json
 */temp
 **/~*
+*.zip
