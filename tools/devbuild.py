@@ -191,6 +191,7 @@ def main():
     print("  Made {}, skipped {}, removed {}, failed to make {}.\n".format(made, \
         skipped, removed, failed))
 
+    return failed
 
 if __name__ == "__main__":
     sys.exit(main())

@@ -20,7 +20,7 @@ script:
 - python3 tools/validator_cfg.py
 - python3 tools/validator_sqf.py
 - python3 tools/validator_xml.py
-- python3 tools/createmissions.py
+- python3 tools/devbuild.py
 
 notifications:
   email:
