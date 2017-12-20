@@ -100,6 +100,8 @@ def main():
             format(MAINPREFIX, PREFIX.rstrip("_")))
         print("or run this script as administrator")
 
+    print(workdrivepath)
+
     os.chdir(addonspath)
 
     made = 0
