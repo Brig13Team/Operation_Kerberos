@@ -89,7 +89,7 @@ def main():
     projectpath = os.path.dirname(os.path.dirname(scriptpath))
     addonspath = os.path.join(projectpath, "addons")
     missionspath = os.path.join(projectpath, "missions")
-    workdrivepath = os.path.normpath(projectpath + "/include"),
+    workdrivepath = os.path.normpath(projectpath + "/include")
     temppath = os.path.join(projectpath, "temp")
 
     try:
