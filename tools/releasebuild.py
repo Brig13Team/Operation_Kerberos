@@ -117,8 +117,8 @@ def main(argv):
     workdrivepath = os.path.normpath("P:")
     temppath = os.path.join(projectpath, "temp")
 
-    if not os.path.exists(os.path.normpath(projectpath + "/release/privatekeys/")):
-        os.makedirs(os.path.normpath(projectpath + "/release/privatekeys/"))
+    if not os.path.exists(os.path.normpath(projectpath + "/privatekeys/")):
+        os.makedirs(os.path.normpath(projectpath + "/privatekeys/"))
     if not os.path.exists(os.path.normpath(projectpath + "/release/@dorb/keys")):
         os.makedirs(os.path.normpath(projectpath + "/release/@dorb/keys"))
     if os.path.exists(os.path.normpath(projectpath + "/release/@dorb/addons")):
@@ -144,14 +144,14 @@ def main(argv):
     print("  Version: {}.{}.{}.{}".format(major, minor, patch, build), "\n")
 
     if not os.path.exists(os.path.normpath(projectpath + \
-        "/release/privatekeys/Kerberos_{}.{}.biprivatekey".format(major, minor))):
+        "/privatekeys/Kerberos_{}.{}.biprivatekey".format(major, minor))):
         print("  Creating the new keys Kerberos_{}.{} \n".format(major, minor))
         command = path_armake + " keygen -f " + os.path.normpath(projectpath + \
-            "/release/privatekeys/Kerberos_{}.{}".format(major, minor))
+            "/privatekeys/Kerberos_{}.{}".format(major, minor))
         subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True)
 
     shutil.copy(os.path.normpath(projectpath + \
-        "/release/privatekeys/Kerberos_{}.{}.bikey".format(major, minor)), \
+        "/privatekeys/Kerberos_{}.{}.bikey".format(major, minor)), \
         os.path.normpath(projectpath + \
         "/release/@dorb/keys/Kerberos_{}.{}.bikey".format(major, minor)))
 
@@ -175,7 +175,7 @@ def main(argv):
             subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True)
 
             command = path_armake + " sign -f " + os.path.normpath(projectpath + \
-                "/release/privatekeys/Kerberos_{}.{}.biprivatekey ".format(major, minor)) + \
+                "/privatekeys/Kerberos_{}.{}.biprivatekey ".format(major, minor)) + \
                 os.path.normpath(releasepath + "/" + PREFIX + file + ".pbo")
             subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True)
 
@@ -247,7 +247,6 @@ def main(argv):
 
     os.chdir(os.path.normpath(projectpath + "/release"))
     shutil.make_archive("{}".format(releasename), "zip", \
-        os.path.normpath(projectpath + "/release"), \
         os.path.normpath(projectpath + "/release/@dorb"))
 
     print("\n  Done. \n")
