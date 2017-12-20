@@ -3,7 +3,7 @@
 #
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
-# pylint: disable=W1401
+# pylint: disable=W0702
 
 import os
 import sys
@@ -20,20 +20,23 @@ MAINMISSION = "Operation_Kerberos.Altis"
 ##########################
 
 def mod_time(path):
+    """Returns the last modified date"""
     if not os.path.isdir(path):
         return os.path.getmtime(path)
     maxi = os.path.getmtime(path)
-    for p in os.listdir(path):
-        maxi = max(mod_time(os.path.join(path, p)), maxi)
+    for file in os.listdir(path):
+        maxi = max(mod_time(os.path.join(path, file)), maxi)
     return maxi
 
 def check_for_changes(addonspath, module, pre):
+    """checks if the a pbo needs to be rebuild"""
     if not os.path.exists(os.path.join(addonspath, "{}{}.pbo".format(pre, module))):
         return True
     return mod_time(os.path.join(addonspath, module)) > mod_time(os.path.join(addonspath, \
         "{}{}.pbo".format(pre, module)))
 
 def check_for_obsolete_pbos(addonspath, file):
+    """checks if there is an obsolete pbo"""
     module = file[len(PREFIX):-4]
     if not os.path.exists(os.path.join(addonspath, module)):
         return True
@@ -65,6 +68,7 @@ def get_version(filepath):
 
 
 def main():
+    """main"""
     print("""
   #####################
   # Building Kerberos #
