@@ -66,6 +66,16 @@ def get_version(filepath):
             ])
         return majortext, minortext, patchtext, buildtext
 
+def check_workdrive(path, addonspath):
+    workdrivepath = os.path.normpath("{}/{}/{}/".format(path, MAINPREFIX, PREFIX.rstrip("_")))
+    if not os.path.exists(workdrivepath):
+        os.makedirs(workdrivepath)
+    workdrivepath = os.path.normpath(workdrivepath + "/addons")
+    if not os.path.exists(os.path.normpath(workdrivepath + "/main")):
+        os.symlink(addonspath, workdrivepath)
+    return True
+
+
 
 def main():
     """main"""
@@ -79,8 +89,16 @@ def main():
     projectpath = os.path.dirname(os.path.dirname(scriptpath))
     addonspath = os.path.join(projectpath, "addons")
     missionspath = os.path.join(projectpath, "missions")
-    workdrivepath = os.path.normpath("P:")
+    workdrivepath = os.path.normpath(projectpath + "/include"),
     temppath = os.path.join(projectpath, "temp")
+
+    try:
+        check_workdrive(workdrivepath, addonspath)
+    except:
+        print("The virtual workdrive could not be checked.")
+        print("Please link '/addons' to 'include/{}/{}/addons'".\
+            format(MAINPREFIX, PREFIX.rstrip("_")))
+        print("or run this script as administrator")
 
     os.chdir(addonspath)
 
@@ -100,14 +118,11 @@ def main():
         path_armake = os.path.normpath(projectpath + "/tools/armake_w64.exe")
     else:
         path_armake = "armake"
-        workdrivepath = os.path.normpath(projectpath + "/include")
 
     major, minor, patch, build = get_version(os.path.normpath(addonspath \
         + "/main/script_version.hpp"))
 
     print("  Version: {}.{}.{}.{}".format(major, minor, patch, build), "\n")
-
-    print("workdrive={}\n projectpath={}".format(workdrivepath, projectpath))
 
     print("  Creating the servermod")
 
@@ -126,8 +141,8 @@ def main():
 
         try:
             command = path_armake + " build -i " + workdrivepath + \
-                " -w unquoted-string" + " -w redefinition-wo-undef" + \
-                " -f " + os.path.normpath(addonspath + "/" + file) + " " + \
+                " -w unquoted-string -w redefinition-wo-undef -f " + \
+                os.path.normpath(addonspath + "/" + file) + " " + \
                 os.path.normpath(addonspath + "/" + PREFIX + file + ".pbo")
             subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True)
         except:
