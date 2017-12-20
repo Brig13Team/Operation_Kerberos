@@ -4,6 +4,7 @@
 *.pbo
 *.dump
 release/*
+privatekeys/*
 *.tmp
 *.cache
 .vscode/launch.json
