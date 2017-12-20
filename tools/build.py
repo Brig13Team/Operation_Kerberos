@@ -58,7 +58,6 @@ def main():
     failed = 0
     skipped = 0
     removed = 0
-    force_missions = False
 
     for file in os.listdir(addonspath):
         if os.path.isfile(file):
@@ -82,10 +81,10 @@ def main():
             continue
         if not check_for_changes(addonspath, p, PREFIX):
             skipped += 1
-            print("  Skipping {}.".format(p))
+            print("  Skipping {}{}.".format(PREFIX, p))
             continue
 
-        print("# Making {} ...".format(p))
+        print("# Making {}{} ...".format(PREFIX, p))
 
         try:
             command = path_armake + " build -i " + workdrivepath + \
@@ -95,10 +94,10 @@ def main():
             subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True)
         except:
             failed += 1
-            print("  Failed to make {}.".format(p))
+            print("  Failed to make {}{}.".format(PREFIX, p))
         else:
             made += 1
-            print("  Successfully made {}.".format(p))
+            print("  Successfully made {}{}.".format(PREFIX, p))
 
     print("Creating Missionfiles")
 
@@ -106,56 +105,49 @@ def main():
         shutil.rmtree(temppath, ignore_errors=True)
 
     if check_for_changes(missionspath, MAINMISSION, ""):
-        updateallmissions = True
+        mainisupdated = True
     else:
-        updateallmissions = False
+        mainisupdated = False
 
-    for p in os.listdir(missionspath):
-        path = os.path.join(missionspath, p)
+    for file in os.listdir(missionspath):
+        path = os.path.join(missionspath, file)
         if not os.path.isdir(path):
             continue
-        if p[0] == ".":
+        if file[0] == ".":
             continue
-        if not check_for_changes(missionspath, p, ""):
+        if (not check_for_changes(missionspath, file, "")) and (not mainisupdated):
             skipped += 1
-            print("  Skipping {}.".format(p))
-            continue
-        if not updateallmissions:
+            print("  Skipping {}.".format(file))
             continue
 
-
-
+        print("# Making {} ...".format(file))
 
         try:
-
-            if p == MAINMISSION:
+            if file == MAINMISSION:
                 command = path_armake + " build -p -i " + workdrivepath + \
                 " -w unquoted-string" + " -w redefinition-wo-undef" + \
-                " -f " + os.path.normpath(missionspath + "/" + p) + " " + \
-                os.path.normpath(missionspath + "/" + p + ".pbo")
+                " -f " + os.path.normpath(missionspath + "/" + file) + " " + \
+                os.path.normpath(missionspath + "/" + file + ".pbo")
                 subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True)
             else:
                 os.makedirs(temppath)
                 newdir = os.path.normpath(temppath + "/" + file)
-                shutil.copytree(normpath(missionspath + "/" + MAINMISSION), newdir)
-                copy_tree(os.path.normpath(missionspath + "/" + p), newdir)
+                shutil.copytree(os.path.normpath(missionspath + "/" + MAINMISSION), newdir)
+                copy_tree(os.path.normpath(missionspath + "/" + file), newdir)
 
                 command = path_armake + " build -p -i " + workdrivepath + \
                 " -w unquoted-string" + " -w redefinition-wo-undef" + \
                 " -f " + newdir + " " + \
-                os.path.normpath(missionspath + "/" + p + ".pbo")
+                os.path.normpath(missionspath + "/" + file + ".pbo")
                 subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True)
 
                 shutil.rmtree(temppath, ignore_errors=True)
         except:
             failed += 1
-            print("  Failed to make {}.".format(p))
+            print("  Failed to make {}.".format(file))
         else:
             made += 1
-            print("  Successfully made {}.".format(p))
-
-    print("UpdateallMissions={}".format(updateallmissions))
-
+            print("  Successfully made {}.".format(file))
 
     print("\n# Done.")
     print("  Made {}, skipped {}, removed {}, failed to make {}.".format(made, \
