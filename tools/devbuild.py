@@ -100,7 +100,7 @@ def main():
         path_armake = os.path.normpath(projectpath + "/tools/armake_w64.exe")
     else:
         path_armake = "armake"
-        workdrivepath = os.path.normpath("/mnt/p/")
+        workdrivepath = os.path.normpath(projectpath + "/include")
 
     major, minor, patch, build = get_version(os.path.normpath(addonspath \
         + "/main/script_version.hpp"))
