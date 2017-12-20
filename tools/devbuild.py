@@ -100,7 +100,7 @@ def main():
             format(MAINPREFIX, PREFIX.rstrip("_")))
         print("or run this script as administrator")
 
-    print(workdrivepath)
+    print("workdrive={}\naddonpath={}".format(workdrivepath, addonspath))
 
     os.chdir(addonspath)
 
