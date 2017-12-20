@@ -100,8 +100,6 @@ def main():
             format(MAINPREFIX, PREFIX.rstrip("_")))
         print("or run this script as administrator")
 
-    print("workdrive={}\naddonpath={}".format(workdrivepath, addonspath))
-
     os.chdir(addonspath)
 
     made = 0
@@ -142,7 +140,7 @@ def main():
         print("  Making {}{} ...".format(PREFIX, file))
 
         try:
-            command = path_armake + " build -i " + workdrivepath + \
+            command = path_armake + " build -p -i " + workdrivepath + \
                 " -w unquoted-string -w redefinition-wo-undef -f " + \
                 os.path.normpath(addonspath + "/" + file) + " " + \
                 os.path.normpath(addonspath + "/" + PREFIX + file + ".pbo")
