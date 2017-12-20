@@ -3,9 +3,11 @@
 *.cache
 *.pbo
 *.dump
-**/release/*
+release/*
+privatekeys/*
 *.tmp
 *.cache
 .vscode/launch.json
 */temp
 **/~*
+*.zip

@@ -9,4 +9,4 @@
 If (!((getMissionConfigValue ["isKerberos", 0]) > 0)) exitWith {};
 
 ISNIL(whitelistenabled,true);
-["pilotcheck",LINKFUNC(onGetIn)] call CBA_fnc_addEventHandler;
+[QGVAR(pilotcheck), LINKFUNC(onGetIn)] call CBA_fnc_addEventHandler;

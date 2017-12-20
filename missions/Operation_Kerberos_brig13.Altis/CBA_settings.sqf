@@ -55,7 +55,8 @@ force ace_captives_requireSurrenderAi = false;
 // ACE Common
 force ace_common_checkPBOsAction = 2;
 force ace_common_checkPBOsCheckAll = true;
-force ace_common_checkPBOsWhitelist = "[""Nicht von Intersse""]";
+force ace_common_checkPBOsWhitelist = "['dorb_main','dorb_common','dorb_composition','dorb_artillery','dorb_database','dorb_headless','dorb_headquarter','dorb_intercept','dorb_mission','dorb_spawn','dorb_worlds','asr_ai3_cfgammo','asr_ai3_cfgcamouflage','asr_ai3_cfgvehicles','asr_ai3_cfgweapons','asr_ai3_greenrico','asr_ai3_incognito','asr_ai3_main','asr_ai3_rhs_gr_c','asr_ai3_rhs_gr_camo_c','asr_ai3_rhs_ru_c','asr_ai3_rhs_ru_camo_c','asr_ai3_rhs_us_c','asr_ai3_rhs_us_camo_c','asr_ai3_rhs_saf_c','asr_ai3_rhs_saf_camo_c','asr_ai3_bwa3_c','asr_ai3_bwa3_camo_c','asr_ai3_niarms_c','cba_diagnostic_enable_perf_loop','cba_diagnostic_logging','cba_cache_disable','cba_diagnostic_disable_xeh_logging','Disable_XEH_Logging','cba_diagnostic_enable_logging'
+#define MOD_BWA3 'BWA3_EnablePIPOptics','BWA3_EnablePIPOptics','extdb3','kerb_main','kerb_man','kerb_vehicles']";
 ace_common_settingFeedbackIcons = 1;
 ace_common_settingProgressBarLocation = 0;
 ace_common_displayTextColor = [0,0,0,0.1];
@@ -218,7 +219,7 @@ ace_nametags_playerNamesViewDistance = 5;
 ace_nametags_playerNamesMaxAlpha = 0.8;
 ace_nametags_tagSize = 2;
 // ace nightvision
-force ace_nightvision_disableNVGsWithSights = true;
+force ace_nightvision_disableNVGsWithSights = false;
 force ace_nightvision_fogScaling = 1;
 force ace_nightvision_effectScaling = 1;
 // ace overheating
