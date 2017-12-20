@@ -107,6 +107,8 @@ def main():
 
     print("  Version: {}.{}.{}.{}".format(major, minor, patch, build), "\n")
 
+    print("workdrive={}\n projectpath={}".format(workdrivepath, projectpath))
+
     print("  Creating the servermod")
 
     for file in os.listdir(addonspath):
