@@ -7,6 +7,7 @@
 
 import os
 import sys
+import re
 import subprocess
 import shutil
 import platform
@@ -37,6 +38,31 @@ def check_for_obsolete_pbos(addonspath, file):
     if not os.path.exists(os.path.join(addonspath, module)):
         return True
     return False
+
+def get_version(filepath):
+    """update the build version"""
+    versionfile = open(filepath, "r")
+    hpptext = versionfile.read()
+    versionfile.close()
+
+    if hpptext:
+        majortext = re.search(r"#define MAJOR (.*\b)", hpptext).group(1)
+        minortext = re.search(r"#define MINOR (.*\b)", hpptext).group(1)
+        patchtext = re.search(r"#define PATCHLVL (.*\b)", hpptext).group(1)
+        buildtext = re.search(r"#define BUILD (.*\b)", hpptext).group(1)
+
+
+        buildtext = int(buildtext) + 1
+
+        with open(filepath, "w", newline="\n") as file:
+            file.writelines([
+                "#define MAJOR {}\n".format(majortext),
+                "#define MINOR {}\n".format(minortext),
+                "#define PATCHLVL {}\n".format(patchtext),
+                "#define BUILD {}\n".format(buildtext)
+            ])
+        return majortext, minortext, patchtext, buildtext
+
 
 def main():
     print("""
@@ -70,42 +96,50 @@ def main():
         path_armake = os.path.normpath(projectpath + "/tools/armake_w64.exe")
     else:
         path_armake = "armake"
+        workdrivepath = os.path.normpath("/mnt/p/")
 
-    print("Creating Servermod")
+    major, minor, patch, build = get_version(os.path.normpath(addonspath \
+        + "/main/script_version.hpp"))
 
-    for p in os.listdir(addonspath):
-        path = os.path.join(addonspath, p)
+    print("  Version: {}.{}.{}.{}".format(major, minor, patch, build), "\n")
+
+    print("  Creating the servermod")
+
+    for file in os.listdir(addonspath):
+        path = os.path.join(addonspath, file)
         if not os.path.isdir(path):
             continue
-        if p[0] == ".":
+        if file[0] == ".":
             continue
-        if not check_for_changes(addonspath, p, PREFIX):
+        if not check_for_changes(addonspath, file, PREFIX):
             skipped += 1
-            print("  Skipping {}{}.".format(PREFIX, p))
+            print("    Skipping {}{}.".format(PREFIX, file))
             continue
 
-        print("# Making {}{} ...".format(PREFIX, p))
+        print("  Making {}{} ...".format(PREFIX, file))
 
         try:
             command = path_armake + " build -i " + workdrivepath + \
                 " -w unquoted-string" + " -w redefinition-wo-undef" + \
-                " -f " + os.path.normpath(addonspath + "/" + p) + " " + \
-                os.path.normpath(addonspath + "/" + PREFIX + p + ".pbo")
+                " -f " + os.path.normpath(addonspath + "/" + file) + " " + \
+                os.path.normpath(addonspath + "/" + PREFIX + file + ".pbo")
             subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True)
         except:
             failed += 1
-            print("  Failed to make {}{}.".format(PREFIX, p))
+            print("    Failed to make {}{}.".format(PREFIX, file))
         else:
             made += 1
-            print("  Successfully made {}{}.".format(PREFIX, p))
+            print("    Successfully made {}{}.".format(PREFIX, file))
 
-    print("Creating Missionfiles")
+    print("\n  Creating the mission files")
 
     if os.path.exists(temppath):
         shutil.rmtree(temppath, ignore_errors=True)
 
     if check_for_changes(missionspath, MAINMISSION, ""):
         mainisupdated = True
+        shutil.copy(os.path.normpath(addonspath + "/main/script_version.hpp"), \
+            os.path.normpath(missionspath + "/" + MAINMISSION + "/main/script_version.hpp"))
     else:
         mainisupdated = False
 
@@ -117,10 +151,10 @@ def main():
             continue
         if (not check_for_changes(missionspath, file, "")) and (not mainisupdated):
             skipped += 1
-            print("  Skipping {}.".format(file))
+            print("    Skipping {}.".format(file))
             continue
 
-        print("# Making {} ...".format(file))
+        print("  Making {} ...".format(file))
 
         try:
             if file == MAINMISSION:
@@ -144,13 +178,13 @@ def main():
                 shutil.rmtree(temppath, ignore_errors=True)
         except:
             failed += 1
-            print("  Failed to make {}.".format(file))
+            print("    Failed to make {}.".format(file))
         else:
             made += 1
-            print("  Successfully made {}.".format(file))
+            print("    Successfully made {}.".format(file))
 
-    print("\n# Done.")
-    print("  Made {}, skipped {}, removed {}, failed to make {}.".format(made, \
+    print("\n  Done. \n")
+    print("  Made {}, skipped {}, removed {}, failed to make {}.\n".format(made, \
         skipped, removed, failed))
 
 
