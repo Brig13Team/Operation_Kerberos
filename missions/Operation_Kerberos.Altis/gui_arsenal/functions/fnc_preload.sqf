@@ -14,10 +14,6 @@
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-If (GVAR(level)<1) exitWith {
-    GVAR(isPreloaded) = true;
-};
-
 params [["_targetName", "", [""]]];
 
 If (_targetName isEqualTo "") then {
@@ -36,6 +32,10 @@ private _targetObject = [] call FUNC(createLocalArsenal);
 ] call EFUNC(common,delete);
 
 missionNamespace setVariable [_targetName, _targetObject];
+
+If (GVAR(level)<1) exitWith {
+    GVAR(isPreloaded) = true;
+};
 
 If (GVAR(level)<2) exitWith {
     private _arsenalList = [];
