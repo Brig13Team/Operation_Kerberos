@@ -10,6 +10,7 @@
 
 __EXEC (MISSION_ROOT = __FILE__ select [0, count __FILE__ - 15]);
 
+cba_settings_hasSettingsFile = 1;
 onLoadMissionTime = 1;
 onLoadName = "Zeusmission Template";
 onLoadMission = "Zeusmission Template";

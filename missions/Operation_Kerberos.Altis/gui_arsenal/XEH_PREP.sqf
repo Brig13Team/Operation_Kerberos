@@ -1,25 +1,14 @@
 #include "script_component.hpp"
 
-PREP(canOpenMenu);
-PREP(cleanCargo);
-PREP(OpenMenu);
-
 PREP(addArsenal);
 PREP(addArsenalArea);
-PREP(addRestrictedArsenal);
-PREP(addSideRestrictedArsenal);
+PREP(canOpenMenu);
+PREP(cleanCargo);
 PREP(createLocalArsenal);
-PREP(debugTemplate);
 PREP(getRestrictedArsenal);
 PREP(getSideRestrictedArsenal);
-PREP(removeArsenal);
-
 PREP(isRestrictedArray);
-PREP(Open);
-PREP(cleanPlayer);
-PREP(getFastArsenalList);
-PREP(OnLoad);
 PREP(onRespawn);
-PREP(loadFast);
-
+PREP(OpenMenu);
 PREP(preload);
+PREP(removeArsenal);

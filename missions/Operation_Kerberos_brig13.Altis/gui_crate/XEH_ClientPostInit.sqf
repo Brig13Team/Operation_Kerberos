@@ -4,7 +4,6 @@
 switch (str(side player)) do {
     case "WEST" : {
         private _id = ["west",cratespawner1] call FUNC(registerSpawn);
-        TRACEV_1(_id);
         [
             LSTRING(HEADER),
             ELSTRING(gui_main,CATEGORY_DEPOT),
@@ -21,7 +20,6 @@ switch (str(side player)) do {
         ] call EFUNC(gui,addNotification);
 
         _id = ["west",cratespawner2] call FUNC(registerSpawn);
-        TRACEV_1(_id);
         [
             LSTRING(HEADER),
             ELSTRING(gui_main,CATEGORY_DEPOT),

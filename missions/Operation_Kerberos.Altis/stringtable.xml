@@ -56,10 +56,52 @@
             <German>Team Weiss beitreten</German>
         </Key>
     </Package>
+    <Package name="grouptracker">
+        <Key ID="STR_DORB_GROUPTRACKER_UpdateIntervall">
+            <English>Update Intervall</English>
+            <German>Aktualisierungsintervall</German>
+        </Key>
+        <Key ID="STR_DORB_GROUPTRACKER_delayedPositions">
+            <English>Delay Positions by</English>
+            <German>Positionsupdates verzögern um</German>
+        </Key>
+        <Key ID="STR_DORB_GROUPTRACKER_AiIsVisible">
+            <English>AI is visible</English>
+            <German>KI ist sichtbar</German>
+        </Key>
+        <Key ID="STR_DORB_GROUPTRACKER_active">
+            <English>Activate Grouptracker</English>
+            <German>Grouptracker aktiv</German>
+        </Key>
+    </Package>
     <Package name="GUI_ARSENAL">
         <Key ID="STR_DORB_GUI_ARSENAL_CATEGORY">
             <English>Arsenal</English>
             <German>Arsenal</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARSENAL_restriction">
+            <English>Arsenal restriction</English>
+            <German>Arsenal Beschränkung</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARSENAL_fullArsenal">
+            <English>No restriction</English>
+            <German>Ohne Beschränkung</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARSENAL_Blacklist">
+            <English>Black/-Whitelist</English>
+            <German>Black/-Whitelist</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARSENAL_SideGearOnly">
+            <English>Side specific uniforms</English>
+            <German>Seiten speziefische Uniformen</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARSENAL_SideOnly">
+            <English>Only Side Material</English>
+            <German>Nur seiten spezifisches Material</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_ARSENAL_allowedradius">
+            <English>Allowed access radius</English>
+            <German>Arsenal Radius</German>
         </Key>
         <Key ID="STR_DORB_GUI_ARSENAL_CREATE_LIST">
             <English>creating arsenal lists</English>
@@ -513,8 +555,8 @@
                 <German>Medizinische Güter liefern</German>
             </Key>
             <Key ID="STR_DORB_MISSION_SIDE_AID_DESC">
-                <English>The local IDAP base camp was robbed of its medical supplys. We need to deliver: 300 Blood IV, 1500 Bandages, 500 Morphine and 300 Epinephrine</English>
-                <German>Dem IDAP Basislager wurde die medizinischen Versorgungsgüter geraubt. Wir müssen 300 Blut IV, 1500 Bandagen, 500 Morphin und 300 Epinephrine liefern.</German>
+                <English>The local IDAP base camp was robbed of its medical supplys. We need to deliver: 300 Blood IV (1000ml), 1500 Bandages, 500 Morphine and 300 Epinephrine</English>
+                <German>Dem IDAP Basislager wurde die medizinischen Versorgungsgüter geraubt. Wir müssen 300 Blut IV (1000ml), 1500 Bandagen, 500 Morphin und 300 Epinephrine liefern.</German>
             </Key>
             <Key ID="STR_DORB_MISSION_SIDE_AID_SUCCEEDED">
                 <English>The goods have been delivered.</English>
@@ -758,6 +800,34 @@
             <German>Ersatzkette entladen</German>
         </Key>
     </Package>
+    <Package name="ai_skill">
+        <Key ID="STR_DORB_AI_SKILL_active">
+            <English>Set the AI Skill</English>
+            <German>KI Fähigkeiten modifizieren</German>
+        </Key>
+        <Key ID="STR_DORB_AI_SKILL_general">
+            <English>General AI Skill</English>
+            <German>Generelle KI Fähigkeiten</German>
+        </Key>
+        <Key ID="STR_DORB_AI_SKILL_accuracy">
+            <English>Accuracy AI Skill</English>
+            <German>KI Zielgenauigkeit</German>
+        </Key>
+        <Key ID="STR_DORB_AI_SKILL_handling">
+            <English>Handling AI Skill</English>
+            <German>Handhabungs KI Fähigkeiten</German>
+        </Key>
+        <Key ID="STR_DORB_AI_SKILL_spotting">
+            <English>Spotting AI Skill</English>
+            <German>Beobachtungs KI Fähigkeiten</German>
+        </Key>
+    </Package>
+    <Package name="Mod_TFAR">
+        <Key ID="STR_DORB_MOD_TFAR_AICanHearPlayer">
+            <English>AI can hear player</English>
+            <German>KI kann spieler hören</German>
+        </Key>
+    </Package>
     <Package name="Gui">
         <Key ID="STR_DORB_GUI_LOADINGBAR">
             <English>Downloading</English>
@@ -776,6 +846,10 @@
         <Key ID="STR_DORB_GUI_TELEPORT_DOTELEPORT">
             <English>Teleport</English>
             <German>Teleportieren</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_TELEPORT_to_lead_active">
+            <English>Teleport to squad leader allowed</English>
+            <German>Teleport zum Teamleader erlaubt</German>
         </Key>
         <Key ID="STR_DORB_GUI_TELEPORT_MAP_SELECTPOSITION">
             <English>Select Target</English>
@@ -1259,6 +1333,14 @@
         </Key>
     </Package>
     <Package name="whitelist">
+        <Key ID="STR_DORB_WHITELIST_onlyPilotsFly">
+            <English>Only Pilots can Fly</English>
+            <German>Nur Piloten können fliegen</German>
+        </Key>
+        <Key ID="STR_DORB_WHITELIST_whitelistenabled">
+            <English>Whitelist is enabled</English>
+            <German>Pilotenwhitelist ist Aktiv</German>
+        </Key>
         <Key ID="STR_DORB_WHITELIST_TITLE">
             <English>pilot-whitelist</English>
             <German>Pilotenwhitelist</German>
@@ -1266,6 +1348,32 @@
         <Key ID="STR_DORB_WHITELIST_NOTALLOWED">
             <English>You don't have the right qualifications to move this vehicle.</English>
             <German>Du besitzt keine ausreichende Qualifizierung um das Fahrzeug zu bewegen.</German>
+        </Key>
+    </Package>
+    <Package name="viewrestriction">
+        <Key ID="STR_DORB_viewrestriction_active">
+            <English>Enable viewrestrictions</English>
+            <German>Sichtweitenbeschränkung einschalten</German>
+        </Key>
+        <Key ID="STR_DORB_viewrestriction_forcealwaysFirst">
+            <English>Always first person</English>
+            <German>Immer Ego-Perspektive</German>
+        </Key>
+        <Key ID="STR_DORB_viewrestriction_forcefoot">
+            <English>First person on foot</English>
+            <German>Ego-Perspektive zu Fuß</German>
+        </Key>
+        <Key ID="STR_DORB_viewrestriction_forcevehicle">
+            <English>First person inside ground vehicles</English>
+            <German>Ego-Perspektive in Bodenfahrzeugen</German>
+        </Key>
+        <Key ID="STR_DORB_viewrestriction_forceair">
+            <English>First person inside Airvehicles</English>
+            <German>Ego-Perspektive zu Luft</German>
+        </Key>
+        <Key ID="STR_DORB_viewrestriction_forceship">
+            <English>First person inside ships</English>
+            <German>Ego-Perspektive zu Wasser</German>
         </Key>
     </Package>
     <Package name="gui_Echidna">

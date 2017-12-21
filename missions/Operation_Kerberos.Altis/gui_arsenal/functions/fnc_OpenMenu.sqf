@@ -7,54 +7,59 @@
 */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
+
 disableSerialization;
 If !(canSuspend) exitWIth {
     _this spawn FUNC(OpenMenu);
 };
 
 params [["_fastArsenal",false,[true]]];
+
 TRACEV_2(_fastArsenal,_this);
 [] call EFUNC(gui_main,close);
 
 If (GVAR(level)<1) exitWith {
-    GVAR(isPreloaded) = true;
-    If (_fastArsenal) then {
-        If (isNil QGVAR(fastArsenalList)) then {
-            [] call FUNC(getFastArsenalList);
-        };
-        [] call FUNC(Open);
-    }else{
-        ["Open",true] spawn BIS_fnc_arsenal;
+    If (isNull (missionNamespace getVariable [QGVAR(obj_level_0), objNull])) then {
+        [QGVAR(obj_level_0)] call FUNC(preLoad);
     };
+    [
+        GVAR(obj_level_0),
+        ace_player,
+        true
+    ] call ace_arsenal_fnc_openBox;
 };
 
 If (GVAR(level)<2) exitWith {
-    If (isNull(missionNamespace getVariable [QGVAR(level_1_obj),objNull])) then {
-        GVAR(level_1_obj) = [] call FUNC(createLocalArsenal);
-        [GVAR(level_1_obj)] call FUNC(addRestrictedArsenal);
+    If ((isNull (missionNamespace getVariable [QGVAR(obj_level_1), objNull])) || {GVAR(forceReload)}) then {
+        [QGVAR(obj_level_1)] call FUNC(preLoad);
     };
-    If (GVAR(forceReload)) then {[GVAR(level_1_obj)] call FUNC(addRestrictedArsenal);};
-    If (GVAR(debugArsenal)) then {[GVAR(level_1_obj)] call FUNC(debugTemplate);};
-    GVAR(isPreloaded) = true;
-    If (_fastArsenal) then {
-        [] call FUNC(Open);
-    }else{
-        ["Open",[nil,GVAR(level_1_obj),ace_player]] call bis_fnc_arsenal;
-    };
+    [
+        GVAR(obj_level_1),
+        ace_player,
+        false
+    ] call ace_arsenal_fnc_openBox;
 };
 
-private _arsenalVarName = format[QGVAR(level_2_obj_%1),side ace_player];
-
-If (isNull(missionNamespace getVariable [_arsenalVarName,objNull])) then {
-    missionNamespace setVariable [_arsenalVarName,([] call FUNC(createLocalArsenal))];
-    TRACEV_2((missionNamespace getVariable _arsenalVarName),side ace_player);
-    [(missionNamespace getVariable _arsenalVarName),side ace_player, GVAR(level) isEqualTo 2] call FUNC(addSideRestrictedArsenal);
-};
-If (GVAR(forceReload)) then {[(missionNamespace getVariable _arsenalVarName),side ace_player, GVAR(level) isEqualTo 2] call FUNC(addSideRestrictedArsenal);};
-If (GVAR(debugArsenal)) then {[(missionNamespace getVariable _arsenalVarName)] call FUNC(debugTemplate);};
-GVAR(isPreloaded) = true;
-If (_fastArsenal) then {
-    [] call FUNC(Open);
-}else{
-    ["Open",[nil,(missionNamespace getVariable _arsenalVarName),ace_player]] call bis_fnc_arsenal;
+If (GVAR(level)<3) then {
+    If ((isNull (missionNamespace getVariable [format[QGVAR(obj_level_%1_%2), GVAR(level), side ace_player], objNull])) || {GVAR(forceReload)}) then {
+        [
+            format[QGVAR(obj_level_%1_%2), GVAR(level), side ace_player]
+        ] call FUNC(preLoad);
+    };
+    [
+        missionNamespace getVariable (format[QGVAR(obj_level_%1_%2), GVAR(level), side ace_player]),
+        ace_player,
+        false
+    ] call ace_arsenal_fnc_openBox;
+} else {
+    If ((isNull (missionNamespace getVariable [format[QGVAR(obj_level_%1_%2), GVAR(level), side ace_player], objNull])) || {GVAR(forceReload)}) then {
+        [
+            format[QGVAR(obj_level_%1_%2), GVAR(level), side ace_player]
+        ] call FUNC(preLoad);
+    };
+    [
+        missionNamespace getVariable (format[QGVAR(obj_level_%1_%2), GVAR(level), side ace_player]),
+        ace_player,
+        false
+    ] call ace_arsenal_fnc_openBox;
 };

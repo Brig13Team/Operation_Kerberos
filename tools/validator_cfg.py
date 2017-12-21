@@ -141,9 +141,9 @@ def main():
         for filename in fnmatch.filter(filenames, '*.hpp'):
             sqf_list.append(os.path.join(root, filename))
 
-    rootDir = "../servermod"
-    if (os.path.exists("servermod")):
-        rootDir = "servermod"
+    rootDir = "../addons"
+    if (os.path.exists("addons")):
+        rootDir = "addons"
     for root, dirnames, filenames in os.walk(rootDir + '/' + args.module):
         for filename in fnmatch.filter(filenames, '*.cpp'):
             sqf_list.append(os.path.join(root, filename))

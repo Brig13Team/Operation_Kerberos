@@ -12,5 +12,7 @@ ADDON = true;
 
 ISNIL(arsenal_boxes,[]);
 ISNIL(allowedPositions,[]);
+ISNIL(level,2);
+ISNIL(allowedradius,25);
 
-#include "CBA_settings.sqf"
+#include "CBA_Settings_initialize.sqf"

@@ -6,66 +6,29 @@
 
     Parameter(s):
         0: Object <OBJECT>
-        1: restricedSide <SIDE>
+        1: restrictEverything <SIDE>
 
     Return
         none
 */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-params ["_side",["_onlyGear",false,[true]]];
-
-If !(isClass(missionConfigFile>>QGVARMAIN(arsenal))) then {
-    ERROR("No Arsenal config found");
-};
+params [["_side", side ace_player, [west]], ["_restrictAll", false, [true]]];
 
 If ((canSuspend)&&{GVAR(fastArsenalLoading)}) exitWith {
-    [FUNC(getSideRestrictedArsenal),_this] call CBA_fnc_directCall;
+    [FUNC(getSideRestrictedArsenal), _this] call CBA_fnc_directCall;
 };
+
+private _return = [];
 private _loadingScreenActivated = ! GVAR(fastArsenalLoading);
 
-If ((isNil "_side")||{(_side isEqualType west)}) then {
-    _side = side ace_player;
-};
-
-private _neededVersion = format["%1_ArsenalVersion_%2_%3_%4",missionName,getText(missionConfigFile >> QUOTE(DOUBLES(CfgComponent,ADDON)) >> "version"), productVersion select 2,GVAR(level)];
-(profileNamespace getVariable [format[QGVAR(arsenalList_%1),str _side],["NotFound",[]]]) params [["_currentVersion","NotFound",[]],["_list",[],[[]]]];
-TRACEV_2(_currentVersion,_neededVersion);
-If (((!(_list isEqualTo []))&&{_currentVersion isEqualTo _neededVersion})&&{!GVAR(forceReload)}) exitWith {
-    missionNamespace setVariable [format[QGVAR(arsenalList_%1),str _side],_list];
-};
-
-private _itemBlacklist = (getArray(missionConfigFile>>QGVARMAIN(arsenal)>> "ItemsBlacklist"));
-private _weaponBlacklist = (getArray(missionConfigFile>>QGVARMAIN(arsenal)>> "WeaponsBlacklist"));
-private _backpackBlacklist = getArray(missionConfigFile>>QGVARMAIN(arsenal)>> "BackpackBlacklist");
-private _magazineBlacklist = getArray(missionConfigFile>>QGVARMAIN(arsenal)>> "MagazineBlackList");
-
-private _ItemsWhitelist = (getArray(missionConfigFile>>QGVARMAIN(arsenal)>> "ItemsWhitelist"));
-private _WeaponsWhitelist = (getArray(missionConfigFile>>QGVARMAIN(arsenal)>> "WeaponsWhitelist"));
-private _MagazineWhiteList = (getArray(missionConfigFile>>QGVARMAIN(arsenal)>> "MagazineWhiteList"));
-private _BackpackWhitelist = (getArray(missionConfigFile>>QGVARMAIN(arsenal)>> "BackpackWhitelist"));
-
-private _blackList = _itemBlacklist + _weaponBlacklist + _backpackBlacklist;
-private _whitelist = _ItemsWhitelist + _WeaponsWhitelist + _MagazineWhiteList + _BackpackWhitelist;
-
-private _addItems = [];
-private _addWeapons = [];
-private _addBackpacks = [];
-private _addMagazines = [];
-
-private _fixItems = [];
-private _fixWeapons = [];
-private _fixBackpacks = [];
-private _fixMagazines = [];
-
-private _configArray = (
-    ("isclass _x" configclasses (configfile >> "cfgweapons")) +
-    ("isclass _x && (getText(_x >> 'vehicleClass')=='Backpacks')" configclasses (configfile >> "cfgvehicles")) +
-    ("isclass _x" configclasses (configfile >> "cfgglasses"))
-);
+private _configArray = (configProperties [configfile >> "cfgweapons", "((isClass _x) && {1 < (if (isnumber (_x >> 'scopeArsenal')) then {getnumber (_x >> 'scopeArsenal')} else {getnumber (_x >> 'scope')})})", true]) +
+    (configProperties [configfile >> "cfgvehicles", "((isClass _x) && {getText(_x >> 'vehicleClass')=='Backpacks'} && {1 < (if (isnumber (_x >> 'scopeArsenal')) then {getnumber (_x >> 'scopeArsenal')} else {getnumber (_x >> 'scope')})})", true]) +
+    (configProperties [configfile >> "cfgglasses", "((isClass _x) && {1 < (if (isnumber (_x >> 'scopeArsenal')) then {getnumber (_x >> 'scopeArsenal')} else {getnumber (_x >> 'scope')})})", true]);
 
 
 private _sideNumber = _side call BIS_fnc_sideID;
+//TRACEV_1(_sideNumber);
 
 private _loadingScreenStep = 1/(count _configArray);
 private _loadingScreenID = 0;
@@ -74,56 +37,40 @@ If (_loadingScreenActivated) then {
 } else {
     [QEGVAR(gui,message),[LSTRING(CATEGORY), LSTRING(CREATE_LIST), "green"]] call CBA_fnc_localEvent;
 };
+
 {
-    private _class = _x;
-    private _className = configname _x;
-    private _scope = if (isnumber (_class >> "scopeArsenal")) then {getnumber (_class >> "scopeArsenal")} else {getnumber (_class >> "scope")};
-    if (((_scope > 1) && {(gettext (_class >> "model") != "")} && {gettext (_class >> "displayName") != ""}&&{!(_className in _blacklist)})||{_className in _whitelist}) then {
-        (_className call bis_fnc_itemType) params ["_weaponTypeCategory","_weaponTypeSpecific"];
-        if (!(_weaponTypeCategory in ["VehicleWeapon","Magazine"])) then {
-            private _addThisItem = true;
-            If (_className in _blacklist) then {_addThisItem = false;};
-
-            If (_addThisItem && {(_onlyGear && {(_weaponTypeCategory == "Equipment") || {_weaponTypeSpecific in ["Binocular","UAVTerminal","Radio","LaserDesignator"]}}) || {!_onlyGear}}) then {
-                _addThisItem = _sideNumber in ([_className] call EFUNC(common,getItemside));
-            };
-            If (_className in _whitelist) then {_addThisItem = true;};
-
-            If (_addThisItem) then {
-                switch (true) do {
-                    case (_weaponTypeCategory in ["Weapon"]) : {
-                        _addWeapons pushBackUnique _className;
-                        private _magazines = getarray(_class >> "magazines");
-                        /// GrenadeLauncher
-                        {
-                            If (isClass (_class >> _x)) then {
-                                _magazines = _magazines + getarray(_class >> _x >> "magazines");
-                            };
-                        } foreach getarray(_class >> "muzzles");
-                        {
-                            private _scopeMag = if (isnumber (configFile >> "CfgMagazines" >> _x >> "scopeArsenal")) then {getnumber (configFile >> "CfgMagazines" >> _x >> "scopeArsenal")} else {getnumber (configFile >> "CfgMagazines" >> _x >> "scope")};
-                            If ((!(_x in _magazineBlacklist))&& (_scope > 1)) then {
-                                _addMagazines pushBackUnique _x;
-                            };
-                        }foreach _magazines;
-                        {
-                            _addItems pushBackUnique _x;
-                            _addWeapons pushBackUnique _x;
-                            nil;
-                        } count (_className call bis_fnc_compatibleItems);
-                    };
-                    case (_weaponTypeCategory in ["Mine"]) : {
-                        _addMagazines pushBackUnique _className;
-                    };
-                    case (_weaponTypeSpecific in ["Backpack"]) : {
-                        _addBackpacks pushBackUnique _className;
-                    };
-                    default {
-                        If (_weaponTypeSpecific in ["Binocular"]) then {
-                            _fixWeapons pushBackUnique _className;
+    private _curCfg = _x;
+    private _curClass = configname _x;
+    if !((getText(_curCfg >> "model") isEqualTo "") || {getText(_curCfg >> "displayName") isEqualTo ""}) then {
+        (_curClass call bis_fnc_itemType) params ["_weaponTypeCategory", "_weaponTypeSpecific"];
+        if (!(_weaponTypeCategory in ["VehicleWeapon", "Magazine"])) then {
+            //TRACEV_3(_sideNumber in ([_curClass] call EFUNC(common,getItemSide)),_sideNumber,_curClass);
+            If (
+                ((!_restrictAll) && {!(_weaponTypeCategory == "Equipment")}) ||
+                {(!_restrictAll) && {_weaponTypeCategory == "Equipment"} && {_sideNumber in ([_curClass] call EFUNC(common,getItemSide))}} ||
+                {(_restrictAll && {_sideNumber in ([_curClass] call EFUNC(common,getItemSide))})}
+                ) then {
+                _return pushBackUnique _curClass;
+                If (_weaponTypeCategory in ["Weapon"]) then {
+                    private _magazines = [_curClass, "magazines", []] call EFUNC(common,getCfgWeapons);
+                    //TRACEV_1(_magazines);
+                    {
+                        If (isClass (_class >> _x)) then {
+                            _magazines = _magazines + getarray(_class >> _x >> "magazines");
                         };
-                        _addItems pushBackUnique _className;
-                    };
+                        nil
+                    } count ([_curClass, "muzzles", []] call EFUNC(common,getCfgWeapons));
+                    {
+                        private _scopeMag = if (isnumber (configFile >> "CfgMagazines" >> _x >> "scopeArsenal")) then {[_x, "scopeArsenal", 0] call EFUNC(common,getCfgMagazines)} else {[_x, "scope", 0] call EFUNC(common,getCfgMagazines)};
+                        If (_scopeMag > 1) then {
+                            _return pushBackUnique _x;
+                        };
+                        nil
+                    } count _magazines;
+                    {
+                        _return pushBackUnique _x;
+                        nil
+                    } count (_curClass call bis_fnc_compatibleItems);
                 };
             };
         };
@@ -136,48 +83,29 @@ If (_loadingScreenActivated) then {
     private _weapon = _x;
     {
         {
-            private _mag = _x;
-            if ((!(_mag in _magazineBlacklist))&&{!(_mag in _addMagazines)}) then {
-                private _scopeMag = if (isnumber (configfile >> "cfgmagazines" >> _mag >> "scopeArsenal")) then {getnumber (configfile >> "cfgmagazines" >> _mag >> "scopeArsenal")} else {getnumber (configfile >> "cfgmagazines" >> _mag >> "scope")};
-                if (_scopeMag > 1) then {
-                    _addMagazines pushBack _x;
-                };
+            private _scopeMag = if (isnumber (configFile >> "CfgMagazines" >> _x >> "scopeArsenal")) then {[_x, "scopeArsenal", 0] call EFUNC(common,getCfgMagazines)} else {[_x, "scope", 0] call EFUNC(common,getCfgMagazines)};
+            if (_scopeMag > 1) then {
+                _return pushBackUnique _x;
             };
-        } foreach getarray (_x >> "magazines");
-    } foreach ("isclass _x" configclasses (configfile >> "cfgweapons" >> _weapon));
-} foreach ["Put","Throw"];
+            nil
+        } count getarray (_x >> "magazines");
+        nil
+    } count ("isclass _x" configclasses (configfile >> "cfgweapons" >> _weapon));
+    nil
+} count ["Put","Throw"];
+
+private _blackList = getArray(missionConfigFile>>QGVARMAIN(arsenal)>> "blackList");
+_return = _return select {!(_x in _blackList)};
 
 {
-    If (isClass(configFile>>"CfgWeapons">>_x)) then {
-        _addItems pushBackUnique _x;
+    If ((isClass(configFile >> "CfgWeapons" >> _x)) || {isClass(configFile >> "CfgMagazines" >> _x)} || {isClass(configFile >> "CfgMagazines" >> _x)}) then {
+        _return pushBackUnique _x;
     };
-} foreach _ItemsWhitelist;
-{
-    If (isClass(configFile>>"CfgWeapons">>_x)) then {
-        _addWeapons pushBackUnique _x;
-    };
-} foreach _WeaponsWhitelist;
-{
-    If (isClass(configFile>>"CfgMagazines">>_x)) then {
-        _addMagazines pushBackUnique _x;
-    };
-} foreach _MagazineWhiteList;
-{
-    If (isClass(configFile>>"CfgVehicles">>_x)) then {
-        _addBackpacks pushBackUnique _x;
-    };
-} foreach _BackpackWhitelist;
+} foreach (getArray(missionConfigFile >> QGVARMAIN(arsenal) >> "whitelist"));
 
 If (_loadingScreenActivated) then {
     [_loadingScreenID] call EFUNC(gui,endLoadingScreen);
 };
-
-_list = [_addWeapons,_addMagazines,_addItems,_addBackpacks,_fixWeapons,_fixMagazines,_fixItems,_fixBackpacks];
-
-profileNamespace setVariable [format[QGVAR(arsenalList_%1),str _side],[_neededVersion,_list]];
-saveProfileNamespace;
-
-missionNamespace setVariable [format[QGVAR(arsenalList_%1),str _side],_list];
 
 If (GVAR(forceReload)) then {
     [
@@ -185,6 +113,8 @@ If (GVAR(forceReload)) then {
         false,
         0,
         "client",
-        false
+        true
     ] call CBA_settings_fnc_set;
 };
+
+_return

@@ -8,8 +8,6 @@
 #include "script_component.hpp"
 CHECK(!hasInterface)
 
-GVAR(teleport_lead_active) = true;
-
 If (str(side player) == "GUER") then {
     [
         getmarkerPos "respawn_guerrila", // Position as Array or code

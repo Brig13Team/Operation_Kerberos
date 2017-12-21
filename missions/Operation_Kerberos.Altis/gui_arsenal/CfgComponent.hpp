@@ -9,7 +9,7 @@
 #include "script_component.hpp"
 
 class DOUBLES(CfgComponent,ADDON) {
-    version = "2017.12.02";
+    version = "2017.12.12";
     class clientpostinit {server = 0;};
     class postinitServer {client = 0;};
     class clientRespawn {server = 0;};
@@ -20,4 +20,3 @@ class DOUBLES(CfgComponent,ADDON) {
     };
 };
 #include "config\arsenal.hpp"
-#include "config\dialog.hpp"

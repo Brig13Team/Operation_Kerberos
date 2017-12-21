@@ -10,3 +10,4 @@ RECOMPILE_END;
 
 ADDON = true;
 
+#include "CBA_Settings_initialize.sqf"
