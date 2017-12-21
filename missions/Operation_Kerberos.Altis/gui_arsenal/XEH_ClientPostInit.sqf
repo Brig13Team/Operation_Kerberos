@@ -19,12 +19,10 @@ CHECK(!hasInterface)
  */
 
 GVAR(isPreloaded) = false;
-GVAR(fullArsenal) = false;
 
 IF !(IS_SCALAR(GVAR(allowedradius))) then {
     GVAR(allowedradius) = 15;
 };
-GVAR(fullArsenal) = GVAR(level) isEqualTo 0;
 
 [
     localize "str_a3_cfghints_learn_arsenal0",
