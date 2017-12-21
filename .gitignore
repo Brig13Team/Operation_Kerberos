@@ -9,5 +9,6 @@ privatekeys/*
 *.cache
 .vscode/launch.json
 */temp
+temp/*
 **/~*
 *.zip
