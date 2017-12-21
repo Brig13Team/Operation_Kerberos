@@ -194,7 +194,7 @@ ace_nametags_showSoundWaves = 1;
 ace_nametags_showVehicleCrewInfo = true;
 ace_nametags_tagSize = 2;
 // ACE Nightvision
-ace_nightvision_aimDownSightsBlur = 1;
+force ace_nightvision_aimDownSightsBlur = 1;
 force ace_nightvision_disableNVGsWithSights = false;
 force ace_nightvision_effectScaling = 1;
 force ace_nightvision_fogScaling = 1;

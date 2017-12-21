@@ -13,18 +13,16 @@
         tf_west_radio_code = "_bluefor";
         tf_east_radio_code = "_bluefor";
         tf_guer_radio_code = "_bluefor";
-        tf_freq_west = ["100","110","120","130","140","150","160","170","180"];
-        tf_freq_east = ["100","110","120","130","140","150","160","170","180"];
-        tf_freq_guer = ["100","110","120","130","140","150","160","170","180"];
 
-        tf_freq_west_lr = ["30","35","40","45","50","55","60","65","70","75"];
-        tf_freq_east_lr = ["30","35","40","45","50","55","60","65","70","75"];
-        tf_freq_guer_lr = ["30","35","40","45","50","55","60","65","70","75"];
+        private _settings = call TFAR_fnc_generateSwSettings;
+        _settings set [2,["100","110","120","130","140","150","160","170","180"]];
+        tf_freq_west = +_settings;
+        tf_freq_east = +_settings;
+        tf_freq_guer = +_settings;
+        private _settings = call TFAR_fnc_generateLrSettings;
+        _settings set [2,["30","35","40","45","50","55","60","65","70","75"]];
+        tf_freq_west_lr = +_settings;
+        tf_freq_east_lr = +_settings;
+        tf_freq_guer_lr = +_settings;
     }
 ] call CBA_fnc_addEventHandlerArgs;
-
-
-
-
-
-
