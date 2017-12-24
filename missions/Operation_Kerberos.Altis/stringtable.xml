@@ -1126,6 +1126,12 @@
             <German>Das Schloss wird geknackt</German>
         </Key>
     </Package>
+    <Package name="night">
+        <Key ID="STR_DORB_night_randomizeDay">
+            <English>Randomize day</English>
+            <German>Zufälliger Tag</German>
+        </Key>
+    </Package>
     <Package name="missionobjects">
         <Key ID="STR_DORB_MISSIONOBJECTS_COMPOSITIONS_TITLE">
             <English>Compositions</English>

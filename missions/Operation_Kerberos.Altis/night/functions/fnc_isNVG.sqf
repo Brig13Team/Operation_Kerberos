@@ -16,7 +16,7 @@ params [["_className", "", [""]]];
 
 private _value = GVAR(cache) getVariable ("NVG" + _classname);
 
-If (!isNil _value) exitWith {_value};
+If (!isNil "_value") exitWith {_value};
 
 _value = "NVG" in (getArray(configFile >> "CfgWeapons" >> _className >> "visionMode"));
 
