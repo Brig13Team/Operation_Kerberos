@@ -62,7 +62,7 @@ If !((backPack _unit) isEqualTo "") then {
         format[localize LSTRING(take), [_backpack, "displayName", ""] call EFUNC(common,getCfgVehicles)],
         [_backpack, "picture", ""] call EFUNC(common,getCfgVehicles),
         {ACE_player action ["AddBag", (_this select 2) select 0, (_this select 2) select 1];},
-        {GVAR(active)},
+        {GVAR(active) && {(backPack ACE_player) isEqualTo ""}},
         {},
         [_unit, _backpack]
     ] call ace_interact_menu_fnc_createAction;

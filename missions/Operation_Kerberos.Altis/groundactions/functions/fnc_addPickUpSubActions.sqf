@@ -18,20 +18,34 @@ params [["_weaponholder", objNull, [objNull]]];
 If (isNull _weaponholder) exitWith {[]};
 
 private _pickUpActions = [];
-private _weapons = weaponCargo _weaponholder;
-TRACEV_1(_weapons);
+
 {
     private _action = [
         format[QGVAR(pickup_%1), _x],
         format[localize LSTRING(take), [_x, "displayName", ""] call EFUNC(common,getCfgWeapons)],
         [_x, "picture", ""] call EFUNC(common,getCfgWeapons),
-        {ACE_player action ["Take", (_this select 2) select 0, (_this select 2) select 1];},
+        {ACE_player action ["TakeWeapon", (_this select 2) select 0, (_this select 2) select 1];},
         {GVAR(active)},
         {},
         [_weaponholder, _x]
     ] call ace_interact_menu_fnc_createAction;
     _pickUpActions pushBack [_action, [], _weaponholder];
     nil
-} count _weapons;
+} count (weaponCargo _weaponholder);
+
+
+{
+    private _action = [
+        format[QGVAR(pickup_%1), _x],
+        format[localize LSTRING(take), [_x, "displayName", ""] call EFUNC(common,getCfgVehicles)],
+        [_x, "picture", ""] call EFUNC(common,getCfgVehicles),
+        {ACE_player action ["AddBag", (_this select 2) select 0, (_this select 2) select 1];},
+        {GVAR(active) && {(backPack ACE_player) isEqualTo ""}},
+        {},
+        [_weaponholder, _x]
+    ] call ace_interact_menu_fnc_createAction;
+    _pickUpActions pushBack [_action, [], _weaponholder];
+    nil
+} count (backpackCargo _weaponholder);
 
 _pickUpActions
