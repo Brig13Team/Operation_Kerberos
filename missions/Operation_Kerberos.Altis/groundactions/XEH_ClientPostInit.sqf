@@ -11,7 +11,7 @@ If !(hasInterface) exitWith {};
 private _action = [
     QGVAR(open_inventory),
     localize LSTRING(Inventory),
-    "\A3\ui_f\data\IGUI\Cfg\simpleTasks\types\backpack_ca.paa",
+    "\A3\ui_f\data\IGUI\Cfg\Actions\gear_ca.paa",
     {ACE_player action ["Gear", _target];},
     {(!alive _target) && {GVAR(active)}},
     {_target call FUNC(addInventorySubActions)},
@@ -22,7 +22,7 @@ private _action = [
 private _action = [
     QGVAR(open_inventory),
     localize LSTRING(Inventory),
-    "\A3\ui_f\data\IGUI\Cfg\simpleTasks\types\backpack_ca.paa",
+    "\A3\ui_f\data\IGUI\Cfg\Actions\gear_ca.paa",
     {ACE_player action ["Gear", _target];},
     {GVAR(active)},
     {_target call FUNC(addPickUpSubActions)},
@@ -36,7 +36,7 @@ private _action = [
 private _action = [
     QGVAR(open_inventory),
     localize LSTRING(Inventory),
-    "\A3\ui_f\data\IGUI\Cfg\simpleTasks\types\backpack_ca.paa",
+    "\A3\ui_f\data\IGUI\Cfg\Actions\gear_ca.paa",
     {ACE_player action ["Gear", _target];},
     {GVAR(active)},
     {_target call FUNC(addPickUpSubActions)},
