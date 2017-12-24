@@ -16,6 +16,10 @@
 #include "script_component.hpp"
 params [["_target", objNull, [objNull]]];
 
+private _test = _target isKindOf "Weaponholder";
+
+TRACEV_4(_target,GVAR(active),typeOf _target,_test);
+
 If ((isNull _target) || {!GVAR(active)}) exitWith {false};
 
-_target isKindOf "GroundWeaponHolder"
+_target isKindOf "WeaponHolder"

@@ -1,5 +1,5 @@
-#define COMPONENT doorbreach
-#define COMPONENT_BEAUTIFIED Doorbreach
+#define COMPONENT groundactions
+#define COMPONENT_BEAUTIFIED Groundactions
 #include "..\main\script_mission.hpp"
 
 #define DEBUG_MODE_MINIMAL
@@ -7,12 +7,8 @@
 // #define DISABLE_COMPILE_CACHE
 // #define ENABLE_PERFORMANCE_COUNTERS
 
-#ifdef DEBUG_ENABLED_doorbreach
+#ifdef DEBUG_ENABLED_groundactions
     #define DEBUG_MODE_FULL
 #endif
 
 #include "..\main\script_macros.hpp"
-
-
-#define CHARGE_TIMER 10
-#define PICK_TIMER 60
