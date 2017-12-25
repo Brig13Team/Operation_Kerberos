@@ -16,11 +16,18 @@ params [["_unit", objNull, [objNull]]];
 
 if ((isNull _unit) || {isPlayer _unit}) exitWith {};
 
-private _cache = GVAR(cache) getVariable ("soldierNVG" + typeOf _unit);
+private _cache = GVAR(cache) getVariable ("soldier" + typeOf _unit);
 
 If !(isNil "_cache") then {
     [_unit, _cache select 0, _cache select 1, _cache select 2] call FUNC(addNightItems);
 } else {
     _cache = [_unit] call FUNC(addNightItems);
-    GVAR(cache) setVariable [("soldierNVG" + typeOf _unit), _cache];
+    GVAR(cache) setVariable [("soldier" + typeOf _unit), _cache];
+};
+
+if (_cache select 1) then {
+    _unit enableGunLights "AUTO";
+};
+if (_cache select 2) then {
+    _unit enableIRLasers true;
 };
