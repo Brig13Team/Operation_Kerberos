@@ -9,11 +9,8 @@
 #include "script_component.hpp"
 
 // initialize rescuemarker
-If ((getMarkerPos GVARMAIN(rescuemarker)) isEqualTo [0,0,0]) then {
-    ERROR("No Rescue-Marker Found")
-} else {
-    [LINKFUNC(handleRescuePoint), 30, []] call CBA_fnc_addPerFrameHandler;
-};
+[LINKFUNC(handleRescuePoints), 30, []] call CBA_fnc_addPerFrameHandler;
+
 
 GVAR(allRespawnMarkerLocations) = [
     ([east] call BIS_fnc_getRespawnMarkers) apply {getMarkerPos _x},
