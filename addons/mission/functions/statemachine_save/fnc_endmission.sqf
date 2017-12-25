@@ -1,25 +1,30 @@
-#include "script_component.hpp"
-/**
- * Name: dorb_mission_fnc_statemachine_endmission
+/*
+*  Author: iJesuz, Dorbedo
  *
- * Author: Dorbedo
- * end a mission
+ *  Description:
+ *      ends a mission
  *
- * Arguments:
- * 0: <LOCATION> the mission
+ *  Parameter(s):
+ *      0 : LOCATION - the last MainMission
  *
- * Return Value:
- * Nothing
+ *  Returns:
+ *      none
  *
  */
+//#define DEBUG_MODE_FULL
+#include "script_component.hpp"
 
-params ["_mission"];
+_this params ["_mission"];
 
 private _TaskID = _mission getVariable "taskID";
 If (IS_ARRAY(_TaskID)) then {
     _TaskID = _TaskID select 0;
 };
 private _type = _mission getVariable ["type",""];
+
+If !([_TaskID] call BIS_fnc_taskExists) exitWith {
+    /* the task is finihed but not created yet. */
+};
 
 private _missionCfg = _mission getVariable "missionCfg";
 

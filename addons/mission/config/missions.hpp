@@ -21,9 +21,11 @@ class baseMission {
         objectsfunction = "";
     };
     class condition {
-        conditiontype = "";
-        timeout = 0;
-        onSucceed = "";
+        // conditionfunction
+        conditiontype = "counter";
+        timeout = 0; // timeout if needed
+        // completion functions
+        onSucceeded = "";
         onFailed = "";
         onNeutral = "";
         onTimeout = "";

@@ -1,17 +1,18 @@
-#include "script_component.hpp"
-/**
- * Name: dorb_mission_fnc_statement_onTransition
+/*
+ *  Author: Dorbedo
  *
- * Author: Dorbedo
- * onTransitionEvent is called if defined
+ *  Description:
+ *      onTransitionEvent is called if defined
  *
- * Arguments:
- * 0: <LOCATION> the mission
+ *  Parameter(s):
+ *      0 : LOCATION - the mission
  *
- * Return Value:
- * Nothing
+ *  Returns:
+ *      none
  *
  */
+#define DEBUG_MODE_FULL
+#include "script_component.hpp"
 
 params ["_mission"];
 
@@ -26,4 +27,3 @@ If (!isNil "_value") then {
         _this call (missionNamespace getVariable [_value,{}]);
     };
 };
-
