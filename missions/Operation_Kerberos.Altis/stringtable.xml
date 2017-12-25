@@ -1126,6 +1126,16 @@
             <German>Das Schloss wird geknackt</German>
         </Key>
     </Package>
+    <Package name="groundactions">
+        <Key ID="STR_DORB_groundactions_inventory">
+            <English>Open Inventory</English>
+            <German>Inventar öffnen</German>
+        </Key>
+        <Key ID="STR_DORB_groundactions_take">
+            <English>Take %1</English>
+            <German>%1 nehmen</German>
+        </Key>
+    </Package>
     <Package name="missionobjects">
         <Key ID="STR_DORB_MISSIONOBJECTS_COMPOSITIONS_TITLE">
             <English>Compositions</English>
