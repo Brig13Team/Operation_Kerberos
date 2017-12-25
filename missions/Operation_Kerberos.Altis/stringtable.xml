@@ -1126,6 +1126,44 @@
             <German>Das Schloss wird geknackt</German>
         </Key>
     </Package>
+    <Package name="night">
+        <Key ID="STR_DORB_night_randomizeDay">
+            <English>Randomize day</English>
+            <German>Zufälliger Tag</German>
+        </Key>
+        <Key ID="STR_DORB_night_Nightitems">
+            <English>Activate night items for AI</English>
+            <German>Aktiviere Nachtgeräte für KI</German>
+        </Key>
+        <Key ID="STR_DORB_night_addNVG">
+            <English>Add NVG to AI</English>
+            <German>KI-Nachtsichtgerätezuweisung</German>
+        </Key>
+        <Key ID="STR_DORB_night_addAcc">
+            <English>Add Weaponattachements</English>
+            <German>Waffenzubehör zuweisen</German>
+        </Key>
+        <Key ID="STR_DORB_night_disabled">
+            <English>Disabled</English>
+            <German>Deaktiviert</German>
+        </Key>
+        <Key ID="STR_DORB_night_auto">
+            <English>Automatic</English>
+            <German>Automatisch</German>
+        </Key>
+        <Key ID="STR_DORB_night_always">
+            <English>Always</English>
+            <German>Immer</German>
+        </Key>
+        <Key ID="STR_DORB_night_alwaysFlashlight">
+            <English>Always flashlight</English>
+            <German>Immer Taschenlampe</German>
+        </Key>
+        <Key ID="STR_DORB_night_alwaysPointer">
+            <English>Always Pointer</English>
+            <German>Immer Laser</German>
+        </Key>
+    </Package>
     <Package name="groundactions">
         <Key ID="STR_DORB_groundactions_inventory">
             <English>Open Inventory</English>

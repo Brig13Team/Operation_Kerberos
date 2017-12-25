@@ -1,4 +1,3 @@
-PREP(addNVG);
 PREP(army_set);
 
 PREP(cleanup_full);

@@ -1,4 +1,4 @@
-/*
+/**
  *  Author: Dorbedo
  *
  *  Description:
@@ -14,7 +14,7 @@
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-_this params ["_unit"];
+params ["_unit"];
 CHECK(isPlayer _unit)
 switch (side _unit) do {
     case east : {
