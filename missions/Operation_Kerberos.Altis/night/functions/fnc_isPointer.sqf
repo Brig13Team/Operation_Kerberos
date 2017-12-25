@@ -18,7 +18,7 @@ private _value = GVAR(cache) getVariable ("pointer" + _classname);
 
 If (!isNil "_value") exitWith {_value};
 
-_value = isClass(configFile >> "CfgWeapons" >> _className >> "ItemInfo" >> "Pointer");
+_value = 0 < getNumber(configFile >> "CfgWeapons" >> _className >> "ItemInfo" >> "Pointer" >> "irDistance");
 
 GVAR(cache) setVariable [("pointer" + _classname), _value];
 _value

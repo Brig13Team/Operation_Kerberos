@@ -12,8 +12,10 @@ ADDON = true;
 
 GVAR(cache) = false call CBA_fnc_createNamespace;
 
+ISNIL(enabled,true);
+
 ["CAManBase", "initpost", {
-    if ((GVAR(enabled)) && (local (_this select 0)) then {
+    if ((GVAR(enabled)) && {local (_this select 0)}) then {
         _this call FUNC(addNightItemsCached);
     };
 },true,[],true] call CBA_fnc_addClassEventHandler;

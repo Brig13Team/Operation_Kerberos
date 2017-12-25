@@ -18,7 +18,7 @@ private _value = GVAR(cache) getVariable ("flashlight" + _classname);
 
 If (!isNil "_value") exitWith {_value};
 
-_value = isClass(configFile >> "CfgWeapons" >> _className >> "ItemInfo" >> "Flashlight");
+_value = 0 < getNumber(configFile >> "CfgWeapons" >> _className >> "ItemInfo" >> "Flashlight" >> "intensity");
 
 GVAR(cache) setVariable [("flashlight" + _classname), _value];
 _value
