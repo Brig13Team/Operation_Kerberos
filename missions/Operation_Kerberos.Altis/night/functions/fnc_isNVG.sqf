@@ -20,6 +20,6 @@ If (!isNil "_value") exitWith {_value};
 
 _value = "NVG" in (getArray(configFile >> "CfgWeapons" >> _className >> "visionMode"));
 
-GVAR(cache) setVariable [("flashlight" + _classname), _value];
+GVAR(cache) setVariable [("NVG" + _classname), _value];
 _value
 

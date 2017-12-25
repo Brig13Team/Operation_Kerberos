@@ -12,23 +12,67 @@
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-params [["_unit", objNull, [objNull]]];
+params [
+    ["_unit", objNull, [objNull]],
+    "_addNVG",
+    "_addFlashLight",
+    "_addPointer"
+];
 
 if ((isNull _unit) || {isPlayer _unit}) exitWith {};
 
-private _primary = primaryWeapon _unit;
-If (_primary isEqualTo "") exitWith {
+If (isNil "_addNVG") then {
+    If (GVAR(levelNVG) isEqualTo 1) then {
+        if ((!([_unit] call FUNC(hasNVG))) && {[_unit] call FUNC(hasSilencer)}) then {
+            _addNVG = true;
+        };
+    } else {
+        _addNVG = GVAR(levelNVG) isEqualTo 2;
+    };
+};
+
+
+If ((isNil "_addFlashlight") && {!(GVAR(levelAcc) isEqualTo 1)}) then {
+    If (GVAR(levelAcc) isEqualTo 0) then {
+        _addFlashlight = false;
+    } else {
+        If (GVAR(levelAcc) isEqualTo 2) then {
+            _addPointer = false;
+            _addFlashlight = true;
+        } else {
+            _addPointer = true;
+            _addFlashlight = false;
+        };
+    };
+};
+
+If ((isNil "_addFlashlight") && {GVAR(levelAcc) isEqualTo 1}) then {
+    if (([_unit] call FUNC(hasFlashlight)) || {[_unit] call FUNC(hasPointer)}) exitWith {
+        _addPointer = false;
+        _addFlashlight = false;
+    };
+
+    If ((_addNVG) || {[_unit] call FUNC(hasNVG)}) then {
+        _addPointer = true;
+        _addFlashlight = false;
+    } else {
+        _addPointer = false;
+        _addFlashlight = true;
+    };
+};
+
+If (_addNVG) then {
     [_unit] call FUNC(addNVG);
 };
 
-If ([_unit] call FUNC(hasNVG)) then {
-    If !([_unit] call FUNC(hasPointer)) then {
-        private _pointer = [_primary] call FUNC(getPrimaryPointer);
-        _unit addPrimaryWeaponItem _pointer;
+If (_addPointer || _addFlashlight) then {
+    private _primary = PrimaryWeapon _unit;
+    private _item = If (_addPointer) then {
+        [_primary] call FUNC(getPrimaryPointer);
+    } else {
+        [_primary] call FUNC(getPrimaryFlashlight);
     };
-} else {
-    If !([_unit] call FUNC(hasFlashlight)) then {
-        private _Flashlight = [_primary] call FUNC(getPrimaryFlashlight);
-        _unit addPrimaryWeaponItem _flashlight;
-    };
+    _unit addPrimaryWeaponItem _item;
 };
+
+[_addNVG, _addFlashlight, _addPointer]
