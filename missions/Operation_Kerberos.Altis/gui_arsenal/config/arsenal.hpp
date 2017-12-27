@@ -36,6 +36,7 @@ class GVARMAIN(arsenal) {
         "V_EOD_coyote_F","V_EOD_olive_F",
         "H_PASGT_basic_olive_F",
         "V_HarnessOGL_brn","V_HarnessOGL_gry","V_HarnessO_gry","V_HarnessO_brn",
+        "rhs_acc_npz",
 
         // weapons
 
