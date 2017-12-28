@@ -1,52 +1,24 @@
 {
-    "Brig13 Header": {
-		"prefix": "header",
-        "body": [
-			"/**",
-			" * Author: ${1:author}",
-			" * ${2:description}",
-			" *",
-			" * Arguments:",
-			" * 0: <${3:TYPENAME}> ${4:argument name}",
-			" *",
-			" * Return Value:",
-			" * <${5:TYPENAME}> ${6:return name}",
-			" *",
-			" */",
-			"",
-			"#include \"script_component.hpp\"",
-			"",
-			"$0"
-		],
-		"description": "Creates the Function Header"
-    },
     "Dorbedo Header": {
-		"prefix": "header_dorbedo",
+        "prefix": "header",
         "body": [
-			"/**",
-			" * Author: Dorbedo",
-			" * ${1:description}",
-			" *",
-			" * Arguments:",
-			" * 0: <${2:TYPENAME}> ${3:argument name}",
-			" *",
-			" * Return Value:",
-			" * <${4:TYPENAME}> ${5:return name}",
-			" *",
-			" */",
-			"//#define DEBUG_MODE_FULL",
-			"#include \"script_component.hpp\"",
-			"",
-			"$0"
-		],
-		"description": "Creates Dorbedos Function Header"
-    },
-	"CHECK": {
-		"prefix": "CHECK",
-		"body": [
-			"If ($1) exitWith {$2};",
-			"$0"
-		],
-		"description": "Exit if condition doesn't match"
-	}
+            "#include \"script_component.hpp\"",
+            "/**",
+            " * Name: dorb_${1:COMPONENT}_$TM_FILENAME_BASE",
+            " *",
+            " * Author: Dorbedo",
+            " * ${2:description}",
+            " *",
+            " * Arguments:",
+            " * 0: <${3:TYPENAME}> ${4:argument name}",
+            " *",
+            " * Return Value:",
+            " * <${5:TYPENAME}> ${6:return name}",
+            " *",
+            " */",
+            "",
+            "$0"
+        ],
+        "description": "Creates Dorbedos Function Header"
+    }
 }
