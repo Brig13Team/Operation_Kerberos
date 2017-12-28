@@ -23,6 +23,8 @@ class CfgComponents {
     doorbreach = 1;
     whitelist = 1;
     ai_skill = 1;
+    night = 1;
+    groundactions = 1;
     // kerberos specific
     missionobjects = 1;
     headquarter = 1;
@@ -64,6 +66,8 @@ class CfgComponents {
 #include "whitelist\CfgComponent.hpp"
 #include "doorbreach\CfgComponent.hpp"
 #include "ai_skill\CfgComponent.hpp"
+#include "night\CfgComponent.hpp"
+#include "groundactions\CfgComponent.hpp"
 
 #include "missionobjects\CfgComponent.hpp"
 #include "headquarter\CfgComponent.hpp"

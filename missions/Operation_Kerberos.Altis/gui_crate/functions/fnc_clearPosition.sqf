@@ -25,8 +25,8 @@ _position = ASLtoAGL _position;
         [QGVAR(deletedVehicle),[ace_player, typeOf _vehicle]] call CBA_fnc_ServerEvent;
         deleteVehicle _x;
     };
-} forEach ((nearestObjects [_position, ["AllVehicles","ReammoBox_F"], CHECK_RADIUS_MAX]) select {_x getVariable [QGVARMAIN(canDelete),true]});
+} forEach ((nearestObjects [_position, ["AllVehicles","ReammoBox_F"], CLEAR_RADIUS]) select {_x getVariable [QGVARMAIN(canDelete),true]});
 
 {
     deletevehicle _x;
-} forEach ((nearestObjects [_position, ["CraterLong_small","CraterLong","WeaponHolder","GroundWeaponHolder","GroundWeaponHolder_scripted","allDead","Thing","Land_DataTerminal_01_F"], CHECK_RADIUS_MAX]) select {_x getVariable [QGVARMAIN(canDelete),true]});
+} forEach ((nearestObjects [_position, ["CraterLong_small","CraterLong","WeaponHolder","GroundWeaponHolder","GroundWeaponHolder_scripted","allDead","Thing","Land_DataTerminal_01_F"], CLEAR_RADIUS]) select {_x getVariable [QGVARMAIN(canDelete),true]});

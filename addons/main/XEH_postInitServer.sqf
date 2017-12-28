@@ -7,7 +7,7 @@
  */
 #include "script_component.hpp"
 
-setTimeMultiplier 2;
+
 // prevent some crashes
 If (isNil QGVARMAIN(respawnmarker)||{(getMarkerPos GVARMAIN(respawnmarker)) isEqualTo [0,0,0]}) then {
     ERROR("No respawn placed");

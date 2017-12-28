@@ -22,12 +22,6 @@ GVAR(armysBlacklist) = GVAR(armysBlacklist) select {!(_x in GVAR(armysWhitelist)
 }, true, [], true] call CBA_fnc_addClassEventHandler;
 
 // initPost
-["CAManBase", "initpost", {
-    If(local (_this select 0)) then {
-        _this spawn FUNC(addNVG);
-    };
-},true,[],true] call CBA_fnc_addClassEventHandler;
-
 ["rhsusf_M1083A1P2_B_M2_d_Medical_fmtv_usarmy", "initPost", {
     _this call EFUNC(mod_ace,addMedicalItems);
 },true,[],true] call CBA_fnc_addClassEventHandler;

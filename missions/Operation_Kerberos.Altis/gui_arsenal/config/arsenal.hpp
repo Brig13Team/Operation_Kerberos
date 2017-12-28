@@ -3,7 +3,7 @@
 class GVARMAIN(arsenal) {
     blacklist[] = {
         // items
-        "NVGogglesB_blk_F","NVGogglesB_grn_F","NVGogglesB_gry_F","O_NVGoggles_ghex_F","O_NVGoggles_hex_F","O_NVGoggles_urb_F",
+        "NVGogglesB_blk_F","NVGogglesB_grn_F","NVGogglesB_gry_F",
         "optic_Nightstalker","optic_tws","optic_tws_mg",
         "ACE_bodyBag",
         "ACE_SpraypaintBlack","ACE_SpraypaintBlue","ACE_SpraypaintGreen","ACE_SpraypaintRed",
@@ -27,6 +27,7 @@ class GVARMAIN(arsenal) {
     whitelist[] = {
         // items
         "ItemRadioAcreFlagged",
+        "O_NVGoggles_ghex_F","O_NVGoggles_hex_F","O_NVGoggles_urb_F",
         "BWA3_acc_LLM01_flash","BWA3_acc_LLM01_flash_underbarrel","BWA3_acc_LLM01_laser","BWA3_acc_LLM01_laser_underbarrel",
         "Laserdesignator","Laserdesignator_01_khk_F","Laserdesignator_02","Laserdesignator_02_ghex_F","Laserdesignator_02_ghex_F",
         "V_DeckCrew_blue_F","V_DeckCrew_brown_F","V_DeckCrew_green_F","V_DeckCrew_red_F","V_DeckCrew_violet_F","V_DeckCrew_white_F","V_DeckCrew_yellow_F",
@@ -35,6 +36,7 @@ class GVARMAIN(arsenal) {
         "V_EOD_coyote_F","V_EOD_olive_F",
         "H_PASGT_basic_olive_F",
         "V_HarnessOGL_brn","V_HarnessOGL_gry","V_HarnessO_gry","V_HarnessO_brn",
+        "rhs_acc_npz",
 
         // weapons
 

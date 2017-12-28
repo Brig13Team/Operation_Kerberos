@@ -211,7 +211,7 @@ class prototype : device {
         tasktype = "Default";
     };
 };
-
+/*
 class jammer : device {
     condition = "";
     probability = PROPABILITY_LAND;
@@ -233,7 +233,7 @@ class jammer : device {
         tasktype = "destroy";
     };
 };
-/*
+
 class radiotower : jammer {
     condition = "";
     probability = PROPABILITY_LAND;
