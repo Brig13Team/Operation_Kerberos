@@ -59,8 +59,6 @@ enableTargetDebug = 1;
 corpseManagerMode = 0;
 wreckManagerMode = 0;
 
-//forceRotorLibSimulation = 1;
-
 saving = 0;
 showGroupIndicator = 0;
 scriptedPlayer = 1;
