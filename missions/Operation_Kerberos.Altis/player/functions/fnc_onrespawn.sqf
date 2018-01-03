@@ -16,7 +16,7 @@
 
 If(!hasInterface)exitWith{};
 
-_this params ["_unit","_corpse"];
+params ["_unit","_corpse"];
 CHECK(!(local _unit))
 
 If !(isNull _unit) then {
@@ -25,4 +25,6 @@ If !(isNull _unit) then {
         missionNamespace getVariable QGVAR(respawnLoadout),
         missionNamespace getVariable QGVAR(Weapons)
     ] call FUNC(setLoadout);
+
+    [player, "forceWalk", QGVAR(backpack), false] call ace_common_fnc_statusEffect_set;
 };

@@ -3,7 +3,7 @@
 
 switch (str(side player)) do {
     case "WEST" : {
-        private _id = ["west",cratespawner1] call FUNC(registerSpawn);
+        private _id = ["GUI_ARSENAL",cratespawner1] call FUNC(registerSpawn);
         [
             LSTRING(HEADER),
             ELSTRING(gui_main,CATEGORY_DEPOT),
@@ -19,7 +19,7 @@ switch (str(side player)) do {
             _id
         ] call EFUNC(gui,addNotification);
 
-        _id = ["west",cratespawner2] call FUNC(registerSpawn);
+        _id = ["GUI_ARSENAL",cratespawner2] call FUNC(registerSpawn);
         [
             LSTRING(HEADER),
             ELSTRING(gui_main,CATEGORY_DEPOT),
@@ -36,7 +36,7 @@ switch (str(side player)) do {
         ] call EFUNC(gui,addNotification);
     };
     case "EAST" : {
-        private _id = ["east",cratespawner4] call FUNC(registerSpawn);
+        private _id = ["GUI_ARSENAL",cratespawner4] call FUNC(registerSpawn);
         [
             LSTRING(HEADER),
             ELSTRING(gui_main,CATEGORY_DEPOT),
@@ -53,7 +53,7 @@ switch (str(side player)) do {
         ] call EFUNC(gui,addNotification);
     };
     case "GUER" : {
-        private _id = ["guer",cratespawner5] call FUNC(registerSpawn);
+        private _id = ["GUI_ARSENAL",cratespawner5] call FUNC(registerSpawn);
         [
             LSTRING(HEADER),
             ELSTRING(gui_main,CATEGORY_DEPOT),
@@ -70,7 +70,7 @@ switch (str(side player)) do {
         ] call EFUNC(gui,addNotification);
     };
     default {
-        private _id = ["",cratespawner6] call FUNC(registerSpawn);
+        private _id = ["GUI_ARSENAL",cratespawner6] call FUNC(registerSpawn);
         [
             LSTRING(HEADER),
             ELSTRING(gui_main,CATEGORY_DEPOT),

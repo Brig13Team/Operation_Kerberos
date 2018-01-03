@@ -13,7 +13,7 @@
  */
 #include "script_component.hpp"
 
-_this params [["_target",objNull,[objNull]]];
+params [["_target", objNull, [objNull]]];
 If ((isNull _target)/*||{!isPlayer _target}*/) exitWith {false};
 
 If !((vehicle ace_player == ace_player)&&(vehicle _target == _target)&&(side ace_player == side _target)) exitWith {false};

@@ -9,9 +9,14 @@
 #include "script_component.hpp"
 SCRIPT(change);
 private ["_backpack","_isHalo"];
-player forceWalk true;
-_backpack = player getVariable [QGVAR(backpack_pack),objNull];
-If (isNull _backpack) exitwith {[_this select 1] call CBA_fnc_removePerFrameHandler;player forceWalk false;};
+
+[player, "forceWalk", QGVAR(backpack), true] call ace_common_fnc_statusEffect_set;
+
+private _backpack = player getVariable [QGVAR(backpack_pack),objNull];
+If (isNull _backpack) exitwith {
+    [_this select 1] call CBA_fnc_removePerFrameHandler;
+    [player, "forceWalk", QGVAR(backpack), false] call ace_common_fnc_statusEffect_set;
+};
 
 if ((player != (vehicle player))&&(!((player getVariable [QGVAR(backpack_anim),""])isEqualTo(animationState player)))) exitwith {
     player setVariable [QGVAR(backpack_anim),(animationState player)];
@@ -39,26 +44,3 @@ IF (!((player getVariable [QGVAR(backpack_anim),""])isEqualTo(animationState pla
 };
 
 true
-
-
-/*
-
-/// pelvis = Hüfte
-/// spine3 = Rückrat 3
-/// rightshoulder   leftshoulder
-
-
-
-test=((player selectionPosition "rightshoulder") vectorFromTo (player selectionPosition "pelvis"))vectorAdd(((player selectionPosition "rightshoulder") vectorFromTo (player selectionPosition "pelvis"))vectorCrossProduct((player selectionPosition "leftshoulder") vectorFromTo (player selectionPosition "pelvis")));
-test2=((player selectionPosition "spine3") vectorFromTo (player selectionPosition "pelvis"));
-test3 setVectorDirAndUp [test,test2];
-
-
-    test3 = createVehicle ["groundWeaponHolder", (getPos player) , [], 0, "can_collide"];
-    test3 addBackpackCargoGlobal [(backpack player), 1];
-    test3 attachTo [player,[-0.1,0.75,-0.4],"pelvis"];
-    test3 setVectorDirAndUp [[0,0,-1],[0,1,0]];
-    removebackpackglobal player;
-    player forceWalk false;
-
-*/

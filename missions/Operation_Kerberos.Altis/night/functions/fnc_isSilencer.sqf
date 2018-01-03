@@ -18,7 +18,8 @@ private _value = GVAR(cache) getVariable ("silencer" + _classname);
 
 If (!isNil "_value") exitWith {_value};
 
-_value = 0.6 > (getNumber(configFile >> "CfgWeapons" >> _className >> "ItemInfo" >> "AmmoCoef" >> "audibleFire"));
+_value = (isNumber(configFile >> "CfgWeapons" >> _className >> "ItemInfo" >> "AmmoCoef" >> "audibleFire")) &&
+    {0.6 > (getNumber(configFile >> "CfgWeapons" >> _className >> "ItemInfo" >> "AmmoCoef" >> "audibleFire"))};
 
 GVAR(cache) setVariable [("silencer" + _classname), _value];
 _value
