@@ -41,7 +41,7 @@ switch (_presetName) do {
         _return = _return apply {configName _x};
     };
     case "logistic_west" : {
-        _return = (configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'side')==1}&&{getNumber(_x>>'scope')>1}&&{(getText(_x>>'vehicleClass')=='Static')}&&{!(getText(_x>>'vehicleClass')=='Autonomous')})", true])
+        _return = (configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'side')==1}&&{getNumber(_x>>'scope')>1}&&{(configName _x) isKindOf 'StaticWeapon'}&&{!(getText(_x>>'vehicleClass')=='Autonomous')})", true])
                 + (configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'side')==1}&&{getNumber(_x>>'scope')>1}&&{((configName _x) isKindOf 'Truck_F')}&&{!(getText(_x>>'vehicleClass')=='Autonomous')})", true])
                 + (configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'scope')>1}&&{((configName _x) isKindOf 'Slingload_01_Base_F')||{((configName _x) isKindOf 'Pod_Heli_Transport_04_base_F')}})", true]);
         _return = _return apply {configName _x};
