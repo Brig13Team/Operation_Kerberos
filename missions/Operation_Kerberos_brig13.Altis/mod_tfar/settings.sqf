@@ -20,7 +20,7 @@
         tf_freq_east = +_settings;
         tf_freq_guer = +_settings;
         private _settings = call TFAR_fnc_generateLrSettings;
-        _settings set [2,["30","35","40","45","50","55","60","65","70","75"]];
+        _settings set [2,["50","40","60","45","55","30","35","65","70","75"]];
         tf_freq_west_lr = +_settings;
         tf_freq_east_lr = +_settings;
         tf_freq_guer_lr = +_settings;

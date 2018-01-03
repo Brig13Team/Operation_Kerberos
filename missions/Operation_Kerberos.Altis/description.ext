@@ -47,7 +47,7 @@ showSquadRadar = 1;
 class Header {
     gameType = Coop;
     minPlayers = 1;
-    maxPlayers = 54;
+    maxPlayers = 52;
 };
 
 joinUnassigned = 1;
