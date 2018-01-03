@@ -5,6 +5,7 @@ PREP(addArsenalArea);
 PREP(canOpenMenu);
 PREP(cleanCargo);
 PREP(createLocalArsenal);
+PREP(getCurrentList);
 PREP(getRestrictedArsenal);
 PREP(getSideRestrictedArsenal);
 PREP(isRestrictedArray);
