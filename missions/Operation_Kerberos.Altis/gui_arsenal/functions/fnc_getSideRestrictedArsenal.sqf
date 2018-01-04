@@ -57,8 +57,8 @@ If (_loadingScreenActivated) then {
                     private _magazines = [_curClass, "magazines", []] call EFUNC(common,getCfgWeapons);
                     //TRACEV_1(_magazines);
                     {
-                        If (isClass (_class >> _x)) then {
-                            _magazines = _magazines + getarray(_class >> _x >> "magazines");
+                        If (isClass (_curCfg >> _x)) then {
+                            _magazines = _magazines + getarray(_curCfg >> _x >> "magazines");
                         };
                         nil
                     } count ([_curClass, "muzzles", []] call EFUNC(common,getCfgWeapons));
