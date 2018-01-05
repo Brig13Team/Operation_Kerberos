@@ -8,10 +8,13 @@ If (_reloadTime == 0) then {_reloadTime = 7;};
 
 // missionside changes
 switch (((_magazines select 0) select 0)) do {
+    case "BWA3_Spike_LR" : {
+        _reloadTime = 150;
+    };
     case "BWA3_240Rnd_APFSDS_shells";
     case "BWA3_160Rnd_HE_shells";
     case "BWA3_160Rnd_ABM_shells" : {
-        _reloadTime = 30;
+        _reloadTime = 100;
     };
 };
 
