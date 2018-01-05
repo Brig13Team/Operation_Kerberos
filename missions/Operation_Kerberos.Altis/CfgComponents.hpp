@@ -36,6 +36,7 @@ class CfgComponents {
     mod_tfar = 1;
     patch_acre = 1;
     patch_bwa3 = 1;
+    mod_bw = 1;
 
     gui = 1;
     gui_main = 1;
@@ -79,3 +80,5 @@ class CfgComponents {
 #include "gui_crate\CfgComponent.hpp"
 #include "gui_save\CfgComponent.hpp"
 #include "gui_acre\CfgComponent.hpp"
+
+#include "mod_bw\CfgComponent.hpp"

@@ -1380,6 +1380,32 @@
             <German>Depot</German>
         </Key>
     </Package>
+    <Package name="BWA3_dialog">
+        <Key ID="STR_BWA3_Comp_Ace_MagazineDialog">
+            <English>Ammunition Dialog</English>
+            <German>Munitionsauswahl</German>
+        </Key>
+        <Key ID="STR_BWA3_Comp_Ace_ConfigureAmmoLoad">
+            <English>Configure Ammo Load</English>
+            <German>Munitionsauswahl</German>
+        </Key>
+        <Key ID="STR_BWA3_Comp_Ace_ConfigureMagazinesLoadAllowed">
+            <English>Magazine dialog allowed</English>
+            <German>Munitionsauswahl erlaubt</German>
+        </Key>
+        <Key ID="STR_BWA3_Comp_Ace_addMagazine">
+            <English>Loading %1...</English>
+            <German>Lade %1...</German>
+        </Key>
+        <Key ID="STR_BWA3_Comp_Ace_removeMagazine">
+            <English>Removing %1...</English>
+            <German>Entlade %1...</German>
+        </Key>
+        <Key ID="STR_BWA3_Comp_Ace_loadingStopped">
+            <English>Rearming stopped</English>
+            <German>Aufmunitionieren abgebrochen</German>
+        </Key>
+    </Package>
     <Package name="whitelist">
         <Key ID="STR_DORB_WHITELIST_onlyPilotsFly">
             <English>Only Pilots can Fly</English>

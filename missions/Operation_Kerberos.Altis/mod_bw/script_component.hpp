@@ -1,0 +1,22 @@
+#define COMPONENT mod_bw
+#define COMPONENT_BEAUTIFIED mod_bw
+#include "..\main\script_mission.hpp"
+
+#define DEBUG_MODE_MINIMAL
+// #define DEBUG_MODE_FULL
+// #define DISABLE_COMPILE_CACHE
+// #define ENABLE_PERFORMANCE_COUNTERS
+
+#ifdef DEBUG_ENABLED_mod_bw
+    #define DEBUG_MODE_FULL
+#endif
+
+#include "..\main\script_macros.hpp"
+#include "..\gui\script_gui.hpp"
+
+#define IDD_BWA3_MAGAZINEDIALOG 10815
+#define IDC_BWA3_MAGAZINEDIALOG_TITLE 10816
+#define IDC_BWA3_MAGAZINEDIALOG_BACK 10817
+#define IDC_BWA3_MAGAZINEDIALOG_CONTROLSTABLE 10818
+#define IDC_BWA3_MAGAZINEDIALOG_CONTROLSTABLE_START 10819
+#define IDC_BWA3_MAGAZINEDIALOG_CONTROLSTABLE_END 10900
