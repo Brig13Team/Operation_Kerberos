@@ -18,6 +18,11 @@
         "*.hpp": "sqf",
         "*.ext": "sqf"
     },
+    "sqflint.includePrefixes": {
+        "\\x\\" : "P:/x/",
+        "\\y\\" : "P:/y/",
+        "\\z\\" : "P:/z/"
+    },
     "sqflint.checkPaths": false,
     "sqf.enableCBA": true,
     "sqf.enableACE3": true,
