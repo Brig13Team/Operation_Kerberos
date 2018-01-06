@@ -19,11 +19,9 @@
 #include "script_component.hpp"
 
 params ["_object"];
-TRACE_1("HandleDisconnect",_this);
 
 // Exit if not HC
 if !(_object in GVAR(headlessClients)) exitWith {
-    TRACE_2("Object not in HC list",_object,GVAR(headlessClients));
     false
 };
 
