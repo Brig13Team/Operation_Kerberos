@@ -36,31 +36,16 @@ ReviveMode = 0;
 disabledAI = 1;
 aiKills = 0;
 
-ShowGPS = 0;
-//showCompass = 1;
-//showMap = 0;
-//showNotePad = 0;
-//showWatch = 1;
-//showUAVFeed = 1;
-showSquadRadar = 1;
-
 class Header {
     gameType = Coop;
     minPlayers = 1;
     maxPlayers = 52;
 };
 
-joinUnassigned = 1;
-skipLobby = 0;
-allowFunctionsLog = 0;
-enableDebugConsole = 1;
-enableTargetDebug = 1;
-
 corpseManagerMode = 0;
 wreckManagerMode = 0;
 
 saving = 0;
-showGroupIndicator = 0;
 scriptedPlayer = 1;
 
 /*
