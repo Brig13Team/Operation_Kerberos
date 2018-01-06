@@ -25,6 +25,8 @@ If (isNil "_addNVG") then {
     If (GVAR(levelNVG) isEqualTo 1) then {
         if ((!([_unit] call FUNC(hasNVG))) && {[_unit] call FUNC(hasSilencer)}) then {
             _addNVG = true;
+        } else {
+            _addNVG = false;
         };
     } else {
         _addNVG = GVAR(levelNVG) isEqualTo 2;
@@ -35,6 +37,7 @@ If (isNil "_addNVG") then {
 If ((isNil "_addFlashlight") && {!(GVAR(levelAcc) isEqualTo 1)}) then {
     If (GVAR(levelAcc) isEqualTo 0) then {
         _addFlashlight = false;
+        _addPointer = false;
     } else {
         If (GVAR(levelAcc) isEqualTo 2) then {
             _addPointer = false;
