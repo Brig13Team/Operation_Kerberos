@@ -692,7 +692,7 @@ class GVAR(unitlists) {
                 supply_mechanized = 0;
 
                 supply_airdrop = 1;
-                supply_tankdrop = 1;
+                supply_tankdrop = 0.2;
 
                 cas_cluster = 1;
                 cas_gun = 1;
