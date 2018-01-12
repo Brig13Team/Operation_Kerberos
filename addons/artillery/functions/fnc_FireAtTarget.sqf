@@ -52,7 +52,7 @@ switch (typeOf _artillery) do {
             case (_distance < 13000) : {"M9"}; // 10400-13600
             case (_distance < 16000) : {"M10"}; // 12900-16800
             case (_distance < 20500) : {"M11"}; // 15700-20500
-            default {""}
+            default {""};
         };
         //TRACEV_2(_distance,_mode);
         CHECK(_mode isEqualTo "")

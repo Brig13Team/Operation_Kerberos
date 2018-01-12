@@ -40,13 +40,5 @@
 			"$0"
 		],
 		"description": "Creates Dorbedos Function Header"
-    },
-	"CHECK": {
-		"prefix": "CHECK",
-		"body": [
-			"If ($1) exitWith {$2};",
-			"$0"
-		],
-		"description": "Exit if condition doesn't match"
-	}
+    }
 }
