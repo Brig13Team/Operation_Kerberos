@@ -245,9 +245,9 @@ def main(argv):
 
     releasename = "{}_{}.{}.{}.{}".format(MAINMISSION.rsplit(".", 1)[0], major, minor, patch, build)
 
-    os.chdir(os.path.normpath(projectpath + "/release"))
+    os.chdir(os.path.normpath(projectpath))
     shutil.make_archive("{}".format(releasename), "zip", \
-        os.path.normpath(projectpath + "/release/@dorb"))
+       os.path.normpath(projectpath + "/release"))
 
     print("\n  Done. \n")
     print("  Made {}, failed to make {}.\n".format(made, failed))
