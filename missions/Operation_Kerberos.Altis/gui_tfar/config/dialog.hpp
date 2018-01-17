@@ -16,7 +16,8 @@ class APP(dialog) : RSC(guiMenu) {
         edit_sr_text,
         edit_sr_add_text,
         edit_lr_text,
-        edit_lr_add_text
+        edit_lr_add_text,
+        checkbox_text
     };
     controls[] = {
         headertext,
@@ -31,12 +32,15 @@ class APP(dialog) : RSC(guiMenu) {
         edit_lr,
         edit_lr_add,
 
-        checkbox,
-        checkbox_text
+        checkbox
     };
 
     onLoad = QUOTE(uiNamespace setVariable [ARR_2('EGVAR(gui_main,dialog)',_this select 0)]; [ARR_2('GVAR(dialog)',true)] call EFUNC(gui,blur); _this call EFUNC(gui_main,OnLoad); _this call FUNC(OnLoad););
     onUnload = QUOTE([ARR_2('GVAR(dialog)',false)] call EFUNC(gui,blur);_this call EFUNC(gui_main,OnUnload););
+
+    class background_gradiend : background_gradiend {
+        colorBackground[] = COLOR_TFAR_BACKGROUND_GRADIENT;
+    };
 
     class background_body : background_body {
         colorBackground[] = COLOR_TFAR_BACKGROUND;
@@ -56,7 +60,7 @@ class APP(dialog) : RSC(guiMenu) {
         y = GUI_DISP_Y+GUI_DISP_H*10;
         w = GUI_DISP_W*92;
         h = GUI_DISP_H*76;
-        colorBackground[] = COLOR_BASE_GREY_LIGHT;
+        colorBackground[] = COLOR_TFAR_TREE_BACKGROUND;
         colorArrow[] = COLOR_BASE_BLACK;
         colorText[] = COLOR_BASE_BLACK;
         colorSelect[] = COLOR_BASE_GREY_LIGHT;
@@ -82,6 +86,7 @@ class APP(dialog) : RSC(guiMenu) {
         h = GUI_DISP_H*4;
         sizeEx = GUI_DISP_H*3;
         text = "00";
+        colorBackground[] = COLOR_TFAR_EDIT_SR;
     };
     class edit_sr_text : RSC(BaseText) {
         text = CSTRING(TEXT_SR);
@@ -91,12 +96,15 @@ class APP(dialog) : RSC(guiMenu) {
         h = GUI_DISP_H*4;
         sizeEx = GUI_DISP_H*3;
         style = 1;
+        colorBackground[] = COLOR_DISABLED;
+        colorText[] = COLOR_TFAR_TEXT;
     };
 
     class edit_sr_add : edit_sr {
         idc = IDC_TFAR_EDIT_SR_ADD;
         y = GUI_DISP_Y+GUI_DISP_H*22;
         text = "00";
+        colorBackground[] = COLOR_TFAR_EDIT_SR_ADD;
     };
     class edit_sr_add_text : edit_sr_text {
         text = CSTRING(TEXT_SR_ADD);
@@ -107,6 +115,7 @@ class APP(dialog) : RSC(guiMenu) {
         idc = IDC_TFAR_EDIT_LR;
         y = GUI_DISP_Y+GUI_DISP_H*30;
         text = "00";
+        colorBackground[] = COLOR_TFAR_EDIT_LR;
     };
     class edit_lr_text : edit_sr_text {
         text = CSTRING(TEXT_LR);
@@ -117,29 +126,23 @@ class APP(dialog) : RSC(guiMenu) {
         idc = IDC_TFAR_EDIT_LR_ADD;
         y = GUI_DISP_Y+GUI_DISP_H*36;
         text = "00";
+        colorBackground[] = COLOR_TFAR_EDIT_LR_ADD;
     };
     class edit_lr_add_text : edit_sr_text {
         text = CSTRING(TEXT_LR_ADD);
         y = GUI_DISP_Y+GUI_DISP_H*36;
     };
 
+    class checkbox_text : edit_sr_text {
+        y = GUI_DISP_Y+GUI_DISP_H*50;
+        text = CSTRING(CHECKBOX);
+    };
     class checkbox : RSC(BaseCheckbox) {
         idc = IDC_TFAR_CHECKBOX;
-        x = GUI_DISP_X+GUI_DISP_W*102;
+        x = GUI_DISP_X+GUI_DISP_W*146;
         y = GUI_DISP_Y+GUI_DISP_H*50;
         w = GUI_DISP_W*5;
         h = GUI_DISP_H*5;
         sizeEx = GUI_DISP_H*3;
     };
-    class checkbox_text : RSC(BaseText) {
-        idc = IDC_TFAR_CHECKBOX_TEXT;
-        x = GUI_DISP_X+GUI_DISP_W*109;
-        y = GUI_DISP_Y+GUI_DISP_H*50;
-        w = GUI_DISP_W*15;
-        h = GUI_DISP_H*5;
-        sizeEx = GUI_DISP_H*3;
-        text = CSTRING(CHECKBOX);
-    };
-
-
 };
