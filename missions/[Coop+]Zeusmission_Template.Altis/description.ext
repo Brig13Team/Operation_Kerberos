@@ -55,9 +55,6 @@ disableChannels[] = {{0,false,false},{1,false,false},{2,false,false},{3,false,fa
 
 joinUnassigned = 1;
 skipLobby = 0;
-allowFunctionsLog = 0;
-enableDebugConsole = 1;
-enableTargetDebug = 1;
 
 corpseManagerMode = 0;
 wreckManagerMode = 0;

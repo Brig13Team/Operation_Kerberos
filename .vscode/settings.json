@@ -18,6 +18,11 @@
         "*.hpp": "sqf",
         "*.ext": "sqf"
     },
+    "sqflint.includePrefixes": {
+        "\\x\\" : "P:/x/",
+        "\\y\\" : "P:/y/",
+        "\\z\\" : "P:/z/"
+    },
     "sqflint.checkPaths": false,
     "sqf.enableCBA": true,
     "sqf.enableACE3": true,
@@ -25,5 +30,7 @@
     "editor.detectIndentation": false,
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 1000,
-    "git.confirmSync": false
+    "git.confirmSync": false,
+    "sqflint.discoverDescriptionFiles": false,
+    "sqflint.descriptionFiles": ["missions/Operation_Kerberos.Altis/description.ext"]
 }

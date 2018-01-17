@@ -9,14 +9,12 @@
 #include "script_component.hpp"
 
 class DOUBLES(CfgComponent,ADDON) {
-    version = "2018.01.15";
-    class clientpostinit {server = 0;};
-    class postinitServer {client = 0;};
-    class clientRespawn {server = 0;};
     class preinit {};
+    class postInitClient {server=0;};
     class dependencies {
-        CfgPatches[] = {};
+        CfgPatches[] = {"task_force_radio"};
         CfgComponents[] = {"common","gui","gui_main"};
     };
 };
-#include "config\arsenal.hpp"
+
+#include "config\dialog.hpp"

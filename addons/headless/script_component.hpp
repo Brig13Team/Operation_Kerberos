@@ -2,7 +2,7 @@
 #define COMPONENT_BEAUTIFIED Headless
 #include "\x\dorb\addons\main\script_mod.hpp"
 
-#define DEBUG_MODE_MINIMAL
+#define DEBUG_MODE_FULL
 #define DEBUG_MODE_NORMAL
 // #define DEBUG_MODE_FULL
 // #define DISABLE_COMPILE_CACHE
