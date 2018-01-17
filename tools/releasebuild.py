@@ -9,6 +9,7 @@ import os
 import sys
 import re
 import datetime
+import configparser
 import argparse
 import subprocess
 import shutil
@@ -37,7 +38,21 @@ def main():
 
     input("Press Enter to continue...")
 
+def get_configvalue(valueid, valuegroup='DEFAULT'):
+    """returns the value form the configfile"""
+    config = configparser.ConfigParser()
+    config.read('build.cfg')
+    return config[valuegroup][valueid]
 
+
+def update_versionfile(filepath):
+    """Updates the Versionfile"""
+
+    # find the Versionfile
+    filename = get_configvalue('filename')
+    for file in os.walk(filepath):
+        if os.path.isfile(file) and file == filename:
+            
 
 
 
