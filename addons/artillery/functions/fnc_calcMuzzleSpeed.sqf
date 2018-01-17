@@ -14,7 +14,7 @@
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-params ["_barrellenght","_pressure","_mass"];
+params ["_barrellenght","_pressure","_mass", "_projectilemass", "_crossSectionArea"];
 
 private _q = _projectilemass/_crossSectionArea;
 
