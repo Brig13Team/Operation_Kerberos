@@ -12,7 +12,7 @@ class DOUBLES(CfgComponent,ADDON) {
     class preinit {};
     class postInitClient {server=0;};
     class dependencies {
-        CfgPatches[] = {"acre_main"};
+        CfgPatches[] = {"task_force_radio"};
         CfgComponents[] = {"common","gui","gui_main"};
     };
 };

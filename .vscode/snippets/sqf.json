@@ -15,7 +15,7 @@
             "  Return Value:",
             "    ${8:return name} <${9:TYPENAME}>",
             " ",
-            " Public: ${10|Yes,No|}",
+            "  Public: ${10|Yes,No|}",
             "*/",
             "",
             "$0"

@@ -28,7 +28,7 @@ if (cbChecked _ctrlcheckbox) then {
         _value = (leader _curGroup) getVariable [QGVAR(frequencies), ["", "", "", ""]];
     };
 } else {
-    _value = ace_player getVariable [QGVAR(frequencies), ["", "", "", ""]];
+    _value = ace_player getVariable [QGVAR(frequencies_player), ["", "", "", ""]];
 };
 
 

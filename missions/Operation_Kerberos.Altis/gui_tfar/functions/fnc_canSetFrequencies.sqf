@@ -12,7 +12,7 @@
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-parmas [["_unit", objNull, [objNull]]];
+params [["_unit", objNull, [objNull]]];
 
 if !(alive _unit) exitWith {false};
 

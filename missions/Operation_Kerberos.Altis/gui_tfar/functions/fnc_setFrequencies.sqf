@@ -32,22 +32,27 @@ private _fnc_isNumber = {
     private _number = parseNumber _input;
     if (_number < 30) exitWith {false};
     _number = if ((_number mod 1) == 0) then {_number toFixed 0} else {_number toFixed 1};
-    (_number <= _max)
+    ((parsenumber _number) <= _max)
 };
 
 private _value = ["", "", "", ""];
 
-_value set [SR_INDEX,     (If ([ctrlText _ctrlEditSR, 512] call _fnc_isNumber) then {ctrlText _ctrlEditSR})];
-_value set [SR_ADD_INDEX, (If ([ctrlText _ctrlEditSR, 512] call _fnc_isNumber) then {ctrlText _ctrlEditSR})];
-_value set [LR_INDEX,     (If ([ctrlText _ctrlEditSR, 87] call _fnc_isNumber) then {ctrlText _ctrlEditSR})];
-_value set [LR_ADD_INDEX, (If ([ctrlText _ctrlEditSR, 87] call _fnc_isNumber) then {ctrlText _ctrlEditSR})];
+_value set [SR_INDEX, (If ([ctrlText _ctrlEditSR, 512] call _fnc_isNumber) then {ctrlText _ctrlEditSR} else {""})];
+_value set [SR_ADD_INDEX, (If ([ctrlText _ctrlEditSR_add, 512] call _fnc_isNumber) then {ctrlText _ctrlEditSR_add} else {""})];
+_value set [LR_INDEX, (If ([ctrlText _ctrlEditLR, 87] call _fnc_isNumber) then {ctrlText _ctrlEditLR} else {""})];
+_value set [LR_ADD_INDEX, (If ([ctrlText _ctrlEditLR_add, 87] call _fnc_isNumber) then {ctrlText _ctrlEditLR_add} else {""})];
+
+TRACEV_2(cbChecked _ctrlcheckbox,_ctrlcheckbox,_value);
 
 if (cbChecked _ctrlcheckbox) then {
     (group ace_player) setVariable [QGVAR(frequencies), _value, true];
     ace_player setVariable [QGVAR(frequencies), _value, true];
+    TRACEV_3(_value,group ace_player,ace_player);
 } else {
+    TRACEV_2(_value,ace_player);
     ace_player setVariable [QGVAR(frequencies_player), _value, true];
 };
+
 
 [_dialog] call FUNC(treeShow);
 [_dialog] call FUNC(editShow);

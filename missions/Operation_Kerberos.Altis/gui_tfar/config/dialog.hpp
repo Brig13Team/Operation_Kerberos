@@ -10,7 +10,13 @@ class APP(dialog) : RSC(guiMenu) {
     controlsBackground[] = {
         background_header,
         background_body,
-        background_gradiend
+        background_gradiend,
+        background_tree,
+
+        edit_sr_text,
+        edit_sr_add_text,
+        edit_lr_text,
+        edit_lr_add_text
     };
     controls[] = {
         headertext,
@@ -18,9 +24,6 @@ class APP(dialog) : RSC(guiMenu) {
         player_button,
         menu_button,
 
-        display_background,
-
-        treeback,
         treeview,
 
         edit_sr,
@@ -29,34 +32,30 @@ class APP(dialog) : RSC(guiMenu) {
         edit_lr_add,
 
         checkbox,
-        save
-
+        checkbox_text
     };
 
-    onLoad = QUOTE(uiNamespace setVariable [ARR_2('EGVAR(gui_main,dialog)',_this select 0)]; [ARR_2('GVAR(dialog)',true)] call EFUNC(gui,blur); _this call EFUNC(gui_main,OnLoad);_this call FUNC(OnLoad););
-    onUnload = QUOTE([ARR_2('GVAR(dialog)',false)] call EFUNC(gui,blur);_this call EFUNC(gui_main,OnUnLoad););
+    onLoad = QUOTE(uiNamespace setVariable [ARR_2('EGVAR(gui_main,dialog)',_this select 0)]; [ARR_2('GVAR(dialog)',true)] call EFUNC(gui,blur); _this call EFUNC(gui_main,OnLoad); _this call FUNC(OnLoad););
+    onUnload = QUOTE([ARR_2('GVAR(dialog)',false)] call EFUNC(gui,blur);_this call EFUNC(gui_main,OnUnload););
 
-    class headertext: headertext {
-        text = CSTRING(HEADER);
+    class background_body : background_body {
+        colorBackground[] = COLOR_TFAR_BACKGROUND;
     };
 
-    class display_background: RSC(BaseText) {
-        idc = IDC_TFAR_MENU_BACK;
-        x = 0;
-        y = 0;
-        w = 0;
-        h = 0;
-        text = "";
-        colorBackground[] = COLOR_DISABLED;
-        colorText[] = COLOR_DISABLED;
+    class background_tree : RSC(BaseText) {
+        x = GUI_DISP_X+GUI_DISP_W*3;
+        y = GUI_DISP_Y+GUI_DISP_H*9;
+        w = GUI_DISP_W*94;
+        h = GUI_DISP_H*78;
+        colorBackground[] = COLOR_TFAR_TREE_BACKGROUND;
     };
 
     class treeview : RSC(BaseTree) {
-        idc = IDC_ACRE_MENU_TREE;
-        x = 0;
-        y = 0;
-        w = 0;
-        h = 0;
+        idc = IDC_TFAR_TREE;
+        x = GUI_DISP_X+GUI_DISP_W*4;
+        y = GUI_DISP_Y+GUI_DISP_H*10;
+        w = GUI_DISP_W*92;
+        h = GUI_DISP_H*76;
         colorBackground[] = COLOR_BASE_GREY_LIGHT;
         colorArrow[] = COLOR_BASE_BLACK;
         colorText[] = COLOR_BASE_BLACK;
@@ -74,4 +73,73 @@ class APP(dialog) : RSC(guiMenu) {
         hiddenTexture = MPATH(gui\data\tree\add_b_nb.paa);
         expandedTexture = MPATH(gui\data\tree\dec_b_nb.paa);
     };
+
+    class edit_sr : RSC(BaseEditBox) {
+        idc = IDC_TFAR_EDIT_SR;
+        x = GUI_DISP_X+GUI_DISP_W*146;
+        y = GUI_DISP_Y+GUI_DISP_H*16;
+        w = GUI_DISP_W*10;
+        h = GUI_DISP_H*4;
+        sizeEx = GUI_DISP_H*3;
+        text = "00";
+    };
+    class edit_sr_text : RSC(BaseText) {
+        text = CSTRING(TEXT_SR);
+        x = GUI_DISP_X+GUI_DISP_W*102;
+        y = GUI_DISP_Y+GUI_DISP_H*16;
+        w = GUI_DISP_W*42;
+        h = GUI_DISP_H*4;
+        sizeEx = GUI_DISP_H*3;
+        style = 1;
+    };
+
+    class edit_sr_add : edit_sr {
+        idc = IDC_TFAR_EDIT_SR_ADD;
+        y = GUI_DISP_Y+GUI_DISP_H*22;
+        text = "00";
+    };
+    class edit_sr_add_text : edit_sr_text {
+        text = CSTRING(TEXT_SR_ADD);
+        y = GUI_DISP_Y+GUI_DISP_H*22;
+    };
+
+    class edit_lr : edit_sr {
+        idc = IDC_TFAR_EDIT_LR;
+        y = GUI_DISP_Y+GUI_DISP_H*30;
+        text = "00";
+    };
+    class edit_lr_text : edit_sr_text {
+        text = CSTRING(TEXT_LR);
+        y = GUI_DISP_Y+GUI_DISP_H*30;
+    };
+
+    class edit_lr_add : edit_sr {
+        idc = IDC_TFAR_EDIT_LR_ADD;
+        y = GUI_DISP_Y+GUI_DISP_H*36;
+        text = "00";
+    };
+    class edit_lr_add_text : edit_sr_text {
+        text = CSTRING(TEXT_LR_ADD);
+        y = GUI_DISP_Y+GUI_DISP_H*36;
+    };
+
+    class checkbox : RSC(BaseCheckbox) {
+        idc = IDC_TFAR_CHECKBOX;
+        x = GUI_DISP_X+GUI_DISP_W*102;
+        y = GUI_DISP_Y+GUI_DISP_H*50;
+        w = GUI_DISP_W*5;
+        h = GUI_DISP_H*5;
+        sizeEx = GUI_DISP_H*3;
+    };
+    class checkbox_text : RSC(BaseText) {
+        idc = IDC_TFAR_CHECKBOX_TEXT;
+        x = GUI_DISP_X+GUI_DISP_W*109;
+        y = GUI_DISP_Y+GUI_DISP_H*50;
+        w = GUI_DISP_W*15;
+        h = GUI_DISP_H*5;
+        sizeEx = GUI_DISP_H*3;
+        text = CSTRING(CHECKBOX);
+    };
+
+
 };
