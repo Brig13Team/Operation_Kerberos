@@ -8,12 +8,38 @@
 import os
 import sys
 import re
-import time
-import timeit
+import datetime
+import argparse
 import subprocess
 import shutil
 import platform
 from distutils.dir_util import copy_tree
+
+
+
+def main():
+    """Main"""
+    parser = argparse.ArgumentParser(description='Armake Buildscript')
+    parser.add_argument('buildtype', type=str, choices=['dev', 'mission', 'release'])
+    parsergrp = parser.add_argument_group('version')
+    parsergrp.add_argument('-patch', type=int, default=0, help='increase patch')
+    parsergrp.add_argument('-minor', type=int, default=0, help='increase minor')
+    parsergrp.add_argument('-major', type=int, default=0, help='increase major')
+
+    start = datetime.datetime.now()
+
+    #build()
+
+    print()
+
+    print("\nTotal Program time elapsed: {}".\
+        format(datetime.datetime.now() - start))
+
+    input("Press Enter to continue...")
+
+
+
+
 
 ######## GLOBALS #########
 MAINPREFIX = "x"
@@ -27,7 +53,8 @@ def mod_time(path):
         return os.path.getmtime(path)
     maxi = os.path.getmtime(path)
     for file in os.listdir(path):
-        maxi = max(mod_time(os.path.join(path, file)), maxi)
+        if file != "script_version.hpp":
+            maxi = max(mod_time(os.path.join(path, file)), maxi)
     return maxi
 
 def fract_sec(second):
@@ -91,7 +118,7 @@ def get_version(filepath, version_increments=[]):
         return majortext, minortext, patchtext, buildtext
 
 
-def main(argv):
+def build(argv):
     """main"""
     print("""
   #####################
@@ -254,10 +281,4 @@ def main(argv):
 
 
 if __name__ == "__main__":
-    STARTTIME = timeit.default_timer()
-    main(sys.argv)
-    HOURS, MINUTES, SECONDS = fract_sec(timeit.default_timer() - STARTTIME)
-    print("\nTotal Program time elapsed: {0:2}h   {1:2}m   {2:4.5f}s".format(HOURS, \
-        MINUTES, SECONDS))
-
-    input("Press Enter to continue...")
+    main()
