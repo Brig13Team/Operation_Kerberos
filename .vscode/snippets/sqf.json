@@ -1,44 +1,25 @@
 {
     "Brig13 Header": {
-		"prefix": "header",
+        "prefix": "header",
         "body": [
-			"/**",
-			" * Author: ${1:author}",
-			" * ${2:description}",
-			" *",
-			" * Arguments:",
-			" * 0: <${3:TYPENAME}> ${4:argument name}",
-			" *",
-			" * Return Value:",
-			" * <${5:TYPENAME}> ${6:return name}",
-			" *",
-			" */",
-			"",
-			"#include \"script_component.hpp\"",
-			"",
-			"$0"
-		],
-		"description": "Creates the Function Header"
-    },
-    "Dorbedo Header": {
-		"prefix": "header_dorbedo",
-        "body": [
-			"/**",
-			" * Author: Dorbedo",
-			" * ${1:description}",
-			" *",
-			" * Arguments:",
-			" * 0: <${2:TYPENAME}> ${3:argument name}",
-			" *",
-			" * Return Value:",
-			" * <${4:TYPENAME}> ${5:return name}",
-			" *",
-			" */",
-			"//#define DEBUG_MODE_FULL",
-			"#include \"script_component.hpp\"",
-			"",
-			"$0"
-		],
-		"description": "Creates Dorbedos Function Header"
+            "#include \"script_component.hpp\"",
+            "",
+            "/*",
+            "  Name: dorb_${TM_DIRECTORY/(.+?)\\\\(\\w+?)\\\\functions$/$2/}_${TM_FILENAME_BASE}",
+            "  Author: Dorbedo",
+            "  ${5:description}",
+            " ",
+            "  Arguments:",
+            "    0: ${6:argument name} <${7:TYPENAME}>",
+            " ",
+            "  Return Value:",
+            "    ${8:return name} <${9:TYPENAME}>",
+            " ",
+            " Public: ${10|Yes,No|}",
+            "*/",
+            "",
+            "$0"
+        ],
+        "description": "Creates the Function Header"
     }
 }

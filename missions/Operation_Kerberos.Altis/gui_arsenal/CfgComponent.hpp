@@ -9,7 +9,7 @@
 #include "script_component.hpp"
 
 class DOUBLES(CfgComponent,ADDON) {
-    version = "2017.12.23";
+    version = "2018.01.15";
     class clientpostinit {server = 0;};
     class postinitServer {client = 0;};
     class clientRespawn {server = 0;};
