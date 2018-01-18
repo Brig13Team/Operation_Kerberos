@@ -144,16 +144,16 @@ def main(argv):
     print("  Version: {}.{}.{}.{}".format(major, minor, patch, build), "\n")
 
     if not os.path.exists(os.path.normpath(projectpath + \
-        "/privatekeys/Kerberos_{}.{}.biprivatekey".format(major, minor))):
-        print("  Creating the new keys Kerberos_{}.{} \n".format(major, minor))
+        "/privatekeys/kerberos_{}.{}.biprivatekey".format(major, minor))):
+        print("  Creating the new keys kerberos_{}.{} \n".format(major, minor))
         command = path_armake + " keygen -f " + os.path.normpath(projectpath + \
-            "/privatekeys/Kerberos_{}.{}".format(major, minor))
+            "/privatekeys/kerberos_{}.{}".format(major, minor))
         subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True)
 
     shutil.copy(os.path.normpath(projectpath + \
-        "/privatekeys/Kerberos_{}.{}.bikey".format(major, minor)), \
+        "/privatekeys/kerberos_{}.{}.bikey".format(major, minor)), \
         os.path.normpath(projectpath + \
-        "/release/@dorb/keys/Kerberos_{}.{}.bikey".format(major, minor)))
+        "/release/@dorb/keys/kerberos_{}.{}.bikey".format(major, minor)))
 
     print("  Creating the servermod")
     releasepath = os.path.normpath(projectpath + "/release/@dorb/addons")
@@ -175,7 +175,7 @@ def main(argv):
             subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True)
 
             command = path_armake + " sign -f " + os.path.normpath(projectpath + \
-                "/privatekeys/Kerberos_{}.{}.biprivatekey ".format(major, minor)) + \
+                "/privatekeys/kerberos_{}.{}.biprivatekey ".format(major, minor)) + \
                 os.path.normpath(releasepath + "/" + PREFIX + file + ".pbo")
             subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True)
 
