@@ -56,7 +56,7 @@ private _fnc_getPlayergroups = {
         private _groupIndex =+ _sideIndex;
         TRACEV_2(_groupIndex,_sideIndex);
 
-        private _text = ((groupId _curGroup) + "                               ") select [0, 30];
+        private _text = (groupId _curGroup) + "               ";
 
         private _curFrequencies = _curGroup getVariable [QGVAR(frequencies), ["", "", "", ""]];
         if (_curFrequencies isEqualTo ["", "", "", ""]) then {
@@ -65,25 +65,25 @@ private _fnc_getPlayergroups = {
 
         if ((_curFrequencies select SR_INDEX) isEqualTo "") then {
             if !((_curFrequencies select SR_ADD_INDEX) isEqualTo "") then {
-                _text = format ["%1  SR: %2", _text, _curFrequencies select SR_ADD_INDEX];
+                _text = format ["%1    SR: %2", _text, _curFrequencies select SR_ADD_INDEX];
             };
         } else {
             if ((_curFrequencies select SR_ADD_INDEX) isEqualTo "") then {
-                _text = format ["%1  SR: %2", _text, _curFrequencies select SR_INDEX];
+                _text = format ["%1    SR: %2", _text, _curFrequencies select SR_INDEX];
             } else {
-                _text = format ["%1  SR: %2 (%3)", _text, _curFrequencies select SR_INDEX, _curFrequencies select SR_ADD_INDEX];
+                _text = format ["%1    SR: %2 (%3)", _text, _curFrequencies select SR_INDEX, _curFrequencies select SR_ADD_INDEX];
             };
         };
 
         if ((_curFrequencies select LR_INDEX) isEqualTo "") then {
             if !((_curFrequencies select LR_ADD_INDEX) isEqualTo "") then {
-                _text = format ["%1  LR: %2", _text, _curFrequencies select LR_ADD_INDEX];
+                _text = format ["%1    LR: %2", _text, _curFrequencies select LR_ADD_INDEX];
             };
         } else {
             if ((_curFrequencies select LR_ADD_INDEX) isEqualTo "") then {
-                _text = format ["%1  LR: %2", _text, _curFrequencies select LR_INDEX];
+                _text = format ["%1    LR: %2", _text, _curFrequencies select LR_INDEX];
             } else {
-                _text = format ["%1  LR: %2 (%3)", _text, _curFrequencies select LR_INDEX, _curFrequencies select LR_ADD_INDEX];
+                _text = format ["%1    LR: %2 (%3)", _text, _curFrequencies select LR_INDEX, _curFrequencies select LR_ADD_INDEX];
             };
         };
         _groupIndex pushBack (_tree tvAdd [_sideIndex, _text]);
@@ -91,7 +91,7 @@ private _fnc_getPlayergroups = {
         {
             // Player
             private _curPlayer = _x;
-            private _text = ((name _curPlayer) + "                          ") select [0, 24];
+            private _text = (name _curPlayer) + "               ";
             private _curFrequencies = _curPlayer getVariable [QGVAR(frequencies_player), ["", "", "", ""]];
 
             If !(_curFrequencies isEqualTo ["", "", "", ""]) then {
