@@ -56,7 +56,7 @@ private _fnc_getPlayergroups = {
         private _groupIndex =+ _sideIndex;
         TRACEV_2(_groupIndex,_sideIndex);
 
-        private _text = groupId _curGroup;
+        private _text = ((groupId _curGroup) + "                     ") select [0, 20];
 
         private _curFrequencies = _curGroup getVariable [QGVAR(frequencies), ["", "", "", ""]];
         if (_curFrequencies isEqualTo ["", "", "", ""]) then {
@@ -83,7 +83,7 @@ private _fnc_getPlayergroups = {
             if ((_curFrequencies select LR_ADD_INDEX) isEqualTo "") then {
                 _text = format ["%1  LR: %2", _text, _curFrequencies select LR_INDEX];
             } else {
-                _text = format ["%1  LR: (%2 | %3)", _text, _curFrequencies select LR_INDEX, _curFrequencies select LR_ADD_INDEX];
+                _text = format ["%1  LR: %2 (%3)", _text, _curFrequencies select LR_INDEX, _curFrequencies select LR_ADD_INDEX];
             };
         };
         _groupIndex pushBack (_tree tvAdd [_sideIndex, _text]);
