@@ -41,7 +41,7 @@ ISNIL(enabled,true);
     "LIST",
     LSTRING(addNVG),
     "Operation Kerberos",
-    [[0, 1, 2, 3], [LSTRING(disable), LSTRING(auto), LSTRING(always)], 1],
+    [[0, 1, 2], [LSTRING(disable), LSTRING(auto), LSTRING(always)], 1],
     1
 ] call cba_settings_fnc_init;
 [

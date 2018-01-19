@@ -46,6 +46,7 @@ class CfgComponents {
     gui_crate = 1;
     gui_save = 1;
     gui_acre = 1;
+    gui_tfar = 1;
 };
 
 #include "main\CfgComponent.hpp"
@@ -80,5 +81,6 @@ class CfgComponents {
 #include "gui_crate\CfgComponent.hpp"
 #include "gui_save\CfgComponent.hpp"
 #include "gui_acre\CfgComponent.hpp"
+#include "gui_tfar\CfgComponent.hpp"
 
 #include "mod_bw\CfgComponent.hpp"

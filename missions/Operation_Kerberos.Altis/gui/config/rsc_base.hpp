@@ -266,6 +266,45 @@ class RSC(ControlsTable) {
     };
 };
 
+class RSC(BaseCheckBox) {
+    idc = -1;
+    type = 77;
+    deletable = 0;
+    style = 0;
+    checked = 0;
+    x = GUI_DISP_X;
+    y = GUI_DISP_Y;
+    w = GUI_DISP_W;
+    h = GUI_DISP_H;
+    color[] = {1, 1, 1, 0.69999999};
+    colorFocused[] = {1, 1, 1, 1};
+    colorHover[] = {1, 1, 1, 1};
+    colorPressed[] = {1, 1, 1, 1};
+    colorDisabled[] = {1, 1, 1, 0.2};
+    colorBackground[] = {0, 0, 0, 0};
+    colorBackgroundFocused[] = {0, 0, 0, 0};
+    colorBackgroundHover[] = {0, 0, 0, 0};
+    colorBackgroundPressed[] = {0, 0, 0, 0};
+    colorBackgroundDisabled[] = {0, 0, 0, 0};
+    textureChecked="\a3\3DEN\Data\Controls\ctrlCheckbox\baseline_textureChecked_ca.paa";
+    textureUnchecked="\a3\3DEN\Data\Controls\ctrlCheckbox\baseline_textureUnchecked_ca.paa";
+    textureFocusedChecked="\a3\3DEN\Data\Controls\ctrlCheckbox\baseline_textureChecked_ca.paa";
+    textureFocusedUnchecked="\a3\3DEN\Data\Controls\ctrlCheckbox\baseline_textureUnchecked_ca.paa";
+    textureHoverChecked="\a3\3DEN\Data\Controls\ctrlCheckbox\baseline_textureChecked_ca.paa";
+    textureHoverUnchecked="\a3\3DEN\Data\Controls\ctrlCheckbox\baseline_textureUnchecked_ca.paa";
+    texturePressedChecked="\a3\3DEN\Data\Controls\ctrlCheckbox\baseline_textureChecked_ca.paa";
+    texturePressedUnchecked="\a3\3DEN\Data\Controls\ctrlCheckbox\baseline_textureUnchecked_ca.paa";
+    textureDisabledChecked="\a3\3DEN\Data\Controls\ctrlCheckbox\baseline_textureChecked_ca.paa";
+    textureDisabledUnchecked="\a3\3DEN\Data\Controls\ctrlCheckbox\baseline_textureUnchecked_ca.paa";
+    tooltipColorText[] = {1, 1, 1, 1};
+    tooltipColorBox[] = {1, 1, 1, 1};
+    tooltipColorShade[] = {0, 0, 0, 0.64999998};
+    soundEnter[] = {"", 0.1, 1};
+    soundPush[] = {"", 0.1, 1};
+    soundClick[] = {"", 0.1, 1};
+    soundEscape[] = {"", 0.1, 1};
+};
+
 class RSC(BaseCheckBoxSwitch) {
     idc = -1;
     type = 77;
