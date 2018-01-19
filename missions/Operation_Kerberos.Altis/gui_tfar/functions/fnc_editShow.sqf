@@ -35,7 +35,7 @@ if (cbChecked _ctrlcheckbox) then {
 
 
 (_dialog displayCtrl IDC_TFAR_EDIT_SR) ctrlSetText (_value select SR_INDEX);
-(_dialog displayCtrl IDC_TFAR_EDIT_SR_ADD) ctrlSetText (_value select SR_INDEX);
+(_dialog displayCtrl IDC_TFAR_EDIT_SR_ADD) ctrlSetText (_value select SR_ADD_INDEX);
 (_dialog displayCtrl IDC_TFAR_EDIT_LR) ctrlSetText (_value select LR_INDEX);
 (_dialog displayCtrl IDC_TFAR_EDIT_LR_ADD) ctrlSetText (_value select LR_ADD_INDEX);
 
