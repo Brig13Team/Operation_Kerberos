@@ -1591,4 +1591,47 @@
             <German>Taste um das Menu zu öffnen</German>
         </Key>
     </Package>
+    <Package name="GUI_TFAR">
+        <Key ID="STR_DORB_GUI_TFAR_SET">
+            <English>transmitt settings</English>
+            <German>Einstellungen übertragen</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_TFAR_DISCARD">
+            <English>discard settings</English>
+            <German>Einstellungen zurücksetzen</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_TFAR_HEADER">
+            <English>TFAR - Frequencies overview</English>
+            <German>TFAR - Frequenzübersicht</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_TFAR_KEYBIND">
+            <English>TFAR - Freqencies overview</English>
+            <German>TFAR - Frequenzübersicht</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_TFAR_KEYBIND_TOOLTIP">
+            <English>Shortcut for opening the menu</English>
+            <German>Taste um das Menu zu öffnen</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_TFAR_CHECKBOX">
+            <English>Set for group</English>
+            <German>Für die Gruppe festlegen</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_TFAR_TEXT_SR">
+            <English>Short range frequency:</English>
+            <German>Kurzstreckenfrequenz:</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_TFAR_TEXT_SR_ADD">
+            <English>Additional short range freqency:</English>
+            <German>Zusätzliche Kurzstreckenfrequenz:</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_TFAR_TEXT_LR">
+            <English>Long range frequency:</English>
+            <German>Langstreckenfrequenz:</German>
+        </Key>
+        <Key ID="STR_DORB_GUI_TFAR_TEXT_LR_ADD">
+            <English>Additional long range freqency:</English>
+            <German>Zusätzliche Langstreckenfrequenz:</German>
+        </Key>
+    </Package>
 </Project>
+
