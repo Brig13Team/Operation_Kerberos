@@ -29,6 +29,14 @@ ISNIL(enabled,true);
     1
 ] call cba_settings_fnc_init;
 [
+    QGVAR(propabilityDay),
+    "SLIDER",
+    LSTRING(propabilityDay),
+    "Operation Kerberos",
+    [0, 1, 0.5, 2],
+    1
+] call cba_settings_fnc_init;
+[
     QGVAR(enabled),
     "CHECKBOX",
     LSTRING(Nightitems),

@@ -1131,6 +1131,10 @@
             <English>Randomize day</English>
             <German>Zufälliger Tag</German>
         </Key>
+        <Key ID="STR_DORB_night_propabilityDay">
+            <English>Propability day</English>
+            <German>Wahrscheinlichkeit Tag</German>
+        </Key>
         <Key ID="STR_DORB_night_Nightitems">
             <English>Activate night items for AI</English>
             <German>Aktiviere Nachtgeräte für KI</German>
