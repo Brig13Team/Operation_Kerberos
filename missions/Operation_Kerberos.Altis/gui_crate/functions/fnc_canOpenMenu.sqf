@@ -21,6 +21,8 @@ params [
 
 If ((isNull player)||{_spawnID isEqualTo ""}||(!(_player == vehicle ace_player))) exitWith {false};
 
+If (GVAR(restrictAccess) && {(_player getVariable ["ace_isEngineer", 0]) > 1}) exitWith {};
+
 private _spawnArray = GVAR(spawns) getVariable [_spawnID,[]];
 //TRACEV_1(_spawnArray);
 if (_spawnArray isEqualTo []) exitWith {false};
