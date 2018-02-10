@@ -38,6 +38,8 @@ class CfgComponents {
     patch_bwa3 = 1;
     mod_bw = 1;
 
+    network = 1;
+
     gui = 1;
     gui_main = 1;
     gui_vehiclespawn = 1;
@@ -53,6 +55,7 @@ class CfgComponents {
 #include "gui\CfgComponent.hpp"
 
 #include "common\CfgComponent.hpp"
+#include "network\CfgComponent.hpp"
 #include "grouptracker\CfgComponent.hpp"
 #include "logistics\CfgComponent.hpp"
 #include "mod_ace\CfgComponent.hpp"
