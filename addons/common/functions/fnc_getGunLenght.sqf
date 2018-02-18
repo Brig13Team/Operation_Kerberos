@@ -15,7 +15,7 @@
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-_this params params [["_vehicle", "", [objNull,""]], ["_turret", [-1], [[]]]];
+params [["_vehicle", "", [objNull,""]], ["_turret", [-1], [[]]]];
 
 CHECK(_vehicle isEqualTo "")
 
