@@ -17,6 +17,15 @@ CHECK(!hasInterface)
     {
         params ["_caller", "_target"];
 
+        If (GVAR(revivesettings) < 1) exitWith {};
+
+        If (GVAR(revivesettings) == 1) exitWith {
+            If ((_target getVariable ["Ace_medical_inReviveState", false]) && {(random 1) >= 0.80}) then {
+                _target setVariable ["Ace_medical_inCardiacArrest", true, true];
+                _target setVariable ["Ace_medical_inReviveState", false, true];
+            };
+        };
+
         private _reviveChance = [0.10, 0.20, 0.40] select (_target getVariable ["ACE_medical_medicClass", 0]);
 
         If ((GVAR(lastEpiTime) + 120) >= CBA_missiontime) then {
@@ -54,6 +63,8 @@ CHECK(!hasInterface)
 [
     "ace_medical_treatmentAdvanced_fullHealLocal",
     {
+        If (GVAR(revivesettings) < 2) exitWith {};
+
         params ["_caller", "_target"];
         _target setVariable ["ace_medical_amountOfReviveLives", ace_medical_amountOfReviveLives, true];
     }
@@ -62,6 +73,8 @@ CHECK(!hasInterface)
 [
     "ace_medical_treatmentAdvanced_medicationLocal",
     {
+        If (GVAR(revivesettings) < 2) exitWith {};
+
         params ["_target", "_className", "_partNumber"];
         If (_className == "Epinephrine") then {
             GVAR(lastEpiTime) = CBA_missiontime;
