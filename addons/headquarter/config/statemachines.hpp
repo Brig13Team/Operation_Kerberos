@@ -57,7 +57,7 @@ class GVAR(statemachine_AIGroups) {
             condition = QUOTE((_this getVariable [ARR_2('GVAR(state)','none')])=='cas_support');
             onTransition = "";
         };
-        class toCAS {
+        class toCASBomb {
             targetState = "cas_support_bomb";
             condition = QUOTE((_this getVariable [ARR_2('GVAR(state)','none')])=='cas_support_bomb');
             onTransition = "";

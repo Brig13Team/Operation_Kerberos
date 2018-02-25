@@ -22,3 +22,15 @@ ISNIL(option_spawnAsDriver,false);
 ISNIL(option_noAmmo,false);
 ISNIL(option_openPylon,false);
 ISNIL(option_current,"info");
+
+[
+    "Box_NATO_AmmoVeh_F",
+    "init",
+    {
+        params ["_box"];
+        _box setVariable ["ace_cargo_size", 5];
+    },
+    nil,
+    nil,
+    true
+] call CBA_fnc_addClassEventHandler;
