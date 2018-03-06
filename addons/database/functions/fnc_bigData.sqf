@@ -13,7 +13,7 @@
  */
 #include "script_component.hpp"
 
-_this params ["_key"];
+params ["_key"];
 private _return = "";
 private "_pipe";
 while {true} do {

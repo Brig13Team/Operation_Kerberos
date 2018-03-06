@@ -14,6 +14,7 @@
 #define DEBUG_MODE_NORMAL
 #include "script_component.hpp"
 
+if !(isClass (configFile >> "CfgPatches" >> "extDB3")) exitWith {};
 
 private _result = "extdb3" callExtension "9:VERSION";
 If (_result isEqualTo "") exitWith {
