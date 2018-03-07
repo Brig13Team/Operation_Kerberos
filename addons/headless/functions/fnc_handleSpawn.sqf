@@ -18,7 +18,7 @@
 #include "script_component.hpp"
 
 params ["_object"];
-TRACE_1("Spawn",_object);
+//TRACE_1("Spawn",_object);
 
 // Exit if HC transferring disabled or object not a unit (including unit inside vehicle) or is player
 if (!(_object in allUnits) || {isPlayer _object}) exitWith {};
