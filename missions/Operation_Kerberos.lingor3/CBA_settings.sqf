@@ -28,3 +28,11 @@ force dorb_viewrestriction_forceship = true;
 force dorb_viewrestriction_forcevehicle = true;
 force dorb_whitelist_onlyPilotsFly = true;
 force dorb_whitelist_whitelistenabled = true;
+
+// ACEX Headless
+force acex_headless_delay = 15;
+force acex_headless_enabled = true;
+force acex_headless_endMission = 0;
+
+// ACEX Sitting
+acex_sitting_enable = true;
