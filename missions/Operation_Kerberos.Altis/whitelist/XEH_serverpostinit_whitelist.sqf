@@ -13,7 +13,7 @@ EGVAR(player,reserved_pilot_slot) = true;
 
 [QGVAR(pilot_whitelist), "onPlayerConnected", {
     If (([_uid, "HC"] call CBA_fnc_find)>-1) exitWith {}; /// Ignore Headless CLients
-    If !(dorb_database_initialized) exitWith {
+    If !(missionNamespace getVariable [QEGVAR(database,initialized), false]) then {
         ERROR("No Databasemod initialized");
         _owner publicVariableClient QEGVAR(player,reserved_pilot_slot);
     } else {

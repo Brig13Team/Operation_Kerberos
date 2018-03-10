@@ -12,10 +12,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={2978.7871,86.838707,6322.0474};
-		dir[]={0.023552721,-0.36704427,0.92990899};
-		up[]={0.0092935283,0.93020386,0.36692736};
-		aside[]={0.99968302,5.3751137e-009,-0.025319839};
+		pos[]={2965.1877,84.466896,6476.6758};
+		dir[]={0.18386348,-0.51268709,0.83867633};
+		up[]={0.10979073,0.85857457,0.50080079};
+		aside[]={0.9768182,-3.9835868e-008,-0.21414813};
 	};
 };
 binarizationWanted=0;
@@ -2518,7 +2518,7 @@ class Mission
 			position[]={61.857277,7.8522949,5990.3535};
 			name="bay_west_sea";
 			type="Empty";
-			angle=90.131729;
+			angle=90.131721;
 			id=43;
 			atlOffset=25.102295;
 		};
@@ -6341,7 +6341,7 @@ class Mission
 			position[]={2976.0681,14.15,6552.416};
 			name="rescue_marker";
 			type="Empty";
-			angle=263.1149;
+			angle=263.11487;
 			id=110;
 		};
 		class Item62
@@ -7437,7 +7437,7 @@ class Mission
 		class Item88
 		{
 			dataType="Marker";
-			position[]={2982.7847,14.05,6633.4458};
+			position[]={2950.1819,14.08,6886.8789};
 			name="marker_1";
 			type="b_air";
 			id=137;
@@ -7603,11 +7603,11 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={2989.8181,14.105841,6431.5};
+				position[]={2962.5132,14.05,6590.2881};
 			};
+			init="call{this setVariable [""Dorb_canDelete"",false];}";
 			id=145;
 			type="acex_fortify_setupModule";
-			atlOffset=1.9073486e-006;
 			class CustomAttributes
 			{
 				class Attribute0

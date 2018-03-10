@@ -13,8 +13,14 @@
 
 #include "script_component.hpp"
 
-params ["_cfg","_datatype"];
+params [["_cfg", configNull, [configNull]], "_datatype"];
 //TRACEV_2(_cfg,_datatype);
+
+If (isNull _cfg) exitWith {
+    ERROR_1("No Config provided: %1",_cfg);
+    []
+};
+
 _dataType = toLower _datatype;
 
 private _return = [];
