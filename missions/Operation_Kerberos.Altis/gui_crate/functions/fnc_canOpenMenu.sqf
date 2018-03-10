@@ -12,23 +12,23 @@
  */
 //#define DEBUG_MODE_FULL
 #include "script_component.hpp"
-TRACEV_1(_this);
+
 params [
-    ["_target",objNull,[objNull]],
-    ["_player",objNull,[objNull]],
-    ["_spawnID","",[""]]
+    ["_target", objNull, [objNull]],
+    ["_player", objNull, [objNull]],
+    ["_spawnID", "",[""]]
 ];
 
-If ((isNull player)||{_spawnID isEqualTo ""}||(!(_player == vehicle ace_player))) exitWith {false};
+if ((isNull player)||{_spawnID isEqualTo ""}||(!(_player == vehicle ace_player))) exitWith {false};
 
-If (GVAR(restrictAccess) && {(_player getVariable ["ace_isEngineer", 0]) > 1}) exitWith {};
+if (GVAR(restrictAccess) && {((_player getVariable ["ace_isEngineer", 0]) == 1) && {!(_player getVariable [QGVARMAIN(isLogistician), false])}} ) exitWith {false};
 
-private _spawnArray = GVAR(spawns) getVariable [_spawnID,[]];
-//TRACEV_1(_spawnArray);
+private _spawnArray = GVAR(spawns) getVariable [_spawnID, []];
+
 if (_spawnArray isEqualTo []) exitWith {false};
 
 private _distance = (getPosASL _player) distance (_spawnArray select 1);
 
-If ((_distance > CHECK_RADIUS_MAX)||{_distance < CHECK_RADIUS_MIN}) exitWith {false};
+if ((_distance > CHECK_RADIUS_MAX)||{_distance < CHECK_RADIUS_MIN}) exitWith {false};
 
 true
