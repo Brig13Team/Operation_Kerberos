@@ -12,3 +12,7 @@
 #endif
 
 #include "\x\dorb\addons\main\script_macros.hpp"
+
+
+#define STATEMACHINEINTERVALL 10
+#define SPAWNTIMEOUT (15*60)
