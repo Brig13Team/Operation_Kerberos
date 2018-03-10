@@ -13,6 +13,7 @@ force dorb_gui_arsenal_allowedradius = 25;
 dorb_gui_arsenal_fastArsenalLoading = false;
 dorb_gui_arsenal_forceReload = false;
 force dorb_gui_arsenal_level = 2;
+force dorb_gui_crate_restrictAccess = 2;
 force dorb_gui_teleport_to_lead_active = true;
 force dorb_mod_tfar_AICanHearPlayer = true;
 force dorb_night_enabled = true;

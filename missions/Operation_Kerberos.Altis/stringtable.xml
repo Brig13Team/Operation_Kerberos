@@ -969,6 +969,10 @@
             <English>Crate Filler</English>
             <German>Kistenfüller</German>
         </Key>
+        <Key ID="STR_DORB_GUI_CRATE_restrictAccess">
+            <English>Restrict the Access</English>
+            <German>Zugriff einschränken</German>
+        </Key>
         <Key ID="STR_DORB_GUI_CRATE_HEADER_INVENTORY">
             <English>Inventory</English>
             <German>Inventar</German>
@@ -1130,6 +1134,10 @@
         <Key ID="STR_DORB_night_randomizeDay">
             <English>Randomize day</English>
             <German>Zufälliger Tag</German>
+        </Key>
+        <Key ID="STR_DORB_night_propabilityDay">
+            <English>Propability day</English>
+            <German>Wahrscheinlichkeit Tag</German>
         </Key>
         <Key ID="STR_DORB_night_Nightitems">
             <English>Activate night items for AI</English>

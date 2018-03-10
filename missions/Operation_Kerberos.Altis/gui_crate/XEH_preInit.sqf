@@ -22,3 +22,12 @@ GVAR(curInventory) = HASH_CREATE;
 
 GVAR(preset) = HASH_CREATE;
 GVAR(libary) = HASH_CREATE;
+
+[
+    QGVAR(restrictAccess),
+    "CHECKBOX",
+    LSTRING(restrictAccess),
+    "Operation Kerberos",
+    false,
+    2
+] call cba_settings_fnc_init;
