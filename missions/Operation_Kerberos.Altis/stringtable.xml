@@ -55,6 +55,22 @@
             <English>Join Team White</English>
             <German>Team Weiss beitreten</German>
         </Key>
+        <Key ID="STR_DORB_MOD_ACE_revivesettings">
+            <English>Advanced CPR</English>
+            <German>Erweiterte HLW</German>
+        </Key>
+        <Key ID="STR_DORB_MOD_ACE_revivesetting_off">
+            <English>Off</English>
+            <German>Ausgeschaltet</German>
+        </Key>
+        <Key ID="STR_DORB_MOD_ACE_revivesetting_simple">
+            <English>Simple</English>
+            <German>Einfach</German>
+        </Key>
+        <Key ID="STR_DORB_MOD_ACE_revivesetting_advanced">
+            <English>Advanced</English>
+            <German>Erweitert</German>
+        </Key>
     </Package>
     <Package name="grouptracker">
         <Key ID="STR_DORB_GROUPTRACKER_UpdateIntervall">

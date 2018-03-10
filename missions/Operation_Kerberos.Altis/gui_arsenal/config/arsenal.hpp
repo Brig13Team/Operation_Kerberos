@@ -5,7 +5,6 @@ class GVARMAIN(arsenal) {
         // items
         "NVGogglesB_blk_F","NVGogglesB_grn_F","NVGogglesB_gry_F",
         "optic_Nightstalker","optic_tws","optic_tws_mg",
-        "ACE_bodyBag",
         "ACE_SpraypaintBlack","ACE_SpraypaintBlue","ACE_SpraypaintGreen","ACE_SpraypaintRed",
         "ACE_key_civ","ACE_key_east","ACE_key_indp","ACE_key_lockpick","ACE_key_master","ACE_key_west",
         "U_B_Protagonist_VR","U_I_Protagonist_VR","U_O_Protagonist_VR",
