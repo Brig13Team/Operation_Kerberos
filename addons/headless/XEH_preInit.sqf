@@ -11,9 +11,15 @@ RECOMPILE_START;
 #include "XEH_PREP.hpp"
 RECOMPILE_END;
 
+ADDON = true;
+
 GVAR(enabled) = true;
 GVAR(delay) = HEADLESSDELAY;
 GVAR(log) = true;
+
+if (isClass(configFile >> "CfgPatches" >> "acex_headless")) exitWith {
+    GVAR(enabled) = false;
+};
 
 if (isServer) then {
     GVAR(headlessClients) = [];
@@ -21,10 +27,6 @@ if (isServer) then {
     GVAR(endMissionCheckDelayed) = false;
     [QGVAR(headlessClientJoined), FUNC(handleConnectHC)] call CBA_fnc_addEventHandler;
 };
-
-
-ADDON = true;
-
 
 ["cba_settingsInitialized", {
     // Register and remove HCs if not client that is not server and distribution or end mission enabled

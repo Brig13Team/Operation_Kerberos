@@ -17,5 +17,9 @@ If (!isServer) exitWith {};
 
 GVAR(initialized) = false;
 
+if !(isClass (configFile >> "CfgPatches" >> "extDB3")) exitWith {
+    ERROR("ExtDB3 Mod is not loaded");
+};
+
 call FUNC(connectToDB);
 ["constructTablePlayers"] call FUNC(sendNoReturn);

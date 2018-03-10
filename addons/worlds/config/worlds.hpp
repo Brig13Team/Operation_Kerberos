@@ -52,4 +52,13 @@ class worlds {
             #include "pja310\waypoints2.hpp"
         };
     };
+    class lingor3 {
+        camouflage = 1;
+        class locations {
+            #include "lingor3\locations.hpp"
+        };
+        class waypoints {
+            #include "lingor3\waypoints.hpp"
+        };
+    };
 };
