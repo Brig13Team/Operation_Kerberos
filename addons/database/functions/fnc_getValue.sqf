@@ -13,9 +13,9 @@
  */
 #include "script_component.hpp"
 
-CHECK(isNil "_this")
+If (isNil "_this") exitWith {};
 
-private _query = [0,GVAR(sessionID)];
+private _query = [0, GVAR(sessionID)];
 _query append _this;
 _query = _query joinString ":";
 private _return = call compile ("extdb3" callExtension _query);

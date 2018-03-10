@@ -14,10 +14,10 @@ cba_settings_hasSettingsFile = 1;
 onLoadMissionTime = 1;
 onLoadName = "Zeusmission Template";
 onLoadMission = "Zeusmission Template";
-loadScreen = MPATH(EPAAPATH(logo,logo_512));
+loadScreen = MPATH(gui\data\logo\logo_512.paa);
 
 author = CSTRING(AUTHOR);
-//overviewPicture = MPATH(EPAAPATH(logo,logo_512));
+//overviewPicture = MPATH(gui\data\logo\logo_512.paa);
 overviewPicture = "";
 overviewText = "";
 overviewTextLocked = "";
