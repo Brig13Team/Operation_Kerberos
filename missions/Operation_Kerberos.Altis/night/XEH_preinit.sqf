@@ -61,6 +61,24 @@ ISNIL(enabled,true);
     1
 ] call cba_settings_fnc_init;
 
+[
+    QGVAR(disableTIEquipment),
+    "CHECKBOX",
+    LSTRING(Nightitems),
+    "Operation Kerberos",
+    false,
+    1,
+    {
+        params ["_setting", "_value"];
+        If (isServer && _value) then {
+            ["All", "respawn", {
+                params ["_vehicle"];
+                _vehicle disableTIEquipment (missionNamespace getVariable [QGVAR(disableTIEquipment), false]);
+            },true,[],true] call CBA_fnc_addClassEventHandler;
+        };
+    }
+] call cba_settings_fnc_init;
+
 If (isServer) then {
     [
         {(time > 0) && {!(isNil QGVAR(randomizeDay))}},

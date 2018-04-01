@@ -1187,6 +1187,10 @@
             <English>Always Pointer</English>
             <German>Immer Laser</German>
         </Key>
+        <Key ID="STR_DORB_night_disableTIEquipment">
+            <English>Disable Thermal Vision</English>
+            <German>Thermal ausschalten</German>
+        </Key>
     </Package>
     <Package name="groundactions">
         <Key ID="STR_DORB_groundactions_inventory">
