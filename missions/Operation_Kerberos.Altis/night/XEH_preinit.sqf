@@ -1,3 +1,4 @@
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 ADDON = false;
@@ -64,17 +65,18 @@ ISNIL(enabled,true);
 [
     QGVAR(disableTIEquipment),
     "CHECKBOX",
-    LSTRING(Nightitems),
+    LSTRING(disableTIEquipment),
     "Operation Kerberos",
     false,
     1,
     {
-        params ["_setting", "_value"];
-        If (isServer && _value) then {
-            ["All", "respawn", {
+        params ["_value"];
+        TRACEV_2(_value,GVAR(disableTIHandler));
+        If (isServer && _value && {isNil QGVAR(disableTIHandler)}) then {
+            GVAR(disableTIHandler) = ["AllVehicles", "init", {
                 params ["_vehicle"];
                 _vehicle disableTIEquipment (missionNamespace getVariable [QGVAR(disableTIEquipment), false]);
-            },true,[],true] call CBA_fnc_addClassEventHandler;
+            }, true, [], true] call CBA_fnc_addClassEventHandler;
         };
     }
 ] call cba_settings_fnc_init;

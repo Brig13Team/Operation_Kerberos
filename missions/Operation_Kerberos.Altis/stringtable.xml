@@ -986,8 +986,8 @@
             <German>Kistenfüller</German>
         </Key>
         <Key ID="STR_DORB_GUI_CRATE_restrictAccess">
-            <English>Restrict the Access</English>
-            <German>Zugriff einschränken</German>
+            <English>Restrict the access of the crate spawner</English>
+            <German>Zugriff des Crate-Spawn einschränken</German>
         </Key>
         <Key ID="STR_DORB_GUI_CRATE_HEADER_INVENTORY">
             <English>Inventory</English>
@@ -1188,8 +1188,8 @@
             <German>Immer Laser</German>
         </Key>
         <Key ID="STR_DORB_night_disableTIEquipment">
-            <English>Disable Thermal Vision</English>
-            <German>Thermal ausschalten</German>
+            <English>disable thermal vision for vehicles</English>
+            <German>Thermalsicht für Fahrzeuge ausschalten</German>
         </Key>
     </Package>
     <Package name="groundactions">
