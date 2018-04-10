@@ -152,8 +152,8 @@ class GVAR(unitlists) {
             cas_helicopter_types[] = {"rhs_mi28n_vvsc"};
 
             ai = 1;
-            ai_types[] = {"RHS_T50_vvs_054","RHS_T50_vvs_053","RHS_T50_vvs_052"};
-            //ai_types[] = {"O_Plane_Fighter_02_Stealth_F"};
+            //ai_types[] = {"RHS_T50_vvs_054","RHS_T50_vvs_053","RHS_T50_vvs_052"};
+            ai_types[] = {"O_Plane_Fighter_02_Stealth_F"};
 
             group_infantry[] = {
                 {"configfile","CfgGroups","East","rhs_faction_vdv","rhs_group_rus_vdv_infantry","rhs_group_rus_vdv_infantry_fireteam"},
@@ -1231,10 +1231,10 @@ class GVAR(unitlists) {
             helicopter_transport[] = {"RHS_CH_47F_10","RHS_CH_47F_light"};
             cas_helicopter_types[] = {"RHS_AH64D_GS","RHS_AH64D_CS"};
 
-            ai_types[] = {"rhsusf_f22"};
-            cas_types[] = {"RHS_A10","RHS_A10_AT"};
-            //ai_types[] = {"B_Plane_Fighter_01_Stealth_F"};
-            //cas_types[] = {"B_Plane_CAS_01_dynamicLoadout_F"};
+            //ai_types[] = {"rhsusf_f22"};
+            //cas_types[] = {"RHS_A10","RHS_A10_AT"};
+            ai_types[] = {"B_Plane_Fighter_01_Stealth_F"};
+            cas_types[] = {"B_Plane_CAS_01_dynamicLoadout_F"};
             amountHeli = 1;
             amountAI = 1;
             amountCAS = 1;

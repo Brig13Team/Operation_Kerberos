@@ -34,7 +34,7 @@ switch (_presetName) do {
     case "carrier_west" : {
         _return = configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'scope')>1}&&{getNumber(_x>>'side')==1}&&{((configName _x) isKindOf 'Air')})", true];
         _return = _return apply {configName _x};
-        //_return = _return select {!((toLower _x) in ["rhs_a10","rhs_c130j","rhsusf_f22"])};
+        _return = _return select {!((toLower _x) in ["rhs_a10","rhs_c130j","rhsusf_f22"])};
         _return pushBack "B_Quadbike_01_F";
         _return pushBack "O_Heli_Transport_04_black_F";
     };
@@ -89,7 +89,7 @@ switch (_presetName) do {
     case "air_resistance_public" : {
         _return = configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'scope')>1}&&{getNumber(_x>>'side')==2}&&{((configName _x) isKindOf 'Air')})", true];
         _return = _return apply {configName _x};
-        //_return = _return select {!((toLower _x) in ["rhsgref_cdf_su25","rhs_l159_cdf","rhs_l39_cdf","rhs_an2","rhsgref_cdf_mig29s"])};
+        _return = _return select {!((toLower _x) in ["rhsgref_cdf_su25","rhs_l159_cdf","rhs_l39_cdf","rhs_an2","rhsgref_cdf_mig29s"])};
     };
     case "naval_resistance" : {
         _return = configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'scope')>1}&&{getNumber(_x>>'side')==2}&&{((configName _x) isKindOf 'Ship')})", true];
