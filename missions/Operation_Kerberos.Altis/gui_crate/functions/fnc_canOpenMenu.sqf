@@ -21,7 +21,7 @@ params [
 
 if ((isNull player)||{_spawnID isEqualTo ""}||(!(_player == vehicle ace_player))) exitWith {false};
 
-if (GVAR(restrictAccess) && {((_player getVariable ["ace_isEngineer", 0]) == 1) && {!(_player getVariable [QGVARMAIN(isLogistician), false])}} ) exitWith {false};
+if (GVAR(restrictAccess) && {!((_player call ace_common_fnc_isEngineer) && {_player getVariable [QGVARMAIN(isLogistician), false]})} ) exitWith {false};
 
 private _spawnArray = GVAR(spawns) getVariable [_spawnID, []];
 
