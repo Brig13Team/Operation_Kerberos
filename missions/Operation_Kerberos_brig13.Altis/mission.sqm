@@ -5155,8 +5155,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={24284.322,6.2945642,18055.045};
-				angles[]={0,2.1970377,0};
+				position[]={24284.322,6.2942696,18055.045};
+				angles[]={0,2.1970379,0};
 			};
 			side="Empty";
 			flags=1;
@@ -5165,10 +5165,34 @@ class Mission
 				init="call{this setVariable [""Dorb_canDelete"",false];}";
 				name="Willkommen";
 				description="Willkommen";
+				disableSimulation=1;
 			};
 			id=194;
 			type="Land_Billboard_F";
-			atlOffset=1.4642947;
+			atlOffset=1.464;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 		class Item100
 		{
@@ -11080,13 +11104,14 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={30404.168,23.520086,15546.926};
-						angles[]={0,2.4748702,0};
+						position[]={30404.17,23.520435,15546.926};
+						angles[]={0,2.4748769,0};
 					};
 					side="West";
 					flags=3;
 					class Attributes
 					{
+						init="call{this setVariable [""dorb_isLogistician"", true];}";
 						description="Logistiker";
 						isPlayable=1;
 						class Inventory
@@ -11113,7 +11138,7 @@ class Mission
 					};
 					id=484;
 					type="B_Helipilot_F";
-					atlOffset=209.48865;
+					atlOffset=209.489;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -11156,6 +11181,25 @@ class Mission
 						};
 						class Attribute2
 						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male10ENG";
+								};
+							};
+						};
+						class Attribute3
+						{
 							property="pitch";
 							expression="_this setpitch _value;";
 							class Value
@@ -11173,7 +11217,7 @@ class Mission
 								};
 							};
 						};
-						nAttributes=3;
+						nAttributes=4;
 					};
 				};
 				class Item1
@@ -11181,13 +11225,14 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={30402.934,23.520086,15547.412};
-						angles[]={0,2.4748702,0};
+						position[]={30402.934,23.520435,15547.412};
+						angles[]={0,2.4748769,0};
 					};
 					side="West";
 					flags=1;
 					class Attributes
 					{
+						init="call{this setVariable [""dorb_isLogistician"", true];}";
 						description="Logistiker";
 						isPlayable=1;
 						class Inventory
@@ -11214,171 +11259,7 @@ class Mission
 					};
 					id=485;
 					type="B_Helipilot_F";
-					atlOffset=209.48865;
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="ace_isMedic";
-							expression="if (_value > -1) then {_this setVariable [""ace_medical_medicClass"",_value,true];};";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=2;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="ace_isEngineer";
-							expression="if (_value != -1) then {_this setVariable ['ace_isEngineer',_value, true];}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=2;
-								};
-							};
-						};
-						nAttributes=2;
-					};
-				};
-				class Item2
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={30403.695,23.523563,15547.66};
-						angles[]={0,2.4748702,0};
-					};
-					side="West";
-					flags=1;
-					class Attributes
-					{
-						description="Logistiker";
-						isPlayable=1;
-						class Inventory
-						{
-							class uniform
-							{
-								typeName="U_B_CombatUniform_mcam";
-								isBackpack=0;
-								class ItemCargo
-								{
-									items=1;
-									class Item0
-									{
-										name="FirstAidKit";
-										count=1;
-									};
-								};
-							};
-							map="ItemMap";
-							compass="ItemCompass";
-							watch="ItemWatch";
-							radio="ItemRadio";
-						};
-					};
-					id=486;
-					type="B_Helipilot_F";
-					atlOffset=209.49213;
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="ace_isMedic";
-							expression="if (_value > -1) then {_this setVariable [""ace_medical_medicClass"",_value,true];};";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=2;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="ace_isEngineer";
-							expression="if (_value != -1) then {_this setVariable ['ace_isEngineer',_value, true];}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=2;
-								};
-							};
-						};
-						nAttributes=2;
-					};
-				};
-				class Item3
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={30403.445,23.559818,15546.377};
-						angles[]={0,2.4748702,0};
-					};
-					side="West";
-					flags=5;
-					class Attributes
-					{
-						description="Logistiker";
-						isPlayable=1;
-						class Inventory
-						{
-							class uniform
-							{
-								typeName="U_B_CombatUniform_mcam";
-								isBackpack=0;
-								class ItemCargo
-								{
-									items=1;
-									class Item0
-									{
-										name="FirstAidKit";
-										count=1;
-									};
-								};
-							};
-							map="ItemMap";
-							compass="ItemCompass";
-							watch="ItemWatch";
-							radio="ItemRadio";
-						};
-					};
-					id=487;
-					type="B_Helipilot_F";
-					atlOffset=0.029935837;
+					atlOffset=209.489;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -11421,6 +11302,267 @@ class Mission
 						};
 						class Attribute2
 						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male07ENG";
+								};
+							};
+						};
+						class Attribute3
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.94999999;
+								};
+							};
+						};
+						nAttributes=4;
+					};
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={30403.695,23.523441,15547.66};
+						angles[]={0,2.4748769,0};
+					};
+					side="West";
+					flags=1;
+					class Attributes
+					{
+						init="call{this setVariable [""dorb_isLogistician"", true];}";
+						description="Logistiker";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=486;
+					type="B_Helipilot_F";
+					atlOffset=209.492;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="ace_isMedic";
+							expression="if (_value > -1) then {_this setVariable [""ace_medical_medicClass"",_value,true];};";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=2;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="ace_isEngineer";
+							expression="if (_value != -1) then {_this setVariable ['ace_isEngineer',_value, true];}";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=2;
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male09ENG";
+								};
+							};
+						};
+						class Attribute3
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=4;
+					};
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={30403.445,23.559437,15546.377};
+						angles[]={0,2.4748769,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="call{this setVariable [""dorb_isLogistician"", true];}";
+						description="Logistiker";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
+					};
+					id=487;
+					type="B_Helipilot_F";
+					atlOffset=0.029554367;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="ace_isMedic";
+							expression="if (_value > -1) then {_this setVariable [""ace_medical_medicClass"",_value,true];};";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=2;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="ace_isEngineer";
+							expression="if (_value != -1) then {_this setVariable ['ace_isEngineer',_value, true];}";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=2;
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male07ENG";
+								};
+							};
+						};
+						class Attribute3
+						{
 							property="pitch";
 							expression="_this setpitch _value;";
 							class Value
@@ -11438,7 +11580,7 @@ class Mission
 								};
 							};
 						};
-						nAttributes=3;
+						nAttributes=4;
 					};
 				};
 			};
@@ -11446,7 +11588,7 @@ class Mission
 			{
 			};
 			id=483;
-			atlOffset=209.48865;
+			atlOffset=209.489;
 		};
 		class Item175
 		{
@@ -12946,7 +13088,7 @@ class Mission
 			text="Rescue";
 			type="Select";
 			colorName="ColorWEST";
-			angle=180.49196;
+			angle=180.49193;
 			id=512;
 			atlOffset=-3.1900001;
 		};
