@@ -38,3 +38,7 @@ switch (true) do {
 if (((side ace_player) == west)&&{(typeOf _object) in ["I_MRAP_03_F","I_MRAP_03_gmg_F","I_MRAP_03_hmg_F"]}) then {
     [_object,"blufor",true] call BIS_fnc_initVehicle;
 };
+
+if (((side ace_player) == west)&&{(typeOf _object) in ["I_LT_01_AT_F","I_LT_01_scout_F","I_LT_01_AA_F","I_LT_01_cannon_F"]}) then {
+    [_object,"Indep_Olive",true] call BIS_fnc_initVehicle;
+};

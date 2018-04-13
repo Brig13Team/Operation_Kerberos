@@ -24,7 +24,7 @@ switch (_presetName) do {
     case "vehicles_west_public" : {
         _return = configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'scope')>1}&&{getNumber(_x>>'side')==1}&&{((configName _x) isKindOf 'Tank_F')||((configName _x) isKindOf 'Car')})", true];
         _return = _return apply {configName _x};
-        _return append ["I_MRAP_03_F","I_MRAP_03_gmg_F","I_MRAP_03_hmg_F"];
+        _return append ["I_MRAP_03_F","I_MRAP_03_gmg_F","I_MRAP_03_hmg_F","I_LT_01_AT_F","I_LT_01_scout_F","I_LT_01_AA_F","I_LT_01_cannon_F"];
         _return = _return select {!((toLower _x) in ["b_sam_system_01_f","b_sam_system_02_f","b_aaa_system_01_f"])};
     };
     case "air_west" : {
