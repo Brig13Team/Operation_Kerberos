@@ -1,18 +1,20 @@
-/**
- * Author: Dorbedo
- * returns the possible house compositions
- *
- * Arguments:
- * 0: <BOOL> isObjective (default: false)
- *
- * Return Value:
- * <LOCATION> possible composition configs
- *
- */
-#define DEBUG_MODE_OFF
 #include "script_component.hpp"
 
-params [["_isobjective",false,[true]]];
+/*
+  Name: dorb_composition_fnc_getPossibleHouseCompositions
+  Author: Dorbedo
+  returns the possible house compositions
+
+  Arguments:
+    0: is Objective <BOOL> (default: false)
+
+  Return Value:
+    possible composition configs <LOCATION>
+
+  Public: No
+*/
+
+params [["_isobjective", false, [true]]];
 
 private _target = if (_isObjective) then {
     "missionhouses"

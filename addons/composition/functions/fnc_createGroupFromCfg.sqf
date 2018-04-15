@@ -1,23 +1,23 @@
-/**
- * Author: Dorbedo
- * creates a group from the composition
- *
- * Arguments:
- * 0: <ARRAY> Centerposition
- * 1: <SCALAR> Centerdir
- * 2: <CONFIG> Group Config
- * 3: <LOCATION> hash with spawned Objects
- *
- * Return Value:
- * Nothing
- *
- */
-#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-params ["_centerPosition","_dir","_curCfg","_objectsHash"];
+/*
+  Name: dorb_composition_fnc_createGroupFromCfg
+  Author: Dorbedo
+  creates a group from the composition
 
-//TRACEV_1(_curCfg);
+  Arguments:
+    0: center position <ARRAY>
+    1: center direction <SCALAR>
+    2: groupconfig <CONFIG>
+    3: hash with spawned objects <LOCATION>
+
+  Return Value:
+    None
+
+  Public: No
+*/
+
+params ["_centerPosition", "_dir", "_curCfg", "_objectsHash"];
 
 If !(getText(_curCfg >> "dataType") == "Group") exitWith {};
 

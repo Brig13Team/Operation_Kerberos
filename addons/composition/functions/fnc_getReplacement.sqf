@@ -1,18 +1,20 @@
-/**
- * Author: Dorbedo
- * returns the replacement for a unit, if another faction/side was chosen
- *
- * Arguments:
- * 0: <STRING> the unitclass
- *
- * Return Value:
- * <STRING> the replacement, empty string if there is no replacement possible
- *
- */
-
 #include "script_component.hpp"
 
-params [["_unittype","",[""]]];
+/*
+  Name: dorb_composition_fnc_getReplacement
+  Author: Dorbedo
+  returns the replacement for a unit, if another faction/side was chosen
+
+  Arguments:
+    0: the unit class <STRING>
+
+  Return Value:
+    the replacement, empty string if there is no replacement possible <STRING>
+
+  Public: Yes
+*/
+
+params [["_unittype", "", [""]]];
 
 private _return = _unittype;
 

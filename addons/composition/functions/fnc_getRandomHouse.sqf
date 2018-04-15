@@ -1,19 +1,21 @@
-/**
- * Author: Dorbedo
- * returns possible houses
- *
- * Arguments:
- * 0: <ARRAY> centerposition
- * 1: <SCALAR> searchradius
- * 2: <SCALAR> amount
- * 3: <SCALAR> missionhouse
- *
- * Return Value:
- * <TYPENAME> return name
- *
- */
-//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
+
+/*
+  Name: dorb_composition_fnc_getRandomHouse
+  Author: Dorbedo
+  return possible houses
+
+  Arguments:
+    0: center position <ARRAY>
+    1: search radius <SCALAR>
+    2: amount <SCALAR>
+    3: mission house <SCALAR>
+
+  Return Value:
+    array with houses <ARRAY>
+
+  Public: No
+*/
 
 params [
     ["_centerpos", [], [[]], [2, 3]],
@@ -31,8 +33,9 @@ private _allHouses = _centerpos nearObjects ["House", _searchradius];
 _types = _types apply {toLower _x};
 
 private _return = _allHouses select {(toLower (typeof _x) in _types)&&{!(_x in GVAR(usedHouses))}};
-//TRACEV_2(_return,_allHouses);
+
 If (count _return > _amount) then {
     _return resize _amount;
 };
+
 _return

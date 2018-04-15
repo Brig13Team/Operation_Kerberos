@@ -1,16 +1,18 @@
-/**
- * Author: Dorbedo
- * aligns a composition with the surface
- *
- * Arguments:
- * 0: <ARRAY> array with the objects to be alligned
- *
- * Return Value:
- * Nothing
- *
- */
-
 #include "script_component.hpp"
+
+/*
+  Name: dorb_composition_fnc_alignWithSurface
+  Author: Dorbedo
+  aligns a composition with the surface
+
+  Arguments:
+    0: array with the objects to be alligned <ARRAY>
+
+  Return Value:
+    None
+
+  Public: No
+*/
 
 params ["_objects"];
 
@@ -18,18 +20,15 @@ _objects = _objects select {vehicle _x == _x};
 
 {
     private _curObj = _x;
-
     private _objects = lineIntersectsObjs [((getPosASL _curObj) vectorAdd [0,0,200]), ((getPosASL _curObj) vectorAdd [0,0,-20]), objNull, objNull, true, 32];
-    //TRACEV_2(typeof _curObj,_objects apply {typeOf _x});
     _objects = _objects select {!(_x isEqualTo _curObj)};
     If !(_objects isEqualTo []) then {
         private _parent = _objects select 0;
-        //TRACEV_4(typeOf _curObj,_parent,getDir _curObj,getDir _parent);
         If !((attachedTo _parent) isEqualTo objNull) then {
             _parent = attachedTo _parent;
         };
-        _curObj setVariable [QGVAR(dir),getDirVisual _curObj];
-        _curObj setVariable [QGVAR(vecDirAndUp),[vectorDirVisual _curObj,vectorUpVisual _curObj]];
+        _curObj setVariable [QGVAR(dir), getDirVisual _curObj];
+        _curObj setVariable [QGVAR(vecDirAndUp), [vectorDirVisual _curObj, vectorUpVisual _curObj]];
         _curObj attachTo [_parent];
     };
     nil
@@ -60,9 +59,8 @@ _objects = _objects select {vehicle _x == _x};
         {
             If !((attachedTo _x) isEqualTo objNull) then {
                 detach _x;
-                _x setDir (_x getVariable [QGVAR(dir),getDirVisual _x]);
-                _x setVectorDirAndUp (_x getVariable [QGVAR(vecDirAndUp),[vectorDirVisual _x,vectorUpVisual _x]]);
-                //TRACEV_2(typeOf _x,getDir _x);
+                _x setDir (_x getVariable [QGVAR(dir), getDirVisual _x]);
+                _x setVectorDirAndUp (_x getVariable [QGVAR(vecDirAndUp), [vectorDirVisual _x, vectorUpVisual _x]]);
             };
             nil
         } count _objects;

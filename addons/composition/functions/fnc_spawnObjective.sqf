@@ -1,20 +1,22 @@
-/**
- * Author: Dorbedo
- * creates a mission Objective
- *
- * Arguments:
- * 0: <ARRAY> centerposition
- * 1: <STRING> missiontype
- * 2: <SCALAR> amount
- * 3: <SCALAR> radius
- * 4: <BOOL> return only position (default: true)
- *
- * Return Value:
- * <ARRAY> return Positions/Objectives
- *
- */
-
 #include "script_component.hpp"
+
+/*
+  Name: dorb_composition_fnc_spawnObjective
+  Author: Dorbedo
+  creats a mission objective
+
+  Arguments:
+    0: center position <ARRAY>
+    1: mission type <STRING>
+    2: amount <SCALAR>
+    3: radius <SCALAR>
+    4: return only position <BOOL> (default: true)
+
+  Return Value:
+    return positions/objectives <ARRAY>
+
+  Public: Yes
+*/
 
 params [
     ["_centerpos", [], [[]], [2, 3]],

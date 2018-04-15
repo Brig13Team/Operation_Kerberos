@@ -1,20 +1,21 @@
-/**
- * Author: Dorbedo
- * returns specific datatype from a compositionconfig
- *
- * Arguments:
- * 0: <CONFIG> the config
- * 1: <STRING> the datatype
- *
- * Return Value:
- * <ARRAY> array with all cfgclasses
- *
- */
-
 #include "script_component.hpp"
 
+/*
+  Name: dorb_composition_fnc_getCfgDataType
+  Author: Dorbedo
+  returns a specific data type from a composition config
+
+  Arguments:
+    0: the config <CONFIG>
+    1: the datatype <STRING>
+
+  Return Value:
+    array with configclasses <ARRAY>
+
+  Public: No
+*/
+
 params [["_cfg", configNull, [configNull]], "_datatype"];
-//TRACEV_2(_cfg,_datatype);
 
 If (isNull _cfg) exitWith {
     ERROR_1("No Config provided: %1",_cfg);

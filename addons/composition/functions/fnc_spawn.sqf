@@ -1,18 +1,20 @@
-/**
- * Author: Dorbedo
- * creates a composition
- *
- * Arguments:
- * 0: <ARRAY> centerposition
- * 1: <SCALAR> amount
- * 2: <SCALAR> radius
- *
- * Return Value:
- * <ARRAY> return Positions/Objectives
- *
- */
-
 #include "script_component.hpp"
+
+/*
+  Name: dorb_composition_fnc_spawn
+  Author: Dorbedo
+  creats a composition
+
+  Arguments:
+    0: center position <ARRAY>
+    1: amount <SCALAR>
+    2: radius <SCALAR>
+
+  Return Value:
+    return positions/objectives <ARRAY>
+
+  Public: Yes
+*/
 
 params [
     ["_centerpos", [], [[]], [2, 3]],

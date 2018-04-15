@@ -1,19 +1,21 @@
-/**
- * Author: Dorbedo
- * searches a possible spawn position for composition
- *
- * Arguments:
- * 0: <ARRAY> centerposition
- * 1: <SCALAR> searchradius
- * 2: <SCALAR> amount
- * 3: <SCALAR> size
- *
- * Return Value:
- * <TYPENAME> return name
- *
- */
-//#define DEBUG_MODE_FULL
 #include "script_component.hpp"
+
+/*
+  Name: dorb_composition_fnc_getRandomPos
+  Author: Dorbedo
+  searches a possible spawn position for composition
+
+  Arguments:
+    0: center position <ARRAY>
+    1: search radius <SCALAR>
+    2: amount <SCALAR>
+    3: size <SCALAR>
+
+  Return Value:
+    array with positions <ARRAY>
+
+  Public: Yes
+*/
 
 params [
     ["_centerpos", [], [[]], [2, 3]],

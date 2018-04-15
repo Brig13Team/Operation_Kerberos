@@ -1,20 +1,22 @@
-/**
- * Author: Dorbedo
- * creates the object from the config entry
- *
- * Arguments:
- * 0: <ARRAY> Centerposition
- * 1: <SCALAR> Centerdir
- * 2: <CONFIG> Configpath
- *
- * Return Value:
- * <OBJECT> the created Object
- *
- */
-
 #include "script_component.hpp"
 
-params ["_spawnposition","_dir","_curCfg",["_ignoreOffset",false,[true]]];
+/*
+  Name: dorb_composition_fnc_createObjectFromCfg
+  Author: Dorbedo
+  creates the object from the config entry
+
+  Arguments:
+    0: center position <ARRAY>
+    1: center direction <SCALAR>
+    2: config path <CONFIG>
+
+  Return Value:
+    created object <OBJECT>
+
+  Public: Yes
+*/
+
+params ["_spawnposition", "_dir", "_curCfg", ["_ignoreOffset", false, [true]]];
 
 private _object = objNull;
 

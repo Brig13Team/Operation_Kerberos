@@ -1,18 +1,20 @@
-/**
- * Author: Dorbedo
- * returns the possible compositions
- *
- * Arguments:
- * 0: <BOOL> isObjective (default: false)
- *
- * Return Value:
- * <ARRAY> possible composition configs
- *
- */
-#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-params [["_isobjective",false,[true]]];
+/*
+  Name: dorb_composition_fnc_getPossibleCompositions
+  Author: Dorbedo
+  returns the possible compositions
+
+  Arguments:
+    0: is a objective <BOOL> (default: false)
+
+  Return Value:
+    possible compositions <ARRAY>
+
+  Public: No
+*/
+
+params [["_isobjective", false, [true]]];
 
 private _target = if (_isObjective) then {
     "missioncompositions"

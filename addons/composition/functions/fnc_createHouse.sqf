@@ -1,19 +1,21 @@
-/**
- * Author: Dorbedo
- * creates given componsition at given position
- *
- * Arguments:
- * 0: <OBJECT> the House
- * 1: <CONFIG> the config of the composition
- *
- * Return Value:
- * <ARRAY> the spawned objects
- *
- */
-#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-params [["_house",objNull,[objNull]], ["_compositionCfg",configNull,[configNull]]];
+/*
+  Name: dorb_composition_fnc_createHouse
+  Author: Dorbedo
+  creats given composition at given position
+
+  Arguments:
+    0: the house <OBJECT>
+    1: config of the composition <CONFIG>
+
+  Return Value:
+    spawned objects <ARRAY>
+
+  Public: No
+*/
+
+params [["_house", objNull, [objNull]], ["_compositionCfg", configNull, [configNull]]];
 
 If ((isNull _house)||{isNull _compositionCfg}) exitWith {
     ERROR(FORMAT_1("Wrong iput this=%1",_this));

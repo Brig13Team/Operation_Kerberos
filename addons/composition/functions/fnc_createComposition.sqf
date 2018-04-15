@@ -1,31 +1,29 @@
-/**
- * Author: Dorbedo
- * creates given componsition at given position
- *
- * Arguments:
- * 0: <ARRAY> the centerposition (only 2D coordiantes are used)
- * 1: <CONFIG> the config of the composition
- * 2: <SCALAR> the direction
- *
- * Return Value:
- * <ARRAY> the spawned objects
- *
- */
-#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-params ["_centerPosition", "_compositionCfg", ["_dir", random 360, [0]]];
+/*
+  Name: dorb_composition_fnc_createComposition
+  Author: Dorbedo
+  creates given composition at given position
 
-TRACEV_3(_centerPosition,_compositionCfg,_dir);
+  Arguments:
+    0: position of the center <ARRAY>
+    1: the config of the composition <CONFIG>
+    2: direction <SCALAR>
+
+  Return Value:
+    the spawned objects <ARRAY>
+
+  Public: No
+*/
+
+params ["_centerPosition", "_compositionCfg", ["_dir", random 360, [0]]];
 
 GVAR(spawnedCompositions) pushBack _centerPosition;
 
 _centerPosition set [2,CENTERPOS_OFFSET];
 
-
 private _spawnedObjects = [];
 private _tempHash = HASH_CREATE;
-TRACEV_1(_compositionCfg);
 
 /*
  * The Objects need to be spawned first, to make it possible to move some units inside of vehicles
@@ -34,7 +32,6 @@ TRACEV_1(_compositionCfg);
 {
     private _curCfg = _x;
     private _curObj = [_centerPosition, _dir, _curCfg] call FUNC(createObjectFromCfg);
-    //TRACEV_2(_curObj,_curCfg);
     If !(isNull _curObj) then {
         private _id = str (getNumber(_curCfg >> "id"));
         HASH_SET(_tempHash, _id, _curObj);

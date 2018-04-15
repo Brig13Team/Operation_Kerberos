@@ -1,17 +1,19 @@
-/**
- * Author: Dorbedo
- * creates a House-Composition in a near House and returns the spawnpositions for MissionObjects
- *
- * Arguments:
- * 0: <ARRAY> the centerposition
- * 1: <SCALAR> radius to search in
- *
- * Return Value:
- * <ARRAY> Array with positions
- *
- */
-
 #include "script_component.hpp"
+
+/*
+  Name: dorb_composition_fnc_createMissionHouse
+  Author: Dorbedo
+  creates a house composition in a near house and returns the spawnpositions for mission objects
+
+  Arguments:
+    0: center position <ARRAY>
+    1: search radius <SCALAR>
+
+  Return Value:
+    array with positions <ARRAY>
+
+  Public: No
+*/
 
 params ["_House", "_cfg", ["_onlyPos", true, [true]], ["_objecttype", "Land_CargoBox_V1_F", [""]]];
 
