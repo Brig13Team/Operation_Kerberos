@@ -69,7 +69,7 @@ switch (_defenceStructure) do {
         private _types = [_type] + _houseTypes;
         TRACEV_2(_houseTypes,_types);
         //_targetPositions = [_centerposition, _types, _amount, _radius] call EFUNC(spawn,createMissionHouse);
-        _targetPositions = [_centerposition, _type, _amount, _radius, true] call EFUNC(composition,spawnObjectiveHouse);
+        _targetPositions = [_centerposition, _type, _amount, _radius, false] call EFUNC(composition,spawnObjectiveHouse);
     };
 };
 

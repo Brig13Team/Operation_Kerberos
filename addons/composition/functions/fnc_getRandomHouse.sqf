@@ -9,7 +9,7 @@
     0: center position <ARRAY>
     1: search radius <SCALAR>
     2: amount <SCALAR>
-    3: mission house <SCALAR>
+    3: housetypes <SCALAR>
 
   Return Value:
     array with houses <ARRAY>
@@ -27,6 +27,15 @@ params [
 if (IS_STRING(_types)) then {
     _types = [_types];
 };
+
+private _typestoAdd = [];
+{
+    private _temp =+ ([_x] call FUNC(getSimilarHouse));
+    _typesToAdd append _temp;
+} forEach _types;
+
+_types append _typesToAdd;
+_types = _types arrayIntersect _types;
 
 private _allHouses = _centerpos nearObjects ["House", _searchradius];
 [_allHouses, true] call CBA_fnc_shuffle;
