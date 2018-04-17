@@ -12,6 +12,7 @@ PREP(getPossibleHouseCompositions);
 PREP(getRandomHouse);
 PREP(getRandomPos);
 PREP(getReplacement);
+PREP(getSimilarHouses);
 PREP(onFiredNear);
 PREP(spawn);
 PREP(spawnHouse);
