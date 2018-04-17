@@ -23,7 +23,4 @@ private _model = getText(configClasses >> "CfgVehicles" >> _houseclass >> "model
 private _model = _model splitString "/";
 _model = (_model select [0, (count _model - 2)]) joinString "/";
 
-GVAR(housecache) setVariable [_model, "_houseClass"];
-
-
-[]
+GVAR(housecache) getVariable [_model, [_houseClass]];
