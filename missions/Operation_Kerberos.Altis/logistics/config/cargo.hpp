@@ -221,6 +221,15 @@ class cargos {
         stackable = -1;
     };
 
+    class I_LT_01_AT_F {
+        width = 2;
+        length = 5;
+        height = 2.8;
+        offset[] = {-0.2,0.1,-0.5};
+    };
+    class I_LT_01_cannon_F : I_LT_01_AT_F {};
+    class I_LT_01_scout_F : I_LT_01_AT_F {};
+
     class rhs_7ya37_1 {
         width = 1.15;
         length = 0.45;
