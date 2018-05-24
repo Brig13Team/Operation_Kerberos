@@ -18,5 +18,5 @@ jobs:
               pip install pygithub pygithub3
               python3 tools/deploy.py
             else
-              echo "Skipping, not on Brig13Team/ACE3 master branch..."
+              echo "Skipping, not on Brig13Team/Operation_Kerberos master branch..."
             fi
