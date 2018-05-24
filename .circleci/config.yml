@@ -1,0 +1,22 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: acemod/armake
+    steps:
+      - checkout
+      - run:
+          name: Validate SQF And Config style
+          command: python tools/validator_cfg.py && python tools/validator_sqf.py && python tools/validator_xml.py
+      - run:
+          name: Build
+          command: armake --version
+      - deploy:
+          name: Update documentation and translation statistics
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "develop" ] && [ "${CIRCLE_PROJECT_USERNAME}" == "Brig13Team" ]; then
+              pip install pygithub pygithub3
+              python3 tools/deploy.py
+            else
+              echo "Skipping, not on Brig13Team/ACE3 master branch..."
+            fi
