@@ -120,7 +120,7 @@ def checkHeader(string: str) -> str:
 # return:
 #    bool
 def validate_xml(filepath: str) -> bool:
-    file = open(filepath,'r')
+    file = open(filepath, 'rb')
     content = file.read()
 
     try:
