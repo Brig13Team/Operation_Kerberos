@@ -19,6 +19,9 @@ class GVARMAIN(arsenal) {
         // backpacks
         "B_Respawn_Sleeping_bag_blue_F","B_Respawn_Sleeping_bag_brown_F","B_Respawn_Sleeping_bag_F","B_Respawn_TentA_F","B_Respawn_TentDome_F", //respawn Tents
         "ACRE_testBag",
+        "C_IDAP_UAV_06_antimine_backpack_F","C_UAV_06_backpack_F","C_IDAP_UAV_06_backpack_F","C_UAV_06_medical_backpack_F","C_IDAP_UAV_01_backpack_F",
+        "I_UAV_06_backpack_F","O_UAV_06_backpack_F","I_UAV_06_medical_backpack_F","O_UAV_06_medical_backpack_F","C_IDAP_UAV_06_medical_backpack_F",
+        "I_UAV_01_backpack_F","O_UAV_01_backpack_F",
 
         // magazines
         "BWA3_10Rnd_127x99_G82_Raufoss","BWA3_10Rnd_127x99_G82_Raufoss_Tracer","BWA3_10Rnd_127x99_G82_Raufoss_Tracer_Dim",

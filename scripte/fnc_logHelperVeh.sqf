@@ -1,6 +1,6 @@
 /*
     Author: Dorbedo
-    
+
     hint typeOf cursorTarget;[cursortarget] execVM "functions\scripte\fnc_logHelperVeh.sqf";
 */
 
@@ -23,11 +23,11 @@ If (!(isNil "DORB_HELPER_ID")) then {
 
 
 DORB_HELPER_ARROW = [
-    (createVehicle ["Sign_Arrow_F", [0,0,0], [], 0, "CANCOLLIDE"]),
-    (createVehicle ["Sign_Arrow_Pink_F", [0,0,0], [], 0, "CANCOLLIDE"]),
-    (createVehicle ["Sign_Arrow_Blue_F", [0,0,0], [], 0, "CANCOLLIDE"]),
-    (createVehicle ["Sign_Arrow_Cyan_F", [0,0,0], [], 0, "CANCOLLIDE"]),
-    (createVehicle ["Sign_Arrow_Green_F", [0,0,0], [], 0, "CANCOLLIDE"])
+    (createVehicle ["Sign_Arrow_F", [0,0,0], [], 0, "CAN_COLLIDE"]),
+    (createVehicle ["Sign_Arrow_Pink_F", [0,0,0], [], 0, "CAN_COLLIDE"]),
+    (createVehicle ["Sign_Arrow_Blue_F", [0,0,0], [], 0, "CAN_COLLIDE"]),
+    (createVehicle ["Sign_Arrow_Cyan_F", [0,0,0], [], 0, "CAN_COLLIDE"]),
+    (createVehicle ["Sign_Arrow_Green_F", [0,0,0], [], 0, "CAN_COLLIDE"])
     ];
 
 DORB_HELPER_ID = [{

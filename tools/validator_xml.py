@@ -21,9 +21,9 @@ import sys
 #
 # return:
 #   int
-def skipUntil(content : str, index : int, pattern : str, error : str) -> int:
+def skipUntil(content: str, index: int, pattern: str, error: str) -> int:
     skip = content.find(pattern,index)
-    if (skip < 0):
+    if skip < 0:
         print(index)
         raise ValueError(error)
     return skip + len(pattern) - 1
@@ -37,7 +37,7 @@ def skipUntil(content : str, index : int, pattern : str, error : str) -> int:
 #
 # return:
 #   str - tag name
-def checkHeader(string : str) -> str:
+def checkHeader(string: str) -> str:
 
     # description:
     #   check if attribute assignment(s) are correct
@@ -51,60 +51,60 @@ def checkHeader(string : str) -> str:
     #
     # return:
     #   bool
-    def checkAttributes(string : str, __name = "", __equal = False, __names = [], __isKey = False) -> bool:
-        if (len(string) == 0):
-            if (len(__name) > 0):
+    def checkAttributes(string: str, __name = "", __equal = False, __names = [], __iskey = False) -> bool:
+        if len(string) == 0:
+            if len(__name) > 0:
                 raise ValueError("Non finished assignment for attribute '" + __name + "'!")
             else:
                 return True
         else:
-            if (string[0] == "="):
-                if (len(__name) > 0):
-                    if (__equal):
+            if string[0] == "=":
+                if len(__name) > 0:
+                    if __equal:
                         raise ValueError("Expected '\"' but encountered '='!")
                     else:
-                        if (__name in __names):
+                        if __name in __names:
                             raise ValueError("Attribute '" + __name + "' is assigned more then once!")
                         else:
-                            return checkAttributes(string[1:],__name,True,__names)
+                            return checkAttributes(string[1:], __name, True, __names)
                 else:
                     raise ValueError("Tag-Name can't start width '='!")
 
-            elif (string[0] == "\""):
-                if (len(__name) > 0):
-                    if (__equal):
-                        skip = skipUntil(string,1,"\"","Missing closing '\"'!")
-                        if (skip+1 < len(string)):
-                            if (not string[skip+1] == " "):
+            elif string[0] == "\"":
+                if len(__name) > 0:
+                    if __equal:
+                        skip = skipUntil(string, 1, "\"", "Missing closing '\"'!")
+                        if skip+1 < len(string):
+                            if not string[skip+1] == " ":
                                 raise ValueError("Missing ' ' after attribute assignment!")
                         __names.append(__name)
-                        if (__name.lower() == "id"):
-                            if (string in allKeys):
+                        if __name.lower() == "id":
+                            if string in allKeys:
                                 raise ValueError("Doubled String detected:" + string)
                             else:
                                 allKeys.append(string)
-                        return checkAttributes(string[skip+1:],"",False,__names)
+                        return checkAttributes(string[skip+1:], "", False, __names)
                     else:
                         raise ValueError("Encountered '\"' before '='!")
                 else:
                     raise ValueError("Tag-Name can't start with '\"'!")
 
-            elif (string[0] == " "):
-                return checkAttributes(string[1:],__name,__equal,__names)
+            elif string[0] == " ":
+                return checkAttributes(string[1:], __name, __equal, __names)
             else:
-                if (len(__name) > 0):
-                    if (__equal):
+                if len(__name) > 0:
+                    if __equal:
                         raise ValueError("Expected '\"' after '='!")
-                return checkAttributes(string[1:],__name + string[0],__equal,__names)
+                return checkAttributes(string[1:], __name + string[0], __equal, __names)
 
-    if ('<' in string):
+    if '<' in string:
         raise ValueError("Encountered illegal character inside a tag header: '<'")
     # shouldn't be inside (see calling function)
     # if ('>' in string):
     #     raise ValueError("Encountered illegal character inside a tag header: '>'")
 
     space = string.find(" ")
-    if (space < 0):
+    if(space < 0):
         # tag as no attributes
         return string
     else:
@@ -119,8 +119,8 @@ def checkHeader(string : str) -> str:
 #
 # return:
 #    bool
-def validate_xml(filepath : str) -> bool:
-    file = open(filepath,'r')
+def validate_xml(filepath: str) -> bool:
+    file = open(filepath, 'rb')
     content = file.read()
 
     try:
@@ -215,5 +215,5 @@ def main():
         print("No errors found.")
         return 0
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     sys.exit(main())

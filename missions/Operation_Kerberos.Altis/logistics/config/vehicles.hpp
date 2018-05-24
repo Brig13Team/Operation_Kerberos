@@ -212,8 +212,8 @@ class vehicles {
         max_width = 1.18;
         max_length = 1.2;
         max_height = 1;
-        cargo_point[] = {0,-1.1,0.91};
-        load_point[] = {0,-3,0};
+        cargo_point[] = {0,-1.1,-0.91};
+        load_point[] = {0,-3,-1.8};
         cargo_pos[] = {{3,{0.895508,-1.92554,1.22625}},{4,{-0.886475,-1.88013,1.24583}}};
     };
     class rhsusf_m998_w_4dr_halftop : rhsusf_m998_w_4dr_base {};
@@ -237,9 +237,7 @@ class vehicles {
     class rhsusf_mrzr4_w : rhsusf_mrzr4_d {};
     class rhsusf_mrzr4_w_mud : rhsusf_mrzr4_d {};
 
-    /// LKW
-
-
+    /// Trucks
     class rhsusf_M977A4_usarmy_wd {
         max_width = 2.1;
         max_length = 5.48;
@@ -259,75 +257,99 @@ class vehicles {
     // rhs M1078A1P2-B
     class rhsusf_M1078A1P2_Base {
         max_width = 1.42;
-        max_length = 4;
+        max_length = 3.8;
         max_height = 1.6;
-        cargo_point[] = {0,0.9,-0.275};
+        cargo_point[] = {0,1,-0.5};
         load_point[] = {0,-5,-1.8};
         cargo_pos[] = {{2,{0.976318,-0.276855,0.240028}},{3,{-0.911133,-0.111816,0.22155}},{4,{0.966553,-0.783203,0.216396}},{5,{-0.89502,-0.572998,0.222111}},{6,{0.945801,-1.34277,0.230221}},{7,{-0.870361,-1.23267,0.23098}},{8,{0.976563,-2.04443,0.258591}},{9,{-0.822998,-1.89551,0.267666}},{10,{1.09644,-2.82446,0.156582}},{11,{-1.00513,-2.56665,0.162479}},{12,{0.949707,0.561768,0.222698}},{13,{-0.934326,0.59375,0.221748}}};
     };
     class rhsusf_M1078A1P2_d_open_fmtv_usarmy : rhsusf_M1078A1P2_Base {};
     class rhsusf_M1078A1P2_wd_open_fmtv_usarmy : rhsusf_M1078A1P2_Base {};
-    class rhsusf_M1078A1P2_B_M2_d_open_fmtv_usarmy : rhsusf_M1078A1P2_Base {};
-    class rhsusf_M1078A1P2_B_M2_d_fmtv_usarmy : rhsusf_M1078A1P2_Base {};
     class rhsusf_M1078A1P2_B_d_fmtv_usarmy : rhsusf_M1078A1P2_Base {};
     class rhsusf_M1078A1P2_d_fmtv_usarmy : rhsusf_M1078A1P2_Base {};
     class rhsusf_M1083A1P2_d_fmtv_usarmy : rhsusf_M1078A1P2_Base {};
     class rhsusf_M1083A1P2_d_open_fmtv_usarmy : rhsusf_M1078A1P2_Base {};
     class rhsusf_M1083A1P2_B_d_fmtv_usarmy : rhsusf_M1078A1P2_Base {};
-    class rhsusf_M1083A1P2_B_M2_d_fmtv_usarmy : rhsusf_M1078A1P2_Base {};
-    class rhsusf_M1083A1P2_B_M2_d_open_fmtv_usarmy : rhsusf_M1078A1P2_Base {};
     class rhsusf_M1083A1P2_B_d_open_fmtv_usarmy : rhsusf_M1078A1P2_Base {};
     class rhsusf_M1078A1P2_B_wd_open_fmtv_usarmy : rhsusf_M1078A1P2_Base {};
-    class rhsusf_M1078A1P2_B_M2_wd_open_fmtv_usarmy : rhsusf_M1078A1P2_Base {};
-    class rhsusf_M1078A1P2_B_M2_wd_fmtv_usarmy : rhsusf_M1078A1P2_Base {};
     class rhsusf_M1078A1P2_B_wd_fmtv_usarmy : rhsusf_M1078A1P2_Base {};
     class rhsusf_M1078A1P2_wd_fmtv_usarmy : rhsusf_M1078A1P2_Base {};
     class rhsusf_M1083A1P2_wd_fmtv_usarmy : rhsusf_M1078A1P2_Base {};
     class rhsusf_M1083A1P2_wd_open_fmtv_usarmy : rhsusf_M1078A1P2_Base {};
     class rhsusf_M1083A1P2_B_wd_fmtv_usarmy : rhsusf_M1078A1P2_Base {};
-    class rhsusf_M1083A1P2_B_M2_wd_fmtv_usarmy : rhsusf_M1078A1P2_Base {};
-    class rhsusf_M1083A1P2_B_M2_wd_open_fmtv_usarmy : rhsusf_M1078A1P2_Base {};
     class rhsusf_M1083A1P2_B_wd_open_fmtv_usarmy : rhsusf_M1078A1P2_Base {};
     class rhsusf_M1078A1P2_B_d_open_fmtv_usarmy : rhsusf_M1078A1P2_Base {};
+    class rhsusf_M1083A1P2_B_M2_wd_fmtv_usarmy : rhsusf_M1078A1P2_Base {
+        cargo_point[] = {0,1,-1.1};
+        load_point[] = {0,-5,-2.5};
+    };
+    class rhsusf_M1083A1P2_B_M2_wd_open_fmtv_usarmy : rhsusf_M1083A1P2_B_M2_wd_fmtv_usarmy {};
+    class rhsusf_M1078A1P2_B_M2_wd_open_fmtv_usarmy : rhsusf_M1083A1P2_B_M2_wd_fmtv_usarmy {};
+    class rhsusf_M1078A1P2_B_M2_wd_fmtv_usarmy : rhsusf_M1083A1P2_B_M2_wd_fmtv_usarmy {};
+    class rhsusf_M1078A1P2_B_M2_d_open_fmtv_usarmy : rhsusf_M1083A1P2_B_M2_wd_fmtv_usarmy {};
+    class rhsusf_M1078A1P2_B_M2_d_fmtv_usarmy : rhsusf_M1083A1P2_B_M2_wd_fmtv_usarmy {};
+    class rhsusf_M1083A1P2_B_M2_d_fmtv_usarmy : rhsusf_M1083A1P2_B_M2_wd_fmtv_usarmy {};
+    class rhsusf_M1083A1P2_B_M2_d_open_fmtv_usarmy : rhsusf_M1083A1P2_B_M2_wd_fmtv_usarmy {};
 
     // open
     class rhsusf_M1078A1P2_B_d_flatbed_fmtv_usarmy : rhsusf_M1078A1P2_Base {
         max_width = 2.3;
         max_height = 2;
+        cargo_point[] = {0,1,-0.3};
+        load_point[] = {0,-5,-1.7};
         cargo_pos[] = {};
     };
+    class rhsusf_M1084A1P2_B_D_fmtv_usarmy : rhsusf_M1078A1P2_B_d_flatbed_fmtv_usarmy {};
     class rhsusf_M1078A1P2_d_flatbed_fmtv_usarmy : rhsusf_M1078A1P2_B_d_flatbed_fmtv_usarmy {};
-    class rhsusf_M1078A1P2_B_M2_d_flatbed_fmtv_usarmy : rhsusf_M1078A1P2_B_d_flatbed_fmtv_usarmy {};
     class rhsusf_M1083A1P2_d_flatbed_fmtv_usarmy : rhsusf_M1078A1P2_B_d_flatbed_fmtv_usarmy {};
     class rhsusf_M1083A1P2_B_d_flatbed_fmtv_usarmy : rhsusf_M1078A1P2_B_d_flatbed_fmtv_usarmy {};
-    class rhsusf_M1083A1P2_B_M2_d_flatbed_fmtv_usarmy : rhsusf_M1078A1P2_B_d_flatbed_fmtv_usarmy {};
     class rhsusf_M1078A1P2_wd_flatbed_fmtv_usarmy : rhsusf_M1078A1P2_B_d_flatbed_fmtv_usarmy {};
     class rhsusf_M1078A1P2_B_wd_flatbed_fmtv_usarmy : rhsusf_M1078A1P2_B_d_flatbed_fmtv_usarmy {};
-    class rhsusf_M1078A1P2_B_M2_wd_flatbed_fmtv_usarmy : rhsusf_M1078A1P2_B_d_flatbed_fmtv_usarmy {};
-    class rhsusf_M1083A1P2_B_M2_wd_flatbed_fmtv_usarmy : rhsusf_M1078A1P2_B_d_flatbed_fmtv_usarmy {};
     class rhsusf_M1083A1P2_B_wd_flatbed_fmtv_usarmy : rhsusf_M1078A1P2_B_d_flatbed_fmtv_usarmy {};
     class rhsusf_M1083A1P2_wd_flatbed_fmtv_usarmy : rhsusf_M1078A1P2_B_d_flatbed_fmtv_usarmy {};
-
+    class rhsusf_M1078A1P2_B_M2_d_flatbed_fmtv_usarmy : rhsusf_M1078A1P2_B_d_flatbed_fmtv_usarmy {
+        cargo_point[] = {0,1,-1.1};
+        load_point[] = {0,-5,-2.5};
+    };
+    class rhsusf_M1078A1P2_B_M2_wd_flatbed_fmtv_usarmy : rhsusf_M1078A1P2_B_M2_d_flatbed_fmtv_usarmy {};
+    class rhsusf_M1084A1P2_B_M2_D_fmtv_usarmy : rhsusf_M1078A1P2_B_M2_d_flatbed_fmtv_usarmy {};
+    class rhsusf_M1083A1P2_B_M2_d_flatbed_fmtv_usarmy : rhsusf_M1078A1P2_B_M2_d_flatbed_fmtv_usarmy {};
+    class rhsusf_M1083A1P2_B_M2_wd_flatbed_fmtv_usarmy : rhsusf_M1078A1P2_B_M2_d_flatbed_fmtv_usarmy {};
 
 
     /// HELI
-
-    class RHS_UH60M_Base {
-        max_width = 1.75;
-        max_length = 2.2;
-        max_height = 1.2;
-        cargo_point[] = {0,3,-1.85};
-        load_point[] = {2.5,1.8,-2.4};
-        cargo_pos[] = {{0,{-0.278809,0.646973,-1.30464}},{1,{0.256348,0.77832,-1.32621}},{4,{-0.740723,2.48901,-1.70261}},{5,{-0.0126953,2.23926,-1.69423}},{6,{0.651855,2.59839,-1.78286}},{7,{0.0454102,3.26782,-1.69398}},{8,{-0.812012,0.431152,-1.45579}},{9,{0.722168,0.530518,-1.45916}}};
+    class RHS_UH60M {
+        max_width = 1.14;
+        max_length = 0.7;
+        max_height = 1.3;
+        cargo_point[] = {0,1.6,-2};
+        load_point[] = {2.5,1,-2.5};
+        cargo_pos[] = {{0,{-0.811768,0.466919,-1.56499}},{1,{-0.278809,0.682861,-1.44998}},{2,{0.256348,0.681885,-1.43992}},{3,{0.722168,0.566284,-1.56836}},{4,{0.788086,1.93982,-1.55113}},{5,{0.246826,1.68738,-1.37952}},{6,{-0.252197,1.77649,-1.4225}},{7,{-0.758789,1.98206,-1.55113}}};
         hatch_open = "_this animateDoor ['doorRB', 1];_this animate ['doorHandler_R',1]";
         hatch_close = "_this animateDoor ['doorRB', 0];_this animate ['doorHandler_R',0];";
         hatch_isopened = "_this doorPhase 'doorRB' > 0 and (alive _this)";
         hatch_isclosed = "_this doorPhase 'doorRB' == 0 and (alive _this)";
     };
-    class RHS_UH60M_MEV2_d : RHS_UH60M_Base {};
-    class RHS_UH60M_MEV2 : RHS_UH60M_Base {};
-    class RHS_UH60M_MEV : RHS_UH60M_Base {};
-    class RHS_UH60M_MEV_d : RHS_UH60M_Base {};
+    class RHS_UH60M_d : RHS_UH60M {};
+    class RHS_UH60M_ESSS : RHS_UH60M {
+        cargo_point[] = {0,1.6,-1.2};
+        load_point[] = {2.5,1,-1.5};
+    };
+    class RHS_UH60M_ESSS2 : RHS_UH60M_ESSS {};
+    class RHS_UH60M_ESSS_d : RHS_UH60M_ESSS {};
+    class RHS_UH60M_ESSS2_d : RHS_UH60M_ESSS {};
+    class RHS_UH60M2 : RHS_UH60M_ESSS {};
+    class RHS_UH60M2_d : RHS_UH60M_ESSS {};
+
+    class RHS_UH60M_MEV : RHS_UH60M {
+        max_length = 2;
+        cargo_point[] = {0,3,-1.2};
+        load_point[] = {2.5,1,-1.7};
+        cargo_pos[] = {{0,{-0.274414,0.677734,-0.653231}},{1,{0.260742,0.808838,-0.674808}},{4,{-0.736328,2.51965,-1.05121}},{5,{-0.00830078,2.2699,-1.04283}},{6,{0.656006,2.62915,-1.13145}},{7,{0.0495605,3.29834,-1.04258}},{8,{-0.807617,0.461792,-0.804386}},{9,{0.726318,0.561157,-0.807754}}};
+    };
+    class RHS_UH60M_MEV2 : RHS_UH60M_MEV {};
+    class RHS_UH60M_MEV_d : RHS_UH60M_MEV {};
+    class RHS_UH60M_MEV2_d : RHS_UH60M_MEV {};
 
     class RHS_MELB_MH6M {
         max_width = 1;

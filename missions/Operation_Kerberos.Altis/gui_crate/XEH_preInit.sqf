@@ -29,5 +29,5 @@ GVAR(libary) = HASH_CREATE;
     LSTRING(restrictAccess),
     "Operation Kerberos",
     false,
-    2
+    1
 ] call cba_settings_fnc_init;
