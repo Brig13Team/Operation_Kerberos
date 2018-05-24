@@ -14,7 +14,7 @@ jobs:
       - deploy:
           name: Update documentation and translation statistics
           command: |
-            if [ "${CIRCLE_BRANCH}" == "develop" ] && [ "${CIRCLE_PROJECT_USERNAME}" == "Brig13Team" ]; then
+            if [ "${CIRCLE_BRANCH}" == "master" ] && [ "${CIRCLE_PROJECT_USERNAME}" == "Brig13Team" ]; then
               pip install pygithub pygithub3
               python3 tools/deploy.py
             else
