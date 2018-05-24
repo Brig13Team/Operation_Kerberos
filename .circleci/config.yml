@@ -7,7 +7,7 @@ jobs:
       - checkout
       - run:
           name: Validate SQF And Config style
-          command: python tools/validator_cfg.py && python tools/validator_sqf.py && python tools/validator_xml.py
+          command: python3 tools/validator_cfg.py && python3 tools/validator_sqf.py && python3 tools/validator_xml.py
       - run:
           name: Build
           command: armake --version
