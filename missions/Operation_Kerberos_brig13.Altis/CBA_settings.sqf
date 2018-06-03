@@ -20,6 +20,7 @@ force dorb_night_enabled = true;
 force dorb_night_levelAcc = 1;
 force dorb_night_levelNVG = 1;
 force dorb_night_randomizeDay = true;
+force dorb_night_TimeMultiplier = 2;
 force dorb_viewrestriction_active = false;
 force dorb_viewrestriction_forceair = false;
 force dorb_viewrestriction_forcealwaysFirst = false;
