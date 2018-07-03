@@ -9,15 +9,21 @@
     <a href="https://github.com/Brig13Team/Operation_Kerberos/issues">
         <img src="https://img.shields.io/github/issues-raw/Brig13Team/Operation_Kerberos.svg?style=flat-square" alt="GitHub issues">
     </a>
+    <a href="https://travis-ci.org/Brig13Team/Operation_Kerberos">
+        <img src="https://img.shields.io/travis/Brig13Team/Operation_Kerberos/master.svg" alt="Travis">
+    </a>
+    <a href="https://circleci.com/gh/Brig13Team/Operation_Kerberos">
+        <img src="	https://img.shields.io/circleci/project/github/Brig13Team/Operation_Kerberos/master.svg" alt="CircleCI">
+    </a>
 </p>
 
 <hr>
 
-Dynamic Mission for **Arma 3**   
+Dynamic Mission for **Arma 3**
 by ***Dorbedo*** and ***iJesuz***
 
-Operation Kerberos is a dynamic Arma 3 COOP-mission.   
-The players have to succeed during serveral Missions. The goal is to play together as a team against an virtual enemy commander.   
+Operation Kerberos is a dynamic Arma 3 COOP-mission.
+The players have to succeed during serveral Missions. The goal is to play together as a team against an virtual enemy commander.
 To achive this, the human player can use serveral supporting features.
 
 
