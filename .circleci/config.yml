@@ -6,8 +6,14 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Validate SQF And Config style
-          command: python3 tools/validator_cfg.py && python3 tools/validator_sqf.py && python3 tools/validator_xml.py
+          name: Validate cfg
+          command: python3 tools/validator_cfg.py
+      - run:
+          name: Validate sqf
+          command: python3 tools/validator_sqf.py
+      - run:
+          name: Validate xml
+          command: python3 tools/validator_xml.py
       - run:
           name: Build
           command: armake --version
@@ -16,7 +22,7 @@ jobs:
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ] && [ "${CIRCLE_PROJECT_USERNAME}" == "Brig13Team" ]; then
               pip install pygithub pygithub3
-              python3 tools/deploy.py
+              python3 tools/releasebuild.py
             else
               echo "Skipping, not on Brig13Team/Operation_Kerberos master branch..."
             fi
