@@ -4,7 +4,7 @@
         "editor.quickSuggestions": true,
         "editor.tabSize": 4,
         "editor.insertSpaces": true,
-        "editor.detectIndentation": true,
+        "editor.detectIndentation": false,
         "editor.trimAutoWhitespace": true,
         "editor.autoClosingBrackets": true
     },

@@ -1,7 +1,7 @@
 #include "script_component.hpp"
 
 /*
-  Name: dorb_composition_fnc_spawn
+  Name: dorb_composition_fnc_spawnComposition
   Author: Dorbedo
   creats a composition
 
