@@ -12,3 +12,4 @@ privatekeys/*
 temp/*
 **/~*
 *.zip
+tools/armake.exe

@@ -1,6 +1,6 @@
 /*
     Author: Dorbedo
-    
+
     hint typeOf cursorTarget;[cursortarget] execVM "functions\scripte\fnc_logHelperPos.sqf";
 */
 
@@ -45,21 +45,21 @@ DORB_HELPER_ID = [{
     private["_pos"];
     If (isNull DORB_HELPER_VEH) exitWith {[_this select 1] call CBA_fnc_removePerFrameHandler;{deleteVehicle _x} forEach DORB_HELPER_ARROW;};
     If (DORB_HELPER_UPDATE) exitWith {};
-    
+
     {
         If (_x > (count DORB_HELPER_CARGOPOS_ALL)) then {DORB_HELPER_CARGOPOS deleteAt _forEachIndex;};
     }forEach DORB_HELPER_CARGOPOS;
-    
+
     If ((count DORB_HELPER_CARGOPOS)!=(count DORB_HELPER_ARROW)) then {
         DORB_HELPER_UPDATE = true;
         {deleteVehicle _x} forEach DORB_HELPER_ARROW;
         DORB_HELPER_ARROW = [];
         {
-            DORB_HELPER_ARROW pushBack (createVehicle ["Sign_Arrow_F", [0,0,0], [], 0, "CANCOLLIDE"]);
+            DORB_HELPER_ARROW pushBack (createVehicle ["Sign_Arrow_F", [0,0,0], [], 0, "CAN_COLLIDE"]);
         } forEach DORB_HELPER_CARGOPOS;
         DORB_HELPER_UPDATE = false;
     };
-    
+
     {
         private "_pos";
         _pos = DORB_HELPER_VEH modelToWorld ((DORB_HELPER_CARGOPOS_ALL select _x)select 1);

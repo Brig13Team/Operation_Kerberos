@@ -1191,6 +1191,10 @@
             <English>disable thermal vision for vehicles</English>
             <German>Thermalsicht für Fahrzeuge ausschalten</German>
         </Key>
+        <Key ID="STR_DORB_night_TimeMultiplier">
+            <English>sets the time multiplier via setting</English>
+            <German>Zeitmultiplikator via CBA-Setting</German>
+        </Key>
     </Package>
     <Package name="groundactions">
         <Key ID="STR_DORB_groundactions_inventory">

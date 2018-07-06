@@ -63,6 +63,20 @@ ISNIL(enabled,true);
 ] call cba_settings_fnc_init;
 
 [
+    QGVAR(TimeMultiplier),
+    "SLIDER",
+    LSTRING(TimeMultiplier),
+    "Operation Kerberos",
+    [0.1, 120, 0.1, 1],
+    1,
+    {
+        if !(isServer) exitWith {};
+        params ["_value"];
+        setTimeMultiplier _value;
+    }
+] call cba_settings_fnc_init;
+
+[
     QGVAR(disableTIEquipment),
     "CHECKBOX",
     LSTRING(disableTIEquipment),
