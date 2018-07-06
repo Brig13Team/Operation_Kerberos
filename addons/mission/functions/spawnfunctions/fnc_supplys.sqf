@@ -15,7 +15,7 @@
 #include "script_component.hpp"
 
 
-_this params ["_centerpos","_mission"];
+params ["_centerpos", "_mission"];
 
 // spawn the TargetArea =
 private _transportTargetPoint = [_centerpos, "supplys", 1, 500] call EFUNC(spawn,createMissionComposition);

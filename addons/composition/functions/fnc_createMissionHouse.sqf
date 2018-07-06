@@ -36,8 +36,7 @@ If (_onlyPos) then {
             _return pushBack _temp;
             deleteVehicle _x;
         };
-        nil
-    } count _objects;
+    } forEach _objects;
 } else {
     _return = _objects select {(toLower (typeOf _x)) in _objectTypes};
 };

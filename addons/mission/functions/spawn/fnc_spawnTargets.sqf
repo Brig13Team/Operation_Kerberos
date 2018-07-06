@@ -15,7 +15,7 @@
 #define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
-_this params ["_type", "_centerposition", "_missionCfg"];
+params ["_type", "_centerposition", "_missionCfg"];
 
 private _defenceStructure = getText(_missionCfg >> "objective" >> "target");
 private _amount = If (isNumber(_missionCfg >> "objective" >> "amount")) then {

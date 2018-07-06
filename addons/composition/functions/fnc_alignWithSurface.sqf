@@ -31,8 +31,7 @@ _objects = _objects select {vehicle _x == _x};
         _curObj setVariable [QGVAR(vecDirAndUp), [vectorDirVisual _curObj, vectorUpVisual _curObj]];
         _curObj attachTo [_parent];
     };
-    nil
-} count _objects;
+} forEach _objects;
 
 {
     private _object = _x;
@@ -50,8 +49,7 @@ _objects = _objects select {vehicle _x == _x};
             _object setVectorUp _vecUp;
         };
     };
-    nil
-} count _objects;
+} forEach _objects;
 
 [
     {
@@ -62,8 +60,7 @@ _objects = _objects select {vehicle _x == _x};
                 _x setDir (_x getVariable [QGVAR(dir), getDirVisual _x]);
                 _x setVectorDirAndUp (_x getVariable [QGVAR(vecDirAndUp), [vectorDirVisual _x, vectorUpVisual _x]]);
             };
-            nil
-        } count _objects;
+        } forEach _objects;
     },
     [_objects],
     1

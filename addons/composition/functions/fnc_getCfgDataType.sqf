@@ -37,7 +37,6 @@ private _return = [];
             _return append _temp;
         };
     };
-    nil
-} count (configProperties [_cfg, "(isClass _x)", true]);
+} forEach (configProperties [_cfg, "(isClass _x)", true]);
 
 _return

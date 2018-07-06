@@ -56,8 +56,7 @@ private _offset = [0,0,0];
         ];
         _offset = [_offset,- deg _yaw - _dir] call BIS_fnc_rotateVector2D;
     };
-    nil
-} count ([_compositionCfg >>"composition" >> "items", "Object"] call FUNC(getCfgDataType));
+} forEach ([_compositionCfg >>"composition" >> "items", "Object"] call FUNC(getCfgDataType));
 
 _centerPosition = _centerPosition vectorAdd _offset;
 
@@ -72,22 +71,19 @@ _centerPosition = _centerPosition vectorAdd _offset;
             _spawnedObjects pushBack _curObj;
         };
     };
-    nil
-} count ([_compositionCfg >>"composition" >> "items", "Object"] call FUNC(getCfgDataType));
+} forEach ([_compositionCfg >>"composition" >> "items", "Object"] call FUNC(getCfgDataType));
 
 {
     private _curCfg = _x;
     private _units = [_centerPosition, _dir, _curCfg, _tempHash] call FUNC(createGroupFromCfg);
     _spawnedObjects append _units;
-    nil
-} count ([_compositionCfg >>"composition" >> "items", "Group"] call FUNC(getCfgDataType));
+} forEach ([_compositionCfg >>"composition" >> "items", "Group"] call FUNC(getCfgDataType));
 
 {
     If (_x getVariable [QGVAR(simulationEnabled),false]) then {
         _x enableSimulationGlobal true;
     };
-    nil
-} count _spawnedObjects;
+} forEach _spawnedObjects;
 
 HASH_DELETE(_tempHash);
 

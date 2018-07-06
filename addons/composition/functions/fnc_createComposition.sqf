@@ -37,15 +37,13 @@ private _tempHash = HASH_CREATE;
         HASH_SET(_tempHash, _id, _curObj);
         _spawnedObjects pushBack _curObj;
     };
-    nil
-} count ([_compositionCfg >>"composition" >> "items", "Object"] call FUNC(getCfgDataType));
+} forEach ([_compositionCfg >>"composition" >> "items", "Object"] call FUNC(getCfgDataType));
 
 {
     private _curCfg = _x;
     private _units = [_centerPosition, _dir, _curCfg, _tempHash] call FUNC(createGroupFromCfg);
     _spawnedObjects append _units;
-    nil
-} count ([_compositionCfg >>"composition" >> "items", "Group"] call FUNC(getCfgDataType));
+} forEach ([_compositionCfg >>"composition" >> "items", "Group"] call FUNC(getCfgDataType));
 
 
 /*
@@ -55,15 +53,14 @@ private _tempHash = HASH_CREATE;
 [_spawnedObjects] call FUNC(alignWithSurface);
 
 {
-    If (_x getVariable [QGVAR(simulationEnabled),false]) then {
+    If (_x getVariable [QGVAR(simulationEnabled), false]) then {
         _x enableSimulationGlobal true;
     };
     EGVAR(spawn,cleanUpDump) pushBack _x;
     If ([_x] call EFUNC(common,hasInventory)) then {
         [_x] call EFUNC(common,clearCargo);
     };
-    nil
-} count _spawnedObjects;
+} forEach _spawnedObjects;
 
 If (IS_ARRAY(EGVAR(mission,CompositionDesigners))) then {
     private _designer = getText(_compositionCfg >> "header" >> "author");
