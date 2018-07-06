@@ -58,7 +58,6 @@ private _fnc_findHouse = {
             };
         };
     };
-    nil;
-} count _allCompositions;
+} forEach _allCompositions;
 
 _return;

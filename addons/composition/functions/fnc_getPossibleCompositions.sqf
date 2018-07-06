@@ -16,20 +16,19 @@
 
 params [["_isobjective", false, [true]]];
 
-private _target = if (_isObjective) then {
-    "missioncompositions"
-} else {
-    "compositions"
-};
+private _check = "true";
 
+if (_isObjective) then {
+    _check = "getText(_x >> 'type') != ''";
+};
 
 private _allCompositions = [];
 If (isClass(configFile >> "CfgKerberos" >> "CfgComposition")) then {
-    _allCompositions append (configProperties [configFile >> "CfgKerberos" >> "CfgComposition" >> _target,"true",true]);
+    _allCompositions append (configProperties [configFile >> "CfgKerberos" >> "CfgComposition" >> "compositions" >> _target, _check, true]);
 };
 
 If (isClass(missionConfigFile >> "CfgKerberos" >> "CfgComposition")) then {
-    _allCompositions append (configProperties [missionconfigFile >> "CfgKerberos" >> "CfgComposition" >> _target,"true",true]);
+    _allCompositions append (configProperties [missionconfigFile >> "CfgKerberos" >> "CfgComposition" >> "compositions" >> _target, _check, true]);
 };
 
 private _return = [];
@@ -59,7 +58,6 @@ private _fnc_allObjectsAreValid = {
             };
         };
     };
-    nil;
-} count _allCompositions;
+} forEach _allCompositions;
 
 _return;
