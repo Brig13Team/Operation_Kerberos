@@ -14,7 +14,7 @@ PREP(getRandomPos);
 PREP(getReplacement);
 PREP(getSimilarHouses);
 PREP(onFiredNear);
-PREP(spawn);
+PREP(spawnComposition);
 PREP(spawnHouse);
 PREP(spawnObjective);
 PREP(spawnObjectiveHouse);
