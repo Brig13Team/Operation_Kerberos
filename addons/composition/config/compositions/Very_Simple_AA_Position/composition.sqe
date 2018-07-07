@@ -1,0 +1,154 @@
+version=53;
+center[]={3140.3184,5,2038.8666};
+class items
+{
+	items=6;
+	class Item0
+	{
+		dataType="Group";
+		side="Independent";
+		class Entities
+		{
+			items=1;
+			class Item0
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={-0.22631836,2.1698971,-0.033569336};
+				};
+				side="Independent";
+				flags=2;
+				class Attributes
+				{
+				};
+				id=283;
+				type="I_crew_F";
+				atlOffset=2.168458;
+			};
+		};
+		class Attributes
+		{
+		};
+		class CrewLinks
+		{
+			class LinkIDProvider
+			{
+				nextID=1;
+			};
+			class Links
+			{
+				items=1;
+				class Item0
+				{
+					linkID=0;
+					item0=283;
+					item1=281;
+					class CustomData
+					{
+						role=2;
+						turretPath[]={0};
+					};
+				};
+			};
+		};
+		id=280;
+	};
+	class Item1
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={-0.22631836,2.168458,-0.083618164};
+		};
+		side="Independent";
+		flags=6;
+		class Attributes
+		{
+			receiveRemoteTargets=1;
+			reportOwnPosition=1;
+		};
+		id=281;
+		type="I_LT_01_AA_F";
+	};
+	class Item2
+	{
+		dataType="Group";
+		side="Independent";
+		class Entities
+		{
+			items=1;
+			class Item0
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={1.2783203,0.0014390945,-3.6616211};
+					angles[]={-0,2.5091064,0};
+				};
+				side="Independent";
+				flags=6;
+				class Attributes
+				{
+				};
+				id=282;
+				type="I_crew_F";
+			};
+		};
+		class Attributes
+		{
+		};
+		id=284;
+	};
+	class Item3
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={-2.5986328,0.74051428,0.067138672};
+			angles[]={-0,1.5410368,0};
+		};
+		side="Empty";
+		flags=4;
+		class Attributes
+		{
+			disableSimulation=1;
+		};
+		id=287;
+		type="Land_HBarrier_01_line_5_green_F";
+	};
+	class Item4
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={2.1062012,0.74051428,0.0025634766};
+			angles[]={-0,1.5410368,0};
+		};
+		side="Empty";
+		flags=4;
+		class Attributes
+		{
+			disableSimulation=1;
+		};
+		id=288;
+		type="Land_HBarrier_01_line_5_green_F";
+	};
+	class Item5
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={-0.33496094,0.74051428,3.8045654};
+			angles[]={-0,3.1553926,0};
+		};
+		side="Empty";
+		flags=4;
+		class Attributes
+		{
+			disableSimulation=1;
+		};
+		id=289;
+		type="Land_HBarrier_01_line_5_green_F";
+	};
+};

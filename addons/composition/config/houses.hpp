@@ -205,299 +205,288 @@ class house_workshop {
     };
 };
 
-class mission_ammobox_outpost_v1 {
-    type = "weaponcache";
-    objecttypes[] = {"Box_East_Wps_F"};
+class house_big_02 {
     class header {
-        #include "houses\mission_ammobox_outpost_v1\header.sqe"
+        #include "houses\house_big_02\header.sqe"
     };
     class composition {
-        #include "houses\mission_ammobox_outpost_v1\composition.sqe"
+        #include "houses\house_big_02\composition.sqe"
     };
 };
 
-class mission_ammobox_outpost_v2 {
-    type = "weaponcache";
-    objecttypes[] = {"Box_East_Wps_F"};
+class house_cargotower_v1 {
     class header {
-        #include "houses\mission_ammobox_outpost_v2\header.sqe"
+        #include "houses\house_cargotower_v1\header.sqe"
     };
     class composition {
-        #include "houses\mission_ammobox_outpost_v2\composition.sqe"
+        #include "houses\house_cargotower_v1\composition.sqe"
     };
 };
 
-class mission_ammobox_outpost_v3 {
-    type = "weaponcache";
-    objecttypes[] = {"Box_East_Wps_F"};
+class house_silo {
     class header {
-        #include "houses\mission_ammobox_outpost_v3\header.sqe"
+        #include "houses\house_silo\header.sqe"
     };
     class composition {
-        #include "houses\mission_ammobox_outpost_v3\composition.sqe"
+        #include "houses\house_silo\composition.sqe"
     };
 };
 
-class mission_ammobox_outpost_v4 {
-    type = "weaponcache";
-    objecttypes[] = {"Box_East_Wps_F"};
+class house_small_01_d {
     class header {
-        #include "houses\mission_ammobox_outpost_v4\header.sqe"
+        #include "houses\house_small_01_d\header.sqe"
     };
     class composition {
-        #include "houses\mission_ammobox_outpost_v4\composition.sqe"
+        #include "houses\house_small_01_d\composition.sqe"
     };
 };
 
-class mission_capture_house_big_yellow {
-    type = "capture";
-    objecttypes[] = {"I_C_Soldier_Camo_F"};
+class house_stonehousesmall_v2 {
     class header {
-        #include "houses\mission_capture_house_big_yellow\header.sqe"
+        #include "houses\house_stonehousesmall_v2\header.sqe"
     };
     class composition {
-        #include "houses\mission_capture_house_big_yellow\composition.sqe"
+        #include "houses\house_stonehousesmall_v2\composition.sqe"
     };
 };
 
-class mission_capture_outpost_v1 {
-    type = "capture";
-    objecttypes[] = {"I_C_Soldier_Camo_F"};
+class house_unfinished_01_v2 {
     class header {
-        #include "houses\mission_capture_outpost_v1\header.sqe"
+        #include "houses\house_unfinished_01_v2\header.sqe"
     };
     class composition {
-        #include "houses\mission_capture_outpost_v1\composition.sqe"
+        #include "houses\house_unfinished_01_v2\composition.sqe"
     };
 };
 
-class mission_capture_outpost_v2 {
-    type = "capture";
-    objecttypes[] = {"I_C_Soldier_Camo_F"};
+
+class house_unfinished_01_v2 {
     class header {
-        #include "houses\mission_capture_outpost_v2\header.sqe"
+        #include "houses\house_unfinished_01_v2\header.sqe"
     };
     class composition {
-        #include "houses\mission_capture_outpost_v2\composition.sqe"
+        #include "houses\house_unfinished_01_v2\composition.sqe"
     };
 };
 
-class mission_capture_outpost_v3 {
-    type = "capture";
-    objecttypes[] = {"I_C_Soldier_Camo_F"};
+
+class house_airport_control_tower_v1 {
     class header {
-        #include "houses\mission_capture_outpost_v3\header.sqe"
+        #include "houses\house_airport_control_tower_v1\header.sqe"
     };
     class composition {
-        #include "houses\mission_capture_outpost_v3\composition.sqe"
+        #include "houses\house_airport_control_tower_v1\composition.sqe"
     };
 };
 
-class mission_capture_outpost_v4 {
-    type = "capture";
-    objecttypes[] = {"I_C_Soldier_Camo_F"};
+class house_chapel_v2 {
     class header {
-        #include "houses\mission_capture_outpost_v4\header.sqe"
+        #include "houses\house_chapel_v2\header.sqe"
     };
     class composition {
-        #include "houses\mission_capture_outpost_v4\composition.sqe"
+        #include "houses\house_chapel_v2\composition.sqe"
     };
 };
 
-class mission_intel_outpost_v1 {
-    type = "intel";
-    objecttypes[] = {"Land_SatellitePhone_F"};
+class house_chapel_v1 {
     class header {
-        #include "houses\mission_intel_outpost_v1\header.sqe"
+        #include "houses\house_chapel_v1\header.sqe"
     };
     class composition {
-        #include "houses\mission_intel_outpost_v1\composition.sqe"
+        #include "houses\house_chapel_v1\composition.sqe"
     };
 };
 
-class mission_intel_outpost_v2 {
-    type = "intel";
-    objecttypes[] = {"Land_SatellitePhone_F"};
+class house_small_03_v1 {
     class header {
-        #include "houses\mission_intel_outpost_v2\header.sqe"
+        #include "houses\house_small_03_v1\header.sqe"
     };
     class composition {
-        #include "houses\mission_intel_outpost_v2\composition.sqe"
+        #include "houses\house_small_03_v1\composition.sqe"
     };
 };
 
-class mission_intel_outpost_v3 {
-    type = "intel";
-    objecttypes[] = {"Land_SatellitePhone_F"};
+class house_addon_02_v2 {
     class header {
-        #include "houses\mission_intel_outpost_v3\header.sqe"
+        #include "houses\house_addon_02_v2\header.sqe"
     };
     class composition {
-        #include "houses\mission_intel_outpost_v3\composition.sqe"
+        #include "houses\house_addon_02_v2\composition.sqe"
     };
 };
 
-class mission_intel_outpost_v4 {
-    type = "intel";
-    objecttypes[] = {"Land_SatellitePhone_F"};
+class house_addon_02_v1 {
     class header {
-        #include "houses\mission_intel_outpost_v4\header.sqe"
+        #include "houses\house_addon_02_v1\header.sqe"
     };
     class composition {
-        #include "houses\mission_intel_outpost_v4\composition.sqe"
+        #include "houses\house_addon_02_v1\composition.sqe"
     };
 };
 
-class mission_intel_v01 {
-    type = "intel";
-    objecttypes[] = {"Land_SatellitePhone_F"};
+class house_big_01_v2 {
     class header {
-        #include "houses\mission_intel_v01\header.sqe"
+        #include "houses\house_big_01_v2\header.sqe"
     };
     class composition {
-        #include "houses\mission_intel_v01\composition.sqe"
+        #include "houses\house_big_01_v2\composition.sqe"
     };
 };
 
-class mission_laptop_bungalow {
-    type = "upload";
-    objecttypes[] = {"Land_Laptop_unfolded_F"};
+class house_big_01_v1 {
     class header {
-        #include "houses\mission_laptop_bungalow\header.sqe"
+        #include "houses\house_big_01_v1\header.sqe"
     };
     class composition {
-        #include "houses\mission_laptop_bungalow\composition.sqe"
+        #include "houses\house_big_01_v1\composition.sqe"
     };
 };
 
-class mission_laptop_outpost_v1 {
-    type = "upload";
-    objecttypes[] = {"Land_Laptop_unfolded_F"};
+class house_lighthouse_v1 {
     class header {
-        #include "houses\mission_laptop_outpost_v1\header.sqe"
+        #include "houses\house_lighthouse_v1\header.sqe"
     };
     class composition {
-        #include "houses\mission_laptop_outpost_v1\composition.sqe"
+        #include "houses\house_lighthouse_v1\composition.sqe"
     };
 };
 
-class mission_laptop_outpost_v2 {
-    type = "upload";
-    objecttypes[] = {"Land_Laptop_unfolded_F"};
+class house_lifeguardtower_v1 {
     class header {
-        #include "houses\mission_laptop_outpost_v2\header.sqe"
+        #include "houses\house_lifeguardtower_v1\header.sqe"
     };
     class composition {
-        #include "houses\mission_laptop_outpost_v2\composition.sqe"
+        #include "houses\house_lifeguardtower_v1\composition.sqe"
     };
 };
 
-class mission_laptop_outpost_v3 {
-    type = "upload";
-    objecttypes[] = {"Land_Laptop_unfolded_F"};
+class house_cargotower_v2 {
     class header {
-        #include "houses\mission_laptop_outpost_v3\header.sqe"
+        #include "houses\house_cargotower_v2\header.sqe"
     };
     class composition {
-        #include "houses\mission_laptop_outpost_v3\composition.sqe"
+        #include "houses\house_cargotower_v2\composition.sqe"
     };
 };
 
-class mission_laptop_outpost_v4 {
-    type = "upload";
-    objecttypes[] = {"Land_Laptop_unfolded_F"};
+class house_shop_02_v4 {
     class header {
-        #include "houses\mission_laptop_outpost_v4\header.sqe"
+        #include "houses\house_shop_02_v4\header.sqe"
     };
     class composition {
-        #include "houses\mission_laptop_outpost_v4\composition.sqe"
+        #include "houses\house_shop_02_v4\composition.sqe"
     };
 };
 
-class mission_laptop_v1 {
-    type = "upload";
-    objecttypes[] = {"Land_Laptop_unfolded_F"};
+class house_shop_02_v3 {
     class header {
-        #include "houses\mission_laptop_v1\header.sqe"
+        #include "houses\house_shop_02_v3\header.sqe"
     };
     class composition {
-        #include "houses\mission_laptop_v1\composition.sqe"
+        #include "houses\house_shop_02_v3\composition.sqe"
     };
 };
-
-class mission_pow_house_big_yellow {
-    type = "pow";
-    objecttypes[] = {"C_scientist_F"};
+class house_shop_01_v4 {
     class header {
-        #include "houses\mission_pow_house_big_yellow\header.sqe"
+        #include "houses\house_shop_01_v4\header.sqe"
     };
     class composition {
-        #include "houses\mission_pow_house_big_yellow\composition.sqe"
+        #include "houses\house_shop_01_v4\composition.sqe"
     };
 };
-
-class mission_pow_house_tiny_1 {
-    type = "pow";
-    objecttypes[] = {"C_scientist_F"};
+class house_shop_01_v3 {
     class header {
-        #include "houses\mission_pow_house_tiny_1\header.sqe"
+        #include "houses\house_shop_01_v3\header.sqe"
     };
     class composition {
-        #include "houses\mission_pow_house_tiny_1\composition.sqe"
+        #include "houses\house_shop_01_v3\composition.sqe"
     };
 };
-
-class mission_pow_outpost_v1 {
-    type = "pow";
-    objecttypes[] = {"C_scientist_F"};
+class house_shop_01_v2 {
     class header {
-        #include "houses\mission_pow_outpost_v1\header.sqe"
+        #include "houses\house_shop_01_v2\header.sqe"
     };
     class composition {
-        #include "houses\mission_pow_outpost_v1\composition.sqe"
+        #include "houses\house_shop_01_v2\composition.sqe"
     };
 };
-
-class mission_pow_outpost_v2 {
-    type = "pow";
-    objecttypes[] = {"C_scientist_F"};
+class house_windmill_v1 {
     class header {
-        #include "houses\mission_pow_outpost_v2\header.sqe"
+        #include "houses\house_windmill_v1\header.sqe"
     };
     class composition {
-        #include "houses\mission_pow_outpost_v2\composition.sqe"
+        #include "houses\house_windmill_v1\composition.sqe"
     };
 };
-
-class mission_pow_outpost_v3 {
-    type = "pow";
-    objecttypes[] = {"C_scientist_F"};
+class house_windmill_d_v1 {
     class header {
-        #include "houses\mission_pow_outpost_v3\header.sqe"
+        #include "houses\house_windmill_d_v1\header.sqe"
     };
     class composition {
-        #include "houses\mission_pow_outpost_v3\composition.sqe"
+        #include "houses\house_windmill_d_v1\composition.sqe"
     };
 };
-
-class mission_pow_outpost_v4 {
-    type = "pow";
-    objecttypes[] = {"C_scientist_F"};
+class house_watertower_v2 {
     class header {
-        #include "houses\mission_pow_outpost_v4\header.sqe"
+        #include "houses\house_watertower_v2\header.sqe"
     };
     class composition {
-        #include "houses\mission_pow_outpost_v4\composition.sqe"
+        #include "houses\house_watertower_v2\composition.sqe"
     };
 };
-
-class mission_pow_shed {
-    type = "pow";
-    objecttypes[] = {"C_scientist_F"};
+class house_watertower_v1 {
     class header {
-        #include "houses\mission_pow_shed\header.sqe"
+        #include "houses\house_watertower_v1\header.sqe"
     };
     class composition {
-        #include "houses\mission_pow_shed\composition.sqe"
+        #include "houses\house_watertower_v1\composition.sqe"
+    };
+};
+class house_stoneshed_v1 {
+    class header {
+        #include "houses\house_stoneshed_v1\header.sqe"
+    };
+    class composition {
+        #include "houses\house_stoneshed_v1\composition.sqe"
+    };
+};
+class house_stonehousebig_v3 {
+    class header {
+        #include "houses\house_stonehousebig_v3\header.sqe"
+    };
+    class composition {
+        #include "houses\house_stonehousebig_v3\composition.sqe"
+    };
+};
+class house_stonehousebig_v2 {
+    class header {
+        #include "houses\house_stonehousebig_v2\header.sqe"
+    };
+    class composition {
+        #include "houses\house_stonehousebig_v2\composition.sqe"
+    };
+};
+class house_stonehousebig_v1 {
+    class header {
+        #include "houses\house_stonehousebig_v1\header.sqe"
+    };
+    class composition {
+        #include "houses\house_stonehousebig_v1\composition.sqe"
+    };
+};
+class house_ssp_tower_v2 {
+    class header {
+        #include "houses\house_ssp_tower_v2\header.sqe"
+    };
+    class composition {
+        #include "houses\house_ssp_tower_v2\composition.sqe"
+    };
+};
+class house_ssp_tower_v1 {
+    class header {
+        #include "houses\house_ssp_tower_v1\header.sqe"
+    };
+    class composition {
+        #include "houses\house_ssp_tower_v1\composition.sqe"
     };
 };

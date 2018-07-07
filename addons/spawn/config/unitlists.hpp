@@ -77,7 +77,7 @@ class GVAR(unitlists) {
             //radar[] = {"rhs_p37","rhs_prv13"};
             radar[] = {"Land_Radar_Small_F"};
             device[] = {"Land_Device_assembled_F","Land_Device_disassembled_F"};
-            emp[] = {"rhs_typhoon_vdv"};
+            emp[] = {"O_Truck_03_device_F"};
             scarab[] = {"rhs_9k79"};
         };
         civ_cars[] = {"C_Offroad_01_F","C_Quadbike_01_F","C_Hatchback_01_F","C_Hatchback_01_sport_F","C_SUV_01_F","C_Van_01_transport_F","C_Van_01_box_F","C_Offroad_01_F","C_Quadbike_01_F","C_Hatchback_01_F","C_Hatchback_01_sport_F","C_SUV_01_F","C_Van_01_transport_F","C_Van_01_box_F","RHS_Civ_Truck_02_covered_F","RHS_Civ_Truck_02_transport_F","RHS_Ural_Civ_01","RHS_Ural_Open_Civ_01","RHS_Ural_Civ_02","RHS_Ural_Open_Civ_02","RHS_Ural_Civ_03","RHS_Ural_Open_Civ_03"};
