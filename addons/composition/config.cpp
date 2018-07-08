@@ -15,7 +15,7 @@ class CfgPatches {
 };
 
 #include "CfgEventhandlers.hpp"
-
+/*
 class CfgKerberos {
     class CfgComposition {
         class compositions {
@@ -26,5 +26,12 @@ class CfgKerberos {
             #include "config\houses.hpp"
             #include "config\houses_missions.hpp"
         };
+    };
+};
+*/
+class CfgKerberos {
+    class CfgComposition {
+        class compositions {};
+        class houses {};
     };
 };

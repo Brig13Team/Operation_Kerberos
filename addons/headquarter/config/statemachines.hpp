@@ -278,18 +278,18 @@ class GVAR(statemachine_AIGroups) {
         onStateEntered = QFUNC(statemachine_OffMapReturn);
         onStateLeaving = "";
         class returnpoint_reached {
-            targetState = "delete";
+            targetState = "deletegrp";
             condition = QUOTE(((leader _this) distance2d (_this getVariable [ARR_2('GVAR(spawnpos)',[ARR_3(0,0,0)])]))<800);
             onTransition = "";
         };
         class isUnseen {
-            targetState = "delete";
+            targetState = "deletegrp";
             condition = QFUNC(statemachine_canBeDeletedUnseen);
             onTransition = "";
         };
     };
     // delete a group and it's units mostly for off-map support or transport groups
-    class delete {
+    class deletegrp {
         onState = "";
         onStateEntered = QFUNC(statemachine_delete);
         onStateLeaving = "";

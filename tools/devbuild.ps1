@@ -106,7 +106,7 @@ function Build-Directory {
     $binPath   = "$projectRoot\$parent\dorb_$component.pbo"
 
     Write-Output "  PBO  $component"
-    & $armake build -i "$projectRoot\include" -w unquoted-string -w redefinition-wo-undef -f $fullPath $binPath
+    & $armake build -i "$projectRoot\include" -w unquoted-string -w redefinition-wo-undef -w excessive-concatenation -f $fullPath $binPath
 
     if ($LastExitCode -ne 0) {
         Write-Error "Failed to build $component."

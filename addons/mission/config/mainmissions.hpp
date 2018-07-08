@@ -55,7 +55,9 @@ class capture : baseMainmission {
         radius = 200;
     };
     class objective : objective {
+        newComposition = 1;
         target = "house";
+        composition_types[] = {"capture"};
         objects = "officer";
         amount[] = {1,3};
         objectsfunction = QFUNC(mainmission_capture);
@@ -73,6 +75,7 @@ class capture : baseMainmission {
 class hostage : capture {
     probability = PROPABILITY_TOWN;
     class objective : objective {
+        composition_types[] = {"pow"};
         objects = "hostage";
         amount[] = {2,4};
         objectsfunction = QFUNC(mainmission_hostage);
@@ -90,6 +93,7 @@ class hostage : capture {
 class intel : capture {
     probability = PROPABILITY_TOWN;
     class objective : objective {
+        composition_types[] = {"intel"};
         objects = "intel";
         amount[] = {2,6};
         objectsfunction = QFUNC(mainmission_intel);
@@ -107,6 +111,7 @@ class intel : capture {
 class upload : intel {
     probability = PROPABILITY_TOWN;
     class objective : objective {
+        composition_types[] = {"upload"};
         objects = "upload";
         amount = 1;
         objectsfunction = QFUNC(mainmission_upload);
@@ -122,6 +127,7 @@ class upload : intel {
 class weaponcache : intel {
     probability = PROPABILITY_TOWN;
     class objective : objective {
+        composition_types[] = {"weaponcache"};
         objects = "weaponcache";
         amount[] = {5,8};
         objectsfunction = QFUNC(mainmission_weaponcache);
@@ -142,9 +148,9 @@ class device : baseMainmission {
         radius = 800;
     };
     class objective : objective {
+        newComposition = 1;
         target = "composition";
-        composition_types[] = {"isobjective","device"};
-        objects = "device";
+        composition_types[] = {"device"};
         objectsfunction = QFUNC(mainmission_device);
     };
     class task : task {
@@ -160,8 +166,8 @@ class emp : device {
     probability = PROPABILITY_LAND;
     armys[] = {{"guards", 1}, {"infanterie", 1}, {"specops", 1}};
     class objective : objective {
-        composition_types[] = {"isobjective","emp"};
-        objects = "emp";
+        newComposition = 1;
+        composition_types[] = {"emp"};
         amount = 1;
         objectsfunction = QFUNC(mainmission_emp);
     };
@@ -179,6 +185,7 @@ class dronecommando : device {
     probability = PROPABILITY_LAND;
     armys[] = {{"specops", 1}};
     class objective : objective {
+        newComposition = 1;
         objects = "dronecommando";
         composition_types[] = {"dronecommando"};
         amount = 1;
@@ -197,8 +204,9 @@ class dronecommando : device {
 class prototype : device {
     probability = PROPABILITY_LAND;
     class objective : objective {
+        newComposition = 1;
         objects = "prototype";
-        composition_types[] = {"isobjective","prototype"};
+        composition_types[] = {"prototype"};
         amount = 1;
         objectsfunction = QFUNC(mainmission_prototype);
     };
