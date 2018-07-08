@@ -30,10 +30,25 @@ If (isClass(_curCfg >> "CrewLinks")) then {
     } forEach (configProperties[_curCfg >> "CrewLinks" >> "Links","(isClass _x)",true]);
 };
 
-private _group = createGroup [GVARMAIN(side),true];
+private _side = switch (toUpper(getText(_curCfg >> "side"))) do {
+    case "EAST" : {east};
+    case "WEST" : {west};
+    case "INDEPENDENT";
+    case "GUER" : {resistance};
+    case "CIV" : {civilian};
+    case "ENEMY" : {sideEnemy};
+    case "FRIENDLY" : {sideFriendly};
+    case "LOGIC" : {sideLogic};
+    case "EMPTY" : {sideEmpty};
+    case "AMBIENT LIFE" : {sideAmbientLife};
+    default {sideUnknown};
+};
+
+private _group = createGroup [_side, true];
 {
     private _id = getNumber(_x >> "id");
-    private _type = [getText(_x >> "type")] call FUNC(getReplacement);
+    //private _type = [getText(_x >> "type")] call FUNC(getReplacement);
+    private _type = getText(_x >> "type");
 
     private "_unit";
     If (HASH_HASKEY(_LinkHash,str _id)) then {

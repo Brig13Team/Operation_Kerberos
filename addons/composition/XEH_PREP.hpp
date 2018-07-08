@@ -16,7 +16,7 @@ PREP(getSimilarHouses);
 PREP(onFiredNear);
 PREP(spawnComposition);
 PREP(spawnEmplacement);
-PREP(spawnFortifiedHouse)
+PREP(spawnFortifiedHouse);
 PREP(spawnHouse);
 PREP(spawnObjective);
 PREP(spawnObjectiveHouse);

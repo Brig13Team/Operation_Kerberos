@@ -24,11 +24,11 @@ if (_isObjective) then {
 
 private _allCompositions = [];
 If (isClass(configFile >> "CfgKerberos" >> "CfgComposition")) then {
-    _allCompositions append (configProperties [configFile >> "CfgKerberos" >> "CfgComposition" >> "compositions" >> _target, _check, true]);
+    _allCompositions append (configProperties [configFile >> "CfgKerberos" >> "CfgComposition" >> "compositions", _check, true]);
 };
 
 If (isClass(missionConfigFile >> "CfgKerberos" >> "CfgComposition")) then {
-    _allCompositions append (configProperties [missionconfigFile >> "CfgKerberos" >> "CfgComposition" >> "compositions" >> _target, _check, true]);
+    _allCompositions append (configProperties [missionconfigFile >> "CfgKerberos" >> "CfgComposition" >> "compositions", _check, true]);
 };
 
 private _return = [];
