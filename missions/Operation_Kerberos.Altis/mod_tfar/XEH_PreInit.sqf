@@ -52,12 +52,14 @@ If (isServer) then {
     [QGVAR(removeJammer), LINKFUNC(jammer_remove)] call CBA_fnc_addEventHandler;
 };
 
-[
-    QGVAR(AICanHearPlayer),
-    "CHECKBOX",
-    LSTRING(AICanHearPlayer),
-    "Operation Kerberos",
-    true,
-    1,
-    FUNC(onSettingChanged)
-] call CBA_Settings_fnc_init;
+If (getText (configFile >> "CfgPatches" >> "task_force_radio" >> "versionStr") == "0.9.12") then {
+    [
+        QGVAR(AICanHearPlayer),
+        "CHECKBOX",
+        LSTRING(AICanHearPlayer),
+        "Operation Kerberos",
+        true,
+        1,
+        FUNC(onSettingChanged)
+    ] call CBA_Settings_fnc_init;
+};
