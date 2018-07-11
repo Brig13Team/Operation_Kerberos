@@ -6,7 +6,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"dorb_common","dorb_spawn"};
+        requiredAddons[] = {"dorb_common", "dorb_spawn", "dorb_composition"};
         author = ECSTRING(main,BrigTeam);
         authors[] = {"Dorbedo"};
         url = ECSTRING(main,URL);
@@ -14,11 +14,11 @@ class CfgPatches {
     };
 };
 
-#include "CfgEventhandlers.hpp"
-
-class CfgKerberos {
-    class CfgComposition {
-        class compositions {};
-        class houses {};
+class CfgKerberos;
+class CfgKerberos : CfgKerberos {
+    class CfgComposition : CfgComposition {
+        class compositions : compositions {
+            #include "config\compositions.hpp"
+        };
     };
 };
