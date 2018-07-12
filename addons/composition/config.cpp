@@ -18,7 +18,11 @@ class CfgPatches {
 
 class CfgKerberos {
     class CfgComposition {
-        class compositions {};
-        class houses {};
+        class compositions {
+            #include "config\compositions.hpp"
+        };
+        class houses {
+            #include "config\houses.hpp"
+        };
     };
 };
