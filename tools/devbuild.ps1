@@ -1,3 +1,5 @@
+# From ACE-Project https://github.com/acemod/ACE3
+
 $projectRoot  = Split-Path -Parent $PSScriptRoot
 $releasePage  = "https://github.com/KoffeinFlummi/armake/releases"
 $downloadPage = "https://github.com/KoffeinFlummi/armake/releases/download/v{0}/armake_v{0}.zip"
