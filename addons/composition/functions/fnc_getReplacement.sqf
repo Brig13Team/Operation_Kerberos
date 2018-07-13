@@ -21,9 +21,14 @@ private _return = _unittype;
 private _unitside = getNumber(configFile >> "CfgVehicles" >> _unittype >> "side");
 
 private _needReplacement = switch _unitside do {
-    case 0 : {GVARMAIN(playerside) == east};
-    case 1 : {GVARMAIN(playerside) == west};
+    //case 0 : {GVARMAIN(playerside) == east};
+    //case 1 : {GVARMAIN(playerside) == west};
+    case 2: {true};
     default {false};
+};
+
+If ((toLower _unittype) in (["replacement"] call EFUNC(mission,spawn_getObjects))) then {
+    _needReplacement = false;
 };
 
 If !(_needReplacement) exitWith {_return};
@@ -42,6 +47,7 @@ switch (true) do {
     case (_unittype isKindOf "Tank") : {
         _return = ["tanks"] call EFUNC(spawn,getUnit);
     };
+    /*
     case (_unittype isKindOf "Truck_F") : {
         _return = ["transporter_lorry"] call EFUNC(spawn,getUnit);
     };
@@ -51,6 +57,7 @@ switch (true) do {
     case (_unittype isKindOf "Car_F") : {
         _return = ["transporter_sniper"] call EFUNC(spawn,getUnit);
     };
+    */
     default {TRACEV_1(_unittype);};
 };
 

@@ -47,8 +47,8 @@ private _side = switch (toUpper(getText(_curCfg >> "side"))) do {
 private _group = createGroup [_side, true];
 {
     private _id = getNumber(_x >> "id");
-    //private _type = [getText(_x >> "type")] call FUNC(getReplacement);
-    private _type = getText(_x >> "type");
+    private _type = [getText(_x >> "type")] call FUNC(getReplacement);
+    //private _type = getText(_x >> "type");
 
     private "_unit";
     If (HASH_HASKEY(_LinkHash,str _id)) then {

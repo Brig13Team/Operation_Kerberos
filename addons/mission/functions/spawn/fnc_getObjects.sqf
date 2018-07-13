@@ -61,6 +61,11 @@ switch _type do {
         _return = getArray(_config >> "art_rocket") + getArray(_config >> "art_shells");
     };
 
+    case "replacement" : {
+        _return = ["capture"] call FUNC(spawn_getObjects);
+        _retun append (["hostage"] call FUNC(spawn_getObjects));
+    };
+
     default {
         _return = getArray(_config >> "mission" >> _type);
     };
