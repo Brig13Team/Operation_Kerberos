@@ -30,7 +30,7 @@ if (IS_STRING(_types)) then {
 
 private _typestoAdd = [];
 {
-    private _temp =+ ([_x] call FUNC(getSimilarHouses));
+    private _temp =+ (_x call FUNC(getSimilarHouses));
     _typesToAdd append _temp;
 } forEach _types;
 
