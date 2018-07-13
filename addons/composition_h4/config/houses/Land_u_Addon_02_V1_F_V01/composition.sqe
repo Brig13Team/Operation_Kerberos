@@ -1,0 +1,69 @@
+version=53;
+center[]={5303.6553,5,4815.0215};
+class items
+{
+	items=4;
+	class Item0
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={-0.1640625,0.21473074,-2.4077148};
+		};
+		side="Empty";
+		flags=5;
+		class Attributes
+		{
+		};
+		id=1171;
+		type="Land_u_Addon_02_V1_F";
+	};
+	class Item1
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={-2.3129883,0.31433344,0.97460938};
+		};
+		side="Empty";
+		flags=4;
+		class Attributes
+		{
+			createAsSimpleObject=1;
+		};
+		id=1185;
+		type="Land_ShelvesMetal_F";
+	};
+	class Item2
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={-0.094238281,0.31433344,0.97851563};
+		};
+		side="Empty";
+		flags=4;
+		class Attributes
+		{
+			createAsSimpleObject=1;
+		};
+		id=1186;
+		type="Land_ShelvesMetal_F";
+	};
+	class Item3
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={2.5727539,0.3114295,0.45751953};
+		};
+		side="Empty";
+		flags=4;
+		class Attributes
+		{
+			createAsSimpleObject=1;
+		};
+		id=1187;
+		type="Land_CashDesk_F";
+	};
+};

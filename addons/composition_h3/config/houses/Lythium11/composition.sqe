@@ -1,0 +1,135 @@
+version=53;
+center[]={4462.0547,4.9999933,2160.3333};
+class items
+{
+	items=3;
+	class Item0
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={0.75830078,0.82004499,1.1147461};
+		};
+		side="Empty";
+		flags=5;
+		class Attributes
+		{
+		};
+		id=29;
+		type="Jbad_Ind_Garage01";
+	};
+	class Item1
+	{
+		dataType="Group";
+		side="Independent";
+		class Entities
+		{
+			items=3;
+			class Item0
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={-0.56005859,0.4913373,1.8374023};
+					angles[]={0,3.1340704,0};
+				};
+				side="Independent";
+				flags=3;
+				class Attributes
+				{
+				};
+				id=222;
+				type="I_C_Soldier_Bandit_3_F";
+				atlOffset=0.3785181;
+			};
+			class Item1
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={0.35742188,0.0014452934,-4.6359863};
+					angles[]={-0,3.1340704,0};
+				};
+				side="Independent";
+				flags=4;
+				class Attributes
+				{
+				};
+				id=318;
+				type="I_C_Soldier_Para_1_F";
+				atlOffset=-4.7683716e-007;
+			};
+			class Item2
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={0.35742188,0.0014452934,-4.6359863};
+					angles[]={-0,3.1340704,0};
+				};
+				side="Independent";
+				flags=4;
+				class Attributes
+				{
+				};
+				id=319;
+				type="I_C_Soldier_Para_1_F";
+				atlOffset=-4.7683716e-007;
+			};
+		};
+		class Attributes
+		{
+		};
+		class CrewLinks
+		{
+			class LinkIDProvider
+			{
+				nextID=2;
+			};
+			class Links
+			{
+				items=2;
+				class Item0
+				{
+					linkID=0;
+					item0=318;
+					item1=317;
+					class CustomData
+					{
+						role=1;
+					};
+				};
+				class Item1
+				{
+					linkID=1;
+					item0=319;
+					item1=317;
+					class CustomData
+					{
+						role=2;
+						turretPath[]={0};
+					};
+				};
+			};
+		};
+		id=221;
+		atlOffset=0.3785181;
+	};
+	class Item2
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={0.36035156,1.5695963,-4.689209};
+			angles[]={-0,3.1340704,0};
+		};
+		side="Independent";
+		flags=4;
+		class Attributes
+		{
+		};
+		id=317;
+		type="I_C_Offroad_02_AT_F";
+		atlOffset=-6.6757202e-006;
+	};
+};

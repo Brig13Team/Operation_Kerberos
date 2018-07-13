@@ -1,0 +1,140 @@
+version=53;
+center[]={5205.9214,5,4434.3867};
+class items
+{
+	items=6;
+	class Item0
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={0.68310547,4.0899649,2.7490234};
+			angles[]={0,3.1415927,0};
+		};
+		side="Empty";
+		flags=5;
+		class Attributes
+		{
+		};
+		id=825;
+		type="Land_TentHangar_V1_F";
+	};
+	class Item1
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={0.90869141,2.4227982,1.1293945};
+			angles[]={0,3.1511047,0};
+		};
+		side="Empty";
+		flags=4;
+		class Attributes
+		{
+			lock="LOCKEDPLAYER";
+		};
+		id=829;
+		type="I_Plane_Fighter_03_dynamicLoadout_F";
+		class CustomAttributes
+		{
+			class Attribute0
+			{
+				property="ammoBox";
+				expression="[_this,_value] call bis_fnc_initAmmoBox;";
+				class Value
+				{
+					class data
+					{
+						class type
+						{
+							type[]=
+							{
+								"STRING"
+							};
+						};
+						value="[[[[],[]],[[],[]],[[],[]],[[],[]]],true]";
+					};
+				};
+			};
+			nAttributes=1;
+		};
+	};
+	class Item2
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={9.8286133,0.73400784,-0.47851563};
+			angles[]={-0,3.1196647,0};
+		};
+		side="Empty";
+		flags=4;
+		class Attributes
+		{
+		};
+		id=831;
+		type="Land_Bomb_Trolley_01_F";
+	};
+	class Item3
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={-7.1743164,0.73334503,3.1040039};
+			angles[]={-0,1.0273974,0};
+		};
+		side="Empty";
+		flags=4;
+		class Attributes
+		{
+		};
+		id=832;
+		type="Land_Missle_Trolley_02_F";
+	};
+	class Item4
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={-8.2583008,0.13300133,-3.3476563};
+			angles[]={-0,3.5907764,0};
+		};
+		side="Empty";
+		flags=4;
+		class Attributes
+		{
+			createAsSimpleObject=1;
+		};
+		id=834;
+		type="Land_HelicopterWheels_01_assembled_F";
+	};
+	class Item5
+	{
+		dataType="Group";
+		side="Independent";
+		class Entities
+		{
+			items=1;
+			class Item0
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={4.0117188,0.0014390945,-3.1464844};
+					angles[]={-0,3.1510994,0};
+				};
+				side="Independent";
+				flags=6;
+				class Attributes
+				{
+				};
+				id=830;
+				type="I_Fighter_Pilot_F";
+			};
+		};
+		class Attributes
+		{
+		};
+		id=826;
+	};
+};

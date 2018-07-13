@@ -1,0 +1,52 @@
+version=53;
+center[]={4261.1807,5,2140.5288};
+class items
+{
+	items=2;
+	class Item0
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={-0.63916016,-0.88353014,-1.8598633};
+		};
+		side="Empty";
+		flags=5;
+		class Attributes
+		{
+		};
+		id=20;
+		type="jbad_House2_basehide";
+	};
+	class Item1
+	{
+		dataType="Group";
+		side="Independent";
+		class Entities
+		{
+			items=1;
+			class Item0
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={0.63964844,0.5158987,1.9101563};
+					angles[]={0,3.1000383,0};
+				};
+				side="Independent";
+				flags=7;
+				class Attributes
+				{
+				};
+				id=314;
+				type="I_G_Sharpshooter_F";
+				atlOffset=9.5367432e-007;
+			};
+		};
+		class Attributes
+		{
+		};
+		id=313;
+		atlOffset=9.5367432e-007;
+	};
+};

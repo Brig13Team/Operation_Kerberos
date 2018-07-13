@@ -1,3 +1,21 @@
+class AA_V12_freistehend {
+    class header {
+        #include "compositions\AA_V12_freistehend\header.sqe"
+    };
+    class composition {
+        #include "compositions\AA_V12_freistehend\composition.sqe"
+    };
+};
+
+class depot_V03_Fahrzeugdepot_klein {
+    class header {
+        #include "compositions\depot_V03_Fahrzeugdepot_klein\header.sqe"
+    };
+    class composition {
+        #include "compositions\depot_V03_Fahrzeugdepot_klein\composition.sqe"
+    };
+};
+
 class fortification_V01_containerfort {
     class header {
         #include "compositions\fortification_V01_containerfort\header.sqe"

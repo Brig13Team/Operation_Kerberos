@@ -1,0 +1,141 @@
+version=53;
+center[]={4596.0327,5.0000005,2152.741};
+class items
+{
+	items=5;
+	class Item0
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={0.32128906,4.0599875,1.2885742};
+		};
+		side="Empty";
+		flags=5;
+		class Attributes
+		{
+		};
+		id=7;
+		type="jbad_House_c_4";
+		atlOffset=4.7683716e-007;
+	};
+	class Item1
+	{
+		dataType="Group";
+		side="Independent";
+		class Entities
+		{
+			items=1;
+			class Item0
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={-0.51416016,6.8641829,-1.0463867};
+					angles[]={0,3.3601136,0};
+				};
+				side="Independent";
+				flags=7;
+				class Attributes
+				{
+				};
+				id=224;
+				type="I_C_Soldier_Bandit_2_F";
+			};
+		};
+		class Attributes
+		{
+		};
+		id=223;
+	};
+	class Item2
+	{
+		dataType="Group";
+		side="Independent";
+		class Entities
+		{
+			items=1;
+			class Item0
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={2.7080078,6.8715835,-4.0651855};
+					angles[]={0,2.5429225,0};
+				};
+				side="Independent";
+				flags=7;
+				class Attributes
+				{
+				};
+				id=225;
+				type="I_C_Soldier_Bandit_3_F";
+			};
+		};
+		class Attributes
+		{
+		};
+		id=226;
+	};
+	class Item3
+	{
+		dataType="Group";
+		side="Independent";
+		class Entities
+		{
+			items=1;
+			class Item0
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={1.9599609,0.5764389,2.8742676};
+					angles[]={0,3.5956442,0};
+				};
+				side="Independent";
+				flags=7;
+				class Attributes
+				{
+				};
+				id=227;
+				type="I_C_Pilot_F";
+				atlOffset=4.7683716e-007;
+			};
+		};
+		class Attributes
+		{
+		};
+		id=228;
+		atlOffset=4.7683716e-007;
+	};
+	class Item4
+	{
+		dataType="Group";
+		side="Independent";
+		class Entities
+		{
+			items=1;
+			class Item0
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={-4.4731445,0.57643795,1.1484375};
+				};
+				side="Independent";
+				flags=3;
+				class Attributes
+				{
+				};
+				id=229;
+				type="I_C_Soldier_Bandit_6_F";
+				atlOffset=0.57499981;
+			};
+		};
+		class Attributes
+		{
+		};
+		id=230;
+		atlOffset=0.57499981;
+	};
+};

@@ -66,8 +66,11 @@ class worlds {
         class locations {
             #include "lythium\locations.hpp"
         };
-        class waypoints {
-            #include "lythium\waypoints.hpp"
+        class waypoints_1 {
+            #include "pja310\waypoints.hpp"
+        };
+        class waypoints : waypoints_1 {
+            #include "pja310\waypoints2.hpp"
         };
     };
 };

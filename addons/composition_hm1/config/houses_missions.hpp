@@ -284,3 +284,50 @@ class mission_pow_outpost_v4 {
         #include "houses\mission_pow_outpost_v4\composition.sqe"
     };
 };
+
+class mission_ammobox_v05_land_i_garage_v1_f {
+    type = "weaponcache";
+    objecttypes[] = {"Box_IND_WpsSpecial_F"};
+    class header {
+        #include "houses\mission_ammobox_v05_land_i_garage_v1_f\header.sqe"
+    };
+    class composition {
+        #include "houses\mission_ammobox_v05_land_i_garage_v1_f\composition.sqe"
+    };
+};
+
+class mission_ammobox_v06_land_u_barracks_v2_f {
+    type = "weaponcache";
+    objecttypes[] = {"Box_IND_Wps_F"};
+    class header {
+        #include "houses\mission_ammobox_v06_land_u_barracks_v2_f\header.sqe"
+    };
+    class composition {
+        #include "houses\mission_ammobox_v06_land_u_barracks_v2_f\composition.sqe"
+    };
+};
+
+class mission_intel_v02_land_chapel_v1_f {
+    type = "intel";
+    objecttypes[] = {"Land_SatellitePhone_F"};
+    class header {
+        #include "houses\mission_intel_v02_land_chapel_v1_f\header.sqe"
+    };
+    class composition {
+        #include "houses\mission_intel_v02_land_chapel_v1_f\composition.sqe"
+    };
+};
+
+class mission_laptop_v04_land_carservice_f {
+    type = "upload";
+    objecttypes[] = {"Land_Laptop_unfolded_F"};
+    class header {
+        #include "houses\mission_laptop_v04_land_carservice_f\header.sqe"
+    };
+    class composition {
+        #include "houses\mission_laptop_v04_land_carservice_f\composition.sqe"
+    };
+};
+
+
+

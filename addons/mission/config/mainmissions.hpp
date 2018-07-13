@@ -285,3 +285,4 @@ class scarab : device {
         onTimeout = QFUNC(mainmission_scarab_failed);
     };
 };
+

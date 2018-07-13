@@ -1,0 +1,139 @@
+version=53;
+center[]={4244.2568,5,2097.7979};
+class items
+{
+	items=5;
+	class Item0
+	{
+		dataType="Group";
+		side="Independent";
+		class Entities
+		{
+			items=1;
+			class Item0
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={-2.8466797,0.29434776,0.37670898};
+					angles[]={-0,4.7883525,0.0031265267};
+				};
+				side="Independent";
+				flags=6;
+				class Attributes
+				{
+				};
+				id=281;
+				type="I_G_Soldier_F";
+				atlOffset=0.20788622;
+			};
+		};
+		class Attributes
+		{
+		};
+		class CrewLinks
+		{
+			class LinkIDProvider
+			{
+				nextID=1;
+			};
+			class Links
+			{
+				items=1;
+				class Item0
+				{
+					linkID=0;
+					item0=281;
+					item1=280;
+					class CustomData
+					{
+						role=2;
+						turretPath[]={0};
+					};
+				};
+			};
+		};
+		id=279;
+		atlOffset=0.20788622;
+	};
+	class Item1
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={-2.8491211,1.0145316,0.32617188};
+			angles[]={-0,4.7883525,0.0031265267};
+		};
+		side="Independent";
+		flags=6;
+		class Attributes
+		{
+		};
+		id=280;
+		type="I_G_Mortar_01_F";
+		atlOffset=0.20788622;
+	};
+	class Item2
+	{
+		dataType="Group";
+		side="Independent";
+		class Entities
+		{
+			items=1;
+			class Item0
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={0.609375,0.18302917,0.37963867};
+					angles[]={0,3.5328531,0};
+				};
+				side="Independent";
+				flags=7;
+				class Attributes
+				{
+				};
+				id=282;
+				type="I_C_Soldier_Para_7_F";
+				atlOffset=0.09318924;
+			};
+		};
+		class Attributes
+		{
+		};
+		id=283;
+		atlOffset=0.09318924;
+	};
+	class Item3
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={3.3334961,0.24157286,0.12670898};
+			angles[]={-0,1.5646548,6.2809477};
+		};
+		side="Empty";
+		flags=4;
+		class Attributes
+		{
+		};
+		id=284;
+		type="Box_IND_Wps_F";
+		atlOffset=0.052848816;
+	};
+	class Item4
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={-1.0947266,0.71000004,-0.78369141};
+		};
+		side="Empty";
+		flags=5;
+		class Attributes
+		{
+		};
+		id=19;
+		type="jbad_House_9_old";
+	};
+};

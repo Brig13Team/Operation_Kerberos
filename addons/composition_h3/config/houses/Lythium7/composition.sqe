@@ -1,0 +1,50 @@
+version=53;
+center[]={4299.1924,5,2143.4663};
+class items
+{
+	items=2;
+	class Item0
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={1.5131836,0.075353622,-0.69189453};
+		};
+		side="Empty";
+		flags=5;
+		class Attributes
+		{
+		};
+		id=22;
+		type="jbad_House5";
+	};
+	class Item1
+	{
+		dataType="Group";
+		side="Independent";
+		class Entities
+		{
+			items=1;
+			class Item0
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={-1.5136719,1.594079,0.74169922};
+					angles[]={0,3.057364,0};
+				};
+				side="Independent";
+				flags=7;
+				class Attributes
+				{
+				};
+				id=309;
+				type="I_C_Soldier_Bandit_7_F";
+			};
+		};
+		class Attributes
+		{
+		};
+		id=308;
+	};
+};

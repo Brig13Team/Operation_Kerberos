@@ -1,0 +1,109 @@
+version=53;
+center[]={4278.0947,5,2141.0762};
+class items
+{
+	items=2;
+	class Item0
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={0.69970703,1.1817493,-0.048583984};
+		};
+		side="Empty";
+		flags=5;
+		class Attributes
+		{
+		};
+		id=21;
+		type="jbad_House3";
+	};
+	class Item1
+	{
+		dataType="Group";
+		side="Independent";
+		class Entities
+		{
+			items=2;
+			class Item0
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={-0.45458984,4.1714392,0.58398438};
+					angles[]={0,3.3331802,0};
+				};
+				side="Independent";
+				flags=7;
+				class Attributes
+				{
+					stance="Middle";
+				};
+				id=311;
+				type="I_C_Soldier_Bandit_6_F";
+				class CustomAttributes
+				{
+					class Attribute0
+					{
+						property="speaker";
+						expression="_this setspeaker _value;";
+						class Value
+						{
+							class data
+							{
+								class type
+								{
+									type[]=
+									{
+										"STRING"
+									};
+								};
+								value="Male03FRE";
+							};
+						};
+					};
+					class Attribute1
+					{
+						property="pitch";
+						expression="_this setpitch _value;";
+						class Value
+						{
+							class data
+							{
+								class type
+								{
+									type[]=
+									{
+										"SCALAR"
+									};
+								};
+								value=1;
+							};
+						};
+					};
+					nAttributes=2;
+				};
+			};
+			class Item1
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={0.20947266,0.39143467,-0.96899414};
+					angles[]={0,3.1495697,0};
+				};
+				side="Independent";
+				flags=5;
+				class Attributes
+				{
+				};
+				id=312;
+				type="I_C_Soldier_Bandit_5_F";
+			};
+		};
+		class Attributes
+		{
+		};
+		id=310;
+	};
+};

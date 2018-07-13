@@ -1,0 +1,128 @@
+version=53;
+center[]={4263.4321,5,2096.1997};
+class items
+{
+	items=5;
+	class Item0
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={-0.12646484,1.9902201,-3.3979492};
+		};
+		side="Empty";
+		flags=5;
+		class Attributes
+		{
+		};
+		id=18;
+		type="jbad_House_8_old";
+	};
+	class Item1
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={-1.1450195,3.7907963,2.229248};
+			angles[]={6.2784014,0,0.017827518};
+		};
+		side="Empty";
+		class Attributes
+		{
+		};
+		id=285;
+		type="Box_IND_WpsSpecial_F";
+		atlOffset=2.6125488;
+	};
+	class Item2
+	{
+		dataType="Group";
+		side="Independent";
+		class Entities
+		{
+			items=1;
+			class Item0
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={4.5288086,3.7264395,0.067871094};
+					angles[]={0,3.0622337,0};
+				};
+				side="Independent";
+				flags=7;
+				class Attributes
+				{
+				};
+				id=287;
+				type="I_C_Soldier_Bandit_7_F";
+			};
+		};
+		class Attributes
+		{
+		};
+		id=286;
+	};
+	class Item3
+	{
+		dataType="Group";
+		side="Independent";
+		class Entities
+		{
+			items=1;
+			class Item0
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={-3.0546875,3.7952833,1.5852051};
+					angles[]={0,5.332438,0};
+				};
+				side="Independent";
+				flags=7;
+				class Attributes
+				{
+				};
+				id=288;
+				type="I_C_Soldier_Bandit_2_F";
+				atlOffset=0.17667198;
+			};
+		};
+		class Attributes
+		{
+		};
+		id=289;
+		atlOffset=0.17667198;
+	};
+	class Item4
+	{
+		dataType="Group";
+		side="Independent";
+		class Entities
+		{
+			items=1;
+			class Item0
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={-0.20458984,0.92162895,-0.33520508};
+					angles[]={0,2.1045492,0};
+				};
+				side="Independent";
+				flags=7;
+				class Attributes
+				{
+				};
+				id=290;
+				type="I_C_Soldier_Bandit_1_F";
+				atlOffset=0.058504581;
+			};
+		};
+		class Attributes
+		{
+		};
+		id=291;
+		atlOffset=0.058504581;
+	};
+};
