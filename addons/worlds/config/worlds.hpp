@@ -61,4 +61,13 @@ class worlds {
             #include "lingor3\waypoints.hpp"
         };
     };
+    class lythium {
+        camouflage = 1;
+        class locations {
+            #include "lythium\locations.hpp"
+        };
+        class waypoints {
+            #include "lythium\waypoints.hpp"
+        };
+    };
 };
