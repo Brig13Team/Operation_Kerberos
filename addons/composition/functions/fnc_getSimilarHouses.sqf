@@ -18,6 +18,11 @@ params [["_houseclass", "", [""]]];
 
 If (_houseclass isEqualTo "") exitWith [];
 
+If !(isText(configClasses >> "CfgVehicles" >> _houseclass >> "model")) exitWith {
+    ERROR(FORMAT_1("Housemodel is Array: %1",_houseclass));
+    []
+};
+
 private _model = getText(configClasses >> "CfgVehicles" >> _houseclass >> "model");
 
 private _model = _model splitString "/";

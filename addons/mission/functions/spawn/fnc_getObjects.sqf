@@ -63,7 +63,7 @@ switch _type do {
 
     case "replacement" : {
         _return = ["capture"] call FUNC(spawn_getObjects);
-        _retun append (["hostage"] call FUNC(spawn_getObjects));
+        _return append (["hostage"] call FUNC(spawn_getObjects));
     };
 
     default {
