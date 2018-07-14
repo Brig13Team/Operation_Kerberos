@@ -97,7 +97,7 @@ class mission_ammobox_outpost_v7 {
     };
 };
 
- mission_ammobox_outpost_v7 {
+class mission_ammobox_outpost_v7 {
     type = "weaponcache";
     objecttypes[] = {"Box_IND_Wps_F"};
     class header {
