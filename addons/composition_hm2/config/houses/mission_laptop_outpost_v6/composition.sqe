@@ -1,0 +1,127 @@
+version=53;
+center[]={2962.7668,5,7402.7759};
+class items
+{
+	items=4;
+	class Item0
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={-1.8608398,0.71000004,-0.84033203};
+		};
+		side="Empty";
+		flags=5;
+		class Attributes
+		{
+		};
+		id=114;
+		type="jbad_House_9_old";
+	};
+	class Item1
+	{
+		dataType="Group";
+		side="Independent";
+		class Entities
+		{
+			items=1;
+			class Item0
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={-1.8798828,0.090438843,0.10400391};
+					angles[]={0,2.0371134,0};
+				};
+				side="Independent";
+				flags=7;
+				class Attributes
+				{
+				};
+				id=116;
+				type="I_soldier_F";
+				atlOffset=3.5762787e-005;
+				class CustomAttributes
+				{
+					class Attribute0
+					{
+						property="speaker";
+						expression="_this setspeaker _value;";
+						class Value
+						{
+							class data
+							{
+								class type
+								{
+									type[]=
+									{
+										"STRING"
+									};
+								};
+								value="Male03GRE";
+							};
+						};
+					};
+					class Attribute1
+					{
+						property="pitch";
+						expression="_this setpitch _value;";
+						class Value
+						{
+							class data
+							{
+								class type
+								{
+									type[]=
+									{
+										"SCALAR"
+									};
+								};
+								value=0.97000003;
+							};
+						};
+					};
+					nAttributes=2;
+				};
+			};
+		};
+		class Attributes
+		{
+		};
+		id=115;
+		atlOffset=3.5762787e-005;
+	};
+	class Item2
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={2.8010254,0.49173832,0.32373047};
+			angles[]={-0,1.5828239,6.2809477};
+		};
+		side="Empty";
+		flags=4;
+		class Attributes
+		{
+		};
+		id=118;
+		type="Land_CampingTable_small_white_F";
+	};
+	class Item3
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={2.8193359,1.0560718,0.40820313};
+			angles[]={0,4.4437828,6.2809515};
+		};
+		side="Empty";
+		flags=4;
+		class Attributes
+		{
+		};
+		id=120;
+		type="Land_Laptop_unfolded_F";
+		atlOffset=0.00049734116;
+	};
+};

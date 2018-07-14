@@ -1,0 +1,266 @@
+version=53;
+center[]={5625.0425,5,1509.7283};
+class items
+{
+	items=13;
+	class Item0
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={-0.81103516,2.3074675,-0.54272461};
+			angles[]={0,4.7529469,0};
+		};
+		side="Empty";
+		flags=5;
+		class Attributes
+		{
+		};
+		id=654;
+		type="Jbad_A_Mosque_small_1";
+	};
+	class Item1
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={-0.87841797,0.6742835,-2.4700928};
+			angles[]={-0,4.7141547,0};
+		};
+		side="Empty";
+		flags=4;
+		class Attributes
+		{
+		};
+		id=655;
+		type="Land_BagFence_Short_F";
+	};
+	class Item2
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={-0.96533203,1.1688838,-2.5732422};
+			angles[]={-0,4.6868844,0};
+		};
+		side="Empty";
+		flags=4;
+		class Attributes
+		{
+		};
+		id=656;
+		type="Land_BagFence_Short_F";
+	};
+	class Item3
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={-1.0805664,1.9663701,-2.6737061};
+			angles[]={0,4.6868844,0};
+		};
+		side="Empty";
+		class Attributes
+		{
+		};
+		id=657;
+		type="Land_BagFence_Short_F";
+		atlOffset=0.79748631;
+	};
+	class Item4
+	{
+		dataType="Group";
+		side="Civilian";
+		class Entities
+		{
+			items=1;
+			class Item0
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={-3.2045898,0.26143932,2.119873};
+					angles[]={0,2.9520643,0};
+				};
+				side="Civilian";
+				flags=7;
+				class Attributes
+				{
+				};
+				id=659;
+				type="C_journalist_F";
+			};
+		};
+		class Attributes
+		{
+		};
+		id=658;
+	};
+	class Item5
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={1.9501953,1.8982277,-4.2923584};
+			angles[]={0,4.7137661,0};
+		};
+		side="Empty";
+		flags=5;
+		class Attributes
+		{
+		};
+		id=662;
+		type="Land_SandbagBarricade_01_hole_F";
+	};
+	class Item6
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={2.1069336,1.2789855,-1.6921387};
+			angles[]={0,4.7509899,0};
+		};
+		side="Empty";
+		flags=5;
+		class Attributes
+		{
+		};
+		id=663;
+		type="Land_SandbagBarricade_01_half_F";
+	};
+	class Item7
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={1.8686523,1.8957253,-6.8336182};
+			angles[]={0,4.7245355,0};
+		};
+		side="Empty";
+		flags=5;
+		class Attributes
+		{
+		};
+		id=664;
+		type="Land_SandbagBarricade_01_F";
+	};
+	class Item8
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={2.3886719,1.8957253,5.609375};
+			angles[]={0,4.7760324,0};
+		};
+		side="Empty";
+		flags=5;
+		class Attributes
+		{
+		};
+		id=665;
+		type="Land_SandbagBarricade_01_F";
+	};
+	class Item9
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={2.2719727,1.8982277,3.2374268};
+			angles[]={0,4.7137661,0};
+		};
+		side="Empty";
+		flags=5;
+		class Attributes
+		{
+		};
+		id=666;
+		type="Land_SandbagBarricade_01_hole_F";
+	};
+	class Item10
+	{
+		dataType="Group";
+		side="Independent";
+		class Entities
+		{
+			items=1;
+			class Item0
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={-4.284668,0.31319046,-0.28344727};
+					angles[]={0,2.5919909,0};
+				};
+				side="Independent";
+				flags=7;
+				class Attributes
+				{
+				};
+				id=672;
+				type="I_soldier_F";
+			};
+		};
+		class Attributes
+		{
+		};
+		id=671;
+	};
+	class Item11
+	{
+		dataType="Group";
+		side="Independent";
+		class Entities
+		{
+			items=1;
+			class Item0
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={-1.6166992,0.26143932,-1.2792969};
+					angles[]={0,3.5839043,0};
+				};
+				side="Independent";
+				flags=7;
+				class Attributes
+				{
+				};
+				id=674;
+				type="I_soldier_F";
+			};
+		};
+		class Attributes
+		{
+		};
+		id=673;
+	};
+	class Item12
+	{
+		dataType="Group";
+		side="Independent";
+		class Entities
+		{
+			items=1;
+			class Item0
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={1.1303711,0.61143875,5.9628906};
+					angles[]={0,2.5919909,0};
+				};
+				side="Independent";
+				flags=7;
+				class Attributes
+				{
+				};
+				id=676;
+				type="I_soldier_F";
+			};
+		};
+		class Attributes
+		{
+		};
+		id=675;
+	};
+};

@@ -1,0 +1,211 @@
+version=53;
+center[]={5628.5322,5.8983445,1490.3463};
+class items
+{
+	items=11;
+	class Item0
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={2.4921875,0.40358496,2.6846924};
+			angles[]={0,4.8054233,0};
+		};
+		side="Empty";
+		flags=1;
+		class Attributes
+		{
+		};
+		id=637;
+		type="jbad_House_3_old";
+		atlOffset=0.89834452;
+	};
+	class Item1
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={-0.88916016,0.58213997,-1.0941162};
+			angles[]={6.2828403,1.6673599,6.2799101};
+		};
+		side="Empty";
+		flags=4;
+		class Attributes
+		{
+		};
+		id=638;
+		type="Land_CampingTable_small_white_F";
+	};
+	class Item2
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={-1.0981445,1.0934825,-0.8572998};
+			angles[]={6.2828403,2.1334012,6.2799101};
+		};
+		side="Empty";
+		flags=4;
+		class Attributes
+		{
+		};
+		id=639;
+		type="Land_SurvivalRadio_F";
+	};
+	class Item3
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={0.99755859,3.5684142,3.4033203};
+			angles[]={6.200213,0,0.029460251};
+		};
+		side="Empty";
+		flags=4;
+		class Attributes
+		{
+		};
+		id=640;
+		type="Land_SatelliteAntenna_01_F";
+	};
+	class Item4
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={-1.1152344,1.2452965,-1.2952881};
+			angles[]={6.2828403,4.4925966,6.2799101};
+		};
+		side="Empty";
+		flags=4;
+		class Attributes
+		{
+		};
+		id=641;
+		type="Land_PCSet_01_screen_F";
+	};
+	class Item5
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={-0.78613281,1.0148783,-0.92858887};
+			angles[]={6.2828403,4.6966381,6.2799101};
+		};
+		side="Empty";
+		flags=4;
+		class Attributes
+		{
+		};
+		id=642;
+		type="Land_PCSet_01_mouse_F";
+	};
+	class Item6
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={-0.82861328,0.43401909,-0.43835449};
+			angles[]={6.2828403,4.8487601,6.2801166};
+		};
+		side="Empty";
+		flags=4;
+		class Attributes
+		{
+		};
+		id=643;
+		type="Land_PCSet_01_case_F";
+	};
+	class Item7
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={-0.78369141,0.99746656,-1.289917};
+			angles[]={6.2828403,1.5076139,6.2799101};
+		};
+		side="Empty";
+		flags=4;
+		class Attributes
+		{
+		};
+		id=644;
+		type="Land_PCSet_01_keyboard_F";
+	};
+	class Item8
+	{
+		dataType="Object";
+		class PositionInfo
+		{
+			position[]={-0.85351563,1.0348635,-0.73425293};
+			angles[]={0,1.7757174,0};
+		};
+		side="Empty";
+		class Attributes
+		{
+		};
+		id=645;
+		type="Land_MobilePhone_smart_F";
+		atlOffset=0.040449619;
+	};
+	class Item9
+	{
+		dataType="Group";
+		side="Independent";
+		class Entities
+		{
+			items=1;
+			class Item0
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={2.0976563,0.181108,3.0718994};
+					angles[]={0,2.5919909,0};
+				};
+				side="Independent";
+				flags=7;
+				class Attributes
+				{
+				};
+				id=651;
+				type="I_soldier_F";
+			};
+		};
+		class Attributes
+		{
+		};
+		id=650;
+	};
+	class Item10
+	{
+		dataType="Group";
+		side="Independent";
+		class Entities
+		{
+			items=1;
+			class Item0
+			{
+				dataType="Object";
+				class PositionInfo
+				{
+					position[]={0.77441406,0.23609447,-2.418335};
+					angles[]={0,1.7294515,0};
+				};
+				side="Independent";
+				flags=3;
+				class Attributes
+				{
+				};
+				id=653;
+				type="I_soldier_F";
+				atlOffset=1.1329999;
+			};
+		};
+		class Attributes
+		{
+		};
+		id=652;
+		atlOffset=1.1329999;
+	};
+};
