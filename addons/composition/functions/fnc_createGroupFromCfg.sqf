@@ -35,6 +35,7 @@ private _side = switch (toUpper(getText(_curCfg >> "side"))) do {
     case "WEST" : {west};
     case "INDEPENDENT";
     case "GUER" : {resistance};
+    case "CIVILIAN";
     case "CIV" : {civilian};
     case "ENEMY" : {sideEnemy};
     case "FRIENDLY" : {sideFriendly};

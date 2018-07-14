@@ -16,16 +16,11 @@
 
 params [["_houseclass", "", [""]]];
 
-If (_houseclass isEqualTo "") exitWith [];
+If (_houseclass isEqualTo "") exitWith {[]};
 
-If !(isText(configClasses >> "CfgVehicles" >> _houseclass >> "model")) exitWith {
-    ERROR(FORMAT_1("Housemodel is Array: %1",_houseclass));
-    []
-};
-
-private _model = getText(configClasses >> "CfgVehicles" >> _houseclass >> "model");
+private _model = getText(configFile >> "CfgVehicles" >> _houseclass >> "model");
 
 private _model = _model splitString "/";
-_model = (_model select [0, (count _model - 2)]) joinString "/";
+_model = (_model select [0, (count _model - 1)]) joinString "/";
 
 GVAR(housecache) getVariable [_model, [_houseClass]];

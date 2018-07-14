@@ -42,7 +42,7 @@ class mission_prototype_1 {
     };
 };
 
-class mission_radar_1 {
+class mission_radar_01 {
     type = "radar";
     objecttypes[] = {"Land_Radar_Small_F"};
     class header {
@@ -50,6 +50,17 @@ class mission_radar_1 {
     };
     class composition {
         #include "compositions\mission_radar_01\composition.sqe"
+    };
+};
+
+class mission_radar_02 {
+    type = "radar";
+    objecttypes[] = {"Land_Radar_Small_F"};
+    class header {
+        #include "compositions\mission_radar_02\header.sqe"
+    };
+    class composition {
+        #include "compositions\mission_radar_02\composition.sqe"
     };
 };
 

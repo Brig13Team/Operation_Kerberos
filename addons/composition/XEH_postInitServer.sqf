@@ -13,8 +13,8 @@ GVAR(housecache) = HASH_CREATE;
     private _curClass = configName _x;
     If ((!(_curClass isEqualTo "")) && {_curClass isKindOf "House"}) then {
         private _keyName = getText(_x >> "model");
-        private _keyName = _keyName splitString "/";
-        _keyName = (_keyName select [0, (count _keyName - 2)]) joinString "/";
+        _keyName = _keyName splitString "/";
+        _keyName = (_keyName select [0, (count _keyName - 1)]) joinString "/";
         TRACEV_3(_x,_curClass,_keyName);
         If !(_keyName isEqualTo "") then {
             If (HASH_HASKEY(GVAR(housecache),_keyName)) then {

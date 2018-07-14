@@ -63,3 +63,14 @@ class mission_pow_outpost_v4 {
         #include "houses\mission_pow_outpost_v4\composition.sqe"
     };
 };
+
+class mission_pow_shed {
+    type = "pow";
+    objecttypes[] = {"C_scientist_F"};
+    class header {
+        #include "houses\mission_pow_shed\header.sqe"
+    };
+    class composition {
+        #include "houses\mission_pow_shed\composition.sqe"
+    };
+};
