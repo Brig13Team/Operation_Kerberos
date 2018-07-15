@@ -26,10 +26,12 @@ params [
     ["_onlyPos", true, [true]]
 ];
 
+_type = toLower _type;
+
 private _possibleCompositions = If !(_onlyPos) then {
-    GVAR(missioncompositions) select {(getText(_x >> "type") isEqualTo _type)};
+    GVAR(missioncompositions) select {(toLower(getText(_x >> "type")) isEqualTo _type)};
 } else {
-    GVAR(missioncompositions) select {(getText(_x >> "type") isEqualTo _type)||{getText(_x >> "type") isEqualTo "%ALL"}};
+    GVAR(missioncompositions) select {(toLower(getText(_x >> "type")) isEqualTo _type)||{getText(_x >> "type") isEqualTo "%ALL"}};
 };
 
 private _possiblePositions = [_centerpos,_radius,_amount] call FUNC(getRandomPos);

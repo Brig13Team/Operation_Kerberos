@@ -31,7 +31,7 @@ class mission_emp_1 {
     };
 };
 
-class mission_prototype_1 {
+class mission_prototype_01 {
     type = "prototype";
     objecttypes[] = {"O_MBT_04_command_F"};
     class header {

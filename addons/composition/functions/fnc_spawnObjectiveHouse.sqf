@@ -68,7 +68,7 @@ private _return = [];
     If !(isNull _curHouse) then {
         private _curHouseType = typeOf _curHouse;
         private _curCfg = selectRandom HASH_GET(_possibleHouseTypes,_curHouseType);
-        //TRACEV_3(_curHouse, _curCfg, _onlyPos);
+        TRACEV_4(_curHouseType,_curHouse,_curCfg,_onlyPos);
         private _temp = [_curHouse, _curCfg, _onlyPos] call FUNC(createMissionHouse);
         _return append _temp;
     };

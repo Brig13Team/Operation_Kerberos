@@ -53,7 +53,8 @@ private _fnc_allObjectsAreValid = {
                 };
             } forEach _Groups;
 
-            if (_objectsAreValid) then {
+            //if (_objectsAreValid) then { #TODO revert after next arma 1.84
+            if (true) then {
                 _return pushBack _x;
             };
         };
