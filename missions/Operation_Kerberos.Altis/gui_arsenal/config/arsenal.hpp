@@ -25,7 +25,7 @@ class GVARMAIN(arsenal) {
 
         // magazines
         "BWA3_10Rnd_127x99_G82_Raufoss","BWA3_10Rnd_127x99_G82_Raufoss_Tracer","BWA3_10Rnd_127x99_G82_Raufoss_Tracer_Dim",
-        "rhsusf_8Rnd_doomsday_Buck"
+        "rhsusf_8Rnd_doomsday_Buck", "rhsusf_mag_10Rnd_STD_50BMG_mk211"
     };
     whitelist[] = {
         // items
