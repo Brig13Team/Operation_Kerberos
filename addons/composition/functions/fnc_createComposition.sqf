@@ -16,7 +16,7 @@
   Public: No
 */
 
-params ["_centerPosition", "_compositionCfg", ["_dir", random 360, [0]]];
+params ["_centerPosition", "_compositionCfg", ["_dir", random 360, [0]], ["_notReplaced", [], [[]]]];
 
 GVAR(spawnedCompositions) pushBack _centerPosition;
 
@@ -31,7 +31,7 @@ private _tempHash = HASH_CREATE;
 
 {
     private _curCfg = _x;
-    private _curObj = [_centerPosition, _dir, _curCfg] call FUNC(createObjectFromCfg);
+    private _curObj = [_centerPosition, _dir, _curCfg, _notReplaced] call FUNC(createObjectFromCfg);
     If !(isNull _curObj) then {
         private _id = str (getNumber(_curCfg >> "id"));
         HASH_SET(_tempHash, _id, _curObj);
@@ -41,7 +41,7 @@ private _tempHash = HASH_CREATE;
 
 {
     private _curCfg = _x;
-    private _units = [_centerPosition, _dir, _curCfg, _tempHash] call FUNC(createGroupFromCfg);
+    private _units = [_centerPosition, _dir, _curCfg, _tempHash, _notReplaced] call FUNC(createGroupFromCfg);
     _spawnedObjects append _units;
 } forEach ([_compositionCfg >>"composition" >> "items", "Group"] call FUNC(getCfgDataType));
 

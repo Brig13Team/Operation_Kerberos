@@ -15,12 +15,13 @@
   Public: No
 */
 
-params [["_house", objNull, [objNull]], ["_compositionCfg", configNull, [configNull]]];
+params [["_house", objNull, [objNull]], ["_compositionCfg", configNull, [configNull]], ["_notReplaced", [], [[]]]];
 
 If ((isNull _house)||{isNull _compositionCfg}) exitWith {
     ERROR(FORMAT_1("Wrong iput this=%1",_this));
 };
 GVAR(usedHouses) pushBack _house;
+_notReplaced = _notReplaced apply {toLower _x};
 
 private _houseType = typeOf _house;
 private _dir = getDir _house;
@@ -63,7 +64,7 @@ _centerPosition = _centerPosition vectorAdd _offset;
 {
     private _curCfg = _x;
     If !(getText(_curCfg >> "type") isKindOf _houseType) then {
-        private _curObj = [_centerPosition, _dir, _curCfg, true] call FUNC(createObjectFromCfg);
+        private _curObj = [_centerPosition, _dir, _curCfg, true, _notReplaced] call FUNC(createObjectFromCfg);
         //TRACEV_2(_curObj,_curCfg);
         If !(isNull _curObj) then {
             private _id = str (getNumber(_curCfg >> "id"));
@@ -75,7 +76,7 @@ _centerPosition = _centerPosition vectorAdd _offset;
 
 {
     private _curCfg = _x;
-    private _units = [_centerPosition, _dir, _curCfg, _tempHash] call FUNC(createGroupFromCfg);
+    private _units = [_centerPosition, _dir, _curCfg, _tempHash, _notReplaced] call FUNC(createGroupFromCfg);
     _spawnedObjects append _units;
 } forEach ([_compositionCfg >>"composition" >> "items", "Group"] call FUNC(getCfgDataType));
 

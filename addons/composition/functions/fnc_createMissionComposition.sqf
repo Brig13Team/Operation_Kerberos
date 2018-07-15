@@ -19,13 +19,13 @@
 
 params ["_centerposition", "_cfg", ["_dir", 0, [0]], ["_onlyPos", true, [false]], ["_objecttype", "Land_CargoBox_V1_F", [""]]];
 
-private _objects = [_centerposition, _cfg, _dir] call FUNC(createComposition);
-
 private _objectTypes = If (isArray(_cfg >> "ObjectTypes")) then {
     getArray(_cfg >> "ObjectTypes")
 } else {
     [getText(_cfg >> "ObjectTypes")]
 };
+
+private _objects = [_centerposition, _cfg, _dir, _objectTypes] call FUNC(createComposition);
 
 _objectTypes pushBack _objectType;
 _objectTypes = _objectTypes apply {toLower _x};

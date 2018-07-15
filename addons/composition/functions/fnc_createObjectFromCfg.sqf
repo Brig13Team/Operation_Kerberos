@@ -16,13 +16,15 @@
   Public: Yes
 */
 
-params ["_spawnposition", "_dir", "_curCfg", ["_ignoreOffset", false, [true]]];
+params ["_spawnposition", "_dir", "_curCfg", ["_ignoreOffset", false, [true]], "_notReplaced"];
 
 private _object = objNull;
 
 If (getText(_curCfg >> "dataType") == "Object") then {
     private _type = getText(_curCfg >> "type");
-    _type = [_type] call FUNC(getReplacement);
+    if !((toLower _type) in _notReplaced) then {
+        _type = [_type] call FUNC(getReplacement);
+    };
 
     (getArray(_x >> "PositionInfo" >> "position")) params [
         ["_posX",0,[0]],

@@ -17,7 +17,7 @@
   Public: No
 */
 
-params ["_centerPosition", "_dir", "_curCfg", "_objectsHash"];
+params ["_centerPosition", "_dir", "_curCfg", "_objectsHash", "_notReplaced"];
 
 If !(getText(_curCfg >> "dataType") == "Group") exitWith {};
 
@@ -31,10 +31,14 @@ If (isClass(_curCfg >> "CrewLinks")) then {
 };
 
 private _side = switch (toUpper(getText(_curCfg >> "side"))) do {
+    case "0";
     case "EAST" : {east};
+    case "1";
     case "WEST" : {west};
+    case "2";
     case "INDEPENDENT";
     case "GUER" : {resistance};
+    case "3";
     case "CIVILIAN";
     case "CIV" : {civilian};
     case "ENEMY" : {sideEnemy};
@@ -48,8 +52,10 @@ private _side = switch (toUpper(getText(_curCfg >> "side"))) do {
 private _group = createGroup [_side, true];
 {
     private _id = getNumber(_x >> "id");
-    private _type = [getText(_x >> "type")] call FUNC(getReplacement);
-    //private _type = getText(_x >> "type");
+    private _type = getText(_x >> "type");
+    if !((toLower _type) in _notReplaced) then {
+        _type = [_type] call FUNC(getReplacement);
+    };
 
     private "_unit";
     If (HASH_HASKEY(_LinkHash,str _id)) then {
