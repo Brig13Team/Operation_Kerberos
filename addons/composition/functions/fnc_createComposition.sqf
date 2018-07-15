@@ -31,7 +31,7 @@ private _tempHash = HASH_CREATE;
 
 {
     private _curCfg = _x;
-    private _curObj = [_centerPosition, _dir, _curCfg, _notReplaced] call FUNC(createObjectFromCfg);
+    private _curObj = [_centerPosition, _dir, _curCfg, false, _notReplaced] call FUNC(createObjectFromCfg);
     If !(isNull _curObj) then {
         private _id = str (getNumber(_curCfg >> "id"));
         HASH_SET(_tempHash, _id, _curObj);

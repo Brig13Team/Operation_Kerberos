@@ -16,7 +16,7 @@
   Public: Yes
 */
 
-params ["_spawnposition", "_dir", "_curCfg", ["_ignoreOffset", false, [true]], "_notReplaced"];
+params ["_spawnposition", "_dir", "_curCfg", ["_ignoreOffset", false, [true]], ["_notReplaced", [], [[]]]];
 
 private _object = objNull;
 
