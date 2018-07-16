@@ -1,4 +1,4 @@
-#define COMPONENT composition_hm1
+#define COMPONENT composition_hm2
 #define COMPONENT_BEAUTIFIED CompositionConfigHouseMission
 #include "\x\dorb\addons\main\script_mod.hpp"
 
@@ -7,7 +7,7 @@
 // #define DISABLE_COMPILE_CACHE
 // #define ENABLE_PERFORMANCE_COUNTERS
 
-#ifdef DEBUG_ENABLED_composition_hm1
+#ifdef DEBUG_ENABLED_composition_hm2
     #define DEBUG_MODE_FULL
 #endif
 
