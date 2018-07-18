@@ -1,48 +1,3 @@
-class AA_V12_freistehend {
-    class header {
-        #include "compositions\AA_V12_freistehend\header.sqe"
-    };
-    class composition {
-        #include "compositions\AA_V12_freistehend\composition.sqe"
-    };
-};
-
-class depot_V03_Fahrzeugdepot_klein {
-    class header {
-        #include "compositions\depot_V03_Fahrzeugdepot_klein\header.sqe"
-    };
-    class composition {
-        #include "compositions\depot_V03_Fahrzeugdepot_klein\composition.sqe"
-    };
-};
-
-class fortification_V01_containerfort {
-    class header {
-        #include "compositions\fortification_V01_containerfort\header.sqe"
-    };
-    class composition {
-        #include "compositions\fortification_V01_containerfort\composition.sqe"
-    };
-};
-
-class fortification_V02_cargoHQ {
-    class header {
-        #include "compositions\fortification_V02_cargoHQ\header.sqe"
-    };
-    class composition {
-        #include "compositions\fortification_V02_cargoHQ\composition.sqe"
-    };
-};
-
-class fortification_V03_cargotower {
-    class header {
-        #include "compositions\fortification_V03_cargotower\header.sqe"
-    };
-    class composition {
-        #include "compositions\fortification_V03_cargotower\composition.sqe"
-    };
-};
-
 class fortification_V04 {
     class header {
         #include "compositions\fortification_V04\header.sqe"
@@ -103,6 +58,15 @@ class medicpoint_V01 {
     };
     class composition {
         #include "compositions\medicpoint_V01\composition.sqe"
+    };
+};
+
+class repairstation_V01_Kuma {
+    class header {
+        #include "compositions\repairstation_V01_Kuma\header.sqe"
+    };
+    class composition {
+        #include "compositions\repairstation_V01_Kuma\composition.sqe"
     };
 };
 
@@ -169,6 +133,15 @@ class small_V02_flatmg {
     };
 };
 
+class small_V03_OfficerMeeting {
+    class header {
+        #include "compositions\small_V03_OfficerMeeting\header.sqe"
+    };
+    class composition {
+        #include "compositions\small_V03_OfficerMeeting\composition.sqe"
+    };
+};
+
 class small_V04_tinyAT {
     class header {
         #include "compositions\small_V04_tinyAT\header.sqe"
@@ -223,3 +196,47 @@ class small_V09_TrashMG {
     };
 };
 
+class vehicle_V01_gorgon {
+    class header {
+        #include "compositions\vehicle_V01_gorgon\header.sqe"
+    };
+    class composition {
+        #include "compositions\vehicle_V01_gorgon\composition.sqe"
+    };
+};
+
+class vehicle_V02_Kuma {
+    class header {
+        #include "compositions\vehicle_V02_Kuma\header.sqe"
+    };
+    class composition {
+        #include "compositions\vehicle_V02_Kuma\composition.sqe"
+    };
+};
+
+class vehicle_V02_stopped {
+    class header {
+        #include "compositions\vehicle_V02_stopped\header.sqe"
+    };
+    class composition {
+        #include "compositions\vehicle_V02_stopped\composition.sqe"
+    };
+};
+
+class vehicle_V04_helisupplypad {
+    class header {
+        #include "compositions\vehicle_V04_helisupplypad\header.sqe"
+    };
+    class composition {
+        #include "compositions\vehicle_V04_helisupplypad\composition.sqe"
+    };
+};
+
+class vehicle_V05_trenched_Gorgon {
+    class header {
+        #include "compositions\vehicle_V05_trenched_Gorgon\header.sqe"
+    };
+    class composition {
+        #include "compositions\vehicle_V05_trenched_Gorgon\composition.sqe"
+    };
+};

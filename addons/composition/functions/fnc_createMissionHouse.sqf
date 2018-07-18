@@ -17,6 +17,8 @@
 
 params ["_House", "_cfg", ["_onlyPos", true, [true]], ["_objecttype", "Land_CargoBox_V1_F", [""]]];
 
+TRACEV_2(_House,_cfg);
+
 private _objects = [_house, _cfg] call FUNC(createHouse);
 
 private _objectTypes = If (isText(_cfg >> "ObjectTypes")) then {

@@ -168,7 +168,7 @@ def main(argv):
         print("  Making {}{} ...".format(PREFIX, file))
 
         try:
-            command = path_armake + " build -i " + workdrivepath + \
+            command = path_armake + " build -p -i " + workdrivepath + \
                 " -w unquoted-string" + " -w redefinition-wo-undef" + \
                 " -f " + os.path.normpath(addonspath + "/" + file) + " " + \
                 os.path.normpath(releasepath + "/" + PREFIX + file + ".pbo")

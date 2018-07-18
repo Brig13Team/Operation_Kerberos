@@ -97,6 +97,15 @@ class AA_V11_position_advanced_aaf {
     };
 };
 
+class AA_V12_freistehend {
+    class header {
+        #include "compositions\AA_V12_freistehend\header.sqe"
+    };
+    class composition {
+        #include "compositions\AA_V12_freistehend\composition.sqe"
+    };
+};
+
 class ammodepot_V01 {
     class header {
         #include "compositions\ammodepot_V01\header.sqe"
@@ -187,48 +196,40 @@ class depot_V02 {
     };
 };
 
-class repairstation_V01_Kuma {
+class depot_V03_Fahrzeugdepot_klein {
     class header {
-        #include "compositions\repairstation_V01_Kuma\header.sqe"
+        #include "compositions\depot_V03_Fahrzeugdepot_klein\header.sqe"
     };
     class composition {
-        #include "compositions\repairstation_V01_Kuma\composition.sqe"
+        #include "compositions\depot_V03_Fahrzeugdepot_klein\composition.sqe"
     };
 };
 
-class small_V03_OfficerMeeting {
+class fortification_V01_containerfort {
     class header {
-        #include "compositions\small_V03_OfficerMeeting\header.sqe"
+        #include "compositions\fortification_V01_containerfort\header.sqe"
     };
     class composition {
-        #include "compositions\small_V03_OfficerMeeting\composition.sqe"
+        #include "compositions\fortification_V01_containerfort\composition.sqe"
     };
 };
 
-class vehicle_V01_gorgon {
+class fortification_V02_cargoHQ {
     class header {
-        #include "compositions\vehicle_V01_gorgon\header.sqe"
+        #include "compositions\fortification_V02_cargoHQ\header.sqe"
     };
     class composition {
-        #include "compositions\vehicle_V01_gorgon\composition.sqe"
+        #include "compositions\fortification_V02_cargoHQ\composition.sqe"
     };
 };
 
-class vehicle_V02_Kuma {
+class fortification_V03_cargotower {
     class header {
-        #include "compositions\vehicle_V02_Kuma\header.sqe"
+        #include "compositions\fortification_V03_cargotower\header.sqe"
     };
     class composition {
-        #include "compositions\vehicle_V02_Kuma\composition.sqe"
+        #include "compositions\fortification_V03_cargotower\composition.sqe"
     };
 };
 
-class vehicle_V04_helisupplypad {
-    class header {
-        #include "compositions\vehicle_V04_helisupplypad\header.sqe"
-    };
-    class composition {
-        #include "compositions\vehicle_V04_helisupplypad\composition.sqe"
-    };
-};
 
