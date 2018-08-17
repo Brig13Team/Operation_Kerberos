@@ -8,7 +8,7 @@ class EditorData
 	toggles=1025;
 	class ItemIDProvider
 	{
-		nextID=746;
+		nextID=748;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={29908.959,272.96136,16013.926};
-		dir[]={0.31594586,-0.44367424,-0.83875382};
-		up[]={0.15641132,0.89614707,-0.41523319};
-		aside[]={-0.93588907,1.1974771e-006,-0.3525328};
+		pos[]={24354.803,30.781895,18092.285};
+		dir[]={-0.8463971,-0.17211643,-0.50398684};
+		up[]={-0.14788842,0.98507553,-0.088060126};
+		aside[]={-0.51162207,-8.3397026e-008,0.85922027};
 	};
 };
 binarizationWanted=0;
@@ -12959,12 +12959,13 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={30402.826,245.84677,16541.264};
-				angles[]={0,0.25574848,0};
+				position[]={30402.826,245.84698,16541.264};
+				angles[]={0,0.25574309,0};
 			};
+			init="call{this setVariable [""Dorb_canDelete"",false];}";
 			id=508;
 			type="ModuleCurator_F";
-			atlOffset=431.81677;
+			atlOffset=431.81699;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -13070,40 +13071,43 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={30393.775,2247.0166,16535.375};
-				angles[]={0,4.0427818,0};
+				position[]={30393.775,2247.0171,16535.375};
+				angles[]={0,4.0427761,0};
 			};
+			init="call{this setVariable [""Dorb_canDelete"",false];}";
 			id=509;
 			type="CBA_main_require";
-			atlOffset=2432.9866;
+			atlOffset=2432.9871;
 		};
 		class Item181
 		{
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={30400.928,245.84344,16526.797};
-				angles[]={0,4.0427818,0};
+				position[]={30400.928,245.84299,16526.797};
+				angles[]={0,4.0427761,0};
 			};
 			name="HC1";
+			init="call{this setVariable [""Dorb_canDelete"",false];}";
 			isPlayable=1;
 			id=510;
 			type="HeadlessClient_F";
-			atlOffset=431.81345;
+			atlOffset=431.81299;
 		};
 		class Item182
 		{
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={30408.557,245.85742,16532.412};
-				angles[]={0,4.0427818,0};
+				position[]={30408.557,245.85699,16532.412};
+				angles[]={0,4.0427761,0};
 			};
 			name="HC2";
+			init="call{this setVariable [""Dorb_canDelete"",false];}";
 			isPlayable=1;
 			id=511;
 			type="HeadlessClient_F";
-			atlOffset=431.82742;
+			atlOffset=431.827;
 		};
 		class Item183
 		{
@@ -17074,6 +17078,7 @@ class Mission
 			side="Empty";
 			class Attributes
 			{
+				init="call{this setVariable [""Dorb_canDelete"",false];}";
 			};
 			id=723;
 			type="Land_Destroyer_01_base_F";
@@ -17145,16 +17150,17 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={30647.549,-2.9775305,16314.127};
-				angles[]={0,5.8201156,0};
+				position[]={30647.551,-2.9770985,16314.127};
+				angles[]={0,5.8201141,0};
 			};
 			side="Empty";
 			class Attributes
 			{
+				init="call{this setVariable [""Dorb_canDelete"",false];}";
 			};
 			id=724;
 			type="Submarine_01_F";
-			atlOffset=174.93558;
+			atlOffset=174.936;
 		};
 		class Item284
 		{
@@ -17168,16 +17174,17 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={29826.328,10.522812,15481.653};
-						angles[]={0.0067922142,6.0213857,0.0018269814};
+						position[]={29826.328,10.522435,15481.653};
+						angles[]={0.0067893309,6.0213857,0.0018325957};
 					};
 					side="West";
-					flags=6;
+					flags=2;
 					class Attributes
 					{
 					};
 					id=727;
 					type="B_UAV_AI";
+					atlOffset=196.491;
 				};
 			};
 			class Attributes
@@ -17206,23 +17213,26 @@ class Mission
 				};
 			};
 			id=725;
+			atlOffset=196.491;
 		};
 		class Item285
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={29826.328,11.894877,15481.6};
-				angles[]={0.0067922142,6.0213857,0.0018269814};
+				position[]={29826.328,11.894501,15481.6};
+				angles[]={0.0067893309,6.0213857,0.0018325957};
 			};
 			side="West";
-			flags=6;
+			flags=2;
 			class Attributes
 			{
+				init="call{this setVariable [""Dorb_canDelete"",false];}";
 				receiveRemoteTargets=1;
 			};
 			id=726;
 			type="B_Ship_MRLS_01_F";
+			atlOffset=196.491;
 		};
 		class Item286
 		{
@@ -17236,8 +17246,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={29830.859,12.082319,15465.732};
-						angles[]={0.025190962,2.8797932,0.0067481939};
+						position[]={29830.859,12.082433,15465.732};
+						angles[]={0.025185101,2.8797932,0.006754424};
 					};
 					side="West";
 					flags=6;
@@ -17246,6 +17256,7 @@ class Mission
 					};
 					id=730;
 					type="B_UAV_AI";
+					atlOffset=0.00011348724;
 				};
 			};
 			class Attributes
@@ -17274,23 +17285,26 @@ class Mission
 				};
 			};
 			id=728;
+			atlOffset=0.00011348724;
 		};
 		class Item287
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={29830.859,14.819787,15465.683};
-				angles[]={0.025190962,2.8797932,0.0067481939};
+				position[]={29830.859,14.819901,15465.683};
+				angles[]={0.025185101,2.8797932,0.006754424};
 			};
 			side="West";
 			flags=6;
 			class Attributes
 			{
+				init="call{this setVariable [""Dorb_canDelete"",false];}";
 				receiveRemoteTargets=1;
 			};
 			id=729;
 			type="B_Ship_Gun_01_F";
+			atlOffset=0.00011348724;
 		};
 		class Item288
 		{
@@ -17304,8 +17318,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={29797.523,15.786422,15590.592};
-						angles[]={-0,6.0243053,0};
+						position[]={29797.523,15.786443,15590.592};
+						angles[]={0,6.0243006,0};
 					};
 					side="West";
 					flags=6;
@@ -17314,6 +17328,7 @@ class Mission
 					};
 					id=745;
 					type="B_UAV_AI";
+					atlOffset=2.0980835e-005;
 				};
 			};
 			class Attributes
@@ -17342,19 +17357,21 @@ class Mission
 				};
 			};
 			id=743;
+			atlOffset=2.0980835e-005;
 		};
 		class Item289
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={29797.523,17.75565,15590.542};
-				angles[]={-0,6.0243053,0};
+				position[]={29797.523,17.755676,15590.542};
+				angles[]={0,6.0243006,0};
 			};
 			side="West";
 			flags=6;
 			class Attributes
 			{
+				init="call{this setVariable [""Dorb_canDelete"",false];}";
 				reportRemoteTargets=1;
 				receiveRemoteTargets=1;
 				reportOwnPosition=1;
@@ -17362,6 +17379,7 @@ class Mission
 			};
 			id=744;
 			type="B_SAM_System_02_F";
+			atlOffset=2.0980835e-005;
 		};
 	};
 	class Connections
