@@ -13,6 +13,12 @@
 
 <hr>
 
+
+**This project was stopped. Feel free to continue on your own or use parts from the code for your own projects (GPLv3).**
+
+___
+
+
 Dynamic Mission for **Arma 3**   
 by ***Dorbedo*** and ***iJesuz***
 
