@@ -17,3 +17,9 @@ class CfgPatches {
 };
 
 #include "CfgEventhandlers.hpp"
+
+class CfgKerberos {
+    isKerberos = 1;
+    class CfgComposition {};
+    class CfgUnits {};
+};
